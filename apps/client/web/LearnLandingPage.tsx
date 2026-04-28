@@ -19,17 +19,18 @@
  *     page split-screen. Don't duplicate; import from the same path.
  *   • Copy is preserved from the original — user explicitly said the words
  *     are not the problem. Only structure and visuals were redesigned.
- *   • Logo path is unchanged at /images/new_ui/use_this_app_logo_no_background.png
- *     This is the "bounding logo" that should not be touched in any future
- *     redesigns of this page or the auth screen.
+ *   • The project logo is the bundled asset at apps/client/components/public/logo.png
+ *     so the web export can resolve it reliably on both mobile and desktop.
  */
 
 import React from 'react';
+import { Asset } from 'expo-asset';
 import FinnishCorrectionDemo from './components/FinnishCorrectionDemo';
 
 const LOGIN_URL = '/auth/login';
 const DEMO_URL = 'mailto:pilots@floently.com?subject=Floently%20demo%20request';
-const LOGO_SRC = '/images/new_ui/use_this_app_logo_no_background.png';
+const LOGO_ASSET = Asset.fromModule(require('../components/public/logo.png'));
+const LOGO_SRC = LOGO_ASSET.uri ?? LOGO_ASSET.localUri ?? '';
 
 // ── Page data (copy unchanged from original — only structure rebuilt) ─────
 const pathwayCards = [
