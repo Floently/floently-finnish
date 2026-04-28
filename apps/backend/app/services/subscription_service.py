@@ -1,8 +1,13 @@
 from __future__ import annotations
 
-from datetime import timedelta
+from datetime import UTC, datetime, timedelta
 from typing import Any
 from urllib.parse import urlencode
+
+try:
+    import stripe
+except Exception:  # pragma: no cover - optional at import time
+    stripe = None
 
 from ..core.config import SETTINGS
 from ..core.errors import AppError
@@ -44,6 +49,48 @@ PATHWAY_ALIASES = {
     "profession": "professional",
     "combined": "combined",
     "bundle": "combined",
+}
+
+STRIPE_PRICE_CONFIG: dict[str, dict[str, dict[str, str]]] = {
+    "yki": {
+        "monthly": {"setting": "stripe_price_yki_1_month"},
+        "3_months": {"setting": "stripe_price_yki_3_months"},
+        "yearly": {"setting": "stripe_price_yki_12_months"},
+    },
+    "professional": {
+        "1": {
+            "monthly": {"setting": "stripe_price_professional_1_profession_1_month"},
+            "3_months": {"setting": "stripe_price_professional_1_profession_3_months"},
+            "yearly": {"setting": "stripe_price_professional_1_profession_12_months"},
+        },
+        "2": {
+            "monthly": {"setting": "stripe_price_professional_2_professions_1_month"},
+            "3_months": {"setting": "stripe_price_professional_2_professions_3_months"},
+            "yearly": {"setting": "stripe_price_professional_2_professions_12_months"},
+        },
+        "3": {
+            "monthly": {"setting": "stripe_price_professional_3_professions_1_month"},
+            "3_months": {"setting": "stripe_price_professional_3_professions_3_months"},
+            "yearly": {"setting": "stripe_price_professional_3_professions_12_months"},
+        },
+    },
+    "combined": {
+        "1": {
+            "monthly": {"setting": "stripe_price_bundle_1_profession_1_month"},
+            "3_months": {"setting": "stripe_price_bundle_1_profession_3_months"},
+            "yearly": {"setting": "stripe_price_bundle_1_profession_12_months"},
+        },
+        "2": {
+            "monthly": {"setting": "stripe_price_bundle_2_professions_1_month"},
+            "3_months": {"setting": "stripe_price_bundle_2_professions_3_months"},
+            "yearly": {"setting": "stripe_price_bundle_2_professions_12_months"},
+        },
+        "3": {
+            "monthly": {"setting": "stripe_price_bundle_3_professions_1_month"},
+            "3_months": {"setting": "stripe_price_bundle_3_professions_3_months"},
+            "yearly": {"setting": "stripe_price_bundle_3_professions_12_months"},
+        },
+    },
 }
 
 TIER_FEATURES: dict[str, dict[str, dict[str, Any]]] = {
@@ -285,6 +332,14 @@ def _checkout_details_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
         raise AppError(400, "VALIDATION_ERROR", "Choose at least one profession.", False, {"classification": "non_retryable", "pathway": pathway})
     if pathway == "yki":
         professions = []
+    if len(professions) > len(ALL_PROFESSIONS):
+        raise AppError(
+            400,
+            "VALIDATION_ERROR",
+            "Choose no more than 3 professions.",
+            False,
+            {"classification": "non_retryable", "profession_count": len(professions)},
+        )
 
     plan_id = _plan_id_for(pathway, billing_period)
     extra_profession_count = max(0, len(professions) - 1) if pathway in {"professional", "combined"} else 0
@@ -302,6 +357,245 @@ def _checkout_details_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
         "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT if extra_profession_count else 0,
         "line_items": line_items,
     }
+
+
+def _stripe_settings_value(setting_name: str) -> str | None:
+    value = getattr(SETTINGS, setting_name, None)
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None
+
+
+def _stripe_price_id_for_details(details: dict[str, Any]) -> str | None:
+    pathway = str(details.get("pathway") or "").strip().lower()
+    billing_period = str(details.get("billing_period") or "").strip().lower()
+    profession_count = int(details.get("profession_count") or 0)
+    if pathway == "yki":
+        config = STRIPE_PRICE_CONFIG["yki"].get(billing_period)
+        return _stripe_settings_value(config["setting"]) if config else None
+    if pathway in {"professional", "combined"}:
+        slot_key = str(min(max(profession_count, 1), 3))
+        config = STRIPE_PRICE_CONFIG[pathway].get(slot_key, {}).get(billing_period)
+        return _stripe_settings_value(config["setting"]) if config else None
+    return None
+
+
+def _stripe_enabled() -> bool:
+    return bool(stripe and SETTINGS.stripe_secret_key)
+
+
+def _stripe_metadata(details: dict[str, Any], price_id: str) -> dict[str, str]:
+    metadata = {
+        "user_id": str(details.get("user_id") or "").strip(),
+        "plan": str(details.get("plan_id") or "").strip(),
+        "pathway": str(details.get("pathway") or "").strip(),
+        "billing_period": str(details.get("billing_period") or "").strip(),
+        "professions": ",".join(str(item) for item in details.get("professions", []) if str(item).strip()),
+        "selected_professions": ",".join(str(item) for item in details.get("professions", []) if str(item).strip()),
+        "profession_count": str(int(details.get("profession_count") or 0)),
+        "price_id": price_id,
+    }
+    return metadata
+
+
+def _front_end_base_url() -> str:
+    return (SETTINGS.frontend_base_url or SETTINGS.public_base_url or "https://learn.floently.com").rstrip("/")
+
+
+def _parse_subscription_metadata(metadata: Any) -> dict[str, Any]:
+    raw = metadata if isinstance(metadata, dict) else {}
+    professions = _normalize_professions(raw.get("professions") or raw.get("selected_professions"))
+    user_id = str(raw.get("user_id") or "").strip()
+    plan_id = str(raw.get("plan") or raw.get("plan_id") or "").strip()
+    pathway = _normalize_pathway(raw.get("pathway")) or (_parse_plan_id(plan_id)[0] if plan_id else None)
+    billing_period = _normalize_billing_period(raw.get("billing_period")) or (_parse_plan_id(plan_id)[1] if plan_id else None)
+    profession_count = int(raw.get("profession_count") or len(professions) or 0)
+    price_id = str(raw.get("price_id") or "").strip() or None
+    return {
+        "user_id": user_id or None,
+        "plan_id": plan_id or None,
+        "pathway": pathway,
+        "billing_period": billing_period,
+        "professions": professions,
+        "profession_count": profession_count,
+        "price_id": price_id,
+    }
+
+
+def _find_user_for_subscription_event(*, user_id: str | None = None, subscription_id: str | None = None, customer_id: str | None = None) -> dict[str, Any] | None:
+    if user_id:
+        user = auth_repository.AUTH_USERS.get_user_by_id(user_id)
+        if user:
+            return user
+    if subscription_id:
+        for user in auth_repository.AUTH_USERS.list_users():
+            if str(user.get("stripe_subscription_id") or "").strip() == str(subscription_id).strip():
+                return user
+    if customer_id:
+        for user in auth_repository.AUTH_USERS.list_users():
+            if str(user.get("stripe_customer_id") or "").strip() == str(customer_id).strip():
+                return user
+    return None
+
+
+def _normalize_unix_timestamp(value: Any) -> str | None:
+    try:
+        if value in (None, ""):
+            return None
+        return datetime.fromtimestamp(int(value), tz=UTC).replace(microsecond=0).isoformat()
+    except Exception:
+        return None
+
+
+def _subscription_tier_from_details(details: dict[str, Any]) -> str:
+    plan_id = str(details.get("plan_id") or "").strip()
+    if plan_id == "free":
+        return "free"
+    if plan_id:
+        return plan_id
+    pathway = str(details.get("pathway") or "").strip()
+    billing_period = str(details.get("billing_period") or "").strip()
+    if pathway in {"yki", "professional", "combined"} and billing_period in BILLING_PERIOD_LABELS:
+        return _plan_id_for(pathway, billing_period)
+    return "free"
+
+
+def _update_user_subscription_from_details(
+    *,
+    user: dict[str, Any],
+    details: dict[str, Any],
+    stripe_customer_id: str | None = None,
+    stripe_subscription_id: str | None = None,
+    stripe_price_id: str | None = None,
+    stripe_checkout_session_id: str | None = None,
+    subscription_expires_at: str | None = None,
+    access_choice: str | None = "paid",
+) -> dict[str, Any]:
+    payload: dict[str, Any] = {
+        "user_id": user["user_id"],
+        "access_choice": access_choice,
+        "access_choice_at": utc_now().replace(microsecond=0).isoformat(),
+        "subscription_tier": _subscription_tier_from_details(details),
+        "subscription_pathway": details.get("pathway"),
+        "subscription_billing_period": details.get("billing_period"),
+        "profession_slot_count": int(details.get("profession_count") or 0),
+        "selected_professions": list(details.get("professions") or []),
+        "stripe_customer_id": stripe_customer_id or user.get("stripe_customer_id"),
+        "stripe_subscription_id": stripe_subscription_id or user.get("stripe_subscription_id"),
+        "stripe_price_id": stripe_price_id or user.get("stripe_price_id"),
+        "stripe_checkout_session_id": stripe_checkout_session_id or user.get("stripe_checkout_session_id"),
+    }
+    if subscription_expires_at is not None:
+        payload["subscription_expires_at"] = subscription_expires_at
+    updated, _ = auth_repository.AUTH_USERS.update_user(user["user_id"], **payload)
+    STORE.write_snapshot()
+    return updated
+
+
+def _stripe_subscription_from_session(session: Any) -> dict[str, Any] | None:
+    if stripe is None or not getattr(session, "subscription", None):
+        return None
+    subscription_id = str(session.subscription).strip()
+    if not subscription_id:
+        return None
+    try:
+        subscription = stripe.Subscription.retrieve(subscription_id)
+    except Exception:
+        return None
+    if isinstance(subscription, dict):
+        return subscription
+    try:
+        return subscription.to_dict()
+    except Exception:
+        return {"id": subscription_id}
+
+
+def apply_stripe_checkout_session_completed(session: Any) -> dict[str, Any]:
+    metadata = _parse_subscription_metadata(getattr(session, "metadata", None) if not isinstance(session, dict) else session.get("metadata"))
+    user = _find_user_for_subscription_event(
+        user_id=metadata.get("user_id"),
+        subscription_id=str(getattr(session, "subscription", None) or (session.get("subscription") if isinstance(session, dict) else "")).strip() or None,
+        customer_id=str(getattr(session, "customer", None) or (session.get("customer") if isinstance(session, dict) else "")).strip() or None,
+    )
+    if user is None:
+        raise AppError(404, "USER_NOT_FOUND", "Unable to match Stripe checkout session to a user.", False, {"classification": "non_retryable"})
+    subscription = _stripe_subscription_from_session(session)
+    expires_at = None
+    if isinstance(subscription, dict):
+        expires_at = _normalize_unix_timestamp(subscription.get("current_period_end"))
+    return _update_user_subscription_from_details(
+        user=user,
+        details=metadata,
+        stripe_customer_id=str(getattr(session, "customer", None) or (session.get("customer") if isinstance(session, dict) else "")).strip() or None,
+        stripe_subscription_id=str(getattr(session, "subscription", None) or (session.get("subscription") if isinstance(session, dict) else "")).strip() or None,
+        stripe_price_id=metadata.get("price_id"),
+        stripe_checkout_session_id=str(getattr(session, "id", None) or (session.get("id") if isinstance(session, dict) else "")).strip() or None,
+        subscription_expires_at=expires_at,
+    )
+
+
+def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> dict[str, Any]:
+    subscription_id = str(getattr(subscription, "id", None) or (subscription.get("id") if isinstance(subscription, dict) else "")).strip() or None
+    metadata = _parse_subscription_metadata(getattr(subscription, "metadata", None) if not isinstance(subscription, dict) else subscription.get("metadata"))
+    customer_id = str(getattr(subscription, "customer", None) or (subscription.get("customer") if isinstance(subscription, dict) else "")).strip() or None
+    user = _find_user_for_subscription_event(
+        user_id=metadata.get("user_id"),
+        subscription_id=subscription_id,
+        customer_id=customer_id,
+    )
+    if user is None:
+        raise AppError(404, "USER_NOT_FOUND", "Unable to match Stripe subscription to a user.", False, {"classification": "non_retryable"})
+
+    status = str(getattr(subscription, "status", None) or (subscription.get("status") if isinstance(subscription, dict) else "")).strip().lower()
+    current_period_end = _normalize_unix_timestamp(getattr(subscription, "current_period_end", None) if not isinstance(subscription, dict) else subscription.get("current_period_end"))
+    if event_type == "customer.subscription.deleted" or status in {"canceled", "incomplete_expired"}:
+        cleared_details = dict(metadata)
+        cleared_details["plan_id"] = "free"
+        cleared_details["pathway"] = None
+        cleared_details["billing_period"] = None
+        cleared_details["professions"] = []
+        cleared_details["profession_count"] = 0
+        return _update_user_subscription_from_details(
+            user=user,
+            details=cleared_details,
+            stripe_customer_id=customer_id or user.get("stripe_customer_id"),
+            stripe_subscription_id=subscription_id or user.get("stripe_subscription_id"),
+            stripe_price_id=metadata.get("price_id") or user.get("stripe_price_id"),
+            subscription_expires_at=current_period_end or utc_now().replace(microsecond=0).isoformat(),
+            access_choice="paid",
+        )
+
+    return _update_user_subscription_from_details(
+        user=user,
+        details=metadata,
+        stripe_customer_id=customer_id or user.get("stripe_customer_id"),
+        stripe_subscription_id=subscription_id or user.get("stripe_subscription_id"),
+        stripe_price_id=metadata.get("price_id") or user.get("stripe_price_id"),
+        subscription_expires_at=current_period_end,
+    )
+
+
+def handle_stripe_event(event: Any) -> dict[str, Any]:
+    event_type = str(getattr(event, "type", None) or (event.get("type") if isinstance(event, dict) else "")).strip()
+    payload = getattr(event, "data", None) if not isinstance(event, dict) else event.get("data")
+    obj = getattr(payload, "object", None) if payload is not None and not isinstance(payload, dict) else (payload.get("object") if isinstance(payload, dict) else None)
+    if event_type == "checkout.session.completed":
+        return {"event_type": event_type, "user": apply_stripe_checkout_session_completed(obj)}
+    if event_type in {"customer.subscription.created", "customer.subscription.updated", "customer.subscription.deleted"}:
+        return {"event_type": event_type, "user": apply_stripe_subscription_event(obj, event_type=event_type)}
+    if event_type == "invoice.paid":
+        subscription_id = str(getattr(obj, "subscription", None) or (obj.get("subscription") if isinstance(obj, dict) else "")).strip() or None
+        subscription = None
+        if stripe is not None and subscription_id:
+            try:
+                subscription = stripe.Subscription.retrieve(subscription_id)
+            except Exception:
+                subscription = None
+        if subscription is not None:
+            return {"event_type": event_type, "user": apply_stripe_subscription_event(subscription, event_type="customer.subscription.updated")}
+        return {"event_type": event_type, "handled": False}
+    return {"event_type": event_type, "handled": False}
 
 
 def _is_subscription_active(user: dict[str, Any]) -> bool:
@@ -630,8 +924,10 @@ def billing_checkout_details(*, payload: dict[str, Any], user_id: str) -> dict[s
         "pathway": details["pathway"],
         "billing_period": details["billing_period"],
         "professions": ",".join(details["professions"]),
+        "selected_professions": ",".join(details["professions"]),
         "profession_count": str(details["profession_count"]),
     }
+    details["price_id"] = _stripe_price_id_for_details(details)
     return details
 
 
@@ -661,8 +957,74 @@ def billing_checkout_url(*, plan_id: str | None = None, user_id: str, payload: d
 
 def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[str, Any]:
     details = billing_checkout_details(payload=payload, user_id=user_id)
+    if _stripe_enabled():
+        selected_price_id = details.get("price_id")
+        if not selected_price_id:
+            raise AppError(
+                503,
+                "BILLING_NOT_CONFIGURED",
+                "Stripe price configuration is incomplete.",
+                False,
+                {"classification": "non_retryable", "plan_id": details["plan_id"], "pathway": details["pathway"], "billing_period": details["billing_period"]},
+            )
+        if stripe is None:
+            raise AppError(
+                503,
+                "BILLING_NOT_CONFIGURED",
+                "Stripe is not available in this deployment.",
+                False,
+                {"classification": "non_retryable"},
+            )
+        stripe.api_key = SETTINGS.stripe_secret_key
+        front_end_base_url = _front_end_base_url()
+        metadata = _stripe_metadata(details, selected_price_id)
+        try:
+            checkout_params: dict[str, Any] = {
+                "mode": "subscription",
+                "line_items": [{"price": selected_price_id, "quantity": 1}],
+                "success_url": f"{front_end_base_url}/?checkout=success&session_id={{CHECKOUT_SESSION_ID}}",
+                "cancel_url": f"{front_end_base_url}/?checkout=cancelled",
+                "client_reference_id": user_id,
+                "metadata": metadata,
+                "subscription_data": {"metadata": metadata},
+            }
+            customer_email = (auth_repository.AUTH_USERS.get_user_by_id(user_id) or {}).get("email") or None
+            if customer_email:
+                checkout_params["customer_email"] = customer_email
+            session = stripe.checkout.Session.create(**checkout_params)
+        except Exception as exc:
+            raise AppError(
+                503,
+                "STRIPE_CHECKOUT_FAILED",
+                "Failed to create Stripe checkout session.",
+                True,
+                {"classification": "retryable", "plan_id": details["plan_id"]},
+            ) from exc
+        if isinstance(session, dict):
+            checkout_url = str(session.get("url") or "").strip() or billing_checkout_url(user_id=user_id, payload=payload)
+            checkout_session_id = str(session.get("id") or "").strip() or None
+        else:
+            checkout_url = str(getattr(session, "url", "") or "").strip() or billing_checkout_url(user_id=user_id, payload=payload)
+            checkout_session_id = str(getattr(session, "id", "") or "").strip() or None
+        return {
+            "checkout_url": checkout_url,
+            "checkout_session_id": checkout_session_id,
+            "price_id": selected_price_id,
+            "plan": details["plan_id"],
+            "pathway": details["pathway"],
+            "billing_period": details["billing_period"],
+            "professions": details["professions"],
+            "profession_count": details["profession_count"],
+            "extra_profession_count": details.get("extra_profession_count", 0),
+            "extra_profession_discount_percent": details.get("extra_profession_discount_percent", 0),
+            "line_items": [{"price": selected_price_id, "quantity": 1}],
+            "metadata": metadata,
+            "mode": "stripe",
+        }
     return {
         "checkout_url": billing_checkout_url(user_id=user_id, payload=payload),
+        "checkout_session_id": None,
+        "price_id": details.get("price_id"),
         "plan": details["plan_id"],
         "pathway": details["pathway"],
         "billing_period": details["billing_period"],

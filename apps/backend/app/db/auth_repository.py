@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import threading
 from contextlib import contextmanager
 from datetime import UTC, datetime
@@ -70,6 +71,41 @@ def _normalize_provider_links(value: Any) -> dict[str, str]:
     return {}
 
 
+def _normalize_selected_professions(value: Any) -> list[str]:
+    if value in (None, ""):
+        return []
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return []
+        if text.startswith("["):
+            try:
+                parsed = json.loads(text)
+            except Exception:
+                parsed = None
+            else:
+                return _normalize_selected_professions(parsed)
+        return [item.strip() for item in text.split(",") if item.strip()]
+    if isinstance(value, (list, tuple, set)):
+        result: list[str] = []
+        for item in value:
+            text = str(item or "").strip()
+            if text and text not in result:
+                result.append(text)
+        return result
+    text = str(value or "").strip()
+    return [text] if text else []
+
+
+def _normalize_int(value: Any, default: int = 0) -> int:
+    try:
+        if value in (None, ""):
+            return default
+        return int(value)
+    except Exception:
+        return default
+
+
 class AuthUserRepository:
     def __init__(self, database_path: Path | None = None) -> None:
         self.database_path = _resolve_database_path(database_path)
@@ -115,6 +151,14 @@ class AuthUserRepository:
                     "access_choice": "ALTER TABLE users ADD COLUMN access_choice VARCHAR",
                     "access_choice_at": "ALTER TABLE users ADD COLUMN access_choice_at DATETIME",
                     "subscription_tier": "ALTER TABLE users ADD COLUMN subscription_tier VARCHAR NOT NULL DEFAULT 'free'",
+                    "subscription_pathway": "ALTER TABLE users ADD COLUMN subscription_pathway VARCHAR",
+                    "subscription_billing_period": "ALTER TABLE users ADD COLUMN subscription_billing_period VARCHAR",
+                    "profession_slot_count": "ALTER TABLE users ADD COLUMN profession_slot_count INTEGER NOT NULL DEFAULT 0",
+                    "selected_professions": "ALTER TABLE users ADD COLUMN selected_professions JSON NOT NULL DEFAULT '[]'",
+                    "stripe_customer_id": "ALTER TABLE users ADD COLUMN stripe_customer_id VARCHAR",
+                    "stripe_subscription_id": "ALTER TABLE users ADD COLUMN stripe_subscription_id VARCHAR",
+                    "stripe_price_id": "ALTER TABLE users ADD COLUMN stripe_price_id VARCHAR",
+                    "stripe_checkout_session_id": "ALTER TABLE users ADD COLUMN stripe_checkout_session_id VARCHAR",
                     "subscription_expires_at": "ALTER TABLE users ADD COLUMN subscription_expires_at DATETIME",
                     "trial_ends_at": "ALTER TABLE users ADD COLUMN trial_ends_at DATETIME",
                     "email_verified_at": "ALTER TABLE users ADD COLUMN email_verified_at DATETIME",
@@ -132,6 +176,18 @@ class AuthUserRepository:
                 )
                 connection.execute(
                     text(
+                        "UPDATE users SET profession_slot_count = 0 "
+                        "WHERE profession_slot_count IS NULL"
+                    )
+                )
+                connection.execute(
+                    text(
+                        "UPDATE users SET selected_professions = '[]' "
+                        "WHERE selected_professions IS NULL OR selected_professions = ''"
+                    )
+                )
+                connection.execute(
+                    text(
                         "UPDATE users SET provider_links = '{}' "
                         "WHERE provider_links IS NULL OR provider_links = ''"
                     )
@@ -144,6 +200,14 @@ class AuthUserRepository:
             "name": user.name,
             "password_hash": user.password_hash,
             "subscription_tier": str(user.subscription_tier or "free"),
+            "subscription_pathway": user.subscription_pathway,
+            "subscription_billing_period": user.subscription_billing_period,
+            "profession_slot_count": int(user.profession_slot_count or 0),
+            "selected_professions": list(user.selected_professions or []),
+            "stripe_customer_id": user.stripe_customer_id,
+            "stripe_subscription_id": user.stripe_subscription_id,
+            "stripe_price_id": user.stripe_price_id,
+            "stripe_checkout_session_id": user.stripe_checkout_session_id,
             "subscription_expires_at": _serialize_datetime(user.subscription_expires_at),
             "trial_ends_at": _serialize_datetime(user.trial_ends_at),
             "access_choice": user.access_choice,
@@ -157,12 +221,23 @@ class AuthUserRepository:
     def _normalize_payload(self, payload: dict[str, Any]) -> dict[str, Any]:
         normalized_email = normalize_email(payload.get("email"))
         provider_links = _normalize_provider_links(payload.get("provider_links"))
+        selected_professions = _normalize_selected_professions(
+            payload.get("selected_professions") if "selected_professions" in payload else payload.get("selectedProfessions")
+        )
         return {
             "user_id": str(payload.get("user_id") or "").strip() or None,
             "email": normalized_email or None,
             "name": str(payload.get("name") or "").strip() or None,
             "password_hash": str(payload.get("password_hash") or "").strip() or None,
             "subscription_tier": str(payload.get("subscription_tier") or "free").strip() or "free",
+            "subscription_pathway": str(payload.get("subscription_pathway") or "").strip() or None,
+            "subscription_billing_period": str(payload.get("subscription_billing_period") or "").strip() or None,
+            "profession_slot_count": _normalize_int(payload.get("profession_slot_count"), len(selected_professions)),
+            "selected_professions": selected_professions,
+            "stripe_customer_id": str(payload.get("stripe_customer_id") or "").strip() or None,
+            "stripe_subscription_id": str(payload.get("stripe_subscription_id") or "").strip() or None,
+            "stripe_price_id": str(payload.get("stripe_price_id") or "").strip() or None,
+            "stripe_checkout_session_id": str(payload.get("stripe_checkout_session_id") or "").strip() or None,
             "subscription_expires_at": _coerce_datetime(payload.get("subscription_expires_at")),
             "trial_ends_at": _coerce_datetime(payload.get("trial_ends_at")),
             "access_choice": str(payload.get("access_choice") or "").strip() or None,
@@ -232,6 +307,14 @@ class AuthUserRepository:
                     name=normalized["name"],
                     password_hash=normalized["password_hash"],
                     subscription_tier=normalized["subscription_tier"] or "free",
+                    subscription_pathway=normalized["subscription_pathway"],
+                    subscription_billing_period=normalized["subscription_billing_period"],
+                    profession_slot_count=normalized["profession_slot_count"],
+                    selected_professions=normalized["selected_professions"],
+                    stripe_customer_id=normalized["stripe_customer_id"],
+                    stripe_subscription_id=normalized["stripe_subscription_id"],
+                    stripe_price_id=normalized["stripe_price_id"],
+                    stripe_checkout_session_id=normalized["stripe_checkout_session_id"],
                     subscription_expires_at=normalized["subscription_expires_at"],
                     trial_ends_at=normalized["trial_ends_at"],
                     access_choice=normalized["access_choice"],
@@ -263,6 +346,22 @@ class AuthUserRepository:
                 existing.password_hash = normalized["password_hash"]
             if "subscription_tier" in raw_payload and raw_payload.get("subscription_tier") is not None:
                 existing.subscription_tier = normalized["subscription_tier"]
+            if "subscription_pathway" in raw_payload:
+                existing.subscription_pathway = normalized["subscription_pathway"]
+            if "subscription_billing_period" in raw_payload:
+                existing.subscription_billing_period = normalized["subscription_billing_period"]
+            if "profession_slot_count" in raw_payload and raw_payload.get("profession_slot_count") is not None:
+                existing.profession_slot_count = normalized["profession_slot_count"]
+            if "selected_professions" in raw_payload and raw_payload.get("selected_professions") is not None:
+                existing.selected_professions = normalized["selected_professions"]
+            if "stripe_customer_id" in raw_payload and raw_payload.get("stripe_customer_id") is not None:
+                existing.stripe_customer_id = normalized["stripe_customer_id"]
+            if "stripe_subscription_id" in raw_payload and raw_payload.get("stripe_subscription_id") is not None:
+                existing.stripe_subscription_id = normalized["stripe_subscription_id"]
+            if "stripe_price_id" in raw_payload and raw_payload.get("stripe_price_id") is not None:
+                existing.stripe_price_id = normalized["stripe_price_id"]
+            if "stripe_checkout_session_id" in raw_payload and raw_payload.get("stripe_checkout_session_id") is not None:
+                existing.stripe_checkout_session_id = normalized["stripe_checkout_session_id"]
             if "subscription_expires_at" in raw_payload and raw_payload.get("subscription_expires_at") is not None:
                 existing.subscription_expires_at = normalized["subscription_expires_at"]
             if "trial_ends_at" in raw_payload and raw_payload.get("trial_ends_at") is not None:
