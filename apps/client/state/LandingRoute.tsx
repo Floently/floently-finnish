@@ -72,6 +72,7 @@ export default function LandingRoute({ onOpenAuth }: Props) {
   const blobDrift = useRef(new Animated.Value(0)).current;
   const features = getFeatures(t);
   const featureAnims = useRef(features.map(() => new Animated.Value(0))).current;
+  const shouldAnimate = Platform.OS !== 'web';
   const logoWidth = Math.min(Math.max(width * 0.82, 320), 540);
   const logoHeight = logoWidth * (1024 / 1536);
   const logoStyle = useMemo(() => ({
@@ -82,6 +83,10 @@ export default function LandingRoute({ onOpenAuth }: Props) {
 
   useEffect(() => {
     void hydratePreferences();
+
+    if (!shouldAnimate) {
+      return;
+    }
 
     const entranceAnimations = [
       Animated.timing(heroAnim, {
@@ -164,7 +169,7 @@ export default function LandingRoute({ onOpenAuth }: Props) {
       blobLoop.stop();
       clearInterval(clockTimer);
     };
-  }, [authAnim, blobDrift, featureAnims, heroAnim, hydratePreferences, logoFloat, subAnim, tagsAnim]);
+  }, [authAnim, blobDrift, featureAnims, heroAnim, hydratePreferences, logoFloat, shouldAnimate, subAnim, tagsAnim]);
 
   const clockLabel = useMemo(() => {
     if (clockFormat === '12h') {
@@ -174,19 +179,19 @@ export default function LandingRoute({ onOpenAuth }: Props) {
   }, [clockFormat, now]);
 
   const makeEnterStyle = (anim: Animated.Value, distance = 22, startScale = 0.98) => ({
-    opacity: anim,
+    opacity: shouldAnimate ? anim : 1,
     transform: [
       {
-        translateY: anim.interpolate({
+        translateY: shouldAnimate ? anim.interpolate({
           inputRange: [0, 1],
           outputRange: [distance, 0],
-        }),
+        }) : 0,
       },
       {
-        scale: anim.interpolate({
+        scale: shouldAnimate ? anim.interpolate({
           inputRange: [0, 1],
           outputRange: [startScale, 1],
-        }),
+        }) : 1,
       },
     ],
   });
