@@ -276,7 +276,11 @@ export default function LandingRoute({ onOpenAuth }: Props) {
               <View style={styles.clockPill}>
                 <Text style={styles.clockPillText}>{clockLabel}</Text>
               </View>
-              <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} compact />
+              <LanguageSelector
+                language={language}
+                onChange={(next) => void setLanguage(next)}
+                mode="menu"
+              />
             </View>
           </View>
 
@@ -398,7 +402,7 @@ const styles = StyleSheet.create({
 
   scrollContent: {
     paddingHorizontal: 22,
-    paddingBottom: 40,
+    paddingBottom: 72,
     flexGrow: 1,
   },
 
