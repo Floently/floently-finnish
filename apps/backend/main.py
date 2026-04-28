@@ -23,6 +23,7 @@ from app.middleware.error_handlers import register_error_handlers
 from app.middleware.request_id import register_request_id_middleware
 from app.core.config import SETTINGS
 from app.core.state_store import STORE
+from app.db import auth_repository
 from app.services.auth_service import bootstrap_password_users
 from app.services.voice_service import get_tts_health_snapshot
 
@@ -115,6 +116,8 @@ async def init_db_on_startup() -> None:
         _db._ensure_session_factory()
         async with _db.engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
+        auth_repository.AUTH_USERS.ensure_schema()
+        auth_repository.AUTH_USERS.migrate_state_users(STORE._data.get("users", {}))
         logger.info("Database tables initialised.")
     except Exception as exc:
         logger.warning("Could not initialise database tables: %s", exc)

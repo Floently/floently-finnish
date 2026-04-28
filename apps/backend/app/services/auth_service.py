@@ -7,11 +7,14 @@ from datetime import timedelta
 from typing import Any
 from urllib import parse, request
 
+from sqlalchemy.exc import IntegrityError
+
 from ..core.config import SETTINGS
 from ..core.errors import AppError
 from ..core.paths import RUNTIME_DIR
 from ..core.state_store import STORE
 from ..core.utils import PasswordHashError, hash_password, iso_now, new_id, normalize_email, parse_iso, utc_now, verify_password
+from ..db import auth_repository
 from .password_reset_email_service import build_password_reset_links, send_password_reset_email
 
 
@@ -44,7 +47,6 @@ def auth_methods() -> list[dict[str, Any]]:
 
 def _auth_lock_items(*items: tuple[str, str]) -> tuple[tuple[str, str], ...]:
     return (
-        ("users", AUTH_GUARD_KEY),
         ("auth_sessions", AUTH_GUARD_KEY),
         ("access_tokens", AUTH_GUARD_KEY),
         ("refresh_tokens", AUTH_GUARD_KEY),
@@ -83,6 +85,7 @@ def _bootstrap_password_user_payloads() -> list[dict[str, Any]]:
 
 
 def bootstrap_password_users() -> dict[str, int]:
+    auth_repository.AUTH_USERS.ensure_schema()
     created = 0
     updated = 0
     skipped = 0
@@ -95,27 +98,22 @@ def bootstrap_password_users() -> dict[str, int]:
             skipped += 1
             continue
         _validate_password_strength(password)
-        existing = _load_user_by_email(email)
+        existing = auth_repository.AUTH_USERS.get_user_by_email(email)
         if existing:
             user_id = str(existing["user_id"])
             next_user = dict(existing)
             next_user["email"] = email
             password_hash = str(next_user.get("password_hash") or "").strip()
-            changed = False
-            password_changed = False
+            password_changed = force or not password_hash
             if force or not password_hash:
                 next_user["password_hash"] = hash_password(password)
-                changed = True
-                password_changed = True
             if isinstance(name, str) and name.strip() and (force or not str(next_user.get("name") or "").strip()):
                 next_user["name"] = name.strip()
-                changed = True
-            with STORE.locked(*_auth_lock_items(("email_index", email), ("users", user_id))):
-                STORE.set("users", user_id, next_user)
-                STORE.set("email_index", email, user_id)
-                if password_changed:
-                    _invalidate_all_auth_sessions_for_user(user_id=user_id)
-            if changed:
+            _, changed = auth_repository.AUTH_USERS.save_user(next_user, overwrite_password=force or not password_hash)
+            if changed and password_changed:
+                _invalidate_all_auth_sessions_for_user(user_id=user_id)
+                updated += 1
+            elif changed:
                 updated += 1
             else:
                 skipped += 1
@@ -123,8 +121,6 @@ def bootstrap_password_users() -> dict[str, int]:
 
         create_user(email=email, password=password, name=str(name).strip() if isinstance(name, str) else None)
         created += 1
-    if created or updated:
-        _persist_auth_state()
     return {"created": created, "updated": updated, "skipped": skipped}
 
 
@@ -334,12 +330,12 @@ def confirm_email_verification(*, token: str) -> dict[str, Any]:
             raise AppError(400, "AUTH_EMAIL_VERIFICATION_INVALID", "Verification token is invalid or expired.", False, {"classification": "non_retryable"})
 
         user_id = str(token_record.get("user_id") or "")
-        user = STORE.get_ref("users", user_id)
+        user = auth_repository.AUTH_USERS.get_user_by_id(user_id)
         if not user:
             raise AppError(400, "AUTH_EMAIL_VERIFICATION_INVALID", "Verification token is invalid or expired.", False, {"classification": "non_retryable"})
         updated_user = dict(user)
         updated_user["email_verified_at"] = now.isoformat()
-        STORE.set("users", user_id, updated_user)
+        auth_repository.AUTH_USERS.save_user(updated_user, overwrite_password=False)
         STORE.set(
             "email_verification_tokens",
             token_record_id,
@@ -491,6 +487,9 @@ def _auth_user(user: dict[str, Any]) -> dict[str, Any]:
         "subscription_tier": user.get("subscription_tier", "free"),
         "subscription_expires_at": user.get("subscription_expires_at"),
         "trial_ends_at": user.get("trial_ends_at"),
+        "access_choice": user.get("access_choice"),
+        "access_choice_at": user.get("access_choice_at"),
+        "email_verified_at": user.get("email_verified_at"),
     }
 
 
@@ -515,73 +514,25 @@ def _auth_data_corruption(message: str, *, email: str | None = None, user_ids: l
     return AppError(500, "AUTH_DATA_CORRUPTION", message, False, details)
 
 
-def _matching_user_records(email: str) -> list[tuple[str, dict[str, Any]]]:
-    normalized = normalize_email(email)
-    records: list[tuple[str, dict[str, Any]]] = []
-    for user_id, payload in STORE._data["users"].items():
-        if not isinstance(payload, dict):
-            continue
-        if normalize_email(payload.get("email")) != normalized:
-            continue
-        records.append((str(user_id), dict(payload)))
-    records.sort(key=lambda item: item[0])
-    return records
-
-
 def _load_user_by_email(email: str) -> dict[str, Any] | None:
-    normalized = normalize_email(email)
-    with STORE.locked(*_auth_lock_items(("email_index", normalized))):
-        indexed_user_id = STORE.get_ref("email_index", normalized)
-        matches = _matching_user_records(normalized)
+    return auth_repository.AUTH_USERS.get_user_by_email(email)
 
-    if len(matches) > 1:
-        raise _auth_data_corruption(
-            "User authentication data is invalid. Please reset password.",
-            email=normalized,
-            user_ids=[user_id for user_id, _ in matches],
-            reason="multiple_users_for_email",
-        )
 
-    if not matches:
-        if indexed_user_id:
-            raise _auth_data_corruption(
-                "User authentication data is invalid. Please reset password.",
-                email=normalized,
-                user_ids=[str(indexed_user_id)],
-                reason="email_index_points_to_missing_user",
-            )
-        return None
-
-    user_id, user = matches[0]
-    if not indexed_user_id or str(indexed_user_id) != user_id:
-        raise _auth_data_corruption(
-            "User authentication data is invalid. Please reset password.",
-            email=normalized,
-            user_ids=[user_id, str(indexed_user_id)] if indexed_user_id else [user_id],
-            reason="email_index_mismatch",
-        )
-    if str(user.get("user_id") or "") != user_id:
-        raise _auth_data_corruption(
-            "User authentication data is invalid. Please reset password.",
-            email=normalized,
-            user_ids=[user_id],
-            reason="user_id_mismatch",
-        )
-    return user
+def _load_user_by_id(user_id: str) -> dict[str, Any] | None:
+    return auth_repository.AUTH_USERS.get_user_by_id(user_id)
 
 
 def _issue_auth_for_user(user: dict[str, Any]) -> dict[str, Any]:
     current = dict(user)
     tokens, access_payload, refresh_payload = _issue_tokens(user_id=current["user_id"])
+    auth_repository.AUTH_USERS.save_user(current, overwrite_password=False)
     with STORE.locked(
         *_auth_lock_items(
-            ("users", current["user_id"]),
             ("auth_sessions", tokens["auth_session_id"]),
             ("access_tokens", tokens["access_token"]),
             ("refresh_tokens", tokens["refresh_token"]),
         )
     ):
-        STORE.set("users", current["user_id"], current)
         _set_auth_session(user_id=current["user_id"], auth_session_id=tokens["auth_session_id"])
         STORE.set("access_tokens", tokens["access_token"], access_payload)
         STORE.set("refresh_tokens", tokens["refresh_token"], refresh_payload)
@@ -607,23 +558,23 @@ def create_user(*, email: str, password: str, name: str | None) -> dict[str, Any
         "subscription_tier": "free",
         "subscription_expires_at": None,
         "trial_ends_at": None,
+        "access_choice": None,
+        "access_choice_at": None,
         "email_verified_at": None if SETTINGS.require_email_verification else iso_now(),
         "provider_links": {},
         "created_at": iso_now(),
     }
+    try:
+        auth_repository.AUTH_USERS.save_user(user, overwrite_password=True)
+    except IntegrityError as exc:
+        raise AppError(400, "AUTH_EMAIL_EXISTS", "Email already registered.", False, {"classification": "non_retryable"}) from exc
     with STORE.locked(
         *_auth_lock_items(
-            ("email_index", normalized),
-            ("users", user_id),
             ("auth_sessions", tokens["auth_session_id"]),
             ("access_tokens", tokens["access_token"]),
             ("refresh_tokens", tokens["refresh_token"]),
         )
     ):
-        if STORE.has("email_index", normalized):
-            raise AppError(400, "AUTH_EMAIL_EXISTS", "Email already registered.", False, {"classification": "non_retryable"})
-        STORE.set("users", user_id, user)
-        STORE.set("email_index", normalized, user_id)
         _set_auth_session(user_id=user_id, auth_session_id=tokens["auth_session_id"])
         STORE.set("access_tokens", tokens["access_token"], access_payload)
         STORE.set("refresh_tokens", tokens["refresh_token"], refresh_payload)
@@ -650,8 +601,7 @@ def set_password(*, email: str, password: str, confirm_password: str) -> dict[st
         raise AppError(404, "AUTH_USER_NOT_FOUND", "No account found for that email.", False, {"classification": "non_retryable"})
     updated = dict(user)
     updated["password_hash"] = hash_password(password)
-    with STORE.locked(*_auth_lock_items(("email_index", normalized), ("users", updated["user_id"]))):
-        STORE.set("users", updated["user_id"], updated)
+    auth_repository.AUTH_USERS.save_user(updated, overwrite_password=True)
     _persist_auth_state()
     return {"message": "Password set successfully."}
 
@@ -741,13 +691,13 @@ def complete_password_reset(*, token: str, password: str, confirm_password: str)
             raise AppError(400, "AUTH_RESET_TOKEN_INVALID", "Reset token is invalid or expired.", False, {"classification": "non_retryable"})
 
         user_id = str(token_record.get("user_id") or "")
-        user = STORE.get_ref("users", user_id)
+        user = auth_repository.AUTH_USERS.get_user_by_id(user_id)
         if not user:
             raise AppError(400, "AUTH_RESET_TOKEN_INVALID", "Reset token is invalid or expired.", False, {"classification": "non_retryable"})
 
         updated_user = dict(user)
         updated_user["password_hash"] = hash_password(password)
-        STORE.set("users", user_id, updated_user)
+        auth_repository.AUTH_USERS.save_user(updated_user, overwrite_password=True)
         STORE.set(
             "password_reset_tokens",
             token_record_id,
@@ -811,8 +761,7 @@ def login_dev_user(*, email: str, name: str | None = None) -> dict[str, Any]:
         updated = dict(user)
         if name and not updated.get("name"):
             updated["name"] = name.strip()
-            with STORE.locked(*_auth_lock_items(("email_index", normalized), ("users", updated["user_id"]))):
-                STORE.set("users", updated["user_id"], updated)
+            auth_repository.AUTH_USERS.save_user(updated, overwrite_password=False)
             _persist_auth_state()
         return _issue_auth_for_user(updated)
 
@@ -832,13 +781,9 @@ def login_google_identity(*, provider: str, external_id: str, email: str, name: 
     if not normalized_email or not external_subject:
         raise AppError(400, "VALIDATION_ERROR", "Google account details are incomplete.", False, {"classification": "non_retryable"})
 
-    link_key = f"{provider_name}:{external_subject}"
-    with STORE.locked(*_auth_lock_items(("provider_index", link_key))):
-        linked_user_id = STORE.get_ref("provider_index", link_key)
-    linked_user = STORE.get_ref("users", str(linked_user_id)) if linked_user_id else None
-    if linked_user:
-        if linked_user.get("email") != normalized_email:
-            raise AppError(409, "AUTH_PROVIDER_CONFLICT", "Google account is linked to a different email.", False, {"provider": provider_name})
+    linked_user = auth_repository.AUTH_USERS.find_user_by_provider_link(provider_name, external_subject)
+    if linked_user and linked_user.get("email") != normalized_email:
+        raise AppError(409, "AUTH_PROVIDER_CONFLICT", "Google account is linked to a different email.", False, {"provider": provider_name})
 
     user = linked_user or _load_user_by_email(normalized_email)
     if user:
@@ -848,16 +793,7 @@ def login_google_identity(*, provider: str, external_id: str, email: str, name: 
         updated["provider_links"] = provider_links
         if not updated.get("name") and isinstance(name, str) and name.strip():
             updated["name"] = name.strip()
-        with STORE.locked(
-            *_auth_lock_items(
-                ("provider_index", link_key),
-                ("email_index", updated["email"]),
-                ("users", updated["user_id"]),
-            )
-        ):
-            STORE.set("users", updated["user_id"], updated)
-            STORE.set("email_index", updated["email"], updated["user_id"])
-            STORE.set("provider_index", link_key, updated["user_id"])
+        auth_repository.AUTH_USERS.save_user(updated, overwrite_password=False)
         _persist_auth_state()
         return _issue_auth_for_user(updated)
 
@@ -870,20 +806,13 @@ def login_google_identity(*, provider: str, external_id: str, email: str, name: 
         "subscription_tier": "free",
         "subscription_expires_at": None,
         "trial_ends_at": None,
+        "access_choice": None,
+        "access_choice_at": None,
         "email_verified_at": iso_now(),
         "provider_links": {provider_name: external_subject},
         "created_at": iso_now(),
     }
-    with STORE.locked(
-        *_auth_lock_items(
-            ("provider_index", link_key),
-            ("email_index", normalized_email),
-            ("users", user_id),
-        )
-    ):
-        STORE.set("users", user_id, created)
-        STORE.set("email_index", normalized_email, user_id)
-        STORE.set("provider_index", link_key, user_id)
+    auth_repository.AUTH_USERS.save_user(created, overwrite_password=False)
     _persist_auth_state()
     return _issue_auth_for_user(created)
 
@@ -897,25 +826,20 @@ def login_provider(*, provider_id: str, provider_token: str) -> dict[str, Any]:
         raise AppError(400, "VALIDATION_ERROR", "Provider token is required.", False, {"classification": "non_retryable"})
 
     external_subject = hashlib.sha256(f"{provider}:{opaque_token}".encode("utf-8")).hexdigest()
-    link_key = f"{provider}:{external_subject}"
-
-    with STORE.locked(*_auth_lock_items(("provider_index", link_key))):
-        existing_user_id = STORE.get_ref("provider_index", link_key)
+    existing_user = auth_repository.AUTH_USERS.find_user_by_provider_link(provider, external_subject)
+    existing_user_id = str(existing_user.get("user_id")) if existing_user else None
 
     if existing_user_id:
         tokens, access_payload, refresh_payload = _issue_tokens(user_id=str(existing_user_id))
         with STORE.locked(
             *_auth_lock_items(
-                ("provider_index", link_key),
-                ("users", str(existing_user_id)),
                 ("auth_sessions", tokens["auth_session_id"]),
                 ("access_tokens", tokens["access_token"]),
                 ("refresh_tokens", tokens["refresh_token"]),
             )
         ):
-            user_id = STORE.get_ref("provider_index", link_key)
-            user = STORE.get_ref("users", str(user_id or ""))
-            if not user_id or not user:
+            user = auth_repository.AUTH_USERS.get_user_by_id(str(existing_user_id))
+            if not user:
                 raise AppError(401, "AUTH_SESSION_EXPIRED", "Provider-linked user was not found.", False, {"classification": "terminal"})
             _set_auth_session(user_id=str(existing_user_id), auth_session_id=tokens["auth_session_id"])
             STORE.set("access_tokens", tokens["access_token"], access_payload)
@@ -933,34 +857,21 @@ def login_provider(*, provider_id: str, provider_token: str) -> dict[str, Any]:
         "subscription_tier": "free",
         "subscription_expires_at": None,
         "trial_ends_at": None,
+        "access_choice": None,
+        "access_choice_at": None,
         "email_verified_at": iso_now(),
         "provider_links": {provider: external_subject},
         "created_at": iso_now(),
     }
     tokens, access_payload, refresh_payload = _issue_tokens(user_id=user_id)
+    auth_repository.AUTH_USERS.save_user(user, overwrite_password=False)
     with STORE.locked(
         *_auth_lock_items(
-            ("provider_index", link_key),
-            ("email_index", email),
-            ("users", user_id),
             ("auth_sessions", tokens["auth_session_id"]),
             ("access_tokens", tokens["access_token"]),
             ("refresh_tokens", tokens["refresh_token"]),
         )
     ):
-        existing_user_id = STORE.get_ref("provider_index", link_key)
-        if existing_user_id:
-            existing_user = STORE.get_ref("users", str(existing_user_id))
-            if not existing_user:
-                raise AppError(401, "AUTH_SESSION_EXPIRED", "Provider-linked user was not found.", False, {"classification": "terminal"})
-            _set_auth_session(user_id=str(existing_user_id), auth_session_id=tokens["auth_session_id"])
-            STORE.set("access_tokens", tokens["access_token"], access_payload)
-            STORE.set("refresh_tokens", tokens["refresh_token"], refresh_payload)
-            _persist_auth_state()
-            return {"auth_user": _auth_user(existing_user), "tokens": tokens}
-        STORE.set("users", user_id, user)
-        STORE.set("email_index", email, user_id)
-        STORE.set("provider_index", link_key, user_id)
         _set_auth_session(user_id=user_id, auth_session_id=tokens["auth_session_id"])
         STORE.set("access_tokens", tokens["access_token"], access_payload)
         STORE.set("refresh_tokens", tokens["refresh_token"], refresh_payload)
@@ -984,7 +895,6 @@ def refresh_auth(*, refresh_token: str) -> dict[str, Any]:
     with STORE.locked(
         *_auth_lock_items(
             ("refresh_tokens", token_value),
-            ("users", user_id),
             ("auth_sessions", auth_session_id),
             ("access_tokens", tokens["access_token"]),
             ("refresh_tokens", tokens["refresh_token"]),
@@ -997,7 +907,7 @@ def refresh_auth(*, refresh_token: str) -> dict[str, Any]:
         if not expires_at or expires_at <= utc_now():
             STORE.delete("refresh_tokens", token_value)
             raise AppError(401, "AUTH_SESSION_EXPIRED", "Refresh token has expired.", False, {"classification": "terminal"})
-        user = STORE.get_ref("users", user_id)
+        user = auth_repository.AUTH_USERS.get_user_by_id(user_id)
         if not user:
             STORE.delete("refresh_tokens", token_value)
             raise AppError(401, "AUTH_SESSION_EXPIRED", "User session is no longer valid.", False, {"classification": "terminal"})
@@ -1021,7 +931,7 @@ def get_current_user(*, access_token: str) -> tuple[dict[str, Any], dict[str, An
             raise AppError(401, "AUTH_REQUIRED", "Authentication is required.", False, {"classification": "non_retryable"})
         user_id = str(token_payload["user_id"])
 
-    with STORE.locked(*_auth_lock_items(("access_tokens", token_value), ("users", user_id))):
+    with STORE.locked(*_auth_lock_items(("access_tokens", token_value))):
         token_payload = STORE.get_ref("access_tokens", token_value)
         if not token_payload:
             raise AppError(401, "AUTH_REQUIRED", "Authentication is required.", False, {"classification": "non_retryable"})
@@ -1029,12 +939,12 @@ def get_current_user(*, access_token: str) -> tuple[dict[str, Any], dict[str, An
         if not expires_at or expires_at <= utc_now():
             STORE.delete("access_tokens", token_value)
             raise AppError(401, "AUTH_SESSION_EXPIRED", "Access token has expired.", False, {"classification": "terminal"})
-        user = STORE.get_ref("users", user_id)
+        user = auth_repository.AUTH_USERS.get_user_by_id(user_id)
         if not user:
             raise AppError(401, "AUTH_SESSION_EXPIRED", "Authenticated user was not found.", False, {"classification": "terminal"})
         _assert_auth_session_active(auth_session_id=str(token_payload["auth_session_id"]), user_id=user_id)
 
-    return _auth_user(user) | {"subscription_tier": user.get("subscription_tier", "free")}, copy_token_payload(token_payload)
+    return _auth_user(user), copy_token_payload(token_payload)
 
 
 def logout_auth(*, authorization: str | None, refresh_token: str | None = None) -> dict[str, Any]:

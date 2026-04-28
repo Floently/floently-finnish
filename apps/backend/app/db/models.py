@@ -24,7 +24,15 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     password_hash = Column(String, nullable=True)  # Nullable for existing users
     name = Column(String, nullable=True)
+    access_choice = Column(String, nullable=True)
+    access_choice_at = Column(DateTime, nullable=True)
+    subscription_tier = Column(String, nullable=False, default="free")
+    subscription_expires_at = Column(DateTime, nullable=True)
+    trial_ends_at = Column(DateTime, nullable=True)
+    email_verified_at = Column(DateTime, nullable=True)
+    provider_links = Column(JSON, nullable=False, default=dict)
     created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, nullable=True)
 
 
 class GrammarLog(Base):

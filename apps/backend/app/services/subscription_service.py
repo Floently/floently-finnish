@@ -7,6 +7,7 @@ from ..core.config import SETTINGS
 from ..core.errors import AppError
 from ..core.state_store import STORE
 from ..core.utils import parse_iso, utc_now
+from ..db import auth_repository
 
 ALL_PROFESSIONS = ["doctor", "nurse", "practical_nurse"]
 
@@ -347,8 +348,7 @@ def start_trial(*, user: dict[str, Any], trial_days: int = 3) -> dict[str, Any]:
     updated["access_choice"] = "trial"
     updated["access_choice_at"] = utc_now().replace(microsecond=0).isoformat()
     updated["trial_ends_at"] = (utc_now() + timedelta(days=max(1, trial_days))).replace(microsecond=0).isoformat()
-    with STORE.locked(("users", user_id)):
-        STORE.set("users", user_id, updated)
+    auth_repository.AUTH_USERS.save_user(updated, overwrite_password=False)
     STORE.write_snapshot()
     return subscription_status(user=updated)
 
