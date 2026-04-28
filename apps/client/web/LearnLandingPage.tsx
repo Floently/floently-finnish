@@ -122,8 +122,9 @@ export default function LearnLandingPage() {
   };
 
   return (
-    <div className="floently-landing">
-      <PageStyles />
+    <div className="floently-landing-shell">
+      <div className="floently-landing">
+        <PageStyles />
 
       {/* ═══════════════ HERO (dark) ═══════════════ */}
       <header className="fl-hero">
@@ -148,6 +149,10 @@ export default function LearnLandingPage() {
             </button>
           </div>
         </nav>
+
+        <div className="fl-brand-hero">
+          <img src={LOGO_SRC} alt="" className="fl-brand-hero-logo" />
+        </div>
 
         <div className="fl-hero-grid">
           <div className="fl-hero-text">
@@ -338,6 +343,7 @@ export default function LearnLandingPage() {
           <span>© {new Date().getFullYear()} Floently. Made for Finland.</span>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
@@ -347,11 +353,19 @@ function PageStyles() {
   return (
     <style>{`
       /* ──── Reset + base ──── */
+      .floently-landing-shell {
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: #FFFFFF;
+        position: relative;
+      }
       .floently-landing,
       .floently-landing * {
         box-sizing: border-box;
       }
       .floently-landing {
+        min-height: 100%;
         font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
         color: #0A1838;
         background: #FFFFFF;
@@ -367,7 +381,7 @@ function PageStyles() {
         position: relative;
         background: #0A1838;
         color: #F5F9FF;
-        padding: 24px 0 96px;
+        padding: 32px 0 96px;
         overflow: hidden;
       }
       .fl-hero-bg {
@@ -392,10 +406,24 @@ function PageStyles() {
       }
       .fl-nav-logo { display: flex; align-items: center; }
       .fl-logo-img {
-        height: 54px;
+        height: 62px;
         width: auto;
         object-fit: contain;
         /* The bounding logo is preserved as-is; no filters or color overrides */
+      }
+      .fl-brand-hero {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        padding: 0 28px 28px;
+      }
+      .fl-brand-hero-logo {
+        width: min(420px, 72vw);
+        max-height: 140px;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 40px rgba(31, 71, 232, 0.22));
       }
       .fl-nav-links {
         display: flex;
@@ -931,14 +959,16 @@ function PageStyles() {
 
       /* Mobile-specific overrides — under 768 */
       @media (max-width: 767px) {
-        .fl-nav { padding: 0 20px; margin-bottom: 40px; flex-wrap: wrap; }
+        .fl-nav { padding: 0 20px; margin-bottom: 28px; flex-wrap: wrap; }
         .fl-nav-links { display: none; }
         .fl-hero-grid { padding: 0 20px; gap: 40px; }
         .fl-section-inner { padding: 0 20px; }
         .fl-h1 { font-size: 36px; line-height: 1.1; }
         .fl-h2 { font-size: 28px; }
         .fl-hero-lede { font-size: 16px; }
-        .fl-hero { padding: 16px 0 64px; }
+        .fl-hero { padding: 72px 0 64px; }
+        .fl-brand-hero { padding: 0 20px 24px; }
+        .fl-brand-hero-logo { width: min(320px, 84vw); max-height: 108px; }
         .fl-section { padding: 64px 0; }
         .fl-cta-primary { padding: 14px 22px; font-size: 15px; }
         .fl-outcome-card { padding: 24px; }

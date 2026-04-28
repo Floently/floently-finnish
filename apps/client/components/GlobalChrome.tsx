@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import LanguageSelector from '../features/i18n/LanguageSelector';
@@ -7,6 +7,8 @@ import { usePreferencesStore } from '../state/preferencesStore';
 
 export default function GlobalChrome() {
   const insets = useSafeAreaInsets();
+  const { width } = useWindowDimensions();
+  const compact = width < 768;
   const language = usePreferencesStore((state) => state.language);
   const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const clockFormat = usePreferencesStore((state) => state.clockFormat);
@@ -22,12 +24,21 @@ export default function GlobalChrome() {
     : now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 
   return (
-    <View pointerEvents="box-none" style={[styles.wrap, { top: Math.max(insets.top, 8) + 8 }]}>
-      <View style={styles.row}>
-        <View style={styles.clockPill}>
-          <Text style={styles.clockText}>{clockLabel}</Text>
+    <View
+      pointerEvents="box-none"
+      style={[
+        styles.wrap,
+        {
+          top: Math.max(insets.top, compact ? 4 : 8) + (compact ? 4 : 8),
+          right: compact ? 8 : 12,
+        },
+      ]}
+    >
+      <View style={[styles.row, compact && styles.rowCompact]}>
+        <View style={[styles.clockPill, compact && styles.clockPillCompact]}>
+          <Text style={[styles.clockText, compact && styles.clockTextCompact]}>{clockLabel}</Text>
         </View>
-        <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" />
+        <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" compact={compact} />
       </View>
     </View>
   );
@@ -44,6 +55,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
+  rowCompact: {
+    gap: 6,
+  },
   clockPill: {
     borderRadius: 999,
     paddingHorizontal: 12,
@@ -52,10 +66,18 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(79,127,255,0.18)',
   },
+  clockPillCompact: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
   clockText: {
     color: '#D9E4FF',
     fontSize: 12,
     fontWeight: '700',
     letterSpacing: 0.6,
+  },
+  clockTextCompact: {
+    fontSize: 10,
+    letterSpacing: 0.4,
   },
 });

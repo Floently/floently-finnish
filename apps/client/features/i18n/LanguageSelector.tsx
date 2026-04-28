@@ -22,8 +22,10 @@ export default function LanguageSelector({ language, onChange, compact = false, 
           onPress={() => setOpen((current) => !current)}
           style={({ pressed }) => [
             styles.menuButton,
+            compact && styles.menuButtonCompact,
             pressed && styles.menuButtonPressed,
             open && styles.menuButtonOpen,
+            compact && styles.menuButtonCompactOpen,
           ]}
           accessibilityRole="button"
           accessibilityState={{ expanded: open }}
@@ -32,8 +34,8 @@ export default function LanguageSelector({ language, onChange, compact = false, 
           <Text style={styles.menuFlag}>{activeMeta.flag}</Text>
         </Pressable>
 
-        {open ? (
-          <View style={styles.menuPanel}>
+          {open ? (
+          <View style={[styles.menuPanel, compact && styles.menuPanelCompact]}>
             {options.map((option) => {
               const meta = LANGUAGE_META[option];
               const active = option === language;
@@ -46,6 +48,7 @@ export default function LanguageSelector({ language, onChange, compact = false, 
                   }}
                   style={({ pressed }) => [
                     styles.menuItem,
+                    compact && styles.menuItemCompact,
                     active && styles.menuItemActive,
                     pressed && styles.menuItemPressed,
                   ]}
@@ -105,12 +108,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  menuButtonCompact: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+  },
   menuButtonPressed: {
     transform: [{ scale: 0.97 }],
   },
   menuButtonOpen: {
     borderColor: 'rgba(79,127,255,0.56)',
     backgroundColor: 'rgba(79,127,255,0.18)',
+  },
+  menuButtonCompactOpen: {
+    borderColor: 'rgba(79,127,255,0.66)',
   },
   menuFlag: {
     fontSize: 18,
@@ -132,6 +143,12 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 8 },
     elevation: 8,
   },
+  menuPanelCompact: {
+    top: 38,
+    minWidth: 148,
+    padding: 6,
+    gap: 4,
+  },
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -139,6 +156,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12,
     borderRadius: 12,
+  },
+  menuItemCompact: {
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    gap: 8,
   },
   menuItemPressed: {
     backgroundColor: 'rgba(79,127,255,0.12)',
