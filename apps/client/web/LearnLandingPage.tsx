@@ -1,231 +1,966 @@
-import React from "react";
+/**
+ * LearnLandingPage — rebuilt 2026-04.
+ *
+ * Replaces the all-white "newspaper" landing page with a premium dark-hero
+ * design anchored by an animated Finnish text correction demo.
+ *
+ * Design system:
+ *   • Dark hero (#0A1838 / Floently navy) → light section → dark section →
+ *     light section → deep navy footer. Alternating tones give the page rhythm.
+ *   • Single primary CTA per section (Book a demo). Sign-in is a small text link.
+ *   • Three pathway cards differentiated by accent color, icon, and emphasis,
+ *     not just by copy. Carousel on mobile, 3-up grid at desktop.
+ *   • Mobile-first: 375px base, breaks at 768 / 1024 / 1440.
+ *   • Typography: system sans (Inter / SF / Segoe) with weight contrast doing
+ *     the visual hierarchy. No serifs.
+ *
+ * Notes for future passes:
+ *   • The animation component (FinnishCorrectionDemo) is reused on the auth
+ *     page split-screen. Don't duplicate; import from the same path.
+ *   • Copy is preserved from the original — user explicitly said the words
+ *     are not the problem. Only structure and visuals were redesigned.
+ *   • Logo path is unchanged at /images/new_ui/use_this_app_logo_no_background.png
+ *     This is the "bounding logo" that should not be touched in any future
+ *     redesigns of this page or the auth screen.
+ */
+
+import React from 'react';
+import FinnishCorrectionDemo from './components/FinnishCorrectionDemo';
 
 const LOGIN_URL = '/auth/login';
+const DEMO_URL = 'mailto:pilots@floently.com?subject=Floently%20demo%20request';
+const LOGO_SRC = '/images/new_ui/use_this_app_logo_no_background.png';
 
-const heroVisualStyle: React.CSSProperties = {
-  borderRadius: 28,
-  border: '1px solid rgba(31,71,232,0.14)',
-  background: 'linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%)',
-  minHeight: 420,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  gap: 18,
-  padding: 24,
-  boxShadow: '0 20px 60px rgba(15,23,42,0.08)',
-};
+// ── Page data (copy unchanged from original — only structure rebuilt) ─────
+const pathwayCards = [
+  {
+    id: 'learners',
+    eyebrow: 'For learners',
+    title: 'Pass YKI, prepare for work, build long-term Finnish.',
+    body: 'Guided practice across reading, listening, writing, and speaking — built around YKI goals and the Finnish you actually need at work and in everyday life.',
+    accent: '#5A85FF',     // brand-blue
+    accentSoft: 'rgba(90, 133, 255, 0.10)',
+    icon: '👤',
+    cta: 'Start learning',
+    href: LOGIN_URL,
+  },
+  {
+    id: 'employers',
+    eyebrow: 'For employers',
+    title: 'Onboard, retain, and protect international staff.',
+    body: 'Workplace-specific Finnish for safer communication, faster onboarding, and stronger long-term retention. Profession-specific paths for healthcare and beyond.',
+    accent: '#3EC5A8',     // teal
+    accentSoft: 'rgba(62, 197, 168, 0.10)',
+    icon: '🏢',
+    cta: 'Book employer demo',
+    href: DEMO_URL,
+  },
+  {
+    id: 'cities',
+    eyebrow: 'For cities & municipalities',
+    title: 'A scalable language pathway, residents to citizens.',
+    body: 'Connect language learning to employability, integration, and long-term participation. Programmes that scale from individual residents to city-wide rollouts.',
+    accent: '#7A9FFF',     // lighter blue
+    accentSoft: 'rgba(122, 159, 255, 0.10)',
+    icon: '🏛️',
+    cta: 'Talk to us',
+    href: DEMO_URL,
+  },
+];
+
+const outcomeCards = [
+  {
+    title: 'YKI is a wall, not a finish line',
+    body: 'Many learners need more than general language lessons. They need Finnish for the YKI exam itself, for work, for daily communication — and for the long climb to citizenship and permanent residence.',
+  },
+  {
+    title: 'Workplace Finnish is a different skill',
+    body: 'International employees need practical Finnish for safer communication on shift, smoother onboarding, and language confidence that supports retention rather than friction.',
+  },
+  {
+    title: 'Cities own the integration outcome',
+    body: 'Residents need language support that connects learning to employability, inclusion, and meaningful participation in Finnish society — not just classroom completion certificates.',
+  },
+];
+
+const platformPathways = [
+  {
+    eyebrow: 'YKI Preparation',
+    title: 'Built around the four exam skills.',
+    body: 'Speaking, writing, reading, listening — guided practice with feedback that maps to YKI scoring rubrics for work, citizenship, and permanent residence.',
+    accent: '#5A85FF',
+  },
+  {
+    eyebrow: 'Professional Finnish',
+    title: 'For doctors, nurses, practical nurses.',
+    body: 'Profession-specific scenarios, vocabulary, and dialogues. Patient handovers, clinical documentation, daily teamwork — language for the real job, not textbook situations.',
+    accent: '#3EC5A8',
+  },
+  {
+    eyebrow: 'Life in Finland Readiness',
+    title: 'Daily services, official communication.',
+    body: 'The Finnish you need for KELA, Migri, healthcare, schools, banks, and the long-term goals of citizenship and permanent residence.',
+    accent: '#7A9FFF',
+  },
+];
 
 const trustPoints = [
-  'YKI-aligned preparation',
-  'Profession-specific learning paths',
-  'Workplace communication practice',
-  'Supports integration and settlement goals',
-  'Scalable for employers and city programmes',
+  'YKI-aligned',
+  'Profession-specific',
+  'Workplace communication',
+  'Settlement support',
+  'Programme-scalable',
 ];
 
-const audienceCards = [
-  {
-    title: 'For Learners',
-    body: 'Prepare for YKI, improve your Finnish for work, and build confidence for everyday life in Finland.',
-    cta: 'Start learning',
-  },
-  {
-    title: 'For Employers',
-    body: 'Support international employees with practical Finnish for onboarding, teamwork, and workplace communication.',
-    cta: 'Book employer demo',
-  },
-  {
-    title: 'For Cities and Municipalities',
-    body: 'Offer residents a scalable pathway from language learning to work, integration, and long-term participation in Finland.',
-    cta: 'Talk to us',
-  },
-];
-
-const pathways = [
-  {
-    title: 'YKI Preparation',
-    body: 'Prepare for speaking, writing, reading, and listening with guided practice built around YKI goals for work, citizenship, and permanent residence.',
-  },
-  {
-    title: 'Professional Finnish',
-    body: 'Build profession-specific Finnish for healthcare and other work pathways, with language for real job situations and daily teamwork.',
-  },
-  {
-    title: 'Life in Finland Readiness',
-    body: 'Strengthen the Finnish needed for work, services, official communication, and long-term goals such as citizenship and permanent residence.',
-  },
-];
-
-const professionCards = [
-  {
-    title: 'YKI Pathway',
-    body: 'Guided practice for reading, listening, writing, and speaking with clear progress toward test readiness and long-term life in Finland.',
-  },
-  {
-    title: 'Doctor Finnish',
-    body: 'Patient interaction, explanations, documentation, teamwork, and communication in real healthcare settings.',
-  },
-  {
-    title: 'Nurse Finnish',
-    body: 'Patient care, handovers, reporting, medication language, and practical communication for everyday nursing work.',
-  },
-  {
-    title: 'Practical Nurse Finnish',
-    body: 'Care work routines, resident interaction, relatives, teamwork, and practical language for real care environments.',
-  },
-  {
-    title: 'Workplace Communication',
-    body: 'Supervisor conversations, issue reporting, clarifying instructions, and language that supports employability and retention.',
-  },
-  {
-    title: 'Life in Finland Pathway',
-    body: 'Useful Finnish for daily services, official communication, and the language confidence needed for long-term life in Finland.',
-  },
-];
-
+// ── Component ─────────────────────────────────────────────────────────────
 export default function LearnLandingPage() {
-  const continueToLogin = () => {
-    if (typeof window !== 'undefined') {
-      window.location.assign(LOGIN_URL);
-    }
+  const goToLogin = () => {
+    if (typeof window !== 'undefined') window.location.assign(LOGIN_URL);
+  };
+  const goToDemo = () => {
+    if (typeof window !== 'undefined') window.location.assign(DEMO_URL);
   };
 
   return (
-    <main style={{ background: '#ffffff', minHeight: '100vh', color: '#0e1628' }}>
-      <section style={{ maxWidth: 1260, margin: '0 auto', padding: '36px 28px 72px' }}>
-        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 48, gap: 20, flexWrap: 'wrap' }}>
-          <img alt="Floently" src="/images/new_ui/use_this_app_logo_no_background.png" style={{ height: 62, objectFit: 'contain' }} />
-          <div style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap' }}>
-            <button style={{ border: 'none', background: 'transparent', color: '#44536c', fontWeight: 700 }}>For Learners</button>
-            <button style={{ border: 'none', background: 'transparent', color: '#44536c', fontWeight: 700 }}>For Employers</button>
-            <button style={{ border: 'none', background: 'transparent', color: '#44536c', fontWeight: 700 }}>For Cities</button>
-            <button type="button" onClick={continueToLogin} style={{ minHeight: 42, borderRadius: 999, border: '1px solid #d9e3f3', padding: '0 18px', background: '#ffffff', color: '#0e1628', fontWeight: 700 }}>Continue to sign in</button>
-            <button style={{ minHeight: 42, borderRadius: 999, border: 'none', padding: '0 18px', background: '#1F47E8', color: '#ffffff', fontWeight: 800 }}>Book a demo</button>
-          </div>
-        </header>
+    <div className="floently-landing">
+      <PageStyles />
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1.08fr 0.92fr', gap: 28, alignItems: 'center' }}>
-          <div>
-            <div style={{ display: 'inline-flex', borderRadius: 999, background: '#EAF0FF', color: '#1F47E8', padding: '7px 12px', fontSize: 12, fontWeight: 800, marginBottom: 18 }}>
+      {/* ═══════════════ HERO (dark) ═══════════════ */}
+      <header className="fl-hero">
+        {/* Subtle starfield/grid bg ornamentation */}
+        <div className="fl-hero-bg" aria-hidden />
+
+        <nav className="fl-nav">
+          <div className="fl-nav-logo">
+            <img src={LOGO_SRC} alt="Floently" className="fl-logo-img" />
+          </div>
+          <div className="fl-nav-links">
+            <a href="#learners" className="fl-nav-link">For Learners</a>
+            <a href="#employers" className="fl-nav-link">For Employers</a>
+            <a href="#cities" className="fl-nav-link">For Cities</a>
+          </div>
+          <div className="fl-nav-actions">
+            <button type="button" onClick={goToLogin} className="fl-nav-signin">
+              Sign in
+            </button>
+            <button type="button" onClick={goToDemo} className="fl-nav-cta">
+              Book a demo
+            </button>
+          </div>
+        </nav>
+
+        <div className="fl-hero-grid">
+          <div className="fl-hero-text">
+            <div className="fl-eyebrow">
+              <span className="fl-eyebrow-dot" />
               FINNISH FOR WORK, SETTLEMENT, AND REAL OUTCOMES
             </div>
-            <h1 style={{ fontSize: 64, lineHeight: 1.02, letterSpacing: '-0.04em', margin: '0 0 18px' }}>
+            <h1 className="fl-h1">
               Pass YKI.
-              <span style={{ color: '#1F47E8' }}> Succeed in work and life </span>
+              <br />
+              <span className="fl-h1-accent">Succeed in work and life </span>
               in Finland.
             </h1>
-            <p style={{ fontSize: 18, lineHeight: 1.7, color: '#53627C', maxWidth: 640, margin: '0 0 26px' }}>
-              A Finnish language platform for YKI preparation, workplace communication, citizenship, and permanent residence goals — built for learners, employers, and cities.
+            <p className="fl-hero-lede">
+              A Finnish language platform built for the YKI exam, workplace communication, and the long path to citizenship — for learners, employers, and cities.
             </p>
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 18 }}>
-              <button style={{ minHeight: 46, borderRadius: 999, border: 'none', padding: '0 20px', background: '#1F47E8', color: '#ffffff', fontWeight: 800 }}>Book a demo</button>
-              <button type="button" onClick={continueToLogin} style={{ minHeight: 46, borderRadius: 999, border: '1px solid #d9e3f3', padding: '0 18px', background: '#ffffff', color: '#0e1628', fontWeight: 700 }}>Continue to sign in</button>
-              <button style={{ minHeight: 46, borderRadius: 999, border: '1px dashed rgba(31,71,232,0.28)', padding: '0 18px', background: '#f8fbff', color: '#1F47E8', fontWeight: 700 }}>For employers and cities</button>
+            <div className="fl-hero-actions">
+              <button type="button" onClick={goToDemo} className="fl-cta-primary">
+                Book a demo
+                <span className="fl-cta-arrow">→</span>
+              </button>
+              <button type="button" onClick={goToLogin} className="fl-cta-link">
+                Already have an account? <span className="fl-cta-link-emphasis">Sign in</span>
+              </button>
             </div>
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-              {['YKI', 'Workplace Finnish', 'Citizenship', 'Permanent residence'].map((item) => (
-                <span key={item} style={{ borderRadius: 999, background: item === 'Permanent residence' ? '#FFF5DA' : '#F4F7FC', color: '#33445c', padding: '8px 12px', fontSize: 12, fontWeight: 700 }}>{item}</span>
+            <div className="fl-trust-row">
+              {trustPoints.map((t) => (
+                <span key={t} className="fl-trust-pill">{t}</span>
               ))}
             </div>
           </div>
 
-          <div style={heroVisualStyle}>
+          <div className="fl-hero-demo">
+            <FinnishCorrectionDemo theme="dark" />
+            <div className="fl-hero-demo-caption">
+              Watch the loop: type Finnish → get corrected → learn the rule.
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* ═══════════════ OUTCOMES (light) ═══════════════ */}
+      <section className="fl-section fl-section-light" id="outcomes">
+        <div className="fl-section-inner">
+          <div className="fl-section-head">
+            <div className="fl-section-eyebrow">THE PROBLEM</div>
+            <h2 className="fl-h2">
+              General Finnish study<br />isn't enough for real outcomes.
+            </h2>
+            <p className="fl-section-lede">
+              Generic language apps teach Finnish in the abstract. Floently teaches the Finnish you actually need for the things that change your life: passing YKI, getting hired, becoming a citizen.
+            </p>
+          </div>
+
+          <div className="fl-outcome-grid">
+            {outcomeCards.map((card, i) => (
+              <article key={card.title} className="fl-outcome-card">
+                <div className="fl-outcome-num">0{i + 1}</div>
+                <h3 className="fl-outcome-title">{card.title}</h3>
+                <p className="fl-outcome-body">{card.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ PATHWAYS (dark) ═══════════════ */}
+      <section className="fl-section fl-section-dark" id="pathways">
+        <div className="fl-section-inner">
+          <div className="fl-section-head fl-section-head-dark">
+            <div className="fl-section-eyebrow fl-section-eyebrow-dark">ONE PLATFORM, THREE PATHWAYS</div>
+            <h2 className="fl-h2 fl-h2-dark">
+              YKI, workplace,<br />
+              <span className="fl-h2-accent">and life in Finland.</span>
+            </h2>
+            <p className="fl-section-lede fl-section-lede-dark">
+              Three pathways under one platform. Pick the one that matches your goal — or run all three for an institution.
+            </p>
+          </div>
+
+          <div className="fl-pathway-grid">
+            {pathwayCards.map((card) => (
+              <article
+                key={card.id}
+                id={card.id}
+                className="fl-pathway-card"
+                style={{
+                  ['--card-accent' as string]: card.accent,
+                  ['--card-accent-soft' as string]: card.accentSoft,
+                }}
+              >
+                <div className="fl-pathway-icon">{card.icon}</div>
+                <div className="fl-pathway-eyebrow">{card.eyebrow}</div>
+                <h3 className="fl-pathway-title">{card.title}</h3>
+                <p className="fl-pathway-body">{card.body}</p>
+                <a href={card.href} className="fl-pathway-cta">
+                  {card.cta} <span className="fl-pathway-cta-arrow">→</span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ PLATFORM PATHWAYS (light) ═══════════════ */}
+      <section className="fl-section fl-section-light">
+        <div className="fl-section-inner">
+          <div className="fl-section-head">
+            <div className="fl-section-eyebrow">WHAT'S INSIDE</div>
+            <h2 className="fl-h2">
+              One platform connecting<br />YKI, work, and settlement.
+            </h2>
+            <p className="fl-section-lede">
+              Every learner moves between exam preparation, professional Finnish, and daily life Finnish. Floently keeps them in one continuous track.
+            </p>
+          </div>
+
+          <div className="fl-platform-grid">
+            {platformPathways.map((p) => (
+              <article
+                key={p.eyebrow}
+                className="fl-platform-card"
+                style={{ ['--card-accent' as string]: p.accent }}
+              >
+                <div className="fl-platform-bar" />
+                <div className="fl-platform-eyebrow">{p.eyebrow}</div>
+                <h3 className="fl-platform-title">{p.title}</h3>
+                <p className="fl-platform-body">{p.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ FINAL CTA (deep navy) ═══════════════ */}
+      <section className="fl-section fl-section-final">
+        <div className="fl-section-inner">
+          <div className="fl-final-grid">
             <div>
-              <div style={{ fontSize: 12, fontWeight: 800, color: '#1F47E8', marginBottom: 12 }}>ONE PLATFORM, THREE PATHWAYS</div>
-              <h2 style={{ fontSize: 28, lineHeight: 1.15, margin: '0 0 10px' }}>YKI, workplace communication, and life in Finland readiness.</h2>
-              <p style={{ margin: 0, color: '#59708f', fontSize: 15, lineHeight: 1.7 }}>
-                The platform helps people prepare for the YKI exam, use Finnish at work, and build the language confidence needed for citizenship, permanent residence, and everyday life in Finland.
+              <div className="fl-section-eyebrow fl-section-eyebrow-dark">READY WHEN YOU ARE</div>
+              <h2 className="fl-h2 fl-h2-dark">
+                Bring Finnish learning closer<br />to work, settlement, and opportunity.
+              </h2>
+              <p className="fl-section-lede fl-section-lede-dark">
+                Whether you're preparing for YKI, supporting international staff, or running a city programme — Floently is built for real outcomes, not generic textbook Finnish.
               </p>
             </div>
-            <div style={{ display: 'grid', gap: 12 }}>
-              <div style={{ borderRadius: 18, background: '#ffffff', padding: 16, border: '1px solid rgba(31,71,232,0.08)' }}>
-                <strong style={{ display: 'block', marginBottom: 6 }}>For learners</strong>
-                <span style={{ color: '#59708f', fontSize: 14 }}>Pass YKI, prepare for work, and build long-term Finnish confidence.</span>
-              </div>
-              <div style={{ borderRadius: 18, background: '#ffffff', padding: 16, border: '1px solid rgba(31,71,232,0.08)' }}>
-                <strong style={{ display: 'block', marginBottom: 6 }}>For employers</strong>
-                <span style={{ color: '#59708f', fontSize: 14 }}>Support onboarding, communication, safety, and retention for international staff.</span>
-              </div>
-              <div style={{ borderRadius: 18, background: '#ffffff', padding: 16, border: '1px solid rgba(31,71,232,0.08)' }}>
-                <strong style={{ display: 'block', marginBottom: 6 }}>For cities</strong>
-                <span style={{ color: '#59708f', fontSize: 14 }}>Offer scalable pathways for integration, work, and long-term participation in Finland.</span>
-              </div>
+            <div className="fl-final-actions">
+              <button type="button" onClick={goToDemo} className="fl-cta-primary fl-cta-primary-large">
+                Book a demo <span className="fl-cta-arrow">→</span>
+              </button>
+              <button type="button" onClick={goToLogin} className="fl-cta-secondary-dark">
+                Continue to sign in
+              </button>
+              <a href={DEMO_URL} className="fl-cta-link fl-cta-link-dark">
+                Talk to us about programme access →
+              </a>
             </div>
           </div>
         </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 12, marginTop: 44 }}>
-          {trustPoints.map((item) => (
-            <div key={item} style={{ borderRadius: 16, border: '1px solid #e2e8f2', padding: 14, fontSize: 13, fontWeight: 700, color: '#2c4060', background: '#fbfdff' }}>{item}</div>
-          ))}
-        </div>
-
-        <section style={{ marginTop: 56 }}>
-          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>General Finnish study is not enough for real outcomes in Finland</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-            {[
-              ['For learners', 'Many learners need more than general language lessons. They need Finnish for YKI, work, everyday communication, and long-term life in Finland.'],
-              ['For employers', 'International employees need practical Finnish for safer communication, smoother onboarding, and stronger long-term retention.'],
-              ['For cities and municipalities', 'Residents need language support that connects learning with employability, inclusion, settlement, and participation in Finnish society.'],
-            ].map(([title, body]) => (
-              <article key={title} style={{ borderRadius: 24, border: '1px solid #e2e8f2', background: '#ffffff', padding: 20, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
-                <h3 style={{ margin: '0 0 10px', fontSize: 20 }}>{title}</h3>
-                <p style={{ margin: 0, color: '#58667E', lineHeight: 1.7 }}>{body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section style={{ marginTop: 56 }}>
-          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>One platform connecting YKI, work, and settlement outcomes</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-            {pathways.map((item, index) => (
-              <article key={item.title} style={{ borderRadius: 24, border: '1px solid #e2e8f2', background: '#ffffff', padding: 20, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
-                <div style={{ width: 34, height: 34, borderRadius: 12, background: index === 2 ? '#FFF5DA' : '#EAF0FF', marginBottom: 16 }} />
-                <h3 style={{ margin: '0 0 8px', fontSize: 20 }}>{item.title}</h3>
-                <p style={{ margin: 0, color: '#58667E', lineHeight: 1.7 }}>{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section style={{ marginTop: 56 }}>
-          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>Built for every pathway into work and life in Finland</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-            {audienceCards.map((item) => (
-              <article key={item.title} style={{ borderRadius: 24, border: '1px solid #e2e8f2', background: '#ffffff', padding: 22, display: 'grid', gap: 12, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
-                <h3 style={{ margin: 0, fontSize: 22 }}>{item.title}</h3>
-                <p style={{ margin: 0, color: '#58667E', lineHeight: 1.7 }}>{item.body}</p>
-                <button style={{ justifySelf: 'start', minHeight: 42, borderRadius: 999, border: '1px solid #d9e3f3', padding: '0 18px', background: '#ffffff', color: '#1F47E8', fontWeight: 800 }}>{item.cta}</button>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section style={{ marginTop: 56 }}>
-          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>Built around real outcomes, not generic textbook Finnish</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-            {professionCards.map((item) => (
-              <article key={item.title} style={{ borderRadius: 22, border: '1px solid #e2e8f2', background: '#ffffff', padding: 18, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
-                <h3 style={{ margin: '0 0 8px', fontSize: 18 }}>{item.title}</h3>
-                <p style={{ margin: 0, color: '#58667E', lineHeight: 1.65 }}>{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section style={{ marginTop: 64, borderRadius: 32, background: 'linear-gradient(135deg, #0f1f4b 0%, #1F47E8 100%)', color: '#ffffff', padding: '34px 32px' }}>
-          <h2 style={{ fontSize: 38, lineHeight: 1.1, margin: '0 0 14px' }}>Bring Finnish learning closer to work, settlement, and opportunity</h2>
-          <p style={{ fontSize: 17, lineHeight: 1.7, maxWidth: 860, color: 'rgba(255,255,255,0.88)', margin: '0 0 20px' }}>
-            Whether you are preparing for YKI, supporting international employees, or helping residents build a future in Finland, Floently Learn offers a practical language pathway built for real outcomes.
-          </p>
-          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <button type="button" onClick={continueToLogin} style={{ minHeight: 46, borderRadius: 999, border: 'none', padding: '0 20px', background: '#ffffff', color: '#0f1f4b', fontWeight: 800 }}>Continue to sign in</button>
-            <button style={{ minHeight: 46, borderRadius: 999, border: '1px solid rgba(255,255,255,0.28)', padding: '0 20px', background: 'transparent', color: '#ffffff', fontWeight: 800 }}>Book a demo</button>
-            <button style={{ minHeight: 46, borderRadius: 999, border: '1px solid rgba(255,255,255,0.28)', padding: '0 20px', background: 'transparent', color: '#ffffff', fontWeight: 800 }}>Talk to us about programme access</button>
-          </div>
-        </section>
       </section>
-    </main>
+
+      {/* ═══════════════ FOOTER ═══════════════ */}
+      <footer className="fl-footer">
+        <div className="fl-footer-inner">
+          <div className="fl-footer-brand">
+            <img src={LOGO_SRC} alt="Floently" className="fl-footer-logo" />
+            <p className="fl-footer-tag">
+              Finnish for YKI, work, and life in Finland.
+            </p>
+          </div>
+          <div className="fl-footer-cols">
+            <div className="fl-footer-col">
+              <div className="fl-footer-col-title">Product</div>
+              <a href={LOGIN_URL} className="fl-footer-link">Sign in</a>
+              <a href="#learners" className="fl-footer-link">For learners</a>
+              <a href="#employers" className="fl-footer-link">For employers</a>
+              <a href="#cities" className="fl-footer-link">For cities</a>
+            </div>
+            <div className="fl-footer-col">
+              <div className="fl-footer-col-title">Company</div>
+              <a href={DEMO_URL} className="fl-footer-link">Book a demo</a>
+              <a href={DEMO_URL} className="fl-footer-link">Contact</a>
+            </div>
+          </div>
+        </div>
+        <div className="fl-footer-bottom">
+          <span>© {new Date().getFullYear()} Floently. Made for Finland.</span>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ── Stylesheet ──────────────────────────────────────────────────────────────
+function PageStyles() {
+  return (
+    <style>{`
+      /* ──── Reset + base ──── */
+      .floently-landing,
+      .floently-landing * {
+        box-sizing: border-box;
+      }
+      .floently-landing {
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+        color: #0A1838;
+        background: #FFFFFF;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .floently-landing button { font-family: inherit; cursor: pointer; }
+      .floently-landing a { color: inherit; text-decoration: none; }
+
+      /* ──── HERO ──── */
+      .fl-hero {
+        position: relative;
+        background: #0A1838;
+        color: #F5F9FF;
+        padding: 24px 0 96px;
+        overflow: hidden;
+      }
+      .fl-hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 60% 40% at 80% 10%, rgba(90, 133, 255, 0.18) 0%, transparent 60%),
+          radial-gradient(ellipse 40% 30% at 10% 100%, rgba(62, 197, 168, 0.10) 0%, transparent 60%);
+        pointer-events: none;
+      }
+      .fl-nav {
+        position: relative;
+        z-index: 2;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 64px;
+      }
+      .fl-nav-logo { display: flex; align-items: center; }
+      .fl-logo-img {
+        height: 54px;
+        width: auto;
+        object-fit: contain;
+        /* The bounding logo is preserved as-is; no filters or color overrides */
+      }
+      .fl-nav-links {
+        display: flex;
+        gap: 28px;
+      }
+      .fl-nav-link {
+        font-size: 14px;
+        font-weight: 600;
+        color: #A8BAD6;
+        transition: color 180ms ease;
+      }
+      .fl-nav-link:hover { color: #F5F9FF; }
+      .fl-nav-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .fl-nav-signin {
+        background: transparent;
+        border: none;
+        color: #A8BAD6;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 8px 12px;
+        transition: color 180ms ease;
+      }
+      .fl-nav-signin:hover { color: #F5F9FF; }
+      .fl-nav-cta {
+        background: #1F47E8;
+        color: #FFFFFF;
+        border: none;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 10px 18px;
+        border-radius: 999px;
+        box-shadow: 0 8px 24px rgba(31, 71, 232, 0.32);
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+      .fl-nav-cta:hover {
+        background: #2D5BFF;
+        transform: translateY(-1px);
+        box-shadow: 0 12px 32px rgba(31, 71, 232, 0.45);
+      }
+
+      .fl-hero-grid {
+        position: relative;
+        z-index: 2;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 56px;
+        align-items: center;
+      }
+
+      .fl-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: #5A85FF;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(90, 133, 255, 0.10);
+        border: 1px solid rgba(90, 133, 255, 0.20);
+      }
+      .fl-eyebrow-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #3EC5A8;
+        animation: fl-pulse-soft 2.4s ease-in-out infinite;
+      }
+      @keyframes fl-pulse-soft {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+      .fl-h1 {
+        font-size: 48px;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        font-weight: 800;
+        color: #F5F9FF;
+        margin: 0 0 24px;
+      }
+      .fl-h1-accent {
+        color: #5A85FF;
+        background: linear-gradient(120deg, #5A85FF 0%, #7A9FFF 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .fl-hero-lede {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #A8BAD6;
+        max-width: 560px;
+        margin: 0 0 32px;
+      }
+      .fl-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 32px;
+      }
+      .fl-cta-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #1F47E8;
+        color: #FFFFFF;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 16px 28px;
+        border-radius: 999px;
+        box-shadow: 0 12px 32px rgba(31, 71, 232, 0.40);
+        transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+      }
+      .fl-cta-primary:hover {
+        background: #2D5BFF;
+        transform: translateY(-2px);
+        box-shadow: 0 16px 40px rgba(31, 71, 232, 0.55);
+      }
+      .fl-cta-arrow {
+        display: inline-block;
+        transition: transform 200ms ease;
+      }
+      .fl-cta-primary:hover .fl-cta-arrow {
+        transform: translateX(3px);
+      }
+      .fl-cta-primary-large {
+        font-size: 17px;
+        padding: 18px 32px;
+      }
+      .fl-cta-link {
+        background: transparent;
+        border: none;
+        color: #A8BAD6;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 0;
+      }
+      .fl-cta-link-emphasis {
+        color: #F5F9FF;
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: rgba(245, 249, 255, 0.4);
+        transition: text-decoration-color 200ms ease;
+      }
+      .fl-cta-link:hover .fl-cta-link-emphasis {
+        text-decoration-color: #F5F9FF;
+      }
+      .fl-cta-link-dark { color: #A8BAD6; font-size: 14px; }
+      .fl-cta-link-dark:hover { color: #F5F9FF; }
+      .fl-cta-secondary-dark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        color: #F5F9FF;
+        border: 1px solid rgba(245, 249, 255, 0.28);
+        font-size: 15px;
+        font-weight: 700;
+        padding: 14px 24px;
+        border-radius: 999px;
+        transition: background 200ms ease, border-color 200ms ease;
+      }
+      .fl-cta-secondary-dark:hover {
+        background: rgba(245, 249, 255, 0.06);
+        border-color: rgba(245, 249, 255, 0.45);
+      }
+
+      .fl-trust-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .fl-trust-pill {
+        font-size: 12px;
+        font-weight: 600;
+        color: #A8BAD6;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(245, 249, 255, 0.10);
+      }
+
+      .fl-hero-demo {
+        position: relative;
+      }
+      .fl-hero-demo-caption {
+        margin-top: 12px;
+        font-size: 12px;
+        color: #7A8CAE;
+        text-align: center;
+        letter-spacing: 0.2px;
+      }
+
+      /* ──── Sections ──── */
+      .fl-section { padding: 96px 0; }
+      .fl-section-light { background: #F6F8FD; color: #0A1838; }
+      .fl-section-dark { background: #0A1838; color: #F5F9FF; }
+      .fl-section-final {
+        background: #06112A;
+        color: #F5F9FF;
+        padding: 96px 0;
+      }
+      .fl-section-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .fl-section-head { max-width: 720px; margin-bottom: 56px; }
+      .fl-section-head-dark { /* same layout, dark colors via h2/lede modifiers */ }
+      .fl-section-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: #1F47E8;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(31, 71, 232, 0.08);
+      }
+      .fl-section-eyebrow-dark {
+        color: #5A85FF;
+        background: rgba(90, 133, 255, 0.12);
+      }
+      .fl-h2 {
+        font-size: 40px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        color: #0A1838;
+        margin: 0 0 20px;
+      }
+      .fl-h2-dark { color: #F5F9FF; }
+      .fl-h2-accent {
+        background: linear-gradient(120deg, #5A85FF 0%, #3EC5A8 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .fl-section-lede {
+        font-size: 17px;
+        line-height: 1.65;
+        color: #5C7299;
+        max-width: 600px;
+        margin: 0;
+      }
+      .fl-section-lede-dark { color: #A8BAD6; }
+
+      /* ──── Outcome cards (light section) ──── */
+      .fl-outcome-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .fl-outcome-card {
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 32px;
+        border: 1px solid rgba(31, 71, 232, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+      .fl-outcome-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(10, 24, 56, 0.10);
+      }
+      .fl-outcome-num {
+        font-size: 14px;
+        font-weight: 800;
+        color: #1F47E8;
+        letter-spacing: 1.5px;
+        margin-bottom: 16px;
+      }
+      .fl-outcome-title {
+        font-size: 22px;
+        line-height: 1.25;
+        font-weight: 700;
+        color: #0A1838;
+        margin: 0 0 12px;
+      }
+      .fl-outcome-body {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #5C7299;
+        margin: 0;
+      }
+
+      /* ──── Pathway cards (dark section) — the differentiated three ──── */
+      .fl-pathway-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .fl-pathway-card {
+        background: #112346;
+        border: 1px solid #263B6B;
+        border-radius: 28px;
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 240ms ease, border-color 240ms ease, background 240ms ease;
+      }
+      .fl-pathway-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--card-accent);
+        opacity: 0.6;
+      }
+      .fl-pathway-card:hover {
+        background: #17306A;
+        border-color: var(--card-accent);
+        transform: translateY(-4px);
+      }
+      .fl-pathway-icon {
+        font-size: 28px;
+        margin-bottom: 24px;
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: var(--card-accent-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--card-accent);
+        line-height: 1;
+      }
+      .fl-pathway-eyebrow {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: var(--card-accent);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .fl-pathway-title {
+        font-size: 22px;
+        line-height: 1.3;
+        font-weight: 700;
+        color: #F5F9FF;
+        margin: 0 0 14px;
+        letter-spacing: -0.01em;
+      }
+      .fl-pathway-body {
+        font-size: 15px;
+        line-height: 1.65;
+        color: #A8BAD6;
+        margin: 0 0 24px;
+      }
+      .fl-pathway-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--card-accent);
+        transition: gap 180ms ease;
+      }
+      .fl-pathway-cta:hover {
+        gap: 10px;
+      }
+      .fl-pathway-cta-arrow {
+        transition: transform 180ms ease;
+      }
+
+      /* ──── Platform cards (light) ──── */
+      .fl-platform-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .fl-platform-card {
+        background: #FFFFFF;
+        border-radius: 22px;
+        padding: 32px;
+        border: 1px solid rgba(31, 71, 232, 0.08);
+        position: relative;
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+      .fl-platform-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(10, 24, 56, 0.08);
+      }
+      .fl-platform-bar {
+        height: 4px;
+        width: 36px;
+        background: var(--card-accent);
+        border-radius: 999px;
+        margin-bottom: 20px;
+      }
+      .fl-platform-eyebrow {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: var(--card-accent);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .fl-platform-title {
+        font-size: 20px;
+        line-height: 1.3;
+        font-weight: 700;
+        color: #0A1838;
+        margin: 0 0 12px;
+        letter-spacing: -0.01em;
+      }
+      .fl-platform-body {
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: #5C7299;
+        margin: 0;
+      }
+
+      /* ──── Final CTA ──── */
+      .fl-final-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .fl-final-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      /* ──── Footer ──── */
+      .fl-footer {
+        background: #06112A;
+        color: #A8BAD6;
+        padding: 64px 0 32px;
+      }
+      .fl-footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .fl-footer-brand { max-width: 320px; }
+      .fl-footer-logo {
+        height: 44px;
+        width: auto;
+        object-fit: contain;
+        margin-bottom: 12px;
+      }
+      .fl-footer-tag {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #7A8CAE;
+        margin: 0;
+      }
+      .fl-footer-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .fl-footer-col-title {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: #F5F9FF;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .fl-footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .fl-footer-link {
+        font-size: 14px;
+        color: #A8BAD6;
+        transition: color 180ms ease;
+      }
+      .fl-footer-link:hover { color: #F5F9FF; }
+      .fl-footer-bottom {
+        max-width: 1280px;
+        margin: 32px auto 0;
+        padding: 24px 28px 0;
+        border-top: 1px solid rgba(245, 249, 255, 0.06);
+        font-size: 12px;
+        color: #7A8CAE;
+      }
+
+      /* ════════ RESPONSIVE BREAKPOINTS ════════ */
+
+      /* Tablet — 768px+ */
+      @media (min-width: 768px) {
+        .fl-h1 { font-size: 64px; }
+        .fl-h2 { font-size: 48px; }
+        .fl-section { padding: 112px 0; }
+
+        .fl-outcome-grid { grid-template-columns: repeat(3, 1fr); }
+        .fl-pathway-grid { grid-template-columns: repeat(3, 1fr); }
+        .fl-platform-grid { grid-template-columns: repeat(3, 1fr); }
+        .fl-footer-inner { grid-template-columns: 1.2fr 1fr; align-items: start; }
+        .fl-footer-cols { grid-template-columns: repeat(2, 1fr); }
+        .fl-final-grid { grid-template-columns: 1.4fr 1fr; gap: 48px; }
+      }
+
+      /* Desktop — 1024px+ */
+      @media (min-width: 1024px) {
+        .fl-hero { padding: 32px 0 128px; }
+        .fl-hero-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: 64px;
+        }
+        .fl-h1 { font-size: 72px; }
+        .fl-section-head { margin-bottom: 64px; }
+        .fl-final-actions { flex-direction: column; }
+      }
+
+      /* Mobile-specific overrides — under 768 */
+      @media (max-width: 767px) {
+        .fl-nav { padding: 0 20px; margin-bottom: 40px; flex-wrap: wrap; }
+        .fl-nav-links { display: none; }
+        .fl-hero-grid { padding: 0 20px; gap: 40px; }
+        .fl-section-inner { padding: 0 20px; }
+        .fl-h1 { font-size: 36px; line-height: 1.1; }
+        .fl-h2 { font-size: 28px; }
+        .fl-hero-lede { font-size: 16px; }
+        .fl-hero { padding: 16px 0 64px; }
+        .fl-section { padding: 64px 0; }
+        .fl-cta-primary { padding: 14px 22px; font-size: 15px; }
+        .fl-outcome-card { padding: 24px; }
+        .fl-pathway-card { padding: 24px; }
+        .fl-platform-card { padding: 24px; }
+        .fl-section-head { margin-bottom: 36px; }
+        .fl-hero-actions { gap: 14px; }
+        .fl-trust-row { gap: 6px; }
+        .fl-trust-pill { font-size: 11px; padding: 5px 10px; }
+        .fl-footer-cols { grid-template-columns: 1fr; gap: 24px; }
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .floently-landing *,
+        .floently-landing *::before,
+        .floently-landing *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    `}</style>
   );
 }

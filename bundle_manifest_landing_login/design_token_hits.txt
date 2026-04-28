@@ -1,0 +1,1573 @@
+apps/client/components/ui/collapsible.tsx:4:import { ThemedText } from '@/components/themed-text';
+apps/client/components/ui/collapsible.tsx:5:import { ThemedView } from '@/components/themed-view';
+apps/client/components/ui/collapsible.tsx:7:import { Colors } from '@/constants/theme';
+apps/client/components/ui/collapsible.tsx:12:  const theme = useColorScheme() ?? 'light';
+apps/client/components/ui/collapsible.tsx:24:          color={theme === 'light' ? Colors.light.icon : Colors.dark.icon}
+apps/client/components/hello-wave.tsx:7:        fontSize: 28,
+apps/client/components/themed-view.tsx:3:import { useThemeColor } from '@/hooks/use-theme-color';
+apps/client/components/themed-text.tsx:3:import { useThemeColor } from '@/hooks/use-theme-color';
+apps/client/components/themed-text.tsx:38:    fontSize: 16,
+apps/client/components/themed-text.tsx:42:    fontSize: 16,
+apps/client/components/themed-text.tsx:44:    fontWeight: '600',
+apps/client/components/themed-text.tsx:47:    fontSize: 32,
+apps/client/components/themed-text.tsx:48:    fontWeight: 'bold',
+apps/client/components/themed-text.tsx:52:    fontSize: 20,
+apps/client/components/themed-text.tsx:53:    fontWeight: 'bold',
+apps/client/components/themed-text.tsx:57:    fontSize: 16,
+apps/client/components/parallax-scroll-view.tsx:10:import { ThemedView } from '@/components/themed-view';
+apps/client/components/parallax-scroll-view.tsx:12:import { useThemeColor } from '@/hooks/use-theme-color';
+apps/client/features/exam/components/AudioPlayer.tsx:4:import { colors, radius, spacing } from '@ui/theme';
+apps/client/features/exam/components/AudioPlayer.tsx:5:export default function AudioPlayer({ uri }: { uri: string }) { return <Pressable onPress={() => void audioPlayer.playAsync(uri)} style={{ padding: spacing.md, borderRadius: radius.md, backgroundColor: colors.panelSoft }}><Text style={{ color: colors.text }}>Toista ääni</Text></Pressable>; }
+apps/client/features/exam/components/ExamProgressBar.tsx:3:import { colors, radius } from '@ui/theme';
+apps/client/features/exam/components/ExamProgressBar.tsx:4:export default function ExamProgressBar({ value }: { value: number }) { return <View style={{ height: 8, backgroundColor: colors.panelSoft, borderRadius: radius.pill, overflow: 'hidden' }}><View style={{ width: `${Math.max(0, Math.min(100, value))}%`, backgroundColor: colors.exam, height: '100%' }} /></View>; }
+apps/client/features/exam/components/AppHeader.tsx:3:import { colors, spacing, typography } from '@ui/theme';
+apps/client/features/exam/components/AppHeader.tsx:5:  return <View style={{ gap: spacing.xs }}><Text style={{ color: colors.text, ...typography.h1 }}>{title}</Text>{subtitle ? <Text style={{ color: colors.textMuted }}>{subtitle}</Text> : null}</View>;
+apps/client/features/exam/components/WritingEditor.tsx:1:import React from 'react'; import { TextInput } from 'react-native'; import { colors, radius, spacing } from '@ui/theme';
+apps/client/features/exam/components/WritingEditor.tsx:2:export default function WritingEditor({ value, onChange }: { value: string; onChange: (v: string) => void }) { return <TextInput multiline value={value} onChangeText={onChange} style={{ minHeight: 160, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md, padding: spacing.md, color: colors.text }} placeholder="Kirjoita vastauksesi" placeholderTextColor={colors.textMuted} />; }
+apps/client/features/exam/components/ExamTimer.tsx:8:    <Text style={[{ fontSize: 32, fontWeight: '700', fontVariant: ['tabular-nums'], color: '#1F2937', letterSpacing: 1 }, style]}>
+apps/client/features/exam/components/ContentCard.tsx:3:import { colors, radius, spacing } from '@ui/theme';
+apps/client/features/exam/components/ContentCard.tsx:4:export default function ContentCard({ children }: { children: React.ReactNode }) { return <View style={{ backgroundColor: colors.panel, borderRadius: radius.lg, padding: spacing.xl }}><Text style={{ color: colors.text }}>{children}</Text></View>; }
+apps/client/features/exam/components/MultipleChoiceOptions.tsx:1:import React from 'react'; import { Pressable, Text, View } from 'react-native'; import { colors, radius, spacing } from '@ui/theme';
+apps/client/features/exam/components/MultipleChoiceOptions.tsx:2:export default function MultipleChoiceOptions({ choices, value, onChange }: { choices: string[]; value?: string; onChange: (v: string) => void }) { return <View style={{ gap: spacing.sm }}>{choices.map((choice) => <Pressable key={choice} onPress={() => onChange(choice)} style={{ padding: spacing.md, borderRadius: radius.md, borderWidth: 1, borderColor: value===choice ? colors.primary : colors.border }}><Text style={{ color: colors.text }}>{choice}</Text></Pressable>)}</View>; }
+apps/client/features/exam/components/PrimaryButton.tsx:1:import React from 'react'; import { Pressable, Text } from 'react-native'; import { colors, radius, spacing, typography } from '@ui/theme';
+apps/client/features/exam/components/PrimaryButton.tsx:2:export default function PrimaryButton({ label, onPress }: { label: string; onPress: () => void }) { return <Pressable onPress={onPress} style={{ backgroundColor: colors.primary, padding: spacing.md, borderRadius: radius.md }}><Text style={{ color: '#081018', textAlign: 'center', ...typography.h3 }}>{label}</Text></Pressable>; }
+apps/client/features/exam/components/PageContainer.tsx:1:import React from 'react'; import { ScrollView } from 'react-native'; import { colors, spacing } from '@ui/theme';
+apps/client/features/exam/components/PageContainer.tsx:2:export default function PageContainer({ children }: { children: React.ReactNode }) { return <ScrollView contentContainerStyle={{ padding: spacing.xl, gap: spacing.lg, backgroundColor: colors.bg }}>{children}</ScrollView>; }
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:59:  backButtonText: { fontSize: 13, fontWeight: '700', color: '#2453D4' },
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:61:  title: { fontSize: 28, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:62:  subtitle: { fontSize: 14, lineHeight: 21, color: '#4B5563' },
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:63:  error: { fontSize: 13, color: '#B42318' },
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:65:  metric: { fontSize: 14, fontWeight: '700', color: '#2453D4' },
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:67:  cardTitle: { fontSize: 16, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:68:  cardBody: { fontSize: 14, lineHeight: 21, color: '#4B5563' },
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:69:  cardMeta: { fontSize: 12, fontWeight: '700', color: '#2453D4' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:973:  backButtonText: { fontSize: 13, fontWeight: '700', color: '#2453D4' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:979:  title: { fontSize: 28, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:980:  subtitle: { fontSize: 14, lineHeight: 21, color: '#4B5563' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:982:  infoTitle: { fontSize: 15, fontWeight: '800', color: '#111827', marginBottom: 4 },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:984:  sectionNumber: { fontSize: 13, fontWeight: '800', color: '#2453D4', width: 20 },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:985:  sectionName: { fontSize: 14, fontWeight: '700', color: '#111827' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:986:  sectionDur: { fontSize: 12, color: '#6B7280' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:988:  totalText: { fontSize: 12, color: '#6B7280', textAlign: 'center' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:990:  primaryButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '800' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:992:  sectionLabel: { fontSize: 11, fontWeight: '800', color: '#2453D4', textTransform: 'uppercase', letterSpacing: 0.8 },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:993:  sectionTitle: { fontSize: 20, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:994:  sectionDuration: { fontSize: 12, color: '#6B7280' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:995:  instruction: { fontSize: 14, lineHeight: 21, color: '#4B5563', fontStyle: 'italic' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:998:  passageLabel: { fontSize: 10, fontWeight: '800', color: '#2453D4', textTransform: 'uppercase', letterSpacing: 0.8 },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:999:  passageText: { fontSize: 14, lineHeight: 22, color: '#1E2D3D' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1000:  questionText: { fontSize: 15, lineHeight: 23, color: '#111827', fontWeight: '600' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1003:  playButtonText: { color: '#FFFFFF', fontSize: 13, fontWeight: '700' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1005:  audioTranscriptLabel: { fontSize: 11, fontWeight: '800', color: '#2453D4', textTransform: 'uppercase' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1006:  audioTranscriptText: { fontSize: 13, lineHeight: 20, color: '#374151', fontStyle: 'italic' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1012:  optionText: { fontSize: 14, color: '#111827' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1013:  optionTextBold: { fontWeight: '700' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1016:  checkButtonText: { fontSize: 13, fontWeight: '700', color: '#FFFFFF' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1020:  feedbackText: { fontSize: 14, fontWeight: '700', color: '#111827' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1021:  writingInput: { borderWidth: 1, borderColor: '#D8E3F2', borderRadius: 12, padding: 12, minHeight: 160, color: '#111827', fontSize: 15, lineHeight: 22, backgroundColor: '#FAFCFF' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1022:  wordCount: { fontSize: 11, color: '#9CA3AF', textAlign: 'right' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1024:  speakingHintText: { fontSize: 13, lineHeight: 20, color: '#4B5573' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1038:    fontSize: 13,
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1039:    fontWeight: '800',
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1045:    fontSize: 13,
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1049:  speakingPhaseLabel: { fontSize: 15, fontWeight: '600', color: '#374151' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1051:  speakingTimerHint: { fontSize: 12, color: '#6B7280' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1054:  recLabel: { fontSize: 15, fontWeight: '700', color: '#EF4444' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1057:  stopRecordingButtonText: { color: '#FFFFFF', fontWeight: '700', fontSize: 14 },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1058:  speakingMinHint: { fontSize: 12, color: '#9CA3AF', textAlign: 'center' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1059:  speakingDoneText: { fontSize: 16, fontWeight: '700', color: '#10B981' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1060:  speakingDoneSubtext: { fontSize: 13, color: '#6B7280' },
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:1063:  nextButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '800' },
+apps/client/features/exam/screens/CertificateScreen.tsx:45:  backButtonText: { fontSize: 13, fontWeight: '700', color: '#2453D4' },
+apps/client/features/exam/screens/CertificateScreen.tsx:47:  title: { fontSize: 28, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/CertificateScreen.tsx:49:  levelValue: { fontSize: 42, fontWeight: '900', color: '#2453D4' },
+apps/client/features/exam/screens/CertificateScreen.tsx:50:  metaText: { fontSize: 13, color: '#6B7280' },
+apps/client/features/exam/screens/CertificateScreen.tsx:52:  cardTitle: { fontSize: 16, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/CertificateScreen.tsx:53:  cardBody: { fontSize: 14, lineHeight: 21, color: '#4B5563' },
+apps/client/features/exam/screens/ResultsOverviewScreen.tsx:92:  backButtonText: { fontSize: 13, fontWeight: '700', color: '#2453D4' },
+apps/client/features/exam/screens/ResultsOverviewScreen.tsx:94:  title: { fontSize: 28, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/ResultsOverviewScreen.tsx:96:  cardTitle: { fontSize: 16, fontWeight: '800', color: '#111827' },
+apps/client/features/exam/screens/ResultsOverviewScreen.tsx:97:  cardBody: { fontSize: 14, lineHeight: 21, color: '#4B5563' },
+apps/client/features/exam/screens/ResultsOverviewScreen.tsx:99:  exportButtonText: { color: '#FFFFFF', fontSize: 14, fontWeight: '800' },
+apps/client/features/exam/screens/ExamScreenScaffold.tsx:7:import { colors, spacing, typography } from '@ui/theme';
+apps/client/features/exam/screens/ExamScreenScaffold.tsx:20:          {children ?? <Text style={{ color: colors.text, ...typography.body }}>Tämä näyttö on valmis liitettäväksi nykyiseen kokeen ohjaukseen.</Text>}
+apps/client/features/exam/screens/ExamScreenScaffold.tsx:31:  backButtonText: { fontSize: 13, fontWeight: '700', color: '#2453D4' },
+apps/client/features/exam/theme/tokens.ts:1:import { colors, radius, spacing, typography } from '@ui/theme';
+apps/client/features/exam/theme/tokens.ts:2:export const examTokens = { colors, radius, spacing, typography };
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:6:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:12:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:13:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:28:      themeMode={themeMode}
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:51:      themeMode={themeMode}
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:61:          themeMode={themeMode}
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:66:        <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:67:          <MetricRow label="Target level" value={summary.targetLevel} themeMode={themeMode} />
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:68:          <MetricRow label="Weekly focus" value={summary.weeklyFocus} themeMode={themeMode} />
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:69:          <Text style={[styles.text, { color: palette.textMuted }]}>{summary.nextBestAction}</Text>
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:74:        <Card key={milestone.id} themeMode={themeMode} title={milestone.title} body={milestone.week} meta={milestone.status} />
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:6:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:12:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:13:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:28:      themeMode={themeMode}
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:60:      themeMode={themeMode}
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:70:          themeMode={themeMode}
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:75:        <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:76:          <MetricRow label="Calibration score" value={`${summary.calibrationScore}%`} themeMode={themeMode} />
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:77:          <MetricRow label="Overconfidence" value={`${summary.overconfidenceRate}%`} themeMode={themeMode} />
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:78:          <MetricRow label="Underconfidence" value={`${summary.underconfidenceRate}%`} themeMode={themeMode} />
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:79:          <Text style={[styles.tip, { color: palette.text }]}>{summary.nextAction}</Text>
+apps/client/features/learning/screens/ConfidenceTrackerScreen.tsx:86:          themeMode={themeMode}
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:6:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:13:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:14:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:21:      themeMode={themeMode}
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:66:      themeMode={themeMode}
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:82:          themeMode={themeMode}
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:87:        <View style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:88:          <MetricRow label="Due now" value={summary.dueNow} themeMode={themeMode} />
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:89:          <MetricRow label="Protected items" value={summary.protectedItems} themeMode={themeMode} />
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:90:          <Text style={[styles.text, { color: palette.textMuted }]}>{summary.nextAction}</Text>
+apps/client/features/learning/screens/RevisionVaultScreen.tsx:95:        <Card key={bucket.label} themeMode={themeMode} title={bucket.label} body={bucket.focus} meta={`${bucket.count} items`} />
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:6:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:13:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:14:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:15:  const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:25:      themeMode={themeMode}
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:43:      themeMode={themeMode}
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:53:          themeMode={themeMode}
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:58:        <View key={scenario.id} style={[styles.panel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:59:          <Card themeMode={themeMode} title={scenario.title} body={scenario.prompt} meta={`${scenario.profession} • ${scenario.urgency} urgency`} />
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:64:            placeholderTextColor={palette.textSoft}
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:66:            style={[styles.input, { borderColor: palette.border, backgroundColor: palette.surfaceMuted, color: palette.text }]}
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:68:          <Text style={[styles.hint, { color: palette.textMuted }]}>Best-action hint: {scenario.bestActionHint}</Text>
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:70:            <Pressable accessibilityRole="button" style={[styles.secondaryButton, { borderColor: palette.border }]}>
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:71:              <Text style={[styles.secondaryButtonLabel, { color: palette.text }]}>Save draft</Text>
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:76:              style={[styles.primaryButton, { backgroundColor: palette.primary }]}
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:119:    fontWeight: '700',
+apps/client/features/learning/screens/WorkplaceIncidentLabScreen.tsx:129:    fontWeight: '800',
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:25:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:26:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:28:  const bg      = palette.background;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:29:  const surface = palette.surface;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:30:  const raised  = palette.surfaceMuted;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:31:  const border  = palette.border;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:32:  const text    = palette.text;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:33:  const muted   = palette.textMuted;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:34:  const soft    = palette.textSoft;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:35:  const primary = palette.primary;
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:196:  backBtnText: { fontSize: 13, fontWeight: '700' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:199:  eyebrow: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.7 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:200:  pageTitle: { fontSize: 26, fontWeight: '700', letterSpacing: -0.3 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:201:  pageSub: { fontSize: 13, lineHeight: 19 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:204:  statVal: { fontSize: 22, fontWeight: '700' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:205:  statLabel: { fontSize: 11 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:207:  formTitle: { fontSize: 16, fontWeight: '700' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:209:  fieldLabel: { fontSize: 12, fontWeight: '600' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:210:  input: { minHeight: 46, borderRadius: 12, borderWidth: 1, paddingHorizontal: 13, fontSize: 14 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:212:  saveBtnText: { color: '#FFFFFF', fontSize: 14, fontWeight: '700' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:213:  errorText: { color: '#FF6B6B', fontSize: 13 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:214:  loadingText: { fontSize: 13 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:216:  listHeader: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.6 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:219:  phraseText: { flex: 1, fontSize: 15, fontWeight: '700' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:221:  strengthText: { fontSize: 11, fontWeight: '700' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:222:  phraseTranslation: { fontSize: 13, lineHeight: 18 },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:223:  phraseContext: { fontSize: 12, fontStyle: 'italic' },
+apps/client/features/learning/screens/PersonalPhraseBankScreen.tsx:224:  phraseMeta: { fontSize: 11 },
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:26:import { spacing } from '@ui/theme';
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:27:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:33:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:34:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:35:  const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:64:    <SafeAreaView style={[styles.safe, { backgroundColor: palette.background }]} edges={['top', 'bottom']}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:74:            <Text style={[styles.backText, { color: palette.textMuted }]}>← Back</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:81:            <Text style={[styles.eyebrow, { color: palette.primary }]}>FLOENTLY</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:82:            <View style={[styles.eyebrowDot, { backgroundColor: palette.accent }]} />
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:83:            <Text style={[styles.eyebrowMeta, { color: palette.textMuted }]}>For organizations</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:88:            <Text style={[styles.heroLine, { color: palette.text }]}>Get your incoming staff</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:89:            <Text style={[styles.heroLine, { color: palette.text }]}>and residents ready</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:90:            <Text style={[styles.heroLine, { color: palette.accent }]}>to work in Finnish.</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:93:          <Text style={[styles.subhead, { color: palette.textMuted }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:102:              palette={palette}
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:114:              palette={palette}
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:127:          <View style={[styles.pilotBlock, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:128:            <Text style={[styles.pilotEyebrow, { color: palette.accent }]}>EARLY ACCESS · PILOT PARTNERS</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:129:            <Text style={[styles.pilotTitle, { color: palette.text }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:132:            <Text style={[styles.pilotBody, { color: palette.textMuted }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:139:              <PilotBullet palette={palette} text="Direct setup with our team" />
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:140:              <PilotBullet palette={palette} text="Negotiated pilot pricing" />
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:141:              <PilotBullet palette={palette} text="Feedback shapes what we build next" />
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:152:                  backgroundColor: pressed ? palette.primaryPressed : palette.primary,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:162:            <Text style={[styles.ctaSubtext, { color: palette.textMuted }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:168:          <View style={[styles.notYetBlock, { borderColor: palette.border }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:169:            <Text style={[styles.notYetTitle, { color: palette.textMuted }]}>What's not yet in scope</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:170:            <Text style={[styles.notYetBody, { color: palette.textSoft }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:183:            <Text style={[styles.indivLinkText, { color: palette.textMuted }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:185:              <Text style={[styles.indivLinkStrong, { color: palette.primary }]}>Start here →</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:201:  palette: ReturnType<typeof getFloentlyPalette>;
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:204:function AudienceCard({ eyebrow, title, body, points, palette }: AudienceCardProps) {
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:206:    <View style={[styles.audienceCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:207:      <Text style={[styles.audienceEyebrow, { color: palette.primary }]}>{eyebrow}</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:208:      <Text style={[styles.audienceTitle, { color: palette.text }]}>{title}</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:209:      <Text style={[styles.audienceBody, { color: palette.textMuted }]}>{body}</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:213:            <View style={[styles.audiencePointDot, { backgroundColor: palette.accent }]} />
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:214:            <Text style={[styles.audiencePointText, { color: palette.text }]}>{p}</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:222:function PilotBullet({ text, palette }: { text: string; palette: ReturnType<typeof getFloentlyPalette> }) {
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:225:      <Text style={[styles.pilotBulletDot, { color: palette.accent }]}>✓</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:226:      <Text style={[styles.pilotBulletText, { color: palette.text }]}>{text}</Text>
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:247:    fontSize: 13,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:248:    fontWeight: '600',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:265:    fontSize: 11,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:266:    fontWeight: '800',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:275:    fontSize: 11,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:276:    fontWeight: '600',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:284:    fontSize: 30,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:285:    fontWeight: '700',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:291:    fontSize: 15,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:294:    fontWeight: '400',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:309:    fontSize: 11,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:310:    fontWeight: '800',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:314:    fontSize: 18,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:315:    fontWeight: '700',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:320:    fontSize: 14,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:340:    fontSize: 13,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:352:    fontSize: 11,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:353:    fontWeight: '800',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:357:    fontSize: 18,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:358:    fontWeight: '700',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:363:    fontSize: 14,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:376:    fontSize: 14,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:377:    fontWeight: '900',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:382:    fontSize: 13,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:383:    fontWeight: '600',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:398:    fontSize: 16,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:399:    fontWeight: '800',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:404:    fontSize: 12,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:405:    fontWeight: '500',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:415:    fontSize: 11,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:416:    fontWeight: '800',
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:421:    fontSize: 12,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:431:    fontSize: 13,
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:434:    fontWeight: '700',
+apps/client/features/billing/screens/SubscriptionScreen.tsx:4:import { spacing, typography } from '@ui/theme';
+apps/client/features/billing/screens/SubscriptionScreen.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/billing/screens/SubscriptionScreen.tsx:34:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/billing/screens/SubscriptionScreen.tsx:35:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/billing/screens/SubscriptionScreen.tsx:36:  const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+apps/client/features/billing/screens/SubscriptionScreen.tsx:93:      contentContainerStyle={{ padding: spacing.xl, gap: spacing.lg, backgroundColor: palette.background, paddingBottom: spacing.xxxl }}
+apps/client/features/billing/screens/SubscriptionScreen.tsx:94:      style={{ backgroundColor: palette.background }}
+apps/client/features/billing/screens/SubscriptionScreen.tsx:97:        <Text style={{ color: palette.primary, fontWeight: '800', letterSpacing: 0.8, fontSize: 11 }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:100:        <Text style={{ color: palette.text, ...typography.h1 }}>Pick the plan that fits your path</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:101:        <Text style={{ color: palette.textMuted, fontSize: 15, lineHeight: 22 }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:108:        <View style={{ padding: spacing.md, borderRadius: 12, backgroundColor: palette.surface, borderWidth: 1, borderColor: palette.border }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:109:          <Text style={{ color: palette.textMuted, fontSize: 13 }}>Current plan</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:110:          <Text style={{ color: palette.text, fontWeight: '700', marginTop: 2 }}>{tier}</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:115:      <View style={{ flexDirection: 'row', borderRadius: 999, backgroundColor: palette.surface, padding: 4, borderWidth: 1, borderColor: palette.border }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:126:                backgroundColor: active ? palette.primary : 'transparent',
+apps/client/features/billing/screens/SubscriptionScreen.tsx:130:              <Text style={{ color: active ? textOnPrimary : palette.textMuted, fontWeight: '700', fontSize: 14 }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:149:              borderColor: isRecommended ? palette.primary : palette.border,
+apps/client/features/billing/screens/SubscriptionScreen.tsx:152:              backgroundColor: isRecommended ? palette.primarySurface : 'transparent',
+apps/client/features/billing/screens/SubscriptionScreen.tsx:161:                  backgroundColor: palette.primary,
+apps/client/features/billing/screens/SubscriptionScreen.tsx:167:                <Text style={{ color: textOnPrimary, fontSize: 10, fontWeight: '800', letterSpacing: 0.6 }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:172:            <Text style={{ color: palette.text, fontWeight: '700', fontSize: 17 }}>{plan.title}</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:173:            <Text style={{ color: palette.textMuted, fontSize: 13, lineHeight: 20 }}>{plan.description}</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:174:            <Text style={{ color: palette.primary, fontWeight: '700', fontSize: 16, marginTop: spacing.xs }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:181:                backgroundColor: isRecommended ? palette.primary : 'transparent',
+apps/client/features/billing/screens/SubscriptionScreen.tsx:183:                borderColor: palette.primary,
+apps/client/features/billing/screens/SubscriptionScreen.tsx:191:                  color: isRecommended ? textOnPrimary : palette.primary,
+apps/client/features/billing/screens/SubscriptionScreen.tsx:192:                  fontWeight: '800',
+apps/client/features/billing/screens/SubscriptionScreen.tsx:193:                  fontSize: 15,
+apps/client/features/billing/screens/SubscriptionScreen.tsx:204:      <View style={{ padding: spacing.lg, borderRadius: 16, borderWidth: 1, borderColor: palette.border, backgroundColor: palette.surface, gap: spacing.sm }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:205:        <Text style={{ color: palette.text, fontWeight: '700', fontSize: 15 }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:210:            <Text style={{ color: palette.accent, fontWeight: '800', marginTop: 1 }}>✓</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:211:            <Text style={{ color: palette.textMuted, flex: 1, fontSize: 13, lineHeight: 19 }}>{item}</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:215:        <Text style={{ color: palette.text, fontWeight: '700', fontSize: 15, marginTop: spacing.md }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:220:            <Text style={{ color: palette.primary, fontWeight: '800', marginTop: 1 }}>+</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:221:            <Text style={{ color: palette.textMuted, flex: 1, fontSize: 13, lineHeight: 19 }}>{item}</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:226:      <Text style={{ color: palette.textMuted, fontSize: 12, textAlign: 'center', lineHeight: 18 }}>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:239:        <Text style={{ color: palette.textMuted, fontSize: 12, textAlign: 'center', textDecorationLine: 'underline' }}>
+apps/client/features/shared/EmptyState.tsx:14:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+apps/client/features/shared/EmptyState.tsx:28:  themeMode?: FloentlyThemeMode;
+apps/client/features/shared/EmptyState.tsx:31:export function EmptyState({ title, description, actionLabel, onAction, icon, themeMode = 'dark' }: EmptyStateProps) {
+apps/client/features/shared/EmptyState.tsx:32:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/shared/EmptyState.tsx:34:  const surface = palette.surface;
+apps/client/features/shared/EmptyState.tsx:35:  const raised  = palette.surfaceMuted;
+apps/client/features/shared/EmptyState.tsx:36:  const border  = palette.border;
+apps/client/features/shared/EmptyState.tsx:37:  const text    = palette.text;
+apps/client/features/shared/EmptyState.tsx:38:  const muted   = palette.textMuted;
+apps/client/features/shared/EmptyState.tsx:39:  const primary = palette.primary;
+apps/client/features/shared/EmptyState.tsx:40:  const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+apps/client/features/shared/EmptyState.tsx:87:    fontSize: 28,
+apps/client/features/shared/EmptyState.tsx:90:    fontSize: 18,
+apps/client/features/shared/EmptyState.tsx:91:    fontWeight: '700',
+apps/client/features/shared/EmptyState.tsx:95:    fontSize: 14,
+apps/client/features/shared/EmptyState.tsx:110:    fontSize: 15,
+apps/client/features/shared/EmptyState.tsx:111:    fontWeight: '800',
+apps/client/features/shared/FeatureScaffold.tsx:8: * hexes. Both light and dark modes supported — parent passes `themeMode` or lets
+apps/client/features/shared/FeatureScaffold.tsx:15:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+apps/client/features/shared/FeatureScaffold.tsx:24:  themeMode?: FloentlyThemeMode;
+apps/client/features/shared/FeatureScaffold.tsx:37:  themeMode = 'dark',
+apps/client/features/shared/FeatureScaffold.tsx:41:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/shared/FeatureScaffold.tsx:43:  const bg      = palette.background;
+apps/client/features/shared/FeatureScaffold.tsx:44:  const surface = palette.surface;
+apps/client/features/shared/FeatureScaffold.tsx:45:  const border  = palette.border;
+apps/client/features/shared/FeatureScaffold.tsx:46:  const text    = palette.text;
+apps/client/features/shared/FeatureScaffold.tsx:47:  const muted   = palette.textMuted;
+apps/client/features/shared/FeatureScaffold.tsx:48:  const soft    = palette.textSoft;
+apps/client/features/shared/FeatureScaffold.tsx:49:  const primary = palette.primary;
+apps/client/features/shared/FeatureScaffold.tsx:50:  const raised  = palette.surfaceMuted;
+apps/client/features/shared/FeatureScaffold.tsx:89:            <View style={[styles.errorRow, { backgroundColor: palette.danger + '1A', borderColor: palette.danger }]}>
+apps/client/features/shared/FeatureScaffold.tsx:90:              <Text style={[styles.errorText, { color: palette.danger }]}>{error}</Text>
+apps/client/features/shared/FeatureScaffold.tsx:112:  themeMode?: FloentlyThemeMode;
+apps/client/features/shared/FeatureScaffold.tsx:115:export function Card({ title, body, meta, accentColor, themeMode = 'dark' }: CardProps) {
+apps/client/features/shared/FeatureScaffold.tsx:116:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/shared/FeatureScaffold.tsx:117:  const surface = palette.surface;
+apps/client/features/shared/FeatureScaffold.tsx:118:  const border  = palette.border;
+apps/client/features/shared/FeatureScaffold.tsx:119:  const text    = palette.text;
+apps/client/features/shared/FeatureScaffold.tsx:120:  const muted   = palette.textMuted;
+apps/client/features/shared/FeatureScaffold.tsx:121:  const primary = palette.primary;
+apps/client/features/shared/FeatureScaffold.tsx:139:  themeMode?: FloentlyThemeMode;
+apps/client/features/shared/FeatureScaffold.tsx:142:export function MetricRow({ label, value, themeMode = 'dark' }: MetricRowProps) {
+apps/client/features/shared/FeatureScaffold.tsx:143:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/shared/FeatureScaffold.tsx:144:  const text  = palette.text;
+apps/client/features/shared/FeatureScaffold.tsx:145:  const muted = palette.textMuted;
+apps/client/features/shared/FeatureScaffold.tsx:162:  /** Optional sublabel shown below the label in a smaller muted font. Useful for
+apps/client/features/shared/FeatureScaffold.tsx:173:  themeMode?: FloentlyThemeMode;
+apps/client/features/shared/FeatureScaffold.tsx:183:export function ActionBar({ buttons, themeMode = 'dark' }: ActionBarProps) {
+apps/client/features/shared/FeatureScaffold.tsx:184:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/shared/FeatureScaffold.tsx:185:  const primary = palette.primary;
+apps/client/features/shared/FeatureScaffold.tsx:186:  const border  = palette.border;
+apps/client/features/shared/FeatureScaffold.tsx:187:  const text    = palette.text;
+apps/client/features/shared/FeatureScaffold.tsx:188:  const muted   = palette.textMuted;
+apps/client/features/shared/FeatureScaffold.tsx:192:  const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+apps/client/features/shared/FeatureScaffold.tsx:193:  const textOnPrimaryMuted = themeMode === 'dark' ? palette.background + 'B3' : 'rgba(255,255,255,0.75)';
+apps/client/features/shared/FeatureScaffold.tsx:254:  backBtnText: { fontSize: 13, fontWeight: '700' },
+apps/client/features/shared/FeatureScaffold.tsx:264:  headerEyebrow: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.7 },
+apps/client/features/shared/FeatureScaffold.tsx:265:  headerTitle: { fontSize: 26, fontWeight: '700', letterSpacing: -0.3 },
+apps/client/features/shared/FeatureScaffold.tsx:266:  headerSub: { fontSize: 14, lineHeight: 21 },
+apps/client/features/shared/FeatureScaffold.tsx:268:  refreshBtnText: { fontSize: 12, fontWeight: '700' },
+apps/client/features/shared/FeatureScaffold.tsx:269:  stateText: { fontSize: 13 },
+apps/client/features/shared/FeatureScaffold.tsx:271:  errorText: { fontSize: 13 },
+apps/client/features/shared/FeatureScaffold.tsx:293:    fontSize: 14,
+apps/client/features/shared/FeatureScaffold.tsx:294:    fontWeight: '800',
+apps/client/features/shared/FeatureScaffold.tsx:298:    fontSize: 11,
+apps/client/features/shared/FeatureScaffold.tsx:299:    fontWeight: '600',
+apps/client/features/shared/FeatureScaffold.tsx:309:  cardTitle: { fontSize: 15, fontWeight: '700' },
+apps/client/features/shared/FeatureScaffold.tsx:310:  cardBody: { fontSize: 13, lineHeight: 20 },
+apps/client/features/shared/FeatureScaffold.tsx:311:  cardMeta: { fontSize: 12, fontWeight: '700' },
+apps/client/features/shared/FeatureScaffold.tsx:314:  metricLabel: { fontSize: 13 },
+apps/client/features/shared/FeatureScaffold.tsx:315:  metricValue: { fontSize: 16, fontWeight: '700' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:43:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:126:      themeMode={themeMode}
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:136:          themeMode={themeMode}
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:159:            themeMode={themeMode}
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:168:          themeMode={themeMode}
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:177:          themeMode={themeMode}
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:186:          themeMode={themeMode}
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:268:  levelText: { color: '#D6E2FF', fontSize: 12, fontWeight: '800' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:273:  focusText: { color: '#475569', fontSize: 12, fontWeight: '700' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:277:  infoTitle: { fontSize: 15, fontWeight: '800', color: '#111827' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:278:  infoText: { fontSize: 13, lineHeight: 20, color: '#4B5563' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:280:  metric: { fontSize: 12, fontWeight: '700', color: '#2453D4', backgroundColor: '#EEF4FF', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999 },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:282:  practiceEyebrow: { fontSize: 11, fontWeight: '800', color: '#2453D4', textTransform: 'uppercase' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:283:  practiceTitle: { fontSize: 18, fontWeight: '800', color: '#111827' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:284:  practicePrompt: { fontSize: 14, lineHeight: 22, color: '#111827' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:285:  practiceGuidance: { fontSize: 13, lineHeight: 20, color: '#4B5563' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:286:  debugText: { fontSize: 11, color: '#6B7280' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:290:  secondaryButtonText: { color: '#334155', fontSize: 12, fontWeight: '700' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:292:  primaryButtonText: { color: '#FFFFFF', fontSize: 12, fontWeight: '800' },
+apps/client/features/yki-practice/screens/YkiPracticeScreen.tsx:293:  errorText: { color: '#C03737', fontSize: 12, marginTop: 8 },
+apps/client/features/cards/components/CardBanksPanel.tsx:3:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/cards/components/CardBanksPanel.tsx:44:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/cards/components/CardBanksPanel.tsx:45:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/cards/components/CardBanksPanel.tsx:46:  const isDark = themeMode === 'dark';
+apps/client/features/cards/components/CardBanksPanel.tsx:51:        <View style={[styles.sheet, isDark && { backgroundColor: palette.surfaceRaised }]}>
+apps/client/features/cards/components/CardBanksPanel.tsx:54:              <Text style={[styles.title, isDark && { color: palette.text }]}>Review banks</Text>
+apps/client/features/cards/components/CardBanksPanel.tsx:55:              <Text style={[styles.subtitle, isDark && { color: palette.textMuted }]}>Use colour-coded recall to revisit difficult and easy items.</Text>
+apps/client/features/cards/components/CardBanksPanel.tsx:57:            <Pressable onPress={onClose} style={[styles.closeButton, isDark && { backgroundColor: palette.primarySurface, borderColor: palette.border }]}>
+apps/client/features/cards/components/CardBanksPanel.tsx:58:              <Text style={[styles.closeLabel, isDark && { color: palette.primary }]}>Close</Text>
+apps/client/features/cards/components/CardBanksPanel.tsx:62:            <Section title="Difficult" subtitle="Repeatedly wrong or still unstable." items={banks.difficult} textColor={isDark ? palette.text : undefined} mutedColor={isDark ? palette.textMuted : undefined} />
+apps/client/features/cards/components/CardBanksPanel.tsx:63:            <Section title="Learned" subtitle="Repeatedly correct and ready for lighter review." items={banks.learned} textColor={isDark ? palette.text : undefined} mutedColor={isDark ? palette.textMuted : undefined} />
+apps/client/features/cards/components/CardBanksPanel.tsx:64:            <Section title="Learning" subtitle="Seen and improving, but not yet stable." items={banks.learning} textColor={isDark ? palette.text : undefined} mutedColor={isDark ? palette.textMuted : undefined} />
+apps/client/features/cards/components/CardBanksPanel.tsx:84:    shadowColor: '#123056',
+apps/client/features/cards/components/CardBanksPanel.tsx:85:    shadowOpacity: 0.12,
+apps/client/features/cards/components/CardBanksPanel.tsx:86:    shadowRadius: 18,
+apps/client/features/cards/components/CardBanksPanel.tsx:87:    shadowOffset: { width: 0, height: 10 },
+apps/client/features/cards/components/CardBanksPanel.tsx:98:    fontSize: 22,
+apps/client/features/cards/components/CardBanksPanel.tsx:99:    fontWeight: '800',
+apps/client/features/cards/components/CardBanksPanel.tsx:104:    fontSize: 13,
+apps/client/features/cards/components/CardBanksPanel.tsx:119:    fontSize: 12,
+apps/client/features/cards/components/CardBanksPanel.tsx:120:    fontWeight: '700',
+apps/client/features/cards/components/CardBanksPanel.tsx:139:    fontSize: 17,
+apps/client/features/cards/components/CardBanksPanel.tsx:140:    fontWeight: '800',
+apps/client/features/cards/components/CardBanksPanel.tsx:144:    fontSize: 12,
+apps/client/features/cards/components/CardBanksPanel.tsx:165:    fontSize: 15,
+apps/client/features/cards/components/CardBanksPanel.tsx:166:    fontWeight: '700',
+apps/client/features/cards/components/CardBanksPanel.tsx:170:    fontSize: 12,
+apps/client/features/cards/components/CardBanksPanel.tsx:174:    fontSize: 12,
+apps/client/features/cards/components/CardBanksPanel.tsx:175:    fontWeight: '700',
+apps/client/features/cards/components/CardBanksPanel.tsx:179:    fontSize: 13,
+apps/client/features/cards/components/CardPracticeSession.tsx:11:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/cards/components/CardPracticeSession.tsx:23:  shadow: 'rgba(20, 34, 84, 0.09)',
+apps/client/features/cards/components/CardPracticeSession.tsx:89:      if (length > 220) return { fontSize: 22, lineHeight: 30, maxLines: 8, minimumFontScale: 0.5 };
+apps/client/features/cards/components/CardPracticeSession.tsx:90:      if (length > 160) return { fontSize: 24, lineHeight: 32, maxLines: 7, minimumFontScale: 0.5 };
+apps/client/features/cards/components/CardPracticeSession.tsx:91:      if (length > 100) return { fontSize: 26, lineHeight: 34, maxLines: 6, minimumFontScale: 0.55 };
+apps/client/features/cards/components/CardPracticeSession.tsx:92:      if (length > 60)  return { fontSize: 30, lineHeight: 38, maxLines: 5, minimumFontScale: 0.6 };
+apps/client/features/cards/components/CardPracticeSession.tsx:93:      return { fontSize: 34, lineHeight: 42, maxLines: 4, minimumFontScale: 0.7 };
+apps/client/features/cards/components/CardPracticeSession.tsx:96:    if (length > 160) return { fontSize: 22, lineHeight: 30, maxLines: 6, minimumFontScale: 0.58 };
+apps/client/features/cards/components/CardPracticeSession.tsx:97:    if (length > 100) return { fontSize: 26, lineHeight: 34, maxLines: 5, minimumFontScale: 0.62 };
+apps/client/features/cards/components/CardPracticeSession.tsx:98:    if (length > 60) return { fontSize: 32, lineHeight: 40, maxLines: 4, minimumFontScale: 0.7 };
+apps/client/features/cards/components/CardPracticeSession.tsx:99:    return { fontSize: 40, lineHeight: 48, maxLines: 3, minimumFontScale: 0.8 };
+apps/client/features/cards/components/CardPracticeSession.tsx:106:      if (length > 220) return { fontSize: 15, lineHeight: 22, maxLines: 9, minimumFontScale: 0.55 };
+apps/client/features/cards/components/CardPracticeSession.tsx:107:      if (length > 140) return { fontSize: 16, lineHeight: 23, maxLines: 7, minimumFontScale: 0.6 };
+apps/client/features/cards/components/CardPracticeSession.tsx:108:      return { fontSize: 18, lineHeight: 24, maxLines: 6, minimumFontScale: 0.65 };
+apps/client/features/cards/components/CardPracticeSession.tsx:110:    if (length > 220) return { fontSize: 15, lineHeight: 22, maxLines: 7, minimumFontScale: 0.78 };
+apps/client/features/cards/components/CardPracticeSession.tsx:111:    if (length > 140) return { fontSize: 16, lineHeight: 23, maxLines: 6, minimumFontScale: 0.82 };
+apps/client/features/cards/components/CardPracticeSession.tsx:112:    return { fontSize: 18, lineHeight: 24, maxLines: 5, minimumFontScale: 0.88 };
+apps/client/features/cards/components/CardPracticeSession.tsx:115:    if (length > 110) return { fontSize: 13, lineHeight: 18, maxLines: 4, minimumFontScale: 0.86 };
+apps/client/features/cards/components/CardPracticeSession.tsx:116:    return { fontSize: 15, lineHeight: 20, maxLines: 3, minimumFontScale: 0.9 };
+apps/client/features/cards/components/CardPracticeSession.tsx:119:    if (length > 180) return { fontSize: 12, lineHeight: 17, maxLines: 5, minimumFontScale: 0.9 };
+apps/client/features/cards/components/CardPracticeSession.tsx:120:    return { fontSize: 13, lineHeight: 18, maxLines: 4, minimumFontScale: 0.9 };
+apps/client/features/cards/components/CardPracticeSession.tsx:122:  if (length > 220) return { fontSize: 12, lineHeight: 18, maxLines: 6, minimumFontScale: 0.9 };
+apps/client/features/cards/components/CardPracticeSession.tsx:123:  return { fontSize: 14, lineHeight: 20, maxLines: 5, minimumFontScale: 0.92 };
+apps/client/features/cards/components/CardPracticeSession.tsx:146:          fontSize: metrics.fontSize,
+apps/client/features/cards/components/CardPracticeSession.tsx:177:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/cards/components/CardPracticeSession.tsx:178:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/cards/components/CardPracticeSession.tsx:179:  const isDark = themeMode === 'dark';
+apps/client/features/cards/components/CardPracticeSession.tsx:233:    <View style={[styles.screen, { backgroundColor: isDark ? palette.background : COLORS.backgroundTop }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:244:        <Pressable onPress={recallBack} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:245:          <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>↺ Recall</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:247:        <Text style={[styles.headerTitle, { color: isDark ? palette.textSoft : '#5E789F' }]}>{header}</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:248:        <Pressable onPress={recallForward} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:249:          <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>Recall ↻</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:258:        <View style={[styles.cardOuter, isDark && { backgroundColor: palette.surfaceMuted, shadowColor: 'rgba(0,0,0,0.5)' }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:259:          <View style={[styles.cardInner, isDark && { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:270:                style={[styles.iconButton, styles.speakerIconButton, isDark && { backgroundColor: palette.surfaceRaised }]}
+apps/client/features/cards/components/CardPracticeSession.tsx:274:                <Text style={[styles.iconLabel, { color: isDark ? palette.primary : COLORS.primary }]}>🔊</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:285:                  isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border },
+apps/client/features/cards/components/CardPracticeSession.tsx:290:                <Text style={[styles.iconActionText, { color: isDark ? palette.textMuted : '#5B7DB1' }]}>Skip</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:304:                    {currentLabel ? <Text style={[styles.stateNote, isDark && { color: palette.textSoft }]}>{currentLabel}</Text> : null}
+apps/client/features/cards/components/CardPracticeSession.tsx:305:                    {showHint && visibleHint ? <View style={[styles.hintBubble, isDark && { backgroundColor: palette.surfaceMuted }]}><AdaptiveCardCopy text={visibleHint} variant="hint" color={isDark ? palette.textMuted : '#5A6F95'} /></View> : null}
+apps/client/features/cards/components/CardPracticeSession.tsx:309:                    {renderPrompt(displayedCard, isDark ? palette.text : undefined, isDark ? palette.textMuted : undefined, mode)}
+apps/client/features/cards/components/CardPracticeSession.tsx:315:                            <Pressable key={option.option_id} onPress={() => setAnswer(option.option_id)} style={[styles.optionButton, selected && styles.optionButtonSelected, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }, isDark && selected && { backgroundColor: palette.primarySurface, borderColor: palette.primary }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:316:                              <AdaptiveCardCopy text={option.text} variant="option" color={selected ? (isDark ? palette.primary : '#3158AC') : (isDark ? palette.text : COLORS.text)} />
+apps/client/features/cards/components/CardPracticeSession.tsx:326:                        placeholderTextColor={isDark ? palette.textSoft : '#8A9BB7'}
+apps/client/features/cards/components/CardPracticeSession.tsx:327:                        style={[styles.textInput, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border, color: palette.text }]}
+apps/client/features/cards/components/CardPracticeSession.tsx:344:            <View style={[styles.cardFooter, isDark && { borderTopColor: palette.border }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:345:              <Pressable onPress={() => { if (showHint) hideHint(); else void revealHint(); }} style={[styles.footerGhostButton, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:346:                <Text style={[styles.footerGhostText, isDark && { color: palette.textMuted }]}>{showHint ? 'Hide ?' : '?'}</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:359:                    isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border },
+apps/client/features/cards/components/CardPracticeSession.tsx:364:                  <Text style={[styles.skipText, styles.reverseButtonText, isDark && { color: palette.textMuted }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:375:        <View style={[styles.feedbackPanel, { borderColor: feedback.correct ? 'rgba(78,143,106,0.28)' : 'rgba(214,69,69,0.22)' }, isDark && { backgroundColor: palette.surfaceRaised }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:379:          <Text style={[styles.feedbackBody, isDark && { color: palette.text }]}>{feedback.explanation ?? `Correct answer: ${feedback.correctAnswer}`}</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:380:          {!feedback.correct ? <Text style={[styles.feedbackAnswer, isDark && { color: palette.textMuted }]}>Expected: {feedback.correctAnswer}</Text> : null}
+apps/client/features/cards/components/CardPracticeSession.tsx:381:          <Pressable onPress={() => void advance()} style={[styles.nextButton, isDark && { backgroundColor: palette.primarySurface }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:382:            <Text style={[styles.nextButtonText, isDark && { color: palette.primary }]}>{sessionCompleted ? 'Finish session' : 'Next card'}</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:392:          return <View key={index} style={[styles.dot, isDark && { backgroundColor: palette.border }, active && styles.dotActive, active && isDark && { backgroundColor: palette.primary }]} />;
+apps/client/features/cards/components/CardPracticeSession.tsx:397:        <Pressable onPress={() => setBanksVisible(true)} style={[styles.bankButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:398:          <Text style={[styles.bankButtonText, isDark && { color: palette.textMuted }]}>Review banks</Text>
+apps/client/features/cards/components/CardPracticeSession.tsx:402:          style={[styles.endSessionButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}
+apps/client/features/cards/components/CardPracticeSession.tsx:404:          <Text style={[styles.endSessionText, isDark && { color: palette.textMuted }]}>
+apps/client/features/cards/components/CardPracticeSession.tsx:479:    fontSize: 14,
+apps/client/features/cards/components/CardPracticeSession.tsx:480:    fontWeight: '600',
+apps/client/features/cards/components/CardPracticeSession.tsx:484:    fontSize: 26,
+apps/client/features/cards/components/CardPracticeSession.tsx:485:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:514:    shadowColor: '#274681',
+apps/client/features/cards/components/CardPracticeSession.tsx:515:    shadowOpacity: 0.12,
+apps/client/features/cards/components/CardPracticeSession.tsx:516:    shadowRadius: 24,
+apps/client/features/cards/components/CardPracticeSession.tsx:517:    shadowOffset: { width: 0, height: 12 },
+apps/client/features/cards/components/CardPracticeSession.tsx:539:    shadowColor: '#1E3D79',
+apps/client/features/cards/components/CardPracticeSession.tsx:540:    shadowOpacity: 0.1,
+apps/client/features/cards/components/CardPracticeSession.tsx:541:    shadowRadius: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:542:    shadowOffset: { width: 0, height: 6 },
+apps/client/features/cards/components/CardPracticeSession.tsx:553:    fontSize: 20,
+apps/client/features/cards/components/CardPracticeSession.tsx:565:    fontSize: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:566:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:576:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:583:    fontSize: 14,
+apps/client/features/cards/components/CardPracticeSession.tsx:605:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:635:    fontWeight: '600',
+apps/client/features/cards/components/CardPracticeSession.tsx:652:    fontSize: 16,
+apps/client/features/cards/components/CardPracticeSession.tsx:674:    fontSize: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:675:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:685:    shadowColor: '#1C3D89',
+apps/client/features/cards/components/CardPracticeSession.tsx:686:    shadowOpacity: 0.18,
+apps/client/features/cards/components/CardPracticeSession.tsx:687:    shadowRadius: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:688:    shadowOffset: { width: 0, height: 6 },
+apps/client/features/cards/components/CardPracticeSession.tsx:692:    fontSize: 16,
+apps/client/features/cards/components/CardPracticeSession.tsx:693:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:700:    shadowOpacity: 0,
+apps/client/features/cards/components/CardPracticeSession.tsx:705:    fontSize: 20,
+apps/client/features/cards/components/CardPracticeSession.tsx:719:    fontSize: 15,
+apps/client/features/cards/components/CardPracticeSession.tsx:720:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:732:    fontSize: 17,
+apps/client/features/cards/components/CardPracticeSession.tsx:733:    fontWeight: '800',
+apps/client/features/cards/components/CardPracticeSession.tsx:736:    fontSize: 14,
+apps/client/features/cards/components/CardPracticeSession.tsx:741:    fontSize: 13,
+apps/client/features/cards/components/CardPracticeSession.tsx:753:    fontSize: 13,
+apps/client/features/cards/components/CardPracticeSession.tsx:754:    fontWeight: '800',
+apps/client/features/cards/components/CardPracticeSession.tsx:758:    fontSize: 15,
+apps/client/features/cards/components/CardPracticeSession.tsx:762:    fontSize: 15,
+apps/client/features/cards/components/CardPracticeSession.tsx:774:    fontSize: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:775:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:780:    fontSize: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:815:    fontSize: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:816:    fontWeight: '700',
+apps/client/features/cards/components/CardPracticeSession.tsx:828:    shadowColor: '#274681',
+apps/client/features/cards/components/CardPracticeSession.tsx:829:    shadowOpacity: 0.08,
+apps/client/features/cards/components/CardPracticeSession.tsx:830:    shadowRadius: 12,
+apps/client/features/cards/components/CardPracticeSession.tsx:831:    shadowOffset: { width: 0, height: 6 },
+apps/client/features/cards/components/CardPracticeSession.tsx:835:    fontSize: 20,
+apps/client/features/cards/components/CardPracticeSession.tsx:836:    fontWeight: '600',
+apps/client/features/cards/components/CardModeTabs.tsx:2:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/cards/components/CardModeTabs.tsx:13:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/cards/components/CardModeTabs.tsx:14:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/cards/components/CardModeTabs.tsx:15:  const isDark = themeMode === 'dark';
+apps/client/features/cards/components/CardModeTabs.tsx:22:          <Pressable key={mode.value} onPress={() => onChange(mode.value)} style={[styles.pill, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }, active && styles.pillActive, active && isDark && { backgroundColor: palette.primarySurface, borderColor: palette.primary }]}>
+apps/client/features/cards/components/CardModeTabs.tsx:23:            <Text style={[styles.label, isDark && { color: palette.textMuted }, active && styles.labelActive, active && isDark && { color: palette.primary }]}>{mode.label}</Text>
+apps/client/features/cards/components/CardModeTabs.tsx:52:    fontSize: 12,
+apps/client/features/cards/components/CardModeTabs.tsx:53:    fontWeight: '700',
+apps/client/features/cards/screens/CardPracticeScreen.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/cards/screens/CardPracticeScreen.tsx:10:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/cards/screens/CardPracticeScreen.tsx:11:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/cards/screens/CardPracticeScreen.tsx:12:  const isDark = themeMode === 'dark';
+apps/client/features/cards/screens/CardPracticeScreen.tsx:15:    <SafeAreaView style={[styles.safeArea, { backgroundColor: isDark ? palette.background : '#F4F7FB' }]}>
+apps/client/features/cards/screens/CardPracticeScreen.tsx:16:      <View style={[styles.backBar, { backgroundColor: isDark ? palette.background : '#F4F7FB' }]}>
+apps/client/features/cards/screens/CardPracticeScreen.tsx:17:        <Pressable onPress={() => router.back()} style={[styles.backButton, isDark && { backgroundColor: palette.primarySurface }]}>
+apps/client/features/cards/screens/CardPracticeScreen.tsx:18:          <Text style={[styles.backButtonText, isDark && { color: palette.primary }]}>← Back</Text>
+apps/client/features/cards/screens/CardPracticeScreen.tsx:30:  backButtonText: { fontSize: 13, fontWeight: '700', color: '#2453D4' },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:3:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:40:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:41:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:42:  const isDark = themeMode === 'dark';
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:45:  const textColor = isDark ? '#F0F5FF' : palette.text;
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:46:  const mutedColor = isDark ? '#8EA3C3' : palette.textMuted;
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:47:  const softColor = isDark ? '#5C7299' : palette.textSoft;
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:48:  const borderColor = isDark ? '#1E2E47' : palette.border;
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:49:  const surfaceBg = isDark ? '#111B30' : palette.surface;
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:50:  const raisedBg = isDark ? '#16233E' : palette.surfaceMuted;
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:112:  backText: { fontSize: 13, fontWeight: '600' },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:116:  personaText: { fontSize: 12, fontWeight: '700' },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:118:  levelText: { fontSize: 11, fontWeight: '700' },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:119:  scenarioTitle: { fontSize: 20, fontWeight: '700', letterSpacing: -0.2 },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:120:  scenarioSub: { fontSize: 13, lineHeight: 18, marginTop: 2 },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:124:  progressLabel: { fontSize: 11, fontWeight: '600' },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:126:  grammarLabel: { fontSize: 11, fontWeight: '700', paddingTop: 1, minWidth: 72 },
+apps/client/features/speaking/components/RoleplayScenarioHeader.tsx:127:  grammarText: { flex: 1, fontSize: 12, lineHeight: 17 },
+apps/client/features/speaking/components/SessionCompletion.tsx:18: * Native Share API, and the existing palette.
+apps/client/features/speaking/components/SessionCompletion.tsx:42:  /** Theme-aware colors from the parent (dark mode is default for roleplay). */
+apps/client/features/speaking/components/SessionCompletion.tsx:43:  palette: {
+apps/client/features/speaking/components/SessionCompletion.tsx:51:     * Differs between modes: dark mode → palette.background (navy on lighter blue);
+apps/client/features/speaking/components/SessionCompletion.tsx:64:  palette,
+apps/client/features/speaking/components/SessionCompletion.tsx:131:        <View style={[styles.streakBanner, { borderColor: palette.border, backgroundColor: palette.surface }]}>
+apps/client/features/speaking/components/SessionCompletion.tsx:133:            <Text style={[styles.streakBig, { color: palette.primary }]}>{streakHeadline.big}</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:134:            <Text style={[styles.streakSub, { color: palette.muted }]}>{streakHeadline.sub}</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:137:            <View style={[styles.streakRecord, { borderColor: palette.border }]}>
+apps/client/features/speaking/components/SessionCompletion.tsx:138:              <Text style={[styles.streakRecordValue, { color: palette.text }]}>{streakResult.longestStreak}</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:139:              <Text style={[styles.streakRecordLabel, { color: palette.muted }]}>Best</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:150:          { backgroundColor: palette.primary, opacity: pressed ? 0.9 : 1 },
+apps/client/features/speaking/components/SessionCompletion.tsx:155:        <Text style={[styles.primaryLabel, { color: palette.textOnPrimary }]}>{primaryLabel}</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:156:        {primaryHint ? <Text style={[styles.primaryHint, { color: palette.textOnPrimary, opacity: 0.7 }]}>{primaryHint}</Text> : null}
+apps/client/features/speaking/components/SessionCompletion.tsx:165:            { borderColor: palette.border, opacity: pressed ? 0.85 : 1 },
+apps/client/features/speaking/components/SessionCompletion.tsx:170:          <Text style={[styles.secondaryLabel, { color: palette.text }]}>Share</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:177:            { borderColor: palette.border, opacity: pressed ? 0.85 : 1 },
+apps/client/features/speaking/components/SessionCompletion.tsx:182:          <Text style={[styles.secondaryLabel, { color: palette.text }]}>Replay</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:189:            { borderColor: palette.border, opacity: pressed ? 0.85 : 1 },
+apps/client/features/speaking/components/SessionCompletion.tsx:194:          <Text style={[styles.secondaryLabel, { color: palette.text }]}>Report</Text>
+apps/client/features/speaking/components/SessionCompletion.tsx:219:    fontSize: 22,
+apps/client/features/speaking/components/SessionCompletion.tsx:220:    fontWeight: '900',
+apps/client/features/speaking/components/SessionCompletion.tsx:224:    fontSize: 13,
+apps/client/features/speaking/components/SessionCompletion.tsx:225:    fontWeight: '600',
+apps/client/features/speaking/components/SessionCompletion.tsx:236:    fontSize: 18,
+apps/client/features/speaking/components/SessionCompletion.tsx:237:    fontWeight: '800',
+apps/client/features/speaking/components/SessionCompletion.tsx:240:    fontSize: 10,
+apps/client/features/speaking/components/SessionCompletion.tsx:241:    fontWeight: '700',
+apps/client/features/speaking/components/SessionCompletion.tsx:255:    fontSize: 16,
+apps/client/features/speaking/components/SessionCompletion.tsx:256:    fontWeight: '800',
+apps/client/features/speaking/components/SessionCompletion.tsx:260:    fontSize: 12,
+apps/client/features/speaking/components/SessionCompletion.tsx:261:    fontWeight: '600',
+apps/client/features/speaking/components/SessionCompletion.tsx:277:    fontSize: 13,
+apps/client/features/speaking/components/SessionCompletion.tsx:278:    fontWeight: '700',
+apps/client/features/speaking/components/WaveformMicRing.tsx:6: * ambient breath. Teal accent (`palette.accent`) throughout, matching the
+apps/client/features/speaking/components/WaveformMicRing.tsx:7: * healthcare-trusted accent from the unified Floently palette.
+apps/client/features/speaking/components/WaveformMicRing.tsx:19: *     themeMode="dark"
+apps/client/features/speaking/components/WaveformMicRing.tsx:41:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+apps/client/features/speaking/components/WaveformMicRing.tsx:51:  /** Override the accent color. Defaults to palette.accent (teal). */
+apps/client/features/speaking/components/WaveformMicRing.tsx:53:  themeMode?: FloentlyThemeMode;
+apps/client/features/speaking/components/WaveformMicRing.tsx:89:  themeMode = 'dark',
+apps/client/features/speaking/components/WaveformMicRing.tsx:95:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/speaking/components/WaveformMicRing.tsx:96:  const accent = accentColor ?? palette.accent;
+apps/client/features/speaking/components/WaveformMicRing.tsx:97:  const bgForButton = themeMode === 'dark' ? palette.background : palette.surface;
+apps/client/features/speaking/components/WaveformMicRing.tsx:297:              shadowColor: accent,
+apps/client/features/speaking/components/WaveformMicRing.tsx:349:    shadowOffset: { width: 0, height: 0 },
+apps/client/features/speaking/components/WaveformMicRing.tsx:350:    shadowOpacity: 0.5,
+apps/client/features/speaking/components/WaveformMicRing.tsx:351:    shadowRadius: 14,
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:3:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:14:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:15:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:16:  const isDark = themeMode === 'dark';
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:18:  const aiBubbleBg = isDark ? '#111B30' : palette.surfaceMuted;
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:19:  const aiBubbleBorder = isDark ? '#1E2E47' : palette.border;
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:20:  const aiTextColor = isDark ? '#E8F0FF' : palette.text;
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:21:  const aiSpeakerColor = isDark ? '#5C7299' : palette.textSoft;
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:22:  const systemBg = isDark ? '#0C1222' : palette.background;
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:23:  const systemBorder = isDark ? '#1E2E47' : palette.border;
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:24:  const systemText = isDark ? '#5C7299' : palette.textSoft;
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:95:  systemText: { fontSize: 12, lineHeight: 17, textAlign: 'center' },
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:103:  avatarText: { color: '#8EA3C3', fontSize: 12, fontWeight: '700' },
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:107:  speakerLabel: { fontSize: 11, fontWeight: '700', letterSpacing: 0.2 },
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:115:  bubbleText: { fontSize: 15, lineHeight: 22 },
+apps/client/features/speaking/components/RoleplayTranscriptList.tsx:118:  timeLabel: { fontSize: 10, color: '#5C7299', alignSelf: 'flex-end' },
+apps/client/features/speaking/components/RoleplayMicButton.tsx:115:  label: { fontSize: 12, fontWeight: '700', letterSpacing: 0.2 },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:3:import { colors, spacing, typography } from '@ui/theme';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:4:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:40:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:41:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:42:  const isLight = themeMode === 'light';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:62:  const bgColor = isLight ? palette.background : '#121B30';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:63:  const cardBg = isLight ? palette.surface : '#101A30';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:64:  const cardBorder = isLight ? palette.border : '#223252';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:65:  const textColor = isLight ? palette.text : '#F2F6FF';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:66:  const mutedColor = isLight ? palette.textMuted : '#A1B1CC';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:67:  const primaryColor = isLight ? palette.primary : '#2657F2';
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:73:          <Pressable onPress={onBack} style={[styles.iconButton, isLight && { backgroundColor: palette.primarySurface }]}><Text style={[styles.iconButtonText, isLight && { color: palette.primary }]}>←</Text></Pressable>
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:75:          <Pressable onPress={() => setPromptIndex((value) => value + 1)} style={[styles.iconButton, isLight && { backgroundColor: palette.primarySurface }]}><Text style={[styles.iconButtonText, isLight && { color: palette.primary }]}>↻</Text></Pressable>
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:79:          <View style={[styles.wavePanel, isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:85:          <Text style={[styles.timer, { color: isLight ? palette.text : '#F7FBFF' }]}>{Math.round(recorder.elapsedMs / 1000).toString().padStart(2, '0')}s</Text>
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:89:            <Pressable onPress={() => setSavedCount((value) => value + 1)} disabled={!transcript} style={[styles.saveButton, isLight && { backgroundColor: palette.primary }, !transcript && styles.disabledButton]}><Text style={[styles.saveText, isLight && { color: '#FFFFFF' }]}>Save</Text></Pressable>
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:109:  headerTitle: { color: '#F2F6FF', ...typography.h3 },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:111:  iconButtonText: { color: '#D6E2FF', fontSize: 16, fontWeight: '800' },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:115:  timer: { color: '#F7FBFF', fontSize: 36, fontWeight: '300' },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:118:  ghostText: { color: '#D35D5D', fontSize: 13, fontWeight: '700' },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:121:  saveText: { color: '#0E1628', fontSize: 14, fontWeight: '800' },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:123:  promptLabel: { color: '#90A4C8', fontSize: 12, fontWeight: '800', textTransform: 'uppercase' },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:124:  promptText: { color: '#F2F6FF', ...typography.body },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:125:  subtleText: { color: '#A1B1CC', ...typography.bodySm },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:126:  transcriptText: { color: '#E8F1FF', ...typography.bodySm, lineHeight: 20 },
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:127:  errorText: { color: '#FF8B8B', ...typography.bodySm },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:23:import { colors, spacing, typography } from '@ui/theme';
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:24:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:327:  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:328:         font-size: 11pt; color: #0A1838; line-height: 1.5; -webkit-print-color-adjust: exact; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:329:  h1 { font-size: 20pt; margin: 0 0 4pt; letter-spacing: -0.5px; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:330:  .meta { color: #5C7299; font-size: 10pt; margin-bottom: 18pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:331:  .meta strong { color: #0A1838; font-weight: 700; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:333:  h2 { font-size: 13pt; margin: 18pt 0 8pt; color: #1F47E8; letter-spacing: 0.2px; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:335:  table.scores td { padding: 6pt 4pt; border-bottom: 1px solid #E1E8F5; font-size: 10.5pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:337:  table.scores td:last-child { text-align: right; font-weight: 700; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:341:  .speaker { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #5C7299; margin-bottom: 4pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:343:  .text { font-size: 11pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:344:  .comment { margin-top: 6pt; font-style: italic; font-size: 10pt; color: #5C7299; border-left: 2pt solid #3EC5A8; padding-left: 8pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:347:  .footer { margin-top: 28pt; font-size: 9pt; color: #5C7299; text-align: center; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:413:  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:414:         font-size: 11pt; color: #0A1838; line-height: 1.5; -webkit-print-color-adjust: exact; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:415:  h1 { font-size: 20pt; margin: 0 0 4pt; letter-spacing: -0.5px; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:416:  .meta { color: #5C7299; font-size: 10pt; margin-bottom: 18pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:417:  .meta strong { color: #0A1838; font-weight: 700; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:422:  .turn-system { background: #FFF8E5; font-style: italic; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:423:  .speaker { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #5C7299; margin-bottom: 4pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:425:  .text { font-size: 11pt; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:426:  .footer { margin-top: 28pt; font-size: 9pt; color: #5C7299; text-align: center; }
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:488:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:489:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:490:  const isLight = themeMode === 'light';
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:510:  // ---- colour tokens ----
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:511:  // All tokens resolve through the canonical palette which supports both modes.
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:514:  const bgColor = palette.background;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:515:  const cardBg = palette.surface;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:516:  const cardBorder = palette.border;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:517:  const primaryColor = palette.primary;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:518:  const textColor = palette.text;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:519:  const mutedColor = palette.textMuted;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:520:  const accentColor = palette.accent;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:521:  const textOnPrimary = isLight ? '#FFFFFF' : palette.background;
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:818:                isLight && { backgroundColor: palette.primarySurface, borderColor: palette.border },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:858:            <Text style={[styles.feedbackLine, isLight && { color: palette.text }]}>
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:875:                  placeholderTextColor={isLight ? palette.textSoft : '#7F8BA5'}
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:882:                      backgroundColor: palette.surfaceMuted,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:883:                      borderColor: palette.border,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:884:                      color: palette.text,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:903:                <View style={[styles.micPanel, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:907:                    themeMode={themeMode}
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:917:                    isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:927:                  isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:938:              <View style={[styles.reportCard, isLight && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1027:                  palette={{
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1033:                    success: palette.success,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1068:  value: { fontSize: 18, fontWeight: '800' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1069:  label: { fontSize: 10, color: '#7F8BA5', marginTop: 2, fontWeight: '600' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1077:  safeArea: { flex: 1, backgroundColor: colors.bg },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1080:  loadingText: { color: colors.textMuted, ...typography.body },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1091:  keyPhraseText: { color: '#D9E4FF', fontSize: 12, fontWeight: '700' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1096:    backgroundColor: colors.panel,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1098:    borderColor: colors.border,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1109:  personaText: { fontSize: 12, fontWeight: '700' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1124:    borderColor: colors.border,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1127:    color: colors.text,
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1139:  sendButtonText: { color: '#FFFFFF', fontSize: 13, fontWeight: '800' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1160:  secondaryButtonText: { fontSize: 13, fontWeight: '800' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1162:  errorText: { color: colors.danger, ...typography.bodySm },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1163:  warningText: { color: colors.warning, ...typography.bodySm },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1164:  feedbackLine: { color: '#D6E2FF', ...typography.bodySm, fontWeight: '700' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1176:  reportTitle: { ...typography.h3, color: colors.text },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1177:  reportSummary: { ...typography.bodySm, lineHeight: 20 },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1188:  toggleButtonText: { fontSize: 13, fontWeight: '700' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1192:  annotatedSpeaker: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5 },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1193:  annotatedText: { ...typography.bodySm, lineHeight: 18 },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1194:  annotatedComment: { fontSize: 11, fontStyle: 'italic', lineHeight: 16, marginTop: 2 },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1197:  phraseSectionTitle: { ...typography.bodySm, fontWeight: '800' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1198:  phraseList: { ...typography.bodySm, lineHeight: 20 },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1199:  obsLine: { ...typography.bodySm, lineHeight: 19 },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1209:  downloadButtonText: { fontSize: 13, fontWeight: '800' },
+apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:1216:  restartButtonText: { color: '#FFFFFF', fontSize: 13, fontWeight: '800' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:34:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:82:      themeMode={themeMode}
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:92:          themeMode={themeMode}
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:130:        <TaskCard themeMode={themeMode} accent="blue" title={`Start ${selectedLevel} YKI exam`} detail="Open the full exam runtime for the selected level band." meta="Exam" actionLabel={starting ? 'Starting…' : 'Start'} onPress={() => void handleStartExam()} />
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:131:        <TaskCard themeMode={themeMode} accent="yellow" title="Mock cycle" detail="Open a preparation cycle for timing pressure, exam confidence, and readiness for work and life in Finland." meta="Preparation" actionLabel="Open" onPress={handleOpenMockCycle} />
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:132:        <TaskCard themeMode={themeMode} title="Recording speaking" detail="Open the recorded-speaking preparation surface for solo speaking." meta="Speaking" actionLabel="Open" onPress={() => onOpenSpeakingRecording?.(selectedLevel)} />
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:133:        <TaskCard themeMode={themeMode} title="Conversation speaking" detail="Open the conversation-speaking surface when you want more realistic communication practice." meta="Conversation" actionLabel="Open" onPress={() => onOpenSpeakingConversation?.(selectedLevel)} />
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:134:        <TaskCard themeMode={themeMode} title="Guided YKI practice" detail="Open the lighter practice surface when you want guided feedback before returning to the full YKI route." meta="Practice" actionLabel="Open" onPress={() => onOpenPractice?.(selectedLevel)} />
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:135:        {onOpenResults ? <TaskCard themeMode={themeMode} title="Results" detail="Review outcomes in one clean place." meta="After practice or mock" actionLabel="Open" onPress={onOpenResults} /> : null}
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:136:        {onOpenCertificate ? <TaskCard themeMode={themeMode} title="Certificate" detail="Open certification details only when they matter." meta="Reference" actionLabel="Open" onPress={onOpenCertificate} /> : null}
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:152:  levelText: { color: '#D6E2FF', fontSize: 12, fontWeight: '800' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:155:  summaryTitle: { fontSize: 16, fontWeight: '800', color: '#111827' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:156:  summaryBody: { fontSize: 13, lineHeight: 20, color: '#374151' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:157:  summaryHint: { fontSize: 12, lineHeight: 18, color: '#5B6472' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:159:  sectionsTitle: { fontSize: 15, fontWeight: '800', color: '#111827' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:161:  sectionLabel: { fontSize: 14, fontWeight: '700', color: '#111827' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:162:  sectionMeta: { fontSize: 12, color: '#6B7280' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:163:  sectionBadge: { fontSize: 11, fontWeight: '800', color: '#2453D4', backgroundColor: '#EEF4FF', paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999 },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:167:  primaryButtonText: { color: '#FFFFFF', fontSize: 13, fontWeight: '800' },
+apps/client/features/yki-exam/screens/YkiExamScreen.tsx:168:  errorText: { color: '#C03737', fontSize: 12, marginTop: 8 },
+apps/client/features/auth/screens/AuthScreen.tsx:22:import { spacing } from '@ui/theme';
+apps/client/features/auth/screens/AuthScreen.tsx:23:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/auth/screens/AuthScreen.tsx:67:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/auth/screens/AuthScreen.tsx:70:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/auth/screens/AuthScreen.tsx:71:  const isDark = themeMode === 'dark';
+apps/client/features/auth/screens/AuthScreen.tsx:204:  const styles = useMemo(() => buildStyles(palette, isDark), [palette, isDark]);
+apps/client/features/auth/screens/AuthScreen.tsx:279:                  placeholderTextColor={palette.textMuted}
+apps/client/features/auth/screens/AuthScreen.tsx:294:                placeholderTextColor={palette.textMuted}
+apps/client/features/auth/screens/AuthScreen.tsx:312:                placeholderTextColor={palette.textMuted}
+apps/client/features/auth/screens/AuthScreen.tsx:367:              <ActivityIndicator color={palette.primary} />
+apps/client/features/auth/screens/AuthScreen.tsx:393:function buildStyles(palette: ReturnType<typeof getFloentlyPalette>, isDark: boolean) {
+apps/client/features/auth/screens/AuthScreen.tsx:395:    safe: { flex: 1, backgroundColor: palette.background },
+apps/client/features/auth/screens/AuthScreen.tsx:402:      fontSize: 11,
+apps/client/features/auth/screens/AuthScreen.tsx:403:      fontWeight: '800',
+apps/client/features/auth/screens/AuthScreen.tsx:405:      color: palette.primary,
+apps/client/features/auth/screens/AuthScreen.tsx:408:      fontSize: 28,
+apps/client/features/auth/screens/AuthScreen.tsx:409:      fontWeight: '800',
+apps/client/features/auth/screens/AuthScreen.tsx:410:      color: palette.text,
+apps/client/features/auth/screens/AuthScreen.tsx:414:      fontSize: 14,
+apps/client/features/auth/screens/AuthScreen.tsx:416:      color: palette.textMuted,
+apps/client/features/auth/screens/AuthScreen.tsx:422:      borderColor: palette.border,
+apps/client/features/auth/screens/AuthScreen.tsx:423:      backgroundColor: isDark ? palette.surface : palette.surfaceMuted,
+apps/client/features/auth/screens/AuthScreen.tsx:435:      backgroundColor: isDark ? palette.surfaceRaised : '#FFFFFF',
+apps/client/features/auth/screens/AuthScreen.tsx:437:    tabText: { fontSize: 14, fontWeight: '700', color: palette.textMuted },
+apps/client/features/auth/screens/AuthScreen.tsx:438:    tabTextActive: { color: palette.text },
+apps/client/features/auth/screens/AuthScreen.tsx:441:    label: { fontSize: 12, fontWeight: '700', color: palette.textSoft, letterSpacing: 0.3 },
+apps/client/features/auth/screens/AuthScreen.tsx:446:      borderColor: palette.border,
+apps/client/features/auth/screens/AuthScreen.tsx:448:      fontSize: 16,
+apps/client/features/auth/screens/AuthScreen.tsx:449:      color: palette.text,
+apps/client/features/auth/screens/AuthScreen.tsx:450:      backgroundColor: isDark ? palette.surface : '#FFFFFF',
+apps/client/features/auth/screens/AuthScreen.tsx:459:    errorText: { fontSize: 13, color: '#A02020', lineHeight: 19 },
+apps/client/features/auth/screens/AuthScreen.tsx:465:      backgroundColor: palette.primary,
+apps/client/features/auth/screens/AuthScreen.tsx:468:    primaryBtnText: { color: '#FFFFFF', fontSize: 16, fontWeight: '700' },
+apps/client/features/auth/screens/AuthScreen.tsx:471:    linkText: { fontSize: 13, fontWeight: '600', color: palette.primary },
+apps/client/features/auth/screens/AuthScreen.tsx:473:    separatorLine: { flex: 1, height: 1, backgroundColor: palette.border },
+apps/client/features/auth/screens/AuthScreen.tsx:474:    separatorText: { fontSize: 11, fontWeight: '700', color: palette.textMuted, letterSpacing: 1 },
+apps/client/features/auth/screens/AuthScreen.tsx:484:      fontSize: 11,
+apps/client/features/auth/screens/AuthScreen.tsx:486:      color: palette.textMuted,
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:105:  title: { color: T.text, fontSize: 26, fontWeight: '700' },
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:106:  subtitle: { color: T.muted, fontSize: 14, lineHeight: 20 },
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:118:    shadowColor: T.primary,
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:119:    shadowOpacity: 0.2,
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:120:    shadowRadius: 8,
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:122:  notice: { color: T.success, fontSize: 13, lineHeight: 18 },
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:123:  error: { color: '#FF6B6B', fontSize: 13, lineHeight: 18 },
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:131:  primaryText: { color: '#FFFFFF', fontWeight: '700' },
+apps/client/features/auth/screens/ForgotPasswordScreen.tsx:140:  linkText: { color: T.text, fontWeight: '600' },
+apps/client/features/auth/screens/ResetPasswordScreen.tsx:140:  title: { color: T.text, fontSize: 26, fontWeight: '700' },
+apps/client/features/auth/screens/ResetPasswordScreen.tsx:141:  subtitle: { color: T.muted, fontSize: 14, lineHeight: 20 },
+apps/client/features/auth/screens/ResetPasswordScreen.tsx:142:  tokenHint: { color: T.muted, fontSize: 13 },
+apps/client/features/auth/screens/ResetPasswordScreen.tsx:152:  notice: { color: T.success, fontSize: 13, lineHeight: 18 },
+apps/client/features/auth/screens/ResetPasswordScreen.tsx:153:  error: { color: '#FF6B6B', fontSize: 13, lineHeight: 18 },
+apps/client/features/auth/screens/ResetPasswordScreen.tsx:161:  primaryText: { color: '#FFFFFF', fontWeight: '700' },
+apps/client/features/auth/screens/ResetPasswordScreen.tsx:169:  linkText: { color: T.text, fontWeight: '600' },
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:17: *     animation. The premium feel comes from typography and pacing, not effects.
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:27:import { spacing } from '@ui/theme';
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:28:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:32:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:33:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:34:  const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:61:    <SafeAreaView style={[styles.safe, { backgroundColor: palette.background }]} edges={['top', 'bottom']}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:69:            <Text style={[styles.eyebrow, { color: palette.primary }]}>FLOENTLY</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:70:            <View style={[styles.eyebrowDot, { backgroundColor: palette.accent }]} />
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:71:            <Text style={[styles.eyebrowMeta, { color: palette.textMuted }]}>Finland</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:74:          {/* Hero — editorial typography. Three lines, deliberate breaks. */}
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:76:            <Text style={[styles.heroLine, { color: palette.text }]}>Pass YKI.</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:77:            <Text style={[styles.heroLine, { color: palette.text }]}>Start your shift in Finnish.</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:78:            <Text style={[styles.heroLine, { color: palette.accent }]}>Belong in Finland.</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:82:          <Text style={[styles.subhead, { color: palette.textMuted }]}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:90:              palette={palette}
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:95:              palette={palette}
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:100:              palette={palette}
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:111:            <Text style={[styles.ctaSubtext, { color: palette.textMuted }]}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:119:                  backgroundColor: pressed ? palette.primaryPressed : palette.primary,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:135:              <Text style={[styles.secondaryText, { color: palette.textMuted }]}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:137:                <Text style={[styles.secondaryStrong, { color: palette.primary }]}>Sign in</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:143:          <View style={[styles.orgFooter, { borderColor: palette.border }]}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:144:            <Text style={[styles.orgFooterTitle, { color: palette.text }]}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:147:            <Text style={[styles.orgFooterBody, { color: palette.textMuted }]}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:156:              <Text style={[styles.orgFooterLinkText, { color: palette.accent }]}>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:172:  palette: ReturnType<typeof getFloentlyPalette>;
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:175:function Pillar({ label, body, palette }: PillarProps) {
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:178:      <View style={[styles.pillarRule, { backgroundColor: palette.accent }]} />
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:180:        <Text style={[styles.pillarLabel, { color: palette.text }]}>{label}</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:181:        <Text style={[styles.pillarBody, { color: palette.textMuted }]}>{body}</Text>
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:211:    fontSize: 11,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:212:    fontWeight: '800',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:221:    fontSize: 11,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:222:    fontWeight: '600',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:231:    fontSize: 34,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:232:    fontWeight: '700',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:239:    fontSize: 15,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:242:    fontWeight: '400',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:267:    fontSize: 14,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:268:    fontWeight: '700',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:272:    fontSize: 13,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:283:    fontSize: 12,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:284:    fontWeight: '500',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:295:    fontSize: 16,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:296:    fontWeight: '800',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:305:    fontSize: 14,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:308:    fontWeight: '700',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:319:    fontSize: 13,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:320:    fontWeight: '700',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:324:    fontSize: 12,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:332:    fontSize: 12,
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:333:    fontWeight: '700',
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:6:import { spacing, typography } from '@ui/theme';
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:7:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:16:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:17:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:37:    <View style={{ flex: 1, padding: spacing.xl, gap: spacing.lg, backgroundColor: palette.background }}>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:38:      <Text style={{ color: palette.text, ...typography.h1 }}>{heading}</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:39:      <Text style={{ color: palette.textMuted }}>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:51:          style={{ padding: spacing.lg, borderRadius: 16, borderWidth: 1, borderColor: palette.border, gap: spacing.sm }}
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:53:          <Text style={{ color: palette.text, fontWeight: '700' }}>{plan.title}</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:54:          <Text style={{ color: palette.textMuted }}>{plan.description}</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:55:          <Text style={{ color: palette.primary, fontWeight: '700' }}>{plan.checkoutLabel}</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:59:      <View style={{ padding: spacing.md, borderRadius: 14, backgroundColor: palette.accentSoft, borderWidth: 1, borderColor: palette.accent, gap: spacing.xs }}>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:60:        <Text style={{ color: palette.accent, fontWeight: '700' }}>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:63:        <Text style={{ color: palette.textMuted, fontSize: 13, lineHeight: 20 }}>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:68:      <View style={{ padding: spacing.md, borderRadius: 14, backgroundColor: palette.surfaceMuted, gap: spacing.xs }}>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:69:        <Text style={{ color: palette.text, fontWeight: '700' }}>Need access for employees or programme participants?</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:70:        <Text style={{ color: palette.textMuted }}>Employer and city programme access can be added through organisation setup and guided onboarding.</Text>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:6:import { spacing, typography } from '@ui/theme';
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:7:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:27:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:28:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:31:    <View style={{ flex: 1, padding: spacing.xl, gap: spacing.lg, backgroundColor: palette.background }}>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:33:        <Text style={{ color: palette.primary, fontWeight: '800', letterSpacing: 0.8, fontSize: 11 }}>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:36:        <Text style={{ color: palette.text, ...typography.h1 }}>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:39:        <Text style={{ color: palette.textMuted, fontSize: 15, lineHeight: 22 }}>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:55:            borderColor: palette.border,
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:56:            backgroundColor: pressed ? palette.surfaceMuted : 'transparent',
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:61:            <Text style={{ color: palette.text, fontWeight: '700', fontSize: 17 }}>{f.label}</Text>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:62:            <Text style={{ color: palette.primary, fontSize: 12, fontWeight: '600' }}>{f.minutes}</Text>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:64:          <Text style={{ color: palette.textMuted, fontSize: 13 }}>{f.detail}</Text>
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:68:      <Text style={{ color: palette.textMuted, textAlign: 'center', fontSize: 12, marginTop: spacing.md }}>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:6:import { spacing, typography } from '@ui/theme';
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:7:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:42:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:43:  const palette = getFloentlyPalette(themeMode);
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:44:  const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:47:    <View style={{ flex: 1, padding: spacing.xl, gap: spacing.lg, backgroundColor: palette.background }}>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:49:        <Text style={{ color: palette.primary, fontWeight: '800', letterSpacing: 0.8, fontSize: 11 }}>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:52:        <Text style={{ color: palette.text, ...typography.h1 }}>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:55:        <Text style={{ color: palette.textMuted, fontSize: 15, lineHeight: 22 }}>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:71:            borderColor: intent.popular ? palette.primary : palette.border,
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:72:            backgroundColor: pressed ? palette.surfaceMuted : 'transparent',
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:83:                backgroundColor: palette.primary,
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:89:              <Text style={{ color: textOnPrimary, fontSize: 10, fontWeight: '800', letterSpacing: 0.6 }}>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:94:          <Text style={{ color: palette.text, fontWeight: '700', fontSize: 17 }}>{intent.label}</Text>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:95:          <Text style={{ color: palette.textMuted, fontSize: 13 }}>{intent.audience}</Text>
+apps/client/features/onboarding/screens/IntentQuizScreen.tsx:96:          <Text style={{ color: palette.primary, fontSize: 13, fontWeight: '600', marginTop: spacing.xs }}>
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:6:import { colors, spacing, typography } from '@ui/theme';
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:18:    <View style={{ flex: 1, padding: spacing.xl, gap: spacing.lg, backgroundColor: colors.bg }}>
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:19:      <Text style={{ color: colors.text, ...typography.h1 }}>Choose your professional pathway</Text>
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:20:      <Text style={{ color: colors.textMuted }}>
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:31:          style={{ padding: spacing.lg, borderRadius: 16, borderWidth: 1, borderColor: colors.border, gap: spacing.xs }}
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:33:          <Text style={{ color: colors.text, fontWeight: '700' }}>{label}</Text>
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:34:          <Text style={{ color: colors.textMuted }}>{detail}</Text>
+apps/client/features/i18n/LanguageSelector.tsx:65:    fontSize: 16,
+apps/client/features/i18n/LanguageSelector.tsx:71:    fontSize: 12,
+apps/client/features/i18n/LanguageSelector.tsx:72:    fontWeight: '700',
+apps/client/state/AppShell.tsx:149:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/AppShell.tsx:688:      themeMode={themeMode}
+apps/client/state/preferencesStore.ts:4:import type { FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+apps/client/state/preferencesStore.ts:13:  themeMode: FloentlyThemeMode;
+apps/client/state/preferencesStore.ts:33:  themeMode: FloentlyThemeMode;
+apps/client/state/preferencesStore.ts:45:  themeMode: 'light',
+apps/client/state/preferencesStore.ts:68:      themeMode: parsed.themeMode === 'dark' ? 'dark' : 'light',
+apps/client/state/preferencesStore.ts:111:    const nextMode = get().themeMode === 'light' ? 'dark' : 'light';
+apps/client/state/preferencesStore.ts:112:    await updatePersisted({ themeMode: nextMode });
+apps/client/state/preferencesStore.ts:113:    set({ themeMode: nextMode });
+apps/client/state/preferencesStore.ts:116:    await updatePersisted({ themeMode: mode });
+apps/client/state/preferencesStore.ts:117:    set({ themeMode: mode });
+apps/client/state/ProgressRoute.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/state/ProgressRoute.tsx:32:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/ProgressRoute.tsx:35:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/ProgressRoute.tsx:77:      themeMode={themeMode}
+apps/client/state/ProgressRoute.tsx:80:          themeMode={themeMode}
+apps/client/state/ProgressRoute.tsx:90:      <View style={[styles.summaryCard, { backgroundColor: palette.surface, borderColor: palette.border }]}> 
+apps/client/state/ProgressRoute.tsx:91:        <Text style={[styles.summaryLabel, { color: palette.primary }]}>Overall readiness</Text>
+apps/client/state/ProgressRoute.tsx:92:        <Text style={[styles.summaryTitle, { color: palette.text }]}>{readinessScore}% · {readinessLabel}</Text>
+apps/client/state/ProgressRoute.tsx:93:        <Text style={[styles.summaryBody, { color: palette.textMuted }]}>Use this page to decide the next useful action. The goal is not to admire a dashboard — it is to remove the next barrier between language learning and working life in Finland.</Text>
+apps/client/state/ProgressRoute.tsx:98:          <View key={pillar.title} style={[styles.pillarCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}> 
+apps/client/state/ProgressRoute.tsx:100:              <Text style={[styles.pillarTitle, { color: palette.text }]}>{pillar.title}</Text>
+apps/client/state/ProgressRoute.tsx:101:              <Text style={[styles.pillarPercent, { color: palette.primary }]}>{pillar.percent}%</Text>
+apps/client/state/ProgressRoute.tsx:103:            <View style={[styles.progressTrack, { backgroundColor: palette.surface }]}> 
+apps/client/state/ProgressRoute.tsx:104:              <View style={[styles.progressFill, { width: `${pillar.percent}%`, backgroundColor: palette.primary }]} />
+apps/client/state/ProgressRoute.tsx:106:            <Text style={[styles.pillarBody, { color: palette.textMuted }]}>{pillar.summary}</Text>
+apps/client/state/ProgressRoute.tsx:112:        <TaskCard themeMode={themeMode} title="Strengthen vocabulary and roleplay" detail="Use learning tools when retrieval, recall, or phrase flexibility starts to weaken." meta="Vocabulary & roleplay" actionLabel="Open" onPress={onOpenLearning} />
+apps/client/state/ProgressRoute.tsx:113:        <TaskCard themeMode={themeMode} title="Practise workplace scenarios" detail="Use scenario practice when hesitation grows in spoken work situations, handovers, or issue reporting." meta="Workplace scenarios" actionLabel="Open" onPress={onOpenSpeaking} />
+apps/client/state/ProgressRoute.tsx:114:        <TaskCard themeMode={themeMode} accent="yellow" title="Check YKI readiness" detail="Go back to YKI Prep when you need section-based repair or formal exam confidence." meta="YKI Prep" actionLabel="Open" onPress={onOpenYki} />
+apps/client/state/ProgressRoute.tsx:122:  summaryLabel: { fontSize: 12, fontWeight: '800', letterSpacing: 0.8, textTransform: 'uppercase' },
+apps/client/state/ProgressRoute.tsx:123:  summaryTitle: { fontSize: 22, fontWeight: '800' },
+apps/client/state/ProgressRoute.tsx:124:  summaryBody: { fontSize: 14, lineHeight: 20 },
+apps/client/state/ProgressRoute.tsx:128:  pillarTitle: { fontSize: 16, fontWeight: '800' },
+apps/client/state/ProgressRoute.tsx:129:  pillarPercent: { fontSize: 16, fontWeight: '800' },
+apps/client/state/ProgressRoute.tsx:132:  pillarBody: { fontSize: 13, lineHeight: 19 },
+apps/client/state/LandingRoute.tsx:439:    fontSize: 11,
+apps/client/state/LandingRoute.tsx:440:    fontWeight: '700',
+apps/client/state/LandingRoute.tsx:446:    fontSize: 39,
+apps/client/state/LandingRoute.tsx:448:    fontWeight: '700',
+apps/client/state/LandingRoute.tsx:459:    fontSize: 15,
+apps/client/state/LandingRoute.tsx:484:    fontSize: 12,
+apps/client/state/LandingRoute.tsx:485:    fontWeight: '600',
+apps/client/state/LandingRoute.tsx:499:    fontSize: 11,
+apps/client/state/LandingRoute.tsx:500:    fontWeight: '700',
+apps/client/state/LandingRoute.tsx:529:    fontSize: 20,
+apps/client/state/LandingRoute.tsx:539:    fontSize: 14,
+apps/client/state/LandingRoute.tsx:540:    fontWeight: '700',
+apps/client/state/LandingRoute.tsx:546:    fontSize: 12.5,
+apps/client/state/LandingRoute.tsx:551:    fontSize: 24,
+apps/client/state/LandingRoute.tsx:568:    fontSize: 17,
+apps/client/state/LandingRoute.tsx:569:    fontWeight: '700',
+apps/client/state/LandingRoute.tsx:575:    fontSize: 13,
+apps/client/state/LandingRoute.tsx:596:    fontSize: 16,
+apps/client/state/LandingRoute.tsx:597:    fontWeight: '700',
+apps/client/state/LandingRoute.tsx:621:    fontSize: 11,
+apps/client/state/YkiPracticeRoute.tsx:13:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/state/YkiPracticeRoute.tsx:25:// ─── Design tokens ─────────────────────────────────────────────────────────
+apps/client/state/YkiPracticeRoute.tsx:67:  themeMode,
+apps/client/state/YkiPracticeRoute.tsx:71:  themeMode: 'light' | 'dark';
+apps/client/state/YkiPracticeRoute.tsx:74:  const isDark = themeMode === 'dark';
+apps/client/state/YkiPracticeRoute.tsx:75:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/YkiPracticeRoute.tsx:76:  const surface  = isDark ? T.surface : palette.surface;
+apps/client/state/YkiPracticeRoute.tsx:77:  const border   = isDark ? T.border  : palette.border;
+apps/client/state/YkiPracticeRoute.tsx:78:  const text     = isDark ? T.text    : palette.text;
+apps/client/state/YkiPracticeRoute.tsx:79:  const muted    = isDark ? T.muted   : palette.textMuted;
+apps/client/state/YkiPracticeRoute.tsx:102:        <View style={[styles.passageBlock, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
+apps/client/state/YkiPracticeRoute.tsx:107:        <View style={[styles.passageBlock, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
+apps/client/state/YkiPracticeRoute.tsx:108:          <Text style={[styles.passageLabel, { color: isDark ? T.yki : palette.textSoft }]}>🔊 Audio transcript (practice only)</Text>
+apps/client/state/YkiPracticeRoute.tsx:154:          <Text style={{ color: answer.correct ? T.success : T.danger, fontWeight: '700', fontSize: 14 }}>
+apps/client/state/YkiPracticeRoute.tsx:171:  themeMode,
+apps/client/state/YkiPracticeRoute.tsx:175:  themeMode: 'light' | 'dark';
+apps/client/state/YkiPracticeRoute.tsx:178:  const isDark = themeMode === 'dark';
+apps/client/state/YkiPracticeRoute.tsx:179:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/YkiPracticeRoute.tsx:180:  const border = isDark ? T.border : palette.border;
+apps/client/state/YkiPracticeRoute.tsx:181:  const text   = isDark ? T.text   : palette.text;
+apps/client/state/YkiPracticeRoute.tsx:182:  const muted  = isDark ? T.muted  : palette.textMuted;
+apps/client/state/YkiPracticeRoute.tsx:183:  const raised = isDark ? T.raised : palette.surfaceMuted;
+apps/client/state/YkiPracticeRoute.tsx:205:        placeholderTextColor={isDark ? T.soft : palette.textSoft}
+apps/client/state/YkiPracticeRoute.tsx:238:  themeMode,
+apps/client/state/YkiPracticeRoute.tsx:243:  themeMode: 'light' | 'dark';
+apps/client/state/YkiPracticeRoute.tsx:247:  const isDark = themeMode === 'dark';
+apps/client/state/YkiPracticeRoute.tsx:248:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/YkiPracticeRoute.tsx:249:  const border = isDark ? T.border : palette.border;
+apps/client/state/YkiPracticeRoute.tsx:250:  const text   = isDark ? T.text   : palette.text;
+apps/client/state/YkiPracticeRoute.tsx:251:  const muted  = isDark ? T.muted  : palette.textMuted;
+apps/client/state/YkiPracticeRoute.tsx:252:  const raised = isDark ? T.raised : palette.surfaceMuted;
+apps/client/state/YkiPracticeRoute.tsx:292:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/state/YkiPracticeRoute.tsx:294:  const isDark = themeMode === 'dark';
+apps/client/state/YkiPracticeRoute.tsx:295:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/YkiPracticeRoute.tsx:297:  const bg      = isDark ? T.bg      : palette.background;
+apps/client/state/YkiPracticeRoute.tsx:298:  const surface = isDark ? T.surface : palette.surface;
+apps/client/state/YkiPracticeRoute.tsx:299:  const border  = isDark ? T.border  : palette.border;
+apps/client/state/YkiPracticeRoute.tsx:300:  const text    = isDark ? T.text    : palette.text;
+apps/client/state/YkiPracticeRoute.tsx:301:  const muted   = isDark ? T.muted   : palette.textMuted;
+apps/client/state/YkiPracticeRoute.tsx:302:  const soft    = isDark ? T.soft    : palette.textSoft;
+apps/client/state/YkiPracticeRoute.tsx:379:        <Pressable onPress={onBack} style={[styles.navBtn, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
+apps/client/state/YkiPracticeRoute.tsx:386:        <Pressable onPress={onOpenMenu} style={[styles.navBtn, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
+apps/client/state/YkiPracticeRoute.tsx:403:                  { borderColor: border, backgroundColor: isDark ? T.raised : palette.surfaceMuted },
+apps/client/state/YkiPracticeRoute.tsx:427:                    <Text style={{ fontSize: 12 }}>{meta.icon}</Text>
+apps/client/state/YkiPracticeRoute.tsx:494:                <Text style={{ fontSize: 13 }}>{skillMeta!.icon}</Text>
+apps/client/state/YkiPracticeRoute.tsx:513:              <McqTask key={currentIndex} task={currentTask} themeMode={themeMode} onAnswered={handleTaskAnswered} />
+apps/client/state/YkiPracticeRoute.tsx:516:              <WritingTask key={currentIndex} task={currentTask} themeMode={themeMode} onAnswered={handleTaskAnswered} />
+apps/client/state/YkiPracticeRoute.tsx:522:                themeMode={themeMode}
+apps/client/state/YkiPracticeRoute.tsx:559:  eyebrow: { fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.6 },
+apps/client/state/YkiPracticeRoute.tsx:560:  headerTitle: { fontSize: 15, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:562:  navBtnText: { fontSize: 12, fontWeight: '600' },
+apps/client/state/YkiPracticeRoute.tsx:564:  sectionLabel: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
+apps/client/state/YkiPracticeRoute.tsx:567:  levelText: { fontSize: 13, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:569:  overviewTitle: { fontSize: 15, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:572:  skillChipText: { fontSize: 12, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:573:  overviewNote: { fontSize: 12, lineHeight: 18 },
+apps/client/state/YkiPracticeRoute.tsx:575:  cardsTitle: { fontSize: 15, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:576:  cardsBody: { fontSize: 12, lineHeight: 18 },
+apps/client/state/YkiPracticeRoute.tsx:578:  cardsButtonText: { color: '#fff', fontSize: 13, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:580:  loadingText: { fontSize: 13 },
+apps/client/state/YkiPracticeRoute.tsx:582:  errorText: { fontSize: 13, lineHeight: 19 },
+apps/client/state/YkiPracticeRoute.tsx:585:  startBtnText: { color: '#fff', fontSize: 15, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:587:  examLinkText: { fontSize: 13, fontWeight: '600' },
+apps/client/state/YkiPracticeRoute.tsx:591:  skillBadgeText: { fontSize: 12, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:592:  taskCounter: { fontSize: 12, fontWeight: '600' },
+apps/client/state/YkiPracticeRoute.tsx:593:  taskTitle: { fontSize: 17, fontWeight: '700', lineHeight: 24 },
+apps/client/state/YkiPracticeRoute.tsx:594:  cefrTag: { fontSize: 11, fontStyle: 'italic', lineHeight: 16 },
+apps/client/state/YkiPracticeRoute.tsx:597:  passageLabel: { fontSize: 11, fontWeight: '700', marginBottom: 6 },
+apps/client/state/YkiPracticeRoute.tsx:598:  passageText: { fontSize: 14, lineHeight: 22 },
+apps/client/state/YkiPracticeRoute.tsx:599:  questionText: { fontSize: 15, fontWeight: '600', lineHeight: 22 },
+apps/client/state/YkiPracticeRoute.tsx:601:  optionText: { fontSize: 14, lineHeight: 20 },
+apps/client/state/YkiPracticeRoute.tsx:603:  checkBtnText: { color: '#fff', fontSize: 14, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:606:  nextBtnText: { color: '#fff', fontSize: 13, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:608:  guidanceText: { fontSize: 13, lineHeight: 19 },
+apps/client/state/YkiPracticeRoute.tsx:609:  writingInput: { minHeight: 160, borderRadius: 14, borderWidth: 1, padding: 14, fontSize: 14, lineHeight: 22, textAlignVertical: 'top' },
+apps/client/state/YkiPracticeRoute.tsx:611:  wordCount: { fontSize: 13, fontWeight: '600' },
+apps/client/state/YkiPracticeRoute.tsx:614:  speakingPrimaryBtnText: { color: '#fff', fontSize: 15, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:616:  speakingSecondaryBtnText: { fontSize: 13, fontWeight: '600' },
+apps/client/state/YkiPracticeRoute.tsx:618:  finishTitle: { fontSize: 20, fontWeight: '700' },
+apps/client/state/YkiPracticeRoute.tsx:619:  finishSub: { fontSize: 13, lineHeight: 20, textAlign: 'center' },
+apps/client/state/LearningRoute.tsx:19:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/LearningRoute.tsx:32:        themeMode={themeMode}
+apps/client/state/LearningRoute.tsx:48:            themeMode={themeMode}
+apps/client/state/LearningRoute.tsx:54:            themeMode={themeMode}
+apps/client/state/LearningRoute.tsx:63:            themeMode={themeMode}
+apps/client/state/LearningRoute.tsx:78:      themeMode={themeMode}
+apps/client/state/LearningRoute.tsx:88:          themeMode={themeMode}
+apps/client/state/LearningRoute.tsx:94:          themeMode={themeMode}
+apps/client/state/LearningRoute.tsx:109:          themeMode={themeMode}
+apps/client/state/SettingsRoute.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/state/SettingsRoute.tsx:53:  palette,
+apps/client/state/SettingsRoute.tsx:60:  palette: ReturnType<typeof getFloentlyPalette>;
+apps/client/state/SettingsRoute.tsx:63:    <View style={[styles.rowCard, { backgroundColor: palette.surface, borderColor: palette.border }]}> 
+apps/client/state/SettingsRoute.tsx:65:        <Text style={[styles.rowLabel, { color: palette.text }]}>{label}</Text>
+apps/client/state/SettingsRoute.tsx:66:        {hint ? <Text style={[styles.rowHint, { color: palette.textMuted }]}>{hint}</Text> : null}
+apps/client/state/SettingsRoute.tsx:68:      {value ? <Text style={[styles.rowValue, { color: palette.textSoft }]}>{value}</Text> : null}
+apps/client/state/SettingsRoute.tsx:70:        <Pressable onPress={onPress} style={[styles.inlineButton, { backgroundColor: palette.primarySurface }]}> 
+apps/client/state/SettingsRoute.tsx:71:          <Text style={[styles.inlineButtonText, { color: palette.primary }]}>{actionLabel}</Text>
+apps/client/state/SettingsRoute.tsx:120:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/SettingsRoute.tsx:136:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/SettingsRoute.tsx:265:      themeMode={themeMode}
+apps/client/state/SettingsRoute.tsx:268:          themeMode={themeMode}
+apps/client/state/SettingsRoute.tsx:278:      <View style={[styles.profileCard, { backgroundColor: palette.primary, shadowColor: palette.shadow }]}> 
+apps/client/state/SettingsRoute.tsx:284:              <Text style={[styles.avatarInitials, { color: palette.primary }]}>{initials}</Text>
+apps/client/state/SettingsRoute.tsx:321:      <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
+apps/client/state/SettingsRoute.tsx:322:        <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsMyPathway')}</Text>
+apps/client/state/SettingsRoute.tsx:323:        <Text style={[styles.groupHint, { color: palette.textMuted }]}>{t('settingsPathwayHint')}</Text>
+apps/client/state/SettingsRoute.tsx:326:            <View key={item.label} style={[styles.pathwaySummaryCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/state/SettingsRoute.tsx:327:              <Text style={[styles.pathwaySummaryLabel, { color: palette.textMuted }]}>{item.label}</Text>
+apps/client/state/SettingsRoute.tsx:328:              <Text style={[styles.pathwaySummaryValue, { color: palette.text }]}>{item.value}</Text>
+apps/client/state/SettingsRoute.tsx:335:        <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}>
+apps/client/state/SettingsRoute.tsx:336:          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsLanguageHeading')}</Text>
+apps/client/state/SettingsRoute.tsx:338:        <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
+apps/client/state/SettingsRoute.tsx:339:          <Text style={[styles.groupTitle, { color: palette.text }]}>{t('commonChooseLanguage')}</Text>
+apps/client/state/SettingsRoute.tsx:340:          <Text style={[styles.groupHint, { color: palette.textMuted }]}>{t('settingsLanguageHint')}</Text>
+apps/client/state/SettingsRoute.tsx:346:        <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}>
+apps/client/state/SettingsRoute.tsx:347:          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsAudio')}</Text>
+apps/client/state/SettingsRoute.tsx:349:        <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}> 
+apps/client/state/SettingsRoute.tsx:350:          <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsSpeakingSpeed')}</Text>
+apps/client/state/SettingsRoute.tsx:355:                <Pressable key={rate} onPress={() => { void setSpeechRate(rate); }} style={[styles.ratePill, { backgroundColor: active ? palette.primary : palette.surface, borderColor: active ? palette.primary : palette.border }]}> 
+apps/client/state/SettingsRoute.tsx:356:                  <Text style={[styles.ratePillText, { color: active ? '#FFFFFF' : palette.text }]}>{rate.toFixed(1)}×</Text>
+apps/client/state/SettingsRoute.tsx:365:        <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}> 
+apps/client/state/SettingsRoute.tsx:366:          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsAppearance')}</Text>
+apps/client/state/SettingsRoute.tsx:368:        <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}> 
+apps/client/state/SettingsRoute.tsx:371:              <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsDarkMode')}</Text>
+apps/client/state/SettingsRoute.tsx:372:              <Text style={[styles.groupHint, { color: palette.textMuted }]}>Switch the shell between light and dark.</Text>
+apps/client/state/SettingsRoute.tsx:374:            <Toggle value={themeMode === 'dark'} onValueChange={(value) => { void setTheme(value ? 'dark' : 'light'); }} activeColor={palette.primary} inactiveColor={palette.surface} />
+apps/client/state/SettingsRoute.tsx:378:              <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsHintPopups')}</Text>
+apps/client/state/SettingsRoute.tsx:379:              <Text style={[styles.groupHint, { color: palette.textMuted }]}>Keep navigation help visible while you learn the app.</Text>
+apps/client/state/SettingsRoute.tsx:381:            <Toggle value={hintsEnabled} onValueChange={(value) => { void setHintsEnabled(value); }} activeColor={palette.primary} inactiveColor={palette.surface} />
+apps/client/state/SettingsRoute.tsx:385:              <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsClockFormat')}</Text>
+apps/client/state/SettingsRoute.tsx:386:              <Text style={[styles.groupHint, { color: palette.textMuted }]}>Choose how the visible clock is shown in the app shell.</Text>
+apps/client/state/SettingsRoute.tsx:389:              <Pressable onPress={() => { void setClockFormat('24h'); }} style={[styles.tinyButton, { backgroundColor: clockFormat === '24h' ? palette.accentSoft : palette.surface, borderColor: clockFormat === '24h' ? palette.accent : palette.border }]}> 
+apps/client/state/SettingsRoute.tsx:390:                <Text style={[styles.tinyButtonText, { color: clockFormat === '24h' ? palette.accent : palette.text }]}>24h</Text>
+apps/client/state/SettingsRoute.tsx:392:              <Pressable onPress={() => { void setClockFormat('12h'); }} style={[styles.tinyButton, { backgroundColor: clockFormat === '12h' ? palette.accentSoft : palette.surface, borderColor: clockFormat === '12h' ? palette.accent : palette.border }]}> 
+apps/client/state/SettingsRoute.tsx:393:                <Text style={[styles.tinyButtonText, { color: clockFormat === '12h' ? palette.accent : palette.text }]}>12h</Text>
+apps/client/state/SettingsRoute.tsx:401:        <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}> 
+apps/client/state/SettingsRoute.tsx:402:          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsAccount')}</Text>
+apps/client/state/SettingsRoute.tsx:404:        <SettingRow label={t('settingsBillingAndPlan')} hint={t('drawerPlansAndAccessHint')} actionLabel={t('commonOpen')} onPress={onOpenBilling} palette={palette} />
+apps/client/state/SettingsRoute.tsx:405:        <SettingRow label={t('settingsHelpAndSupport')} hint="Get route guidance and quick support answers." actionLabel={t('commonOpen')} onPress={onOpenHelp} palette={palette} />
+apps/client/state/SettingsRoute.tsx:406:        <SettingRow label={t('settingsPrivacyPolicy')} hint="Review how Floently handles account, voice, and transcript data." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.privacyPolicy, 'privacy policy'); }} palette={palette} />
+apps/client/state/SettingsRoute.tsx:407:        <SettingRow label={t('settingsTermsOfUse')} hint="Read subscription and acceptable use terms." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.termsOfUse, 'terms of use'); }} palette={palette} />
+apps/client/state/SettingsRoute.tsx:408:        <SettingRow label={t('settingsSupportAndContact')} hint="Public support page for response and escalation." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.support, 'support page'); }} palette={palette} />
+apps/client/state/SettingsRoute.tsx:409:        <SettingRow label={t('settingsAccountDeletionPage')} hint="Public account deletion policy and request page." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.accountDeletion, 'account deletion page'); }} palette={palette} />
+apps/client/state/SettingsRoute.tsx:410:        <SettingRow label={t('settingsProfile')} value={user?.email ?? t('settingsSignedOut')} hint={t('settingsProfileSync')} palette={palette} />
+apps/client/state/SettingsRoute.tsx:414:        <Pressable onPress={() => { void logout(); }} style={[styles.logoutButton, { borderColor: palette.borderStrong, backgroundColor: palette.surface }]}> 
+apps/client/state/SettingsRoute.tsx:415:          <Text style={[styles.logoutText, { color: palette.text }]}>{t('settingsLogout')}</Text>
+apps/client/state/SettingsRoute.tsx:427:    shadowOpacity: 1,
+apps/client/state/SettingsRoute.tsx:428:    shadowRadius: 16,
+apps/client/state/SettingsRoute.tsx:429:    shadowOffset: { width: 0, height: 8 },
+apps/client/state/SettingsRoute.tsx:435:  avatarInitials: { fontSize: 20, fontWeight: '800' },
+apps/client/state/SettingsRoute.tsx:437:  smallBlueButtonText: { color: '#FFFFFF', fontSize: 12, fontWeight: '700' },
+apps/client/state/SettingsRoute.tsx:438:  profileName: { color: '#FFFFFF', fontSize: 22, fontWeight: '800' },
+apps/client/state/SettingsRoute.tsx:439:  profileEmail: { color: 'rgba(255,255,255,0.82)', fontSize: 13 },
+apps/client/state/SettingsRoute.tsx:442:  avatarOptionText: { color: '#FFFFFF', fontSize: 12, fontWeight: '700' },
+apps/client/state/SettingsRoute.tsx:445:  sectionHeadingText: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.7 },
+apps/client/state/SettingsRoute.tsx:447:  groupTitle: { fontSize: 15, fontWeight: '800' },
+apps/client/state/SettingsRoute.tsx:448:  groupHint: { fontSize: 12, lineHeight: 18, marginTop: 4 },
+apps/client/state/SettingsRoute.tsx:451:  pathwaySummaryLabel: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.6 },
+apps/client/state/SettingsRoute.tsx:452:  pathwaySummaryValue: { fontSize: 13, fontWeight: '700' },
+apps/client/state/SettingsRoute.tsx:455:  ratePillText: { fontSize: 12, fontWeight: '800' },
+apps/client/state/SettingsRoute.tsx:460:  tinyButtonText: { fontSize: 11, fontWeight: '700' },
+apps/client/state/SettingsRoute.tsx:463:  rowLabel: { fontSize: 15, fontWeight: '800' },
+apps/client/state/SettingsRoute.tsx:464:  rowHint: { fontSize: 12, lineHeight: 18 },
+apps/client/state/SettingsRoute.tsx:465:  rowValue: { fontSize: 12, fontWeight: '600' },
+apps/client/state/SettingsRoute.tsx:467:  inlineButtonText: { fontSize: 11, fontWeight: '800' },
+apps/client/state/SettingsRoute.tsx:469:  logoutText: { fontSize: 12, fontWeight: '800' },
+apps/client/state/SettingsRoute.tsx:471:  deleteText: { fontSize: 12, fontWeight: '800', color: '#B12222' },
+apps/client/state/HelpRoute.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/state/HelpRoute.tsx:19:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/HelpRoute.tsx:20:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/HelpRoute.tsx:28:      themeMode={themeMode}
+apps/client/state/HelpRoute.tsx:31:          themeMode={themeMode}
+apps/client/state/HelpRoute.tsx:41:      <View style={[styles.pathCard, { backgroundColor: palette.accentSoft, borderColor: palette.accent }]}> 
+apps/client/state/HelpRoute.tsx:42:        <Text style={[styles.pathTitle, { color: palette.text }]}>Stable paths</Text>
+apps/client/state/HelpRoute.tsx:43:        <Text style={[styles.pathText, { color: palette.textMuted }]}>Home → Learn for review and study loops</Text>
+apps/client/state/HelpRoute.tsx:44:        <Text style={[styles.pathText, { color: palette.textMuted }]}>Home → YKI for exam work and mock cycles</Text>
+apps/client/state/HelpRoute.tsx:45:        <Text style={[styles.pathText, { color: palette.textMuted }]}>Home → Speak for short spoken turns</Text>
+apps/client/state/HelpRoute.tsx:46:        <Text style={[styles.pathText, { color: palette.textMuted }]}>Home → Work for professional tasks</Text>
+apps/client/state/HelpRoute.tsx:50:        <TaskCard themeMode={themeMode} title="Looking for YKI?" detail="Keep exam practice in one place so it stays easy to find later." meta="Home → YKI" actionLabel="Open" onPress={onOpenYki} />
+apps/client/state/HelpRoute.tsx:51:        <TaskCard themeMode={themeMode} title="Account or access" detail="Use Settings for accessibility, profile, and account guidance." meta="Sidebar → Settings" actionLabel="Open" onPress={onOpenSettings} />
+apps/client/state/HelpRoute.tsx:52:        <TaskCard themeMode={themeMode} accent="yellow" title="Plan or payment" detail="Billing is the correct secondary path for subscription and invoice work." meta="Sidebar → Billing" actionLabel="Open" onPress={onOpenBilling} />
+apps/client/state/HelpRoute.tsx:60:  pathTitle: { fontSize: 16, fontWeight: '800' },
+apps/client/state/HelpRoute.tsx:61:  pathText: { fontSize: 14 },
+apps/client/state/FeatureEntryRoute.tsx:44:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/FeatureEntryRoute.tsx:56:        themeMode={themeMode}
+apps/client/state/FeatureEntryRoute.tsx:62:            themeMode={themeMode}
+apps/client/state/FeatureEntryRoute.tsx:78:          themeMode={themeMode}
+apps/client/state/FeatureEntryRoute.tsx:85:          themeMode={themeMode}
+apps/client/state/ProfessionalRoute.tsx:5:import { colors, spacing, typography } from '@ui/theme';
+apps/client/state/ProfessionalRoute.tsx:172:  safeArea: { flex: 1, backgroundColor: colors.bg },
+apps/client/state/ProfessionalRoute.tsx:176:  smallButtonText: { color: '#2453D4', fontSize: 13, fontWeight: '800' },
+apps/client/state/ProfessionalRoute.tsx:177:  eyebrow: { color: '#2DD4BF', fontSize: 12, fontWeight: '800', letterSpacing: 0.8, textTransform: 'uppercase' },
+apps/client/state/ProfessionalRoute.tsx:178:  title: { color: colors.text, ...typography.h1 },
+apps/client/state/ProfessionalRoute.tsx:179:  subtitle: { color: colors.textMuted, ...typography.bodySm, lineHeight: 20 },
+apps/client/state/ProfessionalRoute.tsx:184:  selectorText: { color: '#D6E2FF', fontSize: 12, fontWeight: '800' },
+apps/client/state/ProfessionalRoute.tsx:186:  selectorHint: { color: '#8EA3C3', fontSize: 10, lineHeight: 14 },
+apps/client/state/ProfessionalRoute.tsx:188:  overviewCard: { borderRadius: 24, backgroundColor: colors.panel, borderWidth: 1, borderColor: colors.border, padding: 18, gap: 10 },
+apps/client/state/ProfessionalRoute.tsx:189:  overviewLabel: { color: '#2DD4BF', fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.6 },
+apps/client/state/ProfessionalRoute.tsx:190:  overviewTitle: { color: colors.text, fontSize: 18, fontWeight: '800' },
+apps/client/state/ProfessionalRoute.tsx:191:  overviewBody: { color: colors.textMuted, fontSize: 14, lineHeight: 22 },
+apps/client/state/ProfessionalRoute.tsx:193:  missionCard: { borderRadius: 24, backgroundColor: colors.panel, borderWidth: 1, borderColor: colors.border, padding: 18, gap: 12 },
+apps/client/state/ProfessionalRoute.tsx:194:  missionTitle: { color: colors.text, fontSize: 18, fontWeight: '800' },
+apps/client/state/ProfessionalRoute.tsx:195:  missionDetail: { color: colors.textMuted, fontSize: 14, lineHeight: 22 },
+apps/client/state/ProfessionalRoute.tsx:196:  primaryButton: { minHeight: 50, alignItems: 'center', justifyContent: 'center', borderRadius: 999, backgroundColor: colors.primary },
+apps/client/state/ProfessionalRoute.tsx:197:  primaryButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '800' },
+apps/client/state/ProfessionalRoute.tsx:199:  noteCard: { borderRadius: 24, backgroundColor: colors.panel, borderWidth: 1, borderColor: colors.border, padding: 18, gap: 14 },
+apps/client/state/ProfessionalRoute.tsx:200:  noteTitle: { color: colors.text, fontSize: 18, fontWeight: '800' },
+apps/client/state/ProfessionalRoute.tsx:204:  goalTitle: { color: colors.text, fontSize: 15, fontWeight: '700' },
+apps/client/state/ProfessionalRoute.tsx:205:  goalSummary: { color: colors.textMuted, fontSize: 13, lineHeight: 20 },
+apps/client/state/BillingRoute.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/state/BillingRoute.tsx:28:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/BillingRoute.tsx:29:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/BillingRoute.tsx:105:      themeMode={themeMode}
+apps/client/state/BillingRoute.tsx:108:          themeMode={themeMode}
+apps/client/state/BillingRoute.tsx:118:      <View style={[styles.statusCard, { backgroundColor: palette.primary, shadowColor: palette.shadow }]}> 
+apps/client/state/BillingRoute.tsx:125:      <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}> 
+apps/client/state/BillingRoute.tsx:126:        <Text style={[styles.portalTitle, { color: palette.text }]}>Free pathway preview</Text>
+apps/client/state/BillingRoute.tsx:127:        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Let people sample one pathway before they subscribe. Preview stays intentionally limited and does not unlock the full exam or full workplace pathway.</Text>
+apps/client/state/BillingRoute.tsx:130:            <Pressable key={option.id} accessibilityRole="button" onPress={() => { startPreview(option.id); Alert.alert('Preview started', `${option.title} is now active on this device session.`); }} style={({ pressed }) => [styles.planCard, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:131:              <Text style={[styles.planTitle, { color: palette.text }]}>{option.title}</Text>
+apps/client/state/BillingRoute.tsx:132:              <Text style={[styles.planBody, { color: palette.textMuted }]}>{option.detail}</Text>
+apps/client/state/BillingRoute.tsx:136:            <Pressable accessibilityRole="button" onPress={() => { endPreview(); Alert.alert('Preview cleared', 'Preview mode was removed from this device session.'); }} style={({ pressed }) => [styles.planCard, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:137:              <Text style={[styles.planTitle, { color: palette.text }]}>Clear preview</Text>
+apps/client/state/BillingRoute.tsx:138:              <Text style={[styles.planBody, { color: palette.textMuted }]}>Return this device session to the locked free state.</Text>
+apps/client/state/BillingRoute.tsx:145:        <Pressable accessibilityRole="button" onPress={() => { void handlePortal(); }} style={({ pressed }) => [styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:146:          <Text style={[styles.portalTitle, { color: palette.text }]}>{portalBusy ? 'Opening portal…' : 'Manage subscription'}</Text>
+apps/client/state/BillingRoute.tsx:147:          <Text style={[styles.portalBody, { color: palette.textMuted }]}>Customer portal, invoices, payment method, and pathway access details.</Text>
+apps/client/state/BillingRoute.tsx:150:        <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/state/BillingRoute.tsx:151:          <Text style={[styles.portalTitle, { color: palette.text }]}>Manage subscription</Text>
+apps/client/state/BillingRoute.tsx:152:          <Text style={[styles.portalBody, { color: palette.textMuted }]}>On mobile, purchases and subscription management run through Apple App Store or Google Play billing.</Text>
+apps/client/state/BillingRoute.tsx:157:        <Text style={[styles.sectionTitle, { color: palette.text }]}>Pathways for individuals</Text>
+apps/client/state/BillingRoute.tsx:158:        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>Choose the route that fits YKI, work, citizenship, permanent residence, and long-term life in Finland.</Text>
+apps/client/state/BillingRoute.tsx:165:            <Pressable key={plan.id} accessibilityRole="button" onPress={() => { void handleCheckout(plan.id); }} style={({ pressed }) => [styles.planCard, { backgroundColor: palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:167:                <Text style={[styles.planTitle, { color: palette.text }]}>{isBusy ? 'Opening checkout…' : plan.title}</Text>
+apps/client/state/BillingRoute.tsx:168:                <View style={[styles.planChip, { backgroundColor: palette.primarySurface }]}>
+apps/client/state/BillingRoute.tsx:169:                  <Text style={[styles.planChipText, { color: palette.primary }]}>{plan.checkoutLabel}</Text>
+apps/client/state/BillingRoute.tsx:172:              <Text style={[styles.planBody, { color: palette.textMuted }]}>{plan.description}</Text>
+apps/client/state/BillingRoute.tsx:178:      <View style={[styles.organisationCard, { backgroundColor: palette.surface, borderColor: palette.border }]}> 
+apps/client/state/BillingRoute.tsx:179:        <Text style={[styles.portalTitle, { color: palette.text }]}>Need access for employees, residents, or programme participants?</Text>
+apps/client/state/BillingRoute.tsx:180:        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Floently Learn supports employer and city access models for workforce development, integration, and language-to-opportunity programmes.</Text>
+apps/client/state/BillingRoute.tsx:183:            <View key={option.id} style={[styles.planCard, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}> 
+apps/client/state/BillingRoute.tsx:184:              <Text style={[styles.planTitle, { color: palette.text }]}>{option.title}</Text>
+apps/client/state/BillingRoute.tsx:185:              <Text style={[styles.planBody, { color: palette.textMuted }]}>{option.detail}</Text>
+apps/client/state/BillingRoute.tsx:198:  statusCard: { borderRadius: 24, padding: 18, gap: 8, shadowOpacity: 1, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 2 },
+apps/client/state/BillingRoute.tsx:199:  statusLabel: { color: 'rgba(255,255,255,0.82)', fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.7 },
+apps/client/state/BillingRoute.tsx:200:  statusTitle: { color: '#FFFFFF', fontSize: 24, fontWeight: '800' },
+apps/client/state/BillingRoute.tsx:201:  statusBody: { color: 'rgba(255,255,255,0.82)', fontSize: 14, lineHeight: 20 },
+apps/client/state/BillingRoute.tsx:202:  statusMeta: { color: 'rgba(255,255,255,0.72)', fontSize: 12, fontWeight: '700' },
+apps/client/state/BillingRoute.tsx:204:  portalTitle: { fontSize: 16, fontWeight: '800' },
+apps/client/state/BillingRoute.tsx:205:  portalBody: { fontSize: 13, lineHeight: 18 },
+apps/client/state/BillingRoute.tsx:207:  sectionTitle: { fontSize: 18, fontWeight: '800' },
+apps/client/state/BillingRoute.tsx:208:  sectionBody: { fontSize: 13, lineHeight: 19 },
+apps/client/state/BillingRoute.tsx:212:  planTitle: { fontSize: 16, fontWeight: '800', flex: 1 },
+apps/client/state/BillingRoute.tsx:213:  planBody: { fontSize: 13, lineHeight: 19 },
+apps/client/state/BillingRoute.tsx:215:  planChipText: { fontSize: 11, fontWeight: '800' },
+apps/client/state/BillingRoute.tsx:218:  organisationCtaText: { color: '#FFFFFF', fontWeight: '800' },
+apps/client/state/SpeakingRoute.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/state/SpeakingRoute.tsx:79:  const themeMode = usePreferencesStore((s) => s.themeMode);
+apps/client/state/SpeakingRoute.tsx:80:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/SpeakingRoute.tsx:81:  const isDark = themeMode === 'dark';
+apps/client/state/SpeakingRoute.tsx:131:  const bg = isDark ? T.bg : palette.background;
+apps/client/state/SpeakingRoute.tsx:132:  const surface_ = isDark ? T.surface : palette.surface;
+apps/client/state/SpeakingRoute.tsx:133:  const border = isDark ? T.border : palette.border;
+apps/client/state/SpeakingRoute.tsx:134:  const textColor = isDark ? T.text : palette.text;
+apps/client/state/SpeakingRoute.tsx:135:  const mutedColor = isDark ? T.muted : palette.textMuted;
+apps/client/state/SpeakingRoute.tsx:136:  const softColor = isDark ? T.soft : palette.textSoft;
+apps/client/state/SpeakingRoute.tsx:137:  const raisedBg = isDark ? T.surfaceRaised : palette.surfaceMuted;
+apps/client/state/SpeakingRoute.tsx:311:  safe: { flex: 1 }, container: { flex: 1 }, headerRow: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 16, paddingTop: 12, paddingBottom: 4 }, navBtn: { minHeight: 36, borderRadius: 999, paddingHorizontal: 14, justifyContent: 'center', borderWidth: 1 }, navBtnText: { fontSize: 13, fontWeight: '600' }, scroll: { paddingHorizontal: 16, paddingBottom: 32, gap: 14 }, headingBlock: { paddingTop: 12, gap: 3 }, eyebrow: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.7 }, pageTitle: { fontSize: 24, fontWeight: '700', letterSpacing: -0.3 }, pageSub: { fontSize: 13, lineHeight: 19 }, section: { borderRadius: 14, borderWidth: 1, padding: 14, gap: 10 }, sectionTitle: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5 }, levelRow: { flexDirection: 'row', gap: 8 }, levelPill: { flex: 1, minHeight: 38, borderRadius: 999, alignItems: 'center', justifyContent: 'center', borderWidth: 1 }, levelText: { fontSize: 12, fontWeight: '700' }, levelTextActive: { color: '#FFFFFF' }, trackSection: { gap: 8 }, trackList: { gap: 8 }, trackCard: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, borderRadius: 14, borderWidth: 1 }, trackDot: { width: 10, height: 10, borderRadius: 5, flexShrink: 0 }, trackText: { flex: 1, gap: 2 }, trackTitle: { fontSize: 14, fontWeight: '700' }, trackSub: { fontSize: 12, lineHeight: 17 }, checkBadge: { width: 28, height: 28, borderRadius: 14, alignItems: 'center', justifyContent: 'center' }, checkText: { fontSize: 13, fontWeight: '800' }, scenarioSection: { gap: 8 }, scenarioList: { gap: 8 }, scenarioCard: { borderRadius: 14, borderWidth: 1, padding: 14, gap: 8 }, scenarioBadge: { alignSelf: 'flex-start', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 5 }, scenarioBadgeText: { fontSize: 11, fontWeight: '800' }, scenarioTitle: { fontSize: 14, fontWeight: '800' }, scenarioText: { fontSize: 12, lineHeight: 18 }, actionRow: { gap: 10 }, primaryBtn: { minHeight: 48, borderRadius: 14, alignItems: 'center', justifyContent: 'center' }, primaryBtnText: { color: '#FFFFFF', fontSize: 15, fontWeight: '800' }, secondaryBtn: { minHeight: 44, borderRadius: 14, alignItems: 'center', justifyContent: 'center', borderWidth: 1 }, secondaryBtnText: { fontSize: 14, fontWeight: '700' }, grammarTip: { borderRadius: 12, padding: 14, gap: 4, borderWidth: 1 }, grammarTipLabel: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5 }, grammarTipText: { fontSize: 13, lineHeight: 18 },
+apps/client/state/SpeakingRoute.tsx:331:  subnavIconText: { fontSize: 22 },
+apps/client/state/SpeakingRoute.tsx:333:  subnavTileTitle: { fontSize: 16, fontWeight: '800', letterSpacing: -0.2 },
+apps/client/state/SpeakingRoute.tsx:334:  subnavTileSub: { fontSize: 12, lineHeight: 17 },
+apps/client/state/SpeakingRoute.tsx:352:    fontSize: 10,
+apps/client/state/SpeakingRoute.tsx:353:    fontWeight: '800',
+apps/client/state/PlacementRoute.tsx:5:import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
+apps/client/state/PlacementRoute.tsx:119:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/PlacementRoute.tsx:120:  const palette = getFloentlyPalette(themeMode);
+apps/client/state/PlacementRoute.tsx:121:  const isDark = themeMode === 'dark';
+apps/client/state/PlacementRoute.tsx:147:  const bg = isDark ? palette.background : '#F4F8FF';
+apps/client/state/PlacementRoute.tsx:148:  const cardBg = isDark ? palette.surface : '#FFFFFF';
+apps/client/state/PlacementRoute.tsx:149:  const border = isDark ? palette.border : '#D7E1F1';
+apps/client/state/PlacementRoute.tsx:150:  const accent = isDark ? palette.primary : '#3565F5';
+apps/client/state/PlacementRoute.tsx:151:  const accentSurface = isDark ? palette.primarySurface : '#EEF4FF';
+apps/client/state/PlacementRoute.tsx:152:  const text = isDark ? palette.text : '#10213F';
+apps/client/state/PlacementRoute.tsx:153:  const muted = isDark ? palette.textMuted : '#5B6E90';
+apps/client/state/PlacementRoute.tsx:154:  const success = isDark ? palette.success : '#12B981';
+apps/client/state/PlacementRoute.tsx:348:              <Text style={[styles.title, { color: text, fontSize: 22 }]}>{currentItem.prompt}</Text>
+apps/client/state/PlacementRoute.tsx:427:  eyebrow: { fontSize: 11, fontWeight: '800', letterSpacing: 1.2 },
+apps/client/state/PlacementRoute.tsx:428:  title: { fontSize: 26, fontWeight: '800' },
+apps/client/state/PlacementRoute.tsx:429:  body: { fontSize: 15, lineHeight: 22 },
+apps/client/state/PlacementRoute.tsx:430:  helperText: { fontSize: 13, lineHeight: 18, fontStyle: 'italic' },
+apps/client/state/PlacementRoute.tsx:432:  primaryText: { color: '#fff', fontWeight: '800', fontSize: 16 },
+apps/client/state/PlacementRoute.tsx:434:  secondaryText: { fontSize: 14, fontWeight: '700' },
+apps/client/state/PlacementRoute.tsx:436:  choiceText: { fontSize: 16, fontWeight: '700' },
+apps/client/state/PlacementRoute.tsx:437:  choiceSub: { fontSize: 13, lineHeight: 18 },
+apps/client/state/PlacementRoute.tsx:441:  scaleText: { fontWeight: '800' },
+apps/client/state/PlacementRoute.tsx:442:  label: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.8 },
+apps/client/state/PlacementRoute.tsx:447:  dontKnowText: { fontSize: 14, fontWeight: '600', textDecorationLine: 'underline' },
+apps/client/state/PlacementRoute.tsx:449:  resultTrack: { fontSize: 14, fontWeight: '700' },
+apps/client/state/PlacementRoute.tsx:450:  resultLevel: { fontSize: 52, fontWeight: '900', letterSpacing: -1 },
+apps/client/state/PlacementRoute.tsx:451:  resultBand: { fontSize: 13, fontWeight: '600' },
+apps/client/state/PlacementRoute.tsx:454:  skillLabel: { fontSize: 11, fontWeight: '700', textTransform: 'capitalize' },
+apps/client/state/PlacementRoute.tsx:455:  skillValue: { fontSize: 18, fontWeight: '800' },
+apps/client/state/PlacementRoute.tsx:456:  diagnosticNote: { fontSize: 12, fontStyle: 'italic' },
+apps/client/state/HomeRoute.tsx:47:  const themeMode = usePreferencesStore((state) => state.themeMode);
+apps/client/state/HomeRoute.tsx:72:      themeMode={themeMode}
+apps/client/hooks/use-theme-color.ts:6:import { Colors } from '@/constants/theme';
+apps/client/hooks/use-theme-color.ts:13:  const theme = useColorScheme() === 'dark' ? 'dark' : 'light';
+apps/client/hooks/use-theme-color.ts:14:  const colorFromProps = props[theme];
+apps/client/hooks/use-theme-color.ts:19:    return Colors[theme][colorName];
+apps/client/package.json:26:    "expo-font": "~55.0.6",
+apps/client/constants/theme.ts:2: * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
+apps/client/web/LearnLandingPage.tsx:15:  boxShadow: '0 20px 60px rgba(15,23,42,0.08)',
+apps/client/web/LearnLandingPage.tsx:99:            <button style={{ border: 'none', background: 'transparent', color: '#44536c', fontWeight: 700 }}>For Learners</button>
+apps/client/web/LearnLandingPage.tsx:100:            <button style={{ border: 'none', background: 'transparent', color: '#44536c', fontWeight: 700 }}>For Employers</button>
+apps/client/web/LearnLandingPage.tsx:101:            <button style={{ border: 'none', background: 'transparent', color: '#44536c', fontWeight: 700 }}>For Cities</button>
+apps/client/web/LearnLandingPage.tsx:102:            <button type="button" onClick={continueToLogin} style={{ minHeight: 42, borderRadius: 999, border: '1px solid #d9e3f3', padding: '0 18px', background: '#ffffff', color: '#0e1628', fontWeight: 700 }}>Continue to sign in</button>
+apps/client/web/LearnLandingPage.tsx:103:            <button style={{ minHeight: 42, borderRadius: 999, border: 'none', padding: '0 18px', background: '#1F47E8', color: '#ffffff', fontWeight: 800 }}>Book a demo</button>
+apps/client/web/LearnLandingPage.tsx:109:            <div style={{ display: 'inline-flex', borderRadius: 999, background: '#EAF0FF', color: '#1F47E8', padding: '7px 12px', fontSize: 12, fontWeight: 800, marginBottom: 18 }}>
+apps/client/web/LearnLandingPage.tsx:112:            <h1 style={{ fontSize: 64, lineHeight: 1.02, letterSpacing: '-0.04em', margin: '0 0 18px' }}>
+apps/client/web/LearnLandingPage.tsx:117:            <p style={{ fontSize: 18, lineHeight: 1.7, color: '#53627C', maxWidth: 640, margin: '0 0 26px' }}>
+apps/client/web/LearnLandingPage.tsx:121:              <button style={{ minHeight: 46, borderRadius: 999, border: 'none', padding: '0 20px', background: '#1F47E8', color: '#ffffff', fontWeight: 800 }}>Book a demo</button>
+apps/client/web/LearnLandingPage.tsx:122:              <button type="button" onClick={continueToLogin} style={{ minHeight: 46, borderRadius: 999, border: '1px solid #d9e3f3', padding: '0 18px', background: '#ffffff', color: '#0e1628', fontWeight: 700 }}>Continue to sign in</button>
+apps/client/web/LearnLandingPage.tsx:123:              <button style={{ minHeight: 46, borderRadius: 999, border: '1px dashed rgba(31,71,232,0.28)', padding: '0 18px', background: '#f8fbff', color: '#1F47E8', fontWeight: 700 }}>For employers and cities</button>
+apps/client/web/LearnLandingPage.tsx:127:                <span key={item} style={{ borderRadius: 999, background: item === 'Permanent residence' ? '#FFF5DA' : '#F4F7FC', color: '#33445c', padding: '8px 12px', fontSize: 12, fontWeight: 700 }}>{item}</span>
+apps/client/web/LearnLandingPage.tsx:134:              <div style={{ fontSize: 12, fontWeight: 800, color: '#1F47E8', marginBottom: 12 }}>ONE PLATFORM, THREE PATHWAYS</div>
+apps/client/web/LearnLandingPage.tsx:135:              <h2 style={{ fontSize: 28, lineHeight: 1.15, margin: '0 0 10px' }}>YKI, workplace communication, and life in Finland readiness.</h2>
+apps/client/web/LearnLandingPage.tsx:136:              <p style={{ margin: 0, color: '#59708f', fontSize: 15, lineHeight: 1.7 }}>
+apps/client/web/LearnLandingPage.tsx:143:                <span style={{ color: '#59708f', fontSize: 14 }}>Pass YKI, prepare for work, and build long-term Finnish confidence.</span>
+apps/client/web/LearnLandingPage.tsx:147:                <span style={{ color: '#59708f', fontSize: 14 }}>Support onboarding, communication, safety, and retention for international staff.</span>
+apps/client/web/LearnLandingPage.tsx:151:                <span style={{ color: '#59708f', fontSize: 14 }}>Offer scalable pathways for integration, work, and long-term participation in Finland.</span>
+apps/client/web/LearnLandingPage.tsx:159:            <div key={item} style={{ borderRadius: 16, border: '1px solid #e2e8f2', padding: 14, fontSize: 13, fontWeight: 700, color: '#2c4060', background: '#fbfdff' }}>{item}</div>
+apps/client/web/LearnLandingPage.tsx:164:          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>General Finnish study is not enough for real outcomes in Finland</h2>
+apps/client/web/LearnLandingPage.tsx:171:              <article key={title} style={{ borderRadius: 24, border: '1px solid #e2e8f2', background: '#ffffff', padding: 20, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
+apps/client/web/LearnLandingPage.tsx:172:                <h3 style={{ margin: '0 0 10px', fontSize: 20 }}>{title}</h3>
+apps/client/web/LearnLandingPage.tsx:180:          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>One platform connecting YKI, work, and settlement outcomes</h2>
+apps/client/web/LearnLandingPage.tsx:183:              <article key={item.title} style={{ borderRadius: 24, border: '1px solid #e2e8f2', background: '#ffffff', padding: 20, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
+apps/client/web/LearnLandingPage.tsx:185:                <h3 style={{ margin: '0 0 8px', fontSize: 20 }}>{item.title}</h3>
+apps/client/web/LearnLandingPage.tsx:193:          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>Built for every pathway into work and life in Finland</h2>
+apps/client/web/LearnLandingPage.tsx:196:              <article key={item.title} style={{ borderRadius: 24, border: '1px solid #e2e8f2', background: '#ffffff', padding: 22, display: 'grid', gap: 12, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
+apps/client/web/LearnLandingPage.tsx:197:                <h3 style={{ margin: 0, fontSize: 22 }}>{item.title}</h3>
+apps/client/web/LearnLandingPage.tsx:199:                <button style={{ justifySelf: 'start', minHeight: 42, borderRadius: 999, border: '1px solid #d9e3f3', padding: '0 18px', background: '#ffffff', color: '#1F47E8', fontWeight: 800 }}>{item.cta}</button>
+apps/client/web/LearnLandingPage.tsx:206:          <h2 style={{ fontSize: 36, lineHeight: 1.1, marginBottom: 20 }}>Built around real outcomes, not generic textbook Finnish</h2>
+apps/client/web/LearnLandingPage.tsx:209:              <article key={item.title} style={{ borderRadius: 22, border: '1px solid #e2e8f2', background: '#ffffff', padding: 18, boxShadow: '0 14px 40px rgba(15,23,42,0.04)' }}>
+apps/client/web/LearnLandingPage.tsx:210:                <h3 style={{ margin: '0 0 8px', fontSize: 18 }}>{item.title}</h3>
+apps/client/web/LearnLandingPage.tsx:218:          <h2 style={{ fontSize: 38, lineHeight: 1.1, margin: '0 0 14px' }}>Bring Finnish learning closer to work, settlement, and opportunity</h2>
+apps/client/web/LearnLandingPage.tsx:219:          <p style={{ fontSize: 17, lineHeight: 1.7, maxWidth: 860, color: 'rgba(255,255,255,0.88)', margin: '0 0 20px' }}>
+apps/client/web/LearnLandingPage.tsx:223:            <button type="button" onClick={continueToLogin} style={{ minHeight: 46, borderRadius: 999, border: 'none', padding: '0 20px', background: '#ffffff', color: '#0f1f4b', fontWeight: 800 }}>Continue to sign in</button>
+apps/client/web/LearnLandingPage.tsx:224:            <button style={{ minHeight: 46, borderRadius: 999, border: '1px solid rgba(255,255,255,0.28)', padding: '0 20px', background: 'transparent', color: '#ffffff', fontWeight: 800 }}>Book a demo</button>
+apps/client/web/LearnLandingPage.tsx:225:            <button style={{ minHeight: 46, borderRadius: 999, border: '1px solid rgba(255,255,255,0.28)', padding: '0 20px', background: 'transparent', color: '#ffffff', fontWeight: 800 }}>Talk to us about programme access</button>
+apps/client/app/modal.tsx:4:import { ThemedText } from '@/components/themed-text';
+apps/client/app/modal.tsx:5:import { ThemedView } from '@/components/themed-view';
+packages/ui/components/EmptyState.tsx:15:  title: { fontWeight: '700', color: '#1E2430' },
+packages/ui/components/FeedbackCard.tsx:15:  title: { fontWeight: '700', color: '#7A4B00' },
+packages/ui/components/ReviewQueueCard.tsx:25:  title: { fontSize: 18, fontWeight: "700", color: "#111827" },
+packages/ui/components/ReviewQueueCard.tsx:27:  prompt: { fontSize: 14, fontWeight: "600", color: "#111827" },
+packages/ui/components/ReviewQueueCard.tsx:28:  bucket: { fontSize: 11, fontWeight: "700", color: "#7C3AED" },
+packages/ui/components/ReviewQueueCard.tsx:29:  repair: { fontSize: 13, lineHeight: 18, color: "#4B5563" },
+packages/ui/components/StatChip.tsx:15:  value: { fontWeight: '700', color: '#1E2430' },
+packages/ui/components/AppScaffold.tsx:5:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+packages/ui/components/AppScaffold.tsx:12:  themeMode?: FloentlyThemeMode;
+packages/ui/components/AppScaffold.tsx:20:  themeMode = 'light',
+packages/ui/components/AppScaffold.tsx:23:  const palette = getFloentlyPalette(themeMode);
+packages/ui/components/AppScaffold.tsx:27:    <SafeAreaView style={[styles.safeArea, { backgroundColor: palette.background }]}> 
+packages/ui/components/AppScaffold.tsx:28:      {header ? <View style={[styles.header, { backgroundColor: palette.background }]}>{header}</View> : null}
+packages/ui/components/AppScaffold.tsx:30:      {footer ? <View style={[styles.footer, { borderTopColor: palette.border, backgroundColor: palette.surface }]}>{footer}</View> : null}
+packages/ui/components/UtilityDrawer.tsx:3:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+packages/ui/components/UtilityDrawer.tsx:33:  themeMode?: FloentlyThemeMode;
+packages/ui/components/UtilityDrawer.tsx:56:  themeMode = 'dark',
+packages/ui/components/UtilityDrawer.tsx:67:  const palette = getFloentlyPalette(themeMode);
+packages/ui/components/UtilityDrawer.tsx:68:  const isDark = themeMode === 'dark';
+packages/ui/components/UtilityDrawer.tsx:79:  // Colour tokens — works for both themes
+packages/ui/components/UtilityDrawer.tsx:80:  const bg        = isDark ? '#111B30' : palette.surface;
+packages/ui/components/UtilityDrawer.tsx:81:  const borderCol = isDark ? '#1E2E47' : palette.border;
+packages/ui/components/UtilityDrawer.tsx:82:  const textCol   = isDark ? '#F0F5FF' : palette.text;
+packages/ui/components/UtilityDrawer.tsx:83:  const mutedCol  = isDark ? '#8EA3C3' : palette.textMuted;
+packages/ui/components/UtilityDrawer.tsx:84:  const softCol   = isDark ? '#5C7299' : palette.textSoft;
+packages/ui/components/UtilityDrawer.tsx:85:  const raisedBg  = isDark ? '#16233E' : palette.surfaceMuted;
+packages/ui/components/UtilityDrawer.tsx:86:  const primary   = isDark ? '#4F7FFF' : palette.primary;
+packages/ui/components/UtilityDrawer.tsx:87:  const primaryDim = isDark ? 'rgba(79,127,255,0.15)' : palette.primarySurface;
+packages/ui/components/UtilityDrawer.tsx:88:  const overlayBg = isDark ? 'rgba(2,8,20,0.62)' : palette.overlay;
+packages/ui/components/UtilityDrawer.tsx:191:                <View style={styles.themeRow}>
+packages/ui/components/UtilityDrawer.tsx:205:                backgroundColor: isDark ? '#3A2E12' : palette.accentSoft,
+packages/ui/components/UtilityDrawer.tsx:252:  clockText: { color: '#FFFFFF', fontSize: 12, fontWeight: '700' },
+packages/ui/components/UtilityDrawer.tsx:261:  closeBtnText: { color: '#FFFFFF', fontSize: 14, fontWeight: '800' },
+packages/ui/components/UtilityDrawer.tsx:272:  avatarInitial: { fontSize: 22, fontWeight: '800' },
+packages/ui/components/UtilityDrawer.tsx:274:  profileName: { color: '#FFFFFF', fontSize: 17, fontWeight: '800' },
+packages/ui/components/UtilityDrawer.tsx:275:  profileEmail: { color: 'rgba(255,255,255,0.78)', fontSize: 12 },
+packages/ui/components/UtilityDrawer.tsx:288:  levelText: { color: '#FFFFFF', fontSize: 11, fontWeight: '700' },
+packages/ui/components/UtilityDrawer.tsx:301:  streakFire: { fontSize: 16 },
+packages/ui/components/UtilityDrawer.tsx:302:  streakLabel: { flex: 1, fontSize: 13, fontWeight: '600' },
+packages/ui/components/UtilityDrawer.tsx:303:  streakNum: { fontSize: 20, fontWeight: '800' },
+packages/ui/components/UtilityDrawer.tsx:308:    fontSize: 10,
+packages/ui/components/UtilityDrawer.tsx:309:    fontWeight: '700',
+packages/ui/components/UtilityDrawer.tsx:323:  navIconText: { fontSize: 14 },
+packages/ui/components/UtilityDrawer.tsx:325:  navLabel: { fontSize: 14, fontWeight: '700' },
+packages/ui/components/UtilityDrawer.tsx:326:  navHint: { fontSize: 11, lineHeight: 15 },
+packages/ui/components/UtilityDrawer.tsx:338:  utilTitle: { fontSize: 13, fontWeight: '800' },
+packages/ui/components/UtilityDrawer.tsx:339:  utilHint: { fontSize: 12 },
+packages/ui/components/UtilityDrawer.tsx:340:  themeRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+packages/ui/components/UtilityDrawer.tsx:351:  authBtnText: { fontSize: 12, fontWeight: '800' },
+packages/ui/components/PhraseChip.tsx:14:  text: { color: '#2F6BFF', fontWeight: '600' },
+packages/ui/components/LearningLoopStepper.tsx:30:  badgeText: { color: "#0F172A", fontWeight: "800", fontSize: 12 },
+packages/ui/components/LearningLoopStepper.tsx:32:  label: { color: "#475569", fontSize: 12, fontWeight: "700" },
+packages/ui/components/PageHeader.tsx:3:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+packages/ui/components/PageHeader.tsx:15:  themeMode?: FloentlyThemeMode;
+packages/ui/components/PageHeader.tsx:40:  themeMode = 'light',
+packages/ui/components/PageHeader.tsx:45:  const palette = getFloentlyPalette(themeMode);
+packages/ui/components/PageHeader.tsx:46:  const isDark = themeMode === 'dark';
+packages/ui/components/PageHeader.tsx:48:  const raised = isDark ? '#16233E' : palette.surfaceMuted;
+packages/ui/components/PageHeader.tsx:49:  const border = isDark ? '#1E2E47' : palette.border;
+packages/ui/components/PageHeader.tsx:50:  const text = isDark ? '#F0F5FF' : palette.text;
+packages/ui/components/PageHeader.tsx:51:  const muted = isDark ? '#8EA3C3' : palette.textMuted;
+packages/ui/components/PageHeader.tsx:52:  const primary = isDark ? '#4F7FFF' : palette.primary;
+packages/ui/components/PageHeader.tsx:170:                      backgroundColor: isDark ? '#162651' : palette.primarySurface,
+packages/ui/components/PageHeader.tsx:247:    fontSize: 16,
+packages/ui/components/PageHeader.tsx:248:    fontWeight: '800',
+packages/ui/components/PageHeader.tsx:273:    shadowColor: '#4F7FFF',
+packages/ui/components/PageHeader.tsx:274:    shadowOpacity: 0.26,
+packages/ui/components/PageHeader.tsx:275:    shadowRadius: 12,
+packages/ui/components/PageHeader.tsx:276:    shadowOffset: { width: 0, height: 4 },
+packages/ui/components/PageHeader.tsx:281:    shadowColor: '#8FB1FF',
+packages/ui/components/PageHeader.tsx:282:    shadowOpacity: 0.48,
+packages/ui/components/PageHeader.tsx:283:    shadowRadius: 14,
+packages/ui/components/PageHeader.tsx:284:    shadowOffset: { width: 0, height: 0 },
+packages/ui/components/PageHeader.tsx:308:    shadowColor: '#AFC4FF',
+packages/ui/components/PageHeader.tsx:309:    shadowOpacity: 0.95,
+packages/ui/components/PageHeader.tsx:310:    shadowRadius: 10,
+packages/ui/components/PageHeader.tsx:311:    shadowOffset: { width: 0, height: 0 },
+packages/ui/components/PageHeader.tsx:315:    fontSize: 13,
+packages/ui/components/PageHeader.tsx:316:    fontWeight: '700',
+packages/ui/components/PageHeader.tsx:329:    fontSize: 11,
+packages/ui/components/PageHeader.tsx:330:    fontWeight: '700',
+packages/ui/components/PageHeader.tsx:335:    fontSize: 26,
+packages/ui/components/PageHeader.tsx:336:    fontWeight: '700',
+packages/ui/components/PageHeader.tsx:340:    fontSize: 20,
+packages/ui/components/PageHeader.tsx:341:    fontWeight: '700',
+packages/ui/components/PageHeader.tsx:345:    fontSize: 13,
+packages/ui/components/ProgressRing.tsx:14:  percent: { fontWeight: '700', color: '#1E2430' },
+packages/ui/components/BottomModeBar.tsx:31:  label: { fontSize: 12, fontWeight: "700", color: "#64748B" },
+packages/ui/components/ModeCard.tsx:36:  activeCard: { borderColor: "#3D5AFE", shadowColor: "#0F172A", shadowOpacity: 0.06, shadowRadius: 8, shadowOffset: { width: 0, height: 4 }, elevation: 2 },
+packages/ui/components/ModeCard.tsx:39:  title: { fontSize: 18, fontWeight: "800", color: "#111827" },
+packages/ui/components/ModeCard.tsx:40:  subtitle: { fontSize: 14, lineHeight: 20, color: "#475569" },
+packages/ui/components/ModeCard.tsx:41:  focus: { fontSize: 12, fontWeight: "700", color: "#1D4ED8" },
+packages/ui/components/ModeCard.tsx:43:  tagText: { color: "#3730A3", fontSize: 11, fontWeight: "700" },
+packages/ui/components/TaskCard.tsx:4:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+packages/ui/components/TaskCard.tsx:12:  themeMode?: FloentlyThemeMode;
+packages/ui/components/TaskCard.tsx:22:  themeMode = 'light',
+packages/ui/components/TaskCard.tsx:25:  const palette = getFloentlyPalette(themeMode);
+packages/ui/components/TaskCard.tsx:26:  const accentBg = accent === 'yellow' ? palette.accentSoft : palette.primarySurface;
+packages/ui/components/TaskCard.tsx:27:  const accentText = accent === 'yellow' ? '#8A5A00' : palette.primary;
+packages/ui/components/TaskCard.tsx:30:    <View style={[styles.card, { backgroundColor: palette.surface, borderColor: palette.border, shadowColor: palette.shadow }]}> 
+packages/ui/components/TaskCard.tsx:31:      <Text style={[styles.title, { color: palette.text }]}>{title}</Text>
+packages/ui/components/TaskCard.tsx:32:      <Text style={[styles.detail, { color: palette.textMuted }]}>{detail}</Text>
+packages/ui/components/TaskCard.tsx:63:    shadowOpacity: 1,
+packages/ui/components/TaskCard.tsx:64:    shadowRadius: 12,
+packages/ui/components/TaskCard.tsx:65:    shadowOffset: { width: 0, height: 8 },
+packages/ui/components/TaskCard.tsx:68:  title: { fontSize: 16, fontWeight: '800' },
+packages/ui/components/TaskCard.tsx:69:  detail: { fontSize: 13, lineHeight: 19 },
+packages/ui/components/TaskCard.tsx:71:  meta: { fontSize: 11, fontWeight: '700' },
+packages/ui/components/TaskCard.tsx:73:  cta: { fontSize: 11, fontWeight: '800' },
+packages/ui/components/SmartHintPopup.tsx:4:import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+packages/ui/components/SmartHintPopup.tsx:14:  themeMode?: FloentlyThemeMode;
+packages/ui/components/SmartHintPopup.tsx:25:  themeMode = 'light',
+packages/ui/components/SmartHintPopup.tsx:27:  const palette = getFloentlyPalette(themeMode);
+packages/ui/components/SmartHintPopup.tsx:32:    <View style={[StyleSheet.absoluteFill, styles.overlay, { backgroundColor: palette.overlay }]}>
+packages/ui/components/SmartHintPopup.tsx:33:      <View style={[styles.card, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+packages/ui/components/SmartHintPopup.tsx:34:        <View style={[styles.badge, { backgroundColor: palette.primarySurface }]}>
+packages/ui/components/SmartHintPopup.tsx:35:          <Text style={[styles.badgeText, { color: palette.primary }]}>Helpful hint</Text>
+packages/ui/components/SmartHintPopup.tsx:37:        <Text style={[styles.title, { color: palette.text }]}>{title}</Text>
+packages/ui/components/SmartHintPopup.tsx:38:        <Text style={[styles.body, { color: palette.textMuted }]}>{body}</Text>
+packages/ui/components/SmartHintPopup.tsx:40:          <Pressable onPress={onSecondary} style={({ pressed }) => [styles.secondary, { borderColor: palette.borderStrong, backgroundColor: palette.surface }, pressed && styles.pressed]}>
+packages/ui/components/SmartHintPopup.tsx:41:            <Text style={[styles.secondaryText, { color: palette.text }]}>{secondaryLabel}</Text>
+packages/ui/components/SmartHintPopup.tsx:43:          <Pressable onPress={onPrimary} style={({ pressed }) => [styles.primary, { backgroundColor: palette.primary }, pressed && styles.pressed]}>
+packages/ui/components/SmartHintPopup.tsx:56:  badgeText: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.6 },
+packages/ui/components/SmartHintPopup.tsx:57:  title: { fontSize: 20, fontWeight: '800' },
+packages/ui/components/SmartHintPopup.tsx:58:  body: { fontSize: 14, lineHeight: 21 },
+packages/ui/components/SmartHintPopup.tsx:62:  secondaryText: { fontWeight: '700', fontSize: 12 },
+packages/ui/components/SmartHintPopup.tsx:63:  primaryText: { color: '#FFFFFF', fontWeight: '800', fontSize: 12 },
+packages/ui/components/NextBackDock.tsx:31:  secondaryText: { color: "#0F172A", fontWeight: "800" },
+packages/ui/components/NextBackDock.tsx:32:  primaryText: { color: "#FFFFFF", fontWeight: "800" },
+packages/ui/primitives/Card.tsx:17:    shadowColor: "#000",
+packages/ui/primitives/Card.tsx:18:    shadowOffset: { width: 0, height: 1 },
+packages/ui/primitives/Card.tsx:19:    shadowOpacity: 0.06,
+packages/ui/primitives/Card.tsx:20:    shadowRadius: 4,
+packages/ui/primitives/Text.tsx:16:  h1: { fontSize: 28, fontWeight: "700", lineHeight: 34 },
+packages/ui/primitives/Text.tsx:17:  h2: { fontSize: 22, fontWeight: "600", lineHeight: 28 },
+packages/ui/primitives/Text.tsx:18:  h3: { fontSize: 18, fontWeight: "600", lineHeight: 24 },
+packages/ui/primitives/Text.tsx:19:  title: { fontSize: 20, fontWeight: "700", lineHeight: 26 },
+packages/ui/primitives/Text.tsx:20:  body: { fontSize: 16, lineHeight: 22 },
+packages/ui/primitives/Text.tsx:21:  label: { fontSize: 14, fontWeight: "500" },
+packages/ui/primitives/Text.tsx:22:  caption: { fontSize: 12, lineHeight: 16 },
+packages/ui/screens/ApplicationErrorScreen.tsx:48:  title: { fontSize: 20, fontWeight: "700", color: "#111827", marginBottom: 8 },
+packages/ui/screens/ApplicationErrorScreen.tsx:49:  code: { fontSize: 12, color: "#9CA3AF", marginBottom: 4 },
+packages/ui/screens/ApplicationErrorScreen.tsx:50:  message: { fontSize: 15, color: "#374151", textAlign: "center", marginBottom: 24 },
+packages/ui/screens/ApplicationErrorScreen.tsx:53:  primaryButtonText: { color: "#ffffff", fontWeight: "600", textAlign: "center" },
+packages/ui/screens/SpeakingLabScreen.tsx:4:import { type FloentlyThemeMode } from "../theme/floentlyPalette";
+packages/ui/screens/SpeakingLabScreen.tsx:7:  themeMode?: FloentlyThemeMode;
+packages/ui/screens/SpeakingLabScreen.tsx:14:  themeMode = 'light',
+packages/ui/screens/SpeakingLabScreen.tsx:25:        themeMode={themeMode}
+packages/ui/screens/SpeakingLabScreen.tsx:30:          themeMode={themeMode}
+packages/ui/screens/SpeakingLabScreen.tsx:37:          themeMode={themeMode}
+packages/ui/screens/SpeakingLabScreen.tsx:44:          themeMode={themeMode}
+packages/ui/screens/HomeScreen.tsx:7:import { getFloentlyPalette, type FloentlyThemeMode } from '../theme/floentlyPalette';
+packages/ui/screens/HomeScreen.tsx:41:  themeMode?: FloentlyThemeMode;
+packages/ui/screens/HomeScreen.tsx:396:  themeMode = 'light',
+packages/ui/screens/HomeScreen.tsx:406:  const palette = getFloentlyPalette(themeMode);
+packages/ui/screens/HomeScreen.tsx:407:  const isDark = themeMode === 'dark';
+packages/ui/screens/HomeScreen.tsx:476:  const surface = isDark ? D.surface : palette.surface;
+packages/ui/screens/HomeScreen.tsx:477:  const raised = isDark ? D.raised : palette.surfaceMuted;
+packages/ui/screens/HomeScreen.tsx:478:  const border = isDark ? D.border : palette.border;
+packages/ui/screens/HomeScreen.tsx:479:  const text = isDark ? D.text : palette.text;
+packages/ui/screens/HomeScreen.tsx:480:  const muted = isDark ? D.muted : palette.textMuted;
+packages/ui/screens/HomeScreen.tsx:481:  const soft = isDark ? D.soft : palette.textSoft;
+packages/ui/screens/HomeScreen.tsx:482:  const primary = isDark ? D.primary : palette.primary;
+packages/ui/screens/HomeScreen.tsx:538:        themeMode={themeMode}
+packages/ui/screens/HomeScreen.tsx:541:            themeMode={themeMode}
+packages/ui/screens/HomeScreen.tsx:564:                  backgroundColor: isDark ? '#0F1F45' : palette.primarySurface,
+packages/ui/screens/HomeScreen.tsx:565:                  borderColor: isDark ? '#1C2F5A' : palette.border,
+packages/ui/screens/HomeScreen.tsx:743:                { backgroundColor: isDark ? D.raised : palette.primarySurface, borderColor: border },
+packages/ui/screens/HomeScreen.tsx:757:        themeMode={themeMode}
+packages/ui/screens/HomeScreen.tsx:874:    fontSize: 11,
+packages/ui/screens/HomeScreen.tsx:875:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:898:    fontSize: 11,
+packages/ui/screens/HomeScreen.tsx:899:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:904:    fontSize: 22,
+packages/ui/screens/HomeScreen.tsx:905:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:910:    fontSize: 13,
+packages/ui/screens/HomeScreen.tsx:925:    fontSize: 13,
+packages/ui/screens/HomeScreen.tsx:926:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:956:    fontSize: 15,
+packages/ui/screens/HomeScreen.tsx:957:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:970:  streakFire: { fontSize: 13 },
+packages/ui/screens/HomeScreen.tsx:973:    fontSize: 14,
+packages/ui/screens/HomeScreen.tsx:974:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:978:    fontSize: 11,
+packages/ui/screens/HomeScreen.tsx:979:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:1014:    fontSize: 14,
+packages/ui/screens/HomeScreen.tsx:1015:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:1019:    fontSize: 12,
+packages/ui/screens/HomeScreen.tsx:1031:    fontSize: 11,
+packages/ui/screens/HomeScreen.tsx:1032:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:1049:    fontSize: 15,
+packages/ui/screens/HomeScreen.tsx:1050:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:1061:    fontSize: 12,
+packages/ui/screens/HomeScreen.tsx:1062:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:1076:    fontSize: 12,
+packages/ui/screens/HomeScreen.tsx:1094:    fontSize: 12,
+packages/ui/screens/HomeScreen.tsx:1114:    fontSize: 22,
+packages/ui/screens/HomeScreen.tsx:1115:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:1119:    fontSize: 11,
+packages/ui/screens/HomeScreen.tsx:1131:    fontSize: 14,
+packages/ui/screens/HomeScreen.tsx:1132:    fontWeight: '700',
+packages/ui/screens/HomeScreen.tsx:1136:    fontSize: 13,
+packages/ui/screens/LearningSessionScreen.tsx:31:  title: { fontSize: 18, fontWeight: "700", color: "#111827" },
+packages/ui/screens/CertificateScreen.tsx:8:      <Text style={{ fontSize: 24, fontWeight: '700' }}>Certificate</Text>
+packages/ui/screens/ProfessionalFinnishScreen.tsx:4:import { type FloentlyThemeMode } from "../theme/floentlyPalette";
+packages/ui/screens/ProfessionalFinnishScreen.tsx:7:  themeMode?: FloentlyThemeMode;
+packages/ui/screens/ProfessionalFinnishScreen.tsx:14:  themeMode = 'light',
+packages/ui/screens/ProfessionalFinnishScreen.tsx:25:        themeMode={themeMode}
+packages/ui/screens/ProfessionalFinnishScreen.tsx:30:          themeMode={themeMode}
+packages/ui/screens/ProfessionalFinnishScreen.tsx:37:          themeMode={themeMode}
+packages/ui/screens/ProfessionalFinnishScreen.tsx:44:          themeMode={themeMode}
+packages/ui/screens/LearnScreen.tsx:4:import { getFloentlyPalette, type FloentlyThemeMode } from "../theme/floentlyPalette";
+packages/ui/screens/LearnScreen.tsx:8:  themeMode?: FloentlyThemeMode;
+packages/ui/screens/LearnScreen.tsx:17:  themeMode = 'light',
+packages/ui/screens/LearnScreen.tsx:30:        themeMode={themeMode}
+packages/ui/screens/LearnScreen.tsx:36:          themeMode={themeMode}
+packages/ui/screens/LearnScreen.tsx:43:          themeMode={themeMode}
+packages/ui/screens/LearnScreen.tsx:50:          themeMode={themeMode}
+packages/ui/screens/LearnScreen.tsx:57:          themeMode={themeMode}
+packages/ui/theme/index.ts:1:export * from './colors';
+packages/ui/theme/index.ts:3:export * from './typography';
+packages/ui/theme/index.ts:5:export * from './tokens';
+packages/ui/theme/tokens.ts:1:export { colors } from './colors';
+packages/ui/theme/tokens.ts:3:export { typography } from './typography';
+packages/ui/theme/typography.ts:1:export const typography = {
+packages/ui/theme/typography.ts:2:  hero: { fontSize: 28, fontWeight: '700' as const },
+packages/ui/theme/typography.ts:3:  h1: { fontSize: 24, fontWeight: '700' as const },
+packages/ui/theme/typography.ts:4:  h2: { fontSize: 20, fontWeight: '600' as const },
+packages/ui/theme/typography.ts:5:  h3: { fontSize: 18, fontWeight: '600' as const },
+packages/ui/theme/typography.ts:6:  body: { fontSize: 16, fontWeight: '400' as const },
+packages/ui/theme/typography.ts:7:  bodySm: { fontSize: 14, fontWeight: '400' as const },
+packages/ui/theme/typography.ts:8:  label: { fontSize: 12, fontWeight: '600' as const },
+packages/ui/theme/typography.ts:9:  caption: { fontSize: 13, fontWeight: '400' as const },
+packages/ui/theme/colors.ts:2: * Legacy `colors` export — kept for backward compatibility.
+packages/ui/theme/colors.ts:5: * app. That drifted from the theme-aware floentlyPalette system that shipped later,
+packages/ui/theme/colors.ts:8: * After the theme-unification sweep, this file re-exports colors derived from the
+packages/ui/theme/colors.ts:9: * canonical floentlyPalette. Old code that imports `colors` still compiles and
+packages/ui/theme/colors.ts:11: * can respond to theme mode changes.
+packages/ui/theme/colors.ts:14: * mode, migrate it to call `getFloentlyPalette(themeMode)` instead of reading from
+packages/ui/theme/colors.ts:22:export const colors = {
+packages/ui/theme/colors.ts:23:  // Core surfaces & text — aliased to the canonical dark palette
+packages/ui/theme/colors.ts:40:  // Legacy feature-scoped colors — unified under the canonical accent.
+packages/ui/theme/colors.ts:58:export type AppColorName = keyof typeof colors;
+packages/ui/theme/colors.ts:65:  background: colors.background,
+packages/ui/theme/colors.ts:66:  surface:    colors.surface,
+packages/ui/theme/colors.ts:68:  muted:      colors.muted,
+packages/ui/theme/colors.ts:69:  accent:     colors.accent,
+packages/ui/theme/colors.ts:71:  warning:    colors.warning,
+packages/ui/theme/floentlyPalette.ts:2: * Floently palette — canonical color system.
+packages/ui/theme/floentlyPalette.ts:5: * should resolve colors through this palette, not hard-code hex values.
+packages/ui/theme/floentlyPalette.ts:16: * either mode by reading from this palette rather than hard-coding.
+packages/ui/theme/floentlyPalette.ts:50:  shadow: string;           // drop shadow (if ever used — prefer flat surfaces)
+packages/ui/theme/floentlyPalette.ts:84:  shadow:          'rgba(0, 0, 0, 0.38)',
+packages/ui/theme/floentlyPalette.ts:117:  shadow:          'rgba(20, 34, 84, 0.08)',
+packages/ui/theme/floentlyPalette.ts:132: * Returns BOTH palettes — useful for components that need to know both modes'
+packages/core/api/auth.ts:195:  tokens: {
+packages/core/api/auth.ts:327:    token: payload.data.tokens.access_token,
+packages/core/api/auth.ts:341:    token: res.data.tokens.access_token,
+packages/core/api/auth.ts:387:    token: payload.data.tokens.access_token,
