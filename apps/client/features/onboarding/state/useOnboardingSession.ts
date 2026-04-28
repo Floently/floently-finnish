@@ -3,7 +3,7 @@ import { create } from 'zustand';
 export type OnboardingIntentType = 'YKI' | 'PROFESSIONAL' | 'BOTH';
 export type OnboardingProfession = 'doctor' | 'nurse' | 'practical_nurse' | string;
 export type OnboardingPracticeFrequency = 'daily' | 'few_times_week' | 'weekly' | string;
-export type OnboardingBillingPeriod = 'monthly' | 'yearly' | 'annual';
+export type OnboardingBillingPeriod = 'monthly' | '3_months' | 'yearly' | 'annual';
 
 export type OnboardingState = {
   intentType?: OnboardingIntentType;

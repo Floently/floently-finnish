@@ -1,5 +1,5 @@
 import { apiClient } from './client';
-import { normalizeSubscriptionStatus, type SubscriptionStatus } from './entitlements';
+import { normalizeSubscriptionStatus, type BillingPeriod, type CheckoutPathway, type ProfessionKey, type SubscriptionStatus } from './entitlements';
 
 function unwrapPayload<T = unknown>(value: unknown): T {
   if (value && typeof value === 'object' && 'data' in (value as Record<string, unknown>)) {
@@ -7,6 +7,16 @@ function unwrapPayload<T = unknown>(value: unknown): T {
   }
   return value as T;
 }
+
+export type CheckoutSessionInput = string | {
+  plan?: string;
+  pathway?: CheckoutPathway;
+  billingPeriod?: BillingPeriod;
+  billing_period?: BillingPeriod;
+  professions?: ProfessionKey[];
+  professionCount?: number;
+  profession_count?: number;
+};
 
 export async function getSubscriptionStatus(): Promise<SubscriptionStatus> {
   const res = await apiClient.get('/api/v1/subscription/status');
@@ -18,8 +28,15 @@ export async function getSubscriptionPlans() {
   return unwrapPayload(res.data);
 }
 
-export async function createCheckoutSession(plan: string) {
-  const res = await apiClient.post('/api/v1/subscription/checkout', { plan });
+export async function createCheckoutSession(input: CheckoutSessionInput) {
+  const payload = typeof input === 'string'
+    ? { plan: input }
+    : {
+        ...input,
+        billing_period: input.billing_period ?? input.billingPeriod,
+        profession_count: input.profession_count ?? input.professionCount ?? input.professions?.length ?? 0,
+      };
+  const res = await apiClient.post('/api/v1/subscription/checkout', payload);
   return unwrapPayload(res.data);
 }
 

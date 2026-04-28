@@ -18,7 +18,7 @@ export default function ProfessionSelectionScreen() {
     <View style={{ flex: 1, padding: spacing.xl, gap: spacing.lg, backgroundColor: colors.bg }}>
       <Text style={{ color: colors.text, ...typography.h1 }}>Choose your professional pathway</Text>
       <Text style={{ color: colors.textMuted }}>
-        Select the profession that best matches your work goal in Finland. Your learning will focus on real communication in that field.
+        Select the profession that best matches your first work goal in Finland. You can add more professions later during checkout if you need more than one role track.
       </Text>
       {professions.map(([profession, label, detail]) => (
         <Pressable

@@ -9,7 +9,7 @@ from app.core.responses import success_payload
 from app.services.auth_service import current_user_from_authorization
 from app.services.subscription_service import (
     PLAN_CATALOG,
-    billing_checkout_url,
+    billing_checkout_session,
     billing_portal_url,
     check_feature,
     start_trial,
@@ -41,13 +41,8 @@ def build_subscription_router() -> APIRouter:
         authorization: str | None = Header(default=None),
     ) -> dict[str, Any]:
         user, _ = current_user_from_authorization(authorization)
-        plan = str(payload.get("plan") or "free")
         return success_payload(
-            data={
-                "checkout_url": billing_checkout_url(plan_id=plan, user_id=user["user_id"]),
-                "plan": plan,
-                "mode": "configured",
-            },
+            data=billing_checkout_session(payload=payload, user_id=user["user_id"]),
             request_id=get_request_id(request),
         )
 

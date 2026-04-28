@@ -1,42 +1,76 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Alert, Linking, Pressable, ScrollView, Text, View } from 'react-native';
+import { Alert, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { paymentService } from '../services/paymentService';
 import { spacing, typography } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
-import { PLAN_CATALOG, type PlanCatalogEntry } from '@core/api/entitlements';
+import {
+  ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+  BILLING_PERIOD_OPTIONS,
+  PROFESSION_OPTIONS,
+  buildCheckoutRequest,
+  estimateCheckoutTotal,
+  getPlanByPathwayPeriod,
+  normalizeBillingPeriod,
+  normalizeProfession,
+  professionListLabel,
+  type BillingPeriod,
+  type CheckoutPathway,
+  type ProfessionKey,
+} from '@core/api/entitlements';
 import { useOnboardingSession } from '../../onboarding/state/useOnboardingSession';
 
-type BillingPeriod = 'monthly' | 'yearly';
+const PATHWAYS: Array<{ id: CheckoutPathway; title: string; eyebrow: string; body: string; highlights: string[] }> = [
+  {
+    id: 'yki',
+    title: 'YKI Pathway',
+    eyebrow: 'For exam and residence goals',
+    body: 'Practice speaking, writing, reading, and listening for YKI, citizenship, permanent residence, study, and daily life.',
+    highlights: ['YKI speaking and writing tasks', 'Guided corrections and progress', 'Best for learners who only need YKI'],
+  },
+  {
+    id: 'professional',
+    title: 'Professional Pathway',
+    eyebrow: 'For role-specific Finnish',
+    body: 'Choose one or more professions and build Finnish for real workplace situations, documentation, teamwork, and communication.',
+    highlights: ['One profession included', 'Add more professions anytime', 'Extra profession slots get a discount'],
+  },
+  {
+    id: 'combined',
+    title: 'Combined Pathway',
+    eyebrow: 'Best for YKI plus work',
+    body: 'Prepare for YKI while also building professional Finnish in one or more chosen professions.',
+    highlights: ['YKI plus one profession included', 'Add extra professions as slots', 'Best long-term pathway'],
+  },
+];
 
-/**
- * What's free / what's paid — sourced from route guards in AppShell.tsx (lines 235-258)
- * and preview limits from subscriptionStore.ts (line 188). Keep this list in sync with
- * the actual gates; misleading copy churns trials fast.
- */
 const TRIAL_INCLUDES = [
   '1 roleplay session with a Finnish persona',
   '1 card practice session',
-  'YKI preview: 1 YKI practice set (YKI path only)',
-  'Home, Progress, Settings, Help',
+  'YKI preview: 1 YKI practice set on the YKI path',
+  'Home, Progress, Settings, and Help',
 ];
 
-const TRIAL_EXCLUDES = [
-  'Full Learning library and Daily Practice',
-  'Full YKI Exam mode',
-  'Unlimited roleplay, cards, and YKI practice',
-];
+function pathwayFromOnboarding(intent?: string): CheckoutPathway {
+  if (intent === 'PROFESSIONAL') return 'professional';
+  if (intent === 'BOTH') return 'combined';
+  return 'yki';
+}
 
 export default function SubscriptionScreen() {
   const [tier, setTier] = useState<string>('free');
-  const [period, setPeriod] = useState<BillingPeriod>('yearly');
-
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
 
   const onboardingIntent = useOnboardingSession((s) => s.intentType);
   const onboardingProfession = useOnboardingSession((s) => s.profession);
+  const onboardingBilling = useOnboardingSession((s) => s.preferredBillingPeriod);
+
+  const defaultProfession = normalizeProfession(onboardingProfession) ?? 'nurse';
+  const [period, setPeriod] = useState<BillingPeriod>(() => normalizeBillingPeriod(onboardingBilling ?? 'yearly'));
+  const [selectedProfessions, setSelectedProfessions] = useState<ProfessionKey[]>([defaultProfession]);
+  const recommendedPathway = useMemo(() => pathwayFromOnboarding(onboardingIntent), [onboardingIntent]);
 
   useEffect(() => {
     void paymentService
@@ -48,45 +82,78 @@ export default function SubscriptionScreen() {
       .catch(() => undefined);
   }, []);
 
-  const relevantPlans = useMemo(() => {
-    if (!onboardingIntent) return PLAN_CATALOG;
-    return PLAN_CATALOG.filter((plan) => {
-      if (onboardingIntent === 'YKI') return plan.category === 'yki';
-      if (onboardingIntent === 'PROFESSIONAL') {
-        return (plan.category === 'professional' || plan.category === 'bundle') && plan.profession === onboardingProfession;
+  useEffect(() => {
+    const profession = normalizeProfession(onboardingProfession);
+    if (profession) {
+      setSelectedProfessions((current) => current.includes(profession) ? current : [profession, ...current]);
+    }
+  }, [onboardingProfession]);
+
+  function toggleProfession(profession: ProfessionKey) {
+    setSelectedProfessions((current) => {
+      if (current.includes(profession)) {
+        return current.length === 1 ? current : current.filter((item) => item !== profession);
       }
-      if (onboardingIntent === 'BOTH') {
-        return plan.category === 'bundle' && plan.profession === onboardingProfession;
-      }
-      return true;
+      return [...current, profession];
     });
-  }, [onboardingIntent, onboardingProfession]);
+  }
 
-  const plansForPeriod = useMemo(
-    () => relevantPlans.filter((p) => (period === 'yearly' ? p.billingPeriod === 'yearly' : p.billingPeriod === 'monthly')),
-    [relevantPlans, period],
-  );
-
-  const recommendedPlanId = useMemo(() => {
-    if (onboardingIntent === 'BOTH') {
-      return plansForPeriod.find((p) => p.category === 'bundle')?.id;
-    }
-    return plansForPeriod[0]?.id;
-  }, [plansForPeriod, onboardingIntent]);
-
-  async function handleStartTrial(plan: PlanCatalogEntry) {
+  async function openCheckout(pathway: CheckoutPathway) {
     try {
+      if (pathway !== 'yki' && selectedProfessions.length === 0) {
+        Alert.alert('Choose a profession', 'Select at least one profession before starting checkout.');
+        return;
+      }
       await paymentService.startSubscriptionTrial(3);
-      const session = (await paymentService.createCheckoutSession(plan.id)) as {
-        url?: string;
-        checkout_url?: string;
-      } | null;
+      const request = buildCheckoutRequest(pathway, period, selectedProfessions);
+      const session = await paymentService.createCheckoutSession(request) as { url?: string; checkout_url?: string } | null;
       const url = session?.url ?? session?.checkout_url;
-      if (url) await Linking.openURL(url);
+      if (url) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert('Billing unavailable', 'The checkout link was missing from the server response.');
+      }
     } catch (e: unknown) {
-      const message = e instanceof Error ? e.message : 'Could not start trial. Please try again.';
-      Alert.alert('Trial setup failed', message);
+      const message = e instanceof Error ? e.message : 'Could not start checkout. Please try again.';
+      Alert.alert('Checkout setup failed', message);
     }
+  }
+
+  function renderProfessionSelector() {
+    return (
+      <View style={styles.professionBox}>
+        <View style={styles.professionHeaderRow}>
+          <Text style={[styles.professionTitle, { color: palette.text }]}>Choose profession slots</Text>
+          <Text style={[styles.professionCount, { color: palette.primary }]}>{selectedProfessions.length} selected</Text>
+        </View>
+        <Text style={[styles.professionHelp, { color: palette.textMuted }]}>Add two or more professions only when the learner truly needs multiple role tracks.</Text>
+        <View style={styles.professionGrid}>
+          {PROFESSION_OPTIONS.map((option) => {
+            const selected = selectedProfessions.includes(option.key);
+            return (
+              <Pressable
+                key={option.key}
+                accessibilityRole="button"
+                onPress={() => toggleProfession(option.key)}
+                style={({ pressed }) => [
+                  styles.professionPill,
+                  {
+                    backgroundColor: selected ? palette.primary : palette.surface,
+                    borderColor: selected ? palette.primary : palette.border,
+                  },
+                  pressed && styles.pressed,
+                ]}
+              >
+                <Text style={[styles.professionPillText, { color: selected ? textOnPrimary : palette.text }]}>{option.shortLabel}</Text>
+              </Pressable>
+            );
+          })}
+        </View>
+        {selectedProfessions.length > 1 ? (
+          <Text style={[styles.discountText, { color: palette.accent }]}>Extra profession slots use {ADDITIONAL_PROFESSION_DISCOUNT_PERCENT}% off.</Text>
+        ) : null}
+      </View>
+    );
   }
 
   return (
@@ -94,153 +161,157 @@ export default function SubscriptionScreen() {
       contentContainerStyle={{ padding: spacing.xl, gap: spacing.lg, backgroundColor: palette.background, paddingBottom: spacing.xxxl }}
       style={{ backgroundColor: palette.background }}
     >
-      <View style={{ gap: spacing.sm }}>
-        <Text style={{ color: palette.primary, fontWeight: '800', letterSpacing: 0.8, fontSize: 11 }}>
-          START YOUR 3-DAY FREE TRIAL
-        </Text>
-        <Text style={{ color: palette.text, ...typography.h1 }}>Pick the plan that fits your path</Text>
-        <Text style={{ color: palette.textMuted, fontSize: 15, lineHeight: 22 }}>
-          3 days free on selected features, then your plan begins. Cancel anytime before day 3 and you won't be charged.
-        </Text>
+      <View style={[styles.hero, { backgroundColor: palette.primary, shadowColor: palette.shadow }]}>
+        <Text style={styles.heroEyebrow}>FLOENTLY ACCESS</Text>
+        <Text style={styles.heroTitle}>Three simple paths. No profession-specific payment maze.</Text>
+        <Text style={styles.heroBody}>Choose YKI, Professional, or Combined. Professions are selected as slots, so new professions can be added without creating new Stripe products.</Text>
       </View>
 
-      {/* Current tier notice */}
-      {tier && tier !== 'free' && (
-        <View style={{ padding: spacing.md, borderRadius: 12, backgroundColor: palette.surface, borderWidth: 1, borderColor: palette.border }}>
-          <Text style={{ color: palette.textMuted, fontSize: 13 }}>Current plan</Text>
-          <Text style={{ color: palette.text, fontWeight: '700', marginTop: 2 }}>{tier}</Text>
+      {tier && tier !== 'free' ? (
+        <View style={[styles.currentPlan, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+          <Text style={[styles.currentPlanLabel, { color: palette.textMuted }]}>Current plan</Text>
+          <Text style={[styles.currentPlanTitle, { color: palette.text }]}>{tier}</Text>
         </View>
-      )}
+      ) : null}
 
-      {/* Billing period toggle */}
-      <View style={{ flexDirection: 'row', borderRadius: 999, backgroundColor: palette.surface, padding: 4, borderWidth: 1, borderColor: palette.border }}>
-        {(['yearly', 'monthly'] as const).map((p) => {
-          const active = period === p;
+      <View style={[styles.segmentWrap, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+        {BILLING_PERIOD_OPTIONS.map((option) => {
+          const active = period === option.key;
           return (
             <Pressable
-              key={p}
-              onPress={() => setPeriod(p)}
-              style={{
-                flex: 1,
-                paddingVertical: 10,
-                borderRadius: 999,
-                backgroundColor: active ? palette.primary : 'transparent',
-                alignItems: 'center',
-              }}
+              key={option.key}
+              accessibilityRole="button"
+              onPress={() => setPeriod(option.key)}
+              style={[styles.segmentButton, { backgroundColor: active ? palette.primary : 'transparent' }]}
             >
-              <Text style={{ color: active ? textOnPrimary : palette.textMuted, fontWeight: '700', fontSize: 14 }}>
-                {p === 'yearly' ? 'Yearly · save 16%' : 'Monthly'}
-              </Text>
+              <Text style={[styles.segmentText, { color: active ? textOnPrimary : palette.text }]}>{option.label}</Text>
+              <Text style={[styles.segmentSubtext, { color: active ? textOnPrimary : palette.textMuted }]}>{option.savingsLabel}</Text>
             </Pressable>
           );
         })}
       </View>
 
-      {/* Plans */}
-      {plansForPeriod.map((plan) => {
-        const isRecommended = plan.id === recommendedPlanId;
-        return (
-          <Pressable
-            key={plan.id}
-            onPress={() => void handleStartTrial(plan)}
-            style={{
-              padding: spacing.lg,
-              borderRadius: 16,
-              borderWidth: isRecommended ? 2 : 1,
-              borderColor: isRecommended ? palette.primary : palette.border,
-              gap: spacing.sm,
-              position: 'relative',
-              backgroundColor: isRecommended ? palette.primarySurface : 'transparent',
-            }}
-          >
-            {isRecommended && (
-              <View
-                style={{
-                  position: 'absolute',
-                  top: -10,
-                  right: spacing.lg,
-                  backgroundColor: palette.primary,
-                  paddingHorizontal: 10,
-                  paddingVertical: 3,
-                  borderRadius: 999,
-                }}
-              >
-                <Text style={{ color: textOnPrimary, fontSize: 10, fontWeight: '800', letterSpacing: 0.6 }}>
-                  RECOMMENDED
-                </Text>
-              </View>
-            )}
-            <Text style={{ color: palette.text, fontWeight: '700', fontSize: 17 }}>{plan.title}</Text>
-            <Text style={{ color: palette.textMuted, fontSize: 13, lineHeight: 20 }}>{plan.description}</Text>
-            <Text style={{ color: palette.primary, fontWeight: '700', fontSize: 16, marginTop: spacing.xs }}>
-              {plan.checkoutLabel}
-            </Text>
+      <View style={styles.planStack}>
+        {PATHWAYS.map((pathway) => {
+          const plan = getPlanByPathwayPeriod(pathway.id, period);
+          const estimate = estimateCheckoutTotal(pathway.id, period, selectedProfessions);
+          const recommended = pathway.id === recommendedPathway;
+          const needsProfession = pathway.id !== 'yki';
+          return (
             <View
-              style={{
-                minHeight: 48,
-                borderRadius: 999,
-                backgroundColor: isRecommended ? palette.primary : 'transparent',
-                borderWidth: isRecommended ? 0 : 1,
-                borderColor: palette.primary,
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: spacing.sm,
-              }}
+              key={pathway.id}
+              style={[
+                styles.planCard,
+                {
+                  backgroundColor: recommended ? palette.primarySurface : palette.surface,
+                  borderColor: recommended ? palette.primary : palette.border,
+                  shadowColor: palette.shadow,
+                },
+              ]}
             >
-              <Text
-                style={{
-                  color: isRecommended ? textOnPrimary : palette.primary,
-                  fontWeight: '800',
-                  fontSize: 15,
-                }}
+              {recommended ? (
+                <View style={[styles.recommendedBadge, { backgroundColor: palette.primary }]}>
+                  <Text style={[styles.recommendedText, { color: textOnPrimary }]}>RECOMMENDED</Text>
+                </View>
+              ) : null}
+              <Text style={[styles.cardEyebrow, { color: palette.primary }]}>{pathway.eyebrow}</Text>
+              <Text style={[styles.cardTitle, { color: palette.text }]}>{pathway.title}</Text>
+              <Text style={[styles.cardBody, { color: palette.textMuted }]}>{pathway.body}</Text>
+              <View style={styles.priceRow}>
+                <Text style={[styles.priceText, { color: palette.text }]}>{estimate.totalLabel}</Text>
+                {needsProfession ? <Text style={[styles.priceMeta, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions)}</Text> : null}
+              </View>
+
+              {needsProfession ? renderProfessionSelector() : null}
+
+              <View style={styles.highlightList}>
+                {pathway.highlights.map((item) => (
+                  <View key={item} style={styles.highlightRow}>
+                    <Text style={[styles.check, { color: palette.accent }]}>✓</Text>
+                    <Text style={[styles.highlightText, { color: palette.textMuted }]}>{item}</Text>
+                  </View>
+                ))}
+              </View>
+
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => { void openCheckout(pathway.id); }}
+                style={({ pressed }) => [styles.cta, { backgroundColor: palette.primary }, pressed && styles.pressed]}
               >
-                Start 3-day free trial
-              </Text>
+                <Text style={[styles.ctaText, { color: textOnPrimary }]}>Start 3-day free trial</Text>
+              </Pressable>
+              <Text style={[styles.planFinePrint, { color: palette.textMuted }]}>{plan.checkoutLabel}. Cancel before day 3.</Text>
             </View>
-          </Pressable>
-        );
-      })}
+          );
+        })}
+      </View>
 
-      {/* Access split — now accent teal framed for "what you get" */}
-      <View style={{ padding: spacing.lg, borderRadius: 16, borderWidth: 1, borderColor: palette.border, backgroundColor: palette.surface, gap: spacing.sm }}>
-        <Text style={{ color: palette.text, fontWeight: '700', fontSize: 15 }}>
-          What you get during the 3-day trial
-        </Text>
+      <View style={[styles.infoCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+        <Text style={[styles.infoTitle, { color: palette.text }]}>What the free preview covers</Text>
         {TRIAL_INCLUDES.map((item) => (
-          <View key={item} style={{ flexDirection: 'row', gap: spacing.sm, alignItems: 'flex-start' }}>
-            <Text style={{ color: palette.accent, fontWeight: '800', marginTop: 1 }}>✓</Text>
-            <Text style={{ color: palette.textMuted, flex: 1, fontSize: 13, lineHeight: 19 }}>{item}</Text>
-          </View>
-        ))}
-
-        <Text style={{ color: palette.text, fontWeight: '700', fontSize: 15, marginTop: spacing.md }}>
-          Unlocks with your paid plan
-        </Text>
-        {TRIAL_EXCLUDES.map((item) => (
-          <View key={item} style={{ flexDirection: 'row', gap: spacing.sm, alignItems: 'flex-start' }}>
-            <Text style={{ color: palette.primary, fontWeight: '800', marginTop: 1 }}>+</Text>
-            <Text style={{ color: palette.textMuted, flex: 1, fontSize: 13, lineHeight: 19 }}>{item}</Text>
+          <View key={item} style={styles.highlightRow}>
+            <Text style={[styles.check, { color: palette.accent }]}>✓</Text>
+            <Text style={[styles.highlightText, { color: palette.textMuted }]}>{item}</Text>
           </View>
         ))}
       </View>
-
-      <Text style={{ color: palette.textMuted, fontSize: 12, textAlign: 'center', lineHeight: 18 }}>
-        Cancel before day 3 and you won't be charged. Manage your plan anytime in Settings.
-      </Text>
 
       <Pressable
         onPress={() => {
           Alert.alert(
             'For organisations',
-            'Employer and municipality pricing uses the same pathways with cohort visibility, assigned tracks, and reporting. Please contact us to set up.',
+            'Employer and city programme access remain separate from individual Stripe subscriptions and can be configured through organisation setup.',
           );
         }}
-        style={{ padding: spacing.sm, marginTop: spacing.sm }}
+        style={{ padding: spacing.sm }}
       >
         <Text style={{ color: palette.textMuted, fontSize: 12, textAlign: 'center', textDecorationLine: 'underline' }}>
-          For organisations and programme access →
+          Employer and city programme access
         </Text>
       </Pressable>
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  hero: { borderRadius: 28, padding: 22, gap: 10, shadowOpacity: 1, shadowRadius: 18, shadowOffset: { width: 0, height: 10 }, elevation: 3 },
+  heroEyebrow: { color: 'rgba(255,255,255,0.78)', fontSize: 11, fontWeight: '900', letterSpacing: 0.8 },
+  heroTitle: { color: '#FFFFFF', fontSize: 26, fontWeight: '900', lineHeight: 32 },
+  heroBody: { color: 'rgba(255,255,255,0.86)', fontSize: 14, lineHeight: 21 },
+  currentPlan: { borderRadius: 16, borderWidth: 1, padding: 14, gap: 3 },
+  currentPlanLabel: { fontSize: 12, fontWeight: '700' },
+  currentPlanTitle: { fontSize: 15, fontWeight: '800' },
+  segmentWrap: { flexDirection: 'row', borderRadius: 999, borderWidth: 1, padding: 4, gap: 4 },
+  segmentButton: { flex: 1, borderRadius: 999, paddingVertical: 10, alignItems: 'center', justifyContent: 'center', gap: 2 },
+  segmentText: { fontSize: 13, fontWeight: '900' },
+  segmentSubtext: { fontSize: 10, fontWeight: '700' },
+  planStack: { gap: 16 },
+  planCard: { borderRadius: 24, padding: 18, borderWidth: 1, gap: 12, shadowOpacity: 0.08, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 1 },
+  recommendedBadge: { alignSelf: 'flex-start', borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4 },
+  recommendedText: { fontSize: 10, fontWeight: '900', letterSpacing: 0.7 },
+  cardEyebrow: { fontSize: 11, fontWeight: '900', letterSpacing: 0.6, textTransform: 'uppercase' },
+  cardTitle: { fontSize: 21, fontWeight: '900' },
+  cardBody: { fontSize: 13, lineHeight: 19 },
+  priceRow: { gap: 2 },
+  priceText: { fontSize: 26, fontWeight: '900' },
+  priceMeta: { fontSize: 12, fontWeight: '700' },
+  professionBox: { gap: 9 },
+  professionHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
+  professionTitle: { fontSize: 13, fontWeight: '900' },
+  professionCount: { fontSize: 12, fontWeight: '900' },
+  professionHelp: { fontSize: 12, lineHeight: 17 },
+  professionGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  professionPill: { borderWidth: 1, borderRadius: 999, paddingHorizontal: 12, paddingVertical: 8 },
+  professionPillText: { fontSize: 12, fontWeight: '800' },
+  discountText: { fontSize: 12, fontWeight: '800' },
+  highlightList: { gap: 7 },
+  highlightRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 8 },
+  check: { fontSize: 13, fontWeight: '900', marginTop: 1 },
+  highlightText: { flex: 1, fontSize: 13, lineHeight: 18 },
+  cta: { borderRadius: 999, minHeight: 46, alignItems: 'center', justifyContent: 'center', marginTop: 2 },
+  ctaText: { fontSize: 14, fontWeight: '900' },
+  planFinePrint: { textAlign: 'center', fontSize: 11, lineHeight: 16 },
+  infoCard: { borderRadius: 20, borderWidth: 1, padding: 16, gap: 9 },
+  infoTitle: { fontSize: 15, fontWeight: '900' },
+  pressed: { opacity: 0.9 },
+});

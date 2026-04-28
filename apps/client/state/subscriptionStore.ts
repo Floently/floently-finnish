@@ -112,6 +112,10 @@ function extractProfessions(source: Record<string, unknown>): ProfessionCode[] {
   if (Array.isArray(source.entitlements) || Array.isArray(source.features)) return [];
   const direct = Array.isArray(source.professions) ? dedupeProfessions(source.professions) : [];
   if (direct.length) return direct;
+  const selected = Array.isArray(source.selected_professions) ? dedupeProfessions(source.selected_professions) : [];
+  if (selected.length) return selected;
+  const selectedCamel = Array.isArray(source.selectedProfessions) ? dedupeProfessions(source.selectedProfessions) : [];
+  if (selectedCamel.length) return selectedCamel;
   const accessible = Array.isArray(source.accessible_professions) ? dedupeProfessions(source.accessible_professions) : [];
   if (accessible.length) return accessible;
   const nestedEntitlements = source.entitlements && typeof source.entitlements === 'object'
@@ -137,9 +141,14 @@ function planLabel(tier: string, professions: ProfessionCode[]) {
     case 'internal_all_access':
       return 'Internal All Access';
     case 'yki_monthly':
+    case 'yki_3_months':
     case 'yki_yearly':
     case 'general_premium':
       return 'YKI Pathway';
+    case 'combined_monthly':
+    case 'combined_3_months':
+    case 'combined_yearly':
+      return professions.length > 1 ? `Combined Pathway - ${professions.length} professions` : first ? `Combined Pathway - ${first.replace('_', ' ')}` : 'Combined Pathway';
     case 'bundle_nurse_monthly':
     case 'bundle_nurse_yearly':
       return 'Combined Pathway · YKI + Nurse';
@@ -149,6 +158,10 @@ function planLabel(tier: string, professions: ProfessionCode[]) {
     case 'bundle_practical_nurse_monthly':
     case 'bundle_practical_nurse_yearly':
       return 'Combined Pathway · YKI + Practical Nurse';
+    case 'professional_monthly':
+    case 'professional_3_months':
+    case 'professional_yearly':
+      return professions.length > 1 ? `Professional Pathway - ${professions.length} professions` : first ? `Professional Pathway - ${first.replace('_', ' ')}` : 'Professional Pathway';
     case 'professional_nurse_monthly':
     case 'professional_nurse_yearly':
       return 'Professional Pathway · Nurse';
@@ -306,7 +319,7 @@ function fallbackForUser(user?: UserLike | null): CompatSubscriptionStatus {
   }
 
   const tier = String(user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free');
-  const ykiAccess = tier.startsWith('yki_') || tier.startsWith('bundle_') || tier === 'general_premium';
+  const ykiAccess = tier.startsWith('yki_') || tier.startsWith('combined_') || tier.startsWith('bundle_') || tier === 'general_premium';
   const professions = tier.includes('doctor')
     ? (['doctor'] as ProfessionCode[])
     : tier.includes('practical_nurse') || tier.includes('lahioitaja')
@@ -314,7 +327,7 @@ function fallbackForUser(user?: UserLike | null): CompatSubscriptionStatus {
       : tier.includes('nurse')
         ? (['nurse'] as ProfessionCode[])
         : ([] as ProfessionCode[]);
-  const professionalAccess = professions.length > 0 || tier.startsWith('professional_') || tier.startsWith('bundle_') || tier === 'professional_premium';
+  const professionalAccess = professions.length > 0 || tier.startsWith('professional_') || tier.startsWith('combined_') || tier.startsWith('bundle_') || tier === 'professional_premium';
   if (tier.startsWith('preview_')) {
     const path = tier.replace('preview_', '') as PreviewPath;
     if (path === 'yki' || path === 'doctor' || path === 'nurse' || path === 'practical_nurse') {
@@ -386,14 +399,14 @@ function normalizeRemoteStatus(payload: unknown, user?: UserLike | null): Compat
     ? current.yki_access
     : typeof current.ykiAccess === 'boolean'
       ? current.ykiAccess
-      : String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('yki_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('bundle_');
+      : String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('yki_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('combined_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('bundle_');
   const professionalAccess = typeof current.professional_access === 'boolean'
     ? current.professional_access
     : typeof current.professionalAccess === 'boolean'
       ? current.professionalAccess
       : typeof current.workplace_access === 'boolean'
         ? current.workplace_access
-        : professions.length > 0 || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('professional_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('bundle_');
+        : professions.length > 0 || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('professional_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('combined_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('bundle_');
   return compatStatusFromValues({
     email,
     tier: String(current.billing_tier ?? current.billingTier ?? current.tier ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free'),

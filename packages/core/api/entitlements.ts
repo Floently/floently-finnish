@@ -5,8 +5,10 @@ export type ProfessionCode = ProfessionKey;
 
 export type PreviewPlanId = 'preview_yki' | 'preview_doctor' | 'preview_nurse' | 'preview_practical_nurse';
 
-export type PlanId =
-  | 'yki_monthly' | 'yki_yearly'
+export type BillingPeriod = 'monthly' | '3_months' | 'yearly';
+export type CheckoutPathway = 'yki' | 'professional' | 'combined';
+
+export type LegacyPlanId =
   | 'professional_doctor_monthly' | 'professional_doctor_yearly'
   | 'professional_nurse_monthly' | 'professional_nurse_yearly'
   | 'professional_practical_nurse_monthly' | 'professional_practical_nurse_yearly'
@@ -14,42 +16,293 @@ export type PlanId =
   | 'bundle_nurse_monthly' | 'bundle_nurse_yearly'
   | 'bundle_practical_nurse_monthly' | 'bundle_practical_nurse_yearly';
 
+export type PlanId =
+  | 'yki_monthly' | 'yki_3_months' | 'yki_yearly'
+  | 'professional_monthly' | 'professional_3_months' | 'professional_yearly'
+  | 'combined_monthly' | 'combined_3_months' | 'combined_yearly'
+  | LegacyPlanId;
+
 export type AccessType = 'individual' | 'employer_programme' | 'city_programme' | 'internal';
 
 export type PlanCatalogEntry = {
   id: PlanId;
   category: 'yki' | 'professional' | 'bundle';
-  profession?: ProfessionKey;
+  pathway: CheckoutPathway;
   title: string;
   description: string;
   checkoutLabel: string;
-  billingPeriod: 'monthly' | 'yearly';
+  billingPeriod: BillingPeriod;
   audience?: 'learner' | 'employer' | 'city';
+  includedProfessionSlots?: number;
+  extraProfessionDiscountPercent?: number;
+};
+
+export type ProfessionOption = {
+  key: ProfessionKey;
+  label: string;
+  shortLabel: string;
+  detail: string;
+};
+
+export type BillingPeriodOption = {
+  key: BillingPeriod;
+  label: string;
+  shortLabel: string;
+  savingsLabel: string;
+};
+
+export type CheckoutRequest = {
+  plan: string;
+  pathway: CheckoutPathway;
+  billingPeriod: BillingPeriod;
+  professions: ProfessionKey[];
+  professionCount: number;
+};
+
+export const ADDITIONAL_PROFESSION_DISCOUNT_PERCENT = 15;
+
+export const PROFESSION_OPTIONS: ProfessionOption[] = [
+  {
+    key: 'nurse',
+    label: 'Nurse',
+    shortLabel: 'Nurse',
+    detail: 'Patient care, handovers, reporting, medication communication, and teamwork.',
+  },
+  {
+    key: 'doctor',
+    label: 'Doctor',
+    shortLabel: 'Doctor',
+    detail: 'Patient interaction, explanations, documentation, consultation, and medical teamwork.',
+  },
+  {
+    key: 'practical_nurse',
+    label: 'Practical Nurse',
+    shortLabel: 'Practical Nurse',
+    detail: 'Care routines, residents, relatives, daily support, and practical care communication.',
+  },
+];
+
+export const BILLING_PERIOD_OPTIONS: BillingPeriodOption[] = [
+  { key: 'monthly', label: 'Monthly', shortLabel: '1 month', savingsLabel: 'Flexible' },
+  { key: '3_months', label: '3 months', shortLabel: '3 months', savingsLabel: 'Focused sprint' },
+  { key: 'yearly', label: 'Yearly', shortLabel: '12 months', savingsLabel: 'Best value' },
+];
+
+const PLAN_PRICES_CENTS: Record<CheckoutPathway, Record<BillingPeriod, number>> = {
+  yki: {
+    monthly: 1490,
+    '3_months': 3990,
+    yearly: 14900,
+  },
+  professional: {
+    monthly: 2490,
+    '3_months': 6790,
+    yearly: 24900,
+  },
+  combined: {
+    monthly: 2990,
+    '3_months': 8090,
+    yearly: 29900,
+  },
 };
 
 export const PLAN_CATALOG: PlanCatalogEntry[] = [
-  { id: 'yki_monthly', category: 'yki', title: 'YKI Pathway', description: 'Prepare for YKI speaking, writing, reading, and listening with guided practice that also supports citizenship and permanent residence language goals.', checkoutLabel: '€14.90 / month', billingPeriod: 'monthly', audience: 'learner' },
-  { id: 'yki_yearly', category: 'yki', title: 'YKI Pathway', description: 'Prepare for YKI speaking, writing, reading, and listening with guided practice that also supports citizenship and permanent residence language goals.', checkoutLabel: '€149 / year', billingPeriod: 'yearly', audience: 'learner' },
-  { id: 'professional_doctor_monthly', category: 'professional', profession: 'doctor', title: 'Professional Pathway · Doctor', description: 'Build Finnish for patient interaction, explanations, documentation, teamwork, and real medical communication in Finland.', checkoutLabel: '€24.90 / month', billingPeriod: 'monthly', audience: 'learner' },
-  { id: 'professional_doctor_yearly', category: 'professional', profession: 'doctor', title: 'Professional Pathway · Doctor', description: 'Build Finnish for patient interaction, explanations, documentation, teamwork, and real medical communication in Finland.', checkoutLabel: '€249 / year', billingPeriod: 'yearly', audience: 'learner' },
-  { id: 'professional_nurse_monthly', category: 'professional', profession: 'nurse', title: 'Professional Pathway · Nurse', description: 'Build Finnish for patient care, reporting, handovers, medication communication, and everyday workplace interaction.', checkoutLabel: '€24.90 / month', billingPeriod: 'monthly', audience: 'learner' },
-  { id: 'professional_nurse_yearly', category: 'professional', profession: 'nurse', title: 'Professional Pathway · Nurse', description: 'Build Finnish for patient care, reporting, handovers, medication communication, and everyday workplace interaction.', checkoutLabel: '€249 / year', billingPeriod: 'yearly', audience: 'learner' },
-  { id: 'professional_practical_nurse_monthly', category: 'professional', profession: 'practical_nurse', title: 'Professional Pathway · Practical Nurse', description: 'Build Finnish for care work, routines, residents, relatives, teamwork, and practical communication in real care settings.', checkoutLabel: '€24.90 / month', billingPeriod: 'monthly', audience: 'learner' },
-  { id: 'professional_practical_nurse_yearly', category: 'professional', profession: 'practical_nurse', title: 'Professional Pathway · Practical Nurse', description: 'Build Finnish for care work, routines, residents, relatives, teamwork, and practical communication in real care settings.', checkoutLabel: '€249 / year', billingPeriod: 'yearly', audience: 'learner' },
-  { id: 'bundle_doctor_monthly', category: 'bundle', profession: 'doctor', title: 'Combined Pathway · YKI + Doctor', description: 'Prepare for YKI while building doctor-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€29.90 / month', billingPeriod: 'monthly', audience: 'learner' },
-  { id: 'bundle_doctor_yearly', category: 'bundle', profession: 'doctor', title: 'Combined Pathway · YKI + Doctor', description: 'Prepare for YKI while building doctor-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€299 / year', billingPeriod: 'yearly', audience: 'learner' },
-  { id: 'bundle_nurse_monthly', category: 'bundle', profession: 'nurse', title: 'Combined Pathway · YKI + Nurse', description: 'Prepare for YKI while building nurse-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€29.90 / month', billingPeriod: 'monthly', audience: 'learner' },
-  { id: 'bundle_nurse_yearly', category: 'bundle', profession: 'nurse', title: 'Combined Pathway · YKI + Nurse', description: 'Prepare for YKI while building nurse-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€299 / year', billingPeriod: 'yearly', audience: 'learner' },
-  { id: 'bundle_practical_nurse_monthly', category: 'bundle', profession: 'practical_nurse', title: 'Combined Pathway · YKI + Practical Nurse', description: 'Prepare for YKI while building practical nurse Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€29.90 / month', billingPeriod: 'monthly', audience: 'learner' },
-  { id: 'bundle_practical_nurse_yearly', category: 'bundle', profession: 'practical_nurse', title: 'Combined Pathway · YKI + Practical Nurse', description: 'Prepare for YKI while building practical nurse Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€299 / year', billingPeriod: 'yearly', audience: 'learner' },
+  {
+    id: 'yki_monthly',
+    category: 'yki',
+    pathway: 'yki',
+    title: 'YKI Pathway',
+    description: 'Focused YKI speaking, writing, reading, and listening practice for citizenship, permanent residence, study, and life in Finland.',
+    checkoutLabel: 'EUR 14.90 / month',
+    billingPeriod: 'monthly',
+    audience: 'learner',
+    includedProfessionSlots: 0,
+  },
+  {
+    id: 'yki_3_months',
+    category: 'yki',
+    pathway: 'yki',
+    title: 'YKI Pathway',
+    description: 'Focused YKI speaking, writing, reading, and listening practice for citizenship, permanent residence, study, and life in Finland.',
+    checkoutLabel: 'EUR 39.90 / 3 months',
+    billingPeriod: '3_months',
+    audience: 'learner',
+    includedProfessionSlots: 0,
+  },
+  {
+    id: 'yki_yearly',
+    category: 'yki',
+    pathway: 'yki',
+    title: 'YKI Pathway',
+    description: 'Focused YKI speaking, writing, reading, and listening practice for citizenship, permanent residence, study, and life in Finland.',
+    checkoutLabel: 'EUR 149 / year',
+    billingPeriod: 'yearly',
+    audience: 'learner',
+    includedProfessionSlots: 0,
+  },
+  {
+    id: 'professional_monthly',
+    category: 'professional',
+    pathway: 'professional',
+    title: 'Professional Pathway',
+    description: 'Choose one or more professions and unlock role-specific Finnish for real workplace communication.',
+    checkoutLabel: 'EUR 24.90 / profession / month',
+    billingPeriod: 'monthly',
+    audience: 'learner',
+    includedProfessionSlots: 1,
+    extraProfessionDiscountPercent: ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+  },
+  {
+    id: 'professional_3_months',
+    category: 'professional',
+    pathway: 'professional',
+    title: 'Professional Pathway',
+    description: 'Choose one or more professions and unlock role-specific Finnish for real workplace communication.',
+    checkoutLabel: 'EUR 67.90 / profession / 3 months',
+    billingPeriod: '3_months',
+    audience: 'learner',
+    includedProfessionSlots: 1,
+    extraProfessionDiscountPercent: ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+  },
+  {
+    id: 'professional_yearly',
+    category: 'professional',
+    pathway: 'professional',
+    title: 'Professional Pathway',
+    description: 'Choose one or more professions and unlock role-specific Finnish for real workplace communication.',
+    checkoutLabel: 'EUR 249 / profession / year',
+    billingPeriod: 'yearly',
+    audience: 'learner',
+    includedProfessionSlots: 1,
+    extraProfessionDiscountPercent: ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+  },
+  {
+    id: 'combined_monthly',
+    category: 'bundle',
+    pathway: 'combined',
+    title: 'Combined Pathway',
+    description: 'YKI preparation plus one professional pathway. Add more professions without creating a new plan.',
+    checkoutLabel: 'EUR 29.90 / month',
+    billingPeriod: 'monthly',
+    audience: 'learner',
+    includedProfessionSlots: 1,
+    extraProfessionDiscountPercent: ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+  },
+  {
+    id: 'combined_3_months',
+    category: 'bundle',
+    pathway: 'combined',
+    title: 'Combined Pathway',
+    description: 'YKI preparation plus one professional pathway. Add more professions without creating a new plan.',
+    checkoutLabel: 'EUR 80.90 / 3 months',
+    billingPeriod: '3_months',
+    audience: 'learner',
+    includedProfessionSlots: 1,
+    extraProfessionDiscountPercent: ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+  },
+  {
+    id: 'combined_yearly',
+    category: 'bundle',
+    pathway: 'combined',
+    title: 'Combined Pathway',
+    description: 'YKI preparation plus one professional pathway. Add more professions without creating a new plan.',
+    checkoutLabel: 'EUR 299 / year',
+    billingPeriod: 'yearly',
+    audience: 'learner',
+    includedProfessionSlots: 1,
+    extraProfessionDiscountPercent: ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+  },
 ];
 
+function formatCurrency(cents: number) {
+  const euros = cents / 100;
+  const display = Number.isInteger(euros) ? String(euros) : euros.toFixed(2);
+  return `EUR ${display}`;
+}
+
+export function billingPeriodDisplay(period: BillingPeriod) {
+  if (period === 'monthly') return 'month';
+  if (period === '3_months') return '3 months';
+  return 'year';
+}
+
+export function normalizeBillingPeriod(value: unknown): BillingPeriod {
+  const raw = String(value ?? '').trim().toLowerCase().replace(/-/g, '_');
+  if (raw === '3_months' || raw === 'three_months' || raw === 'quarterly' || raw === 'quarter') return '3_months';
+  if (raw === 'yearly' || raw === 'annual' || raw === 'annually' || raw === '12_months') return 'yearly';
+  return 'monthly';
+}
+
+export function normalizeProfession(value: unknown): ProfessionKey | null {
+  const normalized = String(value ?? '').trim().toLowerCase().replace(/-/g, '_');
+  if (normalized === 'doctor') return 'doctor';
+  if (normalized === 'nurse') return 'nurse';
+  if (normalized === 'practical_nurse' || normalized === 'lahioitaja' || normalized === 'laehihoitaja') return 'practical_nurse';
+  return null;
+}
+
+export function dedupeProfessions(values: unknown[]): ProfessionKey[] {
+  const result: ProfessionKey[] = [];
+  values.forEach((value) => {
+    const profession = normalizeProfession(value);
+    if (profession && !result.includes(profession)) {
+      result.push(profession);
+    }
+  });
+  return result;
+}
+
 export function resolveProfessionalDisplayName(profession: string | null | undefined): string {
-  const normalized = String(profession ?? '').trim().toLowerCase();
-  if (normalized === 'doctor') return 'Doctor';
-  if (normalized === 'nurse') return 'Nurse';
-  if (normalized === 'practical_nurse' || normalized === 'practical-nurse' || normalized === 'lahioitaja') return 'Practical Nurse';
-  return 'Professional';
+  const normalized = normalizeProfession(profession);
+  return PROFESSION_OPTIONS.find((option) => option.key === normalized)?.label ?? 'Professional';
+}
+
+export function professionListLabel(professions: ProfessionKey[]) {
+  if (!professions.length) return 'No profession selected';
+  return professions.map(resolveProfessionalDisplayName).join(', ');
+}
+
+export function planIdFor(pathway: CheckoutPathway, billingPeriod: BillingPeriod): Exclude<PlanId, LegacyPlanId> {
+  if (pathway === 'combined') return `combined_${billingPeriod}` as Exclude<PlanId, LegacyPlanId>;
+  return `${pathway}_${billingPeriod}` as Exclude<PlanId, LegacyPlanId>;
+}
+
+export function getPlanByPathwayPeriod(pathway: CheckoutPathway, billingPeriod: BillingPeriod): PlanCatalogEntry {
+  const id = planIdFor(pathway, billingPeriod);
+  return PLAN_CATALOG.find((plan) => plan.id === id) ?? PLAN_CATALOG[0];
+}
+
+export function estimateCheckoutTotal(pathway: CheckoutPathway, billingPeriod: BillingPeriod, professions: ProfessionKey[]) {
+  const professionCount = pathway === 'yki' ? 0 : Math.max(1, professions.length);
+  const baseCents = PLAN_PRICES_CENTS[pathway][billingPeriod];
+  const professionalCents = PLAN_PRICES_CENTS.professional[billingPeriod];
+  const discountedExtraProfessionCents = Math.round(professionalCents * (100 - ADDITIONAL_PROFESSION_DISCOUNT_PERCENT) / 100);
+  const extraProfessionCount = pathway === 'yki' ? 0 : Math.max(0, professionCount - 1);
+  const totalCents = pathway === 'professional'
+    ? professionalCents + extraProfessionCount * discountedExtraProfessionCents
+    : pathway === 'combined'
+      ? baseCents + extraProfessionCount * discountedExtraProfessionCents
+      : baseCents;
+
+  return {
+    totalCents,
+    totalLabel: `${formatCurrency(totalCents)} / ${billingPeriodDisplay(billingPeriod)}`,
+    baseLabel: `${formatCurrency(baseCents)} / ${billingPeriodDisplay(billingPeriod)}`,
+    professionCount,
+    extraProfessionCount,
+    extraProfessionDiscountPercent: extraProfessionCount > 0 ? ADDITIONAL_PROFESSION_DISCOUNT_PERCENT : 0,
+  };
+}
+
+export function buildCheckoutRequest(pathway: CheckoutPathway, billingPeriod: BillingPeriod, professions: ProfessionKey[]): CheckoutRequest {
+  const selectedProfessions = pathway === 'yki' ? [] : dedupeProfessions(professions);
+  return {
+    plan: planIdFor(pathway, billingPeriod),
+    pathway,
+    billingPeriod,
+    professions: selectedProfessions,
+    professionCount: selectedProfessions.length,
+  };
 }
 
 export type NormalizedSubscriptionStatus = {
@@ -74,7 +327,6 @@ export type NormalizedSubscriptionStatus = {
 
 export type SubscriptionStatus = NormalizedSubscriptionStatus;
 
-
 function normalizeEmail(value?: string | null) {
   return (value ?? '').trim().toLowerCase();
 }
@@ -98,64 +350,51 @@ export function isAllAccessTestEmail(email?: string | null) {
   return normalized.length > 0 && getAllAccessTestEmails().includes(normalized);
 }
 
-function normalizeProfession(value: unknown): ProfessionKey | null {
-  const normalized = String(value ?? '').trim().toLowerCase();
-  if (normalized === 'doctor') return 'doctor';
-  if (normalized === 'nurse') return 'nurse';
-  if (normalized === 'practical_nurse' || normalized === 'lahioitaja' || normalized === 'practical-nurse') {
-    return 'practical_nurse';
-  }
-  return null;
-}
-
-function dedupeProfessions(values: unknown[]): ProfessionKey[] {
-  const result: ProfessionKey[] = [];
-  values.forEach((value) => {
-    const profession = normalizeProfession(value);
-    if (profession && !result.includes(profession)) {
-      result.push(profession);
-    }
-  });
-  return result;
-}
-
 function planLabelForTier(tier: string, professions: ProfessionKey[]) {
-  const primaryProfession = professions[0];
+  const countLabel = professions.length > 1 ? `${professions.length} professions` : professions[0] ? resolveProfessionalDisplayName(professions[0]) : 'Professional';
   switch (tier) {
     case 'internal_all_access':
       return 'Internal All Access';
     case 'preview_yki':
-      return 'Free Preview · YKI';
+      return 'Free Preview - YKI';
     case 'preview_doctor':
-      return 'Free Preview · Doctor';
+      return 'Free Preview - Doctor';
     case 'preview_nurse':
-      return 'Free Preview · Nurse';
+      return 'Free Preview - Nurse';
     case 'preview_practical_nurse':
-      return 'Free Preview · Practical Nurse';
+      return 'Free Preview - Practical Nurse';
     case 'yki_monthly':
+    case 'yki_3_months':
     case 'yki_yearly':
     case 'general_premium':
       return 'YKI Pathway';
+    case 'professional_monthly':
+    case 'professional_3_months':
+    case 'professional_yearly':
+    case 'professional_premium':
+      return `Professional Pathway - ${countLabel}`;
+    case 'combined_monthly':
+    case 'combined_3_months':
+    case 'combined_yearly':
+      return `Combined Pathway - ${countLabel}`;
     case 'professional_doctor_monthly':
     case 'professional_doctor_yearly':
-      return 'Professional Pathway · Doctor';
+      return 'Professional Pathway - Doctor';
     case 'professional_nurse_monthly':
     case 'professional_nurse_yearly':
-      return 'Professional Pathway · Nurse';
+      return 'Professional Pathway - Nurse';
     case 'professional_practical_nurse_monthly':
     case 'professional_practical_nurse_yearly':
-      return 'Professional Pathway · Practical Nurse';
+      return 'Professional Pathway - Practical Nurse';
     case 'bundle_doctor_monthly':
     case 'bundle_doctor_yearly':
-      return 'Combined Pathway · YKI + Doctor';
+      return 'Combined Pathway - YKI + Doctor';
     case 'bundle_nurse_monthly':
     case 'bundle_nurse_yearly':
-      return 'Combined Pathway · YKI + Nurse';
+      return 'Combined Pathway - YKI + Nurse';
     case 'bundle_practical_nurse_monthly':
     case 'bundle_practical_nurse_yearly':
-      return 'Combined Pathway · YKI + Practical Nurse';
-    case 'professional_premium':
-      return primaryProfession ? `Professional Pathway · ${primaryProfession.replace('_', ' ')}` : 'Professional Pathway Premium';
+      return 'Combined Pathway - YKI + Practical Nurse';
     default:
       return tier === 'free' ? 'No active subscription' : tier.replaceAll('_', ' ');
   }
@@ -164,7 +403,7 @@ function planLabelForTier(tier: string, professions: ProfessionKey[]) {
 function planGroupForTier(tier: string, ykiAccess: boolean, professionalAccess: boolean) {
   if (tier === 'internal_all_access') return 'internal';
   if (tier.startsWith('preview_')) return tier === 'preview_yki' ? 'yki' : 'professional';
-  if (ykiAccess && professionalAccess) return 'bundle';
+  if (tier.startsWith('combined_') || tier.startsWith('bundle_') || (ykiAccess && professionalAccess)) return 'bundle';
   if (ykiAccess) return 'yki';
   if (professionalAccess) return 'professional';
   return 'none';
@@ -173,13 +412,17 @@ function planGroupForTier(tier: string, ykiAccess: boolean, professionalAccess: 
 function deriveProfessions(tier: string, payload: Record<string, unknown>): ProfessionKey[] {
   const explicit = Array.isArray(payload.professions)
     ? dedupeProfessions(payload.professions)
-    : Array.isArray(payload.accessible_professions)
-      ? dedupeProfessions(payload.accessible_professions)
-      : [];
+    : Array.isArray(payload.selected_professions)
+      ? dedupeProfessions(payload.selected_professions)
+      : Array.isArray(payload.selectedProfessions)
+        ? dedupeProfessions(payload.selectedProfessions)
+        : Array.isArray(payload.accessible_professions)
+          ? dedupeProfessions(payload.accessible_professions)
+          : [];
   if (explicit.length) return explicit;
 
-  if (tier.includes('doctor')) return ['doctor'];
   if (tier.includes('practical_nurse') || tier.includes('lahioitaja')) return ['practical_nurse'];
+  if (tier.includes('doctor')) return ['doctor'];
   if (tier.includes('nurse')) return ['nurse'];
   return [];
 }
@@ -234,24 +477,23 @@ export function normalizeSubscriptionStatus(
     };
   }
 
-  const explicitInternalAllAccess = Boolean(data.is_internal_all_access ?? data.isInternalAllAccess) || rawTier === "internal_all_access";
-
+  const explicitInternalAllAccess = Boolean(data.is_internal_all_access ?? data.isInternalAllAccess) || rawTier === 'internal_all_access';
   if (explicitInternalAllAccess) {
     return {
-      tier: "internal_all_access",
-      billingTier: "internal_all_access",
-      planKey: "internal_all_access",
-      planLabel: "Internal All Access",
-      planGroup: "internal",
-      professions: ["doctor", "nurse", "practical_nurse"],
+      tier: 'internal_all_access',
+      billingTier: 'internal_all_access',
+      planKey: 'internal_all_access',
+      planLabel: 'Internal All Access',
+      planGroup: 'internal',
+      professions: ['doctor', 'nurse', 'practical_nurse'],
       ykiAccess: true,
       professionalAccess: true,
       hasAnySubscription: true,
       isActive: true,
       isInternalAllAccess: true,
-      accessSummary: "YKI, workplace communication, and professional pathways are unlocked for testing.",
-      accessType: "internal",
-      accessLabel: accessLabelForType("internal"),
+      accessSummary: 'YKI, workplace communication, and professional pathways are unlocked for testing.',
+      accessType: 'internal',
+      accessLabel: accessLabelForType('internal'),
       raw: payload,
     };
   }
@@ -264,7 +506,7 @@ export function normalizeSubscriptionStatus(
       ? data.ykiAccess
       : typeof features.yki?.available === 'boolean'
         ? Boolean(features.yki.available)
-        : rawTier.startsWith('yki_') || rawTier.startsWith('bundle_') || rawTier === 'professional_premium';
+        : rawTier.startsWith('yki_') || rawTier.startsWith('combined_') || rawTier.startsWith('bundle_') || rawTier === 'professional_premium';
   const professionalAccess = typeof data.professional_access === 'boolean'
     ? data.professional_access
     : typeof data.professionalAccess === 'boolean'
@@ -275,7 +517,7 @@ export function normalizeSubscriptionStatus(
           ? data.workplaceAccess
           : typeof features.workplace?.available === 'boolean'
             ? Boolean(features.workplace.available)
-            : professions.length > 0 || rawTier.startsWith('professional_') || rawTier.startsWith('bundle_') || rawTier === 'professional_premium';
+            : professions.length > 0 || rawTier.startsWith('professional_') || rawTier.startsWith('combined_') || rawTier.startsWith('bundle_') || rawTier === 'professional_premium';
   const hasAnySubscription = typeof data.has_any_subscription === 'boolean'
     ? data.has_any_subscription
     : typeof data.hasAnySubscription === 'boolean'
@@ -284,14 +526,15 @@ export function normalizeSubscriptionStatus(
   const isActive = Boolean(data.is_active ?? data.isActive ?? hasAnySubscription);
   const planLabel = planLabelForTier(rawTier || 'free', professions);
   const accessType = inferAccessType(data, rawTier || 'free', email);
+  const professionLabel = professionListLabel(professions);
   const accessSummary = !hasAnySubscription
     ? 'Choose a YKI, professional, or combined pathway to unlock guided support for work and life in Finland.'
     : ykiAccess && professionalAccess
-      ? `Combined pathway active${professions.length ? ` · ${professions.join(', ').replaceAll('_', ' ')}` : ''}`
+      ? `Combined pathway active${professions.length ? ` - ${professionLabel}` : ''}`
       : ykiAccess
         ? 'YKI pathway is active for work, citizenship, and permanent residence goals.'
         : professionalAccess
-          ? `Professional pathway is active${professions.length ? ` · ${professions.join(', ').replaceAll('_', ' ')}` : ''}.`
+          ? `Professional pathway is active${professions.length ? ` - ${professionLabel}` : ''}.`
           : 'Subscription detected.';
 
   return {
