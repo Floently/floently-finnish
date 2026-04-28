@@ -1,0 +1,37 @@
+{
+  "id": "13d308ca-6ab1-5b8f-9e2b-ebdba7cc1a58",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uimahallissa. Kirjoita palaute. Kerro, oliko henkilökunta ystävällistä, oliko allasalue siisti ja toimivatko suihkut hyvin.",
+    "materials": {
+      "scenario": "Palaute uimahallista"
+    },
+    "items": [
+      {
+        "id": "d7002454-e6d2-5553-8c2a-61d467f534d2",
+        "prompt": "Olet käynyt uimahallissa. Kirjoita palaute. Kerro, oliko henkilökunta ystävällistä, oliko allasalue siisti ja toimivatko suihkut hyvin."
+      }
+    ],
+    "rubric": "Henkilökunnan ystävällisyys\nAllasalueen siisteys\nSuihkujen toimivuus",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

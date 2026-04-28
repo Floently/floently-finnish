@@ -1,0 +1,37 @@
+{
+  "id": "68dbfb15-c630-57c9-8f66-76d646c79dc3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut uuden puhelimen ja haluat vaihtaa numeroa. Kerro uusi numero. Pyydä, että hän tallentaa sen. Kerro, että vanha numero lakkaa toimimasta ensi viikolla.",
+    "materials": {
+      "scenario": "Viesti ystävälle uudesta numerosta"
+    },
+    "items": [
+      {
+        "id": "fcd5fb31-c784-5e36-ac91-de5be14f06bd",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut uuden puhelimen ja haluat vaihtaa numeroa. Kerro uusi numero. Pyydä, että hän tallentaa sen. Kerro, että vanha numero lakkaa toimimasta ensi viikolla."
+      }
+    ],
+    "rubric": "Kerro, että vaihdat numeroa\nKerro uusi numero\nPyydä tallentamaan\nKerro, milloin vanha lakkaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

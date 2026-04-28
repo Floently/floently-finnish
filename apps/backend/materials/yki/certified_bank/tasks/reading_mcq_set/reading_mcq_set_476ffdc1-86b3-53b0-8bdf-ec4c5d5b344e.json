@@ -1,0 +1,66 @@
+{
+  "id": "476ffdc1-86b3-53b0-8bdf-ec4c5d5b344e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalaisessa työelämässä on tärkeää tuntea omat oikeudet ja velvollisuudet. Työsopimuslaki määrittelee työsuhteen vähimmäisehdot, kuten työajan, palkan ja loman. Suomessa on myös alakohtaisia työehtosopimuksia, jotka tarkentavat ehtoja eri aloilla. Työaika on yleensä 8 tuntia päivässä ja 40 tuntia viikossa, mutta monilla aloilla on käytössä liukuva työaika. Vuosilomaa kertyy 2,5 päivää kuukaudessa, jos työsuhde on kestänyt vuoden. Työterveyshuolto on järjestettävä kaikille työntekijöille, ja työnantajan on huolehdittava työturvallisuudesta. Sairastapauksissa työntekijällä on oikeus sairauslomaan ja Kelan päivärahaan. Työpaikoilla on usein luottamusmies, joka edustaa työntekijöitä ja valvoo työehtosopimuksen noudattamista. Työsuojeluvaltuutettu puolestaan valvoo työturvallisuusasioita. Hyvä työilmapiiri ja oikeudenmukainen kohtelu ovat tärkeitä työhyvinvoinnin kannalta.",
+      "word_count": 97
+    },
+    "questions": [
+      {
+        "id": "b1c2d3e4-f5a6-4b7c-9d8e-9f0a1b2c3d4e",
+        "prompt": "Mikä määrittelee työsuhteen vähimmäisehdot?",
+        "options": [
+          "Työpaikan sisäiset säännöt",
+          "Työsopimuslaki",
+          "Työntekijän toiveet",
+          "Työnantajan päätös"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c2d3e4f5-a6b7-4c8d-9e9f-0a1b2c3d4e5f",
+        "prompt": "Paljonko vuosilomaa kertyy kuukaudessa, kun työsuhde on kestänyt vuoden?",
+        "options": [
+          "1 päivä",
+          "2 päivää",
+          "2,5 päivää",
+          "3 päivää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d3e4f5a6-b7c8-4d9e-9f0a-1b2c3d4e5f6a",
+        "prompt": "Kuka edustaa työntekijöitä työpaikalla?",
+        "options": [
+          "Toimitusjohtaja",
+          "Luottamusmies",
+          "Asiakas",
+          "Sihteeri"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

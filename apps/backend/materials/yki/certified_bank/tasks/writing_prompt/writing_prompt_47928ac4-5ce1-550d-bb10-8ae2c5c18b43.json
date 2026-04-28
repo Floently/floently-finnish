@@ -1,0 +1,37 @@
+{
+  "id": "47928ac4-5ce1-550d-bb10-8ae2c5c18b43",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti maistraattiin. Olet muuttanut Suomeen ja haluat rekisteröidä avioliittosi, joka on solmittu ulkomailla. Kerro, milloin ja missä olette menneet naimisiin, ja kysy, mitä asiakirjoja tarvitaan ja pitääkö ne kääntää suomeksi tai ruotsiksi.",
+    "materials": {
+      "scenario": "Ulkomailla solmitun avioliiton rekisteröinti"
+    },
+    "items": [
+      {
+        "id": "f25e3709-87bf-591f-8d72-bc06fd573a10",
+        "prompt": "Kirjoita virallinen sähköposti maistraattiin. Olet muuttanut Suomeen ja haluat rekisteröidä avioliittosi, joka on solmittu ulkomailla. Kerro, milloin ja missä olette menneet naimisiin, ja kysy, mitä asiakirjoja tarvitaan ja pitääkö ne kääntää suomeksi tai ruotsiksi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

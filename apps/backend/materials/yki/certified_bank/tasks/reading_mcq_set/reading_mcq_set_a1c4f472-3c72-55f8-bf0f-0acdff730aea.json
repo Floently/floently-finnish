@@ -1,0 +1,77 @@
+{
+  "id": "a1c4f472-3c72-55f8-bf0f-0acdff730aea",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.506,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedote ja valitse oikea vastaus.",
+    "materials": {
+      "text": "Järvenpään uimahallissa on perhevuoro sunnuntaisin. Kassa avataan kello 9.30 ja allasosasto suljetaan kello 15.45. Alle 10-vuotias tulee aina aikuisen kanssa. Perhelippu maksaa 14 euroa ja sisältää yhden kaapin. Iso liukumäki on käytössä vain kello 11-14. Uintivälineitä voi lainata valvomon tiskiltä henkilökorttia vastaan.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 58
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin kassa avataan?",
+        "options": [
+          "8.30",
+          "9.30",
+          "10.00",
+          "11.00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuka tarvitsee aikuisen mukaan?",
+        "options": [
+          "alle 10-vuotias",
+          "kaikki aikuiset",
+          "vain uimakoululaiset",
+          "yli 15-vuotias"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä perhelippu sisältää?",
+        "options": [
+          "kahvilatuotteen",
+          "kaksi kaappia",
+          "yhden kaapin",
+          "saunan varauksen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin liukumäki on käytössä?",
+        "options": [
+          "9-12",
+          "10-13",
+          "11-14",
+          "14-16"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

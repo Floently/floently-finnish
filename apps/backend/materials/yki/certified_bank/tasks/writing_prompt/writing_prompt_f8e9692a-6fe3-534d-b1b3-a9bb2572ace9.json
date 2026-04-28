@@ -1,0 +1,37 @@
+{
+  "id": "f8e9692a-6fe3-534d-b1b3-a9bb2572ace9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt uutta kuntosalia. Kirjoita palaute. Arvioi laitteiden kuntoa ja monipuolisuutta, siisteyttä ja sitä, oliko henkilökuntaa paikalla ja saiko heiltä apua.",
+    "materials": {
+      "scenario": "Palaute kuntosalista"
+    },
+    "items": [
+      {
+        "id": "ec7720de-1bc5-5161-8a5a-e674e12d1bb4",
+        "prompt": "Olet käyttänyt uutta kuntosalia. Kirjoita palaute. Arvioi laitteiden kuntoa ja monipuolisuutta, siisteyttä ja sitä, oliko henkilökuntaa paikalla ja saiko heiltä apua."
+      }
+    ],
+    "rubric": "Laitteiden kunto ja monipuolisuus\nSiisteys\nHenkilökunnan tavoitettavuus ja apu",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

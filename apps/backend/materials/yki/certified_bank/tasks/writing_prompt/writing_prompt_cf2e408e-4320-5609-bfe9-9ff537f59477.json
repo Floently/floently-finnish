@@ -1,0 +1,37 @@
+{
+  "id": "cf2e408e-4320-5609-bfe9-9ff537f59477",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö maahanmuuttajien kotouttamiseen panostaa nykyistä enemmän. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Maahanmuuttajien kotouttaminen"
+    },
+    "items": [
+      {
+        "id": "e782b8b6-fa75-54fd-98b4-44dc59092187",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö maahanmuuttajien kotouttamiseen panostaa nykyistä enemmän. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "5c48ce9b-d60d-5dd6-a194-515aafe06df2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen valitus",
+    "materials": {
+      "scenario": "Valitus teleoperaattorille verkon toimintahäiriöistä"
+    },
+    "items": [
+      {
+        "id": "aaa634e1-d248-59d4-ba89-82f04397f1d1",
+        "prompt": "Teleoperaattorisi verkossa on ollut toistuvia toimintahäiriöitä, joiden vuoksi puhelut katkeavat, netti ei toimi ja viestit eivät mene perille. Häiriöt ovat jatkuneet kuukausia, ja ne haittaavat työntekoasi ja arkeasi. Operaattori ei ole tiedottanut häiriöistä eikä korjausaikatauluista. Olet maksanut täyttä hintaa huonosta palvelusta. Kirjoita virallinen valitus teleoperaattorille. Vaadi, että verkko korjataan toimintakuntoon ja että saat hyvitystä huonosta palvelusta. Kerro, että vaihdat operaattoria, jos ongelma ei ratkea."
+      }
+    ],
+    "rubric": "Teleoperaattorisi verkossa on ollut toistuvia toimintahäiriöitä, joiden vuoksi puhelut katkeavat, netti ei toimi ja viestit eivät mene perille. Häiriöt ovat jatkuneet kuukausia, ja ne haittaavat työntekoasi ja arkeasi. Operaattori ei ole tiedottanut häiriöistä eikä korjausaikatauluista. Olet maksanut täyttä hintaa huonosta palvelusta. Kirjoita virallinen valitus teleoperaattorille. Vaadi, että verkko korjataan toimintakuntoon ja että saat hyvitystä huonosta palvelusta. Kerro, että vaihdat operaattoria, jos ongelma ei ratkea.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

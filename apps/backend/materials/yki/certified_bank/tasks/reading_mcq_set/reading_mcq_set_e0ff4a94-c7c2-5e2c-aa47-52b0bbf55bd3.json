@@ -1,0 +1,77 @@
+{
+  "id": "e0ff4a94-c7c2-5e2c-aa47-52b0bbf55bd3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.803,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kaupunkisuunnittelun ja asumisen kysymykset ovat nousseet keskeisiksi yhteiskunnallisiksi teemoiksi viime vuosina. Kaupungistuminen, väestönkasvu ja ilmastonmuutos asettavat uusia paineita kaupunkien kehittämiselle, ja samalla keskustelu asumisen hinnasta, segregaatiosta ja kaupunkilaisten hyvinvoinnista on kiihtynyt. Kysymys siitä, millaisia kaupunkeja haluamme rakentaa ja kenelle, on syvästi poliittinen ja arvosidonnainen. Yksi keskeisimmistä kysymyksistä liittyy asumisen hintaan ja kohtuuhintaisuuteen. Suurimmissa kaupungeissa asuntojen hinnat ovat nousseet voimakkaasti, mikä on johtanut pienituloisten ja nuorten aikuisten vaikeuksiin löytää itselleen sopivaa asuntoa. Tämä on omiaan lisäämään eriarvoisuutta ja segregaatiota, kun ihmiset jakautuvat yhä jyrkemmin eri alueille tulotasonsa mukaan. Kaupungit ovat yrittäneet vastata tähän haasteeseen esimerkiksi kaavoittamalla uusia asuinalueita ja tukemalla kohtuuhintaista asuntotuotantoa, mutta ongelmat ovat osoittautuneet sitkeiksi. Toinen keskeinen kysymys liittyy kaupunkirakenteen tiivistämiseen ja viheralueiden säilyttämiseen. Ilmastonmuutoksen hillitsemiseksi ja energiatehokkuuden parantamiseksi kaupunkeja pyritään tiivistämään, mikä tarkoittaa usein rakentamista puistoihin ja muille viheralueille. Tämä herättää vastustusta asukkaiden keskuudessa, jotka pitävät viheralueita tärkeinä virkistyksen ja hyvinvoinnin kannalta. Lisäksi tiivistäminen voi lisätä melua ja ilmansaasteita ja heikentää asuinympäristön viihtyisyyttä. Kolmas keskustelunaihe koskee liikennettä ja liikkumista. Kaupunkien liikennejärjestelmät ovat monien haasteiden edessä: autoliikenteen päästöjä on vähennettävä, joukkoliikennettä on kehitettävä ja pyöräilyn ja kävelyn olosuhteita on parannettava. Samalla on huolehdittava siitä, että liikkuminen on sujuvaa ja turvallista kaikille kaupunkilaisille iästä, varallisuudesta ja toimintakyvystä riippumatta. Tämä edellyttää kokonaisvaltaista suunnittelua ja eri liikkumismuotojen yhteensovittamista. Neljäs kysymys liittyy kaupunkilaisten osallistumismahdollisuuksiin. Kaupunkisuunnittelu on perinteisesti ollut asiantuntijavetoista, ja tavalliset asukkaat ovat kokeneet vaikutusmahdollisuutensa vähäisiksi. Viime vuosina on pyritty kehittämään uusia osallistumisen muotoja, kuten asukaskyselyjä, työpajoja ja osallistuvaa budjetointia, joiden avulla asukkaat pääsevät vaikuttamaan oman elinympäristönsä kehittämiseen. Tämä on tärkeää paitsi demokratian myös suunnittelun laadun kannalta: asukkailla on sellaista kokemustietoa, jota asiantuntijoilla ei ole. Kaupunkisuunnittelun haasteet ovat monitahoisia, eikä niihin ole olemassa helppoja ratkaisuja. Ne edellyttävät pitkäjänteistä työtä, eri intressien yhteensovittamista ja rohkeutta tehdä kipeitäkin päätöksiä. Samalla on tärkeää pitää mielessä, että kaupungit ovat ennen kaikkea ihmisten asuinpaikkoja, ja suunnittelun lähtökohtana tulisi olla asukkaiden hyvinvointi ja viihtyisyys.",
+      "word_count": 305
+    },
+    "questions": [
+      {
+        "id": "c72ab86d-d995-5e4f-bc27-39e09e4ab89f",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Asumisen hintojen nousu suurissa kaupungeissa",
+          "Kaupunkisuunnitteluun ja asumiseen liittyvät monitahoiset haasteet ja niiden yhteiskunnalliset ulottuvuudet",
+          "Liikenteen päästöjen vähentäminen kaupungeissa",
+          "Asukkaiden osallistumismahdollisuuksien parantaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bdc9df9b-7690-5e46-95e2-e86e574ccfcf",
+        "prompt": "Tekstin mukaan millainen ongelma asumisen hintojen nousu aiheuttaa?",
+        "options": [
+          "Se lisää rakentamista ja parantaa asuntojen laatua",
+          "Se vaikeuttaa pienituloisten ja nuorten aikuisten asunnon saantia ja lisää segregaatiota",
+          "Se vähentää muuttoliikettä kaupunkeihin",
+          "Se parantaa kaupunkien taloutta verotulojen kasvun myötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "05fdf9b8-9acf-537c-bd46-c0cd437ecc40",
+        "prompt": "Mitä jännitteitä kaupunkirakenteen tiivistämiseen liittyy tekstin mukaan?",
+        "options": [
+          "Tiivistäminen vähentää autoliikennettä ja parantaa ilmanlaatua, mutta lisää melua ja vähentää viheralueita",
+          "Tiivistäminen on yksiselitteisen hyvä asia, jota kaikki asukkaat kannattavat",
+          "Tiivistäminen on teknisesti mahdotonta toteuttaa",
+          "Tiivistäminen lisää asuntojen tarjontaa ja laskee hintoja"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "1e511d91-dafa-5d1d-92dd-7cf0d84d7e9b",
+        "prompt": "Mitä mahdollisuuksia asukkaiden osallistuminen voi tekstin mukaan tarjota kaupunkisuunnitteluun?",
+        "options": [
+          "Se hidastaa päätöksentekoa ja tekee siitä tehottomampaa",
+          "Se tuo suunnitteluun sellaista kokemustietoa, jota asiantuntijoilla ei ole",
+          "Se vähentää asiantuntijoiden tarvetta ja säästää kustannuksissa",
+          "Se lisää byrokratiaa ja tekee suunnittelusta monimutkaisempaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

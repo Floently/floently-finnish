@@ -1,0 +1,66 @@
+{
+  "id": "d85295ff-98bc-56ee-b0c2-d12639ed194b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelu työterveyshuoltoon ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Työterveyshoitaja: Työterveyshuolto, Sari Mäkelä, päivää.\nSoittaja: Hei, tässä on Matti Virtanen. Olisin kysynyt, miten saan ajan työterveyslääkärille. Minulla on ollut nyt pari viikkoa selkäkipua, eikä se tunnu menevän ohi.\nTyöterveyshoitaja: Onko teillä käytössä työterveyssopimus, johon kuuluu lääkäripalvelut?\nSoittaja: Kyllä, kuuluu.\nTyöterveyshoitaja: Hyvä. Teidän kannattaa ensin täyttää oirekysely verkkopalvelussamme. Sen jälkeen voitte varata ajan suoraan sieltä tai soittaa ajanvaraukseen. Lääkärille pääsee yleensä 2–3 päivässä.\nSoittaja: Entä jos tarvitsen fysioterapeutin?\nTyöterveyshoitaja: Lääkäri kirjoittaa tarvittaessa lähetteen fysioterapiaan. Myös työfysioterapeutille voi päästä suoraan, riippuen työnantajan sopimuksesta.\nSoittaja: Onko tähän aikaan jokin kiireellinen vastaanotto?\nTyöterveyshoitaja: Jos on kyse työtapaturmasta tai äkillisestä vakavasta oireesta, voitte tulla suoraan Meilahden työterveysasemalle kello 8–16.",
+      "audio_asset_id": "4e42049b-6cfd-49e0-8753-b1c74c1b44f2"
+    },
+    "questions": [
+      {
+        "id": "25b1c380-c95a-5d6b-959d-33fa0b075dd1",
+        "prompt": "Miksi soittaja haluaa ajan lääkärille?",
+        "options": [
+          "Flunssan takia",
+          "Selkäkivun takia",
+          "Työuupumuksen takia",
+          "Allergian takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a2cfbd82-5c41-5c94-a84d-5a0a61dde9d9",
+        "prompt": "Mitä soittajan pitää tehdä ennen ajanvarausta?",
+        "options": [
+          "Mennä laboratorioon",
+          "Täyttää oirekysely verkkopalvelussa",
+          "Ottaa yhteyttä esihenkilöön",
+          "Toimittaa työterveyssopimus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8f647238-64bd-556b-b043-9ecbccd1d2fa",
+        "prompt": "Missä tilanteessa voi tulla suoraan vastaanotolle?",
+        "options": [
+          "Aina",
+          "Työtapaturmassa tai äkillisessä vakavassa oireessa",
+          "Vain ajanvarauksella",
+          "Vain iltaisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

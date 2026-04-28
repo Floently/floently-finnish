@@ -1,0 +1,66 @@
+{
+  "id": "b2f7aad9-2286-5031-a548-582fe3bb0735",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedeartikkeli geenitutkimuksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "GEENIT JA ÄLYKKYYS\n\nIslantilainen tutkimusryhmä on kartoittanut koko maan väestön perimää ja löytänyt yhteyksiä geenien ja koulumenestyksen välillä. Tulokset osoittavat, että tietyt geenivariantit ovat yleisempiä pitkälle koulutettujen keskuudessa. Tutkimuksen johtaja Kari Stefánsson kuitenkin korostaa, että tämä ei tarkoita, että älykkyys olisi yksinomaan perinnöllistä. 'Geenit antavat mahdollisuuksia, mutta ympäristö ratkaisee, toteutuvatko ne.' Tutkijat varoittavat, että tällaisia tuloksia voidaan käyttää väärin eriarvoisuuden oikeuttamiseen.",
+      "word_count": 61
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä islantilainen tutkimus osoitti?",
+        "options": [
+          "Älykkyys on täysin perinnöllistä",
+          "Tietyt geenit ovat yleisempiä koulutettujen keskuudessa",
+          "Ympäristöllä ei ole merkitystä",
+          "Geenit eivät vaikuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten Kari Stefánsson tulkitsee tuloksia?",
+        "options": [
+          "Kaikki on geeneistä kiinni",
+          "Geenit antavat mahdollisuuksia, ympäristö ratkaisee",
+          "Tuloksilla ei ole merkitystä",
+          "Koulutus ei vaikuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä tutkijat varoittavat?",
+        "options": [
+          "Tutkimuksen virheellisyydestä",
+          "Tulosten väärinkäytöstä eriarvoisuuden oikeuttamiseen",
+          "Geenitutkimuksen vaaroista",
+          "Tutkimuksen kalleudesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

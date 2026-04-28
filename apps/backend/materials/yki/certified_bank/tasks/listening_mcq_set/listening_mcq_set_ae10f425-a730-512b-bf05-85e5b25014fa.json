@@ -1,0 +1,88 @@
+{
+  "id": "ae10f425-a730-512b-bf05-85e5b25014fa",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele lyhyt uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Lahden kaupunki on saanut valtionapua uuden monitoimihallin rakentamiseen. Apua myönnettiin kaksi miljoonaa euroa. Uusi halli on tarkoitus rakentaa vanhan jäähallin viereen. Rakennustöiden on määrä alkaa ensi vuoden alussa. Valmista pitäisi olla vuoden 2026 loppuun mennessä. Halliin tulee muun muassa kaksi täysimittaista salibandykenttää ja yleisurheilun harjoitustiloja.",
+      "audio_asset_id": "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a"
+    },
+    "questions": [
+      {
+        "id": "l10q1",
+        "prompt": "Mitä varten Lahti on saanut valtionapua?",
+        "options": [
+          "Vanhan jäähallin korjaukseen.",
+          "Uuden monitoimihallin rakentamiseen.",
+          "Urheilukenttien kunnostukseen.",
+          "Uimahallin laajennukseen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l10q2",
+        "prompt": "Kuinka paljon rahaa kaupunki sai?",
+        "options": [
+          "Miljoona euroa.",
+          "Kaksi miljoonaa euroa.",
+          "Kolme miljoonaa euroa.",
+          "Viisi miljoonaa euroa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l10q3",
+        "prompt": "Minne uusi halli rakennetaan?",
+        "options": [
+          "Keskustan torille.",
+          "Vanhan jäähallin viereen.",
+          "Kaupungin ulkopuolelle.",
+          "Urheilupuiston tilalle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l10q4",
+        "prompt": "Milloin rakennustöiden pitäisi alkaa?",
+        "options": [
+          "Tämän vuoden lopussa.",
+          "Ensi vuoden alussa.",
+          "Ensi vuoden lopussa.",
+          "Kahden vuoden päästä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l10q5",
+        "prompt": "Mitä halliin tulee?",
+        "options": [
+          "Jääkiekkokaukalo ja kahvila.",
+          "Kaksi salibandykenttää ja harjoitustiloja.",
+          "Kuntosali ja uima-allas.",
+          "Toimistotiloja ja kokoushuoneita."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

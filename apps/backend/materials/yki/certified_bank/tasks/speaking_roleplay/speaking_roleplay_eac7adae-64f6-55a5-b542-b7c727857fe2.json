@@ -1,0 +1,40 @@
+{
+  "id": "eac7adae-64f6-55a5-b542-b7c727857fe2",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.293,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell how you monitor your own health. Do you go to the doctor even if you don't have symptoms?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "2da0517f-a757-5f3f-926d-48fa9092fe4b",
+        "ai_first_turn_fi": "Käytkö sä terveystarkastuksissa? Seuraatko painoa tai verenpainetta?"
+      }
+    ],
+    "rubric": "Tell how you monitor your own health. Do you go to the doctor even if you don't have symptoms?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

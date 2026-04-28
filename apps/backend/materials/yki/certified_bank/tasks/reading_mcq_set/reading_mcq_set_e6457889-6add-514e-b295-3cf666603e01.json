@@ -1,0 +1,77 @@
+{
+  "id": "e6457889-6add-514e-b295-3cf666603e01",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tilastokeskuksen ennusteen mukaan vuonna 2030 yli 65-vuotiaita on jo yli 1,5 miljoonaa. Julkiset menot, erityisesti terveydenhuolto- ja eläkemenot, kasvavat. Hallitus on pyrkinyt vastaamaan haasteeseen nostamalla eläkeikää ja lisäämällä työperäistä maahanmuuttoa. Toisaalta ikääntyneet ovat terveempiä ja aktiivisempia kuin koskaan.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "c557607a-79fb-511b-a317-5849e5f9a354",
+        "prompt": "Paljonko yli 65-vuotiaita on vuonna 2030?",
+        "options": [
+          "Yli 1 miljoona",
+          "Yli 1,5 miljoonaa",
+          "Yli 2 miljoonaa",
+          "Yli 2,5 miljoonaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "13965424-9a99-5989-8b34-36794ba138a4",
+        "prompt": "Mitkä menot kasvavat?",
+        "options": [
+          "Koulutusmenot",
+          "Terveydenhuolto- ja eläkemenot",
+          "Liikennemenot",
+          "Puolustusmenot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a72ae274-611d-5126-bbc6-f2d54af3dc8c",
+        "prompt": "Mitä toimia hallitus on tehnyt?",
+        "options": [
+          "Laskenut veroja",
+          "Nostanut eläkeikää ja lisännyt työperäistä maahanmuuttoa",
+          "Lisännyt eläkkeitä",
+          "Vähentänyt terveysmenoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "81286d78-9d27-568d-ab0e-1b26cd671100",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen tarjoaa?",
+        "options": [
+          "Halvempaa työvoimaa",
+          "Ikääntyneet ovat terveempiä ja aktiivisempia",
+          "Lisää verotuloja",
+          "Uusia työpaikkoja nuorille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

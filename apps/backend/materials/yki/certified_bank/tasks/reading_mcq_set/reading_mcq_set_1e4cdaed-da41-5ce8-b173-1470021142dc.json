@@ -1,0 +1,73 @@
+{
+  "id": "1e4cdaed-da41-5ce8-b173-1470021142dc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhä useampi koulu on ottanut käyttöön kännykkäkiellon oppituntien ajaksi. Taustalla on huoli oppilaiden keskittymisestä ja koulurauhasta.\n\nErään yläkoulun rehtori kertoo, että kokeilu on ollut onnistunut. \"Oppilaat ovat aktiivisempia tunnilla ja välitunneilla näkee enemmän liikuntaa ja keskustelua. Kännykät ovat olleet iso häiriötekijä.\"\n\nOsa vanhemmista on kuitenkin huolissaan turvallisuudesta. \"Miten lapsi tavoittaa vanhemmat hätätilanteessa?\" kysyy yksi äiti. Koulu on vastannut tähän, että kännykän käyttö on sallittua tarvittaessa, ja että koulun puhelinta voi käyttää.\n\nOppilaiden mielipiteet jakautuvat. Osa on tyytyväisiä, koska silloin ei tule kiusausta. Osa kokee, että heitä kohdellaan kuin pieniä lapsia.\n\nOpettajien kokemukset ovat myös myönteisiä. \"Tunteja on helpompi pitää, kun kukaan ei näprää puhelinta. Oppilaat ovat läsnä ihan eri tavalla\", sanoo yksi opettaja.",
+      "word_count": 113
+    },
+    "questions": [
+      {
+        "id": "item_041_1",
+        "prompt": "Miksi koulut ottavat käyttöön kännykkäkieltoa?",
+        "options": [
+          "koska kännykät ovat kalliita",
+          "huoli keskittymisestä ja koulurauhasta",
+          "koska opettajat eivät osaa käyttää kännyköitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_041_2",
+        "prompt": "Mitä hyötyjä rehtori on havainnut?",
+        "options": [
+          "oppilaat ovat aktiivisempia ja liikkuvat enemmän",
+          "oppilaat saavat parempia numeroita",
+          "kännykät eivät ole enää rikki"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_041_3",
+        "prompt": "Mistä vanhemmat ovat huolissaan?",
+        "options": [
+          "lapset eivät opi käyttämään kännykkää",
+          "turvallisuudesta ja yhteydenpidosta hätätilanteissa",
+          "kännykät menevät rikki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_041_4",
+        "prompt": "Mitä mieltä oppilaat ovat?",
+        "options": [
+          "kaikki ovat tyytyväisiä",
+          "kaikki vastustavat",
+          "mielipiteet jakautuvat"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

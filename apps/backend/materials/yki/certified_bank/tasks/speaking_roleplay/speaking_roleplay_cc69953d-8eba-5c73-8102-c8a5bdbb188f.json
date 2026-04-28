@@ -1,0 +1,40 @@
+{
+  "id": "cc69953d-8eba-5c73-8102-c8a5bdbb188f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "materials": {
+      "roles": {
+        "user": "Sinä",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "07fecbf2-a540-58c2-89a1-b181620831ed",
+        "ai_first_turn_fi": "Haastattelija: Kerro, minkälainen visio sinulla on tämän organisaation tulevaisuudesta ja miten haluaisit sitä kehittää."
+      }
+    ],
+    "rubric": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "2077f4b9-18dd-55ba-88f6-737935bbfb5c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TALOYHTIÖN PIHATAPAHTUMA\n\nLauantaina 27.7. klo 10–14\n\nOhjelmassa:\n- pihakirppis (myy omaan pöytään)\n- arpajaiset\n- kahvio\n- kasvien vaihtopiste\n\nIlmoittaudu kirppispöytään isännöitsijälle viimeistään 24.7.",
+      "word_count": 24
+    },
+    "questions": [
+      {
+        "id": "item_008_1",
+        "prompt": "Milloin pihakirppis järjestetään?",
+        "options": [
+          "sunnuntaina 28.7.",
+          "lauantaina 27.7.",
+          "perjantaina 26.7."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_008_2",
+        "prompt": "Mitä uutta tapahtumassa on pihakirppiksen lisäksi?",
+        "options": [
+          "vain arpajaiset",
+          "arpajaiset, kahvio ja kasvien vaihtopiste",
+          "vain kahvio"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_008_3",
+        "prompt": "Mihin mennessä kirppispöytään pitää ilmoittautua?",
+        "options": [
+          "27.7.",
+          "26.7.",
+          "24.7."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_008_4",
+        "prompt": "Miten kirppispöydän voi varata?",
+        "options": [
+          "sähköpostilla",
+          "isännöitsijältä",
+          "verkkosivuilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

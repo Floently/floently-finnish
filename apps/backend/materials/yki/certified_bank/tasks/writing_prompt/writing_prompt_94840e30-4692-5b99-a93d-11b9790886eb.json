@@ -1,0 +1,37 @@
+{
+  "id": "94840e30-4692-5b99-a93d-11b9790886eb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet syönyt lounasta työpaikkaruokalassa. Kirjoita palaute. Kerro, oliko ruoka hyvää, oliko jonotus pitkä ja oliko ruokailutila siisti.",
+    "materials": {
+      "scenario": "Palaute työpaikkaruokalasta"
+    },
+    "items": [
+      {
+        "id": "ce64c853-b8cf-555e-a9ca-de513d34314e",
+        "prompt": "Olet syönyt lounasta työpaikkaruokalassa. Kirjoita palaute. Kerro, oliko ruoka hyvää, oliko jonotus pitkä ja oliko ruokailutila siisti."
+      }
+    ],
+    "rubric": "Ruoan laatu\nJonotuksen pituus\nRuokailutilan siisteys",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

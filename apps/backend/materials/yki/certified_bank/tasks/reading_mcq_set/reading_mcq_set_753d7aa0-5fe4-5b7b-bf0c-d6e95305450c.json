@@ -1,0 +1,99 @@
+{
+  "id": "753d7aa0-5fe4-5b7b-bf0c-d6e95305450c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Opiskelijoiden keskuudessa on suosittua asua soluasunnossa. Solussa on oma huone, mutta keittiö ja kylpyhuone jaetaan muiden kanssa. Soluasuminen on usein halvempaa kuin yksin asuminen. Se myös tarjoaa mahdollisuuden tutustua uusiin ihmisiin. Toisaalta yhteisessä tilassa pitää sopia säännöistä ja siivouksesta. Soluasuminen sopii monille, mutta ei kaikille.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on suosittua opiskelijoiden keskuudessa?",
+        "options": [
+          "Asua yksin",
+          "Asua soluasunnossa",
+          "Asua vanhempien luona",
+          "Asua hotellissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä soluasunnossa on oma?",
+        "options": [
+          "Keittiö",
+          "Kylpyhuone",
+          "Huone",
+          "Olohuone"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä tilat jaetaan muiden kanssa?",
+        "options": [
+          "Makuuhuoneet",
+          "Keittiö ja kylpyhuone",
+          "Parveke",
+          "Varasto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä soluasumisesta on?",
+        "options": [
+          "Se on aina hiljaista",
+          "Se on usein halvempaa ja tarjoaa mahdollisuuden tutustua uusiin ihmisiin",
+          "Siellä on oma sauna",
+          "Sieltä saa ilmaisen aamiaisen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä soluasumisessa pitää sopia?",
+        "options": [
+          "Ruokailuajoista",
+          "Säännöistä ja siivouksesta",
+          "Vieraista",
+          "Musiikin kuuntelusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Kenelle soluasuminen sopii?",
+        "options": [
+          "Kaikille",
+          "Monille, mutta ei kaikille",
+          "Vain nuorille",
+          "Vain ulkomaalaisille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

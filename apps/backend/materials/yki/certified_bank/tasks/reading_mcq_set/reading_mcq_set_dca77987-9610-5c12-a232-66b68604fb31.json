@@ -1,0 +1,88 @@
+{
+  "id": "dca77987-9610-5c12-a232-66b68604fb31",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.74,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Luonnon virkistyskäyttö on suomalaisille tärkeää. Metsissä, järvillä ja merenrannoilla retkeillään, kalastetaan, marjastetaan ja sienestetään. Luonto tarjoaa mahdollisuuden rentoutua, liikkua ja nauttia hiljaisuudesta. Tutkimukset osoittavat, että luonnossa oleskelulla on myönteisiä vaikutuksia terveyteen ja hyvinvointiin. Yksi keskeisimmistä luonnon virkistyskäytön muodoista on retkeily. Suomessa on kymmeniä kansallispuistoja ja tuhansia kilometrejä merkittyjä retkeilyreittejä. Retkeily on suosittua kaikenikäisten keskuudessa. Se on tapa päästä lähelle luontoa ja kokea seikkailuja. Retkeilijöitä palvelevat laavut, tulipaikat, telttailualueet ja autiotuvat. Toinen keskeinen muoto on marjastus ja sienestys. Jokamiehenoikeudet takaavat jokaiselle mahdollisuuden kerätä marjoja ja sieniä metsistä, myös toisen maalta. Mustikat, puolukat ja kantarellit houkuttelevat metsiin tuhansia suomalaisia loppukesällä ja syksyllä. Omaan ruokaan kerääminen on monelle tärkeä harrastus ja tapa saada puhdasta, terveellistä ja ilmaista ruokaa. Kolmas keskeinen muoto on kalastus. Tuhannet järvet ja pitkä merenrannikko tarjoavat loistavat puitteet kalastukselle. Onkiminen ja pilkkiminen ovat jokamiehenoikeuksia, muuhun kalastukseen tarvitaan lupa. Kalastus on monelle tapa rentoutua ja olla luonnossa. Neljäs muoto on luonnon tarkkailu ja rauhoittuminen. Monille tärkeintä on vain olla luonnossa, kuunnella lintujen laulua, ihailla maisemia ja hengittää raikasta ilmaa. Luonto antaa voimaa ja auttaa palautumaan arjen kiireistä.",
+      "word_count": 176
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä luonnossa oleskelusta on tutkimusten mukaan?",
+        "options": [
+          "Se lisää stressiä",
+          "Sillä on myönteisiä vaikutuksia terveyteen ja hyvinvointiin",
+          "Se on haitallista terveydelle",
+          "Sillä ei ole vaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä palveluita retkeilijöille on tarjolla kansallispuistoissa?",
+        "options": [
+          "Hotelleja ja ravintoloita",
+          "Laavuja, tulipaikkoja, telttailualueita ja autiotupia",
+          "Kauppoja ja kahviloita",
+          "Uimahalleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä oikeus mahdollistaa marjastuksen ja sienestyksen?",
+        "options": [
+          "Maapäiväoikeus",
+          "Jokamiehenoikeus",
+          "Metsästysoikeus",
+          "Kalastusoikeus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä kalastusmuodot ovat jokamiehenoikeuksia?",
+        "options": [
+          "Verkkokalastus ja troolaus",
+          "Onkiminen ja pilkkiminen",
+          "Virvelöinti ja uistelu",
+          "Kaikki kalastusmuodot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä luonnon tarkkailu ja rauhoittuminen tarkoittaa?",
+        "options": [
+          "Eläinten metsästystä",
+          "Luonnossa olemista, maisemien ihailua ja rauhasta nauttimista",
+          "Kasvien keräilyä",
+          "Retkeilyä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

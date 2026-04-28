@@ -1,0 +1,77 @@
+{
+  "id": "e39cac54-5250-5913-978b-1e67a92e45c5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti yhteiskäyttöautoista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "YHTEISKÄYTTÖAUTOT YLEISTYVÄT\n\nYhteiskäyttöautot ovat viime vuosina yleistyneet suomalaisissa kaupungeissa. Idea on yksinkertainen: autoa ei tarvitse omistaa, vaan sitä voi käyttää silloin, kun sitä tarvitsee.\n\nYhteiskäyttöauto toimii usein sovelluksen kautta. Rekisteröidyt palveluun, ja saat käyttöösi auton, joka on pysäköity lähelle. Maksat vain käytön mukaan: minuuteista, tunneista tai päivistä. Polttoaine ja vakuutukset kuuluvat hintaan.\n\nMonelle yhteiskäyttöauto on edullisempi vaihtoehto kuin oman auton omistaminen. Oman auton kulut – bensa, vakuutus, huollot, renkaat ja arvonalenema – voivat olla jopa 500 euroa kuukaudessa. Yhteiskäyttöautolla saman ajomäärän saa usein murto-osalla.\n\nYmpäristönäkökulma on myös tärkeä. Yksi yhteiskäyttöauto korvaa arviolta 5–15 yksityisautoa. Se vähentää sekä päästöjä että pysäköintitilan tarvetta.\n\nHaasteitakin on. Kaikilla alueilla autoja ei ole riittävästi. Jos asuu kaukana keskustasta, autoa ei välttämättä ole lähellä. Myös tottumukset vaikuttavat: moni haluaa oman auton, joka on aina käytettävissä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 157
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten yhteiskäyttöautoa käytetään?",
+        "options": [
+          "Se pitää vuokrata autovuokraamosta",
+          "Sitä käytetään sovelluksen kautta",
+          "Se on vain yrityksille",
+          "Sitä voi käyttää vain viikonloppuisin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko oman auton kulut voivat olla kuukaudessa?",
+        "options": [
+          "noin 200 euroa",
+          "noin 350 euroa",
+          "noin 500 euroa",
+          "noin 650 euroa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuinka monta yksityisautoa yksi yhteiskäyttöauto voi korvata?",
+        "options": [
+          "1–3",
+          "5–15",
+          "10–20",
+          "20–30"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on yksi yhteiskäyttöautojen haaste?",
+        "options": [
+          "Ne ovat aina rikki",
+          "Ne ovat kalliimpia kuin oma auto",
+          "Kaikilla alueilla autoja ei ole riittävästi",
+          "Niitä voi käyttää vain päivällä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

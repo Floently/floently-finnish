@@ -1,0 +1,77 @@
+{
+  "id": "4f022701-de3a-500e-91a5-ea4cfcc127f3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tavaratalon kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät asiakkaat! Tavaratalo sulkeutuu 15 minuutin kuluttua. Kassa kolme on nyt suljettu. Voitte maksaa ostoksenne kassoilla yksi, kaksi ja neljä. Kadonneista tavaroista voit kysyä infopisteestä ensimmäisessä kerroksessa. Kiitos ja tervetuloa uudelleen!",
+      "audio_asset_id": "e4ecd119-c7f9-4722-bb3a-73b8495c694f"
+    },
+    "questions": [
+      {
+        "id": "ce5a1d47-4941-5183-89dc-c825cd08ebef",
+        "prompt": "Milloin tavaratalo sulkeutuu?",
+        "options": [
+          "5 minuutin päästä",
+          "10 minuutin päästä",
+          "15 minuutin päästä",
+          "20 minuutin päästä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7e1216e0-4aee-5982-b199-793293bb6236",
+        "prompt": "Mikä kassa on suljettu?",
+        "options": [
+          "kassa 1",
+          "kassa 2",
+          "kassa 3",
+          "kassa 4"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "10f95a79-d7c1-5b0a-86df-6c4f7fad931c",
+        "prompt": "Mistä voi kysyä kadonneita tavaroita?",
+        "options": [
+          "kassalta",
+          "infopisteestä",
+          "vahtimestarilta",
+          "ulkopuolelta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4c9f0d97-59af-5068-bb4d-26e8794153e8",
+        "prompt": "Missä kerroksessa infopiste on?",
+        "options": [
+          "ensimmäisessä kerroksessa",
+          "toisessa kerroksessa",
+          "kolmannessa kerroksessa",
+          "kellarissa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

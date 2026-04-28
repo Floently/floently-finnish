@@ -1,0 +1,88 @@
+{
+  "id": "635afa65-8236-5565-b8e9-502e34a200cc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.772,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tekstiiliteollisuus on yksi maailman ympäristölle haitallisimmista teollisuudenaloista. Se kuluttaa valtavasti vettä, energiaa ja kemikaaleja, ja se tuottaa paljon jätettä ja kasvihuonekaasupäästöjä. Nopea muoti, jossa vaatteita tuotetaan halvalla ja suuria määriä, on pahentanut tilannetta entisestään. Kiertotalouden periaatteiden soveltaminen tekstiilialalla on välttämätöntä ympäristövaikutusten vähentämiseksi. Yksi keskeisimmistä tavoista edistää kiertotaloutta tekstiilialalla on vaatteiden käyttöiän pidentäminen. Tämä tarkoittaa, että kuluttajat ostavat laadukkaita, kestäviä vaatteita, pitävät niistä hyvää huolta, korjaavat rikki menneitä ja käyttävät niitä pitkään. Myös vaatteiden vuokraus ja lainaaminen on yleistymässä. Toinen tärkeä tapa on vaatteiden uudelleenkäyttö. Käytettyjä vaatteita myydään kirpputoreilla, kierrätyskeskuksissa ja verkkokauppa-alustoilla. Tämä vähentää tarvetta valmistaa uusia vaatteita ja pidentää olemassa olevien vaatteiden elinkaarta. Kolmas tapa on kuitujen kierrätys. Vaatteet, jotka eivät enää kelpaa käytettäviksi, voidaan kierrättää kuiduiksi, joista valmistetaan uusia tekstiilejä. Tämä vaatii kuitenkin teknologian kehittämistä, sillä nykyisin monet tekstiilit ovat materiaalisekoituksia, joiden erottelu on vaikeaa. Neljäs tapa on suunnitella vaatteet kiertotalouden periaatteiden mukaisesti. Tämä tarkoittaa, että vaatteet suunnitellaan kestämään pitkään, ne voidaan helposti korjata, ja ne valmistetaan materiaaleista, jotka voidaan kierrättää. Myös kemikaalien käyttöä on vähennettävä. Viides tapa on kuluttajien asenteiden muuttaminen. Nopean muodin ja kertakäyttökulttuurin sijasta tulisi arvostaa laatua, kestävyyttä ja ajattomuutta. Kuluttajat voivat vaikuttaa omilla valinnoillaan ja vaatia yrityksiltä kestävämpiä tuotteita. Tekstiilialan kiertotalous vaatii yhteistyötä kaikilta toimijoilta: suunnittelijoilta, valmistajilta, kaupoilta, kuluttajilta ja päättäjiltä.",
+      "word_count": 206
+    },
+    "questions": [
+      {
+        "id": "1c572e85-b452-51e9-924a-b8a257ab7a4f",
+        "prompt": "Miksi tekstiiliteollisuus on ympäristölle haitallista?",
+        "options": [
+          "Koska se tuottaa paljon melua",
+          "Koska se kuluttaa paljon vettä, energiaa ja kemikaaleja sekä tuottaa jätettä ja päästöjä",
+          "Koska se työllistää paljon ihmisiä",
+          "Koska se käyttää uusiutuvia materiaaleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1581b0ba-e0a4-58a6-9e0f-b66acdfd2970",
+        "prompt": "Mitä tarkoitetaan vaatteiden käyttöiän pidentämisellä?",
+        "options": [
+          "Vaatteiden myymistä eteenpäin",
+          "Laadukkaiden vaatteiden ostamista, hyvää huolenpitoa ja korjaamista",
+          "Vaatteiden heittämistä pois",
+          "Uusien vaatteiden ostamista usein"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1edb8451-b0ef-5f8a-8c90-4765c032757a",
+        "prompt": "Miten vaatteiden uudelleenkäyttöä voidaan edistää?",
+        "options": [
+          "Heittämällä vaatteet roskiin",
+          "Myymällä käytettyjä vaatteita kirpputoreilla ja verkkokaupoissa",
+          "Polttamalla vaatteet",
+          "Viemällä vaatteet kaatopaikalle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "64012f85-069b-5c6a-adce-3882b40bbee7",
+        "prompt": "Mikä on kuitujen kierrätyksen haaste?",
+        "options": [
+          "Kuituja on liian vähän",
+          "Tekstiilit ovat usein materiaalisekoituksia, joiden erottelu on vaikeaa",
+          "Kierrätys on liian halpaa",
+          "Kukaan ei halua kierrätettyjä kuituja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "64c55abf-b00e-5a2a-8d9f-d4cfcc098897",
+        "prompt": "Mitä tarkoittaa vaatteiden suunnittelu kiertotalouden periaatteiden mukaisesti?",
+        "options": [
+          "Vaatteet suunnitellaan halvoiksi ja kertakäyttöisiksi",
+          "Vaatteet suunnitellaan kestämään pitkään, helposti korjattaviksi ja kierrätettäviksi",
+          "Vaatteet suunnitellaan ulkomaille vietäviksi",
+          "Vaatteet suunnitellaan vain tietyille kuluttajaryhmille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

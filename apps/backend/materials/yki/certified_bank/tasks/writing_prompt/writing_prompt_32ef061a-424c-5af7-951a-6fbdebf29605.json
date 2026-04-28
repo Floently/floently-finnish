@@ -1,0 +1,37 @@
+{
+  "id": "32ef061a-424c-5af7-951a-6fbdebf29605",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uimahalliin.",
+    "materials": {
+      "scenario": "Kysy lasten uimakoulusta"
+    },
+    "items": [
+      {
+        "id": "c23ab1c1-08a0-5c83-857e-455e354822b3",
+        "prompt": "Haluaisit ilmoittaa lapsesi uimakouluun. Kirjoita sähköposti ja kysy, milloin uimakoulut alkavat ja minkä ikäisille ne on tarkoitettu. Kysy myös hintaa ja miten ilmoittaudutaan."
+      }
+    ],
+    "rubric": "Haluaisit ilmoittaa lapsesi uimakouluun. Kirjoita sähköposti ja kysy, milloin uimakoulut alkavat ja minkä ikäisille ne on tarkoitettu. Kysy myös hintaa ja miten ilmoittaudutaan.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "5f852f76-db04-54c7-be4d-38510acf1bbd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.497,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Lähikauppa Satama on auki juhannusaattona kello 7-18. Juhannuspäivänä kauppa on kiinni. Sunnuntaina kauppa avataan poikkeuksellisesti kello 10. Leipäosastolla on tarjous: kaksi ruisleipää viiden euron hintaan.",
+      "word_count": 25
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin asti kauppa on auki juhannusaattona?",
+        "options": [
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu juhannuspäivänä?",
+        "options": [
+          "kauppa on auki",
+          "kauppa on kiinni",
+          "vain kahvila on auki",
+          "vain varasto on auki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin kauppa avataan sunnuntaina?",
+        "options": [
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on tarjous?",
+        "options": [
+          "3 leipää 5 eurolla",
+          "2 leipää 5 eurolla",
+          "2 leipää 3 eurolla",
+          "1 leipä 5 eurolla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

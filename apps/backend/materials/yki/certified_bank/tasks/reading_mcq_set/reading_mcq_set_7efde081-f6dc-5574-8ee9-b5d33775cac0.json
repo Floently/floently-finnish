@@ -1,0 +1,88 @@
+{
+  "id": "7efde081-f6dc-5574-8ee9-b5d33775cac0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kesä on monen suomalaisen lempivuodenaika. Silloin on lämmintä ja valoisaa. Päivät ovat pitkiä. Ihmiset viettävät aikaa ulkona. Mennään uimaan järveen tai mereen. Grillataan ruokaa ja nautitaan auringosta. Monet lomailevat mökillä. Siellä saunotaan ja kalastetaan. Kesällä on myös paljon juhlia. Juhannusta vietetään kesäkuussa. Lapset ovat koulusta lomalla. He leikkivät ulkona ja käyvät uimassa. Kesä on ihanaa aikaa.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen sää kesällä on?",
+        "options": [
+          "Kylmä ja pimeä",
+          "Lämmin ja valoisa",
+          "Tuulinen ja sateinen",
+          "Viileä ja harmaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kesällä tehdään?",
+        "options": [
+          "Mennään hiihtämään",
+          "Mennään uimaan ja grillataan",
+          "Mennään luistelemaan",
+          "Mennään teatteriin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä monet lomailevat kesällä?",
+        "options": [
+          "Hotellissa",
+          "Mökillä",
+          "Ulkomailla",
+          "Leirillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä juhlaa kesällä vietetään?",
+        "options": [
+          "Joulua",
+          "Juhannusta",
+          "Pääsiäistä",
+          "Vappua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä lapset tekevät kesällä?",
+        "options": [
+          "Käyvät koulua",
+          "Leikkivät ulkona ja käyvät uimassa",
+          "Ovat sisällä",
+          "Televät läksyjä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

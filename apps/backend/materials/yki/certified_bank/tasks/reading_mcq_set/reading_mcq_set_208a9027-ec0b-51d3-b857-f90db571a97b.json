@@ -1,0 +1,66 @@
+{
+  "id": "208a9027-ec0b-51d3-b857-f90db571a97b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedeartikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TEKOÄLYN EETTISET HAASTEET\n\nTekoälyn nopea kehitys on nostanut esiin monia eettisiä kysymyksiä. Teknologiafilosofi Frank Martela pohtii tekoälyn ja ihmisen suhdetta. Hänen mukaansa suurin haaste ei ole tekninen vaan inhimillinen: miten säilytämme ihmisarvon ja autonomian, kun koneet kykenevät yhä useampiin tehtäviin. Martela erottaa kaksi ääripäätä: teknologiaoptimistit uskovat tekoälyn ratkaisevan kaikki ongelmat, kun taas teknologiapessimistit näkevät siinä vain uhkia. Hän itse sijoittuu näiden väliin korostaen, että tekoäly on työkalu, jonka vaikutukset riippuvat siitä, miten sitä käytetään.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on Frank Martelan mukaan suurin tekoälyn tuoma haaste?",
+        "options": [
+          "Tekninen kehitys on liian hidasta",
+          "Inhimillisten arvojen säilyttäminen",
+          "Tekoäly on liian kallista",
+          "Koneet korvaavat kaikki työpaikat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin Martela itse asemoituu tekoälykeskustelussa?",
+        "options": [
+          "Teknologiaoptimisti",
+          "Teknologiapessimisti",
+          "Optimismin ja pessimismin väliin",
+          "Täysin neutraaliksi"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten Martela suhtautuu tekoälyyn?",
+        "options": [
+          "Se on itsenäinen toimija",
+          "Se on työkalu, jonka vaikutukset riippuvat käytöstä",
+          "Se on aina vaarallinen",
+          "Se ratkaisee kaikki ongelmat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

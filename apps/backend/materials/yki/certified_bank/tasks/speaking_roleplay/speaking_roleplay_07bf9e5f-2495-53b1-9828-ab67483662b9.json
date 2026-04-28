@@ -1,0 +1,40 @@
+{
+  "id": "07bf9e5f-2495-53b1-9828-ab67483662b9",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell which countries you have visited or where you would like to go.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "92ee3a9e-38dc-5d7c-8d55-f506f1ec38e4",
+        "ai_first_turn_fi": "Oletko matkustanut jonnekin? Mihin haluaisit matkustaa?"
+      }
+    ],
+    "rubric": "Tell which countries you have visited or where you would like to go.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

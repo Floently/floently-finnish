@@ -1,0 +1,73 @@
+{
+  "id": "8a8e35c1-9e91-5c65-b6ab-4cbd62ae7d0d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Tampereen kaupungissa on otettu käyttöön uusia koirapuistoja, mutta samalla on rajoitettu koirien ulkoilua tietyillä alueilla. Tavoitteena on vähentää ristiriitoja koiranomistajien ja muiden kaupunkilaisten välillä.\n\n\"Olemme saaneet paljon valituksia siitä, että koiria ulkoilutetaan lasten leikkipaikoilla ja urheilukentillä. Uusilla säännöillä halutaan ohjata koirat niille varatuille alueille\", kertoo kaupungin viheralueista vastaava.\n\nKoiranomistajien mielipiteet jakautuvat. \"On hyvä, että on omia puistoja, mutta niitä on liian vähän. Me joudumme jonottamaan\", sanoo koiraharrastaja.\n\nOsa toivoo joustavampia sääntöjä. \"Jos koira on hyvin koulutettu, se voi liikkua vapaasti muuallakin. Kaikki koirat eivät ole samanlaisia\", sanoo toinen omistaja.\n\nKaupunki lupaa seurata tilannetta ja tarvittaessa lisätä koirapuistoja, jos kysyntä kasvaa.",
+      "word_count": 100
+    },
+    "questions": [
+      {
+        "id": "item_037_1",
+        "prompt": "Miksi koirien ulkoilua on rajoitettu tietyillä alueilla?",
+        "options": [
+          "koirat ovat vaarallisia",
+          "vähentää ristiriitoja koiranomistajien ja muiden kaupunkilaisten välillä",
+          "koiria on liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_037_2",
+        "prompt": "Mistä on valitettu?",
+        "options": [
+          "koiria ulkoilutetaan lasten leikkipaikoilla ja urheilukentillä",
+          "koiria on liian vähän",
+          "koirapuistot ovat liian kalliita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_037_3",
+        "prompt": "Mitä ongelmaa koiranomistajat näkevät?",
+        "options": [
+          "koirapuistoja on liian vähän",
+          "koirapuistot ovat huonossa kunnossa",
+          "koiria ei saa ulkoiluttaa missään"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_037_4",
+        "prompt": "Mitä kaupunki lupaa?",
+        "options": [
+          "lopettaa koirapuistot",
+          "seurata tilannetta ja lisätä puistoja tarvittaessa",
+          "kieltää koirat kokonaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

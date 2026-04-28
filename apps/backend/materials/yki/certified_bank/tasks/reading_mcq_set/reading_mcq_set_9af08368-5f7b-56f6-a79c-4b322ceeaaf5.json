@@ -1,0 +1,77 @@
+{
+  "id": "9af08368-5f7b-56f6-a79c-4b322ceeaaf5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirjaston tiedote ja valitse oikea vastaus jokaiseen kysymykseen.",
+    "materials": {
+      "text": "Kaupunginkirjasto muistuttaa asiakkaita, että vanhat kirjastokortit pitää uusia tämän kevään aikana. Uusiminen on maksutonta, jos kortti on ehjä ja asiakastiedot ovat ajan tasalla. Kortin voi uusia pääkirjastossa maanantaista perjantaihin kello 10-19 ja lauantaina kello 10-16. Sivukirjastoissa uusiminen onnistuu vain arkipäivisin. Uusimista varten asiakkaan pitää ottaa mukaan henkilöllisyystodistus. Alle 15-vuotias voi uusia kortin yhdessä huoltajan kanssa. Jos kortti on kadonnut, uudesta kortista peritään viiden euron maksu. Verkossa voi tarkistaa omat yhteystiedot ja varaukset, mutta itse korttia ei voi uusia verkossa. Kirjasto pyytää tekemään uusimisen ajoissa, jotta lainaus toimii kesällä ilman katkoksia.",
+      "word_count": 90
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin kortin voi uusia pääkirjastossa arkena?",
+        "options": [
+          "kello 8-15",
+          "kello 10-19",
+          "kello 12-20",
+          "kello 9-17"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mukaan tarvitaan uusimista varten?",
+        "options": [
+          "kuitti",
+          "kirjalista",
+          "henkilöllisyystodistus",
+          "passikuva"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tapahtuu, jos kortti on kadonnut?",
+        "options": [
+          "uusi kortti on ilmainen",
+          "uusi kortti maksaa viisi euroa",
+          "korttia ei voi saada uudelleen",
+          "pitää odottaa yksi kuukausi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Voiko kortin uusia verkossa?",
+        "options": [
+          "voi aina",
+          "voi vain viikonloppuna",
+          "voi vain sivukirjastossa",
+          "ei voi"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

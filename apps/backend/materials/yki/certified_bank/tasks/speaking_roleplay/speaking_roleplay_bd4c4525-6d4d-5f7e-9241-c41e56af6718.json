@@ -1,0 +1,40 @@
+{
+  "id": "bd4c4525-6d4d-5f7e-9241-c41e56af6718",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi puolustaa omaa näkemystäsi julkisessa keskustelussa.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet asiantuntija/aktiivi, joka uskoo monikulttuurisuuteen ja hallittuun maahanmuuttoon.",
+        "partner": "Muut paneelistit - eri mieltä, saattavat esittää haastavia kysymyksiä ja väitteitä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp43",
+        "ai_first_turn_fi": "Seuraava kysymys: Mitä mieltä olette siitä, että maahanmuutto lisää kulttuurisia jännitteitä?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi puolustaa omaa näkemystäsi julkisessa keskustelussa.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "db0e96ee-8b48-56d6-85c1-aa9631cb7bb9",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you know about minorities in Finland. Mention one minority and tell about them briefly.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "72dc0723-9fdd-51d9-8910-423cdb468dfc",
+        "ai_first_turn_fi": "Tiedätkö saamelaisista tai romaneista Suomessa? Mitä heille kuuluu?"
+      }
+    ],
+    "rubric": "Tell what you know about minorities in Finland. Mention one minority and tell about them briefly.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

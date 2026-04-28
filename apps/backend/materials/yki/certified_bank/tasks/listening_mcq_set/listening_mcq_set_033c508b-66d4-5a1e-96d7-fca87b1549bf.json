@@ -1,0 +1,66 @@
+{
+  "id": "033c508b-66d4-5a1e-96d7-fca87b1549bf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kahvilan kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvää päivää, tässä on kuulutus. Tänään lounaana on kalakeittoa ja jälkiruoaksi marjakiisseliä. Lounas maksaa 11,50 euroa ja sisältää salaatin, leivän ja kahvin. Hyvää ruokahalua!",
+      "audio_asset_id": "42465b83-c9cd-510f-9b1a-cebca0233733"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä on lounaana?",
+        "options": [
+          "lihakeittoa",
+          "kalakeittoa",
+          "kasviskeittoa",
+          "hernaria"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko lounas maksaa?",
+        "options": [
+          "10,50 €",
+          "11,50 €",
+          "12,50 €",
+          "13,50 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lounas sisältää?",
+        "options": [
+          "vain keiton",
+          "keiton ja leivän",
+          "keiton, leivän, salaatin ja kahvin",
+          "keiton ja kahvin"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "89b60672-7779-5dbd-90e1-8f15eea036a0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.498,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu suomea roolisi mukaan.",
+    "materials": {
+      "roles": {
+        "user": "matkustaja",
+        "partner": "lipunmyyjä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp30_01",
+        "ai_first_turn_fi": "Päivää, mihin matka?"
+      }
+    ],
+    "rubric": "Puhu suomea roolisi mukaan.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

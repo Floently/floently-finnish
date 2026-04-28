@@ -1,0 +1,37 @@
+{
+  "id": "ed60e01f-780b-5767-90ee-b9dbb5460b18",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt hierojalla. Kirjoita palaute. Kerro, oliko hieronta hyvä, oliko hinta sopiva ja oliko hieroja ammattitaitoinen.",
+    "materials": {
+      "scenario": "Palaute hierojasta"
+    },
+    "items": [
+      {
+        "id": "75511363-9370-5a8b-a4d9-36d1fb707e9e",
+        "prompt": "Olet käynyt hierojalla. Kirjoita palaute. Kerro, oliko hieronta hyvä, oliko hinta sopiva ja oliko hieroja ammattitaitoinen."
+      }
+    ],
+    "rubric": "Hieronnan laatu\nHinnan sopivuus\nHierojan ammattitaito",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

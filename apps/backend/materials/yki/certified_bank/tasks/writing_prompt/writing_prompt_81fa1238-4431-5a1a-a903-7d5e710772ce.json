@@ -1,0 +1,37 @@
+{
+  "id": "81fa1238-4431-5a1a-a903-7d5e710772ce",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti Kelan palveluista. Kerro asioinnin sujuvuudesta, asiakaspalvelun ystävällisyydestä ja päätösten selkeydestä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute Kelan palveluista"
+    },
+    "items": [
+      {
+        "id": "a938ba7c-cbba-5306-9e99-f10b11ebccbb",
+        "prompt": "Kirjoita palauteteksti Kelan palveluista. Kerro asioinnin sujuvuudesta, asiakaspalvelun ystävällisyydestä ja päätösten selkeydestä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Asioinnin sujuvuus\nAsiakaspalvelun ystävällisyys\nPäätösten selkeys\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "d74e0d5a-73de-595a-a86a-c39fa0958335",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Ilmastopolitiikan kiristyessä keskustelu ydinvoiman roolista on voimistunut. Ydinvoima on päästötöntä ja vakaata, mutta siihen liittyy ongelmia, kuten ydinjätteen loppusijoitus ja riskit onnettomuuksista. Suomessa on viisi ydinvoimalaa, ja uusia on suunnitteilla. Ydinvoiman kannattajat korostavat sen merkitystä ilmastotavoitteiden saavuttamisessa ja huoltovarmuudessa. Vastustajat taas painottavat ydinjätteen pitkäaikaisturvallisuutta ja uusiutuvan energian, kuten tuuli- ja aurinkovoiman, potentiaalia. Energiapoliittinen keskustelu on moniulotteista, ja siinä joudutaan punnitsemaan eri tavoitteita: päästöttömyys, kustannukset, huoltovarmuus ja hyväksyttävyys.",
+      "word_count": 67
+    },
+    "questions": [
+      {
+        "id": "mcq_360",
+        "prompt": "Mitä etuja ydinvoimalla on ilmastopolitiikan näkökulmasta?",
+        "options": [
+          "Se on kallista ja epävakaata",
+          "Se on päästötöntä ja vakaata",
+          "Se tuottaa paljon jätettä",
+          "Se on uusiutuva energiamuoto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_361",
+        "prompt": "Mitä ongelmia ydinvoimaan liittyy?",
+        "options": [
+          "Päästöt ja ilmaston lämpeneminen",
+          "Ydinjätteen loppusijoitus ja onnettomuusriskit",
+          "Uusiutumattomuus ja hintavuus",
+          "Melu ja maisemahaitat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_362",
+        "prompt": "Mitä ydinvoiman kannattajat korostavat?",
+        "options": [
+          "Ydinjätteen vaaroja",
+          "Uusiutuvan energian potentiaalia",
+          "Ydinvoiman merkitystä ilmastotavoitteissa ja huoltovarmuudessa",
+          "Ydinvoiman kalleutta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_363",
+        "prompt": "Mitä energiapoliittisessa keskustelussa joudutaan punnitsemaan?",
+        "options": [
+          "Vain päästöttömyyttä",
+          "Vain kustannuksia",
+          "Päästöttömyyttä, kustannuksia, huoltovarmuutta ja hyväksyttävyyttä",
+          "Vain uusiutuvia energiamuotoja"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

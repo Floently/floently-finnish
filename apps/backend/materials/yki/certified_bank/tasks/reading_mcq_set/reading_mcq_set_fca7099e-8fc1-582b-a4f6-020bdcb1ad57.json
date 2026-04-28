@@ -1,0 +1,77 @@
+{
+  "id": "fca7099e-8fc1-582b-a4f6-020bdcb1ad57",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunki rakensi uuden hulevesipuiston tulvaherkälle alueelle. Ratkaisussa sadevesi ohjataan viivytysaltaille, joista vesi imeytyy maahan vähitellen. Ensimmäisen rankkasadekauden aikana kadun tulviminen väheni selvästi. Ylläpitokustannukset kasvoivat hieman, koska altaat vaativat säännöllistä puhdistusta.",
+      "word_count": 30
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi hanke tehtiin?",
+        "options": [
+          "liikenteen takia",
+          "tulvaherkälle alueelle",
+          "melun takia",
+          "pysäköinnin vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten sadevesi käsitellään?",
+        "options": [
+          "pumpataan mereen",
+          "ohjataan viivytysaltaille",
+          "viedaan viemariin heti",
+          "haihdutetaan koneella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä muuttui rankkasateilla?",
+        "options": [
+          "tulviminen lisääntyi",
+          "tulviminen väheni",
+          "ei muutosta",
+          "kadut suljettiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kustannukset kasvoivat?",
+        "options": [
+          "henkilöstö väheni",
+          "altaat vaativat puhdistusta",
+          "sähkön hinta laski",
+          "uusi tie rakennettiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

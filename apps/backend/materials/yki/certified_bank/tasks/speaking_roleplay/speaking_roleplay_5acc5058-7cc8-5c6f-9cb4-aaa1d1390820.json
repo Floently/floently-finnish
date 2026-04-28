@@ -1,0 +1,40 @@
+{
+  "id": "5acc5058-7cc8-5c6f-9cb4-aaa1d1390820",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you know about Finland's political system. Mention the president, parliament and elections.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "db941fd2-0c9a-551c-ac51-a1c5c9341cc2",
+        "ai_first_turn_fi": "Tiedätkö, kuka on Suomen presidentti? Miten vaalit toimii?"
+      }
+    ],
+    "rubric": "Tell what you know about Finland's political system. Mention the president, parliament and elections.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "a418e08e-4574-547b-bc60-4b7e7bb8d8a1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Saunominen on suomalainen perinne, jolla on monia terveysvaikutuksia. Saunominen rentouttaa lihaksia ja vähentää stressiä. Se parantaa verenkiertoa ja alentaa verenpainetta. Säännöllinen saunominen voi vähentää sydän- ja verisuonitautien riskiä. Sauna myös puhdistaa ihoa. Saunomisen jälkeen on hyvä levätä ja juoda vettä. Saunaan ei saa mennä päihtyneenä eikä sairaana. Pienet lapset eivät saa olla saunassa liian kauan. Saunominen on turvallista, kun noudattaa varovaisuutta. Sauna on monelle tärkeä osa viikoittaista rentoutumista.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä terveysvaikutuksia saunomisella on?",
+        "options": [
+          "Se heikentää terveyttä",
+          "Se rentouttaa lihaksia, vähentää stressiä, parantaa verenkiertoa ja alentaa verenpainetta",
+          "Se aiheuttaa flunssaa",
+          "Sillä ei ole terveysvaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä sairauksia saunominen voi ehkäistä?",
+        "options": [
+          "Flunssaa",
+          "Sydän- ja verisuonitauteja",
+          "Allergioita",
+          "Ihosairauksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin saunaan ei saa mennä?",
+        "options": [
+          "Aamulla",
+          "Päihtyneenä tai sairaana",
+          "Illalla",
+          "Viikonloppuisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä saunan jälkeen kannattaa tehdä?",
+        "options": [
+          "Mennä heti nukkumaan",
+          "Levätä ja juoda vettä",
+          "Mennä uudestaan saunaan",
+          "Syödä raskaasti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Ketä pitää varoa saunassa?",
+        "options": [
+          "Aikuisia",
+          "Pieniä lapsia",
+          "Vanhuksia",
+          "Nuoria"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

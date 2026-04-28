@@ -1,0 +1,88 @@
+{
+  "id": "698e5903-9237-54d9-ae97-03da254bd7e9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.573,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi kansalaisaloitteista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KANSALAISALOITTEET – SUORAA DEMOKRATIAA VAI SYMBOLIIKKAA?\n\nKansalaisaloite on tuonut tavallisille ihmisille mahdollisuuden vaikuttaa suoraan lainsäädäntöön. Yli 50 000 allekirjoitusta tuo aloitteen eduskunnan käsiteltäväksi. Onko se kuitenkaan todellista vaikuttamista?\n\nAloitteita on tehty paljon. Tunnetuimpia ovat esimerkiksi tasa-arvoinen avioliittolaki ja yhdenvertaisuusasiat. Nämä ovat osoittaneet, että kansalaisaloite voi toimia. Mutta suurin osa aloitteista ei etene laiksi asti.\n\nEduskunta voi hylätä aloitteen, vaikka se olisi saanut paljon allekirjoituksia. Usein aloite lähetetään vain valiokuntaan, jossa se kuolee. Kansalaiset voivat kokea, että heitä on kuultu mutta ei kuunneltu.\n\nToinen ongelma on rahoitus. Suuren aloitteen tekeminen vaatii kampanjointia, joka maksaa. Järjestäytyneet ryhmät pystyvät keräämään rahaa ja allekirjoituksia helpommin kuin yksittäiset kansalaiset.\n\nKolmas haaste on aloitteiden laatu. Joskus aloitteet ovat ristiriidassa perus- ja ihmisoikeuksien kanssa. Silloin eduskunta ei voi hyväksyä niitä, vaikka ne olisivat suosittuja.\n\nKansalaisaloite on kuitenkin tärkeä työkalu. Se pakottaa eduskunnan käsittelemään asioita, jotka muuten saattaisivat jäädä huomiotta. Mutta se ei ole suoraa demokratiaa, vaan väline, joka täydentää edustuksellista demokratiaa.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 187
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka monta allekirjoitusta kansalaisaloite tarvitsee?",
+        "options": [
+          "25 000",
+          "40 000",
+          "50 000",
+          "75 000"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on kansalaisaloitteiden ongelma?",
+        "options": [
+          "Niitä ei voi tehdä",
+          "Eduskunta voi hylätä ne, vaikka ne saisivat paljon allekirjoituksia",
+          "Ne ovat aina laittomia",
+          "Ne vaativat liikaa aikaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten rahoitus vaikuttaa kansalaisaloitteisiin?",
+        "options": [
+          "Se ei vaikuta mitenkään",
+          "Järjestäytyneet ryhmät pystyvät kampanjoimaan paremmin",
+          "Valtio rahoittaa kaikki aloitteet",
+          "Aloitteet ovat ilmaisia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tapahtuu, jos aloite on ristiriidassa perusoikeuksien kanssa?",
+        "options": [
+          "Se hyväksytään silti",
+          "Eduskunta ei voi hyväksyä sitä",
+          "Se menee kansanäänestykseen",
+          "Siitä tulee laki automaattisesti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on kirjoittajan näkemys kansalaisaloitteesta?",
+        "options": [
+          "Se on turha",
+          "Se on tärkeä työkalu, mutta ei suoraa demokratiaa",
+          "Se on ainoa oikea tapa vaikuttaa",
+          "Se pitää lakkauttaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

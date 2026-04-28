@@ -1,0 +1,37 @@
+{
+  "id": "baa5b3f2-5fb4-522b-826e-da8a1dd9c720",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt lääkärissä ja saanut lähetteen. Kirjoita palaute. Kerro, selittikö lääkäri asiat hyvin.",
+    "materials": {
+      "scenario": "Palaute lääkärin lähetteestä"
+    },
+    "items": [
+      {
+        "id": "ef1b282d-cfa7-5c47-9fa3-1f73cf03d121",
+        "prompt": "Olet käynyt lääkärissä ja saanut lähetteen. Kirjoita palaute. Kerro, selittikö lääkäri asiat hyvin."
+      }
+    ],
+    "rubric": "Olet käynyt lääkärissä ja saanut lähetteen. Kirjoita palaute. Kerro, selittikö lääkäri asiat hyvin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

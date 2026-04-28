@@ -1,0 +1,66 @@
+{
+  "id": "43ff1173-c75a-5b37-9e22-cf51a6308d5e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KULTTUURITAPAHTUMAT ELÄVÖITTÄVÄT KAUPUNKIA\n\nKulttuuritapahtumat ovat tärkeä osa kaupunkielämää. Ne tuovat ihmisiä yhteen, elävöittävät kaupunkikuvaa ja tarjoavat elämyksiä. Suomessa järjestetään satoja tapahtumia vuosittain – musiikkifestivaaleja, teatteriesityksiä, taidenäyttelyitä, kirjamessuja ja paljon muuta.\n\nTapahtumilla on suuri taloudellinen merkitys. Ne tuovat matkailijoita, työllistävät paikallisia ja tuovat rahaa kaupunkiin. Hotellit, ravintolat ja kaupat hyötyvät tapahtumista. Esimerkiksi Helsingin juhlaviikot tuovat kaupunkiin miljoonia euroja.\n\nMutta tapahtumat ovat myös henkistä pääomaa. Ne lisäävät kaupungin vetovoimaa ja tekevät siitä kiinnostavan paikan asua ja vierailla. Ne tarjoavat mahdollisuuden kokea taidetta ja kulttuuria, mikä lisää hyvinvointia. Monelle tapahtumat ovat tärkeä osa kesää ja arjen piristys.\n\nHaasteitakin on. Tapahtumien järjestäminen on kallista ja vaatii paljon vapaaehtoisia. Melu, roskaantuminen ja liikennehäiriöt voivat ärsyttää asukkaita. Myös turvallisuus on iso kysymys – suurissa tapahtumissa pitää huolehtia, ettei kukaan joudu vaaraan.\n\nTulevaisuudessa tapahtumat todennäköisesti monipuolistuvat ja kansainvälistyvät. Teknologia mahdollistaa uudenlaisia elämyksiä, kuten virtuaalitodellisuutta ja striimattuja tapahtumia. Samalla pitää muistaa, että tapahtumat ovat ennen kaikkea ihmisiä varten – ne luovat yhteisöllisyyttä ja iloa.",
+      "word_count": 156
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä kulttuuritapahtumista on kaupungille?",
+        "options": [
+          "Vain viihteellistä arvoa",
+          "Taloudellista hyötyä, vetovoimaa ja hyvinvointia",
+          "Vain matkailijoille",
+          "Vain taiteilijoille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haasteita tapahtumiin liittyy?",
+        "options": [
+          "Ne ovat tylsiä",
+          "Järjestäminen on kallista, melua, roskaantumista ja turvallisuus huolettaa",
+          "Kukaan ei käy niissä",
+          "Ne ovat liian kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on tapahtumien tärkein merkitys?",
+        "options": [
+          "Rahan tuominen kaupunkiin",
+          "Yhteisöllisyyden ja ilon luominen",
+          "Taiteen esittely",
+          "Matkailijoiden houkuttelu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

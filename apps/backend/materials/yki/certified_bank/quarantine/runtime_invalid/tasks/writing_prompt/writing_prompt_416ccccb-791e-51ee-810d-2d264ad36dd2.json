@@ -1,0 +1,37 @@
+{
+  "id": "416ccccb-791e-51ee-810d-2d264ad36dd2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.364,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: health_clinic. Purpose: propose_an_improvement. Constraint: state_the_main_point_first.",
+    "materials": {
+      "scenario": "median käytöstä terveysasemasta"
+    },
+    "items": [
+      {
+        "id": "cb943abe-92ce-58b2-9943-254c70504b52",
+        "prompt": "Write for the receiver in this scenario: health_clinic. Purpose: propose_an_improvement. Constraint: state_the_main_point_first."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

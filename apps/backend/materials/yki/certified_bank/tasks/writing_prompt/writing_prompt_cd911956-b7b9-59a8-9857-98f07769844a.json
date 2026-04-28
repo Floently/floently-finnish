@@ -1,0 +1,37 @@
+{
+  "id": "cd911956-b7b9-59a8-9857-98f07769844a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.343,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin kirjaston verkkosivuja. Kirjoita palaute. Arvioi sivujen selkeyttä, varausten tekemisen helppoutta ja e-kirjojen saatavuutta.",
+    "materials": {
+      "scenario": "Palaute kirjaston verkkosivuista"
+    },
+    "items": [
+      {
+        "id": "405ebd11-1351-5a37-8e05-aef6b713a4cb",
+        "prompt": "Olet käyttänyt kaupungin kirjaston verkkosivuja. Kirjoita palaute. Arvioi sivujen selkeyttä, varausten tekemisen helppoutta ja e-kirjojen saatavuutta."
+      }
+    ],
+    "rubric": "Sivujen selkeys\nVarausten helppous\nE-kirjojen saatavuus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

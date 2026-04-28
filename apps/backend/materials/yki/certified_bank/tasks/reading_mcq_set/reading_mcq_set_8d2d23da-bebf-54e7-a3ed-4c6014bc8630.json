@@ -1,0 +1,77 @@
+{
+  "id": "8d2d23da-bebf-54e7-a3ed-4c6014bc8630",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.791,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Digitaalisten palvelujen ja alustatalouden nopea kehitys on muuttanut perusteellisesti tapaa, jolla ihmiset työskentelevät, kuluttavat ja ovat vuorovaikutuksessa keskenään. Tämä kehitys on tuonut mukanaan valtavia mahdollisuuksia, mutta myös uudenlaisia haasteita, jotka koskevat työntekijöiden oikeuksia, yksityisyyden suojaa ja markkinoiden toimintaa. Keskeinen kysymys on, miten tätä kehitystä tulisi säädellä ja kenen etua sääntelyn tulisi ensisijaisesti palvella. Alustatalouden kannattajat korostavat sen tuomaa joustavuutta ja tehokkuutta. Alustat, kuten Uber ja Wolt, mahdollistavat työn tekemisen ilman perinteisen työsuhteen tuomia rasitteita, ja ne tarjoavat kuluttajille uudenlaisia palveluja. Kannattajien mukaan alustatalous on esimerkki siitä, miten teknologia voi luoda uusia markkinoita ja lisätä kilpailua, mikä hyödyttää viime kädessä kuluttajia. He vastustavat tiukkaa sääntelyä, joka heidän mukaansa tappaisi innovaatiot ja vähentäisi alustojen tarjoamia hyötyjä. Kriitikot puolestaan varoittavat alustatalouden varjopuolista. Heidän mukaansa alustat kiertävät työlainsäädäntöä luokittelemalla työntekijänsä yrittäjiksi, jolloin he eivät ole oikeutettuja työsuhdeturvaan, kuten sairauslomaan, vuosilomaan ja työeläkkeeseen. Työ on usein pirstaleista, ansiotaso alhainen ja työntekijöiden neuvotteluasema heikko. Lisäksi alustat keräävät valtavia määriä tietoa käyttäjistään, mikä herättää kysymyksiä yksityisyyden suojasta ja tiedon väärinkäytön mahdollisuudesta. Kriitikot vaativatkin alustatalouden tiukempaa sääntelyä ja alustatyöntekijöiden aseman parantamista. Kolmas näkemys korostaa, että alustatalouden sääntelyssä on löydettävä tasapaino erilaisten intressien välillä. Sen mukaan on mahdollista kehittää sääntelyä, joka turvaa työntekijöiden perusoikeudet mutta säilyttää alustatalouden joustavuuden ja innovaatiopotentiaalin. Tämä edellyttää uudenlaisia ratkaisuja, kuten työntekijän statuksesta riippumatonta sosiaaliturvaa ja alustojen velvoittamista läpinäkyvyyteen ja tiedon suojaamiseen. EU-tasolla onkin valmisteilla sääntelyä, joka pyrkii vastaamaan näihin haasteisiin. Alustatalouden sääntely on monitahoinen kysymys, johon ei ole olemassa helppoja vastauksia. Se koskettaa keskeisiä arvoja, kuten oikeudenmukaisuutta, vapautta ja turvallisuutta, ja eri intressiryhmillä on hyvin erilaisia näkemyksiä siitä, miten näitä arvoja tulisi painottaa. Tulevaisuuden kannalta keskeistä on, miten kykenemme rakentamaan sääntelyä, joka on sekä joustavaa että riittävän vahvaa suojaamaan heikommassa asemassa olevia ja turvaamaan yhteiskunnan perusarvot.",
+      "word_count": 282
+    },
+    "questions": [
+      {
+        "id": "1988e8ad-13af-52f9-b143-d8061819c8e1",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Uberin ja Woltin liiketoimintamallien vertailu",
+          "Alustatalouden mukanaan tuomat mahdollisuudet ja uhat sekä siihen liittyvä sääntelykeskustelu",
+          "Työntekijöiden oikeuksien heikkeneminen digitalisaation myötä",
+          "Kuluttajien yksityisyyden suojan parantaminen digitaalisilla alustoilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "037ca54b-5d77-5c04-9fe8-724e23b5a23f",
+        "prompt": "Tekstin mukaan mitä hyötyjä alustatalouden kannattajat korostavat?",
+        "options": [
+          "Alustatalous lisää byrokratiaa ja hidastaa päätöksentekoa",
+          "Alustatalous tarjoaa joustavuutta, tehokkuutta, uusia palveluja kuluttajille ja lisää kilpailua",
+          "Alustatalous parantaa työntekijöiden oikeusturvaa ja sosiaalietuuksia",
+          "Alustatalous vähentää tarvetta tiedonkeruulle ja yksityisyyden suojalle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a60452f4-0449-5a3a-b6c1-987f1d18ab8b",
+        "prompt": "Mitä huolenaiheita alustatalouden kriitikot esittävät tekstin mukaan?",
+        "options": [
+          "Alustat maksavat liian korkeita veroja ja vähentävät kuluttajien valinnanvaraa",
+          "Alustat kiertävät työlainsäädäntöä, keräävät liikaa tietoa käyttäjistä ja heikentävät työntekijöiden asemaa",
+          "Alustat ovat liian tiukasti säänneltyjä, mikä tappaa innovaatiot",
+          "Alustat eivät kykene kilpailemaan perinteisten yritysten kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "30692fc7-4b43-59eb-afe1-9bae49315ee5",
+        "prompt": "Mitä kolmas, tasapainoa korostava näkemys ehdottaa alustatalouden sääntelyn perustaksi?",
+        "options": [
+          "Alustatalouden täydellistä kieltämistä ja paluuta perinteisiin työsuhteisiin",
+          "Työntekijän statuksesta riippumatonta sosiaaliturvaa, alustojen läpinäkyvyyttä ja tiedon suojaamista",
+          "Alustojen täydellistä vapautta ja itsesääntelyä ilman minkäänlaista lainsäädäntöä",
+          "Työntekijöiden pakollista järjestäytymistä ammattiliittoihin ja työehtosopimuksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

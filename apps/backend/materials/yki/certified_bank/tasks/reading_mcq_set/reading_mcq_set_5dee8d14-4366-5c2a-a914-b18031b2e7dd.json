@@ -1,0 +1,66 @@
+{
+  "id": "5dee8d14-4366-5c2a-a914-b18031b2e7dd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue Verohallinnon ohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "NÄIN TÄYTÄT ESITÄYTETYN VEROILMOITUKSEN\n\nVerohallinto muistuttaa, että esitäytetty veroilmoitus kannattaa tarkistaa huolellisesti. Ilmoitus lähetetään sähköisesti huhtikuun alussa, ja paperiversion saavat ne, jotka eivät ole ottaneet käyttöön sähköistä asiointia.\n\nTarkista erityisesti seuraavat tiedot:\n- Tulot: palkat, eläkkeet, etuudet\n- Vähennykset: työmatkakulut, ammattiliiton jäsenmaksut, kotitalousvähennys\n- Velat: asuntolaina ja muut velat\n\nJos huomaat virheitä, oikaisu on tehtävä toukokuun loppuun mennessä. Oikaisun voit tehdä helposti Verohallinnon verkkopalvelussa.\n\nMuista, että vähennyksiä ei tehdä automaattisesti, vaan ne pitää itse ilmoittaa. Esimerkiksi kotitalousvähennystä varten tarvitset työn teettämisestä kuitit ja todistukset.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka saa veroilmoituksen paperiversiona?",
+        "options": [
+          "Kaikki veronmaksajat",
+          "Ne, jotka eivät käytä sähköistä asiointia",
+          "Vain eläkeläiset",
+          "Vain yrittäjät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin mennessä virheet pitää oikaista?",
+        "options": [
+          "Huhtikuun loppuun",
+          "Toukokuun loppuun",
+          "Kesäkuun loppuun",
+          "Elokuun loppuun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kotitalousvähennystä varten tarvitaan?",
+        "options": [
+          "Pankkitodistus",
+          "Kuitit ja todistukset työstä",
+          "Työsopimus",
+          "Verokortti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

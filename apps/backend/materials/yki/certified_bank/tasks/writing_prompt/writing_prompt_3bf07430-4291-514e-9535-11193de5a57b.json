@@ -1,0 +1,37 @@
+{
+  "id": "3bf07430-4291-514e-9535-11193de5a57b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Hänen koiransa haukkuu paljon öisin, etkä saa nukuttua. Kerro kohteliaasti ongelmasta ja kysy, voisiko hän tehdä asialle jotain. Toivotat ymmärrystä.",
+    "materials": {
+      "scenario": "Viesti naapurille koiran haukkumisesta"
+    },
+    "items": [
+      {
+        "id": "f65aebcc-8657-520d-9b4a-c3c564ac9888",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Hänen koiransa haukkuu paljon öisin, etkä saa nukuttua. Kerro kohteliaasti ongelmasta ja kysy, voisiko hän tehdä asialle jotain. Toivotat ymmärrystä."
+      }
+    ],
+    "rubric": "Kerro ongelmasta (haukkuminen öisin)\nKerro, että et saa nukuttua\nPyydä kohteliaasti ratkaisua\nToivota ymmärrystä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

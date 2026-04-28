@@ -1,0 +1,37 @@
+{
+  "id": "11d9e5ac-7995-59b2-8456-a3c684b5e2a1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: classroom. Purpose: justify_an_opinion. Constraint: keep_it_concise.",
+    "materials": {
+      "scenario": "budgeting in classroom"
+    },
+    "items": [
+      {
+        "id": "66f9de14-0a33-5d16-8fec-92220c7d298d",
+        "prompt": "Write for the receiver in this scenario: classroom. Purpose: justify_an_opinion. Constraint: keep_it_concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

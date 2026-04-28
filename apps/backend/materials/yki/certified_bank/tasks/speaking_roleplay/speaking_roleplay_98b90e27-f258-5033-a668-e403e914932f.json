@@ -1,0 +1,40 @@
+{
+  "id": "98b90e27-f258-5033-a668-e403e914932f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "materials": {
+      "roles": {
+        "user": "Sinä",
+        "partner": "Tarjoilija"
+      }
+    },
+    "items": [
+      {
+        "id": "37ad23e7-99d9-59af-a7f9-8ba3e188c317",
+        "ai_first_turn_fi": "Tarjoilija: Minkälainen teema juhlilla on ja minkälaisia erityistoiveita teillä on ruuan ja ohjelman suhteen?"
+      }
+    ],
+    "rubric": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

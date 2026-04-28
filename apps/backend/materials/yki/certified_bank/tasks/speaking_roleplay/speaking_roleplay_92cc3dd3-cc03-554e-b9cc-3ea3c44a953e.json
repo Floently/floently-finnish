@@ -1,0 +1,40 @@
+{
+  "id": "92cc3dd3-cc03-554e-b9cc-3ea3c44a953e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vastaa haastattelijan kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "619e8728-879b-59db-976f-8762c56a4e91",
+        "ai_first_turn_fi": "Onko sinulla perhettä? Kerro perheestäsi."
+      }
+    ],
+    "rubric": "Vastaa haastattelijan kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

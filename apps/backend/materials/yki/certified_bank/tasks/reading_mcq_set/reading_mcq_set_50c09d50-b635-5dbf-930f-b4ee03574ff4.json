@@ -1,0 +1,66 @@
+{
+  "id": "50c09d50-b635-5dbf-930f-b4ee03574ff4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.761,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KESTÄVÄ KEHITYS – RATKAISU VAI UUSI ONGELMA?\n\nKestävästä kehityksestä on tullut aikamme itsestäänselvyys. Poliitikot, yritykset ja kansalaiset vannovat sen nimeen. Käsite on kuitenkin ongelmallisempi kuin pintapuolisesti ajatellaan. Mitä kestävä kehitys oikeastaan tarkoittaa, ja kenen ehdoilla se määritellään?\n\nYK:n määritelmän mukaan kestävä kehitys on kehitystä, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta mahdollisuutta tyydyttää omia tarpeitaan. Määritelmä on kaunis, mutta käytännössä se on täynnä jännitteitä. Mikä on tarve ja mikä halu? Miten punnitaan nykyisten ja tulevien sukupolvien etuja? Kuka määrittelee, mikä on kestävää?\n\nYmpäristöfilosofi Pekka Halme nostaa esiin kolme keskeistä ristiriitaa. Ensinnäkin, talouskasvun ja ekologisen kestävyyden välinen jännite. Vaikka puhutaan vihreästä kasvusta, on epäselvää, voiko rajallisella planeetalla olla rajaton talouskasvu. Toiseksi, globaalin oikeudenmukaisuuden ja kansallisten etujen välinen ristiriita. Kehittyvät maat haluavat saman elintason kuin teollisuusmaat, mutta jos ne saavuttaisivat sen, ympäristön kuormitus ylittäisi kestävän tason moninkertaisesti.\n\nKolmanneksi, Halme nostaa esiin ajan ulottuvuuden. ”Politiikassa puhutaan neljän vuoden sykleissä, yrityksissä kvartaaleissa. Kestävä kehitys vaatisi sukupolvien mittakaavaa. Miten saamme nämä aikajänteet kohtaamaan?”\n\nToinen ongelma on käsitteen laajentuminen. Alun perin kestävä kehitys koski ympäristöä, mutta nykyään puhutaan myös sosiaalisesta, kulttuurisesta ja taloudellisesta kestävyydestä. Periaatteessa tämä on hyvä asia, käytännössä se on tehnyt käsitteestä niin laajan, että se on menettänyt teränsä. ”Kun kaikki on kestävää, mikään ei ole”, Halme sanoo.\n\nRatkaisuksi Halme ei tarjoa käsitteen hylkäämistä vaan sen tarkempaa määrittelyä ja eri ulottuvuuksien välisten jännitteiden tunnistamista. ”Meidän on uskallettava puhua ristiriidoista ja vaikeista valinnoista, ei vain siitä, että kaikki on mahdollista yhtä aikaa. Vain siten voimme edetä kohti aidosti kestävää tulevaisuutta.”  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 278
+    },
+    "questions": [
+      {
+        "id": "24962219-7ef6-5a3b-8b30-7d91ba4ea7a5",
+        "prompt": "Mikä on YK:n määritelmän mukaan kestävä kehitys?",
+        "options": [
+          "Jatkuvaa talouskasvua",
+          "Kehitystä, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta mahdollisuutta tyydyttää omia tarpeitaan",
+          "Ympäristön suojelua hinnalla millä hyvänsä",
+          "Teknologian kehittämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "25baf459-60fe-5450-90cc-d4ec8d1c582d",
+        "prompt": "Mitä kolmea keskeistä ristiriitaa Pekka Halme nostaa esiin?",
+        "options": [
+          "Talouskasvun ja ekologian, globaalin oikeudenmukaisuuden ja kansallisten etujen sekä lyhyen ja pitkän aikajänteen väliset ristiriidat",
+          "Pohjoisen ja etelän, miesten ja naisten sekä vanhojen ja nuorten väliset ristiriidat",
+          "Kaupunkien ja maaseudun, teollisuuden ja palveluiden sekä yksityisen ja julkisen väliset ristiriidat",
+          "Mikään näistä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e60c8a18-1bc1-5519-b208-14422aa55c93",
+        "prompt": "Miksi käsitteen laajentuminen on ongelmallista?",
+        "options": [
+          "Koska siitä on tullut niin laaja, että se on menettänyt teränsä",
+          "Koska ihmiset eivät ymmärrä sitä",
+          "Koska se on liian tekninen",
+          "Koska sitä käytetään väärin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

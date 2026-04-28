@@ -1,0 +1,37 @@
+{
+  "id": "94418adc-50ce-5b35-973f-b5adf0d80a77",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työsuojelukierroksesta. Kerro kierroksen hyödyllisyydestä, havaituista puutteista ja korjauksista. Ehdota yhtä uutta tarkastuskohdetta.",
+    "materials": {
+      "scenario": "Palaute työpaikan työsuojelukierroksesta"
+    },
+    "items": [
+      {
+        "id": "dce9b60d-7ee6-5092-a196-11f5208d5ac7",
+        "prompt": "Kirjoita palauteteksti työpaikan työsuojelukierroksesta. Kerro kierroksen hyödyllisyydestä, havaituista puutteista ja korjauksista. Ehdota yhtä uutta tarkastuskohdetta."
+      }
+    ],
+    "rubric": "Kierroksen hyödyllisyys\nHavaitut puutteet\nKorjaukset\nUusi tarkastuskohde",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

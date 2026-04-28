@@ -1,0 +1,37 @@
+{
+  "id": "4c19fb00-ea0c-5899-a46c-0c0be81e1e6c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti maistraattiin. Olet muuttanut Suomeen ja haluat rekisteröidä itsellesi suomalaisen henkilötunnuksen. Kerro taustastasi, nykyisestä osoitteestasi ja miksi tarvitset henkilötunnusta. Kysy tarvittavista asiakirjoista ja ajanvarauksesta.",
+    "materials": {
+      "scenario": "Henkilötunnuksen hakeminen"
+    },
+    "items": [
+      {
+        "id": "c56347e4-8cb1-567d-adab-686f7c1cb2a5",
+        "prompt": "Kirjoita virallinen sähköposti maistraattiin. Olet muuttanut Suomeen ja haluat rekisteröidä itsellesi suomalaisen henkilötunnuksen. Kerro taustastasi, nykyisestä osoitteestasi ja miksi tarvitset henkilötunnusta. Kysy tarvittavista asiakirjoista ja ajanvarauksesta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

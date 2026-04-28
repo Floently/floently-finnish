@@ -1,0 +1,37 @@
+{
+  "id": "e5a34595-b726-5d40-8a5f-f2ff2d5a15d9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti parturi-kampaamosta. Kerro palvelun laadusta, hinnoista ja odotusajasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute parturi-kampaamosta"
+    },
+    "items": [
+      {
+        "id": "81c28cb2-e4b1-510b-b624-868deb72bb14",
+        "prompt": "Kirjoita palauteteksti parturi-kampaamosta. Kerro palvelun laadusta, hinnoista ja odotusajasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Palvelun laatu\nHinnat\nOdotusaika\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

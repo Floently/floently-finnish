@@ -1,0 +1,37 @@
+{
+  "id": "d0533632-0904-5ea0-afa8-0b2e58fe695b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti tasavallan presidentin kanslian kansliapäällikölle. Olette kansalaisjärjestö, ja haluatte kutsua tasavallan presidentin kunniavieraaksi järjestönne 75-vuotisjuhlaan, joka järjestetään itsenäisyyspäivänä. Kerro tilaisuudesta, sen historiallisesta merkityksestä ja ohjelmasta. Kysy, miten kutsuja voidaan toimittaa ja onko se mahdollista. Kerro myös, ketä muita kutsutaan ja miten tilaisuus liittyy itsenäisyyspäivän viettoon.",
+    "materials": {
+      "scenario": "Kutsu tasavallan presidentille itsenäisyyspäivän juhlaan"
+    },
+    "items": [
+      {
+        "id": "acd4b734-a94c-5979-8a2a-e7664b890f6b",
+        "prompt": "Kirjoita virallinen sähköposti tasavallan presidentin kanslian kansliapäällikölle. Olette kansalaisjärjestö, ja haluatte kutsua tasavallan presidentin kunniavieraaksi järjestönne 75-vuotisjuhlaan, joka järjestetään itsenäisyyspäivänä. Kerro tilaisuudesta, sen historiallisesta merkityksestä ja ohjelmasta. Kysy, miten kutsuja voidaan toimittaa ja onko se mahdollista. Kerro myös, ketä muita kutsutaan ja miten tilaisuus liittyy itsenäisyyspäivän viettoon."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

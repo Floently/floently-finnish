@@ -1,0 +1,77 @@
+{
+  "id": "b8d716d8-1cf5-51d4-bd49-af66201006ad",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuntosalin ohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa uudelle jäsenelle! Tässä tärkeimmät ohjeet: Kuntosali on auki joka päivä 6–22. Sisäänkäynti on takapihalta. Pukuhuoneissa on suihkut ja sauna. Muista aina käyttää pyyhettä laitteilla. Laitteiden jälkeen laita painot takaisin paikoilleen. Jos tarvitset apua, kysy henkilökunnalta. Mukavaa treeniä!",
+      "audio_asset_id": "38b118da-690f-4593-bdf7-2e5fac23d5f9"
+    },
+    "questions": [
+      {
+        "id": "65c0c259-fc47-5db0-a68c-95353a9b5e82",
+        "prompt": "Milloin kuntosali sulkeutuu?",
+        "options": [
+          "klo 20",
+          "klo 21",
+          "klo 22",
+          "klo 23"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "01086594-40d3-5349-aeb8-f8bbb0d8297e",
+        "prompt": "Missä on sisäänkäynti?",
+        "options": [
+          "pääovesta",
+          "takapihalta",
+          "sivusta",
+          "autotallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "951ccc0b-19fb-54cc-85a1-e2c78a066b1a",
+        "prompt": "Mitä pitää tehdä laitteiden jälkeen?",
+        "options": [
+          "sammuttaa laite",
+          "ottaa kuva",
+          "pyyhkiä laite",
+          "laittaa painot takaisin"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "5aa54942-f3b6-5a59-a470-64eecf34fe9f",
+        "prompt": "Mistä saa apua?",
+        "options": [
+          "netistä",
+          "henkilökunnalta",
+          "kavereilta",
+          "kirjastosta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "574fad22-55cc-5ec5-ac44-a758ee09cbd0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.274,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you have visited a Finnish cottage. What did you do there? If not, would you like to go?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "405d46ab-3422-578e-beb9-4149c32d3e78",
+        "ai_first_turn_fi": "Ootko sä käynyt suomalaisella mökillä? Millaista siellä oli?"
+      }
+    ],
+    "rubric": "Tell if you have visited a Finnish cottage. What did you do there? If not, would you like to go?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "4c52214f-f0c7-5154-a714-c90bebf4e904",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö turpeen energiakäytöstä luopua nopeammin ilmastosyistä?'. Analysoi energiaomavaraisuutta ja työllisyyttä.",
+    "materials": {
+      "scenario": "Turpeen energiakäytöstä luopuminen"
+    },
+    "items": [
+      {
+        "id": "d5c8d7ee-5f7e-5034-a32c-681a8d35f4e4",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö turpeen energiakäytöstä luopua nopeammin ilmastosyistä?'. Analysoi energiaomavaraisuutta ja työllisyyttä."
+      }
+    ],
+    "rubric": "Ilmastovaikutukset\nEnergiaomavaraisuus\nTyöllisyys\nOikeudenmukainen siirtymä",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

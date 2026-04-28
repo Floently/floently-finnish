@@ -1,0 +1,77 @@
+{
+  "id": "3dce992f-5df8-50d3-b29c-c286ab774e39",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Työelämän laatu on noussut yhä tärkeämmäksi kysymykseksi. Työntekijät odottavat työltä muutakin kuin toimeentuloa: merkityksellisyyttä, joustavuutta ja mahdollisuuksia kehittyä. Työnantajat puolestaan tarvitsevat motivoituneita ja sitoutuneita työntekijöitä pysyäkseen kilpailukykyisinä. Työhyvinvointiin panostaminen kannattaa, sillä se vähentää sairauspoissaoloja ja työpaikan vaihtamista. Keskeisiä työelämän laadun tekijöitä ovat hyvä johtaminen, toimivat työyhteisötaidot, työn hallinnan tunne ja tasapaino työn ja muun elämän välillä. Etätyön yleistyminen on tuonut uusia mahdollisuuksia, mutta myös haasteita työhyvinvoinnille, kuten työn ja vapaa-ajan rajan hämärtymisen.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "mcq_207",
+        "prompt": "Mitä työntekijät odottavat työltä toimeentulon lisäksi?",
+        "options": [
+          "Merkityksellisyyttä ja kehittymismahdollisuuksia",
+          "Pitkiä työpäiviä ja ylitöitä",
+          "Hierarkkisia rakenteita ja käskyttämistä",
+          "Yksitoikkoisuutta ja rutiineja"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_208",
+        "prompt": "Mitä hyötyä työhyvinvointiin panostamisesta on työnantajalle?",
+        "options": [
+          "Se lisää sairauspoissaoloja",
+          "Se vähentää sairauspoissaoloja ja työpaikan vaihtamista",
+          "Se lisää työpaikan vaihtamista",
+          "Se vähentää työntekijöiden motivaatiota"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_209",
+        "prompt": "Mitä ovat keskeisiä työelämän laadun tekijöitä?",
+        "options": [
+          "Huono johtaminen ja epäselvät tavoitteet",
+          "Hyvä johtaminen ja työn hallinnan tunne",
+          "Työn ja vapaa-ajan sekoittuminen",
+          "Jatkuva kiire ja stressi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_210",
+        "prompt": "Mitä haasteita etätyön yleistyminen on tuonut työhyvinvoinnille?",
+        "options": [
+          "Työn ja vapaa-ajan rajan hämärtymistä",
+          "Työmatkojen pidentymistä",
+          "Työpaikkakiusaamisen lisääntymistä",
+          "Työtehtävien vähenemistä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

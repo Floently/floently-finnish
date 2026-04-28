@@ -1,0 +1,37 @@
+{
+  "id": "002b4c4b-fec4-5364-836a-0d134d35666c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö suomalaisen ruoantuotannon omavaraisuutta lisätä kriisivalmiuden vuoksi?'. Pohdi huoltovarmuutta ja kustannuksia.",
+    "materials": {
+      "scenario": "Ruoantuotannon omavaraisuus"
+    },
+    "items": [
+      {
+        "id": "e5941d4c-9032-5066-995d-d6af625949d7",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö suomalaisen ruoantuotannon omavaraisuutta lisätä kriisivalmiuden vuoksi?'. Pohdi huoltovarmuutta ja kustannuksia."
+      }
+    ],
+    "rubric": "Huoltovarmuus\nKustannukset\nYmpäristövaikutukset\nKriisivalmius",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "92a48585-c966-5bf7-a8e2-0369a37c3ead",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.69,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a department manager position in a medium-sized retail store. Tell about your previous management experience, personnel development, and how you have increased sales. Also describe your management philosophy and how you motivate employees. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus osastopäällikön tehtävään"
+    },
+    "items": [
+      {
+        "id": "ad928b5b-c743-5aa1-a4da-d186a80c5e08",
+        "prompt": "Write a job application. You are applying for a department manager position in a medium-sized retail store. Tell about your previous management experience, personnel development, and how you have increased sales. Also describe your management philosophy and how you motivate employees. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a department manager position in a medium-sized retail store. Tell about your previous management experience, personnel development, and how you have increased sales. Also describe your management philosophy and how you motivate employees. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

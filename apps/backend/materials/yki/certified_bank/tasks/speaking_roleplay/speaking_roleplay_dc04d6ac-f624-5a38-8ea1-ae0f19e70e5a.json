@@ -1,0 +1,40 @@
+{
+  "id": "dc04d6ac-f624-5a38-8ea1-ae0f19e70e5a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.269,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you know how to cook and what foods you often make. Do you cook every day?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "05b9dc04-0191-5e74-abdf-7de300a4811a",
+        "ai_first_turn_fi": "Osaatko sä kokata? Mitä sä teet usein ruoaksi?"
+      }
+    ],
+    "rubric": "Tell if you know how to cook and what foods you often make. Do you cook every day?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

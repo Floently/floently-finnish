@@ -1,0 +1,88 @@
+{
+  "id": "3224977e-d68e-575d-a1a4-51de003bbdab",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu digitaalisista terveyspalveluista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Oletko käyttänyt niitä digitaalisia terveyspalveluja? Henkilö B: Olen, ja ne ovat kyllä helpottaneet arkea. Voin chatata hoitajan kanssa ja saada nopeasti vastauksia. Henkilö A: Sama täällä. Ajanvaraus onnistuu kätevästi sovelluksella. Henkilö B: Ja reseptien uusiminen on helppoa. Ei tarvitse soitella vastaanotolle. Henkilö A: Mutta onko siinä jotain huonoa? Henkilö B: Ehkä se, että kaikki eivät osaa käyttää digipalveluja. Vanhukset ja muut, joilla ei ole digitaitoja, voivat jäädä paitsi. Henkilö A: Totta. Pitäisi olla myös perinteisiä kanavia. Henkilö B: Ja myös tietoturva mietityttää. Omia terveystietoja liikutellaan verkossa. Henkilö A: Toivottavasti ne on suojattu hyvin. Henkilö B: Kyllä varmaan on, mutta aina on riskinsä. Henkilö A: Mutta kaiken kaikkiaan digipalvelut ovat parantaneet terveydenhuoltoa. Henkilö B: Olen samaa mieltä, kunhan ne eivät syrjäytä niitä, jotka eivät niitä käytä.",
+      "audio_asset_id": "878b3697-bab9-49a0-bfb7-6bf76253b8ba"
+    },
+    "questions": [
+      {
+        "id": "l147q1",
+        "prompt": "Mitä mieltä henkilöt ovat digitaalisista terveyspalveluista?",
+        "options": [
+          "Ne ovat huonoja.",
+          "Ne ovat helpottaneet arkea ja ovat käteviä.",
+          "Ne ovat liian monimutkaisia.",
+          "Ne ovat kalliita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l147q2",
+        "prompt": "Mitä digipalveluilla voi tehdä?",
+        "options": [
+          "Chatata hoitajan kanssa, uusia reseptejä ja varata aikoja.",
+          "Vain varata aikoja.",
+          "Vain uusia reseptejä.",
+          "Vain katsoa omia tietoja."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l147q3",
+        "prompt": "Mikä on yksi mainittu huolenaihe?",
+        "options": [
+          "Palvelut ovat liian hitaita.",
+          "Palvelut ovat liian kalliita.",
+          "Kaikki eivät osaa käyttää digipalveluja ja voivat jäädä paitsi.",
+          "Palveluissa on vähän vaihtoehtoja."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l147q4",
+        "prompt": "Mikä toinen huolenaihe mainitaan?",
+        "options": [
+          "Tietoturva ja terveystietojen liikkuminen verkossa.",
+          "Palvelut eivät toimi kunnolla.",
+          "Palvelut eivät ole saatavilla kaikkialla.",
+          "Palvelut ovat vaikeakäyttöisiä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l147q5",
+        "prompt": "Mikä ehto digipalvelujen käytölle on tärkeä?",
+        "options": [
+          "Ne korvaavat kaikki perinteiset palvelut.",
+          "Ne ovat maksullisia.",
+          "Ne eivät saa syrjäyttää niitä, jotka eivät niitä käytä.",
+          "Ne vaativat erillisen tunnistautumisen."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

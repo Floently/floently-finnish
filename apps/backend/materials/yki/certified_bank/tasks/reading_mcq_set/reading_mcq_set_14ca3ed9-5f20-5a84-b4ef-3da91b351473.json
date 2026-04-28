@@ -1,0 +1,77 @@
+{
+  "id": "14ca3ed9-5f20-5a84-b4ef-3da91b351473",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tulevaisuudessa työelämässä korostuvat vuorovaikutustaidot, ongelmanratkaisukyky ja jatkuva oppiminen. Työministeriön selvityksen mukaan vuoteen 2035 mennessä jopa 40 prosenttia nykyisistä työtehtävistä on muuttunut merkittävästi. Uusia työpaikkoja syntyy eniten sosiaali- ja terveysalalle, teknologiateollisuuteen ja palvelualoille.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 60
+    },
+    "questions": [
+      {
+        "id": "cc404a11-944c-512a-8be3-8a81ce638939",
+        "prompt": "Mitkä tekijät muuttavat työelämää?",
+        "options": [
+          "Säädökset ja lait",
+          "Digitalisaatio, väestön ikääntyminen ja globalisaatio",
+          "Ammattiliitot",
+          "Politiikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "026ce872-6edf-5e43-9080-99b2f42cc4db",
+        "prompt": "Mitä taitoja tulevaisuudessa korostetaan?",
+        "options": [
+          "Fyysistä kestävyyttä",
+          "Kädentaitoja",
+          "Vuorovaikutustaitoja ja ongelmanratkaisukykyä",
+          "Kielitaitoa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8e7add33-ba29-595c-8ef2-dc92392fb06f",
+        "prompt": "Kuinka moni työtehtävä on muuttunut vuoteen 2035 mennessä?",
+        "options": [
+          "20%",
+          "30%",
+          "40%",
+          "50%"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ca9a9fe7-c653-5d8e-9c1e-3884add5e328",
+        "prompt": "Mille aloille uusia työpaikkoja syntyy eniten?",
+        "options": [
+          "Rakentaminen",
+          "Sosiaali- ja terveysala, teknologiateollisuus ja palvelualat",
+          "Maatalous",
+          "Kulttuuri"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

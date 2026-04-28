@@ -1,0 +1,77 @@
+{
+  "id": "83d6fc83-6260-536f-9b8e-1158ca1ac808",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa julkisia palveluja on viety voimakkaasti verkkoon. Kansalaiset voivat hoitaa veroasiat, hakea tukia ja varata aikoja terveyskeskukseen sähköisesti. OmaKanta-palvelusta näkee omat terveystiedot ja reseptit, ja Suomi.fi-palvelu toimii väylänä moniin viranomaispalveluihin. Digitaaliset palvelut säästävät aikaa ja vähentävät paperityötä, mutta ne asettavat haasteita erityisesti ikäihmisille ja niille, joilla ei ole digitaitoja. Kirjastoissa ja kunnissa järjestetään digitukea, jossa autetaan palvelujen käytössä. Tulevaisuudessa entistä useampi palvelu siirtyy verkkoon, ja jo nyt monet asiat hoituvat ilman, että tarvitsee käydä virastossa.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_010",
+        "prompt": "Mitä asioita voi hoitaa sähköisesti Suomessa?",
+        "options": [
+          "Vain veroasioita",
+          "Veroasiat, tuet ja terveyskeskusajat",
+          "Vain terveyskeskusajat",
+          "Vain tuet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_010",
+        "prompt": "Mitä OmaKanta-palvelusta näkee?",
+        "options": [
+          "Veroasiat",
+          "Terveystiedot ja reseptit",
+          "Julkisen liikenteen aikataulut",
+          "Kelan päätökset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_010",
+        "prompt": "Kenelle digitaaliset palvelut tuottavat haasteita?",
+        "options": [
+          "Nuorille",
+          "Lapsille",
+          "Ikäihmisille ja niille, joilla ei ole digitaitoja",
+          "Opiskelijoille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4_reading_b1_010",
+        "prompt": "Missä järjestetään digitukea?",
+        "options": [
+          "Vain kouluissa",
+          "Kirjastoissa ja kunnissa",
+          "Vaan verkkokaupoissa",
+          "Terveyskeskuksissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

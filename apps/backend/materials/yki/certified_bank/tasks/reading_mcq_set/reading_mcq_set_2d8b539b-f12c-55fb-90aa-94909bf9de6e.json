@@ -1,0 +1,66 @@
+{
+  "id": "2d8b539b-f12c-55fb-90aa-94909bf9de6e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PYÖRÄPYSÄKÖINTI\n\nPyörät on pysäköitävä merkityille paikoille. Rappukäytävässä ei saa säilyttää pyöriä. Noudattamattomista pyöristä voidaan periä siirtomaksu.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "fe5b7e80-86fc-54eb-9be6-8a373700536f",
+        "prompt": "Mihin pyörät pitää pysäköidä?",
+        "options": [
+          "rappukäytävään",
+          "merkityille paikoille",
+          "pihalle",
+          "katolle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2c0f3b8d-35ed-5796-aa36-b84a4c042ddb",
+        "prompt": "Missä ei saa säilyttää pyöriä?",
+        "options": [
+          "pihalla",
+          "pyöräparkissa",
+          "rappukäytävässä",
+          "ulkona"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b87b5574-e262-513a-8734-e18fff2dade2",
+        "prompt": "Mitä voi seurata, jos ei noudata sääntöjä?",
+        "options": [
+          "sakko",
+          "siirtomaksu",
+          "varoitus",
+          "ei mitään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

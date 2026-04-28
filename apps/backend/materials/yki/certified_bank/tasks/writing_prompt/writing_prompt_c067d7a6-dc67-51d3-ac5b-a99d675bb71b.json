@@ -1,0 +1,37 @@
+{
+  "id": "c067d7a6-dc67-51d3-ac5b-a99d675bb71b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin venesatamasta. Arvioi paikkojen riittävyyttä, huoltopalveluita ja siisteyttä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin venesatamasta"
+    },
+    "items": [
+      {
+        "id": "2c0c8309-22d9-5dca-b7e2-03db74554343",
+        "prompt": "Kirjoita palauteteksti kaupungin venesatamasta. Arvioi paikkojen riittävyyttä, huoltopalveluita ja siisteyttä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Paikkojen riittävyys\nHuoltopalvelut\nSiisteys\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

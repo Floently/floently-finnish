@@ -1,0 +1,37 @@
+{
+  "id": "fb775361-40b4-57ee-93f4-e65d1c125adb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti oikeusaputoimistoon. Tarvitset oikeudellista neuvontaa avioerossa ja haluat tietää, voitko saada oikeusapua tulojesi perusteella. Kerro tilanteestasi, tuloistasi ja perheestäsi. Kysy, miten oikeusapua haetaan ja mitä asiakirjoja tarvitaan.",
+    "materials": {
+      "scenario": "Oikeusavun hakeminen avioerossa"
+    },
+    "items": [
+      {
+        "id": "75490cc2-41ae-510e-a14e-2e870f0f530e",
+        "prompt": "Kirjoita virallinen sähköposti oikeusaputoimistoon. Tarvitset oikeudellista neuvontaa avioerossa ja haluat tietää, voitko saada oikeusapua tulojesi perusteella. Kerro tilanteestasi, tuloistasi ja perheestäsi. Kysy, miten oikeusapua haetaan ja mitä asiakirjoja tarvitaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

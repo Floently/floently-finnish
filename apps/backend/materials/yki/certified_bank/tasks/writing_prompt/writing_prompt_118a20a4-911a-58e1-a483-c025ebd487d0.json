@@ -1,0 +1,37 @@
+{
+  "id": "118a20a4-911a-58e1-a483-c025ebd487d0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö yritysten vastuullisuusraportointi tehdä pakolliseksi myös pienille yrityksille?'. Pohdi läpinäkyvyyttä, hallinnollista taakkaa ja kuluttajien luottamusta.",
+    "materials": {
+      "scenario": "Vastuullisuusraportointi"
+    },
+    "items": [
+      {
+        "id": "9acef5cb-ff94-5bd9-a5ba-9719c4d7e032",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö yritysten vastuullisuusraportointi tehdä pakolliseksi myös pienille yrityksille?'. Pohdi läpinäkyvyyttä, hallinnollista taakkaa ja kuluttajien luottamusta."
+      }
+    ],
+    "rubric": "Läpinäkyvyys\nHallinnollinen taakka\nKuluttajien luottamus\nKilpailukyky",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

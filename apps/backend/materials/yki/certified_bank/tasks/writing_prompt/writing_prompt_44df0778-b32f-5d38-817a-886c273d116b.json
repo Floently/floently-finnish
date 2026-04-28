@@ -1,0 +1,37 @@
+{
+  "id": "44df0778-b32f-5d38-817a-886c273d116b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a research professor position in a science academy. Tell about your scientific career, significant research findings, and international research collaboration. Also describe your research program and how you mentor younger researchers. Length about 320 words.",
+    "materials": {
+      "scenario": "Hakemus tutkimusprofessorin tehtävään"
+    },
+    "items": [
+      {
+        "id": "c578794a-8aaa-5fd1-9543-5c8670c14591",
+        "prompt": "Write a job application. You are applying for a research professor position in a science academy. Tell about your scientific career, significant research findings, and international research collaboration. Also describe your research program and how you mentor younger researchers. Length about 320 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a research professor position in a science academy. Tell about your scientific career, significant research findings, and international research collaboration. Also describe your research program and how you mentor younger researchers. Length about 320 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

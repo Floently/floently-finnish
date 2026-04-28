@@ -1,0 +1,40 @@
+{
+  "id": "b55d1f68-80ef-5222-af15-30a337b300cc",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.289,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what your favorite food is. When do you eat it and do you make it yourself?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "adbe7370-9291-51f8-a150-c7c206ad94df",
+        "ai_first_turn_fi": "Mikä on sun lempiruoka? Osaatko tehdä sitä itse?"
+      }
+    ],
+    "rubric": "Tell what your favorite food is. When do you eat it and do you make it yourself?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

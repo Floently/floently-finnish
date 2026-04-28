@@ -1,0 +1,40 @@
+{
+  "id": "390f5326-1f26-58db-9a78-004726be2400",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.278,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell where you eat out and what kind of food they have. Do you go for lunch or dinner?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "11ea7266-50f1-5253-a870-e27b821db75c",
+        "ai_first_turn_fi": "Käytkö sä usein ravintoloissa? Mikä on sun lempiravintola?"
+      }
+    ],
+    "rubric": "Tell where you eat out and what kind of food they have. Do you go for lunch or dinner?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

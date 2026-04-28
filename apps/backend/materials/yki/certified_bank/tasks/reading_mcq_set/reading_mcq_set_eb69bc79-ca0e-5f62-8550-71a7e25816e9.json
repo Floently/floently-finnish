@@ -1,0 +1,66 @@
+{
+  "id": "eb69bc79-ca0e-5f62-8550-71a7e25816e9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Työn murros on ollut puheenaiheena jo vuosia, mutta nyt se alkaa todella näkyä arjessa. Digitalisaatio, tekoäly ja automaatio muuttavat työelämää nopeammin kuin koskaan. Osa ammateista katoaa, uusia syntyy. Tämä herättää kysymyksen: miten meidän pitäisi valmistautua tulevaisuuteen?\n\nYksi asia on varma: koulutuksen merkitys korostuu. Jatkuva oppiminen ei ole enää valinta, vaan välttämättömyys. Työurat pirstoutuvat, ja ihmiset vaihtavat alaa useita kertoja elämänsä aikana. Tämä vaatii joustavuutta ja halua oppia uutta.\n\nToinen tärkeä asia on inhimillisyys. Vaikka koneet voivat korvata monia rutiinitehtäviä, ne eivät voi korvata ihmisten välistä vuorovaikutusta, empatiaa ja luovuutta. Näitä taitoja tarvitaan tulevaisuudessa yhä enemmän.\n\nTekoäly voi myös lisätä eriarvoisuutta. Jos vain harvat osaavat käyttää uutta teknologiaa, kuilu osaajien ja ei-osaajien välillä kasvaa. Siksi tarvitaan panostuksia koulutukseen ja elinikäiseen oppimiseen. Jokaisella pitäisi olla mahdollisuus pysyä mukana muutoksessa.\n\nPäättäjiltä vaaditaan viisautta. On luotava puitteet, joissa ihmiset voivat kouluttautua uudelleen ja sopeutua muutoksiin. On myös huolehdittava siitä, ettei kukaan jää täysin paitsi kehityksestä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 184
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä työn murros tarkoittaa?",
+        "options": [
+          "A) Työpaikat vähenevät",
+          "B) Digitalisaatio ja tekoäly muuttavat työelämää",
+          "C) Ihmiset eivät enää halua tehdä töitä",
+          "D) Työurat lyhenevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi koulutuksen merkitys korostuu?",
+        "options": [
+          "A) Koska työt ovat vaikeampia",
+          "B) Koska työurat pirstoutuvat ja ihmiset vaihtavat alaa",
+          "C) Koska koulutus on halvempaa",
+          "D) Koska työnantajat vaativat enemmän tutkintoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä inhimillisiä taitoja tarvitaan tulevaisuudessa?",
+        "options": [
+          "A) Mekaanisia taitoja",
+          "B) Vuorovaikutusta, empatiaa ja luovuutta",
+          "C) Matemaattisia taitoja",
+          "D) Fyysistä voimaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

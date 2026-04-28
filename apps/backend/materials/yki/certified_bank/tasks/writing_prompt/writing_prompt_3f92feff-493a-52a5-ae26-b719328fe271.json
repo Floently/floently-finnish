@@ -1,0 +1,37 @@
+{
+  "id": "3f92feff-493a-52a5-ae26-b719328fe271",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti päiväkodin johtajalle. Haluat keskustella lapsesi kehityksestä ja mahdollisesta tuen tarpeesta. Kerro, mitä olette huomanneet kotona. Pyydä aikaa keskustelulle varhaiskasvattajan kanssa.",
+    "materials": {
+      "scenario": "Keskustelupyyntö lapsen kehityksestä"
+    },
+    "items": [
+      {
+        "id": "77d34ab3-dda9-5211-acd5-e52b8253037f",
+        "prompt": "Kirjoita sähköposti päiväkodin johtajalle. Haluat keskustella lapsesi kehityksestä ja mahdollisesta tuen tarpeesta. Kerro, mitä olette huomanneet kotona. Pyydä aikaa keskustelulle varhaiskasvattajan kanssa."
+      }
+    ],
+    "rubric": "Havainnot\nKeskustelun tarve\nYhteystiedot",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

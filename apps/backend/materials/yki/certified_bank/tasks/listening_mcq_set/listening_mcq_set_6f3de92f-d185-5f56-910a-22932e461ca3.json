@@ -1,0 +1,66 @@
+{
+  "id": "6f3de92f-d185-5f56-910a-22932e461ca3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Nainen: Hei, olen kiinnostunut tästä asunnon ilmoituksesta. Onko se vielä vapaana?\nVuokranantaja: Kyllä, se on vapaana. Se on kolmio hyvällä sijainnilla, aivan keskustan tuntumassa.\nNainen: Paljonko vuokra on?\nVuokranantaja: Vuokra on 1200 euroa kuukaudessa. Hintaan sisältyy vesi ja lämmitys, mutta sähkö maksetaan erikseen.\nNainen: Entä milloin asunto olisi vapaana?\nVuokranantaja: Se vapautuu 1. marraskuuta. Voitte tulla katsomaan asuntoa ensi viikolla.\nNainen: Sopiiko teille keskiviikkona kello 17?\nVuokranantaja: Keskiviikko kello 17 käy hyvin. Laitan teille osoitteen tekstiviestillä.",
+      "audio_asset_id": "a47132e6-aa77-565f-9e79-5a74c33fe8bf"
+    },
+    "questions": [
+      {
+        "id": "list_052",
+        "prompt": "Minkä kokoinen asunto on kyseessä?",
+        "options": [
+          "Yksiö",
+          "Kaksio",
+          "Kolmio",
+          "Neljä huonetta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_053",
+        "prompt": "Paljonko vuokra on?",
+        "options": [
+          "1000 euroa",
+          "1100 euroa",
+          "1200 euroa",
+          "1300 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_054",
+        "prompt": "Milloin asunto vapautuu?",
+        "options": [
+          "1. lokakuuta",
+          "1. marraskuuta",
+          "1. joulukuuta",
+          "1. tammikuuta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

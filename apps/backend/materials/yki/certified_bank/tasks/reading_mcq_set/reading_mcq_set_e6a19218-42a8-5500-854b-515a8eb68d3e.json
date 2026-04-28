@@ -1,0 +1,88 @@
+{
+  "id": "e6a19218-42a8-5500-854b-515a8eb68d3e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti. Valitse jokaiseen kysymykseen yksi vaihtoehto.",
+    "materials": {
+      "text": "ILMOITUS\n\nAsukastiedote koskee yhteistä varastoa Turussa. Yhteisessä tilassa tehdään siivous tammikuussa. Siivous alkaa 24.6. klo 7.15 ja kestää noin kaksi tuntia. Tänä aikana tilaan ei voi viedä tai hakea tavaroita.\n\nJos sinulla on pyörä tai lastenvaunut varastossa, tarkista että ne ovat selvästi merkitty omalla nimellä. Älä jätä tavaroita käytävään, koska siivouskone tarvitsee tilaa. Jos löydät irtotavaraa, laita se pahvilaatikkoon oven viereen.\n\nSiivouksen jälkeen lattia kuivuu hetken, joten ovet pidetään auki klo 15.15 asti. Jos et pääse paikalle, voit soittaa isännöinnille numeroon 0471979055 arkipäivänä.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä ilmoituksessa kerrotaan?",
+        "options": [
+          "Siivouksesta",
+          "Pihajuhlasta",
+          "Sähkön hinnasta",
+          "Uudesta asukkaasta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin siivous alkaa?",
+        "options": [
+          "15.3. klo 7.15",
+          "24.6. klo 21.00",
+          "24.6. klo 7.15",
+          "24.6. klo 15.15"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää tehdä pyörän tai vaunujen kanssa?",
+        "options": [
+          "Myydä ne pois",
+          "Viedä ne parvekkeelle",
+          "Pestä ne ulkona",
+          "Merkitä ne omalla nimellä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ei saa jättää käytävään?",
+        "options": [
+          "Kukkia",
+          "Mainoksia",
+          "Terveisiä",
+          "Tavaroita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin irtotavara laitetaan?",
+        "options": [
+          "Pahvilaatikkoon oven viereen",
+          "Hissiin",
+          "Roska-autoon",
+          "Kadulle"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

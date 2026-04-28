@@ -1,0 +1,77 @@
+{
+  "id": "885c4c5f-01df-504f-bdc9-4bfeb9003c54",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.595,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue raportti iltaliikenteen kokeilusta ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Kaupungin joukkoliikenne käynnisti kokeilun, jossa iltalinjojen aikatauluja tihennettiin viikonloppuisin keskustan ja lähiöiden välillä. Kokeilun taustalla oli sekä asukaspalaute että turvallisuuteen liittyvät havainnot: pitkät odotusajat pysäkeillä lisäsivät koettua turvattomuutta, erityisesti niillä alueilla, joilla palvelut sulkeutuvat varhain. Liikennesuunnittelijat arvioivat etukäteen, että lisävuorot nostavat kustannuksia, mutta samalla ne voivat vähentää yksityisautoilua lyhyillä matkoilla. Ensimmäisten kahden kuukauden seuranta osoitti, että matkustajamäärä kasvoi eniten kello 22 jälkeen, jolloin aiemmin osa käyttäjistä siirtyi takseihin tai pyysi kyytiä läheisiltään.\n\nKeskustelua syntyi kuitenkin siitä, miten kokeilun onnistumista pitäisi mitata. Osa päättäjistä painotti yksikkökustannusta per matkustaja ja piti tärkeänä, että jokainen lisävuoro tuottaa nopeasti näkyvää käyttöä. Toiset korostivat, että iltaliikenteen hyötyjä pitäisi arvioida laajemmin: pääseekö työntekijä turvallisesti iltavuoron jälkeen kotiin, voiko opiskelija osallistua harrastuksiin ilman omaa autoa, ja vähenevätkö päihtyneenä ajamiseen liittyvät riskit. Liikennevirasto ehdotti kompromissia, jossa taloudellisten mittareiden rinnalle tuodaan saavutettavuutta ja turvallisuutta kuvaavat indikaattorit.\n\nKokeilun aikana ilmeni myös käytännön haasteita. Kuljettajapula vaikeutti vuorojen täsmällistä toteutusta, ja osa matkustajista ei huomannut muutoksia, koska tiedotus jäi alussa hajanaiseksi. Tilannetta korjattiin lisäämällä pysäkeille selkeä aikataulutarra sekä mobiilisovellukseen muistutusviestit niille käyttäjille, jotka olivat aiemmin matkustaneet samalla reitillä. Seurannan viimeisessä vaiheessa todettiin, että tiedotuksen selkeyttäminen lisäsi käyttöä lähes yhtä paljon kuin yksittäiset aikataulumuutokset. Raportin johtopäätös oli, että palvelutason parantaminen toimii parhaiten silloin, kun operatiiviset muutokset ja viestintä suunnitellaan yhtenä kokonaisuutena.",
+      "word_count": 208
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä oli kokeilun keskeinen lähtökohta?",
+        "options": [
+          "päivävuorojen vähentäminen",
+          "iltavuorojen tihentäminen turvallisuuden ja saavutettavuuden vuoksi",
+          "taksien korvaaminen busseilla",
+          "uuden lipputuotteen testaus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä päättäjät olivat eri mieltä?",
+        "options": [
+          "reittien värityksestä",
+          "onnistumisen mittareista",
+          "kuljettajien koulutuksesta",
+          "lippujen painatuksesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä käytännön ongelma havaittiin kokeilun aikana?",
+        "options": [
+          "bensiinipula",
+          "kuljettajapula ja hajautunut tiedotus",
+          "reitit suljettiin sääsyistä",
+          "maksupäätteet poistettiin käytöstä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä raportin johtopäätös painotti?",
+        "options": [
+          "vain lisävuorojen määrää",
+          "muutosten ja viestinnän yhteistä suunnittelua",
+          "kokeilun lopettamista heti",
+          "vain kustannusmittaria"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

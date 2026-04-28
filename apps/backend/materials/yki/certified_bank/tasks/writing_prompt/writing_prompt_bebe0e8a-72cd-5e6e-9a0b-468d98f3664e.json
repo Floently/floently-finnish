@@ -1,0 +1,37 @@
+{
+  "id": "bebe0e8a-72cd-5e6e-9a0b-468d98f3664e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti seurakunnan diakoniatyöhön. Perheenne on vaikeassa taloudellisessa tilanteessa ja tarvitsette apua ruokamenoissa. Kerro tilanteestanne ja kysy, millaista tukea on tarjolla ja miten sitä haetaan.",
+    "materials": {
+      "scenario": "Taloudellisen avun pyytäminen"
+    },
+    "items": [
+      {
+        "id": "b4760fc3-cdc4-5d11-a772-9b1fa1eda3c0",
+        "prompt": "Kirjoita virallinen sähköposti seurakunnan diakoniatyöhön. Perheenne on vaikeassa taloudellisessa tilanteessa ja tarvitsette apua ruokamenoissa. Kerro tilanteestanne ja kysy, millaista tukea on tarjolla ja miten sitä haetaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

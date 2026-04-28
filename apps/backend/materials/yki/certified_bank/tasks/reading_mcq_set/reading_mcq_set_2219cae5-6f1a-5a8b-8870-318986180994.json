@@ -1,0 +1,77 @@
+{
+  "id": "2219cae5-6f1a-5a8b-8870-318986180994",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomen alkoholipolitiikka on perinteisesti ollut tiukkaa. Alkoholin myyntiä säätelee laki, ja väkeviä alkoholijuomia myy vain valtion monopoli Alko. Mietoja alkoholijuomia, kuten olutta ja siideriä, saa myydä ruokakaupoissa. Alkoholin ikäraja on 18 vuotta miedoille juomille ja 20 vuotta väkeville. Alkoholivero on korkea, mikä vähentää kulutusta ja tuo valtiolle tuloja. Alkoholin haittoja, kuten terveysongelmia ja väkivaltaa, pyritään vähentämään valistuksella ja rajoituksilla. Alkoholin mainontaa on rajoitettu. Alkoholilakia on kuitenkin viime vuosina väljennetty, esimerkiksi anniskeluaikojen pidentämisellä ja vahvempien oluiden myynnillä ruokakaupoissa. Alkoholin kulutus on vähentynyt 2000-luvulla, mutta nuorten humalajuominen on edelleen huolenaihe.",
+      "word_count": 88
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_041",
+        "prompt": "Missä väkeviä alkoholijuomia myydään?",
+        "options": [
+          "Ruokakaupoissa",
+          "Alkossa",
+          "Huoltoasemilla",
+          "Kioskeilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_041",
+        "prompt": "Mikä on ikäraja väkeville alkoholijuomille?",
+        "options": [
+          "18 vuotta",
+          "20 vuotta",
+          "21 vuotta",
+          "25 vuotta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_041",
+        "prompt": "Miksi alkoholivero on korkea?",
+        "options": [
+          "Koska Suomi on rikas maa",
+          "Vähentää kulutusta ja tuo valtiolle tuloja",
+          "Koska EU vaatii sitä",
+          "Koska alkoholia tuotetaan paljon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_041",
+        "prompt": "Miten alkoholin kulutus on kehittynyt 2000-luvulla?",
+        "options": [
+          "Se on lisääntynyt",
+          "Se on vähentynyt",
+          "Se on pysynyt samana",
+          "Se on vaihdellut voimakkaasti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

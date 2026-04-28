@@ -1,0 +1,99 @@
+{
+  "id": "7f7c920b-5017-53b5-b860-3a06c342374e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kaupungin uimahallissa on perheuintia sunnuntaisin. Silloin altaassa on paljon leluja ja lasten musiikkia. Perheuinti on kello 10–12. Mukaan voi ottaa oman kellukkeen. Uimahallissa on myös pieni kahvio, josta saa välipalaa. Perheuinti on maksuton alle 3-vuotiaille lapsille. Tervetuloa koko perhe!",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uimahallissa on perheuintia?",
+        "options": [
+          "Lauantaisin",
+          "Sunnuntaisin",
+          "Maanantaisin",
+          "Keskiviikkoisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä altaassa on perheuinnin aikana?",
+        "options": [
+          "Kilpailuratoja",
+          "Leluja ja lasten musiikkia",
+          "Vesijuoksuvöitä",
+          "Uimaopettajia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaan perheuinti on?",
+        "options": [
+          "Kello 9–11",
+          "Kello 10–12",
+          "Kello 12–14",
+          "Kello 14–16"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uimahallissa on perheuinnin lisäksi?",
+        "options": [
+          "Kirjasto",
+          "Pieni kahvio",
+          "Leikkipaikka",
+          "Lastenhoitaja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Paljonko perheuinti maksaa alle 3-vuotiaille?",
+        "options": [
+          "5 euroa",
+          "Se on maksuton",
+          "10 euroa",
+          "Puoli hintaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä mukaan voi ottaa?",
+        "options": [
+          "Oman uimapatjan",
+          "Oman kellukkeen",
+          "Oman pallon",
+          "Oman soittimen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

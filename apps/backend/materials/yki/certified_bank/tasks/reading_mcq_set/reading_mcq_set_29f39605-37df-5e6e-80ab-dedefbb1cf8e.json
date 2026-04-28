@@ -1,0 +1,77 @@
+{
+  "id": "29f39605-37df-5e6e-80ab-dedefbb1cf8e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.789,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kansalaisyhteiskunnan rooli ja merkitys ovat olleet viime vuosina vilkkaan keskustelun kohteena. Perinteisesti kansalaisyhteiskunnalla on tarkoitettu aluetta, joka on valtion, markkinoiden ja yksityiselämän välissä. Siihen kuuluvat esimerkiksi yhdistykset, järjestöt, säätiöt ja muut vastaavat toimijat, jotka toimivat yleishyödyllisten tavoitteiden saavuttamiseksi. Kansalaisyhteiskunta on nähty tärkeänä demokratian ja yhteisöllisyyden vahvistajana. Yhdistykset ja järjestöt tarjoavat kansalaisille kanavan vaikuttaa yhteiskunnallisiin asioihin ja tuottaa palveluja, joita julkinen sektori ei pysty tai halua tuottaa. Ne myös vahvistavat sosiaalista pääomaa eli ihmisten välistä luottamusta ja yhteistyökykyä. Viime vuosikymmeninä kansalaisyhteiskunnan toimintaympäristö on kuitenkin muuttunut merkittävästi. Julkisen sektorin säästöpaineet ovat johtaneet siihen, että järjestöiltä odotetaan yhä enemmän vastuuta hyvinvointipalvelujen tuottamisessa. Samalla järjestöjen rahoituspohja on monipuolistunut, ja ne hakevat rahoitusta yhä enemmän yrityksiltä, säätiöiltä ja EU:lta. Tämä on herättänyt keskustelua järjestöjen riippumattomuudesta ja niiden mahdollisuuksista toimia kriittisinä ääninä. Toinen merkittävä muutos on digitalisaatio. Verkko on mahdollistanut uudenlaisten kansalaisliikkeiden syntymisen, jotka toimivat ilman perinteisiä järjestörakenteita. Nämä liikkeet voivat olla hyvin tehokkaita, mutta niiden ongelmana on usein lyhytjänteisyys ja rakenteiden puute. Kolmas muutos on kansainvälistyminen. Monet kansalaisjärjestöt toimivat nykyään yli rajojen, ja ne osallistuvat globaaleihin kampanjoihin ja verkostoihin. Tämä on lisännyt niiden vaikuttavuutta, mutta myös tuonut mukanaan uudenlaisia hallinnan haasteita. Kansalaisyhteiskunnan tulevaisuuden kannalta keskeistä on, miten se kykenee säilyttämään riippumattomuutensa ja kriittisyytensä samalla kun se ottaa vastuuta yhteiskunnallisista tehtävistä. Tarvitaan avointa keskustelua järjestöjen roolista, rahoituksesta ja hallinnosta. Samalla on tärkeää tunnistaa kansalaisyhteiskunnan moninaisuus ja antaa tilaa erilaisille toimijoille ja toimintatavoille. Vahva ja elinvoimainen kansalaisyhteiskunta on toimivan demokratian ja hyvinvointiyhteiskunnan perusedellytys.",
+      "word_count": 236
+    },
+    "questions": [
+      {
+        "id": "fbed9db7-c24e-5111-8182-639dccc291c4",
+        "prompt": "Mikä on tekstin keskeinen väite kansalaisyhteiskunnan asemasta?",
+        "options": [
+          "Kansalaisyhteiskunta on menettänyt merkityksensä julkisen sektorin laajentumisen myötä",
+          "Kansalaisyhteiskunnan toimintaympäristö on muuttunut merkittävästi, mikä asettaa uusia haasteita sen riippumattomuudelle ja vaikuttavuudelle",
+          "Kansalaisyhteiskunta on onnistunut säilyttämään perinteisen roolinsa ja toimintatapansa muuttumattomina",
+          "Kansalaisyhteiskunta on korvautunut kokonaan uusilla digitaalisilla liikkeillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d993e8db-e659-5cb7-843a-f8c4621c0149",
+        "prompt": "Tekstin mukaan miten julkisen sektorin säästöpaineet ovat vaikuttaneet kansalaisyhteiskuntaan?",
+        "options": [
+          "Ne ovat vähentäneet järjestöjen merkitystä, koska julkiset palvelut ovat laajentuneet",
+          "Ne ovat johtaneet siihen, että järjestöiltä odotetaan yhä enemmän vastuuta hyvinvointipalvelujen tuottamisessa",
+          "Ne ovat lisänneet järjestöjen julkista rahoitusta",
+          "Ne eivät ole vaikuttaneet järjestöjen toimintaan millään tavalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ef0c34a9-038b-5ef2-b0e1-4be5c490b5c3",
+        "prompt": "Mitä haasteita järjestöjen rahoituspohjan monipuolistuminen on tuonut?",
+        "options": [
+          "Järjestöillä on nyt liikaa rahaa käytettävissään",
+          "Se on herättänyt keskustelua järjestöjen riippumattomuudesta ja niiden mahdollisuuksista toimia kriittisinä ääninä",
+          "Se on vähentänyt järjestöjen välistä yhteistyötä",
+          "Se on johtanut järjestöjen toiminnan loppumiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5bee9a18-50dd-5e42-812c-9b97a6ade580",
+        "prompt": "Mitä etuja ja haittoja tekstin mukaan liittyy uusiin, digitaalisiin kansalaisliikkeisiin?",
+        "options": [
+          "Ne ovat tehottomia, mutta niillä on vahvat rakenteet",
+          "Ne voivat olla hyvin tehokkaita, mutta niiden ongelmana on usein lyhytjänteisyys ja rakenteiden puute",
+          "Ne ovat aina pitkäjänteisempiä kuin perinteiset järjestöt",
+          "Ne eivät kykene lainkaan vaikuttamaan yhteiskunnallisiin asioihin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "36e6c85d-cbf2-5841-a74a-118b013ca617",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Onko sinulla kiinnostusta lähteä mukaan lenkkeilyyn? Käyn lenkillä yleensä tiistaisin ja torstaisin kello 18. Voit tulla mukaan!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "e95e08fe-fe6d-52ec-9359-65b5d3e21f3e",
+        "prompt": "Mitä viestissä ehdotetaan?",
+        "options": [
+          "uimista",
+          "lenkkeilyä",
+          "pyöräilyä",
+          "kuntosalia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "926ebb86-6a31-56a1-9d3f-0aa8e0ca2a14",
+        "prompt": "Minä päivinä lähettäjä käy lenkillä?",
+        "options": [
+          "maanantaisin ja keskiviikkoisin",
+          "tiistaisin ja torstaisin",
+          "keskiviikkoisin ja perjantaisin",
+          "lauantaisin ja sunnuntaisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "64d7fe47-d325-5934-b1a9-17d5286ed242",
+        "prompt": "Mihin aikaan lenkki on?",
+        "options": [
+          "kello 16",
+          "kello 17",
+          "kello 18",
+          "kello 19"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

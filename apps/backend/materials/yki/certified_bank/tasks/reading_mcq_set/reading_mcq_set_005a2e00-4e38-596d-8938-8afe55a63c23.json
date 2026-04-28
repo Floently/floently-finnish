@@ -1,0 +1,77 @@
+{
+  "id": "005a2e00-4e38-596d-8938-8afe55a63c23",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "POSTIN OHJEITA\n\nPaketin lähettäminen:\n1. Pakkaa tavara huolellisesti.\n2. Kirjoita vastaanottajan nimi ja osoite.\n3. Kirjoita lähettäjän nimi ja osoite.\n4. Maksa lähetys postissa tai netissä.\n5. Saat seurantanumeron, jolla voit seurata pakettia.\n\nPaketti saapuu yleensä 2-4 arkipäivässä.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "d800b0a9-5027-5e3c-8359-d13236cd13e8",
+        "prompt": "Mitä pitää kirjoittaa pakettiin ensin?",
+        "options": [
+          "lähettäjän nimi",
+          "vastaanottajan nimi ja osoite",
+          "hinta",
+          "päivämäärä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "69b6be08-d496-53b8-aab9-355883e37d2a",
+        "prompt": "Mistä saa seurantanumeron?",
+        "options": [
+          "kaupasta",
+          "maksun jälkeen",
+          "vastaanottajalta",
+          "ei mistään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ff943068-46b9-5615-8055-5dc65f26615f",
+        "prompt": "Kuinka kauan paketin toimitus kestää?",
+        "options": [
+          "1-2 päivää",
+          "2-4 arkipäivää",
+          "viikon",
+          "kuukauden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8eadb46-0bcd-539c-b02e-23fdb5af0ca1",
+        "prompt": "Missä voi maksaa lähetyksen?",
+        "options": [
+          "vain postissa",
+          "postissa tai netissä",
+          "vain netissä",
+          "kaupassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

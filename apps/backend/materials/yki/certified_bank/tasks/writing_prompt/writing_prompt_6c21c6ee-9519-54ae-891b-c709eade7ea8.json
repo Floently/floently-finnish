@@ -1,0 +1,37 @@
+{
+  "id": "6c21c6ee-9519-54ae-891b-c709eade7ea8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti poliisilaitoksen lupapalveluihin. Olet menettänyt henkilökorttisi ja passisi samassa varkaudessa. Kerro, missä ja milloin varkaus tapahtui, ja kysy, miten saat uudet asiakirjat nopeasti. Mainitse myös, jos sinulla on matkasuunnitelmia lähiaikoina.",
+    "materials": {
+      "scenario": "Henkilökortin ja passin uusiminen varkauden jälkeen"
+    },
+    "items": [
+      {
+        "id": "6333df37-0076-56d8-a9c9-cb1e78094c9f",
+        "prompt": "Kirjoita virallinen sähköposti poliisilaitoksen lupapalveluihin. Olet menettänyt henkilökorttisi ja passisi samassa varkaudessa. Kerro, missä ja milloin varkaus tapahtui, ja kysy, miten saat uudet asiakirjat nopeasti. Mainitse myös, jos sinulla on matkasuunnitelmia lähiaikoina."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

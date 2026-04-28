@@ -1,0 +1,99 @@
+{
+  "id": "8cd8704c-6337-5769-94af-30e51e940e7d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kaupungin uusi pyöräilyreitti on valmistunut. Reitti kulkee keskustasta järven rantaa pitkin aina pohjoiseen saakka. Pyöräilijät ovat ottaneet reitin hyvin vastaan, koska se on turvallinen ja maisemat ovat kauniit. Kaupunki toivoo, että reitti kannustaa ihmisiä pyöräilemään enemmän ja vähentämään auton käyttöä lyhyillä matkoilla. Reitin varrelle on tulossa myös levähdyspaikkoja.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uusi asia kaupungissa on valmistunut?",
+        "options": [
+          "Uusi keskusta",
+          "Uusi pyöräilyreitti",
+          "Uusi järvi",
+          "Uusi autotie"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä reitti kulkee?",
+        "options": [
+          "Pohjoisesta etelään",
+          "Keskustasta järven rantaa pitkin",
+          "Keskustasta itään",
+          "Järveltä toiselle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi pyöräilijät ovat tykänneet reitistä?",
+        "options": [
+          "Se on lyhyt ja nopea",
+          "Se on turvallinen ja maisemat ovat kauniit",
+          "Se on ainoa reitti kaupungissa",
+          "Se on maksullinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kaupunki toivoo reitin vaikuttavan?",
+        "options": [
+          "Ihmiset käyttävät vähemmän autoa",
+          "Ihmiset matkustavat enemmän",
+          "Pyöräilijät maksavat reitistä",
+          "Autotiet vähenevät"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä reitin varrelle on tulossa?",
+        "options": [
+          "Uusia autoteitä",
+          "Lisää kauppoja",
+          "Levähdyspaikkoja",
+          "Pysäköintihalleja"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mihin asti reitti kulkee?",
+        "options": [
+          "Keskustaan",
+          "Järven rantaan",
+          "Pohjoiseen saakka",
+          "Etelään saakka"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

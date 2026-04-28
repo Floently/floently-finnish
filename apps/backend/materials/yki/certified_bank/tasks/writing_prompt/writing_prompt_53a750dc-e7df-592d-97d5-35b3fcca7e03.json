@@ -1,0 +1,37 @@
+{
+  "id": "53a750dc-e7df-592d-97d5-35b3fcca7e03",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti työkaverille. Kerro, että sinulla on ylimääräinen työpiste, koska kollega on sairas. Kysy, haluaako hän siirtyä siihen, koska se on ikkunan vieressä. Kerro, että se on vapaana tästä päivästä alkaen.",
+    "materials": {
+      "scenario": "Viesti työkaverille työpisteestä"
+    },
+    "items": [
+      {
+        "id": "8758ab7f-a2ca-5e1a-beeb-340ab7fb7380",
+        "prompt": "Kirjoita lyhyt viesti työkaverille. Kerro, että sinulla on ylimääräinen työpiste, koska kollega on sairas. Kysy, haluaako hän siirtyä siihen, koska se on ikkunan vieressä. Kerro, että se on vapaana tästä päivästä alkaen."
+      }
+    ],
+    "rubric": "Kerro, että on ylimääräinen työpiste\nKerro, miksi se on vapaana\nKerro, missä se on (ikkunan vieressä)\nKysy, haluaako hän siirtyä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

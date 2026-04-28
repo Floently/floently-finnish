@@ -1,0 +1,66 @@
+{
+  "id": "2989eb20-6e4c-5d2a-b3b8-7bf900c28621",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa julkinen terveydenhuolto on järjestetty hyvinvointialueiden kautta. Terveyskeskukset tarjoavat perusterveydenhuoltoa kuten lääkärin ja hoitajan vastaanottoja, neuvolapalveluita ja rokotuksia. Kiireellisissä tapauksissa on mahdollista mennä päivystykseen, joka toimii ympäri vuorokauden suurimmissa sairaaloissa. Erikoissairaanhoitoa, kuten leikkauksia ja vaativia tutkimuksia, annetaan keskus- ja yliopistosairaaloissa lähetteen perusteella. Potilasmaksut ovat kohtuullisia, ja vuosittainen maksukatto rajoittaa terveydenhuoltomenojen määrää. Monet työnantajat tarjoavat työterveyshuoltoa, joka täydentää julkista terveydenhuoltoa ja nopeuttaa hoitoon pääsyä. Yksityisiä lääkäriasemia käytetään erityisesti silloin, kun halutaan nopea aika tai erikoislääkärin arvio. Sosiaaliturva korvaa osan yksityislääkärikäyntien kustannuksista Kelan kautta.",
+      "word_count": 82
+    },
+    "questions": [
+      {
+        "id": "b3c4d5e6-f7a8-4b9c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Mitä palveluita terveyskeskukset tarjoavat?",
+        "options": [
+          "Vain leikkauksia",
+          "Perusterveydenhuoltoa kuten lääkärin vastaanottoja ja neuvolapalveluita",
+          "Hammashoitoa",
+          "Fysioterapiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+        "prompt": "Missä annetaan erikoissairaanhoitoa?",
+        "options": [
+          "Terveyskeskuksissa",
+          "Keskus- ja yliopistosairaaloissa",
+          "Yksityisissä lääkäriasemissa",
+          "Apteekeissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d5e6f7a8-b9c0-4d1e-9f2a-3b4c5d6e7f8a",
+        "prompt": "Miksi monet käyttävät yksityisiä lääkäriasemia?",
+        "options": [
+          "Koska ne ovat ilmaisia",
+          "Koska ne ovat ainoita terveyspalveluita",
+          "Koska halutaan nopea aika tai erikoislääkärin arvio",
+          "Koska ne ovat pakollisia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

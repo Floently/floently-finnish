@@ -1,0 +1,37 @@
+{
+  "id": "6c1db749-639b-5ab0-aa03-ae59ab67d2b5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti valtioneuvoston kanslian omistajaohjausyksikköön. Olette kansalaisjärjestö, ja haluatte tehdä esityksen valtionyhtiön hallituksen kokouksen asialistalle. Kerro, mikä asia on kyseessä, miksi se on tärkeä ja mitä päätöstä ehdotatte. Kysy, miten esitys voidaan toimittaa ja miten se käsitellään.",
+    "materials": {
+      "scenario": "Esitys valtionyhtiön hallitukselle"
+    },
+    "items": [
+      {
+        "id": "827e3116-c90b-56c2-8459-d6397c28eae3",
+        "prompt": "Kirjoita virallinen sähköposti valtioneuvoston kanslian omistajaohjausyksikköön. Olette kansalaisjärjestö, ja haluatte tehdä esityksen valtionyhtiön hallituksen kokouksen asialistalle. Kerro, mikä asia on kyseessä, miksi se on tärkeä ja mitä päätöstä ehdotatte. Kysy, miten esitys voidaan toimittaa ja miten se käsitellään."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

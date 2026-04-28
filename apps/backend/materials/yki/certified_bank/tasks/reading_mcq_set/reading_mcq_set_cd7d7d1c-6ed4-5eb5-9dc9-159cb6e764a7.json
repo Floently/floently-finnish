@@ -1,0 +1,77 @@
+{
+  "id": "cd7d7d1c-6ed4-5eb5-9dc9-159cb6e764a7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.633,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysiteksti julkisista hankinnoista ja vastaa kysymyksiin tekstin argumentaation perusteella.",
+    "materials": {
+      "text": "Julkisissa hankinnoissa eettiset vaatimukset esitetään usein lisäkriteereinä, jotka voidaan ottaa huomioon, jos ne eivät vaikeuta kilpailutuksen sujuvuutta. Tarkasteltu analyysi kääntää näkökulman toisinpäin: sen mukaan eettiset ehdot eivät ole hankintaprosessin ulkoinen lisä, vaan osa riskienhallintaa, joka vaikuttaa suoraan sopimusten toteutumiseen ja julkisen vallan uskottavuuteen. Analyysi muistuttaa, että hankintapäätös ei ole vain hinnan ja laadun hetkellinen optimointi, vaan valinta, joka sitoo tilaajan vuosiksi toimittajaketjuihin, joiden valvonta voi osoittautua odotettua vaikeammaksi.\n\nEnsimmäinen tarkastelukohta liittyy alihankintaketjuihin. Monimutkaisissa palvelu- ja tuotantoketjuissa tilaaja näkee usein vain sopimuskumppanin, vaikka varsinainen työ jakautuu useille alihankkijoille eri maihin ja eri lainsäädäntöympäristöihin. Kun valvontavelvoite rajataan sopimuksen ensimmäiseen portaaseen, mahdolliset työehtojen, turvallisuuden tai ympäristövastuun puutteet jäävät helposti piiloon, kunnes ne nousevat julkisuuteen kriisitilanteessa. Analyysin mukaan tämä ei ole pelkkä mainekysymys: jälkikäteiset korjaustoimet, sopimuskiistat ja palvelukatkokset voivat tehdä alun perin halvimmasta ratkaisusta kokonaiskustannuksiltaan kalleimman.\n\nToinen tarkastelukohta koskee vertailuperusteiden läpinäkyvyyttä. Käytännössä hankintayksiköt saattavat asettaa vastuullisuudelle painoarvon, mutta kriteerien tulkinta jää osin epäselväksi. Toimittajat oppivat nopeasti optimoimaan tarjouksiaan niihin kohtiin, joita arvioidaan tarkimmin, kun taas vaikeammin mitattavat tekijät jäävät yleisluontoisten lupausten varaan. Analyysi ehdottaa, että vastuullisuuskriteerien pitäisi sisältää myös todennettavuusvaatimus: pelkkä sitoumus ei riitä, vaan tarjoajan on kuvattava, miten se kerää ja raportoi tietoa omasta toiminnastaan sekä alihankkijoistaan.\n\nKolmas tarkastelukohta liittyy sopimuskauden aikaiseen ohjaukseen. Eettiset tavoitteet kirjataan usein tarjousvaiheessa huolellisesti, mutta sopimuskaudella niiden seuranta jää pirstaleiseksi, koska valvontavastuu jakautuu useille viranomaisille tai yksiköille. Analyysi painottaa, että seurannan pitää olla ennakoivaa: jos poikkeamiin puututaan vasta mediakohun jälkeen, tilaaja menettää mahdollisuuden ohjata toimintaa hallitusti. Tässä yhteydessä korostetaan myös vuoropuhelua toimittajien kanssa, sillä pelkkä sanktioihin nojaava malli voi johtaa siihen, että ongelmia pyritään peittämään raportoinnin sijaan.\n\nLopussa analyysi esittää, että eettisesti kestävä hankinta edellyttää kahden logiikan yhdistämistä. Toisaalta tarvitaan selkeät, kilpailuoikeudellisesti kestävät kriteerit, jotta markkina pysyy avoimena ja ennakoitavana. Toisaalta tarvitaan jatkuvaa sopimusohjausta, jossa tilaaja kykenee tarkentamaan valvontaa riskitiedon perusteella. Vasta tämän yhdistelmän kautta voidaan välttää tilanne, jossa julkinen toimija ostaa muodollisesti oikein mutta tosiasiallisesti sellaista tuotantoa, joka on ristiriidassa sen omien yhteiskunnallisten tavoitteiden kanssa. Analyysi ehdottaa tämän vuoksi myös julkista oppimismallia, jossa tilaaja julkaisee anonymisoidut yhteenvedot havaituista poikkeamista ja korjaavista toimista. Tavoitteena on, että seuraavat kilpailutukset eivät ala tyhjästä, vaan aiemmat riskitieto ja valvontakokemus näkyvät suoraan kriteereissä ja sopimusohjauksen rakenteessa.",
+      "word_count": 354
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten analyysi määrittelee eettisten ehtojen roolin hankinnoissa?",
+        "options": [
+          "vapaaehtoisena lisänä, jos aikaa jää",
+          "osana riskienhallintaa ja sopimusten toimivuutta",
+          "ainoastaan imagotekijänä",
+          "kilpailutuksen ulkopuolisena asiana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi alihankintaketjut nähdään erityisenä riskinä?",
+        "options": [
+          "niitä ei voi koskaan valvoa",
+          "ne ovat aina kotimaisia",
+          "vastuupuute voi jäädä piiloon sopimuksen ensimmäisen portaan taakse",
+          "ne lyhentävät sopimuskautta liikaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoittaa analyysin ehdottama todennettavuusvaatimus?",
+        "options": [
+          "toimittajan on raportoitava, miten vastuutieto kerätään ja osoitetaan",
+          "tarjous jätetään vain suullisesti",
+          "kriteerit poistetaan tarjouspyynnöstä",
+          "valvonta siirretään kokonaan medialle"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on tekstin loppupäätelmän ydin?",
+        "options": [
+          "riittää että hinta on alhainen",
+          "tarvitaan sekä selkeät kriteerit että jatkuva sopimusohjaus",
+          "eettiset ehdot kannattaa käsitellä vasta sopimuskauden lopussa",
+          "kilpailuoikeus estää vastuullisuustavoitteet"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

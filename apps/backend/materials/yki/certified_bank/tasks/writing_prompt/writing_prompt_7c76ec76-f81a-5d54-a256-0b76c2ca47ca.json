@@ -1,0 +1,37 @@
+{
+  "id": "7c76ec76-f81a-5d54-a256-0b76c2ca47ca",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työsuojeluvaltuutetulle. Kerro työsuojelukierroksesta, havaituista puutteista ja korjausehdotuksista. Ehdota yhtä uutta turvallisuustoimenpidettä.",
+    "materials": {
+      "scenario": "Palaute työpaikan työsuojeluvaltuutetulle"
+    },
+    "items": [
+      {
+        "id": "afa3c3c3-4f90-5b2f-b793-129cdf83ae3a",
+        "prompt": "Kirjoita palauteteksti työpaikan työsuojeluvaltuutetulle. Kerro työsuojelukierroksesta, havaituista puutteista ja korjausehdotuksista. Ehdota yhtä uutta turvallisuustoimenpidettä."
+      }
+    ],
+    "rubric": "Työsuojelukierros\nHavaitut puutteet\nKorjausehdotukset\nUusi turvallisuustoimenpide",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

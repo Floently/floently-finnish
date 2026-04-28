@@ -1,0 +1,37 @@
+{
+  "id": "d49ad562-ef5f-57cf-93ae-f47114fe65ad",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan päivähoitoon. Tarvitset hoitopaikan lapsellesi, mutta olet tyytymätön tarjottuun paikkaan. Kerro, miksi tarjottu paikka ei sovi perheellesi (esim. liian kaukana, väärät hoitoajat) ja kysy, onko muita vaihtoehtoja. Perustele, miksi tarvitset toisenlaista paikkaa.",
+    "materials": {
+      "scenario": "Päivähoitopaikan vaihtopyyntö"
+    },
+    "items": [
+      {
+        "id": "126a6265-cd84-5a02-862b-72048b0bfca1",
+        "prompt": "Kirjoita virallinen sähköposti kunnan päivähoitoon. Tarvitset hoitopaikan lapsellesi, mutta olet tyytymätön tarjottuun paikkaan. Kerro, miksi tarjottu paikka ei sovi perheellesi (esim. liian kaukana, väärät hoitoajat) ja kysy, onko muita vaihtoehtoja. Perustele, miksi tarvitset toisenlaista paikkaa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

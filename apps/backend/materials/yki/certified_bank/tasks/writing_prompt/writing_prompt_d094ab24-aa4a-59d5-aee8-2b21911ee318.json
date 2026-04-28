@@ -1,0 +1,37 @@
+{
+  "id": "d094ab24-aa4a-59d5-aee8-2b21911ee318",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vakuutusyhtiö on hylännyt korvaushakemuksesi perusteettomasti. Kirjoita virallinen muistutus päätöksestä, jossa osoitat vakuutusehtojen täyttyvän, esität lääketieteelliset selvitykset ja vaadit päätöksen uudelleenkäsittelyä. Viittaa vakuutussopimuslakiin ja hyvään vakuutustapaan.",
+    "materials": {
+      "scenario": "Vakuutuskorvauksen epääminen"
+    },
+    "items": [
+      {
+        "id": "7f16466d-f8e9-5846-accd-a9b66522e6c4",
+        "prompt": "Vakuutusyhtiö on hylännyt korvaushakemuksesi perusteettomasti. Kirjoita virallinen muistutus päätöksestä, jossa osoitat vakuutusehtojen täyttyvän, esität lääketieteelliset selvitykset ja vaadit päätöksen uudelleenkäsittelyä. Viittaa vakuutussopimuslakiin ja hyvään vakuutustapaan."
+      }
+    ],
+    "rubric": "Vakuutusyhtiö on hylännyt korvaushakemuksesi perusteettomasti. Kirjoita virallinen muistutus päätöksestä, jossa osoitat vakuutusehtojen täyttyvän, esität lääketieteelliset selvitykset ja vaadit päätöksen uudelleenkäsittelyä. Viittaa vakuutussopimuslakiin ja hyvään vakuutustapaan.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

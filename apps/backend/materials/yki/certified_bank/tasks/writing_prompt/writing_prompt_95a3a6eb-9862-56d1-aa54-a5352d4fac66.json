@@ -1,0 +1,37 @@
+{
+  "id": "95a3a6eb-9862-56d1-aa54-a5352d4fac66",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan liikuntapalveluihin. Haluaisit vuokrata liikuntasalia lasten syntymäpäiväjuhlia varten. Kysy vapaita aikoja, vuokria ja varauskäytäntöjä. Kerro myös, kuinka monta lasta juhliin osallistuu ja minkä ikäisiä he ovat, jotta saat sopivan kokoisen tilan.",
+    "materials": {
+      "scenario": "Liikuntasalin vuokraus lasten juhliin"
+    },
+    "items": [
+      {
+        "id": "e8b6e4cd-6abe-535c-ad9c-42af3c19e0b0",
+        "prompt": "Kirjoita virallinen sähköposti kunnan liikuntapalveluihin. Haluaisit vuokrata liikuntasalia lasten syntymäpäiväjuhlia varten. Kysy vapaita aikoja, vuokria ja varauskäytäntöjä. Kerro myös, kuinka monta lasta juhliin osallistuu ja minkä ikäisiä he ovat, jotta saat sopivan kokoisen tilan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

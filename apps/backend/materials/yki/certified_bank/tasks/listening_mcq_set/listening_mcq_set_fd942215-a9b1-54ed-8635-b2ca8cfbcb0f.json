@@ -1,0 +1,99 @@
+{
+  "id": "fd942215-a9b1-54ed-8635-b2ca8cfbcb0f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kirjaston kesäaukioloajoista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupunginkirjaston tiedotus. Kesäkuun alusta lähtien kirjastomme on avoinna poikkeusaukioloin. Kesäkuun ajan olemme avoinna maanantaista perjantaihin kello 10–18, lauantaisin kello 10–15. Heinäkuussa kirjasto on suljettu koko kuukauden henkilökunnan lomien vuoksi. Elokuussa palaamme normaaliiin syysaukioloon. Omatoimikirjasto on kuitenkin käytettävissä joka päivä kello 6–22 myös heinäkuussa. Omatoimiaikana kirjastoon pääsee omalla kirjastokortilla ja tunnusluvulla. Lainojen uusiminen ja varaukset onnistuvat verkkokirjastossa normaalisti. Heinäkuussa ei ole henkilökuntaa paikalla, joten neuvontaa ei ole saatavilla. Palautusluukku on käytössä ympäri vuorokauden. Tervetuloa lainaamaan kesälukemista!",
+      "audio_asset_id": "f9a0b1c2-d3e4-5f6a-7b8c-9d0e1f2a3b4c"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kirjasto tiedottaa?",
+        "options": [
+          "Uusista kirjoista.",
+          "Kesän aukioloajoista.",
+          "Kirjaston remontista.",
+          "Lainausmaksujen muutoksista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mihin asti kirjasto on auki kesäkuussa arkipäivisin?",
+        "options": [
+          "Kello 16.",
+          "Kello 18.",
+          "Kello 19.",
+          "Kello 20."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on kirjaston aukioloaika lauantaisin kesäkuussa?",
+        "options": [
+          "Kello 9–14.",
+          "Kello 10–15.",
+          "Kello 11–16.",
+          "Kello 12–17."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miksi kirjasto on kiinni heinäkuussa?",
+        "options": [
+          "Remontin vuoksi.",
+          "Henkilökunnan lomien vuoksi.",
+          "Vähäisen kävijämäärän vuoksi.",
+          "Sähkökatkon vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miten kirjastoon pääsee heinäkuussa?",
+        "options": [
+          "Ei pääse ollenkaan.",
+          "Omatoimikirjastoon omalla kortilla.",
+          "Vain ajanvarauksella.",
+          "Vain soittamalla etukäteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mistä voi uusia lainoja heinäkuussa?",
+        "options": [
+          "Vain käymällä kirjastossa.",
+          "Verkkokirjastossa.",
+          "Soittamalla kirjastoon.",
+          "Ei mistään."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

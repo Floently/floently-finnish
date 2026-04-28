@@ -1,0 +1,88 @@
+{
+  "id": "2fd76034-9f10-5bd0-935e-b14ec65ea650",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.768,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Digitaalinen kuilu on käsite, joka kuvaa eroja ihmisten ja yhteiskuntien välillä heidän mahdollisuuksissaan käyttää digitaalista teknologiaa ja hyötyä siitä. Tämä kuilu ei ole yksinkertainen jako niihin, joilla on pääsy internetiin, ja niihin, joilla ei ole, vaan se on moniulotteinen ilmiö, joka ilmenee monilla eri tasoilla. Ensimmäinen ulottuvuus on pääsy teknologiaan. Vaikka monissa kehittyneissä maissa internetyhteys on lähes kaikkien saatavilla, maailmanlaajuisesti yli kolmannes ihmisistä ei vieläkään käytä internetiä. Kehitysmaissa ja maaseutualueilla puutteellinen infrastruktuuri, laitteiden kalleus ja sähkön puute ovat edelleen merkittäviä esteitä. Toinen ulottuvuus on digitaidot. Teknologian saatavuus ei yksin riitä, vaan ihmiset tarvitsevat myös taitoja käyttää sitä tehokkaasti. Digitaidot vaihtelevat suuresti iän, koulutuksen ja sosioekonomisen aseman mukaan. Vanhemmat ikäluokat, matalasti koulutetut ja pienituloiset ovat usein heikommassa asemassa. He eivät välttämättä osaa käyttää verkkopalveluita, tunnistaa tietoturvariskejä tai arvioida digitaalisen tiedon luotettavuutta. Kolmas ulottuvuus on kyky hyötyä teknologiasta. Jotkut käyttävät teknologiaa vain viihdykkeeseen ja sosiaaliseen kanssakäymiseen, kun taas toiset hyödyntävät sitä työnhaussa, kouluttautumisessa, liiketoiminnassa ja yhteiskunnallisessa vaikuttamisessa. Tämä ero voi johtaa siihen, että digitaalisesta kehityksestä hyötyvät eniten ne, joilla on jo ennestään vahva asema. Neljäs ulottuvuus on teknologian tuottamat sisällöt ja palvelut. Suurin osa digitaalisesta sisällöstä tuotetaan tietyillä kielillä, pääasiassa englanniksi, ja se heijastaa länsimaista kulttuuria. Tämä voi jättää vähemmistökielet ja -kulttuurit digitaalisen kehityksen ulkopuolelle. Digitaalisen kuilun kaventaminen vaatii monenlaisia toimia: infrastruktuurin parantamista, laitteiden ja yhteyksien edullisuutta, digitaitojen koulutusta ja sisältöjen monipuolistamista. Se on paitsi tasa-arvokysymys myös taloudellinen ja sosiaalinen välttämättömyys, sillä digitaalisesta kehityksestä syrjäytyminen tarkoittaa yhä useammin myös yhteiskunnasta syrjäytymistä.",
+      "word_count": 239
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä digitaalinen kuilu tarkoittaa?",
+        "options": [
+          "Internet-yhteyden katkeamista",
+          "Eroja mahdollisuuksissa käyttää teknologiaa ja hyötyä siitä",
+          "Teknologian fyysistä kokoa",
+          "Digitaalisten laitteiden välistä yhteensopimattomuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on ensimmäinen digitaalisen kuilun ulottuvuus?",
+        "options": [
+          "Digitaidot",
+          "Pääsy teknologiaan",
+          "Kyky hyötyä teknologiasta",
+          "Sisältöjen kieli"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Ketkä ovat usein heikoimmilla digitaidoissa?",
+        "options": [
+          "Lapset ja nuoret",
+          "Vanhemmat ikäluokat, matalasti koulutetut ja pienituloiset",
+          "Korkeakoulutetut",
+          "Kaupunkilaiset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan kyvyllä hyötyä teknologiasta?",
+        "options": [
+          "Teknologian käyttämistä viihdykkeeseen",
+          "Teknologian hyödyntämistä työnhaussa, kouluttautumisessa ja vaikuttamisessa",
+          "Teknologian omistamista",
+          "Teknologian korjaamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ongelmia liittyy digitaaliseen sisältöön?",
+        "options": [
+          "Se on liian kallista",
+          "Sitä tuotetaan liian vähän",
+          "Suurin osa sisällöstä on tietyillä kielillä, mikä jättää vähemmistöt ulkopuolelle",
+          "Se on huonolaatuista"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

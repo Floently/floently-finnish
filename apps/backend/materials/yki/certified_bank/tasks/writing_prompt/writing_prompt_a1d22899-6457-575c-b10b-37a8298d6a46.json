@@ -1,0 +1,37 @@
+{
+  "id": "a1d22899-6457-575c-b10b-37a8298d6a46",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti uimahalliin. Haluat kysyä, onko heillä lasten uimakoulua. Kerro, että lapsesi on 5-vuotias ja osaa vähän uida. Kysy, milloin uimakoulu alkaa ja paljonko se maksaa. Kysy myös, tarvitaanko ennakkoilmoittautumista.",
+    "materials": {
+      "scenario": "Viesti uimahalliin lasten uimakoulusta"
+    },
+    "items": [
+      {
+        "id": "467a09df-3c8d-5b3e-823f-cbc822894fc5",
+        "prompt": "Kirjoita lyhyt viesti uimahalliin. Haluat kysyä, onko heillä lasten uimakoulua. Kerro, että lapsesi on 5-vuotias ja osaa vähän uida. Kysy, milloin uimakoulu alkaa ja paljonko se maksaa. Kysy myös, tarvitaanko ennakkoilmoittautumista."
+      }
+    ],
+    "rubric": "Kysy lasten uimakoulusta\nKerro lapsen ikä ja uimataito\nKysy alkamisaikaa\nKysy hintaa\nKysy ilmoittautumisesta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

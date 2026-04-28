@@ -1,0 +1,37 @@
+{
+  "id": "3653df4d-81d7-524c-bd27-d9ad09e5e0c9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt optikolla. Kirjoita palaute. Arvioi palvelun nopeutta, asiantuntemusta ja sitä, löytyikö sopivat silmälasit.",
+    "materials": {
+      "scenario": "Palaute optikosta"
+    },
+    "items": [
+      {
+        "id": "01a0a978-7e79-5a6f-829b-c9d786ed1db6",
+        "prompt": "Olet käynyt optikolla. Kirjoita palaute. Arvioi palvelun nopeutta, asiantuntemusta ja sitä, löytyikö sopivat silmälasit."
+      }
+    ],
+    "rubric": "Palvelun nopeus\nAsiantuntemus\nSopivien silmälasien löytyminen",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

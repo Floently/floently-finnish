@@ -1,0 +1,37 @@
+{
+  "id": "6fcb72c6-7616-5154-bb56-38f89dc2b9a7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.499,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita viesti naapurille remontista.",
+    "materials": {
+      "scenario": "Kirjoita viesti naapurille remontista."
+    },
+    "items": [
+      {
+        "id": "0faf137c-83d6-53dc-b405-e4a66153bbad",
+        "prompt": "Kirjoita viesti naapurille remontista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 150, \"min\": 100}}",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

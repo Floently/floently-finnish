@@ -1,0 +1,37 @@
+{
+  "id": "ef585e97-644d-555b-9fd0-60690411e6ed",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt kuvaus.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt kuvaus."
+    },
+    "items": [
+      {
+        "id": "c286cd2f-601a-5da6-8f58-dc0b61f56ec8",
+        "prompt": "Kuvaile asuntoasi.\nKerro:\n- montako huonetta siinä on\n- mikä on lempipaikkasi asunnossa ja miksi."
+      }
+    ],
+    "rubric": "Kuvaile asuntoasi.\nKerro:\n- montako huonetta siinä on\n- mikä on lempipaikkasi asunnossa ja miksi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

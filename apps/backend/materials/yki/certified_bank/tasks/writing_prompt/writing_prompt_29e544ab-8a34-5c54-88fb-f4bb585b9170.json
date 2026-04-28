@@ -1,0 +1,37 @@
+{
+  "id": "29e544ab-8a34-5c54-88fb-f4bb585b9170",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.752,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kiinteistönvälittäjä on antanut sinulle harhaanjohtavia tietoja asunnon kunnosta kaupan yhteydessä. Kirjoita virallinen reklamaatio, jossa kuvaat annetut tiedot, kaupan jälkeen ilmenneet vakavat puutteet, viittaa kuluttajansuojalakiin ja välittäjän tiedonantovelvollisuuteen, vaadi kaupan purkamista tai hinnanalennusta ja korvausta aiheutuneista kustannuksista.",
+    "materials": {
+      "scenario": "Harhaanjohtavat tiedot asuntokaupassa"
+    },
+    "items": [
+      {
+        "id": "38527a08-b363-5dc0-b1ea-1659a2993b88",
+        "prompt": "Kiinteistönvälittäjä on antanut sinulle harhaanjohtavia tietoja asunnon kunnosta kaupan yhteydessä. Kirjoita virallinen reklamaatio, jossa kuvaat annetut tiedot, kaupan jälkeen ilmenneet vakavat puutteet, viittaa kuluttajansuojalakiin ja välittäjän tiedonantovelvollisuuteen, vaadi kaupan purkamista tai hinnanalennusta ja korvausta aiheutuneista kustannuksista."
+      }
+    ],
+    "rubric": "Kiinteistönvälittäjä on antanut sinulle harhaanjohtavia tietoja asunnon kunnosta kaupan yhteydessä. Kirjoita virallinen reklamaatio, jossa kuvaat annetut tiedot, kaupan jälkeen ilmenneet vakavat puutteet, viittaa kuluttajansuojalakiin ja välittäjän tiedonantovelvollisuuteen, vaadi kaupan purkamista tai hinnanalennusta ja korvausta aiheutuneista kustannuksista.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

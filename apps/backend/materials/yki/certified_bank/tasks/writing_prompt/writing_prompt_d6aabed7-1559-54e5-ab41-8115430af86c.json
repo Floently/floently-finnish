@@ -1,0 +1,37 @@
+{
+  "id": "d6aabed7-1559-54e5-ab41-8115430af86c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että muutat pois asunnosta kahden kuukauden kuluttua. Kerro tarkka muuttopäivä. Kysy, miten asunnon tarkastus järjestetään ja miten saat takuuvuokran takaisin.",
+    "materials": {
+      "scenario": "Irtisanoutuminen vuokra-asunnosta"
+    },
+    "items": [
+      {
+        "id": "18b4f055-0f4b-5020-a458-76782aebca0f",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että muutat pois asunnosta kahden kuukauden kuluttua. Kerro tarkka muuttopäivä. Kysy, miten asunnon tarkastus järjestetään ja miten saat takuuvuokran takaisin."
+      }
+    ],
+    "rubric": "Muuttopäivä\nAsunnon tarkastus\nTakuuvuokran palautus",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

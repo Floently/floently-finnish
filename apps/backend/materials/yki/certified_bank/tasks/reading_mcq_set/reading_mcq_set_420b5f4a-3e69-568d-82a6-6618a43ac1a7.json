@@ -1,0 +1,66 @@
+{
+  "id": "420b5f4a-3e69-568d-82a6-6618a43ac1a7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Teksti käsittelee aihetta: työnhakijan motivaatiohakemus harjoitteluun, ja se liittyy arjen lisäksi myös siihen, miten palvelut toimivat Vantaalla. Eräs asiakas kertoo, että hän huomasi muutoksen vasta, kun sai ilmoituksen 16. päivä. Tekstissä erotetaan faktat ja mielipiteet melko selvästi. Tekstissä annetaan myös käytännön ohjeet ja vaihtoehtoja, jos uusi toimintatapa ei sovi kaikille. Toinen toteaa, että selkeä viestintä vähentää turhaa epävarmuutta. Kirjoittaja mainitsee, että päätös vaikuttaa erityisesti niihin, jotka asioivat usein torstaina. Lopuksi tekstissä muistutetaan, että sääntöjä voidaan vielä tarkistaa palautteen perusteella. Perustelut nojaavat sekä kustannuksiin että käyttäjäkokemukseen. Yksi esimerkki liittyy jonotukseen ja siihen, miten varaus tehdään etukäteen. Kokonaisuutena teksti pyrkii rauhoittamaan lukijaa ja tekemään muutoksesta ymmärrettävän. Osa lukijoista voi pitää uudistusta tarpeettomana, mutta toiset hyötyvät siitä heti. Lisäksi mukana on lyhyt perustelu siitä, miten muutos parantaa sujuvuutta tai säästää aikaa. Jos ongelmia tulee, terveysasema neuvoo ottamaan yhteyttä puhelimitse tai verkon kautta. Terveysasema kuvaa muutoksen taustaa ja kertoo, miksi muutos tehdään juuri nyt. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä torstaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä torstaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä torstaina asti.",
+      "word_count": 189
+    },
+    "questions": [
+      {
+        "id": "b1_b2r17-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Matkustaminen ja sää",
+          "Ruoanlaitto kotona",
+          "Urheilutapahtuma",
+          "Teksti ja siihen liittyvä muutos"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r17-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Uusi elokuva",
+          "Lentojen peruuntuminen",
+          "Sairaalan remontti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r17-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Odota viikko",
+          "Kysy neuvoa",
+          "Älä kerro kenellekään",
+          "Jätä asia kesken"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

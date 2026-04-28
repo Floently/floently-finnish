@@ -1,0 +1,77 @@
+{
+  "id": "2f242ecb-322d-5800-9d90-ccb44154b79f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelma ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Hyvää päivää ja tervetuloa Kulttuurivyöhyke-ohjelmaan. Tänään keskustelemme suomalaisen kirjallisuuden tilasta. Vieraana on kustantaja Anna Lehtonen.\n\nToimittaja: Anna, miten suomalaisten lukutottumukset ovat muuttuneet viime vuosina?\n\nLehtonen: Suuri muutos on äänikirjojen räjähdysmäinen kasvu. Ne ovat tuoneet lukemisen takaisin monien arkeen, jotka eivät enää ehtineet lukea perinteisiä kirjoja. Äänikirjoja kuunnellaan automatkoilla, lenkillä, siivotessa. Myös e-kirjojen suosio on kasvanut.\n\nToimittaja: Miten tämä vaikuttaa kustannusalaan?\n\nLehtonen: Se on muuttanut koko liiketoimintamallia. Nykyään kirja julkaistaan usein samanaikaisesti painettuna, e-kirjana ja äänikirjana. Myyntitulot jakautuvat eri formaattien kesken. Äänikirjojen suosio on myös tuonut alalle uusia toimijoita, kuten kansainvälisiä suoratoistopalveluja.\n\nToimittaja: Onko laatu kärsinyt?\n\nLehtonen: Hyvä kysymys. Osa äänikirjoista on todella laadukkaita, ja ammattilukijat tekevät hienoa työtä. Toisaalta alalla on kiire, ja joskus laatu saattaa kärsiä. Tärkeintä on, että sisältö on hyvää – se on edelleen se, mikä ratkaisee.\n\nToimittaja: Entä fyysisten kirjojen asema?\n\nLehtonen: Fyysinen kirja ei ole katoamassa minnekään. Monelle se on edelleen tärkeä esine, ja kauniit kannet ja paperin tuntu ovat osa lukuelämystä. Lastenkirjat ja kuvakirjat ovat myös sellaisia, jotka toimivat parhaiten painettuina. Uskon, että eri formaatit elävät rinnakkain.\n\nToimittaja: Mitä suomalaiset lukevat tänä päivänä?\n\nLehtonen: Kotimainen kaunokirjallisuus on edelleen suosittua. Myös dekkarit ja historialliset romaanit myyvät hyvin. Tietokirjoista erityisesti elämäkerrat, terveys ja hyvinvointi sekä yhteiskunnalliset aiheet kiinnostavat. Nuoret lukevat paljon fantasiaa ja nuortenromaaneja.\n\nToimittaja: Kiitos, Anna Lehtonen.",
+      "audio_asset_id": "0d0ae203-a940-5066-b662-3c6c3e241a78"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on suurin muutos suomalaisten lukutottumuksissa?",
+        "options": [
+          "Perinteisten kirjojen myynti on kasvanut",
+          "Äänikirjojen räjähdysmäinen kasvu",
+          "Kukaan ei lue enää",
+          "Vain nuoret lukevat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten äänikirjojen suosio on vaikuttanut kustannusalaan?",
+        "options": [
+          "Se ei ole vaikuttanut mitenkään",
+          "Se on muuttanut koko liiketoimintamallia ja tuonut alalle uusia toimijoita",
+          "Se on vähentänyt kirjojen määrää",
+          "Se on parantanut laatua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä mieltä Lehtonen on fyysisten kirjojen tulevaisuudesta?",
+        "options": [
+          "Ne katoavat kokonaan",
+          "Ne eivät ole katoamassa, vaan eri formaatit elävät rinnakkain",
+          "Vain lapset lukevat fyysisiä kirjoja",
+          "Ne ovat jo menneisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tietokirjoja suomalaiset lukevat?",
+        "options": [
+          "Vain tieteellisiä teoksia",
+          "Elämäkertoja, terveyttä ja hyvinvointia sekä yhteiskunnallisia aiheita",
+          "Vain keittokirjoja",
+          "Teknisiä oppaita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

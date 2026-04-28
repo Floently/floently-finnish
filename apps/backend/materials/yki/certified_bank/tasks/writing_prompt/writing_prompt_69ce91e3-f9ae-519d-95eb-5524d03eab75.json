@@ -1,0 +1,37 @@
+{
+  "id": "69ce91e3-f9ae-519d-95eb-5524d03eab75",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kerrostalon isännöitsijälle. Kerro, että haluat maalauttaa asuntosi seinät. Kysy lupaa remontille ja tiedustele, onko taloyhtiöllä ohjeita maalityypistä tai työajoista.",
+    "materials": {
+      "scenario": "Lupakysymys seinien maalaamiseen"
+    },
+    "items": [
+      {
+        "id": "0e624aa0-71c5-536f-90e5-48ffa50b49b9",
+        "prompt": "Kirjoita sähköposti kerrostalon isännöitsijälle. Kerro, että haluat maalauttaa asuntosi seinät. Kysy lupaa remontille ja tiedustele, onko taloyhtiöllä ohjeita maalityypistä tai työajoista."
+      }
+    ],
+    "rubric": "Kerro, mitä haluat tehdä\nKysy lupaa remontille\nTiedustele taloyhtiön ohjeita",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

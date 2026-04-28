@@ -1,0 +1,37 @@
+{
+  "id": "8613f325-2c91-5a5b-a22f-4cfc5ec03d0b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti puolisolle. Olet kaupassa ja kysyt, mitä ruokaa hän haluaa tänään. Kerro, että kaupassa on tarjouksessa kanaa ja jauhelihaa. Kerro myös, että leipä on loppumassa. Kysy, tarvitaanko muuta.",
+    "materials": {
+      "scenario": "Viesti puolisolle ruokakaupasta"
+    },
+    "items": [
+      {
+        "id": "077b6ce5-7786-548e-8558-e98906e58c1a",
+        "prompt": "Kirjoita lyhyt viesti puolisolle. Olet kaupassa ja kysyt, mitä ruokaa hän haluaa tänään. Kerro, että kaupassa on tarjouksessa kanaa ja jauhelihaa. Kerro myös, että leipä on loppumassa. Kysy, tarvitaanko muuta."
+      }
+    ],
+    "rubric": "Kerro, että olet kaupassa\nKerro tarjoustuotteet\nKerro, että leipä loppuu\nKysy ruokatoivetta\nKysy muista tarpeista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

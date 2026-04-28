@@ -1,0 +1,66 @@
+{
+  "id": "bb5f8366-5152-537e-bee8-a175b7941b4c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T10:31:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kaupungistumisesta ja alueellisesta eriarvoisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupungistuminen on ollut yksi viime vuosikymmenten voimakkaimmista yhteiskunnallisista muutoksista Suomessa. Väestö on keskittynyt yhä voimakkaammin muutamille kasvukeskuksille, erityisesti pääkaupunkiseudulle, Tampereelle, Turkuun ja Ouluun. Samalla monet maaseutualueet ja pienet kunnat ovat kokeneet väestön vähenemistä, työpaikkojen katoamista ja palveluiden rapautumista. Tämä kehitys on johtanut alueellisen eriarvoisuuden kasvuun, joka näkyy monilla elämänalueilla. Työllisyysnäkymät, koulutusmahdollisuudet ja terveyspalveluiden saatavuus ovat usein heikompia harvaan asutuilla alueilla. Lisäksi asuntojen hinnat ovat nousseet kasvukeskuksissa, mikä vaikeuttaa erityisesti nuorten ja pienituloisten aseman paranemista. Toisaalta maaseudulla asuminen on edullisempaa, mutta työn ja palveluiden perässä joudutaan usein matkustamaan pitkiä matkoja. Kaupungistumisen seurauksena myös ympäristökuormitus keskittyy, mikä asettaa haasteita kaupunkisuunnittelulle ja kestävälle kehitykselle. Aluepolitiikalla on pyritty tasoittamaan eroja esimerkiksi liikenneinvestoinneilla, koulutuspaikkojen hajauttamisella ja elinkeinopolitiikalla, mutta muutos on hidasta. Alueellinen eriarvoisuus on moniulotteinen ongelma, joka vaatii pitkäjänteisiä ratkaisuja ja yhteistyötä eri hallinnonalojen välillä.",
+      "word_count": 130
+    },
+    "questions": [
+      {
+        "id": "f7a8b9c0-d1e2-4f3a-9b4c-5d6e7f8a9b0c",
+        "prompt": "Mihin kaupungistuminen on johtanut maaseutualueilla?",
+        "options": [
+          "Väestön kasvuun",
+          "Työpaikkojen lisääntymiseen",
+          "Väestön vähenemiseen ja palveluiden rapautumiseen",
+          "Asuntojen hintojen nousuun"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a8b9c0d1-e2f3-4a4b-9c5d-6e7f8a9b0c1d",
+        "prompt": "Millä tavoin alueellinen eriarvoisuus näkyy?",
+        "options": [
+          "Vain asumiskustannuksissa",
+          "Työllisyysnäkymissä, koulutusmahdollisuuksissa ja terveyspalveluiden saatavuudessa",
+          "Vain matkustusajoissa",
+          "Vain kulttuuritarjonnassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b9c0d1e2-f3a4-4b5c-9d6e-7f8a9b0c1d2e",
+        "prompt": "Miten aluepolitiikalla on pyritty tasoittamaan eroja?",
+        "options": [
+          "Kieltämällä muuttoliikkeen",
+          "Liikenneinvestoinneilla ja koulutuspaikkojen hajauttamisella",
+          "Vain verohelpotuksilla",
+          "Rajoittamalla kaupunkien kasvua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

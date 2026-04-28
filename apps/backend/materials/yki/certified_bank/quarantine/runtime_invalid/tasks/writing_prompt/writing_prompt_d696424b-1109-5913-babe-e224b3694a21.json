@@ -1,0 +1,37 @@
+{
+  "id": "d696424b-1109-5913-babe-e224b3694a21",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.472,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: sports hall. Purpose: make a choice. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "job_search in sports_hall"
+    },
+    "items": [
+      {
+        "id": "05e6b7e4-d643-5e55-9979-d0a0f45d9dc7",
+        "prompt": "Write for the receiver in this scenario: sports hall. Purpose: make a choice. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "8f73b679-e6c4-5e1c-89c6-d19d29c68526",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.781,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Teknologian ja inhimillisten arvojen välinen jännite on tullut erityisen näkyväksi keskustelussa autonomisista asejärjestelmistä eli tappajaroboteista. Kyse on aseista, jotka kykenevät valitsemaan ja tuhoamaan kohteita ilman ihmisen välintuloa. Tämä teknologia herättää syviä eettisiä kysymyksiä, jotka jakavat mielipiteitä niin asiantuntijoiden, päättäjien kuin kansalaistenkin keskuudessa. Tappajarobottien kannattajat korostavat niiden sotilaallisia etuja. Ne voisivat vähentää omien joukkojen tappioita, toimia nopeammin ja tarkemmin kuin ihmiset ja vapauttaa sotilaita muihin tehtäviin. Lisäksi ne eivät väsy, eivät koe stressiä eivätkä toimi tunneperäisesti, mikä voisi teoriassa vähentää siviiliuhreja. Tästä näkökulmasta autonomiset aseet nähdään luonnollisena jatkumona aseteknologian kehitykselle. Kriitikot puolestaan pitävät tappajarobotteja moraalisesti tuomittavina. Heidän mukaansa päätös ihmisen hengestä ei voi koskaan olla koneen tehtävä. Tappajarobotit eivät kykene tekemään eroa taistelijan ja siviilin välillä samalla tavalla kuin ihminen, eivätkä ne kykene osoittamaan armoa tai harkitsemaan tilannetta kokonaisvaltaisesti. Lisäksi vastuukysymykset ovat ongelmallisia: kuka kantaa vastuun, jos robotti tekee virheen ja tappaa viattomia siviilejä? Kolmas näkökulma korostaa, että keskustelu tappajaroboteista on osa laajempaa kysymystä ihmisen ja koneen suhteesta. Sen mukaan emme voi enää ajatella, että teknologia olisi arvoneutraalia. Päinvastoin, teknologiaan rakentuu aina tiettyjä arvoja ja oletuksia. Siksi meidän on pohdittava, millaisia arvoja haluamme teknologiaan rakentaa ja millaisia päätöksiä olemme valmiita antamaan koneiden tehtäväksi.",
+      "word_count": 192
+    },
+    "questions": [
+      {
+        "id": "9c942a36-4118-59d5-bc61-0bd397167cf7",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Autonomisten asejärjestelmien tekninen kehitys",
+          "Tappajarobotteihin liittyvä eettinen ja moraalinen keskustelu",
+          "Sotilaallisten konfliktien tulevaisuus",
+          "Ihmisen ja koneen välisen suhteen tekninen ulottuvuus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "43fa1e37-9ab2-512b-99db-4d420d7530f3",
+        "prompt": "Tekstin mukaan mitä sotilaallisia etuja tappajarobottien kannattajat korostavat?",
+        "options": [
+          "Ne lisäävät ihmiskontrollia ja vähentävät virheitä",
+          "Ne vähentävät omien joukkojen tappioita, toimivat nopeammin ja tarkemmin kuin ihmiset",
+          "Ne ovat halvempia valmistaa kuin perinteiset aseet",
+          "Ne vähentävät sodan todennäköisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "270aec8f-75d1-54b0-97d8-4e2bde721ef7",
+        "prompt": "Mitä moraalisia ongelmia kriitikot liittävät tappajarobotteihin?",
+        "options": [
+          "Ne ovat liian kalliita ja epäluotettavia",
+          "Päätös ihmisen hengestä ei voi olla koneen tehtävä, ne eivät kykene erottamaan siviilejä taistelijoista, eikä vastuuta voida kohdentaa",
+          "Ne tekevät sodasta liian helppoa ja kliinistä",
+          "Ne lisäävät varustelukilpailua ja epävakautta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bd80c165-cb02-5953-8067-dab9d7e1f4e8",
+        "prompt": "Mitä kolmas, arvoja korostava näkökulma pitää keskeisenä tappajarobottikeskustelussa?",
+        "options": [
+          "Teknologian kehityksen nopeutta ja tehokkuutta",
+          "Kysymystä siitä, millaisia arvoja teknologiaan rakennetaan ja millaisia päätöksiä olemme valmiita antamaan koneiden tehtäväksi",
+          "Sitä, miten autonomisia aseita voidaan parhaiten hallita kansainvälisellä lainsäädännöllä",
+          "Sitä, miten tappajarobotit vaikuttavat työllisyyteen puolustusteollisuudessa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

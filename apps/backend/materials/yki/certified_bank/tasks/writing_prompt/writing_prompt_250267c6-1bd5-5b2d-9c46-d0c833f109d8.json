@@ -1,0 +1,37 @@
+{
+  "id": "250267c6-1bd5-5b2d-9c46-d0c833f109d8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on home- tai kosteusvaurio. Kerro, missä huoneessa ja millainen vaurio on. Pyydä, että asia tutkitaan ja korjataan nopeasti.",
+    "materials": {
+      "scenario": "Ilmoitus homevauriosta"
+    },
+    "items": [
+      {
+        "id": "55fce69d-f574-5b26-b050-1fdaba2519ed",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on home- tai kosteusvaurio. Kerro, missä huoneessa ja millainen vaurio on. Pyydä, että asia tutkitaan ja korjataan nopeasti."
+      }
+    ],
+    "rubric": "Vaurion kuvaus\nSijainti\nKiireellinen korjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "3ef41409-0241-55fd-bc51-b01deb443241",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Harjoittele keskustelua.",
+    "materials": {
+      "roles": {
+        "user": "tiiminvetäjä ja sinun täytyy antaa kehityskeskustelussa palautetta työntekijälle",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "5386ccf8-12ff-53c7-92c7-eb61d1fe082e",
+        "ai_first_turn_fi": "Hei, kiitos että tulit. Miten sun työt on sujuneet viime aikoina?"
+      }
+    ],
+    "rubric": "Harjoittele keskustelua.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

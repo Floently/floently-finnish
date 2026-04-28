@@ -1,0 +1,218 @@
+[
+  {
+    "path": "apps/backend/app/services/yki_materials.py",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Canonical app-owned YKI material path authority"
+  },
+  {
+    "path": "apps/backend/app/routers/yki_exam.py",
+    "change_type": "modified",
+    "scope": "pass_5",
+    "notes": "Removed repo-root and engine fallback file discovery"
+  },
+  {
+    "path": "apps/backend/app/routers/admin_yki.py",
+    "change_type": "modified",
+    "scope": "pass_5",
+    "notes": "Removed legacy YKI bank root probing in favor of canonical certified-bank manifest"
+  },
+  {
+    "path": "docs/cleanup/executed_prompts/cleanup_agent_prompt_pass_5.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Executed prompt normalized into executed_prompts"
+  },
+  {
+    "path": "docs/cleanup/pass_5_report.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Pass 5 report"
+  },
+  {
+    "path": "docs/cleanup/pass_5_authority_map.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Pass 5 authority map"
+  },
+  {
+    "path": "docs/cleanup/pass_5_merge_log.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Pass 5 merge log"
+  },
+  {
+    "path": "docs/cleanup/pass_5_quarantine_manifest.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Pass 5 quarantine manifest"
+  },
+  {
+    "path": "docs/cleanup/pass_5_verification_results.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Pass 5 verification record"
+  },
+  {
+    "path": "docs/cleanup/pass_5_repo_tree_after.txt",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Pass 5 canonical tree snapshot"
+  },
+  {
+    "path": "docs/cleanup/pass_5_final_open_items.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final open items after cleanup"
+  },
+  {
+    "path": "docs/cleanup/00_cleanup_index.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final cleanup index with normalized path references"
+  },
+  {
+    "path": "docs/cleanup/04_group_by_group_merge_log.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final grouped merge ledger"
+  },
+  {
+    "path": "docs/cleanup/05_quarantine_manifest.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final quarantine ledger"
+  },
+  {
+    "path": "docs/cleanup/07_verification_results.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final verification ledger"
+  },
+  {
+    "path": "docs/cleanup/09_final_repo_tree.txt",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final repo tree"
+  },
+  {
+    "path": "docs/cleanup/10_final_verdict.md",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final verdict"
+  },
+  {
+    "path": "docs/cleanup/11_change_inventory.csv",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final change inventory CSV"
+  },
+  {
+    "path": "docs/cleanup/12_change_inventory.json",
+    "change_type": "added",
+    "scope": "pass_5",
+    "notes": "Final change inventory JSON"
+  },
+  {
+    "path": "docs/cleanup/executed_prompts/cleanup_agent_prompt_pass_4.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 prompt preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_4_report.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 report preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_4_authority_map.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 authority map preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_4_merge_log.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 merge log preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_4_quarantine_manifest.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 quarantine manifest preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_4_verification_results.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 verification results preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_4_repo_tree_after.txt",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 repo tree preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_4_open_items_for_pass_5.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Previously moved Pass 4 open items preserved in commit"
+  },
+  {
+    "path": "docs/cleanup/cleanup_agent_prompt_pass_4.md",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by executed_prompts location"
+  },
+  {
+    "path": "docs/cleanup/pass_4_report.md",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by read_reports location"
+  },
+  {
+    "path": "docs/cleanup/pass_4_authority_map.md",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by read_reports location"
+  },
+  {
+    "path": "docs/cleanup/pass_4_merge_log.md",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by read_reports location"
+  },
+  {
+    "path": "docs/cleanup/pass_4_quarantine_manifest.md",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by read_reports location"
+  },
+  {
+    "path": "docs/cleanup/pass_4_verification_results.md",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by read_reports location"
+  },
+  {
+    "path": "docs/cleanup/pass_4_repo_tree_after.txt",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by read_reports location"
+  },
+  {
+    "path": "docs/cleanup/pass_4_open_items_for_pass_5.md",
+    "change_type": "deleted",
+    "scope": "preexisting_worktree",
+    "notes": "Superseded by read_reports location"
+  },
+  {
+    "path": "apps/backend/puhis.db",
+    "change_type": "modified",
+    "scope": "preexisting_worktree",
+    "notes": "Existing worktree database change committed as requested"
+  }
+]

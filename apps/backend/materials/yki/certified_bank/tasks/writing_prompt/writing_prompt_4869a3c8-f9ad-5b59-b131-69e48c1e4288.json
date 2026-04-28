@@ -1,0 +1,37 @@
+{
+  "id": "4869a3c8-f9ad-5b59-b131-69e48c1e4288",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö suurten ikäluokkien eläkkeistä leikata julkisen talouden tasapainottamiseksi?'. Analysoi sukupolvien välistä oikeudenmukaisuutta.",
+    "materials": {
+      "scenario": "Eläkkeiden leikkaaminen"
+    },
+    "items": [
+      {
+        "id": "1e4e2276-913f-5d7a-8006-102945b438bf",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö suurten ikäluokkien eläkkeistä leikata julkisen talouden tasapainottamiseksi?'. Analysoi sukupolvien välistä oikeudenmukaisuutta."
+      }
+    ],
+    "rubric": "Julkinen talous\nSukupolvien välinen oikeudenmukaisuus\nEläkejärjestelmän kestävyys\nSosiaaliset vaikutukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

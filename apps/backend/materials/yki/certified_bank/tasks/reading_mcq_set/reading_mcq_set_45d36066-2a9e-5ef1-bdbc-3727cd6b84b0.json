@@ -1,0 +1,88 @@
+{
+  "id": "45d36066-2a9e-5ef1-bdbc-3727cd6b84b0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kielen merkitys identiteetille on syvällinen ja monitahoinen. Kieli ei ole vain väline kommunikoida, vaan se on keskeinen osa sitä, keitä me olemme, miten ajattelemme ja miten suhtaudumme maailmaan. Äidinkieli on usein ensimmäinen ja tärkein identiteetin rakennuspalikka, joka yhdistää meidät perheeseemme, yhteisöömme ja kulttuuriimme. Se on tunteiden ja ajatusten ilmaisun perusta. Yksi keskeisimmistä kielen identiteettiä rakentavista tekijöistä on sen kyky luoda yhteenkuuluvuuden tunnetta. Yhteinen kieli yhdistää ihmisiä ja luo me-henkeä. Se mahdollistaa yhteisten kokemusten, tarinoiden ja perinteiden jakamisen. Kieli on tärkeä osa kansallista identiteettiä, mutta se on tärkeä myös pienemmille yhteisöille, kuten vähemmistöille, ammattiryhmille ja harrastajille. Toinen keskeinen tekijä on kielen yhteys kulttuuriin ja historiaan. Kieli kantaa mukanaan vuosisatojen kerrostumia, sanontoja ja viisauksia. Se on ikkuna menneisyyteen ja tapa ymmärtää, mistä tulemme. Sanat ja ilmaisut kertovat siitä, mikä on ollut tärkeää, miten on eletty ja ajateltu. Kolmas tekijä on kielen yhteys ajatteluun. Kielitieteilijät ovat esittäneet, että kieli muokkaa tapaamme hahmottaa maailmaa. Se tarjoaa käsitteitä ja kategorioita, joiden avulla jäsennämme todellisuutta. Eri kielet voivat painottaa eri asioita ja ohjata ajattelua eri suuntiin. Neljäs tekijä on kielen yhteys tunteisiin ja ilmaisuun. Äidinkielellä on erityinen kyky koskettaa tunteita. Vitsit, runot ja laulut toimivat parhaiten omalla kielellä. Se on kieli, jolla uneksimme, rakastumme ja suremme. Kielen menettäminen tai sen käytön väheneminen voi olla syvästi traumaattista. Se voi vieraannuttaa ihmisen omasta kulttuuristaan ja yhteisöstään. Siksi kielten elinvoimaisuuden ja monimuotoisuuden säilyttäminen on tärkeää. Se on paitsi kulttuuriperinnön vaalimista myös yksilöiden identiteetin ja hyvinvoinnin turvaamista.",
+      "word_count": 237
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kielen keskeinen merkitys identiteetille?",
+        "options": [
+          "Se on vain viestintäväline",
+          "Se on keskeinen osa sitä, keitä olemme",
+          "Se on tärkeää vain kielitieteilijöille",
+          "Se on merkityksetöntä nykymaailmassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten kieli luo yhteenkuuluvuuden tunnetta?",
+        "options": [
+          "Se erottaa meidät muista",
+          "Yhteinen kieli yhdistää ihmisiä ja mahdollistaa yhteisten kokemusten jakamisen",
+          "Se tekee meistä kaikista samanlaisia",
+          "Se korostaa eroja ihmisten välillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kieli kertoo kulttuurista ja historiasta?",
+        "options": [
+          "Se kertoo vain nykypäivästä",
+          "Se kantaa mukanaan vuosisatojen kerrostumia ja kertoo siitä, mikä on ollut tärkeää",
+          "Se on täysin irrallaan historiasta",
+          "Se muuttuu niin nopeasti, ettei se ehdi tallentaa historiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kieli vaikuttaa ajatteluun?",
+        "options": [
+          "Sillä ei ole mitään vaikutusta ajatteluun",
+          "Se tarjoaa käsitteitä ja kategorioita, joiden avulla jäsennämme todellisuutta",
+          "Se rajoittaa ajattelua",
+          "Se tekee ajattelusta mahdotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi kielen menettäminen voi olla traumaattista?",
+        "options": [
+          "Koska se vaikeuttaa työn saantia",
+          "Koska se voi vieraannuttaa ihmisen omasta kulttuuristaan ja yhteisöstään",
+          "Koska se tekee ihmisestä tyhmän",
+          "Koska se on aina taloudellinen menetys"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

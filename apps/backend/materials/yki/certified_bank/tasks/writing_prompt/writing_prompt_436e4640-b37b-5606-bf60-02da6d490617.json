@@ -1,0 +1,37 @@
+{
+  "id": "436e4640-b37b-5606-bf60-02da6d490617",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipidekirjoitus (noin 370-420 sanaa) otsikolla 'Pitäisikö sosiaaliturvan ja työttömyyskorvausten ehdoksi asettaa aktiivinen työnhaku tai kouluttautuminen?'. Pohdi aktiivimallin vaikutuksia työllistymiseen, kannustimiin ja byrokratiaan. Onko oikeudenmukaista vaatia vastineita tuesta? Entä miten huomioidaan ne, jotka eivät syystä tai toisesta pysty työllistymään? Perustele.",
+    "materials": {
+      "scenario": "Aktiivimalli sosiaaliturvassa"
+    },
+    "items": [
+      {
+        "id": "efc0a0a7-95a5-5620-95b9-258c7c408fcc",
+        "prompt": "Kirjoita mielipidekirjoitus (noin 370-420 sanaa) otsikolla 'Pitäisikö sosiaaliturvan ja työttömyyskorvausten ehdoksi asettaa aktiivinen työnhaku tai kouluttautuminen?'. Pohdi aktiivimallin vaikutuksia työllistymiseen, kannustimiin ja byrokratiaan. Onko oikeudenmukaista vaatia vastineita tuesta? Entä miten huomioidaan ne, jotka eivät syystä tai toisesta pysty työllistymään? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita mielipidekirjoitus (noin 370-420 sanaa) otsikolla 'Pitäisikö sosiaaliturvan ja työttömyyskorvausten ehdoksi asettaa aktiivinen työnhaku tai kouluttautuminen?'. Pohdi aktiivimallin vaikutuksia työllistymiseen, kannustimiin ja byrokratiaan. Onko oikeudenmukaista vaatia vastineita tuesta? Entä miten huomioidaan ne, jotka eivät syystä tai toisesta pysty työllistymään? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

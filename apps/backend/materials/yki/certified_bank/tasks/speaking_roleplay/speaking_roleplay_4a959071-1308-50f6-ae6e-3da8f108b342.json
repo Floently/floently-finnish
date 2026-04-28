@@ -1,0 +1,40 @@
+{
+  "id": "4a959071-1308-50f6-ae6e-3da8f108b342",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.279,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you travel by bus often. Where do you travel and what do you think about the buses?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "de97055c-ba52-5d82-b523-433ec4af8b31",
+        "ai_first_turn_fi": "Käytätkö sä paljon bussia? Onko bussit sun mielestä hyvät?"
+      }
+    ],
+    "rubric": "Tell if you travel by bus often. Where do you travel and what do you think about the buses?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

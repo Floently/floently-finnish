@@ -1,0 +1,37 @@
+{
+  "id": "5e7dbc87-3b5d-58e8-b8d4-35575947dc0d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö uimarannoille lisätä pelastusvalvontaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Pelastusvalvonta uimarannoilla"
+    },
+    "items": [
+      {
+        "id": "8c5a89d2-9332-54e3-8dae-5d609e7bfe38",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö uimarannoille lisätä pelastusvalvontaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

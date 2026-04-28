@@ -1,0 +1,37 @@
+{
+  "id": "2dad0345-047d-59f3-afc2-ca32487923cb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö geenimuunneltujen elintarvikkeiden käyttöä sallia laajemmin ruokaturvan parantamiseksi?'. Arvioi terveysvaikutuksia ja eettisiä näkökulmia.",
+    "materials": {
+      "scenario": "Geenimuunnellut elintarvikkeet"
+    },
+    "items": [
+      {
+        "id": "99ba9c4e-6bb5-5762-b07a-84a727497e50",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö geenimuunneltujen elintarvikkeiden käyttöä sallia laajemmin ruokaturvan parantamiseksi?'. Arvioi terveysvaikutuksia ja eettisiä näkökulmia."
+      }
+    ],
+    "rubric": "Ruokaturva\nTerveysvaikutukset\nEettisyys\nYmpäristövaikutukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

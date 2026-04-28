@@ -1,0 +1,77 @@
+{
+  "id": "feae0026-0ac2-5c4a-999f-089410b1bb02",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.59,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan tiedote etätyökokeilusta ja valitse kuhunkin kysymykseen paras vastaus.",
+    "materials": {
+      "text": "Yrityksemme asiakaspalvelutiimi aloittaa kolmen kuukauden etätyökokeilun huhtikuun alussa. Kokeilun taustalla on kaksi tavoitetta: vähentää toimiston ruuhkaa ja parantaa mahdollisuutta tehdä keskittymistä vaativia tehtäviä rauhassa. Jokaiselle työntekijälle varataan edelleen kaksi toimistopäivää viikossa, jotta yhteiset palaverit, perehdytys ja asiakastapaamiset voidaan hoitaa kasvokkain. Etäpäivinä työntekijän on oltava tavoitettavissa pikaviestikanavassa kello 9–15, mutta tauot voi rytmittää oman työtilanteen mukaan. Esihenkilöt seuraavat kokeilua viikoittaisella kyselyllä, jossa arvioidaan työmäärän hallintaa, yhteistyön sujuvuutta ja asiakaspalautetta. Ensimmäisen kuukauden jälkeen järjestetään yhteinen palautetilaisuus. Jos ilmenee, että tiedonkulku heikkenee tai asiakaspalvelun vasteajat kasvavat, kokeilun ehtoja tarkennetaan heti. Työsuojelu muistuttaa samalla ergonomiasta: työntekijän pitää varmistaa, että kotona on työskentelyyn sopiva pöytä ja tuoli. Yritys tarjoaa tarvittaessa lainaksi näytön sekä erillisen näppäimistön. Kokeilun lopussa henkilöstöltä pyydetään kirjallinen arvio siitä, mitä käytäntöjä kannattaa jatkaa pysyvästi ja mitkä toimet toimivat vain poikkeustilanteissa. Lisäksi henkilöstöhallinto seuraa sairauspoissaolojen, asiakasjonojen ja perehdytysaikojen kehitystä, jotta vaikutuksia voidaan verrata aiempaan toimintatapaan. Luottamusmies toivoo, että tulokset julkaistaan tiimikohtaisesti, mutta anonyymisti, jotta mahdolliset erot eivät johda yksittäisten työntekijöiden leimaamiseen. Johto puolestaan korostaa, että kokeilu ei saa kasvattaa hiljaista ylityötä, joten työaikakirjaukset tarkistetaan viikoittain. Viimeisessä arviointipalaverissa sovitaan myös, millaiset tukikäytännöt tarvitaan uusille työntekijöille, jotta perehdytys toimii tasapuolisesti riippumatta siitä, tehdäänkö työpäivä kotona vai toimistolla.",
+      "word_count": 192
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tiedotteen mukaan kokeilun ensimmäinen päätavoite?",
+        "options": [
+          "lisätä iltavuoroja",
+          "vähentää toimiston ruuhkaa",
+          "lopettaa asiakastapaamiset",
+          "siirtää koulutus ulkoiselle toimijalle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten toimistopäivät on järjestetty kokeilussa?",
+        "options": [
+          "toimistolle ei saa tulla",
+          "toimistopäiviä on yksi kuussa",
+          "toimistopäiviä on kaksi viikossa",
+          "toimistopäivät valitsee asiakas"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin kokeilun ehtoja voidaan muuttaa ennen määräaikaa?",
+        "options": [
+          "jos vasteajat kasvavat tai tiedonkulku heikkenee",
+          "jos sää on huono",
+          "jos toimistolla on liikaa kokouksia",
+          "jos kahvihuone remontoidaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä henkilöstöltä pyydetään kokeilun lopussa?",
+        "options": [
+          "uusi työvuorosopimus",
+          "kirjallinen arvio käytännöistä",
+          "lista uusista asiakkaista",
+          "erillinen tietoturvatesti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

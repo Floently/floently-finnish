@@ -1,0 +1,110 @@
+{
+  "id": "901dc087-bf0d-5f09-9c77-e78152a486c9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen työkulttuuri on muuttunut merkittävästi viime vuosikymmeninä. Hierarkiat ovat madaltuneet, ja työntekijöillä on enemmän itsenäisyyttä ja vastuuta. Työpaikoilla arvostetaan avoimuutta, luottamusta ja yhteistyötä. Esimiehet ovat usein valmentajia ja tukijoita, eivätkä vain käskyttäjiä. Työhyvinvointiin ja työkyvyn ylläpitämiseen panostetaan paljon. Työterveyshuolto on kattavaa, ja työpaikoilla järjestetään virkistyspäiviä ja liikuntamahdollisuuksia. Myös työn ja vapaa-ajan yhteensovittamiseen kiinnitetään huomiota. Joustavat työajat ja etätyömahdollisuudet ovat yleistyneet. Tämä on lisännyt työtyytyväisyyttä ja auttanut jaksamaan paremmin. Työkulttuurissa on kuitenkin myös kehitettävää. Kiire ja stressi ovat monilla aloilla yleisiä. Työuupumus on lisääntynyt, ja mielenterveysongelmat ovat kasvava syy sairauspoissaoloihin. Myös epätyypilliset työsuhteet, kuten osa-aikatyö ja nollatuntisopimukset, aiheuttavat epävarmuutta. Tarvitaan jatkuvaa keskustelua siitä, miten työelämää voidaan kehittää niin, että se on sekä tuottavaa että inhimillistä. Työntekijöiden ääntä pitää kuulla, ja heidän hyvinvoinnistaan on huolehdittava.",
+      "word_count": 123
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten suomalainen työkulttuuri on muuttunut?",
+        "options": [
+          "Hierarkiat ovat jyrkentyneet.",
+          "Hierarkiat ovat madaltuneet, ja työntekijöillä on enemmän itsenäisyyttä.",
+          "Työntekijöillä on vähemmän vastuuta.",
+          "Esimiehet ovat käskyttäjiä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä arvoja työpaikoilla nykyään arvostetaan?",
+        "options": [
+          "Hierarkiaa ja käskyttämistä.",
+          "Avoimuutta, luottamusta ja yhteistyötä.",
+          "Kilpailua ja yksin pärjäämistä.",
+          "Sääntöjä ja kontrollia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen rooli esimiehillä nykyään on?",
+        "options": [
+          "Käskyttäjä ja valvoja.",
+          "Valmentaja ja tukija.",
+          "Etäinen ja tavoittamaton.",
+          "Auktoriteetti ja pelottaja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten työhyvinvointia tuetaan?",
+        "options": [
+          "Ei mitenkään.",
+          "Työterveyshuollolla, virkistyspäivillä ja liikuntamahdollisuuksilla.",
+          "Vain pakollisilla lomilla.",
+          "Vain palkalla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä joustoja työelämässä on yleistynyt?",
+        "options": [
+          "Pakollinen läsnäolo toimistolla.",
+          "Joustavat työajat ja etätyömahdollisuudet.",
+          "Pidemmät työpäivät.",
+          "Vähemmän lomia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ongelmia työkulttuurissa on?",
+        "options": [
+          "Liian vähän töitä.",
+          "Kiire, stressi, työuupumus ja epävarmat työsuhteet.",
+          "Liian paljon lomaa.",
+          "Liian helppoa työtä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä tarvitaan työelämän kehittämiseksi?",
+        "options": [
+          "Vain lisää sääntöjä.",
+          "Jatkuvaa keskustelua, jossa työntekijöiden ääntä kuullaan ja hyvinvoinnista huolehditaan.",
+          "Vain lisää valvontaa.",
+          "Vain vähemmän vapaa-aikaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

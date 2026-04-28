@@ -1,0 +1,66 @@
+{
+  "id": "cda67e44-c33f-5342-815c-495016b4988e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PIENILLÄ TEKIJÖILLÄ SUURI MERKITYS TYÖHYVINVOINNISSA\n\nTyöhyvinvointi ei synny isoista uudistuksista vaan arjen pienistä teoista, kertoo tuore tutkimus. Työterveyslaitoksen selvityksen mukaan merkittävimpiä tekijöitä työhyvinvoinnille ovat työn merkityksellisyys, sopiva työmäärä ja hyvä yhteishenki.\n\nTutkimuksessa haastateltiin yli tuhannella suomalaisella työpaikalla työskenteleviä. Yllättäen palkka ei noussut tärkeimpien tekijöiden joukkoon, vaan tärkeämpää oli kokemus siitä, että työpaikalla arvostetaan ja kuunnellaan.\n\nMyös esihenkilön oikeudenmukaisuus ja johdonmukaisuus korostuivat. Työntekijät, jotka kokivat esihenkilön olevan reilu ja kiinnostunut heidän hyvinvoinnistaan, voivat paremmin ja olivat sitoutuneempia työhönsä.\n\nTutkijat muistuttavat, että työhyvinvointi on koko työyhteisön yhteinen asia, ja sen kehittämiseen kannattaa panostaa, sillä hyvinvoiva työntekijä on myös tuottavampi ja sairastaa vähemmän.\n\nHyvinvoiva työyhteisö myös houkuttelee uusia osaajia ja pitää vanhat työntekijät pidempään. Tämä on erityisen tärkeää aloilla, joilla on työvoimapula.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "a3eca515-9f5c-5812-a4e0-311c732791b8",
+        "prompt": "Mistä työhyvinvointi syntyy tutkimuksen mukaan?",
+        "options": [
+          "Suurista palkankorotuksista",
+          "Arjen pienistä teoista",
+          "Uusista toimitiloista",
+          "Työpaikan eduista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5b648efa-8b3e-5461-a252-7900b5f30948",
+        "prompt": "Mikä oli yllättävä tulos tutkimuksessa?",
+        "options": [
+          "Palkka ei ollut tärkein tekijä",
+          "Nuoret voivat huonommin",
+          "Vanhemmat työntekijät ovat onnellisempia",
+          "Etätyö lisää hyvinvointia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e7767a56-c4b2-57b3-a18e-a162e08348bf",
+        "prompt": "Mitä hyötyä työhyvinvoinnista on?",
+        "options": [
+          "Työntekijät ovat tuottavampia ja sairastavat vähemmän",
+          "Yritys saa verohelpotuksia",
+          "Työntekijät saavat enemmän lomaa",
+          "Työpaikalla on hauskempaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

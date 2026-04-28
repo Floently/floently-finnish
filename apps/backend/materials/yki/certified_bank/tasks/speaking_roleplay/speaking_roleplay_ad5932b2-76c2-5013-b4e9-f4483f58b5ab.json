@@ -1,0 +1,40 @@
+{
+  "id": "ad5932b2-76c2-5013-b4e9-f4483f58b5ab",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.313,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu noin 45–60 sekuntia. Kerro mitä etsit ja kenelle lahja on. Kysy yksi neuvo kirjavalinnasta.",
+    "materials": {
+      "roles": {
+        "user": "kirjakaupassa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "d5b25770-7aa4-5db6-80de-bd2292072455",
+        "ai_first_turn_fi": "Hei! Voinko auttaa? Etsitkö jotain tiettyä vai etsitkö ideoita? Kerro kenelle kirja on tarkoitettu, niin voin ehdottaa pari vaihtoehtoa."
+      }
+    ],
+    "rubric": "Puhu noin 45–60 sekuntia. Kerro mitä etsit ja kenelle lahja on. Kysy yksi neuvo kirjavalinnasta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

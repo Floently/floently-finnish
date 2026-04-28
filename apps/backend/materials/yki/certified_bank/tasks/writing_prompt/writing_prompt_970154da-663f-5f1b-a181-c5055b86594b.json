@@ -1,0 +1,37 @@
+{
+  "id": "970154da-663f-5f1b-a181-c5055b86594b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien panostaa enemmän joukkoliikenteeseen vai kevyen liikenteen väyliin?'. Pohdi liikkumisen tarpeita, ympäristöä ja kustannuksia.",
+    "materials": {
+      "scenario": "Joukkoliikenne vs. kevyt liikenne"
+    },
+    "items": [
+      {
+        "id": "78c67516-52d5-5784-b3fc-8a390e86d924",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien panostaa enemmän joukkoliikenteeseen vai kevyen liikenteen väyliin?'. Pohdi liikkumisen tarpeita, ympäristöä ja kustannuksia."
+      }
+    ],
+    "rubric": "Liikkumisen tarpeet\nYmpäristö\nKustannukset\nEri käyttäjäryhmät",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

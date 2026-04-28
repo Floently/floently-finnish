@@ -1,0 +1,37 @@
+{
+  "id": "4d1d9dc4-7510-57a6-9456-00026f1c4c9d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti autokouluun. Haluat aloittaa autokoulun. Kerro, että olet 18-vuotias ja tarvitset B-ajokortin. Kysy, milloin teoriaopetus alkaa ja paljonko autokoulu maksaa. Kysy myös, tarvitaanko ennakkoilmoittautumista.",
+    "materials": {
+      "scenario": "Viesti autokouluun tiedustelusta"
+    },
+    "items": [
+      {
+        "id": "c08f031b-0a69-51a7-9efc-e1a5a7830580",
+        "prompt": "Kirjoita lyhyt viesti autokouluun. Haluat aloittaa autokoulun. Kerro, että olet 18-vuotias ja tarvitset B-ajokortin. Kysy, milloin teoriaopetus alkaa ja paljonko autokoulu maksaa. Kysy myös, tarvitaanko ennakkoilmoittautumista."
+      }
+    ],
+    "rubric": "Kerro, että haluat B-ajokortin\nKerro ikäsi\nKysy teoriaopetuksen alkamisaikaa\nKysy hintaa\nKysy ilmoittautumisesta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

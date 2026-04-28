@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: floently-finnish-backend
+    env: docker
+    dockerfilePath: apps/backend/Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: FLOENTLY_ENV
+        value: production
+      - key: SIGNED_SESSION_SECRET
+        generateValue: true
+      - key: YKI_ENGINE_BASE_URL
+        value: http://localhost:8010
+      - key: CORS_ORIGINS
+        value: https://your-client-domain.com
+      - key: DEFAULT_REVIEW_QUEUE_SIZE
+        value: "12"
+      - key: DAILY_GOAL_ITEMS
+        value: "20"

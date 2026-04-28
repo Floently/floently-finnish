@@ -1,0 +1,88 @@
+{
+  "id": "9a6a841e-c579-5c4f-8620-e68aa7fbaafd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.274,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Täällä on Teemu. Mä olen nyt tossa sun talon edessä. Mä tuon sen työkalupakin takaisin. Missä sä oot? Mä jätän sen tähän oven viereen.",
+      "audio_asset_id": "bc81cb77-ac8f-4cce-a18b-bd0f111ffaab"
+    },
+    "questions": [
+      {
+        "id": "56257720-ef8e-5a37-88c2-edd8ac8094ba",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Jaakko.",
+          "Teemu.",
+          "Mikko.",
+          "Joonas."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f311b86c-0db2-5a15-a439-f0b66aa061ff",
+        "prompt": "Missä puhuja on nyt?",
+        "options": [
+          "Kaupassa.",
+          "Talon edessä.",
+          "Pihalla.",
+          "Autossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b930c977-c553-593d-94ac-47b63e5d6b75",
+        "prompt": "Mitä puhuja tuo takaisin?",
+        "options": [
+          "Työkalupakin.",
+          "Kirjan.",
+          "Laukun.",
+          "Avaimet."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "95c21b4f-5943-5e6b-b03c-e3d3a64afa84",
+        "prompt": "Minne puhuja jättää tavaran?",
+        "options": [
+          "Postilaatikkoon.",
+          "Naapurille.",
+          "Auton alle.",
+          "Oven viereen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "b624aeb7-5d3c-5911-9301-f5d20fc82d01",
+        "prompt": "Mitä puhuja kysyy?",
+        "options": [
+          "Onko toinen kotona.",
+          "Mitä toinen tekee.",
+          "Milloin toinen tulee.",
+          "Missä toinen on."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

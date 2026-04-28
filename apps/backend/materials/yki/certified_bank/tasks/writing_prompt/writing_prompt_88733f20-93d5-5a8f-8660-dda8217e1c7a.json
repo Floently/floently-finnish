@@ -1,0 +1,37 @@
+{
+  "id": "88733f20-93d5-5a8f-8660-dda8217e1c7a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute bussimatkasta. Oliko bussi ajoissa? Oliko siistiä?",
+    "materials": {
+      "scenario": "Palaute bussimatkasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute bussimatkasta. Oliko bussi ajoissa? Oliko siistiä?"
+      }
+    ],
+    "rubric": "Kirjoita palaute bussimatkasta. Oliko bussi ajoissa? Oliko siistiä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

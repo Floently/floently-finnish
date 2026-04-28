@@ -1,0 +1,110 @@
+{
+  "id": "a557c6db-7d72-50ed-aa83-87113c22899c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen sauna on tunnettu ilmiö maailmalla. Se on olennainen osa suomalaista kulttuuria ja identiteettiä. Suomessa on arviolta yli kolme miljoonaa saunaa, mikä on paljon verrattuna väkilukuun. Sauna löytyy lähes joka kodista, ja niitä on myös työpaikoilla, uimahalleissa ja julkisissa tiloissa. Saunominen on suomalaisille tärkeä tapa rentoutua ja puhdistautua. Se on myös sosiaalinen tapahtuma, jossa tavataan ystäviä ja perhettä. Saunaan mennään usein viikonloppuisin, ja siihen liittyy usein löylyjen heittäminen, vilvoittelu ja saunajuoma. Perinteisesti saunaan on menty myös juhannuksena ja jouluna. Saunalla on ollut historiassa myös muita merkityksiä. Siellä on pesty vaatteita, valmistettu ruokaa ja jopa hoidettu sairaita. Nykyään sauna on ennen kaikkea hyvinvoinnin ja rentoutumisen paikka. Monet kokevat saunomisen terveelliseksi, koska se rentouttaa lihaksia, parantaa verenkiertoa ja vähentää stressiä. Suomalainen sauna on myös osa maakuvaa ja matkailuvaltti. Ulkomaiset matkailijat ovat kiinnostuneita aitosta suomalaisesta saunakokemuksesta. Sauna on ylpeydenaihe ja tärkeä osa suomalaista elämäntapaa.",
+      "word_count": 141
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka monta saunaa Suomessa on arviolta?",
+        "options": [
+          "Noin miljoona.",
+          "Yli kolme miljoonaa.",
+          "Alle satatuhatta.",
+          "Noin viisisataatuhatta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä saunominen on suomalaisille?",
+        "options": [
+          "Vain velvollisuus.",
+          "Tärkeä tapa rentoutua ja puhdistautua.",
+          "Vain turistien viihdettä.",
+          "Vain urheilusuoritus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen tapahtuma saunominen on?",
+        "options": [
+          "Yksinäinen puuha.",
+          "Sosiaalinen tapahtuma, jossa tavataan ystäviä ja perhettä.",
+          "Vain virallinen tilaisuus.",
+          "Vain ulkomaalaisille tarkoitettu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin saunaan mennään usein?",
+        "options": [
+          "Vain jouluna.",
+          "Viikonloppuisin, juhannuksena ja jouluna.",
+          "Vain arkipäivisin.",
+          "Vain kesällä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä muuta saunalla on historiassa tehty?",
+        "options": [
+          "Vain löylyjä.",
+          "Pesty vaatteita, valmistettu ruokaa ja hoidettu sairaita.",
+          "Vain pidetty kokouksia.",
+          "Vain säilytetty tavaroita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä terveyshyötyjä saunomisella on?",
+        "options": [
+          "Se lisää stressiä.",
+          "Se rentouttaa lihaksia, parantaa verenkiertoa ja vähentää stressiä.",
+          "Se heikentää vastustuskykyä.",
+          "Se lisää painoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä merkitys saunalla on matkailulle?",
+        "options": [
+          "Ei mitään merkitystä.",
+          "Se on matkailuvaltti, josta ulkomaiset matkailijat ovat kiinnostuneita.",
+          "Se karkottaa turisteja.",
+          "Se on vain paikallisille."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

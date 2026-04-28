@@ -1,0 +1,110 @@
+{
+  "id": "e02778b1-a1e0-58fd-96fc-b4feb65b1391",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen työelämä on murroksessa. Perinteinen teollisuus on vähentynyt, ja palvelualat ja tietotyö ovat kasvaneet. Tämä on muuttanut työn sisältöä ja osaamisvaatimuksia. Yhä useampi työ edellyttää korkeaa koulutusta ja jatkuvaa oppimista. Samalla työsuhteet ovat moninaistuneet. Osa-aikatyö, määräaikaiset työsuhteet ja vuokratyö ovat yleistyneet. Tämä tuo joustavuutta, mutta myös epävarmuutta. Monet kokevat, että työelämä on muuttunut vaativammaksi ja kuormittavammaksi. Työn ja vapaa-ajan raja on hämärtynyt, kun sähköpostit ja työpuhelut seuraavat kotiin. Työuupumus ja mielenterveysongelmat ovat lisääntyneet. Toisaalta työ tarjoaa myös mahdollisuuksia. Joustavat työajat ja etätyö antavat vapautta sovittaa työtä omaan elämäntilanteeseen. Moni voi toteuttaa itseään ja kehittää osaamistaan työssä. Työpaikoilla panostetaan yhä enemmän työhyvinvointiin ja työkyvyn ylläpitämiseen. Työelämän kehittäminen on jatkuva prosessi. Tarvitaan keskustelua siitä, millaista työelämää halutaan rakentaa. Tärkeää on, että työ on mielekästä, turvallista ja mahdollistaa tasapainoisen elämän. Työntekijöiden ääntä on kuultava, ja heidän hyvinvoinnistaan on huolehdittava. Vain siten työelämä voi olla kestävällä pohjalla.",
+      "word_count": 143
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten suomalainen työelämä on muuttunut?",
+        "options": [
+          "Teollisuus on kasvanut ja palvelualat vähentyneet.",
+          "Teollisuus on vähentynyt, palvelualat ja tietotyö ovat kasvaneet.",
+          "Kaikki alat ovat pysyneet samoina.",
+          "Työ on kokonaan kadonnut."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä työsuhteiden moninaistuminen tarkoittaa?",
+        "options": [
+          "Vain vakituisia työsuhteita on.",
+          "Osa-aikatyö, määräaikaiset työsuhteet ja vuokratyö ovat yleistyneet.",
+          "Kaikki työsuhteet ovat samoja.",
+          "Työsuhteita ei ole lainkaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haittapuolia työelämän muutoksella on?",
+        "options": [
+          "Työ on vähentynyt.",
+          "Työ on muuttunut vaativammaksi, kuormittavammaksi ja työn ja vapaa-ajan raja on hämärtynyt.",
+          "Työ on liian helppoa.",
+          "Työtä on liian vähän."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä terveysongelmia on lisääntynyt?",
+        "options": [
+          "Fyysiset sairaudet.",
+          "Työuupumus ja mielenterveysongelmat.",
+          "Tapaturmat.",
+          "Ammattitaudit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä mahdollisuuksia työelämän muutos tarjoaa?",
+        "options": [
+          "Vain epävarmuutta.",
+          "Joustavat työajat, etätyö ja mahdollisuus toteuttaa itseään.",
+          "Vain lisää työtä.",
+          "Vain vähemmän vapaa-aikaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mihin työpaikoilla nykyään panostetaan?",
+        "options": [
+          "Vain tuottavuuteen.",
+          "Työhyvinvointiin ja työkyvyn ylläpitämiseen.",
+          "Vain tuloksiin.",
+          "Vain säästöihin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millaista työelämän pitäisi olla?",
+        "options": [
+          "Vain tuottavaa ja tehokasta.",
+          "Mielekästä, turvallista ja tasapainoisen elämän mahdollistavaa.",
+          "Vain joustavaa.",
+          "Vain vaativaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

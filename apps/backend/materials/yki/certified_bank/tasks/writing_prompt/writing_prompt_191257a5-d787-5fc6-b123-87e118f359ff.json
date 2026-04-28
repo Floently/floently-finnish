@@ -1,0 +1,37 @@
+{
+  "id": "191257a5-d787-5fc6-b123-87e118f359ff",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti maistraatin väestörekisteriin. Olet muuttanut uuteen osoitteeseen, mutta posti ei kulkendu perille. Tarkista, onko osoitteenmuutos tehty oikein ja pyydä tarkistamaan tietosi. Kerro myös, jos olet tehnyt osoitteenmuutoksen aiemmin, mutta se ei ole päivittynyt.",
+    "materials": {
+      "scenario": "Osoitteenmuutoksen tarkistus"
+    },
+    "items": [
+      {
+        "id": "38e71459-00dc-5f08-97c2-8265ce8290e6",
+        "prompt": "Kirjoita virallinen sähköposti maistraatin väestörekisteriin. Olet muuttanut uuteen osoitteeseen, mutta posti ei kulkendu perille. Tarkista, onko osoitteenmuutos tehty oikein ja pyydä tarkistamaan tietosi. Kerro myös, jos olet tehnyt osoitteenmuutoksen aiemmin, mutta se ei ole päivittynyt."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

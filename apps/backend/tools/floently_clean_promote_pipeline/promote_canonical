@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RUNSPEC_PATH="${1:-}"
+
+if [[ -z "$RUNSPEC_PATH" ]]; then
+  echo "Usage: ./promote_canonical path/to/promote_runspec.env|json"
+  exit 1
+fi
+
+if [[ ! -f "$RUNSPEC_PATH" ]]; then
+  echo "Runspec file not found: $RUNSPEC_PATH"
+  exit 1
+fi
+
+RUNSPEC_ABS="$(cd "$(dirname "$RUNSPEC_PATH")" && pwd)/$(basename "$RUNSPEC_PATH")"
+
+PARSED="$(
+python3 - "$RUNSPEC_ABS" "$SCRIPT_DIR" <<'PY'
+import json, sys, shlex
+from pathlib import Path
+
+p = Path(sys.argv[1]).resolve()
+pipeline_root = Path(sys.argv[2]).resolve()
+base = p.parent
+ext = p.suffix.lower()
+
+def parse_env_style(path):
+    result = {}
+    with open(path, 'r', encoding='utf-8') as f:
+        for raw in f:
+            line = raw.strip()
+            if not line or line.startswith('#'):
+                continue
+            if '=' not in line:
+                continue
+            k, v = line.split('=', 1)
+            result[k.strip()] = v.strip()
+    return result
+
+def parse_json(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def resolve_general_path(value):
+    if value in (None, ''):
+        return ''
+    path = Path(str(value))
+    if path.is_absolute():
+        return str(path)
+    candidate_root = (pipeline_root / path).resolve()
+    if candidate_root.exists():
+        return str(candidate_root)
+    return str((base / path).resolve())
+
+def truthy(value, default=False):
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() in {'1', 'true', 'yes', 'on'}
+
+data = parse_json(p) if ext == '.json' else parse_env_style(p)
+ready_root = resolve_general_path(data.get('ready_root') or data.get('ready_pool') or data.get('input'))
+canonical_root = resolve_general_path(data.get('canonical_root') or data.get('canonical_bank') or data.get('output'))
+python_bin = data.get('python_bin', 'python3')
+venv_activate = resolve_general_path(data.get('venv_activate', ''))
+extra_args = data.get('extra_args', '')
+publish_enabled = truthy(data.get('publish_enabled'), True)
+publish_report = resolve_general_path(data.get('publish_report', ''))
+publish_clear_existing = truthy(data.get('publish_clear_existing'), True)
+
+if not publish_report and canonical_root:
+    publish_report = str((Path(canonical_root) / 'reports' / 'publish_report.json').resolve())
+
+if not ready_root:
+    print('ERROR: missing ready_root/ready_pool/input', file=sys.stderr)
+    sys.exit(2)
+if not canonical_root:
+    print('ERROR: missing canonical_root/canonical_bank/output', file=sys.stderr)
+    sys.exit(2)
+
+def emit(name, value):
+    safe = '' if value is None else str(value)
+    print(f"{name}={shlex.quote(safe)}")
+
+emit('READY_ROOT', ready_root)
+emit('CANONICAL_ROOT', canonical_root)
+emit('PYTHON_BIN', python_bin)
+emit('VENV_ACTIVATE', venv_activate)
+emit('EXTRA_ARGS', extra_args)
+emit('PUBLISH_ENABLED', '1' if publish_enabled else '0')
+emit('PUBLISH_REPORT', publish_report)
+emit('PUBLISH_CLEAR_EXISTING', '1' if publish_clear_existing else '0')
+PY
+)"
+eval "$PARSED"
+
+cd "$SCRIPT_DIR"
+
+if [[ -n "$VENV_ACTIVATE" ]]; then
+  source "$VENV_ACTIVATE"
+elif [[ -f ".venv/bin/activate" ]]; then
+  source ".venv/bin/activate"
+fi
+
+PROMOTE_CMD=("$PYTHON_BIN" -m floently_pipeline.cli promote-ready --ready-root "$READY_ROOT" --canonical-root "$CANONICAL_ROOT")
+if [[ -n "${EXTRA_ARGS:-}" ]]; then
+  read -r -a EXTRA_ARR <<< "$EXTRA_ARGS"
+  PROMOTE_CMD+=("${EXTRA_ARR[@]}")
+fi
+
+echo "Pipeline root:   $SCRIPT_DIR"
+echo "Ready root:      $READY_ROOT"
+echo "Canonical root:  $CANONICAL_ROOT"
+echo "Publish:         $([[ "$PUBLISH_ENABLED" == "1" ]] && echo enabled || echo disabled)"
+
+"${PROMOTE_CMD[@]}"
+
+if [[ "$PUBLISH_ENABLED" == "1" ]]; then
+  PUBLISH_CMD=("$PYTHON_BIN" "$SCRIPT_DIR/floently_pipeline/publish_validated_to_published.py" --canonical-root "$CANONICAL_ROOT")
+  if [[ "$PUBLISH_CLEAR_EXISTING" == "1" ]]; then
+    PUBLISH_CMD+=(--clear-published)
+  fi
+  if [[ -n "${PUBLISH_REPORT:-}" ]]; then
+    PUBLISH_CMD+=(--report "$PUBLISH_REPORT")
+  fi
+  echo "Publish report:  $PUBLISH_REPORT"
+  exec "${PUBLISH_CMD[@]}"
+fi

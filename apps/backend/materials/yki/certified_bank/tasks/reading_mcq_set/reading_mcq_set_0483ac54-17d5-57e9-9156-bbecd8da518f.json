@@ -1,0 +1,77 @@
+{
+  "id": "0483ac54-17d5-57e9-9156-bbecd8da518f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Työelämän monimuotoisuus on lisääntynyt globalisaation ja väestörakenteen muutosten myötä. Työpaikoilla työskentelee yhä enemmän eri-ikäisiä, eri kulttuuritaustaisia ja erilaisen koulutuksen omaavia ihmisiä. Monimuotoisuus nähdään voimavarana, joka voi lisätä luovuutta, innovaatioita ja ongelmanratkaisukykyä. Se asettaa kuitenkin myös vaatimuksia johtamiselle ja työyhteisön toiminnalle. Monimuotoisuuden johtaminen edellyttää esimiehiltä kulttuurista herkkyyttä, ennakkoluulojen tiedostamista ja kykyä luoda osallistava työilmapiiri. Myös työyhteisön jäseniltä vaaditaan avoimuutta, joustavuutta ja vuorovaikutustaitoja. Onnistunut monimuotoisuuden hyödyntäminen voi parantaa työtyytyväisyyttä ja työnantajamielikuvaa.",
+      "word_count": 69
+    },
+    "questions": [
+      {
+        "id": "mcq_223",
+        "prompt": "Mikä on lisännyt työelämän monimuotoisuutta?",
+        "options": [
+          "Homogenisaatio ja yksikulttuurisuus",
+          "Globalisaatio ja väestörakenteen muutokset",
+          "Teollisuuden rakennemuutos",
+          "Koulutuksen yhdenmukaistaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_224",
+        "prompt": "Mitä hyötyä monimuotoisuudesta nähdään olevan?",
+        "options": [
+          "Se vähentää luovuutta",
+          "Se voi lisätä luovuutta, innovaatioita ja ongelmanratkaisukykyä",
+          "Se lisää konflikteja",
+          "Se vähentää työtyytyväisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_225",
+        "prompt": "Mitä monimuotoisuuden johtaminen edellyttää esimiehiltä?",
+        "options": [
+          "Yhdenmukaista johtamistapaa",
+          "Kulttuurista herkkyyttä ja osallistavan ilmapiirin luomista",
+          "Tiukkaa kuria ja järjestystä",
+          "Työntekijöiden eristämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_226",
+        "prompt": "Mitä työyhteisön jäseniltä vaaditaan monimuotoisuuden hyödyntämiseksi?",
+        "options": [
+          "Sulkeutuneisuutta ja ennakkoluuloja",
+          "Avoimuutta, joustavuutta ja vuorovaikutustaitoja",
+          "Yhdenmukaisuutta ja sopeutumista",
+          "Kilpailua ja eristäytymistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

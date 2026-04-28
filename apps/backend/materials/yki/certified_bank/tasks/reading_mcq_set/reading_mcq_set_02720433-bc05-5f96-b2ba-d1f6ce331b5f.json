@@ -1,0 +1,66 @@
+{
+  "id": "02720433-bc05-5f96-b2ba-d1f6ce331b5f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.753,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Maahanmuuttajien työllistyminen ja kotoutuminen ovat keskeisiä kysymyksiä suomalaisen yhteiskunnan tulevaisuudelle. Työperäisen maahanmuuton merkitys kasvaa väestön ikääntyessä ja työvoiman tarpeen lisääntyessä monilla aloilla. Samaan aikaan humanitaarisista syistä maahan tulevien kotoutumisen tukeminen on inhimillinen velvollisuus ja yhteiskunnallinen investointi. Maahanmuuttajien työllisyysaste on Suomessa selvästi matalampi kuin kantaväestön. Erot selittyvät monilla tekijöillä. Kielitaito on keskeinen työllistymisen este: ilman riittävää suomen tai ruotsin taitoa on vaikea työllistyä muulle kuin matalapalkka-alalle. Tutkintojen tunnustaminen on byrokraattista ja hidasta, ja monet korkeasti koulutetut maahanmuuttajat työskentelevät koulutustaan vastaamattomissa tehtävissä. Työnantajien asenteet ja syrjintä vaikeuttavat myös työllistymistä. Kotoutumiskoulutus on keskeinen työkalu maahanmuuttajien integroimiseksi. Se sisältää kieliopintoja, yhteiskuntatietoutta ja työelämävalmiuksia. Koulutuksen laatu ja yksilöllisyys vaihtelevat, ja pitkät odotusajat heikentävät sen vaikuttavuutta. Myös työharjoittelut ja palkkatuki ovat tärkeitä väyliä työelämään pääsyssä. Viime vuosina on kehitetty uusia toimintamalleja, kuten kotoutumiskoulutuksen yhdistäminen työpaikalla tapahtuvaan oppimiseen ja nopeat väylät työelämään esimerkiksi hoiva-alalla. Mentorointiohjelmat ja vertaistuki auttavat maahanmuuttajia rakentamaan sosiaalisia verkostoja ja saamaan tietoa työmarkkinoista. Työnantajille suunnattu tuki ja koulutus monikulttuurisuuskysymyksissä on tärkeää, jotta he osaavat kohdata ja johtaa monimuotoista työvoimaa. Kotoutuminen on kaksisuuntainen prosessi. Se ei vaadi vain maahanmuuttajien sopeutumista, vaan myös kantaväestön ja yhteiskunnan rakenteiden sopeutumista monimuotoisuuteen. Asenteet, ennakkoluulot ja syrjintä hidastavat kotoutumista ja heikentävät yhteiskunnallista yhteenkuuluvuutta. Onnistunut kotoutuminen hyödyttää koko yhteiskuntaa: se lisää työvoiman tarjontaa, monipuolistaa osaamista ja vahvistaa sosiaalista koheesiota.",
+      "word_count": 208
+    },
+    "questions": [
+      {
+        "id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+        "prompt": "Mikä on keskeisin työllistymisen este maahanmuuttajille Suomessa?",
+        "options": [
+          "Ikä",
+          "Kielitaito",
+          "Sukupuoli",
+          "Perhesuhteet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d5e6f7a8-b9c0-4d1e-9f2a-3b4c5d6e7f8a",
+        "prompt": "Mitä kotoutumiskoulutus sisältää?",
+        "options": [
+          "Vain kieliopintoja",
+          "Kieliopintoja, yhteiskuntatietoutta ja työelämävalmiuksia",
+          "Vain ammatillista koulutusta",
+          "Vain vapaa-ajan toimintaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e6f7a8b9-c0d1-4e2f-9a3b-4c5d6e7f8a9b",
+        "prompt": "Mitä tarkoitetaan kotoutumisen kaksisuuntaisuudella?",
+        "options": [
+          "Vain maahanmuuttajien sopeutumista",
+          "Maahanmuuttajien sopeutumista ja kantaväestön sekä rakenteiden sopeutumista",
+          "Vain työnantajien koulutusta",
+          "Vain kielikoulutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "d17201dc-df29-5b57-ae71-bea39e794360",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikkailmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KESÄTYÖT HAKUUN!\n\nKahvila Sampo hakee kahta kesätyöntekijää ajalle 1.6.–31.8.\n\nTyötehtävät:\n- asiakaspalvelu\n- kahvin ja teen valmistus\n- voileipien tekeminen\n- kassatyöskentely\n- siivous\n\nTarjoamme:\n- palkan TES:in mukaan\n- ystävällisen työyhteisön\n- perehdytyksen tehtäviin\n\nHae lähettämällä vapaamuotoinen hakemus osoitteeseen: sampo@kahvila.fi 30.4. mennessä.\n\nLisätietoja p. 050 123 4567 (ma–pe klo 10–14).",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "066081c7-6854-5f7b-907a-6af8fc418dad",
+        "prompt": "Kuinka monta työntekijää haetaan?",
+        "options": [
+          "Yksi",
+          "Kaksi",
+          "Kolme",
+          "Neljä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4d9bed73-7663-5516-8844-fa6bd8f47dc5",
+        "prompt": "Mihin mennessä pitää hakea?",
+        "options": [
+          "1.6.",
+          "30.4.",
+          "31.5.",
+          "31.8."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8341be3c-e071-56bc-9e06-1547d67f1818",
+        "prompt": "Mistä saa lisätietoja?",
+        "options": [
+          "Sähköpostilla",
+          "Puhelimitse",
+          "Kävellä paikan päällä",
+          "Kirjeellä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

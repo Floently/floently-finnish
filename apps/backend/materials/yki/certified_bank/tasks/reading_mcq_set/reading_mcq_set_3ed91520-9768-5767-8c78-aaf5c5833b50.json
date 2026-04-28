@@ -1,0 +1,110 @@
+{
+  "id": "3ed91520-9768-5767-8c78-aaf5c5833b50",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen tapa juhlia on monipuolinen ja eläväinen. Perinteiset juhlat, kuten joulu, juhannus ja vapunpäivä, kokoavat ihmiset yhteen. Niihin liittyy omat ruokansa, tapansa ja perinteensä. Jouluna syödään kinkkua ja laatikoita, juhannuksena grillataan ja saunotaan, vappuna nautitaan simaa ja munkkeja. Myös nimipäivät ja syntymäpäivät ovat tärkeitä. Niitä juhlitaan usein perheen ja ystävien kesken. Kutsutaan kylään, tarjotaan kakkua ja kahvia. Nykyään juhliminen on monipuolistunut. Uusia juhlia on tullut muista kulttuureista, kuten halloween ja kiinalainen uusivuosi. Myös erilaiset teemajuhlat ja festivaalit ovat suosittuja. Tärkeintä juhlissa on yhdessäolo ja ilo. Ne tarjoavat hengähdystauon arjesta ja mahdollisuuden nähdä läheisiä. Juhlat myös siirtävät perinteitä sukupolvelta toiselle. Lapset oppivat juhliessa, mikä on tärkeää ja arvokasta. Juhliminen on osa suomalaista identiteettiä ja kulttuuria. Se yhdistää ihmisiä ja luo yhteisöllisyyttä. Vaikka tavat muuttuvat, tarve juhlia ja kokoontua yhteen säilyy.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä perinteisiä suomalaisia juhlia tekstissä mainitaan?",
+        "options": [
+          "Itsenäisyyspäivä ja pääsiäinen.",
+          "Joulu, juhannus ja vappu.",
+          "Juhannus ja pääsiäinen.",
+          "Vappu ja itsenäisyyspäivä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä jouluna perinteisesti syödään?",
+        "options": [
+          "Sima ja munkit.",
+          "Kinkku ja laatikot.",
+          "Grilliruoka.",
+          "Kala ja perunat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vappuna nautitaan?",
+        "options": [
+          "Kinkkua.",
+          "Sima ja munkit.",
+          "Laatikoita.",
+          "Kalaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia juhlia on tullut muista kulttuureista?",
+        "options": [
+          "Joulu ja juhannus.",
+          "Halloween ja kiinalainen uusivuosi.",
+          "Vappu ja pääsiäinen.",
+          "Syntymäpäivät ja nimipäivät."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on tärkeintä juhlissa?",
+        "options": [
+          "Ruoka ja juoma.",
+          "Yhdessäolo ja ilo.",
+          "Lahjat ja koristeet.",
+          "Musiikki ja tanssi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä juhlat tekevät perinteille?",
+        "options": [
+          "Tuhoavat ne.",
+          "Siirtävät niitä sukupolvelta toiselle.",
+          "Muuttavat niitä täysin.",
+          "Unohtavat ne."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä juhliminen on osa?",
+        "options": [
+          "Vain yksityistä elämää.",
+          "Suomalaista identiteettiä ja kulttuuria.",
+          "Vain uskontoa.",
+          "Vain historiaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

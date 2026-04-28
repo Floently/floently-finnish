@@ -1,0 +1,37 @@
+{
+  "id": "e6dfdd9b-1d90-5a1e-b883-15a24ce9486a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt parturissa. Kirjoita palaute. Kerro, leikattiinkö hiukset hyvin, oliko hinta sopiva ja oliko parturi ystävällinen.",
+    "materials": {
+      "scenario": "Palaute parturista"
+    },
+    "items": [
+      {
+        "id": "0d76cf14-2bfc-507b-8d03-b036f292d27f",
+        "prompt": "Olet käynyt parturissa. Kirjoita palaute. Kerro, leikattiinkö hiukset hyvin, oliko hinta sopiva ja oliko parturi ystävällinen."
+      }
+    ],
+    "rubric": "Hiusten leikkauksen onnistuminen\nHinnan sopivuus\nParturin ystävällisyys",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

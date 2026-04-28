@@ -1,0 +1,99 @@
+{
+  "id": "89640943-f135-5446-b2d3-aa8b03868961",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.575,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työpaikkademokratia on herättänyt uutta kiinnostusta. Se tarkoittaa työntekijöiden mahdollisuutta osallistua heitä koskevaan päätöksentekoon. Keinoja ovat esimerkiksi yhteistoimintamenettely, työpaikkakokoukset ja henkilöstön edustajat hallituksissa. Tutkimukset osoittavat, että kun työntekijät kokevat voivansa vaikuttaa, työtyytyväisyys ja sitoutuminen lisääntyvät. Samalla tuottavuus paranee. Tämä edellyttää kuitenkin toimivaa vuoropuhelua.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on herättänyt uutta kiinnostusta?",
+        "options": [
+          "Työpaikkaruokailu",
+          "Työpaikkademokratia",
+          "Työmatkaliikenne",
+          "Työvaatteet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä työpaikkademokratia tarkoittaa?",
+        "options": [
+          "Työntekijöiden velvollisuutta tehdä ylitöitä",
+          "Työntekijöiden mahdollisuutta osallistua päätöksentekoon",
+          "Esimiesten yksinoikeutta päättää asioista",
+          "Työntekijöiden oikeutta lakkoilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä keinoja työpaikkademokratiaan mainitaan?",
+        "options": [
+          "Palkkaneuvottelut",
+          "Yhteistoimintamenettely, työpaikkakokoukset ja henkilöstön edustajat",
+          "Työajan lyhentäminen",
+          "Henkilöstöedut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tutkimukset osoittavat työntekijöiden vaikutusmahdollisuuksista?",
+        "options": [
+          "Ne eivät vaikuta mihinkään",
+          "Ne lisäävät työtyytyväisyyttä, sitoutumista ja tuottavuutta",
+          "Ne heikentävät tuottavuutta",
+          "Ne aiheuttavat ristiriitoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä työpaikkademokratia edellyttää?",
+        "options": [
+          "Tiukkaa hierarkiaa",
+          "Toimivaa vuoropuhelua",
+          "Yksinvaltaista johtamista",
+          "Kilpailua työntekijöiden välillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'yhteistoimintamenettelyllä'?",
+        "options": [
+          "Lakisääteistä neuvottelumenettelyä työnantajan ja henkilöstön välillä",
+          "Työntekijöiden yhteisiä kahvitaukoja",
+          "Yhteisiä työmatkoja",
+          "Yhteisiä virkistyspäiviä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

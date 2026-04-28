@@ -1,0 +1,99 @@
+{
+  "id": "32d5ee17-8e09-55d6-93ed-4333e72562f9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta designista ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään studiossa on muotoilija Eeva Hiltunen. Eeva, mitä suomalainen design on sinulle? Eeva: Se on ennen kaikkea toimivuutta ja kestävyyttä. Kauneus syntyy siitä, että esine on hyvä käyttää. Se on myös luonnonläheisyyttä. Materiaalit ovat usein puuta, lasia ja keramiikkaa, ja muodot ovat yksinkertaisia. Toimittaja: Miten suomalainen design on muuttunut? Eeva: Perinteet ovat vahvat, mutta koko ajan tulee uutta. Nuoret suunnittelijat käyttävät rohkeasti värejä ja kokeilevat uusia materiaaleja, kuten kierrätysmuovia ja biohajoavia aineita. Myös teknologia on tullut mukaan. Esimerkiksi älytekstiilit ovat kasvava alue. Toimittaja: Mikä on tämän hetken trendi? Eeva: Yksi vahva trendi on kiertotalous. Halutaan tehdä esineitä, jotka voidaan korjata ja jotka kestävät pitkään. Toinen trendi on käsityön arvostus. Ihmiset haluavat tietää, kuka on tehnyt esineen ja missä. Toimittaja: Miten suomalainen design pärjää maailmalla? Eeva: Todella hyvin. Meillä on vahva brändi, ja suomalaista muotoilua arvostetaan erityisesti Japanissa, Saksassa ja Yhdysvalloissa. Se on tunnettu laadusta ja ajattomasta tyylistä. Toimittaja: Kiitos Eeva.",
+      "audio_asset_id": "29ff3aae-2081-44f9-a9c1-7fb8f9c3236a"
+    },
+    "questions": [
+      {
+        "id": "4df1ebb6-95ba-5b64-b76f-0a2779360a1f",
+        "prompt": "Mitä suomalainen design on Eevan mukaan?",
+        "options": [
+          "Värikästä ja monimutkaista.",
+          "Halpaa ja kertakäyttöistä.",
+          "Vanhanaikaista ja tylsää.",
+          "Toimivuutta, kestävyyttä ja luonnonläheisyyttä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "1c7357f5-1c87-520a-89a8-be27f40119d1",
+        "prompt": "Mitä materiaaleja suomalaisessa designissa usein käytetään?",
+        "options": [
+          "Muovia ja terästä.",
+          "Betonia ja tiiltä.",
+          "Puuta, lasia ja keramiikkaa.",
+          "Kultaa ja hopeaa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "eb3086e1-6c65-5d3b-bf2b-91ab1cd7ff5a",
+        "prompt": "Mitä uutta nuoret suunnittelijat tuovat?",
+        "options": [
+          "Vain vanhojen tyylien kopiointia.",
+          "Rohkeita värejä ja uusia materiaaleja.",
+          "Yksinomaan mustavalkoisuutta.",
+          "Massatuotantoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1d74f65d-b083-5df1-98b7-07d9fdab66b7",
+        "prompt": "Mikä on yksi tämän hetken trendi?",
+        "options": [
+          "Kertakäyttökulttuuri.",
+          "Muovin käytön lisääminen.",
+          "Vain ulkomaisten designien kopiointi.",
+          "Kiertotalous ja käsityön arvostus."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "86783033-92d4-57b1-bad2-bd73d7098783",
+        "prompt": "Missä maissa suomalaista designia arvostetaan erityisesti?",
+        "options": [
+          "Ranskassa ja Espanjassa.",
+          "Japanissa, Saksassa ja Yhdysvalloissa.",
+          "Brasiliassa ja Argentiinassa.",
+          "Australiassa ja Uudessa-Seelannissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2782408e-f641-5445-ae05-6dac57f03d9c",
+        "prompt": "Mistä suomalainen design on tunnettu maailmalla?",
+        "options": [
+          "Halvuudesta ja nopeasta muutoksesta.",
+          "Monimutkaisuudesta ja koristeellisuudesta.",
+          "Väliaikaisuudesta.",
+          "Laadusta ja ajattomasta tyylistä."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

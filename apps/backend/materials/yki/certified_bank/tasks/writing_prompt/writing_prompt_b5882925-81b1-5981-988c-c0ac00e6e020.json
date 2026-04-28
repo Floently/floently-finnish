@@ -1,0 +1,37 @@
+{
+  "id": "b5882925-81b1-5981-988c-c0ac00e6e020",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.499,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palpute ravintolasta.",
+    "materials": {
+      "scenario": "Kirjoita palpute ravintolasta."
+    },
+    "items": [
+      {
+        "id": "584bcd79-2436-5781-ae99-d8aa82c512f4",
+        "prompt": "Kävit ravintolassa, ja palvelu oli hidasta ja ruoka kylmää. Kirjoita palpute ravintolan verkkosivujen kautta. Kerro, mikä meni pieleen ja mitä odotit. Säilytä kohtelias sävy."
+      }
+    ],
+    "rubric": "Kävit ravintolassa, ja palvelu oli hidasta ja ruoka kylmää. Kirjoita palpute ravintolan verkkosivujen kautta. Kerro, mikä meni pieleen ja mitä odotit. Säilytä kohtelias sävy.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "5469d031-eb8c-55fa-98ab-5f5caea1e8e0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Kahvila Kulta. No niin, nyt on tilaus valmis. Yksi kahvi ja pulla, ole hyvä. Se maksaa 7 euroa ja 50 senttiä. Voit maksaa joko kortilla tai käteisellä. Kahvila on auki tänään vielä kuuteen asti. Huomenna aukeamme yhdeksältä. Kiitos ja hyvää päivänjatkoa!",
+      "audio_asset_id": "e584ee63-168c-5c40-9dd1-38e0cdf64c08"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä asiakas tilasi?",
+        "options": [
+          "Kahvin ja sämpylän.",
+          "Tee ja pulla.",
+          "Vain kahvin.",
+          "Kahvin ja pullan."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko tilaus maksaa?",
+        "options": [
+          "6,50 euroa.",
+          "8,00 euroa.",
+          "9,00 euroa.",
+          "7,50 euroa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q3",
+        "prompt": "Millä asiakas voi maksaa?",
+        "options": [
+          "Kortilla tai käteisellä.",
+          "Vain käteisellä.",
+          "Vain kortilla.",
+          "Puhelimella."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin aikaan kahvila sulkeutuu tänään?",
+        "options": [
+          "Kello 17.00.",
+          "Kello 18.00.",
+          "Kello 19.00.",
+          "Kello 20.00."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin kahvila aukeaa huomenna?",
+        "options": [
+          "Kello kahdeksalta.",
+          "Kello kymmeneltä.",
+          "Kello yhdeksältä.",
+          "Kello yhdeltätoista."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

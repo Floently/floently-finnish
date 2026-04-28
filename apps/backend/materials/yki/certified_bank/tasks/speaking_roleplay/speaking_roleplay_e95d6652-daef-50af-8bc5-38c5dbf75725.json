@@ -1,0 +1,40 @@
+{
+  "id": "e95d6652-daef-50af-8bc5-38c5dbf75725",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "materials": {
+      "roles": {
+        "user": "Sinä",
+        "partner": "Tarjoilija"
+      }
+    },
+    "items": [
+      {
+        "id": "ce72dd89-0bc5-58c1-a16f-27f247e015ed",
+        "ai_first_turn_fi": "Tarjoilija: Hyvää iltaa, saako olla jotain juotavaa?"
+      }
+    ],
+    "rubric": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

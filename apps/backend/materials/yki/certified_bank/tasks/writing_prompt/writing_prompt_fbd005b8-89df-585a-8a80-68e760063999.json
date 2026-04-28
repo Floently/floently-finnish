@@ -1,0 +1,37 @@
+{
+  "id": "fbd005b8-89df-585a-8a80-68e760063999",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti yrityksen henkilöstöosastolle. Kerro työhyvinvointipäivästä, koulutusmahdollisuuksista ja työterveyshuollon yhteistyöstä. Ehdota yhtä uutta työhyvinvointitoimintaa.",
+    "materials": {
+      "scenario": "Palaute yrityksen henkilöstöosastolle"
+    },
+    "items": [
+      {
+        "id": "ff4cc10f-ce56-5f7f-8061-c4acac966c7b",
+        "prompt": "Kirjoita palauteteksti yrityksen henkilöstöosastolle. Kerro työhyvinvointipäivästä, koulutusmahdollisuuksista ja työterveyshuollon yhteistyöstä. Ehdota yhtä uutta työhyvinvointitoimintaa."
+      }
+    ],
+    "rubric": "Työhyvinvointipäivä\nKoulutusmahdollisuudet\nTyöterveyshuollon yhteistyö\nUusi työhyvinvointitoiminta",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

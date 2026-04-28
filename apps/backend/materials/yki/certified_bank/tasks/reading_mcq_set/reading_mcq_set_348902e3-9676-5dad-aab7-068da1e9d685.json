@@ -1,0 +1,77 @@
+{
+  "id": "348902e3-9676-5dad-aab7-068da1e9d685",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Sähköpotkulautojen suosio on kasvanut räjähdysmäisesti Suomen kaupungeissa. Ne ovat kätevä tapa liikkua lyhyitä matkoja, mutta ne ovat myös aiheuttaneet ongelmia. Onnettomuudet ja valitukset lisääntyvät koko ajan.\n\nHelsingissä on tapahtunut tänä vuonna jo yli 200 sähköpotkulautaonnettomuutta. Moni on loukkaantunut vakavasti. Yleisimpiä vammoja ovat murtumat ja päävammat. Moni ajaja ei käytä kypärää.\n\nMyös jalkakäytävillä ajaminen on herättänyt keskustelua. Jalankulkijat pelkäävät, että lautailijat ajavat liian kovaa ja väistävät huonosti. Vanhukset ja lapset ovat erityisen vaarassa.\n\nKaupunki suunnittelee uusia sääntöjä sähköpotkulautailulle. Harkinnassa on nopeusrajoituksia, pysäköintikieltoja ja ikärajoja. Yritykset, jotka vuokraavat lautoja, ovat luvanneet parantaa turvallisuutta ja tiedotusta.\n\nSähköpotkulautojen kannattajat muistuttavat, että ne ovat ympäristöystävällinen vaihtoehto autolle. He toivovat, että ongelmat ratkaistaan ilman, että laudoista tehdään liian hankalia käyttää.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 142
+    },
+    "questions": [
+      {
+        "id": "63bfb2b9-82a2-597e-a36c-be5cbcdc5878",
+        "prompt": "Mitä ongelmia sähköpotkulaudoista on aiheutunut?",
+        "options": [
+          "A) Ne ovat liian kalliita",
+          "B) Onnettomuuksia ja valituksia",
+          "C) Ne vievät liikaa tilaa",
+          "D) Ne ovat epäluotettavia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0008bdb8-d6e5-5871-8b38-66d28dd03b49",
+        "prompt": "Mitä vammoja onnettomuuksissa on yleisimmin?",
+        "options": [
+          "A) naarmuja ja mustelmia",
+          "B) murtumia ja päävammoja",
+          "C) venähdyksiä",
+          "D) palovammoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c31e80fa-2d84-5dfc-9862-a624bf98cd75",
+        "prompt": "Mitä kaupunki suunnittelee?",
+        "options": [
+          "A) Sähköpotkulaudat kielletään kokonaan",
+          "B) Uusia sääntöjä: nopeusrajoituksia, pysäköintikieltoja",
+          "C) Lautojen määrää vähennetään",
+          "D) Käyttäjille pakollinen koulutus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c9b53de7-9e31-576f-8d1b-b23e779ce6bd",
+        "prompt": "Miksi lautojen kannattajat pitävät niitä hyvänä?",
+        "options": [
+          "A) Ne ovat hauskoja",
+          "B) Ne ovat ympäristöystävällisiä",
+          "C) Ne ovat halpoja",
+          "D) Ne ovat nopeita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

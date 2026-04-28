@@ -1,0 +1,99 @@
+{
+  "id": "0a9e1b75-f0bd-50e9-b5f4-0b92a57c7c76",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu digitaalisista palveluista ja vastaa.",
+    "materials": {
+      "transcript": "Elina: Hei Jussi, mitä mieltä olet näistä digitaalisista palveluista? Jussi: No, onhan ne käteviä, mutta välillä tuntuu, että kaikki pitää hoitaa netissä, eikä vaihtoehtoja ole. Elina: Joo, sama. Mun äiti on 75, eikä se osaa käyttää älypuhelinta. Sille on vaikeaa, kun pankkiasiat ja ajanvaraukset pitäisi tehdä netissä. Jussi: Onko se saanut apua? Elina: On, mä autan paljon, mutta se haluaisi itse hoitaa asioita. Se käy välillä konttorissa, mutta niitä on vähennetty. Jussi: Onko teillä puhuttu, että jotkut palvelut pitäisi säilyttää ei-digitaalisina? Elina: Joo, se olisi tärkeää. Kaikilla ei ole mahdollisuutta tai halua käyttää digipalveluja. Jussi: Nuorillehan se on luontevaa. Ne osaa ja haluaa hoitaa kaiken puhelimella. Elina: Niin, ja se on hyvä, mutta ei saa unohtaa niitä, jotka eivät pysty. Jussi: Tarvittaisiin varmaan laki, joka velvoittaa tarjoamaan myös ei-digitaalisen vaihtoehdon. Elina: Olisiko se mahdollista? Jussi: Joissain maissa on. Ranskassa esimerkiksi pitää olla mahdollisuus asioida ilman digilaitteita. Elina: Hyvä esimerkki. Toivottavasti Suomessakin mietitään tätä.",
+      "audio_asset_id": "5124be0a-467c-48f3-abb3-bfe467700583"
+    },
+    "questions": [
+      {
+        "id": "412e7f0a-12e5-5aef-b43b-384e5f23684d",
+        "prompt": "Mistä Elina ja Jussi keskustelevat?",
+        "options": [
+          "Uusista sovelluksista.",
+          "Pankkipalvelujen kehittämisestä.",
+          "Digitaalisten palvelujen hyvistä ja huonoista puolista.",
+          "Nuorten digitaidoista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e7cb8227-c922-53f8-88da-515ce1a1c7b3",
+        "prompt": "Miksi Elinan äidillä on vaikeuksia?",
+        "options": [
+          "Hänellä ei ole älypuhelinta.",
+          "Hän ei osaa käyttää älypuhelinta ja digipalveluja.",
+          "Hänellä ei ole aikaa.",
+          "Hän ei luota nettiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "017a60da-faea-5fb7-a3f0-092701371c1b",
+        "prompt": "Miten Elina auttaa äitiään?",
+        "options": [
+          "Hän hoitaa kaikki asiat itse.",
+          "Hän ei auta ollenkaan.",
+          "Hän on ostanut äidille uuden puhelimen.",
+          "Hän auttaa paljon, mutta äiti haluaisi itse hoitaa asioita."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "ee649f24-7c23-5c73-94c3-a85cddbd9ede",
+        "prompt": "Mitä mieltä Jussi on digipalveluista?",
+        "options": [
+          "Ne ovat aina huonoja.",
+          "Vain nuoret saavat käyttää niitä.",
+          "Ne ovat käteviä, mutta kaikille pitäisi olla vaihtoehtoja.",
+          "Ne pitäisi kieltää."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "072ee8b3-9280-5b15-b156-5fef8200f718",
+        "prompt": "Mitä Ranskassa on Jussin mukaan?",
+        "options": [
+          "Vain digitaalisia palveluja.",
+          "Mahdollisuus asioida ilman digilaitteita.",
+          "Ei digitaalisia palveluja ollenkaan.",
+          "Vain vanhukset saavat käyttää digipalveluja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d668de7b-fcc6-5983-8c3c-95692c972f78",
+        "prompt": "Mitä Elina ja Jussi toivovat?",
+        "options": [
+          "Että digipalvelut poistetaan kokonaan.",
+          "Että kaikki pakotetaan käyttämään digipalveluja.",
+          "Että myös ei-digitaaliset vaihtoehdot säilytetään.",
+          "Että vain nuoret saavat käyttää digipalveluja."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

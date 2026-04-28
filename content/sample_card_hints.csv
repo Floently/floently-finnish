@@ -1,0 +1,63 @@
+# Floently — Card hint authoring sample
+#
+# This CSV is a representative authoring pass to set the format and Finnish
+# style for hints across the card bank. Twelve hints across three content
+# types × three CEFR bands. Each hint:
+#
+#   1. Is in Finnish (the hint is part of the Finnish-immersion experience)
+#   2. Points at the structure of the answer, not the answer itself
+#   3. Is short (1 line) — long hints become explanations
+#   4. Uses level-appropriate vocabulary (A1 hints don't use C1 metalanguage)
+#
+# Format:
+#   card_id        — matches the card's id field, OR a wildcard for a class
+#                    of cards (e.g. "vocabulary:healthcare:A1-A2:*")
+#   content_type   — vocabulary_card | sentence_card | grammar_card
+#   level_band     — A1-A2 | B1-B2 | C1-C2
+#   topic          — semantic field (vocabulary) or grammar focus
+#   hint_fi        — the authored Finnish hint
+#   notes_for_reviewer — what I'm trying to do; the reviewer can tighten
+#
+# REVIEW EXPECTED. I'm reasonably confident in the Finnish here, but a
+# native or near-native speaker should pass over this before it ships,
+# especially the C1-C2 hints where idiomatic register matters more.
+# Specific concerns I'd flag for review:
+#   - Use of "tarkista" vs "mieti" vs "muista" — all valid, slight register differences
+#   - Whether hints reading like teacher-talk feel right or condescending
+#   - Whether C1-C2 hints are pitched at the right level of metalanguage
+#
+# To use:
+#   1. Reviewer revises hint_fi column and notes_for_reviewer
+#   2. Bulk-load: hints get written to card.hint via a migration script
+#      (not included — straightforward jq-style merge by card_id)
+#   3. The backend resolver in cards_logic.py automatically picks up
+#      authored hints over the synthesized fallback
+
+card_id,content_type,level_band,topic,hint_fi,notes_for_reviewer
+# ── Vocabulary cards ──────────────────────────────────────────────────────
+# At A1-A2 we point at the most concrete possible context. The student is
+# building a mental link between sound and meaning; a contextual cue ("at
+# the doctor's", "in the kitchen") is enough.
+vocab:basic:greetings:A1:hello,vocabulary_card,A1-A2,arkitervehdykset,Tämä sana on yleisin tapa tervehtiä Suomessa.,Pointing at usage frequency rather than meaning. Could also say 'käytetään päivittäin'.
+vocab:healthcare:A1:medicine,vocabulary_card,A1-A2,terveydenhuolto,Tämä sana liittyy lääkärin vastaanottoon.,Semantic field cue. Does not give meaning directly.
+vocab:work:A1:colleague,vocabulary_card,A1-A2,työpaikka,Tämä sana tarkoittaa ihmistä työpaikalla.,Slightly more revealing than I'd like — could tighten to 'liittyy työpaikkaan' if too obvious.
+vocab:nursing:B1:medication_round,vocabulary_card,B1-B2,sairaanhoitajan työ,Tämä sana kuvaa toistuvaa hoitotehtävää osastolla.,Healthcare-specific framing. Tests whether 'lääkkeenjako' or similar comes to mind via context.
+vocab:medical:C1:differential_diagnosis,vocabulary_card,C1-C2,lääketieteellinen päättely,Tämä on diagnostinen prosessi jossa erotellaan vaihtoehtoisia syitä oireille.,More technical framing. C1-C2 students can handle metalanguage; the hint frames the concept rather than the word.
+
+# ── Sentence cards ────────────────────────────────────────────────────────
+# Sentence hints point at the grammatical operation the student must perform.
+# At A1-A2 we name basic categories ("the verb is in past tense"). At B1-B2
+# we ask the student to make the call themselves. At C1-C2 we hint at register
+# or pragmatic choices.
+sent:partitive:A2:water,sentence_card,A1-A2,partitiivin käyttö,"Verbin objekti on jakaantuvaa ainetta — mikä sijapääte siihen tulee?","Specific to drinks/food (partitive of substance). 'Jakaantuvaa ainetta' is the canonical school explanation."
+sent:locative:A2:home,sentence_card,A1-A2,paikallissijat,"Mietitkö, oletko jossakin (inessiivi) vai menetkö jonnekin (illatiivi)?","Tests whether student picks the right locative case. Direct, not too easy."
+sent:conditional:B1:would_help,sentence_card,B1-B2,konditionaali,"Tämä on epäsuora pyyntö tai ehto — minkä modaalisen muodon tarvitset?","Testing -isi- ending recognition. Pragmatic framing (request vs condition)."
+sent:passive:B2:building_built,sentence_card,B1-B2,passiivin käyttö,"Lauseessa ei ole tekijää — mikä rakenne sopii kun tekijää ei mainita?","Passive voice cue. Common B1-B2 stumbling block; this hint is one of the more 'teacher-talk' ones."
+sent:participial:C1:academic,sentence_card,C1-C2,partisiippi-ilmaus,"Tämä on tiivistetty rakenne joka korvaa että-lauseen — mietitkö aktiivin vai passiivin partisiippia?","C1-C2 register-aware. 'Tiivistetty rakenne' is academic Finnish framing."
+
+# ── Grammar cards ─────────────────────────────────────────────────────────
+# Grammar hints reference the rule abstractly enough that the student must
+# apply it, not just recall the answer. We avoid stating the rule outright
+# unless the rule has multiple branches the student must pick between.
+gram:vowel_harmony:A1,grammar_card,A1-A2,vokaalisointu,"Sanan vokaalit kuuluvat samaan ryhmään (etu- tai takavokaaleihin) — kumpaan tämän sanan vokaalit kuuluvat?","Vowel harmony is the canonical A1-A2 rule. Hint forces categorization without giving answer."
+gram:consonant_gradation:B1:strong_weak,grammar_card,B1-B2,astevaihtelu,"Konsonantti vaihtuu kun tavu muuttuu avoimeksi tai suljetuksi — mikä vaihtelutyyppi tähän pätee (kk/k vai pp/p)?","Consonant gradation is THE B1-B2 morphology challenge. Hint names the operation and asks the student to identify the type."

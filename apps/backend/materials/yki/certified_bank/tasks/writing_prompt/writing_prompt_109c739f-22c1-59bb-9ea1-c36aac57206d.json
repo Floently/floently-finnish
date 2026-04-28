@@ -1,0 +1,37 @@
+{
+  "id": "109c739f-22c1-59bb-9ea1-c36aac57206d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti parturiin. Olet tyytyväinen edelliseen hiustenleikkuuseen. Haluat varata uuden ajan samalle parturille. Kerro, että haluaisit ajan noin kuukauden päähän. Kysy, onko samalla parturilla vapaita aikoja.",
+    "materials": {
+      "scenario": "Viesti parturiin uusi aika"
+    },
+    "items": [
+      {
+        "id": "2191799a-09c6-5ef9-b565-7d4d52e302cc",
+        "prompt": "Kirjoita lyhyt viesti parturiin. Olet tyytyväinen edelliseen hiustenleikkuuseen. Haluat varata uuden ajan samalle parturille. Kerro, että haluaisit ajan noin kuukauden päähän. Kysy, onko samalla parturilla vapaita aikoja."
+      }
+    ],
+    "rubric": "Kerro, että olit tyytyväinen\nHaluat samalle parturille\nKerro, milloin haluaisit ajan\nKysy vapaita aikoja",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "8d76b85f-0c85-5a75-bc13-b513d14c3482",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.787,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Yksityisyyden suoja on yksi digitalisoituvan yhteiskunnan keskeisimmistä ja kiistellyimmistä kysymyksistä. Verkkopalvelut, sosiaalinen media ja älylaitteet keräävät valtavia määriä tietoa käyttäjistään, usein ilman että käyttäjät täysin ymmärtävät, mihin tietoja käytetään. Tämä on herättänyt laajaa keskustelua siitä, miten yksityisyyttä voidaan suojella ja kenen vastuulla se on. Yksityisyyden puolustajat korostavat, että se on perusoikeus, joka on turvattava lainsäädännöllä. Heidän mukaansa ihmisillä on oikeus määrätä itseään koskevista tiedoista ja siitä, miten niitä käytetään. Ilman riittävää yksityisyyden suojaa ihmiset ovat alttiita manipulaatiolle, syrjinnälle ja jopa identiteettivarkauksille. He vaativat tiukkaa sääntelyä ja läpinäkyvyyttä yrityksiltä ja valtiolta. Toisaalta on esitetty, että yksityisyyden vaatimus on ristiriidassa monien yhteiskunnallisten tavoitteiden kanssa. Tiedon saatavuus on välttämätöntä esimerkiksi rikostutkinnassa, terrorismin torjunnassa ja kansanterveyden edistämisessä. Lisäksi monet palvelut, kuten hakukoneet ja sosiaalinen media, ovat käyttäjille ilmaisia juuri siksi, että ne rahoitetaan keräämällä ja hyödyntämällä käyttäjätietoja. Tästä näkökulmasta liiallinen yksityisyyden suoja voi heikentää palvelujen saatavuutta ja innovaatiota. Kolmas näkökulma korostaa, että yksityisyys ei ole mustavalkoinen kysymys, vaan siinä on kyse tasapainosta eri intressien välillä. Yksityisyyden suojaa voidaan toteuttaa eri tavoin ja eri tilanteissa. Keskeistä on, että käyttäjille annetaan riittävästi tietoa ja valinnanvaraa siitä, miten heidän tietojaan käytetään. Heillä tulisi olla mahdollisuus antaa suostumuksensa tietojensa keräämiseen ja käyttöön, ja heillä tulisi olla oikeus tarkistaa ja korjata tietojaan. Yksityisyyden suoja on yksi digitalisoituvan yhteiskunnan keskeisimmistä arvoista, ja sen turvaaminen vaatii jatkuvaa keskustelua ja toimia niin lainsäätäjiltä, yrityksiltä kuin kansalaisiltakin.",
+      "word_count": 224
+    },
+    "questions": [
+      {
+        "id": "68b8d2df-f3e5-5ad8-8d76-01d70426d535",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Teknologian vaikutus yksityisyyden suojan heikkenemiseen",
+          "Yksityisyyden suojaan liittyvät erilaiset näkökulmat ja intressit",
+          "Yritysten vastuu käyttäjätietojen keräämisessä",
+          "Lainsäädännön merkitys yksityisyyden suojan turvaamisessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "47850dd9-5c18-50fb-ae23-333f5dc7b479",
+        "prompt": "Tekstin mukaan mitä yksityisyyden puolustajat korostavat?",
+        "options": [
+          "Yksityisyys on este yhteiskunnalliselle kehitykselle",
+          "Yksityisyys on perusoikeus, joka on turvattava lainsäädännöllä, ja ilman sitä ihmiset ovat alttiita manipulaatiolle ja syrjinnälle",
+          "Yksityisyydestä tulee luopua palvelujen saatavuuden turvaamiseksi",
+          "Yksityisyys on tärkeää vain varakkaille ihmisille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "50187c5f-faae-5ccd-8ad6-29f4bdb2a5dd",
+        "prompt": "Mitä perusteita yksityisyyden suojan rajoittamiselle tekstissä esitetään?",
+        "options": [
+          "Se on tarpeen vain rikostutkinnassa",
+          "Tiedon saatavuus on välttämätöntä rikostutkinnassa, terrorismin torjunnassa ja kansanterveyden edistämisessä, ja monet palvelut rahoitetaan käyttäjätiedoilla",
+          "Yksityisyyden suoja on vanhentunut käsite, josta voidaan luopua",
+          "Yksityisyyden suoja hidastaa teknologian kehitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e7b72040-01bd-567f-acc0-7ad7b1d8c6a1",
+        "prompt": "Mitä kolmas, tasapainoa korostava näkemys pitää tärkeänä yksityisyyden suojan toteuttamisessa?",
+        "options": [
+          "Yksityisyyden suojasta luopumista kokonaan",
+          "Käyttäjille annettavaa riittävää tietoa ja valinnanvaraa sekä mahdollisuutta antaa suostumus ja tarkistaa tietoja",
+          "Tietojen keräämisen kieltämistä kokonaan",
+          "Valtion oikeutta kerätä kaikki kansalaisten tiedot"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

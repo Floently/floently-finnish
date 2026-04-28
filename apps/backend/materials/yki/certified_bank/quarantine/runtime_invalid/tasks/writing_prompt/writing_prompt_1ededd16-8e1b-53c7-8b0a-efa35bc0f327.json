@@ -1,0 +1,37 @@
+{
+  "id": "1ededd16-8e1b-53c7-8b0a-efa35bc0f327",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.676,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: train station. Purpose: solve a problem. Constraint: mention a follow up step.",
+    "materials": {
+      "scenario": "health in train_station"
+    },
+    "items": [
+      {
+        "id": "73aeddfc-a87f-5083-b010-82316748cbc8",
+        "prompt": "Write for the receiver in this scenario: train station. Purpose: solve a problem. Constraint: mention a follow up step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

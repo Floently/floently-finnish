@@ -1,0 +1,37 @@
+{
+  "id": "8eb1ce60-0fae-5d2f-8f53-c1a3a4b05aa1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pyöräkellarissa on paljon rikkinäisiä ja hylättyjä polkupyöriä. Ne vievät tilaa. Ehdota, että ne poistettaisiin ja kysy, miten toimitaan.",
+    "materials": {
+      "scenario": "Ilmoitus hylätyistä polkupyöristä"
+    },
+    "items": [
+      {
+        "id": "b8f9ccab-21cb-561b-b06b-e134a0874a53",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pyöräkellarissa on paljon rikkinäisiä ja hylättyjä polkupyöriä. Ne vievät tilaa. Ehdota, että ne poistettaisiin ja kysy, miten toimitaan."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nEhdotus\nToimintaohjeiden kysyminen",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

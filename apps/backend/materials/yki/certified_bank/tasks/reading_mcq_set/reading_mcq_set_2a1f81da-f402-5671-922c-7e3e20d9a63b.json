@@ -1,0 +1,66 @@
+{
+  "id": "2a1f81da-f402-5671-922c-7e3e20d9a63b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei naapuri!\n\nMinulla on ongelma. Olen matkoilla ensi viikon, mutta unohdin kastelukukat. Voitko käydä kastelemassa ne tiistaina ja torstaina? Avain on maton alla. Kiitos paljon!\n\nTerveisin,\nMaija as. 12\n\nPS. Voit myös ottaa lehden postilaatikosta.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "934cd51e-86c4-5d9d-8c7c-1210bd1a3062",
+        "prompt": "Mitä apua Maija tarvitsee?",
+        "options": [
+          "Postin hakemista",
+          "Kukkien kastelua",
+          "Kissan ruokkimista",
+          "Avaimen säilytystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e4f1ebf6-31eb-5d69-8ead-bff01270bfdd",
+        "prompt": "Minä päivinä kukat pitää kastella?",
+        "options": [
+          "Maanantai ja keskiviikko",
+          "Tiistai ja torstai",
+          "Keskiviikko ja perjantai",
+          "Lauantai ja sunnuntai"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0f5939db-5688-55a1-abc5-60f8ef510acf",
+        "prompt": "Missä avain on?",
+        "options": [
+          "Postilaatikossa",
+          "Maton alla",
+          "Naapurilla",
+          "Ovessa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "57310f34-3f5d-5f7b-a9fb-6f618f2a0312",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomen kouluissa oppilaat opiskelevat monia aineita. Äidinkieli ja matematiikka ovat tärkeitä. Myös historiaa ja englantia opiskellaan. Koulussa on usein välitunti, jolloin lapset leikkivät ulkona. Kouluruoka on ilmaista.",
+      "word_count": 27
+    },
+    "questions": [
+      {
+        "id": "24c7d2a8-63cc-56dc-8b8e-a584bdcec720",
+        "prompt": "Mitä aineita pidetään tärkeinä?",
+        "options": [
+          "Historia ja maantieto",
+          "Äidinkieli ja matematiikka",
+          "Englanti ja ruotsi",
+          "Biologia ja fysiikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "efb94431-feff-5231-a786-03a7eb545603",
+        "prompt": "Mitä lapset tekevät välitunnilla?",
+        "options": [
+          "Opiskelevat",
+          "Syövät",
+          "Leikkivät ulkona",
+          "Nukkuvat"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "5fd4800b-28c0-55f8-a1fe-f855550592fa",
+        "prompt": "Mitä kouluruoasta sanotaan?",
+        "options": [
+          "Se on kallista",
+          "Se on ilmaista",
+          "Se on pahaa",
+          "Sitä saa vain harvoin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

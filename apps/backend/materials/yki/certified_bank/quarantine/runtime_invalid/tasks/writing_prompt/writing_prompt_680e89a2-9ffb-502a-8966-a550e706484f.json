@@ -1,0 +1,37 @@
+{
+  "id": "680e89a2-9ffb-502a-8966-a550e706484f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: call center. Purpose: justify an opinion. Constraint: offer a concrete solution.",
+    "materials": {
+      "scenario": "consumer_rights in call_center"
+    },
+    "items": [
+      {
+        "id": "35c48290-641a-57c7-a9e9-3c9328a37877",
+        "prompt": "Write for the receiver in this scenario: call center. Purpose: justify an opinion. Constraint: offer a concrete solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "3c121821-d9ff-5f18-aa8a-f440a022da4a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu naapurin kanssa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Nainen: Hei naapuri! Tarvitsisin apua.\nMies: Kerro vain.\nNainen: Olen lähdössä viikonlopuksi matkalle. Voitko käydä kastelemassa kukat?\nMies: Totta kai. Milloin lähdet?\nNainen: Perjantaina aamulla ja tulen sunnuntaina illalla.\nMies: Hoidan kukat. Missä avain on?\nNainen: Jätän sen postilaatikkoon. Kiitos paljon!\nMies: Ei mitään. Hyvää matkaa!",
+      "audio_asset_id": "d0fc4fab-c3fe-4568-b7fb-95b50a396f4e"
+    },
+    "questions": [
+      {
+        "id": "7ef86188-eb57-50b3-81ae-f164845ed401",
+        "prompt": "Mitä apua nainen tarvitsee?",
+        "options": [
+          "Postin hakemista",
+          "Kukkien kastelua",
+          "Kissan ruokkimista",
+          "Auton lämmitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "459d36e9-919b-564a-b929-6c5321fa60eb",
+        "prompt": "Milloin nainen lähtee matkalle?",
+        "options": [
+          "Torstaina",
+          "Perjantaina",
+          "Lauantaina",
+          "Sunnuntaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "31658baa-7407-5acc-b8a1-30bfeda5aebb",
+        "prompt": "Mihin nainen jättää avaimen?",
+        "options": [
+          "Maton alle",
+          "Postilaatikkoon",
+          "Naapurille",
+          "Kukkaruukkuun"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

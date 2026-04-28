@@ -1,0 +1,73 @@
+{
+  "id": "04f037d1-255c-5fa7-afe1-d3ed8af8b1ac",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue taloyhtiön tiedote piharemontista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIEDOTE: TALOYHTIÖN PIHAREMONTTI\n\nHyvät asukkaat,\n\ntaloyhtiössämme alkaa piharemontti 1.10.2024. Remontin arvioidaan kestävän noin 6 viikkoa. Tässä tärkeimmät tiedot:\n\nRemontin aikana:\n- Piha-alue on kokonaan työmaakäytössä, eikä siellä voi oleskella.\n- Pyörätelineet eivät ole käytössä. Polkupyörät voi väliaikaisesti sijoittaa pihalla olevaan varastoon.\n- Jätekatokselle on kulku koko remontin ajan.\n- Pesutupa ja sauna toimivat normaalisti.\n\nTyöaika:\nRemonttityöt tehdään arkisin kello 8–16. Koneellista työtä saatetaan tehdä myös lauantaisin. Pahoittelemme melusta aiheutuvaa haittaa.\n\nRemontin jälkeen:\n- Pihalle tulee uusia istutuksia ja penkkejä.\n- Lasten leikkipaikka uusitaan.\n- Pyörätelineitä lisätään.\n\nLisätietoja antaa isännöitsijä, puh. 123 4567.\n\nYstävällisin terveisin,\nTaloyhtiön hallitus",
+      "word_count": 96
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin piharemontti alkaa?",
+        "options": [
+          "1.9.",
+          "1.10.",
+          "15.10."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Kuinka kauan remontin arvioidaan kestävän?",
+        "options": [
+          "4 viikkoa",
+          "6 viikkoa",
+          "8 viikkoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mihin aikaan remonttityöt tehdään arkisin?",
+        "options": [
+          "kello 7–15",
+          "kello 8–16",
+          "kello 9–17"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä pihalle tulee remontin jälkeen?",
+        "options": [
+          "uusia istutuksia ja penkkejä",
+          "uusi parkkipaikka",
+          "uusi sauna"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

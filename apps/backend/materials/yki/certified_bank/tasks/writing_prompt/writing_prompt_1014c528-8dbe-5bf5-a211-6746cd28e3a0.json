@@ -1,0 +1,37 @@
+{
+  "id": "1014c528-8dbe-5bf5-a211-6746cd28e3a0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.667,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa kampaajana. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Kampaaja"
+    },
+    "items": [
+      {
+        "id": "c42af5d4-367d-54e0-af42-bd590f1583ca",
+        "prompt": "Haet työpaikkaa kampaajana. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa kampaajana. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

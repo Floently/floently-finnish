@@ -1,0 +1,73 @@
+{
+  "id": "4d011e89-4c77-5129-8f28-223595310c93",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÖYTYNYT POLKUPYÖRÄ\n\nPunainen lasten polkupyörä, jossa on apupyörät ja punainen kori.\n\nLöytyi 15.7. koulun pihalta.\n\nNouto koulun kansliasta.\n\nMukaan tarvitaan henkilöllisyystodistus.",
+      "word_count": 21
+    },
+    "questions": [
+      {
+        "id": "item_005_1",
+        "prompt": "Minkä värinen löytynyt polkupyörä on?",
+        "options": [
+          "sininen",
+          "punainen",
+          "keltainen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_005_2",
+        "prompt": "Mitä erikoista pyörässä on?",
+        "options": [
+          "vaihteet",
+          "apupyörät ja kori",
+          "valot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_005_3",
+        "prompt": "Mistä pyörä löytyi?",
+        "options": [
+          "puistosta",
+          "koulun pihalta",
+          "uimahallilta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_005_4",
+        "prompt": "Mistä pyörän voi noutaa?",
+        "options": [
+          "poliisilta",
+          "koulun kansliasta",
+          "kaupungintalolta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

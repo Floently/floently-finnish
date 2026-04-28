@@ -1,0 +1,77 @@
+{
+  "id": "6ef102e1-9c76-510d-b5f1-92bc7ea522a7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "LINJA-AUTOASEMAN LIPUT\n\nKertalippu (voimassa 2 tuntia):\naikuinen 3,20 €\nlapsi 7–16 v 1,60 €\n\nKausilippu 30 päivää:\naikuinen 55 €\nlapsi 7–16 v 27,50 €\n\nOpiskelija (voimassa oleva opiskelijakortti):\nkertalippu 2,10 €\nkausilippu 40 €\n\nLiput myydään linja-autoasemalla ja bussissa (käteinen tai kortti).  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 59
+    },
+    "questions": [
+      {
+        "id": "03c06518-d58c-5d50-bf46-ca6f1224c974",
+        "prompt": "Paljonko maksaa aikuisen kertalippu?",
+        "options": [
+          "2,10 €",
+          "3,20 €",
+          "4,50 €",
+          "5,00 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6198c069-6d77-5dff-b5fc-87d868ef5752",
+        "prompt": "Kuinka pitkään kertalippu on voimassa?",
+        "options": [
+          "1 tunti",
+          "2 tuntia",
+          "koko päivän",
+          "viikon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f182ccb1-ca9e-53b5-8052-a76ec22c66b3",
+        "prompt": "Paljonko maksaa opiskelijan kausilippu?",
+        "options": [
+          "27,50 €",
+          "40 €",
+          "55 €",
+          "60 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f454cc47-1e0b-54b3-b642-e58f83d905eb",
+        "prompt": "Voiko lipun ostaa bussista?",
+        "options": [
+          "Ei, vain asemalta",
+          "Kyllä, käteisellä tai kortilla",
+          "Vain verkosta",
+          "Vain etukäteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

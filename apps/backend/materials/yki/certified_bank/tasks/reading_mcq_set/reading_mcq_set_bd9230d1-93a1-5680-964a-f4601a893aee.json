@@ -1,0 +1,88 @@
+{
+  "id": "bd9230d1-93a1-5680-964a-f4601a893aee",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti. Valitse jokaiseen kysymykseen yksi vaihtoehto.",
+    "materials": {
+      "text": "Moni ajattelee, että asia on yksinkertainen, mutta käytännössä se on mutkikkaampi. Helsingissässä järjestötoiminta näkyy erityisesti siinä, miten ihmiset sopivat yhteisistä pelisäännöistä. Tekstissä ei ole kyse suurista periaatteista, vaan siitä, kuka tekee mitä ja milloin.\n\nMeillä sovittiin esimerkiksi, että viesteihin vastataan pääosin työajalla. Se vähensi kiireen tunnetta, mutta vaati myös sen, että asiat kirjataan selkeästi. Jos ohjeet ovat epämääräisiä, joku tekee saman työn kahdesti ja toinen jää odottamaan. Tällöin ärsytys kasvaa helposti, vaikka kukaan ei tarkoita pahaa.\n\nToinen muutos liittyi palautteeseen. Aiemmin palaute annettiin vain, kun jokin meni pieleen. Nyt jokaisessa viikkopalaverissa nostetaan esiin yksi asia, joka sujui hyvin, ja yksi asia, jota voi kokeilla toisin. Tämä ei vie paljon aikaa, mutta se auttaa näkemään syyt ja seuraukset paremmin.\n\nKaikki eivät silti pidä tällaisesta tavasta. Osa kokee, että asioista puhutaan liikaa. Minusta tärkeintä on, että sovitut käytännöt ovat näkyvissä ja niitä voi muuttaa, jos ne eivät toimi. Muuten arki alkaa ohjata ihmisiä huomaamatta väärään suuntaan.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 182
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä tekstissä puhutaan eniten?",
+        "options": [
+          "Urheilutuloksista",
+          "Yhteisistä pelisäännöistä arjessa",
+          "Sään vaihtelusta",
+          "Lomamatkoista"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä oli sopimus viesteihin vastaamisesta?",
+        "options": [
+          "Vain viikonloppuna",
+          "Aina heti yölläkin",
+          "Pääosin työajalla",
+          "Vain kerran viikossa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi epämääräiset ohjeet ovat ongelma?",
+        "options": [
+          "Ne lyhentävät kokouksia",
+          "Ne vähentävät viestejä",
+          "Ne parantavat laatua",
+          "Työtä tehdään päällekkäin tai jää odottamaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten palautetta annetaan nyt?",
+        "options": [
+          "Viikkopalaverissa yksi hyvä ja yksi kehityskohde",
+          "Vain kun joku pyytää",
+          "Ainoastaan sähköpostilla",
+          "Vain kirjallisena kerran vuodessa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on kirjoittajan tärkein ajatus lopussa?",
+        "options": [
+          "Käytännöt pitää näkyä ja niitä voi muuttaa",
+          "Kaikkien pitää ajatella samoin",
+          "Sääntöjä ei tarvita",
+          "Palautetta ei saa antaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

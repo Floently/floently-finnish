@@ -1,0 +1,40 @@
+{
+  "id": "767b50d6-ba5f-5ab8-8507-3c6bbe944489",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vastaa haastattelijan kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "b9446eaa-7d74-5bf7-b23b-6979fd929d54",
+        "ai_first_turn_fi": "Oletko matkustanut paljon? Mihin maihin olet matkustanut?"
+      }
+    ],
+    "rubric": "Vastaa haastattelijan kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

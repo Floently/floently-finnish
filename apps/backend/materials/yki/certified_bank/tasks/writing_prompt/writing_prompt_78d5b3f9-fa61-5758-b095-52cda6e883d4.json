@@ -1,0 +1,37 @@
+{
+  "id": "78d5b3f9-fa61-5758-b095-52cda6e883d4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen arviointijärjestelmää uudistaa vähemmän stressaavaksi?'. Pohdi numeroarviointia, sanallista arviointia ja oppilaiden hyvinvointia.",
+    "materials": {
+      "scenario": "Koulujen arviointijärjestelmä"
+    },
+    "items": [
+      {
+        "id": "81b12fb8-f3e7-57c8-b4b5-c8ef5e013309",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen arviointijärjestelmää uudistaa vähemmän stressaavaksi?'. Pohdi numeroarviointia, sanallista arviointia ja oppilaiden hyvinvointia."
+      }
+    ],
+    "rubric": "Numeroarviointi\nSanallinen arviointi\nOppilaiden hyvinvointi\nOppimisen tukeminen",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

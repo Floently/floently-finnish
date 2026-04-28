@@ -1,0 +1,63 @@
+{
+  "id": "34afa726-7fc6-5b04-906d-4902f3d1c29b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kiertotaloudessa materiaalit pysyvät kierrossa mahdollisimman pitkään. Tuotteet suunnitellaan niin, että ne voidaan korjata, päivittää tai kierrättää.\n\nEsimerkiksi elektroniikkavalmistajat suunnittelevat puhelimia, joiden akun voi vaihtaa. Vaateteollisuudessa suositaan kierrätysmateriaaleja.\n\nKiertotaloudella on myös taloudellisia vaikutuksia. Se voi luoda uusia työpaikkoja korjaus- ja kierrätysaloille.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "item_144_1",
+        "prompt": "Mitä kiertotaloudessa tavoitellaan?",
+        "options": [
+          "että materiaalit pysyvät kierrossa",
+          "että kaikki tuotteet ovat kertakäyttöisiä",
+          "että tuotteet ovat mahdollisimman halpoja"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_144_2",
+        "prompt": "Miten elektroniikkateollisuus voi edistää kiertotaloutta?",
+        "options": [
+          "tekemällä puhelimista halvempia",
+          "suunnittelemalla puhelimia, joiden akun voi vaihtaa",
+          "vaihtamalla mallia joka vuosi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_144_3",
+        "prompt": "Mitä taloudellisia vaikutuksia kiertotaloudella voi olla?",
+        "options": [
+          "se vähentää työpaikkoja",
+          "se voi luoda uusia työpaikkoja",
+          "se tekee kaikesta halvempaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

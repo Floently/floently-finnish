@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    env_file:
+      - apps/backend/.env
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      FLOENTLY_ENV: ${FLOENTLY_ENV:-development}
+      FLOENTLY_DEV_MODE: ${FLOENTLY_DEV_MODE:-true}
+    volumes:
+      - ${GOOGLE_KEYS_DIR:-./ops/keys}:/keys:ro
+    ports:
+      - '8000:8000'
+  client:
+    image: node:20
+    working_dir: /workspace/apps/client
+    command: bash -lc "cd /workspace && npm install && cd apps/client && npx expo start --web --non-interactive"
+    volumes:
+      - .:/workspace
+    ports:
+      - '8081:8081'
+      - '19006:19006'
+    depends_on:
+      - backend

@@ -1,0 +1,40 @@
+{
+  "id": "3aad0763-aee4-5175-8311-d65f42827209",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.285,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you think about Finnish nature. What can you see and do there?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "f1f7dd0d-92ab-5161-a7b9-6ea7ec6c6f2e",
+        "ai_first_turn_fi": "Mitä tykkäät Suomen luonnosta? Onko se erilaista kuin kotimaassasi?"
+      }
+    ],
+    "rubric": "Tell what you think about Finnish nature. What can you see and do there?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

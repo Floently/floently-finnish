@@ -1,0 +1,37 @@
+{
+  "id": "7ad608c8-3aab-59ea-bfbe-8e19a7b32b88",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kaupungin kaavoitusarkkitehdille. Olette asukasyhdistyksen edustajia ja haluatte jättää muistutuksen uudesta asemakaavaluonnoksesta. Tuokaa esiin huolenne liikenteen lisääntymisestä, viheralueiden vähenemisestä ja pyytäkää perusteluja suunnitelmalle.",
+    "materials": {
+      "scenario": "Muistutus asemakaavaluonnoksesta"
+    },
+    "items": [
+      {
+        "id": "7fe4a264-517b-59db-a5f8-79fd90ee08d8",
+        "prompt": "Kirjoita virallinen sähköposti kaupungin kaavoitusarkkitehdille. Olette asukasyhdistyksen edustajia ja haluatte jättää muistutuksen uudesta asemakaavaluonnoksesta. Tuokaa esiin huolenne liikenteen lisääntymisestä, viheralueiden vähenemisestä ja pyytäkää perusteluja suunnitelmalle."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

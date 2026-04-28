@@ -1,0 +1,66 @@
+{
+  "id": "aa786616-c259-5b3d-8cd5-173dd64c57f9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa suomen kielen luennosta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvää huomenta. Tänään puhumme suomen kielen murteista ja niiden nykytilasta. Suomen kieli jakautuu kahteen päämurreryhmään: itämurteisiin ja länsimurteisiin. Rajalinja kulkee suunnilleen Kouvolan, Jyväskylän ja Oulun kautta.\n\nIdässä puhutaan savolaismurteita ja kaakkoismurteita, lännessä taas hämäläis-, varsinaissuomalais-, pohjalais- ja peräpohjalaismurteita. Murteet eroavat toisistaan ääntämyksessä, sanastossa ja joskus myös kieliopissa.\n\nEsimerkiksi lännessä sanotaan 'mä' ja 'sä', idässä useammin 'mie' ja 'sie'. Lounaismurteissa sanotaan 'tualle' ja 'tualta', kun yleiskielessä käytetään muotoja 'tuolle' ja 'tuolta'.\n\nNykyään murteet ovat tasoittuneet, ja suurin osa suomalaisista puhuu jonkinlaista yleispuhekieltä. Tämä johtuu muun muassa kaupungistumisesta, ihmisten liikkuvuudesta ja median vaikutuksesta.\n\nKuitenkin monet pitävät omaa murrettaan tärkeänä identiteetin osana. Tutkimusten mukaan murteet ovat säilyneet parhaiten maaseudulla ja vanhemmassa väestössä. Nuoret saattavat käyttää murretta kotona, mutta siirtyä yleiskieleen esimerkiksi työelämässä.\n\nMurre on myös voimavara – se voi luoda yhteisöllisyyttä ja auttaa erottautumaan. Monilla paikkakunnilla murretta jopa vaalitaan tietoisesti.",
+      "audio_asset_id": "c877dec5-671d-4878-b18c-de10756f3649"
+    },
+    "questions": [
+      {
+        "id": "e685c4b6-250a-5dc9-9644-cbf38b3c9cfa",
+        "prompt": "Mihin kahteen pääryhmään suomen murteet jakautuvat?",
+        "options": [
+          "Pohjois- ja etelämurteisiin",
+          "Itä- ja länsimurteisiin",
+          "Kaupunki- ja maaseutumurteisiin",
+          "Nuoriso- ja vanhusmurteisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fb94f5b4-4ae4-5912-9873-651ce3e756b6",
+        "prompt": "Miten sanotaan 'sinä' idässä?",
+        "options": [
+          "sä",
+          "sie",
+          "sää",
+          "sinä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4b14cb39-fefd-5d9f-b3b5-a99c9b97fa43",
+        "prompt": "Missä murteet ovat säilyneet parhaiten?",
+        "options": [
+          "Pääkaupunkiseudulla",
+          "Maaseudulla ja vanhemmassa väestössä",
+          "Nuorten keskuudessa",
+          "Kouluissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

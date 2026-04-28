@@ -1,0 +1,88 @@
+{
+  "id": "ae16d28f-a58c-5b68-8005-c1a0c2cc78f0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kirjaston tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tämä on tiedote pääkirjastosta. Kirjasto on lauantaina 8. kesäkuuta suljettu kello 15 alkaen henkilökunnan koulutustilaisuuden vuoksi. Lauantaina erääntyvät lainat siirtyvät maanantaille. Palautusluukku on käytössä normaalisti. Pahoittelemme häiriötä.",
+      "audio_asset_id": "a9b0c1d2-e3f4-5a6b-7c8d-9e0f1a2b3c4d"
+    },
+    "questions": [
+      {
+        "id": "l214q1",
+        "prompt": "Minä päivänä kirjasto sulkeutuu poikkeuksellisesti?",
+        "options": [
+          "Perjantaina 7. kesäkuuta.",
+          "Lauantaina 8. kesäkuuta.",
+          "Sunnuntaina 9. kesäkuuta.",
+          "Maanantaina 10. kesäkuuta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l214q2",
+        "prompt": "Mihin aikaan kirjasto sulkeutuu?",
+        "options": [
+          "Kello 13.",
+          "Kello 14.",
+          "Kello 15.",
+          "Kello 16."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l214q3",
+        "prompt": "Miksi kirjasto sulkeutuu aikaisemmin?",
+        "options": [
+          "Remontin vuoksi.",
+          "Henkilökunnan koulutustilaisuuden vuoksi.",
+          "Juhlapyhän vuoksi.",
+          "Sähkökatkon vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l214q4",
+        "prompt": "Mitä lauantaina erääntyville lainoille tapahtuu?",
+        "options": [
+          "Ne pitää palauttaa jo perjantaina.",
+          "Ne siirtyvät maanantaille.",
+          "Niistä tulee sakkomaksu.",
+          "Ne pitää uusia verkossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l214q5",
+        "prompt": "Mikä palvelu on käytössä normaalisti sulun aikana?",
+        "options": [
+          "Lastenosasto.",
+          "Palautusluukku.",
+          "Lukusali.",
+          "Kahvio."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

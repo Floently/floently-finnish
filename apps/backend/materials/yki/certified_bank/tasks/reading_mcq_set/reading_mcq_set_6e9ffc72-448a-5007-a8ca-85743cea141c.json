@@ -1,0 +1,73 @@
+{
+  "id": "6e9ffc72-448a-5007-a8ca-85743cea141c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue urheiluseuran tiedote uusista ryhmistä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMASEURA DELFIINI – UUDET RYHMÄT KEVÄÄLLÄ 2025\n\nHyvät jäsenet ja uimisesta kiinnostuneet!\n\nUimaseura Delfiini aloittaa keväällä uusia uintiryhmiä kaikenikäisille. Tässä tärkeimmät tiedot:\n\nKoululaisryhmät (7–12 v.):\nMaanantaisin kello 16–17 (alkeet) ja 17–18 (jatko). Näissä ryhmissä opetellaan uinnin perusteita tai parannetaan tekniikkaa. Ryhmät kokoontuvat koulujen lukukausien ajan.\n\nNuorten ryhmät (13–17 v.):\nKeskiviikkoisin kello 18–19.30. Tässä ryhmässä keskitytään kestävyysuintiin ja tekniikan hiomiseen. Ryhmä on tarkoitettu nuorille, jotka osaavat jo uida.\n\nAikuisten ryhmät:\nTiistaisin kello 19–20 (tekniikkaryhmä) ja torstaisin kello 19–20 (kuntouintiryhmä). Aikuisten ryhmät sopivat kaikentasoisille uimareille.\n\nHinnat:\nKausimaksu (kevätkausi) 150 €, puolikas kausi 85 €. Hinta sisältää ohjauksen ja allasmaksut.\n\nIlmoittautuminen:\nIlmoittautuminen alkaa 1.12. osoitteessa www.uimaseuradelfiini.fi. Paikkoja on rajoitetusti, joten kannattaa olla ajoissa liikkeellä.\n\nLisätietoja: toimisto@uimaseuradelfiini.fi tai puh. 123 4567.\n\nTervetuloa uimaan!",
+      "word_count": 119
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä koululaisten jatkoryhmä kokoontuu?",
+        "options": [
+          "maanantaina kello 16–17",
+          "maanantaina kello 17–18",
+          "keskiviikkona kello 18–19.30"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko koko kausi maksaa?",
+        "options": [
+          "85 €",
+          "150 €",
+          "200 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Milloin ilmoittautuminen alkaa?",
+        "options": [
+          "1.11.",
+          "1.12.",
+          "1.1."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä tehdään aikuisten kuntouintiryhmässä?",
+        "options": [
+          "opetellaan uimaan",
+          "keskitytään kestävyysuintiin",
+          "hiotaan tekniikkaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

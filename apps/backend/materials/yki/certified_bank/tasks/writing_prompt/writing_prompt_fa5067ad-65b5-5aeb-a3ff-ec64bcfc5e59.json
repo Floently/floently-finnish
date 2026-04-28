@@ -1,0 +1,37 @@
+{
+  "id": "fa5067ad-65b5-5aeb-a3ff-ec64bcfc5e59",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lähimetsiä säilyttää rakentamisen sijaan. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lähimetsien säilyttäminen"
+    },
+    "items": [
+      {
+        "id": "f480d1b5-5ae1-5517-92e8-632c3216703b",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lähimetsiä säilyttää rakentamisen sijaan. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

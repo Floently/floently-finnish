@@ -1,0 +1,40 @@
+{
+  "id": "169561a8-8a2b-5e09-a6ee-c7b480bbe721",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "materials": {
+      "roles": {
+        "user": "Sinä",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "10fb3630-624d-55d1-a109-89aefed7d85b",
+        "ai_first_turn_fi": "Haastattelija: Kerro esimerkki tilanteesta, jossa kohtasit haastavan ongelman ja miten ratkaisit sen."
+      }
+    ],
+    "rubric": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

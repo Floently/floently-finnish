@@ -1,0 +1,37 @@
+{
+  "id": "bbd7d1d0-5ff5-57de-96d4-f7dd2a0d494a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työpaikan lähiesimiehelle.",
+    "materials": {
+      "scenario": "Ilmoita sairauspoissaolosta"
+    },
+    "items": [
+      {
+        "id": "ab13a2cb-1088-554c-b5e3-72a7ee3c51f0",
+        "prompt": "Kirjoita sähköposti työpaikan lähiesimiehelle."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti työpaikan lähiesimiehelle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

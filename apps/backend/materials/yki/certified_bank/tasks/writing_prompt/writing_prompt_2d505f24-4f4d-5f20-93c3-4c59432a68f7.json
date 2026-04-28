@@ -1,0 +1,37 @@
+{
+  "id": "2d505f24-4f4d-5f20-93c3-4c59432a68f7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.683,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a president of the Supreme Court position. Tell about your experience as a judge, legal expertise, and court leadership. Also describe how you have developed case law and promoted the principles of the rule of law. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus korkeimman oikeuden presidentin tehtävään"
+    },
+    "items": [
+      {
+        "id": "2f676991-f8b5-5088-9ceb-2e3f0660a8c8",
+        "prompt": "Write a job application. You are applying for a president of the Supreme Court position. Tell about your experience as a judge, legal expertise, and court leadership. Also describe how you have developed case law and promoted the principles of the rule of law. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a president of the Supreme Court position. Tell about your experience as a judge, legal expertise, and court leadership. Also describe how you have developed case law and promoted the principles of the rule of law. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

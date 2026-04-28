@@ -1,0 +1,37 @@
+{
+  "id": "7c47e7ac-8d94-5e43-aa8a-49540eda1761",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet noutamassa ruokaa ravintolasta. Kirjoita viesti, jossa tilaat yhden pizzan ja yhden salaatin. Kerro mitä haluat pizzan täytteeksi.",
+    "materials": {
+      "scenario": "Olet noutamassa ruokaa ravintolasta. Kirjoita viesti, jossa tilaat yhden pizzan ja yhden salaatin. Kerro mitä haluat pizzan täytteeksi."
+    },
+    "items": [
+      {
+        "id": "64798e65-2450-5bba-8498-21fe4eb47fb2",
+        "prompt": "Kirjoita 4–5 lausetta. Kerro nimesi ja noutoaika."
+      }
+    ],
+    "rubric": "Kirjoita 4–5 lausetta. Kerro nimesi ja noutoaika.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

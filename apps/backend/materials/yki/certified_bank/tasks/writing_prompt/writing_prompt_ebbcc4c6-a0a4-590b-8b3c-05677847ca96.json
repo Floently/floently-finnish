@@ -1,0 +1,37 @@
+{
+  "id": "ebbcc4c6-a0a4-590b-8b3c-05677847ca96",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lapsiperheiden kotipalvelua lisätä ja laajentaa?'. Pohdi vanhempien jaksamista, ennaltaehkäisyä ja kustannuksia.",
+    "materials": {
+      "scenario": "Lapsiperheiden kotipalvelu"
+    },
+    "items": [
+      {
+        "id": "b89a971a-e103-53dd-adcd-af8fa092a63c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lapsiperheiden kotipalvelua lisätä ja laajentaa?'. Pohdi vanhempien jaksamista, ennaltaehkäisyä ja kustannuksia."
+      }
+    ],
+    "rubric": "Vanhempien jaksaminen\nEnnaltaehkäisy\nKustannukset\nLasten hyvinvointi",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

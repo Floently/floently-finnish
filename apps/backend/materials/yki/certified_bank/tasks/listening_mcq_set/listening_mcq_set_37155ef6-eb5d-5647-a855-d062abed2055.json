@@ -1,0 +1,88 @@
+{
+  "id": "37155ef6-eb5d-5647-a855-d062abed2055",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.297,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Tervetuloa bussiin 35. Tämä bussi menee keskustaan. Seuraava pysäkki on tori. Matkan hinta on 2,70 euroa. Muistakaa ottaa lippu.",
+      "audio_asset_id": "13c1dbff-a66a-43fe-b6df-5953cdaa8cc1"
+    },
+    "questions": [
+      {
+        "id": "1bfab8be-aae2-5582-999c-1f7806192950",
+        "prompt": "Mikä on bussin numero?",
+        "options": [
+          "34.",
+          "36.",
+          "37.",
+          "35."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "406fa277-a654-52fd-b7e3-de3a8c512848",
+        "prompt": "Minne bussi menee?",
+        "options": [
+          "Keskustaan.",
+          "Yliopistolle.",
+          "Rautatieasemalle.",
+          "Lentokentälle."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a2a896b0-097f-5195-911b-3a794d4c4266",
+        "prompt": "Mikä on seuraava pysäkki?",
+        "options": [
+          "Kauppatori.",
+          "Linja-autoasema.",
+          "Tori.",
+          "Prisma."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ab051369-86e2-55db-8fbd-998e306c395c",
+        "prompt": "Paljonko matka maksaa?",
+        "options": [
+          "2,50 euroa.",
+          "3,00 euroa.",
+          "3,20 euroa.",
+          "2,70 euroa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "9526853e-4681-5590-9a36-7a7f4c45b5b6",
+        "prompt": "Mitä matkustajan pitää muistaa?",
+        "options": [
+          "Mennä ulos etuovesta.",
+          "Ottaa lippu.",
+          "Kiittää kuskia.",
+          "Soittaa kelloa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

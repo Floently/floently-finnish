@@ -1,0 +1,40 @@
+{
+  "id": "258c463d-ee40-5122-a412-29fd566c4ee2",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele hammaslääkärin kanssa. Kerro hammasvaivastasi ja kysy hoidosta.",
+    "materials": {
+      "roles": {
+        "user": "hammaslääkärin vastaanotolla",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "01a4f9d0-ea17-5c19-bf77-66655bb8cba9",
+        "ai_first_turn_fi": "Päivää, ole hyvä ja istu. Kerro nyt, mikä hammasta vaivaa?"
+      }
+    ],
+    "rubric": "Keskustele hammaslääkärin kanssa. Kerro hammasvaivastasi ja kysy hoidosta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

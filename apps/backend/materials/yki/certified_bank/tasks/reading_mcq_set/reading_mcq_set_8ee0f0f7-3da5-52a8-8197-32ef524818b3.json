@@ -1,0 +1,66 @@
+{
+  "id": "8ee0f0f7-3da5-52a8-8197-32ef524818b3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Aihe: Projektipalaveri\n\nHei!\n\nHuomisen projektipalaveri on siirretty klo 14:sta klo 15:een. Palaveri on Teamsissa. Linkki on sama kuin viimeksi. Muistathan lukea materiaalit etukäteen. Ne ovat projektikansiossa.\n\nTerveisin,\nMikko",
+      "word_count": 28
+    },
+    "questions": [
+      {
+        "id": "cb793731-cdfd-570c-b443-040c69124187",
+        "prompt": "Mihin aikaan palaveri on huomenna?",
+        "options": [
+          "klo 13",
+          "klo 14",
+          "klo 15",
+          "klo 16"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f2ecd30e-204b-5700-a843-56420dcb69f4",
+        "prompt": "Missä palaveri pidetään?",
+        "options": [
+          "Kokoushuoneessa",
+          "Teamsissa",
+          "Kahvilassa",
+          "Puhelimessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8c08ae58-af34-5cf6-bbe1-d9bf3cccf002",
+        "prompt": "Mitä pitää tehdä ennen palaveria?",
+        "options": [
+          "Soittaa Mikolle",
+          "Lukea materiaalit",
+          "Varata kokoushuone",
+          "Lähettää raportti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

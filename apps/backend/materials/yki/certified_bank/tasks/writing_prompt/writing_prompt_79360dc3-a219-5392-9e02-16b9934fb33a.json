@@ -1,0 +1,37 @@
+{
+  "id": "79360dc3-a219-5392-9e02-16b9934fb33a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.68,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a lawyer position in a law firm. Tell about your education, areas of expertise, and previous experience in legal expert positions. Also describe how you solve complex legal problems and how you serve clients. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus juristin tehtävään"
+    },
+    "items": [
+      {
+        "id": "3d9cbb68-9efb-5845-8e6e-33a80c739967",
+        "prompt": "Write a job application. You are applying for a lawyer position in a law firm. Tell about your education, areas of expertise, and previous experience in legal expert positions. Also describe how you solve complex legal problems and how you serve clients. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a lawyer position in a law firm. Tell about your education, areas of expertise, and previous experience in legal expert positions. Also describe how you solve complex legal problems and how you serve clients. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

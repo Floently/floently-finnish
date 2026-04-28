@@ -1,0 +1,37 @@
+{
+  "id": "c2796129-8dcb-5303-b882-15ee7c6994bf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute naapuruston siisteydestä. Onko roskat viety? Onko pihat siistejä?",
+    "materials": {
+      "scenario": "Palaute naapuruston siisteydestä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute naapuruston siisteydestä. Onko roskat viety? Onko pihat siistejä?"
+      }
+    ],
+    "rubric": "Kirjoita palaute naapuruston siisteydestä. Onko roskat viety? Onko pihat siistejä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

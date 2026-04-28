@@ -1,0 +1,66 @@
+{
+  "id": "de36528c-cf57-5861-af43-5b7e98c04838",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.503,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu asunnon vuokrauksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, soitin siitä asunnosta, joka on vuokrattavana.\nB: Joo, kerro lisää.\nA: Se on kaksio, 45 neliötä. Vuokra on 950 euroa kuukaudessa, sisältää veden.\nB: Aika kallis. Onko siinä parveketta?\nA: On, lasitettu parveke. Ja hyvä kunto, just remontoitu keittiö.\nB: Kuulostaa hyvältä. Milloin voisi päästä katsomaan?\nA: Vuokranantaja sanoi, että näyttö on torstaina kello 17. Sinne voi mennä suoraan paikalle.\nB: Osoite?\nA: Mannerheimintie 123 B 25. Pitääkö tehdä jotain muuta?\nB: Kannattaa ottaa mukaan tulo- ja työtodistukset, jos haluat tehdä hakemuksen.\nA: Selvä, kiitos!",
+      "audio_asset_id": "1e15a39a-2ba4-51eb-9207-9099a1b3a532"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkälainen asunto on kyseessä?",
+        "options": [
+          "Yksiö, 35 neliötä",
+          "Kaksio, 45 neliötä",
+          "Kolmiö, 55 neliötä",
+          "Omakotitalo"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko vuokra on?",
+        "options": [
+          "850 €/kk",
+          "900 €/kk",
+          "950 €/kk",
+          "1000 €/kk"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin asuntoa pääsee katsomaan?",
+        "options": [
+          "Tiistaina kello 17",
+          "Keskiviikkona kello 17",
+          "Torstaina kello 17",
+          "Perjantaina kello 17"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

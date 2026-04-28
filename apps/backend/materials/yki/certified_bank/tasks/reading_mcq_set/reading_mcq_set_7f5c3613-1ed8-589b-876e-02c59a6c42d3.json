@@ -1,0 +1,73 @@
+{
+  "id": "7f5c3613-1ed8-589b-876e-02c59a6c42d3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "PYSÄKÖINTIVIRHEILMOITUS\n\nAjoneuvollesi (ABC-123) on annettu pysäköintivirhemaksu 5.7.2025 kello 14.30 osoitteessa Kauppakatu 10.\n\nSyy: Pysäköinti kielletty alueella.\n\nMaksu 60 euroa on maksettava viimeistään 19.7.2025.\n\nMaksuohjeet: www.pysakointi.fi/maksu\n\nJos et ole samaa mieltä, tee oikaisuvaatimus 14 päivän kuluessa.",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin pysäköintivirhemaksu annettiin?",
+        "options": [
+          "4.7.2025",
+          "5.7.2025",
+          "6.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko maksu on?",
+        "options": [
+          "50 €",
+          "60 €",
+          "70 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mihin mennessä maksu pitää maksaa?",
+        "options": [
+          "12.7.2025",
+          "19.7.2025",
+          "26.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä pitää tehdä, jos on eri mieltä?",
+        "options": [
+          "maksaa heti",
+          "tehdä oikaisuvaatimus",
+          "soittaa poliisille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

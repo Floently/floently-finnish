@@ -1,0 +1,110 @@
+{
+  "id": "fd659867-18bc-5d17-a950-817f7bbcbb52",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.762,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Viime vuosina on keskusteltu paljon siitä, miten kaupunkisuunnittelulla voidaan vaikuttaa asukkaiden hyvinvointiin ja yhdenvertaisuuteen. Perinteisesti kaupunkikehittäminen on keskittynyt teknisiin ratkaisuihin, kuten liikenneväylien rakentamiseen ja energiatehokkuuteen. Viimeaikainen tutkimus kuitenkin osoittaa, että pelkästään tekninen näkökulma ei riitä, jos samalla ei huomioida sosiaalista kestävyyttä. Tämä tarkoittaa esimerkiksi sitä, että kaikilla asukkailla olisi tosiasiallinen mahdollisuus käyttää julkisia tiloja ja palveluita iästä, toimintakyvystä tai sosioekonomisesta asemasta riippumatta. Käytännössä tämä tarkoittaa vaikkapa riittävän tiheää penkkiverkostoa ikääntyneille, esteettömiä reittejä pyörätuolin käyttäjille tai kohtuuhintaisia harrastustiloja nuorille. Kaupunkirakenteen tiivistäminen nähdään usein ekologisena tekona, mutta jos se johtaa viheralueiden vähenemiseen, seurauksena voi olla eriarvoistumista. Hyvätuloisilla on varaa hakeutua asuinalueille, joilla on säilytetty puistoja ja lähimetsiä, kun taas pienituloiset saattavat jäädä betonilähiöihin, joissa luontokokemukset ovat vähäisiä. Tällöin ympäristön laatu alkaa jakaa väestöä entistä jyrkemmin. Haasteena onkin sovittaa yhteen taloudelliset, ekologiset ja sosiaaliset tavoitteet niin, ettei mikään ryhmä joudu kohtuuttomasti muita huonompaan asemaan.",
+      "word_count": 141
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tekstin keskeinen väite kaupunkisuunnittelusta?",
+        "options": [
+          "Teknisten ratkaisujen merkitys on vähentynyt.",
+          "Sosiaalinen kestävyys on jätettävä talouden ja ekologian varjoon.",
+          "Pelkkä tekninen kehittäminen ei takaa kaupungin toimivuutta kaikille.",
+          "Viheralueet ovat tärkeämpiä kuin liikenneväylät."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan sosiaalisella kestävyydellä tekstin mukaan?",
+        "options": [
+          "Sitä, että kaupunki kasvaa mahdollisimman nopeasti.",
+          "Sitä, että kaikilla on tosiasiallinen mahdollisuus käyttää palveluita.",
+          "Sitä, että vanhat rakennukset suojellaan purkamiselta.",
+          "Sitä, että autoliikenteelle rakennetaan lisää väyliä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen riski kaupunkirakenteen tiivistämiseen voi tekstin mukaan liittyä?",
+        "options": [
+          "Se saattaa lisätä liikenteen päästöjä.",
+          "Se saattaa vähentää viihtyisiä viheralueita ja lisätä eriarvoisuutta.",
+          "Se saattaa nostaa kaikkien asuntojen hintoja samassa suhteessa.",
+          "Se saattaa heikentää joukkoliikenteen toimintaedellytyksiä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten eriarvoistuminen voi tekstin mukaan ilmetä?",
+        "options": [
+          "Hyvätuloiset muuttavat maalle ja köyhät jäävät keskustoihin.",
+          "Eri tuloryhmien asuinalueiden ympäristön laatu alkaa erota toisistaan.",
+          "Kaikki asukkaat menettävät mahdollisuutensa käyttää puistoja.",
+          "Julkiset palvelut siirtyvät kokonaan verkkoon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä haastetta tekstin lopussa kuvataan?",
+        "options": [
+          "Eri tavoitteiden yhteensovittamista siten, että lopputulos on oikeudenmukainen.",
+          "Uusien asukkaiden houkuttelua kaupunkiin.",
+          "Vanhojen teollisuusalueiden muuttamista asuinkäyttöön.",
+          "Autoliikenteen korvaamista kokonaan joukkoliikenteellä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä esimerkkejä esteettömyydestä tekstissä mainitaan?",
+        "options": [
+          "Pyöräteitä ja uusia linja-autokaistoja.",
+          "Penkkejä ikääntyneille ja reittejä pyörätuolin käyttäjille.",
+          "Hissejä ja liukuportaita metroasemille.",
+          "Äänikirjastoja ja kosketusnäyttöjä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä seuraavista on tekstin mukaan ongelma, jos viheralueet vähenevät?",
+        "options": [
+          "Ihmiset eivät pääse lenkkeilemään.",
+          "Luontokokemukset jakautuvat epätasaisesti väestön kesken.",
+          "Kesäisin kaupunki lämpenee liikaa.",
+          "Puistot täyttyvät turisteista."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

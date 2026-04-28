@@ -1,0 +1,37 @@
+{
+  "id": "64f61310-4939-55f5-9974-3521d6390832",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti TE-toimistoon. Olet työtön ja haluat tietää, voitko osallistua palkkatuettuun työhön. Kerro koulutuksesi ja työkokemuksesi. Kysy, onko tarjolla tällaisia työpaikkoja ja miten niihin haetaan.",
+    "materials": {
+      "scenario": "Tiedustelu palkkatuetusta työstä"
+    },
+    "items": [
+      {
+        "id": "6f562189-2e0a-57ce-acd0-500890f4307b",
+        "prompt": "Kirjoita sähköposti TE-toimistoon. Olet työtön ja haluat tietää, voitko osallistua palkkatuettuun työhön. Kerro koulutuksesi ja työkokemuksesi. Kysy, onko tarjolla tällaisia työpaikkoja ja miten niihin haetaan."
+      }
+    ],
+    "rubric": "Oma tausta\nKiinnostus\nHakuohjeet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

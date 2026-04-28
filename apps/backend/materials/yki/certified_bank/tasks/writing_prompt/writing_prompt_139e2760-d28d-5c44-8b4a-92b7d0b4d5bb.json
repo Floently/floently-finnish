@@ -1,0 +1,37 @@
+{
+  "id": "139e2760-d28d-5c44-8b4a-92b7d0b4d5bb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työharjoittelupaikkaan.",
+    "materials": {
+      "scenario": "Kysy harjoittelumahdollisuuksista"
+    },
+    "items": [
+      {
+        "id": "8b34848b-3f9b-547e-8781-d84e2c5c9afe",
+        "prompt": "Olet kiinnostunut työharjoittelusta yrityksessä. Kirjoita sähköposti ja kysy, onko heillä tarjota harjoittelupaikkoja. Kerro itsestäsi, opiskelualastasi ja siitä, milloin haluaisit aloittaa."
+      }
+    ],
+    "rubric": "Olet kiinnostunut työharjoittelusta yrityksessä. Kirjoita sähköposti ja kysy, onko heillä tarjota harjoittelupaikkoja. Kerro itsestäsi, opiskelualastasi ja siitä, milloin haluaisit aloittaa.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

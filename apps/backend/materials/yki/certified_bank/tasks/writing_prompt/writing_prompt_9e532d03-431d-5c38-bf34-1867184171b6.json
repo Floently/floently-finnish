@@ -1,0 +1,37 @@
+{
+  "id": "9e532d03-431d-5c38-bf34-1867184171b6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita työhakemus kesätyöhön.",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "80999313-5279-513d-bade-a8f022cfe6af",
+        "prompt": "Haet kesätyöpaikkaa kahvilasta. Kirjoita hakemus, jossa kerrot itsestäsi, koulutuksestasi ja aiemmasta työkokemuksesta. Kerro myös, miksi haluat juuri tähän työhön ja millaisia vahvuuksia sinulla on asiakaspalvelussa."
+      }
+    ],
+    "rubric": "Haet kesätyöpaikkaa kahvilasta. Kirjoita hakemus, jossa kerrot itsestäsi, koulutuksestasi ja aiemmasta työkokemuksesta. Kerro myös, miksi haluat juuri tähän työhön ja millaisia vahvuuksia sinulla on asiakaspalvelussa.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

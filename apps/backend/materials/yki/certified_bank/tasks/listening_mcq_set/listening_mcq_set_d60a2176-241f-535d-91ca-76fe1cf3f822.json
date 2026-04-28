@@ -1,0 +1,66 @@
+{
+  "id": "d60a2176-241f-535d-91ca-76fe1cf3f822",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele opintotuesta kertova tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kelan opintotuki-info. Opintotuki koostuu opintorahasta, asumislisästä ja valtion takaamasta opintolainasta. Opintoraha on 250 euroa kuukaudessa korkeakouluopiskelijalle. Asumislisä on enintään 200 euroa kuukaudessa. Opintolainaa voit saada enintään 650 euroa kuukaudessa. Opintotukea voi saada enintään 55 kuukautta. Tukeen vaikuttavat omat ja vanhempien tulot. Jos tulot ylittävät vuosittaisen tulorajan, tukea voidaan periä takaisin. Hakemuksen voit tehdä Kelan verkkopalvelussa. Käsittelyaika on noin kaksi viikkoa. Muista liittää hakemukseen opiskelutodistus.",
+      "audio_asset_id": "1d574f28-a152-54f3-8eb2-7852c565b345"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko on korkeakouluopiskelijan opintoraha kuukaudessa?",
+        "options": [
+          "200 euroa",
+          "250 euroa",
+          "300 euroa",
+          "350 euroa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka monta kuukautta enintään voi saada opintotukea?",
+        "options": [
+          "45 kuukautta",
+          "50 kuukautta",
+          "55 kuukautta",
+          "60 kuukautta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hakemukseen pitää liittää?",
+        "options": [
+          "Verotodistus",
+          "Opiskelutodistus",
+          "Passikuva",
+          "Työsopimus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

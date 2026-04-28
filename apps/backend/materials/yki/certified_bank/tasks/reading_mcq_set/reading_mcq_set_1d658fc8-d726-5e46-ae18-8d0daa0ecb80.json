@@ -1,0 +1,77 @@
+{
+  "id": "1d658fc8-d726-5e46-ae18-8d0daa0ecb80",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Biotalous on talousmalli, joka perustuu uusiutuvien luonnonvarojen kestävään käyttöön. Se kattaa muun muassa metsäteollisuuden, maatalouden, elintarviketuotannon, vesien käytön ja bioteknologian. Suomella on hyvät edellytykset biotalouden edelläkävijäksi, sillä maamme on Euroopan metsäisin maa ja meillä on runsaasti vesivaroja. Biotalous nähdään merkittävänä mahdollisuutena luoda uutta liiketoimintaa, työpaikkoja ja ratkaisuja ympäristöhaasteisiin. Se voi korvata fossiilisia raaka-aineita esimerkiksi muovin, polttoaineiden ja kemikaalien tuotannossa. Puusta voidaan valmistaa monia uusia tuotteita, kuten tekstiilejä, pakkausmateriaaleja ja lääkkeitä. Biotalouden kasvu ei kuitenkaan ole ongelmatonta. Lisääntyvä biomassan käyttö voi uhata luonnon monimuotoisuutta, jos sitä ei hallita kestävästi. Tarvitaan tarkkaa suunnittelua ja tutkimusta siitä, miten paljon biomassaa voidaan kestävästi ottaa käyttöön. Myös yhteiskunnallinen hyväksyttävyys on tärkeää: biotalouden hyötyjen on jakauduttava oikeudenmukaisesti. Biotalous on osa laajempaa siirtymää kohti kiertotaloutta ja hiilineutraalia yhteiskuntaa.",
+      "word_count": 121
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin biotalous perustuu?",
+        "options": [
+          "Fossiilisten luonnonvarojen käyttöön",
+          "Uusiutuvien luonnonvarojen kestävään käyttöön",
+          "Kertakäyttötuotteisiin",
+          "Tuontiraaka-aineisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi Suomella on hyvät edellytykset biotaloudelle?",
+        "options": [
+          "Koska meillä on paljon öljyä",
+          "Koska olemme Euroopan metsäisin maa",
+          "Koska meillä on paljon teollisuutta",
+          "Koska väkiluku on pieni"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä uusia tuotteita puusta voidaan valmistaa?",
+        "options": [
+          "Muovia ja polttoaineita",
+          "Tekstiilejä ja lääkkeitä",
+          "Elektroniikkaa ja autoja",
+          "Huonekaluja ja paperia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on biotalouden riski?",
+        "options": [
+          "Se vähentää työpaikkoja",
+          "Se voi uhata luonnon monimuotoisuutta",
+          "Se on liian kallista",
+          "Se ei kiinnosta kuluttajia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

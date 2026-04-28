@@ -1,0 +1,99 @@
+{
+  "id": "101e1d26-0373-5bd2-941f-3efbf0dc1c79",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.563,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kuluttajien tietoisuus vastuullisuudesta on lisääntynyt. Yhä useampi haluaa tietää, missä ja miten tuotteet on valmistettu. Vastuullisuus voi tarkoittaa ympäristöystävällisyyttä, eettisiä työoloja tai kotimaisuutta. Osa kuluttajista on valmis maksamaan enemmän vastuullisista tuotteista. Yritykset vastaavat tähän sertifikaateilla ja läpinäkyvällä viestinnällä. Toisaalta osa kuluttajista kokee, että valinnanvaraa on liikaa ja vastuullisuuden arviointi on vaikeaa.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on lisääntynyt kuluttajien keskuudessa?",
+        "options": [
+          "Tietämättömyys",
+          "Tietoisuus vastuullisuudesta",
+          "Kiinnostus halvimmasta hinnasta",
+          "Välinpitämättömyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä yhä useampi haluaa tietää tuotteista?",
+        "options": [
+          "Parasta ennen -päiväyksen",
+          "Missä ja miten ne on valmistettu",
+          "Vain hinnan",
+          "Vain tuotemerkin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vastuullisuus voi tarkoittaa?",
+        "options": [
+          "Vain halpaa hintaa",
+          "Ympäristöystävällisyyttä, eettisiä työoloja tai kotimaisuutta",
+          "Vain kotimaisuutta",
+          "Vain kaunista pakkausta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin osa kuluttajista on valmis?",
+        "options": [
+          "Ostamaan vain halvinta",
+          "Maksamaan enemmän vastuullisista tuotteista",
+          "Jättämään ostamatta",
+          "Matkustamaan ulkomaille ostoksille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten yritykset vastaavat kuluttajien toiveisiin?",
+        "options": [
+          "Laskemalla hintoja",
+          "Sertifikaateilla ja läpinäkyvällä viestinnällä",
+          "Piilottamalla tuotantotavat",
+          "Mainostamalla enemmän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä haasteita osa kuluttajista kokee?",
+        "options": [
+          "Valinnanvaraa on liian vähän",
+          "Valinnanvaraa on liikaa ja vastuullisuuden arviointi on vaikeaa",
+          "Tuotteet ovat aina vastuullisia",
+          "Vastuullisuus on aina kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

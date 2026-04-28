@@ -1,0 +1,88 @@
+{
+  "id": "6a8ea530-728a-564b-934d-17c1ab55e35f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele sääennuste ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Maanantaina sää on pilvistä koko maassa. Lounaassa voi sataa vähän lunta, mutta suurin osa sateesta jää itärajalle. Päivän ylin lämpötila on etelässä nollan vaiheilla ja pohjoisessa viisi astetta pakkasta. Illalla tuuli voimistuu lounaassa, ja tiistaiksi on odotettavissa lumimyräkkä. Liikenteessä kannattaa olla varovainen. Seuraava sää tiedotetaan uudestaan illalla uutisten jälkeen.",
+      "audio_asset_id": "e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b"
+    },
+    "questions": [
+      {
+        "id": "l11q1",
+        "prompt": "Millaista säätä on odotettavissa maanantaina?",
+        "options": [
+          "Aurinkoista.",
+          "Pilvistä.",
+          "Sadetta koko päivän.",
+          "Lumimyrskyä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l11q2",
+        "prompt": "Missä voi sataa vähän lunta maanantaina?",
+        "options": [
+          "Pohjoisessa.",
+          "Idässä.",
+          "Lounaassa.",
+          "Länsirannikolla."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l11q3",
+        "prompt": "Mikä on lämpötila etelässä päivällä?",
+        "options": [
+          "+5 astetta.",
+          "Nollan vaiheilla.",
+          "-5 astetta.",
+          "-10 astetta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l11q4",
+        "prompt": "Mitä tiistaiksi on odotettavissa?",
+        "options": [
+          "Aurinkoista pakkassäätä.",
+          "Lumimyräkkä.",
+          "Lämpötilan nousua.",
+          "Tyyntä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l11q5",
+        "prompt": "Milloin seuraava sää tiedotetaan?",
+        "options": [
+          "Huomenna aamulla.",
+          "Illalla uutisten jälkeen.",
+          "Tunnin päästä.",
+          "Viikonloppuna."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

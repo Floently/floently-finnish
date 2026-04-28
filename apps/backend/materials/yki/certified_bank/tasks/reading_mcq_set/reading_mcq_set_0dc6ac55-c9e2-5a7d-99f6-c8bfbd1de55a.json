@@ -1,0 +1,77 @@
+{
+  "id": "0dc6ac55-c9e2-5a7d-99f6-c8bfbd1de55a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunginkirjaston asiakastietokoneita voi käyttää enintään 60 minuuttia päivässä. Varaus tehdään palvelutiskillä kirjastokortilla. Tulostus maksaa 0,20 euroa sivulta. Alle 15-vuotias tarvitsee huoltajan luvan ensimmäisellä käyttökerralla.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka pitkään konetta saa käyttää?",
+        "options": [
+          "30 min",
+          "45 min",
+          "60 min",
+          "90 min"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten varaus tehdään?",
+        "options": [
+          "verkossa",
+          "palvelutiskillä",
+          "puhelimitse",
+          "sähköpostilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä yksi tulostettu sivu maksaa?",
+        "options": [
+          "0,10",
+          "0,20",
+          "0,50",
+          "1,00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka tarvitsee huoltajan luvan?",
+        "options": [
+          "alle 12-vuotias",
+          "alle 15-vuotias",
+          "alle 18-vuotias",
+          "kaikki"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

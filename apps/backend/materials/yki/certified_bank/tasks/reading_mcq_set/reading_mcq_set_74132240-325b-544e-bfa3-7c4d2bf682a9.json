@@ -1,0 +1,73 @@
+{
+  "id": "74132240-325b-544e-bfa3-7c4d2bf682a9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomi tarvitsee työperäistä maahanmuuttoa. Tästä tuntuu olevan laaja yksimielisyys. Väestö ikääntyy, työikäisten määrä vähenee, ja monilla aloilla on työvoimapula. Silti työperäisen maahanmuuton esteet ovat korkeat.\n\nYksi este on byrokratia. Luvat kestävät, ja prosessit ovat monimutkaisia. Työnantajat turhautuvat, ja osaajat valitsevat mieluummin toisen maan. Tarvitaan sujuvampia ja nopeampia prosesseja.\n\nToinen este on kotoutuminen. Työ ei riitä, vaan tarvitaan myös kieli, asunto ja sosiaaliset verkostot. Monet maahanmuuttajat jäävät työpaikan ulkopuolella yksin. Kotoutumispalvelut ovat usein riittämättömiä, ja kielikoulutukseen on vaikea päästä.\n\nKolmas este on asenteet. Vaikka puheissa korostetaan maahanmuuton tärkeyttä, käytännössä vastaan voi tulla ennakkoluuloja. Työpaikoilla ei välttämättä osata ottaa vastaan eri kieltä ja kulttuuria edustavaa työntekijää.\n\nMistä ratkaisu löytyy? Tarvitaan kokonaisvaltaista otetta. Byrokratiaa pitää keventää, kotoutumispalveluja vahvistaa ja asenteisiin vaikuttaa. Työperäinen maahanmuutto ei ole vain työvoimapolitiikkaa, vaan se on osa laajempaa yhteiskuntapolitiikkaa.",
+      "word_count": 130
+    },
+    "questions": [
+      {
+        "id": "item_072_1",
+        "prompt": "Miksi Suomi tarvitsee työperäistä maahanmuuttoa?",
+        "options": [
+          "väestö ikääntyy ja työikäisten määrä vähenee",
+          "maahanmuuttajat ovat halvempia",
+          "se on EU:n vaatimus"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_072_2",
+        "prompt": "Mikä on yksi työperäisen maahanmuuton este?",
+        "options": [
+          "liian vähän työpaikkoja",
+          "byrokratia ja lupien hitaus",
+          "maahanmuuttajat eivät halua tulla Suomeen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_072_3",
+        "prompt": "Mitä kotoutumiseen liittyviä ongelmia on?",
+        "options": [
+          "asuntoja on liikaa",
+          "kielikoulutukseen on vaikea päästä ja palvelut ovat riittämättömiä",
+          "maahanmuuttajat eivät halua kotoutua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_072_4",
+        "prompt": "Mitä ratkaisuja kirjoittaja ehdottaa?",
+        "options": [
+          "maahanmuuton rajoittamista",
+          "byrokratian keventämistä, kotoutumispalvelujen vahvistamista ja asenteisiin vaikuttamista",
+          "vain kielikoulutuksen lisäämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

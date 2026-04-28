@@ -1,0 +1,37 @@
+{
+  "id": "af4ab6ed-e536-5478-8501-6c57b36389e2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.47,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cafeteria. Purpose: solve a problem. Constraint: keep it concise.",
+    "materials": {
+      "scenario": "online_shopping in cafeteria"
+    },
+    "items": [
+      {
+        "id": "fd9e0c45-94f0-5a04-8b77-9c26a335c149",
+        "prompt": "Write for the receiver in this scenario: cafeteria. Purpose: solve a problem. Constraint: keep it concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "92e6386e-a530-5483-bea0-0316e80db9f8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti potilasasiamiehelle. Olet tyytymätön saamaasi hoitoon ja kohteluun terveyskeskuksessa. Kuvaile tapahtumat, kerro mitä kautta olet yrittänyt antaa palautetta ja pyydä neuvoa muistutuksen tekemiseen.",
+    "materials": {
+      "scenario": "Tyytymättömyys hoitoon"
+    },
+    "items": [
+      {
+        "id": "0b50ab9d-af79-536e-88b0-0221922d5263",
+        "prompt": "Kirjoita virallinen sähköposti potilasasiamiehelle. Olet tyytymätön saamaasi hoitoon ja kohteluun terveyskeskuksessa. Kuvaile tapahtumat, kerro mitä kautta olet yrittänyt antaa palautetta ja pyydä neuvoa muistutuksen tekemiseen."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

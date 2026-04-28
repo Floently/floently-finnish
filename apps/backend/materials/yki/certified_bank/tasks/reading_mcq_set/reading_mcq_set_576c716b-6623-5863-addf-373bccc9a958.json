@@ -1,0 +1,99 @@
+{
+  "id": "576c716b-6623-5863-addf-373bccc9a958",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Teknologian kehitys on luonut uusia työpaikkoja mutta samalla vähentänyt toisia. Automaatio ja tekoäly korvaavat rutiininomaisia tehtäviä teollisuudessa ja toimistotyössä. Toisaalta uusia ammatteja syntyy esimerkiksi datan analysoinnin ja ohjelmistokehityksen aloilla. Yhteiskunnalta vaaditaan kykyä kouluttaa ihmisiä uusiin tehtäviin ja tukea niitä, joiden työ katoaa. Muutos on nopeaa ja vaatii sopeutumista.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten teknologian kehitys on vaikuttanut työpaikkoihin?",
+        "options": [
+          "Se on lisännyt kaikkia työpaikkoja",
+          "Se on vähentänyt kaikkia työpaikkoja",
+          "Se on luonut uusia mutta vähentänyt toisia",
+          "Sillä ei ole ollut vaikutusta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä automaatio ja tekoäly korvaavat?",
+        "options": [
+          "Kaikenlaisia työtehtäviä",
+          "Rutiininomaisia tehtäviä",
+          "Vain luovaa työtä",
+          "Ihmisten välisiä suhteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millä aloilla uusia työpaikkoja syntyy?",
+        "options": [
+          "Teollisuudessa ja rakentamisessa",
+          "Maataloudessa ja kalastuksessa",
+          "Datan analysoinnissa ja ohjelmistokehityksessä",
+          "Kaupan alalla ja logistiikassa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä yhteiskunnalta vaaditaan työn murroksessa?",
+        "options": [
+          "Lisää byrokratiaa",
+          "Kykyä kouluttaa ihmisiä uusiin tehtäviin ja tukea työnsä menettäneitä",
+          "Verotuksen kiristämistä",
+          "Maahanmuuton rajoittamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millaisesta muutoksesta on kyse?",
+        "options": [
+          "Hitaasta ja helposta",
+          "Nopeasta ja sopeutumista vaativasta",
+          "Vähäpätöisestä",
+          "Täysin hallitusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Missä työpaikat vähenevät?",
+        "options": [
+          "Vain teollisuudessa",
+          "Vain toimistoissa",
+          "Teollisuudessa ja toimistotyössä",
+          "Vain kaupan alalla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

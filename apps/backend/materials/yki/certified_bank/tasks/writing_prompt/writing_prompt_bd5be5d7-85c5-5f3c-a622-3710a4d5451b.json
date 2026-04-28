@@ -1,0 +1,37 @@
+{
+  "id": "bd5be5d7-85c5-5f3c-a622-3710a4d5451b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.501,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uudelle naapurille.",
+    "materials": {
+      "scenario": "Tervetulotoivotus"
+    },
+    "items": [
+      {
+        "id": "4c416e2a-40cb-5399-be66-a7afa8bbb1b4",
+        "prompt": "Talonne on muuttanut uusi naapuri. Kirjoita sähköposti ja toivota hänet tervetulleeksi taloon. Kerro itsestäsi ja siitä, missä asut. Tarjoudu auttamaan, jos hän tarvitsee jotain."
+      }
+    ],
+    "rubric": "Talonne on muuttanut uusi naapuri. Kirjoita sähköposti ja toivota hänet tervetulleeksi taloon. Kerro itsestäsi ja siitä, missä asut. Tarjoudu auttamaan, jos hän tarvitsee jotain.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "b4263675-2792-56ad-9014-1887aacb5576",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesileijona tiedottaa, että vesijuoksuryhmät aloittavat syyskuun alussa. Ryhmiä on aloittelijoille ja edistyneille. Ilmoittautuminen alkaa 15. elokuuta verkkosivuilla. Ryhmät ovat suosittuja, joten kannattaa olla ajoissa liikkeellä.",
+      "audio_asset_id": "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a"
+    },
+    "questions": [
+      {
+        "id": "l235q1",
+        "prompt": "Mitä uimahalli tiedottaa?",
+        "options": [
+          "Remontista.",
+          "Vesijuoksuryhmien alkamisesta.",
+          "Aukioloaikojen muutoksista.",
+          "Hinnankorotuksista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l235q2",
+        "prompt": "Milloin vesijuoksuryhmät aloittavat?",
+        "options": [
+          "Elokuun alussa.",
+          "Elokuun lopussa.",
+          "Syyskuun alussa.",
+          "Syyskuun lopussa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l235q3",
+        "prompt": "Minkä tasoisia ryhmiä on?",
+        "options": [
+          "Vain aloittelijoille.",
+          "Vain edistyneille.",
+          "Aloittelijoille ja edistyneille.",
+          "Vain aikuisille."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l235q4",
+        "prompt": "Mistä alkaen ilmoittautuminen on?",
+        "options": [
+          "1. elokuuta.",
+          "10. elokuuta.",
+          "15. elokuuta.",
+          "20. elokuuta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l235q5",
+        "prompt": "Mistä ilmoittautuminen tapahtuu?",
+        "options": [
+          "Puhelimitse.",
+          "Paikan päällä.",
+          "Verkkosivuilla.",
+          "Sähköpostilla."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

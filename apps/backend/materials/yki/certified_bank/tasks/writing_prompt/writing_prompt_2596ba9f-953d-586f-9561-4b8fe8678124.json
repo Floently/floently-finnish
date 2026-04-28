@@ -1,0 +1,37 @@
+{
+  "id": "2596ba9f-953d-586f-9561-4b8fe8678124",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työpaikan esimiehelle.",
+    "materials": {
+      "scenario": "Ehdota uutta koulutusta työpaikalle"
+    },
+    "items": [
+      {
+        "id": "7b2b659e-466e-59ee-bfc2-eb6abd91b37a",
+        "prompt": "Olet kuullut hyvästä koulutuksesta, joka voisi hyödyttää koko tiimiä. Kirjoita sähköposti ja ehdota, että työnantaja järjestäisi sen. Kerro, mitä koulutus pitää sisällään ja miten se auttaisi työssänne."
+      }
+    ],
+    "rubric": "Olet kuullut hyvästä koulutuksesta, joka voisi hyödyttää koko tiimiä. Kirjoita sähköposti ja ehdota, että työnantaja järjestäisi sen. Kerro, mitä koulutus pitää sisällään ja miten se auttaisi työssänne.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

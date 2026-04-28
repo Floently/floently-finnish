@@ -1,0 +1,37 @@
+{
+  "id": "6c4d3cdb-a15f-5628-9aff-b4472c14db73",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti ystävällesi.",
+    "materials": {
+      "scenario": "Kutsu ystävä syntymäpäiville"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti ystävällesi."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti ystävällesi ja kutsu hänet syntymäpäivillesi. Kerro missä ja milloin juhlat ovat. Mainitse, onko jotain erityistä, kuten teemaa tai ruokatoiveita.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "cdbc16e7-6ca5-5116-bb67-2ae07d227c04",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele matkailuneuvonnan asiakaspalvelutilanne ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, olen kiinnostunut viikonloppumatkasta Tukholmaan. Mitä suosittelisitte?\nNeuvoja: Meillä on useita vaihtoehtoja. Viikonloppuristeilyt ovat suosittuja, esimerkiksi lauantaina lähtevä risteily, jossa on viisi tuntia aikaa Tukholmassa. Myös pelkkiä lauttamatkoja voi varata, jos haluaa viettää enemmän aikaa kaupungissa.\nAsiakas: Haluaisin olla yön yli Tukholmassa.\nNeuvoja: Sitten kannattaa varata majoitus etukäteen. Meillä on yhteistyöhotelleja keskustassa. Hintaan sisältyy aamiainen ja usein myös sauna.\nAsiakas: Paljonko tällainen paketti maksaa kahdelle hengelle?\nNeuvoja: Lähtöhinnat alkavat noin 250 eurosta, sisältäen lauttamatkat ja hotelliyön. Kannattaa katsoa verkkosivuiltamme tarkat hinnat ja saatavuuden.",
+      "audio_asset_id": "dbd5caf6-f0cd-4d47-9dd1-45b819bfbd4b"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä asiakas on kiinnostunut tekemään?",
+        "options": [
+          "Lentämään Tukholmaan",
+          "Viikonloppumatkasta Tukholmaan",
+          "Risteilemään Virossa",
+          "Kiertämään Suomenlinnaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä asiakas haluaa tehdä toisin kuin risteilijät yleensä?",
+        "options": [
+          "Mennä halvemmalla",
+          "Olla yön yli Tukholmassa",
+          "Matkustaa yksin",
+          "Käydä museoissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko paketti maksaa kahdelle hengelle?",
+        "options": [
+          "Noin 150 euroa",
+          "Noin 200 euroa",
+          "Noin 250 euroa",
+          "Noin 300 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

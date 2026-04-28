@@ -1,0 +1,66 @@
+{
+  "id": "85852f0a-81da-55db-8cb3-7b9f9cf8fa39",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.735,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Keskustelu talouskasvun rajoista on noussut uudelleen esiin ilmastokriisin myötä. Ekologisen taloustieteen professori Jukka Hoffrén väittää, että jatkuva talouskasvu on mahdotonta äärellisellä planeetalla. Hänen mukaansa ongelma ei ole kasvussa sinänsä, vaan siinä, miten kasvu määritellään. Perinteinen bruttokansantuote mittaa vain taloudellista aktiviteettia, ei sen laatua tai vaikutuksia. 'Voi olla kasvua, joka tuhoaa luontoa ja lisää eriarvoisuutta. Se ei ole kestävää.' Hoffrén kannattaa siirtymistä kohti hyvinvointitaloutta, jossa menestystä mitataan muillakin mittareilla, kuten terveydellä, koulutuksella ja ympäristön tilalla. Hän kuitenkin myöntää, että tällainen muutos on vaikea, koska nykyinen talousjärjestelmä on rakennettu kasvun varaan. 'Velka vaatii kasvua, työllisyys vaatii kasvua. Uudistus vaatisi kokonaisvaltaista ajattelutavan muutosta.' Hoffrén näkee, että teknologia voi auttaa, mutta se ei yksin riitä. Tarvitaan myös poliittisia päätöksiä, jotka ohjaavat taloutta kestävämpään suuntaan. Tämä tarkoittaa esimerkiksi verotuksen uudistamista ja investointeja vihreään teknologiaan.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 162
+    },
+    "questions": [
+      {
+        "id": "baa666bf-9409-51bf-90ff-2628388196ae",
+        "prompt": "Mitä Jukka Hoffrén pitää ongelmallisena talouskasvussa?",
+        "options": [
+          "Kasvu on liian hidasta",
+          "Kasvua mitataan väärin, vain määränä eikä laatuna",
+          "Kasvu hyödyttää vain rikkaita",
+          "Kasvu on mahdotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e7908522-af45-5023-adbc-47322e5de91b",
+        "prompt": "Mitä Hoffrén tarkoittaa 'hyvinvointitaloudella'?",
+        "options": [
+          "Talous kasvaa hitaammin",
+          "Menestystä mitataan muillakin mittareilla kuin BKT:llä",
+          "Kaikki saavat perustulon",
+          "Vain julkinen talous on tärkeä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3770e178-975f-55b8-9863-2c527b1d148f",
+        "prompt": "Miksi muutos on Hoffrénin mukaan vaikeaa?",
+        "options": [
+          "Koska ihmiset eivät halua muutosta",
+          "Koska nykyinen talousjärjestelmä on rakennettu kasvun varaan",
+          "Koska teknologia ei ole tarpeeksi kehittynyttä",
+          "Koska poliitikot eivät ymmärrä asiaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

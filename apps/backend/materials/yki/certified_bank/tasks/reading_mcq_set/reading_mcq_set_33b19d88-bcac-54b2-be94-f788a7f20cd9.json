@@ -1,0 +1,99 @@
+{
+  "id": "33b19d88-bcac-54b2-be94-f788a7f20cd9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.574,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Opintotuen leikkaukset ovat herättäneet laajaa keskustelua. Opiskelijajärjestöt varoittavat, että leikkaukset vaikeuttavat toimeentuloa ja pidentävät valmistumisaikoja, kun opiskelijat joutuvat käymään enemmän töissä. Toisaalta hallitus perustelee toimia julkisen talouden tasapainottamisella. Vastakkain ovat siis opiskelijoiden toimeentulo ja valtion säästötavoitteet. Ratkaisua yritetään löytää kompromissina.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on herättänyt laajaa keskustelua?",
+        "options": [
+          "Opintotuen korotukset",
+          "Opintotuen leikkaukset",
+          "Opintolainojen korkojen nousu",
+          "Opiskelijoiden asumistuen muutokset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä opiskelijajärjestöt varoittavat?",
+        "options": [
+          "Leikkaukset helpottavat toimeentuloa",
+          "Leikkaukset vaikeuttavat toimeentuloa ja pidentävät valmistumisaikoja",
+          "Leikkaukset lyhentävät opiskeluaikoja",
+          "Leikkaukset lisäävät opiskelumotivaatiota"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi opiskelijat joutuvat käymään enemmän töissä leikkausten takia?",
+        "options": [
+          "Koska he haluavat lisää rahaa",
+          "Koska toimeentulo vaikeutuu",
+          "Koska työkokemus on tärkeää",
+          "Koska opiskelu on helppoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millä hallitus perustelee toimiaan?",
+        "options": [
+          "Opiskelijoiden hyvinvoinnilla",
+          "Julkisen talouden tasapainottamisella",
+          "Koulutuksen laadun parantamisella",
+          "Kansainvälistymisen edistämisellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitkä asiat ovat vastakkain tässä keskustelussa?",
+        "options": [
+          "Opiskelijoiden määrä ja koulujen määrä",
+          "Opiskelijoiden toimeentulo ja valtion säästötavoitteet",
+          "Opintojen laatu ja määrä",
+          "Työnantajien ja opiskelijoiden edut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ratkaisua yritetään löytää?",
+        "options": [
+          "Kompromissia",
+          "Lisää leikkauksia",
+          "Opintotuen täyttä poistoa",
+          "Opintotuen tuplaamista"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

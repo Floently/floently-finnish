@@ -1,0 +1,56 @@
+{
+  "id": "29c6ac30-5041-56cb-89d5-474b0faf67ab",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella auton huoltoa. Keskustele autokorjaamon kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Autokorjaamon työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp53_1",
+        "ai_first_turn_fi": "Hei, Autokorjaamo Mekaanikko."
+      },
+      {
+        "id": "srp53_2",
+        "ai_first_turn_fi": "Totta kai. Mikä auto on kyseessä ja minkälainen huolto?"
+      },
+      {
+        "id": "srp53_3",
+        "ai_first_turn_fi": "Öljynvaihto ja tarkistus vie noin tunnin. Vapaita aikoja on huomenna kello 13 ja torstaina kello 9. Kumpi sopii?"
+      },
+      {
+        "id": "srp53_4",
+        "ai_first_turn_fi": "Selvä, varataan huominen kello 13. Nimesi ja puhelinnumerosi?"
+      },
+      {
+        "id": "srp53_5",
+        "ai_first_turn_fi": "Kiitos. Huolto maksaa noin 150 euroa. Voit maksaa kortilla tai käteisellä. Tervetuloa huomenna!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella auton huoltoa. Keskustele autokorjaamon kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "10fad8ce-8014-5dd8-a683-0bcda9cd0ef9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.69,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a deputy secretary-general position at the OECD. Tell about your experience in economic policy analysis, country comparisons, and promoting best practices. Also describe how you have developed the OECD's impact and expanded its membership base. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus OECD:n apulaispääsihteerin tehtävään"
+    },
+    "items": [
+      {
+        "id": "a20855a9-11d4-5db1-a63a-744f8dd39018",
+        "prompt": "Write a job application. You are applying for a deputy secretary-general position at the OECD. Tell about your experience in economic policy analysis, country comparisons, and promoting best practices. Also describe how you have developed the OECD's impact and expanded its membership base. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a deputy secretary-general position at the OECD. Tell about your experience in economic policy analysis, country comparisons, and promoting best practices. Also describe how you have developed the OECD's impact and expanded its membership base. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

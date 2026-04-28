@@ -1,0 +1,77 @@
+{
+  "id": "b905740f-ba2c-5d47-b236-3ac343b3f0e0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen äiti ja opettaja, ja olen erittäin huolissani kännyköiden käytöstä koulussa. Monessa koulussa oppilaat saavat käyttää puhelimia välitunneilla ja jopa oppitunneilla. Tämä vaikuttaa oppimiseen ja keskittymiseen.\n\nTutkimukset osoittavat, että jatkuva somen selailu ja viestittely heikentävät keskittymiskykyä. Oppilaat eivät pysty seuraamaan opetusta, koska puhelin on koko ajan kädessä. Lisäksi kiusaaminen on siirtynyt someen, ja oppilaat saavat ikäviä viestejä myös koulupäivän aikana.\n\nYmmärrän, että puhelimet ovat tärkeitä turvallisuuden kannalta. On hyvä, että oppilaat voivat soittaa vanhemmille tarvittaessa. Mutta oppituntien aikana puhelimille ei ole sijaa.\n\nToivon, että kouluissamme otettaisiin käyttöön kännykkäkielto oppituntien ajaksi. Monissa maissa tämä on jo tehty, ja tulokset ovat hyviä. Oppilaat keskittyvät paremmin, ja koulurauha paranee.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 134
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja on ammatiltaan?",
+        "options": [
+          "A) lääkäri",
+          "B) opettaja ja äiti",
+          "C) psykologi",
+          "D) rehtori"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ongelmia kännyköistä on kirjoittajan mukaan?",
+        "options": [
+          "A) Ne ovat kalliita",
+          "B) Ne heikentävät keskittymistä ja lisäävät kiusaamista",
+          "C) Ne vievät oppilailta liikaa aikaa kotona",
+          "D) Niissä on liian vähän oppimissovelluksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi puhelimet ovat kirjoittajan mukaan hyödyllisiä?",
+        "options": [
+          "A) Oppilaat voivat etsiä tietoa",
+          "B) Turvallisuuden kannalta, oppilaat voivat soittaa vanhemmille",
+          "C) Ne ovat hyvä viihdyke",
+          "D) Ne auttavat oppimisessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kirjoittaja ehdottaa?",
+        "options": [
+          "A) Puhelimet kielletään kokonaan",
+          "B) Kännykkäkielto oppituntien ajaksi",
+          "C) Vain tietyt sovellukset sallitaan",
+          "D) Puhelimet kerätään pois koulupäivän ajaksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

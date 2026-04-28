@@ -1,0 +1,37 @@
+{
+  "id": "30d97f4f-851f-510b-9df0-b22ab1957b86",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kuntien tarjota maksuton hammashoito kaikille ikäryhmille?'. Pohdi terveysvaikutuksia, kustannuksia ja ennaltaehkäisyä.",
+    "materials": {
+      "scenario": "Maksuton hammashoito"
+    },
+    "items": [
+      {
+        "id": "6457764c-8c34-548f-be3d-8ea38e3301d2",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kuntien tarjota maksuton hammashoito kaikille ikäryhmille?'. Pohdi terveysvaikutuksia, kustannuksia ja ennaltaehkäisyä."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nKustannukset\nEnnaltaehkäisy\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

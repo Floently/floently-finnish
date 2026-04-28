@@ -1,0 +1,40 @@
+{
+  "id": "075af96f-e982-570b-bdce-5be5c950ed13",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele kaupungin nuorisotoimen johtajan kanssa nuorten mielenterveyspalvelujen järjestämisestä. Perustele matalan kynnyksen palvelujen tärkeyttä ja vastaa erikoissairaanhoidon priorisointiin.",
+    "materials": {
+      "roles": {
+        "user": "nuorisopsykiatrian erikoislääkäri ja olet huolissasi siitä",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "e78febb4-e1df-5373-b8b8-ac52e969ecae",
+        "ai_first_turn_fi": "Tilanne on se, että meillä on satoja nuoria, jotka odottavat pääsyä psykiatriselle poliklinikalle. Jotkut odottavat kuukausia. Minun on pakko priorisoida ne, jotka ovat pahimmin oireilevat. Jos meillä on rajallinen määrä euroja, minä laitan ne sinne, missä hätä on suurin. Teidän 'matalan kynnyksen' palvelunne ovat varmasti hyviä, mutta ne auttavat niitä, jotka eivät vielä ole kriisissä. Minä autan niitä, jotka jo ovat. Kumpi on tärkeämpää? Ja kertokaa minulle, mistä otamme rahat, jos meidän pitäisi tehdä molempia?"
+      }
+    ],
+    "rubric": "Keskustele kaupungin nuorisotoimen johtajan kanssa nuorten mielenterveyspalvelujen järjestämisestä. Perustele matalan kynnyksen palvelujen tärkeyttä ja vastaa erikoissairaanhoidon priorisointiin.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "8b55e578-19e9-5300-8538-5b6c87d6c6f7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin ympäristökeskukseen. Haluat ilmoittaa, että lähipuistossa on kaadettu puita, eikä tilalle ole istutettu uusia. Kerro, missä puistossa ja milloin kaadot tapahtuivat. Kysy, onko uusia istutuksia suunnitteilla.",
+    "materials": {
+      "scenario": "Kysymys puiston puiden kaadoista"
+    },
+    "items": [
+      {
+        "id": "0b374362-5eb5-5ab4-b874-e763c913d8d9",
+        "prompt": "Kirjoita sähköposti kaupungin ympäristökeskukseen. Haluat ilmoittaa, että lähipuistossa on kaadettu puita, eikä tilalle ole istutettu uusia. Kerro, missä puistossa ja milloin kaadot tapahtuivat. Kysy, onko uusia istutuksia suunnitteilla."
+      }
+    ],
+    "rubric": "Havainnon kuvaus\nSijainti\nTiedustelu uusista istutuksista",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

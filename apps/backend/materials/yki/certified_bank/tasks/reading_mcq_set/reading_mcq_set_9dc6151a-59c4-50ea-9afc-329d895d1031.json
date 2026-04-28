@@ -1,0 +1,77 @@
+{
+  "id": "9dc6151a-59c4-50ea-9afc-329d895d1031",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.761,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kaupunkisuunnittelun keskeisiä haasteita on sovittaa yhteen erilaiset, usein ristiriitaiset tavoitteet. Ekologinen kestävyys vaatii tiivistä kaupunkirakennetta, joka vähentää liikenteen päästöjä ja säästää luontoalueita. Sosiaalinen kestävyys puolestaan edellyttää monipuolisia asuinalueita, joissa on kohtuuhintaisia asuntoja eri tuloryhmille ja hyvät palvelut. Taloudellinen kestävyys taas korostaa kaupungin kilpailukykyä ja elinkeinoelämän tarpeita. Näiden tavoitteiden yhteensovittaminen on osoittautunut vaikeaksi. Tiivistäminen on usein johtanut asumisen hintojen nousuun ja segregaatioon, kun hyvätuloiset hakeutuvat halutuille alueille ja pienituloiset jäävät vähemmän halutuille. Ekologiset tavoitteet ovat toisinaan joutuneet väistymään taloudellisten intressien tieltä, kun esimerkiksi viheralueita on kaavoitettu rakentamiselle. Kaupunkisuunnittelu onkin jatkuvaa neuvottelua ja kompromissien tekemistä eri intressiryhmien välillä.",
+      "word_count": 96
+    },
+    "questions": [
+      {
+        "id": "af92c1c4-a7a2-5bc4-86e1-4618c46e1189",
+        "prompt": "Mikä on tekstin keskeinen väite kaupunkisuunnittelun haasteista?",
+        "options": [
+          "Kaupunkisuunnittelu on ongelmatonta, koska eri tavoitteet ovat helposti sovitettavissa yhteen",
+          "Kaupunkisuunnittelussa joudutaan sovittamaan yhteen usein ristiriitaisia ekologisia, sosiaalisia ja taloudellisia tavoitteita",
+          "Ekologinen kestävyys on ainoa tärkeä tavoite kaupunkisuunnittelussa",
+          "Taloudelliset intressit ovat aina etusijalla kaupunkisuunnittelussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5c4895b2-936e-5cbf-b486-db9ffb367170",
+        "prompt": "Tekstin mukaan mitä kielteisiä seurauksia tiivistämisellä voi olla?",
+        "options": [
+          "Se vähentää aina asumisen kustannuksia ja parantaa palveluja",
+          "Se voi johtaa asumisen hintojen nousuun ja segregaatioon",
+          "Se lisää autoliikennettä ja ilmansaasteita",
+          "Se heikentää kaupungin kilpailukykyä ja elinkeinoelämän toimintaedellytyksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4486af10-e8ca-57de-840d-84867076e5a3",
+        "prompt": "Mitä esimerkkiä tekstissä käytetään ekologisten ja taloudellisten tavoitteiden ristiriidasta?",
+        "options": [
+          "Joukkoliikenteen kehittäminen on kallista eikä vähennä päästöjä",
+          "Viheralueita on kaavoitettu rakentamiselle taloudellisten intressien vuoksi",
+          "Uusiutuvan energian käyttö on liian kallista kaupungeille",
+          "Pyöräteiden rakentaminen vie tilaa autoliikenteeltä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1286941f-6c64-5f35-b77d-072c234ec596",
+        "prompt": "Mitä tekstissä sanotaan kaupunkisuunnittelun luonteesta?",
+        "options": [
+          "Se on yksinkertainen tekninen prosessi, johon asukkailla ei ole sananvaltaa",
+          "Se on jatkuvaa neuvottelua ja kompromissien tekemistä eri intressiryhmien välillä",
+          "Se on täysin poliittisten päättäjien sanelemaa ilman mahdollisuutta vaikuttaa",
+          "Se on kerran tehtävä päätös, jota ei voi jälkeenpäin muuttaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

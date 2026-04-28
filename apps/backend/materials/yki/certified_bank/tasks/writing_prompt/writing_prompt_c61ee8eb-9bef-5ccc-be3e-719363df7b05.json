@@ -1,0 +1,37 @@
+{
+  "id": "c61ee8eb-9bef-5ccc-be3e-719363df7b05",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö vanhusten kotihoidon käyntiaikoja pidentää hoidon laadun parantamiseksi?'. Arvioi vanhusten hyvinvointia, hoitajien työoloja ja kustannuksia.",
+    "materials": {
+      "scenario": "Kotihoidon käyntiajat"
+    },
+    "items": [
+      {
+        "id": "2a7bd0cb-ebc1-587f-acd1-f22a2b23f812",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö vanhusten kotihoidon käyntiaikoja pidentää hoidon laadun parantamiseksi?'. Arvioi vanhusten hyvinvointia, hoitajien työoloja ja kustannuksia."
+      }
+    ],
+    "rubric": "Vanhusten hyvinvointi\nHoitajien työolot\nKustannukset\nHoidon laatu",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

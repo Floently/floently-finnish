@@ -1,0 +1,37 @@
+{
+  "id": "8e1a2087-14ae-5f28-92e8-8b4209573eb2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit asentaa palovaroittimen keittiöön. Kerro, että nykyinen on vanha. Kysy, saako sen asentaa itse. Kysy, voiko vuokranantaja maksaa uuden.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle palovaroittimesta"
+    },
+    "items": [
+      {
+        "id": "0620c678-d184-566c-acb9-5377b328beb6",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit asentaa palovaroittimen keittiöön. Kerro, että nykyinen on vanha. Kysy, saako sen asentaa itse. Kysy, voiko vuokranantaja maksaa uuden."
+      }
+    ],
+    "rubric": "Kerro, että haluat uuden palovaroittimen\nKerro, miksi (vanha)\nKysy, saako asentaa itse\nKysy, voiko vuokranantaja maksaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

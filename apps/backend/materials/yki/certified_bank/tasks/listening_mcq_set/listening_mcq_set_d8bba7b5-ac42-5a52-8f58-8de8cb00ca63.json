@@ -1,0 +1,66 @@
+{
+  "id": "d8bba7b5-ac42-5a52-8f58-8de8cb00ca63",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Työnhakija: Hei, soitan koska näin ilmoituksenne myyntiedustajan paikasta. Onko paikka vielä haettavana?\nHR-asiantuntija: Kyllä, paikka on haettavana. Oletko kiinnostunut?\nTyönhakija: Kyllä, olen. Työskentelen tällä hetkellä myyntitehtävissä toisessa yrityksessä, mutta etsin uusia haasteita.\nHR-asiantuntija: Hyvä. Millaista myyntikokemusta sinulla on?\nTyönhakija: Olen työskennellyt myyntitehtävissä viisi vuotta, viimeiset kaksi vuotta olen vastannut yritysasiakkaista.\nHR-asiantuntija: Kuulostaa hyvältä. Lähetäthän hakemuksesi ja CV:si sähköpostilla viimeistään ensi perjantaina. Kutsumme sopivat hakijat haastatteluun seuraavalla viikolla.\nTyönhakija: Kiitos, lähetän hakemuksen heti tänään.",
+      "audio_asset_id": "875dc9ee-a7d6-532b-8bac-ce824ee47708"
+    },
+    "questions": [
+      {
+        "id": "list_070",
+        "prompt": "Mihin tehtävään työnhakija hakee?",
+        "options": [
+          "Toimistosihteeriksi",
+          "Myyntiedustajaksi",
+          "Markkinointipäälliköksi",
+          "Asiakaspalvelijaksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_071",
+        "prompt": "Kuinka paljon työkokemusta työnhakijalla on yhteensä?",
+        "options": [
+          "Kolme vuotta",
+          "Neljä vuotta",
+          "Viisi vuotta",
+          "Kuusi vuotta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_072",
+        "prompt": "Mihin mennessä hakemus pitää lähettää?",
+        "options": [
+          "Tänään",
+          "Ensi maanantaina",
+          "Ensi keskiviikkona",
+          "Ensi perjantaina"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

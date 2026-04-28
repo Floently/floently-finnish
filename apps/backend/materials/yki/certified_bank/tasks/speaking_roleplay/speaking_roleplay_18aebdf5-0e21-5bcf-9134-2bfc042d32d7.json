@@ -1,0 +1,40 @@
+{
+  "id": "18aebdf5-0e21-5bcf-9134-2bfc042d32d7",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Neuvottele vuokranantajan kanssa asunnon irtisanomisesta. Kerro syysi ja sovi ehdoista.",
+    "materials": {
+      "roles": {
+        "user": "saanut työpaikan toiselta paikkakunnalta ja joudun muuttamaan pois",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "3b01a95b-064e-51c4-aa88-ee1d1db063a6",
+        "ai_first_turn_fi": "Joo, mä ymmärrän sun tilanteen, mutta sopimus on sopimus. Meillä on sääntönä kolme kuukautta, kun uutta vuokralaista pitää etsiä. Kerro nyt, mikä sun tilanne tarkalleen on?"
+      }
+    ],
+    "rubric": "Neuvottele vuokranantajan kanssa asunnon irtisanomisesta. Kerro syysi ja sovi ehdoista.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

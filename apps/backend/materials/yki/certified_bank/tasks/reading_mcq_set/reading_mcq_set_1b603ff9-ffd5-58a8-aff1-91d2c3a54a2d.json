@@ -1,0 +1,99 @@
+{
+  "id": "1b603ff9-ffd5-58a8-aff1-91d2c3a54a2d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kuntien verkkosivut ovat tärkeä kanava asukkaiden ja päättäjien välillä. Sivuilta löytyy tietoa palveluista, päätöksenteosta ja ajankohtaisista asioista. Monilla kunnilla on myös sähköisiä asiointipalveluja, kuten lomakkeita ja ajanvaraus. Kehitystyössä on tärkeää, että sivut ovat selkeät ja helppokäyttöiset kaikille. Sivujen saavutettavuus on laissa määritelty vaatimus.",
+      "word_count": 43
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tärkeä kanava asukkaiden ja päättäjien välillä?",
+        "options": [
+          "Sanomalehdet",
+          "Kuntien verkkosivut",
+          "Radio",
+          "Kirjastot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tietoa verkkosivuilta löytyy?",
+        "options": [
+          "Vain uutisia",
+          "Tietoa palveluista, päätöksenteosta ja ajankohtaisista asioista",
+          "Vain yhteystietoja",
+          "Vain tapahtumia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä sähköisiä asiointipalveluja monilla kunnilla on?",
+        "options": [
+          "Verkkokauppa",
+          "Lomakkeita ja ajanvaraus",
+          "Videopuhelut",
+          "Sähköposti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on tärkeää verkkosivujen kehitystyössä?",
+        "options": [
+          "Sivut ovat mahdollisimman monimutkaiset",
+          "Sivut ovat selkeät ja helppokäyttöiset kaikille",
+          "Sivut ovat vain tietylle käyttäjäryhmälle",
+          "Sivuilla on paljon mainoksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on laissa määritelty vaatimus verkkosivuille?",
+        "options": [
+          "Nopeus",
+          "Saavutettavuus",
+          "Värikkyys",
+          "Kansainvälisyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'saavutettavuudella' tässä yhteydessä?",
+        "options": [
+          "Sivut toimivat kaikilla laitteilla",
+          "Sivut ovat helposti kaikkien käytettävissä, myös erityisryhmien",
+          "Sivut ovat maksuttomia",
+          "Sivut löytyvät hakukoneilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

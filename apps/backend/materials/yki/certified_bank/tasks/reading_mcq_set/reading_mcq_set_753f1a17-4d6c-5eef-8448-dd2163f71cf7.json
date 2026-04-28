@@ -1,0 +1,110 @@
+{
+  "id": "753f1a17-4d6c-5eef-8448-dd2163f71cf7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen väestön ikääntyminen on yksi merkittävimmistä yhteiskunnallisista muutoksista. Se vaikuttaa työmarkkinoihin, julkiseen talouteen, palveluihin ja asenteisiin. Työikäisten määrä vähenee, kun suuret ikäluokat jäävät eläkkeelle. Samaan aikaan eläkkeellä olevien määrä kasvaa, mikä lisää eläkemenoja ja hoivapalvelujen tarvetta. Tämä asettaa paineita julkiselle taloudelle. Ratkaisuja etsitään monelta suunnalta. Työuria halutaan pidentää, jotta ihmiset olisivat pidempään työelämässä. Tämä tarkoittaa sekä eläkeiän nostamista että työkyvyn ylläpitämistä. Myös työperäistä maahanmuuttoa halutaan lisätä, jotta saadaan uusia työikäisiä. Lisäksi tarvitaan tuottavuuden kasvua, jotta vähemmällä työvoimalla saadaan enemmän aikaan. Ikääntyminen ei ole pelkästään uhka. Se on myös mahdollisuus. Ikääntyneillä on paljon osaamista ja kokemusta, jota voidaan hyödyntää työelämässä, vapaaehtoistyössä ja yritystoiminnassa. Monet haluavat jatkaa työelämässä pidempään, jos se on mahdollista ja mielekästä. Myös ikääntyneille suunnatut palvelut ja tuotteet ovat kasvava markkina. Teknologia voi auttaa ikääntyneitä asumaan kotona pidempään ja saamaan tarvitsemaansa tukea. Ikääntymiseen on sopeuduttava ja tehtävä päätöksiä, jotka turvaavat hyvinvointiyhteiskunnan myös tuleville sukupolville.",
+      "word_count": 145
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin kaikkeen väestön ikääntyminen vaikuttaa?",
+        "options": [
+          "Vain eläkkeisiin.",
+          "Työmarkkinoihin, julkiseen talouteen, palveluihin ja asenteisiin.",
+          "Vain työmarkkinoihin.",
+          "Vain julkiseen talouteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu työikäisten määrälle?",
+        "options": [
+          "Se kasvaa.",
+          "Se vähenee.",
+          "Se pysyy samana.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tapahtuu eläkkeellä olevien määrälle?",
+        "options": [
+          "Se vähenee.",
+          "Se kasvaa.",
+          "Se pysyy samana.",
+          "Se ei vaikuta mihinkään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja ikääntymisen haasteisiin esitetään?",
+        "options": [
+          "Vain työurien pidentäminen.",
+          "Työurien pidentäminen, työperäinen maahanmuutto ja tuottavuuden kasvu.",
+          "Vain työperäinen maahanmuutto.",
+          "Vain tuottavuuden kasvu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen tarjoaa?",
+        "options": [
+          "Ei mitään mahdollisuuksia.",
+          "Ikääntyneiden osaamisen hyödyntäminen ja uudet markkinat.",
+          "Vain uusia markkinoita.",
+          "Vain vapaaehtoistyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten teknologia voi auttaa ikääntyneitä?",
+        "options": [
+          "Se vaikeuttaa elämää.",
+          "Se auttaa asumaan kotona pidempään.",
+          "Sillä ei ole merkitystä.",
+          "Se korvaa ihmiskontaktit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä ikääntymiseen sopeutuminen vaatii?",
+        "options": [
+          "Nopeita ja lyhytnäköisiä päätöksiä.",
+          "Päätöksiä, jotka turvaavat hyvinvointiyhteiskunnan tuleville sukupolville.",
+          "Vain lisää velkaa.",
+          "Vain leikkauksia."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

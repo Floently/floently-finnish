@@ -1,0 +1,40 @@
+{
+  "id": "830c7b66-b53f-5196-ba46-eca44eaccc76",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "materials": {
+      "roles": {
+        "user": "Sinä",
+        "partner": "Myyjä"
+      }
+    },
+    "items": [
+      {
+        "id": "010a8aa2-e36a-5f9b-8899-3c6b735fd3ad",
+        "ai_first_turn_fi": "Myyjä: Hei, minkä alan yritys on kyseessä ja minkälaisia keskeytysriskejä haluat vakuuttaa?"
+      }
+    ],
+    "rubric": "Sinulla on keskustelu asiakaspalvelijan kanssa. Vastaa hänen kysymyksiinsä ja esitä omat kysymyksesi. Sinulla on 30 sekuntia aikaa valmistautua ja 2 minuuttia aikaa keskustella.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

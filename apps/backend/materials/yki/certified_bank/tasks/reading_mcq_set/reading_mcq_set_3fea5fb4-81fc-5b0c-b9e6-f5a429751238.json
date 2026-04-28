@@ -1,0 +1,77 @@
+{
+  "id": "3fea5fb4-81fc-5b0c-b9e6-f5a429751238",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.783,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Tulevaisuuden työelämässä korostuvat yhä enemmän joustavuus, yksilöllisyys ja jatkuva oppiminen. Perinteinen uramalli, jossa ihminen työskentelee samassa työpaikassa vuosikymmeniä, on väistymässä monimuotoisempien työurien tieltä. Ihmiset vaihtavat työpaikkaa ja jopa ammattia useammin kuin ennen, ja työsuhteet ovat yhä useammin määräaikaisia tai osa-aikaisia. Tämä kehitys asettaa uudenlaisia vaatimuksia niin yksilöille kuin yhteiskunnallekin. Yksilöltä vaaditaan kykyä sopeutua muutoksiin, omaksua uusia taitoja ja ottaa vastuuta omasta osaamisestaan. Elinikäinen oppiminen ei ole enää vaihtoehto vaan välttämättömyys. Tämä edellyttää yksilöltä motivaatiota, itseohjautuvuutta ja kykyä tunnistaa omia osaamisvajeitaan. Yhteiskunnalta puolestaan vaaditaan joustavaa sosiaaliturvaa, joka ei sido ihmisiä tiettyyn työsuhteen muotoon. Perinteinen sosiaaliturva on rakennettu pitkälti vakituisen kokopäivätyön varaan, mikä ei vastaa nykyistä työelämän todellisuutta. Tarvitaan uudenlaisia sosiaaliturvan malleja, jotka tunnistavat pirstaleisten työurien ja yhdistelmätyön yleistymisen. Tällaisia voisivat olla esimerkiksi työntekijän statuksesta riippumaton sosiaaliturva tai perustulo. Lisäksi yhteiskunnalta vaaditaan koulutusjärjestelmää, joka mahdollistaa elinikäisen oppimisen. Tämä tarkoittaa joustavia koulutuspolkuja, monipuolisia koulutusmahdollisuuksia ja tiivistä yhteistyötä koulutuksen järjestäjien ja työelämän välillä. Samalla on huolehdittava siitä, että työelämän muutokset eivät lisää eriarvoisuutta. On riski, että ne, joilla on jo valmiiksi hyvä koulutus ja vahva asema työmarkkinoilla, pystyvät hyötymään joustavuudesta, kun taas heikommassa asemassa olevat jäävät jälkeen. Tämän vuoksi tarvitaan aktiivista työvoimapolitiikkaa ja panostuksia heikommassa asemassa olevien koulutukseen ja tukemiseen. Tulevaisuuden työelämä on monimuotoinen ja jatkuvassa muutoksessa. Se tarjoaa sekä mahdollisuuksia että riskejä. Keskeistä on, miten yhteiskunta pystyy vastaamaan näihin haasteisiin ja luomaan puitteet, joissa kaikilla on mahdollisuus menestyä ja kokea työnsä merkitykselliseksi.",
+      "word_count": 229
+    },
+    "questions": [
+      {
+        "id": "404315aa-df60-5a17-93a5-e63af1351df7",
+        "prompt": "Mikä on tekstin keskeinen väite tulevaisuuden työelämästä?",
+        "options": [
+          "Työelämä pysyy ennallaan ja perinteinen uramalli säilyy",
+          "Työelämä muuttuu joustavammaksi ja yksilöllisemmäksi, mikä asettaa uusia vaatimuksia yksilöille ja yhteiskunnalle",
+          "Työsuhteet tulevat olemaan entistä vakaampia ja pitkäaikaisempia",
+          "Työelämän muutoksilla ei ole vaikutusta yksilöihin tai yhteiskuntaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "53cc211e-5007-59fb-9a37-d24fea5c5a57",
+        "prompt": "Tekstin mukaan mitä yksilöltä vaaditaan työelämän muutoksessa?",
+        "options": [
+          "Pysymistä samassa ammatissa koko työuran ajan",
+          "Kykyä sopeutua muutoksiin, omaksua uusia taitoja, ottaa vastuuta omasta osaamisesta ja sitoutua elinikäiseen oppimiseen",
+          "Luottamista siihen, että yhteiskunta ratkaisee kaikki ongelmat",
+          "Vähemmän kouluttautumista ja itsensä kehittämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5ed60265-e6cc-5f52-a9bf-18cce99258c3",
+        "prompt": "Mitä yhteiskunnalta vaaditaan tekstin mukaan?",
+        "options": [
+          "Työsuhteiden tiukempaa sääntelyä ja perinteisiin malleihin palaamista",
+          "Joustavaa sosiaaliturvaa, elinikäisen oppimisen mahdollistavaa koulutusjärjestelmää ja aktiivista työvoimapolitiikkaa eriarvoisuuden vähentämiseksi",
+          "Vähemmän panostuksia koulutukseen ja sosiaaliturvaan",
+          "Työelämän muutosten vastustamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "370557cf-e9bb-5c8c-bad1-1efd6aef053b",
+        "prompt": "Mitä riskejä työelämän muutoksiin tekstin mukaan liittyy?",
+        "options": [
+          "Ne tekevät työelämästä liian yksitoikkoista ja ennakoitavaa",
+          "Ne voivat lisätä eriarvoisuutta, jos heikommassa asemassa olevat eivät pysy muutoksissa mukana",
+          "Ne vähentävät ihmisten mahdollisuuksia kokea työnsä merkitykselliseksi",
+          "Ne lisäävät byrokratiaa ja hidastavat päätöksentekoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

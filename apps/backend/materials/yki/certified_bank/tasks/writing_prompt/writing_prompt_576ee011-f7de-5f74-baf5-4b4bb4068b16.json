@@ -1,0 +1,37 @@
+{
+  "id": "576ee011-f7de-5f74-baf5-4b4bb4068b16",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö koulujen kesälomia lyhentää. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Koulujen kesälomien lyhentäminen"
+    },
+    "items": [
+      {
+        "id": "aaa47d7b-49fe-56ae-9bf3-8b4b561ef8fe",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö koulujen kesälomia lyhentää. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "9f002923-498c-5f2c-941d-b660dbfb7cd4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kansalliselle koulutuksen arviointikeskukselle. Olet mukana kehittämässä uutta oppimateriaalia ja haluat pyytää asiantuntija-apua arviointikriteerien laatimiseen. Kerro hankkeestasi ja siitä, millaista apua tarvitsette.",
+    "materials": {
+      "scenario": "Asiantuntija-avun pyytäminen"
+    },
+    "items": [
+      {
+        "id": "0c4fbbf1-1f18-5bdf-bc13-335faf024386",
+        "prompt": "Kirjoita virallinen sähköposti kansalliselle koulutuksen arviointikeskukselle. Olet mukana kehittämässä uutta oppimateriaalia ja haluat pyytää asiantuntija-apua arviointikriteerien laatimiseen. Kerro hankkeestasi ja siitä, millaista apua tarvitsette."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

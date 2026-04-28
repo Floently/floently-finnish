@@ -1,0 +1,37 @@
+{
+  "id": "cd2c5d44-12ed-54a1-b2e1-7ae2da5a8312",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat kysyä, voitko tehdä pieniä muutoksia asunnossa, kuten maalata yhden seinän eri värillä. Kerro, mikä seinä on kyseessä ja miksi haluat maalata sen. Kysy lupaa.",
+    "materials": {
+      "scenario": "Lupakysymys seinän maalaamisesta"
+    },
+    "items": [
+      {
+        "id": "355a1bcb-8d31-5783-b534-127d39e75f25",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat kysyä, voitko tehdä pieniä muutoksia asunnossa, kuten maalata yhden seinän eri värillä. Kerro, mikä seinä on kyseessä ja miksi haluat maalata sen. Kysy lupaa."
+      }
+    ],
+    "rubric": "Muutoksen kuvaus\nPerustelut\nLupakysymys",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

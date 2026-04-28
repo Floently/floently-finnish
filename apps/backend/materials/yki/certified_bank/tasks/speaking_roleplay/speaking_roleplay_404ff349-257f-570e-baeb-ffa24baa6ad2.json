@@ -1,0 +1,64 @@
+{
+  "id": "404ff349-257f-570e-baeb-ffa24baa6ad2",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata lääkkeet apteekista noudettavaksi. Keskustele apteekin työntekijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Apteekin työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp27_1",
+        "ai_first_turn_fi": "Hei, apteekki."
+      },
+      {
+        "id": "srp27_2",
+        "ai_first_turn_fi": "Voin auttaa. Mikä on nimesi ja syntymäaikasi?"
+      },
+      {
+        "id": "srp27_3",
+        "ai_first_turn_fi": "Kiitos. Mitä lääkkeitä haluat tilata?"
+      },
+      {
+        "id": "srp27_4",
+        "ai_first_turn_fi": "Onko sinulla resepti voimassa näihin lääkkeisiin?"
+      },
+      {
+        "id": "srp27_5",
+        "ai_first_turn_fi": "Selvä. Tilaan lääkkeet sinulle. Ne ovat valmiina noudettavaksi huomenna iltapäivällä. Sopiiko tämä?"
+      },
+      {
+        "id": "srp27_6",
+        "ai_first_turn_fi": "Hyvä. Muistathan ottaa henkilöllisyystodistuksen mukaan noutaessasi. Hinta on noin 35 euroa."
+      },
+      {
+        "id": "srp27_7",
+        "ai_first_turn_fi": "Ole hyvä. Tervetuloa hakemaan huomenna!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata lääkkeet apteekista noudettavaksi. Keskustele apteekin työntekijän kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

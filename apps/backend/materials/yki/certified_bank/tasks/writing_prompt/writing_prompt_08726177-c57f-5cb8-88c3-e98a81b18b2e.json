@@ -1,0 +1,37 @@
+{
+  "id": "08726177-c57f-5cb8-88c3-e98a81b18b2e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan kehityskeskustelujärjestelmästä. Kerro lomakkeen toimivuudesta, keskustelujen laadusta ja seurannasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute työpaikan kehityskeskustelujärjestelmästä"
+    },
+    "items": [
+      {
+        "id": "bef16f0c-79fe-541a-87c4-8749d306b611",
+        "prompt": "Kirjoita palauteteksti työpaikan kehityskeskustelujärjestelmästä. Kerro lomakkeen toimivuudesta, keskustelujen laadusta ja seurannasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Lomakkeen toimivuus\nKeskustelujen laatu\nSeuranta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

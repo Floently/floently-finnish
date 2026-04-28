@@ -1,0 +1,99 @@
+{
+  "id": "a917b44b-3dc5-5931-b49e-20add9db4dfc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kirjastot ovat muuttuneet paljon viime vuosina. Perinteisen lainaamisen lisäksi ne tarjoavat työskentelytiloja, tapahtumia ja digitukea. Monessa kirjastossa on ompelukoneita, 3D-tulostimia ja lainattavia urheiluvälineitä. Kirjastot ovat olohuoneita kaikille. Ne ovat tärkeitä erityisesti niille, joilla ei ole mahdollisuutta hankkia kaikkea itse. Kirjastot edistävät yhdenvertaisuutta ja sivistystä.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten kirjastot ovat muuttuneet?",
+        "options": [
+          "Ne ovat vähentäneet palveluita",
+          "Ne ovat muuttuneet paljon",
+          "Ne ovat pysyneet ennallaan",
+          "Ne ovat sulkeneet ovensa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirjastot tarjoavat perinteisen lainaamisen lisäksi?",
+        "options": [
+          "Vain kahvilapalveluja",
+          "Työskentelytiloja, tapahtumia ja digitukea",
+          "Vaan lastenhoitoa",
+          "Vain maksullisia palveluja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä erikoisia välineitä kirjastoista voi lainata?",
+        "options": [
+          "Autoja ja veneitä",
+          "Ompelukoneita, 3D-tulostimia ja urheiluvälineitä",
+          "Tietokoneita ja puhelimia",
+          "Huonekaluja ja kodinkoneita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kirjastot ovat tärkeitä erityisesti?",
+        "options": [
+          "Niille, jotka matkustavat paljon",
+          "Niille, joilla ei ole mahdollisuutta hankkia kaikkea itse",
+          "Vain opiskelijoille",
+          "Vain lapsille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kirjastot edistävät?",
+        "options": [
+          "Kilpailua ja eriarvoisuutta",
+          "Yhdenvertaisuutta ja sivistystä",
+          "Vain lukutaitoa",
+          "Kaupallisia tarkoituksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Millaisina paikkoina kirjastot nähdään?",
+        "options": [
+          "Vain kirjojen säilytyspaikkoina",
+          "Olohuoneina kaikille",
+          "Vain opiskelupaikkoina",
+          "Vain hiljaisina tiloina"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

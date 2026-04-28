@@ -1,0 +1,37 @@
+{
+  "id": "f0ce36e3-76da-5854-bbd1-3dc98c05f2d3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton harrastus jokaiselle lapselle?'. Arvioi tasa-arvoa, kustannuksia ja harrastusten monipuolisuutta.",
+    "materials": {
+      "scenario": "Maksuton harrastus jokaiselle lapselle"
+    },
+    "items": [
+      {
+        "id": "3609c35f-b4e2-5dab-80ac-3eaed5c5f73c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton harrastus jokaiselle lapselle?'. Arvioi tasa-arvoa, kustannuksia ja harrastusten monipuolisuutta."
+      }
+    ],
+    "rubric": "Tasa-arvo\nKustannukset\nHarrastusten monipuolisuus\nSeurojen kapasiteetti",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

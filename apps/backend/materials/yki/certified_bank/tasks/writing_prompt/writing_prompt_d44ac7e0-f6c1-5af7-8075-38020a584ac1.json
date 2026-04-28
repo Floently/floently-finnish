@@ -1,0 +1,37 @@
+{
+  "id": "d44ac7e0-f6c1-5af7-8075-38020a584ac1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lähikauppaan. Haluat antaa palautetta. Kerro, että myyjä oli todella ystävällinen tänään. Kerro, milloin olit kaupassa (aamulla noin klo 10). Kerro, että hän auttoi sinua löytämään tuotteen. Kiitä.",
+    "materials": {
+      "scenario": "Viesti kauppaan positiivinen palaute"
+    },
+    "items": [
+      {
+        "id": "74fbecd3-4885-5de6-a01a-5224c7f8c8b8",
+        "prompt": "Kirjoita lyhyt viesti lähikauppaan. Haluat antaa palautetta. Kerro, että myyjä oli todella ystävällinen tänään. Kerro, milloin olit kaupassa (aamulla noin klo 10). Kerro, että hän auttoi sinua löytämään tuotteen. Kiitä."
+      }
+    ],
+    "rubric": "Kerro, että haluat antaa palautetta\nKerro, että myyjä oli ystävällinen\nKerro, milloin olit kaupassa\nKerro, miten hän auttoi\nKiitä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

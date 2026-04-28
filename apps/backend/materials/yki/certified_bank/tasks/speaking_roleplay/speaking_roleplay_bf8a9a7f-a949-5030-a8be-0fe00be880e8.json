@@ -1,0 +1,40 @@
+{
+  "id": "bf8a9a7f-a949-5030-a8be-0fe00be880e8",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vastaa haastattelijan kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "19f478ce-fc56-5f62-bbca-228bd7cee846",
+        "ai_first_turn_fi": "Mitä syöt yleensä aamulla? Mitä ruokia pidät?"
+      }
+    ],
+    "rubric": "Vastaa haastattelijan kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

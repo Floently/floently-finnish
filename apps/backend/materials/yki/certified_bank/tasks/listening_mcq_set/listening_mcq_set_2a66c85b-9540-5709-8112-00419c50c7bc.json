@@ -1,0 +1,99 @@
+{
+  "id": "2a66c85b-9540-5709-8112-00419c50c7bc",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kaupunkiviljelystä ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme kaupunkiviljelystä. Haastattelussa on kaupunkiviljelijä Antti Mäkelä. Antti, mitä kaupunkiviljely tarkoittaa? Antti: Se on ruoan kasvattamista kaupungissa, esimerkiksi puistoissa, pihoilla, parvekkeilla ja jopa katoilla. Se voi olla yhteisöllistä tai yksityistä. Toimittaja: Miksi kaupunkiviljely on suosittua? Antti: Ihmiset haluavat tietää, mistä heidän ruokansa tulee. Se on myös ekologista, kun ruokaa ei tarvitse kuljettaa kaukaa. Lisäksi se on mukava harrastus ja tuo yhteisöllisyyttä. Toimittaja: Mitä kaupungissa voi kasvattaa? Antti: Melkein mitä vain, kunhan olosuhteet ovat sopivat. Yrtit, salaatti, tomaatit, mansikat ja perunat ovat suosittuja. Myös koristekasveja. Toimittaja: Mitä haasteita kaupunkiviljelyssä on? Antti: Tilaa on usein vähän. Myös maaperän laatu voi olla huono, tai se voi olla saastunutta. Siksi moni viljelee laatikoissa tai säkeissä. Toimittaja: Miten kaupunki voi tukea kaupunkiviljelyä? Antti: Se voi tarjota yhteisiä viljelypalstoja ja neuvoja. Myös luvat ja säännöt voivat olla selkeämpiä. Kaupunki voi myös viljellä omia alueitaan. Toimittaja: Mitä vinkkejä annat aloittelijalle? Antti: Kannattaa aloittaa helpoista kasveista, kuten yrttejä ja salaattia. Tarvitaan multaa, siemeniä ja kastelua. Myös naapureilta voi kysyä vinkkejä. Toimittaja: Kiitos Antti.",
+      "audio_asset_id": "08e3b7cb-54be-4d6b-8b09-f39cab8d57f1"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Maatalous Suomessa.",
+          "Kaupunkiviljely.",
+          "Luomuruoka.",
+          "Puutarhanhoito."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä kaupunkiviljely tarkoittaa?",
+        "options": [
+          "Ruoan kasvattamista maaseudulla.",
+          "Ruoan ostamista torilta.",
+          "Ruoan laittamista kotona.",
+          "Ruoan kasvattamista kaupungissa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq3",
+        "prompt": "Miksi kaupunkiviljely on suosittua?",
+        "options": [
+          "Se on halvempaa kuin kaupasta ostaminen.",
+          "Se on ainoa tapa saada ruokaa.",
+          "Ihmiset haluavat tietää ruoan alkuperän ja se on ekologista.",
+          "Se on pakollista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä haasteita kaupunkiviljelyssä on?",
+        "options": [
+          "Vähän tilaa ja maaperän huono laatu.",
+          "Liikaa tilaa.",
+          "Liian hyvä maaperä.",
+          "Liian paljon aurinkoa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miten kaupunki voi tukea kaupunkiviljelyä?",
+        "options": [
+          "Kieltämällä viljelyn.",
+          "Myymällä siemeniä.",
+          "Rakentamalla kasvihuoneita.",
+          "Tarjoamalla viljelypalstoja ja neuvoja."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä Antti suosittelee aloittelijalle?",
+        "options": [
+          "Aloittaa helpoista kasveista, kuten yrttejä ja salaattia.",
+          "Aloittaa vaikeista kasveista.",
+          "Ostaa valmiita taimia.",
+          "Vuokrata viljelypalsta."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

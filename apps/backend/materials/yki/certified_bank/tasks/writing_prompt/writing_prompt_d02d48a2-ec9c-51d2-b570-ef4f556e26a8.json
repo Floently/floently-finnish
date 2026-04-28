@@ -1,0 +1,37 @@
+{
+  "id": "d02d48a2-ec9c-51d2-b570-ef4f556e26a8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa opettaa enemmän ympäristökasvatusta ja kestävää kehitystä?'. Pohdi asenteita, tulevaisuuden taitoja ja opetussuunnitelmaa.",
+    "materials": {
+      "scenario": "Ympäristökasvatus kouluissa"
+    },
+    "items": [
+      {
+        "id": "687d4a4c-7af8-5936-a538-816ff846bdcf",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa opettaa enemmän ympäristökasvatusta ja kestävää kehitystä?'. Pohdi asenteita, tulevaisuuden taitoja ja opetussuunnitelmaa."
+      }
+    ],
+    "rubric": "Asenteet\nTulevaisuuden taidot\nOpetussuunnitelma\nKonkreettiset teot",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

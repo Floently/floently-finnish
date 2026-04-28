@@ -1,0 +1,37 @@
+{
+  "id": "fd35ffd6-9308-54ba-945f-1530b9c83c5b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti koululle. Lapsesi on sairastunut, eikä pääse kouluun. Kerro lapsen nimi ja luokka sekä poissaolon syy. Ilmoita myös, milloin lapsi todennäköisesti palaa kouluun.",
+    "materials": {
+      "scenario": "Sairastapausilmoitus kouluun"
+    },
+    "items": [
+      {
+        "id": "7a45964f-d4bf-5308-8ae5-b3d9c249751a",
+        "prompt": "Kirjoita sähköposti koululle. Lapsesi on sairastunut, eikä pääse kouluun. Kerro lapsen nimi ja luokka sekä poissaolon syy. Ilmoita myös, milloin lapsi todennäköisesti palaa kouluun."
+      }
+    ],
+    "rubric": "Lapsen nimi ja luokka\nSairaus\nPoissaolon kesto",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

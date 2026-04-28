@@ -1,0 +1,37 @@
+{
+  "id": "577c9ce0-7ec0-50b7-9cdb-3c6f69102d9f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Kasvisruokavalio"
+    },
+    "items": [
+      {
+        "id": "84947044-ec89-5dd8-96a3-59daaa2a5697",
+        "prompt": "Onko kasvisruokavalio parempi vaihtoehto ympäristön kannalta?"
+      }
+    ],
+    "rubric": "Onko kasvisruokavalio parempi vaihtoehto ympäristön kannalta?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

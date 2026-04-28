@@ -1,0 +1,37 @@
+{
+  "id": "4bb80a1f-1769-5fe1-9e5d-ae7969bd5b9c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata voimakkaammin terveellisiin elintarvikevalintoihin?'. Analysoi kansanterveyttä, elinkeinopolitiikkaa ja kuluttajien valinnanvapautta.",
+    "materials": {
+      "scenario": "Terveellisten elintarvikkeiden verotus"
+    },
+    "items": [
+      {
+        "id": "7392f719-1c64-541e-8f59-35f6376f1d72",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata voimakkaammin terveellisiin elintarvikevalintoihin?'. Analysoi kansanterveyttä, elinkeinopolitiikkaa ja kuluttajien valinnanvapautta."
+      }
+    ],
+    "rubric": "Kansanterveys\nElinkeinopolitiikka\nKuluttajien valinnanvapaus\nSosiaalinen tasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

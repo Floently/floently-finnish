@@ -1,0 +1,77 @@
+{
+  "id": "3a3b8d0f-e113-5fbf-9f76-5c78c502224f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue essee taiteen asemasta yhteiskunnassa ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Taiteen itseisarvo on vaikeasti määriteltävä käsite. Toinen ulottuvuus on taiteen ja teknologian suhde. Tekoäly pystyy tuottamaan kuvia ja tekstiä, joka on vaikeasti erotettavissa ihmisen tekemästä. Kolmas teema on taiteen saavutettavuus. Digitaaliset alustat ovat tuoneet taiteen laajemman yleisön ulottuville, mutta muuttaneet tapaa, jolla taidetta kulutetaan. Tulevaisuudessa tarvitaan uudenlaista ajattelua taiteen rahoituksesta, asemasta ja merkityksestä.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "787d373d-46a1-519c-ba75-d1ba2be9d639",
+        "prompt": "Mitä tarkoitetaan taiteen 'itseisarvolla'?",
+        "options": [
+          "Taloudellista arvoa",
+          "Taiteella on arvoa itsessään riippumatta vaikutuksista",
+          "Viihdearvoa",
+          "Opetuksellista arvoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4180eb9c-9a39-543c-aedf-352bee9b47bd",
+        "prompt": "Mitä kysymyksiä tekoäly herättää?",
+        "options": [
+          "Tekoäly on kallista",
+          "Tekijyydestä, luovuudesta ja taiteen olemuksesta",
+          "Tekoäly tekee huonoa taidetta",
+          "Korvaa taiteilijat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "130064ac-97a9-52ba-8126-69a9448b4d53",
+        "prompt": "Miten digitaaliset alustat ovat muuttaneet taiteen kulutusta?",
+        "options": [
+          "Lisänneet syvällistä kokemista",
+          "Johtaneet pätkissä ja nopeasti tapahtuvaan kulutukseen",
+          "Vähentäneet kulutusta",
+          "Tehneet taiteesta maksullista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e1a8fec9-ffdc-55d1-938c-77472cf4a992",
+        "prompt": "Mitä tulevaisuudessa tarvitaan?",
+        "options": [
+          "Lisää julkista rahoitusta",
+          "Uudenlaista ajattelua rahoituksesta ja kykyä artikuloida yhteiskunnallinen merkitys",
+          "Taiteen eristämistä teknologiasta",
+          "Paluuta perinteisiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

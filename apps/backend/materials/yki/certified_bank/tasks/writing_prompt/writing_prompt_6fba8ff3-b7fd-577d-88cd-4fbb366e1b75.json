@@ -1,0 +1,37 @@
+{
+  "id": "6fba8ff3-b7fd-577d-88cd-4fbb366e1b75",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti pankkiin. Olet unohtanut verkkopankin tunnusluvun. Kerro, että et ole käyttänyt verkkopankkia pitkään aikaan. Kysy, miten saat uuden tunnuslukulistan. Kerro nimesi ja henkilötunnuksesi.",
+    "materials": {
+      "scenario": "Viesti pankkiin unohtuneesta tunnusluvusta"
+    },
+    "items": [
+      {
+        "id": "7bf8310c-4450-5f44-8cfc-a2f4223cf0c8",
+        "prompt": "Kirjoita lyhyt viesti pankkiin. Olet unohtanut verkkopankin tunnusluvun. Kerro, että et ole käyttänyt verkkopankkia pitkään aikaan. Kysy, miten saat uuden tunnuslukulistan. Kerro nimesi ja henkilötunnuksesi."
+      }
+    ],
+    "rubric": "Kerro, että olet unohtanut tunnusluvun\nKerro, ettet ole käyttänyt pitkään aikaan\nKysy uutta tunnuslukulistaa\nKerro nimesi ja henkilötunnuksesi",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

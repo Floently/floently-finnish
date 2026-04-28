@@ -1,0 +1,66 @@
+{
+  "id": "0e32a07b-3934-54a0-92f8-cc7469b24bdf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.761,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa tieteen ja politiikan suhdetta käsittelevästä luennosta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät kuulijat. Tänään käsittelemme tieteen ja politiikan suhdetta – aihetta, joka on erityisen ajankohtainen ilmastonmuutoksen, pandemian ja muiden globaalien ongelmien aikana.\n\nPerinteinen käsitys on, että tiede tuottaa neutraalia tietoa, ja politiikka tekee tämän tiedon pohjalta arvovalintoja ja päätöksiä. Tämä työnjako on kuitenkin osoittautunut käytännössä ongelmalliseksi. Miksi?\n\nEnsinnäkin, tiede ei aina puhu yhdellä äänellä. Tutkijat voivat olla eri mieltä, ja tieto muuttuu. Tämä on tieteen normaalitoimintaa, mutta politiikassa se saatetaan tulkita epävarmuudeksi ja käyttää perusteena olla tekemättä mitään. Toiseksi, poliittiset päätökset eivät perustu vain tieteeseen, vaan myös arvoihin, intresseihin ja ideologioihin. Tämä on demokratiassa täysin oikeutettua, mutta rajanveto on vaikeaa.\n\nKolmanneksi, tutkijat itse ovat yhä useammin mukana poliittisessa keskustelussa. He ottavat kantaa, osallistuvat julkiseen debattiin, jopa aktivismiin. Tämä herättää kysymyksiä tutkijan roolista: milloin hän puhuu tutkijana, milloin kansalaisena? Pitäisikö tutkijan pysyä objektiivisena tarkkailijana?\n\nTieteenfilosofi Ilkka Niiniluoto on erottanut toisistaan tieteen sisäisen ja ulkoisen roolin. Tieteen sisällä tutkija noudattaa tieteen pelisääntöjä ja pyrkii objektiivisuuteen. Ulkoisessa roolissa hän voi osallistua yhteiskunnalliseen keskusteluun asiantuntijana tai kansalaisena. Tämä erottelu on hyödyllinen, mutta käytännössä raja voi olla häilyvä.\n\nToinen tärkeä kysymys on tieteen ja politiikan vuorovaikutus. Miten tutkimustieto saadaan päätöksenteon käyttöön? Tarvitaan kanavia, joilla tieto välittyy – asiantuntijalausuntoja, tiedepoliittisia elimiä, tutkijoiden ja päättäjien kohtaamisia. Mutta tämäkin on ongelmallista, jos tiede politisoituu tai jos politiikka valikoi itselleen sopivan tiedon.\n\nRatkaisu ei ole tieteen ja politiikan täydellinen erottaminen toisistaan – se ei ole mahdollista eikä edes toivottavaa. Tarvitaan parempaa vuoropuhelua ja ymmärrystä molemmin puolin. Tarvitaan tieteeltä kykyä viestiä ymmärrettävästi ja tunnistaa oma rajallisuutensa. Tarvitaan politiikalta kykyä kuunnella ja käyttää tietoa, mutta myös tehdä päätöksiä silloin, kun tieto on epävarmaa. Tämä on demokratian suuri haaste.",
+      "audio_asset_id": "9569ec0c-6e26-40b9-8906-0e2750662265"
+    },
+    "questions": [
+      {
+        "id": "96870a67-5bcd-53b4-aa61-d4ef3afbb5d2",
+        "prompt": "Mikä on perinteinen käsitys tieteen ja politiikan työnjaosta?",
+        "options": [
+          "Politiikka tuottaa tiedon, tiede tekee päätökset",
+          "Tiede tuottaa neutraalia tietoa, politiikka tekee arvovalintoja ja päätöksiä",
+          "Tiede ja politiikka ovat sama asia",
+          "Politiikalla ei ole tekemistä tieteen kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "69e2a6a3-c2cb-5b01-8b1a-4b642ecae924",
+        "prompt": "Miksi tieteen ja politiikan työnjako on käytännössä ongelmallinen?",
+        "options": [
+          "Koska tiede on aina yksimielistä",
+          "Koska tiede ei aina puhu yhdellä äänellä, politiikka perustuu myös arvoihin, ja tutkijat ovat yhä useammin mukana poliittisessa keskustelussa",
+          "Koska politiikot eivät ymmärrä tiedettä",
+          "Koska tutkijat eivät halua osallistua yhteiskunnalliseen keskusteluun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f824e4af-c72e-5bdc-8115-6afd6cd8a158",
+        "prompt": "Mitä luennoitsija pitää tärkeänä tieteen ja politiikan suhteen kehittämisessä?",
+        "options": [
+          "Täydellistä erottamista",
+          "Parempaa vuoropuhelua ja ymmärrystä molemmin puolin",
+          "Tieteen alistamista politiikalle",
+          "Politiikan alistamista tieteelle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

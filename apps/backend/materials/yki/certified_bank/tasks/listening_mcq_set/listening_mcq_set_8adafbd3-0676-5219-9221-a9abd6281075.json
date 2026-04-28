@@ -1,0 +1,77 @@
+{
+  "id": "8adafbd3-0676-5219-9221-a9abd6281075",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kauppakeskuksen info ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa kauppakeskus Kelloon! Tänään kauppakeskuksessa on erikoistarjouksia. Ale-vaatteita myy Citymarketin toisessa kerroksessa. Uusi kahvila on avattu ensimmäisessä kerroksessa sisäänkäynnin vieressä. Lapsille on ilmainen pomppulinna kello 12–16. Kadonneita tavaroita voi kysyä infopisteestä. Kauppakeskus suljetaan kello 20. Mukavia ostoksia!",
+      "audio_asset_id": "b60f0bf7-2353-43ed-868e-abe748003e00"
+    },
+    "questions": [
+      {
+        "id": "ca661ae4-94cf-5b97-bb8b-33958f5778ef",
+        "prompt": "Missä on ale-vaatteita?",
+        "options": [
+          "Citymarketin 1. kerros",
+          "Citymarketin 2. kerros",
+          "uudessa kahvilassa",
+          "infopisteellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e81bdcb0-9d76-5753-938d-70b5396505c8",
+        "prompt": "Missä uusi kahvila sijaitsee?",
+        "options": [
+          "2. kerroksessa",
+          "1. kerroksessa sisäänkäynnin vieressä",
+          "3. kerroksessa",
+          "parkkihallissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e7b6b925-c6b2-5ccf-91c3-364d993654c0",
+        "prompt": "Milloin lapsille on ilmainen pomppulinna?",
+        "options": [
+          "klo 10–14",
+          "klo 11–15",
+          "klo 12–16",
+          "klo 13–17"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "18cdf0a0-dc7b-5a97-9019-f3196df8b611",
+        "prompt": "Mistä voi kysyä kadonneita tavaroita?",
+        "options": [
+          "Citymarketista",
+          "uudesta kahvilasta",
+          "infopisteestä",
+          "parkkihallista"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

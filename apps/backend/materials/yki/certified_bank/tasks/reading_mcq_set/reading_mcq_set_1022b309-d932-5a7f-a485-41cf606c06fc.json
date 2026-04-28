@@ -1,0 +1,66 @@
+{
+  "id": "1022b309-d932-5a7f-a485-41cf606c06fc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lisäksi mukana on lyhyt perustelu siitä, miten muutos parantaa sujuvuutta tai säästää aikaa. Liikuntakeskus kuvaa muutoksen taustaa ja kertoo, miksi muutos tehdään juuri nyt. Toinen toteaa, että selkeä viestintä vähentää turhaa epävarmuutta. Kirjoittaja mainitsee, että päätös vaikuttaa erityisesti niihin, jotka asioivat usein sunnuntaina. Teksti käsittelee aihetta: blogi etätyön vaikutuksesta arjen rutiineihin, ja se liittyy arjen lisäksi myös siihen, miten palvelut toimivat Lahdessa. Tekstissä erotetaan faktat ja mielipiteet melko selvästi. Lopuksi tekstissä muistutetaan, että sääntöjä voidaan vielä tarkistaa palautteen perusteella. Kokonaisuutena teksti pyrkii rauhoittamaan lukijaa ja tekemään muutoksesta ymmärrettävän. Perustelut nojaavat sekä kustannuksiin että käyttäjäkokemukseen. Eräs asiakas kertoo, että hän huomasi muutoksen vasta, kun sai ilmoituksen 13. päivä. Tekstissä annetaan myös käytännön ohjeet ja vaihtoehtoja, jos uusi toimintatapa ei sovi kaikille. Osa lukijoista voi pitää uudistusta tarpeettomana, mutta toiset hyötyvät siitä heti. Jos ongelmia tulee, liikuntakeskus neuvoo ottamaan yhteyttä puhelimitse tai verkon kautta. Yksi esimerkki liittyy jonotukseen ja siihen, miten varaus tehdään etukäteen. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä sunnuntaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä sunnuntaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä sunnuntaina asti.",
+      "word_count": 191
+    },
+    "questions": [
+      {
+        "id": "b1_b2r16-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Urheilutapahtuma",
+          "Lisäksi ja siihen liittyvä muutos",
+          "Matkustaminen ja sää",
+          "Ruoanlaitto kotona"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r16-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Sairaalan remontti",
+          "Lentojen peruuntuminen",
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Uusi elokuva"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r16-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Odota viikko",
+          "Jätä asia kesken",
+          "Kysy neuvoa",
+          "Älä kerro kenellekään"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

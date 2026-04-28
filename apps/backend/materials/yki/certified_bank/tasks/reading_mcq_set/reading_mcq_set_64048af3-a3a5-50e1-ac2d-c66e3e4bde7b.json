@@ -1,0 +1,99 @@
+{
+  "id": "64048af3-a3a5-50e1-ac2d-c66e3e4bde7b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Koulujen kevätjuhla on ensi viikon perjantaina. Juhla alkaa kello 18. Oppilaat esittävät lauluja ja näytelmiä. Juhlan jälkeen on kahvitarjoilu. Vanhemmat voivat myös ostaa oppilaiden tekemiä käsitöitä. Tervetuloa kaikki!",
+      "word_count": 28
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin kevätjuhla on?",
+        "options": [
+          "Tänään",
+          "Ensi viikon perjantaina",
+          "Ensi kuussa",
+          "Lauantaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan juhla alkaa?",
+        "options": [
+          "Kello 16",
+          "Kello 17",
+          "Kello 18",
+          "Kello 19"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä oppilaat esittävät?",
+        "options": [
+          "Tansseja",
+          "Lauluja ja näytelmiä",
+          "Runoutta",
+          "Sirkustemppuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä juhlan jälkeen on?",
+        "options": [
+          "Elokuva",
+          "Kahvitarjoilu",
+          "Tanssit",
+          "Urheilukilpailut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä vanhemmat voivat ostaa?",
+        "options": [
+          "Kirjoja",
+          "Kukkia",
+          "Oppilaiden tekemiä käsitöitä",
+          "Lippuja"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Kenelle juhla on tarkoitettu?",
+        "options": [
+          "Vain oppilaille",
+          "Vain opettajille",
+          "Kaikille",
+          "Vain vanhemmille"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

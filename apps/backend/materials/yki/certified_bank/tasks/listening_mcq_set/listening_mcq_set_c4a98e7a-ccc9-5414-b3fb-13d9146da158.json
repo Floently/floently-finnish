@@ -1,0 +1,88 @@
+{
+  "id": "c4a98e7a-ccc9-5414-b3fb-13d9146da158",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.679,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinliittymän esittely ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Puhelinoperaattori X:n asiakkaaksi. Uusi liittymäsi sisältää rajatonta puheaikaa ja tekstiviestejä kotimaassa sekä 20 gigatavua dataa kuukaudessa. Datan voi käyttää myös ulkomailla EU-alueella. Liittymän hinta on 29,90 euroa kuukaudessa. Lasku tulee sähköpostiisi kuun 5. päivä. Saat myös ilmaisen Netflix-paketin kolmeksi kuukaudeksi. Tervetuloa!",
+      "audio_asset_id": "0e903184-0d6a-4a3e-8fd0-3ffbb8505348"
+    },
+    "questions": [
+      {
+        "id": "l56q1",
+        "prompt": "Paljonko dataa uusi liittymä sisältää kuukaudessa?",
+        "options": [
+          "10 gigatavua.",
+          "20 gigatavua.",
+          "15 gigatavua.",
+          "Rajatonta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l56q2",
+        "prompt": "Voiko dataa käyttää ulkomailla?",
+        "options": [
+          "Kyllä, EU-alueella.",
+          "Ei, vain Suomessa.",
+          "Vain Pohjoismaissa.",
+          "Vain lisämaksusta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l56q3",
+        "prompt": "Paljonko liittymä maksaa kuukaudessa?",
+        "options": [
+          "29,90 euroa.",
+          "19,90 euroa.",
+          "24,90 euroa.",
+          "34,90 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l56q4",
+        "prompt": "Minä päivänä lasku tulee?",
+        "options": [
+          "Kuun 1. päivä.",
+          "Kuun 5. päivä.",
+          "Kuun 10. päivä.",
+          "Kuun 15. päivä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l56q5",
+        "prompt": "Mitä ilmaiseksi saa kolmeksi kuukaudeksi?",
+        "options": [
+          "Netflix-paketin.",
+          "Spotify.",
+          "Viaplay.",
+          "Puheaikaa."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

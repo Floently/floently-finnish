@@ -1,0 +1,99 @@
+{
+  "id": "ecda1d08-84db-5640-852e-d2df153100aa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kesätyön verotus on tärkeä asia tietää. Jos kesätyöstä saa palkkaa, siitä pitää maksaa veroa. Usein työnantaja pidättää veron palkasta. Jos vuositulot jäävät alle tietyn rajan, veroa voi saada takaisin veronpalautuksena. Verokortin voi päivittää, jos tulot muuttuvat. Verottajan sivuilta löytyy tarkemmat ohjeet. Verotietämys on osa taloustaitoja.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tärkeä asia tietää kesätyöstä?",
+        "options": [
+          "Työpaikan sijainti",
+          "Kesätyön verotus",
+          "Työtehtävät",
+          "Työaika"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kesätyöstä saadusta palkasta pitää maksaa?",
+        "options": [
+          "Eläkemaksua",
+          "Veroa",
+          "Työttömyysvakuutusmaksua",
+          "Sairasvakuutusmaksua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuka usein pidättää veron palkasta?",
+        "options": [
+          "Verottaja",
+          "Työnantaja",
+          "Työntekijä itse",
+          "Pankki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin veroa voi saada takaisin?",
+        "options": [
+          "Aina vuoden lopussa",
+          "Jos vuositulot jäävät alle tietyn rajan",
+          "Jos on opiskelija",
+          "Jos on alle 18-vuotias"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä voi päivittää, jos tulot muuttuvat?",
+        "options": [
+          "Pankkitiliä",
+          "Verokortin",
+          "Työsopimusta",
+          "Vakuutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mistä löytyy tarkemmat ohjeet verotukseen?",
+        "options": [
+          "Työpaikalta",
+          "Verottajan sivuilta",
+          "Koulusta",
+          "Kirjastosta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

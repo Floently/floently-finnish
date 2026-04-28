@@ -1,0 +1,37 @@
+{
+  "id": "94a5f64e-21af-55a4-8b3f-029caa0d8ed4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota ilmaisia tietoturvakoulutuksia ikäihmisille?'. Pohdi digiturvallisuutta, ikääntyvien taitoja ja yhteiskunnallista vastuuta.",
+    "materials": {
+      "scenario": "Tietoturvakoulutukset ikäihmisille"
+    },
+    "items": [
+      {
+        "id": "00906c9b-8b9e-5963-8d6b-4ab359795968",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota ilmaisia tietoturvakoulutuksia ikäihmisille?'. Pohdi digiturvallisuutta, ikääntyvien taitoja ja yhteiskunnallista vastuuta."
+      }
+    ],
+    "rubric": "Digiturvallisuus\nIkääntyvien taidot\nYhteiskunnallinen vastuu\nEnnaltaehkäisy",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

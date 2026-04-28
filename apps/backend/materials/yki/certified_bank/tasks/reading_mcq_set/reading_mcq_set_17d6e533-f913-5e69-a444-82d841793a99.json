@@ -1,0 +1,73 @@
+{
+  "id": "17d6e533-f913-5e69-a444-82d841793a99",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan ilmoitus liikuntaedusta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIEDOTE: LIIKUNTAETU UUDISTUU\n\nHyvät työntekijät,\n\nhaluamme tiedottaa, että yrityksemme liikuntaetu uudistuu 1.1.2025 alkaen. Uusi etu on joustavampi ja monipuolisempi.\n\nUusi liikuntaetu:\n- Jokainen työntekijä saa 350 euron vuosittaisen liikuntaedun.\n- Etua voi käyttää kuntosaleihin, uimahalleihin, liikuntatunneille, vuokrata liikuntavälineitä tai osallistua liikuntatapahtumiin.\n- Etu on verovapaa, kun se käytetään työnantajan osoittamiin palveluihin.\n\nMiten etu toimii?\nLataa puhelimeesi Epassi-sovellus ja kirjaudu sisään työsähköpostillasi. Saat automaattisesti 29,17 euroa kuukaudessa käyttöösi. Käyttämätön summa siirtyy seuraavalle kuukaudelle.\n\nVoit myös käyttää perinteistä liikuntaseteleitä, jos et halua käyttää sovellusta. Tilaa setelit HR:stä.\n\nMuutoksia vanhaan:\n- Aiemmin etu oli 250 euroa vuodessa.\n- Nyt etua voi käyttää myös kulttuuriin (teatterit, elokuvat, museot).\n\nLisätietoja: HR-järjestelmästä tai henkilöstösihteeriltä.\n\nHyviä liikuntahetkiä!",
+      "word_count": 110
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Paljonko uusi liikuntaetu on vuodessa?",
+        "options": [
+          "250 €",
+          "300 €",
+          "350 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mihin uutta etua voi käyttää?",
+        "options": [
+          "vain kuntosaleihin",
+          "liikuntaan ja kulttuuriin",
+          "vain uimahalleihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Miten etua käytetään ensisijaisesti?",
+        "options": [
+          "paperiseteleillä",
+          "Epassi-sovelluksella",
+          "laskulla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä uutta edussa on vanhaan verrattuna?",
+        "options": [
+          "sama summa",
+          "suurempi summa ja kulttuurikäyttö",
+          "vain kulttuurikäyttö"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

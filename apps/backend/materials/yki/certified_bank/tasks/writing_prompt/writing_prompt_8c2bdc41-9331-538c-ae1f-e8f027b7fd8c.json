@@ -1,0 +1,37 @@
+{
+  "id": "8c2bdc41-9331-538c-ae1f-e8f027b7fd8c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö puhelinmyyntiä rajoittaa lailla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Puhelinmyynnin rajoittaminen"
+    },
+    "items": [
+      {
+        "id": "f5ba259a-4067-5a8f-8fc1-ff6e64a0ac4c",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö puhelinmyyntiä rajoittaa lailla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

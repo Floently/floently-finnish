@@ -1,0 +1,37 @@
+{
+  "id": "6873c4db-9b86-5bba-8083-eacf1ba8ffe4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö sähköisten reseptien käyttöä laajentaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Sähköisten reseptien käytön laajentaminen"
+    },
+    "items": [
+      {
+        "id": "ba543c8e-1f41-5b54-bbfc-e741e0e7e773",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö sähköisten reseptien käyttöä laajentaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "05d36712-ad57-5922-9afe-0e88ba09976f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhä useampi suomalainen pyöräilee talvella. Oulussa talvipyöräily on ollut arkea vuosikymmeniä.\n\n\"Talvipyöräily on asennekysymys. Hyvillä varusteilla se on mukavaa\", kertoo helsinkiläinen talvipyöräilijä.\n\nOulussa pyörätiet aurataan ensin, vasta sitten autotiet. Helsingissä talvihoitoa on paramettu.\n\nLääkärit muistuttavat, että kypärä ja heijastin ovat välttämättömiä.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "item_146_1",
+        "prompt": "Missä talvipyöräily on ollut pitkään yleistä?",
+        "options": [
+          "Helsingissä",
+          "Oulussa",
+          "Turussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_146_2",
+        "prompt": "Miten Oulu eroaa muista kaupungeista talvikunnossapidossa?",
+        "options": [
+          "siellä ei aurata pyöräteitä",
+          "siellä pyörätiet aurataan ensin",
+          "siellä pyöräily on kielletty talvella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_146_3",
+        "prompt": "Mitä lääkärit neuvovat talvipyöräilijöille?",
+        "options": [
+          "pyöräilemään vain kesällä",
+          "käyttämään kypärää ja heijastinta",
+          "jättämään pyörän kotiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

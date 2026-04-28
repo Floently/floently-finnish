@@ -1,0 +1,88 @@
+{
+  "id": "82464720-95b2-5e9f-9dcf-4c535c2285ba",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Luontoliikunnan terveysvaikutukset on tunnistettu yhä laajemmin, ja yhä useampi suomalainen hakeutuu liikkumaan luontoon. Luontoliikunnalla tarkoitetaan liikuntaa, joka tapahtuu luonnonympäristössä, kuten metsässä, rannalla, puistossa tai vesistössä. Se voi olla kävelyä, juoksua, hiihtoa, pyöräilyä, melontaa tai vaikkapa lumikenkäilyä. Luonto tarjoaa monipuoliset puitteet liikunnalle. Yksi keskeisimmistä luontoliikunnan terveysvaikutuksista on sen vaikutus mielenterveyteen. Luonnossa liikkuminen vähentää stressiä, ahdistusta ja masennusta. Se rauhoittaa mieltä, parantaa mielialaa ja lisää hyvinvoinnin tunnetta. Jo lyhytkin oleskelu luonnossa voi riittää. Toinen keskeinen vaikutus on fyysisen kunnon koheneminen. Luontoliikunta on monipuolista ja haastaa kehoa eri tavoin kuin tasaisella alustalla liikkuminen. Se parantaa kestävyyttä, lihasvoimaa, tasapainoa ja koordinaatiota. Kolmas vaikutus on immuunijärjestelmän vahvistuminen. Luonnossa liikkuessa altistuu monenlaisille mikrobeille ja bakteereille, jotka voivat vahvistaa immuunipuolustusta. Myös metsän tuoksut, kuten fytonsidit, voivat parantaa vastustuskykyä. Neljäs vaikutus on unen laadun paraneminen. Luonnossa liikkuminen ja raitis ilma auttavat nukahtamaan paremmin ja parantavat unen laatua. Viides vaikutus on D-vitamiinin saanti. Auringonvalo on tärkeä D-vitamiinin lähde, ja ulkona liikkuessa saa luonnostaan D-vitamiinia. D-vitamiini on tärkeä luustolle ja immuunipuolustukselle.",
+      "word_count": 161
+    },
+    "questions": [
+      {
+        "id": "eeee1e7c-93f9-5122-a04d-997296fae808",
+        "prompt": "Mitä luontoliikunta tarkoittaa?",
+        "options": [
+          "Liikuntaa kuntosalilla",
+          "Liikuntaa luonnonympäristössä, kuten metsässä tai rannalla",
+          "Liikuntaa urheilukentällä",
+          "Liikuntaa uimahallissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "daa025ea-ff43-5b03-a229-cde40d30b4fc",
+        "prompt": "Miten luontoliikunta vaikuttaa mielenterveyteen?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä, ahdistusta ja masennusta",
+          "Se aiheuttaa ahdistusta",
+          "Sillä ei ole vaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "30cb6395-3c98-57fb-9d7e-1cb63d6f14a4",
+        "prompt": "Miten luontoliikunta vaikuttaa fyysiseen kuntoon?",
+        "options": [
+          "Se heikentää kuntoa",
+          "Se parantaa kestävyyttä, lihasvoimaa, tasapainoa ja koordinaatiota",
+          "Se lisää lihasmassaa vain tietyissä lihaksissa",
+          "Sillä ei ole vaikutusta fyysiseen kuntoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "199bfe47-63c0-5655-ae3f-42ccfe51c54f",
+        "prompt": "Miten luontoliikunta vaikuttaa immuunijärjestelmään?",
+        "options": [
+          "Se heikentää immuunijärjestelmää",
+          "Se vahvistaa immuunijärjestelmää",
+          "Sillä ei ole vaikutusta",
+          "Se aiheuttaa allergioita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "79268811-922e-5b56-9e91-8af01feba51c",
+        "prompt": "Mitä muuta hyötyä ulkona liikkumisesta on?",
+        "options": [
+          "Se auttaa nukkumaan paremmin ja lisää D-vitamiinin saantia",
+          "Se lisää unettomuutta",
+          "Se vähentää D-vitamiinin saantia",
+          "Sillä ei ole muita hyötyjä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

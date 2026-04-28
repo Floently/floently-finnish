@@ -1,0 +1,66 @@
+{
+  "id": "0ae7dcbf-f563-566a-a7c6-e9f99bcad3d9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "OPINTOTUKEEN MUUTOKSIA ENSI LUKUVUODEN ALUSTA\n\nKela tiedottaa, että opintotukeen tulee muutoksia ensi lukuvuoden alusta. Opintoraha nousee noin 10 euroa kuukaudessa, mutta samalla asumislisään tehdään leikkauksia. Opintolainan valtiontakaus säilyy ennallaan.\n\nUudistuksen tavoitteena on kannustaa opiskelijoita valmistumaan nopeammin. Tämän vuoksi opintotukea maksetaan jatkossa enintään 50 kuukautta, kun nykyinen enimmäisaika on 54 kuukautta.\n\nLisäksi omien tulojen enimmäismäärä nousee, joten opiskelijat voivat tienata enemmän menettämättä tukea. Tuloraja on jatkossa noin 15 000 euroa vuodessa.\n\nKela muistuttaa, että opintotukea pitää hakea erikseen jokaiselle lukuvuodelle, eikä se myönny automaattisesti. Opintotuen hakeminen kannattaa tehdä hyvissä ajoin ennen opintojen alkua.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 120
+    },
+    "questions": [
+      {
+        "id": "b3848934-9128-5a99-a364-3f15211dd78d",
+        "prompt": "Mikä opintotuessa nousee?",
+        "options": [
+          "Asumislisä",
+          "Opintoraha",
+          "Opintolainan korko",
+          "Kaikki tuet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3435ae79-341a-5030-b2d6-7d7758d838ce",
+        "prompt": "Kuinka monelle kuukaudelle opintotukea voi saada jatkossa enintään?",
+        "options": [
+          "48 kuukautta",
+          "50 kuukautta",
+          "54 kuukautta",
+          "60 kuukautta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "39280b45-fd34-5efc-9da6-8e383645d429",
+        "prompt": "Mikä on uudistuksen tavoite?",
+        "options": [
+          "Vähentää opiskelijoiden määrää",
+          "Kannustaa valmistumaan nopeammin",
+          "Lisätä opintolainan käyttöä",
+          "Helpottaa Kelan työtä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

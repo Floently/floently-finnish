@@ -1,0 +1,37 @@
+{
+  "id": "ebdb39f9-3a7d-58b7-bcb9-3d630ae5f512",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.679,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: train station. Purpose: give feedback. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "consumer_rights in train_station"
+    },
+    "items": [
+      {
+        "id": "216ec382-8391-5bf1-94d7-1b8039b84e28",
+        "prompt": "Write for the receiver in this scenario: train station. Purpose: give feedback. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

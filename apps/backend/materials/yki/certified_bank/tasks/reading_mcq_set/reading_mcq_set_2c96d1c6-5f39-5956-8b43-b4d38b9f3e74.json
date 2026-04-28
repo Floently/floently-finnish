@@ -1,0 +1,77 @@
+{
+  "id": "2c96d1c6-5f39-5956-8b43-b4d38b9f3e74",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kuluttajien ostokäyttäytyminen on muuttunut merkittävästi viime vuosina. Verkkokauppa on syrjäyttänyt perinteisiä kivijalkakauppoja, ja vastuullisuus on noussut tärkeäksi valintakriteeriksi.\n\nTuoreen tutkimuksen mukaan jo 65 prosenttia suomalaisista pitää tuotteen alkuperää ja valmistustapaa tärkeänä ostopäätöksessä. Erityisesti nuoret aikuiset ovat valmiita maksamaan enemmän kotimaisista ja eettisesti tuotetuista tuotteista. Myös kierrätys ja käytettyjen tuotteiden ostaminen on lisääntynyt.\n\nToisaalta hinta ratkaisee edelleen monen kuluttajan valinnan. Samaan aikaan kun toiset etsivät vastuullisia vaihtoehtoja, toiset vertailevat hintoja ja etsivät halvimpia tarjouksia. Tämä jakaa kuluttajia kahteen leiriin: laatutietoisiin ja hintatietoisiin.\n\nVähittäiskaupat ovat vastanneet muutokseen panostamalla verkkokauppoihin ja kehittämällä omia vastuullisuusohjelmiaan. Monet ketjut tarjoavat nykyään laajan valikoiman luomu- ja lähituotteita. Kaupan alan asiantuntijat uskovat, että vastuullisuuden merkitys kasvaa entisestään tulevina vuosina.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 139
+    },
+    "questions": [
+      {
+        "id": "6448d434-c04c-58b2-9367-3eb709a998ca",
+        "prompt": "Kuinka moni suomalainen pitää tuotteen alkuperää tärkeänä?",
+        "options": [
+          "Noin 45 prosenttia",
+          "Noin 55 prosenttia",
+          "Noin 65 prosenttia",
+          "Noin 75 prosenttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "13a70a1f-51e0-50aa-be6c-1d85587808eb",
+        "prompt": "Ketkä ovat valmiita maksamaan enemmän vastuullisista tuotteista?",
+        "options": [
+          "Eläkeläiset",
+          "Nuoret aikuiset",
+          "Lapsiperheet",
+          "Työttömät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "95e9dbe9-c225-5914-9eea-4e7d40270071",
+        "prompt": "Mihin kahteen ryhmään kuluttajat jakautuvat?",
+        "options": [
+          "Verkko-ostajiin ja kivijalkaostajiin",
+          "Laatutietoisiin ja hintatietoisiin",
+          "Kotimaisiin ja ulkomaisiin",
+          "Nuoriin ja vanhoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e11bd87c-eb61-57ef-8758-7ad42b817e8b",
+        "prompt": "Miten kaupat ovat vastanneet muutokseen?",
+        "options": [
+          "Laskemalla hintoja",
+          "Panostamalla verkkokauppaan ja vastuullisuuteen",
+          "Vähentämällä valikoimaa",
+          "Mainostamalla enemmän"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

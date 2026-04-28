@@ -1,0 +1,66 @@
+{
+  "id": "4011c71f-0c01-53e1-859a-3715cdda1611",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Huomio! Rautatientorin asemalla on hissi rikki. Hissejä 1 ja 2 ei voi käyttää. Käyttäkää liukuportaita tai hissiä 3. Pahoittelemme häiriötä.",
+      "audio_asset_id": "b2019983-c601-5bbf-97da-97472701994c"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on rikki?",
+        "options": [
+          "liukuportaat",
+          "hissit 1 ja 2",
+          "hissi 3",
+          "aseman valot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä voi käyttää hissien sijasta?",
+        "options": [
+          "vain portaita",
+          "liukuportaita tai hissiä 3",
+          "vain hissiä 3",
+          "ei mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä tämä tapahtuu?",
+        "options": [
+          "lentokentällä",
+          "Rautatientorin asemalla",
+          "bussipysäkillä",
+          "kauppakeskuksessa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

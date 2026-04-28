@@ -1,0 +1,73 @@
+{
+  "id": "51a3e29c-78d0-58b6-b569-5fe2e33bcde3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.571,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti lähimatkailusta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähimatkailu on noussut koronapandemian myötä uuteen suosioon. Se tarkoittaa matkailua omassa maassa tai naapurialueilla, usein omalla autolla tai julkisilla liikennevälineillä. Ilmiö herättää kysymyksiä matkailun tulevaisuudesta ja kestävyydestä.\n\nLähimatkailun kannattajat korostavat sen ympäristöystävällisyyttä. Lentämisen sijaan matkustetaan maata pitkin, mikä vähentää päästöjä. Samalla tuetaan oman maan taloutta ja paikallisia yrittäjiä. Lähimatkailu on myös turvallisempaa ja joustavampaa – suunnitelmia voi muuttaa nopeasti.\n\nToiseksi lähimatkailu voi olla rikastuttavaa. Usein unohdamme, kuinka paljon nähtävää ja koettavaa on omassa maassamme. Kansallispuistot, kulttuurikohteet ja pienet kaupungit tarjoavat monipuolisia elämyksiä ilman pitkiä matkoja. Lähimatkailu voi myös olla edullisempaa.\n\nKolmanneksi lähimatkailu voi vähentää matkailun ruuhkautumista. Kun ihmiset hajaantuvat ympäri maata, suosituimmat kohteet eivät kuormitu liikaa. Tämä on hyväksi sekä luonnolle että paikallisille asukkaille.\n\nKriitikot kuitenkin muistuttavat, että lähimatkailu ei ole kaikille mahdollista. Autottomat kaupunkilaiset eivät välttämättä pääse helposti kansallispuistoihin tai syrjäseuduille. Julkinen liikenne ei aina tavoita kiinnostavimpia kohteita.\n\nToinen haaste on matkailuelinkeinon kannattavuus. Monille yrityksille ulkomaalaiset turistit ovat tärkeä tulonlähde. Jos turismi supistuu pelkkään lähimatkailuun, moni yritys voi joutua vaikeuksiin. Tarvitaan tasapainoa.\n\nKolmas näkökulma on tottumukset. Monille matkailu merkitsee irtiottoa arjesta, ja uusi ympäristö on olennainen osa kokemusta. Lähimatkailu ei välttämättä tarjoa samaa elämystä kuin kaukomatka. Tämä on psykologinen kysymys.\n\nNeljänneksi on otettava huomioon, että lähimatkailu voi myös kuormittaa luontoa. Jos kaikki suuntaavat samoihin kansallispuistoihin, kulutus voi olla kestämätöntä. Tarvitaan ohjausta ja infran parantamista.\n\nLopuksi voidaan todeta, että lähimatkailu on tullut jäädäkseen. Se on osa kestävämpää matkailua, mutta ei täysin korvaa kaukomatkoja. Tärkeintä on löytää tasapaino, joka ottaa huomioon ympäristön, talouden ja ihmisten tarpeet.",
+      "word_count": 245
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä hyötyjä lähimatkailulla on kannattajien mukaan?",
+        "options": [
+          "vain halpuus",
+          "ympäristöystävällisyys, paikallistalouden tuki ja elämysten rikkaus",
+          "vain ympäristöystävällisyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä kritiikkiä lähimatkailua kohtaan esitetään?",
+        "options": [
+          "se on tylsää",
+          "se ei ole kaikille mahdollista ja voi kuormittaa luontoa",
+          "se on liian kallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Miten lähimatkailu voi vaikuttaa matkailuelinkeinoon?",
+        "options": [
+          "se on aina hyväksi",
+          "jos turismi supistuu pelkkään lähimatkailuun, moni yritys voi joutua vaikeuksiin",
+          "se lisää aina tuloja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä psykologista näkökulmaa teksti nostaa esiin?",
+        "options": [
+          "ihmiset eivät pidä lähimatkailusta",
+          "matkailu merkitsee irtiottoa, eikä lähimatkailu välttämättä tarjoa samaa elämystä",
+          "ihmiset haluavat aina matkustaa kauas"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

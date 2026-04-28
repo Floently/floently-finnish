@@ -1,0 +1,40 @@
+{
+  "id": "78b51028-7dcd-5900-97d7-198ee2300d5b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.286,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell your name, age and where you come from.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "cbaf0500-d18a-51e4-9fc4-2af86f8289b5",
+        "ai_first_turn_fi": "Hei, tervetuloa! Oletko sinä uusi täällä? Kerro vähän itsestäsi."
+      }
+    ],
+    "rubric": "Tell your name, age and where you come from.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

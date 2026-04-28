@@ -1,0 +1,37 @@
+{
+  "id": "31098c6c-7982-5ff9-acf3-918423dc9b32",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet varannut hotellihuoneen, mutta haluat muuttaa varausta. Kirjoita sähköposti hotelliin.\n\nKerro:\n- Nimesi ja varausnumerosi\n- Että haluat muuttaa saapumispäivää (kerro uusi päivä)\n- Että haluat lisätä yhden yön\n- Kysy, onnistuuko muutos ja paljonko se maksaa",
+    "materials": {
+      "scenario": "Olet varannut hotellihuoneen, mutta haluat muuttaa varausta. Kirjoita sähköposti hotelliin.\n\nKerro:\n- Nimesi ja varausnumerosi\n- Että haluat muuttaa saapumispäivää (kerro uusi päivä)\n- Että haluat lisätä yhden yön\n- Kysy, onnistuuko muutos ja paljonko se maksaa"
+    },
+    "items": [
+      {
+        "id": "9f9d4aa8-e546-53b6-9d2f-13300417aabe",
+        "prompt": "Olet varannut hotellihuoneen, mutta haluat muuttaa varausta. Kirjoita sähköposti hotelliin.\n\nKerro:\n- Nimesi ja varausnumerosi\n- Että haluat muuttaa saapumispäivää (kerro uusi päivä)\n- Että haluat lisätä yhden yön\n- Kysy, onnistuuko muutos ja paljonko se maksaa"
+      }
+    ],
+    "rubric": "Olet varannut hotellihuoneen, mutta haluat muuttaa varausta. Kirjoita sähköposti hotelliin.\n\nKerro:\n- Nimesi ja varausnumerosi\n- Että haluat muuttaa saapumispäivää (kerro uusi päivä)\n- Että haluat lisätä yhden yön\n- Kysy, onnistuuko muutos ja paljonko se maksaa",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

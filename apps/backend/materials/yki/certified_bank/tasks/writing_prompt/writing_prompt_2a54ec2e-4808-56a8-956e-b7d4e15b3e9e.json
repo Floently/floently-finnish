@@ -1,0 +1,37 @@
+{
+  "id": "2a54ec2e-4808-56a8-956e-b7d4e15b3e9e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit laittaa parvekkeelle kukkia ja pienen pöydän. Kysy, saako parvekkeelle laittaa huonekaluja. Kerro, että ne eivät vahingoita parveketta. Kysy, onko sallittua.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle parvekkeen kalusteista"
+    },
+    "items": [
+      {
+        "id": "ea8d36c3-ab8d-51be-b4cd-9f679e1786c2",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit laittaa parvekkeelle kukkia ja pienen pöydän. Kysy, saako parvekkeelle laittaa huonekaluja. Kerro, että ne eivät vahingoita parveketta. Kysy, onko sallittua."
+      }
+    ],
+    "rubric": "Kerro, että haluat laittaa kukkia ja pöydän\nKysy, saako laittaa huonekaluja\nKerro, että ne eivät vahingoita\nKysy, onko sallittua",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

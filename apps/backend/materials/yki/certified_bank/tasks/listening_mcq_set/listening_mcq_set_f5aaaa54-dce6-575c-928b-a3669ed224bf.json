@@ -1,0 +1,88 @@
+{
+  "id": "f5aaaa54-dce6-575c-928b-a3669ed224bf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele opiskelijoiden välinen keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opiskelija A: Hei, ootsä lukenu noita ohjeita huomiseen ryhmätyön esitykseen? Mulle tuli vähän epäselväksi, että saako siinä käyttää PowerPointia vai ei. Opiskelija B: Joo, kyl se tais olla, että se on vapaaehtoinen. Mutta tärkeintä on se, että jokainen ryhmän jäsen sanoo jotain. Opiskelija A: Okei, se selvensi. Entä se aika? Montako minuuttia meillä on? Opiskelija B: Yhteensä 15 minuuttia, ja sen jälkeen on kysymyksiä. Meidän kannattaa varmaan jakaa se niin, että jokaisella on noin kolme minuuttia. Opiskelija A: Kuulostaa hyvältä. Mä voin ottaa sen johdannon. Opiskelija B: Sopii. Mä taidan puhua siitä tutkimusmenetelmästä. Pitää vaan varmistaa, ettei puhuta liian nopeasti. Opiskelija A: Joo, ja muistutetaan toisiamme siitä. Hyvä, nyt alkaa hahmottua.",
+      "audio_asset_id": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b"
+    },
+    "questions": [
+      {
+        "id": "l5q1",
+        "prompt": "Mistä opiskelijat keskustelevat?",
+        "options": [
+          "Tulevasta tentistä.",
+          "Ryhmätyön esityksestä.",
+          "Lukujärjestyksen muutoksesta.",
+          "Opettajan poissaolosta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l5q2",
+        "prompt": "Onko PowerPointin käyttö pakollista?",
+        "options": [
+          "Kyllä, se on pakollinen.",
+          "Ei, se on vapaaehtoinen.",
+          "Vain jos ryhmä on yli 4 henkilöä.",
+          "Vain tietyissä aiheissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l5q3",
+        "prompt": "Kuinka pitkä aika ryhmällä on esitykseen?",
+        "options": [
+          "10 minuuttia.",
+          "15 minuuttia.",
+          "20 minuuttia.",
+          "30 minuuttia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l5q4",
+        "prompt": "Mistä aiheesta opiskelija B aikoo puhua?",
+        "options": [
+          "Johdannosta.",
+          "Tutkimusmenetelmästä.",
+          "Johtopäätöksistä.",
+          "Lähdeluettelosta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l5q5",
+        "prompt": "Mistä asiasta opiskelijat haluavat muistuttaa toisiaan?",
+        "options": [
+          "Tuomaan PowerPoint-tikku.",
+          "Puhumaan tarpeeksi hitaasti.",
+          "Tulostamaan materiaalit.",
+          "Varaamaan esitystilan."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

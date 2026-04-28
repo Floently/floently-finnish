@@ -1,0 +1,37 @@
+{
+  "id": "097fe43b-05a1-5a44-9904-f4d79ef69edc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kaupungin uusista pyörätelineistä. Onko niitä tarpeeksi? Ovatko ne hyvällä paikalla?",
+    "materials": {
+      "scenario": "Palaute uusista pyörätelineistä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute kaupungin uusista pyörätelineistä. Onko niitä tarpeeksi? Ovatko ne hyvällä paikalla?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kaupungin uusista pyörätelineistä. Onko niitä tarpeeksi? Ovatko ne hyvällä paikalla?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

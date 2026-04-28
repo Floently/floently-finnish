@@ -1,0 +1,99 @@
+{
+  "id": "19859c9a-a39f-558e-a6bf-0747fdb29b25",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet suomalaiset viettävät kesälomansa mökillä. Mökkeilyyn kuuluu saunominen, uiminen, grillaaminen ja luonnossa liikkuminen. Mökillä rentoudutaan ja nautitaan hiljaisuudesta. Osa mökkeilee myös talvella, jolloin voi hiihtää ja nauttia takkatulesta. Mökkeily on suosittua kaikenikäisten keskuudessa. Mökki on monelle tärkeä paikka viettää aikaa perheen ja ystävien kanssa.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä monet suomalaiset viettävät kesälomansa?",
+        "options": [
+          "Ulkomailla",
+          "Mökillä",
+          "Kaupungissa",
+          "Hotellissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mökkeilyyn kuuluu?",
+        "options": [
+          "Kaupungilla kävelyä",
+          "Saunominen, uiminen, grillaaminen ja luonnossa liikkuminen",
+          "Elokuvissa käyntiä",
+          "Ostoksilla käyntiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä mökillä tehdään?",
+        "options": [
+          "Tehdään töitä",
+          "Rentoudutaan ja nautitaan hiljaisuudesta",
+          "Käydään kahviloissa",
+          "Pelataan tietokoneella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä talvimökkeilyyn voi kuulua?",
+        "options": [
+          "Uiminen",
+          "Hiihtäminen ja takkatulesta nauttiminen",
+          "Grillaaminen",
+          "Marjastus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenelle mökkeily on suosittua?",
+        "options": [
+          "Vain vanhuksille",
+          "Vain lapsiperheille",
+          "Kaikenikäisille",
+          "Vain nuorille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä mökki on monelle?",
+        "options": [
+          "Sijoituskohde",
+          "Tärkeä paikka viettää aikaa perheen ja ystävien kanssa",
+          "Työpaikka",
+          "Harrastuspaikka"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

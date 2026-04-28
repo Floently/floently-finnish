@@ -1,0 +1,37 @@
+{
+  "id": "d7d94ed8-d205-5b6b-a151-78b672090d03",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kansalaisaloitteiden käsittelyä nopeuttaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Kansalaisaloitteiden käsittelyn nopeuttaminen"
+    },
+    "items": [
+      {
+        "id": "f65d87ae-094f-5047-80e1-dfea6b6fc96b",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kansalaisaloitteiden käsittelyä nopeuttaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "f760952a-d79d-51b6-9d4d-5abad66ca192",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti opetushallituksen arviointiyksikköön. Olette koulutuksen järjestäjä, ja haluatte pyytää ulkopuolista arviointia uudesta opetussuunnitelmastanne. Kerro hankkeestanne, millaista arviointia tarvitsette ja missä aikataulussa. Kysy myös arvioinnin kustannuksista ja menettelytavoista.",
+    "materials": {
+      "scenario": "Opetussuunnitelman ulkopuolinen arviointi"
+    },
+    "items": [
+      {
+        "id": "6d1a36fe-d5e8-547f-83cc-9d0c9bfe05e6",
+        "prompt": "Kirjoita virallinen sähköposti opetushallituksen arviointiyksikköön. Olette koulutuksen järjestäjä, ja haluatte pyytää ulkopuolista arviointia uudesta opetussuunnitelmastanne. Kerro hankkeestanne, millaista arviointia tarvitsette ja missä aikataulussa. Kysy myös arvioinnin kustannuksista ja menettelytavoista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

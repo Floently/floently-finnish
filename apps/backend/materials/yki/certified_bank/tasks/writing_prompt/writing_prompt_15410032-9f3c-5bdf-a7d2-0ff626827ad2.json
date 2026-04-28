@@ -1,0 +1,37 @@
+{
+  "id": "15410032-9f3c-5bdf-a7d2-0ff626827ad2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kaupungin kirjastoon. Haluaisit ehdottaa, että kirjasto järjestäisi lukupiirejä eri kielillä maahanmuuttajille. Perustele ehdotustasi ja kysy, onko kirjastolla kiinnostusta järjestää tällaista toimintaa ja voisitko itse osallistua sen suunnitteluun.",
+    "materials": {
+      "scenario": "Monikieliset lukupiirit"
+    },
+    "items": [
+      {
+        "id": "cee507f9-088b-5535-9c10-4e69fb540ca5",
+        "prompt": "Kirjoita virallinen sähköposti kaupungin kirjastoon. Haluaisit ehdottaa, että kirjasto järjestäisi lukupiirejä eri kielillä maahanmuuttajille. Perustele ehdotustasi ja kysy, onko kirjastolla kiinnostusta järjestää tällaista toimintaa ja voisitko itse osallistua sen suunnitteluun."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

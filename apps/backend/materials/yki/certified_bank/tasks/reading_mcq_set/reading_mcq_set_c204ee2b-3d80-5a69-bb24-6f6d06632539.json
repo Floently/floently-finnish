@@ -1,0 +1,99 @@
+{
+  "id": "c204ee2b-3d80-5a69-bb24-6f6d06632539",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.575,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalainen hyvinvointiyhteiskunta perustuu ajatukseen, että kaikilla kansalaisilla on oikeus peruspalveluihin ja sosiaaliturvaan. Verorahoilla rahoitetaan julkisia palveluita kuten terveydenhuoltoa, koulutusta ja sosiaalipalveluita. Suomessa on kattava sosiaaliturvajärjestelmä, joka tukee työttömiä, sairaita ja eläkeläisiä. Viime vuosina on keskusteltu paljon siitä, miten hyvinvointivaltiota voidaan ylläpitää väestön ikääntyessä ja julkisen talouden paineiden kasvaessa. Monet ovat huolissaan palveluiden tulevaisuudesta, mutta toisaalta suomalaiset ovat valmiita maksamaan veroja hyvinvointiyhteiskunnan ylläpitämiseksi.",
+      "word_count": 62
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin suomalainen hyvinvointiyhteiskunta perustuu?",
+        "options": [
+          "yksityisiin vakuutuksiin",
+          "ajatukseen kaikkien oikeudesta peruspalveluihin",
+          "kansalaisten vapaaehtoiseen maksuun",
+          "yritysten hyväntekeväisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten julkiset palvelut rahoitetaan?",
+        "options": [
+          "maksuilla ja osallistumismaksuilla",
+          "verorahoilla",
+          "lahjoituksilla",
+          "EU:n tuella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä sosiaaliturvajärjestelmä tukee?",
+        "options": [
+          "vain työttömiä",
+          "työttömiä, sairaita ja eläkeläisiä",
+          "vain eläkeläisiä",
+          "vain perheitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä haaste hyvinvointiyhteiskunnalla on?",
+        "options": [
+          "liian korkeat verot",
+          "väestön ikääntyminen ja julkisen talouden paineet",
+          "liian vähän työntekijöitä",
+          "ulkomainen kilpailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä monet ovat huolissaan?",
+        "options": [
+          "verojen noususta",
+          "palveluiden tulevaisuudesta",
+          "ulkomaalaisten määrästä",
+          "työpaikkojen vähenemisestä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä mieltä suomalaiset ovat verojen maksamisesta?",
+        "options": [
+          "he haluavat maksaa vähemmän veroja",
+          "he ovat valmiita maksamaan veroja hyvinvointiyhteiskunnan ylläpitämiseksi",
+          "he haluaisivat siirtyä matalampiin veroihin",
+          "he eivät ole kiinnostuneita verotuksesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

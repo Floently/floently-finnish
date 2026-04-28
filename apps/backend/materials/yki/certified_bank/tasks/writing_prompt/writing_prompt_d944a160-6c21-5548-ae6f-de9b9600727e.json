@@ -1,0 +1,37 @@
+{
+  "id": "d944a160-6c21-5548-ae6f-de9b9600727e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti parturi-kampaamoon.",
+    "materials": {
+      "scenario": "Kysy värikäsittelyn hinta-arviota"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti parturi-kampaamoon."
+      }
+    ],
+    "rubric": "Haluaisit värjätä hiuksesi, mutta et tiedä tarkkaa hintaa. Kirjoita sähköposti ja kysy, paljonko hiusten värjäys ja leikkaus maksaisi. Kerro, minkä pituiset hiuksesi ovat ja millaista väriä toivot.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

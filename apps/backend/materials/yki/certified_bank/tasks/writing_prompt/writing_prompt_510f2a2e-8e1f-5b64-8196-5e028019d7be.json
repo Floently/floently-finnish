@@ -1,0 +1,37 @@
+{
+  "id": "510f2a2e-8e1f-5b64-8196-5e028019d7be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupunginvaltuutetulle. Olet huolissasi siitä, että kaupungin päätöksenteossa ei kuulla tarpeeksi nuoria. Ehdota, että perustetaan nuorisovaltuusto tai nuorten kuulemistilaisuuksia. Perustele ehdotuksesi.",
+    "materials": {
+      "scenario": "Ehdotus nuorten kuulemisesta"
+    },
+    "items": [
+      {
+        "id": "56ae6694-a7e9-586f-a400-70adb3857084",
+        "prompt": "Kirjoita sähköposti kaupunginvaltuutetulle. Olet huolissasi siitä, että kaupungin päätöksenteossa ei kuulla tarpeeksi nuoria. Ehdota, että perustetaan nuorisovaltuusto tai nuorten kuulemistilaisuuksia. Perustele ehdotuksesi."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nEhdotus\nPerustelut",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

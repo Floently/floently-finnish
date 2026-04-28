@@ -1,0 +1,37 @@
+{
+  "id": "61edd683-ce00-5295-ba25-b76cd30dcd2b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kansainvälisen konferenssin järjestäjille. Olet ilmoittautunut puhujaksi, mutta joudut perumaan osallistumisesi henkilökohtaisen syyn vuoksi. Selitä tilanne, pahoittele peruutusta ja tiedustele, voiko esityksen sijasta lähettää artikkelin konferenssijulkaisuun.",
+    "materials": {
+      "scenario": "Peruutusilmoitus konferenssiin"
+    },
+    "items": [
+      {
+        "id": "b8319109-ac21-52d9-a2a8-c5845133aa0a",
+        "prompt": "Kirjoita virallinen sähköposti kansainvälisen konferenssin järjestäjille. Olet ilmoittautunut puhujaksi, mutta joudut perumaan osallistumisesi henkilökohtaisen syyn vuoksi. Selitä tilanne, pahoittele peruutusta ja tiedustele, voiko esityksen sijasta lähettää artikkelin konferenssijulkaisuun."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

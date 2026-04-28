@@ -1,0 +1,37 @@
+{
+  "id": "744cca94-d253-5c14-8404-b4d9750df5de",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti lähikirjaston aukioloajoista. Kerro ilta-aukiolosta, viikonloppuaukiolosta ja omatoimikirjastosta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute lähikirjaston aukioloajoista"
+    },
+    "items": [
+      {
+        "id": "9af11b69-73e4-5cd9-b6ed-e19c3a2d7f2e",
+        "prompt": "Kirjoita palauteteksti lähikirjaston aukioloajoista. Kerro ilta-aukiolosta, viikonloppuaukiolosta ja omatoimikirjastosta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Ilta-aukiolo\nViikonloppuaukiolo\nOmatoimikirjasto\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

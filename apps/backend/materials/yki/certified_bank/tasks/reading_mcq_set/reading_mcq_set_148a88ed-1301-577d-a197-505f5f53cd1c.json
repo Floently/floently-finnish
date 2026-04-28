@@ -1,0 +1,66 @@
+{
+  "id": "148a88ed-1301-577d-a197-505f5f53cd1c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ILMOITUS\n\nTaloyhtiön pihalla on tiistaina 3.6. kello 8–16 kaivutyö. Silloin pihalle ei voi pysäköidä autoja. Myös leikkipiha on kiinni koko päivän. Pahoittelemme tilapäistä haittaa.\n\nTaloyhtiön hallitus",
+      "word_count": 26
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_001_q1",
+        "prompt": "Milloin pihalla on kaivutyö?",
+        "options": [
+          "maanantaina 2.6.",
+          "tiistaina 3.6.",
+          "keskiviikkona 4.6.",
+          "torstaina 5.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_001_q2",
+        "prompt": "Mitä ei voi tehdä kaivutyön aikana?",
+        "options": [
+          "Käydä kaupassa",
+          "Mennä sisään ovesta",
+          "Pysäköidä autoa pihalle",
+          "Soittaa naapurille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_001_q3",
+        "prompt": "Onko leikkipiha auki tiistaina?",
+        "options": [
+          "Kyllä, koko päivän",
+          "Kyllä, vain aamulla",
+          "Ei, se on kiinni",
+          "Ei, se on purettu"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

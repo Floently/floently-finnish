@@ -1,0 +1,37 @@
+{
+  "id": "07d5dbe5-eb0a-5614-8232-5caa5dab8cd2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö tekoälyn käyttöä työnhaussa rajoittaa lailla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Tekoälyn käytön rajoittaminen työnhaussa"
+    },
+    "items": [
+      {
+        "id": "01679548-1ef9-52e0-a939-ce2313559d1c",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö tekoälyn käyttöä työnhaussa rajoittaa lailla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

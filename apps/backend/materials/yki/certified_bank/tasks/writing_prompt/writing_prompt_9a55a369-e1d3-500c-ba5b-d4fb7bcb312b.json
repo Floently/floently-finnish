@@ -1,0 +1,37 @@
+{
+  "id": "9a55a369-e1d3-500c-ba5b-d4fb7bcb312b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnallisten vuokra-asuntojen määrää lisätä asunnottomuuden vähentämiseksi?'. Arvioi asuntopolitiikkaa, kustannuksia ja segregaatiota.",
+    "materials": {
+      "scenario": "Kunnalliset vuokra-asunnot"
+    },
+    "items": [
+      {
+        "id": "9c458104-0969-5cd9-8a22-c08da8bf4ccb",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnallisten vuokra-asuntojen määrää lisätä asunnottomuuden vähentämiseksi?'. Arvioi asuntopolitiikkaa, kustannuksia ja segregaatiota."
+      }
+    ],
+    "rubric": "Asuntopolitiikka\nKustannukset\nSegregaatio\nAsunnottomuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

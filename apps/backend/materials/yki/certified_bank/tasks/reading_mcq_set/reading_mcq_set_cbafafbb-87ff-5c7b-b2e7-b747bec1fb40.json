@@ -1,0 +1,110 @@
+{
+  "id": "cbafafbb-87ff-5c7b-b2e7-b747bec1fb40",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen työmarkkinat ovat murroksessa. Perinteinen jako työntekijöihin ja työnantajiin hämärtyy, kun uudenlaiset työnteon muodot, kuten keikkatyö, alustatyö ja etätyö, yleistyvät. Yhä useampi työllistää itsensä tai työskentelee usealle eri työnantajalle. Tämä tuo joustavuutta, mutta myös epävarmuutta. Moni ei tiedä, paljonko tuloja on seuraavassa kuussa, tai onko töitä ollenkaan. Työelämän muutos haastaa myös työlainsäädännön ja sosiaaliturvan. Nykyinen lainsäädäntö on pitkälti rakennettu vakituisen kokoaikatyön varaan. Keikkatyöläisten ja itsensätyöllistäjien asema on monin tavoin epäselvä. Heillä ei ole välttämättä oikeutta esimerkiksi työterveyshuoltoon, lomakertymiin tai työttömyysturvaan samalla tavalla kuin vakituisilla työntekijöillä. Tämä voi johtaa eriarvoisuuteen ja syrjäytymiseen. Sosiaaliturvaa onkin uudistettava vastaamaan työelämän muutoksia. Tarvitaan joustavia ratkaisuja, jotka turvaavat toimeentulon työnteon muodosta riippumatta. Yksi ehdotus on ollut perustulo, joka maksettaisiin kaikille tai tietyille ryhmille ilman ehtoja. Toinen ehdotus on ansiosidonnaisen turvan laajentaminen koskemaan myös keikkatyöläisiä. Keskustelua käydään myös siitä, miten työehtosopimukset saadaan kattamaan uudet työnteon muodot. Työelämän murros on väistämätön, ja siihen on vastattava.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä uusia työnteon muotoja on yleistynyt?",
+        "options": [
+          "Vain vakituinen kokoaikatyö.",
+          "Keikkatyö, alustatyö ja etätyö.",
+          "Vain etätyö.",
+          "Vain alustatyö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä uusista työnteon muodoista on?",
+        "options": [
+          "Vain vakautta.",
+          "Joustavuutta.",
+          "Vain korkeampaa palkkaa.",
+          "Vain vähemmän työtä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haittapuolia uusiin työnteon muotoihin liittyy?",
+        "options": [
+          "Liikaa työtä.",
+          "Epävarmuutta tuloista.",
+          "Liian paljon vapaa-aikaa.",
+          "Liian hyvää sosiaaliturvaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi nykyinen työlainsäädäntö on haasteellinen?",
+        "options": [
+          "Se on liian uusi.",
+          "Se on rakennettu vakituisen työn varaan.",
+          "Se on liian joustava.",
+          "Se ei koske ketään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä etuja vakituisilla työntekijöillä on?",
+        "options": [
+          "Korkeampi palkka.",
+          "Työterveyshuolto, lomakertymät ja työttömyysturva.",
+          "Pidemmät työpäivät.",
+          "Enemmän vastuuta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ratkaisuja on esitetty?",
+        "options": [
+          "Vain perustulo.",
+          "Perustulo ja ansiosidonnaisen turvan laajentaminen.",
+          "Vain ansiosidonnaisen turvan laajentaminen.",
+          "Ei mitään ratkaisuja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä työelämän murrokseen vastaaminen vaatii?",
+        "options": [
+          "Vanhoihin malleihin pitäytymistä.",
+          "Uudenlaista ajattelua ja uudistuksia.",
+          "Vain lainsäädännön kiristämistä.",
+          "Vain työntekijöiden sopeutumista."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

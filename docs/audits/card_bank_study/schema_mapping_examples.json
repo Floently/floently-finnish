@@ -1,0 +1,67 @@
+{
+  "legacy_to_runtime_authority": {
+    "input_fields": [
+      "type",
+      "question",
+      "prompt",
+      "options",
+      "answer",
+      "full_sentence"
+    ],
+    "output_fields": [
+      "id",
+      "path",
+      "profession",
+      "content_type",
+      "level_band",
+      "front",
+      "follow_up_prompt",
+      "accepted_answers",
+      "choices",
+      "explanation"
+    ],
+    "risk": "legacy cards collapse multiple prompt types into low-retrieval vocabulary entries"
+  },
+  "curated_compiled_card_to_canonical": {
+    "input_fields": [
+      "id",
+      "content_type",
+      "path",
+      "domain",
+      "profession",
+      "level_band",
+      "tags",
+      "front_text",
+      "back_prompt",
+      "served_follow_up",
+      "_accepted_variants"
+    ],
+    "output_fields": [
+      "id",
+      "version",
+      "path",
+      "domain",
+      "profession",
+      "level_band",
+      "difficulty",
+      "language",
+      "source",
+      "quality",
+      "tags",
+      "publication",
+      "content_type",
+      "content"
+    ],
+    "risk": "requires canonical content.front/back reconstruction and manifest/version assignment"
+  },
+  "new_practice_pack_to_canonical": {
+    "input_fields": [
+      "units[].cards[]",
+      "grammar_points[].cards[]"
+    ],
+    "output_fields": [
+      "canonical card envelopes grouped by vocabulary/sentence/grammar"
+    ],
+    "risk": "needs triplet-aware conversion and CEFR/profession tag propagation"
+  }
+}

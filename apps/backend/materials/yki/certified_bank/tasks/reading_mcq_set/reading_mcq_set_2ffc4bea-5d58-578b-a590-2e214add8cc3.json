@@ -1,0 +1,110 @@
+{
+  "id": "2ffc4bea-5d58-578b-a590-2e214add8cc3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.761,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen sosiaaliturvajärjestelmä on monimutkainen ja vaikeaselkoinen, ja sitä on kritisoitu jo vuosikymmeniä. Se koostuu lukuisista eri etuuksista, joilla on kaikilla omat, toisistaan poikkeavat ehtonsa, hakumenettelynsä ja byrokraattiset käytäntönsä. Tämä tekee järjestelmästä erittäin byrokraattisen, raskaan ja vaikeasti hahmotettavan sekä etuuksien hakijoille että niitä toteuttaville viranomaisille. Monet ihmiset eivät yksinkertaisesti tiedä, mitä etuuksia heille kuuluu, tai heillä on suuria vaikeuksia hakea niitä. Tämä voi johtaa siihen, että osa niistä, jotka olisivat oikeutettuja tukeen, eivät sitä käytännössä saa. Järjestelmässä on myös merkittäviä kannustinloukkuja, jotka vähentävät työn vastaanottamisen taloudellista houkuttelevuutta. Esimerkiksi työttömän henkilön voi olla taloudellisesti täysin kannattamatonta ottaa vastaan lyhyitä, osa-aikaisia tai matalapalkkaisia töitä, koska hän menettää samalla osan etuuksistaan ja voi pahimmillaan jopa hävitä taloudellisesti työssä käymisestä. Tämä on paitsi yksilön kannalta kohtuutonta, myös yhteiskunnan kannalta järjetöntä, koska se voi jopa aktiivisesti estää työllistymistä ja lisätä pitkäaikaistyöttömyyttä. Sosiaaliturvan kokonaisuudistus on ollut esillä politiikassa pitkään. Tavoitteena on rakentaa nykyistä yksinkertaisempi, läpinäkyvämpi, kannustavampi ja ennen kaikkea oikeudenmukaisempi järjestelmä. Yksi paljon keskusteltu ehdotus on ollut perustulo, joka korvaisi osan nykyisistä etuuksista. Perustulo maksettaisiin kaikille kansalaisille tai tietyille ryhmille ilman ehtoja ja tarveharkintaa. Sen kannattajat uskovat, että se vähentäisi byrokratiaa valtavasti ja kannustaisi aidosti työntekoon, koska työstä saatavat ansiot eivät vähentäisi perustuloa. Vastustajat taas varoittavat, että perustulo voisi olla kustannuksiltaan kestämätön eikä se välttämättä tavoittaisi niitä kaikkein heikoimmassa asemassa olevia, jotka eniten apua tarvitsevat.",
+      "word_count": 218
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi Suomen sosiaaliturvajärjestelmää kuvataan ongelmalliseksi?",
+        "options": [
+          "Se on liian yksinkertainen ja helppokäyttöinen.",
+          "Se on monimutkainen, byrokraattinen ja vaikeasti hahmotettava.",
+          "Sitä on liian vähän ja se kattaa vain harvoja.",
+          "Se on täysin toimiva ja tehokas."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä seurauksia järjestelmän monimutkaisuudesta voi olla?",
+        "options": [
+          "Kaikki saavat etuudet automaattisesti ja helposti.",
+          "Ihmiset eivät tiedä, mitä etuuksia heille kuuluu, ja osa jää kokonaan vaille niitä.",
+          "Byrokratia on erittäin vähäistä ja järjestelmä on kevyt.",
+          "Viranomaiset hoitavat kaiken automaattisesti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan kannustinloukulla sosiaaliturvassa?",
+        "options": [
+          "Tilannetta, jossa työn vastaanottaminen on erittäin kannattavaa.",
+          "Tilannetta, jossa työn vastaanottaminen ei ole taloudellisesti kannattavaa etuuksien menetyksen vuoksi.",
+          "Tilannetta, jossa työtä on tarjolla yllin kyllin.",
+          "Tilannetta, jossa sosiaaliturva kannustaa tehokkaasti työntekoon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kannustinloukut ovat ongelma myös yhteiskunnan kannalta?",
+        "options": [
+          "Ne lisäävät valtion verotuloja.",
+          "Ne voivat aktiivisesti estää työllistymistä ja lisätä pitkäaikaistyöttömyyttä.",
+          "Ne kannustavat ihmisiä kouluttautumaan.",
+          "Ne vähentävät sosiaaliturvan tarvetta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on sosiaaliturvan uudistamisen keskeinen tavoite?",
+        "options": [
+          "Monimutkaistaa järjestelmää entisestään.",
+          "Rakentaa yksinkertaisempi, kannustavampi ja oikeudenmukaisempi järjestelmä.",
+          "Vain vähentää sosiaaliturvan kustannuksia hinnalla millä hyvänsä.",
+          "Siirtää koko järjestelmä yksityisten vakuutusyhtiöiden vastuulle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä perustulo tarkoittaisi käytännössä?",
+        "options": [
+          "Tuloa, joka maksetaan vain työttömille ja joka poistuu, kun työllistyy.",
+          "Tuloa, joka maksettaisiin kaikille tai tietyille ryhmille ilman ehtoja ja tarveharkintaa.",
+          "Tuloa, joka perustuu tehtyjen työtuntien määrään.",
+          "Tuloa, joka maksetaan vain eläkeläisille ja opiskelijoille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä hyötyä perustulosta sen kannattajien mukaan olisi?",
+        "options": [
+          "Se lisäisi byrokratiaa ja vaikeuttaisi järjestelmää.",
+          "Se vähentäisi byrokratiaa ja kannustaisi aidosti työntekoon.",
+          "Se olisi erittäin halpa toteuttaa.",
+          "Se kohdistuisi tarkasti vain kaikkein köyhimmille."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

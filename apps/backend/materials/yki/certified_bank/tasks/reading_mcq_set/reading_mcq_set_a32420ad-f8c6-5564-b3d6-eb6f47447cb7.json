@@ -1,0 +1,77 @@
+{
+  "id": "a32420ad-f8c6-5564-b3d6-eb6f47447cb7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.763,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Yksilön ja yhteiskunnan välinen suhde on ollut länsimaisen poliittisen filosofian keskeisiä teemoja antiikista nykypäivään. Kysymys siitä, missä määrin yksilön vapautta voidaan rajoittaa yhteisen hyvän nimissä, on ollut jatkuvan keskustelun kohteena. Liberalismi korostaa yksilön vapautta ja oikeutta valita oma elämäntapansa ilman ulkopuolista pakkoa. Tästä näkökulmasta valtion tehtävänä on ennen kaikkea turvata yksilön vapaudet, ei ohjata tai rajoittaa niitä. Kommunitarismi puolestaan korostaa yhteisön ja yhteisten arvojen merkitystä. Sen mukaan yksilö on aina sidoksissa yhteisöönsä, ja aito vapaus edellyttää kykyä osallistua yhteisön elämään ja vaikuttaa sitä koskeviin päätöksiin. Tästä näkökulmasta valtiolla on oikeus ja velvollisuus edistää yhteistä hyvää, tarvittaessa jopa rajoittamalla yksilön vapautta. Kolmas, niin sanottu republikanistinen perinne korostaa kansalaisvapauden ja osallistumisen merkitystä. Sen mukaan todellinen vapaus ei ole vain yksityistä vapautta ulkoisesta pakosta, vaan myös mahdollisuutta osallistua yhteiskunnalliseen päätöksentekoon ja vaikuttaa yhteisiin asioihin. Tämä edellyttää kansalaisilta hyveitä, kuten aktiivisuutta, vastuullisuutta ja solidaarisuutta. Käytännön politiikassa nämä erilaiset näkemykset yksilön ja yhteiskunnan suhteesta näkyvät esimerkiksi keskustelussa verotuksesta, sosiaaliturvasta, koulutuksesta ja terveydenhuollosta.",
+      "word_count": 157
+    },
+    "questions": [
+      {
+        "id": "9e2b8e12-ff15-5ea1-98b8-9c524c852196",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Liberalismin ja kommunitarismin erot veropolitiikassa",
+          "Yksilön ja yhteiskunnan välinen suhde ja siihen liittyvät erilaiset filosofiset näkemykset",
+          "Koulutusjärjestelmän uudistaminen Suomessa",
+          "Kansalaisaktivismin merkitys demokratiassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e7e443b6-362d-5c9d-98d6-70234b0df14d",
+        "prompt": "Tekstin mukaan miten liberalismi suhtautuu yksilön vapauteen ja valtion rooliin?",
+        "options": [
+          "Se korostaa valtion oikeutta rajoittaa yksilön vapautta yhteisen hyvän nimissä",
+          "Se korostaa yksilön vapautta ja katsoo, että valtion tehtävänä on turvata se, ei ohjata tai rajoittaa",
+          "Se katsoo, että yksilöllä ei ole lainkaan vapautta, vaan kaikki määräytyy yhteisön kautta",
+          "Se korostaa kansalaisen velvollisuutta osallistua päätöksentekoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7a165797-8946-50e5-8924-06c046932f29",
+        "prompt": "Mitä kommunitaristinen näkemys korostaa yksilön ja yhteisön suhteesta?",
+        "options": [
+          "Yksilön vapaus on ainoa tärkeä arvo, ja yhteisöllä ei ole merkitystä",
+          "Yksilö on aina sidoksissa yhteisöönsä, ja valtiolla on oikeus edistää yhteistä hyvää",
+          "Yhteisö on olemassa vain palvellakseen yksilön etuja",
+          "Kansalaisten ei tulisi osallistua yhteiskunnalliseen päätöksentekoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e7a1b6c9-91ad-5b03-94f4-867e24b6c0ff",
+        "prompt": "Mitä republikanistinen perinne tekstin mukaan pitää tärkeänä vapauden kannalta?",
+        "options": [
+          "Vain yksityistä vapautta ulkoisesta pakosta",
+          "Mahdollisuutta osallistua yhteiskunnalliseen päätöksentekoon ja kansalaisilta vaadittavia hyveitä",
+          "Valtion mahdollisimman vähäistä roolia yksilön elämässä",
+          "Yksilön oikeutta olla osallistumatta yhteiskunnallisiin asioihin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

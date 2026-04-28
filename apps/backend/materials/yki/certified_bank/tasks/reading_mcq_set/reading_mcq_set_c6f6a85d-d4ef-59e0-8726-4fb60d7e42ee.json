@@ -1,0 +1,73 @@
+{
+  "id": "c6f6a85d-d4ef-59e0-8726-4fb60d7e42ee",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunkipyörät ovat tulleet jäädäkseen. Monessa kaupungissa pyörien käyttö on lisääntynyt huimasti viime vuosina.\n\n\"Tänä vuonna poljettiin ennätys. Kesäkuussa tehtiin yli 250 000 matkaa\", kertoo kaupunkipyörävastaava.\n\nSuosituimpia reittejä ovat keskustan ja yliopiston väliset matkat. Myös turistit käyttävät pyöriä ahkerasti.\n\nJärjestelmää halutaan laajentaa. \"Suunnitteilla on uusia asemia esikaupunkeihin. Myös sähköpyörien määrää lisätään, koska kysyntä on kovaa\", vastaava kertoo.\n\nKaikki eivät ole tyytyväisiä. Osa asukkaista valittaa, että pyöriä jätetään lojumaan jalkakäytäville. \"Se on vaarallista ja rumaa. Pyörät pitäisi palauttaa aina asemille\", sanoo yksi asukas.\n\nKaupunki muistuttaa, että pyörät pitää palauttaa asemille, ja väärin pysäköidyistä pyöristä voi seurata lisämaksu.",
+      "word_count": 95
+    },
+    "questions": [
+      {
+        "id": "item_035_1",
+        "prompt": "Paljonko matkoja tehtiin kesäkuussa?",
+        "options": [
+          "yli 150 000",
+          "yli 200 000",
+          "yli 250 000"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_035_2",
+        "prompt": "Mitkä reitit ovat suosituimpia?",
+        "options": [
+          "keskustan ja lentoaseman väliset",
+          "keskustan ja yliopiston väliset",
+          "esikaupunkien väliset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_035_3",
+        "prompt": "Mitä laajennuksia suunnitellaan?",
+        "options": [
+          "uusia asemia keskustaan",
+          "uusia asemia esikaupunkeihin ja sähköpyörien lisäystä",
+          "vain sähköpyörien lisäystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_035_4",
+        "prompt": "Mitä asukkaat arvostelevat?",
+        "options": [
+          "pyörät ovat liian kalliita",
+          "pyöriä jätetään lojumaan jalkakäytäville",
+          "pyörät ovat huonokuntoisia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

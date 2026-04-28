@@ -1,0 +1,40 @@
+{
+  "id": "d4f16fe7-5726-5253-8e1d-41ce220e6f0c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia epävarmassa tilanteessa ja tehdä nopeita päätöksiä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet viestintäjohtaja, joka haluaa säilyttää yrityksen uskottavuuden mutta ei voi antaa virheellistä tietoa.",
+        "partner": "Toimittaja - kriittinen ja tarkkoja kysymyksiä esittävä, haluaa saada uutisen nopeasti."
+      }
+    },
+    "items": [
+      {
+        "id": "srp15",
+        "ai_first_turn_fi": "Hei, olen toimittaja Helsingin Sanomista. Olemme saaneet tiedon, että teillä on ollut tietoturvaongelma. Mitä voitte kertoa?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia epävarmassa tilanteessa ja tehdä nopeita päätöksiä.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

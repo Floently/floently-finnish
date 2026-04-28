@@ -1,0 +1,66 @@
+{
+  "id": "4b5b31bf-8554-5c39-b233-8db7d4192aa6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TYÖPAIKAN HYVINVOINTI\n\nTyöhyvinvointi on noussut tärkeäksi aiheeksi suomalaisilla työpaikoilla. Tutkimusten mukaan hyvinvoiva työntekijä on tuottavampi, sairastaa vähemmän ja pysyy pidempään työelämässä. Työnantajat ovat alkaneet panostaa työhyvinvointiin monin tavoin.\n\nYksi keskeinen tekijä on työn mielekkyys. Kun työ tuntuu merkitykselliseltä ja sopivan haastavalta, jaksaa paremmin. Myös hyvä johtaminen on tärkeää. Esimiehen pitää osata antaa palautetta, kuunnella työntekijöitä ja tukea heitä. Työyhteisön ilmapiiri vaikuttaa paljon. Hyvässä työyhteisössä autetaan toisia ja viihdytään yhdessä.\n\nTyönantajat tarjoavat nykyään erilaisia etuja: liikunta- ja kulttuurisetelit, työterveyshuolto, joustavat työajat ja etätyömahdollisuudet. Myös työympäristöön panostetaan – ergonomiset työpisteet ja viihtyisät tau kotilat lisäävät hyvinvointia.\n\nTyöntekijä itsekin voi vaikuttaa omaan hyvinvointiinsa. Riittävä uni, terveellinen ruoka, liikunta ja palautuminen vapaa-ajalla ovat tärkeitä. Myös omista rajoista kiinni pitäminen ja kohtuullinen työmäärä auttavat jaksamaan.\n\nAsiantuntijat muistuttavat, että työhyvinvointi on kokonaisuus, johon vaikuttavat monet asiat. Sitä ei voi parantaa yhdellä tempulla, vaan se vaatii pitkäjänteistä työtä sekä työnantajalta että työntekijältä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 173
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä työhyvinvoinnista on työnantajalle?",
+        "options": [
+          "Työntekijät ovat sairaampia",
+          "Työntekijät ovat tuottavampia ja sairastavat vähemmän",
+          "Työntekijät vaihtavat useammin työpaikkaa",
+          "Työntekijät tekevät pidempiä päiviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä etuja työnantajat tarjoavat työntekijöille?",
+        "options": [
+          "Vain korkeampaa palkkaa",
+          "Liikunta- ja kulttuurisetelit, joustavat työajat ja etätyön",
+          "Ilmaista asumista",
+          "Ulkomaanmatkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten työntekijä voi itse vaikuttaa hyvinvointiinsa?",
+        "options": [
+          "Tekemällä enemmän töitä",
+          "Nukkumalla riittävästi, syömällä terveellisesti ja liikkumalla",
+          "Olemalla välittämättä työkavereista",
+          "Valittamalla kaikesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

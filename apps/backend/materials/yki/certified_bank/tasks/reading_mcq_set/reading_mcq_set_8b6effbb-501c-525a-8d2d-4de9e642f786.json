@@ -1,0 +1,66 @@
+{
+  "id": "8b6effbb-501c-525a-8d2d-4de9e642f786",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Digitaalinen turvallisuus koskee kaikkia, jotka käyttävät internetiä, sähköpostia tai sosiaalista mediaa. Yksi tärkeimmistä asioista on vahvojen salasanojen käyttö. Hyvä salasana on pitkä, siinä on sekä kirjaimia että numeroita ja erikoismerkkejä, eikä se liity helposti arvattaviin asioihin kuten syntymäpäivään. Kaksivaiheinen tunnistautuminen lisää turvallisuutta, koska silloin pelkkä salasana ei riitä, vaan tarvitaan myös esimerkiksi puhelimeen tuleva koodi. Tietojenkalasteluviestit ovat yleinen tapa huijata ihmisiä luovuttamaan tunnuksiaan. Niissä lähettäjä voi esiintyä pankkina tai muuna luotettavana tahona ja pyytää kirjautumaan linkin kautta. Tällaisissa tapauksissa kannattaa olla tarkkana ja tarkistaa lähettäjän osoite. Myös tietokoneen ja puhelimen säännöllinen päivittäminen on tärkeää, koska päivitykset paikkaavat usein tietoturva-aukkoja. Sosiaalisessa mediassa kannattaa miettiä, mitä tietoja itsestään jakaa julkisesti.",
+      "word_count": 108
+    },
+    "questions": [
+      {
+        "id": "e2f3a4b5-c6d7-4e8f-9a9b-0c1d2e3f4a5b",
+        "prompt": "Mikä on hyvä salasana tekstin mukaan?",
+        "options": [
+          "Syntymäpäivä",
+          "Lyhyt ja helppo sana",
+          "Pitkä salasana, jossa on kirjaimia, numeroita ja erikoismerkkejä",
+          "Pelkkiä numeroita"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f3a4b5c6-d7e8-4f9a-9b0c-1d2e3f4a5b6c",
+        "prompt": "Mitä kaksivaiheinen tunnistautuminen tarkoittaa?",
+        "options": [
+          "Kahta eri salasanaa",
+          "Salasanan lisäksi tarvitaan toinen vahvistus, kuten puhelimeen tuleva koodi",
+          "Kahta eri käyttäjätunnusta",
+          "Tunnistautumista kahdesti päivässä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a4b5c6d7-e8f9-4a0b-9c1d-2e3f4a5b6c7d",
+        "prompt": "Mitä tietojenkalasteluviestit yrittävät tehdä?",
+        "options": [
+          "Myydä tuotteita",
+          "Huijata ihmisiä luovuttamaan tunnuksiaan",
+          "Lähettää vitsejä",
+          "Mainostaa tapahtumia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

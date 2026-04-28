@@ -1,0 +1,37 @@
+{
+  "id": "fede96cb-24c1-5d27-84da-546d3055e7f0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä maksuttomia tapahtumia ikäihmisille yksinäisyyden vähentämiseksi?'. Pohdi ikääntyvien hyvinvointia, yhteisöllisyyttä ja kustannuksia.",
+    "materials": {
+      "scenario": "Tapahtumat ikäihmisille"
+    },
+    "items": [
+      {
+        "id": "ccabda65-141e-560a-8799-0ea28f8af3ce",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä maksuttomia tapahtumia ikäihmisille yksinäisyyden vähentämiseksi?'. Pohdi ikääntyvien hyvinvointia, yhteisöllisyyttä ja kustannuksia."
+      }
+    ],
+    "rubric": "Ikääntyvien hyvinvointi\nYksinäisyys\nYhteisöllisyys\nKustannukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

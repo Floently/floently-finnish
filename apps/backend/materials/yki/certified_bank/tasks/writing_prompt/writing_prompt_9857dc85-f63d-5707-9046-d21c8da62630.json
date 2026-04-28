@@ -1,0 +1,37 @@
+{
+  "id": "9857dc85-f63d-5707-9046-d21c8da62630",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien ja muiden lemmikkien määrää rajoittaa kaupunkiasunnoissa?'. Arvioi eläinten hyvinvointia, naapurisopua ja asumisviihtyisyyttä.",
+    "materials": {
+      "scenario": "Lemmikkien määrän rajoittaminen"
+    },
+    "items": [
+      {
+        "id": "f45a8437-c0d1-57bf-a728-9653b1d440f1",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien ja muiden lemmikkien määrää rajoittaa kaupunkiasunnoissa?'. Arvioi eläinten hyvinvointia, naapurisopua ja asumisviihtyisyyttä."
+      }
+    ],
+    "rubric": "Eläinten hyvinvointi\nNaapurisopu\nAsumisviihtyisyys\nYksilön vapaus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

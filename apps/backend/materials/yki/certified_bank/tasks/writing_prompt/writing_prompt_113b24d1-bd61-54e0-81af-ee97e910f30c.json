@@ -1,0 +1,37 @@
+{
+  "id": "113b24d1-bd61-54e0-81af-ee97e910f30c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tarvitset lainaksi kirjaa. Kirjoita lyhyt viesti ystävällesi.",
+    "materials": {
+      "scenario": "Tarvitset lainaksi kirjaa. Kirjoita lyhyt viesti ystävällesi."
+    },
+    "items": [
+      {
+        "id": "ff72d279-dec4-5b49-92c4-14a5c1045b20",
+        "prompt": "Kirjoita viesti, jossa:\n- kerrot, että tarvitset tiettyä kirjaa\n- kysyt, onko ystävälläsi sitä\n- kerrot, miksi tarvitset kirjan (esim. opiskelu, harrastus)\n- lupaat palauttaa sen pian"
+      }
+    ],
+    "rubric": "Kirjoita viesti, jossa:\n- kerrot, että tarvitset tiettyä kirjaa\n- kysyt, onko ystävälläsi sitä\n- kerrot, miksi tarvitset kirjan (esim. opiskelu, harrastus)\n- lupaat palauttaa sen pian",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

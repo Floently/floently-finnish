@@ -1,0 +1,66 @@
+{
+  "id": "cf96b70d-d33b-5b6c-a0ac-c2a97a09299e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.756,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Demokratia ei ole vain vaaleja ja äänestämistä, vaan laajempi järjestelmä, joka mahdollistaa kansalaisten osallistumisen yhteisten asioiden hoitamiseen. Perinteisen edustuksellisen demokratian rinnalle on noussut uusia osallistumisen muotoja, jotka täydentävät ja rikastuttavat demokraattista järjestelmää. Kansalaisaloite on tuonut uuden tavan vaikuttaa suoraan lainsäädäntöön. Keräämällä 50 000 nimeä, kansalaiset voivat saada aloitteensa eduskunnan käsiteltäväksi. Vaikka vain harva aloite johtaa lainmuutokseen, ne lisäävät keskustelua ja pakottavat poliitikot ottamaan kantaa kansalaisten esiin nostamiin asioihin. Kunnallistasolla osallistuva budjetointi on yleistynyt. Siinä asukkaat pääsevät päättämään, miten osa kunnan budjetista käytetään. Se voi koskea esimerkiksi puistojen kunnostusta, nuorisotiloja tai liikuntapaikkoja. Osallistuva budjetointi lisää asukkaiden vaikuttamismahdollisuuksia ja luottamusta paikalliseen päätöksentekoon. Myös erilaiset asukasraadit, kuulemistilaisuudet ja verkkokyselyt antavat kansalaisille mahdollisuuden tuoda esiin näkemyksiään. Kansalaisjärjestöillä ja yhdistyksillä on perinteisesti ollut vahva rooli suomalaisessa demokratiassa. Ne tuovat esiin eri ryhmien ääntä, tekevät vaikuttamistyötä ja tarjoavat kanavia osallistumiseen. Ympäristöjärjestöt, ihmisoikeusjärjestöt ja muut kansalaisyhteiskunnan toimijat ovat tärkeitä demokratian ylläpitäjiä. Haasteitakin on. Äänestysprosentti on laskenut erityisesti nuorten ja matalammin koulutettujen keskuudessa. Polarisaatio ja kuplat sosiaalisessa mediassa voivat heikentää yhteiskunnallista keskustelua ja vaikeuttaa yhteisymmärryksen löytämistä. Demokratian legitimiteetti edellyttää, että kansalaiset kokevat voivansa vaikuttaa ja että päätöksenteko on läpinäkyvää ja oikeudenmukaista. Kansalaisvaikuttamisen tulevaisuus on todennäköisesti hybridi, jossa yhdistyvät perinteiset ja uudet osallistumisen muodot. Digitaaliset työkalut voivat madaltaa osallistumiskynnystä ja tavoittaa uusia ryhmiä, mutta ne eivät korvaa kasvokkaista vuorovaikutusta ja yhteisöllisyyttä. Demokratian vahvistaminen vaatii jatkuvaa työtä ja uudistumista.",
+      "word_count": 219
+    },
+    "questions": [
+      {
+        "id": "c0d1e2f3-a4b5-4c6d-9e7f-8a9b0c1d2e3f",
+        "prompt": "Kuinka monta nimeä kansalaisaloite vaatii päästäkseen eduskuntakäsittelyyn?",
+        "options": [
+          "10 000",
+          "30 000",
+          "50 000",
+          "100 000"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d1e2f3a4-b5c6-4d7e-9f8a-9b0c1d2e3f4a",
+        "prompt": "Mitä tarkoitetaan osallistuvalla budjetoinnilla?",
+        "options": [
+          "Kuntalaiset saavat äänestää budjetista",
+          "Asukkaat pääsevät päättämään, miten osa kunnan budjetista käytetään",
+          "Vain valtuutetut päättävät budjetista",
+          "Budjetista päättää valtio"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e2f3a4b5-c6d7-4e8f-9a9b-0c1d2e3f4a5b",
+        "prompt": "Mikä on haaste demokratialle nykyään?",
+        "options": [
+          "Liian korkea äänestysprosentti",
+          "Äänestysprosentin lasku ja polarisaatio",
+          "Liian paljon osallistumismahdollisuuksia",
+          "Liian yksimielinen politiikka"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

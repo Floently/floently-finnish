@@ -1,0 +1,66 @@
+{
+  "id": "f1c750f2-9085-52b8-a66a-ef904962c730",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue bussilippujen hinnasto ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LINJA-AUTOASEMA\n\nLiput:\nAikuinen kertalippu: 3,50 €\nLapsi (7–16 v): 1,80 €\nOpiskelija (kortilla): 2,50 €\nEläkeläinen: 2,50 €\n\nKausilippu 30 päivää: 55 €\n\nAlle 7-vuotiaat lapset maksutta huoltajan kanssa.\n\nLipun voi ostaa kuljettajalta tai lippuautomaatista.",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko aikuisen kertalippu maksaa?",
+        "options": [
+          "2,50 €",
+          "3,00 €",
+          "3,50 €",
+          "4,00 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä ikäiset lapset maksavat?",
+        "options": [
+          "Alle 7-vuotiaat",
+          "7–16-vuotiaat",
+          "Yli 16-vuotiaat",
+          "Kaikki lapset"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko 30 päivän kausilippu maksaa?",
+        "options": [
+          "45 €",
+          "50 €",
+          "55 €",
+          "60 €"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

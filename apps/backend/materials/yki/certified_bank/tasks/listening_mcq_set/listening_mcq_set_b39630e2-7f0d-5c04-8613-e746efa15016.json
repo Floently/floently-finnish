@@ -1,0 +1,88 @@
+{
+  "id": "b39630e2-7f0d-5c04-8613-e746efa15016",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta designista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään haastattelussa on suomalainen muotoilija Pentti Ranta. Miten kuvailisit suomalaista designia? Ranta: Se on funktionaalista ja ajatonta. Kauneus syntyy usein yksinkertaisuudesta ja materiaalien rehellisyydestä. Toimittaja: Miten työsi on muuttunut urasi aikana? Ranta: Paljonkin. Alussa suunnittelin paljon yksittäisiä esineitä. Nykyään työni on yhä useammin palvelumuotoilua ja kokonaisvaltaisten käyttökokemusten suunnittelua. Toimittaja: Mitä se tarkoittaa käytännössä? Ranta: Esimerkiksi julkisen liikenteen sovellusta tai terveydenhuollon asiointiprosessia. Siinä yhdistyy ymmärrys teknologiasta, ihmisten käyttäytymisestä ja esteettisyydestä. Toimittaja: Onko suomalaisella designilla tulevaisuutta? Ranta: Ehdottomasti. Arvostus kestävää kehitystä ja pitkäikäisiä tuotteita kohtaan kasvaa maailmalla. Se on meidän vahvuutemme.",
+      "audio_asset_id": "c0c2c7b8-3371-4284-9c13-5710351a4a1c"
+    },
+    "questions": [
+      {
+        "id": "74d7d673-90c2-5222-9b92-1e509ea16219",
+        "prompt": "Miten Pentti Ranta kuvailee suomalaista designia?",
+        "options": [
+          "Värikkääksi ja monimutkaiseksi.",
+          "Koristeelliseksi ja raskaaksi.",
+          "Funktionaaliseksi, ajattomaksi ja materiaaleiltaan rehelliseksi.",
+          "Halvaksi ja kertakäyttöiseksi."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f15e09df-f074-52ae-8055-8bcb42e57c30",
+        "prompt": "Miten Rannan työ on muuttunut uran aikana?",
+        "options": [
+          "Se on pysynyt täysin samana.",
+          "Hän on siirtynyt pois muotoilualalta.",
+          "Hän suunnittelee nykyään vain huonekaluja.",
+          "Yksittäisistä esineistä on siirrytty palvelumuotoiluun ja kokonaisvaltaisiin käyttökokemuksiin."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "d304de8f-4264-5685-af43-83a909d054a7",
+        "prompt": "Mitä esimerkkiä Ranta antaa palvelumuotoilusta?",
+        "options": [
+          "Julkisen liikenteen sovellus tai terveydenhuollon asiointiprosessi.",
+          "Uuden auton muotoilu.",
+          "Uuden ravintolan sisustus.",
+          "Muotivaatteiden suunnittelu."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "54c0f324-9658-5ae4-b330-7117b3f6dbb7",
+        "prompt": "Mitä palvelumuotoilussa yhdistyy Rannan mukaan?",
+        "options": [
+          "Vain esteettisyys ja hinta.",
+          "Vain teknologia ja muotoilu.",
+          "Ymmärrys teknologiasta, ihmisten käyttäytymisestä ja esteettisyydestä.",
+          "Vain hinta ja kestävyys."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "279f9aa6-9f6e-5b4a-a246-11e5812c0361",
+        "prompt": "Miksi suomalaisella designilla on Rannan mukaan tulevaisuus?",
+        "options": [
+          "Se on halpaa valmistaa.",
+          "Suomalaiset ovat tunnettuja muotoilijoita.",
+          "Arvostus kestävää kehitystä ja pitkäikäisiä tuotteita kohtaan kasvaa maailmalla.",
+          "Se on trendikästä juuri nyt."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

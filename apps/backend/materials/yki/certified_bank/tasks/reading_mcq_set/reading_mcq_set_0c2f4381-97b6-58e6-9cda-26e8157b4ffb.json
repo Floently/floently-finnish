@@ -1,0 +1,77 @@
+{
+  "id": "0c2f4381-97b6-58e6-9cda-26e8157b4ffb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Käyn usein kirjastossa. Kirjasto on minulle tärkeä paikka. Siellä on paljon kirjoja, lehtiä ja elokuvia. Lainaan yleensä romaaneja ja dekkareita. Kirjastossa on myös mukava lukunurkkaus. Siellä voi istua ja lukea rauhassa. Viimeksi lainasin kolme kirjaa: yhden suomalaisen dekkarin ja kaksi lastenkirjaa pojalleni. Kirjastossa on myös tietokoneita, joita voi käyttää ilmaiseksi. Henkilökunta on ystävällistä ja auttaa mielellään.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "9261cab5-5d0e-5a40-89fa-c3a2a754d81b",
+        "prompt": "Mitä kirjastossa on?",
+        "options": [
+          "Vain kirjoja",
+          "Kirjoja, lehtiä ja elokuvia",
+          "Vain lehtiä",
+          "Vain elokuvia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0e887eba-5fb8-5bff-83c5-ae0230d4cc07",
+        "prompt": "Millaisia kirjoja henkilö lainaa?",
+        "options": [
+          "Runoja ja satuja",
+          "Romaaneja ja dekkareita",
+          "Tietokirjoja",
+          "Sanakirjoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "85d9f0e2-b8b5-5611-b6d7-be58ef3ace7f",
+        "prompt": "Kuinka monta kirjaa henkilö lainasi viimeksi?",
+        "options": [
+          "Yhden kirjan",
+          "Kaksi kirjaa",
+          "Kolme kirjaa",
+          "Neljä kirjaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "75ef8ac2-69fc-54a5-ae60-cc9a1ea5ab7c",
+        "prompt": "Mitä kirjastossa voi käyttää ilmaiseksi?",
+        "options": [
+          "Tulostinta",
+          "Tietokoneita",
+          "Kahviautomaattia",
+          "Kopiointikonetta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

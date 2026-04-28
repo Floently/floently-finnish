@@ -1,0 +1,37 @@
+{
+  "id": "fedd6b14-ccf5-5933-ae57-a54fc70ccf46",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän energiansäästöön kotitalouksissa?'. Pohdi kannustimia, kustannuksia ja ilmastovaikutuksia.",
+    "materials": {
+      "scenario": "Verotus ja energiansäästö"
+    },
+    "items": [
+      {
+        "id": "698c7963-adbb-56c9-989d-5d2ad67b42a4",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän energiansäästöön kotitalouksissa?'. Pohdi kannustimia, kustannuksia ja ilmastovaikutuksia."
+      }
+    ],
+    "rubric": "Kannustimet\nKustannukset\nIlmastovaikutukset\nTeknologian kehitys",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "b921273c-df1e-58bd-95da-20ee0c5f0d57",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Suomen väestörakenne muuttuu monella tapaa. Syntyvyys on laskenut historiallisen alas, ja väestö ikääntyy. Elinajanodote nousee, ja yli 65-vuotiaiden osuus väestöstä kasvaa nopeasti. Maahanmuutto on ainoa tekijä, joka pitää väestömäärän kasvussa. Väestön ikääntyminen asettaa paineita julkiselle taloudelle, työvoiman saatavuudelle ja palveluiden järjestämiselle. Maahanmuutto lisää väestön monimuotoisuutta ja tuo osaamista ja työvoimaa, mutta se asettaa myös haasteita kotouttamiselle ja yhteiskunnan yhtenäisyydelle. Väestönkehitys on hidas, mutta peruuttamaton prosessi, johon on sopeuduttava.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "mcq_129",
+        "prompt": "Mikä tekijä pitää Suomen väestömäärän kasvussa?",
+        "options": [
+          "Syntyvyys",
+          "Kuolleisuus",
+          "Maahanmuutto",
+          "Iän nousu"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_130",
+        "prompt": "Mitä väestön ikääntyminen aiheuttaa?",
+        "options": [
+          "Työvoiman ylitarjontaa",
+          "Paineita julkiselle taloudelle",
+          "Nuorten määrän kasvua",
+          "Palveluiden vähentämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_131",
+        "prompt": "Mitä maahanmuutto lisää?",
+        "options": [
+          "Väestön ikääntymistä",
+          "Väestön yksipuolisuutta",
+          "Väestön monimuotoisuutta",
+          "Syntyvyyden laskua"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

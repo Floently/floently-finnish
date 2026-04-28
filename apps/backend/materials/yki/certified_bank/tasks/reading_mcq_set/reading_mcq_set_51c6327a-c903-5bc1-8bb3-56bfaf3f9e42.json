@@ -1,0 +1,66 @@
+{
+  "id": "51c6327a-c903-5bc1-8bb3-56bfaf3f9e42",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Teksti käsittelee aihetta: ohjeistus työvuorolistojen muutosten pyytämiseen, ja se liittyy arjen lisäksi myös siihen, miten palvelut toimivat Turussa. Lisäksi mukana on lyhyt perustelu siitä, miten muutos parantaa sujuvuutta tai säästää aikaa. Asukasyhdistys kuvaa muutoksen taustaa ja kertoo, miksi muutos tehdään juuri nyt. Eräs asiakas kertoo, että hän huomasi muutoksen vasta, kun sai ilmoituksen 14. päivä. Tekstissä annetaan myös käytännön ohjeet ja vaihtoehtoja, jos uusi toimintatapa ei sovi kaikille. Tekstissä erotetaan faktat ja mielipiteet melko selvästi. Kirjoittaja mainitsee, että päätös vaikuttaa erityisesti niihin, jotka asioivat usein keskiviikkona. Kokonaisuutena teksti pyrkii rauhoittamaan lukijaa ja tekemään muutoksesta ymmärrettävän. Yksi esimerkki liittyy jonotukseen ja siihen, miten varaus tehdään etukäteen. Perustelut nojaavat sekä kustannuksiin että käyttäjäkokemukseen. Toinen toteaa, että selkeä viestintä vähentää turhaa epävarmuutta. Lopuksi tekstissä muistutetaan, että sääntöjä voidaan vielä tarkistaa palautteen perusteella. Jos ongelmia tulee, asukasyhdistys neuvoo ottamaan yhteyttä puhelimitse tai verkon kautta. Osa lukijoista voi pitää uudistusta tarpeettomana, mutta toiset hyötyvät siitä heti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä keskiviikkona asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä keskiviikkona asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä keskiviikkona asti.",
+      "word_count": 190
+    },
+    "questions": [
+      {
+        "id": "b1_b2r07-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Ruoanlaitto kotona",
+          "Urheilutapahtuma",
+          "Teksti ja siihen liittyvä muutos",
+          "Matkustaminen ja sää"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r07-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Sairaalan remontti",
+          "Uusi elokuva",
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Lentojen peruuntuminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r07-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Älä kerro kenellekään",
+          "Odota viikko",
+          "Kysy neuvoa",
+          "Jätä asia kesken"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

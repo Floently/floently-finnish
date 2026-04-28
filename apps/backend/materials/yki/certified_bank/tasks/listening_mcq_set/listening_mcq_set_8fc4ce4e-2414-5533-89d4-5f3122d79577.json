@@ -1,0 +1,77 @@
+{
+  "id": "8fc4ce4e-2414-5533-89d4-5f3122d79577",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.758,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijahaastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tervetuloa ohjelmaamme. Tänään puhumme ilmastonmuutoksesta ja kuluttajan valinnoista. Vieraana on ympäristötutkija Laura Mäkelä.\n\nToimittaja: Laura, kuinka paljon yksittäinen kuluttaja voi omilla valinnoillaan vaikuttaa ilmastonmuutokseen?\n\nMäkelä: Tämä on monimutkainen kysymys. Yksittäisen ihmisen valinnat, kuten lihansyönnin vähentäminen, lentämisen välttäminen ja energiansäästö, vähentävät päästöjä. Jos miljoonat ihmiset tekevät näitä valintoja, vaikutus on merkittävä. Lisäksi valinnat lähettävät viestin päättäjille ja yrityksille.\n\nToimittaja: Toisaalta kuulee sanottavan, että yksilön teot ovat pisara valtameressä ja että suurin vastuu on yrityksillä ja valtioilla.\n\nMäkelä: Tämä on totta. Suurin osa päästöistä syntyy energiajärjestelmistä, teollisuudesta, liikenteen infrastruktuurista – asioista, joihin yksilö voi vaikuttaa vain rajallisesti. Jos rakenteet eivät muutu, yksilön teot eivät riitä. Siksi tarvitaan molempia: yksilön tekoja ja rakenteellisia muutoksia.\n\nToimittaja: Miten nämä kaksi saadaan yhteensovitettua?\n\nMäkelä: Tärkeää on, että yksilön teot eivät jää ainoaksi ratkaisuksi, eikä niillä myöskään lakaista vastuuta pois päättäjiltä. Tarvitaan politiikkaa, joka tekee kestävistä valinnoista helppoja ja edullisia kaikille. Esimerkiksi joukkoliikenteen kehittäminen, uusiutuvan energian tukeminen ja lihantuotannon ympäristöohjaus.\n\nToimittaja: Entä se yksilön syyllisyys? Monet kokevat huonoa omaatuntoa, jos eivät pysty tekemään kestäviä valintoja.\n\nMäkelä: Se on valitettavaa. Syyllisyys ei ole hyvä motivaattori pitkällä tähtäimellä. Tärkeämpää on, että ihminen tekee, mitä voi, ja samalla vaatii muutosta päättäjiltä. Kukaan ei voi tehdä kaikkea, mutta jokainen voi tehdä jotain.\n\nToimittaja: Mitkä ovat kaikkein vaikuttavimpia yksilön tekoja?\n\nMäkelä: Tutkimusten mukaan suurimmat vaikutukset ovat lentämisen vähentämisellä, lihansyönnin vähentämisellä, energiansäästöllä ja autottomuudella. Myös kulutuksen vähentäminen ylipäätään on tärkeää.",
+      "audio_asset_id": "c671a865-e0e7-551b-a65a-2502227e5ef7"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä mieltä tutkija on yksilön valintojen merkityksestä?",
+        "options": [
+          "Ne ovat täysin turhia",
+          "Ne vähentävät päästöjä ja lähettävät viestin, mutta eivät yksin riitä",
+          "Ne ratkaisevat koko ongelman",
+          "Vain yksilön valinnat merkitsevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin suurin osa päästöistä syntyy?",
+        "options": [
+          "Yksilöiden kulutuksesta",
+          "Energiajärjestelmistä, teollisuudesta ja liikenteen infrastruktuurista",
+          "Vain lentämisestä",
+          "Maataloudesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tutkija sanoo yksilön syyllisyydestä?",
+        "options": [
+          "Se on hyvä motivaattori",
+          "Se on valitettavaa, ja tärkeämpää on tehdä mitä voi ja vaatia muutosta",
+          "Syyllisyys on ainoa keino",
+          "Syyllisyys ei ole olemassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä ovat tutkijan mukaan vaikuttavimpia yksilön tekoja?",
+        "options": [
+          "Kierrätys ja muovipussien käytön vähentäminen",
+          "Lentämisen vähentäminen, lihansyönnin vähentäminen, energiansäästö ja autottomuus",
+          "Vain sähkön säästäminen",
+          "Uusien vaatteiden ostaminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

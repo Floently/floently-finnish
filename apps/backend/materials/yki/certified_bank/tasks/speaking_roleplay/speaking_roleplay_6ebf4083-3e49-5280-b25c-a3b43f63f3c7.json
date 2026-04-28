@@ -1,0 +1,60 @@
+{
+  "id": "6ebf4083-3e49-5280-b25c-a3b43f63f3c7",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen huonosta ruoasta ravintolassa. Keskustele tarjoilijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Tarjoilija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp31_1",
+        "ai_first_turn_fi": "Anteeksi, voinko auttaa jotenkin?"
+      },
+      {
+        "id": "srp31_2",
+        "ai_first_turn_fi": "Voi ei, olen todella pahoillani. Vien tämän heti keittiöön ja uusi annos tulee pian. Haluatteko sillä välin vaikka alkupaloja?"
+      },
+      {
+        "id": "srp31_3",
+        "ai_first_turn_fi": "Tietenkin. Tuon samalla leipää ja oliiveja. Odotatteko kauan?"
+      },
+      {
+        "id": "srp31_4",
+        "ai_first_turn_fi": "Hyvä. Uusi annos on valmis noin 10 minuutissa. Haluatteko, että keittiömestari tulee keskustelemaan asiasta?"
+      },
+      {
+        "id": "srp31_5",
+        "ai_first_turn_fi": "Selvä. Tarjoamme tietysti kahvit ja jälkiruoat talon puolesta anteeksipyynnöksi."
+      },
+      {
+        "id": "srp31_6",
+        "ai_first_turn_fi": "Ole hyvä. Tuon uuden pihvin kohta. Toivottavasti se maistuu paremmalle."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen huonosta ruoasta ravintolassa. Keskustele tarjoilijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

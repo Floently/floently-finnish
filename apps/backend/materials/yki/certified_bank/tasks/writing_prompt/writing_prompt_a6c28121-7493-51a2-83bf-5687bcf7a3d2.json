@@ -1,0 +1,37 @@
+{
+  "id": "a6c28121-7493-51a2-83bf-5687bcf7a3d2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute puhelinliittymästäsi. Toimiiko netti hyvin? Onko hinta sopiva? Onko asiakaspalvelu auttanut?",
+    "materials": {
+      "scenario": "Palaute puhelinliittymästä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute puhelinliittymästäsi. Toimiiko netti hyvin? Onko hinta sopiva? Onko asiakaspalvelu auttanut?"
+      }
+    ],
+    "rubric": "Kirjoita palaute puhelinliittymästäsi. Toimiiko netti hyvin? Onko hinta sopiva? Onko asiakaspalvelu auttanut?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

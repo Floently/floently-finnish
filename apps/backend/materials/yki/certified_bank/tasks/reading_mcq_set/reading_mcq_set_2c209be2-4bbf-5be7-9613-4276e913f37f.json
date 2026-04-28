@@ -1,0 +1,88 @@
+{
+  "id": "2c209be2-4bbf-5be7-9613-4276e913f37f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.684,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalaiset marjat ovat terveellisiä. Mustikka on sininen ja pieni. Se kasvaa metsässä. Puolukka on punainen ja hapan. Sitä on myös paljon metsissä. Karpalo kasvaa soilla. Se on hyvää mehuna. Marjoja poimitaan loppukesällä. Niitä syödään tuoreena ja pakastetaan talveksi. Marjoja laitetaan puuroon ja jogurttiin. Ne maistuvat hyvältä ja ovat terveellisiä. Marjat ovat suomalaisten herkkua.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä värinen mustikka on?",
+        "options": [
+          "Punainen",
+          "Sininen",
+          "Vihreä",
+          "Keltainen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä värinen puolukka on?",
+        "options": [
+          "Sininen",
+          "Punainen",
+          "Musta",
+          "Valkoinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä karpalo kasvaa?",
+        "options": [
+          "Metsässä",
+          "Soilla",
+          "Pelloilla",
+          "Puutarhassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin marjoja poimitaan?",
+        "options": [
+          "Keväällä",
+          "Loppukesällä",
+          "Talvella",
+          "Ympäri vuoden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin marjoja laitetaan?",
+        "options": [
+          "Leivän päälle",
+          "Puuroon ja jogurttiin",
+          "Keittoon",
+          "Pihviin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

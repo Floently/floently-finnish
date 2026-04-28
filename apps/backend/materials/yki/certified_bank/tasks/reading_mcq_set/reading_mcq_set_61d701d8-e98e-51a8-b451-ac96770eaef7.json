@@ -1,0 +1,66 @@
+{
+  "id": "61d701d8-e98e-51a8-b451-ac96770eaef7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Essee:\nKaupunkien tiivistäminen myydään usein ilmastotekona, mutta vaikutukset jakautuvat epätasaisesti. Jos täydennysrakentaminen kohdistuu vain alueille, joilla asukkailla on jo heikot vaikutusmahdollisuudet, tiivistäminen voi näyttäytyä heille hallitsemattomana muutoksena. Oikeudenmukaisuus vaatii, että hyötyjen ja haittojen jakautumista tarkastellaan avoimesti, ei vain neliömetreinä ja päästöinä.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "c1r2q1",
+        "prompt": "Mikä on esseen pääväite?",
+        "options": [
+          "Tiivistäminen on aina hyvä",
+          "Tiivistämisen vaikutukset eivät jakaudu tasaisesti",
+          "Ilmastolla ei ole merkitystä",
+          "Rakentaminen pitäisi lopettaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1r2q2",
+        "prompt": "Mitä oikeudenmukaisuus kirjoittajan mukaan vaatii?",
+        "options": [
+          "Vain päästöjen laskemista",
+          "Hyötyjen ja haittojen avoimen tarkastelun",
+          "Nopeampaa kaavoitusta",
+          "Vähemmän osallistumista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1r2q3",
+        "prompt": "Mitä kritisoidaan epäsuorasti?",
+        "options": [
+          "Pelkkä neliömetri- ja päästöpuhe ilman sosiaalista näkökulmaa",
+          "Koulutus",
+          "Terveydenhuolto",
+          "Matkailu"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

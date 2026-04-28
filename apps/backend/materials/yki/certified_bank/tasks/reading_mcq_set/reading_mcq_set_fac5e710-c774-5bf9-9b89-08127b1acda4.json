@@ -1,0 +1,110 @@
+{
+  "id": "fac5e710-c774-5bf9-9b89-08127b1acda4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Liikunta on tärkeä osa terveellisiä elämäntapoja. Säännöllinen liikunta parantaa kuntoa, auttaa painonhallinnassa ja vähentää monien sairauksien riskiä. Se myös parantaa mielialaa ja auttaa jaksamaan arjessa. Suomalaiset liikkuvat melko paljon, mutta monet eivät liiku terveytensä kannalta riittävästi. Erityisesti aikuisten ja ikääntyneiden liikkuminen on vähentynyt. Istumatyö ja ruutuaika vievät ison osan päivästä. Liikunnan edistämiseksi tarvitaan monenlaisia toimia. Yksilöt voivat itse valita itselleen mieluisia liikuntamuotoja. Yhteiskunta voi rakentaa hyviä ulkoilureittejä, pyöräteitä ja liikuntapaikkoja. Työpaikoilla voidaan kannustaa työntekijöitä liikkumaan liikuntaseteleillä. Kouluilla on tärkeä rooli lasten ja nuorten liikuttajina. Liikunnan ilo luodaan jo lapsuudessa.",
+      "word_count": 89
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä liikunnasta on?",
+        "options": [
+          "Se lisää sairauksien riskiä.",
+          "Se parantaa kuntoa, auttaa painonhallinnassa ja vähentää sairauksien riskiä.",
+          "Se huonontaa mielialaa.",
+          "Se lisää väsymystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten suomalaiset liikkuvat?",
+        "options": [
+          "Kaikki liikkuvat riittävästi.",
+          "Melko paljon, mutta monet eivät liiku riittävästi.",
+          "Eivät lainkaan.",
+          "Vain nuoret liikkuvat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on vähentynyt erityisesti?",
+        "options": [
+          "Lasten liikkuminen.",
+          "Aikuisten ja ikääntyneiden liikkuminen.",
+          "Urheiluseurojen määrä.",
+          "Liikuntapaikat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä yksilöt voivat itse tehdä?",
+        "options": [
+          "Odottaa, että joku muu liikuttaa heitä.",
+          "Valita mieluisia liikuntamuotoja.",
+          "Vain katsoa televisiota.",
+          "Istua mahdollisimman paljon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten yhteiskunta voi edistää liikkumista?",
+        "options": [
+          "Kieltämällä autoilun.",
+          "Rakentamalla ulkoilureittejä ja liikuntapaikkoja.",
+          "Lisäämällä istumatyötä.",
+          "Vähentämällä liikuntatunteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten työpaikat voivat kannustaa liikkumaan?",
+        "options": [
+          "Pidentämällä työpäivää.",
+          "Liikuntaseteleillä.",
+          "Kieltämällä tauot.",
+          "Lisäämällä istumista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Milloin liikunnan ilo luodaan?",
+        "options": [
+          "Vasta aikuisiällä.",
+          "Lapsuudessa.",
+          "Eläkkeellä.",
+          "Vasta vanhuudessa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

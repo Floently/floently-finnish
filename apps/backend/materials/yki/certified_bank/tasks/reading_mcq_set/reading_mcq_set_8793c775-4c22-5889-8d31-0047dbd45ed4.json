@@ -1,0 +1,99 @@
+{
+  "id": "8793c775-4c22-5889-8d31-0047dbd45ed4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Keskustelu kaksoiskansalaisuudesta on ajankohtainen. Monilla Suomessa asuvilla on tausta toisesta maasta, ja heillä voi olla sekä Suomen että toisen maan kansalaisuus. Kaksoiskansalaisuus helpottaa liikkumista ja työskentelyä eri maissa. Se voi myös vahvistaa siteitä molempiin maihin. Toisaalta se voi herättää kysymyksiä esimerkiksi asepalveluksesta tai äänioikeudesta. Lait vaihtelevat eri maiden välillä.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä keskustelu on ajankohtainen?",
+        "options": [
+          "Kansalaisuuden saamisesta",
+          "Kaksoiskansalaisuudesta",
+          "Kansalaisuuden menettämisestä",
+          "Maahanmuutosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen tausta monilla Suomessa asuvilla on?",
+        "options": [
+          "He ovat aina asuneet Suomessa",
+          "Heillä on tausta toisesta maasta",
+          "He ovat muuttaneet vain Ruotsista",
+          "He ovat kaikki pakolaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kaksoiskansalaisuus tarkoittaa?",
+        "options": [
+          "Ei kansalaisuutta missään maassa",
+          "Sekä Suomen että toisen maan kansalaisuus",
+          "Vain toisen maan kansalaisuus",
+          "Kansalaisuutta kahdessa eri kaupungissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä kaksoiskansalaisuudesta on?",
+        "options": [
+          "Se vaikeuttaa liikkumista",
+          "Se helpottaa liikkumista ja työskentelyä eri maissa",
+          "Se vähentää siteitä molempiin maihin",
+          "Se aiheuttaa vain vero-ongelmia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kysymyksiä kaksoiskansalaisuus voi herättää?",
+        "options": [
+          "Vain veroista",
+          "Asepalveluksesta tai äänioikeudesta",
+          "Vain asumisesta",
+          "Vain kielitaidosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten lait vaihtelevat?",
+        "options": [
+          "Eri kaupunkien välillä",
+          "Eri maiden välillä",
+          "Eri sukupuolten välillä",
+          "Eri ikäryhmien välillä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

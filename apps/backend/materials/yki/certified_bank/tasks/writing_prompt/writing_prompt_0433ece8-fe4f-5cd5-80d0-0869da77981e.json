@@ -1,0 +1,37 @@
+{
+  "id": "0433ece8-fe4f-5cd5-80d0-0869da77981e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö maataloustukia suunnata uudelleen ympäristöystävällisempään tuotantoon?'. Analysoi ruoantuotantoa, ympäristöä ja maaseudun elinvoimaa.",
+    "materials": {
+      "scenario": "Maataloustukien uudelleensuuntaaminen"
+    },
+    "items": [
+      {
+        "id": "055f6eeb-0b6e-584e-aac2-d590b0ca78b6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö maataloustukia suunnata uudelleen ympäristöystävällisempään tuotantoon?'. Analysoi ruoantuotantoa, ympäristöä ja maaseudun elinvoimaa."
+      }
+    ],
+    "rubric": "Ruoantuotanto\nYmpäristö\nMaaseudun elinvoima\nElintarvikkeiden hinta",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

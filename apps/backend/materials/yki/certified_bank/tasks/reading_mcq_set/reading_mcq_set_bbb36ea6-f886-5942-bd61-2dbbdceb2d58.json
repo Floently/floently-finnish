@@ -1,0 +1,66 @@
+{
+  "id": "bbb36ea6-f886-5942-bd61-2dbbdceb2d58",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Sosiaalinen media on muuttanut radikaalisti tapaa, jolla ihmiset viestivät, jakavat tietoa ja rakentavat identiteettiään. Samalla se on herättänyt uusia kysymyksiä yksityisyyden suojasta ja henkilötietojen käsittelystä. Käyttäjät jakavat some-alustoilla valtavia määriä henkilökohtaista tietoa, usein ymmärtämättä täysin, mihin tietoja käytetään. Alustat keräävät tietoa käyttäjien toiminnasta, mieltymyksistä ja verkostoista, ja tätä dataa hyödynnetään kohdennetussa mainonnassa, sisältöjen personoinnissa ja jopa päätöksenteon vaikuttamisessa. Yksityisyyden suoja onkin noussut keskeiseksi yhteiskunnalliseksi kysymykseksi. EU on pyrkinyt vastaamaan haasteeseen yleisellä tietosuoja-asetuksella (GDPR), joka antaa kansalaisille oikeuksia omiin tietoihinsa ja asettaa velvoitteita tietojen käsittelijöille. Toisaalta monet kokevat, että yksityisyyden hallinta on vaikeaa ja että heillä ei ole todellista valtaa omiin tietoihinsa. Some-alustojen liiketoimintamallit perustuvat usein käyttäjätietojen kaupallistamiseen, mikä luo jännitteen yksityisyyden ja palveluiden ilmaisuuden välille. Yksityisyys ei ole vain henkilökohtainen asia, vaan se liittyy laajemmin valtaan ja demokratiaan. Kun ihmisten tietoja kerätään ja analysoidaan, voidaan heidän käyttäytymistään ohjailla ja jopa manipuloida. Tämä asettaa haasteita tiedotusvälineille, lainsäätäjille ja kansalaisille. Yksityisyyden suojan tulevaisuus riippuu siitä, miten onnistumme tasapainottamaan teknologian mahdollisuudet ja perusoikeudet.",
+      "word_count": 160
+    },
+    "questions": [
+      {
+        "id": "f3a4b5c6-d7e8-4f9a-9b0c-1d2e3f4a5b6c",
+        "prompt": "Mihin sosiaalisen median alustat käyttävät keräämäänsä dataa?",
+        "options": [
+          "Vain palveluiden kehittämiseen",
+          "Kohdennettuun mainontaan, sisältöjen personointiin ja päätöksenteon vaikuttamiseen",
+          "Vain tilastointiin",
+          "Vain markkinatutkimukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a4b5c6d7-e8f9-4a0b-9c1d-2e3f4a5b6c7d",
+        "prompt": "Mikä on EU:n yleinen tietosuoja-asetus (GDPR)?",
+        "options": [
+          "Tietojen keräämisen kieltävä laki",
+          "Säädös, joka antaa kansalaisille oikeuksia omiin tietoihinsa ja asettaa velvoitteita käsittelijöille",
+          "Vain suositus some-alustoille",
+          "Vain yrityksiä koskeva sääntely"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b5c6d7e8-f9a0-4b1c-9d2e-3f4a5b6c7d8e",
+        "prompt": "Miksi yksityisyys liittyy laajemmin valtaan ja demokratiaan?",
+        "options": [
+          "Koska yksityisyys on perusoikeus",
+          "Koska ihmisten tietojen avulla heidän käyttäytymistään voidaan ohjailla ja manipuloida",
+          "Koska some on tärkeä vaikuttamisen kanava",
+          "Koska poliitikot käyttävät somea"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

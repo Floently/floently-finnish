@@ -1,0 +1,77 @@
+{
+  "id": "f5f33787-0ba6-5404-b581-975a9e75003d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.817,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Koulutuksen rooli yhteiskunnallisen eriarvoisuuden vähentäjänä on ollut keskeinen tavoite suomalaisessa koulutuspolitiikassa. Peruskoulujärjestelmä luotiin aikanaan nimenomaan takaamaan yhtäläiset koulutusmahdollisuudet kaikille asuinpaikasta ja sosiaalisesta taustasta riippumatta. Tämä tavoite on edelleen ajankohtainen, mutta sen toteutumisesta käydään vilkasta keskustelua. Tutkimukset osoittavat, että vaikka koulutusjärjestelmämme on edelleen kansainvälisesti verrattuna tasa-arvoinen, koulutuksen periytyvyys on viime vuosina lisääntynyt. Vanhempien koulutustausta ennustaa yhä vahvemmin lasten koulumenestystä ja koulutusvalintoja. Tämä näkyy esimerkiksi siinä, että akateemisesti koulutettujen vanhempien lapset hakeutuvat useammin lukioon ja korkeakoulutukseen kuin vähemmän koulutettujen vanhempien lapset, vaikka heidän koulumenestyksensä olisi samalla tasolla. Tämä kehitys on monien tekijöiden summa. Toisaalta on kyse kulttuurisesta pääomasta: akateemisesti koulutetut vanhemmat pystyvät usein tukemaan lapsiaan koulunkäynnissä ja ohjaamaan heitä koulutusvalinnoissa eri tavalla kuin vähemmän koulutetut vanhemmat. Toisaalta kyse on myös taloudellisista resursseista, jotka mahdollistavat esimerkiksi yksityisen lisäopetuksen hankkimisen ja pitkien koulutuspolkujen rahoittamisen. Koulutuspoliittiset toimet, kuten maksuttoman toisen asteen koulutuksen laajentaminen ja korkeakoulujen opiskelijavalintojen uudistaminen, pyrkivät osaltaan vähentämään koulutuksen periytyvyyttä. Niiden vaikutukset ovat kuitenkin olleet rajallisia, mikä viittaa siihen, että ongelma on syvemmällä yhteiskunnan rakenteissa. Koulutus ei toimi eriarvoisuutta vähentävänä tekijänä tyhjiössä, vaan se on tiiviisti kytköksissä muihin yhteiskunnallisiin rakenteisiin, kuten asumiseen, työmarkkinoihin ja sosiaaliturvaan. Tulevaisuuden kannalta keskeinen kysymys on, miten koulutusjärjestelmää voidaan kehittää siten, että se tosiasiallisesti vähentää eriarvoisuutta eikä ainoastaan toisinta sitä. Tämä edellyttää kokonaisvaltaista yhteiskuntapolitiikkaa, joka ulottuu koulutussektorin ulkopuolelle. Se vaatii panostuksia varhaiskasvatukseen, perheiden tukemiseen, alueellisen eriytymisen ehkäisyyn ja työmarkkinoiden rakenteiden uudistamiseen. Pelkästään koulutusjärjestelmään kohdistuvat toimet eivät riitä, jos eriarvoisuuden juurisyihin ei puututa muilla yhteiskunnan osa-alueilla.",
+      "word_count": 236
+    },
+    "questions": [
+      {
+        "id": "1d37b322-4307-5a8d-bba9-78d7b527300b",
+        "prompt": "Mikä on tekstin keskeinen väite koulutuksen ja eriarvoisuuden suhteesta?",
+        "options": [
+          "Koulutusjärjestelmä on onnistunut täydellisesti poistamaan eriarvoisuuden Suomessa",
+          "Koulutuksen periytyvyys on lisääntynyt, ja ongelman ratkaiseminen edellyttää laajempaa yhteiskuntapolitiikkaa",
+          "Koulutuksella ei ole mitään vaikutusta eriarvoisuuteen",
+          "Eriarvoisuus koulutuksessa johtuu yksinomaan yksilöiden omista valinnoista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cd76f711-2572-5ac8-a181-367e7790c451",
+        "prompt": "Tekstin mukaan miten vanhempien koulutustausta vaikuttaa lasten koulutusvalintoihin?",
+        "options": [
+          "Sillä ei ole mitään vaikutusta, koska koulutusjärjestelmä on täysin tasa-arvoinen",
+          "Akateemisesti koulutettujen vanhempien lapset hakeutuvat useammin korkeakoulutukseen kuin vähemmän koulutettujen vanhempien lapset, vaikka koulumenestys olisi samaa tasoa",
+          "Vähemmän koulutettujen vanhempien lapset menestyvät aina paremmin koulussa",
+          "Vanhempien koulutustausta vaikuttaa vain tyttöjen, ei poikien, koulutusvalintoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "94462a22-2199-5ddc-87c5-f20a7e67ff0b",
+        "prompt": "Mitä tekijöitä tekstissä mainitaan koulutuksen periytyvyyden taustalla?",
+        "options": [
+          "Vain taloudelliset resurssit ja mahdollisuus hankkia yksityisopetusta",
+          "Kulttuurinen pääoma ja taloudelliset resurssit",
+          "Vain vanhempien kiinnostus lastensa koulunkäyntiä kohtaan",
+          "Koulutusjärjestelmän rakenteelliset ongelmat ja opettajien asenteet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4592030a-ea51-54e6-b91c-dd6ee9b3444b",
+        "prompt": "Mitä tekstin mukaan tarvitaan, jotta koulutus todella vähentäisi eriarvoisuutta?",
+        "options": [
+          "Pelkästään koulutusjärjestelmän sisäisiä uudistuksia, kuten opiskelijavalintojen muuttamista",
+          "Kokonaisvaltaista yhteiskuntapolitiikkaa, joka ulottuu koulutussektorin ulkopuolelle ja puuttuu eriarvoisuuden juurisyihin",
+          "Yksityiskoulujen lisäämistä ja kilpailun kiristämistä",
+          "Koulutuksen maksullisuuden poistamista kokonaan kaikilla asteilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

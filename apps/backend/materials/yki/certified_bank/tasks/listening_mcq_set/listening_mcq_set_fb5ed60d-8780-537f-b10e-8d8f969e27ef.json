@@ -1,0 +1,88 @@
+{
+  "id": "fb5ed60d-8780-537f-b10e-8d8f969e27ef",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.669,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Silmäasema Optikkoon! Nyt saat uudet silmälasit -30% alennuksella. Tarjous koskee kaikkia kehyksiä ja linssejä. Voimassa 30. syyskuuta asti. Tule paikan päälle tai katso valikoimamme verkkosivuilla!",
+      "audio_asset_id": "fbb0a099-5cd0-4a0c-b904-3371ba85319c"
+    },
+    "questions": [
+      {
+        "id": "446c4ded-19db-5033-ad76-4dafb704cc14",
+        "prompt": "Mitä mainostetaan?",
+        "options": [
+          "Apteekkia.",
+          "Hammaslääkäriä.",
+          "Fysioterapeuttia.",
+          "Optikkoa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "09247d31-896a-5e7a-a6e5-c3e20bdb8e9d",
+        "prompt": "Mikä on tarjous?",
+        "options": [
+          "-20% silmälaseista.",
+          "-30% silmälaseista.",
+          "-40% silmälaseista.",
+          "-50% silmälaseista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4bcb9bdc-794b-5282-ac64-322f76f1cb67",
+        "prompt": "Mitä tarjous koskee?",
+        "options": [
+          "Vain kehyksiä.",
+          "Vain linssejä.",
+          "Vain aurinkolaseja.",
+          "Kaikkia kehyksiä ja linssejä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "7821cae2-4793-5964-94bd-e8be5c8e42b3",
+        "prompt": "Mihin asti tarjous on voimassa?",
+        "options": [
+          "15. syyskuuta.",
+          "15. lokakuuta.",
+          "30. lokakuuta.",
+          "30. syyskuuta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "ccea701b-08c8-5d21-8c77-31dd55c8d00a",
+        "prompt": "Mistä voi tutustua valikoimaan?",
+        "options": [
+          "Paikan päällä tai verkkosivuilla.",
+          "Vain paikan päällä.",
+          "Vain verkkosivuilla.",
+          "Puhelimitse."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

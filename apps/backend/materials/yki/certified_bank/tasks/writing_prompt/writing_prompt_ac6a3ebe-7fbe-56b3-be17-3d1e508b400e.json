@@ -1,0 +1,37 @@
+{
+  "id": "ac6a3ebe-7fbe-56b3-be17-3d1e508b400e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti annetun aiheen perusteella.",
+    "materials": {
+      "scenario": "Monet ihmiset kokevat, että kiireinen elämä vaikeuttaa liikunnan harrastamista. Toiset kuitenkin ajattelevat, että liikunta on välttämätön osa hyvinvointia."
+    },
+    "items": [
+      {
+        "id": "5c7efc4d-a441-5d80-9bf8-a05dfd6fd470",
+        "prompt": "Kirjoita mielipideteksti annetun aiheen perusteella."
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti annetun aiheen perusteella.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

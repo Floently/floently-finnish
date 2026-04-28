@@ -1,0 +1,37 @@
+{
+  "id": "c09c23ce-d5b4-51c5-aaae-99162db89c3e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin vuokrattavia kaupunkipyöriä. Kirjoita palaute. Arvioi pyörien kuntoa, asemien sijaintia ja hintaa. Kerro myös, mitä kehittäisit.",
+    "materials": {
+      "scenario": "Palaute kaupunkipyöristä"
+    },
+    "items": [
+      {
+        "id": "508ac2fa-7bb7-53d2-bc09-c18ee00e65e4",
+        "prompt": "Olet käyttänyt kaupungin vuokrattavia kaupunkipyöriä. Kirjoita palaute. Arvioi pyörien kuntoa, asemien sijaintia ja hintaa. Kerro myös, mitä kehittäisit."
+      }
+    ],
+    "rubric": "Pyörien kunto\nAsemien sijainti\nHinta\nKehitysehdotus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

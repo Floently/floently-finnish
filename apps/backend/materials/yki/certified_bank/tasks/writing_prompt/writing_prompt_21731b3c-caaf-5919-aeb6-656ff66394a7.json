@@ -1,0 +1,37 @@
+{
+  "id": "21731b3c-caaf-5919-aeb6-656ff66394a7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti verkkopankin tukeen.",
+    "materials": {
+      "scenario": "Ilmoita ongelmasta tunnuslukulaitteessa"
+    },
+    "items": [
+      {
+        "id": "9443c455-fdea-5d5d-bcc6-085774f137b3",
+        "prompt": "Tunnuslukulaitteesi ei toimi, etkä pääse kirjautumaan verkkopankkiin. Kirjoita sähköposti ja kerro ongelmasta. Kysy, miten saat uuden laitteen ja miten hoidat maksut sillä välin."
+      }
+    ],
+    "rubric": "Tunnuslukulaitteesi ei toimi, etkä pääse kirjautumaan verkkopankkiin. Kirjoita sähköposti ja kerro ongelmasta. Kysy, miten saat uuden laitteen ja miten hoidat maksut sillä välin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

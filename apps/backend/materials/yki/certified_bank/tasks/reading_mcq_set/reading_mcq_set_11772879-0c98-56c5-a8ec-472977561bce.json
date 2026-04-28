@@ -1,0 +1,66 @@
+{
+  "id": "11772879-0c98-56c5-a8ec-472977561bce",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.305,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kuntosalin säännöt ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KUNTOSALIN SÄÄNNÖT\n\n1. Pyyhi laitteet käytön jälkeen.\n2. Palauta painot paikoilleen.\n3. Käytä sisäkenkiä.\n4. Älä jätä tavaroita laitteiden päälle.\n5. Kova ääni ja huutaminen on kielletty.\n6. Ota huomioon muut salillaolijat.\n\nSali on avoinna joka päivä klo 6–22.\n\nHenkilökunta paikalla klo 10–18.",
+      "word_count": 43
+    },
+    "questions": [
+      {
+        "id": "3254168c-1566-587f-99c5-366a02475d67",
+        "prompt": "Mitä pitää tehdä laitteiden käytön jälkeen?",
+        "options": [
+          "Sammuttaa laite",
+          "Pyyhi laite",
+          "Ottaa kuva",
+          "Kirjoittaa nimen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "28c05aa1-6247-52cc-8e06-141d31fefed4",
+        "prompt": "Voiko salilla huutaa?",
+        "options": [
+          "Kyllä, jos on yksin",
+          "Voi, mutta hiljaa",
+          "Ei saa",
+          "Vain aamulla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "15d2db47-6375-5ae3-aa5e-b7d881227a64",
+        "prompt": "Milloin henkilökunta on paikalla?",
+        "options": [
+          "klo 8–20",
+          "klo 9–21",
+          "klo 10–18",
+          "klo 12–20"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

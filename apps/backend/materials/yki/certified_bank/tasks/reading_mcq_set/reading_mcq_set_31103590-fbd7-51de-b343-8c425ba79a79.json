@@ -1,0 +1,77 @@
+{
+  "id": "31103590-fbd7-51de-b343-8c425ba79a79",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirjaston ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "HELSINGIN KAUPUNGINKIRJASTO\n\nOsoite: Rautatieläisenkatu 6, 00520 Helsinki\n\nAukioloajat:\nma–to 9–20\npe 9–18\nla 10–16\nsu suljettu\n\nHuom! Kesäkuussa kirjasto on suljettu viikot 24–26 remontin vuoksi.\n\nLaina-aika on 4 viikkoa. Uusiminen onnistuu puhelimitse tai verkkosivuilla.",
+      "word_count": 34
+    },
+    "questions": [
+      {
+        "id": "a72ab944-7402-5687-b9f1-56e675b8b2e8",
+        "prompt": "Mihin aikaan kirjasto sulkeutuu torstaina?",
+        "options": [
+          "klo 18",
+          "klo 20",
+          "klo 16",
+          "klo 9"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ccbd949f-414b-5562-91e6-b506bf3bfc54",
+        "prompt": "Onko kirjasto auki sunnuntaina?",
+        "options": [
+          "Kyllä, klo 10–16",
+          "Kyllä, klo 12–18",
+          "Ei, se on kiinni",
+          "Kyllä, mutta vain aamulla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "253522f0-ea3b-5ba0-a7d4-cdf636665817",
+        "prompt": "Miksi kirjasto on kiinni kesäkuussa?",
+        "options": [
+          "Lomien takia",
+          "Remontin vuoksi",
+          "Sähkökatkon takia",
+          "Henkilökunnan koulutuksen vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3a50563b-5dbc-5600-92f8-b6b064e04002",
+        "prompt": "Kuinka pitkä laina-aika on?",
+        "options": [
+          "2 viikkoa",
+          "3 viikkoa",
+          "4 viikkoa",
+          "5 viikkoa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

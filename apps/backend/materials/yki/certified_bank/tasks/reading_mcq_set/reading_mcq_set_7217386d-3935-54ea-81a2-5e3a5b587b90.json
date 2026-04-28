@@ -1,0 +1,66 @@
+{
+  "id": "7217386d-3935-54ea-81a2-5e3a5b587b90",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.503,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue menu ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KAHVILA KULMA\n\nJUOMAT:\nKahvi 3 €\nCappuccino 4 €\nTee 3 €\nKaakao 4 €\n\nLEIVONNAISET:\nKorvapuusti 3,50 €\nMunkki 2,50 €\nSuklaaleivos 4,50 €\n\nLounas ma–pe 11–14: keitto + leipä + salaatti + kahvi 12 €  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko cappuccino maksaa?",
+        "options": [
+          "A) 3 €",
+          "B) 3,50 €",
+          "C) 4 €",
+          "D) 4,50 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lounas sisältää?",
+        "options": [
+          "A) pizza ja salaatti",
+          "B) keitto, leipä, salaatti ja kahvi",
+          "C) voileipä ja mehu",
+          "D) lämmin ruoka ja jälkiruoka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko munkki maksaa?",
+        "options": [
+          "A) 2 €",
+          "B) 2,50 €",
+          "C) 3 €",
+          "D) 3,50 €"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

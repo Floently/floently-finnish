@@ -1,0 +1,37 @@
+{
+  "id": "5bc81f2f-e701-5b77-be3a-c53f6e6846db",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluat asentaa uuden älylukon oveen. Se on turvallisempi ja helpompi käyttää. Kysy, saako sen asentaa ja maksaako vuokranantaja sen.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle älyluvasta"
+    },
+    "items": [
+      {
+        "id": "20b1dda4-56aa-5292-aa2e-e20ef964ef5b",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluat asentaa uuden älylukon oveen. Se on turvallisempi ja helpompi käyttää. Kysy, saako sen asentaa ja maksaako vuokranantaja sen."
+      }
+    ],
+    "rubric": "Kerro, että haluat asentaa älylukon\nKerro, miksi se on hyvä\nKysy lupaa asennukseen\nKysy, maksaako vuokranantaja",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "49266d19-def2-5b07-aa5a-a0516e8f0f7a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kaupungin kaavoitukseen. Olet kiinnostunut ostamaan tontin omakotitaloa varten. Kysy vapaista tonteista, niiden hinnoista ja hakumenettelystä. Kerro myös, minkä kokoisen tontin etsit.",
+    "materials": {
+      "scenario": "Omakotitalotontin haku"
+    },
+    "items": [
+      {
+        "id": "7a64d165-23ea-55f6-b7d6-f2ec590d0eb6",
+        "prompt": "Kirjoita virallinen sähköposti kaupungin kaavoitukseen. Olet kiinnostunut ostamaan tontin omakotitaloa varten. Kysy vapaista tonteista, niiden hinnoista ja hakumenettelystä. Kerro myös, minkä kokoisen tontin etsit."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

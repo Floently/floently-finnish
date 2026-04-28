@@ -1,0 +1,99 @@
+{
+  "id": "53065973-6c0b-5d29-b963-194a44c8363d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Oletko kyllästynyt vanhoihin huonekaluihin? Meillä on ratkaisu! Huonekaluvuokraamo Kalusto tarjoaa nyt huonekaluja kuukausivuokralla. Haluatko uuden sohvan vain puoleksi vuodeksi? Ei ongelmaa. Muutatko uuteen kotiin etkä halua ostaa kaikkea heti? Meiltä saat kodin täydelliseen varustukseen asti. Vuokra-aika on joustava: voit vuokrata viikoksi, kuukaudeksi tai vaikka vuodeksi. Kaikki huonekalut ovat uusia ja laadukkaita. Hinnat alkaen vain 19 euroa kuukaudessa. Toimitus kotiin sisältyy hintaan. Tutustu valikoimaan verkkosivuillamme www.kalustovuokraus.fi tai soita asiakaspalveluumme numeroon 010 234 5678. Kalusto – tee kodistasi juuri sellainen kuin haluat, ilman sitoutumista.",
+      "audio_asset_id": "b3406847-3099-4e18-afa8-2da42d0f549e"
+    },
+    "questions": [
+      {
+        "id": "a90cbd2a-ca87-5aad-85f6-63e2a475d7df",
+        "prompt": "Mitä yritys mainostaa?",
+        "options": [
+          "Huonekalujen myyntiä alennuksella.",
+          "Huonekalujen vuokrausta.",
+          "Ilmaista kotiinkuljetusta.",
+          "Vanhojen huonekalujen noutoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4aa66cdf-259b-568e-9cfe-5cebb7f33be0",
+        "prompt": "Kuinka pitkäksi aikaa huonekaluja voi vuokrata?",
+        "options": [
+          "Vain vuodeksi kerrallaan.",
+          "Vain kuukaudeksi kerrallaan.",
+          "Vähintään kolmeksi kuukaudeksi.",
+          "Joustavasti viikosta vuoteen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "e66130f5-a4d7-518e-92d1-d6f7eca2cd04",
+        "prompt": "Mitä etua mainoksessa korostetaan?",
+        "options": [
+          "Huonekalut ovat halpoja ostaa.",
+          "Itsepalveluvarasto on auki yötä päivää.",
+          "Vanhat huonekalut saa vaihdettua uusiin.",
+          "Toimitus kotiin sisältyy hintaan."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "9ae3b00d-185a-5235-ac32-ea20d79d07d2",
+        "prompt": "Mistä löytyy lisätietoa?",
+        "options": [
+          "Esitteestä postilaatikossa.",
+          "Paikallislehdestä.",
+          "Sosiaalisen median mainoksesta.",
+          "Yrityksen verkkosivuilta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "a34cc5a1-c8d3-5e91-8f50-588ca0725c35",
+        "prompt": "Mikä on mainoksen mukaan hyvä syy käyttää vuokrauspalvelua?",
+        "options": [
+          "Jos muuttaa uuteen kotiin eikä halua ostaa kaikkea heti.",
+          "Jos haluaa ostaa sohvan halvalla.",
+          "Jos haluaa päästä eroon vanhoista huonekaluista.",
+          "Jos haluaa myydä omia huonekalujaan."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "ddd959ab-10c0-57e3-abbc-701923f3b74c",
+        "prompt": "Mistä hinnat alkavat?",
+        "options": [
+          "9 euroa kuukaudessa.",
+          "29 euroa kuukaudessa.",
+          "49 euroa kuukaudessa.",
+          "19 euroa kuukaudessa."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

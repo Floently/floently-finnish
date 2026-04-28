@@ -1,0 +1,77 @@
+{
+  "id": "5afcd878-8261-5496-bc9c-47240397e0ef",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Terveydenhuollon digitalisaatio etenee nopeasti. Potilastiedot siirtyvät sähköisiin järjestelmiin, ja Kanta-palvelu mahdollistaa omien terveystietojen tarkastelun verkossa. Etävastaanotot ja digitaaliset hoitopolut ovat yleistyneet, mikä voi parantaa palveluiden saatavuutta ja vähentää kustannuksia. Tekoälyä hyödynnetään diagnostiikassa ja hoidon suunnittelussa. Digitalisaatio tuo mukanaan myös haasteita. Tietoturvasta ja yksityisyyden suojasta on huolehdittava. On myös varmistettava, että digitaaliset palvelut tavoittavat kaikki väestöryhmät, eivätkä ne lisää terveyseroja. Ikääntyneet ja heikossa asemassa olevat saattavat tarvita erityistä tukea digipalveluiden käytössä.",
+      "word_count": 70
+    },
+    "questions": [
+      {
+        "id": "mcq_175",
+        "prompt": "Mitä Kanta-palvelu mahdollistaa?",
+        "options": [
+          "Lääkkeiden tilaamisen",
+          "Omien terveystietojen tarkastelun verkossa",
+          "Ajanvarauksen lääkärille",
+          "Sairauslomatodistusten hakemisen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_176",
+        "prompt": "Mitä hyötyä etävastaanotoista ja digitaalisista hoitopoluista on?",
+        "options": [
+          "Ne lisäävät kustannuksia",
+          "Ne parantavat palveluiden saatavuutta",
+          "Ne vähentävät potilaiden määrää",
+          "Ne heikentävät hoidon laatua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_177",
+        "prompt": "Mitä haasteita digitalisaatio tuo terveydenhuoltoon?",
+        "options": [
+          "Tietoturvasta ja yksityisyydestä huolehtiminen",
+          "Potilastietojen katoaminen",
+          "Lääkärien väheneminen",
+          "Sairaaloiden sulkeminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_178",
+        "prompt": "Miksi digitaalisten palveluiden on tavoitettava kaikki väestöryhmät?",
+        "options": [
+          "Jotta ne eivät lisää terveyseroja",
+          "Jotta ne ovat kalliimpia",
+          "Jotta ne ovat nopeampia",
+          "Jotta ne ovat tehokkaampia"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

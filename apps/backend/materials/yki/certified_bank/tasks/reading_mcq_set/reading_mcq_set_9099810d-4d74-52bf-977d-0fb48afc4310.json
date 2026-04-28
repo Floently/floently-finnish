@@ -1,0 +1,77 @@
+{
+  "id": "9099810d-4d74-52bf-977d-0fb48afc4310",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.782,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kulttuuripolitiikan tulevaisuus on ollut vilkkaan keskustelun kohteena. Perinteisesti kulttuuripolitiikka on nähty keinona tukea taiteen tekemistä, suojella kulttuuriperintöä ja edistää kansalaisten kulttuurista osallisuutta. Tämä niin sanottu demokratisoiva näkemys korostaa taiteen ja kulttuurin itseisarvoa ja valtion velvollisuutta turvata niiden saatavuus kaikille. Viime vuosikymmeninä tämän rinnalle on noussut vahvasti myös kulttuurin taloudellista merkitystä korostava näkökulma. Kulttuurialan on katsottu olevan merkittävä työllistäjä ja talouskasvun moottori, ja kulttuuripanostuksia on perusteltu yhä useammin niiden tuottamilla taloudellisilla hyödyillä. Puhutaan luovasta taloudesta ja kulttuuriviennistä, ja kulttuuripolitiikkaa on alettu pitää osana elinkeinopolitiikkaa. Tämä kehitys on herättänyt keskustelua siitä, onko kulttuurin itseisarvo vaarassa jäädä taloudellisten hyötyjen jalkoihin. Kriitikot varoittavat, että jos kulttuuria arvotetaan ensisijaisesti sen taloudellisen tuoton perusteella, kapea-alainen ja kaupallisesti kannattamaton taide voi jäädä vaille tukea. Samalla voidaan menettää kulttuurin rooli yhteiskuntakritiikin välineenä ja identiteetin rakentajana. Toisaalta taloudellista merkitystä korostavat katsovat, että ilman taloudellisia perusteluja kulttuurille on vaikea saada riittävästi julkista rahoitusta. Heidän mukaansa kulttuurin taloudellisten vaikutusten esiin tuominen on keino varmistaa alan resurssit ja tehdä kulttuuria näkyväksi myös niille päättäjille, jotka eivät muuten sitä arvostaisi. Kolmas näkökulma korostaa, että kulttuuripolitiikan tulisi yhdistää nämä molemmat tavoitteet: tukea sekä kulttuurin itseisarvoa että sen taloudellisia vaikutuksia. Tämä edellyttää monipuolista rahoituspohjaa, jossa julkisen tuen rinnalla hyödynnetään myös yksityistä rahoitusta ja kansainvälisiä lähteitä. Se edellyttää myös kulttuurin ja muiden yhteiskunnan sektoreiden, kuten koulutuksen ja elinkeinoelämän, välistä yhteistyötä. Tulevaisuuden kannalta on tärkeää, että kulttuuripolitiikkaa kehitetään avoimessa vuoropuhelussa eri toimijoiden kanssa ja että siinä otetaan huomioon kulttuurin moninaiset arvot ja merkitykset.",
+      "word_count": 236
+    },
+    "questions": [
+      {
+        "id": "8c649def-92d9-5c0a-8a45-f3b676d2231e",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Kulttuuriviennin merkitys Suomen taloudelle",
+          "Kulttuuripolitiikan rooli ja siihen liittyvät jännitteet eri tavoitteiden välillä",
+          "Kansalaisten kulttuurisen osallisuuden edistäminen",
+          "Taiteen itseisarvo vs. taloudellinen hyöty"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1e1fc0ae-45a2-5914-a2cb-b3bcca7651d7",
+        "prompt": "Tekstin mukaan mitä perinteinen demokratisoiva näkemys kulttuuripolitiikasta korostaa?",
+        "options": [
+          "Kulttuurin taloudellista merkitystä ja vientipotentiaalia",
+          "Taiteen ja kulttuurin itseisarvoa ja valtion velvollisuutta turvata niiden saatavuus kaikille",
+          "Luovan talouden työllistävyyttä",
+          "Kulttuurialan kannattavuutta ja tehokkuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bf99baaf-514a-56cb-ac10-2331a980f530",
+        "prompt": "Mitä uudempi, taloudellista merkitystä korostava näkemys painottaa?",
+        "options": [
+          "Kulttuuriperinnön suojelua",
+          "Kulttuuria työllistäjänä, talouskasvun moottorina ja vientituotteena",
+          "Kulttuurin saatavuutta kaikille kansalaisille",
+          "Taiteen roolia yhteiskuntakritiikin välineenä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a38c3521-f15c-5501-a7ec-a70d0d993936",
+        "prompt": "Mitä kolmas, yhdistävä näkemys edellyttää kulttuuripolitiikalta?",
+        "options": [
+          "Yksinomaan julkista rahoitusta",
+          "Monipuolista rahoituspohjaa ja yhteistyötä muiden yhteiskunnan sektoreiden kanssa",
+          "Kulttuurin täydellistä kaupallistamista",
+          "Julkisen tuen lopettamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

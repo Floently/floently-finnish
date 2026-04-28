@@ -1,0 +1,37 @@
+{
+  "id": "71f6c424-839f-5984-80ec-811775aa3c80",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.506,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt yksityisessä hammashoidossa. Kirjoita palaute klinikalle.",
+    "materials": {
+      "scenario": "Palaute hammasklinikasta"
+    },
+    "items": [
+      {
+        "id": "b3c4146c-99c2-5ce2-a550-adf9d06ead7c",
+        "prompt": "Olet käynyt yksityisessä hammashoidossa. Kirjoita palaute klinikalle."
+      }
+    ],
+    "rubric": "Olet käynyt yksityisessä hammashoidossa. Kirjoita palaute klinikalle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

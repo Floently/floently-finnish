@@ -1,0 +1,37 @@
+{
+  "id": "03fede1f-8caf-535e-b888-fd4d51073907",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet hakenut toimeentulotukea Kelasta. Kirjoita palaute hakemusprosessista. Arvioi ohjeiden selkeyttä, käsittelyn nopeutta ja sitä, saiko prosessin aikana tarvittaessa neuvoa.",
+    "materials": {
+      "scenario": "Palaute Kelan asioinnista"
+    },
+    "items": [
+      {
+        "id": "e45e90ac-3505-5a6f-8427-dad7ff43fb10",
+        "prompt": "Olet hakenut toimeentulotukea Kelasta. Kirjoita palaute hakemusprosessista. Arvioi ohjeiden selkeyttä, käsittelyn nopeutta ja sitä, saiko prosessin aikana tarvittaessa neuvoa."
+      }
+    ],
+    "rubric": "Ohjeiden selkeys\nKäsittelyn nopeus\nNeuvonnan saatavuus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

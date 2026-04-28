@@ -1,0 +1,37 @@
+{
+  "id": "5ddabe2c-4155-5ad9-b496-e837125072c1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osuus ja vastaa kysymykseen.",
+    "materials": {
+      "scenario": "health in service_desk"
+    },
+    "items": [
+      {
+        "id": "bf90dbae-9b8d-549f-849c-bbe2ad81a9c8",
+        "prompt": "Kuuntele osuus ja vastaa kysymykseen."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

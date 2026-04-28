@@ -1,0 +1,60 @@
+{
+  "id": "8bfa4b08-f99c-5ea9-acf6-bd169277cf34",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vuokrata mökin kesälomalle. Keskustele mökin vuokraajan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Mökin omistaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp47_1",
+        "ai_first_turn_fi": "Hei, tässä on Maija mökistä."
+      },
+      {
+        "id": "srp47_2",
+        "ai_first_turn_fi": "Hienoa! Mökki on vapaa heinäkuussa viikot 28-31. Mikä viikko kiinnostaisi?"
+      },
+      {
+        "id": "srp47_3",
+        "ai_first_turn_fi": "Viikko 30 on vielä vapaana. Mökin vuokra on 650 euroa viikolta. Hintaan sisältyy sauna, soutuvene ja kalastuslupa."
+      },
+      {
+        "id": "srp47_4",
+        "ai_first_turn_fi": "Mökissä on neljä nukkumapaikkaa, keittiö ja takka. Varaa voi maksaa 200 euron varausmaksulla."
+      },
+      {
+        "id": "srp47_5",
+        "ai_first_turn_fi": "Varaus vahvistetaan, kun maksat varausmaksun tililleni. Laitan tilinumeron tekstiviestillä."
+      },
+      {
+        "id": "srp47_6",
+        "ai_first_turn_fi": "Kiitos. Odottelen maksua. Loput maksetaan mökillä käteisellä tai MobilePayllä. Tervetuloa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vuokrata mökin kesälomalle. Keskustele mökin vuokraajan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

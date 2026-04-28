@@ -1,0 +1,77 @@
+{
+  "id": "23d69115-8837-5bd6-9a50-6c48063a4c07",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Tekoälyn vaikutuksesta työllisyyteen on käyty vilkasta keskustelua sekä akateemisissa piireissä että julkisuudessa. Optimistien mukaan tekoäly luo uusia työpaikkoja ja vapauttaa ihmiset rutiininomaisista ja ikävistä tehtävistä. He korostavat, että aiemmat teknologiset murrokset ovat aina lopulta lisänneet työllisyyttä ja tuottavuutta. Pessimistit puolestaan varoittavat laajamittaisesta työttömyydestä, kun tekoäly korvaa ihmistyötä yhä useammilla aloilla. Heidän mukaansa tällä kertaa murros on erilainen, koska tekoäly pystyy suoriutumaan myös monimutkaisista kognitiivisista tehtävistä. Todellisuus on todennäköisesti näiden näkemysten välimaastossa. Tietyt ammattiryhmät, kuten toimistotyöntekijät, kääntäjät ja asiakaspalvelijat, ovat suuremmassa riskissä kuin toiset. Samaan aikaan kasvava kysyntä kohdistuu tekoälyn kehittäjiin, datatieteilijöihin ja asiantuntijoihin, jotka osaavat hyödyntää tekoälyä. Keskeiseksi kysymykseksi nouseekin työntekijöiden uudelleenkoulutus ja elinikäinen oppiminen. Tarvitaan aktiivista työvoimapolitiikkaa ja sosiaaliturvaa, joka tukee työurien muutoksia. Tekoälyn vaikutus ei ole ennalta määrätty, vaan se riippuu yhteiskunnallisista valinnoista ja siitä, miten teknologiaa sovelletaan.",
+      "word_count": 130
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä optimistit ajattelevat tekoälyn vaikutuksesta?",
+        "options": [
+          "Se aiheuttaa laajamittaista työttömyyttä",
+          "Se luo uusia työpaikkoja",
+          "Se ei vaikuta työllisyyteen",
+          "Se vähentää tuottavuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä pessimistit pelkäävät?",
+        "options": [
+          "Tekoäly lisää rutiinitöitä",
+          "Tekoäly luo liikaa uusia työpaikkoja",
+          "Tekoäly korvaa ihmistyötä laajalti",
+          "Tekoäly on liian kallista"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä ammattiryhmät ovat suuremmassa riskissä?",
+        "options": [
+          "Lääkärit ja juristit",
+          "Toimistotyöntekijät ja asiakaspalvelijat",
+          "Rakentajat ja maanviljelijät",
+          "Taiteilijat ja muusikot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mistä tekoälyn vaikutus työllisyyteen riippuu?",
+        "options": [
+          "Teknologian nopeudesta",
+          "Yhteiskunnallisista valinnoista",
+          "Luonnonvaroista",
+          "Väestön määrästä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

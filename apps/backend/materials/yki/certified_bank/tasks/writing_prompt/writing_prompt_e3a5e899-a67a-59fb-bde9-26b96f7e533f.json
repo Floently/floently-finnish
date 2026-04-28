@@ -1,0 +1,37 @@
+{
+  "id": "e3a5e899-a67a-59fb-bde9-26b96f7e533f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pyykkituvan koneet ovat epäkunnossa. Pesukone ei toimi ja kuivausrumpu ei kuivaa kunnolla. Kerro ongelmista ja pyydä korjausta.",
+    "materials": {
+      "scenario": "Vikailmoitus pyykkituvan koneista"
+    },
+    "items": [
+      {
+        "id": "78e332e2-1d70-5bbe-9377-caff16f6f1e9",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pyykkituvan koneet ovat epäkunnossa. Pesukone ei toimi ja kuivausrumpu ei kuivaa kunnolla. Kerro ongelmista ja pyydä korjausta."
+      }
+    ],
+    "rubric": "Ongelmien kuvaus\nVaikutukset\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

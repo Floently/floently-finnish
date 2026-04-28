@@ -1,0 +1,66 @@
+{
+  "id": "8cacad9b-1269-5c22-a558-ec377148b618",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "VUOKRA-ASUMISEN HYVÄT JA HUONOT PUOLET\n\nSuomessa yhä useampi asuu vuokralla. Erityisesti suurissa kaupungeissa omistusasuminen on kallista, ja vuokra-asunto on monelle ainoa vaihtoehto. Vuokra-asumisessa on sekä hyviä että huonoja puolia.\n\nHyviä puolia on joustavuus. Vuokralainen voi muuttaa helpommin, kun elämäntilanne muuttuu. Jos työpaikka vaihtuu toiselle paikkakunnalle, vuokrasopimuksen voi irtisanoa. Vuokralaisen ei tarvitse huolehtia remonteista tai taloyhtiön asioista – ne kuuluvat omistajalle.\n\nHuonoja puolia on epävarmuus. Vuokrasopimus voi olla määräaikainen, ja omistaja voi myydä asunnon. Silloin vuokralaisen pitää lähteä. Myös vuokrankorotukset voivat tulla yllätyksenä. Lisäksi vuokralainen ei voi vaikuttaa asunnon muutoksiin, kuten remontteihin tai pintamateriaaleihin.\n\nAsumisen hinta vaihtelee paljon. Helsingissä vuokrat ovat korkeita, pienemmillä paikkakunnilla edullisempia. Myös asunnon kunto ja sijainti vaikuttavat hintaan. Vuokralainen maksaa usein myös vedestä ja sähköstä erikseen.\n\nAsiantuntijat neuvovat, että vuokrasopimus kannattaa lukea tarkasti ennen allekirjoitusta. Kannattaa myös selvittää, mitä vastikkeita vuokraan sisältyy ja millä ehdoilla vuokraa voidaan korottaa. Hyvä vuokrasuhde perustuu selkeisiin sopimuksiin ja molemminpuoliseen luottamukseen.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 177
+    },
+    "questions": [
+      {
+        "id": "c6ae32ac-69ac-5b9a-969d-30723cb7abf8",
+        "prompt": "Mikä on vuokra-asumisen hyvä puoli?",
+        "options": [
+          "Vuokralainen omistaa asunnon",
+          "Vuokralainen voi muuttaa helposti, kun elämäntilanne muuttuu",
+          "Vuokralainen päättää remonteista",
+          "Vuokra on aina edullinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8b59ed4a-4704-51be-a301-e381605ac0f3",
+        "prompt": "Mikä on vuokra-asumisen huono puoli?",
+        "options": [
+          "Vuokralainen saa itse valita seinien värin",
+          "Vuokrasopimus voi olla määräaikainen ja omistaja voi myydä asunnon",
+          "Vuokralainen saa itse tehdä remontteja",
+          "Vuokra on aina sama"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "528d704f-4ff4-54d4-97d2-224a919e819a",
+        "prompt": "Mitä asiantuntijat neuvovat vuokralaisia tekemään?",
+        "options": [
+          "Allekirjoittaa sopimus lukematta",
+          "Lukea vuokrasopimus tarkasti ja selvittää vuokran korotusehdot",
+          "Aina valita kallein asunto",
+          "Vaihtaa asuntoa joka vuosi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

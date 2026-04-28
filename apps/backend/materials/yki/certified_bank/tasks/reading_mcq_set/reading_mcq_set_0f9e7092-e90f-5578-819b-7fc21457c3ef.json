@@ -1,0 +1,66 @@
+{
+  "id": "0f9e7092-e90f-5578-819b-7fc21457c3ef",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI AALLOT\n\nAukioloajat:\nMaanantai–perjantai 6–20\nLauantai 8–18\nSunnuntai 10–18\n\nAllasosasto suljetaan tuntia ennen sulkemisaikaa.\n\nOsoite: Uimarannantie 5, 00100 Helsinki\nPuhelin: 09 876 5432  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan uimahalli aukeaa maanantaina?",
+        "options": [
+          "A) klo 6",
+          "B) klo 7",
+          "C) klo 8",
+          "D) klo 9"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan uimahalli suljetaan lauantaina?",
+        "options": [
+          "A) klo 16",
+          "B) klo 17",
+          "C) klo 18",
+          "D) klo 20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on uimahallin puhelinnumero?",
+        "options": [
+          "A) 09 123 4567",
+          "B) 09 876 5432",
+          "C) 050 123 4567",
+          "D) 040 987 6543"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

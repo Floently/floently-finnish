@@ -1,0 +1,37 @@
+{
+  "id": "9d085bc1-89f0-5e18-a465-fc71afa49be0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työpaikan kahvilaan.",
+    "materials": {
+      "scenario": "Ehdota muutosta ruokalistaan"
+    },
+    "items": [
+      {
+        "id": "eebcbc1d-7213-5634-8697-a2461cd42038",
+        "prompt": "Käyt usein työpaikkasi lounaskahvilassa. Kirjoita sähköposti ja ehdota yhtä uutta ruokalajia listalle. Perustele, miksi se olisi hyvä lisä ja kerro, mistä raaka-aineista pidät."
+      }
+    ],
+    "rubric": "Käyt usein työpaikkasi lounaskahvilassa. Kirjoita sähköposti ja ehdota yhtä uutta ruokalajia listalle. Perustele, miksi se olisi hyvä lisä ja kerro, mistä raaka-aineista pidät.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

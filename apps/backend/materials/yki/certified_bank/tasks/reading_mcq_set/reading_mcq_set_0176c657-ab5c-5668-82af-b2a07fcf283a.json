@@ -1,0 +1,77 @@
+{
+  "id": "0176c657-ab5c-5668-82af-b2a07fcf283a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue juttu ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Kaupunki käynnisti viherkattohankkeen kolmessa julkisessa rakennuksessa vähentääkseen rankkasateiden aiheuttamaa hulevesikuormitusta. Hankkeen suunnittelussa painotettiin kahta tavoitetta: sadeveden pidätystä ja rakennusten kesäaikaisen lämpökuorman pienentämistä. Ensimmäisen vuoden mittauksissa havaittiin, että viherkatot tasoittivat veden virtaamaa rankkasateiden jälkeen. Energiansäästössä tulokset vaihtelivat rakennuksen käyttöprofiilin mukaan. Kritiikki kohdistui ylläpitokustannuksiin ja siihen, että osa huoltotoimista vaati erityisosaamista, jota ei ollut kaikilla kiinteistönhoitajilla. Kaupunki vastasi kritiikkiin laatimalla koulutusohjelman huoltoyhtiöille sekä vertailemalla pitkän aikavälin kustannuksia tulvariskien ja jäähdytyksen kuluihin. Päätös laajennuksesta tehdään vasta, kun kolmen vuoden seurantadata on valmis.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä olivat hankkeen kaksi päätavoitetta?",
+        "options": [
+          "pysäköinnin lisääminen ja valaistus",
+          "sadeveden pidätys ja lämpökuorman pienentäminen",
+          "uudet kahvilat ja terassit",
+          "kattojen maalaaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mittauksissa havaittiin selvästi?",
+        "options": [
+          "hulevesivirtaama kasvoi",
+          "viherkatot tasoittivat veden virtaamaa",
+          "rakennukset lämpenivät enemmän",
+          "ylläpitoa ei tarvittu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin kritiikki erityisesti kohdistui?",
+        "options": [
+          "asuntojen määrään",
+          "ylläpitokustannuksiin ja osaamisvaatimuksiin",
+          "hankkeen nimeen",
+          "kasvilajien väriin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin laajennuksesta päätetään?",
+        "options": [
+          "heti kesällä",
+          "kun vuoden data on valmis",
+          "kun kolmen vuoden seurantadata on valmis",
+          "ei koskaan"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

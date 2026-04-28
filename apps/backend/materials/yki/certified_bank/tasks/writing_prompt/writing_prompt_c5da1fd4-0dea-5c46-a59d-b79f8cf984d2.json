@@ -1,0 +1,37 @@
+{
+  "id": "c5da1fd4-0dea-5c46-a59d-b79f8cf984d2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an HR director position in a large industrial company. Tell about your experience in developing HR strategy, promoting well-being at work, and labor market cooperation. Also describe how you have developed leadership and managed changes. Length about 320 words.",
+    "materials": {
+      "scenario": "Hakemus henkilöstöjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "1a637e09-7457-5ea5-b15e-adc8e7f64cd3",
+        "prompt": "Write a job application. You are applying for an HR director position in a large industrial company. Tell about your experience in developing HR strategy, promoting well-being at work, and labor market cooperation. Also describe how you have developed leadership and managed changes. Length about 320 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an HR director position in a large industrial company. Tell about your experience in developing HR strategy, promoting well-being at work, and labor market cooperation. Also describe how you have developed leadership and managed changes. Length about 320 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

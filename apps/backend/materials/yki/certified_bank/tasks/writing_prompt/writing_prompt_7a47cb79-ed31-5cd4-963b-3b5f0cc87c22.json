@@ -1,0 +1,37 @@
+{
+  "id": "7a47cb79-ed31-5cd4-963b-3b5f0cc87c22",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipidekirjoitus somevaikuttajien vastuusta.",
+    "materials": {
+      "scenario": "Kirjoita mielipidekirjoitus somevaikuttajien vastuusta."
+    },
+    "items": [
+      {
+        "id": "64e0d608-33e0-507d-b5e1-972fa489257e",
+        "prompt": "Paikallislehti pyytää lukijoilta mielipidekirjoituksia somevaikuttajien vastuusta. Kirjoita noin 150–200 sanaa. Kerro, pitäisikö heidän merkitä mainokset selkeämmin ja millainen vastuu heillä on nuoriin seuraajiin."
+      }
+    ],
+    "rubric": "Paikallislehti pyytää lukijoilta mielipidekirjoituksia somevaikuttajien vastuusta. Kirjoita noin 150–200 sanaa. Kerro, pitäisikö heidän merkitä mainokset selkeämmin ja millainen vastuu heillä on nuoriin seuraajiin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

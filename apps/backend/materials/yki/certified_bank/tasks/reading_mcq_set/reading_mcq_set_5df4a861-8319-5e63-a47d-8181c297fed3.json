@@ -1,0 +1,66 @@
+{
+  "id": "5df4a861-8319-5e63-a47d-8181c297fed3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue vuokrasopimuksen kohta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "5. VUOKRALAISEN VELVOLLISUUDET\n\nVuokralainen on velvollinen hoitamaan asuntoa huolellisesti. Vuokralainen vastaa itse aiheuttamistaan vahingoista. Pienet kunnostukset, kuten lamppujen vaihto, palovaroittimen pariston vaihto ja sulakkeiden vaihto, kuuluvat vuokralaiselle. Ilmanvaihtoventtiilit saa pestä, mutta niiden säätäminen on kielletty.\n\n6. VUOKRANANTAJAN VELVOLLISUUDET\n\nVuokranantaja vastaa kiinteistön kunnossapidosta ja suuremmista korjauksista, kuten putki- ja sähkötöistä. Vikailmoitukset tehdään isännöintitoimistoon.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kenen vastuulla on palovaroittimen pariston vaihto?",
+        "options": [
+          "Vuokranantajan",
+          "Isännöitsijän",
+          "Vuokralaisen",
+          "Taloyhtiön"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin pitää tehdä vikailmoitus?",
+        "options": [
+          "Vuokranantajalle",
+          "Isännöintitoimistoon",
+          "Naapurille",
+          "Poliisille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vuokralainen ei saa tehdä?",
+        "options": [
+          "Vaihtaa lamppua",
+          "Pestä ilmanvaihtoventtiilejä",
+          "Säätää ilmanvaihtoventtiilejä",
+          "Vaihtaa palovaroittimen paristoa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

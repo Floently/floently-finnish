@@ -1,0 +1,99 @@
+{
+  "id": "a32bc601-ae0b-59c4-a4d9-320f985ee57c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.575,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Politiikan tutkijat ovat huolissaan kansalaisten vähentyneestä luottamuksesta poliittisiin instituutioihin. Luottamus on demokratian peruspilareita. Syiksi epäillään poliittista polarisaatiota, epäonnistunutta viestintää ja päätösten pitkäkestoisuuden puutetta. Ratkaisuina pidetään avoimempaa päätöksentekoa, kansalaisten osallistamista ja pitkäjänteistä politiikkaa. Luottamuksen palauttaminen on hidas prosessi, mutta elintärkeä yhteiskunnan toiminnalle.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä politiikan tutkijat ovat huolissaan?",
+        "options": [
+          "Poliitikkojen iästä",
+          "Kansalaisten vähentyneestä luottamuksesta poliittisiin instituutioihin",
+          "Poliittisten puolueiden määrästä",
+          "Äänestysprosentin noususta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä luottamus on demokratialle?",
+        "options": [
+          "Vähäinen asia",
+          "Peruspilari",
+          "Uusi ilmiö",
+          "Tarpeeton asia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä syiksi luottamuksen vähenemiseen epäillään?",
+        "options": [
+          "Liiallinen avoimuus",
+          "Poliittinen polarisaatio, epäonnistunut viestintä ja päätösten pitkäkestoisuuden puute",
+          "Liian pitkäjänteinen politiikka",
+          "Kansalaisten liiallinen osallistuminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuiksi pidetään?",
+        "options": [
+          "Suljetumpaa päätöksentekoa",
+          "Avoimempaa päätöksentekoa, kansalaisten osallistamista ja pitkäjänteistä politiikkaa",
+          "Päätösten nopeaa vaihtumista",
+          "Poliittisten puolueiden vähentämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millaista prosessia luottamuksen palauttaminen on?",
+        "options": [
+          "Nopea ja helppo",
+          "Hidas mutta elintärkeä",
+          "Mahdoton",
+          "Tarpeeton"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'poliittisella polarisaatiolla'?",
+        "options": [
+          "Poliittista yhteistyötä",
+          "Eri ryhmien välisten näkemyserojen kasvamista",
+          "Poliittista yksimielisyyttä",
+          "Poliittisten puolueiden määrän lisääntymistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

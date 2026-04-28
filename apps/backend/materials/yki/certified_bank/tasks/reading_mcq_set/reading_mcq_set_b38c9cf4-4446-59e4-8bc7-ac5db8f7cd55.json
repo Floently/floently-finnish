@@ -1,0 +1,110 @@
+{
+  "id": "b38c9cf4-4446-59e4-8bc7-ac5db8f7cd55",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Tekoälyn kehitys on yksi aikamme merkittävimmistä ilmiöistä. Se vaikuttaa jo nyt moniin elämänalueisiin, ja sen vaikutus tulee vain kasvamaan. Tekoälyä käytetään esimerkiksi terveydenhuollossa diagnostiikan apuna, liikenteessä autonomisissa ajoneuvoissa, teollisuudessa robotiikassa ja palveluissa chatboteissa. Tekoäly tarjoaa valtavia mahdollisuuksia. Se voi parantaa tehokkuutta, auttaa ratkaisemaan monimutkaisia ongelmia ja luoda uusia innovaatioita. Se voi myös vapauttaa ihmisiä rutiininomaisista tehtävistä ja antaa aikaa luovuudelle ja vuorovaikutukselle. Tekoälyn kehitys herättää myös huolta. Monet pelkäävät, että tekoäly vie työpaikkoja. Asiantuntijoiden mukaan se todennäköisesti muuttaa työtehtäviä enemmän kuin tuhoaa niitä. Uusia ammatteja syntyy, ja vanhat muuttuvat. Toinen huoli liittyy tekoälyn eettisyyteen. Miten varmistetaan, että tekoäly toimii oikeudenmukaisesti eikä syrji ketään? Kuka on vastuussa, jos tekoäly tekee virheen? Näihin kysymyksiin on löydettävä vastauksia. Tarvitaan lainsäädäntöä, eettisiä ohjeita ja avointa keskustelua. Tekoälyn kehitystä ei voi pysäyttää, mutta sitä voidaan ohjata. On tärkeää, että kehitys tapahtuu ihmislähtöisesti ja että tekoäly palvelee meitä kaikkia, ei vain harvoja.",
+      "word_count": 146
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millä aloilla tekoälyä käytetään jo nyt?",
+        "options": [
+          "Vain terveydenhuollossa.",
+          "Terveydenhuollossa, liikenteessä, teollisuudessa ja palveluissa.",
+          "Vain liikenteessä.",
+          "Vain teollisuudessa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mahdollisuuksia tekoäly tarjoaa?",
+        "options": [
+          "Vain tehokkuuden parantamista.",
+          "Tehokkuuden parantamista, monimutkaisten ongelmien ratkaisua, uusia innovaatioita ja vapauttaa rutiineista.",
+          "Vain uusia innovaatioita.",
+          "Vain vapauttaa rutiineista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pelkoja tekoälyn kehitykseen liittyy?",
+        "options": [
+          "Se vie liian vähän työpaikkoja.",
+          "Se vie työpaikkoja ja herättää eettisiä kysymyksiä.",
+          "Se on liian hidasta.",
+          "Se on liian kallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten asiantuntijat suhtautuvat tekoälyn vaikutukseen työpaikkoihin?",
+        "options": [
+          "Se tuhoaa kaikki työpaikat.",
+          "Se muuttaa työtehtäviä enemmän kuin tuhoaa niitä, ja uusia ammatteja syntyy.",
+          "Sillä ei ole vaikutusta.",
+          "Se lisää vain rutiinitöitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä eettisiä kysymyksiä tekoälyyn liittyy?",
+        "options": [
+          "Miten tekoäly saadaan mahdollisimman nopeaksi.",
+          "Miten varmistetaan oikeudenmukaisuus, syrjimättömyys ja vastuukysymykset.",
+          "Miten tekoäly saadaan halvemmaksi.",
+          "Miten tekoäly saadaan kauniimmaksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarvitaan tekoälyn eettiseen ohjaukseen?",
+        "options": [
+          "Vain teknistä kehitystä.",
+          "Lainsäädäntöä, eettisiä ohjeita ja avointa keskustelua.",
+          "Vain yritysten itsesääntelyä.",
+          "Vain kansainvälisiä sopimuksia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millaista tekoälyn kehityksen pitäisi olla?",
+        "options": [
+          "Mahdollisimman nopeaa ja valvomatonta.",
+          "Ihmislähtöistä, ja tekoälyn pitäisi palvella kaikkia.",
+          "Vain markkinoiden ohjaamaa.",
+          "Vain valtioiden ohjaamaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

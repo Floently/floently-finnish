@@ -1,0 +1,77 @@
+{
+  "id": "54e7601a-d28d-5bde-8304-2dc2d27ef97f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.799,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Ilmastonmuutoksen hillintä on yksi aikamme suurimmista haasteista, ja se edellyttää nopeita ja syvällisiä muutoksia yhteiskunnan eri sektoreilla. Keskustelu keinoista ja vastuista on kuitenkin monisyistä ja usein ristiriitaista. Yksi keskeisimmistä jännitteistä liittyy siihen, millä tasolla toimia tulisi ensisijaisesti tapahtua: kansainvälisesti, kansallisesti vai paikallisesti. Kansainväliset ilmastosopimukset, kuten Pariisin ilmastosopimus, asettavat puitteet ja tavoitteet, mutta niiden toimeenpano ja konkreettiset toimet jäävät pitkälti kansallisten hallitusten ja paikallisten toimijoiden vastuulle. Tämä asetelma on omiaan synnyttämään niin sanottua vapaamatkustajuutta: jotkut maat voivat hyötyä toisten maiden toimista ilman, että itse sitoutuvat riittäviin päästövähennyksiin. Toisaalta voidaan kysyä, onko oikeudenmukaista vaatia samanlaisia toimia kaikilta mailta, kun niiden historialliset päästöt ja taloudelliset mahdollisuudet poikkeavat toisistaan merkittävästi. Kansallisella tasolla keskustelua käydään muun muassa siitä, millaisia ohjauskeinoja tulisi käyttää. Pitäisikö päästöjä vähentää sääntelyn, verotuksen vai kannustimien avulla? Jokaisella keinolla on omat kannattajansa ja vastustajansa. Esimerkiksi hiilidioksidivero on taloustieteilijöiden keskuudessa suosittu, mutta se kohtaa usein poliittista vastustusta, koska sen pelätään heikentävän teollisuuden kilpailukykyä ja lisäävän kansalaisten kustannuksia. Toisaalta suorat tuet uusiutuvalle energialle voivat vauhdittaa teknologian kehitystä, mutta ne eivät välttämättä ole kustannustehokkaita eivätkä kohdistu päästöjen aiheuttajiin. Paikallistasolla ilmastotoimet voivat olla hyvin konkreettisia ja näkyviä. Kaupungit ja kunnat voivat vaikuttaa esimerkiksi kaavoitukseen, joukkoliikenteeseen ja energiaratkaisuihin. Monet kaupungit ovatkin asettaneet kunnianhimoisia ilmastotavoitteita ja ryhtyneet toimiin, jotka ylittävät kansalliset vaatimukset. Tämä on tärkeää, koska suuri osa päästöistä syntyy kaupungeissa ja niiden vaikutuspiirissä. Paikallistoimien ongelmana voi kuitenkin olla niiden pirstaleisuus ja riittämättömyys ilman laajempaa koordinaatiota ja tukea. Ilmastonmuutoksen hillintä vaatii toimia kaikilla tasoilla, ja eri tasojen toimien tulisi tukea toisiaan. Keskeistä on rakentaa toimiva kokonaisuus, jossa kansainväliset sopimukset luovat suuntaviivat, kansalliset politiikat varmistavat tavoitteiden saavuttamisen ja paikalliset toimet tuovat ratkaisut osaksi ihmisten arkea. Samalla on huolehdittava siitä, että siirtymä vähähiiliseen yhteiskuntaan on oikeudenmukainen eikä jätä ketään jälkeen. Tämä edellyttää paitsi teknologisia ratkaisuja myös laajaa yhteiskunnallista hyväksyntää ja osallisuutta.",
+      "word_count": 291
+    },
+    "questions": [
+      {
+        "id": "85c3df0b-e0c5-5d24-bb2f-d94dbdf6c75e",
+        "prompt": "Mikä on tekstin keskeinen väite ilmastonmuutoksen torjunnan toimintatasoista?",
+        "options": [
+          "Toiminnan tulisi keskittyä yksinomaan kansainväliselle tasolle, koska ilmastonmuutos on globaali ongelma",
+          "Toiminnan tulisi keskittyä yksinomaan paikallistasolle, koska siellä vaikutukset ovat konkreettisimpia",
+          "Kaikki tasot – kansainvälinen, kansallinen ja paikallinen – ovat tärkeitä, ja niiden tulisi tukea toisiaan",
+          "Kansallinen taso on ainoa, jolla voidaan tehdä merkittäviä päätöksiä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "17ed9183-ee85-594b-a1e5-e0fd22dcf47a",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'vapaamatkustajuudella' kansainvälisessä ilmastopolitiikassa?",
+        "options": [
+          "Sitä, että maat kieltäytyvät matkustamasta ilmastosyistä",
+          "Sitä, että jotkut maat hyötyvät toisten maiden päästövähennyksistä ilman omia sitoumuksiaan",
+          "Sitä, että kehitysmaat vaativat korvauksia teollisuusmailta",
+          "Sitä, että kansainväliset sopimukset ovat vapaaehtoisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dd65d842-e825-5ccf-ad9e-1932549b7c15",
+        "prompt": "Tekstin mukaan mikä on keskeinen ongelma hiilidioksidiverossa poliittisesta näkökulmasta?",
+        "options": [
+          "Se on teknisesti vaikea toteuttaa",
+          "Se ei vähennä päästöjä riittävästi",
+          "Sen pelätään heikentävän teollisuuden kilpailukykyä ja lisäävän kansalaisten kustannuksia",
+          "Se kohdistuu vain suuriin teollisuuslaitoksiin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6875f08c-204f-515d-b6d0-ceb0891b02a6",
+        "prompt": "Mitä mahdollisuuksia ja haasteita tekstin mukaan liittyy paikallistason ilmastotoimiin?",
+        "options": [
+          "Ne ovat aina tehokkaita ja hyvin koordinoituja",
+          "Ne ovat konkreettisia ja näkyviä, mutta voivat olla pirstaleisia ja riittämättömiä ilman laajempaa koordinaatiota",
+          "Ne ovat täysin riippuvaisia kansainvälisestä rahoituksesta",
+          "Ne ovat mahdollisia vain suurissa kaupungeissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

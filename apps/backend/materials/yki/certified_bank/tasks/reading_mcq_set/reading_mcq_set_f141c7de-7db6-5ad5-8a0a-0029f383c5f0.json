@@ -1,0 +1,66 @@
+{
+  "id": "f141c7de-7db6-5ad5-8a0a-0029f383c5f0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Digitaaliset palvelut ovat yleistyneet Suomessa nopeasti. Nykyään monet asiat hoituvat verkossa, kuten pankkiasiat, lääkäriaikojen varaus ja kirjastolainojen uusiminen. Tämä säästää aikaa ja on usein helpompaa. Kuitenkaan kaikilla ei ole tasavertaisia mahdollisuuksia käyttää digitaalisia palveluita. Ikääntyneet ja digitaidottomat saattavat jäädä jälkeen. Tämän vuoksi on tärkeää, että perinteisiä palveluita säilytetään. Myös digiopastusta tarvitaan, jotta kaikki oppivat käyttämään verkkopalveluita.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "f4b7232b-8b06-5337-ad6b-cfd3cb0c98ad",
+        "prompt": "Mitä etuja digitaalisilla palveluilla on?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne säästävät aikaa ja ovat helpompia",
+          "Ne ovat turvallisempia",
+          "Ne korvaavat kaikki muut palvelut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2ccbb37f-1564-5950-b442-ba9c6e41a0b4",
+        "prompt": "Kenelle digitaalisten palveluiden käyttö voi olla vaikeaa?",
+        "options": [
+          "Lapsille",
+          "Nuorille aikuisille",
+          "Ikääntyneille ja digitaidottomille",
+          "Kaikille suomalaisille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0451fca1-f765-5be4-a0cf-48394cd0a77e",
+        "prompt": "Mitä tekstin mukaan tarvitaan?",
+        "options": [
+          "Vain digitaalisia palveluita",
+          "Perinteisten palveluiden lakkauttamista",
+          "Digiopastusta ja perinteisten palveluiden säilyttämistä",
+          "Uusia maksullisia palveluita"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

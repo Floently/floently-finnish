@@ -1,0 +1,66 @@
+{
+  "id": "1e62ac2b-4ba8-5129-8226-3e1b4c2a01b1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ravintolan ruokalista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "RAVINTOLA SATAMA\n\nLOUNAS ma–pe 11–14\n\nPäivän keitto 9,50 €\n(vegaaminen vaihtoehto)\n\nPäivän lounas 12,50 €\n(sisältää pääruoan, salaatin ja leivän)\n\nPäivän jälkiruoka 4,50 €\n\nLounaan kanssa vesi, maito tai kotikalja.\nKahvi 2 € (lounaan kanssa 1,50 €)",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "7f470e5d-8088-533f-a630-171bbc8c5b70",
+        "prompt": "Mihin asti lounasta saa?",
+        "options": [
+          "klo 13",
+          "klo 14",
+          "klo 15",
+          "klo 16"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "01d6eec8-cd20-5cb1-be6c-c5974ae9b822",
+        "prompt": "Paljonko päivän keitto maksaa?",
+        "options": [
+          "8,50 €",
+          "9,50 €",
+          "10,50 €",
+          "12,50 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "095586a5-641f-5915-9308-4cd98fc516c5",
+        "prompt": "Mitä lounaan kanssa saa juoda?",
+        "options": [
+          "Kahvia",
+          "Teetä",
+          "Vettä",
+          "Limua"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

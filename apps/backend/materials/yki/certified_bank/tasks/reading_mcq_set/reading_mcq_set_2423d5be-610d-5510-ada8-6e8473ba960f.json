@@ -1,0 +1,88 @@
+{
+  "id": "2423d5be-610d-5510-ada8-6e8473ba960f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomessa julkinen liikenne toimii hyvin kaupungeissa. Helsingissä on metro, raitiovaunut, bussit ja paikallisjunat. Bussit kulkevat myös pienemmillä paikkakunnilla. Lippuja voi ostaa mobiilisovelluksella, automaatista tai kuljettajalta. Opiskelijat, eläkeläiset ja lapset saavat usein alennusta lipun hinnasta. Moni käyttää julkista liikennettä työ- ja koulumatkoihin, koska se on ympäristöystävällistä ja usein nopeampaa kuin auto keskustassa.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä julkinen liikenne toimii hyvin Suomessa?",
+        "options": [
+          "vain pääkaupunkiseudulla",
+          "kaupungeissa",
+          "vain maaseudulla",
+          "vain etelä-suomessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kulkuneuvoja Helsingissä on?",
+        "options": [
+          "vain busseja",
+          "metro, raitiovaunut, bussit ja paikallisjunat",
+          "vain metro ja bussit",
+          "vain raitiovaunut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten lippuja voi ostaa?",
+        "options": [
+          "vain sovelluksella",
+          "sovelluksella, automaatista tai kuljettajalta",
+          "vain automaatista",
+          "vain kuljettajalta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Ketkä saavat alennusta lipusta?",
+        "options": [
+          "vain opiskelijat",
+          "opiskelijat, eläkeläiset ja lapset",
+          "vain eläkeläiset",
+          "kaikki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi moni käyttää julkista liikennettä?",
+        "options": [
+          "se on halvempaa",
+          "se on ympäristöystävällistä ja usein nopeampaa",
+          "se on mukavampaa",
+          "se on ainoa vaihtoehto"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

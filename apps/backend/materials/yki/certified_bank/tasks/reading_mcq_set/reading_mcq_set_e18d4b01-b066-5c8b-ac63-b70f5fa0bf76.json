@@ -1,0 +1,110 @@
+{
+  "id": "e18d4b01-b066-5c8b-ac63-b70f5fa0bf76",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Monikulttuurisuus on yhteiskunnan tila, jossa elää rinnakkain useita eri kulttuureja. Se on seurausta globalisaatiosta, muuttoliikkeistä ja lisääntyneestä kanssakäymisestä. Monikulttuurisuus rikastuttaa yhteiskuntaa tuomalla uusia näkökulmia, tapoja ja makuja. Se voi kuitenkin myös synnyttää jännitteitä, jos eri ryhmien välillä on ennakkoluuloja, syrjintää tai kulttuurisia ristiriitoja. Onnistunut monikulttuurisuus edellyttää yhteiskunnalta avoimuutta, vuorovaikutusta ja yhdenvertaisuutta. Tärkeää on, että eri kulttuurit voivat säilyttää omia piirteitään, mutta samalla sitoutua yhteisiin pelisääntöihin. Koulutus, työelämä ja media ovat keskeisiä areenoja, joilla monikulttuurisuus joko onnistuu tai epäonnistuu. Tutkimusten mukaan monikulttuurisuus voi olla voimavara, jos siihen panostetaan pitkäjänteisesti.",
+      "word_count": 88
+    },
+    "questions": [
+      {
+        "id": "b2ad4af3-9a1b-551a-b747-bd386ad68a55",
+        "prompt": "Mitä tarkoitetaan monikulttuurisuudella?",
+        "options": [
+          "yhden kulttuurin hallitsevuutta",
+          "yhteiskunnan tilaa, jossa elää rinnakkain useita eri kulttuureja",
+          "kulttuurien sulautumista",
+          "ulkomaalaisten määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c44a31b9-1925-5c4f-8e7c-464e20602f5b",
+        "prompt": "Mistä monikulttuurisuus on seurausta?",
+        "options": [
+          "eristäytymisestä",
+          "globalisaatiosta, muuttoliikkeistä ja lisääntyneestä kanssakäymisestä",
+          "kansallisvaltioiden vahvistumisesta",
+          "kielten vähenemisestä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bba03aa3-9cdf-5585-83dc-8966d1382e19",
+        "prompt": "Miten monikulttuurisuus rikastuttaa yhteiskuntaa?",
+        "options": [
+          "se lisää kulttuurista moninaisuutta",
+          "se tuo uusia näkökulmia, tapoja ja makuja",
+          "se vähentää konflikteja",
+          "se lisää yhdenmukaisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a101e47d-3d4f-51f7-a041-7f79c3f5f55f",
+        "prompt": "Mitä haasteita monikulttuurisuus voi aiheuttaa?",
+        "options": [
+          "se voi synnyttää jännitteitä, ennakkoluuloja ja kulttuurisia ristiriitoja",
+          "se on aina ongelmatonta",
+          "se vähentää vuorovaikutusta",
+          "se lisää työttömyyttä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "628395b7-93ba-5165-8637-384adbb9b2ee",
+        "prompt": "Mitä onnistunut monikulttuurisuus edellyttää?",
+        "options": [
+          "yhden kulttuurin valta-asemaa",
+          "avoimuutta, vuorovaikutusta ja yhdenvertaisuutta",
+          "kulttuurien eristämistä toisistaan",
+          "kielikoulutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "68085735-8b53-50fa-8224-f23ddcb4dce1",
+        "prompt": "Mitä tärkeää on monikulttuurisuudessa?",
+        "options": [
+          "että kaikki kulttuurit sulautuvat",
+          "että eri kulttuurit voivat säilyttää omia piirteitään, mutta sitoutua yhteisiin pelisääntöihin",
+          "että kaikki puhuvat samaa kieltä",
+          "että kulttuurierot häviävät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8f2520eb-17ab-58e9-aeec-4be2564326c4",
+        "prompt": "Mitkä ovat keskeisiä areenoja monikulttuurisuudessa?",
+        "options": [
+          "koulutus, työelämä ja media",
+          "vain koulutus",
+          "vain työelämä",
+          "vain media"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

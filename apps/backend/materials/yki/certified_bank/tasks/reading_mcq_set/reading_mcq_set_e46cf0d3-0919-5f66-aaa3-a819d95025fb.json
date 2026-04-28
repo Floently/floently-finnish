@@ -1,0 +1,77 @@
+{
+  "id": "e46cf0d3-0919-5f66-aaa3-a819d95025fb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.768,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "HYVINVOINTIVALTION TULEVAISUUS – UHAT JA MAHDOLLISUUDET\n\nPohjoismainen hyvinvointivaltio on ollut kansainvälinen menestystarina. Sen keskeisiä periaatteita ovat universaalius, solidaarisuus ja tasa-arvo: kaikilla kansalaisilla on oikeus laadukkaisiin julkisiin palveluihin ja sosiaaliturvaan. Viime vuosikymmeninä hyvinvointivaltio on kuitenkin joutunut kasvavien paineiden alle.\n\nYksi keskeisimmistä haasteista on väestön ikääntyminen. Suomessa yli 65-vuotiaiden osuus väestöstä kasvaa nopeasti, mikä lisää hoivapalvelujen ja terveydenhuollon kustannuksia samalla kun työikäisten osuus pienenee. Tämä luo painetta julkiselle taloudelle.\n\nToinen haaste on globalisaatio ja talouden rakennemuutos. Perinteinen teollisuus on väistynyt palveluvaltaisen talouden tieltä, ja työmarkkinat ovat pirstaloituneet. Yhä useampi työskentelee epätyypillisissä työsuhteissa, mikä vaikeuttaa sosiaaliturvan soveltamista.\n\nKolmas haaste liittyy eriarvoisuuden kasvuun. Vaikka Suomi on edelleen kansainvälisesti vertailtuna tasa-arvoinen maa, erot tuloissa, terveydessä ja hyvinvoinnissa ovat kasvaneet. Tämä koskee erityisesti alueellisia eroja: kasvukeskukset menestyvät samalla kun monet maaseutualueet taantuvat.\n\nNeljäs haaste on arvojen muutos ja yksilöllistyminen. Perinteinen kollektivismi ja solidaarisuus ovat heikentyneet, ja tilalle on tullut yksilön vapautta korostava ajattelu. Tämä näkyy keskustelussa palvelujen tuotantotavoista: pitäisikö julkisia palveluita täydentää yksityisillä vaihtoehdoilla?\n\nViides haaste on teknologian kehitys. Digitalisaatio ja tekoäly voivat parantaa palvelujen tehokkuutta, mutta ne myös muuttavat työmarkkinoita ja voivat lisätä eriarvoisuutta. Ne, joilla on osaamista, hyötyvät, kun taas toiset voivat jäädä jälkeen.\n\nTulevaisuudessa hyvinvointivaltiota on uudistettava. Tämä edellyttää sekä rahoituspohjan vahvistamista että palvelurakenteiden uudistamista. Tarvitaan enemmän ennaltaehkäisyä, joustavia palvelukokonaisuuksia ja digitaalisia ratkaisuja. Samalla on pidettävä kiinni perusperiaatteista: universaaliudesta, tasa-arvosta ja solidaarisuudesta.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 252
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyvinvointivaltion universaaliuden periaate tarkoittaa?",
+        "options": [
+          "Vain köyhät saavat palveluita",
+          "Kaikilla kansalaisilla on oikeus palveluihin",
+          "Vain työssäkäyvät saavat palveluita",
+          "Palvelut ovat vain kaupunkilaisille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on suurin taloudellinen haaste hyvinvointivaltiolle?",
+        "options": [
+          "Liian korkea verotus",
+          "Väestön ikääntyminen ja kustannuspaineet",
+          "Liian suuri julkinen sektori",
+          "Kansainvälinen kilpailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten työmarkkinoiden muutos haastaa hyvinvointivaltion?",
+        "options": [
+          "Työttömyys on kadonnut",
+          "Epätyypilliset työsuhteet vaikeuttavat sosiaaliturvan soveltamista",
+          "Kaikki työskentelevät etänä",
+          "Työehtosopimukset ovat vahvistuneet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ristiriitaa arvojen muutokseen liittyy?",
+        "options": [
+          "Ihmiset eivät halua palveluita",
+          "Yksilön vapauden korostaminen voi olla ristiriidassa yhteisvastuun kanssa",
+          "Kaikki haluavat yksityisiä palveluita",
+          "Arvot eivät ole muuttuneet"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

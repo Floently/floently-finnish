@@ -1,0 +1,37 @@
+{
+  "id": "54775fa8-4be6-5c0b-bbaf-b5295f921ddc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kaupungin torista. Onko siellä kiva käydä? Onko valikoima hyvä? Mitä pitäisi parantaa?",
+    "materials": {
+      "scenario": "Palaute kaupungin torista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute kaupungin torista. Onko siellä kiva käydä? Onko valikoima hyvä? Mitä pitäisi parantaa?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kaupungin torista. Onko siellä kiva käydä? Onko valikoima hyvä? Mitä pitäisi parantaa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

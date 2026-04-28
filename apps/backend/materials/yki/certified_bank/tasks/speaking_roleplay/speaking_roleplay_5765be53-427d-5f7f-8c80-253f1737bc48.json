@@ -1,0 +1,40 @@
+{
+  "id": "5765be53-427d-5f7f-8c80-253f1737bc48",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.275,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you have done summer jobs. Where and what did you do? If not, what would you like to do?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "ded33c98-aeae-5025-a81e-ded445674ed8",
+        "ai_first_turn_fi": "Ootko sä tehnyt kesätöitä Suomessa? Millaista se oli?"
+      }
+    ],
+    "rubric": "Tell if you have done summer jobs. Where and what did you do? If not, what would you like to do?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "16b35d8b-c95c-5be4-9f86-12c246c4e14c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö koulujen aloittaa säännölliset liikuntatapahtumat. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Säännölliset liikuntatapahtumat kouluissa"
+    },
+    "items": [
+      {
+        "id": "58a73f6d-4345-5c43-b6af-9b028ab18ea5",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö koulujen aloittaa säännölliset liikuntatapahtumat. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "d0cf03a8-02f5-53ac-9bb6-4382fb26ecea",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipidekirjoitus paikallislehteen otsikolla 'Pitäisikö autojen pääsyä keskustaan rajoittaa?'. Perustele kantasi vähintään kolmella eri argumentilla. Voit käyttää esimerkkejä omasta kaupungistasi.",
+    "materials": {
+      "scenario": "Kirjoita mielipidekirjoitus paikallislehteen otsikolla 'Pitäisikö autojen pääsyä keskustaan rajoittaa?'. Perustele kantasi vähintään kolmella eri argumentilla. Voit käyttää esimerkkejä omasta kaupungistasi."
+    },
+    "items": [
+      {
+        "id": "22002bd0-1ab5-5010-8879-7150f4c5289e",
+        "prompt": "Kirjoita noin 200–250 sanaa. Muista otsikko ja perustelut."
+      }
+    ],
+    "rubric": "Kirjoita noin 200–250 sanaa. Muista otsikko ja perustelut.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "868cd686-553b-5043-8234-b9ab3a5d845e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a travel consultant position in a travel agency. Tell about your language skills, knowledge of travel destinations, and experience in customer service. Also describe how you can recommend suitable trips for different customers. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus matkaneuvojan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a travel consultant position in a travel agency. Tell about your language skills, knowledge of travel destinations, and experience in customer service. Also describe how you can recommend suitable trips for different customers. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a travel consultant position in a travel agency. Tell about your language skills, knowledge of travel destinations, and experience in customer service. Also describe how you can recommend suitable trips for different customers. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

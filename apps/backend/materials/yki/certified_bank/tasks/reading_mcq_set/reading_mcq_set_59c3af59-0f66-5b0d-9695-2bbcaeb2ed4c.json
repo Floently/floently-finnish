@@ -1,0 +1,99 @@
+{
+  "id": "59c3af59-0f66-5b0d-9695-2bbcaeb2ed4c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Keväällä monet siivoavat kotia ja mökkiä. Tavaraa kertyy helposti, ja välillä on hyvä karsia turha pois. Tavaroita voi lahjoittaa hyväntekeväisyyteen, myydä kirpputorilla tai viedä kierrätykseen. Siivous kannattaa tehdä vaiheittain, jotta se ei tunnu liian raskaalta. Samalla voi miettiä, mitä todella tarvitsee ja mikä tuottaa iloa. Siivottu koti tuntuu raikkaalta ja mukavalta.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin monet siivoavat kotia ja mökkiä?",
+        "options": [
+          "Talvella",
+          "Keväällä",
+          "Syksyllä",
+          "Kesällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi on hyvä karsia tavaraa?",
+        "options": [
+          "Koska tavarat menevät rikki",
+          "Koska tavaraa kertyy helposti",
+          "Koska tavarat vanhenevat",
+          "Koska tavarat vievät liikaa tilaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Minne tavaroita voi viedä tai lahjoittaa?",
+        "options": [
+          "Vain kaatopaikalle",
+          "Hyväntekeväisyyteen, kirpputorille tai kierrätykseen",
+          "Vain omaan varastoon",
+          "Vain naapureille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten siivous kannattaa tehdä?",
+        "options": [
+          "Kerralla koko koti",
+          "Vaiheittain",
+          "Vain keväisin",
+          "Yksin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä siivouksen yhteydessä voi miettiä?",
+        "options": [
+          "Mitä uutta hankkisi",
+          "Mitä todella tarvitsee ja mikä tuottaa iloa",
+          "Milloin seuraavan kerran siivoaa",
+          "Paljonko tavarat maksavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miltä siivottu koti tuntuu?",
+        "options": [
+          "Tyhjältä",
+          "Raikkaalta ja mukavalta",
+          "Ikävältä",
+          "Tunkkaiselta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

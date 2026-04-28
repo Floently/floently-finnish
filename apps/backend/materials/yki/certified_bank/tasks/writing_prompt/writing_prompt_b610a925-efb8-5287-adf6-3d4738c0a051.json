@@ -1,0 +1,37 @@
+{
+  "id": "b610a925-efb8-5287-adf6-3d4738c0a051",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö veronmaksajien rahoittaa yksityisten yritysten tutkimus- ja kehitystoimintaa?'. Analysoi innovaatioita ja julkisen tuen oikeutusta.",
+    "materials": {
+      "scenario": "Yksityisen T&K-toiminnan julkinen rahoitus"
+    },
+    "items": [
+      {
+        "id": "36379e13-7612-538d-a3c7-2649000e76ed",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö veronmaksajien rahoittaa yksityisten yritysten tutkimus- ja kehitystoimintaa?'. Analysoi innovaatioita ja julkisen tuen oikeutusta."
+      }
+    ],
+    "rubric": "Innovaatiot\nJulkisen tuen oikeutus\nKilpailuneutraliteetti\nTaloudelliset vaikutukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "31486f78-0761-5195-b86c-af62179f18d9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLIN POIKKEUSAUKIOLO\n\nUimahalli on suljettu 1.7.–15.7. vuosihuollon vuoksi.\n\nUimahalli avataan uudelleen 16.7. klo 12.\n\nVuosihuollon aikana myös kahvio on kiinni.\n\nPahoittelemme häiriötä.",
+      "word_count": 22
+    },
+    "questions": [
+      {
+        "id": "item_002_1",
+        "prompt": "Kauanko uimahalli on kiinni?",
+        "options": [
+          "kaksi viikkoa",
+          "kaksi päivää",
+          "kaksi kuukautta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_002_2",
+        "prompt": "Miksi uimahalli on kiinni?",
+        "options": [
+          "remontin takia",
+          "vuosihuollon vuoksi",
+          "henkilökunnan loman takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002_3",
+        "prompt": "Onko kahvio auki sulun aikana?",
+        "options": [
+          "kyllä",
+          "ei",
+          "vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002_4",
+        "prompt": "Mihin aikaan uimahalli aukeaa 16.7.?",
+        "options": [
+          "klo 8",
+          "klo 10",
+          "klo 12"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "1355dd2a-15e7-54d4-a322-86ae3d901f08",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Liikunnan merkitys terveydelle on kiistaton. Säännöllinen liikunta ehkäisee monia sairauksia, parantaa kuntoa ja hyvinvointia sekä pidentää elinikää. Liikunta vaikuttaa myönteisesti sekä fyysiseen että psyykkiseen terveyteen. Fyysisen terveyden kannalta liikunta vahvistaa sydäntä ja verenkiertoelimistöä, parantaa lihasvoimaa ja -kestävyyttä, ylläpitää nivelten liikkuvuutta ja auttaa painonhallinnassa. Se myös vähentää riskiä sairastua moniin kansantauteihin, kuten tyypin 2 diabetekseen, kohonneeseen verenpaineeseen ja sydän- ja verisuonitauteihin. Liikunta vahvistaa myös luustoa ja ehkäisee osteoporoosia. Psyykkisen terveyden kannalta liikunta vähentää stressiä, ahdistusta ja masennusta. Se parantaa mielialaa, lisää energisyyttä ja auttaa nukkumaan paremmin. Liikunta myös parantaa itsetuntoa ja kehonkuvaa. Liikunnan harrastaminen yhdessä muiden kanssa vahvistaa sosiaalisia suhteita ja yhteisöllisyyttä. Liikunnan harrastamiseen ei tarvita kalliita välineitä tai erityisiä olosuhteita. Jo päivittäinen kävely, portaiden nousu hissin sijaan ja arkiliikunta ovat hyväksi terveydelle. Tärkeintä on, että liikunta on säännöllistä ja monipuolista. Suositukset kehottavat aikuisia liikkumaan reippaasti vähintään kaksi ja puoli tuntia viikossa ja lihaskuntoa harjoittamaan vähintään kaksi kertaa viikossa. Lapset ja nuoret tarvitsevat liikuntaa vielä enemmän. Yhteiskunnan tehtävä on luoda edellytyksiä liikunnan harrastamiselle tarjoamalla liikuntapaikkoja, tukemalla liikuntajärjestöjä ja edistämällä arkiliikuntaa.",
+      "word_count": 169
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten liikunta vaikuttaa fyysiseen terveyteen?",
+        "options": [
+          "Se heikentää sydämen toimintaa",
+          "Se vahvistaa sydäntä ja verenkiertoelimistöä, parantaa lihasvoimaa ja auttaa painonhallinnassa",
+          "Se lisää sairausriskiä",
+          "Se ei vaikuta fyysiseen terveyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kansantauteja liikunta ehkäisee?",
+        "options": [
+          "Flunssaa ja influenssaa",
+          "Tyypin 2 diabetesta, kohonnutta verenpainetta ja sydän- ja verisuonitauteja",
+          "Allergioita",
+          "Ihosairauksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten liikunta vaikuttaa psyykkiseen terveyteen?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä, ahdistusta ja masennusta sekä parantaa mielialaa",
+          "Sillä ei ole vaikutusta mielialaan",
+          "Se heikentää unen laatua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä ovat aikuisten liikuntasuositukset?",
+        "options": [
+          "Reipasta liikuntaa vähintään 30 minuuttia päivässä",
+          "Reipasta liikuntaa vähintään kaksi ja puoli tuntia viikossa ja lihaskuntoharjoittelua kaksi kertaa viikossa",
+          "Raskasta liikuntaa tunnin päivässä",
+          "Liikuntaa ei tarvita, jos syö terveellisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on yhteiskunnan rooli liikunnan edistämisessä?",
+        "options": [
+          "Pakottaa kansalaiset liikkumaan",
+          "Luoda edellytyksiä liikunnan harrastamiselle ja edistää arkiliikuntaa",
+          "Kieltää autojen käyttö",
+          "Rahoittaa yksityisiä kuntosaleja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

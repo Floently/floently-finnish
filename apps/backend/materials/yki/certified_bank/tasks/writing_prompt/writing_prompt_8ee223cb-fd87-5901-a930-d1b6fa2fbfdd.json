@@ -1,0 +1,37 @@
+{
+  "id": "8ee223cb-fd87-5901-a930-d1b6fa2fbfdd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnon kylpyhuoneen lattiakaivo haisee pahalle. Kerro, missä huoneessa ja milloin haju on pahin. Pyydä, että ongelma tutkitaan ja korjataan.",
+    "materials": {
+      "scenario": "Ilmoitus lattiakaivon hajusta"
+    },
+    "items": [
+      {
+        "id": "8d2b0816-9eaa-5311-9ae4-86717f8bf1b7",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnon kylpyhuoneen lattiakaivo haisee pahalle. Kerro, missä huoneessa ja milloin haju on pahin. Pyydä, että ongelma tutkitaan ja korjataan."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nTutkimus- ja korjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "8bcc5866-e84e-5dc0-8f09-9f069c1af83d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu 2-3 minuuttia aiheesta.",
+    "materials": {
+      "roles": {
+        "user": "mukana energiakeskustelussa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "99d40cac-7363-50b8-a7b7-99afc5044c1e",
+        "ai_first_turn_fi": "Pohdi, mikä rooli ydinvoimalla ja uusiutuvilla energialähteillä pitäisi olla Suomen ja maailman energiantuotannossa. Mitkä ovat niiden edut ja haitat ympäristön, talouden ja huoltovarmuuden kannalta? Tulisiko niitä käyttää rinnakkain?"
+      }
+    ],
+    "rubric": "Puhu 2-3 minuuttia aiheesta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

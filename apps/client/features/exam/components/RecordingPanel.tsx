@@ -1,0 +1,2 @@
+import React from 'react'; import { Pressable, Text, View } from 'react-native'; import { useAudioRecorder } from '../hooks/useAudioRecorder';
+export default function RecordingPanel() { const rec = useAudioRecorder(); return <View style={{ gap: 8 }}><Pressable onPress={() => void rec.start()}><Text>Aloita tallennus</Text></Pressable><Pressable onPress={() => void rec.stop()}><Text>Lopeta tallennus</Text></Pressable><Text>{rec.uri ?? 'Ei tallennetta'}</Text></View>; }

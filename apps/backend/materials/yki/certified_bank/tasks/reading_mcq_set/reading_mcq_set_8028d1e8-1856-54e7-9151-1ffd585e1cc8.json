@@ -1,0 +1,88 @@
+{
+  "id": "8028d1e8-1856-54e7-9151-1ffd585e1cc8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.765,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Lähidemokratialla tarkoitetaan kansalaisten mahdollisuuksia osallistua päätöksentekoon omassa lähiympäristössään. Se on tärkeä täydennys edustukselliselle demokratialle, joka ei aina tavoita paikallisia näkökulmia ja tarpeita. Lähidemokratia antaa asukkaille mahdollisuuden vaikuttaa oman asuinalueensa asioihin, kuten kaavoitukseen, palveluihin ja ympäristöön. Yksi keskeisimmistä lähidemokratian muodoista on asukkaiden osallistuminen oman asuinalueensa suunnitteluun ja kehittämiseen. Tämä voi tapahtua esimerkiksi asukaskyselyiden, asukasiltojen, työpajojen ja kaupunginosayhdistysten kautta. Kun asukkaat pääsevät vaikuttamaan siihen, mitä heidän lähiympäristössään tapahtuu, lisää se sekä viihtyisyyttä että sitoutumista omaan asuinalueeseen. Toinen keskeinen lähidemokratian muoto on osallistuva budjetointi. Osallistuvassa budjetoinnissa asukkaat pääsevät itse päättämään, miten tietty osa kunnan budjetista käytetään. He voivat ehdottaa hankkeita, keskustella niistä ja äänestää parhaiden toteuttamisesta. Tämä lisää läpinäkyvyyttä ja luottamusta päätöksentekoon. Kolmas lähidemokratian muoto on erilaisten neuvostojen ja toimikuntien toiminta. Monissa kunnissa toimii esimerkiksi nuorisovaltuusto, vanhusneuvosto ja vammaisneuvosto, jotka tuovat esiin eri väestöryhmien näkökulmia päätöksenteossa. Lähidemokratia kohtaa myös haasteita. Yksi niistä on osallistumisen epätasainen jakautuminen. Usein aktiivisimpia osallistujia ovat hyväosaiset, hyvin koulutetut ja keski-ikäiset, kun taas nuoret, maahanmuuttajat ja heikommassa asemassa olevat jäävät vähemmälle. Toinen haaste on osallistumisen vaikuttavuuden varmistaminen. Jos asukkaat kokevat, että heidän mielipiteillään ei ole todellista vaikutusta, he turhautuvat ja lakkaavat osallistumasta.",
+      "word_count": 183
+    },
+    "questions": [
+      {
+        "id": "d63460c2-e876-5651-b40c-7554603bb936",
+        "prompt": "Mitä lähidemokratia tarkoittaa?",
+        "options": [
+          "Kansalaisten mahdollisuutta äänestää valtakunnallisissa vaaleissa",
+          "Kansalaisten mahdollisuuksia osallistua päätöksentekoon omassa lähiympäristössään",
+          "Kunnanvaltuuston toimintaa",
+          "Eduskunnan päätöksentekoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8f67c4c-9169-5e6d-b6d4-96a2f05ac513",
+        "prompt": "Miten asukkaat voivat osallistua oman asuinalueensa suunnitteluun?",
+        "options": [
+          "Vain äänestämällä kunnallisvaaleissa",
+          "Asukaskyselyiden, asukasiltojen, työpajojen ja kaupunginosayhdistysten kautta",
+          "Kirjoittamalla lehteen",
+          "Perustamalla yrityksen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "77b4b5ba-54c7-5bac-9cc5-09df9ef481a8",
+        "prompt": "Mitä osallistuva budjetointi tarkoittaa?",
+        "options": [
+          "Kunnan budjetin hyväksymistä valtuustossa",
+          "Asukkaiden mahdollisuutta päättää, miten tietty osa kunnan budjetista käytetään",
+          "Valtion budjetin laatimista",
+          "Yritysten budjetointia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "64cccd78-7afc-5f0d-ad8b-062b404a989a",
+        "prompt": "Mitä neuvostoja kunnissa voi toimia lähidemokratian edistämiseksi?",
+        "options": [
+          "Nuorisovaltuusto, vanhusneuvosto ja vammaisneuvosto",
+          "Yrittäjäneuvosto ja työntekijäneuvosto",
+          "Kulttuurineuvosto ja urheiluneuvosto",
+          "Kouluneuvosto ja terveysneuvosto"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "618c799c-7ed5-5020-b67c-c5c052cf02a1",
+        "prompt": "Mikä on yksi lähidemokratian haasteista?",
+        "options": [
+          "Liian suuri osallistumisaktiivisuus",
+          "Osallistumisen epätasainen jakautuminen eri väestöryhmien välillä",
+          "Liian paljon vaikutusvaltaa asukkailla",
+          "Päätöksenteon liiallinen nopeus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

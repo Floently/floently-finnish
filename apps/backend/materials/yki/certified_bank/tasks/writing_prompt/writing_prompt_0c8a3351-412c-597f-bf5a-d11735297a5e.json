@@ -1,0 +1,37 @@
+{
+  "id": "0c8a3351-412c-597f-bf5a-d11735297a5e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti työkaverille. Kerro, että et pääse tänään yhteiseen lounaaseen, koska sinulla on yllättävä palaveri. Ehdota uutta aikaa huomiseksi.",
+    "materials": {
+      "scenario": "Viesti työkaverille lounaan perumisesta"
+    },
+    "items": [
+      {
+        "id": "869166ba-bc6e-52dd-8b7e-014d1a7a73e7",
+        "prompt": "Kirjoita lyhyt viesti työkaverille. Kerro, että et pääse tänään yhteiseen lounaaseen, koska sinulla on yllättävä palaveri. Ehdota uutta aikaa huomiseksi."
+      }
+    ],
+    "rubric": "Peruuta lounas\nKerro syy (yllättävä palaveri)\nEhdota uutta aikaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

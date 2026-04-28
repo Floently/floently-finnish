@@ -1,0 +1,88 @@
+{
+  "id": "846586b6-28bc-5d80-8eac-dc2cbaca3f96",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kaupan kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät asiakkaat. Tervetuloa tavaratalo Keskukseen. Tänään meillä on tarjouksessa kaikki lastenvaatteet -30 prosentin alennuksella. Myös urheiluvälineosastolla on sesongin päättymisen vuoksi jopa -50 prosentin alennuksia. Muistutamme, että leikkipaikka on suljettu tänään teknisen huollon vuoksi. Kahviomme on avoinna normaalisti toisessa kerroksessa. Kiitos, että asioitte meillä!",
+      "audio_asset_id": "a6428b98-c3df-421d-a232-ff2d20674dc9"
+    },
+    "questions": [
+      {
+        "id": "l55q1",
+        "prompt": "Mitä tuotteita on tänään -30 prosentin alennuksella?",
+        "options": [
+          "Urheiluvälineet.",
+          "Lastenvaatteet.",
+          "Kodinkoneet.",
+          "Kirjat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l55q2",
+        "prompt": "Kuinka paljon alennusta on urheiluvälineosastolla?",
+        "options": [
+          "-20 prosenttia.",
+          "-30 prosenttia.",
+          "-40 prosenttia.",
+          "-50 prosenttia."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l55q3",
+        "prompt": "Miksi leikkipaikka on suljettu tänään?",
+        "options": [
+          "Henkilökunnan sairauden vuoksi.",
+          "Vähäisen käytön vuoksi.",
+          "Teknisen huollon vuoksi.",
+          "Siivouksen vuoksi."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l55q4",
+        "prompt": "Missä kerroksessa kahvio sijaitsee?",
+        "options": [
+          "Ensimmäisessä kerroksessa.",
+          "Toisessa kerroksessa.",
+          "Kolmannessa kerroksessa.",
+          "Kellarikerroksessa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l55q5",
+        "prompt": "Mikä on tämän tavaratalon nimi?",
+        "options": [
+          "Kauppakeskus.",
+          "Keskusta.",
+          "Tavaratalo Keskus.",
+          "Market."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "178f06ce-f0ca-573f-b262-3448e19ccf2b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.683,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmyyjän tarjous ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Myyjä: Hyvää päivää, soitan Puhelinoperaattori Y:stä. Tarjoamme teille uutta määräaikaista liittymää, jossa on 50 gigatavua dataa ja rajatonta puheaikaa. Asiakas: Kuinka paljon se maksaa? Myyjä: Normaalisti 34,90 euroa kuussa, mutta nyt saatte sen 24,90 eurolla 12 kuukauden ajan. Asiakas: Entä sen jälkeen? Myyjä: Sen jälkeen hinta nousee normaalitasolle, mutta saatte siitä ilmoituksen etukäteen. Asiakas: Kiitos, mutta minulla on jo liittymä enkä ole kiinnostunut vaihtamaan. Myyjä: Ymmärrän. Haluaisitteko, että lähetän teille tarjouksen sähköpostilla, niin voitte harkita rauhassa? Asiakas: Ei kiitos. Myyjä: Selvä, kiitos ja kuulemiin!",
+      "audio_asset_id": "f43ffe25-5751-425e-bef5-124fdbe7a149"
+    },
+    "questions": [
+      {
+        "id": "f0d1e996-1586-5e8b-bd22-010c5527d70f",
+        "prompt": "Paljonko dataa tarjottava liittymä sisältää?",
+        "options": [
+          "20 gigatavua.",
+          "50 gigatavua.",
+          "30 gigatavua.",
+          "Rajattomasti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3a7cbd27-9f89-5535-8b76-dacf74fa7347",
+        "prompt": "Mikä on tarjoushinta ensimmäiset 12 kuukautta?",
+        "options": [
+          "24,90 euroa.",
+          "19,90 euroa.",
+          "29,90 euroa.",
+          "34,90 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "d51d3bab-aaf8-55bf-82eb-52df5d99f321",
+        "prompt": "Mikä on hinta tarjousjakson jälkeen?",
+        "options": [
+          "24,90 euroa.",
+          "29,90 euroa.",
+          "39,90 euroa.",
+          "34,90 euroa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "feb4e2ba-a8d8-5684-9057-b8eefb0a6673",
+        "prompt": "Mitä asiakas vastaa myyjän tarjoukseen?",
+        "options": [
+          "Hän on kiinnostunut vaihtamaan.",
+          "Hän haluaa harkita.",
+          "Hänellä on jo liittymä eikä ole kiinnostunut vaihtamaan.",
+          "Hän pyytää lähettämään tarjouksen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d8fb89d3-8cd3-5736-b1f2-3607a3d1b82c",
+        "prompt": "Haluaako asiakas tarjouksen sähköpostilla?",
+        "options": [
+          "Kyllä.",
+          "Ei.",
+          "Ehkä myöhemmin.",
+          "Hän ei vastaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

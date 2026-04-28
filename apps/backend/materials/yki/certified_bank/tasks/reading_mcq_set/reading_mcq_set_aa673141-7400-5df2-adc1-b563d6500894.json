@@ -1,0 +1,63 @@
+{
+  "id": "aa673141-7400-5df2-adc1-b563d6500894",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähiruokapiirit ovat nousseet suosioon. Niissä kuluttajat tilaavat ruokaa suoraan tuottajilta.\n\n\"Meillä on noin 60 perhettä mukana. Tilaamme vihanneksia ja kananmunia. Hinnat ovat usein halvempia kuin kaupassa\", kertoo ruokapiirin vetäjä.\n\nRuokapiirit ovat herättäneet myös kritiikkiä. Osa kauppiaista kokee, että ne vievät asiakkaita.\n\nRuokapiirin vetäjä muistuttaa, että toiminta on pientä eikä uhka kaupoille.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "item_145_1",
+        "prompt": "Miten lähiruokapiiri toimii?",
+        "options": [
+          "se on kauppa, joka myy lähiruokaa",
+          "kuluttajat tilaavat ruokaa suoraan tuottajilta",
+          "se on ravintola, joka käyttää lähiruokaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_145_2",
+        "prompt": "Mitä hyötyä ruokapiiristä on asiakkaille?",
+        "options": [
+          "kalliimmat hinnat",
+          "halvemmat hinnat",
+          "ruoka tuodaan kotiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_145_3",
+        "prompt": "Miten ruokapiirin vetäjä vastaa kritiikkiin?",
+        "options": [
+          "toiminta on pientä eikä uhka kaupoille",
+          "he aikovat lopettaa",
+          "kauppojen pitäisi myydä myös lähiruokaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

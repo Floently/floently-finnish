@@ -1,0 +1,37 @@
+{
+  "id": "d8f5d377-0d5b-53c2-b29a-844588a9eaf5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti yliopiston opintotoimistoon. Olet suorittanut tutkinnon ulkomailla ja haluat hakea sen tunnustamista Suomessa. Kerro tutkinnostasi, missä olet sen suorittanut ja mitä alaa se vastaa. Kysy, miten tunnustamista haetaan ja mitä asiakirjoja tarvitaan.",
+    "materials": {
+      "scenario": "Ulkomaisen tutkinnon tunnustaminen"
+    },
+    "items": [
+      {
+        "id": "fff4afc8-0014-5995-a50f-37581228a6b4",
+        "prompt": "Kirjoita virallinen sähköposti yliopiston opintotoimistoon. Olet suorittanut tutkinnon ulkomailla ja haluat hakea sen tunnustamista Suomessa. Kerro tutkinnostasi, missä olet sen suorittanut ja mitä alaa se vastaa. Kysy, miten tunnustamista haetaan ja mitä asiakirjoja tarvitaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

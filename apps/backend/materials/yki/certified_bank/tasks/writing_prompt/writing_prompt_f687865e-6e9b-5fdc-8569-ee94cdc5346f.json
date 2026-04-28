@@ -1,0 +1,37 @@
+{
+  "id": "f687865e-6e9b-5fdc-8569-ee94cdc5346f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.69,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: cafeteria. Tarkoitus: perustele mielipide. Rajoite: mainitse jatkotoimi.",
+    "materials": {
+      "scenario": "service encounter cafeteria"
+    },
+    "items": [
+      {
+        "id": "b1c151b1-ef4f-59a4-bef7-decb0fa8f273",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: cafeteria. Tarkoitus: perustele mielipide. Rajoite: mainitse jatkotoimi."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "modified": [
+    "apps/backend/adapters/yki_engine_adapter.py",
+    "apps/backend/core/config.py",
+    "apps/client/state/AppShell.tsx",
+    "apps/client/state/sessionPersistence.ts"
+  ],
+  "created": [
+    "engine/media/__init__.py",
+    "engine/media/audio_cache_manager.py",
+    "engine/media/media_registry.py",
+    "engine/media/tts_engine.py",
+    "engine/media/voice_profiles.py",
+    "engine/speech/__init__.py",
+    "engine/speech/stt_engine.py",
+    "engine/speech/pronunciation_analyzer.py",
+    "engine/evaluation/__init__.py",
+    "engine/evaluation/writing_evaluator.py",
+    "docs/agents/YKI_SURGICAL_FIX_REPORT.md",
+    "docs/agents/YKI_SURGICAL_FIX_FILE_LEDGER.json",
+    "docs/agents/YKI_SURGICAL_FIX_EXECUTION_LOG.md",
+    "docs/agents/YKI_SURGICAL_FIX_OPEN_ISSUES.md"
+  ],
+  "validation_commands": [
+    "rg -n \"ykiPracticeService\" apps/client/state/AppShell.tsx",
+    "apps/backend/.venv/bin/python - <<'PY' ... overview('B1-B2'); start(StartPracticeRequest(...)) ... PY",
+    "env YKI_ENGINE_BASE_URL=http://127.0.0.1:1 YKI_ENGINE_TIMEOUT_SECONDS=0.5 apps/backend/.venv/bin/python - <<'PY' ... start_yki_session/get_yki_session/submit_yki_answer/submit_yki_exam/get_yki_certificate ... PY"
+  ],
+  "notes": [
+    "The earlier pool-index path repair in yki_exam.py and yki_practice.py remained part of the runtime baseline but was not changed in this pass.",
+    "No packages/core API wrapper changes were required for this pass."
+  ]
+}

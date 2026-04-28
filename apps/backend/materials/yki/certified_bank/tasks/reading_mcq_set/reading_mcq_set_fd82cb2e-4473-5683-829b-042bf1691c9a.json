@@ -1,0 +1,77 @@
+{
+  "id": "fd82cb2e-4473-5683-829b-042bf1691c9a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.783,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Hyvinvointivaltion tulevaisuutta koskeva keskustelu on viime vuosina keskittynyt pitkälti taloudellisiin kysymyksiin: miten turvata riittävä rahoitus ikääntyvän väestön palveluille ja eläkkeille, miten sopeuttaa julkisia menoja ja miten uudistaa verotusta. Tämän rinnalla on kuitenkin alettu yhä enemmän puhua myös hyvinvoinnin laadullisista ulottuvuuksista ja siitä, miten hyvinvointivaltio voi vastata kansalaisten muuttuviin tarpeisiin ja toiveisiin. Yksi keskeinen kysymys koskee hyvinvointipalvelujen asiakaslähtöisyyttä. Perinteinen, byrokraattinen ja yhdenmukaisuutta korostava palvelumalli on saanut osakseen kritiikkiä, koska se ei aina kykene vastaamaan yksilöllisiin tarpeisiin. Tämän seurauksena on alettu kehittää uudenlaisia palvelumalleja, jotka korostavat asiakkaan valinnanvapautta, yksilöllisiä palvelusuunnitelmia ja monipuolisempia palveluntuottajia. Toinen kysymys koskee ennaltaehkäisevän työn merkitystä. Perinteinen hyvinvointivaltio on keskittynyt pitkälti ongelmien korjaamiseen jälkikäteen, mutta yhä enemmän nähdään, että panostukset ennaltaehkäisyyn, kuten varhaiskasvatukseen, terveellisiin elämäntapoihin ja mielenterveyden tukemiseen, tuovat pitkällä aikavälillä suurempia säästöjä ja lisäävät hyvinvointia. Kolmas kysymys koskee kansalaisten osallisuutta ja vaikuttamismahdollisuuksia. Perinteinen hyvinvointivaltio on ollut pitkälti asiantuntijavetoinen, ja kansalaiset ovat olleet palvelujen kohteita. Nykyään nähdään yhä tärkeämpänä, että kansalaiset pääsevät vaikuttamaan itseään koskeviin palveluihin ja että heidän kokemustietoaan hyödynnetään palvelujen kehittämisessä. Hyvinvointivaltion tulevaisuus ei ole yksinomaan taloudellinen kysymys, vaan se on myös arvokysymys siitä, millaista hyvinvointia haluamme ja miten se parhaiten saavutetaan. Tarvitaan laajaa yhteiskunnallista keskustelua, jossa eri näkökulmat tulevat kuulluiksi.",
+      "word_count": 194
+    },
+    "questions": [
+      {
+        "id": "0b8224dd-978b-54ea-b87b-6622785ec169",
+        "prompt": "Mikä on tekstin keskeinen väite hyvinvointivaltion tulevaisuudesta?",
+        "options": [
+          "Keskustelun tulisi keskittyä yksinomaan taloudellisiin kysymyksiin",
+          "Taloudellisten kysymysten rinnalla on tärkeää keskustella myös palvelujen laadusta, asiakaslähtöisyydestä ja kansalaisten osallisuudesta",
+          "Hyvinvointivaltion tulevaisuus on yksinomaan arvokysymys, jossa taloudella ei ole merkitystä",
+          "Hyvinvointivaltio on vanhentunut eikä kykene vastaamaan nyky-yhteiskunnan tarpeisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6ba5299d-3092-5607-9ae2-9bca6f36edda",
+        "prompt": "Tekstin mukaan miksi perinteinen, byrokraattinen palvelumalli on saanut kritiikkiä?",
+        "options": [
+          "Se on liian kallis eikä tuota riittävästi hyvinvointia",
+          "Se ei aina kykene vastaamaan yksilöllisiin tarpeisiin",
+          "Se antaa kansalaisille liikaa valinnanvapautta",
+          "Se on liian asiakaslähtöinen ja yksilöllinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "eddd4766-00da-5c40-8dfc-222e45e4088c",
+        "prompt": "Mitä esimerkkejä tekstissä annetaan ennaltaehkäisevästä työstä?",
+        "options": [
+          "Sairaalahoito ja lääkkeet",
+          "Varhaiskasvatus, terveelliset elämäntavat ja mielenterveyden tukeminen",
+          "Vanhusten palvelutalot ja kotisairaanhoito",
+          "Työttömyyskorvaukset ja toimeentulotuki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c8905529-2c2e-5ded-9bfa-96d61700d107",
+        "prompt": "Mitä kansalaisten osallisuus ja vaikuttamismahdollisuudet tekstin mukaan tarkoittavat hyvinvointipalveluissa?",
+        "options": [
+          "Kansalaiset voivat äänestää siitä, millaisia palveluja tarjotaan",
+          "Kansalaiset pääsevät vaikuttamaan itseään koskeviin palveluihin ja heidän kokemustietoaan hyödynnetään palvelujen kehittämisessä",
+          "Kansalaiset voivat itse päättää, mitä veroja he maksavat",
+          "Kansalaiset voivat halutessaan jäädä kokonaan palvelujen ulkopuolelle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

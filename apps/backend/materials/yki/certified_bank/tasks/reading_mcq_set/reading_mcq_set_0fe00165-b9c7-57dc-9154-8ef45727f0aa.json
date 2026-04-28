@@ -1,0 +1,73 @@
+{
+  "id": "0fe00165-b9c7-57dc-9154-8ef45727f0aa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti työelämän muutoksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Työelämä on murroksessa. Perinteinen kahdeksasta neljään -työ ei ole enää ainoa malli. Etätyö, keikkatyö, osa-aikatyö ja alustatalous ovat yleistyneet. Tämä herättää kysymyksiä työsuojelusta, sosiaaliturvasta ja työyhteisöistä.\n\nUusien työn muotojen kannattajat korostavat joustavuutta. Työntekijä voi itse vaikuttaa työaikoihinsa ja -paikkaansa, mikä parantaa työn ja muun elämän yhteensovittamista. Erityisesti lapsiperheille tämä on suuri etu. Myös työnantaja hyötyy joustavuudesta, kun työntekijät ovat motivoituneempia.\n\nToiseksi alustatalous on tuonut uusia mahdollisuuksia. Ihmiset voivat myydä osaamistaan ja palveluitaan digitaalisilla alustoilla. Tämä voi olla lisäansio tai jopa päätyö. Se on madaltanut kynnystä ryhtyä yrittäjäksi.\n\nKolmanneksi etätyö on vähentänyt työmatkustusta ja lisännyt tuottavuutta monilla aloilla. Työntekijät voivat työskennellä rauhassa ilman toimiston häiriötekijöitä. Ympäristökin kiittää, kun päästöt vähenevät.\n\nKriitikot kuitenkin huomauttavat, että uudet työn muodot voivat lisätä epävarmuutta. Keikkatyöläisellä ei ole samaa sosiaaliturvaa kuin vakituisella työntekijällä. Sairauslomat ja lomat ovat usein palkattomia. Tämä voi johtaa taloudelliseen epävarmuuteen.\n\nToinen haaste on työyhteisön heikkeneminen. Kun työntekijät eivät tapaa toisiaan, yhteisöllisyys kärsii. Tiedonkulku vaikeutuu, ja työntekijät voivat tuntea itsensä yksinäisiksi.\n\nKolmas näkökulma on työajan ja vapaa-ajan rajan hämärtyminen. Kun työ on aina mukana, on vaikea irrottautua. Tämä voi johtaa työuupumukseen.\n\nRatkaisuja on monia. Tarvitaan lainsäädäntöä, joka turvaa myös uusien työn muotojen tekijöiden oikeudet. Työnantajien on panostettava etätyöntekijöiden hyvinvointiin.\n\nLopuksi voidaan todeta, että uudet työn muodot ovat tulleet jäädäkseen. Ne tarjoavat mahdollisuuksia, mutta myös haasteita. Tarvitaan yhteiskunnallista keskustelua ja toimia, jotta työelämä olisi inhimillistä kaikille.",
+      "word_count": 222
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä hyötyjä uusilla työn muodoilla on kannattajien mukaan?",
+        "options": [
+          "vain työnantajalle",
+          "joustavuutta, uusia ansaintamahdollisuuksia ja vähemmän työmatkustusta",
+          "vain työntekijälle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä haittoja uusiin työn muotoihin liittyy?",
+        "options": [
+          "ne ovat aina hyviä",
+          "epävarmuutta, heikompaa sosiaaliturvaa ja työyhteisön heikkenemistä",
+          "ne ovat liian joustavia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä ongelmia keikkatyöläisillä on?",
+        "options": [
+          "heillä on liikaa vapaata",
+          "heillä ei ole samaa sosiaaliturvaa kuin vakituisilla",
+          "heille maksetaan liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Miten työn ja vapaa-ajan raja on hämärtynyt?",
+        "options": [
+          "se on selkeämpi",
+          "työ on aina mukana, mikä vaikeuttaa irrottautumista",
+          "vapaa-aikaa on enemmän"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

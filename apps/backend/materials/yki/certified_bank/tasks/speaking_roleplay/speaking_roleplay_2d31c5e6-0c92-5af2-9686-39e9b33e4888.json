@@ -1,0 +1,40 @@
+{
+  "id": "2d31c5e6-0c92-5af2-9686-39e9b33e4888",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa asiantuntevaa kieltä ja osoita kykysi ohjata keskustelua.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet fasilitaattori, neutraali keskustelun ohjaaja, joka haluaa saada aikaan konkreettisia tuloksia.",
+        "partner": "Osallistujat - asiantuntevia mutta eri näkökulmista asioita katsovia, välillä kinastelevia."
+      }
+    },
+    "items": [
+      {
+        "id": "srp16",
+        "ai_first_turn_fi": "Tervetuloa työpajaan. Tavoitteenamme on tuottaa konkreettisia ideoita kaupungin keskustan kehittämiseksi kestävämmin. Aloitetaan kierroksella: jokainen saa esittää yhden keskeisen huomion."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa asiantuntevaa kieltä ja osoita kykysi ohjata keskustelua.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

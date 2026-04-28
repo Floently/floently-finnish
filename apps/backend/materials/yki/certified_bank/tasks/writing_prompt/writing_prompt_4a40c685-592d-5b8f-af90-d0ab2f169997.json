@@ -1,0 +1,37 @@
+{
+  "id": "4a40c685-592d-5b8f-af90-d0ab2f169997",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö valtion omistamien yritysten tavoitteissa painottaa enemmän yhteiskunnallista hyötyä kuin voittoa?'. Analysoi omistajaohjausta.",
+    "materials": {
+      "scenario": "Valtion omistajapolitiikka"
+    },
+    "items": [
+      {
+        "id": "743e4f64-64af-50f1-aaa4-1890a694112c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö valtion omistamien yritysten tavoitteissa painottaa enemmän yhteiskunnallista hyötyä kuin voittoa?'. Analysoi omistajaohjausta."
+      }
+    ],
+    "rubric": "Yhteiskunnallinen hyöty\nTaloudellinen tulos\nOmistajaohjaus\nMarkkinoiden toiminta",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

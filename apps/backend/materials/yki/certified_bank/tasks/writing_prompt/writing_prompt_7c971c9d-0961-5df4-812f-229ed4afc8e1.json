@@ -1,0 +1,37 @@
+{
+  "id": "7c971c9d-0961-5df4-812f-229ed4afc8e1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin vesihuollosta. Arvioi veden laatua, toimitusvarmuutta ja tiedotusta häiriötilanteissa. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin vesihuollosta"
+    },
+    "items": [
+      {
+        "id": "a9abd5bb-535b-5abb-aa0d-979f8c2d66ca",
+        "prompt": "Kirjoita palauteteksti kaupungin vesihuollosta. Arvioi veden laatua, toimitusvarmuutta ja tiedotusta häiriötilanteissa. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Veden laatu\nToimitusvarmuus\nTiedotus häiriötilanteissa\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

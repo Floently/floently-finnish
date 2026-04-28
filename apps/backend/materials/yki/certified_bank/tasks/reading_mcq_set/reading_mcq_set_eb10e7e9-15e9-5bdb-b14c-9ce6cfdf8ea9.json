@@ -1,0 +1,66 @@
+{
+  "id": "eb10e7e9-15e9-5bdb-b14c-9ce6cfdf8ea9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.3,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue terveyskeskuksen ohje ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TERVEYSKESKUS\n\nAjanvaraus:\nPuhelin 09 123 4567 ma–pe klo 8–15\n\nJos on hätätapaus, soita 112.\n\nPeruuta aika viimeistään 24 tuntia ennen.\n\nOta mukaan Kela-kortti.",
+      "word_count": 23
+    },
+    "questions": [
+      {
+        "id": "06eeb529-ddc1-5ae9-9550-d8538e836137",
+        "prompt": "Mihin aikaan ajanvarauspuhelin palvelee?",
+        "options": [
+          "klo 7–14",
+          "klo 8–15",
+          "klo 9–16",
+          "klo 10–17"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0f862145-0068-50d7-af2a-3d5aa27cd0b6",
+        "prompt": "Mikä on hätänumero?",
+        "options": [
+          "100",
+          "112",
+          "123",
+          "911"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0bc1c28b-e447-54a2-a4ee-888b1016815d",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "Passi",
+          "Kela-kortti",
+          "Ajokortti",
+          "Opiskelijakortti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

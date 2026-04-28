@@ -1,0 +1,99 @@
+{
+  "id": "62ae9e24-e9ce-5cb3-8fb7-b9a2e91e158e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähiöt ovat kokeneet muutoksia viime vuosikymmeninä. Osa lähiöistä on pärjännyt hyvin, ja niissä on viihtyisää ja turvallista. Toisissa lähiöissä on ongelmia, kuten työttömyyttä ja asuntojen huonoa kuntoa. Kaupungit pyrkivät kehittämään lähiöitä peruskorjaamalla taloja, parantamalla palveluita ja lisäämällä viihtyisyyttä. Asukkaiden osallistuminen on tärkeää, jotta muutokset vastaavat heidän tarpeitaan.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä lähiöt ovat kokeneet viime vuosikymmeninä?",
+        "options": [
+          "Hinta nousua",
+          "Muutoksia",
+          "Väkiluvun laskua",
+          "Tuhoutumista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaisia lähiöitä on olemassa?",
+        "options": [
+          "Vain hyvin pärjääviä",
+          "Sekä hyvin pärjääviä että ongelmallisia",
+          "Vain ongelmallisia",
+          "Kaikki ovat samanlaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ongelmia joissakin lähiöissä on?",
+        "options": [
+          "Liikaa palveluita",
+          "Työttömyyttä ja asuntojen huonoa kuntoa",
+          "Liian kalliita asuntoja",
+          "Liikaa viheralueita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kaupungit pyrkivät kehittämään lähiöitä?",
+        "options": [
+          "Rakentamalla uusia lähiöitä",
+          "Peruskorjaamalla taloja, parantamalla palveluita ja lisäämällä viihtyisyyttä",
+          "Myymällä asuntoja yksityisille",
+          "Lopettamalla palvelut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi asukkaiden osallistuminen on tärkeää?",
+        "options": [
+          "Jotta muutokset ovat halvempia",
+          "Jotta muutokset vastaavat asukkaiden tarpeita",
+          "Jotta asukkaat maksavat enemmän",
+          "Jotta kaupunki saa hyvää mainosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'peruskorjaamisella'?",
+        "options": [
+          "Pientä pintaremonttia",
+          "Laajamittaista korjausta, jossa talo saatetaan vastaamaan nykyaikaisia vaatimuksia",
+          "Uuden talon rakentamista",
+          "Talon purkamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

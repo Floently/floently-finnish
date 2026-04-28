@@ -1,0 +1,66 @@
+{
+  "id": "ede3ce19-9f55-5d28-a65c-284957a3e381",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kunnan tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JYVÄSKYLÄN SEUDUN JÄTEHUOLTO UUDISTUU\n\nJyväskylän seudun jätehuolto uudistuu 1.6. alkaen. Biojätteen keräys laajenee kaikkiin vähintään viiden asunnon taloyhtiöihin. Pienemmät taloyhtiöt ja omakotitalot voivat liittyä vapaaehtoiseen keräykseen. Samalla muovipakkausten keräys aloitetaan uusilla ekopisteillä. Jätehuoltoyhtiö muistuttaa, että muovipakkaukset pitää olla tyhjiä ja puhtaita. Uudistuksen tavoitteena on nostaa kunnan kierrätysaste 50 prosenttiin vuoteen 2030 mennessä.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Ketä biojätteen keräys koskee pakollisena?",
+        "options": [
+          "Kaikkia talouksia",
+          "Vain omakotitaloja",
+          "Vähintään viiden asunnon taloyhtiöitä",
+          "Vain keskustan alueella asuvia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä vaatimuksia muovipakkausten kierrätykselle on?",
+        "options": [
+          "Ne pitää lajitella värin mukaan",
+          "Ne pitää olla tyhjiä ja puhtaita",
+          "Ne pitää litistää",
+          "Ne pitää pestä koneessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on uudistuksen tavoite vuoteen 2030 mennessä?",
+        "options": [
+          "40 prosentin kierrätysaste",
+          "50 prosentin kierrätysaste",
+          "60 prosentin kierrätysaste",
+          "70 prosentin kierrätysaste"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "cf94c92a-40d3-560d-b66f-2eacf45822b0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.735,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Luonnon merkitys lasten kehityksessä on kiistaton, ja sitä on tutkittu paljon viime vuosina. Luonto tarjoaa lapsille monipuolisia aistikokemuksia, mahdollisuuksia leikkiin ja oppimiseen sekä rauhoittumiseen. Se on tärkeä vastapaino ruutuajalle ja sisällä vietetylle ajalle. Yksi keskeisimmistä luonnon hyödyistä on sen vaikutus motoriseen kehitykseen. Luonnossa liikkuminen, kuten kiipeily, juokseminen, hyppiminen ja tasapainoilu, kehittää lasten motorisia taitoja ja kehonhallintaa. Epätasainen maasto ja luonnon esteet tarjoavat haasteita, joita tasaisella lattialla ei ole. Toinen keskeinen hyöty on aistien kehittyminen. Luonto tarjoaa monipuolisia aistikokemuksia: tuoksuja, ääniä, värejä, muotoja ja tuntemuksia. Lapsi oppii hahmottamaan maailmaa kaikilla aisteillaan. Kolmas hyöty on kognitiivinen kehitys. Luonto innostaa lasta tutkimaan, kyselemään ja oppimaan. Mikä tuo mato? Miksi lehdet vaihtavat väriä? Luonto herättää uteliaisuutta ja antaa mahdollisuuksia oppia luonnontieteitä. Neljäs hyöty on mielenterveys ja hyvinvointi. Luonto rauhoittaa ja vähentää stressiä. Luonnossa lapsi voi leikkiä vapaasti ja purkaa energiaansa. Se on myös tärkeä paikka käsitellä tunteita ja rauhoittua. Viides hyöty on sosiaalisten taitojen kehittyminen. Luonnossa lapset leikkivät usein yhdessä, ja he oppivat neuvottelemaan, tekemään yhteistyötä ja ratkaisemaan ristiriitoja. Yhteiset luontokokemukset vahvistavat ystävyyssuhteita.",
+      "word_count": 169
+    },
+    "questions": [
+      {
+        "id": "03e5f7f2-a5c3-58db-9f24-232a567c888d",
+        "prompt": "Mitä vastapainoa luonto tarjoaa lapsille?",
+        "options": [
+          "Vastapainoa koulutyölle",
+          "Vastapainoa ruutuajalle ja sisällä vietetylle ajalle",
+          "Vastapainoa harrastuksille",
+          "Vastapainoa unelle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "298c9c1b-ef1d-58cb-b413-59adfb15504f",
+        "prompt": "Miten luonto vaikuttaa lasten motoriseen kehitykseen?",
+        "options": [
+          "Se hidastaa motorista kehitystä",
+          "Liikkuminen epätasaisessa maastossa kehittää motorisia taitoja ja kehonhallintaa",
+          "Sillä ei ole vaikutusta",
+          "Se tekee lapsista kömpelöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f63ea2c0-78b9-53f7-8941-86408c93caaa",
+        "prompt": "Mitä aistikokemuksia luonto tarjoaa?",
+        "options": [
+          "Vain näköaistimuksia",
+          "Tuoksuja, ääniä, värejä, muotoja ja tuntemuksia",
+          "Vain kuuloaistimuksia",
+          "Vain tuntoaistimuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "df221bca-3c84-5924-ac36-9a3701c25cbd",
+        "prompt": "Miten luonto vaikuttaa lasten kognitiiviseen kehitykseen?",
+        "options": [
+          "Se tylsistyttää",
+          "Se innostaa tutkimaan, kyselemään ja oppimaan",
+          "Sillä ei ole vaikutusta",
+          "Se hidastaa oppimista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1e156a2-097f-5f38-9fa1-9ef9de37810e",
+        "prompt": "Miten luonto vaikuttaa lasten mielenterveyteen?",
+        "options": [
+          "Se lisää stressiä",
+          "Se rauhoittaa, vähentää stressiä ja auttaa käsittelemään tunteita",
+          "Se aiheuttaa ahdistusta",
+          "Sillä ei ole vaikutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

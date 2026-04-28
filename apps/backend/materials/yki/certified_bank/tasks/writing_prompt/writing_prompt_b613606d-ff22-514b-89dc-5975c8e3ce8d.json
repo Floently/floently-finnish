@@ -1,0 +1,37 @@
+{
+  "id": "b613606d-ff22-514b-89dc-5975c8e3ce8d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: classroom. Tarkoitus: perustele mielipide. Rajoite: aloita päätelmällä.",
+    "materials": {
+      "scenario": "median käytöstä luokkahuoneesta"
+    },
+    "items": [
+      {
+        "id": "77df385e-fc8a-58a1-84a0-23c3176a5610",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: classroom. Tarkoitus: perustele mielipide. Rajoite: aloita päätelmällä."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

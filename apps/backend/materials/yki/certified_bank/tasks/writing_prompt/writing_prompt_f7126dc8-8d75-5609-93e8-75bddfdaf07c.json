@@ -1,0 +1,37 @@
+{
+  "id": "f7126dc8-8d75-5609-93e8-75bddfdaf07c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet hakenut opintotukea, mutta hakemuksesi on hylätty, koska tulosi ylittävät rajan. Kerro, että tulosi ovat tilapäisesti suuremmat kesätyön vuoksi, mutta opinnot ovat päätoimisia. Pyydä, että asia tarkistetaan uudelleen ja kysy, voitko toimittaa lisäselvityksiä.",
+    "materials": {
+      "scenario": "Opintotuen hylkääminen tulojen vuoksi"
+    },
+    "items": [
+      {
+        "id": "a8e54d5b-e60f-59ef-a4a4-10ad472be43a",
+        "prompt": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet hakenut opintotukea, mutta hakemuksesi on hylätty, koska tulosi ylittävät rajan. Kerro, että tulosi ovat tilapäisesti suuremmat kesätyön vuoksi, mutta opinnot ovat päätoimisia. Pyydä, että asia tarkistetaan uudelleen ja kysy, voitko toimittaa lisäselvityksiä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

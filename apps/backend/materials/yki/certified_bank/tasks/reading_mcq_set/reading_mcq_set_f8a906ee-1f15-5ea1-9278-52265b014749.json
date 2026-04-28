@@ -1,0 +1,77 @@
+{
+  "id": "f8a906ee-1f15-5ea1-9278-52265b014749",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Tulevaisuuden työelämässä korostuvat entistä enemmän joustavuus, yksilöllisyys ja jatkuva oppiminen. Perinteinen uramalli, jossa ihminen työskentelee samassa työpaikassa vuosikymmeniä, on väistymässä monimuotoisempien työurien tieltä. Ihmiset vaihtavat työpaikkaa ja jopa ammattia useammin kuin ennen, ja työsuhteet ovat yhä useammin määräaikaisia tai osa-aikaisia. Tämä kehitys asettaa uudenlaisia vaatimuksia niin yksilöille kuin yhteiskunnallekin. Yksilöltä vaaditaan kykyä sopeutua muutoksiin, omaksua uusia taitoja ja ottaa vastuuta omasta osaamisestaan. Yhteiskunnalta puolestaan vaaditaan joustavaa sosiaaliturvaa, joka ei sido ihmisiä tiettyyn työsuhteen muotoon, sekä koulutusjärjestelmää, joka mahdollistaa elinikäisen oppimisen. Samalla on huolehdittava siitä, että työelämän muutokset eivät lisää eriarvoisuutta ja että kaikilla on mahdollisuus osallistua työelämään ja kokea työnsä merkitykselliseksi.",
+      "word_count": 101
+    },
+    "questions": [
+      {
+        "id": "404315aa-df60-5a17-93a5-e63af1351df7",
+        "prompt": "Mikä on tekstin keskeinen väite tulevaisuuden työelämästä?",
+        "options": [
+          "Työelämä pysyy ennallaan ja perinteinen uramalli säilyy",
+          "Työelämä muuttuu joustavammaksi ja yksilöllisemmäksi, mikä asettaa uusia vaatimuksia yksilöille ja yhteiskunnalle",
+          "Työsuhteet tulevat olemaan entistä vakaampia ja pitkäaikaisempia",
+          "Työelämän muutoksilla ei ole vaikutusta yksilöihin tai yhteiskuntaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7e141799-f9c6-5501-a108-add26c0e28d5",
+        "prompt": "Tekstin mukaan mitä yksilöltä vaaditaan työelämän muutoksessa?",
+        "options": [
+          "Pysymistä samassa ammatissa koko työuran ajan",
+          "Kykyä sopeutua muutoksiin, omaksua uusia taitoja ja ottaa vastuuta omasta osaamisesta",
+          "Luottamista siihen, että yhteiskunta ratkaisee kaikki ongelmat",
+          "Vähemmän kouluttautumista ja itsensä kehittämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ba8a3cb7-5c51-50d0-9f6e-e5fa3622d18f",
+        "prompt": "Mitä yhteiskunnalta vaaditaan tekstin mukaan?",
+        "options": [
+          "Työsuhteiden tiukempaa sääntelyä ja perinteisiin malleihin palaamista",
+          "Joustavaa sosiaaliturvaa ja koulutusjärjestelmää, joka mahdollistaa elinikäisen oppimisen",
+          "Vähemmän panostuksia koulutukseen ja sosiaaliturvaan",
+          "Työelämän muutosten vastustamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a45df9be-3adc-5359-b851-e0645c92bd26",
+        "prompt": "Mitä riskejä työelämän muutoksiin tekstin mukaan liittyy?",
+        "options": [
+          "Ne voivat lisätä eriarvoisuutta ja heikentää joidenkin mahdollisuuksia osallistua työelämään",
+          "Ne tekevät työelämästä liian yksitoikkoista ja ennakoitavaa",
+          "Ne vähentävät ihmisten mahdollisuuksia kokea työnsä merkitykselliseksi",
+          "Ne lisäävät byrokratiaa ja hidastavat päätöksentekoa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

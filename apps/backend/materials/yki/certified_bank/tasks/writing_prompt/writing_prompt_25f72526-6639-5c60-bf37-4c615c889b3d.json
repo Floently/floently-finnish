@@ -1,0 +1,37 @@
+{
+  "id": "25f72526-6639-5c60-bf37-4c615c889b3d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien ulkoiluttaminen olla pakollista tietyillä alueilla?'. Analysoi eläinten hyvinvointia, vastuullisuutta ja kaupunkiympäristöä.",
+    "materials": {
+      "scenario": "Koirien ulkoiluttamisen säännöt"
+    },
+    "items": [
+      {
+        "id": "71f31352-f380-595b-9237-61c16ce38b8c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien ulkoiluttaminen olla pakollista tietyillä alueilla?'. Analysoi eläinten hyvinvointia, vastuullisuutta ja kaupunkiympäristöä."
+      }
+    ],
+    "rubric": "Eläinten hyvinvointi\nVastuullisuus\nKaupunkiympäristö\nValvonta",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

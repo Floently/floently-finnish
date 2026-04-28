@@ -1,0 +1,77 @@
+{
+  "id": "1ab05b84-e024-5094-a700-62801ba5850e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.788,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Terveydenhuollon digitalisaation myötä potilastiedot ovat siirtyneet sähköisiin järjestelmiin, mikä on parantanut hoidon jatkuvuutta ja tehokkuutta. Samalla on kuitenkin herännyt kysymyksiä tietoturvasta ja yksityisyyden suojasta. Potilastietojen kerääminen, säilyttäminen ja käyttö herättävät eettisiä kysymyksiä, jotka vaativat yhteiskunnallista keskustelua ja sääntelyä. Yksi keskeinen kysymys on se, kuka saa käyttää potilastietoja ja mihin tarkoituksiin. Terveydenhuollon ammattilaiset tarvitsevat tietoja hoitopäätösten tekemiseen, ja potilaan suostumus on tässä keskeinen. Mutta entä sitten, kun tietoja käytetään tutkimukseen tai tilastointiin? Tällöin yksittäisen potilaan tunnistaminen ei ole tarpeen, ja tietoja voidaan käyttää anonyymisti. On kuitenkin huolehdittava siitä, että anonymisointi on tehty huolellisesti ja että tietoja ei voida yhdistää yksittäiseen henkilöön. Toinen kysymys koskee tietoturvaa. Sähköiset potilastietojärjestelmät ovat alttiita tietomurroille ja kyberhyökkäyksille, mikä voi johtaa arkaluonteisten tietojen vuotamiseen. Tämä voi aiheuttaa potilaille vakavaa haittaa, kuten syrjintää tai identiteettivarkauksia. Terveydenhuollon toimijoiden on investoitava riittävästi tietoturvaan ja laadittava suunnitelmia tietoturvaloukkausten varalle. Kolmas kysymys liittyy tekoälyn käyttöön terveydenhuollossa. Tekoälyä voidaan käyttää esimerkiksi diagnostiikassa ja hoitosuositusten laatimisessa, mikä edellyttää suurten potilastietomassojen käyttöä. Tämä herättää kysymyksiä siitä, miten varmistetaan, että tekoäly ei opi syrjiviä käytäntöjä ja että sen käyttö on läpinäkyvää. Neljäs kysymys koskee potilaan oikeuksia. Potilaalla on oikeus tietää, mitä tietoja hänestä on kerätty ja miten niitä käytetään. Hänellä on myös oikeus pyytää virheellisten tietojen korjaamista. Näiden oikeuksien toteutuminen käytännössä edellyttää, että potilaille annetaan riittävästi tietoa ja että heillä on mahdollisuus vaikuttaa omiin tietoihinsa. Potilastietojen käyttö on siis monitahoinen eettinen kysymys, jossa joudutaan punnitsemaan eri intressejä. Toisaalta tietojen käyttö voi parantaa hoidon laatua ja edistää tutkimusta, toisaalta on suojeltava potilaiden yksityisyyttä ja itsemääräämisoikeutta. Tarvitaan jatkuvaa keskustelua ja sääntelyä, jotta näiden intressien välille löydetään tasapaino.",
+      "word_count": 259
+    },
+    "questions": [
+      {
+        "id": "313d4107-44c1-5f81-95dd-42a74e428d17",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Terveydenhuollon digitalisaation tekniset ratkaisut",
+          "Potilastietojen käyttöön liittyvät eettiset kysymykset",
+          "Tekoälyn käyttö diagnostiikassa",
+          "Potilaiden oikeudet terveydenhuollossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "30d0d62a-c5a6-577d-8ad1-65128bdd2497",
+        "prompt": "Tekstin mukaan milloin potilastietoja voidaan käyttää tutkimukseen ilman potilaan suostumusta?",
+        "options": [
+          "Ei koskaan, potilaan suostumus on aina saatava",
+          "Kun tiedot on anonymisoitu huolellisesti eikä niitä voida yhdistää yksittäiseen henkilöön",
+          "Aina, kun tutkimus on tieteellisesti perusteltua",
+          "Vain silloin, kun tutkimus koskee kansanterveyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8920797-e475-5296-ad96-219f3c7e0d4d",
+        "prompt": "Mitä riskejä tietoturvaloukkaukset voivat aiheuttaa potilaille?",
+        "options": [
+          "Vain taloudellisia menetyksiä",
+          "Syrjintää, identiteettivarkauksia ja muuta vakavaa haittaa",
+          "Vain lääketieteellisiä haittoja",
+          "Ei merkittäviä riskejä, koska tiedot ovat suojattuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d3dd6a7a-02eb-595e-9992-503027684ce4",
+        "prompt": "Mitä oikeuksia potilaalla on omiin tietoihinsa liittyen?",
+        "options": [
+          "Vain oikeus tietää, että tietoja kerätään",
+          "Oikeus tietää, mitä tietoja on kerätty ja miten niitä käytetään, sekä oikeus pyytää virheellisten tietojen korjaamista",
+          "Vain oikeus kieltää tietojensa käyttö tutkimuksessa",
+          "Ei mitään oikeuksia, koska tiedot ovat terveydenhuollon omaisuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

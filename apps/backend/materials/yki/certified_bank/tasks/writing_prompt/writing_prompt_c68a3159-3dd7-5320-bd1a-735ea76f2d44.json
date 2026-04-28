@@ -1,0 +1,37 @@
+{
+  "id": "c68a3159-3dd7-5320-bd1a-735ea76f2d44",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut potkut töistä. Kerro, että se tuli yllätyksenä. Kerro, että olet surullinen ja vihainen. Kysy, voisitteko tavata ja puhua.",
+    "materials": {
+      "scenario": "Viesti ystävälle potkuista"
+    },
+    "items": [
+      {
+        "id": "483efef3-1e6c-5cb3-be64-8b5030a0974c",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut potkut töistä. Kerro, että se tuli yllätyksenä. Kerro, että olet surullinen ja vihainen. Kysy, voisitteko tavata ja puhua."
+      }
+    ],
+    "rubric": "Kerro, että sait potkut\nKerro, että se oli yllätys\nKerro tunteistasi\nKysy tapaamista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

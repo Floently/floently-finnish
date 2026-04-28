@@ -1,0 +1,88 @@
+{
+  "id": "bd160cc6-695f-5d99-b531-53c53aa9060c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei, tässä on Aleksi. Soitan vaan ja kysyn, että tullaanko me huomenna kahville kello kolmeksi? Sääennuste lupaa aurinkoa, joten voitaisiin mennä vaikka Ruttopuistoon, jos se sopii. Voisitko laittaa mulle viestiä, jos et pääse? Minun numeroni on 040 123 4567. Heippa!",
+      "audio_asset_id": "98d0d047-4ef3-51cb-b977-6ec289f27dc4"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi Aleksi soittaa?",
+        "options": [
+          "Hän haluaa kysyä kahvista.",
+          "Hän on eksynyt kaupungille.",
+          "Hän haluaa perua tapaamisen.",
+          "Hän kysyy bussiaikatauluja."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan Aleksi ehdottaa tapaamista?",
+        "options": [
+          "Kello kaksi.",
+          "Kello neljä.",
+          "Kello kolme.",
+          "Kello viisi."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä Aleksi ehdottaa tapaamista?",
+        "options": [
+          "Kauppakeskuksessa.",
+          "Rautatieasemalla.",
+          "Ruttopuistossa.",
+          "Kirjastossa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä Aleksin pitäisi tietää vastauksesta?",
+        "options": [
+          "Mitä kahvia pitää ostaa.",
+          "Pääseekö toinen tulemaan.",
+          "Onko puisto vielä auki.",
+          "Kuka muu on tulossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten toisen henkilön pitäisi vastata Aleksille?",
+        "options": [
+          "Soittamalla hänelle takaisin.",
+          "Lähettämällä sähköpostia.",
+          "Lähettämällä tekstiviestin.",
+          "Tulemalla paikalle."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

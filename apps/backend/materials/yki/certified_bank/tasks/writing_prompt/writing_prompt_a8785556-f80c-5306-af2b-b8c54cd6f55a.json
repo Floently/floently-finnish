@@ -1,0 +1,37 @@
+{
+  "id": "a8785556-f80c-5306-af2b-b8c54cd6f55a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti lehden toimitukseen.",
+    "materials": {
+      "scenario": "Lähetä mielipidekirjoitus"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti lehden toimitukseen."
+      }
+    ],
+    "rubric": "Olet lukenut lehdestä artikkelin, joka herätti sinussa voimakkaita tunteita. Kirjoita sähköposti ja lähetä oma mielipidekirjoituksesi. Kerro, mihin artikkeliin viittaat ja mitä mieltä itse olet asiasta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

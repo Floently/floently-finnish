@@ -1,0 +1,66 @@
+{
+  "id": "22d6ef3d-d4bf-59ec-b26a-1711332beeec",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue junaliikenteen tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "VR TIEDOTTAA\n\nRatalinjan korjaustöiden vuoksi junaliikenteessä on muutoksia 10.–20.4.\n\nJunat 41 ja 43 Helsinki–Tampere välillä korvataan busseilla koko muutoksen ajan.\n\nJunat 55 ja 57 kulkevat normaalisti, mutta ne saattavat olla 10–20 minuuttia myöhässä.\n\nLiput käyvät myös korvaaviin busseihin.\n\nPahoittelemme häiriötä.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "7656a127-eb18-513c-adec-46395dac73c1",
+        "prompt": "Kuinka kauan muutokset kestävät?",
+        "options": [
+          "Viikon",
+          "10 päivää",
+          "Kaksi viikkoa",
+          "Kuukauden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "404defc8-25c1-5262-b783-bbe238057fd1",
+        "prompt": "Mitkä junat korvataan busseilla?",
+        "options": [
+          "Junat 41 ja 43",
+          "Junat 55 ja 57",
+          "Kaikki junat",
+          "Vain yöjunat"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "cffe735c-a7fa-57c8-9611-dbea0788de31",
+        "prompt": "Voiko lipulla matkustaa bussissa?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain jos ostaa uuden lipun",
+          "Vain aikuiset"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

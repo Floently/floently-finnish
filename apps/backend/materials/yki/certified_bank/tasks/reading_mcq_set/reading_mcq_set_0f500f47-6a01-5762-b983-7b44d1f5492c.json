@@ -1,0 +1,66 @@
+{
+  "id": "0f500f47-6a01-5762-b983-7b44d1f5492c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Moi!\n\nTulen huomenna junalla kello 18.30. Pääsenkö suoraan teille? Vai haluatteko tavata jossain kaupungilla? Voin myös ottaa taksin, jos on helpompaa. Soita tai laita viestiä. Nähdään huomenna! -Petra  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin Petra saapuu?",
+        "options": [
+          "tänään kello 18.30",
+          "huomenna kello 18.30",
+          "huomenna aamulla",
+          "ensi viikolla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Petra ehdottaa?",
+        "options": [
+          "hakea hänet asemalta",
+          "tavata jossain kaupungilla",
+          "soittaa hänelle",
+          "lähettää sähköpostia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten Petra voi tulla, jos on helpompaa?",
+        "options": [
+          "bussilla",
+          "taksilla",
+          "kävellen",
+          "pyörällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

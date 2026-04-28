@@ -1,0 +1,37 @@
+{
+  "id": "596d6913-8d71-5437-b9ac-51074f28fc5c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti koirankouluttajalle. Kerro koulutuksen hyödyllisyydestä, kouluttajan ammattitaidosta ja ryhmän koosta. Ehdota yhtä uutta kurssia.",
+    "materials": {
+      "scenario": "Palaute koirankouluttajalle"
+    },
+    "items": [
+      {
+        "id": "6b7f8083-3ba8-590e-aa0a-13a0132df409",
+        "prompt": "Kirjoita palauteteksti koirankouluttajalle. Kerro koulutuksen hyödyllisyydestä, kouluttajan ammattitaidosta ja ryhmän koosta. Ehdota yhtä uutta kurssia."
+      }
+    ],
+    "rubric": "Koulutuksen hyödyllisyys\nKouluttajan ammattitaito\nRyhmän koko\nUusi kurssi",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "62c00839-0466-590c-8053-7aeece7a56c9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikavippien korkokattoa laskea entisestään ylivelkaantumisen estämiseksi?'. Arvioi kuluttajansuojaa ja luoton saatavuutta.",
+    "materials": {
+      "scenario": "Pikavippien korkokatto"
+    },
+    "items": [
+      {
+        "id": "c60b403e-9d9f-5d43-8e71-42a7fdef4677",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikavippien korkokattoa laskea entisestään ylivelkaantumisen estämiseksi?'. Arvioi kuluttajansuojaa ja luoton saatavuutta."
+      }
+    ],
+    "rubric": "Ylivelkaantuminen\nKuluttajansuoja\nLuoton saatavuus\nVastuullinen lainananto",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

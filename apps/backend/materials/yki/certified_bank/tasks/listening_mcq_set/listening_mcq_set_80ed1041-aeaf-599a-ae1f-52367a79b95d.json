@@ -1,0 +1,99 @@
+{
+  "id": "80ed1041-aeaf-599a-ae1f-52367a79b95d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta innovaatiopolitiikasta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta innovaatiopolitiikasta. Haastattelussa on innovaatioasiantuntija Juhani Mäkelä. Juhani, mitä innovaatiopolitiikka tarkoittaa? Juhani: Se tarkoittaa julkisen vallan toimia, joilla pyritään edistämään innovaatioita eli uusia ideoita, tuotteita ja palveluja. Siihen kuuluu esimerkiksi tutkimus- ja kehitystoiminnan rahoitus, koulutus, ja yritysten tukeminen. Toimittaja: Miksi se on tärkeää? Juhani: Innovaatiot ovat talouskasvun ja hyvinvoinnin perusta. Uudet tuotteet ja palvelut luovat työpaikkoja ja vientituloja. Ne myös ratkaisevat yhteiskunnallisia ongelmia, kuten ilmastonmuutosta. Toimittaja: Miten Suomi pärjää innovaatioissa? Juhani: Suomi pärjää kansainvälisesti hyvin. Olemme panostaneet paljon tutkimukseen ja koulutukseen. Erityisesti digitaaliset innovaatiot ja cleantech ovat vahvoja. Mutta kilpailu kovenee, ja meidän on jatkuvasti uudistuttava. Toimittaja: Mitkä ovat suurimmat haasteet? Juhani: Rahoituksen riittävyys on aina haaste. Myös tutkimustulosten kaupallistaminen on vaikeaa. Yliopistoissa tehdään huippututkimusta, mutta sen muuttaminen liiketoiminnaksi ei aina onnistu. Tarvitaan parempaa yhteistyötä yliopistojen ja yritysten välillä. Toimittaja: Miten innovaatioita voidaan tukea entistä paremmin? Juhani: Tarvitaan pitkäjänteistä rahoitusta ja rohkeutta kokeilla uutta. Myös kansainvälinen yhteistyö on tärkeää. Suomessa on paljon osaamista, mutta markkinat ovat pienet, joten vienti on välttämätöntä. Toimittaja: Mikä on tulevaisuuden visio? Juhani: Toivon, että Suomi on jatkossakin innovaatioiden kärkimaa. Erityisesti terveysteknologiassa, puhtaassa teknologiassa ja koulutuksessa on paljon potentiaalia. Toimittaja: Kiitos Juhani.",
+      "audio_asset_id": "d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen koulutuspolitiikka.",
+          "Suomalainen innovaatiopolitiikka.",
+          "Suomalainen talouspolitiikka.",
+          "Suomalainen ympäristöpolitiikka."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä innovaatiopolitiikka tarkoittaa?",
+        "options": [
+          "Yritysten verotuksen kehittämistä.",
+          "Julkisen vallan toimia innovaatioiden edistämiseksi.",
+          "Ulkomaankaupan säätelyä.",
+          "Työvoimapolitiikkaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Miksi innovaatiot ovat tärkeitä?",
+        "options": [
+          "Ne lisäävät byrokratiaa.",
+          "Ne ovat talouskasvun perusta ja ratkaisevat ongelmia.",
+          "Ne vähentävät työpaikkoja.",
+          "Ne ovat vain yritysten asia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Millä aloilla Suomi on vahva innovaatioissa?",
+        "options": [
+          "Raskas teollisuus ja kaivosteollisuus.",
+          "Digitaaliset innovaatiot ja cleantech.",
+          "Maatalous ja elintarviketeollisuus.",
+          "Tekstiili- ja vaateteollisuus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on suuri haaste innovaatiotoiminnassa?",
+        "options": [
+          "Liian paljon rahoitusta.",
+          "Tutkimustulosten kaupallistaminen.",
+          "Liian vähän tutkimusta.",
+          "Liian paljon yhteistyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä Juhani toivoo tulevaisuudelta?",
+        "options": [
+          "Että Suomi on innovaatioiden kärkimaa.",
+          "Että Suomi luopuu innovaatioista.",
+          "Että Suomi keskittyy vain perinteiseen teollisuuteen.",
+          "Että Suomi ei tee yhteistyötä muiden maiden kanssa."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

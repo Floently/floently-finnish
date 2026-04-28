@@ -1,0 +1,37 @@
+{
+  "id": "8084d4e0-4375-531b-95d7-9a12c4a5a484",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaavoituksessa painottaa enemmän ilmastonmuutokseen sopeutumista?'. Pohdi viheralueita, hulevesien hallintaa ja rakentamista.",
+    "materials": {
+      "scenario": "Ilmastonmuutokseen sopeutuminen kaavoituksessa"
+    },
+    "items": [
+      {
+        "id": "bd0969e1-f28b-54fd-8cd3-9344e3a5f244",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaavoituksessa painottaa enemmän ilmastonmuutokseen sopeutumista?'. Pohdi viheralueita, hulevesien hallintaa ja rakentamista."
+      }
+    ],
+    "rubric": "Viheralueet\nHulevesien hallinta\nRakentaminen\nKustannukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

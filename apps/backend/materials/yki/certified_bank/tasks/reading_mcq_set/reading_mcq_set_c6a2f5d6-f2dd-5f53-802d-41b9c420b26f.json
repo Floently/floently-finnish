@@ -1,0 +1,66 @@
+{
+  "id": "c6a2f5d6-f2dd-5f53-802d-41b9c420b26f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "VESIKATKO 10.6.\n\nTiedoksi!\n\nHuoltotöiden vuoksi vesi katkaistaan koko talosta torstaina 10.6. kello 8–16.\n\nTänä aikana hanasta ei tule vettä. Suosittelemme, että otatte vettä talteen edellisenä iltana. WC:tä voi käyttää, mutta huuhteluun tarvitaan ämpärillä vettä.\n\nVeden tultua takaisin anna hanan juosta hetki, jos vesi on ruskehtavaa. Se johtuu ilmasta ja on harmitonta.\n\nPahoittelemme häiriötä!\n\nHuoltoyhtiö  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 70
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin vesi katkaistaan?",
+        "options": [
+          "keskiviikkona 9.6.",
+          "torstaina 10.6.",
+          "perjantaina 11.6.",
+          "lauantaina 12.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan vesikatko kestää?",
+        "options": [
+          "4 tuntia",
+          "6 tuntia",
+          "8 tuntia",
+          "10 tuntia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää tehdä, jos vesi on ruskehtavaa veden tultua takaisin?",
+        "options": [
+          "soittaa huoltomiehelle",
+          "antaa hanan juosta hetki",
+          "ei käyttää vettä ollenkaan",
+          "keittää vesi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

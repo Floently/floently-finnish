@@ -1,0 +1,37 @@
+{
+  "id": "8388de92-ea01-5cc1-9195-24fd87398a3f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: municipal_office. Purpose: justify_an_opinion. Constraint: respect_the_schedule.",
+    "materials": {
+      "scenario": "language_learning in municipal_office"
+    },
+    "items": [
+      {
+        "id": "6afd0e1e-f0d3-5c5f-b64c-09f6665e9b98",
+        "prompt": "Write for the receiver in this scenario: municipal_office. Purpose: justify_an_opinion. Constraint: respect_the_schedule."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

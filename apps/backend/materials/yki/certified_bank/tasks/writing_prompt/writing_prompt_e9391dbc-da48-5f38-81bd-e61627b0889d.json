@@ -1,0 +1,37 @@
+{
+  "id": "e9391dbc-da48-5f38-81bd-e61627b0889d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän kiertotalouden mukaiseen kulutukseen?'. Analysoi ympäristövaikutuksia, kilpailukykyä ja kuluttajakäyttäytymistä.",
+    "materials": {
+      "scenario": "Verotus ja kiertotalous"
+    },
+    "items": [
+      {
+        "id": "6a06b0ea-3860-56db-bccf-86b1aa362e1f",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän kiertotalouden mukaiseen kulutukseen?'. Analysoi ympäristövaikutuksia, kilpailukykyä ja kuluttajakäyttäytymistä."
+      }
+    ],
+    "rubric": "Ympäristövaikutukset\nKilpailukyky\nKuluttajakäyttäytyminen\nOhjausvaikutukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "aa2fb207-e8a8-5deb-af10-7326c18713dd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.494,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KADONNUT KOIRA\n\nRekku-niminen koira on kadonnut 8.7.2025 Puistotien läheltä. Rekku on keskikokoinen, ruskea sekarotuinen koira. Sillä on punainen panta.\n\nRekku on ystävällinen, mutta saattaa olla arka. Se tarvitsee lääkitystä, joten se on löydyttävä pian.\n\nJos näet Rekun, soita numeroon 050 123 4578.\n\nOmistaja palkitsee löytäjän.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä Rekku katosi?",
+        "options": [
+          "7.7.2025",
+          "8.7.2025",
+          "9.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Minkä värinen Rekku on?",
+        "options": [
+          "musta",
+          "ruskea",
+          "harmaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Miksi Rekku pitää löytää nopeasti?",
+        "options": [
+          "se on pentu",
+          "se tarvitsee lääkitystä",
+          "se on vaarallinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Minkä värinen panta Rekulla on?",
+        "options": [
+          "sininen",
+          "punainen",
+          "vihreä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

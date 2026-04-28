@@ -1,0 +1,77 @@
+{
+  "id": "90c36220-408e-5a2f-a092-f7e42c1e3241",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.781,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Alustatalous on noussut keskeiseksi osaksi nykypäivän taloutta ja työelämää. Digitaaliset alustat, kuten Uber, Wolt ja Airbnb, yhdistävät palvelujen tarjoajia ja käyttäjiä uudella tavalla, mikä on tuonut mukanaan sekä mahdollisuuksia että haasteita. Alustatalouden kannattajat korostavat sen tuomaa joustavuutta, tehokkuutta ja uusia ansaintamahdollisuuksia. Kriitikot puolestaan varoittavat työntekijöiden oikeuksien heikkenemisestä, verotuksen ongelmista ja alustojen markkinavoiman keskittymisestä. Yksi keskeisimmistä kysymyksistä koskee alustatyöntekijöiden asemaa. Alustat luokittelevat työntekijänsä usein yrittäjiksi, jolloin he eivät ole oikeutettuja työsuhdeturvaan, kuten sairauslomaan, vuosilomaan, työterveyshuoltoon tai työttömyysturvaan. Tämä on herättänyt keskustelua siitä, pitäisikö alustatyöntekijöille taata samat oikeudet kuin perinteisille työntekijöille. Toinen kysymys koskee verotusta. Alustatalous on usein kansainvälistä, ja alustojen on helppo siirtää voittojaan maihin, joissa veroaste on matala. Tämä on johtanut veropohjan rapautumiseen ja kilpailuvaltion ongelmiin. Kolmas kysymys liittyy alustojen markkinavoiman keskittymiseen. Muutama suuri alusta hallitsee useita keskeisiä markkinoita, mikä herättää kysymyksiä kilpailun toimivuudesta ja kuluttajien valinnanvapaudesta. Alustat keräävät valtavia määriä dataa käyttäjistään, mikä antaa niille merkittävää kilpailuetua ja mahdollisuuksia vaikuttaa markkinoihin. Alustatalouden sääntely on osoittautunut vaikeaksi. Perinteinen työlainsäädäntö ja verotus on rakennettu teollisen aikakauden oletuksille, jotka eivät sovi alustatalouteen. Tarvitaan uudenlaista sääntelyä, joka tunnistaa alustatalouden erityispiirteet. Tällainen sääntely voisi sisältää esimerkiksi alustatyöntekijöiden aseman selkeyttämisen, alustojen velvollisuuden maksaa veroja siellä, missä arvo luodaan, sekä kilpailulainsäädännön päivittämisen vastaamaan digitaalisen talouden haasteisiin. Alustatalous on tullut jäädäkseen, ja sen rooli todennäköisesti vain kasvaa tulevaisuudessa. Siksi on tärkeää, että yhteiskunta pystyy vastaamaan sen tuomiin haasteisiin ja luomaan pelisäännöt, jotka takaavat oikeudenmukaisuuden, kilpailun ja verotuksen toimivuuden.",
+      "word_count": 231
+    },
+    "questions": [
+      {
+        "id": "43e6b853-b7af-5951-89f6-b31007a9e7da",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Uberin ja Woltin liiketoimintamallien vertailu",
+          "Alustatalouteen liittyvät keskeiset kysymykset ja sääntelyn haasteet",
+          "Alustatyöntekijöiden oikeudet",
+          "Alustatalouden verotusongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "60fe71d7-3afa-50a0-8a5f-88f4d0a7f4ba",
+        "prompt": "Tekstin mukaan mikä on keskeinen ongelma alustatyöntekijöiden asemassa?",
+        "options": [
+          "He saavat liian korkeaa palkkaa",
+          "Heidät luokitellaan usein yrittäjiksi, jolloin he eivät ole oikeutettuja työsuhdeturvaan",
+          "Heillä on liian vahva työsuhdeturva, mikä vähentää joustavuutta",
+          "He joutuvat maksamaan liian korkeita veroja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b57d8e5e-9608-5cda-8385-21dca208e99c",
+        "prompt": "Mitä ongelmia alustojen markkinavoiman keskittymiseen liittyy?",
+        "options": [
+          "Se lisää kilpailua ja kuluttajien valinnanvapautta",
+          "Se herättää kysymyksiä kilpailun toimivuudesta ja kuluttajien valinnanvapaudesta, ja alustat keräävät valtavasti dataa, mikä antaa niille kilpailuetua",
+          "Sillä ei ole merkittäviä vaikutuksia markkinoihin",
+          "Se vähentää alustojen mahdollisuuksia kerätä dataa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6ea649c9-9820-5ba4-8953-77676bee9945",
+        "prompt": "Mitä tekstissä ehdotetaan ratkaisuiksi alustatalouden ongelmiin?",
+        "options": [
+          "Alustatalouden kieltämistä",
+          "Uudenlaista sääntelyä, joka selkeyttää työntekijöiden asemaa, verotusta ja kilpailulainsäädäntöä",
+          "Alustojen täydellistä vapautta ilman minkäänlaista sääntelyä",
+          "Paluuta perinteisiin työsuhteisiin ja alustataloudesta luopumista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

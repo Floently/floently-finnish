@@ -1,0 +1,40 @@
+{
+  "id": "a01c24da-a57c-57d1-95fb-810baee01fb7",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa asiantuntevaa ja vakuuttavaa kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet asiantuntija, jolla on tutkittua tietoa ja haluat vaikuttaa päätöksentekoon.",
+        "partner": "Kansanedustajat - eri puolueista, erilaisia näkemyksiä, esittävät tarkentavia ja kriittisiä kysymyksiä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp38",
+        "ai_first_turn_fi": "Arvoisa puheenjohtaja, hyvät valiokunnan jäsenet. Kiitos kutsusta. Haluan kiinnittää huomionne erityisesti kahteen keskeiseen ongelmaan esityksessä..."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa asiantuntevaa ja vakuuttavaa kieltä.",
+    "timing": {
+      "recommended_minutes": 8
+    }
+  }
+}

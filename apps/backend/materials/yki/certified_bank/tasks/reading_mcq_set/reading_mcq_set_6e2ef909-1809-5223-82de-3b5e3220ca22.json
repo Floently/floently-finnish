@@ -1,0 +1,77 @@
+{
+  "id": "6e2ef909-1809-5223-82de-3b5e3220ca22",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mainos koiran ulkoilutuspalvelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TARVITSEKO APUA KOIRAN ULKOILUTUKSEEN?\n\nOlen 18-vuotias lukiolainen ja tarjoan koiran ulkoilutuspalvelua kotini lähellä. Lenkitän koirasi arkisin klo 14–18 ja viikonloppuisin sopimuksen mukaan.\n\nHinta: 15 €/30 min, 25 €/60 min. Ensimmäinen kerta puoleen hintaan!\n\nOlen eläinrakas ja minulla on kokemusta eri kokoisista koirista. Viittauksia saa pyydettäessä.\n\nSoita tai laita viestiä: Liisa, 050 123 4567",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan Liisa ulkoiluttaa koiria arkisin?",
+        "options": [
+          "klo 8–12",
+          "klo 10–14",
+          "klo 14–18",
+          "klo 16–20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko 30 minuutin ulkoilutus maksaa normaalisti?",
+        "options": [
+          "10 €",
+          "15 €",
+          "20 €",
+          "25 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä erikoistarjousta Liisa mainostaa?",
+        "options": [
+          "Joka viides kerta ilmainen",
+          "Ensimmäinen kerta puoleen hintaan",
+          "Kaksi lenkkiä yhden hinnalla",
+          "Ilmainen koiraherkku mukaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi Liisa on hyvä valinta?",
+        "options": [
+          "Hän on eläinrakas ja hänellä on kokemusta",
+          "Hänellä on oma koira",
+          "Hän on eläinlääkäri",
+          "Hän asuu maalla"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

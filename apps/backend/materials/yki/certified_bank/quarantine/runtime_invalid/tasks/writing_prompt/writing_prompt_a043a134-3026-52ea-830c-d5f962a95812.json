@@ -1,0 +1,37 @@
+{
+  "id": "a043a134-3026-52ea-830c-d5f962a95812",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.661,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: online_portal. Purpose: compare_options. Constraint: state_the_main_point_first.",
+    "materials": {
+      "scenario": "kaupungin palveluista online portal"
+    },
+    "items": [
+      {
+        "id": "0f4afc5a-54a6-5a00-8a73-fc97da1c416d",
+        "prompt": "Write for the receiver in this scenario: online_portal. Purpose: compare_options. Constraint: state_the_main_point_first."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

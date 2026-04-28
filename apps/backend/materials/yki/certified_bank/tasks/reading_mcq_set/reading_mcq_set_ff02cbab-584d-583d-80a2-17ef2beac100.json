@@ -1,0 +1,66 @@
+{
+  "id": "ff02cbab-584d-583d-80a2-17ef2beac100",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "YRITYKSEN TYÖHYVINVOINTIKYSELY 2024\n\nKyselyyn vastasi 120 työntekijää (vastausprosentti 78 %).\n\nTyötyytyväisyys:\n- Erittäin tyytyväisiä: 22 %\n- Melko tyytyväisiä: 45 %\n- En tyytyväisiä enkä tyytymättömiä: 18 %\n- Melko tyytymättömiä: 12 %\n- Erittäin tyytymättömiä: 3 %\n\nSuurimmat kehittämiskohteet:\n1. Työn kuormittavuus (64 % kokee työmäärän liian suureksi)\n2. Palautteen saaminen (58 % saa liian vähän palautetta)\n3. Työtilojen viihtyisyys (47 %)\n\nAvoimissa vastauksissa toivottiin lisää yhteisiä tapahtumia ja joustavampia työaikoja. 'Työkavereita näkee liian harvoin kasvotusten', eräs vastaaja kirjoitti. Johto on luvannut puuttua tuloksiin syksyn aikana.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 115
+    },
+    "questions": [
+      {
+        "id": "dd2771f5-5439-5c08-aa9e-16006121c965",
+        "prompt": "Kuinka moni vastaajista on erittäin tyytyväisiä?",
+        "options": [
+          "12 %",
+          "18 %",
+          "22 %",
+          "45 %"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c3bd1fe1-2a6b-5645-91c3-5962deadf969",
+        "prompt": "Mikä on suurin kehittämiskohde?",
+        "options": [
+          "Palautteen saaminen",
+          "Työn kuormittavuus",
+          "Työtilat",
+          "Palkkaus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6154d115-65ba-528a-86d6-e74fa2c350c7",
+        "prompt": "Mitä toivottiin avoimissa vastauksissa?",
+        "options": [
+          "Lisää palkkaa",
+          "Lisää yhteisiä tapahtumia",
+          "Vähemmän kokouksia",
+          "Parempia taukotiloja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

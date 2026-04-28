@@ -1,0 +1,99 @@
+{
+  "id": "989cc80c-87ab-5eda-a04b-741a9e88d503",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Digitaaliset palvelut ovat lisääntyneet julkishallinnossa. Monet asioinnit, kuten veroilmoituksen tekeminen tai lääkäriajan varaaminen, hoituvat nykyään verkossa. Tämä nopeuttaa asiointia ja vähentää paperityötä. Kuitenkin osa väestöstä, erityisesti ikääntyneet, saattavat tarvita opastusta digitaalisten palvelujen käytössä. Kirjastot ja kolmannen sektorin toimijat ovatkin järjestäneet neuvontaa ja digiopastusta. On tärkeää, että jokainen saa tarvitsemansa avun ja pystyy hoitamaan asiansa.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on lisääntynyt julkishallinnossa?",
+        "options": [
+          "Paperiasiointi",
+          "Digitaaliset palvelut",
+          "Käyntiasiointi",
+          "Puhelinasiointi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä esimerkkejä digitaalisista palveluista tekstissä mainitaan?",
+        "options": [
+          "Auton rekisteröinti ja ajokortin uusiminen",
+          "Veroilmoitus ja lääkäriajan varaaminen",
+          "Passin hakeminen ja äänestäminen",
+          "Kirjan lainaaminen ja leffalipun osto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä digitaalisista palveluista on?",
+        "options": [
+          "Ne hidastavat asiointia",
+          "Ne nopeuttavat asiointia ja vähentävät paperityötä",
+          "Ne vaikeuttavat asiointia",
+          "Ne lisäävät byrokratiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka erityisesti saattaa tarvita opastusta digipalveluissa?",
+        "options": [
+          "Lapset",
+          "Nuoret aikuiset",
+          "Ikääntyneet",
+          "Työttömät"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Kuka järjestää neuvontaa ja digiopastusta?",
+        "options": [
+          "Vain kaupungit",
+          "Kirjastot ja kolmannen sektorin toimijat",
+          "Yksityiset yritykset",
+          "Koulut ja yliopistot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on tärkeää digitaalisten palvelujen käytössä?",
+        "options": [
+          "Kaikkien on osattava käyttää niitä ilman apua",
+          "Jokainen saa tarvitsemansa avun",
+          "Vain nuoret saavat käyttää niitä",
+          "Niitä ei saa käyttää ollenkaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

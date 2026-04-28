@@ -1,0 +1,66 @@
+{
+  "id": "2ba1aa33-5a02-5056-91e2-f740c72169f0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.772,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PERUSKOULU – TASA-ARVON LINNA VAI ERIARVOISTUMISEN MÖYKKY?\n\nSuomalainen peruskoulu on ollut kansainvälisesti tunnettu tasa-arvoisuudestaan. 1970-luvulla toteutettu peruskoulu-uudistus pyrki takaamaan kaikille yhtäläiset oppimisen mahdollisuudet asuinpaikasta tai sosiaalisesta taustasta riippumatta. Pitkään Suomi menestyikin PISA-tutkimuksissa erinomaisesti, ja koulujen väliset erot olivat maailman pienimpiä.\n\nViime vuosina kuva on kuitenkin muuttunut huolestuttavampaan suuntaan. Tuoreet tutkimukset osoittavat, että koulujen väliset erot ovat kasvaneet ja oppilaiden taustan vaikutus oppimistuloksiin on voimistunut. Kaupunkien sisällä on havaittavissa selkeää segregaatiota: tietyille alueille keskittyy hyväosaisia perheitä, toisille heikommassa asemassa olevia. Tämä heijastuu koulujen oppilaspohjaan ja sitä kautta resursseihin ja oppimistuloksiin.\n\nKoulututkija Jukka Mäkelä näkee kehityksen taustalla monia tekijöitä. ”Kaupunkipolitiikka, asuntomarkkinat ja kouluvalinnat kietoutuvat toisiinsa. Kun vanhemmat voivat valita lapselleen koulun, hyväosaiset äänestävät jaloillaan ja hakeutuvat tiettyihin kouluihin. Tämä vahvistaa eriytymistä”, Mäkelä selittää.\n\nMyös resurssien kohdentaminen on ongelmallista. Vaikka perusopetuslaki takaa yhtäläiset oikeudet, todellisuudessa kunnat voivat painia hyvin erilaisten taloudellisten lähtökohtien kanssa. Samaan aikaan erityisen tuen tarve on kasvanut, mikä vaatii lisäresursseja juuri niiltä kouluilta, joilla on muutenkin haastavampi tilanne.\n\nRatkaisuja on haettu esimerkiksi positiivisesta erityiskohtelusta, jossa heikommassa asemassa oleville kouluille suunnataan lisäresursseja. Tämä on kuitenkin osoittautunut poliittisesti hankalaksi, sillä se herättää helposti vastustusta niillä alueilla, joilla menee hyvin. Mäkelä peräänkuuluttaa pitkäjänteistä ja ennakkoluulotonta otetta: ”Jos haluamme säilyttää peruskoulun tasa-arvoisena, meidän on uskallettava puuttua rakenteisiin, ei vain oireisiin.”  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 239
+    },
+    "questions": [
+      {
+        "id": "90ecf7fa-e733-54e8-bb7c-e769fa69426e",
+        "prompt": "Miten suomalainen peruskoulu on muuttunut viime vuosina?",
+        "options": [
+          "Se on edelleen yhtä tasa-arvoinen kuin ennen",
+          "Koulujen väliset erot ovat kasvaneet ja oppilaiden taustan vaikutus oppimistuloksiin on voimistunut",
+          "PISA-tulokset ovat parantuneet edelleen",
+          "Kouluvalinnat on kielletty kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7ba5eca1-6256-534e-a430-23ef2e844818",
+        "prompt": "Mitä tarkoitetaan positiivisella erityiskohtelulla?",
+        "options": [
+          "Kaikkia kouluja kohdellaan täsmälleen samalla tavalla",
+          "Heikommassa asemassa oleville kouluille suunnataan lisäresursseja",
+          "Vain hyvin menestyville kouluille annetaan lisärahoitusta",
+          "Oppilaita kehutaan enemmän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fb7cce4e-97b8-5677-976f-e803c028e681",
+        "prompt": "Mitä Jukka Mäkelä tarkoittaa sanomalla ”puuttua rakenteisiin, ei vain oireisiin”?",
+        "options": [
+          "Pitää korjata vain yksittäisiä ongelmia",
+          "Tarvitaan perusteellisempia muutoksia yhteiskunnan rakenteissa",
+          "Oppilaita pitää rangaista kovemmin",
+          "Kouluja pitää lakkauttaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

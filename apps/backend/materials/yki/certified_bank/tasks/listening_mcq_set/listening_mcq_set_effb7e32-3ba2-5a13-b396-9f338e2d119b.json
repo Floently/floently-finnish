@@ -1,0 +1,66 @@
+{
+  "id": "effb7e32-3ba2-5a13-b396-9f338e2d119b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.304,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, täällä on Mikko. Mitä kuuluu?\nB: Moi Mikko! Ihan hyvää. Ollaan menossa huomenna leffaan. Haluaisitko tulla mukaan?\nA: Joo, mielelläni. Mikä leffa?\nB: Se uusi komedia, alkaa kello 19. Mennään ensin syömään kello 17.\nA: Sopii hyvin! Missä tavataan?\nB: Kauppakeskuksen edessä.\nA: Selvä. Nähdään huomenna! Hei hei.",
+      "audio_asset_id": "92fbf784-6a94-4f10-aa83-5ebc2ade9b89"
+    },
+    "questions": [
+      {
+        "id": "7b5ddfc0-840b-5a61-8e2b-3aa5c47a13cc",
+        "prompt": "Mitä he tekevät huomenna?",
+        "options": [
+          "Käyvät uimassa",
+          "Menevät elokuviin",
+          "Käyvät kahvilla",
+          "Menevät konserttiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2449d10f-c8ee-50a2-a4c8-21fdfa6e7475",
+        "prompt": "Mihin aikaan elokuva alkaa?",
+        "options": [
+          "klo 17",
+          "klo 18",
+          "klo 19",
+          "klo 20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0aad8608-f832-5a98-8750-8670e1284216",
+        "prompt": "Missä he tapaavat ensin?",
+        "options": [
+          "Elokuvateatterissa",
+          "Ravintolassa",
+          "Kauppakeskuksen edessä",
+          "Asemalla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

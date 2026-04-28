@@ -1,0 +1,99 @@
+{
+  "id": "19459678-d49d-542f-997f-d20018fdb3ec",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monimuotoisuus työpaikoilla on voimavara. Eri-ikäiset, eri kulttuuritaustaiset ja erilaisen koulutuksen saaneet ihmiset tuovat uusia näkökulmia ja parantavat ongelmanratkaisukykyä. Monimuotoisuuden johtaminen vaatii taitoa ja avoimuutta. Työyhteisössä pitää olla nollatoleranssi syrjinnälle, ja kaikille on taattava yhdenvertainen kohtelu. Tutkimukset osoittavat, että monimuotoiset työyhteisöt ovat usein innovatiivisempia ja menestyvämpiä.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä työpaikoilla on voimavara?",
+        "options": [
+          "Yhdenmukaisuus",
+          "Monimuotoisuus",
+          "Kilpailu",
+          "Hierarkia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä monimuotoisuus tuo työpaikalle?",
+        "options": [
+          "Yksinkertaisuutta",
+          "Uusia näkökulmia ja parantaa ongelmanratkaisukykyä",
+          "Lisää byrokratiaa",
+          "Vähemmän keskustelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä monimuotoisuuden johtaminen vaatii?",
+        "options": [
+          "Tiukkoja sääntöjä",
+          "Taitoa ja avoimuutta",
+          "Yhdenmukaisuutta",
+          "Kilpailuhenkeä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on tärkeää työyhteisössä monimuotoisuuden kannalta?",
+        "options": [
+          "Syrjinnän salliminen",
+          "Nollatoleranssi syrjinnälle ja yhdenvertainen kohtelu",
+          "Vain tiettyjen ryhmien suosiminen",
+          "Kilpailu työntekijöiden välillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tutkimukset osoittavat monimuotoisista työyhteisöistä?",
+        "options": [
+          "Ne ovat harvoin innovatiivisia",
+          "Ne ovat usein innovatiivisempia ja menestyvämpiä",
+          "Ne eivät menesty",
+          "Ne ovat aina kalliimpia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä esimerkkejä monimuotoisuudesta tekstissä mainitaan?",
+        "options": [
+          "Eri pituisia ja painoisia ihmisiä",
+          "Eri-ikäisiä, eri kulttuuritaustaisia ja eri koulutuksen saaneita",
+          "Eri sukupuolia ja uskontoja",
+          "Eri puolueiden jäseniä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

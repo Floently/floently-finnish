@@ -1,0 +1,37 @@
+{
+  "id": "408cb657-4574-50ab-9b38-2a711b1e1541",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin asuntomessuista. Arvioi näyttelyalueen saavutettavuutta, asuntojen esittelyä ja opastusta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin asuntomessuista"
+    },
+    "items": [
+      {
+        "id": "b240fc92-3e28-5d52-8905-033366367612",
+        "prompt": "Kirjoita palauteteksti kaupungin asuntomessuista. Arvioi näyttelyalueen saavutettavuutta, asuntojen esittelyä ja opastusta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Näyttelyalueen saavutettavuus\nAsuntojen esittely\nOpastus\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

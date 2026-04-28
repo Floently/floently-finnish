@@ -1,0 +1,37 @@
+{
+  "id": "56afdaf1-f72e-5389-8355-1006daf1f4ce",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.673,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: adult_education_center. Purpose: describe_an_experience. Constraint: state_the_main_point_first.",
+    "materials": {
+      "scenario": "job_search in adult_education_center"
+    },
+    "items": [
+      {
+        "id": "2640b865-262b-502d-8a98-4d4461b140fc",
+        "prompt": "Write for the receiver in this scenario: adult_education_center. Purpose: describe_an_experience. Constraint: state_the_main_point_first."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

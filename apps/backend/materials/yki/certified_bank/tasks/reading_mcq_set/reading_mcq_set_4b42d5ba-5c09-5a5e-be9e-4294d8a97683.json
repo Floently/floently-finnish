@@ -1,0 +1,77 @@
+{
+  "id": "4b42d5ba-5c09-5a5e-be9e-4294d8a97683",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin ilmoitus huoltoviikosta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Auroran uimahallissa tehdään vuosihuolto maanantaista torstaihin ensi viikolla. Tänä aikana iso allas on kokonaan suljettu, mutta lastenallas ja kuntosali ovat käytössä joka päivä kello 14-20. Perjantaina kaikki tilat avataan normaalisti kello 6.30. Aamun vesijumpparyhmät siirretään huoltoviikolla naapurihalliin, ja osallistujille lähetetään erillinen viesti ryhmän uudesta sisäänkäynnistä. Kausikortin haltijat voivat käyttää naapurihallia ilman lisämaksua, kun he näyttävät kortin kassalla. Kertamaksulla tuleville asiakkaille tarjotaan alennettu hinta, koska palvelu on rajoitettu. Huoltoviikon aikana suihkutiloissa on käytössä vain toinen pukuhuone, ja asiakkaita pyydetään varaamaan enemmän aikaa ennen vuoron alkua. Uimahalli toivoo, että asiakkaat seuraavat mahdollisia muutoksia verkkosivun etusivulta.",
+      "word_count": 93
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä tila on huoltoviikolla kokonaan suljettu?",
+        "options": [
+          "kuntosali",
+          "lastenallas",
+          "iso allas",
+          "kahvila"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin kaikki tilat avataan normaalisti?",
+        "options": [
+          "torstaina kello 20",
+          "perjantaina kello 6.30",
+          "lauantaina kello 8",
+          "maanantaina kello 14"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kausikortin haltija pääsee naapurihalliin?",
+        "options": [
+          "maksamalla uuden jäsenmaksun",
+          "näyttämällä kortin kassalla",
+          "varaamalla ajan puhelimella",
+          "ostamalla kertalipun verkosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi asiakkaita pyydetään varaamaan enemmän aikaa?",
+        "options": [
+          "pysäköinti on suljettu",
+          "kassa avautuu myöhään",
+          "vain toinen pukuhuone on käytössä",
+          "vesi on kylmempää"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

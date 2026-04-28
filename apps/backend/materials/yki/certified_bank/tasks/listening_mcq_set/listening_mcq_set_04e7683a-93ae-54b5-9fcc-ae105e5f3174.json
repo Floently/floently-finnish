@@ -1,0 +1,66 @@
+{
+  "id": "04e7683a-93ae-54b5-9fcc-ae105e5f3174",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, tarvitsisin apua puhelimen kanssa. Ostiin tämän uuden puhelimen viime viikolla, mutta se sammuilee itsestään.\nMyyjä: Voi harmi. Onko puhelin pudonnut tai kastunut?\nAsiakas: Ei, se on ollut aina suojakuoressa ja toimii muuten hyvin, mutta sammuu välillä ilman syytä.\nMyyjä: Ymmärrän. Onko teillä kuittia mukana?\nAsiakas: Kyllä, tässä on kuitti.\nMyyjä: Hyvä. Koska kyseessä on uusi puhelin, se kuuluu takuuseen. Vaihdetaan tämä uuteen samanlaiseen. Toimiiko se?\nAsiakas: Kyllä, se sopii hyvin. Kiitos avusta!",
+      "audio_asset_id": "2488f552-8144-59df-b36a-d630e2a93465"
+    },
+    "questions": [
+      {
+        "id": "list_022",
+        "prompt": "Mikä ongelma asiakkaan puhelimessa on?",
+        "options": [
+          "Se ei lataudu",
+          "Se sammuilee itsestään",
+          "Näyttö on rikki",
+          "Ääni ei toimi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_023",
+        "prompt": "Milloin asiakas osti puhelimen?",
+        "options": [
+          "Eilen",
+          "Viime viikolla",
+          "Viime kuussa",
+          "Pari päivää sitten"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_024",
+        "prompt": "Miten myyjä ratkaisee ongelman?",
+        "options": [
+          "Korjaa puhelimen",
+          "Vaihtaa uuteen",
+          "Palauttaa rahat",
+          "Lähettää huoltoon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

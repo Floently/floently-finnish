@@ -1,0 +1,88 @@
+{
+  "id": "58070209-8d9c-5715-a471-477d8ed8a0ce",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.678,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kauppakeskuksen kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät asiakkaat, tervetuloa kauppakeskus Plazaan. Muistutamme, että kauppakeskus on avoinna tänään kello 10-20. Löytötavarat voi toimittaa infopisteeseen. Hyvää ostospäivää!",
+      "audio_asset_id": "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a"
+    },
+    "questions": [
+      {
+        "id": "l205q1",
+        "prompt": "Mihin asti kauppakeskus on tänään auki?",
+        "options": [
+          "Kello 18.",
+          "Kello 19.",
+          "Kello 20.",
+          "Kello 21."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l205q2",
+        "prompt": "Minne löytötavarat voi toimittaa?",
+        "options": [
+          "Poliisille.",
+          "Infopisteeseen.",
+          "Lähimpään liikkeeseen.",
+          "Parkkihalliin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l205q3",
+        "prompt": "Mihin aikaan kauppakeskus aukeaa tänään?",
+        "options": [
+          "Kello 9.",
+          "Kello 10.",
+          "Kello 11.",
+          "Kello 12."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l205q4",
+        "prompt": "Mikä on kauppakeskuksen nimi?",
+        "options": [
+          "Forum.",
+          "Plaza.",
+          "Galleria.",
+          "Keskus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l205q5",
+        "prompt": "Mitä kuulutuksessa toivotetaan?",
+        "options": [
+          "Hyvää päivänjatkoa.",
+          "Hyvää ostospäivää.",
+          "Hyvää ruokahalua.",
+          "Hyvää matkaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

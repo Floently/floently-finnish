@@ -1,0 +1,99 @@
+{
+  "id": "b81e3fb5-b6a2-5ddf-bdef-8cb062a2353c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Keskustelu yläkoululaisten kännykän käytöstä koulupäivän aikana on vilkasta. Osa opettajista ja vanhemmista haluaisi kieltää puhelimet kokonaan koulupäivän ajaksi, koska ne häiritsevät oppitunteja ja vähentävät keskittymistä. Toiset taas katsovat, että puhelimet ovat osa nykyaikaa ja niitä pitäisi opetella käyttämään vastuullisesti. Osa kouluista on päätynyt keräämään puhelimet pois tunnin ajaksi.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä keskustelu on vilkasta?",
+        "options": [
+          "Kännyköiden hinnasta",
+          "Kännykän käytöstä koulupäivän aikana",
+          "Kännyköiden merkistä",
+          "Kännyköiden lataamisesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä osa opettajista ja vanhemmista haluaisi tehdä?",
+        "options": [
+          "Sallia puhelimet kaikilla tunneilla",
+          "Kieltää puhelimet kokonaan koulupäivän ajaksi",
+          "Hankkia uudet puhelimet kaikille",
+          "Kieltää puhelimet kokonaan kotonakin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi he haluaisivat kieltää puhelimet?",
+        "options": [
+          "Koska ne ovat kalliita",
+          "Koska ne häiritsevät oppitunteja ja vähentävät keskittymistä",
+          "Koska ne aiheuttavat kiusaamista",
+          "Koska lapset eivät osaa käyttää niitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä mieltä toiset ovat puhelimista?",
+        "options": [
+          "Ne pitäisi kieltää kokonaan",
+          "Ne ovat osa nykyaikaa ja niitä pitäisi opetella käyttämään vastuullisesti",
+          "Ne pitäisi sallia vain välitunneilla",
+          "Ne ovat turhia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin ratkaisuun osa kouluista on päätynyt?",
+        "options": [
+          "Puhelimet saa olla esillä koko ajan",
+          "Puhelimet kerätään pois tunnin ajaksi",
+          "Puhelimet takavarikoidaan pysyvästi",
+          "Puhelimien käyttö on täysin kielletty"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'vastuullisella käytöllä' tässä yhteydessä?",
+        "options": [
+          "Puhelimen käyttöä vain hätätapauksissa",
+          "Puhelimen käyttöä niin, ettei se häiritse opetusta",
+          "Puhelimen käyttöä jatkuvasti",
+          "Puhelimen käyttöä vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

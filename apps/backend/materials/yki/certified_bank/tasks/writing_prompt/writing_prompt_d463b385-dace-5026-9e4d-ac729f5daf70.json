@@ -1,0 +1,37 @@
+{
+  "id": "d463b385-dace-5026-9e4d-ac729f5daf70",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti harrastuskerhon vetäjälle.",
+    "materials": {
+      "scenario": "Ilmoittaudu mukaan toimintaan"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti harrastuskerhon vetäjälle."
+      }
+    ],
+    "rubric": "Olet kiinnostunut paikallisen harrastuskerhon toiminnasta. Kirjoita sähköposti kerhon vetäjälle ja kerro, että haluaisit tulla mukaan. Kysy, milloin he kokoontuvat ja mitä jäsenyys maksaa.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

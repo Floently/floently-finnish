@@ -1,0 +1,88 @@
+{
+  "id": "061aa899-e74f-597f-b069-deeb2f6a95c9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni kaupunkisuunnittelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunki ei ole koskaan valmis. Se elää, hengittää ja muuttuu asukkaidensa mukana. Tämä on sekä kauneus että kirous.\n\nKun suunnitellaan uutta asuinaluetta, puhutaan usein tehokkuudesta: saadaanko mahdollisimman paljon asuntoja mahdollisimman pienelle alueelle. Harvemmin puhutaan siitä, millaista elämää siellä oikeasti on. Tontit on merkitty karttaan, mutta kadut eivät kerro, tervehditkö naapureita vai käveletkö pää painuksissa ohi.\n\nKaupunkisuunnittelussa on pitkään ihannoitu niin sanottua urbaania tiiviyttä. Se tarkoittaa, että palvelut ovat lähellä ja julkinen liikenne toimii. Se on kannatettava ajatus. Mutta tiiviyteen liittyy myös väistämättä kompromisseja. Kun rakennetaan korkeaa ja tiivistä, piha-alueet jäävät pieniksi. Missä lapset leikkivät? Missä vanhukset istuvat penkillä ja seuraavat elämänmenoa?\n\nToisaalta harvaan rakennettu lähiö tuottaa toisenlaisia ongelmia. Omakotitaloalueella saatat asua vuosikymmenen tuntematta naapureitasi, koska etäisyydet ovat suuret ja kaikki kulkevat autolla. Yhteisöllisyyttä on vaikea rakentaa, jos kukaan ei kohtaa ketään.\n\nEhkä ratkaisu ei ole joko–tai, vaan monimuotoisuus. Kaupunki tarvitsee sekä tiiviitä keskustoja että väljyyttä, sekä isoja puistoja että pieniä pihoja. Tarvitaan alueita, jotka houkuttelevat erilaisia ihmisiä: nuoria, perheitä, vanhuksia, taiteilijoita, käsityöläisiä.\n\nLopulta kaupunki on kuitenkin aina keskeneräinen. Ja kai se on hyvä niin. Täydellinen kaupunki olisi kuin täydellinen ihminen – aika tylsä.",
+      "word_count": 183
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja tarkoittaa sanoessaan, että kaupunki 'ei ole koskaan valmis'?",
+        "options": [
+          "Kaupungit ovat huonosti suunniteltuja",
+          "Kaupungit muuttuvat jatkuvasti",
+          "Rakennusprojektit kestävät liian kauan",
+          "Kaupungit ovat aina keskeneräisiä huonon johtamisen takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirjoittaja pitää ongelmana urbaanissa tiiviydessä?",
+        "options": [
+          "Se on liian kallista",
+          "Piha-alueet ja kohtaamispaikat voivat jäädä liian pieniksi",
+          "Julkinen liikenne ei toimi",
+          "Asukkaat eivät halua asua tiiviisti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja ajattelee harvaan rakennetuista lähiöistä?",
+        "options": [
+          "Ne ovat ihanteellisia perheille",
+          "Ne voivat vähentää yhteisöllisyyttä",
+          "Ne ovat ainoa oikea ratkaisu",
+          "Ne ovat liian meluisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on kirjoittajan mielestä hyvä lähestymistapa kaupunkisuunnitteluun?",
+        "options": [
+          "Keskittyä vain tehokkuuteen",
+          "Rakentaa mahdollisimman harvaan",
+          "Suosia monimuotoisuutta ja erilaisia alueita",
+          "Rakentaa kaikki mahdollisimman tiiviiksi"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Julkisen liikenteen ongelmat",
+          "Asuntojen hintojen nousu",
+          "Tasapainon löytäminen tiiviyden ja väljyyden välillä",
+          "Puistojen merkitys kaupunkilaisille"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "772a4a7e-a88b-5b74-89c0-848ec1f97f21",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa siirtyä nelipäiväiseen kouluviikkoon?'. Analysoi oppimistuloksia, lasten hyvinvointia ja vanhempien työelämää.",
+    "materials": {
+      "scenario": "Nelipäiväinen kouluviikko"
+    },
+    "items": [
+      {
+        "id": "64ad9241-b9ed-574b-a073-46df7a95c004",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa siirtyä nelipäiväiseen kouluviikkoon?'. Analysoi oppimistuloksia, lasten hyvinvointia ja vanhempien työelämää."
+      }
+    ],
+    "rubric": "Oppimistulokset\nLasten hyvinvointi\nVanhempien työelämä\nKustannukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

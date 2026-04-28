@@ -1,0 +1,37 @@
+{
+  "id": "e9a06f69-e937-5d1b-b8bd-a7619889a210",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita ammattimainen sähköposti",
+    "materials": {
+      "scenario": "Pyyntö saada yritykseltä tietoa heidän johtamiskulttuuristaan"
+    },
+    "items": [
+      {
+        "id": "8b97ed22-16bc-5cde-814e-f43379ce0c9d",
+        "prompt": "Kirjoita ammattimainen sähköposti"
+      }
+    ],
+    "rubric": "Kirjoita ammattimainen sähköposti",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

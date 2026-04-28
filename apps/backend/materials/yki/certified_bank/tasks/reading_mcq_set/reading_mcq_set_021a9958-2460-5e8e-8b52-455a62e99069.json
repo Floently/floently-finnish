@@ -1,0 +1,110 @@
+{
+  "id": "021a9958-2460-5e8e-8b52-455a62e99069",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Tekoälyn nopea kehitys herättää laajaa keskustelua yhteiskunnassa. Samalla kun koneoppiminen ja automaatio luovat uusia mahdollisuuksia, ne synnyttävät myös eettisiä kysymyksiä. Keskeisiä huolenaiheita ovat tekoälyn läpinäkyvyys, vastuukysymykset ja mahdolliset vinoumat päätöksenteossa. Jos tekoälyjärjestelmä tekee virheen, kuka on vastuussa? Kehittäjä, käyttäjä vai itse järjestelmä? Entä jos tekoäly oppii vinoutuneesta datasta ja alkaa syrjiä tiettyjä ihmisryhmiä? Tällaiset kysymykset ovat erityisen tärkeitä, kun tekoälyä käytetään yhteiskunnallisesti merkittävissä päätöksissä, kuten työnhaussa, luoton myönnössä tai rikollisuuden ennaltaehkäisyssä. Asiantuntijat korostavat, että tarvitaan selkeitä eettisiä periaatteita ja lainsäädäntöä, joka pysyy teknologian kehityksen vauhdissa. Samalla on muistettava, että tekoäly on vain työkalu, jonka vaikutukset riippuvat siitä, miten sitä käytetään ja kenen toimesta. Tekoälyn kehitystä ei voi pysäyttää, mutta sitä voidaan ohjata. On tärkeää, että kehitys tapahtuu ihmislähtöisesti ja että tekoäly palvelee meitä kaikkia.",
+      "word_count": 124
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Tekoälyn tekniset ominaisuudet.",
+          "Tekoälyn herättämät eettiset kysymykset.",
+          "Tekoälyn taloudelliset vaikutukset.",
+          "Tekoälyn historia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mahdollisuuksia tekoäly tarjoaa?",
+        "options": [
+          "Työttömyyden poistamista.",
+          "Uusia mahdollisuuksia koneoppimisen ja automaation myötä.",
+          "Täydellistä objektiivisuutta.",
+          "Ihmisten korvaamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä huolenaiheita tekoälyyn liittyy?",
+        "options": [
+          "Laitteiston korkea hinta.",
+          "Läpinäkyvyys, vastuukysymykset ja vinoumat.",
+          "Energiankulutus.",
+          "Ohjelmointikielten monimutkaisuus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka on vastuussa tekoälyn tekemistä virheistä?",
+        "options": [
+          "Aina itse tekoälyjärjestelmä.",
+          "Kysymys on monimutkainen, eikä siihen ole yksinkertaista vastausta.",
+          "Vastuu on aina loppukäyttäjällä.",
+          "Vastuu on aina ohjelmistokehittäjällä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten vinoutunut data voi vaikuttaa tekoälyyn?",
+        "options": [
+          "Se hidastaa tekoälyn toimintaa.",
+          "Se voi johtaa tiettyjen ihmisryhmien syrjintään.",
+          "Se parantaa tekoälyn tarkkuutta.",
+          "Sillä ei ole mitään vaikutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Millä yhteiskunnan alueilla tekoälyn käyttö on erityisen merkittävää?",
+        "options": [
+          "Vain viihteessä.",
+          "Työnhaussa, luoton myönnössä ja rikollisuuden ennaltaehkäisyssä.",
+          "Vain tieteellisessä tutkimuksessa.",
+          "Vain liikenteen ohjauksessa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä asiantuntijat ehdottavat ratkaisuksi tekoälyn haasteisiin?",
+        "options": [
+          "Tekoälyn kehityksen pysäyttämistä.",
+          "Eettisiä periaatteita ja lainsäädäntöä.",
+          "Tekoälyn käytön rajoittamista.",
+          "Kaiken datan salaamista."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

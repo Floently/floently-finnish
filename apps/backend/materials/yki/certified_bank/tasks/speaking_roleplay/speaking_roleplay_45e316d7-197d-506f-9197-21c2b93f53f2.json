@@ -1,0 +1,40 @@
+{
+  "id": "45e316d7-197d-506f-9197-21c2b93f53f2",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.292,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you do at home in the evening: do you watch TV, read a book, cook.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "e4c1d302-80dd-5105-930c-de2159858b1a",
+        "ai_first_turn_fi": "Mitä sä teet yleensä illalla töiden jälkeen?"
+      }
+    ],
+    "rubric": "Tell what you do at home in the evening: do you watch TV, read a book, cook.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

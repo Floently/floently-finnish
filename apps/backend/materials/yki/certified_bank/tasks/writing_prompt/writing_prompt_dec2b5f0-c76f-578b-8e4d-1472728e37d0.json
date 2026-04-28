@@ -1,0 +1,37 @@
+{
+  "id": "dec2b5f0-c76f-578b-8e4d-1472728e37d0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti parturiin. Haluat varata ajan hiustenleikkuuseen. Kerro, että haluat ajan ensi viikolla iltapäivällä. Kysy, onko heillä vapaita aikoja ja paljonko hinnat ovat.",
+    "materials": {
+      "scenario": "Viesti parturiin ajanvarauksesta"
+    },
+    "items": [
+      {
+        "id": "ba665d19-028e-5993-9943-d6a0ce2c83ac",
+        "prompt": "Kirjoita lyhyt viesti parturiin. Haluat varata ajan hiustenleikkuuseen. Kerro, että haluat ajan ensi viikolla iltapäivällä. Kysy, onko heillä vapaita aikoja ja paljonko hinnat ovat."
+      }
+    ],
+    "rubric": "Kerro, että haluat varata ajan\nKerro, milloin haluaisit ajan\nKysy vapaita aikoja\nKysy hintaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

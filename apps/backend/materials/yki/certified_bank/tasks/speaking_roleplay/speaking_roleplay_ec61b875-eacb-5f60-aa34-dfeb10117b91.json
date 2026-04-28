@@ -1,0 +1,40 @@
+{
+  "id": "ec61b875-eacb-5f60-aa34-dfeb10117b91",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia haastavassa asiakaspalvelutilanteessa.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet asiakaspalvelupäällikkö, jolla on valtuudet tehdä poikkeuksellisia ratkaisuja.",
+        "partner": "Vihainen asiakas - turhautunut, kokenut huonoa palvelua, haluaa välittömän ratkaisun."
+      }
+    },
+    "items": [
+      {
+        "id": "srp23",
+        "ai_first_turn_fi": "Ymmärrän turhautumisenne. Olette puhuneet useiden henkilöiden kanssa ettekä ole saaneet apua. Haluan todella ratkaista tämän nyt."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia haastavassa asiakaspalvelutilanteessa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

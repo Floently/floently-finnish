@@ -1,0 +1,37 @@
+{
+  "id": "3c979369-1249-529a-909e-4e801048d821",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kirjastoon. Haluaisit ehdottaa, että kirjasto hankkisi tietyn kirjan kokoelmiinsa. Kerro, mikä kirja on kyseessä, miksi se olisi hyödyllinen ja kenelle se voisi olla tärkeä.",
+    "materials": {
+      "scenario": "Hankintaehdotus kirjastolle"
+    },
+    "items": [
+      {
+        "id": "d85a4494-fd1b-584b-89bd-7981d50972b5",
+        "prompt": "Kirjoita sähköposti kirjastoon. Haluaisit ehdottaa, että kirjasto hankkisi tietyn kirjan kokoelmiinsa. Kerro, mikä kirja on kyseessä, miksi se olisi hyödyllinen ja kenelle se voisi olla tärkeä."
+      }
+    ],
+    "rubric": "Kirjan tiedot\nPerustelut hankinnalle\nKohderyhmä",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "bef03e13-d326-5d7f-a863-e182a8b2ad03",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön varusmiespalveluksen sijasta ammattiarmeija?'. Arvioi turvallisuutta, kustannuksia ja kansalaisten velvollisuuksia.",
+    "materials": {
+      "scenario": "Ammattiarmeija vs. varusmiespalvelus"
+    },
+    "items": [
+      {
+        "id": "29b32c82-cf73-5f2e-87f9-347abcf7ba79",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön varusmiespalveluksen sijasta ammattiarmeija?'. Arvioi turvallisuutta, kustannuksia ja kansalaisten velvollisuuksia."
+      }
+    ],
+    "rubric": "Turvallisuus\nKustannukset\nKansalaisten velvollisuudet\nSodan ajan vahvuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

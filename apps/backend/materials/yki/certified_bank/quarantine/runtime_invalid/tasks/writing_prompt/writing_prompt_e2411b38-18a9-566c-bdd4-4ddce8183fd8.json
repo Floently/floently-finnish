@@ -1,0 +1,37 @@
+{
+  "id": "e2411b38-18a9-566c-bdd4-4ddce8183fd8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: sports_hall. Purpose: compare_options. Constraint: state_the_main_point_first.",
+    "materials": {
+      "scenario": "kielen oppimisesta sports hall"
+    },
+    "items": [
+      {
+        "id": "daef9821-c22f-5465-b6d0-e4f128bc5699",
+        "prompt": "Write for the receiver in this scenario: sports_hall. Purpose: compare_options. Constraint: state_the_main_point_first."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

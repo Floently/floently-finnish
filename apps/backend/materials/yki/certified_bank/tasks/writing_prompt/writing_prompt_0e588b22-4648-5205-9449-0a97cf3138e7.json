@@ -1,0 +1,37 @@
+{
+  "id": "0e588b22-4648-5205-9449-0a97cf3138e7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uudelle työkaverille.",
+    "materials": {
+      "scenario": "Tervetulotoivotus ja tapaamisehdotus"
+    },
+    "items": [
+      {
+        "id": "9eb2f375-88aa-5a75-9a65-1ce2e78065d2",
+        "prompt": "Työpaikallesi on tullut uusi työkaveri. Kirjoita sähköposti ja toivota hänet tervetulleeksi. Ehdota, että tapaatte lounaalla tai kahvilla, jotta voitte tutustua paremmin."
+      }
+    ],
+    "rubric": "Työpaikallesi on tullut uusi työkaveri. Kirjoita sähköposti ja toivota hänet tervetulleeksi. Ehdota, että tapaatte lounaalla tai kahvilla, jotta voitte tutustua paremmin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

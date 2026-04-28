@@ -1,0 +1,37 @@
+{
+  "id": "e6649d08-091b-5fd6-864a-911f76115e63",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan virkistyspäivästä. Kerro ohjelman onnistumisesta, ruokailusta ja yhteishengestä. Ehdota yhtä uutta aktiviteettia.",
+    "materials": {
+      "scenario": "Palaute työpaikan virkistyspäivästä"
+    },
+    "items": [
+      {
+        "id": "34d1b399-6f61-5d66-8f2a-7cc8ba971be8",
+        "prompt": "Kirjoita palauteteksti työpaikan virkistyspäivästä. Kerro ohjelman onnistumisesta, ruokailusta ja yhteishengestä. Ehdota yhtä uutta aktiviteettia."
+      }
+    ],
+    "rubric": "Ohjelman onnistuminen\nRuokailu\nYhteishenki\nUusi aktiviteetti",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

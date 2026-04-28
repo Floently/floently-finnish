@@ -1,0 +1,37 @@
+{
+  "id": "37abd3f0-2397-5ea7-99f4-2feb1da09b7c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin energianeuvonnasta. Arvioi neuvonnan hyödyllisyyttä, asiantuntemusta ja materiaaleja. Ehdota yhtä uutta neuvonta-aihetta.",
+    "materials": {
+      "scenario": "Palaute kaupungin energianeuvonnasta"
+    },
+    "items": [
+      {
+        "id": "91481155-aed2-5279-aad8-64d5387cdabb",
+        "prompt": "Kirjoita palauteteksti kaupungin energianeuvonnasta. Arvioi neuvonnan hyödyllisyyttä, asiantuntemusta ja materiaaleja. Ehdota yhtä uutta neuvonta-aihetta."
+      }
+    ],
+    "rubric": "Neuvonnan hyödyllisyys\nAsiantuntemus\nMateriaalit\nUusi neuvonta-aihe",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

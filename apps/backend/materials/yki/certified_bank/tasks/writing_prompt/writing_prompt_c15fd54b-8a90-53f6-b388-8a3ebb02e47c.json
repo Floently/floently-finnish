@@ -1,0 +1,37 @@
+{
+  "id": "c15fd54b-8a90-53f6-b388-8a3ebb02e47c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti sosiaali- ja terveysalan lupa- ja valvontaviraston ylitarkastajalle. Olet tehnyt kantelun terveyskeskuksen hoidosta, ja asian käsittely on kestänyt kohtuuttoman kauan. Kerro, milloin teit kantelun, mitä asia koski ja pyydä tietoa siitä, milloin käsittely etenee. Kysy myös, voitko tehdä jotain nopeuttaaksesi asian käsittelyä.",
+    "materials": {
+      "scenario": "Kantelun käsittelyn viivästyminen"
+    },
+    "items": [
+      {
+        "id": "ae47a756-69eb-5dec-b56e-6cc346cf5acb",
+        "prompt": "Kirjoita virallinen sähköposti sosiaali- ja terveysalan lupa- ja valvontaviraston ylitarkastajalle. Olet tehnyt kantelun terveyskeskuksen hoidosta, ja asian käsittely on kestänyt kohtuuttoman kauan. Kerro, milloin teit kantelun, mitä asia koski ja pyydä tietoa siitä, milloin käsittely etenee. Kysy myös, voitko tehdä jotain nopeuttaaksesi asian käsittelyä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

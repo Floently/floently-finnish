@@ -1,0 +1,88 @@
+{
+  "id": "8358a7d2-0286-5e94-b1ca-57d987ba1c0b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.682,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä on Oulun Energia. Soitamme koskien sähkösopimustanne. Teidän määräaikainen sopimuksenne päättyy kahden kuukauden kuluttua. Voitte uusia sopimuksen verkkosivuillamme tai soittamalla meille. Uudella sopimuksella saatte 10% alennusta ensimmäisen vuoden ajan. Kiitos, kun olette asiakkaamme!",
+      "audio_asset_id": "4c54d0fc-3e1b-4c8d-81cd-41e05f6236fc"
+    },
+    "questions": [
+      {
+        "id": "3299d096-42a7-5692-85f0-aa8db5492b9f",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Oulun Energia.",
+          "Helsingin Energia.",
+          "Tampereen Sähkö.",
+          "Vattenfall."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "98920c73-eb78-5c12-89b1-e35b0cb0b1d2",
+        "prompt": "Miksi he soittavat?",
+        "options": [
+          "Kertoakseen hinnankorotuksesta.",
+          "Koska määräaikainen sopimus on päättymässä.",
+          "Tarjotakseen uuden palvelun.",
+          "Muistuttaakseen maksusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2ee4553d-f763-5bd1-8da1-54cae4f7edf9",
+        "prompt": "Kuinka pian nykyinen sopimus päättyy?",
+        "options": [
+          "Kuukauden kuluttua.",
+          "Kolmen kuukauden kuluttua.",
+          "Puolen vuoden kuluttua.",
+          "Kahden kuukauden kuluttua."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "87e59c57-caf6-51b7-bb7b-969d94570288",
+        "prompt": "Paljonko alennusta uudella sopimuksella saa?",
+        "options": [
+          "5%.",
+          "15%.",
+          "10%.",
+          "20%."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e0af3f45-e9e4-53e6-965e-29e7612c1507",
+        "prompt": "Kuinka kauan alennus on voimassa?",
+        "options": [
+          "Ensimmäisen kuukauden ajan.",
+          "Ensimmäisen puolen vuoden ajan.",
+          "Koko sopimuskauden ajan.",
+          "Ensimmäisen vuoden ajan."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

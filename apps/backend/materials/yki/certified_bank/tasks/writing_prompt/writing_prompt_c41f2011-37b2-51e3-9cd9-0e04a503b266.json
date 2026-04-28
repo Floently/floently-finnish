@@ -1,0 +1,37 @@
+{
+  "id": "c41f2011-37b2-51e3-9cd9-0e04a503b266",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit sairaalan päivystyksessä. Kirjoita palaute. Arvioi odotusajan pituutta, hoitajien ammattitaitoa ja sitä, miten kipuusi suhtauduttiin.",
+    "materials": {
+      "scenario": "Palaute sairaalan päivystyksestä"
+    },
+    "items": [
+      {
+        "id": "eb6b1f6d-8898-5440-9f27-22e40331c295",
+        "prompt": "Kävit sairaalan päivystyksessä. Kirjoita palaute. Arvioi odotusajan pituutta, hoitajien ammattitaitoa ja sitä, miten kipuusi suhtauduttiin."
+      }
+    ],
+    "rubric": "Odotusajan pituus\nHoitajien ammattitaito\nKipuun suhtautuminen",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

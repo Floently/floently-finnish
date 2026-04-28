@@ -1,0 +1,37 @@
+{
+  "id": "45a6a364-1166-5c4e-8a21-d4fdbfadd176",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.363,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: municipal office. Purpose: give feedback. Constraint: use clear structure.",
+    "materials": {
+      "scenario": "culture in municipal_office"
+    },
+    "items": [
+      {
+        "id": "e8b1ba90-6dee-5590-88c4-529a9f7bf4f2",
+        "prompt": "Write for the receiver in this scenario: municipal office. Purpose: give feedback. Constraint: use clear structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

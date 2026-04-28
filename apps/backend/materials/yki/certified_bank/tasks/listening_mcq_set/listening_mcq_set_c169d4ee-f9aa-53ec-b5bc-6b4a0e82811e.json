@@ -1,0 +1,66 @@
+{
+  "id": "c169d4ee-f9aa-53ec-b5bc-6b4a0e82811e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työhaastattelun osa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Haastattelija: Kerro vähän itsestäsi.\nHakija: Olen 28-vuotias ja asun Turussa. Opiskelin ravintola-alaa ja valmistuin pari vuotta sitten. Olen työskennellyt kahdessa kahvilassa ja yhdessä ravintolassa. Pidän asiakaspalvelusta ja olen tottunut kiireeseen.\nHaastattelija: Millainen työntekijä olet?\nHakija: Olen ahkera ja täsmällinen. Tulen hyvin toimeen muiden kanssa.",
+      "audio_asset_id": "2f1bb990-7a5f-4b60-8da6-47722ea587db"
+    },
+    "questions": [
+      {
+        "id": "844ee0a9-4616-5dec-97e0-d336cd95b600",
+        "prompt": "Mitä alaa hakija opiskeli?",
+        "options": [
+          "Kauppatieteitä",
+          "Ravintola-alaa",
+          "Tietotekniikkaa",
+          "Hoitoalaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dae78825-9517-5d2f-b4ae-091e7f73f1ba",
+        "prompt": "Missä kaupungissa hakija asuu?",
+        "options": [
+          "Helsingissä",
+          "Turussa",
+          "Tampereella",
+          "Oulussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "df89b4a2-f1a1-5cf2-b042-c6b4e1462e7a",
+        "prompt": "Millainen työntekijä hakija on?",
+        "options": [
+          "Hidas ja huolellinen",
+          "Ahkera ja täsmällinen",
+          "Luova ja villi",
+          "Ujo ja hiljainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "7b23dbfa-1857-557f-aaeb-a826b0f359a8",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.291,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you have a pet or would like to have a pet.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "9fad6fd1-9769-564f-9da9-8a562ccb758c",
+        "ai_first_turn_fi": "Onko sulla lemmikkiä? Tykkäätkö eläimistä?"
+      }
+    ],
+    "rubric": "Tell if you have a pet or would like to have a pet.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

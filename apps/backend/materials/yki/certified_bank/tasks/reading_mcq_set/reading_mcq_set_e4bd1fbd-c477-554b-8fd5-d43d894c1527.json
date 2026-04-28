@@ -1,0 +1,66 @@
+{
+  "id": "e4bd1fbd-c477-554b-8fd5-d43d894c1527",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Onko sinulla kiinnostusta lähteä mukaan lenkkeilyyn? Käyn lenkillä yleensä tiistaisin ja torstaisin kello 18. Voit tulla mukaan!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_005_q1",
+        "prompt": "Mitä viestissä ehdotetaan?",
+        "options": [
+          "uimista",
+          "lenkkeilyä",
+          "pyöräilyä",
+          "kuntosalia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_005_q2",
+        "prompt": "Minä päivinä lähettäjä käy lenkillä?",
+        "options": [
+          "maanantaisin ja keskiviikkoisin",
+          "tiistaisin ja torstaisin",
+          "keskiviikkoisin ja perjantaisin",
+          "lauantaisin ja sunnuntaisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_005_q3",
+        "prompt": "Mihin aikaan lenkki on?",
+        "options": [
+          "kello 16",
+          "kello 17",
+          "kello 18",
+          "kello 19"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

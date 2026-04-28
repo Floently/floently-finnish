@@ -1,0 +1,66 @@
+{
+  "id": "0f66bbbe-cfe1-5114-9ab6-ea4f3f5c2865",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JYVÄSKYLÄN KAUPUNKI UUDISTAA JOUKKOLIIKENNETTÄ\n\nJyväskylän kaupunki uudistaa joukkoliikennettä ensi syksynä. Uudistuksen myötä bussilinjojen määrä vähenee 15:stä 12:een, mutta vuorotarjonta paranee vilkkaimmilla reiteillä. Kaupungin liikennesuunnittelija kertoo, että harvemmin kulkevat linjat yhdistetään, jotta pääreiteillä bussit kulkevat useammin. Tavoitteena on, että 80 prosenttia kaupunkilaisista asuu alle 400 metrin päässä pysäkistä, jolta pääsee vähintään puolen tunnin välein keskustaan. Muutos herättää kritiikkiä haja-asutusalueilla, missä bussit kulkevat jatkossa harvemmin. Kaupunki lupaa korvaavia palveluita, kuten kutsubusseja.",
+      "word_count": 69
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten bussilinjojen määrä muuttuu?",
+        "options": [
+          "Se kasvaa 12:sta 15:een",
+          "Se vähenee 15:stä 12:een",
+          "Se pysyy samana",
+          "Se vähenee 12:sta 10:een"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on uudistuksen tavoite?",
+        "options": [
+          "Säästää rahaa",
+          "Vähentää bussien määrää",
+          "Parantaa tarjontaa pääreiteillä",
+          "Lakkauttaa haja-asutusalueiden liikenne"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä mieltä haja-asutusalueiden asukkaat ovat muutoksesta?",
+        "options": [
+          "Iloisia, koska bussit kulkevat useammin",
+          "Huolissaan, koska palvelu heikkenee",
+          "Välinpitämättömiä",
+          "Innostuneita kutsubusseista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

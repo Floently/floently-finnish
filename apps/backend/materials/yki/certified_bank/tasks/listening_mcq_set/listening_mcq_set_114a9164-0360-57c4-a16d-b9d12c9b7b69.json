@@ -1,0 +1,77 @@
+{
+  "id": "114a9164-0360-57c4-a16d-b9d12c9b7b69",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu poliittisesta osallistumisesta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan poliittisesta osallistumisesta. Meillä on täällä kaksi asiantuntijaa: valtiotieteilijä Marika Lahti ja nuorisotutkija Juhani Mäkelä.\n\nMarika Lahti: Poliittinen osallistuminen on muuttunut. Perinteinen puoluejäsenyys ja äänestäminen ovat vähentyneet, erityisesti nuorten keskuudessa. Samalla uudet osallistumisen muodot, kuten kansalaisaloitteet, mielenosoitukset ja some-aktivismi, ovat yleistyneet.\n\nJuhani Mäkelä: Tämä on totta. Nuoret eivät välttämättä koe, että perinteinen politiikka puhuttelee heitä. He kokevat, että heidän äänellään ei ole merkitystä. Sen sijaan he vaikuttavat kulutusvalinnoilla, osallistumalla mielenosoituksiin tai jakamalla some-kampanjoita.\n\nMarika Lahti: Tämä on sekä mahdollisuus että haaste. Mahdollisuus siksi, että uudet muodot voivat tavoittaa niitä, jotka eivät muuten osallistuisi. Haaste siksi, että ne eivät korvaa demokraattista päätöksentekoa. Mielenosoitus ei tee lakia, ja some-kampanja voi olla lyhytikäinen.\n\nJuhani Mäkelä: Tarvitaan molempia. Perinteisiä osallistumismuotoja pitää uudistaa niin, että ne puhuttelevat nuoria. Samalla on tunnustettava uudet tavat vaikuttaa. Tärkeintä on, että ihmiset kokevat voivansa vaikuttaa.\n\nMarika Lahti: Koululla on tässä tärkeä rooli. Koulussa pitäisi opettaa paitsi perinteistä politiikkaa, myös uusia vaikuttamisen keinoja. Oppilaiden pitäisi päästä kokeilemaan, miltä tuntuu vaikuttaa.\n\nJuhani Mäkelä: Myös some-alustoilla on vastuu. Ne voivat madaltaa kynnystä osallistua, mutta ne voivat myös levittää disinformaatiota ja vihapuhetta. Tarvitaan sääntelyä ja valvontaa.\n\nMarika Lahti: Lopuksi on muistettava, että demokratia ei toimi ilman osallistujia. Siksi meidän kaikkien on mietittävä, miten saamme ihmiset kiinnostumaan ja osallistumaan. Se on demokratian elinehto.\n\nJuhani Mäkelä: Ja se on myös meidän kaikkien vastuu.",
+      "audio_asset_id": "d8078b04-b251-58d6-aa42-0b3eb442ac5a"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_014_q1",
+        "prompt": "Miten poliittinen osallistuminen on muuttunut Marika Lahden mukaan?",
+        "options": [
+          "kaikki äänestävät enemmän",
+          "perinteinen osallistuminen on vähentynyt, uudet muodot, kuten kansalaisaloitteet ja some-aktivismi, ovat yleistyneet",
+          "mikään ei ole muuttunut",
+          "nuoret osallistuvat enemmän puolueisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_014_q2",
+        "prompt": "Miksi nuoret eivät välttämättä osallistu perinteiseen politiikkaan?",
+        "options": [
+          "he eivät saa äänestää",
+          "he kokevat, ettei heidän äänellään ole merkitystä",
+          "he ovat laiskoja",
+          "he eivät tiedä politiikasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_014_q3",
+        "prompt": "Mitä haasteita uusissa osallistumisen muodoissa on?",
+        "options": [
+          "ne ovat liian tehokkaita",
+          "ne eivät korvaa demokraattista päätöksentekoa",
+          "ne ovat laittomia",
+          "ne ovat liian vanhanaikaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_014_q4",
+        "prompt": "Mitä ratkaisuja keskustelussa ehdotetaan?",
+        "options": [
+          "palataan vanhaan",
+          "uudistetaan perinteisiä muotoja ja tunnustetaan uudet tavat, koululla tärkeä rooli",
+          "kielletään uudet muodot",
+          "vain some-aktivismi riittää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

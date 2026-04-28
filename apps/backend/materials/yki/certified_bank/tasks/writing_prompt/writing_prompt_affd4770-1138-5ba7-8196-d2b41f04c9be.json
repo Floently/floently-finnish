@@ -1,0 +1,37 @@
+{
+  "id": "affd4770-1138-5ba7-8196-d2b41f04c9be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt teksti siitä, millainen on tavallinen päiväsi. Mitä teet aamulla, päivällä ja illalla?",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "c101be6e-da48-5c83-bd9e-91a2ac6b98e2",
+        "prompt": "Kirjoita lyhyt teksti siitä, millainen on tavallinen päiväsi. Mitä teet aamulla, päivällä ja illalla?"
+      }
+    ],
+    "rubric": "Kirjoita lyhyt teksti siitä, millainen on tavallinen päiväsi. Mitä teet aamulla, päivällä ja illalla?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

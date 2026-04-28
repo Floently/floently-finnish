@@ -1,0 +1,77 @@
+{
+  "id": "49e79452-81ff-5f6a-82f7-55b6e6442e6b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Luontokeskuksen johtaja kertoo, että uusi näyttely rakennettiin ilman kertakäyttöisiä rakenteita. Ratkaisu nosti alkuinvestointia, mutta huolto- ja vaihtokustannusten arvioidaan pienenevän pitkällä aikavälillä. Johtajan mukaan tärkein tavoite oli tehdä ympäristöviestistä uskottava myös käytännön tasolla.",
+      "audio_asset_id": "9f002ffa-5555-52e2-8355-9b6fb09f6a96"
+    },
+    "questions": [
+      {
+        "id": "l1",
+        "prompt": "Mitä näyttelyssä vältettiin?",
+        "options": [
+          "digitaalisuutta",
+          "kertakäyttöisiä rakenteita",
+          "opastusta",
+          "valoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l2",
+        "prompt": "Miten alkuinvestointi muuttui?",
+        "options": [
+          "laski",
+          "pysyi samana",
+          "nousi",
+          "poistui"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l3",
+        "prompt": "Mikä pienenee pitkällä aikavälillä?",
+        "options": [
+          "henkilöstö",
+          "huolto- ja vaihtokustannukset",
+          "kävijämäärä",
+          "aukiolo"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l4",
+        "prompt": "Mikä oli tärkein tavoite?",
+        "options": [
+          "halvat liput",
+          "nopea rakentaminen",
+          "ympäristöviestin uskottavuus käytännössä",
+          "enemmän kahvioita"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

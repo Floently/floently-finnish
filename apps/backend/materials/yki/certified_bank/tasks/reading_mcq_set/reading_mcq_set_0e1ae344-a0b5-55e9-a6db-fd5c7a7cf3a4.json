@@ -1,0 +1,88 @@
+{
+  "id": "0e1ae344-a0b5-55e9-a6db-fd5c7a7cf3a4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni kaupunkikeskustan autottomuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PITÄISIKÖ KAUPUNKIKESKUSTAT MUUTTAA AUTOTTOMIKSI?\n\nEuroopan monissa kaupungeissa keskustat on muutettu autottomiksi tai vähäautoiksi. Madrid, Pariisi ja Oslo ovat esimerkkejä. Suomessakin keskustellaan asiasta. Mitä hyötyä ja haittaa autottomuudesta olisi?\n\nKannattajat korostavat viihtyisyyttä. Kun autot eivät melua ja saastuta, ihmiset viipyvät pidempään. Kaupat ja ravintolat hyötyvät, kun ihmiset kävelevät ja kuluttavat. Myös turvallisuus paranee, kun ei ole autoja.\n\nYmpäristönäkökulma on tärkeä. Autot aiheuttavat päästöjä ja melua. Vähäautoinen keskusta vähentää niitä. Lisäksi tilaa vapautuu pyöräteille, puistoille ja terasseille.\n\nVastustajat muistuttavat, että auto on monille välttämättömyys. Iäkkäät, liikuntarajoitteiset ja perheet tarvitsevat auton. Heille julkinen liikenne ei aina toimi. Myös keskustassa työskentelevät tarvitsevat pysäköintiä.\n\nToinen ongelma on kaupan saavutettavuus. Jos asiakkaat eivät pääse autolla kauppaan, he saattavat siirtyä kauppakeskuksiin. Tämä voi vähentää keskustan elinvoimaa.\n\nKompromissi voisi olla vähäautoinen keskusta. Asukaspysäköinti säilytetään, mutta läpiajo kielletään. Myös joukkoliikennettä ja pyöräilyä parannetaan. Tällöin hyödyt saavutetaan, mutta haittoja vähennetään.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan",
+      "word_count": 180
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä autottomuudesta on kannattajien mukaan?",
+        "options": [
+          "Lisää parkkipaikkoja",
+          "Viihtyisyyttä, vähemmän melua ja turvallisuutta",
+          "Halvempia hintoja",
+          "Nopeampaa liikennettä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi autottomuus voi olla ongelma iäkkäille?",
+        "options": [
+          "He eivät pidä kävelystä",
+          "He saattavat tarvita autoa",
+          "Heillä on paljon vapaa-aikaa",
+          "He eivät käytä julkista liikennettä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ympäristöhyötyjä autottomuudella on?",
+        "options": [
+          "Vähemmän roskia",
+          "Vähemmän päästöjä ja melua",
+          "Lisää viheralueita",
+          "Parempi ilmanlaatu"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on ongelma kaupan kannalta?",
+        "options": [
+          "Asiakkaat eivät pääse autolla kauppaan",
+          "Kaupat joutuvat maksamaan enemmän",
+          "Kaupat eivät saa tavaraa",
+          "Asiakkaat eivät halua kävellä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kompromissia kirjoittaja ehdottaa?",
+        "options": [
+          "Täysin autoton keskusta",
+          "Vähäautoinen keskusta, jossa asukaspysäköinti säilyy",
+          "Vain sähköautot sallitaan",
+          "Autot kielletään vain viikonloppuisin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

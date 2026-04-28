@@ -1,0 +1,37 @@
+{
+  "id": "90abd138-f97f-55af-9a8d-66ea87859889",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin ilmastokumppanuusohjelmasta. Arvioi yritysten osallistumista, tavoitteiden saavuttamista ja viestintää. Ehdota yhtä uutta toimenpidettä.",
+    "materials": {
+      "scenario": "Palaute kaupungin ilmastokumppanuusohjelmasta"
+    },
+    "items": [
+      {
+        "id": "4cb7d680-fcaf-5206-9d2e-4bef4daddc43",
+        "prompt": "Kirjoita palauteteksti kaupungin ilmastokumppanuusohjelmasta. Arvioi yritysten osallistumista, tavoitteiden saavuttamista ja viestintää. Ehdota yhtä uutta toimenpidettä."
+      }
+    ],
+    "rubric": "Yritysten osallistuminen\nTavoitteiden saavuttaminen\nViestintä\nUusi toimenpide",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

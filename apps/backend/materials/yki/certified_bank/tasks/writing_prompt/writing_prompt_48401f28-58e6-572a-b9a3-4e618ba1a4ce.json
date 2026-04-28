@@ -1,0 +1,37 @@
+{
+  "id": "48401f28-58e6-572a-b9a3-4e618ba1a4ce",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt jalkahoidossa. Kirjoita palaute. Kerro, auttoiko hoito jalkavaivaan ja oliko hoitaja ammattitaitoinen.",
+    "materials": {
+      "scenario": "Palaute jalkahoidosta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt jalkahoidossa. Kirjoita palaute. Kerro, auttoiko hoito jalkavaivaan ja oliko hoitaja ammattitaitoinen."
+      }
+    ],
+    "rubric": "Olet käynyt jalkahoidossa. Kirjoita palaute. Kerro, auttoiko hoito jalkavaivaan ja oliko hoitaja ammattitaitoinen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

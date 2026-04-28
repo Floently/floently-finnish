@@ -1,0 +1,37 @@
+{
+  "id": "ce0cfdde-0aff-5372-bf20-d50125d03ce8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa, että uimahallissa olisi enemmän aikuisten uimaopetusta. Kerro, miksi se olisi tarpeen ja millaisia kursseja toivoisit.",
+    "materials": {
+      "scenario": "Ehdotus aikuisten uimaopetuksesta"
+    },
+    "items": [
+      {
+        "id": "2072d112-79be-5306-ba5a-763c058878a5",
+        "prompt": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa, että uimahallissa olisi enemmän aikuisten uimaopetusta. Kerro, miksi se olisi tarpeen ja millaisia kursseja toivoisit."
+      }
+    ],
+    "rubric": "Tarpeen kuvaus\nEhdotus kursseista\nPerustelut",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

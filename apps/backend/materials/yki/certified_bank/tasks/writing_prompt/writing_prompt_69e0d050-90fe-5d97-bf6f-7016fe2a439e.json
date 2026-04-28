@@ -1,0 +1,37 @@
+{
+  "id": "69e0d050-90fe-5d97-bf6f-7016fe2a439e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä maksuttomia urheilumahdollisuuksia aikuisille?'. Analysoi terveysvaikutuksia, yhteisöllisyyttä ja kustannuksia.",
+    "materials": {
+      "scenario": "Maksuttomat urheilumahdollisuudet aikuisille"
+    },
+    "items": [
+      {
+        "id": "ac76a46c-d85f-52d5-ba55-ade8902195f3",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä maksuttomia urheilumahdollisuuksia aikuisille?'. Analysoi terveysvaikutuksia, yhteisöllisyyttä ja kustannuksia."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nYhteisöllisyys\nKustannukset\nKansanterveys",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

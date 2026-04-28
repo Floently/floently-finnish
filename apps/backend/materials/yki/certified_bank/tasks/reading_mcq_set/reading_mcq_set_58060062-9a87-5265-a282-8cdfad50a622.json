@@ -1,0 +1,77 @@
+{
+  "id": "58060062-9a87-5265-a282-8cdfad50a622",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Tekoälyn kehitys on nopeaa, ja sen vaikutukset yhteiskuntaan ovat moninaiset. Tekoälyä käytetään jo nyt monilla aloilla, kuten terveydenhuollossa, liikenteessä, teollisuudessa ja viestinnässä. Se voi parantaa tehokkuutta, tarkkuutta ja turvallisuutta. Tekoälyn kehitys herättää myös kysymyksiä työllisyydestä, osaamisvaatimuksista, yksityisyydestä, etiikasta ja vallasta. On ennustettu, että tekoäly tulee muuttamaan työmarkkinoita merkittävästi: osa työpaikoista katoaa, uusia syntyy, ja työn sisältö muuttuu. Tekoälyn kehityksen suuntaa voidaan ohjata poliittisilla päätöksillä ja sääntelyllä. Tavoitteena on, että tekoäly palvelee ihmistä ja yhteiskunnan hyvinvointia, ei päinvastoin.",
+      "word_count": 77
+    },
+    "questions": [
+      {
+        "id": "mcq_376",
+        "prompt": "Millä aloilla tekoälyä käytetään jo nyt?",
+        "options": [
+          "Vain terveydenhuollossa",
+          "Vain liikenteessä",
+          "Monilla aloilla: terveydenhuollossa, liikenteessä, teollisuudessa ja viestinnässä",
+          "Vain teollisuudessa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_377",
+        "prompt": "Mitä hyötyjä tekoälyllä voi olla?",
+        "options": [
+          "Tehokkuuden heikkenemistä",
+          "Tehokkuuden, tarkkuuden ja turvallisuuden paranemista",
+          "Tarkkuuden heikkenemistä",
+          "Turvallisuuden heikkenemistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_378",
+        "prompt": "Mitä kysymyksiä tekoälyn kehitys herättää?",
+        "options": [
+          "Vain teknisiä kysymyksiä",
+          "Kysymyksiä työllisyydestä, osaamisvaatimuksista, yksityisyydestä ja etiikasta",
+          "Vain taloudellisia kysymyksiä",
+          "Vain poliittisia kysymyksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_379",
+        "prompt": "Miten tekoälyn kehityksen suuntaa voidaan ohjata?",
+        "options": [
+          "Sitä ei voida ohjata",
+          "Poliittisilla päätöksillä ja sääntelyllä",
+          "Vain yritysten päätöksillä",
+          "Vain kansalaisten valinnoilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "a543700e-2ce3-5564-9e05-2c8c3e99b985",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.752,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Suomen väestönkehityksessä on nähtävissä selvä kahtiajako. Kasvukeskuksissa, erityisesti pääkaupunkiseudulla, Tampereella, Turussa ja Oulussa, väestö kasvaa, kun taas suuressa osassa maaseutua ja pieniä kaupunkeja väestö vähenee. Tämä kehitys johtuu muuttoliikkeestä, jossa nuoret ja koulutetut hakeutuvat opiskelun ja työn perässä kasvukeskuksiin. Väestön väheneminen ja ikääntyminen heikentävät palveluiden ja elinkeinoelämän edellytyksiä monilla alueilla, mikä voi johtaa alueellisen eriarvoisuuden kasvuun. Aluepolitiikassa pyritään vaikuttamaan tähän kehitykseen esimerkiksi tukemalla maaseudun elinkeinoja, parantamalla liikenneyhteyksiä ja kehittämällä etäpalveluita. Keskustelua käydään myös siitä, pitäisikö muuttoliikettä ohjata vai sopeutua sen seurauksiin.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "mcq_295",
+        "prompt": "Missä väestö kasvaa Suomessa?",
+        "options": [
+          "Maaseudulla",
+          "Pienissä kaupungeissa",
+          "Kasvukeskuksissa",
+          "Lapissa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_296",
+        "prompt": "Mikä on keskeinen syy väestön keskittymiseen kasvukeskuksiin?",
+        "options": [
+          "Ikääntyneiden muutto",
+          "Nuorten ja koulutettujen hakeutuminen opiskelun ja työn perässä",
+          "Ulkomaalaisten sijoittuminen",
+          "Luonnonolot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_297",
+        "prompt": "Mitä väestön väheneminen aiheuttaa maaseudulla?",
+        "options": [
+          "Palveluiden ja elinkeinoelämän edellytysten vahvistumista",
+          "Palveluiden ja elinkeinoelämän edellytysten heikkenemistä",
+          "Nuorten määrän kasvua",
+          "Syntyvyyden nousua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_298",
+        "prompt": "Miten aluepolitiikassa pyritään vaikuttamaan väestönkehitykseen?",
+        "options": [
+          "Vähentämällä liikenneyhteyksiä",
+          "Tukemalla maaseudun elinkeinoja, parantamalla liikenneyhteyksiä ja kehittämällä etäpalveluita",
+          "Kannustamalla muuttoa kasvukeskuksiin",
+          "Vähentämällä etäpalveluita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

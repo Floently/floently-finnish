@@ -1,0 +1,66 @@
+{
+  "id": "8b0cf333-6649-55ee-9c4f-2d6bdc9522b9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PITÄISIKÖ KOULUJEN ALOITTAA MYÖHEMMIN?\n\nOlen lukiolainen, ja minua väsyttää joka aamu. Koulu alkaa kahdeksalta, mutta minun on vaikea nukahtaa ennen yhtätoista. Monella muullakin nuorella on sama ongelma. Tutkimukset osoittavat, että nuorten unirytmi on erilainen kuin aikuisten. Nuoret nukahtavat myöhemmin ja tarvitsevat aamulla enemmän unta.\n\nSiksi ehdotan, että koulut alkaisivat vasta yhdeksältä tai jopa kymmeneltä. Monissa maissa koulut aloittavat myöhemmin, ja tulokset ovat olleet hyviä. Oppilaat ovat virkeämpiä, oppivat paremmin ja kokevat vähemmän stressiä.\n\nVastustajat sanovat, että myöhempi aloitus vaikeuttaa vanhempien työaikojen yhteensovittamista. Se on totta, mutta tähänkin on ratkaisuja. Koulut voisivat järjestää aamu- ja iltapäivätoimintaa niille, jotka tarvitsevat hoitoa. Uskon, että hyvinvoivat nuoret ovat tärkeämpiä kuin pieni hankaluus aikatauluissa.\n\nToivon, että koulut ja päättäjät ottavat tämän asian vakavasti. Nuorten jaksaminen on tulevaisuuden kysymys.",
+      "word_count": 123
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä ongelmaa kirjoittaja kuvaa?",
+        "options": [
+          "Kouluruoka on huonoa",
+          "Nuoret ovat väsyneitä aamuisin, koska koulu alkaa liian aikaisin",
+          "Opettajat ovat liian vaativia",
+          "Läksyjä on liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tutkimukset kertovat nuorten unirytmistä?",
+        "options": [
+          "Nuoret nukahtavat aikaisemmin kuin aikuiset",
+          "Nuorten unirytmi on erilainen kuin aikuisten – he nukahtavat myöhemmin",
+          "Nuoret tarvitsevat vähemmän unta",
+          "Nuoret nukkuvat paremmin kuin aikuiset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vastustajat pelkäävät?",
+        "options": [
+          "Oppilaat eivät opi mitään",
+          "Myöhempi aloitus vaikeuttaa vanhempien työaikojen yhteensovittamista",
+          "Opettajat eivät ehdi opettaa kaikkea",
+          "Koulupäivät venyvät liian pitkiksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

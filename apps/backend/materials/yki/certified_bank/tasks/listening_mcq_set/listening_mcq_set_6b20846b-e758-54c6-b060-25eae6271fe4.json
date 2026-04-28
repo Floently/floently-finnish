@@ -1,0 +1,66 @@
+{
+  "id": "6b20846b-e758-54c6-b060-25eae6271fe4",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuntokeskuksen ohjeet uudelle asiakkaalle ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa uudeksi jäseneksi Kuntokeskus Fressiin! Tässä muutama tärkeä ohje aloittelevalle kuntoilijalle.\n\nEnsinnäkin, muista aloittaa rauhallisesti. Moni innostuu liikaa ja tekee liian kovia treenejä heti alussa, mikä johtaa helposti loukkaantumisiin tai motivaation laskuun. Lihasten tarvitsee aikaa tottua rasitukseen.\n\nToiseksi, lämmittele aina ennen treeniä. Kevyt kävely, soutu tai pyöräily 5–10 minuuttia riittää. Se valmistaa lihakset ja sydämen tulevaan rasitukseen.\n\nKolmanneksi, venyttele treenin jälkeen. Se auttaa palautumisessa ja vähentää lihasjumeja. Pidä venytykset rauhallisina ja hengitä syvään.\n\nNeljänneksi, juo vettä ennen treeniä, sen aikana ja jälkeen. Nesteytys on tärkeää suorituskyvyn ja palautumisen kannalta.\n\nViidenneksi, pidä lepopäiviä. Lihakset kasvavat levossa, ei treenatessa. Kaksi tai kolme kertaa viikossa on hyvä aloitus. Kuuntele omaa kehoasi – jos jokin tuntuu väärältä, lopeta tai vähennä tehoa.\n\nJos tarvitset apua laitteiden käytössä, meillä on ohjaajia paikalla arkisin kello 12–19 ja viikonloppuisin kello 10–14. He auttavat mielellään.",
+      "audio_asset_id": "05d4bbdc-5262-4f0e-b95c-8ae53943c94c"
+    },
+    "questions": [
+      {
+        "id": "cd5fe37f-fbaf-56fb-b9a6-41c0028d2640",
+        "prompt": "Mitä moni aloittelija tekee väärin?",
+        "options": [
+          "Liian kevyitä treenejä",
+          "Liian kovia treenejä heti alussa",
+          "Eivät syö tarpeeksi",
+          "Nukkuvat liian vähän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3dfd6a35-38a8-53cf-9620-b078f7c44b5f",
+        "prompt": "Miksi lepopäivät ovat tärkeitä?",
+        "options": [
+          "Koska lihakset kasvavat levossa",
+          "Koska treenaaminen on kallista",
+          "Koska on kiva olla tekemättä mitään",
+          "Koska sää voi olla huono"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "140a080b-b2d4-5498-bc3e-8c80d7be727b",
+        "prompt": "Milloin ohjaajat ovat paikalla?",
+        "options": [
+          "Arkisin klo 10–16",
+          "Arkisin klo 12–19 ja viikonloppuisin klo 10–14",
+          "Joka päivä klo 8–20",
+          "Vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

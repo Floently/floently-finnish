@@ -1,0 +1,66 @@
+{
+  "id": "fa0ff386-da9c-5784-9f12-f9bb894aeebd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tekoälyn nopea kehitys on nostanut esiin monia eettisiä kysymyksiä, jotka vaativat yhteiskunnallista keskustelua ja sääntelyä. Yksi keskeisimmistä huolenaiheista on tekoälyn läpinäkyvyys: miten voimme varmistaa, että tekoälyjärjestelmien päätökset ovat ymmärrettäviä ja perusteltuja? Erityisen tärkeää tämä on aloilla, joilla tekoäly vaikuttaa ihmisten elämään merkittävästi, kuten terveydenhuollossa, lainkäytössä ja rekrytoinnissa. Toinen merkittävä kysymys on tekoälyn mahdolliset vinoumat. Jos tekoälyä opetetaan historiallisella datalla, joka sisältää syrjiviä rakenteita, se voi oppia ja jopa vahvistaa näitä vinoumia. Tämä voi johtaa epäoikeudenmukaisiin lopputuloksiin esimerkiksi vähemmistöryhmiä kohtaan. Kolmas keskeinen teema on vastuukysymykset: kuka on vastuussa, kun tekoäly tekee virheen? Onko se kehittäjä, käyttäjä vai tekoäly itse? Lisäksi yksityisyyden suoja on uhattuna, kun tekoälyjärjestelmät keräävät ja analysoivat valtavia määriä henkilötietoja. EU on pyrkinyt vastaamaan näihin haasteisiin tekoälysäädöksellä, joka luokittelee tekoälyjärjestelmät riskiperusteisesti ja asettaa tiukempia vaatimuksia korkean riskin sovelluksille. Teknologian etiikka ei ole vain tekninen kysymys, vaan se koskettaa perustavia arvojamme ja käsitystämme oikeudenmukaisesta yhteiskunnasta.",
+      "word_count": 145
+    },
+    "questions": [
+      {
+        "id": "f5a6b7c8-d9e0-4f1a-9b2c-3d4e5f6a7b8c",
+        "prompt": "Mitä tarkoitetaan tekoälyn läpinäkyvyydellä?",
+        "options": [
+          "Tekoälyn nopeutta",
+          "Sitä, että tekoälyjärjestelmien päätökset ovat ymmärrettäviä ja perusteltuja",
+          "Tekoälyn kykyä oppia uutta",
+          "Tekoälyn fyysistä rakennetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a6b7c8d9-e0f1-4a2b-9c3d-4e5f6a7b8c9d",
+        "prompt": "Miten tekoälyn vinoumat voivat syntyä?",
+        "options": [
+          "Tekoälyn liiallisesta oppimisesta",
+          "Jos tekoälyä opetetaan datalla, joka sisältää syrjiviä rakenteita",
+          "Tekoälyn liian pienestä datamäärästä",
+          "Tekoälyn fyysisistä vioista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Miten EU on pyrkinyt vastaamaan tekoälyn eettisiin haasteisiin?",
+        "options": [
+          "Kieltämällä tekoälyn kokonaan",
+          "Tekoälysäädöksellä, joka luokittelee järjestelmät riskiperusteisesti",
+          "Vain vapaaehtoisilla ohjeilla",
+          "Rajoittamalla tekoälyn kehitystä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

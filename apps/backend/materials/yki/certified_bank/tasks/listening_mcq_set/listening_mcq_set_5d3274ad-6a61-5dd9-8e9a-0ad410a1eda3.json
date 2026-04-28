@@ -1,0 +1,77 @@
+{
+  "id": "5d3274ad-6a61-5dd9-8e9a-0ad410a1eda3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele lentokentän kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Huomio, Finnairin lento AY432 Tukholmaan aloittaa nousun portilta 23. Lennon viimeinen kutsu. Matkustajia pyydetään siirtymään välittömästi portille. Lento lähtee kello 14.30. Matkatavaroita ei enää oteta kyytiin. Seuraava lento Tukholmaan lähtee kello 17.15. Myös lento AY531 Ouluun on myöhässä noin 20 minuuttia teknisten ongelmien vuoksi. Pahoittelemme viivästyksiä.",
+      "audio_asset_id": "15054c6c-e6a3-4575-949f-6d64e1906891"
+    },
+    "questions": [
+      {
+        "id": "18cb8547-908a-58b4-8f6a-923648d380c4",
+        "prompt": "Mikä lento on viimeistä kutsuttu?",
+        "options": [
+          "AY531 Ouluun",
+          "AY432 Tukholmaan",
+          "AY533 Tukholmaan",
+          "AY430 Pariisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "44b47ee5-3e7a-5515-9776-0d9f2227e050",
+        "prompt": "Miltä portilta lento lähtee?",
+        "options": [
+          "portti 21",
+          "portti 22",
+          "portti 23",
+          "portti 24"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "61c5ff9f-49eb-53df-910c-aec917605e59",
+        "prompt": "Mitä lentoa myöhästyy?",
+        "options": [
+          "Tukholman lento",
+          "Oulun lento",
+          "Helsingin lento",
+          "Turun lento"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ef36e8a2-2b57-5ae3-af1b-4a4770ec2b9f",
+        "prompt": "Miksi Oulun lento on myöhässä?",
+        "options": [
+          "sään takia",
+          "teknisten ongelmien vuoksi",
+          "henkilökunnan puutteen takia",
+          "ruuhkan takia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

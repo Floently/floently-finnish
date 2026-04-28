@@ -1,0 +1,73 @@
+{
+  "id": "e329bb0c-165c-5449-9ce5-80039145de56",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti tekoälyn etiikasta terveydenhuollossa ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Tekoäly mullistaa terveydenhuoltoa. Se pystyy analysoimaan kuvia, diagnosoimaan sairauksia ja ennustamaan potilaiden riskiä. Samalla se herättää syviä eettisiä kysymyksiä, joihin meillä ei vielä ole vastauksia.\n\nYksi keskeisimmistä kysymyksistä on vastuu. Jos tekoäly tekee virheen ja potilas kärsii, kuka on vastuussa? Lääkäri, joka käytti tekoälyä? Ohjelmoija, joka kehitti sen? Sairaala, joka otti sen käyttöön? Lainsäädäntö on tässä suhteessa pahasti jäljessä.\n\nToinen tärkeä kysymys on läpinäkyvyys. Monet tekoälyjärjestelmät ovat niin monimutkaisia, että edes niiden kehittäjät eivät täysin ymmärrä, miten ne päätyvät tiettyihin diagnooseihin. Tämä on ongelmallista, koska potilaalla on oikeus tietää, mihin hoitopäätökset perustuvat.\n\nKolmas kysymys on vinoumat. Tekoäly oppii datasta, ja jos data on vinoutunutta, tekoäly toistaa vinoumia. Jos tekoälyä on koulutettu pääosin valkoisilla miehillä, se ei välttämättä tunnista sairauksia yhtä hyvin naisilla tai tummaihoisilla. Tämä voi johtaa vakaviin seurauksiin.\n\nNeljäs kysymys on yksityisyys. Terveysdata on erittäin arkaluonteista. Jos se joutuu vääriin käsiin, seuraukset voivat olla tuhoisat. Miten varmistetaan, että tekoälyjärjestelmät ovat turvallisia ja että dataa käytetään eettisesti?\n\nViides kysymys on inhimillisyys. Potilaat haluavat tulla kohdatuiksi ihmisinä, ei koneina. Jos tekoäly hoitaa diagnostiikan, mitä jää lääkärille? Miten varmistetaan, että inhimillinen kohtaaminen säilyy?\n\nKuudes kysymys on kustannukset. Tekoäly on kallista. Jos se on vain varakkaiden saatavilla, se lisää eriarvoisuutta. Miten varmistetaan, että kaikki potilaat hyötyvät tekoälystä?\n\nSeitsemäs kysymys on työpaikat. Tekoäly korvaa monia rutiinitehtäviä, mikä voi vähentää työpaikkoja. Samalla se luo uusia. Miten varmistetaan, että terveydenhuollon ammattilaiset saavat koulutusta uusiin tehtäviin?\n\nLopuksi voidaan todeta, että tekoäly on valtava mahdollisuus, mutta myös valtava riski. Tarvitaan keskustelua, sääntelyä ja eettisiä ohjeita. Teknologia ei ole arvoneutraalia – se heijastaa niitä arvoja, joita siihen ohjelmoidaan. Terveydenhuollossa kyse on viime kädessä ihmisistä ja heidän terveydestään.",
+      "word_count": 268
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mikä on keskeinen vastuukysymys tekoälyssä?",
+        "options": [
+          "kukaan ei ole vastuussa",
+          "jos tekoäly tekee virheen, on epäselvää, kuka on vastuussa",
+          "vastuu on aina potilaalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä tarkoitetaan läpinäkyvyyden ongelmalla?",
+        "options": [
+          "tekoälyn päätöksentekoa on vaikea ymmärtää",
+          "tekoäly on läpinäkyvää",
+          "tekoäly on aina oikeassa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_003",
+        "prompt": "Miten tekoälyn vinoumat voivat vaikuttaa potilaisiin?",
+        "options": [
+          "ne eivät vaikuta",
+          "ne voivat johtaa virhediagnooseihin tietyissä ryhmissä",
+          "ne parantavat kaikkien hoitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä inhimillisyyden säilyminen terveydenhuollossa tarkoittaa?",
+        "options": [
+          "potilaat kohdataan ihmisinä, ei koneina",
+          "tekoäly korvaa lääkärit kokonaan",
+          "potilaat eivät tarvitse ihmiskontaktia"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

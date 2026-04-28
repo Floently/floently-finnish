@@ -1,0 +1,88 @@
+{
+  "id": "86ba7bd3-88ff-58f1-8014-e6d1a6e380ec",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.678,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä on Kiinteistönvälitys Koti. Soitan teille, koska teidän hakemanne asunto on edelleen vapaana. Voitte varata näytön soittamalla toimistollemme arkisin kello 9-16. Tervetuloa tutustumaan!",
+      "audio_asset_id": "adbbfb47-8357-45c8-a6ac-975c6acb0114"
+    },
+    "questions": [
+      {
+        "id": "ad79393a-b0cb-59ac-b5df-293acda83e97",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Kiinteistönvälitys.",
+          "Pankki.",
+          "Vakuutusyhtiö.",
+          "Kuljetusliike."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "acafcda5-be50-59a2-8b37-84b91736217a",
+        "prompt": "Miksi he soittavat?",
+        "options": [
+          "Tarjotakseen uuden asunnon.",
+          "Kertoakseen, että haettu asunto on vapaana.",
+          "Kysyäkseen lainatarpeesta.",
+          "Muistuttaakseen maksusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "04bce1c4-1ad7-5900-a115-79b7171bef2a",
+        "prompt": "Miten asunnolle voi varata näytön?",
+        "options": [
+          "Sähköpostilla.",
+          "Soittamalla toimistolle.",
+          "Verkkosivuilla.",
+          "Tekstiviestillä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3e223034-8472-5981-8c29-80e0ab2b92a0",
+        "prompt": "Mihin aikaan toimistolle voi soittaa arkisin?",
+        "options": [
+          "Kello 9-16.",
+          "Kello 8-15.",
+          "Kello 10-17.",
+          "Kello 11-18."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e6f84b31-ccc7-5d43-982e-3c74bd2d9ca7",
+        "prompt": "Mikä on yrityksen nimi?",
+        "options": [
+          "Kiinteistönvälitys Koti.",
+          "Kiinteistönvälitys Oma.",
+          "Kiinteistönvälitys Uusi.",
+          "Kiinteistönvälitys Hyvä."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "8ad8cbc0-56b0-5267-9740-d6803e340506",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.743,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Tulevaisuuden työelämässä korostuvat yhä enemmän pehmeät taidot, kuten vuorovaikutuskyky, empatia, luovuus ja kyky ratkaista monimutkaisia ongelmia. Teknologia voi automatisoida rutiinitehtäviä, mutta se ei pysty korvaamaan ihmisen sosiaalisia taitoja ja tunneälyä. Työelämässä tarvitaan myös kykyä oppia uutta ja sopeutua muutoksiin. Tiimityö ja verkostoituminen ovat keskeisiä, sillä monimutkaiset ongelmat vaativat usein monialaista osaamista. Tulevaisuudessa menestyvät ne, jotka osaavat yhdistää teknologian mahdollisuudet inhimilliseen osaamiseen. Tämä asettaa haasteita koulutusjärjestelmälle, jonka on kyettävä kehittämään näitä taitoja oppijoissa.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "mcq_596",
+        "prompt": "Mitä pehmeitä taitoja tulevaisuuden työelämässä korostetaan?",
+        "options": [
+          "Teknisiä taitoja",
+          "Vuorovaikutuskykyä ja luovuutta",
+          "Matemaattisia taitoja",
+          "Kielitaitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_597",
+        "prompt": "Mitä teknologia ei pysty korvaamaan työelämässä?",
+        "options": [
+          "Rutiinitehtäviä",
+          "Ihmisen sosiaalisia taitoja ja tunneälyä",
+          "Tiedon prosessointia",
+          "Laskentatehtäviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_598",
+        "prompt": "Miten monimutkaisia ongelmia ratkaistaan työelämässä?",
+        "options": [
+          "Yksin työskentelemällä",
+          "Monialaisella tiimityöllä ja verkostoitumisella",
+          "Teknologiaan nojautumalla",
+          "Kansainvälisellä kaupalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_599",
+        "prompt": "Mitä tulevaisuudessa menestyvät ihmiset osaavat yhdistää?",
+        "options": [
+          "Teknologian ja tekniset taidot",
+          "Teknologian mahdollisuudet inhimilliseen osaamiseen",
+          "Inhimillisen osaamisen ja matemaattiset taidot",
+          "Tekniset taidot ja kielitaidon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

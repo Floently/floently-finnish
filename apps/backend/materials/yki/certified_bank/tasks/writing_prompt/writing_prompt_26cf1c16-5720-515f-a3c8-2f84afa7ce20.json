@@ -1,0 +1,37 @@
+{
+  "id": "26cf1c16-5720-515f-a3c8-2f84afa7ce20",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin uutta jätehuoltojärjestelmää. Kirjoita palaute jätehuollolle.",
+    "materials": {
+      "scenario": "Palaute jätehuollosta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt kaupungin uutta jätehuoltojärjestelmää. Kirjoita palaute jätehuollolle."
+      }
+    ],
+    "rubric": "Olet käyttänyt kaupungin uutta jätehuoltojärjestelmää. Kirjoita palaute jätehuollolle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

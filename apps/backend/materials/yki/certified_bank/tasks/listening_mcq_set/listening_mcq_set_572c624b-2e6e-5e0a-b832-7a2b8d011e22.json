@@ -1,0 +1,77 @@
+{
+  "id": "572c624b-2e6e-5e0a-b832-7a2b8d011e22",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu tulevaisuuden taidoista ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme tulevaisuuden taidoista. Minulla on täällä koulutusasiantuntija Markku. Markku, mitä taitoja tulevaisuudessa tarvitaan?\n\nMarkku: Tekniset taidot ovat tärkeitä, mutta pehmeät taidot korostuvat. Vuorovaikutus, yhteistyökyky, empatia ja kyky ratkaista ongelmia ovat avainasemassa. Myös luovuus ja kriittinen ajattelu ovat tärkeitä.\n\nToimittaja: Miksi nämä taidot korostuvat?\n\nMarkku: Koska teknologia hoitaa yhä enemmän rutiinitehtäviä. Ihmisille jää tehtäväksi asiat, joissa tarvitaan inhimillisyyttä. Koneet eivät pysty korvaamaan empatiaa ja luovuutta.\n\nToimittaja: Entä digitaidot?\n\nMarkku: Ne ovat välttämättömiä. Tietokoneen ja ohjelmistojen peruskäyttö on arkipäivää. Tekoälyn ja automaation ymmärtäminen auttaa pysymään kehityksessä mukana.\n\nToimittaja: Mikä on tärkein taito?\n\nMarkku: Oppimaan oppiminen. Asiat muuttuvat nopeasti, ja on osattava omaksua uutta. Joustavuus ja sopeutumiskyky ovat valttia.\n\nToimittaja: Miten koulutusjärjestelmän pitäisi muuttua?\n\nMarkku: Sen on panostettava enemmän pehmeisiin taitoihin ja ongelmanratkaisuun. Myös elinikäinen oppiminen on otettava vakavasti. Koulutus ei pääty peruskouluun, vaan jatkuu läpi elämän.",
+      "audio_asset_id": "a8d2647a-247f-5eb6-be6c-2290a397221c"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_017_q1",
+        "prompt": "Mitä pehmeitä taitoja tulevaisuudessa tarvitaan Markun mukaan?",
+        "options": [
+          "vain teknisiä taitoja",
+          "vuorovaikutus, yhteistyökyky, empatia, ongelmanratkaisu, luovuus ja kriittinen ajattelu",
+          "vain kielitaitoa",
+          "vain matemaattisia taitoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_017_q2",
+        "prompt": "Miksi nämä taidot korostuvat?",
+        "options": [
+          "koska ne ovat helppoja oppia",
+          "koska teknologia hoitaa rutiinitehtävät ja ihmisille jää inhimillisyyttä vaativat tehtävät",
+          "koska ne ovat uusi muoti-ilmiö",
+          "koska kaikki muutkin puhuvat niistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_017_q3",
+        "prompt": "Mikä on tärkein taito Markun mukaan?",
+        "options": [
+          "tekninen osaaminen",
+          "oppimaan oppiminen",
+          "kielitaito",
+          "matematiikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_017_q4",
+        "prompt": "Miten koulutusjärjestelmän pitäisi muuttua?",
+        "options": [
+          "ei mitenkään",
+          "panostettava pehmeisiin taitoihin, ongelmanratkaisuun ja elinikäiseen oppimiseen",
+          "vähennettävä koulutusta",
+          "keskityttävä vain teknisiin taitoihin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

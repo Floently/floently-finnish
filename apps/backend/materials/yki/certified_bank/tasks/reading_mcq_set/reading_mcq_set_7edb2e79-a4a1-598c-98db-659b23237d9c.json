@@ -1,0 +1,77 @@
+{
+  "id": "7edb2e79-a4a1-598c-98db-659b23237d9c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti julkisesta liikenteestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JULKINEN LIIKENNE – MUKAVUUTTA JA HAASTEITA\n\nJulkinen liikenne on monelle suomalaiselle arjen peruspalvelu. Se vie töihin, kouluun ja harrastuksiin. Hyvin toimiva julkinen liikenne vähentää yksityisautoilua ja päästöjä.\n\nSuurissa kaupungeissa julkinen liikenne toimii hyvin. Bussit, raitiovaunut ja metrot kulkevat tiheään. Pienemmillä paikkakunnilla tilanne on toinen. Bussit saattavat kulkea vain harvoin, ja ilta- ja viikonloppuliikenne on vähäistä.\n\nHintojen nousu on huolestuttanut monia. Viime vuosina lippujen hinnat ovat nousseet, ja osalle käy kalliiksi matkustaa päivittäin. Opiskelijoille ja eläkeläisille on alennuksia, mutta sekään ei aina riitä.\n\nToinen haaste on saavutettavuus. Kaikilla ei ole lähellä pysäkkiä, ja liikuntarajoitteisille matkustaminen voi olla hankalaa. Uudet matalalattia-bussit ovat parantaneet tilannetta, mutta kaikki kalusto ei ole esteetöntä.\n\nTulevaisuudessa julkinen liikenne kehittyy. Sähköbussit yleistyvät, ja reaaliaikaiset aikataulut helpottavat matkustamista. Myös kysyntäohjattu liikenne, jossa bussi tulee tilauksesta, voi yleistyä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 156
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten julkinen liikenne toimii suurissa kaupungeissa?",
+        "options": [
+          "Huonosti",
+          "Kohtalaisesti",
+          "Hyvin, vuoroja on tiheään",
+          "Vain aamuisin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on ongelma pienillä paikkakunnilla?",
+        "options": [
+          "Liikaa busseja",
+          "Bussit kulkevat harvoin",
+          "Bussit ovat aina myöhässä",
+          "Ei lainkaan joukkoliikennettä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita julkisessa liikenteessä on?",
+        "options": [
+          "Hintojen nousu ja saavutettavuus",
+          "Liian halvat hinnat",
+          "Liian nopeat bussit",
+          "Liian paljon vuoroja"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tulevaisuudessa on odotettavissa?",
+        "options": [
+          "Vähemmän busseja",
+          "Sähköbusseja ja kysyntäohjattua liikennettä",
+          "Vain yksityisautoilua",
+          "Bussiliikenteen loppumista"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

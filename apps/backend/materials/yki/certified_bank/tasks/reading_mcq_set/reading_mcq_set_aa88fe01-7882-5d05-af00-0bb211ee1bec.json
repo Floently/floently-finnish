@@ -1,0 +1,99 @@
+{
+  "id": "aa88fe01-7882-5d05-af00-0bb211ee1bec",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Liikuntatottumukset ovat muuttuneet viime vuosina. Perinteiset joukkuelajit, kuten jalkapallo ja salibandy, ovat edelleen suosittuja, mutta yksilölliset lajit, kuten juoksu ja kuntosaliharjoittelu, ovat kasvattaneet suosiotaan. Monet harrastavat liikuntaa itsenäisesti ja joustavasti oman aikataulunsa mukaan. Kaupungit ovat vastanneet tähän kehittämällä ulkoilureittejä ja maksuttomia ulkokuntosaleja. Samalla on pohdittu, miten tukea myös niitä, jotka kaipaavat ohjattua liikuntaa.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten liikuntatottumukset ovat muuttuneet?",
+        "options": [
+          "Joukkuelajit ovat kadonneet kokonaan",
+          "Yksilölliset lajit ovat kasvattaneet suosiota",
+          "Kukaan ei enää harrasta liikuntaa",
+          "Liikunta on vähentynyt kaikissa lajeissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä perinteiset joukkuelajit mainitaan tekstissä?",
+        "options": [
+          "Koripallo ja lentopallo",
+          "Jalkapallo ja salibandy",
+          "Jääkiekko ja pesäpallo",
+          "Sulkapallo ja tennis"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten monet harrastavat liikuntaa nykyään?",
+        "options": [
+          "Vain ohjatuilla tunneilla",
+          "Itsenäisesti ja joustavasti",
+          "Aina samaan aikaan viikossa",
+          "Vain kesäisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kaupungit ovat vastanneet muuttuneisiin liikuntatottumuksiin?",
+        "options": [
+          "Rakentamalla lisää jäähalleja",
+          "Kehittämällä ulkoilureittejä ja ulkokuntosaleja",
+          "Kieltämällä itsenäisen liikunnan",
+          "Perimällä maksua kaikesta liikunnasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kaupungit pohtivat liikunnan suhteen?",
+        "options": [
+          "Miten saada kaikki harrastamaan samoja lajeja",
+          "Miten tukea myös ohjattua liikuntaa kaipaavia",
+          "Miten vähentää liikuntapaikkoja",
+          "Miten tehdä kaikesta liikunnasta maksullista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitkä ovat esimerkkejä yksilöllisistä lajeista tekstissä?",
+        "options": [
+          "Jalkapallo ja koripallo",
+          "Juoksu ja kuntosaliharjoittelu",
+          "Salibandy ja jääkiekko",
+          "Uinti ja hiihto"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

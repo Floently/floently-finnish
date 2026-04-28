@@ -1,0 +1,68 @@
+{
+  "id": "e616d6e2-18f8-51a3-bc51-af8beeed38d3",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa avata uuden pankkitilin. Keskustele pankkivirkailijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Pankkivirkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp9_1",
+        "ai_first_turn_fi": "Päivää, miten voin auttaa?"
+      },
+      {
+        "id": "srp9_2",
+        "ai_first_turn_fi": "Totta kai. Onko sinulla henkilöllisyystodistus mukana?"
+      },
+      {
+        "id": "srp9_3",
+        "ai_first_turn_fi": "Hyvä. Tarvitsemme myös osoitteesi ja puhelinnumerosi. Voisitko kertoa ne?"
+      },
+      {
+        "id": "srp9_4",
+        "ai_first_turn_fi": "Kiitos. Minkä tyyppisen tilin haluaisit avata? Peruspankkitilin vai laajemman palvelupaketin?"
+      },
+      {
+        "id": "srp9_5",
+        "ai_first_turn_fi": "Peruspankkitili sisältää verkkopankin, kortin ja tilisiirrot. Haluaisitko myös luottokortin?"
+      },
+      {
+        "id": "srp9_6",
+        "ai_first_turn_fi": "Selvä. Tässä on vielä muutama lomake täytettäväksi. Saanko samalla vahvistaa, että sinulla on suomalainen henkilötunnus?"
+      },
+      {
+        "id": "srp9_7",
+        "ai_first_turn_fi": "Kiitos. Tili on nyt avattu ja saat kortin postissa viikon sisällä. Tarvitsetko vielä muuta?"
+      },
+      {
+        "id": "srp9_8",
+        "ai_first_turn_fi": "Hyvä. Mukavaa päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa avata uuden pankkitilin. Keskustele pankkivirkailijan kanssa.",
+    "timing": {
+      "recommended_minutes": 8
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "4e1e283a-fa31-55d2-bec7-31158d0a766b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet osallistunut kaupungin asukaskyselyyn. Kirjoita palaute kyselyn toteutuksesta.",
+    "materials": {
+      "scenario": "Palaute asukaskyselystä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet osallistunut kaupungin asukaskyselyyn. Kirjoita palaute kyselyn toteutuksesta."
+      }
+    ],
+    "rubric": "Olet osallistunut kaupungin asukaskyselyyn. Kirjoita palaute kyselyn toteutuksesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

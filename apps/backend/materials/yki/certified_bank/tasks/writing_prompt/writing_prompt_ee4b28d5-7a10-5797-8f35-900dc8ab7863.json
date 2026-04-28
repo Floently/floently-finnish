@@ -1,0 +1,37 @@
+{
+  "id": "ee4b28d5-7a10-5797-8f35-900dc8ab7863",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita reklamaatio verkkokaupalle.\n\nOstit verkkokaupasta kolme viikkoa sitten uuden puhelimen. Puhelimessa on nyt ongelmia: akku tyhjenee nopeasti ja näyttö välillä sammuu itsestään.\n\nKirjoita reklamaatio, jossa:\n- kerrot ostotapahtuman tiedot (päivämäärä, tuote, tilausnumero)\n- kuvailet vian tarkasti\n- kerrot, mitä olet jo yrittänyt (esim. puhelimen uudelleenkäynnistys)\n- viittaat kuluttajansuojaan ja takuuseen\n- kerrot, mitä haluat yrityksen tekevän (korjaus, uusi tuote, hyvitys)\n- annat määräajan vastaukselle\n\nKirjoita 200–250 sanaa. Ole kohtelias mutta vaativa.",
+    "materials": {
+      "scenario": "Kirjoita reklamaatio verkkokaupalle.\n\nOstit verkkokaupasta kolme viikkoa sitten uuden puhelimen. Puhelimessa on nyt ongelmia: akku tyhjenee nopeasti ja näyttö välillä sammuu itsestään.\n\nKirjoita reklamaatio, jossa:\n- kerrot ostotapahtuman tiedot (päivämäärä, tuote, tilausnumero)\n- kuvailet vian tarkasti\n- kerrot, mitä olet jo yrittänyt (esim. puhelimen uudelleenkäynnistys)\n- viittaat kuluttajansuojaan ja takuuseen\n- kerrot, mitä haluat yrityksen tekevän (korjaus, uusi tuote, hyvitys)\n- annat määräajan vastaukselle\n\nKirjoita 200–250 sanaa. Ole kohtelias mutta vaativa."
+    },
+    "items": [
+      {
+        "id": "c73c534f-5a5b-5cbb-be73-cf5a80b563ec",
+        "prompt": "Kirjoita reklamaatio verkkokaupalle.\n\nOstit verkkokaupasta kolme viikkoa sitten uuden puhelimen. Puhelimessa on nyt ongelmia: akku tyhjenee nopeasti ja näyttö välillä sammuu itsestään.\n\nKirjoita reklamaatio, jossa:\n- kerrot ostotapahtuman tiedot (päivämäärä, tuote, tilausnumero)\n- kuvailet vian tarkasti\n- kerrot, mitä olet jo yrittänyt (esim. puhelimen uudelleenkäynnistys)\n- viittaat kuluttajansuojaan ja takuuseen\n- kerrot, mitä haluat yrityksen tekevän (korjaus, uusi tuote, hyvitys)\n- annat määräajan vastaukselle\n\nKirjoita 200–250 sanaa. Ole kohtelias mutta vaativa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 250, \"min\": 200}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

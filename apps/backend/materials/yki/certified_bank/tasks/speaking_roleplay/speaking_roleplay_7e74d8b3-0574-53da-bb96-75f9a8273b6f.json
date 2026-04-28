@@ -1,0 +1,40 @@
+{
+  "id": "7e74d8b3-0574-53da-bb96-75f9a8273b6f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella filosofisesta aiheesta syvällisesti.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet ystävä, joka kuuntelee ja tarjoaa tukea, mutta myös haastaa rakentavasti.",
+        "partner": "Ystävä - mietteliäs, hieman masentunut, etsii merkitystä elämäänsä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp25",
+        "ai_first_turn_fi": "Tiedätkö, olen miettinyt paljon viime aikoina. Tuntuuko sinusta koskaan, että kaikki on turhaa? Että juokset oravanpyörässä etkä saavuta mitään merkityksellistä?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella filosofisesta aiheesta syvällisesti.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

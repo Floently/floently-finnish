@@ -1,0 +1,88 @@
+{
+  "id": "b54eb94d-f6fb-5bab-91cf-828af9f1dc22",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.675,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kirjaston tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tämä on tiedote pääkirjastosta. Kesäkuun alusta alkaen kirjasto on avoinna maanantaista perjantaihin kello 9-19 ja lauantaisin kello 10-15. Sunnuntaisin olemme suljettuja. Omatoimikirjasto on käytettävissä joka päivä kello 7-22.",
+      "audio_asset_id": "e9f0a1b2-c3d4-5e6f-7a8b-9c0d1e2f3a4b"
+    },
+    "questions": [
+      {
+        "id": "l224q1",
+        "prompt": "Mihin asti kirjasto on auki maanantaista perjantaihin?",
+        "options": [
+          "Kello 18.",
+          "Kello 19.",
+          "Kello 20.",
+          "Kello 21."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l224q2",
+        "prompt": "Mihin aikaan kirjasto aukeaa lauantaisin?",
+        "options": [
+          "Kello 9.",
+          "Kello 10.",
+          "Kello 11.",
+          "Kello 12."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l224q3",
+        "prompt": "Onko kirjasto auki sunnuntaisin?",
+        "options": [
+          "Kyllä, normaalisti.",
+          "Ei, suljettu.",
+          "Vain kerran kuussa.",
+          "Kyllä, mutta lyhyemmän aikaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l224q4",
+        "prompt": "Mihin asti omatoimikirjasto on auki?",
+        "options": [
+          "Kello 20.",
+          "Kello 21.",
+          "Kello 22.",
+          "Kello 23."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l224q5",
+        "prompt": "Mistä alkaen uudet aukioloajat ovat voimassa?",
+        "options": [
+          "Toukokuun alusta.",
+          "Kesäkuun alusta.",
+          "Heinäkuun alusta.",
+          "Elokuun alusta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

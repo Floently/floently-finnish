@@ -1,0 +1,66 @@
+{
+  "id": "19174af2-86d9-5be8-a8b9-d171d9a77084",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa verotuksella rahoitetaan julkisia palveluita kuten koulutusta, terveydenhuoltoa ja sosiaaliturvaa. Palkansaajat maksavat tuloistaan ansiotuloveroa, jonka määrä riippuu vuosituloista. Valtio kerää progressiivista veroa, eli suuremmista tuloista maksetaan suhteessa enemmän veroa. Kunnat perivät kunnallisveroa, joka on yleensä noin 20 prosenttia tuloista. Lisäksi kirkkoon kuuluvat maksavat kirkollisveroa. Kulutuksesta maksetaan arvonlisäveroa (ALV), joka on useimmissa tuotteissa 24 prosenttia, mutta esimerkiksi ruoassa ja lääkkeissä verokanta on alhaisempi. Yrittäjät ja osakeyhtiöt maksavat yhteisöveroa voitostaan. Verokortti määrittää, paljonko palkasta pidätetään veroa. Jos on maksanut liikaa veroa, saa veronpalautuksia; jos liian vähän, joutuu maksamaan jäännösveroa. Verotus on vuosittainen prosessi, ja veroilmoituksen voi tarkistaa ja täydentää sähköisesti OmaVerossa.",
+      "word_count": 99
+    },
+    "questions": [
+      {
+        "id": "b9c0d1e2-f3a4-4b5c-9d6e-7f8a9b0c1d2e",
+        "prompt": "Mitä tarkoittaa progressiivinen vero?",
+        "options": [
+          "Kaikki maksavat saman verran",
+          "Suuremmista tuloista maksetaan suhteessa enemmän veroa",
+          "Vain yritykset maksavat veroa",
+          "Vero on sama kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c0d1e2f3-a4b5-4c6d-9e7f-8a9b0c1d2e3f",
+        "prompt": "Mikä on yleinen arvonlisäverokanta useimmissa tuotteissa?",
+        "options": [
+          "14 prosenttia",
+          "17 prosenttia",
+          "20 prosenttia",
+          "24 prosenttia"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "d1e2f3a4-b5c6-4d7e-9f8a-9b0c1d2e3f4a",
+        "prompt": "Mistä tietää, paljonko palkasta pidätetään veroa?",
+        "options": [
+          "Työsopimuksesta",
+          "Verokortista",
+          "Palkkakuitista",
+          "Työnantajalta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "7d4027ae-c33d-5eb8-a8ca-73d3b3218d6b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "No niin, nyt on sinun vuorosi. Otatko sinä kahvia vai teetä? Meillä on pullaa ja keksejä. Istu alas ja ole kuin kotonasi. Viihdytkö sä yleensä tämmösissä juhlissa?",
+      "audio_asset_id": "d88fde28-f4cf-5381-8145-1794f48e574a"
+    },
+    "questions": [
+      {
+        "id": "758c6d15-5c2a-5e03-adc4-3cffd2cedc3c",
+        "prompt": "Mitä puhuja tarjoaa?",
+        "options": [
+          "Vain kahvia ja pullaa.",
+          "Leipää ja mehua.",
+          "Kakkua ja jäätelöä.",
+          "Kahvia tai teetä, pullaa ja keksejä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "83264c14-e7ee-530d-976d-790d70d149f2",
+        "prompt": "Mitä puhuja pyytää toista tekemään?",
+        "options": [
+          "Istuutumaan ja olemaan kuin kotona.",
+          "Maksamaan kahvista.",
+          "Laittamaan musiikkia soimaan.",
+          "Auttamaan keittiössä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "529eab4b-4c37-5abc-9d5e-4fb88e760259",
+        "prompt": "Mitä puhuja kysyy lopuksi?",
+        "options": [
+          "Pitääkö toinen kahvista.",
+          "Onko toisella nälkä.",
+          "Viihdytkö toinen yleensä juhlissa.",
+          "Haluaako toinen lisää pullaa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "fd4d2eb7-6592-55db-a908-b5a11ee83223",
+        "prompt": "Mistä tilanteesta on todennäköisesti kyse?",
+        "options": [
+          "Työhaastattelusta.",
+          "Ostoksilla käymisestä.",
+          "Kutsut tai kahvittelut kotona.",
+          "Bussimatkasta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6fddc266-003e-5d49-b165-dc03e14b6f24",
+        "prompt": "Miten puhuja suhtautuu vieraaseen?",
+        "options": [
+          "Hän on vihainen.",
+          "Hän on kiireinen.",
+          "Hän on ystävällinen ja rento.",
+          "Hän on epävarma."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

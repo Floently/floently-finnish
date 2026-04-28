@@ -1,0 +1,66 @@
+{
+  "id": "34f74c53-ccb4-5f5a-aef9-6fb7a5559290",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "LEMMIKKIPUISTO\n\nLemmikkipuisto on tarkoitettu koirille ja muille lemmikeille. Puistossa on aidattu alue, jossa koirat voivat olla vapaana. Muistathan siivota lemmikkisi jäljet.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "4d2737c0-6e49-51b4-ac25-e797ed8f7e6a",
+        "prompt": "Kenelle lemmikkipuisto on tarkoitettu?",
+        "options": [
+          "vain koirille",
+          "koirille ja muille lemmikeille",
+          "vain kissoille",
+          "lapsille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4f200406-bcab-586b-a608-6fa4506182b9",
+        "prompt": "Mitä puistossa on?",
+        "options": [
+          "uimaranta",
+          "aidattu alue",
+          "kahvila",
+          "leikkipaikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "883527df-6b28-56d9-b90c-4d65961c5af1",
+        "prompt": "Mitä pitää muistaa?",
+        "options": [
+          "pitää koiraa kytkettynä",
+          "siivota lemmikin jäljet",
+          "maksaa sisäänpääsy",
+          "ilmoittautua etukäteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

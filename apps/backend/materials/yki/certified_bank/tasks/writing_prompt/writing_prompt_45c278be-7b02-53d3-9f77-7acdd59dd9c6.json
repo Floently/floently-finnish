@@ -1,0 +1,37 @@
+{
+  "id": "45c278be-7b02-53d3-9f77-7acdd59dd9c6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.306,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet sairaana etkä pääse töihin. Kirjoita viesti esihenkilöllesi.\n\nKerro:\n- että olet sairas\n- ettet pääse töihin\n- mikä sinua vaivaa (esim. flunssa)\n- arvio, milloin voit palata töihin",
+    "materials": {
+      "scenario": "Olet sairaana etkä pääse töihin. Kirjoita viesti esihenkilöllesi.\n\nKerro:\n- että olet sairas\n- ettet pääse töihin\n- mikä sinua vaivaa (esim. flunssa)\n- arvio, milloin voit palata töihin"
+    },
+    "items": [
+      {
+        "id": "cac5ab86-b39d-5186-ab00-d586ba4548e3",
+        "prompt": "Olet sairaana etkä pääse töihin. Kirjoita viesti esihenkilöllesi.\n\nKerro:\n- että olet sairas\n- ettet pääse töihin\n- mikä sinua vaivaa (esim. flunssa)\n- arvio, milloin voit palata töihin"
+      }
+    ],
+    "rubric": "Olet sairaana etkä pääse töihin. Kirjoita viesti esihenkilöllesi.\n\nKerro:\n- että olet sairas\n- ettet pääse töihin\n- mikä sinua vaivaa (esim. flunssa)\n- arvio, milloin voit palata töihin",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

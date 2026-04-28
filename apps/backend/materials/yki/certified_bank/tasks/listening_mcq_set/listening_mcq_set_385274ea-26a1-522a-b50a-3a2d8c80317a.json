@@ -1,0 +1,88 @@
+{
+  "id": "385274ea-26a1-522a-b50a-3a2d8c80317a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hyvää huomenta! Tänään on perjantai ja sää on aurinkoinen. Lämpötila on noin viisitoista astetta. Iltapäivällä voi sataa vähän. Kannattaa ottaa sateenvarjo mukaan, jos menee ulos.",
+      "audio_asset_id": "428e0708-e8ef-5b2b-b918-56c4c4d4c4a9"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä viikonpäivä tänään on?",
+        "options": [
+          "Torstai.",
+          "Perjantai.",
+          "Lauantai.",
+          "Sunnuntai."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen sää on tänään?",
+        "options": [
+          "Pilvinen ja kylmä.",
+          "Aurinkoinen ja lämmin.",
+          "Sateinen ja tuulinen.",
+          "Aurinkoinen ja noin 15 astetta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä säälle voi tapahtua iltapäivällä?",
+        "options": [
+          "Tuuli voimistuu.",
+          "Lämpötila nousee.",
+          "Voi sataa vähän.",
+          "Tulee ukkonen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä suositellaan otettavaksi mukaan?",
+        "options": [
+          "Lämpimän takin.",
+          "Aurinkolasit.",
+          "Sateenvarjon.",
+          "Hanskat."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Kuka tämän tiedotteen todennäköisesti pitää?",
+        "options": [
+          "Uutistenlukija tai sääennustaja.",
+          "Opettaja.",
+          "Bussikuski.",
+          "Myyjä."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

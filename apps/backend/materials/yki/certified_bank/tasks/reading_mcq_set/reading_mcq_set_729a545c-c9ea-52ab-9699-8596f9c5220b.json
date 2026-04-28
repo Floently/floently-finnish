@@ -1,0 +1,73 @@
+{
+  "id": "729a545c-c9ea-52ab-9699-8596f9c5220b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KADONNUT LOMPAKKO\n\nOlen hukannut lompakkoni 6.7.2025 linja-autoaseman kahvilassa. Lompakko on musta ja nahkainen. Sisällä on henkilökortti, pankkikortti ja 40 euroa rahaa.\n\nJos löydät lompakon, soita numeroon 050 123 4576.\n\nLöytöpalkkio luvassa!\n\n-- Jukka",
+      "word_count": 33
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä lompakko katosi?",
+        "options": [
+          "5.7.2025",
+          "6.7.2025",
+          "7.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mistä lompakko katosi?",
+        "options": [
+          "bussista",
+          "linja-autoaseman kahvilasta",
+          "kaupasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä lompakossa on?",
+        "options": [
+          "vain henkilökortti",
+          "henkilökortti, pankkikortti ja rahaa",
+          "vain pankkikortti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä luvataan löytäjälle?",
+        "options": [
+          "palkkio",
+          "uusi lompakko",
+          "ilmainen kahvi"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

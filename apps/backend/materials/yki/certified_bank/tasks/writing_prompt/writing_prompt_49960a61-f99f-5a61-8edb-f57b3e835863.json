@@ -1,0 +1,37 @@
+{
+  "id": "49960a61-f99f-5a61-8edb-f57b3e835863",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute uudesta puistopenkistä. Onko se hyvä? Onko se oikeassa paikassa?",
+    "materials": {
+      "scenario": "Palaute puistopenkistä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute uudesta puistopenkistä. Onko se hyvä? Onko se oikeassa paikassa?"
+      }
+    ],
+    "rubric": "Kirjoita palaute uudesta puistopenkistä. Onko se hyvä? Onko se oikeassa paikassa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

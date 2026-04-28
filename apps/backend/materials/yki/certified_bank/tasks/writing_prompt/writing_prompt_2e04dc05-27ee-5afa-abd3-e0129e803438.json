@@ -1,0 +1,37 @@
+{
+  "id": "2e04dc05-27ee-5afa-abd3-e0129e803438",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut lääkärille ajan puhelimitse. Kirjoita palaute. Saitko ajan nopeasti? Oliko asiakaspalvelija ystävällinen?",
+    "materials": {
+      "scenario": "Palaute ajanvarauksesta puhelimitse"
+    },
+    "items": [
+      {
+        "id": "94fd7bfc-c2e2-5f7b-abd0-8a98ea77b7d5",
+        "prompt": "Olet tilannut lääkärille ajan puhelimitse. Kirjoita palaute. Saitko ajan nopeasti? Oliko asiakaspalvelija ystävällinen?"
+      }
+    ],
+    "rubric": "Olet tilannut lääkärille ajan puhelimitse. Kirjoita palaute. Saitko ajan nopeasti? Oliko asiakaspalvelija ystävällinen?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

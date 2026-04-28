@@ -1,0 +1,37 @@
+{
+  "id": "48bdf092-4a69-5ec9-a56e-a292997cdf61",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö koulujen aloittaa ruoanlaittotunnit kaikille oppilaille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ruoanlaittotunnit kouluissa"
+    },
+    "items": [
+      {
+        "id": "f62fc10b-942d-5779-ad4e-2b5e256209f3",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö koulujen aloittaa ruoanlaittotunnit kaikille oppilaille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

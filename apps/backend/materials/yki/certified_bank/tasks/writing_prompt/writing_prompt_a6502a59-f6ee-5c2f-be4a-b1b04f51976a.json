@@ -1,0 +1,37 @@
+{
+  "id": "a6502a59-f6ee-5c2f-be4a-b1b04f51976a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.492,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Kirjoita mielipideteksti."
+    },
+    "items": [
+      {
+        "id": "9b80cf28-ea48-52c7-b848-4c7e2b309a18",
+        "prompt": "Onko perinteinen kirja parempi kuin sähköinen kirja?"
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "a193269c-7b2a-54a0-ab2c-ba5e1f3e874d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.681,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Koira on suosittu lemmikki Suomessa. Koiria on monenlaisia. Pieniä ja isoja, karvaisia ja sileitä. Koira tarvitsee ulkoilua. Se pitää lenkkeilystä. Koiran kanssa voi leikkiä ja harrastaa. Monet koirat rakastavat uimista. Koira on uskollinen ystävä. Se ymmärtää paljon. Koira odottaa kotona, kun perhe on poissa. Se ilahtuu aina, kun joku tulee kotiin. Koirasta pidetään hyvää huolta. Se saa ruokaa, vettä ja rakkautta.",
+      "word_count": 61
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on suosittu lemmikki Suomessa?",
+        "options": [
+          "Kissa",
+          "Koira",
+          "Kani",
+          "Hamsteri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä koira tarvitsee?",
+        "options": [
+          "Paljon nukkumista",
+          "Ulkoilua",
+          "Omaa rauhaa",
+          "Yksinoloa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä koiran kanssa voi tehdä?",
+        "options": [
+          "Uida ja kalastaa",
+          "Leikkiä ja harrastaa",
+          "Hiihtää ja luistella",
+          "Matkustaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millainen koira on ystävänä?",
+        "options": [
+          "Vaihteleva",
+          "Uskollinen",
+          "Itsekäs",
+          "Etäinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä koira saa?",
+        "options": [
+          "Vain ruokaa",
+          "Ruokaa, vettä ja rakkautta",
+          "Vain leluja",
+          "Vain huomiota"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "6995ced6-8d33-578a-8115-403e6a7f2547",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin uutta vammaispalvelua. Kirjoita palaute palvelusta.",
+    "materials": {
+      "scenario": "Palaute vammaispalvelusta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt kaupungin uutta vammaispalvelua. Kirjoita palaute palvelusta."
+      }
+    ],
+    "rubric": "Olet käyttänyt kaupungin uutta vammaispalvelua. Kirjoita palaute palvelusta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

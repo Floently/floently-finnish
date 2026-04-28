@@ -1,0 +1,77 @@
+{
+  "id": "db6dc3c2-0ae0-5937-878b-f7940a8806d9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.798,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Tiedon ja asiantuntijuuden rooli yhteiskunnallisessa päätöksenteossa on viime vuosina ollut voimakkaan uudelleenarvioinnin kohteena. Perinteisesti asiantuntijoilla on ollut vahva asema tiedon tuottajina ja päätöksenteon valmistelijoina, ja heidän arvioitaan on pidetty luotettavina ja objektiivisina. Tämä asiantuntijoiden erityisasema on kuitenkin viime vuosina kyseenalaistettu yhä voimakkaammin. Keskustelua on käyty niin asiantuntijatiedon luotettavuudesta, asiantuntijoiden sidonnaisuuksista kuin siitäkin, kenellä ylipäätään on oikeus määritellä, kuka on asiantuntija. Tämä kehitys liittyy osaltaan laajempaan yhteiskunnalliseen murrokseen, jossa perinteiset auktoriteetit ovat menettäneet asemaansa ja kansalaisten luottamus instituutioihin on heikentynyt. Ihmiset etsivät tietoa yhä useammin sosiaalisesta mediasta ja muista epävirallisista lähteistä, ja he ovat entistä kriittisempiä virallisia totuuksia kohtaan. Tämä on omiaan synnyttämään niin sanottuja vaihtoehtoisia totuuksia ja heikentämään yhteistä ymmärrystä tosiasioista. Toisaalta asiantuntijuuden kritiikkiä voidaan pitää myös osoituksena demokratian vahvistumisesta ja kansalaisten halusta osallistua itseään koskevaan päätöksentekoon. Ihmiset eivät enää tyydy siihen, että asiantuntijat sanelevat, mikä on heille parhaaksi, vaan he vaativat ääntään kuuluviin ja haluavat ymmärtää päätösten perusteita. Tämä kehitys on tervettä ja voi parantaa päätöksenteon laatua, kun erilaiset näkökulmat tulevat huomioiduiksi. Asiantuntijuuden kritiikkiin liittyy kuitenkin myös ongelmia. Yksi keskeisimmistä on se, että kaikkea tietoa ei voida asettaa samalle viivalle. Tieteellinen tieto perustuu systemaattiseen tutkimukseen, vertaisarviointiin ja avoimeen kritiikkiin, kun taas moni muu tiedonlaji perustuu henkilökohtaisiin kokemuksiin, uskomuksiin tai ideologisiin lähtökohtiin. Näiden kahden tiedonlajin välillä on laadullinen ero, joka tulisi kyetä tunnistamaan. Toinen ongelma liittyy siihen, että asiantuntijuuden kyseenalaistaminen voi johtaa päätöksenteon halvaantumiseen. Jos mikään tieto ei ole luotettavaa ja jokaista asiantuntijaa voidaan syyttää sidonnaisuuksista, on mahdotonta tehdä tietoon perustuvia päätöksiä. Tämä on erityisen ongelmallista tilanteissa, joissa tarvitaan nopeita ja vaikuttavia toimia, kuten ilmastonmuutoksen torjunnassa tai pandemian hoidossa. Kolmas ongelma koskee asiantuntijoiden ja kansalaisten välistä luottamusta. Jos asiantuntijoihin ei luoteta, heidän suosituksiaan ei noudateta, ja päätöksenteon legitimiteetti heikkenee. Tämä voi johtaa yhteiskunnalliseen polarisaatioon ja jopa konflikteihin. Asiantuntijuuden tulevaisuuden kannalta keskeistä on, miten kyetään rakentamaan uudenlaista luottamusta asiantuntijoiden ja kansalaisten välille. Tämä edellyttää asiantuntijoilta avoimuutta ja vuoropuhelua, kansalaisilta kriittistä medialukutaitoa ja päättäjiltä kykyä tehdä päätöksiä, jotka perustuvat parhaaseen mahdolliseen tietoon mutta ottavat huomioon myös erilaiset arvot ja intressit.",
+      "word_count": 328
+    },
+    "questions": [
+      {
+        "id": "7f3c3551-6d7c-53e3-88df-e14b27eb642d",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Tieteellisen tiedon ylivoimaisuus muihin tiedonlähteisiin nähden",
+          "Asiantuntijuuden roolin muutos ja siihen liittyvät jännitteet demokratian ja päätöksenteon kannalta",
+          "Sosiaalisen median vaikutus asiantuntijoiden asemaan",
+          "Päätöksenteon halvaantuminen asiantuntijuuden kyseenalaistamisen seurauksena"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "14be0d8a-ec5c-56ee-9606-12b3ec970db6",
+        "prompt": "Tekstin mukaan miten asiantuntijuuden kyseenalaistaminen liittyy laajempaan yhteiskunnalliseen kehitykseen?",
+        "options": [
+          "Se on osoitus instituutioiden ja asiantuntijoiden aseman vahvistumisesta",
+          "Se liittyy perinteisten auktoriteettien aseman heikkenemiseen ja kansalaisten halukkuuteen etsiä tietoa epävirallisista lähteistä",
+          "Se on seurausta tieteellisen tiedon laadun heikkenemisestä",
+          "Se on osoitus demokratian heikkenemisestä ja kansalaisten vieraantumisesta päätöksenteosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4eb6a0f5-27b2-5569-ac27-a040bc5c7a90",
+        "prompt": "Mitä myönteistä asiantuntijuuden kritisoinnissa tekstin mukaan on?",
+        "options": [
+          "Se osoittaa, että asiantuntijat ovat menettäneet otteensa yhteiskunnasta",
+          "Se on osoitus demokratian vahvistumisesta ja kansalaisten halusta osallistua päätöksentekoon",
+          "Se nopeuttaa päätöksentekoa, kun turhaa asiantuntijatietoa ei tarvita",
+          "Se vähentää tarvetta kriittiselle medialukutaidolle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "90fc79ea-6765-5b0e-9bdf-9c641518196f",
+        "prompt": "Mitä ongelmia asiantuntijuuden kritiikkiin liittyy tekstin mukaan?",
+        "options": [
+          "Se voi johtaa siihen, että kaikki tieto nähdään samanarvoisena, päätöksenteko halvaantuu ja luottamus heikkenee",
+          "Se vahvistaa asiantuntijoiden asemaa entisestään, koska he joutuvat puolustautumaan kritiikiltä",
+          "Se lisää byrokratiaa, koska jokaista päätöstä varten tarvitaan yhä enemmän lausuntoja",
+          "Se vähentää kansalaisten kiinnostusta yhteiskunnallisia asioita kohtaan"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

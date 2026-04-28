@@ -1,0 +1,66 @@
+{
+  "id": "62574edc-0a5e-59df-81c3-027afc19b0df",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.494,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "HAETAAN KOLMANTA ASUNTAKAUPUNKIA\n\nOlemme kaksi siistiä tyttöä ja haemme kolmatta asukasta kolmioon Vallilaan. Oma huone 12 m², vuokra 550 €/kk sisältäen veden ja sähkön. Asunto on hyvien kulkuyhteyksien varrella. Jos olet siisti ja rauhallinen, ota yhteyttä: asukas@gmail.com  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä kokoinen huone on?",
+        "options": [
+          "A) 10 m²",
+          "B) 12 m²",
+          "C) 15 m²",
+          "D) 18 m²"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko vuokra on?",
+        "options": [
+          "A) 500 €",
+          "B) 550 €",
+          "C) 600 €",
+          "D) 650 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vuokra sisältää?",
+        "options": [
+          "A) vain vuokran",
+          "B) veden ja sähkön",
+          "C) myös netin",
+          "D) kaiken"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

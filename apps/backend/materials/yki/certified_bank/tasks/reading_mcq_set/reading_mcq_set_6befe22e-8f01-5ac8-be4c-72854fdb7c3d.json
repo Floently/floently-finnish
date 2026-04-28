@@ -1,0 +1,77 @@
+{
+  "id": "6befe22e-8f01-5ac8-be4c-72854fdb7c3d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue hammaslääkärin lähettämä tekstiviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei Maija!\n\nSinulla on hammaslääkäriaika keskiviikkona 8.6. klo 13.30. Osoite on Hampurinkatu 3, 2. kerros. Ota henkilökortti ja Kela-kortti mukaan. Jos et pääse, peru aika viimeistään maanantaina 6.6. soittamalla numeroon 09 123 4567. Peruuttamattomasta ajasta laskutetaan 50 €.\n\nTervetuloa!\n– Suun terveys",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "084c197a-a413-51a3-bb28-30505b24dd0d",
+        "prompt": "Milloin hammaslääkäriaika on?",
+        "options": [
+          "maanantaina 6.6. klo 13.30",
+          "tiistaina 7.6. klo 10.00",
+          "keskiviikkona 8.6. klo 13.30",
+          "torstaina 9.6. klo 9.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a043b62f-b841-58f2-bcae-1a0a28a80f9e",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "vain henkilökortti",
+          "vain Kela-kortti",
+          "henkilökortti ja Kela-kortti",
+          "maksukortti"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b3d6799a-f946-501c-a440-7c0415200855",
+        "prompt": "Paljonko maksaa, jos ei peru aikaa?",
+        "options": [
+          "20 €",
+          "30 €",
+          "40 €",
+          "50 €"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "bcf6ac4b-3224-524d-9f58-6297976e7cea",
+        "prompt": "Mihin mennessä ajan voi perua?",
+        "options": [
+          "keskiviikkoon 8.6.",
+          "maanantaihin 6.6.",
+          "sunnuntaihin 5.6.",
+          "perjantaihin 3.6."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

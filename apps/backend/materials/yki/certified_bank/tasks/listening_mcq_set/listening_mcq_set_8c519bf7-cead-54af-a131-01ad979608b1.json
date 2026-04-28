@@ -1,0 +1,77 @@
+{
+  "id": "8c519bf7-cead-54af-a131-01ad979608b1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asemakuulutus ja valitse oikea vastaus.",
+    "materials": {
+      "transcript": "Kuulutus: Intercity-juna Tampereelle on myöhässä noin kymmenen minuuttia teknisen tarkastuksen vuoksi. Uusi lähtöaika on kello 17.40. Juna lähtee poikkeuksellisesti laiturilta viisi, ei laiturilta kolme. Matkustajia pyydetään siirtymään laiturille hyvissä ajoin. Ensimmäisen luokan vaunu on junan etupäässä ja ravintolavaunu keskiosassa. Pahoittelemme viivästystä.",
+      "audio_asset_id": "3cfeeeb4-162f-5e11-af7c-93e27a48b8d0"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Kuinka paljon juna on myöhässä?",
+        "options": [
+          "viisi minuuttia",
+          "kymmenen minuuttia",
+          "kaksikymmentä minuuttia",
+          "puoli tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mikä on uusi lähtöaika?",
+        "options": [
+          "17.30",
+          "17.35",
+          "17.40",
+          "17.50"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq3",
+        "prompt": "Miltä laiturilta juna lähtee?",
+        "options": [
+          "laituri 2",
+          "laituri 3",
+          "laituri 4",
+          "laituri 5"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Missä ravintolavaunu on?",
+        "options": [
+          "junan etupäässä",
+          "junan keskiosassa",
+          "junan takaosassa",
+          "erillisessä rakennuksessa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

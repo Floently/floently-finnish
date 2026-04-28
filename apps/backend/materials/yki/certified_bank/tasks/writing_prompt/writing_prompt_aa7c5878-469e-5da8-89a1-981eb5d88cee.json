@@ -1,0 +1,37 @@
+{
+  "id": "aa7c5878-469e-5da8-89a1-981eb5d88cee",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an architect position in an architectural firm. Tell about your education, design experience, and your most significant projects. Describe your design philosophy and how you take sustainable development into account in your plans. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus arkkitehdin tehtävään"
+    },
+    "items": [
+      {
+        "id": "2e7cf425-543c-5286-bf7c-98f27f0b9c52",
+        "prompt": "Write a job application. You are applying for an architect position in an architectural firm. Tell about your education, design experience, and your most significant projects. Describe your design philosophy and how you take sustainable development into account in your plans. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an architect position in an architectural firm. Tell about your education, design experience, and your most significant projects. Describe your design philosophy and how you take sustainable development into account in your plans. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

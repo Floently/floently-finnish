@@ -1,0 +1,77 @@
+{
+  "id": "2793c8c4-e47b-5e23-b7f4-fae6a1d084eb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.296,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kaupan mainos ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "K-MARKET MYYRMÄKI\n\nTÄLLÄ VIIKOLLA TARJOUKSESSA:\n\nBanaani 1,29 €/kg\nJauheliha (10%) 4,95 €/400g\nMaito 1,09 €/l\nLeipä (paikallisleipomo) 2,65 €/kpl\n\nVoimassa 10.3.–16.3. tai niin kauan kuin tavaraa riittää.\n\nAvoinna: ma–la 7–22, su 10–20",
+      "word_count": 32
+    },
+    "questions": [
+      {
+        "id": "401c804f-096c-561d-9645-a154f8c4ce97",
+        "prompt": "Paljonko banaani maksaa tarjouksessa?",
+        "options": [
+          "1,09 €/kg",
+          "1,29 €/kg",
+          "1,49 €/kg",
+          "1,99 €/kg"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7dbba96b-34a4-5437-89bb-e200d4d3ae80",
+        "prompt": "Mitä maksaa 400 grammaa jauhelihaa?",
+        "options": [
+          "3,95 €",
+          "4,50 €",
+          "4,95 €",
+          "5,50 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ec942115-bbb9-5911-82f1-6a3d9a4b8467",
+        "prompt": "Kuinka kauan tarjoukset ovat voimassa?",
+        "options": [
+          "Viikon",
+          "Kaksi viikkoa",
+          "Kuukauden",
+          "Vain yhden päivän"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "47f7346c-50ba-5174-82e4-11892fa06ffd",
+        "prompt": "Milloin kauppa on auki sunnuntaina?",
+        "options": [
+          "9–18",
+          "10–20",
+          "12–18",
+          "8–22"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

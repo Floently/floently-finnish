@@ -1,0 +1,37 @@
+{
+  "id": "584feee6-f81a-54ef-91d7-2272cf487ec6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti hotellille.",
+    "materials": {
+      "scenario": "Haluat muuttaa hotellivaraustasi."
+    },
+    "items": [
+      {
+        "id": "9beaf6fa-1bec-52a1-9560-295c6bc0d09b",
+        "prompt": "Kirjoita sähköposti hotellille."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti hotellille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2f6a8d1e-526d-5d83-9771-50ccf3568c00",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työterveyshuollon kehittämissuunnitelmasta. Kerro suunnitelman realistisuudesta, aikataulusta ja resursseista. Ehdota yhtä uutta kehittämiskohdetta.",
+    "materials": {
+      "scenario": "Palaute työpaikan työterveyshuollon kehittämissuunnitelmasta"
+    },
+    "items": [
+      {
+        "id": "62d49147-70f4-5dee-b1cd-5dfd0b228e1c",
+        "prompt": "Kirjoita palauteteksti työpaikan työterveyshuollon kehittämissuunnitelmasta. Kerro suunnitelman realistisuudesta, aikataulusta ja resursseista. Ehdota yhtä uutta kehittämiskohdetta."
+      }
+    ],
+    "rubric": "Suunnitelman realistisuus\nAikataulu\nResurssit\nUusi kehittämiskohde",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

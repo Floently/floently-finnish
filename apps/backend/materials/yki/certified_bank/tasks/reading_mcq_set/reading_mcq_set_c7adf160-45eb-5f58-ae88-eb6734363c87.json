@@ -1,0 +1,88 @@
+{
+  "id": "c7adf160-45eb-5f58-ae88-eb6734363c87",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.785,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kiertotalous on noussut keskeiseksi tavoitteeksi pyrittäessä kestävämpään talousmalliin, joka vähentää luonnonvarojen ylikulutusta ja jätteen määrää. Perinteinen lineaarinen talous perustuu ota-valmista-hävitä -malliin, joka on osoittautunut kestämättömäksi sekä ekologisesti että taloudellisesti. Kiertotaloudessa tuotteet, materiaalit ja resurssit pidetään kierrossa mahdollisimman pitkään esimerkiksi korjaamalla, uudelleenkäyttämällä ja kierrättämällä. Vaikka kiertotalouden periaatteet ovat laajalti hyväksyttyjä, sen toteuttaminen käytännössä on osoittautunut odotettua vaikeammaksi. Yksi keskeisistä haasteista on nykyisen talousjärjestelmämme rakenne, joka on suunniteltu lineaarista mallia varten. Tuotteet suunnitellaan usein niin, että niiden korjaaminen on vaikeaa ja kallista, ja uuden ostaminen on helpompaa ja halvempaa. Tämä on osa suunniteltua vanhenemista, jossa tuotteet tehdään tarkoituksella lyhytikäisiksi. Toinen merkittävä haaste on kierrätyksen tekninen toteutus: monet nykyaikaiset tuotteet sisältävät niin monia eri materiaaleja, että niiden erottaminen toisistaan on vaikeaa ja kallista. Tämä koskee erityisesti elektroniikkaa ja monikerroksisia pakkausmateriaaleja. Toisaalta kiertotalous tarjoaa myös merkittäviä taloudellisia mahdollisuuksia. Uudet liiketoimintamallit, kuten tuotteiden vuokraus ja korjauspalvelut, voivat synnyttää uusia työpaikkoja ja liiketoimintaa. Myös materiaalien talteenotto ja uudelleenkäyttö voivat vähentää teollisuuden riippuvuutta raaka-aineiden tuonnista. Kiertotalouden edistäminen vaatii kuitenkin kokonaisvaltaista muutosta, jossa tarvitaan sekä lainsäädännöllisiä toimia, taloudellisia ohjauskeinoja että kuluttajien asenteiden muutosta.",
+      "word_count": 175
+    },
+    "questions": [
+      {
+        "id": "65e461aa-1fc3-5d8c-8c24-b2a4383b1d60",
+        "prompt": "Mihin perinteinen lineaarinen talous perustuu?",
+        "options": [
+          "Korjaa-käytä-uudelleenkäytä -malliin",
+          "Ota-valmista-hävitä -malliin",
+          "Kierrätä-uudelleenkäytä-vuokraa -malliin",
+          "Jaa-korjaa-pidennä -malliin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bd3de6ef-488a-5134-8aee-b66117a293af",
+        "prompt": "Mitä tarkoitetaan suunnitellulla vanhenemisella?",
+        "options": [
+          "Tuotteet suunnitellaan kestämään pitkään",
+          "Tuotteet tehdään tarkoituksella lyhytikäisiksi",
+          "Tuotteet suunnitellaan helposti korjattaviksi",
+          "Tuotteet valmistetaan kierrätysmateriaaleista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "162d2f73-8914-506b-b8b0-6e2199a101bb",
+        "prompt": "Miksi nykyaikaisten tuotteiden kierrätys on usein vaikeaa?",
+        "options": [
+          "Ne ovat liian suuria",
+          "Ne sisältävät monia eri materiaaleja",
+          "Ne ovat vaarallisia jätteitä",
+          "Niitä ei voi kierrättää lainkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ff2bb340-3d5b-5b36-a54d-2a1fd6d56a27",
+        "prompt": "Mitä uusia liiketoimintamalleja kiertotalous voi synnyttää?",
+        "options": [
+          "Kertakäyttötuotteiden valmistus",
+          "Tuotteiden vuokraus ja korjauspalvelut",
+          "Halpatuonti kehitysmaista",
+          "Massatuotannon tehostaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2ec268dc-7ec1-5929-8ca3-69391ca4ad33",
+        "prompt": "Mitä kiertotalouden edistäminen vaatii?",
+        "options": [
+          "Vain kuluttajien asenteiden muutosta",
+          "Vain lainsäädännöllisiä toimia",
+          "Vain taloudellisia ohjauskeinoja",
+          "Kokonaisvaltaista muutosta kaikilla näillä alueilla"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

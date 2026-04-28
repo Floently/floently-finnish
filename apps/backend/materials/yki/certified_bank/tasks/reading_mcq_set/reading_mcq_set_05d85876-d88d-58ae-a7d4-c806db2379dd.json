@@ -1,0 +1,66 @@
+{
+  "id": "05d85876-d88d-58ae-a7d4-c806db2379dd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Koulutuksen tasa-arvo on ollut suomalaisen yhteiskunnan kulmakiviä. Viimeaikainen kehitys antaa kuitenkin aihetta huoleen. PISA-tulosten lasku ja koulujen eriytyminen kertovat siitä, että peruskoulun ihanne kaikille yhteisestä oppimispolusta on murentumassa. Kasvatustieteen professori Janne Varjo kuvaa tilannetta 'hiljaiseksi eriarvoistumiseksi'. Hänen mukaansa ongelma ei ole yksittäinen, vaan monien tekijöiden summa: vanhempien koulutustausta, asuinalueen segregaatio ja koulujen välinen kilpailu ohjaavat oppilaita yhä enemmän eri reiteille. Samalla koulujen mahdollisuudet tukea heikommassa asemassa olevia oppilaita ovat heikentyneet resurssien vähentyessä. Varjo korostaa, että kyse on laajemmasta yhteiskunnallisesta valinnasta: 'Jos hyväksymme, että koulu menestyy markkinoilla ja oppilaat valitsevat koulunsa, seurauksena on eriarvoistuminen. Jos taas haluamme pitää kiinni tasa-arvosta, tarvitaan vahvaa ohjausta ja resursseja sinne, missä tarve on suurin.' Ratkaisuna hän näkee panostuksen varhaiskasvatukseen ja koulujen välisten erojen tasaamiseen. Ilman poliittisia päätöksiä kehitys jatkuu, ja seuraukset ovat pitkäaikaisia.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "b3a74dfe-4527-5432-97f1-3be63487712c",
+        "prompt": "Mitä Janne Varjo tarkoittaa 'hiljaisella eriarvoistumisella'?",
+        "options": [
+          "Äkillistä koulujen lakkauttamista",
+          "Monien tekijöiden summana tapahtuvaa eriytymistä",
+          "Oppilaiden avointa syrjintää",
+          "Koulujen välistä avointa kilpailua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "558c8e1e-ea40-5bf3-976f-2af57b52fea2",
+        "prompt": "Mikä on Varon mukaan seuraus koulujen markkinaehtoisuudesta?",
+        "options": [
+          "Koulujen laatu paranee",
+          "Eriarvoistuminen lisääntyy",
+          "Oppilaat viihtyvät paremmin",
+          "Opettajien työ helpottuu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9a801fb2-6b01-5fcd-908c-740f2a948057",
+        "prompt": "Mitä Varjo ehdottaa ratkaisuksi?",
+        "options": [
+          "Koulujen yksityistämistä",
+          "Panostusta varhaiskasvatukseen ja koulujen välisten erojen tasaamiseen",
+          "Oppilaiden testaamista aikaisemmin",
+          "Koulujen välistä kilpailua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

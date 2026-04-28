@@ -1,0 +1,40 @@
+{
+  "id": "01cb4811-67c0-5e3c-b99d-ae4c1247a53e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.284,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell whether you like morning, day or evening the most. What do you do then?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "de4b0faa-7ebd-5687-a203-92880a39a0d9",
+        "ai_first_turn_fi": "Ootsä enemmän aamu- vai iltaihminen? Milloin olet parhaimmillasi?"
+      }
+    ],
+    "rubric": "Tell whether you like morning, day or evening the most. What do you do then?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

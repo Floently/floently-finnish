@@ -1,0 +1,66 @@
+{
+  "id": "480a06f3-08c2-5968-9d58-b3bf030e416b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Jyväskylän kaupunki uudistaa joukkoliikennettä ensi syksynä. Uudistuksen myötä bussilinjojen määrä vähenee 15:stä 12:een, mutta vuorotarjonta paranee vilkkaimmilla reiteillä. Kaupungin liikennesuunnittelija Maria Aho perustelee: 'Harvemmin kulkevat linjat yhdistetään, jotta pääreiteillä bussit kulkevat useammin. Tavoitteena on, että 80 prosenttia kaupunkilaisista asuu alle 400 metrin päässä pysäkistä, jolta pääsee vähintään puolen tunnin välein keskustaan.' Muutos herättää kritiikkiä haja-asutusalueilla. 'Meillä bussit kulkevat nyt kerran tunnissa, jatkossa ehkä vain kahdesti päivässä', harmittelee Korpilahden asukas. Kaupunki lupaa korvaavia palveluita, kuten kutsubusseja.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 103
+    },
+    "questions": [
+      {
+        "id": "fb02e346-aec9-5e96-a2a6-36594ad7b940",
+        "prompt": "Miten bussilinjojen määrä muuttuu?",
+        "options": [
+          "Se kasvaa 12:sta 15:een",
+          "Se vähenee 15:stä 12:een",
+          "Se pysyy samana",
+          "Se vähenee 12:sta 10:een"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "91b6c0f1-b5d5-5d5d-bcbc-a79d87e1387a",
+        "prompt": "Mikä on uudistuksen päätavoite kaupungin mukaan?",
+        "options": [
+          "Säästää rahaa",
+          "Vähentää bussien määrää",
+          "Parantaa tarjontaa pääreiteillä",
+          "Lakkauttaa haja-asutusalueiden liikenne"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "73773c78-9a7b-50ef-abbb-4e2a5523bbeb",
+        "prompt": "Mitä mieltä Korpilahden asukas on muutoksesta?",
+        "options": [
+          "Iloinen, koska bussit kulkevat useammin",
+          "Huolissaan, koska palvelu heikkenee",
+          "Välinpitämätön, koska ei käytä busseja",
+          "Innostunut uusista kutsu-busseista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

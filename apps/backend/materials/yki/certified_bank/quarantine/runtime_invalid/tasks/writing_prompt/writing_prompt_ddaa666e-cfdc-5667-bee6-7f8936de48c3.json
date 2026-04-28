@@ -1,0 +1,37 @@
+{
+  "id": "ddaa666e-cfdc-5667-bee6-7f8936de48c3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: service desk. Purpose: justify an opinion. Constraint: offer a concrete solution.",
+    "materials": {
+      "scenario": "public_admin in service_desk"
+    },
+    "items": [
+      {
+        "id": "8f88d752-9516-5102-81b5-e77a5cafc2fe",
+        "prompt": "Write for the receiver in this scenario: service desk. Purpose: justify an opinion. Constraint: offer a concrete solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "6e1cf897-0b7b-5a36-9350-1ac5ffa56d3f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.286,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell how you feel, what symptoms you have, and what you do when you are sick.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "e30f3fa7-d946-52b9-b96d-c9bd877b91e8",
+        "ai_first_turn_fi": "Ai oot kipeä? Mitä oireita sulla on? Ootko käynyt lääkärissä?"
+      }
+    ],
+    "rubric": "Tell how you feel, what symptoms you have, and what you do when you are sick.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

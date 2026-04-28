@@ -1,0 +1,73 @@
+{
+  "id": "f614b7dd-34e0-5ae3-8668-86cce630297e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhä useammalla työpaikalla on työhyvinvointikoira. Koirien uskotaan vähentävän stressiä ja lisäävän yhteisöllisyyttä.\n\nIT-yritys Bit Oy otti koirakäytännön käyttöön kaksi vuotta sitten. \"Meillä on viisi koiraa, jotka tulevat omistajiensa kanssa töihin. Se on ollut positiivinen juttu. Tauot ovat aktiivisempia ja porukka juttelee enemmän\", kertoo toimitusjohtaja.\n\nKoirat ovat kuitenkin jakaneet mielipiteitä. Osa työntekijöistä kokee, että koirat häiritsevät keskittymistä. Myös allergiat ja pelot on huomioitava. \"Meillä on koiravapaita alueita ja työntekijä voi valita, haluaako olla samassa tilassa koirien kanssa\", toimitusjohtaja tarkentaa.\n\nTyöterveyslaitoksen tutkija muistuttaa, että käytännöstä pitää sopia yhdessä. \"Pakottaminen ei toimi. Jos koirat tuodaan työpaikalle, pitää olla selvät pelisäännöt ja mahdollisuus kieltäytyä.\"",
+      "word_count": 100
+    },
+    "questions": [
+      {
+        "id": "item_033_1",
+        "prompt": "Miksi koiria tuodaan työpaikoille?",
+        "options": [
+          "ne viihdyttävät asiakkaita",
+          "ne vähentävät stressiä ja lisäävät yhteisöllisyyttä",
+          "ne vahtivat toimistoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_033_2",
+        "prompt": "Mitä hyötyä koirista on ollut Bit Oy:ssä?",
+        "options": [
+          "työntekijät tulevat ajoissa töihin",
+          "tauot ovat aktiivisempia ja porukka juttelee enemmän",
+          "koirat vartioivat yöllä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_033_3",
+        "prompt": "Mitä ongelmia koirat voivat aiheuttaa?",
+        "options": [
+          "ne syövät liikaa",
+          "ne voivat häiritä keskittymistä, aiheuttaa allergioita ja pelkoa",
+          "ne ovat liian kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_033_4",
+        "prompt": "Mitä tutkija neuvoo?",
+        "options": [
+          "koirat pitää kieltää kaikilla työpaikoilla",
+          "tarvitaan selvät pelisäännöt ja mahdollisuus kieltäytyä",
+          "koiria pitää olla vähintään yksi per työntekijä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

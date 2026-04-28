@@ -1,0 +1,77 @@
+{
+  "id": "ca273892-b518-5a5d-bf61-2a743751cbbb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Energiapolitiikassa joudutaan tekemään vaikeita valintoja eri tavoitteiden välillä. Yksi keskeinen tavoite on ilmastonmuutoksen hillintä, joka edellyttää siirtymistä uusiutuvaan energiaan ja fossiilisten polttoaineiden käytön vähentämistä. Toinen tavoite on energian kohtuuhintaisuus, joka on tärkeää sekä kotitalouksille että teollisuudelle. Kolmas tavoite on huoltovarmuus, eli energiansaannin turvaaminen kaikissa olosuhteissa. Nämä tavoitteet voivat olla ristiriidassa keskenään. Esimerkiksi uusiutuvaan energiaan siirtyminen voi nostaa energian hintaa lyhyellä aikavälillä, ja se voi myös tehdä energiajärjestelmästä sääriippuvaisemman, mikä voi heikentää huoltovarmuutta. Energiapolitiikassa on löydettävä tasapaino näiden tavoitteiden välillä.",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "mcq_344",
+        "prompt": "Mitä tavoitteita energiapolitiikassa joudutaan punnitsemaan?",
+        "options": [
+          "Vain ilmastonmuutoksen hillintää",
+          "Ilmastonmuutoksen hillintää, energian kohtuuhintaisuutta ja huoltovarmuutta",
+          "Vain energian kohtuuhintaisuutta",
+          "Vain huoltovarmuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_345",
+        "prompt": "Mitä ilmastonmuutoksen hillintä edellyttää?",
+        "options": [
+          "Siirtymistä fossiilisiin polttoaineisiin",
+          "Siirtymistä uusiutuvaan energiaan",
+          "Energian hinnan nostamista",
+          "Huoltovarmuuden heikentämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_346",
+        "prompt": "Miksi energian kohtuuhintaisuus on tärkeää?",
+        "options": [
+          "Vain kotitalouksille",
+          "Vain teollisuudelle",
+          "Sekä kotitalouksille että teollisuudelle",
+          "Vain valtiolle"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_347",
+        "prompt": "Mitä riskejä uusiutuvaan energiaan siirtymiseen voi liittyä?",
+        "options": [
+          "Se voi laskea energian hintaa",
+          "Se voi tehdä energiajärjestelmästä sääriippuvaisemman",
+          "Se voi parantaa huoltovarmuutta",
+          "Se voi vähentää päästöjä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "f3fc42c8-1770-583e-8b86-a694edf5cfeb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Tarkista aika ja paikka ennen kuin lähdet. Jos tarvitset apua, voit kysyä palvelutiskiltä. Asia alkaa maanantaina 8. päivä. Lopussa kerrotaan yhteystiedot ja aukiolo. Tämä koskee monia ihmisiä Lahdessa. Ota mukaan henkilöllisyystodistus, jos sitä pyydetään. Ohjeet ovat lyhyet ja selkeät. Jos et pääse, ilmoita siitä etukäteen. Viesti on tarkoitettu arjen asiointiin. Oppilaitos lähettää viestin aiheesta: naapurin lappu rappukäytävän pyöristä. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä maanantaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä maanantaina asti.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "a1_a2r12-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Ruoanlaitto kotona",
+          "Urheilutapahtuma",
+          "Tarkista ja siihen liittyvä muutos",
+          "Matkustaminen ja sää"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r12-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Lentojen peruuntuminen",
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Uusi elokuva",
+          "Sairaalan remontti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r12-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Odota viikko",
+          "Kysy neuvoa",
+          "Älä kerro kenellekään",
+          "Jätä asia kesken"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

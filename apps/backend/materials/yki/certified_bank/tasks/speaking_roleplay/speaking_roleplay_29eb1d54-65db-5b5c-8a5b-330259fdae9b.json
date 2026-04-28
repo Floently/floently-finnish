@@ -1,0 +1,40 @@
+{
+  "id": "29eb1d54-65db-5b5c-8a5b-330259fdae9b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you like to do on weekends and evenings.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "41c915f7-624f-5443-adb7-6e11b1c5d492",
+        "ai_first_turn_fi": "Mitä tykkäät tehdä vapaa-ajalla? Kerro harrastuksistasi."
+      }
+    ],
+    "rubric": "Tell what you like to do on weekends and evenings.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

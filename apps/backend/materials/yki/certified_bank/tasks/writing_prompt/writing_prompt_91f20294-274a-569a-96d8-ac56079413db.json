@@ -1,0 +1,37 @@
+{
+  "id": "91f20294-274a-569a-96d8-ac56079413db",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.342,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti taloyhtiön hallitukselle. Ehdotat, että pyörävarastoon laitetaan lisää pyörätelineitä. Kerro, että nykyiset eivät riitä ja pyöriä on lattialla. Kerro, että se on vaarallista ja pyörät voivat vahingoittua. Kysy, voiko asiaa viedä eteenpäin.",
+    "materials": {
+      "scenario": "Viesti taloyhtiölle pyörätelineistä"
+    },
+    "items": [
+      {
+        "id": "cae3806b-762a-55f8-a717-0f8b2eb216f1",
+        "prompt": "Kirjoita lyhyt viesti taloyhtiön hallitukselle. Ehdotat, että pyörävarastoon laitetaan lisää pyörätelineitä. Kerro, että nykyiset eivät riitä ja pyöriä on lattialla. Kerro, että se on vaarallista ja pyörät voivat vahingoittua. Kysy, voiko asiaa viedä eteenpäin."
+      }
+    ],
+    "rubric": "Ehdota lisää pyörätelineitä\nKerro, miksi niitä tarvitaan\nKerro ongelmista (pyöriä lattialla)\nKysy, voiko asiaa viedä eteenpäin",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

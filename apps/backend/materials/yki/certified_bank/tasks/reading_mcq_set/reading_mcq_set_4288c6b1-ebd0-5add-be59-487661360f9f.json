@@ -1,0 +1,77 @@
+{
+  "id": "4288c6b1-ebd0-5add-be59-487661360f9f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.781,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kestävän kehityksen ja talouskasvun välinen suhde on yksi aikamme keskeisimmistä ja kiistellyimmistä yhteiskunnallisista kysymyksistä. Perinteinen talousajattelu on pitkälti perustunut oletukseen, että jatkuva talouskasvu on mahdollista ja toivottavaa, ja että se tuo hyvinvointia kaikille. Tämä ajattelu on kuitenkin joutunut yhä voimakkaamman kritiikin kohteeksi viimeistään ilmastonmuutoksen ja luonnonvarojen ehtymisen myötä. Yksi vastaus tähän dilemmaan on niin sanottu vihreän kasvun teoria. Sen kannattajat uskovat, että talouskasvu voidaan irrottaa luonnonvarojen kulutuksesta ja ympäristön kuormituksesta teknologisen kehityksen ja rakenteellisten muutosten avulla. Tämä tarkoittaisi siirtymistä kohti kiertotaloutta, uusiutuvan energian käyttöä ja resurssitehokkuutta. Vihreän kasvun malli on saavuttanut laajaa kannatusta niin yritysten kuin poliittisten päättäjienkin keskuudessa, koska se tarjoaa mahdollisuuden yhdistää taloudelliset ja ympäristötavoitteet ilman radikaaleja yhteiskunnallisia muutoksia. Toinen, huomattavasti radikaalimpi näkemys on degrowth- eli supistumistalous. Sen kannattajat katsovat, että vihreä kasvu on utopiaa: teknologian kehitys ei yksin riitä irrottamaan talouskasvua ympäristökuormituksesta, vaan tarvitaan talouden tarkoituksellista supistamista erityisesti rikkaissa maissa. Tämä tarkoittaisi siirtymistä pois bruttokansantuotteen kasvattamisesta kohti hyvinvoinnin muita mittareita, kuten terveyttä, koulutusta, sosiaalista yhteenkuuluvuutta ja ympäristön tilaa. Degrowth-liike korostaa paikallisuutta, yhteisöllisyyttä ja omavaraisuutta. Se haastaa perinteisen käsityksen hyvästä elämästä, joka usein yhdistetään kuluttamiseen ja materiaaliseen vaurauteen. Keskustelu talouskasvusta ja ympäristöstä ei ole pelkästään tekninen tai taloudellinen, vaan se on syvästi arvosidonnainen. Se koskee käsityksiämme hyvästä elämästä, oikeudenmukaisuudesta ja tulevaisuudesta.",
+      "word_count": 203
+    },
+    "questions": [
+      {
+        "id": "0b8deeae-0c71-564f-b2f4-b59b910cf480",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Teknologian rooli ilmastonmuutoksen torjunnassa",
+          "Talouskasvun ja ympäristönsuojelun välinen jännite ja siihen esitetyt ratkaisumallit",
+          "Kehitysmaiden oikeus taloudelliseen kasvuun",
+          "Bruttokansantuotteen ongelmat hyvinvoinnin mittarina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "88b79799-2419-569e-8eb4-cd66e0566891",
+        "prompt": "Tekstin mukaan mitä tarkoitetaan 'vihreällä kasvulla'?",
+        "options": [
+          "Talouskasvua, joka perustuu yksinomaan uusiutuvaan energiaan",
+          "Ajatusta siitä, että talouskasvu voidaan irrottaa luonnonvarojen kulutuksesta ja ympäristökuormituksesta teknologian ja rakenteellisten muutosten avulla",
+          "Maatalouden kasvua ja metsien istuttamista",
+          "Talouskasvun hidastamista ympäristösyistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ed3dcc3b-47c7-5918-83cc-1cbc7a9b7e06",
+        "prompt": "Miten 'degrowth'-ajattelu eroaa vihreän kasvun ajattelusta tekstin mukaan?",
+        "options": [
+          "Degrowth kannattaa teknologian kehityksen pysäyttämistä",
+          "Degrowth pitää vihreää kasvua mahdottomana ja vaatii talouden tarkoituksellista supistamista rikkaissa maissa",
+          "Degrowth keskittyy vain kehitysmaiden talouskasvuun",
+          "Degrowth on sama asia kuin vihreä kasvu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "602d1bdb-ea06-5c9b-bce3-b2c2b0656a40",
+        "prompt": "Tekstin mukaan millaisia arvokysymyksiä talouskasvukeskusteluun liittyy?",
+        "options": [
+          "Vain teknisiä kysymyksiä energiatehokkuudesta",
+          "Kysymyksiä hyvästä elämästä, oikeudenmukaisuudesta ja vastuunjaosta eri maiden ja sukupolvien välillä",
+          "Vain kysymyksiä siitä, miten bruttokansantuotetta voidaan kasvattaa nopeimmin",
+          "Vain kysymyksiä työllisyydestä ja kilpailukyvystä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

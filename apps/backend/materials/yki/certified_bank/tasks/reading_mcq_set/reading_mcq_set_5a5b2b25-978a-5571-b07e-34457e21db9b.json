@@ -1,0 +1,110 @@
+{
+  "id": "5a5b2b25-978a-5571-b07e-34457e21db9b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen hyvinvointivaltio perustuu ajatukseen, että jokaisella kansalaisella on oikeus turvalliseen elämään ja peruspalveluihin. Tämä tarkoittaa muun muassa terveydenhuoltoa, koulutusta ja sosiaaliturvaa. Järjestelmä rahoitetaan verovaroin, ja se on tarkoitettu kaikille asuinpaikasta tai varallisuudesta riippumatta. Tavoitteena on vähentää eriarvoisuutta ja turvata jokaiselle ihmisarvoinen elämä. Hyvinvointivaltio on ollut keskeinen tekijä Suomen kehityksessä köyhästä maatalousyhteiskunnasta vauraaksi hyvinvointiyhteiskunnaksi. Se on luonut vakautta ja turvallisuutta ja mahdollistanut sen, että ihmiset ovat voineet luottaa tulevaisuuteen. Viime vuosina hyvinvointivaltio on kuitenkin joutunut kasvavien paineiden alle. Väestön ikääntyminen lisää palvelujen tarvetta, ja julkiset menot kasvavat. Talouden globalisaatio ja kilpailu asettavat haasteita veropohjalle. Samalla kansalaisten odotukset palvelujen laadusta ovat korkealla. Tämä on synnyttänyt keskustelua siitä, miten hyvinvointivaltiota voidaan uudistaa kestävällä tavalla. Tarvitaan uusia ratkaisuja, jotka turvaavat palvelut, mutta eivät kasvata julkista velkaa kestämättömästi. Teknologia, ennaltaehkäisy ja uudenlaiset palvelumallit voivat auttaa. Myös keskustelua siitä, mikä on julkisen ja yksityisen vastuun sopiva suhde, käydään jatkuvasti.",
+      "word_count": 143
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin ajatukseen suomalainen hyvinvointivaltio perustuu?",
+        "options": [
+          "Vain rikkailla on oikeus palveluihin.",
+          "Jokaisella kansalaisella on oikeus turvalliseen elämään ja peruspalveluihin.",
+          "Vain työssäkäyvillä on oikeus palveluihin.",
+          "Palvelut ovat vain kaupunkilaisille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä peruspalveluja hyvinvointivaltio tarjoaa?",
+        "options": [
+          "Vain terveydenhuoltoa.",
+          "Terveydenhuoltoa, koulutusta ja sosiaaliturvaa.",
+          "Vain koulutusta.",
+          "Vain sosiaaliturvaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten hyvinvointivaltio rahoitetaan?",
+        "options": [
+          "Yksityisillä lahjoituksilla.",
+          "Verovaroin.",
+          "Ulkomaisella avulla.",
+          "Lainarahalla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on hyvinvointivaltion tavoite?",
+        "options": [
+          "Lisätä eriarvoisuutta.",
+          "Vähentää eriarvoisuutta ja turvata ihmisarvoinen elämä.",
+          "Tuottaa voittoa.",
+          "Palvella vain rikkaita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten hyvinvointivaltio on vaikuttanut Suomen kehitykseen?",
+        "options": [
+          "Se on hidastanut kehitystä.",
+          "Se on luonut vakautta ja turvallisuutta ja mahdollistanut luottamuksen tulevaisuuteen.",
+          "Sillä ei ole ollut vaikutusta.",
+          "Se on lisännyt köyhyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä paineita hyvinvointivaltio kohtaa?",
+        "options": [
+          "Väestön nuorentuminen ja syntyvyyden kasvu.",
+          "Väestön ikääntyminen, julkisten menojen kasvu ja globalisaatio.",
+          "Liian vähäinen palvelujen tarve.",
+          "Liian suuri veropohja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten hyvinvointivaltiota voidaan uudistaa kestävällä tavalla?",
+        "options": [
+          "Lisäämällä julkista velkaa.",
+          "Teknologialla, ennaltaehkäisyllä ja uudenlaisilla palvelumalleilla.",
+          "Vähentämällä kaikkia palveluja.",
+          "Yksityistämällä kaikki."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

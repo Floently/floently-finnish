@@ -1,0 +1,66 @@
+{
+  "id": "6e778afa-6179-524c-bd45-fbc127c6536c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI ILMOITTAA\n\nUimahalli on suljettu 15.7.–28.7. vuosihuollon vuoksi.\n\nPoikkeukset aukioloajoissa:\n- Ma 14.7. avoinna vain klo 8–12\n- La 29.7. avoinna klo 10–20 (normaalisti 9–16)\n\nHuom! Lasten uimakoulut alkavat 5.8. Ilmoittautuminen uimakouluihin päättyy 20.7.\n\nPahoittelemme häiriötä.",
+      "word_count": 36
+    },
+    "questions": [
+      {
+        "id": "6ad0a28c-27d0-502f-8828-8c61d94010ad",
+        "prompt": "Miksi uimahalli on kiinni heinäkuussa?",
+        "options": [
+          "Lomien takia",
+          "Vuosihuollon takia",
+          "Henkilökunnan koulutuksen takia",
+          "Vähäisen kävijämäärän takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5ce674ed-148b-51c5-8846-b01b1eeda72f",
+        "prompt": "Kuinka monta päivää uimahalli on kiinni?",
+        "options": [
+          "10 päivää",
+          "12 päivää",
+          "14 päivää",
+          "16 päivää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "49d21071-d16b-5a5f-892c-0ff1c38d7be3",
+        "prompt": "Milloin uimakoulut alkavat?",
+        "options": [
+          "15.7.",
+          "28.7.",
+          "5.8.",
+          "20.8."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

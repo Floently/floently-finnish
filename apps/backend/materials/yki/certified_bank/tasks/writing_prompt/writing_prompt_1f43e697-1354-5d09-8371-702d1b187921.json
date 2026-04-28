@@ -1,0 +1,37 @@
+{
+  "id": "1f43e697-1354-5d09-8371-702d1b187921",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla enemmän henkilökuntaa iltaisin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Henkilökunnan lisääminen terveyskeskuksissa iltaisin"
+    },
+    "items": [
+      {
+        "id": "33842496-57c8-5561-94f6-ed1305963eb2",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla enemmän henkilökuntaa iltaisin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

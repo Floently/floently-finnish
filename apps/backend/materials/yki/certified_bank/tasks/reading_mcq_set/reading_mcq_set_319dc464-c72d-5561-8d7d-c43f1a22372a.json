@@ -1,0 +1,77 @@
+{
+  "id": "319dc464-c72d-5561-8d7d-c43f1a22372a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.74,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Tekoälyn eettiset periaatteet ovat nousseet keskeiseksi keskustelunaiheeksi. On tunnistettu, että tekoälyjärjestelmät voivat vahvistaa yhteiskunnassa olemassa olevia ennakkoluuloja ja syrjintää, jos niitä ei kehitetä huolellisesti. Esimerkiksi rekrytointijärjestelmät voivat suosia tiettyjä hakijaryhmiä, jos ne on opetettu historiallisella datalla, joka sisältää syrjintää. Myös tekoälyn päätöksenteon läpinäkyvyys on ongelma: on vaikea tietää, miksi tekoäly on päätynyt tiettyyn ratkaisuun. EU on valmistellut tekoälysäädöstä, joka asettaa vaatimuksia korkean riskin tekoälyjärjestelmille. Säädös pyrkii varmistamaan, että tekoäly on turvallista, läpinäkyvää ja ihmisoikeuksia kunnioittavaa.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "mcq_187",
+        "prompt": "Miten tekoäly voi vahvistaa syrjintää?",
+        "options": [
+          "Se on aina puolueeton",
+          "Se oppii historiallisesta datasta, joka voi sisältää syrjintää",
+          "Se ei vaikuta syrjintään millään tavalla",
+          "Se vähentää syrjintää automaattisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_188",
+        "prompt": "Mitä esimerkkiä tekstissä käytetään tekoälyn mahdollisesta syrjinnästä?",
+        "options": [
+          "Lainapäätökset",
+          "Rekrytointijärjestelmät",
+          "Potilasdiagnostiikka",
+          "Liikenteenohjaus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_189",
+        "prompt": "Mikä on tekoälyn päätöksenteon läpinäkyvyyden ongelma?",
+        "options": [
+          "Se on liian hidasta",
+          "On vaikea tietää, miksi tekoäly on päätynyt tiettyyn ratkaisuun",
+          "Se on aina täysin läpinäkyvää",
+          "Se on liian kallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_190",
+        "prompt": "Mitä EU:n tekoälysäädös pyrkii varmistamaan?",
+        "options": [
+          "Tekoälyn nopeuden ja tehokkuuden",
+          "Tekoälyn turvallisuuden ja läpinäkyvyyden",
+          "Tekoälyn halpuuden ja saatavuuden",
+          "Tekoälyn monimutkaisuuden ja kehittyneisyyden"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e5e5e4f7-e384-528a-829f-0f42936ca289",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet osallistunut verkkokurssille suomen kielestä. Kirjoita palaute kurssin järjestäjälle. Kerro, mikä kurssissa oli hyvää, mikä huonoa ja miten kurssia voisi kehittää. Mainitse myös, saavuttiko oppimistavoitteesi.",
+    "materials": {
+      "scenario": "Olet osallistunut verkkokurssille suomen kielestä. Kirjoita palaute kurssin järjestäjälle. Kerro, mikä kurssissa oli hyvää, mikä huonoa ja miten kurssia voisi kehittää. Mainitse myös, saavuttiko oppimistavoitteesi."
+    },
+    "items": [
+      {
+        "id": "dddab732-d04a-572d-818b-dea682ad65b1",
+        "prompt": "Olet osallistunut verkkokurssille suomen kielestä. Kirjoita palaute kurssin järjestäjälle. Kerro, mikä kurssissa oli hyvää, mikä huonoa ja miten kurssia voisi kehittää. Mainitse myös, saavuttiko oppimistavoitteesi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 200, \"min\": 150}}",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

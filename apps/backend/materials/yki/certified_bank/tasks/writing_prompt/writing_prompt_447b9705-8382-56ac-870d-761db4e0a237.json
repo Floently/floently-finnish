@@ -1,0 +1,37 @@
+{
+  "id": "447b9705-8382-56ac-870d-761db4e0a237",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti postin asiakaspalveluun. Odotat tärkeää pakettia, mutta se ei ole saapunut. Se piti tulla jo viime viikolla. Kerro lähetystunnus (voidaan keksiä) ja pyydä, että he tarkistavat, missä paketti on.",
+    "materials": {
+      "scenario": "Viesti postille myöhästyneestä paketista"
+    },
+    "items": [
+      {
+        "id": "1c79bd6c-bba3-5d72-b492-038e4f486551",
+        "prompt": "Kirjoita lyhyt viesti postin asiakaspalveluun. Odotat tärkeää pakettia, mutta se ei ole saapunut. Se piti tulla jo viime viikolla. Kerro lähetystunnus (voidaan keksiä) ja pyydä, että he tarkistavat, missä paketti on."
+      }
+    ],
+    "rubric": "Kerro, että odotat pakettia\nKerro, että se on myöhässä\nKerro lähetystunnus\nPyydä heitä tarkistamaan tilanne",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "e1944d49-1fdc-5202-a364-c70ae3c181bb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Koulujen kesäloma alkaa kesäkuun alussa ja kestää noin kaksi ja puoli kuukautta. Monille lapsille kesäloma on vuoden odotetuin aika. Kesällä voi leikkiä, matkustaa ja viettää aikaa perheen kanssa. Monilla on myös kesälomalla mahdollisuus käydä kesäleireillä tai viettää aikaa mummolassa. Kesäloman jälkeen koulut aloittavat taas elokuun puolivälissä.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin koulujen kesäloma alkaa?",
+        "options": [
+          "Toukokuun alussa",
+          "Kesäkuun alussa",
+          "Heinäkuun alussa",
+          "Elokuun alussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan kesäloma kestää?",
+        "options": [
+          "Noin kuukauden",
+          "Noin kaksi kuukautta",
+          "Noin kaksi ja puoli kuukautta",
+          "Noin kolme kuukautta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä kesäloma on monille lapsille?",
+        "options": [
+          "Tylsää aikaa",
+          "Vuoden odotetuin aika",
+          "Pelottavaa aikaa",
+          "Yhdentekevää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kesällä voi tehdä?",
+        "options": [
+          "Vaan käydä koulua",
+          "Leikkiä, matkustaa ja viettää aikaa perheen kanssa",
+          "Vaan olla kotona",
+          "Vaan lukea kirjoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Missä lapset voivat viettää aikaa kesälomalla?",
+        "options": [
+          "Vaan kotona",
+          "Kesäleireillä tai mummolassa",
+          "Vaan kaupungilla",
+          "Vaan ulkomailla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Milloin koulut aloittavat kesäloman jälkeen?",
+        "options": [
+          "Heinäkuun alussa",
+          "Elokuun alussa",
+          "Elokuun puolivälissä",
+          "Syyskuun alussa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

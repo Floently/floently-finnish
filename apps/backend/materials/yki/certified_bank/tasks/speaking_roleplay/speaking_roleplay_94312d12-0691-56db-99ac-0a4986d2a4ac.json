@@ -1,0 +1,40 @@
+{
+  "id": "94312d12-0691-56db-99ac-0a4986d2a4ac",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.303,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell about your friends: where they live, what you do together, and how often you meet.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "09d67801-b1bc-5e90-999a-21a6716b9e61",
+        "ai_first_turn_fi": "Onko sulla paljon ystäviä Suomessa? Missä olet tavannut heidät?"
+      }
+    ],
+    "rubric": "Tell about your friends: where they live, what you do together, and how often you meet.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

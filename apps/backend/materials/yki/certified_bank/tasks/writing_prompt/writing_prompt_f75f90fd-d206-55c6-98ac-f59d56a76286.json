@@ -1,0 +1,37 @@
+{
+  "id": "f75f90fd-d206-55c6-98ac-f59d56a76286",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti verotoimistoon. Olet muuttanut äskettäin ja haluat päivittää osoitteesi verokorttiin. Kerro vanha ja uusi osoite sekä henkilötunnuksesi. Kysy myös, tarvitaanko muita muutoksia verotukseen.",
+    "materials": {
+      "scenario": "Osoitteenmuutos verokorttiin"
+    },
+    "items": [
+      {
+        "id": "a5faf89f-930f-5f05-b7bc-f559977d31d2",
+        "prompt": "Kirjoita sähköposti verotoimistoon. Olet muuttanut äskettäin ja haluat päivittää osoitteesi verokorttiin. Kerro vanha ja uusi osoite sekä henkilötunnuksesi. Kysy myös, tarvitaanko muita muutoksia verotukseen."
+      }
+    ],
+    "rubric": "Vanha osoite\nUusi osoite\nTarkennuspyyntö muista muutoksista",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

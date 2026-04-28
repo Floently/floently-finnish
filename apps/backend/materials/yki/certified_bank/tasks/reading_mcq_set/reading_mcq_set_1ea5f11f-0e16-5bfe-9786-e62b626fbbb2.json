@@ -1,0 +1,99 @@
+{
+  "id": "1ea5f11f-0e16-5bfe-9786-e62b626fbbb2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kulttuuritapahtumat, kuten kaupunkifestivaalit, houkuttelevat paljon kävijöitä ja tuovat eloa keskustaan. Ne työllistävät paikallisia yrityksiä ja luovat yhteisöllisyyttä. Toisaalta asukkaat voivat kokea ne meluhaittana ja liikenteen vaikeutumisena. Järjestäjät pyrkivätkin nykyään minimoimaan haittoja tiedottamalla etukäteen ja sijoittamalla tapahtumia vähemmän asutuille alueille.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä kulttuuritapahtumista on tekstin mukaan?",
+        "options": [
+          "Ne lisäävät melua",
+          "Ne tuovat eloa keskustaan ja työllistävät yrityksiä",
+          "Ne vähentävät yhteisöllisyyttä",
+          "Ne lisäävät liikennettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haittaa asukkaat voivat kokea tapahtumista?",
+        "options": [
+          "Ne ovat liian kalliita",
+          "Meluhaitta ja liikenteen vaikeutuminen",
+          "Ne eivät kiinnosta ketään",
+          "Ne vievät puistot pois käytöstä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten järjestäjät pyrkivät vähentämään haittoja?",
+        "options": [
+          "Perumalla tapahtumia",
+          "Tiedottamalla etukäteen ja sijoittamalla tapahtumia sopivasti",
+          "Järjestämällä tapahtumia vain arkena",
+          "Rajoittamalla kävijämäärää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Minne tapahtumia pyritään sijoittamaan?",
+        "options": [
+          "Keskustaan",
+          "Teollisuusalueille",
+          "Vähemmän asutuille alueille",
+          "Kauppakeskuksiin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä positiivista tapahtumilla on paikallisille yrityksille?",
+        "options": [
+          "Ne joutuvat olemaan kiinni",
+          "Ne työllistyvät tapahtuman aikana",
+          "Ne saavat ilmaista mainosta",
+          "Ne voivat nostaa hintoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'yhteisöllisyydellä' tässä tekstissä?",
+        "options": [
+          "Ihmisten eristäytymistä",
+          "Ihmisten yhdessäoloa ja yhteishenkeä",
+          "Ihmisten muuttamista pois",
+          "Ihmisten valittamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

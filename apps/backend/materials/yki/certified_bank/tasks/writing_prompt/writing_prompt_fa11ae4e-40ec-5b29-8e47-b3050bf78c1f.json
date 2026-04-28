@@ -1,0 +1,37 @@
+{
+  "id": "fa11ae4e-40ec-5b29-8e47-b3050bf78c1f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö äänestysaktiivisuutta lisätä palkitsemalla äänestäjiä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Äänestäjien palkitseminen"
+    },
+    "items": [
+      {
+        "id": "6c4cb0fd-0ac7-5004-8014-c4f4f592d096",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö äänestysaktiivisuutta lisätä palkitsemalla äänestäjiä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

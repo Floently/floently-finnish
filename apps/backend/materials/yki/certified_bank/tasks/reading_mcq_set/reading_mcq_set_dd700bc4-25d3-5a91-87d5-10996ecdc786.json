@@ -1,0 +1,66 @@
+{
+  "id": "dd700bc4-25d3-5a91-87d5-10996ecdc786",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.751,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Koulutusjärjestelmät ympäri maailmaa ovat murroksessa, kun ne yrittävät vastata nopeasti muuttuvan maailman haasteisiin. Tulevaisuuden oppimisessa korostuvat uudenlaiset taidot, oppimisympäristöt ja pedagogiikka. Perinteinen tiedon ulkoa opettelu ei enää riitä, vaan tarvitaan kykyä soveltaa, arvioida ja luoda uutta tietoa. Oppimiskäsitys on muuttumassa. Oppija nähdään aktiivisena toimijana, joka rakentaa tietoa vuorovaikutuksessa muiden kanssa. Yhteisöllinen oppiminen, ongelmalähtöinen oppiminen ja ilmiöpohjainen oppiminen ovat esimerkkejä pedagogisista lähestymistavoista, jotka korostavat oppijan aktiivisuutta ja yhteistyötä. Teknologia integroituu yhä tiiviimmin oppimiseen. Digitaaliset oppimisympäristöt, oppimisanalytiikka ja tekoäly voivat tarjota yksilöllistä tukea ja räätälöityjä oppimispolkuja. Ne mahdollistavat myös oppimisen ajasta ja paikasta riippumatta. Etäopiskelu ja hybridimallit ovat tulleet jäädäkseen, ja ne tarjoavat joustavuutta erilaisille oppijoille. Osaamisen tunnistaminen on yhä tärkeämpää. Perinteisten tutkintojen rinnalle on tullut pienempiä osaamiskokonaisuuksia, digitaalisia merkkjä ja mikrotutkintoja, jotka osoittavat tiettyä osaamista. Työelämässä arvostetaan jatkuvaa oppimista ja kykyä päivittää osaamista. Tämä edellyttää koulutusjärjestelmältä joustavuutta ja yhteistyötä työelämän kanssa. Oppimisympäristöt monipuolistuvat. Oppimista tapahtuu yhä enemmän koulun ulkopuolella: työpaikoilla, harrastuksissa, verkossa ja vapaa-ajalla. Formaalin, non-formaalin ja informaalin oppimisen rajat hämärtyvät. Tämä asettaa haasteita osaamisen tunnistamiselle ja arvioinnille. Tulevaisuuden koulutuksessa korostuvat myös pehmeät taidot, kuten empatia, vuorovaikutustaidot, luovuus ja kriittinen ajattelu. Nämä taidot ovat tärkeitä paitsi työelämässä, myös yhteiskunnallisessa osallistumisessa ja henkilökohtaisessa hyvinvoinnissa. Koulutuksen tasa-arvo on edelleen keskeinen tavoite. Digitaalinen kuilu ja eriytyvät oppimistulokset uhkaavat tasa-arvoa, joten on panostettava kaikkien mahdollisuuksiin oppia ja kehittyä.",
+      "word_count": 213
+    },
+    "questions": [
+      {
+        "id": "c6d7e8f9-a0b1-4c2d-9e3f-4a5b6c7d8e9f",
+        "prompt": "Mikä oppimiskäsitys on nousemassa tulevaisuudessa?",
+        "options": [
+          "Oppija passiivisena tiedon vastaanottajana",
+          "Oppija aktiivisena toimijana, joka rakentaa tietoa vuorovaikutuksessa",
+          "Vain ulkoa opettelu",
+          "Yksilöllinen opiskelu ilman yhteistyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d7e8f9a0-b1c2-4d3e-9f4a-5b6c7d8e9f0a",
+        "prompt": "Mitä ovat mikrotutkinnot?",
+        "options": [
+          "Perinteisiä korkeakoulututkintoja",
+          "Pieniä osaamiskokonaisuuksia, jotka osoittavat tiettyä osaamista",
+          "Vain ammatillisia perustutkintoja",
+          "Yliopistojen jatkotutkintoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8f9a0b1-c2d3-4e4f-9a5b-6c7d8e9f0a1b",
+        "prompt": "Mitä pehmeitä taitoja tulevaisuuden koulutuksessa korostetaan?",
+        "options": [
+          "Matematiikkaa ja fysiikkaa",
+          "Empatiaa, vuorovaikutustaitoja ja kriittistä ajattelua",
+          "Kielioppia ja sanastoa",
+          "Historiaa ja maantietoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

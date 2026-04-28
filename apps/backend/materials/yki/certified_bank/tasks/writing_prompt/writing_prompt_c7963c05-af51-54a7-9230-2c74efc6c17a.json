@@ -1,0 +1,37 @@
+{
+  "id": "c7963c05-af51-54a7-9230-2c74efc6c17a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti ammattiliiton jäsenpalveluista. Kerro lakineuvonnan saatavuudesta, jäseneduista ja tiedotuksesta. Ehdota yhtä uutta jäsenetua.",
+    "materials": {
+      "scenario": "Palaute ammattiliiton jäsenpalveluista"
+    },
+    "items": [
+      {
+        "id": "afdff1ab-5d68-5a50-923f-3abbd2cf4c46",
+        "prompt": "Kirjoita palauteteksti ammattiliiton jäsenpalveluista. Kerro lakineuvonnan saatavuudesta, jäseneduista ja tiedotuksesta. Ehdota yhtä uutta jäsenetua."
+      }
+    ],
+    "rubric": "Lakineuvonnan saatavuus\nJäsenedut\nTiedotus\nUusi jäsenetu",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

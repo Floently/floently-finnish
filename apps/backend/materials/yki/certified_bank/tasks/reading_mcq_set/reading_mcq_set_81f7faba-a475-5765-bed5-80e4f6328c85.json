@@ -1,0 +1,77 @@
+{
+  "id": "81f7faba-a475-5765-bed5-80e4f6328c85",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Työttömyysturva turvaa toimeentuloa työttömyyden aikana. Työttömyysetuutta voivat saada työttömät työnhakijat, jotka ovat työttömyyskassan jäseniä (ansiosidonnainen) tai Kelasta (peruspäiväraha tai työmarkkinatuki). Ansiosidonnainen päiväraha perustuu aiempaan palkkaan, ja sitä maksetaan tietyn ajan. Peruspäiväraha on kiinteä summa, ja työmarkkinatuki on tarkoitettu niille, jotka eivät täytä ansiosidonnaisen tai peruspäivärahan ehtoja. Työttömällä on velvollisuus hakea aktiivisesti töitä ja olla työvoimatoimiston palvelujen käytettävissä. Työttömyysturvaa voidaan leikata, jos kieltäytyy työstä tai koulutuksesta. Aktiivimalli ja muut uudistukset ovat muuttaneet työttömyysturvaa viime vuosina.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_038",
+        "prompt": "Mitä työttömyysturvaa voivat saada työttömyyskassan jäsenet?",
+        "options": [
+          "Peruspäivärahaa",
+          "Ansiosidonnaista päivärahaa",
+          "Työmarkkinatukea",
+          "Sairaspäivärahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_038",
+        "prompt": "Mistä Kelasta saa työttömyysetuutta?",
+        "options": [
+          "Ansiosidonnaista",
+          "Peruspäivärahaa tai työmarkkinatukea",
+          "Vain peruspäivärahaa",
+          "Vain työmarkkinatukea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_038",
+        "prompt": "Mikä on työttömän velvollisuus?",
+        "options": [
+          "Vain olla kotona",
+          "Hakea aktiivisesti töitä ja olla työvoimatoimiston käytettävissä",
+          "Vain ilmoittautua työttömäksi",
+          "Vain odottaa työtarjouksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_038",
+        "prompt": "Milloin työttömyysturvaa voidaan leikata?",
+        "options": [
+          "Jos on sairas",
+          "Jos kieltäytyy työstä tai koulutuksesta",
+          "Jos on lomalla",
+          "Jos opiskelee"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

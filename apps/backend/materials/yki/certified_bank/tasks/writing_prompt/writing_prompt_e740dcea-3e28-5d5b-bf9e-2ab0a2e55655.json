@@ -1,0 +1,37 @@
+{
+  "id": "e740dcea-3e28-5d5b-bf9e-2ab0a2e55655",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Etsit tiettyä tuotetta, jota ei näytä olevan saatavilla verkkokaupassa. Kirjoita sähköposti ja kysy, onko tuotetta mahdollisesti tulossa lisää. Kysy myös, voiko tuotteen tilata myymälään.",
+    "materials": {
+      "scenario": "Etsit tiettyä tuotetta, jota ei näytä olevan saatavilla verkkokaupassa. Kirjoita sähköposti ja kysy, onko tuotetta mahdollisesti tulossa lisää. Kysy myös, voiko tuotteen tilata myymälään."
+    },
+    "items": [
+      {
+        "id": "b368d8af-6494-5837-a3a2-b71c188fd7c2",
+        "prompt": "Etsit tiettyä tuotetta, jota ei näytä olevan saatavilla verkkokaupassa. Kirjoita sähköposti ja kysy, onko tuotetta mahdollisesti tulossa lisää. Kysy myös, voiko tuotteen tilata myymälään."
+      }
+    ],
+    "rubric": "Etsit tiettyä tuotetta, jota ei näytä olevan saatavilla verkkokaupassa. Kirjoita sähköposti ja kysy, onko tuotetta mahdollisesti tulossa lisää. Kysy myös, voiko tuotteen tilata myymälään.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

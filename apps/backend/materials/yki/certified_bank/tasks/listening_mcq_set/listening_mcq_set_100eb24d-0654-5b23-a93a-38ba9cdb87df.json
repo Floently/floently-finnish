@@ -1,0 +1,77 @@
+{
+  "id": "100eb24d-0654-5b23-a93a-38ba9cdb87df",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.768,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele luento ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät kuulijat, tervetuloa yliopiston avoimelle luennolle. Olen professori Matti Salo, ja tänään puhun aiheesta 'Media ja demokratia digiaikana'.\n\nMedian ja demokratian suhde on aina ollut läheinen. Demokratia tarvitsee toimiakseen kansalaisia, joilla on tietoa yhteiskunnan asioista. Median tehtävä on tuottaa tätä tietoa, tarjota areena julkiselle keskustelulle ja valvoa vallankäyttäjiä. Perinteinen media – sanomalehdet, televisio, radio – on toteuttanut tätä tehtävää vuosikymmeniä. Sen toimintaa ohjaavat journalistiset periaatteet ja eettiset säännöt.\n\nDigiaika on kuitenkin mullistanut tämän asetelman. Sosiaalinen media ja verkkoalustat ovat tulleet osaksi median kenttää. Kuka tahansa voi tuottaa sisältöä ja levittää sitä maailmalle ilman toimituksellista kontrollia. Tämä on demokratisoinut viestintää ja antanut äänen monille, jotka aiemmin eivät sitä kuulleet. Se on myös mahdollistanut uudenlaisten yhteisöjen ja liikkeiden syntymisen.\n\nMutta tällä kehityksellä on myös varjopuolensa. Kun kuka tahansa voi tuottaa sisältöä, myös disinformaatio ja valeuutiset leviävät tehokkaasti. Sosiaalisen median algoritmit suosivat sisältöä, joka herättää tunteita ja sitouttaa käyttäjiä. Usein tämä tarkoittaa kärjistävää, vihaa lietsovaa tai muuten polarisoivaa sisältöä. Tämä voi johtaa siihen, että ihmiset joutuvat omiin kupliinsa, joissa he näkevät vain omaa maailmankuvaansa vahvistavaa tietoa.\n\nTällä on vakavia seurauksia demokratialle. Kun kansalaiset eivät jaa yhteistä todellisuutta, yhteiskunnallinen keskustelu vaikeutuu. Kompromissien tekeminen ja yhteisten ratkaisujen löytäminen on vaikeaa, jos lähtökohdat ovat täysin erilaiset. Luottamus instituutioihin – hallitukseen, mediaan, tieteeseen – heikkenee. Tämä luo otollisen maaperän populismille ja autoritaarisille liikkeille.\n\nMiten tähän pitäisi vastata? Ensinnäkin mediakasvatus on tärkeämpää kuin koskaan. Kansalaisten on opittava arvioimaan tiedon luotettavuutta, tunnistamaan disinformaatio ja ymmärtämään median toimintatapoja. Tätä pitäisi opettaa koulussa kaikilla asteilla.\n\nToiseksi tarvitaan sääntelyä. Some-alustoja ei voi jättää täysin itsesääntelyn varaan. Tarvitaan läpinäkyvyyttä algoritmeihin, vastuuta sisällöistä ja toimia vihapuhetta ja disinformaatiota vastaan. Euroopan unionin digipalvelusäädös on askel oikeaan suuntaan.\n\nKolmanneksi tarvitaan laadukasta journalismia ja sen rahoituksen turvaamista. Journalistinen media tuottaa faktapohjaista tietoa, tekee taustatyötä ja tuo esiin eri näkökulmia. Se on demokratialle elintärkeää.\n\nNeljänneksi tarvitaan meitä itseämme. Meidän on oltava kriittisiä, mutta myös avoimia erilaisille näkökulmille. Meidän on osallistuttava yhteiskunnalliseen keskusteluun ja vaadittava vastuullisuutta niin medialta kuin päättäjiltä.\n\nLopuksi: media ja demokratia ovat kietoutuneet toisiinsa. Jos media ei toimi, demokratia kärsii. Siksi meidän on kaikkien yhteinen asia pitää huolta siitä, että meillä on monipuolinen, luotettava ja kriittinen media.",
+      "audio_asset_id": "b4bf6867-04a9-5c70-93c4-089684675d1d"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on median tehtävä demokratiassa luennoitsijan mukaan?",
+        "options": [
+          "Viihdyttää kansalaisia",
+          "Tuottaa tietoa, tarjota areena keskustelulle ja valvoa vallankäyttäjiä",
+          "Myydä mainoksia",
+          "Tukea hallitusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyvää sosiaalisen median yleistymisessä on?",
+        "options": [
+          "Se on vähentänyt disinformaatiota",
+          "Se on demokratisoinut viestintää ja antanut äänen monille",
+          "Se on lisännyt journalistisen sisällön määrää",
+          "Se on tehnyt mediasta luotettavampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ongelmia sosiaaliseen mediaan liittyy?",
+        "options": [
+          "Se on liian kallista",
+          "Disinformaatio leviää, algoritmit luovat kuplia ja luottamus instituutioihin heikkenee",
+          "Sitä käyttävät vain nuoret",
+          "Se on liian hidasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja luennoitsija ehdottaa?",
+        "options": [
+          "Sosiaalisen median kieltämistä",
+          "Mediakasvatusta, sääntelyä, laadukkaan journalismin turvaamista ja omaa kriittisyyttä",
+          "Paluuta perinteiseen mediaan",
+          "Vain lisää teknologiaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

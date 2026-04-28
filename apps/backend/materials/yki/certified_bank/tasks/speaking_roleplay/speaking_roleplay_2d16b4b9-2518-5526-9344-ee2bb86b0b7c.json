@@ -1,0 +1,64 @@
+{
+  "id": "2d16b4b9-2518-5526-9344-ee2bb86b0b7c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata lentoliput puhelimitse. Keskustele matkatoimiston kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Matkatoimiston virkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp30_1",
+        "ai_first_turn_fi": "Hei, Matkatoimisto MatkaOnni."
+      },
+      {
+        "id": "srp30_2",
+        "ai_first_turn_fi": "Totta kai. Minä päivänä haluaisitte matkustaa ja monelta?"
+      },
+      {
+        "id": "srp30_3",
+        "ai_first_turn_fi": "Paluulento samana päivänä vai myöhemmin?"
+      },
+      {
+        "id": "srp30_4",
+        "ai_first_turn_fi": "Haen hintoja. Yhtiö Finnair lentää aamulla kello 8.30 ja hintaa on 145 euroa per henkilö. Iltapäivällä kello 16.15 on 129 euroa. Kumman valitsette?"
+      },
+      {
+        "id": "srp30_5",
+        "ai_first_turn_fi": "Hyvä valinta. Matkustajien nimet ja syntymäajat, kiitos."
+      },
+      {
+        "id": "srp30_6",
+        "ai_first_turn_fi": "Kiitos. Miten haluatte maksaa? Luottokortilla vai verkkopankissa?"
+      },
+      {
+        "id": "srp30_7",
+        "ai_first_turn_fi": "Selvä. Sähköinen lippu lähetetään sähköpostiinne. Hyvää matkaa Tukholmaan!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata lentoliput puhelimitse. Keskustele matkatoimiston kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

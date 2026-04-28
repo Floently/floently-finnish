@@ -1,0 +1,37 @@
+{
+  "id": "e5715024-10ff-58bb-bcda-31b547981557",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö päiväkotien ruokaan panostaa enemmän laatua ja monipuolisuutta?'. Analysoi lasten terveyttä, ruokakasvatusta ja kustannuksia.",
+    "materials": {
+      "scenario": "Päiväkotiruuan laatu"
+    },
+    "items": [
+      {
+        "id": "b1ee5c1d-4da3-55a4-8a40-5033ecf3b310",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö päiväkotien ruokaan panostaa enemmän laatua ja monipuolisuutta?'. Analysoi lasten terveyttä, ruokakasvatusta ja kustannuksia."
+      }
+    ],
+    "rubric": "Lasten terveys\nRuokakasvatus\nKustannukset\nTottumukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

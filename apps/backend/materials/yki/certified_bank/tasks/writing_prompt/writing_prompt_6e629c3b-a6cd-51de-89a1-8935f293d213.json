@@ -1,0 +1,37 @@
+{
+  "id": "6e629c3b-a6cd-51de-89a1-8935f293d213",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon ikkunat ovat huonokuntoiset ja niistä tulee vetoa. Kerro ongelmasta ja pyydä, että ikkunat korjataan tai tiivistetään ennen talvea.",
+    "materials": {
+      "scenario": "Vikailmoitus ikkunoista"
+    },
+    "items": [
+      {
+        "id": "f55608f2-7bba-5e99-90fc-b598bc92ff27",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon ikkunat ovat huonokuntoiset ja niistä tulee vetoa. Kerro ongelmasta ja pyydä, että ikkunat korjataan tai tiivistetään ennen talvea."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nVaikutukset\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

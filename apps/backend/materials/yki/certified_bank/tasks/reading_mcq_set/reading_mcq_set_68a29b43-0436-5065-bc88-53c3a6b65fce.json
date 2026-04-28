@@ -1,0 +1,66 @@
+{
+  "id": "68a29b43-0436-5065-bc88-53c3a6b65fce",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.365,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JÄTEHUOLTO\n\nJäteastiat tyhjennetään:\n- Sekajäte: maanantaisin ja torstaisin\n- Biojäte: tiistaisin ja perjantaisin\n- Muovi: kerran kuussa, ensimmäinen keskiviikko\n- Paperi: kerran kuussa, toinen torstai\n- Pahvi: kerran kuussa, kolmas maanantai\n\nJäteastiat pitää viedä tien varteen edellisenä iltana kello 20 mennessä. Jos astiaa ei ole viety ajoissa, se tyhjennetään vasta seuraavalla kierroksella.\n\nLajitteluohjeet löytyvät taloyhtiön ilmoitustaululta ja nettisivuilta.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minä päivinä biojäte tyhjennetään?",
+        "options": [
+          "maanantaisin ja torstaisin",
+          "tiistaisin ja perjantaisin",
+          "keskiviikkoisin",
+          "kerran kuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin jäteastia pitää viedä tien varteen?",
+        "options": [
+          "tyhjennyspäivänä aamulla",
+          "edellisenä iltana kello 20 mennessä",
+          "edellisenä päivänä",
+          "saa viedä milloin vain"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä löytyy lajitteluohjeet?",
+        "options": [
+          "vain netistä",
+          "vain ilmoitustaululta",
+          "ilmoitustaululta ja nettisivuilta",
+          "kaupungin toimistosta"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

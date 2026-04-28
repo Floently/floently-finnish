@@ -1,0 +1,66 @@
+{
+  "id": "db80ad1e-613c-5954-bdee-0034b1e30e42",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, oletko jo katsonut uutta kotimaista elokuvaa? Se sai tosi hyvät arvostelut.\nB: En ole vielä. Mistä se kertoo?\nA: Se kertoo nuoresta naisesta, joka muuttaa Lappiin ja aloittaa siellä uuden elämän. Se on sekä draamaa että komediaa.\nB: Kuulostaa hyvältä. Kenen kanssa sinä kävit katsomassa?\nA: Kävin yksin. Tykkään käydä joskus yksin, saa rauhassa keskittyä.\nB: Ymmärrän. Mä käyn aina kaverin kanssa. Pitää kysyä, haluaako se nähdä tän leffan.\nA: Kannattaa mennä. Mä voin vaikka katsoa uudestaan, jos haluatte seuraa.",
+      "audio_asset_id": "e53f917f-d6d2-5922-a4ed-b679400982d9"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä elokuva kertoo?",
+        "options": [
+          "Nuoresta miehestä Helsingissä",
+          "Nuoresta naisesta, joka muuttaa Lappiin",
+          "Vanhasta pariskunnasta",
+          "Lapsista koulussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen elokuva on kyseessä?",
+        "options": [
+          "Vain komedia",
+          "Vain draama",
+          "Draamaa ja komediaa",
+          "Toimintaelokuva"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Kenen kanssa A kävi katsomassa elokuvan?",
+        "options": [
+          "Kaverin kanssa",
+          "Perheen kanssa",
+          "Yksin",
+          "Työporukan kanssa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

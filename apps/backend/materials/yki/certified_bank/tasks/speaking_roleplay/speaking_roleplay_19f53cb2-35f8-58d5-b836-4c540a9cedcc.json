@@ -1,0 +1,40 @@
+{
+  "id": "19f53cb2-35f8-58d5-b836-4c540a9cedcc",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi ohjata ja mentoroida nuorempaa kollegaa.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet mentori, joka haluaa tukea ja kannustaa, mutta myös antaa realistisia neuvoja.",
+        "partner": "Nuori kollega - motivoitunut mutta epävarma, kaipaa ohjausta ja vahvistusta."
+      }
+    },
+    "items": [
+      {
+        "id": "srp29",
+        "ai_first_turn_fi": "Hienoa että tapasimme. Miten sinulla on mennyt viime tapaamisemme jälkeen?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi ohjata ja mentoroida nuorempaa kollegaa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

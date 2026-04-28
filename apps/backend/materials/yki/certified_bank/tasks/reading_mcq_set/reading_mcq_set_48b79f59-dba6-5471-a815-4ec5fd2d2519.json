@@ -1,0 +1,77 @@
+{
+  "id": "48b79f59-dba6-5471-a815-4ec5fd2d2519",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Tieteen ja tutkimuksen rooli yhteiskunnassa on monitahoinen. Se tuottaa uutta tietoa, joka voi johtaa innovaatioihin, parantaa päätöksentekoa ja auttaa ratkaisemaan yhteiskunnallisia ongelmia. Tieteellinen tieto on kuitenkin usein epävarmaa ja muuttuvaa, mikä voi aiheuttaa haasteita sen hyödyntämisessä. Päätöksentekijät joutuvat tekemään valintoja epävarmuuden vallitessa, ja eri intressiryhmät voivat käyttää tieteellistä tietoa valikoivasti. Tieteen popularisointi ja tiedeviestintä ovat tärkeitä, jotta tieteellinen tieto saavuttaa päättäjät ja kansalaiset. Tutkimusrahoitus on keskeinen tekijä tieteen kehityksessä. Rahoituksen kohdentaminen herättää keskustelua: tulisiko panostaa perustutkimukseen vai soveltavaan tutkimukseen?",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "mcq_211",
+        "prompt": "Mitä hyötyä tieteellisestä tiedosta on?",
+        "options": [
+          "Se on aina varmaa ja pysyvää",
+          "Se voi johtaa innovaatioihin ja parantaa päätöksentekoa",
+          "Se on vain tutkijoita varten",
+          "Se vähentää epävarmuutta täysin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_212",
+        "prompt": "Mitä haasteita tieteellisen tiedon hyödyntämisessä on?",
+        "options": [
+          "Se on liian helppoa",
+          "Tieteellinen tieto on usein epävarmaa ja muuttuvaa",
+          "Sitä on liian vähän",
+          "Se on liian kallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_213",
+        "prompt": "Miksi tiedeviestintä on tärkeää?",
+        "options": [
+          "Jotta tieteellinen tieto saavuttaa päättäjät ja kansalaiset",
+          "Jotta tutkijat voivat keskittyä tutkimukseensa",
+          "Jotta tiede pysyy salaisena",
+          "Jotta tutkimusrahoitus vähenee"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_214",
+        "prompt": "Mistä tutkimusrahoituksen kohdentamisessa keskustellaan?",
+        "options": [
+          "Perustutkimuksen ja soveltavan tutkimuksen välillä",
+          "Luonnontieteiden ja humanististen tieteiden välillä",
+          "Yliopistojen ja yritysten välillä",
+          "Kotimaisen ja kansainvälisen tutkimuksen välillä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

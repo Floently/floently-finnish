@@ -1,0 +1,110 @@
+{
+  "id": "58737c75-bbc0-533c-bf17-f0aa01667aa9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Yrittäjyys on tärkeä osa suomalaista taloutta ja työelämää. Pienet ja keskisuuret yritykset työllistävät suuren osan suomalaisista ja luovat uusia innovaatioita. Yrittäjyys tarjoaa mahdollisuuden toteuttaa itseään, olla oma pomo ja vaikuttaa omaan työhön. Se on myös tapa luoda työpaikkoja ja vaurastua. Suomessa yrittäjyyttä tuetaan monin tavoin. Starttiraha auttaa aloittavaa yrittäjää ensimmäisenä toimintavuonna. Yritysneuvojat antavat maksutonta neuvontaa liiketoimintasuunnitelman laatimisessa, rahoituksen hakemisessa ja muissa alkuvaiheen asioissa. Myös erilaisia yrityshautomoita ja kehittämishankkeita on runsaasti. Yrittäjyys ei kuitenkaan ole helppoa. Se vaatii pitkäjänteisyyttä, riskinottokykyä ja monenlaista osaamista. Monet yritykset eivät selviä ensimmäisistä vuosista. Byrokratia ja verotus koetaan usein raskaiksi. Yrittäjän toimeentulo voi olla epävarmaa, ja työtä on paljon. Siksi yrittäjien jaksamisesta ja hyvinvoinnista on tärkeää huolehtia. Tulevaisuudessa yrittäjyys todennäköisesti lisääntyy, kun ihmiset haluavat enemmän joustavuutta ja itsenäisyyttä työhön. Myös uudet teknologiat ja digitaaliset alustat madaltavat kynnystä ryhtyä yrittäjäksi.",
+      "word_count": 133
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi yrittäjyys on tärkeää Suomen taloudelle?",
+        "options": [
+          "Se vähentää kilpailua.",
+          "Pienet ja keskisuuret yritykset työllistävät suuren osan suomalaisista ja luovat innovaatioita.",
+          "Se lisää byrokratiaa.",
+          "Se vähentää työpaikkoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mahdollisuuksia yrittäjyys tarjoaa yksilölle?",
+        "options": [
+          "Vain suuren palkan.",
+          "Mahdollisuuden toteuttaa itseään, olla oma pomo ja vaikuttaa omaan työhön.",
+          "Vain paljon vapaa-aikaa.",
+          "Vain varman toimeentulon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millä tavoin yrittäjyyttä tuetaan Suomessa?",
+        "options": [
+          "Ei mitenkään.",
+          "Starttirahalla, yritysneuvojilla ja yrityshautomoilla.",
+          "Vain lainoilla.",
+          "Vain veronalennuksilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä starttiraha on?",
+        "options": [
+          "Laina aloittavalle yrittäjälle.",
+          "Tukea aloittavalle yrittäjälle ensimmäisenä toimintavuonna.",
+          "Verovähennys yrittäjille.",
+          "Palkkio onnistuneesta yrityksestä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä haasteita yrittäjyyteen liittyy?",
+        "options": [
+          "Liian vähän työtä.",
+          "Pitkäjänteisyys, riskinottokyky, byrokratia ja epävarma toimeentulo.",
+          "Liian paljon vapaa-aikaa.",
+          "Liian helppoa rahaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi yrittäjien jaksamisesta on tärkeää huolehtia?",
+        "options": [
+          "Koska heillä on liian vähän töitä.",
+          "Koska työtä on paljon ja toimeentulo voi olla epävarmaa.",
+          "Koska heillä on liian paljon vapaa-aikaa.",
+          "Koska he eivät tee töitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi yrittäjyys todennäköisesti lisääntyy tulevaisuudessa?",
+        "options": [
+          "Byrokratian lisääntymisen vuoksi.",
+          "Ihmiset haluavat joustavuutta ja itsenäisyyttä, ja teknologia madaltaa kynnystä.",
+          "Verotuksen kiristymisen vuoksi.",
+          "Työpaikkojen vähenemisen vuoksi."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

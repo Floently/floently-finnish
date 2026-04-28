@@ -1,0 +1,37 @@
+{
+  "id": "d976c854-128d-5d5a-975e-5770880c1958",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen reklamaatio ohjeen mukaan.",
+    "materials": {
+      "scenario": "Myöhästynyt toimitus"
+    },
+    "items": [
+      {
+        "id": "cb0864cd-65ca-5428-ab64-f874a39a796e",
+        "prompt": "Kirjoita virallinen reklamaatio yritykselle myöhästyneestä toimituksesta."
+      }
+    ],
+    "rubric": "Kirjoita virallinen reklamaatio yritykselle myöhästyneestä toimituksesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

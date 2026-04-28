@@ -1,0 +1,99 @@
+{
+  "id": "a1df704e-e368-5216-8c9a-618b5aafcfd8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Uimahallissa on uusi lastenallas, ja se on ollut suosittu. Allas on matala ja siinä on vesisuihkuja ja pieni liukumäki. Perheet viihtyvät nyt pidempään uimahallissa. Henkilökunta on myös saanut myönteistä palautetta ystävällisyydestä. Seuraavaksi halliin suunnitellaan kahvion uudistusta ja lisää pukukaappeja.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uimahallissa on uutta?",
+        "options": [
+          "Uusi kahvio",
+          "Uusi pukukaappi",
+          "Uusi lastenallas",
+          "Uusi kuntosali"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaiseksi uusi lastenallas kuvataan?",
+        "options": [
+          "Syvä ja haastava",
+          "Matala ja siinä on vesisuihkuja",
+          "Kylmä ja pimeä",
+          "Aikuisille tarkoitettu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten perheet ovat reagoineet muutokseen?",
+        "options": [
+          "He käyvät harvemmin",
+          "He viihtyvät pidempään",
+          "He toivovat lisää vesisuihkuja",
+          "He eivät pidä lasten altaasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä palautetta henkilökunta on saanut?",
+        "options": [
+          "Palautetta hitaasta palvelusta",
+          "Myönteistä palautetta ystävällisyydestä",
+          "Negatiivista palautetta siisteydestä",
+          "Ei minkäänlaista palautetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä uimahalliin suunnitellaan seuraavaksi?",
+        "options": [
+          "Uusi kuntosali ja sauna",
+          "Kahvion uudistus ja lisää pukukaappeja",
+          "Lisää liukumäkiä ja vesiliukumäki",
+          "Uusi ulkoallas ja poreallas"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi perheet viihtyvät nyt pidempään uimahallissa?",
+        "options": [
+          "Kahvion uudistuksen takia",
+          "Uuden lastenaltaan takia",
+          "Henkilökunnan lisäämisen takia",
+          "Halvempien lippujen takia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

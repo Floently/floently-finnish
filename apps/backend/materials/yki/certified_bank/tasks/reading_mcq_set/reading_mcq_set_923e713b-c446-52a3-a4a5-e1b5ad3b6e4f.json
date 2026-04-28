@@ -1,0 +1,88 @@
+{
+  "id": "923e713b-c446-52a3-a4a5-e1b5ad3b6e4f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen ruokakulttuuri on vahvasti sidoksissa vuodenaikoihin ja luonnon kiertokulkuun. Vuodenaikojen vaihtelu näkyy siinä, mitä syömme, miten valmistamme ruokaa ja miten juhlimme. Tämä vuodenaikojen rytmi on tärkeä osa suomalaista identiteettiä ja elämäntapaa. Kevät on uuden alun aikaa. Ensimmäiset vihreät, kuten nokkonen ja vuohenputki, ilmestyvät, ja niitä käytetään salaatteihin, keittoihin ja piirakoihin. Pääsiäisenä syödään mämmiä ja lammasta. Keväällä istutetaan kasvimaat ja suunnitellaan kesän satoa. Kesä on runsauden aikaa. Uudet perunat, mansikat, herneet ja tilli ovat kesän herkkuja. Grilli kuumana, ja kesäjuhlissa nautitaan silliä, uusia perunoita ja raikasta juomaa. Juhannuksena syödään perinteisiä juhannusruokia, kuten silakkaa ja uusia perunoita. Syksy on sadonkorjuun aikaa. Sienet, marjat, omenat ja juurekset ovat parhaimmillaan. Niistä tehdään soseita, mehuja, hilloja ja säilykkeitä talven varalle. Syksy on myös riistan aikaa, ja metsästäjät tuovat kotiin hirveä, peuraa ja lintuja. Ruskan värit ja sadonkorjuun juhlat, kuten sadonkorjuumarkkinat, ovat osa syksyn tunnelmaa. Talvi on pimeyden ja kylmyyden aikaa, mutta myös kodikkuuden ja herkuttelun aikaa. Jouluna syödään kinkkua, laatikoita, rosollia ja joulutorttuja. Talvella nautitaan lämpimistä puuroista, pataruoista ja kaakaosta. Säilötyt marjat ja hillot tuovat kesän makua talven pimeyteen.",
+      "word_count": 174
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten vuodenajat näkyvät suomalaisessa ruokakulttuurissa?",
+        "options": [
+          "Ne eivät näy millään tavalla",
+          "Ne vaikuttavat siihen, mitä syömme ja miten valmistamme ruokaa",
+          "Vain kesällä on merkitystä",
+          "Vain talvella on merkitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kevääseen kuuluu ruokakulttuurissa?",
+        "options": [
+          "Sadonkorjuuta",
+          "Ensimmäisiä vihreitä, kuten nokkosta, ja pääsiäisruokia",
+          "Grilliruokaa",
+          "Jouluruokia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kesän herkkuja tekstissä mainitaan?",
+        "options": [
+          "Sieniä ja marjoja",
+          "Uusia perunoita, mansikoita, herneitä ja tilliä",
+          "Juureksia ja riistaa",
+          "Laatikoita ja kinkkua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä syksyllä tehdään ruoan suhteen?",
+        "options": [
+          "Syödään uusia perunoita",
+          "Korjataan satoa, tehdään säilykkeitä ja syödään riistaa",
+          "Grillataan",
+          "Syödään jouluruokia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä talvella syödään?",
+        "options": [
+          "Uusia perunoita ja mansikoita",
+          "Jouluruokia, puuroja, pataruokia ja säilöttyjä marjoja",
+          "Sieniä ja marjoja",
+          "Riistaa ja kalaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

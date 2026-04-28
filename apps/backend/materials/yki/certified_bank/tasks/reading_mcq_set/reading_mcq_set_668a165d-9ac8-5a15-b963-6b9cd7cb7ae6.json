@@ -1,0 +1,66 @@
+{
+  "id": "668a165d-9ac8-5a15-b963-6b9cd7cb7ae6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TERVEYTEEN VAIKUTTAVAT MONET ASIAT\n\nTerveys ei ole vain sairauden poissaoloa. Siihen vaikuttavat monet asiat: elämäntavat, perimä, ympäristö, sosiaaliset suhteet ja taloudellinen tilanne. Terveyden edistäminen on yhteiskunnan ja yksilön yhteinen tehtävä.\n\nElämäntavat ovat tärkeässä roolissa. Terveellinen ruoka, riittävä liikunta, nukkuminen ja päihteiden välttäminen auttavat pysymään terveenä. Tutkimukset osoittavat, että liikunta vähentää monien sairauksien riskiä ja parantaa mielialaa.\n\nSosiaaliset suhteet vaikuttavat myös terveyteen. Yksinäisyys ja eristyneisyys lisäävät sairastumisriskiä. Hyvät ystävät ja toimiva perhe-elämä suojaavat stressiltä ja antavat voimaa.\n\nTaloudellinen tilanne on yksi keskeinen tekijä. Pienituloisilla on usein huonompi terveys kuin hyvätuloisilla. Heillä on vähemmän mahdollisuuksia vaikuttaa elämäntapoihin ja hakeutua hoitoon. Tämä on yhteiskunnallinen epäkohta, johon pitäisi puuttua.\n\nYmpäristökin vaikuttaa. Puhtaat vedet, hyvä ilmanlaatu ja viheralueet parantavat terveyttä. Melu ja saasteet taas lisäävät sairastumisriskiä.\n\nTulevaisuudessa terveydenhuollon pitäisi olla entistä ennaltaehkäisevämpää. Sen sijaan, että hoidetaan sairauksia, pitäisi panostaa terveyden edistämiseen ja sairauksien ehkäisyyn. Tämä vaatii yhteistyötä eri toimijoiden välillä ja pitkäjänteistä työtä.",
+      "word_count": 148
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä kaikki asiat vaikuttavat terveyteen?",
+        "options": [
+          "Vain ruoka ja liikunta",
+          "Elämäntavat, perimä, ympäristö, sosiaaliset suhteet ja taloudellinen tilanne",
+          "Vain perimä",
+          "Vain lääkärissä käynti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten sosiaaliset suhteet vaikuttavat terveyteen?",
+        "options": [
+          "Ne eivät vaikuta mitenkään",
+          "Hyvät suhteet suojaavat stressiltä, yksinäisyys lisää sairastumisriskiä",
+          "Ne lisäävät sairastumisriskiä",
+          "Vain huonot suhteet vaikuttavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on yhteiskunnallinen epäkohta terveydessä?",
+        "options": [
+          "Hyvätuloiset sairastavat enemmän",
+          "Pienituloisilla on usein huonompi terveys kuin hyvätuloisilla",
+          "Kaikilla on sama terveys",
+          "Terveydenhuolto on liian kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

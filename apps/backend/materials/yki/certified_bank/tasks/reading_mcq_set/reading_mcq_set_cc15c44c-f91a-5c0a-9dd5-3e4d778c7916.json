@@ -1,0 +1,66 @@
+{
+  "id": "cc15c44c-f91a-5c0a-9dd5-3e4d778c7916",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JÄÄHALLIN YLEISÖVUOROT\n\nMaanantai–perjantai:\nklo 8–10: koululaiset\nklo 10–12: seniorit\nklo 12–15: vapaa luistelu\nklo 15–17: jääkiekkojuniorit\nklo 17–20: vapaa luistelu\n\nLauantai–sunnuntai:\nklo 10–18: vapaa luistelu\n\nHinnat: aikuiset 5 €, lapset 3 €, perhelippu 12 €.",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin on seniorien vuoro arkipäivisin?",
+        "options": [
+          "klo 8–10",
+          "klo 10–12",
+          "klo 12–15",
+          "klo 15–17"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin on vapaata luistelua lauantaina?",
+        "options": [
+          "klo 8–20",
+          "klo 10–18",
+          "klo 12–20",
+          "klo 14–18"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko perhelippu maksaa?",
+        "options": [
+          "5 €",
+          "10 €",
+          "12 €",
+          "15 €"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

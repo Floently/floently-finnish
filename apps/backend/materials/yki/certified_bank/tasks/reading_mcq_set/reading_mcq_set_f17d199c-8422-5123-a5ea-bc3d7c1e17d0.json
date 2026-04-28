@@ -1,0 +1,77 @@
+{
+  "id": "f17d199c-8422-5123-a5ea-bc3d7c1e17d0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.591,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti avaruusromusta ja valitse oikeat vaihtoehdot.",
+    "materials": {
+      "text": "Maan kiertoradalle kertynyt romu on pitkään nähty teknisenä ongelmana, jonka ratkaisu löytyy paremmasta seurannasta ja satelliittien elinkaarisuunnittelusta. Viime vuosina ongelman luonne on muuttunut: kyse ei ole vain törmäysriskistä, vaan myös hallinnallisesta vastuusta tilanteessa, jossa laukaisutoimijoita on aiempaa enemmän ja sääntely nojaa osin vapaaehtoisiin käytäntöihin. Useat valtiot tukevat aktiivista romunpoistoa, mutta samalla ne suhtautuvat varovaisesti teknologioihin, jotka voidaan tulkita kaksikäyttöisiksi. Satelliitin tarttuminen ja radalta poistaminen voi näyttää ympäristöteolta, mutta saman tekniikan voi tulkita myös toimintakyvyn lamauttamiseksi. Tämä strateginen epävarmuus hidastaa yhteisten standardien muodostumista. Taloudellinen ulottuvuus on yhtä keskeinen: kaupalliset toimijat arvioivat riskiä vakuutusten, viivästysten ja laukaisupaikkojen saatavuuden kautta, kun taas julkiset toimijat painottavat infrastruktuurin jatkuvuutta ja kriittisten palvelujen toimintavarmuutta. Tekstin mukaan nykyinen malli ulkoistaa osan kustannuksista tuleville toimijoille, koska romun synnyn ehkäisystä hyötyvät kaikki mutta välitön kustannus kohdistuu yksittäiselle laukaisijalle. Kirjoittaja ehdottaa, että vastuuta tasattaisiin porrastetulla maksulla, joka sidotaan satelliitin poistettavuuteen ja todelliseen käyttöikään. Tällöin ympäristövastuu ei jäisi julkiseksi puheeksi, vaan muuttuisi ennakoitavaksi taloudelliseksi ohjaimeksi. Samalla järjestelmä vaatisi riippumatonta valvontaa, jotta mittarit eivät muutu pelkäksi maineenhallinnaksi.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 198
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi romu nähdään nykyään muutakin kuin teknisenä ongelmana?",
+        "options": [
+          "koska seurantalaitteet ovat vanhoja",
+          "koska toimijoita on enemmän ja vastuunjako on epäselvä",
+          "koska laukaisuja on vähemmän",
+          "koska törmäysriski on poistunut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi aktiivinen romunpoisto herättää epäluuloa?",
+        "options": [
+          "se on liian hidasta",
+          "tekniikka voi olla kaksikäyttöinen",
+          "se ei toimi kylmässä",
+          "kansalaiset vastustavat tiedettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja ehdottaa taloudelliseksi ohjaimeksi?",
+        "options": [
+          "satelliittien määrän kiinteää kieltoa",
+          "porrastettua maksua poistettavuuden ja käyttöiän perusteella",
+          "vain vapaaehtoisia suosituksia",
+          "yhtä tasaista maksua kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi riippumatonta valvontaa tarvitaan?",
+        "options": [
+          "jotta laukaisuja voidaan lisätä",
+          "jotta mittarit eivät jää pelkäksi maineenhallinnaksi",
+          "jotta vakuutusyhtiöt poistuvat markkinoilta",
+          "jotta valtiot eivät osallistu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

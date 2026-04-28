@@ -1,0 +1,37 @@
+{
+  "id": "757439f0-09ef-5863-af3f-182896e43c2e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: aikuiskoulutuskeskuksessa. Tarkoitus: perustele mielipide. Rajoite: pidä lyhyenä.",
+    "materials": {
+      "scenario": "digitaalisista palveluista aikuiskoulutuskeskuksesta"
+    },
+    "items": [
+      {
+        "id": "774fbf9e-4039-5ee7-b9cc-1430b4fdc96f",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: aikuiskoulutuskeskuksessa. Tarkoitus: perustele mielipide. Rajoite: pidä lyhyenä."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

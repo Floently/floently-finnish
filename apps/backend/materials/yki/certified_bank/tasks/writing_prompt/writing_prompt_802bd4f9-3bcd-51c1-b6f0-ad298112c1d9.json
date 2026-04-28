@@ -1,0 +1,37 @@
+{
+  "id": "802bd4f9-3bcd-51c1-b6f0-ad298112c1d9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.342,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti harrastusryhmän ohjaajalle. Kerro, että et pääse ensi viikon treeneihin, koska olet työmatkalla. Kysy, mitä asioita kannattaisi harjoitella itsenäisesti. Kysy myös, milloin seuraavat treenit ovat.",
+    "materials": {
+      "scenario": "Viesti ohjaajalle poissaolosta"
+    },
+    "items": [
+      {
+        "id": "a96c5138-a154-5750-803e-af52c4eb0976",
+        "prompt": "Kirjoita lyhyt viesti harrastusryhmän ohjaajalle. Kerro, että et pääse ensi viikon treeneihin, koska olet työmatkalla. Kysy, mitä asioita kannattaisi harjoitella itsenäisesti. Kysy myös, milloin seuraavat treenit ovat."
+      }
+    ],
+    "rubric": "Kerro, että et pääse treeneihin\nKerro syy (työmatka)\nKysy itsenäistä harjoittelua\nKysy seuraavia treenejä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "1e70ec73-ab9c-53fa-8cd0-686459f8fc24",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedotus julkisen liikenteen muutoksista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tiedote joukkoliikenteen käyttäjille. Tulevana viikonloppuna 15.–16. maaliskuuta metroliikenteessä on poikkeuksia. Linjan M1 liikennöinti päättyy molempina päivinä jo kello 22.30 ratahuollon vuoksi. Linjan M2 vuorot kulkevat koko viikonlopun normaalisti, mutta ne käyttävät pääteasemana Vuosaaren asemaa. Matkustajia kehotetaan varaamaan riittävästi aikaa siirtymiin. Korvaavia linja-autoyhteyksiä on järjestetty M1-linjan pohjoisosan pysäkeille. Tarkemmat tiedot löytyvät verkkosivuiltamme. Pahoittelemme häiriötä.",
+      "audio_asset_id": "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c"
+    },
+    "questions": [
+      {
+        "id": "l6q1",
+        "prompt": "Minä päivinä metroliikenteessä on poikkeuksia?",
+        "options": [
+          "Arkipäivinä.",
+          "Viikonloppuna 15.–16. maaliskuuta.",
+          "Joka päivä maaliskuun ajan.",
+          "Vain sunnuntaina."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l6q2",
+        "prompt": "Mikä on syy poikkeuksiin linjalla M1?",
+        "options": [
+          "Kuljettajapula.",
+          "Sääolosuhteet.",
+          "Ratahuolto.",
+          "Aseman remontti."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l6q3",
+        "prompt": "Mihin kellonaikaan linjan M1 liikennöinti päättyy?",
+        "options": [
+          "Klo 20.30.",
+          "Klo 22.00.",
+          "Klo 22.30.",
+          "Klo 23.30."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l6q4",
+        "prompt": "Mikä on linjan M2 pääteasema poikkeuksen aikana?",
+        "options": [
+          "Helsinki.",
+          "Vuosaari.",
+          "Tapiola.",
+          "Mellunmäki."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l6q5",
+        "prompt": "Mitä matkustajia kehotetaan tekemään?",
+        "options": [
+          "Vaihtamaan bussiin jo etukäteen.",
+          "Varaamaan riittävästi aikaa siirtymiin.",
+          "Käyttämään vain omaa autoa.",
+          "Perumaan matkansa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

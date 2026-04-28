@@ -1,0 +1,66 @@
+{
+  "id": "28950f0c-e1ec-5be0-b397-58f35381e8db",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työpaikkailmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Haemme myyjää Helsingin keskustan myymäläämme. Työ on kokoaikainen ja alkaa elokuussa. Tehtäviin kuuluu asiakaspalvelua, kassatyöskentelyä ja tuotteiden esillepanoa. Toivomme hakijalta aiempaa kokemusta asiakaspalvelusta ja hyvää suomen kielen taitoa. Englannin kielen taito katsotaan eduksi. Tarjoamme perehdytyksen, hyvät henkilökuntaedut ja mahdollisuuden kehittyä. Lähetä hakemuksesi 15.6. mennessä osoitteeseen rekry@firma.fi.",
+      "audio_asset_id": "3a9157d4-2d9f-5460-bd4e-eef5f56c84c6"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tehtäviä työhön kuuluu?",
+        "options": [
+          "Vain kassatyöskentelyä",
+          "Asiakaspalvelua, kassatyötä ja tuotteiden esillepanoa",
+          "Vain varastotöitä",
+          "Siivousta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hakijalta toivotaan?",
+        "options": [
+          "Korkeakoulututkintoa",
+          "Kokemusta asiakaspalvelusta ja hyvää suomen kielen taitoa",
+          "Auton omistamista",
+          "Ikää yli 30 vuotta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin hakemukset pitää lähettää?",
+        "options": [
+          "15.5. mennessä",
+          "15.6. mennessä",
+          "15.7. mennessä",
+          "15.8. mennessä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

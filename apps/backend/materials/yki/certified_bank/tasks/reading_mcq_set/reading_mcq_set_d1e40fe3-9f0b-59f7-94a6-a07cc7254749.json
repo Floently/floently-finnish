@@ -1,0 +1,99 @@
+{
+  "id": "d1e40fe3-9f0b-59f7-94a6-a07cc7254749",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähiliikuntapaikat ovat tärkeitä kaupunkilaisille. Ne sijaitsevat usein asuinalueiden lähellä, ja niissä voi harrastaa monenlaista liikuntaa ilmaiseksi. Tyypillisiä lähiliikuntapaikkoja ovat esimerkiksi kentät, puistot ja ulkokuntosalit. Ne tarjoavat matalan kynnyksen mahdollisuuden liikkumiseen. Kaupungit pyrkivät kehittämään lähiliikuntapaikkoja ja pitämään ne hyvässä kunnossa, jotta kaikilla olisi mahdollisuus liikkua lähellä kotia.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi lähiliikuntapaikat ovat tärkeitä?",
+        "options": [
+          "Koska ne ovat kalliita",
+          "Koska ne ovat lähellä ja niissä voi liikkua ilmaiseksi",
+          "Koska niissä järjestetään kilpailuja",
+          "Koska ne ovat ainoita liikuntapaikkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä lähiliikuntapaikat usein sijaitsevat?",
+        "options": [
+          "Keskustassa",
+          "Asuinalueiden lähellä",
+          "Kauppojen vieressä",
+          "Metsässä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä lähiliikuntapaikoista mainitaan?",
+        "options": [
+          "Jäähallit ja uimahallit",
+          "Kentät, puistot ja ulkokuntosalit",
+          "Kuntosalit ja tanssisalit",
+          "Urheiluseurat ja -kerhot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millaista mahdollisuutta ne tarjoavat?",
+        "options": [
+          "Maksullista ja vaativaa",
+          "Matalan kynnyksen mahdollisuutta liikkumiseen",
+          "Vain ammattilaisille",
+          "Vain nuorille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kaupungit pyrkivät tekemään lähiliikuntapaikoille?",
+        "options": [
+          "Lakkauttamaan ne",
+          "Kehittämään ja pitämään hyvässä kunnossa",
+          "Myymään ne",
+          "Rakentamaan niiden päälle taloja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'matalalla kynnyksellä'?",
+        "options": [
+          "Paikkaan on vaikea päästä",
+          "Liikkumaan on helppo lähteä mukaan",
+          "Se on tarkoitettu vain tietyille ryhmille",
+          "Se vaatii paljon harjoittelua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

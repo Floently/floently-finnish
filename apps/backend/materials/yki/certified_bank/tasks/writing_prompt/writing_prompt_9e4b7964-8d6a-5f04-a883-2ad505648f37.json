@@ -1,0 +1,37 @@
+{
+  "id": "9e4b7964-8d6a-5f04-a883-2ad505648f37",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a production manager position in an industrial company. Tell about your previous experience in production management, process development, and how you have improved productivity. Also describe how you lead a work community in change situations. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus tuotantopäällikön tehtävään"
+    },
+    "items": [
+      {
+        "id": "9a68e4a0-9d69-593a-b29e-548ef56e3364",
+        "prompt": "Write a job application. You are applying for a production manager position in an industrial company. Tell about your previous experience in production management, process development, and how you have improved productivity. Also describe how you lead a work community in change situations. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a production manager position in an industrial company. Tell about your previous experience in production management, process development, and how you have improved productivity. Also describe how you lead a work community in change situations. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

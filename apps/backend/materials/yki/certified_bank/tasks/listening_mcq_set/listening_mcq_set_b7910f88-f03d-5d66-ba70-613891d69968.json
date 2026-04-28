@@ -1,0 +1,99 @@
+{
+  "id": "b7910f88-f03d-5d66-ba70-613891d69968",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kestävästä muodista ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme kestävästä muodista. Haastattelussa on vaatesuunnittelija Saara Aalto. Saara, mitä tarkoittaa kestävä muoti? Saara: Se tarkoittaa vaatteita, jotka on suunniteltu ja valmistettu ympäristö ja ihmiset huomioiden. Se on vastakohta pikamuodille, jossa vaatteita tehdään halvalla ja ne kestävät vain vähän aikaa. Toimittaja: Miten kuluttaja voi toimia kestävämmin? Saara: Ensinnäkin, kannattaa ostaa vähemmän ja laadukkaampaa. Toiseksi, vaatteita voi kierrättää ostamalla käytettynä tai myymällä omia pois. Kolmanneksi, vaatteita voi korjata ja muokata itse. Toimittaja: Entä materiaalit? Saara: Luonnonmateriaalit, kuten luomupuuvilla ja pellava, ovat hyviä. Myös kierrätysmateriaalit, kuten kierrätyspolyesteri, ovat yleistymässä. Tärkeää on, että materiaalit ovat kestäviä ja että niiden tuotanto ei kuormita ympäristöä liikaa. Toimittaja: Miten vaateteollisuus voi muuttua? Saara: Tarvitaan läpinäkyvyyttä. Kuluttajien pitää tietää, missä ja miten vaatteet on tehty. Myös lainsäädäntöä tarvitaan, jotta yritykset eivät voi piiloutua. Toimittaja: Mitä mieltä olet vaatteiden lainaamisesta? Saara: Se on hyvä idea, erityisesti juhlapukeutumisessa. Monissa kaupungeissa on jo vaatelainaamoita. Se vähentää turhaa kulutusta. Toimittaja: Kiitos Saara.",
+      "audio_asset_id": "6af8b9d3-4d40-4fbe-b85a-bee35e4ceda0"
+    },
+    "questions": [
+      {
+        "id": "1ed3841d-f771-5ad9-8182-e5a4d40a6420",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Uusimmat muotitrendit.",
+          "Kestävä muoti ja kuluttajan valinnat.",
+          "Vaateteollisuuden ongelmat.",
+          "Muotisuunnittelijan työ."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5547a232-a008-5d94-8689-f094b399aa15",
+        "prompt": "Mitä tarkoittaa kestävä muoti Saaran mukaan?",
+        "options": [
+          "Halpoja ja kertakäyttöisiä vaatteita.",
+          "Vain luomupuuvillaa.",
+          "Vaatteita, jotka on suunniteltu ympäristö ja ihmiset huomioiden.",
+          "Vaatteita, jotka on tehty Suomessa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1ff45b0b-962b-5fc6-a12a-ed6496ff2c07",
+        "prompt": "Mikä on pikamuodin ongelma?",
+        "options": [
+          "Se on liian kallista.",
+          "Sitä on vaikea löytää.",
+          "Vaatteet tehdään halvalla ja ne kestävät vähän aikaa.",
+          "Siinä käytetään vain luonnonmateriaaleja."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ab86684a-1713-5bfe-affc-2c4ea2f2b5e4",
+        "prompt": "Miten kuluttaja voi toimia kestävämmin?",
+        "options": [
+          "Ostamalla mahdollisimman paljon uutta.",
+          "Ostamalla vähemmän, kierrättämällä ja korjaamalla.",
+          "Heittämällä vanhat pois.",
+          "Ostamalla vain merkkituotteita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7ce5b12b-3afa-5da6-be68-67dd514cb441",
+        "prompt": "Mitä materiaaleja Saara suosittelee?",
+        "options": [
+          "Tekokuituja ja muovia.",
+          "Villaa ja nahkaa.",
+          "Silkkiä ja satiinia.",
+          "Luonnonmateriaaleja ja kierrätysmateriaaleja."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "f49115f0-834e-504c-9a65-fa3af8af540b",
+        "prompt": "Mitä mieltä Saara on vaatteiden lainaamisesta?",
+        "options": [
+          "Se on huono idea.",
+          "Se on liian kallista.",
+          "Se on hyvä idea erityisesti juhlapukeutumisessa.",
+          "Se on vaikeaa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

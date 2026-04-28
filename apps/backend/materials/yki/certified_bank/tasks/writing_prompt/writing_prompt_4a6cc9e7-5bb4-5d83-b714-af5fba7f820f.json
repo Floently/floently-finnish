@@ -1,0 +1,37 @@
+{
+  "id": "4a6cc9e7-5bb4-5d83-b714-af5fba7f820f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ollut kielikurssilla. Kirjoita palaute. Kerro, oliko opetus selkeää, oliko kurssin aikataulu sopiva ja oppiko kurssilla uutta.",
+    "materials": {
+      "scenario": "Palaute kielikurssista"
+    },
+    "items": [
+      {
+        "id": "21ea1bf4-63ed-571b-b5b0-45b7cd8a1a38",
+        "prompt": "Olet ollut kielikurssilla. Kirjoita palaute. Kerro, oliko opetus selkeää, oliko kurssin aikataulu sopiva ja oppiko kurssilla uutta."
+      }
+    ],
+    "rubric": "Opetuksen selkeys\nAikataulun sopivuus\nUuden oppiminen",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

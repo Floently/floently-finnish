@@ -1,0 +1,66 @@
+{
+  "id": "d40f2c65-bfa2-5147-8dbf-f88e64b964be",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T10:00:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Monessa suomalaisessa yrityksessä on siirrytty hybridityömalliin koronapandemian jälkeen. Käytännössä tämä tarkoittaa, että työntekijät tekevät osan viikosta toimistolla ja osan etänä kotoa käsin. Tutkimusten mukaan työntekijät arvostavat joustavuutta, mutta samalla osa kokee, että yhteishenki työpaikalla on heikentynyt. Erityisesti uudet työntekijät kaipaavat kasvokkaisia kohtaamisia, jotta he oppisivat tuntemaan kollegansa ja yrityksen toimintatavat. Työnantajat puolestaan pohtivat, miten säilyttää yhteenkuuluvuuden tunne ja varmistaa tiedonkulku, kun kaikki eivät ole samassa paikassa yhtä aikaa. Jotkut yritykset ovatkin päätyneet sopimaan yhteisistä toimistopäivistä, jolloin koko tiimi on paikalla.",
+      "word_count": 80
+    },
+    "questions": [
+      {
+        "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+        "prompt": "Mitä hybridityö tarkoittaa käytännössä?",
+        "options": [
+          "Työntekijät tekevät kaiken työn toimistolla",
+          "Työntekijät tekevät osan työstä toimistolla ja osan etänä",
+          "Työntekijät tekevät kaiken työn ulkomailla",
+          "Työntekijät tekevät työtä vain öisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Kuka erityisesti kaipaa kasvokkaisia tapaamisia työpaikalla?",
+        "options": [
+          "Johtajat",
+          "Kokeneet työntekijät",
+          "Uudet työntekijät",
+          "Eläkeläiset"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c3d4e5f6-a7b8-4c9d-8e0f-1a2b3c4d5e6f",
+        "prompt": "Mitä ongelmaa työnantajat pohtivat hybridityössä?",
+        "options": [
+          "Toimistotilojen vuokra on liian korkea",
+          "Työntekijät eivät osaa käyttää tietokoneita",
+          "Miten säilyttää yhteenkuuluvuus ja varmistaa tiedonkulku",
+          "Työntekijät haluavat lisää lomapäiviä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "6f66624d-3d64-5a10-8500-8a63e87eb8aa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kurssin ohjaajalle.",
+    "materials": {
+      "scenario": "Tiedustele kurssin sisällöstä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti kurssin ohjaajalle."
+      }
+    ],
+    "rubric": "Harkitset ilmoittautumista kurssille, mutta haluaisit lisätietoja. Kirjoita sähköposti ja kysy, mitä kurssilla käsitellään ja millaisia tehtäviä siihen kuuluu. Kysy myös, sopiiko kurssi aloittelijoille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

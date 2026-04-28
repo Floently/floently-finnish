@@ -1,0 +1,37 @@
+{
+  "id": "b49b8bc7-3c18-59b8-8508-9b051f596486",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vakuutusyhtiöön. Sinulla on kysyttävää kotivakuutuksestasi, erityisesti siitä, mitä se kattaa vesivahinkojen osalta. Kerro vakuutusnumerosi ja kysy tarkennusta ehtoihin.",
+    "materials": {
+      "scenario": "Kysymys kotivakuutuksen ehdoista"
+    },
+    "items": [
+      {
+        "id": "3baded75-d7aa-5298-8188-9f964977a489",
+        "prompt": "Kirjoita sähköposti vakuutusyhtiöön. Sinulla on kysyttävää kotivakuutuksestasi, erityisesti siitä, mitä se kattaa vesivahinkojen osalta. Kerro vakuutusnumerosi ja kysy tarkennusta ehtoihin."
+      }
+    ],
+    "rubric": "Vakuutusnumero\nKysymyksen aihe\nTarkennuspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

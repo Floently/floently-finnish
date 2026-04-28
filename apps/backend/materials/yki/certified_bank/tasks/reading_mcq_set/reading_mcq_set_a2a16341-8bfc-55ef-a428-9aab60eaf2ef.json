@@ -1,0 +1,66 @@
+{
+  "id": "a2a16341-8bfc-55ef-a428-9aab60eaf2ef",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa pankkipalvelut ovat siirtyneet vahvasti digitaalisiksi viimeisen kymmenen vuoden aikana. Nykyään suurin osa asiakkaista hoitaa pankkiasiansa verkon ja mobiilisovellusten kautta. Verkkopankissa voi maksaa laskuja, siirtää rahaa, tarkistaa tilin saldon ja jopa ottaa yhteyttä asiakaspalveluun chatissa. Monilla pankeilla on käytössä tunnistautuminen pankkitunnuksilla, joita käytetään myös monissa muissa julkisissa palveluissa kuten Kelan ja Verohallinnon sivuilla. Vaikka digitaalisuus on nopeaa ja helppoa, se on tuonut haasteita erityisesti ikääntyneille ja niille, joilla ei ole vahvaa digitaitoa. Pankit ovatkin pyrkineet kehittämään selkeämpiä käyttöliittymiä ja tarjoamaan opastusta. Samalla konttoriverkkoa on kuitenkin karsittu, ja monilla paikkakunnilla ei ole enää fyysistä pankkikonttoria lainkaan.",
+      "word_count": 95
+    },
+    "questions": [
+      {
+        "id": "b5c6d7e8-f9a0-4b1c-8d2e-3f4a5b6c7d8e",
+        "prompt": "Miten suurin osa suomalaisista hoitaa pankkiasiansa nykyään?",
+        "options": [
+          "Käymällä pankkikonttorissa",
+          "Puhelimitse",
+          "Verkon ja mobiilisovellusten kautta",
+          "Kirjeitse"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c6d7e8f9-a0b1-4c2d-8e3f-4a5b6c7d8e9f",
+        "prompt": "Missä muissa palveluissa pankkitunnuksia käytetään?",
+        "options": [
+          "Vain pankkiasioissa",
+          "Kelan ja Verohallinnon palveluissa",
+          "Vain kaupoissa",
+          "Kirjastoissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d7e8f9a0-b1c2-4d3e-8f4a-5b6c7d8e9f0a",
+        "prompt": "Kenelle digitaalisuus on tuonut erityisesti haasteita?",
+        "options": [
+          "Nuorille aikuisille",
+          "Lapsille",
+          "Ikääntyneille ja heille, joilla on heikot digitaidot",
+          "Yrittäjille"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "55b9a771-22b0-5513-a79d-9a9107f81dfd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.277,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt kuvaus.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt kuvaus."
+    },
+    "items": [
+      {
+        "id": "89058aaf-2006-5518-8ff8-8a8f1a0e6eac",
+        "prompt": "Kuvaile lempiruokaasi.\nKerro:\n- mikä ruoka on\n- mistä se on tehty\n- milloin syöt sitä."
+      }
+    ],
+    "rubric": "Kuvaile lempiruokaasi.\nKerro:\n- mikä ruoka on\n- mistä se on tehty\n- milloin syöt sitä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

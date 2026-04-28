@@ -1,0 +1,37 @@
+{
+  "id": "7440a091-e04b-563a-a963-9c6bd550cf34",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti, jossa tarkastelet aihetta kriittisesti. Pohdi sekä myönteisiä että kielteisiä puolia ja tee johtopäätös.",
+    "materials": {
+      "scenario": "Kuntosalit ovat kalliita ja turhia, ulkona voi liikkua ilmaiseksi"
+    },
+    "items": [
+      {
+        "id": "486fdb15-84b1-5d6a-bdaa-174d3563976f",
+        "prompt": "Kirjoita mielipideteksti, jossa tarkastelet aihetta kriittisesti. Pohdi sekä myönteisiä että kielteisiä puolia ja tee johtopäätös."
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti, jossa tarkastelet aihetta kriittisesti. Pohdi sekä myönteisiä että kielteisiä puolia ja tee johtopäätös.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

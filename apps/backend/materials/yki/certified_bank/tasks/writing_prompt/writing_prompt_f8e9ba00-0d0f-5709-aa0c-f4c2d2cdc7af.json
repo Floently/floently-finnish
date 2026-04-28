@@ -1,0 +1,37 @@
+{
+  "id": "f8e9ba00-0d0f-5709-aa0c-f4c2d2cdc7af",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomeen rakentaa lisää tuulivoimaa huolimatta maisemahaitoista?'. Vertaa energiantuotantomuotoja ja paikallista vastustusta.",
+    "materials": {
+      "scenario": "Tuulivoiman lisääminen"
+    },
+    "items": [
+      {
+        "id": "96e89af3-16d8-5141-a425-468ef25298e6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomeen rakentaa lisää tuulivoimaa huolimatta maisemahaitoista?'. Vertaa energiantuotantomuotoja ja paikallista vastustusta."
+      }
+    ],
+    "rubric": "Energiantuotanto\nMaisemahaitat\nPaikallisten asukkaiden näkökulma\nYmpäristövaikutukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

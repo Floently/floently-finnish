@@ -1,0 +1,88 @@
+{
+  "id": "6d7727f3-0181-52b7-b9db-566fe984e3ca",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan haastattelu luonnonsuojelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Biologi, mitkä ovat tärkeimmät keinot luonnon monimuotoisuuden säilyttämiseksi? Biologi: Ensinnäkin, meidän on suojeltava riittävän suuria alueita, joissa luonto voi olla rauhassa. Suojelualueet ovat tärkeitä, mutta ne eivät yksin riitä. Toimittaja: Mitä muuta tarvitaan? Biologi: Tarvitaan ekologisia käytäviä, jotka yhdistävät suojelualueita, jotta eläimet voivat liikkua niiden välillä. Myös talousmetsien hoitoa pitää muuttaa luonnonmukaisemmaksi. Jätetään lahopuuta, suojellaan pienvesiä ja monipuolistetaan puulajeja. Toimittaja: Mitä jokainen meistä voi tehdä? Biologi: Omassa arjessa voi suosia luonnonmukaisesti tuotettua ruokaa, välttää turhaa kulutusta ja vähentää kemikaalien käyttöä. Omassa puutarhassa voi istuttaa kotimaisia kasveja ja jättää osan nurmikosta kasvamaan luonnonvaraisena.",
+      "audio_asset_id": "d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a"
+    },
+    "questions": [
+      {
+        "id": "l70q1",
+        "prompt": "Mikä on biologin mukaan tärkein keino luonnon monimuotoisuuden säilyttämiseksi?",
+        "options": [
+          "Lisätä metsästystä.",
+          "Suojella riittävän suuria alueita.",
+          "Istuttaa enemmän puita.",
+          "Kieltää autoilu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l70q2",
+        "prompt": "Mitä tarkoitetaan ekologisilla käytävillä?",
+        "options": [
+          "Teitä, joita pitkin eläimet voivat kulkea.",
+          "Alueita, jotka yhdistävät suojelualueita toisiinsa.",
+          "Puroja ja jokia.",
+          "Puita, jotka on istutettu riviin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l70q3",
+        "prompt": "Mitä talousmetsien hoidossa pitäisi biologin mukaan muuttaa?",
+        "options": [
+          "Hakata kaikki puut nopeammin.",
+          "Jättää lahopuuta, suojella pienvesiä ja monipuolistaa puulajeja.",
+          "Istuttaa vain yhtä puulajia.",
+          "Käyttää enemmän lannoitteita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l70q4",
+        "prompt": "Mitä jokainen voi tehdä omassa arjessa luonnon hyväksi?",
+        "options": [
+          "Käyttää enemmän muovia.",
+          "Suosia luonnonmukaisesti tuotettua ruokaa ja vähentää turhaa kulutusta.",
+          "Ajaa enemmän autolla.",
+          "Ostaa aina uutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l70q5",
+        "prompt": "Mitä omassa puutarhassa voi tehdä?",
+        "options": [
+          "Istuttaa eksoottisia kasveja.",
+          "Istuttaa kotimaisia kasveja ja jättää osan nurmikosta luonnonvaraiseksi.",
+          "Leikata nurmikon lyhyeksi.",
+          "Käyttää paljon torjunta-aineita."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

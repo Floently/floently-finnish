@@ -1,0 +1,77 @@
+{
+  "id": "82f6e67f-b5cc-5f4d-92de-f48023b67f0c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue raportti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Taloyhtiö asensi aurinkopaneelit kahteen rakennukseen ja perusti energiayhteisön. Päivällä tuotettu sähkö ohjataan ensin yhteisiin tiloihin, ja ylijäämä jaetaan asuntoihin kulutusosuuden mukaan. Ensimmäisen neljän kuukauden aikana sähköostot vähenivät 12 prosenttia. Haasteeksi nousi kulutuksen epätasaisuus iltaisin, jolloin paneelituotanto on vähäinen.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin sähkö ohjataan ensin?",
+        "options": [
+          "autotalleihin",
+          "yhteisiin tiloihin",
+          "vain asuntoihin",
+          "verkkoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten ylijäämä jaetaan?",
+        "options": [
+          "tasamäärin",
+          "kulutusosuuden mukaan",
+          "arvonnalla",
+          "vain hallitukselle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuinka paljon sähköostot vähenivät?",
+        "options": [
+          "8 %",
+          "10 %",
+          "12 %",
+          "15 %"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä oli haaste?",
+        "options": [
+          "paneelien puhdistus",
+          "ilta-ajan epätasainen kulutus",
+          "liian suuri tuotanto yöllä",
+          "laskutusvirhe"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

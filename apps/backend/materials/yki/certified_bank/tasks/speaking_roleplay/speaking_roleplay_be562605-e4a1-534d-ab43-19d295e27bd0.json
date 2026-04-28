@@ -1,0 +1,60 @@
+{
+  "id": "be562605-e4a1-534d-ab43-19d295e27bd0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa muuttaa matkalippujaan. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Matkahuollon asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp56_1",
+        "ai_first_turn_fi": "Hei, Matkahuolto."
+      },
+      {
+        "id": "srp56_2",
+        "ai_first_turn_fi": "Voin auttaa. Mikä on varausnumerosi?"
+      },
+      {
+        "id": "srp56_3",
+        "ai_first_turn_fi": "Kiitos. Lippusi on lauantaille kello 10. Mihin aikaan haluaisit muuttaa sen?"
+      },
+      {
+        "id": "srp56_4",
+        "ai_first_turn_fi": "Seuraava bussi lähtee kello 14.30. Vaihto onnistuu, mutta joudut maksamaan 5 euron muutosmaksun. Hyväksytkö tämän?"
+      },
+      {
+        "id": "srp56_5",
+        "ai_first_turn_fi": "Selvä. Miten haluat maksaa muutosmaksun?"
+      },
+      {
+        "id": "srp56_6",
+        "ai_first_turn_fi": "Kiitos. Lippusi on nyt muutettu. Saat uuden lipun sähköpostitse. Hyvää matkaa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa muuttaa matkalippujaan. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

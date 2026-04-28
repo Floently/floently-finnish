@@ -1,0 +1,110 @@
+{
+  "id": "b9536f29-6058-59b8-b698-0d857a6c5179",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalaiset viettävät paljon aikaa luonnossa. Jokamiehenoikeudet antavat kaikille oikeuden liikkua luonnossa vapaasti. Saa kävellä metsissä, poimia marjoja ja sieniä ja uida järvissä. Luonto on lähellä kaikkialla Suomessa. Metsät, järvet ja saaristot ovat suosittuja virkistysalueita. Monet harrastavat patikointia, marjastusta, kalastusta ja retkeilyä. Luonnossa liikkuminen on hyvä tapa rentoutua ja saada liikuntaa. Se myös vähentää stressiä ja parantaa mielialaa. Luonto on tärkeä osa suomalaista identiteettiä. Se näkyy taiteessa, kirjallisuudessa ja musiikissa. Monet suomalaiset kokevat, että luonto on henkisesti tärkeä paikka. Se antaa voimaa ja rauhaa arkeen. Luontoa pitää suojella, jotta se säilyy myös tuleville sukupolville.",
+      "word_count": 93
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä jokamiehenoikeudet tarkoittavat?",
+        "options": [
+          "Vain metsästysoikeuden.",
+          "Oikeuden liikkua luonnossa vapaasti, poimia marjoja ja sieniä.",
+          "Oikeuden rakentaa metsään.",
+          "Vain kalastusoikeuden."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä ovat suosittuja virkistysalueita Suomessa?",
+        "options": [
+          "Vain kaupungit.",
+          "Metsät, järvet ja saaristot.",
+          "Vain puistot.",
+          "Vaan urheilukentät."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä luontoharrastuksia tekstissä mainitaan?",
+        "options": [
+          "Golf ja tennis.",
+          "Patikointi, marjastus, kalastus ja retkeily.",
+          "Jalkapallo ja jääkiekko.",
+          "Uinti ja juoksu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä luonnossa liikkumisesta on?",
+        "options": [
+          "Se vie paljon aikaa.",
+          "Se rentouttaa, vähentää stressiä ja parantaa mielialaa.",
+          "Se on kallista.",
+          "Se on vaarallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten luonto näkyy suomalaisessa kulttuurissa?",
+        "options": [
+          "Se ei näy mitenkään.",
+          "Taiteessa, kirjallisuudessa ja musiikissa.",
+          "Vain mainonnassa.",
+          "Vain matkailussa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä luonto merkitsee monille suomalaisille?",
+        "options": [
+          "Vain raaka-aineita.",
+          "Henkisesti tärkeä paikka, joka antaa voimaa ja rauhaa.",
+          "Vain työpaikan.",
+          "Vain harrastusmahdollisuuden."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi luontoa pitää suojella?",
+        "options": [
+          "Koska se on rumaa.",
+          "Jotta se säilyy myös tuleville sukupolville.",
+          "Koska se on vaarallista.",
+          "Koska se on liian suosittua."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

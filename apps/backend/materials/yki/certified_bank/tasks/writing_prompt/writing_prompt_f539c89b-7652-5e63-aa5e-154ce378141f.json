@@ -1,0 +1,37 @@
+{
+  "id": "f539c89b-7652-5e63-aa5e-154ce378141f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti sosiaaliturvan muutoksenhakulautakuntaan. Olet saanut hylkäävän päätöksen sairauspäivärahaa koskevassa asiassa ja haluat valittaa päätöksestä. Kerro, miksi päätös on mielestäsi virheellinen, ja pyydä ohjeita valituksen tekemiseen.",
+    "materials": {
+      "scenario": "Valitus sairauspäivärahapäätöksestä"
+    },
+    "items": [
+      {
+        "id": "67134c8c-d0dc-588c-9bfc-f5d53fb4e411",
+        "prompt": "Kirjoita virallinen sähköposti sosiaaliturvan muutoksenhakulautakuntaan. Olet saanut hylkäävän päätöksen sairauspäivärahaa koskevassa asiassa ja haluat valittaa päätöksestä. Kerro, miksi päätös on mielestäsi virheellinen, ja pyydä ohjeita valituksen tekemiseen."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

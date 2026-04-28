@@ -1,0 +1,40 @@
+{
+  "id": "db606bae-4959-58f7-be8f-4197dc902ac0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele työvoimavirkailijan kanssa. Kerro työnhakusi tilanteesta ja kysy tukimahdollisuuksista.",
+    "materials": {
+      "roles": {
+        "user": "ollut työttömänä muutaman kuukauden",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "af1501bd-e98c-5610-b4e7-03d9502b4a73",
+        "ai_first_turn_fi": "Hei, ole hyvä ja istu. Miten työnhaku on sujunut?"
+      }
+    ],
+    "rubric": "Keskustele työvoimavirkailijan kanssa. Kerro työnhakusi tilanteesta ja kysy tukimahdollisuuksista.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

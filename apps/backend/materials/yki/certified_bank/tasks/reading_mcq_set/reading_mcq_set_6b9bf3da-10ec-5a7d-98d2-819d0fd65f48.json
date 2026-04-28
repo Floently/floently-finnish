@@ -1,0 +1,66 @@
+{
+  "id": "6b9bf3da-10ec-5a7d-98d2-819d0fd65f48",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIRJASTO\n\nKirjasto on avoinna maanantaista perjantaihin kello 10–19. Lauantaisin kello 10–15. Sunnuntaisin suljettu.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_007_q1",
+        "prompt": "Mihin aikaan kirjasto sulkeutuu arkisin?",
+        "options": [
+          "kello 17",
+          "kello 18",
+          "kello 19",
+          "kello 20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_007_q2",
+        "prompt": "Onko kirjasto auki lauantaisin?",
+        "options": [
+          "ei",
+          "kyllä, kello 10–15",
+          "kyllä, kello 12–18",
+          "vain aamupäivällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_007_q3",
+        "prompt": "Minä päivänä kirjasto on kiinni?",
+        "options": [
+          "maanantaina",
+          "perjantaina",
+          "lauantaina",
+          "sunnuntaina"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

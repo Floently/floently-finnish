@@ -1,0 +1,66 @@
+{
+  "id": "49c45c99-288d-57fb-844a-281f0f5fdfb1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ohje ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KOIRAN HOITO-OHJEET\n\nRuoki koira aamulla ja illalla. Vaihda vesi joka päivä. Käytä koira ulkona kolme kertaa päivässä. Harjaa turkki kerran viikossa. Tarkista korvat ja silmät viikoittain.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Montako kertaa päivässä koira pitää ruokkia?",
+        "options": [
+          "A) yhden kerran",
+          "B) kaksi kertaa",
+          "C) kolme kertaa",
+          "D) neljä kertaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka usein koira pitää käydä ulkona?",
+        "options": [
+          "A) kerran päivässä",
+          "B) kahdesti päivässä",
+          "C) kolmesti päivässä",
+          "D) neljästi päivässä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuinka usein turkki pitää harjata?",
+        "options": [
+          "A) joka päivä",
+          "B) joka toinen päivä",
+          "C) kerran viikossa",
+          "D) kerran kuussa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

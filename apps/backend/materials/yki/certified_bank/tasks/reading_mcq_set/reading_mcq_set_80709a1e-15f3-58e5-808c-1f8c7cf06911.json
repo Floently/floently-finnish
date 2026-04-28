@@ -1,0 +1,66 @@
+{
+  "id": "80709a1e-15f3-58e5-808c-1f8c7cf06911",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomen peruskouluissa opiskellaan yleensä kahta kotimaista kieltä ja yhtä vierasta kieltä. Pakollisia kieliä ovat suomi tai ruotsi, toinen kotimainen kieli ja englanti. Tämän lisäksi oppilaat voivat valita vapaaehtoisia kieliä, kuten saksaa, ranskaa tai venäjää.\n\nViime vuosina kieltenopiskelu on vähentynyt. Yhä harvempi valitsee pitkän oppimäärän kieliä. Erityisesti ruotsin osaaminen on heikentynyt. Opetushallituksen tilastojen mukaan vain noin 40 prosenttia yhdeksäsluokkalaisista saavuttaa ruotsissa tyydyttävät taidot. Tämä on huolestuttavaa, koska ruotsin taito on monissa töissä välttämätöntä.\n\nAsiantuntijat ehdottavat, että kieltenopetusta pitäisi lisätä ja tehdä siitä motivoivampaa. Kielten opiskelu aloitetaan nykyään jo ensimmäisellä luokalla, mutta opetus on usein liian teoreettista. Lapset oppisivat paremmin, jos kieliä käytettäisiin arjessa ja leikeissä. Opetukseen kaivataan lisää puhetta ja vuorovaikutusta.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 138
+    },
+    "questions": [
+      {
+        "id": "350a9dcc-b821-501b-90f3-40dcfe1be20a",
+        "prompt": "Mitä mieltä kirjoittaja on kieltenopiskelun tilasta?",
+        "options": [
+          "Se on parantunut paljon",
+          "Se on huolestuttavaa",
+          "Se on samalla tasolla kuin ennen",
+          "Se on turhaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "942713da-ec84-5426-b5dc-d25a3a1ae9f2",
+        "prompt": "Mikä on ruotsin kielen tilanne?",
+        "options": [
+          "Kaikki oppilaat osaavat sitä hyvin",
+          "Vain 40 prosenttia saavuttaa tyydyttävät taidot",
+          "Sitä ei enää opeteta",
+          "Vain maahanmuuttajat opiskelevat sitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bdf8854e-4bc4-50d6-a09d-c82e68828aca",
+        "prompt": "Miten kieltenopetusta pitäisi kehittää asiantuntijoiden mukaan?",
+        "options": [
+          "Lisää kielioppia",
+          "Enemmän kirjallisia kokeita",
+          "Enemmän puhetta ja vuorovaikutusta",
+          "Vähemmän tunteja"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

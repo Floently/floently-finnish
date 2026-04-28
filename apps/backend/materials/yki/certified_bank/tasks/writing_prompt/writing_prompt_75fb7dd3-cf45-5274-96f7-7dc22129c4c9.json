@@ -1,0 +1,37 @@
+{
+  "id": "75fb7dd3-cf45-5274-96f7-7dc22129c4c9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt yksityisessä eläinlääkärissä. Kirjoita palaute klinikalle.",
+    "materials": {
+      "scenario": "Palaute eläinlääkäristä"
+    },
+    "items": [
+      {
+        "id": "0c41a858-ec72-5509-bb88-8d4ad1014d27",
+        "prompt": "Olet käynyt yksityisessä eläinlääkärissä. Kirjoita palaute klinikalle."
+      }
+    ],
+    "rubric": "Olet käynyt yksityisessä eläinlääkärissä. Kirjoita palaute klinikalle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

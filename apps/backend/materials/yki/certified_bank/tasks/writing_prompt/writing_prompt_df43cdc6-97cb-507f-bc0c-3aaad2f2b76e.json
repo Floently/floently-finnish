@@ -1,0 +1,37 @@
+{
+  "id": "df43cdc6-97cb-507f-bc0c-3aaad2f2b76e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kuntosubventioiden olla verovapaita työsuhde-etuja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Verovapaat kuntosubventiot"
+    },
+    "items": [
+      {
+        "id": "b51d484d-7918-54c9-8dad-9953d31a7136",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kuntosubventioiden olla verovapaita työsuhde-etuja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

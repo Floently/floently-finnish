@@ -1,0 +1,77 @@
+{
+  "id": "e54c4684-4582-51a8-963d-930d87c68bdf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.595,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue arviointiteksti kirjaston digituesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kunnan kirjasto uudisti digituen palvelumallin, jotta eri-ikäisten asiakkaiden asiointi verkossa helpottuisi. Uudistuksessa aiempi ajanvarauspiste korvattiin kahdella rinnakkaisella kanavalla: nopealla neuvontapisteellä ja pidemmällä ohjausajalla, joka varataan etukäteen. Tavoitteena oli vähentää jonotusta ja varmistaa, että monimutkaiset ongelmat saavat riittävästi aikaa. Ensimmäisten kuukausien aikana nopea piste ruuhkautui, koska asiakkaat toivat myös pitkiä asioita sinne. Tilannetta korjattiin selkeyttämällä palvelun kuvausta sekä lisäämällä henkilökunnan ohjausta ovella. Seurantatietojen mukaan muutos paransi asiakastyytyväisyyttä etenkin niissä tilanteissa, joissa asiakas tarvitsi toistuvaa tukea esimerkiksi pankkitunnusten käyttöön tai viranomaislomakkeiden täyttämiseen. Samalla henkilöstö huomasi, että digituen tarve liittyy usein myös kielellisiin ja sosiaalisiin esteisiin, ei pelkkään laitetaitoon. Tästä syystä kirjasto aloitti yhteistyön kansalaisopiston kanssa ja loi lyhyen peruskurssin niille asiakkaille, jotka hyötyvät säännöllisestä harjoittelusta. Raportin johtopäätös on, että digituen tehokkuus ei synny pelkästä palvelupisteiden määrästä, vaan asiakkaan tarpeen oikea-aikaisesta tunnistamisesta. Uudistuksen jatkovaiheessa kirjasto suunnittelee, että digituen asiakkaat voidaan ohjata suoraan sopivaan palvelukanavaan lyhyen alkukartoituksen perusteella. Tämän odotetaan vähentävän tilanteita, joissa sama asiakas joutuu selittämään asiansa useaan kertaan eri työntekijöille. Raportissa painotetaan, että alkukartoituksen pitää olla selkeä, jotta asiakas ei koe sitä karsintana vaan palvelun sujuvuutta tukevana vaiheena. Lisäksi kirjasto aikoo seurata, miten hyvin uusi malli tavoittaa asiakkaat, joilla on heikko suomen kielen taito tai epävarma digiosaaminen. Jos nämä ryhmät jäävät edelleen palvelun ulkopuolelle, uudistuksen tasa-arvotavoite ei toteudu, vaikka jonot lyhenisivät. Tämän vuoksi raportti ehdottaa säännöllistä vaikutusarviointia yhteistyössä paikallisten järjestöjen kanssa.",
+      "word_count": 219
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi palvelumalli uudistettiin?",
+        "options": [
+          "vähentämään henkilöstöä",
+          "helpottamaan verkkoasiointia ja vähentämään jonotusta",
+          "siirtämään palvelu verkkoon kokonaan",
+          "sulkemaan ajanvaraus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi nopea piste ruuhkautui aluksi?",
+        "options": [
+          "se oli suljettu aamuisin",
+          "asiakkaat toivat sinne myös pitkiä asioita",
+          "laitteet olivat rikki",
+          "henkilökuntaa oli liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä havaittiin digituen tarpeesta?",
+        "options": [
+          "tarve liittyy vain laiteongelmiin",
+          "tarve liittyy myös kielellisiin ja sosiaalisiin esteisiin",
+          "tarve on lähinnä nuorilla",
+          "tarve väheni kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä oli raportin keskeinen johtopäätös?",
+        "options": [
+          "tehokkuus syntyy pisteiden määrästä",
+          "tehokkuus syntyy tarpeen oikea-aikaisesta tunnistamisesta",
+          "tehokkuus syntyy pakollisesta kurssista",
+          "tehokkuus syntyy vain verkko-opetuksesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

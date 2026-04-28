@@ -1,0 +1,37 @@
+{
+  "id": "6ffdc944-af1e-5b3c-aec6-1e16d262279a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Käytät usein tätä bussipysäkkiä. Kirjoita palaute. Onko pysäkki hyvä? Tarvitaanko penkki tai katos?",
+    "materials": {
+      "scenario": "Palaute bussipysäkistä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Käytät usein tätä bussipysäkkiä. Kirjoita palaute. Onko pysäkki hyvä? Tarvitaanko penkki tai katos?"
+      }
+    ],
+    "rubric": "Käytät usein tätä bussipysäkkiä. Kirjoita palaute. Onko pysäkki hyvä? Tarvitaanko penkki tai katos?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

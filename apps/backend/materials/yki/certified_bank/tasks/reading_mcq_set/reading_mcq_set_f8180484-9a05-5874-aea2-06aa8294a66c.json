@@ -1,0 +1,66 @@
+{
+  "id": "f8180484-9a05-5874-aea2-06aa8294a66c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Puutarhanhoito on suosittu harrastus Suomessa. Monilla on oma piha tai kesämökki, jossa he kasvattavat kukkia, marjapensaita ja hyötykasveja. Erityisesti perunoiden, porkkanoiden, herneiden ja mansikoiden kasvattaminen on yleistä. Myös yrttien, kuten tillin, persiljan ja basilikan, viljely on lisääntynyt. Suomalaiset rakastavat puutarhatöitä ja viettävät paljon aikaa pihalla kesäisin. Keväällä istutetaan kesäkukkia ja kesällä hoidetaan kasveja ja kitketään rikkaruohoja. Syksyllä korjataan satoa ja valmistellaan puutarhaa talvea varten. Kaupungeissa on suosittuja siirtolapuutarhoja ja viljelypalstoja, joissa kaupunkilaiset voivat viljellä omia kasvejaan. Nämä alueet tarjoavat mahdollisuuden rentoutumiseen ja yhteisöllisyyteen. Monet harrastavat myös ruukkupuutarhanhoitoa parvekkeilla ja terasseilla. Puutarhaharrastukseen kuuluu myös omenapuiden ja marjapensaiden hoito. Kotimaiset omenat ja marjat ovat arvostettuja, ja niistä tehdään mehuja, hilloja ja piirakoita. Puutarhamessut ja -tapahtumat keräävät vuosittain tuhansia kävijöitä, jotka etsivät uusia kasveja ja inspiraatiota omaan puutarhaan. Suomalainen puutarhakulttuuri on saanut vaikutteita muista maista, mutta se on sopeutunut pohjoisiin oloihin, ja siinä korostuvat kestävyys ja luonnonmukaisuus.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "f7a8b9c0-d1e2-4f3a-9b4c-5d6e7f8a9b0c",
+        "prompt": "Mitä hyötykasveja suomalaiset usein kasvattavat?",
+        "options": [
+          "Banaaneja ja appelsiineja",
+          "Perunoita, porkkanoita, herneitä ja mansikoita",
+          "Riisiä ja vehnää",
+          "Kahvia ja kaakaota"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8b9c0d1-e2f3-4a4b-9c5d-6e7f8a9b0c1d",
+        "prompt": "Mitä ovat siirtolapuutarhat?",
+        "options": [
+          "Suuria kaupallisia viljelmiä",
+          "Alueita, joissa kaupunkilaiset voivat viljellä omia kasvejaan",
+          "Kasvihuoneita",
+          "Kauppojen puutarhaosastoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b9c0d1e2-f3a4-4b5c-9d6e-7f8a9b0c1d2e",
+        "prompt": "Mitä kotimaisista omenoista ja marjoista usein tehdään?",
+        "options": [
+          "Viiniä",
+          "Mehuja, hilloja ja piirakoita",
+          "Olutta",
+          "Säilykkeitä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

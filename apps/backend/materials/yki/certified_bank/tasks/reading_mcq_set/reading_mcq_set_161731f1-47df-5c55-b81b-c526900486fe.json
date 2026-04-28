@@ -1,0 +1,66 @@
+{
+  "id": "161731f1-47df-5c55-b81b-c526900486fe",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T11:10:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti suomalaisesta matkailusta ja kotimaanmatkailusta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalaiset matkustavat paljon sekä kotimaassa että ulkomailla. Kotimaanmatkailu on viime vuosina kasvattanut suosiotaan, ja monet lomailevat mieluummin lähellä kuin lähtevät ulkomaille. Suosituimpia kotimaan kohteita ovat Helsinki, Turku, Tampere ja Lapin matkailukeskukset kuten Levi, Ylläs ja Ruka. Kesäisin tuhannet suomalaiset suuntaavat mökeille, joita on maassa noin puoli miljoonaa. Mökkeilyyn kuuluu saunominen, uiminen, kalastus ja rentoutuminen luonnon keskellä. Talvella hiihtokeskukset ovat täynnä lomailijoita. Monet suomalaiset viettävät myös kaupunkilomia kotimaassa, tutustuvat museoihin, ravintoloihin ja tapahtumiin. Kotimaanmatkailua tuetaan esimerkiksi matkailu- ja ravintolapalveluiden verovähennyksillä, jotka kannustavat käyttämään kotimaisia palveluita. Ulkomaanmatkailu on myös suosittua. Suomalaisten suosikkikohteita ovat Viro, Espanja, Kreikka ja Thaimaa. Rantalomat, kaupunkilomat ja risteilyt ovat yleisiä. Erityisesti Tallinnan-risteilyt ovat suosittuja viikonloppumatkoja. Koronapandemia vähensi ulkomaanmatkailua, mutta sen jälkeen matkailu on palautunut nopeasti. Matkailu on tärkeä elinkeino monille suomalaisille alueille, ja se työllistää tuhansia ihmisiä.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+        "prompt": "Mikä on suosittu kotimaan matkailukohde talvella?",
+        "options": [
+          "Helsinki",
+          "Lapin matkailukeskukset",
+          "Turku",
+          "Tampere"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d5e6f7a8-b9c0-4d1e-9f2a-3b4c5d6e7f8a",
+        "prompt": "Kuinka monta mökkiä Suomessa on noin?",
+        "options": [
+          "100 000",
+          "300 000",
+          "500 000",
+          "700 000"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e6f7a8b9-c0d1-4e2f-9a3b-4c5d6e7f8a9b",
+        "prompt": "Mikä on suosittu ulkomaanmatkakohde suomalaisten keskuudessa?",
+        "options": [
+          "Viro",
+          "Norja",
+          "Venäjä",
+          "Islanti"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "88b26231-6607-59ad-9ae7-7949a8305235",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: yhteiskeskuksessa. Tarkoitus: sovita muutoksesta. Rajoite: ole kohtelias.",
+    "materials": {
+      "scenario": "aikataulutuksesta yhteiskeskuksesta"
+    },
+    "items": [
+      {
+        "id": "347b8b41-c38c-5a01-8328-d1cc636287f8",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: yhteiskeskuksessa. Tarkoitus: sovita muutoksesta. Rajoite: ole kohtelias."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

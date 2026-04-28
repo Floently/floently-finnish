@@ -1,0 +1,37 @@
+{
+  "id": "2d948644-735a-58e0-b425-5a004d736bf0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin kesäteatterista. Arvioi näytelmän tasoa, katsomon viihtyisyyttä ja väliaikatarjoilua. Ehdota yhtä uutta näytelmää.",
+    "materials": {
+      "scenario": "Palaute kaupungin kesäteatterista"
+    },
+    "items": [
+      {
+        "id": "c03ddf6c-dc0b-5125-946f-b14a9ddc77dd",
+        "prompt": "Kirjoita palauteteksti kaupungin kesäteatterista. Arvioi näytelmän tasoa, katsomon viihtyisyyttä ja väliaikatarjoilua. Ehdota yhtä uutta näytelmää."
+      }
+    ],
+    "rubric": "Näytelmän taso\nKatsomon viihtyisyys\nVäliaikatarjoilu\nUusi näytelmä",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

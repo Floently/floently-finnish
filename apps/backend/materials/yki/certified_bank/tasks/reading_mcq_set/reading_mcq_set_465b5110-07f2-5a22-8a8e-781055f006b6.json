@@ -1,0 +1,66 @@
+{
+  "id": "465b5110-07f2-5a22-8a8e-781055f006b6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Mielipidekirjoitus:\nDatan keruu esitetään usein palvelujen parantamisena, mutta samalla se siirtää valtaa käyttäjiltä yrityksille. Kun suostumus annetaan yhdellä klikkauksella, harva ymmärtää, mihin kaikkeen tiedot myöhemmin yhdistetään. Kysymys ei ole vain yksityisyydestä, vaan siitä, kuka pystyy ennakoimaan ja ohjaamaan ihmisten toimintaa.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "c1r1q1",
+        "prompt": "Mikä on kirjoittajan keskeinen huoli?",
+        "options": [
+          "Palvelut ovat liian hitaita",
+          "Valta siirtyy käyttäjiltä yrityksille datan kautta",
+          "Ihmiset eivät käytä sovelluksia",
+          "Tietoa ei kerätä lainkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1r1q2",
+        "prompt": "Mitä kritisoidaan suostumuksessa?",
+        "options": [
+          "Se on liian pitkä",
+          "Se annetaan helposti ilman ymmärrystä",
+          "Se on aina pakollinen",
+          "Se estää käytön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1r1q3",
+        "prompt": "Mikä laajempi teema mainitaan yksityisyyden lisäksi?",
+        "options": [
+          "Urheilu",
+          "Toiminnan ennakointi ja ohjaaminen",
+          "Sää",
+          "Ruoka"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e6688014-e615-5cbf-b193-a7a13f040e68",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työnantajalle. Haluat pyytää palkatonta vapaata, koska sinulla on perheessä sairastapaus. Kerro, milloin tarvitset vapaan ja miksi. Kerro myös, miten hoidat työtehtäväsi muina päivinä.",
+    "materials": {
+      "scenario": "Palkaton vapaa perhesyistä"
+    },
+    "items": [
+      {
+        "id": "98ad6de3-194e-5e1d-9114-95823d9c2cc1",
+        "prompt": "Kirjoita sähköposti työnantajalle. Haluat pyytää palkatonta vapaata, koska sinulla on perheessä sairastapaus. Kerro, milloin tarvitset vapaan ja miksi. Kerro myös, miten hoidat työtehtäväsi muina päivinä."
+      }
+    ],
+    "rubric": "Ajankohta\nPerustelu\nTyöjärjestelyt",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "ef817f67-73fa-5a1c-b17d-a84082ba46b7",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.289,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you go to the sauna and what you do there. Is the sauna important to you?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "031d8963-deba-567a-8099-69407257340a",
+        "ai_first_turn_fi": "Ootko käynyt suomalaisessa saunassa? Miltä se tuntui?"
+      }
+    ],
+    "rubric": "Tell if you go to the sauna and what you do there. Is the sauna important to you?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

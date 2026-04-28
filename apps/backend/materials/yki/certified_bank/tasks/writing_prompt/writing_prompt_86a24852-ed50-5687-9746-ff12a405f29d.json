@@ -1,0 +1,37 @@
+{
+  "id": "86a24852-ed50-5687-9746-ff12a405f29d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö julkisiin liikennevälineisiin lisätä ilmaisia latureita. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ilmaiset laturit julkisissa liikennevälineissä"
+    },
+    "items": [
+      {
+        "id": "a2d89fa6-a07f-5585-8f1c-e8a651f04c33",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö julkisiin liikennevälineisiin lisätä ilmaisia latureita. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

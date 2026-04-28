@@ -1,0 +1,40 @@
+{
+  "id": "8f8d8a7b-ac04-576b-9631-433ffdb60555",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.277,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you go to the dentist and how it feels. When did you last go?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "a4f4a9b8-8257-5cbb-ab37-c3d1adc8d050",
+        "ai_first_turn_fi": "Käytkö sä usein hammaslääkärissä? Jännittääkö se sinua?"
+      }
+    ],
+    "rubric": "Tell if you go to the dentist and how it feels. When did you last go?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

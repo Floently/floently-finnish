@@ -1,0 +1,37 @@
+{
+  "id": "4978e5f0-2ac6-5941-bdfd-2f4b320cf293",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kaupunkien tarjota enemmän maksuttomia tapahtumia senioreille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Maksuttomat tapahtumat senioreille"
+    },
+    "items": [
+      {
+        "id": "7ca647a3-1626-536d-b8d0-48d6bfeb94b7",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kaupunkien tarjota enemmän maksuttomia tapahtumia senioreille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

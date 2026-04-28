@@ -1,0 +1,40 @@
+{
+  "id": "ba246bc2-b7c9-5712-97b5-b79d58b6378a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you like about your neighborhood and what is nearby (store, park, bus stop).",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "f7ecfa81-0c49-5aae-9765-38df93e00cbf",
+        "ai_first_turn_fi": "Tykkäätkö asua tällä alueella? Onko täällä hyvät palvelut?"
+      }
+    ],
+    "rubric": "Tell what you like about your neighborhood and what is nearby (store, park, bus stop).",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "0237ede2-267d-5ae6-839e-3781898bfdaa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön hissi on rikki. Kerro, missä rappukäytävässä hissi on ja kuinka kauan se on ollut rikki. Pyydä, että hissi korjataan nopeasti, koska talossa on vanhuksia.",
+    "materials": {
+      "scenario": "Vikailmoitus hissistä"
+    },
+    "items": [
+      {
+        "id": "69bfd952-6087-52d0-bfc2-f2ebc2026798",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön hissi on rikki. Kerro, missä rappukäytävässä hissi on ja kuinka kauan se on ollut rikki. Pyydä, että hissi korjataan nopeasti, koska talossa on vanhuksia."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nKiireellisyys",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

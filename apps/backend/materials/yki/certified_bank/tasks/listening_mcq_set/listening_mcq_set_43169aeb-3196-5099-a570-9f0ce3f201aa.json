@@ -1,0 +1,66 @@
+{
+  "id": "43169aeb-3196-5099-a570-9f0ce3f201aa",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kauppakeskuksen kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät asiakkaat! Kauppakeskus suljetaan 15 minuutin kuluttua. Viimeiset ostokset kannattaa tehdä nopeasti. Info-pisteellä voit vielä palauttaa ostoksia tai kysyä neuvoa. Kadonneiden tavaroiden piste suljetaan kello 20. Huomenna avaamme taas kello 8. Kiitos käynnistä ja tervetuloa uudelleen!",
+      "audio_asset_id": "5841d376-e57b-4517-b9e7-97d4a581af1a"
+    },
+    "questions": [
+      {
+        "id": "5b07aa61-9ab7-5b8e-ad4a-2e1be7968c1d",
+        "prompt": "Kuinka pitkä aika on sulkemiseen?",
+        "options": [
+          "5 minuuttia",
+          "10 minuuttia",
+          "15 minuuttia",
+          "30 minuuttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1a829e9e-2b07-5922-8887-5441c72e5794",
+        "prompt": "Mihin aikaan kadonneiden tavaroiden piste suljetaan?",
+        "options": [
+          "klo 18",
+          "klo 19",
+          "klo 20",
+          "klo 21"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9a300e5d-3ca7-5107-a10d-0200eaedfdee",
+        "prompt": "Milloin kauppakeskus aukeaa huomenna?",
+        "options": [
+          "klo 7",
+          "klo 8",
+          "klo 9",
+          "klo 10"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

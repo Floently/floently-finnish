@@ -1,0 +1,66 @@
+{
+  "id": "1fc5661e-d93c-5034-b79c-9ad388053218",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu matkatoimistossa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, olen kiinnostunut lomamatkasta Kreikkaan ensi kuussa. Mitä suosittelisitte?\nNeuvoja: Kreikka on hyvä valinta. Meillä on useita vaihtoehtoja. Suosituin kohde on Kreta, jonne on suorat lennot Helsingistä. Myös Rodos ja Kos ovat suosittuja.\nAsiakas: Haluaisin ihan hotelliloman, all inclusive -tyyppisen.\nNeuvoja: All inclusive -hotelleja löytyy runsaasti. Esimerkiksi tämä hotelli Kreetalla on saanut hyviä arvioita. Hintaan sisältyvät lennot, siirrot, majoitus ja kaikki ruoat sekä paikalliset juomat.\nAsiakas: Paljonko tällainen viikon loma maksaa kahdelle hengelle?\nNeuvoja: Lähtöhinnat alkavat noin 1200 eurosta kahdelle hengelle. Siihen vaikuttaa tietysti hotellin taso ja matkustusajankohta. Kannattaa varata ajoissa, koska hinnat nousevat lähempänä lähtöä.\nAsiakas: Entä onko matkavakuutus pakollinen?\nNeuvoja: Se on erittäin suositeltava. Meillä on myös mahdollisuus ottaa matkavakuutus samalla. Se maksaa noin 30 euroa per matkustaja.",
+      "audio_asset_id": "97c76e2e-aa5e-4c30-b3be-481b8aa55f14"
+    },
+    "questions": [
+      {
+        "id": "f3911541-5ea2-5578-844c-5cabce55f4f8",
+        "prompt": "Mihin maahan asiakas haluaa matkustaa?",
+        "options": [
+          "Espanjaan",
+          "Kreikkaan",
+          "Italiaan",
+          "Turkkiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b0d0a590-bc29-5b75-8bff-4bd95415b11c",
+        "prompt": "Mitä all inclusive tarkoittaa?",
+        "options": [
+          "Vain aamiainen",
+          "Lennot, majoitus, ruoat ja paikalliset juomat",
+          "Pelkkä majoitus",
+          "Aamiainen ja päivällinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "71d07424-ad8a-5cc3-9c67-0db088fb1a55",
+        "prompt": "Paljonko matkavakuutus maksaa?",
+        "options": [
+          "Noin 20 euroa",
+          "Noin 30 euroa",
+          "Noin 50 euroa",
+          "Noin 100 euroa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

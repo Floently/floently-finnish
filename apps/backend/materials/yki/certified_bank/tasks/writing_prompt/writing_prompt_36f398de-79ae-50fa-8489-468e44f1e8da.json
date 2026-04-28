@@ -1,0 +1,37 @@
+{
+  "id": "36f398de-79ae-50fa-8489-468e44f1e8da",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa, että lapsesi aloittaa päiväkodissa ensi kuussa. Kerro lapsen nimi, ikä ja aloituspäivä. Kysy, mitä lapsen tarvitsee tuoda mukanaan ja onko jotain lomakkeita täytettävänä.",
+    "materials": {
+      "scenario": "Ilmoitus päiväkodin aloituksesta"
+    },
+    "items": [
+      {
+        "id": "916f9293-50e7-5271-8562-39f1c3f0095f",
+        "prompt": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa, että lapsesi aloittaa päiväkodissa ensi kuussa. Kerro lapsen nimi, ikä ja aloituspäivä. Kysy, mitä lapsen tarvitsee tuoda mukanaan ja onko jotain lomakkeita täytettävänä."
+      }
+    ],
+    "rubric": "Lapsen tiedot\nAloituspäivä\nMukaan tarvittavat tavarat ja lomakkeet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

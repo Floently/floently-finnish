@@ -1,0 +1,37 @@
+{
+  "id": "d057f941-ab3a-52c4-a8b3-4491f8b4243f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.352,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet asioinut Kelan tai verotoimiston asiakaspalvelussa. Kirjoita palaute. Kerro, saitko tarvitsemasi tiedon, oliko asiakaspalvelija ystävällinen ja kauanko jouduit odottamaan.",
+    "materials": {
+      "scenario": "Palaute viranomaispalvelusta"
+    },
+    "items": [
+      {
+        "id": "21653e68-51b2-5f55-a5ca-c2e1edf38af8",
+        "prompt": "Olet asioinut Kelan tai verotoimiston asiakaspalvelussa. Kirjoita palaute. Kerro, saitko tarvitsemasi tiedon, oliko asiakaspalvelija ystävällinen ja kauanko jouduit odottamaan."
+      }
+    ],
+    "rubric": "Tiedon saaminen\nAsiakaspalvelijan ystävällisyys\nOdotusaika",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "ce5711ec-632b-5f95-a2f6-7958c956c32a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut kutsut häihin. Kutsussa lukee, että saa tuoda seuralaisen. Kysy, haluaako hän tulla mukaan kanssasi. Kerro, että häät ovat kesäkuussa. Kerro, että vastaat pian.",
+    "materials": {
+      "scenario": "Viesti ystävälle hääkutsusta"
+    },
+    "items": [
+      {
+        "id": "f7aae728-e224-540e-b6a3-edc0c713f212",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut kutsut häihin. Kutsussa lukee, että saa tuoda seuralaisen. Kysy, haluaako hän tulla mukaan kanssasi. Kerro, että häät ovat kesäkuussa. Kerro, että vastaat pian."
+      }
+    ],
+    "rubric": "Kerro, että olet saanut hääkutsun\nKerro, että saa tuoda seuralaisen\nKysy, haluaako hän tulla\nKerro, että häät ovat kesäkuussa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

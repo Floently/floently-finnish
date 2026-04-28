@@ -1,0 +1,37 @@
+{
+  "id": "f23bf6a4-63e6-5c18-b219-fb8fbd66ab90",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työterveyshuollon terveystarkastuksesta. Kerro tarkastuksen kattavuudesta, lääkärin ammattitaidosta ja jatkotoimenpiteistä. Ehdota yhtä uutta terveystarkastusta.",
+    "materials": {
+      "scenario": "Palaute työpaikan työterveyshuollon terveystarkastuksesta"
+    },
+    "items": [
+      {
+        "id": "c515a37a-0abb-5abf-892d-f5f8d7e1ec33",
+        "prompt": "Kirjoita palauteteksti työpaikan työterveyshuollon terveystarkastuksesta. Kerro tarkastuksen kattavuudesta, lääkärin ammattitaidosta ja jatkotoimenpiteistä. Ehdota yhtä uutta terveystarkastusta."
+      }
+    ],
+    "rubric": "Tarkastuksen kattavuus\nLääkärin ammattitaito\nJatkotoimenpiteet\nUusi terveystarkastus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

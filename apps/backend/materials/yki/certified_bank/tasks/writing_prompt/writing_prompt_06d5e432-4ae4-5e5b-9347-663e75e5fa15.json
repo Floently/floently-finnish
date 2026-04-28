@@ -1,0 +1,37 @@
+{
+  "id": "06d5e432-4ae4-5e5b-9347-663e75e5fa15",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt kaupungin museossa. Kirjoita palaute. Arvioi näyttelyä, opasteita ja lipun hintaa. Kerro myös, sopiiko museo lapsille.",
+    "materials": {
+      "scenario": "Palaute museosta"
+    },
+    "items": [
+      {
+        "id": "3752d337-a03b-5a61-959d-8b5b8967f486",
+        "prompt": "Olet käynyt kaupungin museossa. Kirjoita palaute. Arvioi näyttelyä, opasteita ja lipun hintaa. Kerro myös, sopiiko museo lapsille."
+      }
+    ],
+    "rubric": "Näyttely\nOpasteet\nLipun hinta\nSopivuus lapsille",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "6d468b64-c4fb-53da-9217-0c995cdebf30",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ostanut uuden käsilaukun. Kirjoita palaute verkkokauppaan. Kerro, onko se laadukas ja mahtuuko sinne tavarat.",
+    "materials": {
+      "scenario": "Palaute uudesta käsilaukusta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet ostanut uuden käsilaukun. Kirjoita palaute verkkokauppaan. Kerro, onko se laadukas ja mahtuuko sinne tavarat."
+      }
+    ],
+    "rubric": "Olet ostanut uuden käsilaukun. Kirjoita palaute verkkokauppaan. Kerro, onko se laadukas ja mahtuuko sinne tavarat.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

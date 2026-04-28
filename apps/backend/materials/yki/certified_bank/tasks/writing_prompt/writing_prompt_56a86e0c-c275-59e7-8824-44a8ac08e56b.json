@@ -1,0 +1,37 @@
+{
+  "id": "56a86e0c-c275-59e7-8824-44a8ac08e56b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa kassanhoitajaksi kauppaan. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Kassanhoitaja"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Haet työpaikkaa kassanhoitajaksi kauppaan. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa kassanhoitajaksi kauppaan. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

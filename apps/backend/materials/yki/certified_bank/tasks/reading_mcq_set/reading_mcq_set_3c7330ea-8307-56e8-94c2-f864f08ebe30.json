@@ -1,0 +1,66 @@
+{
+  "id": "3c7330ea-8307-56e8-94c2-f864f08ebe30",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedeartikkeli geenitutkimuksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Geenitutkimus on edennyt valtavin harppauksin, ja samalla keskustelu perimän ja ympäristön vaikutuksesta ihmisen ominaisuuksiin on saanut uusia sävyjä. Professori Kari Stefánssonin johtama islantilainen tutkimusryhmä on kartoittanut koko maan väestön perimää ja löytänyt yhteyksiä geenien ja koulumenestyksen välillä. Tulokset osoittavat, että tietyt geenivariantit ovat yleisempiä pitkälle koulutettujen ihmisten keskuudessa. Stefánsson kuitenkin korostaa, että tämä ei tarkoita, että älykkyys olisi yksinomaan perinnöllistä. 'Geenit antavat mahdollisuuksia, mutta ympäristö ratkaisee, toteutuvatko ne.' Tutkimus on herättänyt myös kriittisiä ääniä. Osa tutkijoista varoittaa, että tällaisia tuloksia voidaan käyttää väärin, esimerkiksi oikeuttamaan eriarvoisuutta. Stefánsson itse näkee, että tietoa pitää käyttää eettisesti: 'Voimme oppia ymmärtämään, miksi toiset menestyvät ja toiset eivät, ja kohdentamaan tukea niille, jotka sitä tarvitsevat.' Hänen mukaansa geenitutkimus voi auttaa tunnistamaan oppimisvaikeuksia jo varhain, jotta niihin voidaan puuttua. Samalla hän muistuttaa, että yksilö on aina enemmän kuin geeninsä.",
+      "word_count": 133
+    },
+    "questions": [
+      {
+        "id": "ac40d18d-4892-52eb-9620-3b680ad1d34b",
+        "prompt": "Mitä islantilainen tutkimus osoitti?",
+        "options": [
+          "Älykkyys on täysin perinnöllistä",
+          "Tietyt geenivariantit ovat yleisempiä koulutettujen keskuudessa",
+          "Ympäristöllä ei ole merkitystä",
+          "Geenit eivät vaikuta mitenkään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1b6fe870-048a-50b0-b9c5-ac37f4cb003b",
+        "prompt": "Miten Kari Stefánsson suhtautuu tutkimustuloksiin?",
+        "options": [
+          "Hänen mielestään ne osoittavat, että kaikki on geeneistä kiinni",
+          "Hän korostaa, että geenit antavat mahdollisuuksia, ympäristö ratkaisee",
+          "Hän kieltää tulosten merkityksen",
+          "Hän haluaa käyttää tuloksia rotuoppien tukemiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c23cafa0-4d56-52c5-9f5b-8070ba97e595",
+        "prompt": "Mitä hyötyä geenitutkimuksesta voi Stefánssonin mukaan olla?",
+        "options": [
+          "Se voi auttaa tunnistamaan oppimisvaikeuksia varhain",
+          "Se osoittaa, ketkä ovat älykkäitä",
+          "Se mahdollistaa geenimuokkauksen",
+          "Se tekee koulutuksesta tarpeetonta"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

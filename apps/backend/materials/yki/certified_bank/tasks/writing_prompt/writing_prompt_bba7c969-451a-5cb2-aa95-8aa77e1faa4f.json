@@ -1,0 +1,37 @@
+{
+  "id": "bba7c969-451a-5cb2-aa95-8aa77e1faa4f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pääomatulojen verotusta kiristää tuloerojen kaventamiseksi?'. Arvioi kannustimia ja talouskasvua.",
+    "materials": {
+      "scenario": "Pääomatulojen verotus"
+    },
+    "items": [
+      {
+        "id": "48d1537e-9699-529b-a7b4-7ce6648dc576",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pääomatulojen verotusta kiristää tuloerojen kaventamiseksi?'. Arvioi kannustimia ja talouskasvua."
+      }
+    ],
+    "rubric": "Tuloerot\nKannustinvaikutukset\nTalouskasvu\nInvestoinnit",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

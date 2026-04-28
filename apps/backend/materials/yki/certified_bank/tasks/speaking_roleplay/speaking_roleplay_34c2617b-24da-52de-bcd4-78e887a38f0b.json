@@ -1,0 +1,40 @@
+{
+  "id": "34c2617b-24da-52de-bcd4-78e887a38f0b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele roolisi mukaisesti suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "potilas",
+        "partner": "terveyskeskuksen vastaanottovirkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp03_01",
+        "ai_first_turn_fi": "Terveyskeskus, päivää."
+      }
+    ],
+    "rubric": "Keskustele roolisi mukaisesti suomeksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

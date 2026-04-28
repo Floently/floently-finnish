@@ -1,0 +1,66 @@
+{
+  "id": "49c87ba4-0dcd-5654-8ed0-4c995e803377",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa lapsilla on monia mahdollisuuksia harrastaa eri asioita. Suosituimpia harrastuksia ovat urheilu, musiikki, kuvataide ja partio. Urheilulajeista suosittuja ovat jalkapallo, jääkiekko, uinti, voimistelu ja yleisurheilu. Monet lapset aloittavat harrastuksen jo esikouluiässä, ja harrastukset jatkuvat usein nuoruuteen asti. Harrastusten kustannukset vaihtelevat paljon. Jotkut lajit, kuten jalkapallo ja yleisurheilu, ovat kohtuuhintaisia, kun taas esimerkiksi jääkiekko ja ratsastus voivat tulla kalliiksi varusteiden ja maksujen vuoksi. Monissa kunnissa on olemassa harrastustuki, joka auttaa pienituloisia perheitä kustannuksissa. Kouluilla on tärkeä rooli harrastusten edistäjänä. Monet koulut tarjoavat iltapäiväkerhoja ja kerhotoimintaa. Lisäksi on olemassa erityinen Harrastamisen Suomen malli -ohjelma, jonka tavoitteena on tarjota jokaiselle lapselle ja nuorelle mieluisa ja maksuton harrastus koulupäivän yhteydessä. Harrastukset ovat tärkeitä lasten kehitykselle. Ne opettavat sosiaalisia taitoja, pitkäjänteisyyttä ja itsensä ilmaisua. Ne myös ehkäisevät syrjäytymistä ja tuovat iloa arkeen.",
+      "word_count": 127
+    },
+    "questions": [
+      {
+        "id": "f3a4b5c6-d7e8-4f9a-9b0c-1d2e3f4a5b6c",
+        "prompt": "Mitkä ovat suosituimpia lasten harrastuksia Suomessa?",
+        "options": [
+          "Vain urheilu",
+          "Urheilu, musiikki, kuvataide ja partio",
+          "Vain musiikki ja tanssi",
+          "Vaan lukeminen ja kirjoittaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a4b5c6d7-e8f9-4a0b-9c1d-2e3f4a5b6c7d",
+        "prompt": "Mikä on Harrastamisen Suomen malli -ohjelman tavoite?",
+        "options": [
+          "Tarjota kalliita harrastuksia",
+          "Tarjota jokaiselle lapselle ja nuorelle mieluisa ja maksuton harrastus",
+          "Vain urheiluharrastuksia",
+          "Vain musiikkiharrastuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b5c6d7e8-f9a0-4b1c-9d2e-3f4a5b6c7d8e",
+        "prompt": "Mitä hyötyä harrastuksista on lapsille?",
+        "options": [
+          "Vain liikuntaa",
+          "Ne opettavat sosiaalisia taitoja ja pitkäjänteisyyttä",
+          "Vain kilpailuhenkisyyttä",
+          "Vain uusien kavereiden saamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

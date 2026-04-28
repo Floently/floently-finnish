@@ -1,0 +1,77 @@
+{
+  "id": "5fcdd91e-1cc8-51eb-bc68-d66e4bf5f784",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.752,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "RAJATON TYÖ – RAJATON VAPAA-AIKA?\n\nTyön ja muun elämän välinen suhde on yksi keskeisimpiä hyvinvointimme osatekijöitä. Viime vuosikymmeninä tämä suhde on kuitenkin muuttunut perusteellisesti. Perinteinen jako työaikaan ja vapaa-aikaan on hämärtynyt, kun työ tunkeutuu koteihin älylaitteiden välityksellä.\n\nTutkijat puhuvat työn rajojen hämärtymisestä. Ilmiöllä on kaksi puolta. Toisaalta se tarjoaa joustavuutta: työntekijä voi sovittaa työtään oman elämäntilanteensa mukaan. Toisaalta se voi johtaa siihen, että työ on läsnä koko ajan, eikä työntekijä koskaan pääse psykologisesti irti työstä.\n\nSuomessa tämä kehitys on ollut erityisen voimakasta. Meillä on pitkät perinteet työelämän joustoista, ja luottamus työnantajan ja työntekijän välillä on perinteisesti ollut korkea. Mutta luottamuksella on myös kääntöpuolensa: se voi johtaa siihen, että työntekijä ei uskalla asettaa rajoja.\n\nTyöterveyslaitoksen tutkimukset osoittavat, että jatkuva tavoitettavissa oleminen lisää henkistä kuormitusta ja heikentää työstä palautumista. Aivot tarvitsevat aikaa, jolloin ne eivät käsittele työasioita – muuten ne eivät pysty erottamaan tärkeää vähemmän tärkeästä.\n\nRatkaisuksi on ehdotettu työpaikkojen yhteisiä pelisääntöjä. Missä tilanteissa ja milloin viesteihin vastataan? Onko työntekijällä velvollisuus olla tavoitettavissa työajan ulkopuolella? Näistä kysymyksistä sopiminen vähentää epävarmuutta.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 201
+    },
+    "questions": [
+      {
+        "id": "68fbe292-fc20-503c-a442-d762421ff25d",
+        "prompt": "Mitä tarkoitetaan 'työn rajojen hämärtymisellä'?",
+        "options": [
+          "Työajat ovat epäselviä",
+          "Työn ja vapaa-ajan erottelu on hämärtynyt",
+          "Työpaikkojen fyysiset rajat ovat kadonneet",
+          "Työntekijät eivät tee eroa työn ja vapaa-ajan välillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f4f3fc34-3b4f-5b0d-9ae3-593e7e1e799f",
+        "prompt": "Miten suomalainen työelämän luottamus vaikuttaa?",
+        "options": [
+          "Se on heikentynyt",
+          "Se on korkea, mutta voi johtaa siihen, ettei uskalleta asettaa rajoja",
+          "Se on matalampi kuin muissa maissa",
+          "Se koskee vain julkista sektoria"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d8d7bc92-be7d-5638-ba7a-03802424d820",
+        "prompt": "Mitä seurauksia jatkuvalla tavoitettavissa olemisella on?",
+        "options": [
+          "Se parantaa työtehoa",
+          "Se lisää henkistä kuormitusta ja heikentää palautumista",
+          "Se vähentää sairauspoissaoloja",
+          "Se lisää työtyytyväisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "79202c0c-cc88-5cc2-9941-f29b0c70a310",
+        "prompt": "Mitä ratkaisuksi ehdotetaan?",
+        "options": [
+          "Työntekijöiden pitää aina olla tavoitettavissa",
+          "Yhteisiä pelisääntöjä siitä, milloin viesteihin vastataan",
+          "Some-kieltoa työajalla",
+          "Työaikojen lyhentämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

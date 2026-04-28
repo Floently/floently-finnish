@@ -1,0 +1,66 @@
+{
+  "id": "bbc58615-aa2c-5cc8-a331-4ca3dafe3ddc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "UIMAHALLI VESIPIRTA – LIPUN HINNAT\n\nAikuiset: 7 €\nLapset (4–17 v.): 4 €\nEläkeläiset: 5 €\nPerhelippu (2 aikuista + 2 lasta): 18 €\n\nKymmenen kerran kortti: 60 €\n\nLiput voi maksaa käteisellä tai pankkikortilla.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "dcfd204c-6591-522c-988e-8f2d17ab79f9",
+        "prompt": "Paljonko aikuisten lippu maksaa?",
+        "options": [
+          "5 €",
+          "6 €",
+          "7 €",
+          "8 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a7677f1c-0f78-5e5f-bda5-592ce61ca724",
+        "prompt": "Paljonko perhelippu maksaa?",
+        "options": [
+          "15 €",
+          "16 €",
+          "18 €",
+          "20 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dfdf5b53-73da-5dd6-9913-f164de6c5a65",
+        "prompt": "Voiko lipun maksaa pankkikortilla?",
+        "options": [
+          "Ei",
+          "Kyllä",
+          "Vain käteinen",
+          "Vain laskulla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

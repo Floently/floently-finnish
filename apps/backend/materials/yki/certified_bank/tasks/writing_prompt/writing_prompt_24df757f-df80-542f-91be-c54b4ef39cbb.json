@@ -1,0 +1,37 @@
+{
+  "id": "24df757f-df80-542f-91be-c54b4ef39cbb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti tilanteen perusteella.",
+    "materials": {
+      "scenario": "Sinulla on suomen kielen kurssi aamulla, mutta bussisi on myöhässä. Tiedät, että saavut tunnille noin 10 minuuttia myöhässä."
+    },
+    "items": [
+      {
+        "id": "b3ee20ce-3c9c-577d-b9b7-15e565ca601c",
+        "prompt": "Kirjoita lyhyt viesti tilanteen perusteella."
+      }
+    ],
+    "rubric": "Kirjoita lyhyt viesti tilanteen perusteella.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

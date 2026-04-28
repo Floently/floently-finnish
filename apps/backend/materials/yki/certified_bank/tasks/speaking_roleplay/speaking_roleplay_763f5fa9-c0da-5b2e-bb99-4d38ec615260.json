@@ -1,0 +1,60 @@
+{
+  "id": "763f5fa9-c0da-5b2e-bb99-4d38ec615260",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella bussilippujen hintoja ryhmälle. Keskustele Matkahuollon kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Matkahuollon asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp55_1",
+        "ai_first_turn_fi": "Hei, Matkahuolto."
+      },
+      {
+        "id": "srp55_2",
+        "ai_first_turn_fi": "Kuinka suuri ryhmä on kyseessä ja minne olette menossa?"
+      },
+      {
+        "id": "srp55_3",
+        "ai_first_turn_fi": "Ryhmälippu on voimassa 10-30 hengen ryhmille. Hinta on 20% halvempi kuin normaalihinta. Yksisuuntainen lippu aikuiselle on normaalisti 24,50 euroa, joten ryhmähinta on noin 19,60 euroa per henkilö."
+      },
+      {
+        "id": "srp55_4",
+        "ai_first_turn_fi": "Ryhmäalennus on voimassa kaikille, ja se voidaan yhdistää opiskelija-alennukseen. Opiskelijoille tulee silloin noin 16,60 euroa."
+      },
+      {
+        "id": "srp55_5",
+        "ai_first_turn_fi": "Voit varata liput soittamalla tai verkkosivujen kautta. Tarvitsemme matkustajien nimet ja mahdolliset alennusryhmät."
+      },
+      {
+        "id": "srp55_6",
+        "ai_first_turn_fi": "Selvä. Sanelen sinulle listan... Vahvistan varauksen. Maksu tapahtuu laskulla. Hyvää matkaa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella bussilippujen hintoja ryhmälle. Keskustele Matkahuollon kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

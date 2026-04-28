@@ -1,0 +1,37 @@
+{
+  "id": "19a50c96-4711-5118-8205-ecbdd98c1221",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lähikauppaan. Haluat kysyä, onko heillä työpaikkaa auki. Kerro, että olet 16-vuotias ja voit tehdä iltavuoroja. Kerro, että sinulla on kokemusta asiakaspalvelusta. Kysy, miten ja milloin voi hakea.",
+    "materials": {
+      "scenario": "Viesti kauppaan työpaikkakysely"
+    },
+    "items": [
+      {
+        "id": "cebdf748-bf1b-505a-abb7-097720db484f",
+        "prompt": "Kirjoita lyhyt viesti lähikauppaan. Haluat kysyä, onko heillä työpaikkaa auki. Kerro, että olet 16-vuotias ja voit tehdä iltavuoroja. Kerro, että sinulla on kokemusta asiakaspalvelusta. Kysy, miten ja milloin voi hakea."
+      }
+    ],
+    "rubric": "Kysy työpaikkaa\nKerro ikäsi\nKerro, milloin voit tehdä töitä\nKerro kokemuksesta\nKysy hakemisesta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "dfbfb0d5-94b0-5705-a42d-e96e3ec9407b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu harrastusten merkityksestä ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme harrastusten merkityksestä. Minulla on täällä Satu, joka on harrastanut valokuvausta vuosia. Satu, mitä valokuvaus on antanut sinulle?\n\nSatu: Todella paljon. Se on antanut iloa, luovuutta ja uusia ystäviä. Valokuvaus on myös hyvä tapa pysähtyä ja katsoa ympärilleen. Oppii näkemään asioita, joita ei muuten huomaisi.\n\nToimittaja: Miksi harrastukset ovat tärkeitä?\n\nSatu: Ne tuovat sisältöä elämään. Työn ja koulun ulkopuolella on tärkeää olla jotain omaa. Harrastus voi olla paikka, jossa saa onnistumisen kokemuksia ja voi kehittyä. Se myös yhdistää ihmisiä.\n\nToimittaja: Miten löytää itselle sopiva harrastus?\n\nSatu: Kannattaa kokeilla rohkeasti eri asioita. Jos joku laji ei tunnu omalta, voi kokeilla toista. Tärkeintä on, että se on mukavaa. Ei kannata stressata suorittamisesta.\n\nToimittaja: Onko sinulla vinkkejä aloittelijoille?\n\nSatu: Menkää matalalla kynnyksellä. Monilla harrastuksilla on alkeiskursseja tai kokeilutunteja. Kannattaa myös kysyä kavereilta, mitä he harrastavat. Yhdessä on helpompi aloittaa.",
+      "audio_asset_id": "1783bf3e-44c3-5177-9a00-723cfcb59904"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_006_q1",
+        "prompt": "Mitä valokuvaus on antanut Sadulle?",
+        "options": [
+          "rahaa",
+          "iloa, luovuutta, uusia ystäviä ja kykyä pysähtyä",
+          "mainetta",
+          "työpaikan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_006_q2",
+        "prompt": "Miksi harrastukset ovat tärkeitä Sadun mukaan?",
+        "options": [
+          "ne vievät aikaa",
+          "ne tuovat sisältöä elämään, antavat onnistumisen kokemuksia ja yhdistävät ihmisiä",
+          "ne ovat pakollisia",
+          "ne ovat kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_006_q3",
+        "prompt": "Miten löytää itselle sopiva harrastus?",
+        "options": [
+          "valitse ensimmäinen",
+          "kokeile rohkeasti eri asioita ja valitse se, mikä on mukavaa",
+          "tee samaa kuin kaverit",
+          "valitse vaikein"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_006_q4",
+        "prompt": "Mitä vinkkejä Satu antaa aloittelijoille?",
+        "options": [
+          "aloita heti kilpaileminen",
+          "mene matalalla kynnyksellä alkeiskursseille tai kokeilutunneille",
+          "osta kalliit varusteet",
+          "harjoittele yksin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

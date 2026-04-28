@@ -1,0 +1,88 @@
+{
+  "id": "1666846b-5599-5764-aecb-4987276ea044",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni kaupungistumisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SUOMI KAUPUNGISTUU – KENELLE?\n\nSuomi kaupungistuu vauhdilla. Yhä useampi suomalainen asuu kaupungeissa, ja maaseutu tyhjenee. Tämä kehitys on jatkunut vuosikymmeniä, eikä loppua näy. Mutta onko tämä hyvä asia?\n\nKaupungit tarjoavat työpaikkoja, koulutusta ja palveluja. Nuoret muuttavat kaupunkeihin opiskelemaan ja jäävät sinne töihin. Kaupungeissa syntyy innovaatioita ja talous kasvaa. Tiivis kaupunkirakenne on myös ympäristön kannalta hyvä: julkisella liikenteellä pääsee, ja asunnot ovat kerrostaloissa. Tämä vähentää yksityisautoilun tarvetta.\n\nMutta kaupungistumisella on myös kääntöpuolensa. Asuntojen hinnat nousevat, erityisesti kasvukeskuksissa. Tämä lisää eriarvoisuutta: ne, joilla on varaa, asuvat keskustassa, muut joutuvat kauemmas. Julkinen liikenne ei aina toimi esikaupungeissa, ja palvelut ovat kaukana.\n\nMaaseutu menettää palveluja ja väkeä. Kouluja lakkautetaan, terveysasemia suljetaan, kauppoja häviää. Tämä vaikeuttaa erityisesti ikäihmisten ja vähävaraisten elämää. Samalla maaseudulla on paljon potentiaalia, esimerkiksi luonto, ruoantuotanto ja hiljaisuus.\n\nPuhutaan usein siitä, että kaupungit vetävät ihmisiä puoleensa. Mutta yhtä lailla kyse on siitä, että maaseutu työntää pois. Kun palvelut katoavat, ei ole enää syytä jäädä. Tämä on itseään vahvistava kierre.\n\nTulevaisuudessa tarvitaan tasapainoista kehitystä. Kaupunkien kasvua pitää hallita, ja maaseudulle tarvitaan uusia elinkeinoja. Etätyö voi auttaa: ihmiset voivat asua maaseudulla, vaikka työ olisi kaupungissa. Myös palveluja voidaan tuoda kotiin teknologian avulla.\n\nLopulta kysymys on siitä, millaisessa Suomessa haluamme asua. Haluammeko kaiken keskittyvän muutamaan kasvukeskukseen, vai haluammeko elinvoimaisen maaseudun? Se on valinta, joka meidän on tehtävä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 245
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä kaupungistumisesta on kirjoittajan mukaan?",
+        "options": [
+          "Asunnot halpenevat",
+          "Työpaikat, koulutus ja palvelut keskittyvät, ympäristö hyötyy",
+          "Maaseutu vahvistuu",
+          "Ihmiset muuttavat harvemmin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on kaupungistumisen kääntöpuoli?",
+        "options": [
+          "Liikaa työpaikkoja",
+          "Asuntojen hinnat nousevat ja eriarvoisuus kasvaa",
+          "Ihmiset viihtyvät huonommin",
+          "Ilmanlaatu paranee"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä maaseudulla tapahtuu?",
+        "options": [
+          "Se vaurastuu",
+          "Palvelut ja väki vähenevät",
+          "Syntyy uusia työpaikkoja",
+          "Rakennetaan paljon uutta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan ilmaisulla 'maaseutu työntää pois'?",
+        "options": [
+          "Ihmiset eivät halua asua maaseudulla",
+          "Kun palvelut katoavat, ei ole syytä jäädä",
+          "Maaseutu on epäystävällinen",
+          "Ihmiset pakotetaan muuttamaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kirjoittaja ehdottaa ratkaisuksi?",
+        "options": [
+          "Kaupungistuminen pitää pysäyttää",
+          "Tasapainoista kehitystä ja uusia elinkeinoja maaseudulle",
+          "Kaikki muuttavat takaisin maalle",
+          "Kaupunkeja ei saa enää rakentaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "37697707-ee52-5d6f-965e-bd4a40456480",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijoiden paneelikeskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan kaupunkisuunnittelun tulevaisuudesta. Meillä on vieraana arkkitehti Marja Salo, liikennesuunnittelija Juhani Mäkinen ja kaupunkiekologi Laura Virtanen.\n\nPuheenjohtaja: Aloitetaan teistä, arkkitehti Salo. Millainen on hyvä kaupunki vuonna 2040?\n\nSalo: Minun visiossani hyvä kaupunki on ennen kaikkea inhimillinen. Se on suunniteltu ihmisten mittakaavaan, ei autojen tai suuryritysten. Se tarkoittaa kävelijöille ja pyöräilijöille turvallisia reittejä, kattavaa julkista liikennettä ja kohtaamispaikkoja – toreja, puistoja, kahviloita, kirjastoja – joissa ihmiset voivat kohdata toisiaan. Kaupunki ei ole vain kokoelma rakennuksia vaan elävä yhteisö.\n\nPuheenjohtaja: Liikennesuunnittelija Mäkinen, teidän näkökulmanne?\n\nMäkinen: Näen asian hyvin samansuuntaisesti. Hyvä kaupunki on saavutettava – kaikki kaupunginosat ovat hyvin yhteydessä toisiinsa ja keskustaan. Joukkoliikenteen pitää olla nopeaa, tiheää ja edullista. Yksityisautoilun tarvetta pitää vähentää tarjoamalla parempia vaihtoehtoja. Liikenteen sähköistyminen muuttaa kaupunkia paljon: tarvitaan vähemmän pysäköintitilaa, ja katuja voidaan muuttaa muuhun käyttöön.\n\nPuheenjohtaja: Kaupunkiekologi Virtanen, teidän näkökulma on varmaan vihreämpi?\n\nVirtanen: Ehdottomasti. Hyvä kaupunki on vihreä ja kestävä. Se tarkoittaa luonnon monimuotoisuuden vaalimista: puistoja, viherkattoja, hulevesien hallintaa, kaupunkiviljelyä. Luonto ei ole vain koriste, vaan se tarjoaa tärkeitä ekosysteemipalveluja: se puhdistaa ilmaa, viilentää ilmastoa ja parantaa ihmisten hyvinvointia. Tutkimukset osoittavat, että oleskelu viheralueella vähentää stressiä.\n\nPuheenjohtaja: Miten nämä eri tavoitteet saadaan sovitettua yhteen?\n\nSalo: Ristiriitoja on, mutta luova suunnittelu voi ratkaista paljon. Voidaan rakentaa korkeaa ja matalaa vaihdellen, jättää viherkäytäviä, suunnitella pihoja ja kattoja viheralueiksi.\n\nMäkinen: Ja liikenteen osalta on tärkeää, että kaupunki on kompakti. Hajautunut rakenne pakottaa autoiluun. Kun palvelut ovat lähellä, autolla ei ole niin suurta tarvetta.\n\nVirtanen: Ja se, mikä on ekologista, on usein myös sosiaalisesti hyvää. Kun ihmiset kävelevät, he liikkuvat enemmän. Kun on viheralueita, he voivat rentoutua. Kun on toreja, he kohtaavat toisiaan.",
+      "audio_asset_id": "a92cb199-f492-5809-8411-a2b13bfefbd3"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä arkkitehti Salon mukaan tarkoittaa 'ihmisen mittakaavaan suunniteltu' kaupunki?",
+        "options": [
+          "Korkeita kerrostaloja ja laajoja liikekeskuksia",
+          "Kävelijöille ja pyöräilijöille turvallisia reittejä, julkista liikennettä ja kohtaamispaikkoja",
+          "Tehokkaita liikenneratkaisuja ja nopeita yhteyksiä",
+          "Laajoja viheralueita ja puistoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten liikennesuunnittelija Mäkisen mukaan autoliikenteen tarvetta voidaan vähentää?",
+        "options": [
+          "Kieltämällä autot kokonaan",
+          "Tarjoamalla parempia vaihtoehtoja, kuten nopea ja tiheä joukkoliikenne",
+          "Rakentamalla lisää parkkihalleja",
+          "Nostamalla bensaveroa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä kaupunkiekologi Virtasen mukaan luonnosta on kaupungissa?",
+        "options": [
+          "Vain esteettistä mielihyvää",
+          "Se tarjoaa ekosysteemipalveluja ja parantaa hyvinvointia",
+          "Se on hyvä sijoituskohde",
+          "Se lisää kiinteistöjen arvoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mistä asiantuntijat ovat yksimielisiä?",
+        "options": [
+          "Autot pitää kieltää kokonaan",
+          "Kaupungin pitää olla tiivis ja korkea",
+          "Eri tavoitteet voivat täydentää toisiaan ja ne pitää sovittaa yhteen",
+          "Luonto on tärkeämpää kuin liikenne"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

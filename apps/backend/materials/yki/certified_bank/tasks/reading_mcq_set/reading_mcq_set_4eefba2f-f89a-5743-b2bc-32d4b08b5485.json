@@ -1,0 +1,88 @@
+{
+  "id": "4eefba2f-f89a-5743-b2bc-32d4b08b5485",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.686,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kissa on toinen suosittu lemmikki. Kissat ovat itsenäisiä. Ne nukkuvat paljon. Ne myös leikkivät mielellään. Kissat pitävät lämmöstä. Ne etsivät auringonpaisteen. Monet kissat saavat olla ulkona. Ne käyvät omilla retkillään. Kissat saavat ruokaa ja rapsutuksia. Ne kehräävät, kun ne ovat tyytyväisiä. Kissa on rauhallinen seuraeläin. Se viihtyy sekä yksin että perheen kanssa. Moni perhe rakastaa kissaansa.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen luonne kissalla on?",
+        "options": [
+          "Riippuvainen",
+          "Itsenäinen",
+          "Seurallinen",
+          "Ujo"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kissat tekevät mielellään?",
+        "options": [
+          "Uivat",
+          "Nukkuvat ja leikkivät",
+          "Juoksevat",
+          "Metsästävät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä kissat pitävät?",
+        "options": [
+          "Kylmästä",
+          "Lämmöstä",
+          "Sateesta",
+          "Tuulesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kissat tekevät ulkona?",
+        "options": [
+          "Uivat",
+          "Käyvät omilla retkillään",
+          "Hiihtävät",
+          "Luistelevat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kissa tekee ollessaan tyytyväinen?",
+        "options": [
+          "Haukkuu",
+          "Kehrää",
+          "Maukkuu",
+          "Sähisee"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

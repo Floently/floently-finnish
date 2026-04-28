@@ -1,0 +1,77 @@
+{
+  "id": "c90ce497-eb17-5fc0-955f-df6749de9bb1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue arvio ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Arviossa käsitellään uutta genomihoitoa, jonka varhaisvaiheen tulokset näyttävät lupaavilta harvinaisen sairauden hoidossa. Kirjoittaja muistuttaa, että potilasmäärä on vielä pieni ja seuranta-aika lyhyt. Siksi tehoa ei voi yleistää laajaan käyttöön ilman pitkittäisseurantaa. Samalla arvio korostaa, että sivuvaikutusrekisteri on ollut poikkeuksellisen kattava, mikä parantaa tulosten tulkittavuutta.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä näyttää lupaavalta?",
+        "options": [
+          "rokoteohjelma",
+          "uusi genomihoito",
+          "diagnostiikkatesti",
+          "fysioterapia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi tuloksia ei voi vielä yleistää?",
+        "options": [
+          "lääkettä ei ole olemassa",
+          "potilasmäärä pieni ja seuranta lyhyt",
+          "kustannus liian pieni",
+          "tutkimus on vanha"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä parantaa tulosten tulkittavuutta?",
+        "options": [
+          "suuri mainoskampanja",
+          "kattava sivuvaikutusrekisteri",
+          "lyhyempi seuranta",
+          "pienempi otos"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä arvio suosittelee?",
+        "options": [
+          "välitöntä laajaa käyttöä",
+          "pitkittäisseurantaa ennen yleistämistä",
+          "hoidon lopettamista",
+          "vain laboratoriohoitoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

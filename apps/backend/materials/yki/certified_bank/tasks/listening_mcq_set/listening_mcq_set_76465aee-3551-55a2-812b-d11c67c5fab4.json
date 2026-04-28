@@ -1,0 +1,99 @@
+{
+  "id": "76465aee-3551-55a2-812b-d11c67c5fab4",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta somekampanjasta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin viestintäosaston tiedote. Olemme käynnistäneet uuden somekampanjan nimeltä 'Rakas kaupunkini'. Kampanjassa kaupunkilaisia kannustetaan jakamaan kuvia ja tarinoita omasta kaupungistaan somessa tunnisteella #rakaskaupunkini. Kampanjan tavoitteena on lisätä ylpeyttä omasta kaupungista ja tuoda esiin sen monipuolisuutta. Kampanjaan voi osallistua Instagramissa, Facebookissa ja TikTokissa. Parhaat kuvat ja tarinat palkitaan kaupungin lahjakorteilla. Kampanja kestää koko syyskuun. Tervetuloa mukaan!",
+      "audio_asset_id": "912a28c4-8871-44e6-b08e-f12e116d1d95"
+    },
+    "questions": [
+      {
+        "id": "aec546ee-47ef-5a69-acfb-86d1ad62ffe2",
+        "prompt": "Mistä kaupungin viestintäosasto tiedottaa?",
+        "options": [
+          "Uudesta somekampanjasta.",
+          "Uudesta kaupunkilehdestä.",
+          "Uudesta verkkosivusta.",
+          "Uudesta mainoksesta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "3eebc109-bbae-5039-ae90-d0fd399ca882",
+        "prompt": "Mikä on kampanjan nimi?",
+        "options": [
+          "Minun kaupunkini.",
+          "Kaunis kaupunki.",
+          "Rakas kaupunkini.",
+          "Kaupunkini tarinat."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "5384fa32-955f-50e5-b1e9-78f654c89c21",
+        "prompt": "Mitä kampanjassa kannustetaan tekemään?",
+        "options": [
+          "Kirjoittamaan kaupungista.",
+          "Piirtämään kaupunkia.",
+          "Jakamaan kuvia ja tarinoita somessa.",
+          "Laulamaan kaupungista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "3ee51796-dfa8-5c69-ac55-63fa2847bc43",
+        "prompt": "Mikä on kampanjan tunniste?",
+        "options": [
+          "#rakaskaupunkini",
+          "#kaupunkini",
+          "#minunkaupunkini",
+          "#ihanakaupunki"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "c0666597-ad9b-525d-8554-0a5d0b63778b",
+        "prompt": "Millä somekanavilla kampanjaan voi osallistua?",
+        "options": [
+          "Vain Instagramissa.",
+          "Instagramissa, Facebookissa ja TikTokissa.",
+          "Vain Facebookissa.",
+          "Vain TikTokissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d2cc0147-6fcc-508a-bf15-c153045eac2e",
+        "prompt": "Mikä on parhaiden kuvien palkinto?",
+        "options": [
+          "Rahapalkinto.",
+          "Kunniamaininta.",
+          "Kaupungin lahjakortteja.",
+          "Ilmaisia lippuja."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "14984fbd-b2a1-53fe-babe-6891ccca1093",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Historianfilosofi Jussi Pakkasvirta pohtii esseessään, voiko historiasta todella oppia. Hän viittaa tunnettuun sanontaan, jonka mukaan historian ainoa opetus on, ettei siitä opita mitään. Pakkasvirta ei kuitenkaan hyväksy tätä täysin, vaan tarjoaa vivahteikkaamman näkökulman. Hänen mukaansa historiaa ei voi käyttää suoraan ennustamiseen, koska olosuhteet muuttuvat. Silti historian tuntemus auttaa ymmärtämään nykyisyyttä ja tunnistamaan toistuvia rakenteita. 'Historia ei toista itseään, mutta se riimittelee', Pakkasvirta siteeraa Mark Twainia. Hän erottaa toisistaan pinnallisen historian käytön ja syvällisen historiallisen ymmärryksen. Pinnallista on vetää suoria analogioita menneisyyden ja nykyisyyden välillä, kuten verrata jotain poliitikkoa Hitleriin. Tällainen vertailu yksinkertaistaa ja vääristää. Syvällinen historiallinen ymmärrys taas tarkoittaa kykyä hahmottaa pitkiä kehityskulkuja ja rakenteellisia tekijöitä. Pakkasvirran mukaan tätä taitoa tarvitaan nyt enemmän kuin koskaan, kun maailma muuttuu nopeasti ja tulevaisuus näyttää epävarmalta. 'Historia antaa perspektiiviä. Se auttaa näkemään, että asiat ovat ennenkin muuttuneet ja että nykyiset kriisit eivät ole ainutlaatuisia, vaikka ne siltä tuntuvat.'  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 178
+    },
+    "questions": [
+      {
+        "id": "1fe995ff-bbdf-595a-bcdd-83d37a694ff5",
+        "prompt": "Miten Jussi Pakkasvirta suhtautuu väitteeseen, ettei historiasta opita mitään?",
+        "options": [
+          "Hyväksyy sen täysin",
+          "Hylkää sen täysin",
+          "Tarjoaa vivahteikkaamman näkökulman",
+          "Ei ota kantaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "47e7f6ae-2270-51e4-9b1a-dfa6e8899778",
+        "prompt": "Mitä Pakkasvirta tarkoittaa 'pinnallisella historian käytöllä'?",
+        "options": [
+          "Historian opiskelua koulussa",
+          "Suorien analogioiden vetämistä menneisyyden ja nykyisyyden välillä",
+          "Historian unohtamista",
+          "Historian tutkimista tarkasti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f9e5c59e-6be5-5efd-b76c-20a168bda909",
+        "prompt": "Mitä hyötyä syvällisestä historiallisesta ymmärryksestä on Pakkasvirran mukaan?",
+        "options": [
+          "Se auttaa ennustamaan tulevaisuutta",
+          "Se auttaa hahmottamaan pitkiä kehityskulkuja ja antaa perspektiiviä",
+          "Se osoittaa, että mikään ei koskaan muutu",
+          "Se tekee ihmisistä pessimistisiä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

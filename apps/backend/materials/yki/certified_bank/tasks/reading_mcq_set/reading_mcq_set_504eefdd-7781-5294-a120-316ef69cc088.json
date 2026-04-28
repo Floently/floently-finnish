@@ -1,0 +1,99 @@
+{
+  "id": "504eefdd-7781-5294-a120-316ef69cc088",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Hyvinvointiteknologia on yleistynyt nopeasti. Älykellot ja aktiivisuusrannekkeet mittaavat unta, sykettä ja askelia. Ne kannustavat liikkumaan ja seuraamaan omaa terveyttä. Moni kokee saavansa niistä motivaatiota arkeen. Samalla on herännyt keskustelua siitä, kuinka luotettavia mittaukset ovat ja voiko niihin luottaa täysin. Terveydenhuollossa teknologiaa käytetään yhä enemmän etäseurantaan ja -hoitoon.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yleistynyt nopeasti?",
+        "options": [
+          "Kotitalouskoneet",
+          "Hyvinvointiteknologia",
+          "Viihde-elektroniikka",
+          "Kodinkoneet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä älykellot ja aktiivisuusrannekkeet mittaavat?",
+        "options": [
+          "Vain askelia",
+          "Unta, sykettä ja askelia",
+          "Vain kaloreita",
+          "Vain verenpainetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin ne kannustavat?",
+        "options": [
+          "Nukkumaan enemmän",
+          "Liikkumaan ja seuraamaan omaa terveyttä",
+          "Syömään terveellisemmin",
+          "Vähentämään stressiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä moni kokee saavansa laitteista?",
+        "options": [
+          "Stressiä",
+          "Motivaatiota arkeen",
+          "Unettomuutta",
+          "Ahdistusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä keskustelua on herännyt?",
+        "options": [
+          "Laitteiden hinnasta",
+          "Mittausten luotettavuudesta",
+          "Laitteiden ulkonäöstä",
+          "Laitteiden akun kestosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mihin terveydenhuollossa käytetään yhä enemmän teknologiaa?",
+        "options": [
+          "Leikkauksiin",
+          "Etäseurantaan ja -hoitoon",
+          "Lääkkeiden kehitykseen",
+          "Sairaaloiden johtamiseen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

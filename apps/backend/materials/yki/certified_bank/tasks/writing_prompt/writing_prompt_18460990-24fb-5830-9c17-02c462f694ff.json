@@ -1,0 +1,37 @@
+{
+  "id": "18460990-24fb-5830-9c17-02c462f694ff",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön maastapoistumisvero varakkaille?'. Analysoi taloudellisia vaikutuksia, kansainvälistä kilpailukykyä ja oikeudenmukaisuutta.",
+    "materials": {
+      "scenario": "Maastapoistumisvero"
+    },
+    "items": [
+      {
+        "id": "43f07bfe-44e5-5a40-822b-cf84e69199b0",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön maastapoistumisvero varakkaille?'. Analysoi taloudellisia vaikutuksia, kansainvälistä kilpailukykyä ja oikeudenmukaisuutta."
+      }
+    ],
+    "rubric": "Taloudelliset vaikutukset\nKansainvälinen kilpailukyky\nOikeudenmukaisuus\nPääomaliikkeet",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

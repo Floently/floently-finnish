@@ -1,0 +1,77 @@
+{
+  "id": "4404f7ef-a997-5f22-87ee-8a1b911ba5c7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.35,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ravintolan ruokalista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "RAVINTOLA KOTIPUOLI\n\nLOUNAS MA–PE KLO 11–14\n\nPäivän keitto:\nKanttarellikeitto (L, G) 9,50 €\n\nPääruoat:\nLohi-perunamuusi (L) 12,50 €\nBroileripyörykät ja riisi (L) 11,90 €\nKasviskiusaus (V, G) 10,90 €\n\nJälkiruoka:\nMarjakiisseli (L, G) 4,50 €\n\nMerkinnät: L = laktoositon, G = gluteeniton, V = vegaaninen\n\nKahvi sisältyy lounaaseen.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "42a1c0b6-430d-5371-b119-7b051852df08",
+        "prompt": "Paljonko maksaa kanttarellikeitto?",
+        "options": [
+          "9,50 €",
+          "10,90 €",
+          "11,90 €",
+          "12,50 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b54ce079-0f2d-5b9c-975b-706401e0129e",
+        "prompt": "Mikä ruoka sopii vegaanille?",
+        "options": [
+          "Lohi-perunamuusi",
+          "Broileripyörykät",
+          "Kasviskiusaus",
+          "Kaikki sopivat"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "92487086-74ad-53a0-bc81-bda0fcc545ea",
+        "prompt": "Mitä merkintä G tarkoittaa?",
+        "options": [
+          "Gluteeniton",
+          "Laktoositon",
+          "Vegaaninen",
+          "Gourmet"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "4d1de915-af22-52cb-923a-e5ff1e48f38f",
+        "prompt": "Sisältyykö kahvi lounaaseen?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain viikonloppuisin",
+          "Vain keittolounaaseen"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

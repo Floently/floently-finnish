@@ -1,0 +1,88 @@
+{
+  "id": "429485ba-1bed-5494-ab52-f9aa2401305d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei isä! Mä oon nyt kaverin synttäreillä. Täällä on tosi kivaa ja on paljon porukkaa. Syödään kohta kakkua. Mä tuon kotiin varmaan ysin jälkeen. Moikka!",
+      "audio_asset_id": "827495df-182f-54b9-8972-18ed773db792"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Koulussa.",
+          "Kaverin synttäreillä.",
+          "Kirjastossa.",
+          "Puistossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä juhlassa tehdään kohta?",
+        "options": [
+          "Avataan lahjoja.",
+          "Syödään kakkua.",
+          "Lähdetään kotiin.",
+          "Pelataan pelejä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miltä juhlissa näyttää?",
+        "options": [
+          "Tosi tylsältä.",
+          "Tosi kivalta ja siellä on paljon porukkaa.",
+          "Tosi rauhalliselta.",
+          "Tosi oudolta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin aikaan puhuja arvioi tulevansa kotiin?",
+        "options": [
+          "Seitsemän jälkeen.",
+          "Kahdeksan jälkeen.",
+          "Yhdeksän jälkeen.",
+          "Kymmenen jälkeen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenelle puhuja puhuu?",
+        "options": [
+          "Äidille.",
+          "Isälle.",
+          "Siskolle.",
+          "Veljelle."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

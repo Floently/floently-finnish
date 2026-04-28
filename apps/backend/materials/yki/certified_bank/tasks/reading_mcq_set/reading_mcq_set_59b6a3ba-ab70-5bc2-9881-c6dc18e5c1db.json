@@ -1,0 +1,88 @@
+{
+  "id": "59b6a3ba-ab70-5bc2-9881-c6dc18e5c1db",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen lapsi menee kouluun 7-vuotiaana. Koulussa opiskellaan eri aineita. Matematiikka, äidinkieli ja liikunta ovat tärkeitä. Koulupäivä alkaa aamulla. Siihen kuuluu oppitunteja ja välitunteja. Koulussa on ilmainen lounas. Lapset syövät yhdessä ruokalassa. Koulussa on myös kirjasto ja tietokoneita. Opettaja auttaa ja kannustaa oppilaita. Koulu loppuu noin kahdelta. Sen jälkeen lapset menevät kotiin tai harrastuksiin. Koulu on mukava paikka.",
+      "word_count": 57
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä ikäisenä lapsi aloittaa koulun Suomessa?",
+        "options": [
+          "6-vuotiaana",
+          "7-vuotiaana",
+          "8-vuotiaana",
+          "9-vuotiaana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä aineita koulussa opiskellaan?",
+        "options": [
+          "Vain matematiikkaa",
+          "Matematiikkaa, äidinkieltä ja liikuntaa",
+          "Vain äidinkieltä",
+          "Vain liikuntaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä koulussa on ilmaiseksi?",
+        "options": [
+          "Aamupala",
+          "Lounas",
+          "Välipala",
+          "Päivällinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä lapset syövät koulussa?",
+        "options": [
+          "Luokassa",
+          "Ruokalassa",
+          "Käytävällä",
+          "Ulkona"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin koulu loppuu?",
+        "options": [
+          "Noin yhdeltä",
+          "Noin kahdelta",
+          "Noin kolmelta",
+          "Noin neljältä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

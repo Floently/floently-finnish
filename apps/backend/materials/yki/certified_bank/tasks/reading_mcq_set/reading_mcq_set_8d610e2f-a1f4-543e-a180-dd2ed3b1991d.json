@@ -1,0 +1,110 @@
+{
+  "id": "8d610e2f-a1f4-543e-a180-dd2ed3b1991d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kaupungistuminen on yksi aikamme merkittävimmistä ilmiöistä. Yhä suurempi osa maailman väestöstä asuu kaupungeissa. Tämä asettaa valtavia paineita kaupunkisuunnittelulle ja infrastruktuurille. Tulevaisuuden kaupungit ovat älykkäitä, kestäviä ja inhimillisiä. Älykkyys tarkoittaa teknologian hyödyntämistä kaupungin toiminnan tehostamisessa: liikenteen ohjauksessa, energiankulutuksen optimoinnissa ja palveluiden tuottamisessa. Kestävyys tarkoittaa ekologista, sosiaalista ja taloudellista kestävyyttä. Inhimillisyys tarkoittaa, että kaupunki on suunniteltu ihmisten tarpeita varten: turvallinen, viihtyisä ja yhteisöllinen. Tulevaisuuden kaupungeissa korostuvat viheralueet, kevyt liikenne ja segregaation ehkäisy. Kaupunkilaisten osallistaminen päätöksentekoon on keskeistä. Kaupunki ei ole vain kone, vaan elävä organismi, joka kehittyy vuorovaikutuksessa asukkaidensa kanssa.",
+      "word_count": 88
+    },
+    "questions": [
+      {
+        "id": "ac8e3a65-0668-5dff-9dfc-8dad5ff84f24",
+        "prompt": "Mikä on yksi aikamme merkittävimmistä ilmiöistä?",
+        "options": [
+          "maaseudun kasvu",
+          "kaupungistuminen",
+          "väestön väheneminen",
+          "muuttoliike Aasiaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a39b00f4-1370-51c8-a9f6-1b0d986fe2dc",
+        "prompt": "Mitä kaupungistuminen aiheuttaa?",
+        "options": [
+          "paineita kaupunkisuunnittelulle ja infrastruktuurille",
+          "vähemmän tarvetta julkisille palveluille",
+          "väestön vähenemistä",
+          "luonnon monimuotoisuuden lisääntymistä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b744c379-6945-524b-ac39-06137efae132",
+        "prompt": "Millaisia tulevaisuuden kaupungit ovat?",
+        "options": [
+          "teknologiapainotteisia ja kylmiä",
+          "älykkäitä, kestäviä ja inhimillisiä",
+          "vain suuria ja tehokkaita",
+          "vanhanaikaisia ja hitaita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9bf0cfae-c38e-5191-908e-2c9f7c129a55",
+        "prompt": "Mitä älykkyys tarkoittaa kaupunkikontekstissa?",
+        "options": [
+          "kaupunkilaiset ovat älykkäitä",
+          "teknologian hyödyntämistä kaupungin toiminnan tehostamisessa",
+          "robottien käyttöä",
+          "tekoälyä kaikessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "07e6ae1d-677e-5da6-875f-b8418dee2b86",
+        "prompt": "Mitä kestävyys tulevaisuuden kaupungeissa tarkoittaa?",
+        "options": [
+          "vain ekologista kestävyyttä",
+          "ekologista, sosiaalista ja taloudellista kestävyyttä",
+          "vain taloudellista kestävyyttä",
+          "vain sosiaalista kestävyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1f14244-ee27-5ee6-8894-1a42c75f4c77",
+        "prompt": "Mitä inhimillisyys tulevaisuuden kaupungeissa tarkoittaa?",
+        "options": [
+          "kaupunki on suunniteltu ihmisten tarpeita varten",
+          "kaupunki on täynnä kulttuuria",
+          "kaupunki on hiljainen",
+          "kaupunki on halpa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "62c02d97-c8de-589a-93f3-9b16c408c112",
+        "prompt": "Mikä on keskeistä tulevaisuuden kaupungeissa?",
+        "options": [
+          "kaupunkilaisten osallistaminen päätöksentekoon",
+          "vain asiantuntijoiden päätösvalta",
+          "yritysten tarpeet",
+          "tehokkuus"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

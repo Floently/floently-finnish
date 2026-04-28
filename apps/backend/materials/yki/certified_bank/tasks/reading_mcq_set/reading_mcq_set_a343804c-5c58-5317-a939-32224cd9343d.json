@@ -1,0 +1,63 @@
+{
+  "id": "a343804c-5c58-5317-a939-32224cd9343d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KUNTOSALIN KESÄTAUKO\n\nKuntosali on suljettu 26.8.–8.9. kesähuollon vuoksi.\n\nKuntosali avataan uudelleen 9.9. klo 6.\n\nJäsenyydet ovat voimassa normaalisti.\n\nVaihtoehtoista liikuntaa voi harrastaa ulkokuntosalilla ja uimahallissa.",
+      "word_count": 25
+    },
+    "questions": [
+      {
+        "id": "item_118_1",
+        "prompt": "Kauanko kuntosali on kiinni?",
+        "options": [
+          "yksi viikko",
+          "kaksi viikkoa",
+          "kolme viikkoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_118_2",
+        "prompt": "Miksi kuntosali on kiinni?",
+        "options": [
+          "remontin takia",
+          "kesähuollon vuoksi",
+          "henkilökunnan loman takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_118_3",
+        "prompt": "Mistä voi harrastaa liikuntaa sulun aikana?",
+        "options": [
+          "toisella salilla",
+          "ulkokuntosalilla ja uimahallissa",
+          "vain kotona"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

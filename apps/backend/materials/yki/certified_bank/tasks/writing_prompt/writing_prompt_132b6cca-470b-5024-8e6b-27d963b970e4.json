@@ -1,0 +1,37 @@
+{
+  "id": "132b6cca-470b-5024-8e6b-27d963b970e4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ohjeen mukaan.",
+    "materials": {
+      "scenario": "Poissaolo koulusta"
+    },
+    "items": [
+      {
+        "id": "0affd333-b9d8-56c3-a2a9-0e0a890728d2",
+        "prompt": "Kirjoita opettajalle viesti ja ilmoita poissaolosta."
+      }
+    ],
+    "rubric": "Kirjoita opettajalle viesti ja ilmoita poissaolosta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

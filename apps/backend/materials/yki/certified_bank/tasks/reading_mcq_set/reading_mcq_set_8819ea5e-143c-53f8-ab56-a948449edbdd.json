@@ -1,0 +1,110 @@
+{
+  "id": "8819ea5e-143c-53f8-ab56-a948449edbdd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.738,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen julkinen talous on rakenteellisten ongelmien edessä. Kestävyysvaje, eli valtion menojen ja tulojen välinen pitkän aikavälin epätasapaino, on vakava haaste. Pääsyynä on väestön nopea ikääntyminen, joka vähentää työikäisten määrää ja lisää samalla julkisia menoja, erityisesti eläkkeitä ja terveydenhuoltoa. Kestävyysvaje johtaa väistämättä julkisen talouden velkaantumisen kiihtymiseen, jos siihen ei puututa. Velkaantuminen puolestaan kasvattaa korkomenoja, mikä heikentää mahdollisuuksia rahoittaa julkisia palveluja tulevaisuudessa. Se voi myös tehdä maasta haavoittuvamman talouskriiseissä ja heikentää luottamusta Suomen talouteen. Ratkaisuja kestävyysvajeeseen on monia, mutta mikään niistä ei ole helppo. Työllisyysasteen nostaminen on keskeinen keino. Jos useampi ihminen on töissä ja työurat saadaan pidennettyä, verotulot kasvavat ja samalla sosiaalimenot vähenevät. Tämä edellyttää toimia, jotka kannustavat työntekoon, parantavat työllistymismahdollisuuksia ja poistavat kannustinloukkuja. Toinen vaihtoehto on julkisten menojen leikkaaminen, mutta se on poliittisesti vaikeaa ja voi lisätä eriarvoisuutta. Kolmas vaihtoehto on verotuksen kiristäminen, mutta se voi vähentää työnteon ja investointien kannustimia. Todennäköisesti tarvitaan kaikkien näiden keinojen yhdistelmää. Kestävyysvajeeseen vastaaminen vaatii pitkäjänteistä ja johdonmukaista talouspolitiikkaa sekä vaikeita, mutta välttämättömiä poliittisia päätöksiä.",
+      "word_count": 160
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan julkisen talouden kestävyysvajeella?",
+        "options": [
+          "Valtion tulot ovat suuremmat kuin menot.",
+          "Valtion menojen ja tulojen välinen pitkän aikavälin epätasapaino.",
+          "Valtion velka on liian pieni.",
+          "Valtion budjetti on tasapainossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on kestävyysvajeen pääasiallinen syy?",
+        "options": [
+          "Liian suuri julkinen sektori.",
+          "Väestön nopea ikääntyminen.",
+          "Liian korkea verotus.",
+          "Kansainvälinen kilpailu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä seurauksia kestävyysvajeella ja velkaantumisella on?",
+        "options": [
+          "Se vahvistaa julkista taloutta.",
+          "Se kasvattaa korkomenoja ja heikentää mahdollisuuksia rahoittaa palveluja.",
+          "Sillä ei ole käytännön seurauksia.",
+          "Se johtaa automaattisesti talouskasvuun."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten työllisyysasteen nostaminen auttaisi kestävyysvajeeseen?",
+        "options": [
+          "Se vähentäisi verotuloja ja lisäisi menoja.",
+          "Se lisäisi verotuloja ja vähentäisi sosiaalimenoja.",
+          "Sillä ei olisi vaikutusta.",
+          "Se lisäisi työttömyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä haittapuolia julkisten menojen leikkauksilla voi olla?",
+        "options": [
+          "Ne ovat helppoja toteuttaa.",
+          "Ne ovat poliittisesti vaikeita ja voivat lisätä eriarvoisuutta.",
+          "Ne lisäävät aina talouskasvua.",
+          "Ne parantavat palvelujen laatua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä haittapuolia verotuksen kiristämisellä voi olla?",
+        "options": [
+          "Se lisää työntekoa ja investointeja.",
+          "Se voi vähentää työnteon ja investointien kannustimia.",
+          "Sillä ei ole haittapuolia.",
+          "Se lisää kulutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä kestävyysvajeeseen vastaaminen vaatii?",
+        "options": [
+          "Nopeita ja helppoja päätöksiä.",
+          "Pitkäjänteistä talouspolitiikkaa ja vaikeita päätöksiä.",
+          "Vain yhtä toimenpidettä.",
+          "Ei mitään."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

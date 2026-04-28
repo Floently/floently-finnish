@@ -1,0 +1,66 @@
+{
+  "id": "5e3327fa-909f-541f-a4a2-36e7607b2e3a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Työntekijä: Hei, voisinko puhua esimiehen kanssa?\nSihteeri: Hei, valitettavasti esimies on tänään kokouksessa koko päivän. Voinko auttaa jotenkin?\nTyöntekijä: Haluaisin keskustella lomien ajankohdasta. Olen suunnitellut pitäväni loman heinäkuussa.\nSihteeri: Ymmärrän. Vien viestin eteenpäin. Esimies on toimistolla huomenna aamulla. Soitanko teille sitten?\nTyöntekijä: Kyllä, se sopii hyvin. Tässä on numeroni. Kiitos!\nSihteeri: Ole hyvä. Huomiseen!",
+      "audio_asset_id": "c14ef439-f740-5dca-83b7-2d9587e059a6"
+    },
+    "questions": [
+      {
+        "id": "list_561",
+        "prompt": "Miksi työntekijä haluaa puhua esimiehen kanssa?",
+        "options": [
+          "Palkkakeskustelun takia",
+          "Lomien ajankohdan takia",
+          "Työtehtävien muutoksen takia",
+          "Sairausloman takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_562",
+        "prompt": "Milloin esimies on tavattavissa?",
+        "options": [
+          "Tänään illalla",
+          "Huomenna aamulla",
+          "Huomenna illalla",
+          "Ylihuomenna"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_563",
+        "prompt": "Miten sihteeri aikoo toimia?",
+        "options": [
+          "Lähettää sähköpostia",
+          "Soittaa työntekijälle huomenna",
+          "Järjestää tapaamisen heti",
+          "Kysyy toiselta esimieheltä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

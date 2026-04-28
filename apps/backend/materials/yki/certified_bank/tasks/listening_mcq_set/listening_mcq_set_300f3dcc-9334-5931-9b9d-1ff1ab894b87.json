@@ -1,0 +1,88 @@
+{
+  "id": "300f3dcc-9334-5931-9b9d-1ff1ab894b87",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.298,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Täällä on lääkäriasema. Muistutamme, että teillä on aika huomenna kello 10.15. Toivomme, että tulette ajoissa. Tervetuloa!",
+      "audio_asset_id": "a9570950-773d-4682-87f8-6665deccd434"
+    },
+    "questions": [
+      {
+        "id": "8ffffff3-08a9-5e9a-bb3d-60f9f6bc6f50",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Lääkäriasema.",
+          "Lääkäri.",
+          "Sairaala.",
+          "Hoitaja."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "5858792d-94d8-5e00-a177-436f769a13db",
+        "prompt": "Miksi he soittavat?",
+        "options": [
+          "Peruakseen ajan.",
+          "Muistuttaakseen ajasta.",
+          "Kertoakseen uuden ajan.",
+          "Kysyäkseen kuulumisia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4f8f34bc-f960-557d-ace9-f622f58d4296",
+        "prompt": "Milloin aika on?",
+        "options": [
+          "Tänään.",
+          "Ylihuomenna.",
+          "Ensi viikolla.",
+          "Huomenna."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "6b650e8e-ecb6-57f4-b0fa-aaa55a4ef492",
+        "prompt": "Mihin aikaan aika on?",
+        "options": [
+          "Kello 9.15.",
+          "Kello 10.15.",
+          "Kello 11.15.",
+          "Kello 12.15."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "497b6aaf-b9bd-50ca-ba55-8c55b7893892",
+        "prompt": "Mitä toivotaan?",
+        "options": [
+          "Että peruu ajan ajoissa.",
+          "Että soittaa takaisin.",
+          "Että tulee ajoissa.",
+          "Että tuo omat paperit."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

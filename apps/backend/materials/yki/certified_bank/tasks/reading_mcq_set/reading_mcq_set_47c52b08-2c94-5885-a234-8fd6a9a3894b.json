@@ -1,0 +1,66 @@
+{
+  "id": "47c52b08-2c94-5885-a234-8fd6a9a3894b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.759,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Maailma kohtaa tällä hetkellä monia haasteita, jotka ylittävät kansallisvaltioiden rajat ja vaativat kansainvälistä yhteistyötä. Ilmastonmuutos, pandemiat, kansainvälinen rikollisuus, talouden epävakaus ja aseelliset konfliktit ovat esimerkkejä ongelmista, joita yksikään maa ei pysty ratkaisemaan yksin. Kansainväliset järjestöt, kuten Yhdistyneet kansakunnat, Euroopan unioni ja Maailman terveysjärjestö, toimivat foorumeina, joissa maita pyritään saamaan yhteistyöhön ja sopimaan yhteisistä pelisäännöistä. Ilmastopolitiikassa Pariisin ilmastosopimus on esimerkki globaalista sopimuksesta, jossa maat sitoutuvat vähentämään päästöjään. Sopimuksen toimeenpano on kuitenkin osoittautunut haasteelliseksi, koska maiden intressit ja kyvyt vaihtelevat. Kehittyvät maat korostavat usein oikeuttaan talouskasvuun, kun taas teollisuusmaat kantavat historiallista vastuuta päästöistä. Pandemiat, kuten koronakriisi, ovat osoittaneet, miten tärkeää on nopea tiedonvaihto, tutkimusyhteistyö ja oikeudenmukainen rokotteiden jakelu. Samalla ne ovat paljastaneet globaalien terveysturvajärjestelmien heikkouksia. Kansainvälinen yhteistyö ei ole vain hallitusten välistä toimintaa. Myös kansalaisjärjestöt, tieteen ja yritysmaailman toimijat sekä yksittäiset kansalaiset osallistuvat globaalien haasteiden ratkaisemiseen. Kestävä kehitys ja ihmisoikeudet ovat yhä useammin yhteistyön perustana. Tulevaisuudessa tarvitaan entistä vahvempaa monenkeskistä yhteistyötä ja uusia toimintamalleja, jotta globaaleihin haasteisiin voidaan vastata tehokkaasti ja oikeudenmukaisesti.",
+      "word_count": 160
+    },
+    "questions": [
+      {
+        "id": "c8d9e0f1-a2b3-4c4d-9e5f-6a7b8c9d0e1f",
+        "prompt": "Miksi kansainvälinen yhteistyö on välttämätöntä globaalien haasteiden ratkaisemisessa?",
+        "options": [
+          "Koska kaikki maat ovat samanlaisia",
+          "Koska haasteet ylittävät kansallisvaltioiden rajat",
+          "Koska kansalliset ratkaisut ovat aina parempia",
+          "Vain taloudellisista syistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d9e0f1a2-b3c4-4d5e-9f6a-7b8c9d0e1f2a",
+        "prompt": "Mitä haasteita Pariisin ilmastosopimuksen toimeenpanossa on?",
+        "options": [
+          "Kaikki maat noudattavat sopimusta täydellisesti",
+          "Maiden intressit ja kyvyt vaihtelevat",
+          "Sopimus on liian tiukka",
+          "Vain kehittyvät maat vastustavat sopimusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e0f1a2b3-c4d5-4e6f-9a7b-8c9d0e1f2a3b",
+        "prompt": "Mitä koronapandemia paljasti globaaleista järjestelmistä?",
+        "options": [
+          "Ne toimivat täydellisesti",
+          "Ne ovat tarpeettomia",
+          "Globaalien terveysturvajärjestelmien heikkouksia",
+          "Vain kehittyvien maiden ongelmia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

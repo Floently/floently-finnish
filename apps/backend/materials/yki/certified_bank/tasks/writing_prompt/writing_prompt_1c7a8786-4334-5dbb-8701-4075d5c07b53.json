@@ -1,0 +1,37 @@
+{
+  "id": "1c7a8786-4334-5dbb-8701-4075d5c07b53",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita analyyttinen mielipideteksti.",
+    "materials": {
+      "scenario": "Talouskasvu"
+    },
+    "items": [
+      {
+        "id": "9aef552c-e8d5-57ae-aacb-8f40e45506e1",
+        "prompt": "Onko jatkuva talouskasvu realistinen tavoite rajallisessa maailmassa?"
+      }
+    ],
+    "rubric": "Onko jatkuva talouskasvu realistinen tavoite rajallisessa maailmassa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

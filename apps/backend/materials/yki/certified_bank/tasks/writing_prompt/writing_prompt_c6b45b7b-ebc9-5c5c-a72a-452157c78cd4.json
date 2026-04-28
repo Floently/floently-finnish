@@ -1,0 +1,37 @@
+{
+  "id": "c6b45b7b-ebc9-5c5c-a72a-452157c78cd4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Haluat kysyä, saako asunnossa pitää lemmikkiä. Kerro, että haluaisit hankkia pienen kissan. Kerro, että se on sisäkissa ja siisti. Kysy, onko se sallittua ja tuleeko siitä lisäkuluja.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle lemmikistä"
+    },
+    "items": [
+      {
+        "id": "80c2db18-8f96-5d4c-b332-fc90a6de6a0a",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Haluat kysyä, saako asunnossa pitää lemmikkiä. Kerro, että haluaisit hankkia pienen kissan. Kerro, että se on sisäkissa ja siisti. Kysy, onko se sallittua ja tuleeko siitä lisäkuluja."
+      }
+    ],
+    "rubric": "Kysy lemmikin pitämisestä\nKerro, minkä lemmikin haluat\nKerro, että se on sisäkissa\nKysy, onko sallittua\nKysy lisäkuluista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

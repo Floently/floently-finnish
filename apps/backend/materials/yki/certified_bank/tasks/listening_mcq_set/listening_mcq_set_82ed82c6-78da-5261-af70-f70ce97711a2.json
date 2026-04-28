@@ -1,0 +1,88 @@
+{
+  "id": "82ed82c6-78da-5261-af70-f70ce97711a2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.652,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele juna-aseman kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat. IC 22 Pieksämäelle lähtee raiteelta 3 kello 16.25. Junassa on ravintolavaunu. Seuraava juna Pieksämäelle lähtee kello 18.40. Matkustajia pyydetään nousemaan junaan. Hyvää matkaa!",
+      "audio_asset_id": "4f2a349e-db4f-410f-b409-618eb399e781"
+    },
+    "questions": [
+      {
+        "id": "efde1774-1a76-5e81-a316-fa72cfb45515",
+        "prompt": "Mille raiteelle juna Pieksämäelle lähtee?",
+        "options": [
+          "Raide 3.",
+          "Raide 1.",
+          "Raide 2.",
+          "Raide 4."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "1e166318-869d-55d0-9522-34b0980c8c01",
+        "prompt": "Mihin aikaan juna lähtee?",
+        "options": [
+          "Kello 16.00.",
+          "Kello 16.15.",
+          "Kello 16.25.",
+          "Kello 16.35."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ecc8e9b2-e6a5-590f-a908-cd2cf9d6069e",
+        "prompt": "Mikä on junan numero?",
+        "options": [
+          "IC 22.",
+          "IC 20.",
+          "IC 21.",
+          "IC 23."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "d272019f-9250-59d9-ae34-ef245b022aed",
+        "prompt": "Mitä erityistä junassa on?",
+        "options": [
+          "Elokuvavaunu.",
+          "Ravintolavaunu.",
+          "Leikkivaunu.",
+          "Hiljainen vaunu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fff9c118-0096-5de7-8b90-97c64522a28d",
+        "prompt": "Milloin seuraava juna Pieksämäelle lähtee?",
+        "options": [
+          "Kello 18.10.",
+          "Kello 18.25.",
+          "Kello 18.40.",
+          "Kello 18.55."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

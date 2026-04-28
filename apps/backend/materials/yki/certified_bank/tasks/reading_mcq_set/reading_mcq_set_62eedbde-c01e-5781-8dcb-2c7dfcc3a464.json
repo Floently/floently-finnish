@@ -1,0 +1,66 @@
+{
+  "id": "62eedbde-c01e-5781-8dcb-2c7dfcc3a464",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Valokuvaus on suosittu harrastus Suomessa. Digikamerat ja erityisesti älypuhelinten kamerat ovat tehneet kuvaamisesta helppoa ja kaikkien ulottuvilla. Monet suomalaiset kuvaavat aktiivisesti luontoa, maisemia, ihmisiä ja tapahtumia. Erityisesti luontokuvaus on suosittua, ja Suomen upeat maisemat tarjoavat loistavia kuvauskohteita. Talvella kuvataan revontulia ja luminen maisemia, kesällä kukkia ja järvimaisemia. Syksyn ruska on monen kuvaajan suosikkiaikaa. Harrastajat käyttävät usein järjestelmäkameroita ja harrastavat kuvankäsittelyä. Kameraseurat ja valokuvauskerhot järjestävät retkiä, kursseja ja kilpailuja. Monet kaupungit tarjoavat myös pimiötiloja, joissa voi kehittää perinteisiä filmikuvia. Valokuvanäyttelyt ovat suosittuja, ja Suomen valokuvataiteen museo Helsingissä esittelee kotimaista ja kansainvälistä valokuvataidetta. Valokuvakirjat ovat suosittuja lahjoja, ja moni tallentaa perhetapahtumia valokuva-albumeihin. Sosiaalinen media, kuten Instagram, on lisännyt valokuvauksen suosiota, ja monet jakavat kuviaan verkossa. Valokuvaus ei ole vain tekniikkaa, vaan myös tapa ilmaista itseään ja tallentaa muistoja. Se opettaa katsomaan ympäristöä uusin silmin ja huomaamaan yksityiskohtia. Monille valokuvaus on rentouttava harrastus, joka vie luontoon ja antaa mahdollisuuden luovuuteen.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "f5a6b7c8-d9e0-4f1a-9b2c-3d4e5f6a7b8c",
+        "prompt": "Mikä on erityisen suosittua valokuvauksen aihe Suomessa?",
+        "options": [
+          "Arkkitehtuuri",
+          "Luonto",
+          "Muotikuvat",
+          "Ruoan kuvaus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a6b7c8d9-e0f1-4a2b-9c3d-4e5f6a7b8c9d",
+        "prompt": "Mitä valokuvauskerhot järjestävät?",
+        "options": [
+          "Vain kilpailuja",
+          "Retkiä, kursseja ja kilpailuja",
+          "Vain kursseja",
+          "Vain myyjäisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Mikä on lisännyt valokuvauksen suosiota viime aikoina?",
+        "options": [
+          "Filmikamerat",
+          "Instagram ja sosiaalinen media",
+          "Valokuvakirjat",
+          "Valokuvanäyttelyt"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

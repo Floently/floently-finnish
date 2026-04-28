@@ -1,0 +1,37 @@
+{
+  "id": "709bb2da-9b91-555e-b4a0-5f714ec12127",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.295,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti äidille. Kerro, että sinulla on kaikki hyvin. Kerro, että söit tänään hyvää ruokaa ja kävelit puistossa. Kysy, mitä äidille kuuluu.",
+    "materials": {
+      "scenario": "Viesti äidille kuulumisista"
+    },
+    "items": [
+      {
+        "id": "677e7e16-46ee-597e-bac8-accfda6bbc85",
+        "prompt": "Kirjoita lyhyt viesti äidille. Kerro, että sinulla on kaikki hyvin. Kerro, että söit tänään hyvää ruokaa ja kävelit puistossa. Kysy, mitä äidille kuuluu."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on kaikki hyvin\nKerro, mitä olet tehnyt (syönyt, kävellyt)\nKysy äidin kuulumisia",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

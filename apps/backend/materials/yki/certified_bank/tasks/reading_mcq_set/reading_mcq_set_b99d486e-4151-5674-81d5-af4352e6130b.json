@@ -1,0 +1,77 @@
+{
+  "id": "b99d486e-4151-5674-81d5-af4352e6130b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.774,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi suomalaisten mediankäytöstä ja luottamuksesta mediaan.",
+    "materials": {
+      "text": "LUOTTAMUKSEN RAJAT – MIKSI SUOMALAISET YHÄ LUOTTAVAT MEDIAAN?\n\nSuomi sijoittuu kansainvälisissä vertailuissa kärkijoukkoon, kun mitataan kansalaisten luottamusta mediaan. Toisin kuin monissa muissa maissa, missä luottamus perinteisiin medioihin on romahtanut ja tilalle on tullut epäily ja polarisaatio, Suomessa Yleisradio ja suurimmat sanomalehdet nauttivat edelleen laajaa luottamusta.\n\nTämä herättää kysymyksen: miksi juuri Suomi on poikkeus? Yksi selitys on historiallinen. Suomessa lehdistö on syntynyt osana kansallista heräämistä ja yhteiskunnan rakentamista. Sanomalehdillä on ollut kasvattajan ja sivistäjän rooli, mikä on luonut pitkäkestoisen suhteen lukijoihin. Toinen selitys on rakenteellinen: Suomi on pieni ja suhteellisen homogeeninen maa, jossa sosiaalinen pääoma on korkea.\n\nKolmas selitys liittyy median itsesääntelyyn ja journalistisiin käytäntöihin. Julkisen sanan neuvosto ja Journalistin ohjeet ovat luoneet vahvan eettisen perustan. Suomalaiset journalistit noudattavat tarkkoja pelisääntöjä, ja virheistä nostetaan esiin oikaisuja. Tämä on rakentanut uskottavuutta.\n\nNeljäs tekijä on Yleisradion rooli. Yle on koko kansan palvelu, jota rahoitetaan verovaroin ja joka tavoittaa kaikki väestöryhmät. Sen ohjelmistossa yhdistyvät uutiset, sivistys ja viihde, ja se on onnistunut säilyttämään puolueettomuutensa poikkeuksellisen hyvin kansainvälisessä vertailussa.\n\nKuitenkin myös Suomessa on nähtävissä merkkejä muutoksesta. Sosiaalinen media on muuttanut tiedonvälityksen dynamiikkaa. Yhä useampi nuori saa uutisensa TikTokista ja Instagramista, missä perinteiset journalistiset kriteerit eivät päde. Tämä luo haasteen: miten tavoittaa nuoret ilman, että luopuu journalistisista periaatteista?\n\nToinen haaste on polarisaatio. Vaikka se on Suomessa vähäisempää kuin monissa muissa maissa, myös täällä on nähtävissä kuplautumista ja omien totuuksien vahvistumista. Erityisesti maahanmuuttoon ja ilmastopolitiikkaan liittyvissä kysymyksissä some-alustat ovat luoneet vastakkainasettelua, joka ei välttämättä vastaa todellisuutta.\n\nKolmas haaste on kaupallinen paine. Perinteiset mediat ovat menettäneet mainostuloja somejätille, ja samalla niiden on panostettava digitaalisiin palveluihin. Tämä on johtanut siihen, että uutishuoneissa on vähemmän toimittajia tekemässä syvällistä journalismia. Pintapuolistuuko suomalainen media?\n\nAsiantuntijat korostavat, että luottamus on rakennettava uudelleen jokaisen sukupolven kanssa. Se ei ole itsestäänselvyys, vaan seurausta jatkuvasta työstä. Ja se edellyttää myös yleisöltä medialukutaitoa – kykyä arvioida kriittisesti, mistä tieto tulee ja kenen etua se palvelee.",
+      "word_count": 308
+    },
+    "questions": [
+      {
+        "id": "e97fba64-bd58-55cc-af7b-d57fb7bc2599",
+        "prompt": "Mikä on kirjoittajan mukaan yksi historiallinen selitys suomalaisten luottamukselle mediaan?",
+        "options": [
+          "Media on aina ollut vallanpitäjien hallinnassa",
+          "Lehdistö on syntynyt osana kansallista heräämistä ja sillä on ollut sivistäjän rooli",
+          "Suomalaiset ovat luonnostaan luottavaisia",
+          "Media on ollut aina puolueetonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "422d3d2e-e2a9-5d58-9bda-82d9cb7646d1",
+        "prompt": "Mikä rooli Yleisradiolla on kirjoittajan mukaan luottamuksen rakentajana?",
+        "options": [
+          "Se on kaupallinen toimija",
+          "Se tavoittaa kaikki väestöryhmät ja on säilyttänyt puolueettomuutensa",
+          "Se on vain vanhemmille ikäluokille suunnattu",
+          "Se on menettänyt luottamuksensa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b34840c8-3999-52a8-bdf8-9d844eaef577",
+        "prompt": "Mitä haasteita kirjoittaja nostaa esiin suomalaisen median tulevaisuudelle?",
+        "options": [
+          "Vain nuorten tavoittamisen",
+          "Some-alustojen vaikutus, polarisaatio ja kaupallinen paine",
+          "Liiallinen sääntely",
+          "Toimittajien ammattitaidon puute"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2fe52ab5-0ca7-594c-902e-cf0cb7bdf298",
+        "prompt": "Mitä kirjoittaja tarkoittaa väitteellä, että luottamus on 'rakennettava uudelleen jokaisen sukupolven kanssa'?",
+        "options": [
+          "Luottamus on synnynnäistä",
+          "Se ei ole itsestäänselvyys, vaan seurausta jatkuvasta työstä",
+          "Vain nuoret voivat rakentaa luottamusta",
+          "Luottamus on turhaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

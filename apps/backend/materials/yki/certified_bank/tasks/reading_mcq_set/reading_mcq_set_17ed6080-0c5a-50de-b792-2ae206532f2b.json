@@ -1,0 +1,99 @@
+{
+  "id": "17ed6080-0c5a-50de-b792-2ae206532f2b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Taloyhtiön pihassa on uusi kompostori. Siihen voi laittaa hedelmien kuoret ja kahvinporot. Kompostorista saa multaa kukille. Taloyhtiö järjestää myös kompostointioppaan uusille asukkaille. Pihalla on myös uusi omenapuu, josta saa syksyllä omppuja. Kaikki saavat poimia omenoita.",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä taloyhtiön pihassa on uutta?",
+        "options": [
+          "Uusi leikkimökki",
+          "Uusi kompostori",
+          "Uusi autotalli",
+          "Uusi grilli"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kompostoriin voi laittaa?",
+        "options": [
+          "Muovia ja lasia",
+          "Hedelmien kuoret ja kahvinporot",
+          "Paperia ja pahvia",
+          "Vanhoja vaatteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kompostorista saa?",
+        "options": [
+          "Ruokaa",
+          "Multaa kukille",
+          "Energiaa",
+          "Lämpöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä taloyhtiö järjestää uusille asukkaille?",
+        "options": [
+          "Tervetuliaisjuhlat",
+          "Kompostointioppaan",
+          "Siivoustalkoot",
+          "Asukaskokouksen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä pihalla on myös uutta?",
+        "options": [
+          "Uusi aita",
+          "Uusi omenapuu",
+          "Uusi penkki",
+          "Uusi lampi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Kuka saa poimia omenoita?",
+        "options": [
+          "Vain lapset",
+          "Vain taloyhtiön hallitus",
+          "Kaikki",
+          "Vain ne, jotka maksavat"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

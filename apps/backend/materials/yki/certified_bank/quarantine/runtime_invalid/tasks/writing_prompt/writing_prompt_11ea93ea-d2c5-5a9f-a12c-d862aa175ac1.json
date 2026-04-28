@@ -1,0 +1,37 @@
+{
+  "id": "11ea93ea-d2c5-5a9f-a12c-d862aa175ac1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.486,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: call center. Purpose: agree on a change. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "fitness in call_center"
+    },
+    "items": [
+      {
+        "id": "c247f7ea-ab16-57e9-b617-d782d8abbd5e",
+        "prompt": "Write for the receiver in this scenario: call center. Purpose: agree on a change. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

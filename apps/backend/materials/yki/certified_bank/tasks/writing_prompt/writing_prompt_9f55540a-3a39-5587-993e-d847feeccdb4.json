@@ -1,0 +1,37 @@
+{
+  "id": "9f55540a-3a39-5587-993e-d847feeccdb4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että muutat pois asunnosta ja haluat tehdä loppusiivouksen itse. Kysy, mitä siivoukselta vaaditaan ja tarkastaako joku siivouksen jälkeensi.",
+    "materials": {
+      "scenario": "Loppusiivous muuton yhteydessä"
+    },
+    "items": [
+      {
+        "id": "8902e17f-a360-548a-b921-f4cf1ad597e7",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että muutat pois asunnosta ja haluat tehdä loppusiivouksen itse. Kysy, mitä siivoukselta vaaditaan ja tarkastaako joku siivouksen jälkeensi."
+      }
+    ],
+    "rubric": "Muuttoilmoitus\nSiivouksen suunnitelma\nTarkastuskäytäntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

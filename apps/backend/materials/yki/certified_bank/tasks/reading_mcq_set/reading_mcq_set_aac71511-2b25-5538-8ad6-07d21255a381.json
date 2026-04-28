@@ -1,0 +1,110 @@
+{
+  "id": "aac71511-2b25-5538-8ad6-07d21255a381",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalaiset käyttävät paljon aikaa lukemiseen. Tilastojen mukaan suomalaiset lukevat kirjoja enemmän kuin useimmat muut eurooppalaiset. Kirjastot ovat suosittuja, ja niissä käydään ahkerasti. Erityisesti lapset ja nuoret käyttävät kirjastoja paljon. Myös e-kirjojen ja äänikirjojen suosio on kasvanut viime vuosina. Ne tarjoavat uusia tapoja nauttia kirjallisuudesta esimerkiksi matkoilla tai liikunnan lomassa. Lukemisen harrastaminen on tärkeää, koska se kehittää kielitaitoa, mielikuvitusta ja kykyä keskittyä. Se myös tarjoaa elämyksiä ja mahdollisuuden oppia uutta. Kouluilla ja kirjastoilla on tärkeä rooli lukemisen innostajina. Ne järjestävät lukutapahtumia, kirjailijavierailuja ja lukudiplomeita. Vanhemmat voivat omalla esimerkillään kannustaa lapsia lukemaan. Lukeminen on lahja, joka kestää läpi elämän.",
+      "word_count": 97
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tilastot kertovat suomalaisten lukemisesta?",
+        "options": [
+          "Suomalaiset lukevat vähemmän kuin muut eurooppalaiset.",
+          "Suomalaiset lukevat kirjoja enemmän kuin useimmat muut eurooppalaiset.",
+          "Suomalaiset eivät lue lainkaan.",
+          "Vain lapset lukevat Suomessa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Ketkä käyttävät kirjastoja erityisen paljon?",
+        "options": [
+          "Vain eläkeläiset.",
+          "Lapset ja nuoret.",
+          "Vain työssäkäyvät.",
+          "Vain maahanmuuttajat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on kasvattanut suosiotaan viime vuosina?",
+        "options": [
+          "Sarjakuvat.",
+          "E-kirjat ja äänikirjat.",
+          "Sanomalehdet.",
+          "Aikakauslehdet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi lukeminen on tärkeää?",
+        "options": [
+          "Se on halpaa.",
+          "Se kehittää kielitaitoa, mielikuvitusta ja keskittymiskykyä.",
+          "Se vie paljon aikaa.",
+          "Se on vanhanaikaista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä koulut ja kirjastot tekevät lukemisen edistämiseksi?",
+        "options": [
+          "Eivät mitään.",
+          "Järjestävät lukutapahtumia, kirjailijavierailuja ja lukudiplomeita.",
+          "Kieltävät lukemisen.",
+          "Vain jakavat kirjoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten vanhemmat voivat kannustaa lapsia lukemaan?",
+        "options": [
+          "Pakottamalla heidät lukemaan.",
+          "Omalla esimerkillään.",
+          "Kieltämällä kaiken muun tekemisen.",
+          "Ostamalla vain leluja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten teksti kuvailee lukemista?",
+        "options": [
+          "Välttämättömänä pahana.",
+          "Lahjana, joka kestää läpi elämän.",
+          "Vanhanaikaisena harrastuksena.",
+          "Vain koululaisten velvollisuutena."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

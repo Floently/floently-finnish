@@ -1,0 +1,99 @@
+{
+  "id": "c17597bc-31bf-5c60-bca7-f170df1a5eec",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelma ja valitse oikea vastaus.",
+    "materials": {
+      "transcript": "Radio Dei, kulttuuria ja yhteiskuntaa. Hyvää iltapäivää, tänään keskustelemme siitä, miten kaupunkien keskustat muuttuvat. Haastattelussa on kaupunkisuunnittelija Elina Ranta. Toimittaja: Elina, monet sanovat, että kaupunkien keskustat ovat tyhjenemässä. Miten näet tilanteen? Elina Ranta: Se on vähän kaksipiippuinen juttu. Kyllä, verkkokauppa on vähentänyt perinteisten myymälöiden määrää, mutta samalla keskustoihin on tullut uudenlaista toimintaa. Palvelut, kuten kahvilat, ravintolat ja parturit, pärjäävät hyvin. Myös tapahtumat ja kulttuuri vetävät väkeä. Toimittaja: Miten julkinen tila muuttuu? Elina Ranta: Autojen määrää vähennetään ja tilaa annetaan jalankulkijoille ja pyöräilijöille. Kesäisin katutilaan tulee terasseja ja istutuksia. Talvella taas mietitään, miten saadaan valaistuksella ja tapahtumilla viihtyisyyttä. Toimittaja: Entä asuminen keskustassa? Elina Ranta: Se on kasvava trendi. Ihmiset haluavat asua lähellä palveluita ja työpaikkoja, jotta arki olisi sujuvaa. Se myös pitää keskustan elävänä myös iltaisin ja viikonloppuisin. Haasteena on, että asuntojen hinnat ovat korkeat, joten kaikkien ei ole mahdollista muuttaa keskustaan. Toimittaja: Kiitos Elina Ranta. Tämä oli kulttuuria ja yhteiskuntaa, Radio Dei.",
+      "audio_asset_id": "af0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on Elina Rannan mukaan vähentynyt kaupunkien keskustoissa?",
+        "options": [
+          "Kahviloiden määrä.",
+          "Perinteisten myymälöiden määrä.",
+          "Ravintoloiden määrä.",
+          "Tapahtumien määrä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä uutta keskustoihin on Elinan mukaan tullut?",
+        "options": [
+          "Toimistoja ja pankkeja.",
+          "Kahviloita, ravintoloita ja partureita.",
+          "Tehtaita ja varastoja.",
+          "Pysäköintihalleja ja huoltoasemia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Miten julkinen tila on muuttumassa?",
+        "options": [
+          "Autojen määrää lisätään.",
+          "Jalankulkijoille ja pyöräilijöille annetaan enemmän tilaa.",
+          "Kaikki puistot muutetaan parkkipaikoiksi.",
+          "Joukkoliikennettä vähennetään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten talvella lisätään viihtyisyyttä?",
+        "options": [
+          "Järjestämällä avantouintia.",
+          "Lisäämällä lumiveistoksia.",
+          "Valaistuksella ja tapahtumilla.",
+          "Lämmittämällä katuja."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miksi asuminen keskustassa on Elinan mukaan kasvava trendi?",
+        "options": [
+          "Koska asunnot ovat halpoja.",
+          "Koska ihmiset haluavat asua lähellä palveluita ja töitä.",
+          "Koska kaupungit pakottavat ihmiset muuttamaan keskustaan.",
+          "Koska lähiöt ovat vaarallisia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on haaste keskusta-asumisessa?",
+        "options": [
+          "Palvelut puuttuvat.",
+          "Asuntojen hinnat ovat korkeat.",
+          "Liikenneyhteydet ovat huonot.",
+          "Alue on meluisa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

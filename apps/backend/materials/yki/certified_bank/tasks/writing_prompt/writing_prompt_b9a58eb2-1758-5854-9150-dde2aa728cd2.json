@@ -1,0 +1,37 @@
+{
+  "id": "b9a58eb2-1758-5854-9150-dde2aa728cd2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin uimakoulusta. Arvioi opetuksen laatua, ryhmän kokoa ja uimaopettajia. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin uimakoulusta"
+    },
+    "items": [
+      {
+        "id": "f1d32a8b-8c12-5261-ab65-a3966aa49db0",
+        "prompt": "Kirjoita palauteteksti kaupungin uimakoulusta. Arvioi opetuksen laatua, ryhmän kokoa ja uimaopettajia. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Opetuksen laatu\nRyhmän koko\nUimaopettajat\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

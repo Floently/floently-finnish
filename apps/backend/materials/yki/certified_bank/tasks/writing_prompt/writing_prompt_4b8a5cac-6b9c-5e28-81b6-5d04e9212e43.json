@@ -1,0 +1,37 @@
+{
+  "id": "4b8a5cac-6b9c-5e28-81b6-5d04e9212e43",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita postikortti lomamatkalta.",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "2b7d9f88-9020-5ee9-9c5c-a8b7ce42750f",
+        "prompt": "Olet lomalla ulkomailla. Kirjoita postikortti ystävällesi tai perheellesi. Kerro missä olet, millainen sää on, mitä olet tehnyt ja yksi hauska asia."
+      }
+    ],
+    "rubric": "Olet lomalla ulkomailla. Kirjoita postikortti ystävällesi tai perheellesi. Kerro missä olet, millainen sää on, mitä olet tehnyt ja yksi hauska asia.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

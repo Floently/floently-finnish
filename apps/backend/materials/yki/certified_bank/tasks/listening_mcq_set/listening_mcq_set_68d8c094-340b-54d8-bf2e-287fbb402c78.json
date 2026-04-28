@@ -1,0 +1,66 @@
+{
+  "id": "68d8c094-340b-54d8-bf2e-287fbb402c78",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele lääkärin soitto ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, täällä soittaa lääkäri Laakso terveyskeskuksesta. Sain laboratoriotuloksenne. Kaikki on kunnossa, mutta D-vitamiinin arvo on vähän matala. Suosittelen, että aloitatte D-vitamiinilisän käytön. Annostus on yksi tabletti päivässä. Voitte ostaa sitä apteekista ilman reseptiä. Jos teillä on kysyttävää, voitte soittaa vastaanotolle. Hyvää päivänjatkoa!",
+      "audio_asset_id": "4e705b18-042b-4c1a-a711-45b94161f960"
+    },
+    "questions": [
+      {
+        "id": "8ba66b0a-d697-553d-bd7a-77e362e4322f",
+        "prompt": "Miksi lääkäri soittaa?",
+        "options": [
+          "Ajan peruutus",
+          "Laboratoriotulokset",
+          "Lääkemääräys",
+          "Lähete"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9e02a60a-a1a4-53d4-b05c-2729dc3d6de0",
+        "prompt": "Mikä on vähän matala?",
+        "options": [
+          "Rauta-arvo",
+          "D-vitamiini",
+          "Kolesteroli",
+          "Verensokeri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0b85908d-e7a3-5e8f-85bd-6192175932de",
+        "prompt": "Tarvitaanko D-vitamiiniin resepti?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain lapsille",
+          "Vain vanhuksille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

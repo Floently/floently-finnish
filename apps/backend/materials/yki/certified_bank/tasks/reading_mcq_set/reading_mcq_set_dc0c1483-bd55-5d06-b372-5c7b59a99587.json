@@ -1,0 +1,73 @@
+{
+  "id": "dc0c1483-bd55-5d06-b372-5c7b59a99587",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.501,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue elokuvateatterin ohjelmisto ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "BIO MAX – VIIKON OHJELMISTO (7.7.–13.7.)\n\nMaanantai 7.7.:\nSali 1: Lapua 1976 (K16) kello 18.00\nSali 2: Kuolleet lehdet (S) kello 19.00\n\nKeskiviikko 9.7.:\nSali 1: Myrskyluodon Maija (S) kello 17.30\nSali 2: Napoleon (K12) kello 18.30\n\nPerjantai–sunnuntai:\nLastennäytökset la ja su kello 12.00.\n\nLiput: Aikuiset 16 €, eläkeläiset 13 €, lapset 11 €.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä Kuolleet lehdet -elokuva nähdään?",
+        "options": [
+          "maanantaina",
+          "keskiviikkona",
+          "perjantaina"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko aikuisten lippu maksaa?",
+        "options": [
+          "13 €",
+          "15 €",
+          "16 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_003",
+        "prompt": "Milloin on lastennäytöksiä?",
+        "options": [
+          "maanantaina",
+          "keskiviikkona",
+          "lauantaina ja sunnuntaina"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mihin aikaan Napoleon alkaa?",
+        "options": [
+          "kello 17.30",
+          "kello 18.30",
+          "kello 19.30"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

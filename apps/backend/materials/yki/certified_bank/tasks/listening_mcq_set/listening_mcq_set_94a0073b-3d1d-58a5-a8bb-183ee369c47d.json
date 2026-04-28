@@ -1,0 +1,88 @@
+{
+  "id": "94a0073b-3d1d-58a5-a8bb-183ee369c47d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.675,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Ravintola Makujen Maailmaan! Nyt meillä on viikon lounastarjous: lounasbuffet vain 12,90 euroa. Tarjous on voimassa arkisin kello 11-14. Tervetuloa nauttimaan monipuolisesta lounaastamme!",
+      "audio_asset_id": "248c7b0e-c228-4ddc-9ed4-7bff3d715138"
+    },
+    "questions": [
+      {
+        "id": "l246q1",
+        "prompt": "Mikä on ravintolan nimi?",
+        "options": [
+          "Ravintola Herkku.",
+          "Ravintola Maku.",
+          "Ravintola Makujen Maailma.",
+          "Ravintola Ateria."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l246q2",
+        "prompt": "Mikä on lounastarjouksen hinta?",
+        "options": [
+          "12,90 euroa.",
+          "10,90 euroa.",
+          "11,90 euroa.",
+          "13,90 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l246q3",
+        "prompt": "Minä päivinä tarjous on voimassa?",
+        "options": [
+          "Viikonloppuisin.",
+          "Joka päivä.",
+          "Arkisin.",
+          "Vain maanantaisin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l246q4",
+        "prompt": "Mihin aikaan lounas on tarjolla?",
+        "options": [
+          "Kello 10-13.",
+          "Kello 11-14.",
+          "Kello 12-15.",
+          "Kello 13-16."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l246q5",
+        "prompt": "Mitä tarjous koskee?",
+        "options": [
+          "À la carte -annoksia.",
+          "Salaattipöytää.",
+          "Jälkiruokia.",
+          "Lounasbuffettia."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

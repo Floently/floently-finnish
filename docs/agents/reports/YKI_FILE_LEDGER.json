@@ -1,0 +1,90 @@
+{
+  "canonical_candidates": [
+    "apps/backend/materials/yki/certified_bank/",
+    "apps/backend/materials/yki/task_banks/task_index_v3_2.json",
+    "apps/backend/materials/yki/manifest/manifest.json"
+  ],
+  "discovered": [
+    {
+      "path": "apps/backend/materials/yki/certified_bank/manifest.json",
+      "kind": "manifest",
+      "classification": "canonical",
+      "exists": true
+    },
+    {
+      "path": "apps/backend/materials/yki/certified_bank/metadata/pool_index.json",
+      "kind": "pool_index",
+      "classification": "canonical",
+      "exists": true
+    },
+    {
+      "path": "apps/backend/materials/yki/manifest/manifest.json",
+      "kind": "manifest",
+      "classification": "compatible_secondary",
+      "exists": true
+    },
+    {
+      "path": "apps/backend/materials/yki/task_banks/task_index_v3_2.json",
+      "kind": "task_index",
+      "classification": "canonical_runtime_index",
+      "exists": true
+    },
+    {
+      "path": "apps/backend/materials/yki/manifest/task_index_salvaged_tasks.json",
+      "kind": "task_index",
+      "classification": "donor_only",
+      "exists": true
+    },
+    {
+      "path": "apps/backend/materials/yki/manifest/task_index_unusable_tasks.json",
+      "kind": "task_index",
+      "classification": "reject_side_index",
+      "exists": true
+    }
+  ],
+  "engine_discovered_indexes": [],
+  "counts": {
+    "total_tasks": 9706,
+    "levels": {
+      "A1_A2": 2092,
+      "B1_B2": 3882,
+      "C1_C2": 3732
+    },
+    "skills_by_level": {
+      "A1_A2": {
+        "reading": 282,
+        "listening": 175,
+        "writing": 1282,
+        "speaking": 353
+      },
+      "B1_B2": {
+        "reading": 965,
+        "listening": 227,
+        "writing": 2046,
+        "speaking": 644
+      },
+      "C1_C2": {
+        "reading": 864,
+        "listening": 216,
+        "writing": 2139,
+        "speaking": 513
+      }
+    },
+    "missing_file_references": 0
+  },
+  "runtime_findings": {
+    "exam_overview_pool_index_path": {
+      "before_fix": "apps/backend/materials/yki/certified_bank/pool_index.json",
+      "actual": "apps/backend/materials/yki/certified_bank/metadata/pool_index.json",
+      "status": "fixed"
+    },
+    "practice_pool_index_path": {
+      "before_fix": "apps/backend/materials/yki/certified_bank/pool_index.json",
+      "actual": "apps/backend/materials/yki/certified_bank/metadata/pool_index.json",
+      "status": "fixed"
+    },
+    "engine_base_url_default": "http://localhost:8010",
+    "engine_health_localhost_8010": "unreachable",
+    "engine_health_127_0_0_1_8181": "unreachable"
+  }
+}

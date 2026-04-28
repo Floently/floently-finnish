@@ -1,0 +1,37 @@
+{
+  "id": "33537a83-83cb-5dcf-84d4-13c8a63322f2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla mahdollisuus ravitsemusterapeutille ilman lähetettä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ravitsemusterapeutille ilman lähetettä terveyskeskuksissa"
+    },
+    "items": [
+      {
+        "id": "ec5dfb92-186e-52b6-bebf-37680aace1be",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla mahdollisuus ravitsemusterapeutille ilman lähetettä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

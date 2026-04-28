@@ -1,0 +1,77 @@
+{
+  "id": "b869cbe0-a920-5a79-8706-a7f3558dd040",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KEKKERIT, KUULUMISET JA KUULIJAISET – TYÖYHTEISÖN RAPPEUTUMINEN\n\nOlen työskennellyt samassa yrityksessä yli kaksikymmentä vuotta. Olen nähnyt, kuinka työpaikoista on vähitellen kadonnut jotain oleellista: yhteisöllisyys. Tilalle on tullut tehokkuus, tuloksellisuus ja jatkuva kiire.\n\nMuistan ajan, jolloin työkavereiden syntymäpäiviä juhlittiin kahvihuoneessa, viikon päätteeksi saatettiin käydä yhdessä lasillisella ja uuden työntekijän tullessa järjestettiin kunnon kuulijaiset. Nämä eivät olleet pelkkää ajanhukkaa – ne olivat niitä hetkiä, jolloin ihmiset oppivat tuntemaan toisensa, luottamus syntyi ja yhteishenki vahvistui.\n\nNyt kuulumiset vaihdetaan Teamsissa, syntymäpäivät ohitetaan ehkä yhteisellä sähköpostilla ja uusi työntekijä saa perehdytyksen etänä. Työ on muuttunut suoritteiden vaihdoksi ilman inhimillistä kosketusta. Etätyö on toki tuonut joustavuutta ja säästänyt aikaa, mutta hinnalla on maksettu: työpaikasta on tullut abstrakti käsite, ei paikka, jonne mennään tapaamaan ihmisiä.\n\nTutkimukset osoittavat, että yksinäisyys ja työuupumus ovat lisääntyneet. Yllättävää? Tuskin. Ihminen on sosiaalinen eläin. Vaikka olisimme kuinka tehokkaita etänä, jotain meistä katoaa, jos emme koskaan tapaa kollegoita kasvokkain. Sanaton viestintä, spontaanit ideat kahvihuoneessa, se \"jotain\" – sitä ei voi korvata millään teknologialla.\n\nOlenko vain vanhanaikainen? Ehkä. Mutta kun katson nuorempia kollegoitani, jotka ovat aloittaneet uransa etänä, näen saman kaipuun. He eivät ole kokeneet sitä, mistä puhun, mutta he aavistavat, että jotain puuttuu. He hakevat sitä someyhteisöistä, työn ulkopuolisista harrastuksista – mistä vain, missä voi kohdata toisia.\n\nTyöelämän ei tarvitsisi olla joko–tai. Voisimme pitää etätyön tuomat hyödyt mutta samalla panostaa yhteisiin hetkiin. Pakolliset tiimipalaverit eivät riitä. Tarvitaan aitoa kohtaamista, yhdessäoloa ilman agendaa. Sillä lopulta työ on muutakin kuin suoritteita: se on osa elämää, ja elämä on ihmisiä varten.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 278
+    },
+    "questions": [
+      {
+        "id": "f2802ba0-9312-5768-b5f5-665565178563",
+        "prompt": "Mitä kirjoittaja pitää työelämän suurimpana menetyksenä?",
+        "options": [
+          "Palkkojen laskua",
+          "Yhteisöllisyyden katoamista",
+          "Teknologian kehitystä",
+          "Työpaikkojen vähenemistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "de506750-637c-5aaf-9a11-fd3214d91cbe",
+        "prompt": "Miten kirjoittaja suhtautuu etätyöhön?",
+        "options": [
+          "Täysin kielteisesti",
+          "Näkee sekä hyötyjä että haittoja",
+          "Täysin myönteisesti",
+          "Ei osaa sanoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0a7becf9-6904-5a53-83a5-417396702f66",
+        "prompt": "Mitä tarkoitetaan ilmaisulla \"työstä on tullut suoritteiden vaihtoa ilman inhimillistä kosketusta\"?",
+        "options": [
+          "Työ on fyysisesti raskasta",
+          "Ihmisten välinen vuorovaikutus on vähentynyt",
+          "Työtä tehdään vain koneilla",
+          "Palkka on huono"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "82ac4992-b1a2-59b0-b775-4c58b2a9086c",
+        "prompt": "Mitä kirjoittaja ehdottaa ratkaisuksi?",
+        "options": [
+          "Lopettaa etätyö kokonaan",
+          "Panostaa aitoihin kohtaamisiin ja yhteisiin hetkiin",
+          "Pidentää työpäivää",
+          "Lisätä valvontaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

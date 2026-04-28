@@ -1,0 +1,63 @@
+{
+  "id": "ac0dc22c-3033-5857-969b-fa217602107b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähiliikuntapaikat ovat yleistyneet suomalaisissa kaupungeissa. Ne ovat maksuttomia, kaikille avoimia paikkoja, joissa voi harrastaa monenlaista liikuntaa.\n\n\"Meillä on nyt kolme uutta lähiliikuntapaikkaa eri puolilla kaupunkia. Ne ovat olleet todella suosittuja\", kertoo liikuntasuunnittelija.\n\nHaasteena on ylläpito ja ilkivalta. Osa paikoista on kärsinyt rikkinäisistä välineistä ja roskaamisesta. Myös melu on herättänyt keskustelua.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "item_141_1",
+        "prompt": "Mitä lähiliikuntapaikat ovat?",
+        "options": [
+          "maksullisia kuntosaleja",
+          "maksuttomia, kaikille avoimia liikuntapaikkoja",
+          "vain lasten leikkipaikkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_141_2",
+        "prompt": "Montako uutta lähiliikuntapaikkaa on rakennettu?",
+        "options": [
+          "kaksi",
+          "kolme",
+          "neljä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_141_3",
+        "prompt": "Mitä haasteita lähiliikuntapaikoilla on?",
+        "options": [
+          "niitä käytetään liian vähän",
+          "ylläpito, ilkivalta ja melu",
+          "ne ovat liian kalliita rakentaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

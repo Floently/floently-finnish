@@ -1,0 +1,37 @@
+{
+  "id": "7fc70c04-12b4-58d9-a084-0eccfe43e58c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.347,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lähikirjastoon. Haluat kysyä, onko heillä englanninkielisiä kirjoja. Kerro, että etsit helppolukuisia kirjoja. Kysy, onko heillä erikseen hyllyä helppolukuisille kirjoille. Kysy myös aukioloajoista.",
+    "materials": {
+      "scenario": "Viesti kirjastoon englanninkielisistä kirjoista"
+    },
+    "items": [
+      {
+        "id": "6ed378ff-e339-50f7-9cde-cd2c7efa3417",
+        "prompt": "Kirjoita lyhyt viesti lähikirjastoon. Haluat kysyä, onko heillä englanninkielisiä kirjoja. Kerro, että etsit helppolukuisia kirjoja. Kysy, onko heillä erikseen hyllyä helppolukuisille kirjoille. Kysy myös aukioloajoista."
+      }
+    ],
+    "rubric": "Kysy englanninkielisiä kirjoja\nKerro, että etsit helppolukuisia\nKysy helppolukuisten hyllystä\nKysy aukioloajoista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

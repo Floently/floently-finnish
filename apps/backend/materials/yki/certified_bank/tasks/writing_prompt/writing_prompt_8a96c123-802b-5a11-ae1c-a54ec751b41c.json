@@ -1,0 +1,37 @@
+{
+  "id": "8a96c123-802b-5a11-ae1c-a54ec751b41c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän kasvispainotteiseen ruokavalioon?'. Pohdi terveysvaikutuksia, ympäristöä ja elinkeinopolitiikkaa.",
+    "materials": {
+      "scenario": "Verotus ja kasvisruokavalio"
+    },
+    "items": [
+      {
+        "id": "60a008fd-3538-57f7-802c-fcb59c23b16c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän kasvispainotteiseen ruokavalioon?'. Pohdi terveysvaikutuksia, ympäristöä ja elinkeinopolitiikkaa."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nYmpäristö\nElinkeinopolitiikka\nKuluttajien valinnanvapaus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

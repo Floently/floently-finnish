@@ -1,0 +1,40 @@
+{
+  "id": "4501fd47-73a0-5698-9f74-012895aff05f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa diplomaattista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet suomalainen yritysneuvottelija, joka arvostaa pitkiä kumppanuuksia ja haluaa löytää molempia tyydyttävän ratkaisun.",
+        "partner": "Japanilainen yhteistyökumppani - kohtelias mutta päättäväinen, tuo uusia ehtjä esiin ikään kuin itsestäänselvyytenä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp12",
+        "ai_first_turn_fi": "Olemme erittäin tyytyväisiä yhteistyöhömme. Keskustellaan vielä viimeisistä ehdoista. Ymmärrämme tarpeenne, mutta meillä on myös omat reunaehtomme."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa diplomaattista kieltä.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "67908bca-4087-5d29-a1e2-d5300516334c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lähikaupoissa olla enemmän irtomyyntiä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Irtomyynti lähikaupoissa"
+    },
+    "items": [
+      {
+        "id": "63e750d3-f73d-5fb1-9f29-8dc8cfa84c38",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lähikaupoissa olla enemmän irtomyyntiä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

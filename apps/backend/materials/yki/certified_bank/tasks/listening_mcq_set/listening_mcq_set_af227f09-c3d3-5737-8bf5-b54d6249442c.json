@@ -1,0 +1,77 @@
+{
+  "id": "af227f09-c3d3-5737-8bf5-b54d6249442c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.761,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijoiden keskustelu terveydenhuollon tulevaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa Terveyspoliittiseen foorumiin. Tänään keskustelemme siitä, miten terveydenhuoltoa pitäisi kehittää vastaamaan tulevaisuuden haasteita. Meillä on vieraana professori Anna Mäkelä, terveystaloustieteilijä Juhani Virtanen ja ylilääkäri Marja Lehtonen.\n\nPuheenjohtaja: Aloitetaan teistä, professori Mäkelä. Mitkä ovat suurimmat haasteet terveydenhuollossa tulevina vuosikymmeninä?\n\nMäkelä: Suurin haaste on epäilemättä väestön ikääntyminen. Yli 65-vuotiaiden määrä kasvaa nopeasti, mikä lisää hoivapalvelujen ja terveydenhuollon tarvetta. Samalla työikäisten määrä pienenee, joten verotulot eivät kasva samaa tahtia. Tämä luo valtavia paineita julkiselle taloudelle. Toinen haaste on kustannusten nousu. Uudet hoidot ja lääkkeet ovat yhä kalliimpia, ja samalla pitäisi pystyä hillitsemään kustannuksia.\n\nPuheenjohtaja: Terveystaloustieteilijä Virtanen, miten tämä rahoitus saadaan järjestettyä?\n\nVirtanen: Tämä on erittäin vaikea yhtälö. Yksi keino on työn tuottavuuden kasvu, mutta se ei yksin riitä. Tarvitaan myös rakenteellisia uudistuksia. Meidän on mietittävä, mitä palveluita voidaan tuottaa tehokkaammin ilman, että laatu kärsii. Digitalisaatio tarjoaa tähän mahdollisuuksia: etävastaanotot, digitaaliset palvelut ja tekoälyn hyödyntäminen voivat säästää resursseja. Myös ennaltaehkäisyyn pitää panostaa enemmän – sairauksien ehkäisy on aina halvempaa kuin niiden hoito.\n\nPuheenjohtaja: Ylilääkäri Lehtonen, mitä ajatuksia tämä herättää teissä kentän näkökulmasta?\n\nLehtonen: Digitalisaatio on varmasti osa ratkaisua, mutta se ei saa johtaa siihen, että ihmisten kohtaaminen unohtuu. Potilaat tarvitsevat myös inhimillistä kohtaamista, erityisesti vanhukset ja mielenterveyspotilaat. Teknologia on väline, ei itsetarkoitus. Toinen huolenaihe on henkilöstön riittävyys. Jos säästetään väärin, hoitajia ja lääkäreitä ei ole tarpeeksi. Työoloihin pitää panostaa, jotta ala houkuttelee osaajia.\n\nPuheenjohtaja: Professori Mäkelä, mitä mieltä olette yksityisten palveluiden roolista?\n\nMäkelä: Tämä on arka kysymys. Yksityiset palvelut voivat tuoda joustavuutta ja valinnanvaraa, mutta ne voivat myös lisätä eriarvoisuutta. Jos vain hyvätuloiset voivat ostaa nopean hoidon, julkinen terveydenhuolto ruuhkautuu entisestään. Tarvitaan selkeät pelisäännöt ja se, että julkiset palvelut pysyvät kaikkien saatavilla. Monikanavainen malli, jossa julkinen, yksityinen ja kolmas sektori täydentävät toisiaan, voi toimia, mutta se vaatii hyvää koordinaatiota.\n\nPuheenjohtaja: Virtanen, miten tämä kaikki rahoitetaan?\n\nVirtanen: Rahoituspohjaa pitää vahvistaa. Yksi keino on työurien pidentäminen, mutta se ei yksin riitä. Myös verotusta joudutaan todennäköisesti kiristämään, mutta se on poliittisesti vaikeaa. Tarvitaan uudenlaisia rahoitusmalleja, kuten terveysvakuutuksen laajentamista. Tärkeintä on, että rahoitus on kestävällä pohjalla pitkällä tähtäimellä.\n\nPuheenjohtaja: Lehtonen, mikä on tärkein asia, joka pitäisi tehdä ensi tilassa?\n\nLehtonen: Panostaa ennaltaehkäisyyn ja perusterveydenhuoltoon. Jos perusterveydenhuolto toimii, erikoissairaanhoidon tarve vähenee. Myös hoitajien työoloihin pitää panostaa, jotta he jaksavat ja pysyvät alalla.\n\nMäkelä: Ja pitkäjänteinen suunnittelu. Terveydenhuoltoa ei voi uudistaa neljässä vuodessa, se vaatii yli hallituskausien ulottuvaa yhteistyötä.\n\nVirtanen: Olen samaa mieltä. Tarvitaan yhteiskuntasopimus siitä, että terveydenhuoltoon panostetaan ja että se on kaikkien yhteinen asia.",
+      "audio_asset_id": "d7b9e545-f513-56d0-bf75-77949ce96be9"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on professori Mäkelän mukaan suurin haaste terveydenhuollossa?",
+        "options": [
+          "Lääkäripula",
+          "Väestön ikääntyminen ja kustannusten nousu",
+          "Huonot sairaalat",
+          "Potilaiden tyytymättömyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ratkaisuja terveystaloustieteilijä Virtanen ehdottaa?",
+        "options": [
+          "Vain lisää veroja",
+          "Digitalisaatiota, ennaltaehkäisyä ja rakenteellisia uudistuksia",
+          "Yksityistäminen",
+          "Hoidon karsiminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä huolta ylilääkäri Lehtonen nostaa esiin digitalisaatiosta?",
+        "options": [
+          "Se on liian kallista",
+          "Se voi vähentää inhimillistä kohtaamista",
+          "Se on tehotonta",
+          "Potilaat eivät osaa käyttää sitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä professori Mäkelä sanoo yksityisten palveluiden roolista?",
+        "options": [
+          "Ne pitää kieltää",
+          "Ne voivat tuoda joustavuutta, mutta voivat lisätä eriarvoisuutta",
+          "Ne ratkaisevat kaikki ongelmat",
+          "Ne ovat ainoa keino"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

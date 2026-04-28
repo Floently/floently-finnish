@@ -1,0 +1,37 @@
+{
+  "id": "d1fd85d3-266f-502d-9698-b7f9f6fb1515",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti hammashoitolaan. Haluat varata ajan hampaiden tarkastukseen. Kerro nimesi ja puhelinnumerosi. Kerro, milloin sinulle sopisi parhaiten tulla. Kysy myös, paljonko tarkastus maksaa.",
+    "materials": {
+      "scenario": "Ajanvaraus hampaiden tarkastukseen"
+    },
+    "items": [
+      {
+        "id": "27c77642-cd54-5008-b1c3-fa178f40b36c",
+        "prompt": "Kirjoita sähköposti hammashoitolaan. Haluat varata ajan hampaiden tarkastukseen. Kerro nimesi ja puhelinnumerosi. Kerro, milloin sinulle sopisi parhaiten tulla. Kysy myös, paljonko tarkastus maksaa."
+      }
+    ],
+    "rubric": "Henkilötiedot\nToivottu ajankohta\nHinta",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

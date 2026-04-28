@@ -1,0 +1,37 @@
+{
+  "id": "6d474057-a0d8-5e7f-9d5e-1680a1d966de",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.674,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an apprenticeship as a bicycle mechanic. Tell about your interest in bikes and mechanics, practical skills, and why you want to learn the trade. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus polkupyöräkorjaajan oppipoikapaikkaan"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for an apprenticeship as a bicycle mechanic. Tell about your interest in bikes and mechanics, practical skills, and why you want to learn the trade. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an apprenticeship as a bicycle mechanic. Tell about your interest in bikes and mechanics, practical skills, and why you want to learn the trade. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

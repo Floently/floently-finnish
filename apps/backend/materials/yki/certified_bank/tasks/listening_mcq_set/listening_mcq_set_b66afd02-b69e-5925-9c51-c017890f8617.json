@@ -1,0 +1,77 @@
+{
+  "id": "b66afd02-b69e-5925-9c51-c017890f8617",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu ilmastoahdistuksesta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme ilmastoahdistuksesta. Minulla on täällä psykologi Liisa, joka on tutkinut aihetta. Liisa, mitä ilmastoahdistus tarkoittaa?\n\nLiisa: Se on huolta ja pelkoa ilmastonmuutoksen vaikutuksista. Se on normaali reaktio uhan alla elämiseen. Erityisesti nuoret kokevat sitä, koska he joutuvat elämään muutosten keskellä.\n\nToimittaja: Miten ilmastoahdistus näkyy?\n\nLiisa: Se voi näkyä univaikeuksina, keskittymisongelmina ja tulevaisuuden pelkona. Osa miettii, kannattaako perustaa perhettä, jos maailma on tuhoutumassa. Se on vakava asia.\n\nToimittaja: Miten ilmastoahdistusta voi käsitellä?\n\nLiisa: Tärkeintä on puhua tunteista. Ahdistus vähenee, kun sen jakaa toisten kanssa. Myös toiminta auttaa. Kun tekee jotain konkreettista, vaikka vähentää omaa kulutusta tai osallistuu mielenosoitukseen, se antaa tunteen, että voi vaikuttaa.\n\nToimittaja: Mitä yhteiskunnan pitäisi tehdä?\n\nLiisa: Päättäjien on otettava ilmastoahdistus vakavasti. Kun nuoret näkevät, että asioille tehdään jotain, se vähentää ahdistusta. Passiivisuus pahentaa sitä.\n\nToimittaja: Mitä sanoisit niille, jotka kokevat ilmastoahdistusta?\n\nLiisa: Et ole yksin. Monet muut kokevat samaa. Puhu, toimi ja pidä yllä toivoa. Pienillä teoilla on merkitystä.",
+      "audio_asset_id": "4756834f-3c0b-541e-80bb-289c67840732"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_016_q1",
+        "prompt": "Mitä ilmastoahdistus tarkoittaa?",
+        "options": [
+          "ilo ilmastonmuutoksesta",
+          "huolta ja pelkoa ilmastonmuutoksen vaikutuksista",
+          "välinpitämättömyyttä",
+          "vain fyysistä oireilua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_016_q2",
+        "prompt": "Miten ilmastoahdistus näkyy?",
+        "options": [
+          "ei mitenkään",
+          "univaikeuksina, keskittymisongelmina ja tulevaisuuden pelkona",
+          "liiallisena energisyytenä",
+          "välinpitämättömyytenä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_016_q3",
+        "prompt": "Miten ilmastoahdistusta voi käsitellä?",
+        "options": [
+          "vain lääkkeillä",
+          "puhumalla ja toimimalla",
+          "välttämällä asiaa",
+          "yksin olemalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_016_q4",
+        "prompt": "Mitä yhteiskunnan pitäisi tehdä?",
+        "options": [
+          "ei mitään",
+          "ottaa ilmastoahdistus vakavasti ja osoittaa toimivansa",
+          "kieltää ilmastokeskustelu",
+          "vähentää uutisointia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "95ac62a1-7d94-5d2a-a962-ab7b43bdf9e0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele matkustajan kysymys ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Matkustaja: Anteeksi, meneekö tämä bussi keskustaan?\nKuljettaja: Ei mene, tämä bussi menee vain lentokentälle. Keskustaan pääset bussilla numero 5. Se lähtee tuolta samalta pysäkiltä.\nMatkustaja: Kuinka usein bussi 5 kulkee?\nKuljettaja: Noin 15 minuutin välein.\nMatkustaja: Kiitos avusta!\nKuljettaja: Ole hyvä.",
+      "audio_asset_id": "352b4be7-8558-40c9-ba81-0bf828d579c5"
+    },
+    "questions": [
+      {
+        "id": "9542fae3-138a-5fcc-8a65-dd7137738899",
+        "prompt": "Mihin tämä bussi menee?",
+        "options": [
+          "Keskustaan",
+          "Lentokentälle",
+          "Satamaan",
+          "Kauppakeskukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8feffa9a-0082-51c8-a9ce-0f0785407817",
+        "prompt": "Millä bussilla pääsee keskustaan?",
+        "options": [
+          "Bussi 3",
+          "Bussi 5",
+          "Bussi 7",
+          "Bussi 9"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "27986c4f-1f31-5249-99ae-86f5d2438708",
+        "prompt": "Kuinka usein bussi 5 kulkee?",
+        "options": [
+          "5 min välein",
+          "10 min välein",
+          "15 min välein",
+          "20 min välein"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

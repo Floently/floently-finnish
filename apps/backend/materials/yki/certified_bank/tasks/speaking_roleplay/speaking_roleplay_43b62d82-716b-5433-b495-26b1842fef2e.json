@@ -1,0 +1,60 @@
+{
+  "id": "43b62d82-716b-5433-b495-26b1842fef2e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa varata pöydän ravintolasta ja kysyä allergioista. Keskustele tarjoilijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Ravintolan tarjoilija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp29_1",
+        "ai_first_turn_fi": "Hei, Ravintola Via, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp29_2",
+        "ai_first_turn_fi": "Mille päivälle ja mihin aikaan haluaisitte varata pöydän?"
+      },
+      {
+        "id": "srp29_3",
+        "ai_first_turn_fi": "Se onnistuu. Haluaisin myös mainita, että minulla on pähkinäallergia. Onko ruokalistallanne pähkinättömiä vaihtoehtoja?"
+      },
+      {
+        "id": "srp29_4",
+        "ai_first_turn_fi": "Kiitos kun kerroit. Meillä on useita pähkinättömiä vaihtoehtoja. Keittiömme on tottunut allergioiden huomioimiseen."
+      },
+      {
+        "id": "srp29_5",
+        "ai_first_turn_fi": "Voit toki kertoa toiveesi varauksen yhteydessä. Merkitsen sen ylös. Onko muita allergioita tai erikoisruokavalioita?"
+      },
+      {
+        "id": "srp29_6",
+        "ai_first_turn_fi": "Selvä. Pöytä on nyt varattu. Nähdään sovittuna aikana!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa varata pöydän ravintolasta ja kysyä allergioista. Keskustele tarjoilijan kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

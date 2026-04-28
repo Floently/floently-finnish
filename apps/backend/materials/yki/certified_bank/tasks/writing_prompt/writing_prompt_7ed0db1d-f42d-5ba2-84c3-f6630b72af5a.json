@@ -1,0 +1,37 @@
+{
+  "id": "7ed0db1d-f42d-5ba2-84c3-f6630b72af5a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute parturin palvelusta.",
+    "materials": {
+      "scenario": "Käynti parturissa"
+    },
+    "items": [
+      {
+        "id": "cde0f14f-ffda-5d2a-9c0e-444dea0296d5",
+        "prompt": "Kirjoita palaute parturin palvelusta."
+      }
+    ],
+    "rubric": "Kirjoita palaute parturin palvelusta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

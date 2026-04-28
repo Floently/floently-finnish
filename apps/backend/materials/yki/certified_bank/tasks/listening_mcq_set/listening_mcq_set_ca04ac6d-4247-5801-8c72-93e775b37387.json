@@ -1,0 +1,88 @@
+{
+  "id": "ca04ac6d-4247-5801-8c72-93e775b37387",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.681,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele hammaslääkäriajan varaus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Vastaaja: Hammaslääkäri Vasara, päivää. Asiakas: Päivää, haluaisin varata ajan hammastarkastukseen. Vastaaja: Totta kai. Onko sinulla jokin kiireellinen vaiva? Asiakas: Ei ole, ihan normaali vuositarkastus. Vastaaja: Selvä. Meillä on vapaita aikoja ensi viikon torstaina ja perjantaina. Asiakas: Torstai olisi hyvä. Onko aamupäivällä? Vastaaja: On, kello 9.30 sopisi. Asiakas: Se käy hyvin. Vastaaja: Sopii. Muistathan ottaa mukaan Kela-kortin. Näkyykö teillä muita asioita? Asiakas: Ei kiitos, se oli siinä.",
+      "audio_asset_id": "3e5c9f80-58d9-4ec3-94b4-2fd460c25bfe"
+    },
+    "questions": [
+      {
+        "id": "l29q1",
+        "prompt": "Miksi asiakas soittaa hammaslääkärille?",
+        "options": [
+          "Hänellä on hammassärkyä.",
+          "Hän haluaa varata ajan tarkastukseen.",
+          "Hän haluaa perua ajan.",
+          "Hän haluaa kysyä hintaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l29q2",
+        "prompt": "Onko asiakkaalla kiireellinen vaiva?",
+        "options": [
+          "Kyllä, särkee paljon.",
+          "Kyllä, paikka on irti.",
+          "Ei, hän soitti väärään paikkaan.",
+          "Ei, ihan normaali tarkastus."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l29q3",
+        "prompt": "Mille päivälle aika varataan?",
+        "options": [
+          "Ensi viikon maanantai.",
+          "Ensi viikon torstai.",
+          "Ensi viikon perjantai.",
+          "Ensi viikon keskiviikko."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l29q4",
+        "prompt": "Mihin kellonaikaan aika on?",
+        "options": [
+          "Klo 8.30.",
+          "Klo 9.30.",
+          "Klo 9.00.",
+          "Klo 10.00."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l29q5",
+        "prompt": "Mitä asiakkaan pitää muistaa ottaa mukaan?",
+        "options": [
+          "Hammasharja.",
+          "Kela-kortti.",
+          "Raha.",
+          "Henkilöllisyystodistus."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

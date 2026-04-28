@@ -1,0 +1,110 @@
+{
+  "id": "0cbfe958-4a5d-5255-ab5e-95f0125bde9c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen työelämä on keskellä syvällistä murrosta, jonka vaikutukset ulottuvat laajalle yhteiskuntaan. Digitalisaatio, automaatio ja tekoäly muuttavat työn sisältöä, rakenteita ja vaatimuksia perusteellisesti. Monet rutiininomaiset ja manuaaliset tehtävät katoavat, kun koneet ja algoritmit ottavat ne hoitaakseen. Samalla syntyy jatkuvasti uusia ammatteja ja työtehtäviä, jotka vaativat uudenlaista, usein korkeampaa osaamista. Tämä edellyttää työntekijöiltä aivan uudenlaista suhtautumista omaan osaamiseensa: jatkuva oppiminen, itsensä kehittäminen ja sopeutumiskyky nousevat keskeisiksi taidoiksi. Työurat eivät ole enää lineaarisia ja ennakoitavia, vaan ne koostuvat yhä moninaisemmista jaksoista: opiskelua, työtä, yrittäjyyttä, työttömyyttä, uudelleenkoulutusta ja ehkä useita alanvaihdoksia. Työsuhteet ovat moninaistuneet ja pirstaloituneet. Vakituisen kokoaikatyön rinnalle ovat voimakkaasti tulleet osa-aikatyö, määräaikaiset työsuhteet, vuokratyö, keikkatyö ja alustatalouden kautta välittyvä työ. Tämä tuo monille kaivattua joustavuutta, mutta myös huomattavaa epävarmuutta ja pirstaleisuutta. Moni ei tiedä, paljonko tuloja on seuraavassa kuussa, tai onko töitä ollenkaan. Työelämän syvällinen muutos haastaa myös työlainsäädännön ja sosiaaliturvan perusteita. Nykyinen järjestelmä on pitkälti rakennettu vakituisen kokoaikatyön varaan, ja se sopii huonosti uusiin, joustaviin työn tekemisen muotoihin. Uusissa työnteon muodoissa työntekijän asema on usein epäselvä, eivätkä perinteiset turvaverkot, kuten työttömyysturva ja työterveyshuolto, välttämättä toimi. Tarvitaan rohkeaa uudenlaista ajattelua ja innovatiivisia ratkaisuja, jotka turvaavat toimeentulon ja työntekijöiden oikeudet työnteon muodosta riippumatta.",
+      "word_count": 190
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on keskeisin työelämän muutosta aiheuttava tekijä?",
+        "options": [
+          "Poliittiset päätökset.",
+          "Digitalisaatio, automaatio ja tekoäly.",
+          "Väestön ikääntyminen.",
+          "Globalisaatio."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu rutiininomaisille työtehtäville?",
+        "options": [
+          "Ne lisääntyvät.",
+          "Ne katoavat, kun koneet ja algoritmit korvaavat ne.",
+          "Ne pysyvät samoina.",
+          "Ne siirtyvät ulkomaille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työntekijöiltä vaaditaan tulevaisuudessa?",
+        "options": [
+          "Yhden ammatin syvällistä hallintaa.",
+          "Jatkuvaa oppimista, itsensä kehittämistä ja sopeutumiskykyä.",
+          "Fyysistä voimaa ja kestävyyttä.",
+          "Useiden kielten osaamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millaisia työsuhteita on yleistynyt?",
+        "options": [
+          "Vain vakituisia kokoaikatyösuhteita.",
+          "Osa-aikatyö, määräaikaiset työsuhteet, vuokratyö, keikkatyö ja alustatyö.",
+          "Vain yrittäjyyttä.",
+          "Vain etätyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä haittapuolia uusiin työnteon muotoihin liittyy?",
+        "options": [
+          "Liikaa vakautta ja ennakoitavuutta.",
+          "Epävarmuutta, pirstaleisuutta ja tulojen vaihtelua.",
+          "Liian korkeaa palkkaa.",
+          "Liian vähän työtä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi nykyinen työlainsäädäntö ja sosiaaliturva ovat haasteellisia uusille työnteon muodoille?",
+        "options": [
+          "Ne ovat liian uusia ja kehittymättömiä.",
+          "Ne on rakennettu vakituisen kokoaikatyön varaan.",
+          "Ne ovat liian joustavia ja pirstaleisia.",
+          "Ne eivät koske ketään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä tarvitaan työelämän murrokseen vastaamiseksi?",
+        "options": [
+          "Vanhoihin malleihin pitäytymistä.",
+          "Rohkeaa uudenlaista ajattelua ja innovatiivisia ratkaisuja.",
+          "Vain lainsäädännön kiristämistä.",
+          "Vain työntekijöiden sopeutumista."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "c4626221-409a-5589-9cb3-20d355c67c06",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta kauppakeskuksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uusi kauppakeskus Arena avaa ovensa syyskuussa 2025. Kauppakeskus sijaitsee keskustan tuntumassa, hyvien liikenneyhteyksien varrella. Sinne on tulossa noin 120 liikettä, ravintolaa ja kahvilaa. Lisäksi kauppakeskuksessa on elokuvateatteri, keilahalli ja liikuntakeskus. Arkkitehtuurissa on panostettu erityisesti viihtyisyyteen ja valoisuuteen. Keskellä kauppakeskusta on suuri sisäpuisto, jossa on istutuksia ja oleskelualueita. Katolla on terassi ja kahvila, josta on näköala kaupunkiin. Pysäköintihalliin mahtuu 2000 autoa, ja siellä on myös latauspisteitä sähköautoille. Kauppakeskus on avoinna maanantaista perjantaihin kello 9-21, lauantaisin kello 9-18 ja sunnuntaisin kello 12-18. Tervetuloa tutustumaan uuteen Arenaan!",
+      "audio_asset_id": "833439cc-8f02-4e4e-b53d-a982a4527c6d"
+    },
+    "questions": [
+      {
+        "id": "67eeaf04-6900-5c89-88bc-1b12ef4e0bcb",
+        "prompt": "Mikä on uuden kauppakeskuksen nimi?",
+        "options": [
+          "Arena.",
+          "Forum.",
+          "Keskus.",
+          "Galleria."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "cab8d6f2-131d-5747-8045-a715f61f384e",
+        "prompt": "Milloin kauppakeskus avaa ovensa?",
+        "options": [
+          "Kesäkuussa 2025.",
+          "Syyskuussa 2025.",
+          "Elokuussa 2025.",
+          "Lokakuussa 2025."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "030d34b1-33be-5fa0-b967-4562182558cc",
+        "prompt": "Mitä palveluja kauppakeskuksessa on liikkeiden ja ravintoloiden lisäksi?",
+        "options": [
+          "Uimahalli ja kuntosali.",
+          "Elokuvateatteri, keilahalli ja liikuntakeskus.",
+          "Teatteri ja museo.",
+          "Kirjasto ja nuorisotila."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8fe90785-d979-5f95-860b-03fef7504dd5",
+        "prompt": "Mitä erityistä kauppakeskuksen keskellä on?",
+        "options": [
+          "Sisäpuisto, jossa istutuksia ja oleskelualueita.",
+          "Suuri suihkulähde.",
+          "Jäähalli.",
+          "Konserttisali."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "54e828d0-837d-5bd0-882d-db5892315568",
+        "prompt": "Mihin asti kauppakeskus on auki sunnuntaisin?",
+        "options": [
+          "Kello 16.",
+          "Kello 17.",
+          "Kello 18.",
+          "Kello 20."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

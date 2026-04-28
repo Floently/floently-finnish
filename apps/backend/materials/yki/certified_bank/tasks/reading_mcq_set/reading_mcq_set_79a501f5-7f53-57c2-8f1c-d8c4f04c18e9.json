@@ -1,0 +1,88 @@
+{
+  "id": "79a501f5-7f53-57c2-8f1c-d8c4f04c18e9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.771,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Sosiaalisen median vaikutukset demokratiaan ovat olleet vilkkaan keskustelun kohteena. Alun perin sosiaaliseen mediaan liitettiin suuria toiveita demokratian vahvistajana. Ajateltiin, että se antaa äänen niille, jotka ovat perinteisesti jääneet julkisessa keskustelussa marginaaliin, ja että se mahdollistaa uudenlaisen kansalaisaktivismin. Nämä toiveet ovat myös osittain toteutuneet: sosiaalinen media on ollut keskeinen väline monissa kansalaisliikkeissä, ja se on tuonut esiin näkökulmia, jotka eivät muuten olisi saaneet julkisuutta. Toisaalta viime vuosina sosiaalisen median varjopuolet ovat tulleet yhä selvemmin näkyviin. Yksi vakavimmista ongelmista on disinformaation ja valeuutisten leviäminen. Sosiaalisen median algoritmit suosivat usein sisältöjä, jotka herättävät voimakkaita tunnereaktioita, ja tällaisia ovat usein juuri harhaanjohtavat tai täysin valheelliset uutiset. Tämä on johtanut siihen, että suuret yleisöt altistuvat disinformaatiolle, joka voi vaikuttaa heidän käsityksiinsä ja jopa äänestyskäyttäytymiseensä. Toinen vakava ongelma on kaikukammioiden ja suodatinkuplien syntyminen. Algoritmit suosittelevat käyttäjille sisältöjä, jotka vastaavat heidän aiempia valintojaan, mikä johtaa siihen, että ihmiset näkevät yhä enemmän omaa maailmankuvaansa vahvistavaa sisältöä ja yhä vähemmän vastakkaisia näkökulmia. Tämä voi vahvistaa polarisaatiota ja vaikeuttaa yhteiskunnallista keskustelua. Kolmas ongelma liittyy vihapuheeseen ja verkkovälitteiseen häirintään, joka kohdistuu erityisesti naisiin, vähemmistöihin ja poliittisesti aktiivisiin henkilöihin. Tämä voi vaientaa ihmisiä ja kaventaa julkista keskustelua.",
+      "word_count": 185
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä toiveita sosiaaliseen mediaan alun perin liitettiin demokratian kannalta?",
+        "options": [
+          "Se vahvistaisi perinteistä mediaa",
+          "Se antaisi äänen marginaaliin jääneille",
+          "Se vähentäisi kansalaisaktivismia",
+          "Se yksinkertaistaisi poliittista keskustelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi sosiaalinen media edistää disinformaation leviämistä?",
+        "options": [
+          "Koska algoritmit suosivat tunnereaktioita herättäviä sisältöjä",
+          "Koska käyttäjät eivät osaa lukea",
+          "Koska some-alustat eivät päivitä ohjelmistojaan",
+          "Koska viranomaiset eivät valvo somea"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan kaikukammioilla?",
+        "options": [
+          "Tilaa, jossa ihmiset kokoontuvat keskustelemaan",
+          "Ilmiötä, jossa ihmiset näkevät vain omaa maailmankuvaansa vahvistavaa sisältöä",
+          "Algoritmeja, jotka vaimentavat kaiken keskustelun",
+          "Sovelluksia, jotka mittaavat äänenvoimakkuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kaikukammiot vaikuttavat yhteiskuntaan?",
+        "options": [
+          "Ne lisäävät ymmärrystä eri näkökulmista",
+          "Ne vahvistavat polarisaatiota ja vaikeuttavat keskustelua",
+          "Ne vähentävät sosiaalisen median käyttöä",
+          "Ne parantavat algoritmien toimintaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Keihin vihapuhe ja verkkovälitteinen häirintä kohdistuu erityisesti?",
+        "options": [
+          "Kaikkiin some-käyttäjiin tasapuolisesti",
+          "Vain julkisuuden henkilöihin",
+          "Naisiin, vähemmistöihin ja poliittisesti aktiivisiin",
+          "Vain alaikäisiin käyttäjiin"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

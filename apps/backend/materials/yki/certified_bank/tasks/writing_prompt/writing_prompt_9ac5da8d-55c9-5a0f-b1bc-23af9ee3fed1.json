@@ -1,0 +1,37 @@
+{
+  "id": "9ac5da8d-55c9-5a0f-b1bc-23af9ee3fed1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute uimahallin ohjatusta jumpasta. Oliko ohjaaja hyvä? Oliko tunnilla sopivan vaikeaa?",
+    "materials": {
+      "scenario": "Palaute uimahallin jumpasta"
+    },
+    "items": [
+      {
+        "id": "0045cdea-1843-5528-9543-282f3381db9a",
+        "prompt": "Kirjoita palaute uimahallin ohjatusta jumpasta. Oliko ohjaaja hyvä? Oliko tunnilla sopivan vaikeaa?"
+      }
+    ],
+    "rubric": "Kirjoita palaute uimahallin ohjatusta jumpasta. Oliko ohjaaja hyvä? Oliko tunnilla sopivan vaikeaa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

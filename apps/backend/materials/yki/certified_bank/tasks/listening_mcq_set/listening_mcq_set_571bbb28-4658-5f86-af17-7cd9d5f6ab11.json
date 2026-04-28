@@ -1,0 +1,66 @@
+{
+  "id": "571bbb28-4658-5f86-af17-7cd9d5f6ab11",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät uimahallin asiakkaat. Allasosasto suljetaan tänään kello 19 teknisen vian vuoksi. Pukuhuoneet ja sauna ovat auki normaalisti kello 21 asti. Pahoittelemme häiriötä. Huomenna uimahalli avataan normaalisti kello 7.",
+      "audio_asset_id": "9198be67-0e89-4d88-8c6c-a06213ba1edf"
+    },
+    "questions": [
+      {
+        "id": "f579d037-061f-5b16-93c3-d47620cafcda",
+        "prompt": "Miksi allasosasto suljetaan aikaisemmin?",
+        "options": [
+          "henkilökunnan vuoksi",
+          "teknisen vian vuoksi",
+          "remontin vuoksi",
+          "lomien vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2d5bc2fb-6c9e-5852-bd6a-36572b69372d",
+        "prompt": "Mihin aikaan allasosasto suljetaan?",
+        "options": [
+          "klo 18",
+          "klo 19",
+          "klo 20",
+          "klo 21"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1fba8f48-45ef-5e9e-b637-c862b2e31396",
+        "prompt": "Mitkä tilat ovat auki normaalisti?",
+        "options": [
+          "vain allas",
+          "pukuhuoneet ja sauna",
+          "kuntosali",
+          "kahvila"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

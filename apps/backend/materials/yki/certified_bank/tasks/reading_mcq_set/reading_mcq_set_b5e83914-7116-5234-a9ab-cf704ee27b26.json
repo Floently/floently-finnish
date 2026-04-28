@@ -1,0 +1,99 @@
+{
+  "id": "b5e83914-7116-5234-a9ab-cf704ee27b26",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Etäkokousten määrä on kasvanut huimasti. Ne säästävät aikaa ja matkakustannuksia. Toisaalta moni kokee etäkokoukset raskaiksi, koska katsekontakti puuttuu ja tauot jäävät pitämättä. Hyvä käytäntö on pitää kamera päällä, jotta osallistujat näkevät toisensa. Kokouksen vetäjän on tärkeää huolehtia, että kaikki pääsevät ääneen ja että kokous pysyy aikataulussa.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kasvanut huimasti?",
+        "options": [
+          "Matkustaminen",
+          "Etäkokousten määrä",
+          "Kasvokkain tapaamiset",
+          "Lomien pituus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä etäkokouksista on?",
+        "options": [
+          "Ne vievät paljon aikaa",
+          "Ne säästävät aikaa ja matkakustannuksia",
+          "Ne ovat kalliita",
+          "Ne ovat epäkäytännöllisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi moni kokee etäkokoukset raskaiksi?",
+        "options": [
+          "Koska ne ovat liian lyhyitä",
+          "Koska katsekontakti puuttuu ja tauot jäävät pitämättä",
+          "Koska niissä on liikaa ihmisiä",
+          "Koska ne ovat tylsistyttäviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on hyvä käytäntö etäkokouksissa?",
+        "options": [
+          "Pitää kamera pois päältä",
+          "Pitää kamera päällä",
+          "Puhua vain itse",
+          "Olla mykkänä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kokouksen vetäjän on tärkeää huolehtia?",
+        "options": [
+          "Kokous kestää mahdollisimman pitkään",
+          "Kaikki pääsevät ääneen ja kokous pysyy aikataulussa",
+          "Vain esimiehet puhuvat",
+          "Kokous nauhoitetaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä 'katsekontaktin puuttuminen' tarkoittaa etäkokouksessa?",
+        "options": [
+          "Kameroita ei käytetä",
+          "Ihmiset eivät katso toisiaan silmiin",
+          "Ääni ei kuulu",
+          "Kokous on liian lyhyt"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

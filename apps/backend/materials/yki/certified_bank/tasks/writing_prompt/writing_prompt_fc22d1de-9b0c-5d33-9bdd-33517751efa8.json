@@ -1,0 +1,37 @@
+{
+  "id": "fc22d1de-9b0c-5d33-9bdd-33517751efa8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti TE-toimistoon. Olet muuttanut toiselle paikkakunnalle ja haluat siirtää työnhakusi uuteen toimistoon. Kerro nimesi, henkilötunnuksesi ja uusi osoitteesi. Pyydä siirtoa.",
+    "materials": {
+      "scenario": "Työnhaun siirto toiselle paikkakunnalle"
+    },
+    "items": [
+      {
+        "id": "ade684f8-669b-5f87-b908-bb4bc47e604d",
+        "prompt": "Kirjoita sähköposti TE-toimistoon. Olet muuttanut toiselle paikkakunnalle ja haluat siirtää työnhakusi uuteen toimistoon. Kerro nimesi, henkilötunnuksesi ja uusi osoitteesi. Pyydä siirtoa."
+      }
+    ],
+    "rubric": "Henkilötiedot\nUusi osoite\nSiirtopyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

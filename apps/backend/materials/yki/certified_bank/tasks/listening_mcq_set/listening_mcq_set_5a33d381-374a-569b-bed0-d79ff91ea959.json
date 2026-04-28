@@ -1,0 +1,66 @@
+{
+  "id": "5a33d381-374a-569b-bed0-d79ff91ea959",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opinto-ohjaaja: Hei, kerro vähän itsestäsi. Mitä aiot tehdä lukion jälkeen?\nOppilas: Hei, olen kiinnostunut tekniikan alasta. Harkitsen joko ammattikorkeakoulua tai yliopistoa.\nOpinto-ohjaaja: Hyvä. Onko jokin tietty ala, joka kiinnostaa erityisesti?\nOppilas: Kone- ja tuotantotekniikka tai tietotekniikka. Molemmat vaikuttavat mielenkiintoisilta.\nOpinto-ohjaaja: Kannattaa tutustua eri oppilaitosten nettisivuihin ja katsoa, mitä kursseja niissä on tarjolla. Myös avoimien ovien päivät ovat hyvä tilaisuus tutustua.\nOppilas: Kiitos vinkeistä! Käyn katsomassa tarkemmin.\nOpinto-ohjaaja: Ja muista, että voit aina tulla uudelleen juttelemaan, jos on lisäkysymyksiä.",
+      "audio_asset_id": "528441b8-d6f0-586d-a31e-1e93f3f909b8"
+    },
+    "questions": [
+      {
+        "id": "list_043",
+        "prompt": "Mitä alaa oppilas harkitsee?",
+        "options": [
+          "Kauppatieteitä",
+          "Tekniikan alaa",
+          "Humanistista alaa",
+          "Taidealaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_044",
+        "prompt": "Mitkä kaksi alaa oppilasta kiinnostavat erityisesti?",
+        "options": [
+          "Sähkötekniikka ja automaatio",
+          "Kone- ja tuotantotekniikka sekä tietotekniikka",
+          "Rakennustekniikka ja ympäristötekniikka",
+          "Kemiantekniikka ja biotekniikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_045",
+        "prompt": "Mitä opinto-ohjaaja suosittelee tutustumiskeinoksi?",
+        "options": [
+          "Oppilaitosten nettisivut ja avoimien ovien päivät",
+          "Työpaikkavierailut",
+          "Kirjat ja lehdet",
+          "Ystävien kokemukset"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

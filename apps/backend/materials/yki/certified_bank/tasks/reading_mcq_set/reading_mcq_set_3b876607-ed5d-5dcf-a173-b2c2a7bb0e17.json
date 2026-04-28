@@ -1,0 +1,77 @@
+{
+  "id": "3b876607-ed5d-5dcf-a173-b2c2a7bb0e17",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen huolissani siitä, mistä ruokamme tulee. Kävelin äskettäin ruokakaupassa ja katsoin, mistä tuotteet ovat peräisin. Omenat olivat Uudesta-Seelannista, tomaatit Espanjasta ja mansikat Kreikasta. Vain maito ja leipä olivat Suomesta.\n\nYmmärrän, että talvella meillä ei kasva paljon. Mutta kesälläkin kaupat myyvät ulkomaalaisia marjoja ja vihanneksia, vaikka suomalaisia olisi saatavilla. Miksi? Koska ulkomaalainen ruoka on halvempaa. Mutta onko se halvempaa, kun ajattelee kaikkia kuljetuskustannuksia ja ympäristövaikutuksia?\n\nLähiruoalla on monta hyvää puolta. Se tukee suomalaista maataloutta ja työllisyyttä. Se on usein tuoreempaa, koska se ei ole matkustanut pitkiä matkoja. Ja se on ympäristöystävällisempää, koska kuljetuksesta ei tule päästöjä.\n\nToivon, että kuluttajat alkaisivat vaatia enemmän lähiruokaa. Ja että kaupat panostaisivat suomalaisten tuotteiden myyntiin. Ei tarvitse ostaa kaikkea lähiruokana, mutta edes kesällä voisi valita kotimaisen.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 148
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä kirjoittaja on huolissaan?",
+        "options": [
+          "A) Ruoka on liian kallista",
+          "B) Ruoka tulee kaukaa ulkomailta",
+          "C) Kaupoissa on huono valikoima",
+          "D) Ruoka on epäterveellistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi kaupat myyvät ulkomaalaista ruokaa myös kesällä?",
+        "options": [
+          "A) Se on paremman makuista",
+          "B) Se on halvempaa",
+          "C) Suomalaista ei ole saatavilla",
+          "D) Asiakkaat haluavat sitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyviä puolia lähiruoalla on kirjoittajan mukaan?",
+        "options": [
+          "A) Se on halvempaa",
+          "B) Se tukee suomalaista maataloutta ja on ympäristöystävällisempää",
+          "C) Sitä on enemmän saatavilla",
+          "D) Se säilyy pidempään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kirjoittaja toivoo?",
+        "options": [
+          "A) Kaikki ruoka ostetaan lähiruokana",
+          "B) Kesällä valittaisiin useammin kotimainen",
+          "C) Ulkomaalainen ruoka kielletään",
+          "D) Ruoan hintoja lasketaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "5b155582-0b42-55be-9d03-f4307c597546",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti lähikioskin palvelusta. Arvioi asiakaspalvelua, valikoimaa ja siisteyttä. Ehdota yhtä uutta tuotetta.",
+    "materials": {
+      "scenario": "Palaute lähikioskin palvelusta"
+    },
+    "items": [
+      {
+        "id": "176083e6-21ca-5690-81ad-b862aa34ab0b",
+        "prompt": "Kirjoita palauteteksti lähikioskin palvelusta. Arvioi asiakaspalvelua, valikoimaa ja siisteyttä. Ehdota yhtä uutta tuotetta."
+      }
+    ],
+    "rubric": "Asiakaspalvelu\nValikoima\nSiisteys\nUusi tuote",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

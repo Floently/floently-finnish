@@ -1,0 +1,37 @@
+{
+  "id": "18408e69-0c1d-51c4-8ecb-11877a7e159c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a vice president position at the European Investment Bank. Tell about your experience in international investment banking, financing large projects, and sustainable development financial instruments. Also describe how you have promoted the green transition and innovation financing. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus EIP:n varapääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "5d41947d-6239-5c57-bd84-1a5c3c30ea67",
+        "prompt": "Write a job application. You are applying for a vice president position at the European Investment Bank. Tell about your experience in international investment banking, financing large projects, and sustainable development financial instruments. Also describe how you have promoted the green transition and innovation financing. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a vice president position at the European Investment Bank. Tell about your experience in international investment banking, financing large projects, and sustainable development financial instruments. Also describe how you have promoted the green transition and innovation financing. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

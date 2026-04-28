@@ -1,0 +1,37 @@
+{
+  "id": "494bfe63-35fb-5617-aece-31924c74b029",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kirjastoon. Haluat uusia lainaamasi kirjat, koska et ole ehtinyt lukea niitä loppuun. Kerro kirjojen nimet ja uusittava aika. Kysy, onko uusimisesta maksua ja kuinka monta kertaa voi uusia.",
+    "materials": {
+      "scenario": "Lainojen uusiminen kirjastossa"
+    },
+    "items": [
+      {
+        "id": "130a21e0-92f7-54d5-8b35-69fdf8844540",
+        "prompt": "Kirjoita sähköposti kirjastoon. Haluat uusia lainaamasi kirjat, koska et ole ehtinyt lukea niitä loppuun. Kerro kirjojen nimet ja uusittava aika. Kysy, onko uusimisesta maksua ja kuinka monta kertaa voi uusia."
+      }
+    ],
+    "rubric": "Kirjojen nimet\nUusimispyyntö\nKysymykset maksuista",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

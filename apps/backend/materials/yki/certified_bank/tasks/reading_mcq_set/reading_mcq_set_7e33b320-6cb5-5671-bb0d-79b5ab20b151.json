@@ -1,0 +1,99 @@
+{
+  "id": "7e33b320-6cb5-5671-bb0d-79b5ab20b151",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomessa on paljon erilaisia tapahtumia kesällä. Monille tärkeä on juhannus, jota vietetään mökeillä ja järvien rannoilla. Kesäisin järjestetään myös monia festivaaleja, kuten musiikki- ja ruokafestivaaleja. Kaupungeissa on teatteria ja konsertteja. Tapahtumat tuovat ihmisiä yhteen ja tarjoavat tekemistä kaikenikäisille.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin Suomessa on paljon tapahtumia?",
+        "options": [
+          "Talvella",
+          "Keväällä",
+          "Kesällä",
+          "Syksyllä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä monille tärkeää juhlaa vietetään kesällä?",
+        "options": [
+          "Joulua",
+          "Pääsiäistä",
+          "Juhannusta",
+          "Vappua"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä juhannusta usein vietetään?",
+        "options": [
+          "Kaupungin keskustassa",
+          "Mökeillä ja järvien rannoilla",
+          "Ostoskeskuksissa",
+          "Kirkossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä festivaaleja kesällä järjestetään?",
+        "options": [
+          "Elokuva- ja teatterifestivaaleja",
+          "Musiikki- ja ruokafestivaaleja",
+          "Tiede- ja taidefestivaaleja",
+          "Auto- ja venefestivaaleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kaupungeissa on kesäisin?",
+        "options": [
+          "Laskettelurinteitä",
+          "Teatteria ja konsertteja",
+          "Jääkiekkoa",
+          "Hiihtokilpailuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä hyötyä tapahtumista on?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne tuovat ihmisiä yhteen ja tarjoavat tekemistä",
+          "Ne lisäävät liikennettä",
+          "Ne ovat vain nuorille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "d1c576bc-2f62-5caf-84c7-fa9e6389af56",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunkiviljely on trendikästä, mutta onko se muutakin? Monelle se on tapa saada tuoreita yrttejä ja kasviksia, mutta myös keino vastustaa kulutusyhteiskuntaa ja ottaa kantaa.\n\nYksi kaupunkiviljelyn muoto on viljelypalstat. Ne ovat pieniä maatilkkuja, joita kaupunkilaiset vuokraavat kaupungilta. Siellä kasvatetaan perunaa, porkkanaa, salaattia ja kukkia. Palstat ovat tärkeitä myös sosiaalisesti: naapurit tapaavat toisiaan ja jakavat vinkkejä.\n\nToinen muoto on yhteisöpuutarhat. Ne ovat yhteisiä tiloja, joissa hoidetaan kasveja yhdessä. Usein mukana on myös kursseja ja tapahtumia. Yhteisöpuutarhat ovat erityisen suosittuja nuorten aikuisten keskuudessa.\n\nKolmas muoto on parveke- ja ikkunalaatikkoviljely. Se sopii niille, joilla ei ole omaa pihaa. Yrtit, tomaatit ja chilit viihtyvät parvekkeella, ja se tuo vehreyttä betoniympäristöön.\n\nKaupunkiviljelyllä on myös ympäristöhyötyjä. Se vähentää ruoan kuljetusta ja pakkausjätettä. Se myös lisää tietoisuutta ruoan alkuperästä. Kun itse kasvattaa, tietää, mitä on käytetty.\n\nMutta voiko kaupunkiviljely ratkaista maailman ruokaongelmia? Tuskin. Sen merkitys on enemmänkin kasvatuksellinen ja yhteisöllinen. Se on pieni teko, joka tekee hyvää sekä itselle että ympäristölle.",
+      "word_count": 154
+    },
+    "questions": [
+      {
+        "id": "item_071_1",
+        "prompt": "Mitä kaupunkiviljelyn muotoja kirjoittaja mainitsee?",
+        "options": [
+          "vain viljelypalstoja",
+          "viljelypalstoja, yhteisöpuutarhoja ja parvekeviljelyä",
+          "vain parvekeviljelyä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_071_2",
+        "prompt": "Mitä sosiaalisia hyötyjä viljelypalstoilla on?",
+        "options": [
+          "ne eristävät ihmisiä",
+          "naapurit tapaavat toisiaan ja jakavat vinkkejä",
+          "ne ovat yksityisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_071_3",
+        "prompt": "Mitä ympäristöhyötyjä kaupunkiviljelyllä on?",
+        "options": [
+          "se lisää kuljetusta",
+          "se vähentää ruoan kuljetusta ja pakkausjätettä",
+          "se kuluttaa paljon vettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_071_4",
+        "prompt": "Mikä on kaupunkiviljelyn todellinen merkitys?",
+        "options": [
+          "ratkaista maailman ruokaongelmat",
+          "kasvatuksellinen ja yhteisöllinen",
+          "tuottaa suuria satoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

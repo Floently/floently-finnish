@@ -1,0 +1,37 @@
+{
+  "id": "72d2e60f-3b06-5def-b3cc-2370a6b9e4b6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö työpaikoilla olla pakollisia liikuntatunteja työaikana. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Pakollinen liikunta työpaikoilla"
+    },
+    "items": [
+      {
+        "id": "6b44933b-d94d-516a-929c-6788bc5a4285",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö työpaikoilla olla pakollisia liikuntatunteja työaikana. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "0625cbc2-3b88-54eb-a099-a931286afa41",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomi luopua yleisradioverosta ja rahoittaa Yle suoraan budjetista?'. Analysoi riippumattomuutta ja rahoituksen vakautta.",
+    "materials": {
+      "scenario": "Ylen rahoitusmalli"
+    },
+    "items": [
+      {
+        "id": "0276914e-14c2-5da6-807c-fa03da6891c6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomi luopua yleisradioverosta ja rahoittaa Yle suoraan budjetista?'. Analysoi riippumattomuutta ja rahoituksen vakautta."
+      }
+    ],
+    "rubric": "Median riippumattomuus\nRahoituksen vakaus\nPoliittinen ohjaus\nKansalaisten tasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

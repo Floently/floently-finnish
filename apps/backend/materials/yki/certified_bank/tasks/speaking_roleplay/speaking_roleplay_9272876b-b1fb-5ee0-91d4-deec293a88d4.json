@@ -1,0 +1,40 @@
+{
+  "id": "9272876b-b1fb-5ee0-91d4-deec293a88d4",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun annetussa tilanteessa. Puhu luonnollisesti ja käytä tilanteeseen sopivaa kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet hakija, jolla on vankka kokemus kansainvälisestä markkinoinnista ja digitaalisista kanavista.",
+        "partner": "Toimitusjohtaja (haastattelija) - ammattitaitoinen ja analyyttinen, haluaa ymmärtää hakijan strategista ajattelua."
+      }
+    },
+    "items": [
+      {
+        "id": "srp1",
+        "ai_first_turn_fi": "Tervetuloa haastatteluun. Olen vaikuttunut CV:stäsi. Kerro aluksi, miten näet roolimme Euroopan-laajentumisessa ja miten strategiasi auttaisi meitä saavuttamaan tavoitteemme?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun annetussa tilanteessa. Puhu luonnollisesti ja käytä tilanteeseen sopivaa kieltä.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

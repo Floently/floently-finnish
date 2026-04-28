@@ -1,0 +1,77 @@
+{
+  "id": "8674d663-d515-5d15-a8a2-e3026e5a0396",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.781,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kaupungistuminen on yksi aikamme merkittävimmistä yhteiskunnallisista muutoksista. Yhä suurempi osa maailman väestöstä asuu kaupungeissa, ja tämä kehitys näkyy voimakkaasti myös Suomessa. Kaupungistumisen taustalla on monia tekijöitä, kuten työpaikkojen keskittyminen suuriin keskuksiin, koulutusmahdollisuudet ja palvelujen saatavuus. Kaupungit houkuttelevat myös nuoria aikuisia, jotka etsivät uramahdollisuuksia ja vapaa-ajan palveluja. Muuttoliike maaseudulta kaupunkeihin on kuitenkin kaksiteräinen miekka. Samalla kun kaupungit kasvavat ja kehittyvät, maaseutualueet tyhjenevät ja menettävät palvelujaan. Tämä luo alueellista eriarvoisuutta, joka näkyy esimerkiksi koulujen lakkautuksina, terveyspalvelujen heikentymisenä ja työpaikkojen vähenemisenä. Pitkät välimatkat ja harva asutus tekevät palvelujen järjestämisestä haastavaa ja kallista. Kaupungistumisen myötä myös kaupunkien sisäinen eriytyminen on lisääntynyt. Hyvätuloiset hakeutuvat tietyille alueille, joilla on hyvät palvelut ja maine, kun taas pienituloiset keskittyvät toisille alueille. Tämä segregaatio eli alueellinen eriytyminen heikentää sosiaalista koheesiota ja voi johtaa ongelmien kasautumiseen. Se näkyy esimerkiksi koulujen välisinä eroina oppimistuloksissa ja asuinalueiden turvallisuudessa. Kaupunkisuunnittelulla pyritään vastaamaan näihin haasteisiin. Tiivistäminen, sekoittuneet asuinalueet ja hyvät julkiset liikenneyhteydet ovat keinoja, joilla halutaan vähentää segregaatiota ja parantaa kaikkien kaupunkilaisten elämänlaatua. Samalla on kuitenkin huolehdittava siitä, että kaupunkien kasvu on kestävää eikä tapahdu luonnon kustannuksella. Viheralueiden säilyttäminen ja ekologisten käytävien luominen ovat tärkeitä sekä asukkaiden hyvinvoinnin että luonnon monimuotoisuuden kannalta. Tulevaisuudessa kaupungistuminen jatkunee, mutta sen muodot voivat muuttua. Etätyön yleistyminen saattaa vähentää painetta asua työpaikkojen välittömässä läheisyydessä, ja pienemmät kaupungit ja kaupunkiseudut voivat saada uutta vetovoimaa. Keskeistä on, miten onnistumme suunnittelemaan kaupunkeja, jotka ovat sekä ekologisesti että sosiaalisesti kestäviä.",
+      "word_count": 227
+    },
+    "questions": [
+      {
+        "id": "5fb0afc6-4f07-5494-b829-9ce923ffc333",
+        "prompt": "Mikä on tekstin keskeinen väite kaupungistumisesta?",
+        "options": [
+          "Se on yksiselitteisen myönteinen ilmiö, joka tuo hyvinvointia kaikille",
+          "Se on yksiselitteisen kielteinen ilmiö, joka tuhoaa maaseudun",
+          "Se on monitahoinen ilmiö, jolla on sekä myönteisiä että kielteisiä seurauksia",
+          "Se on väistämätön luonnonlaki, johon ei voi vaikuttaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0bcfc00d-c0ba-5f13-96b8-6d29810768e8",
+        "prompt": "Tekstin mukaan mitä haittavaikutuksia kaupungistumisella on maaseudulle?",
+        "options": [
+          "Maaseudulle muuttaa liikaa uusia asukkaita",
+          "Palvelut heikkenevät ja työpaikat vähenevät",
+          "Maaseudun elinkeinot vahvistuvat kaupunkilaisten kysynnän myötä",
+          "Maaseudulle rakennetaan liikaa uusia asuntoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5949af58-1544-54f5-9b5b-5cbf882c37f0",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'segregaatiolla'?",
+        "options": [
+          "Kaupunkien hallinnollista jakautumista eri kaupunginosiin",
+          "Väestön jakautumista eri alueille tulotason ja sosiaalisen aseman mukaan",
+          "Eri ikäryhmien asumista eri puolilla kaupunkia",
+          "Maahanmuuttajien keskittymistä tietyille alueille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5d8896a6-3df2-5092-a4e2-9f162f8fe25e",
+        "prompt": "Mitä mahdollisuuksia etätyön yleistyminen voi tekstin mukaan tarjota kaupungistumisen suhteen?",
+        "options": [
+          "Se voi vähentää painetta asua suurten kaupunkien keskustoissa",
+          "Se tekee kaupungistumisesta täysin tarpeetonta",
+          "Se lisää tarvetta muuttaa suuriin kaupunkeihin",
+          "Se vähentää tarvetta julkiselle liikenteelle"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "1d2e566a-ba0e-5d99-8a58-1c9cf9629abe",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.778,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Terveydenhuollon tulevaisuutta koskeva keskustelu on viime vuosina keskittynyt pitkälti teknologian tuomiin mahdollisuuksiin. Etävastaanotot, tekoälypohjainen diagnostiikka ja potilastietojen sähköinen käsittely lupaavat parantaa hoidon saatavuutta, laatua ja kustannustehokkuutta. Samalla kun teknologia kehittyy, on kuitenkin herännyt kysymyksiä siitä, miten turvataan inhimillisyys ja kohtaaminen terveydenhuollossa. Potilaan ja hoitajan välinen vuorovaikutus on perinteisesti ollut hoidon kulmakivi. Luottamuksellinen suhde, kuulluksi tulemisen kokemus ja inhimillinen läsnäolo ovat tekijöitä, joita on vaikea korvata teknologialla. Ne vaikuttavat paitsi potilaan tyytyväisyyteen myös hoidon tuloksiin. Teknologia voi toki tukea tätä vuorovaikutusta, mutta se ei voi korvata sitä. Toinen keskeinen kysymys liittyy hoidon yksilöllistämiseen. Teknologia mahdollistaa yhä tarkemman tiedon keräämisen ja analysoinnin, mikä voi auttaa räätälöimään hoitoja yksilöllisten tarpeiden mukaan. Samalla on kuitenkin vaarana, että potilas nähdään vain datan lähteenä ja hänen kokemusasiantuntijuutensa sivuutetaan. Kolmas kysymys koskee terveydenhuollon ammattilaisten työn muutosta. Teknologian lisääntyessä heidän työnsä saattaa muuttua yhä enemmän datan analysoinniksi ja teknisten laitteiden käyttämiseksi, mikä voi viedä aikaa itse potilastyöltä ja heikentää työn mielekkyyttä. Tulevaisuuden terveydenhuollossa tarvitaan tasapainoa teknologian ja inhimillisyyden välillä. Teknologiaa tulee kehittää ja käyttää tavalla, joka tukee ja vahvistaa inhimillistä kohtaamista, ei korvaa sitä. Tämä edellyttää terveydenhuollon ammattilaisten koulutusta, eettistä keskustelua ja rohkeutta asettaa potilas aina etusijalle.",
+      "word_count": 189
+    },
+    "questions": [
+      {
+        "id": "fbac517a-97ad-5f5d-aa4a-ca99bd613c95",
+        "prompt": "Mikä on tekstin keskeinen väite terveydenhuollon tulevaisuudesta?",
+        "options": [
+          "Teknologia korvaa kokonaan inhimillisen kohtaamisen terveydenhuollossa",
+          "Terveydenhuollossa tarvitaan tasapainoa teknologian ja inhimillisyyden välillä",
+          "Inhimillinen kohtaaminen on este terveydenhuollon kehittämiselle",
+          "Teknologiaa tulisi käyttää mahdollisimman paljon inhimillisyyden kustannuksella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3902eee5-a802-5bd3-845f-e65a01f778d8",
+        "prompt": "Tekstin mukaan miksi potilaan ja hoitajan välinen vuorovaikutus on tärkeää?",
+        "options": [
+          "Se hidastaa hoitoprosesseja ja lisää kustannuksia",
+          "Se vaikuttaa potilaan tyytyväisyyteen ja hoidon tuloksiin",
+          "Se on teknologian kehityksen este",
+          "Se on tärkeää vain vanhusten hoidossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "583847d7-71a3-582a-a599-789bd31f2303",
+        "prompt": "Mitä riskiä hoidon yksilöllistämiseen teknologian avulla tekstin mukaan liittyy?",
+        "options": [
+          "Potilaita hoidetaan liian yksilöllisesti, mikä on tehotonta",
+          "Potilas voidaan nähdä vain datan lähteenä ja hänen kokemusasiantuntijuutensa sivuutetaan",
+          "Yksilöllinen hoito on liian kallista toteuttaa",
+          "Teknologia ei mahdollista riittävän tarkkaa tiedon keräämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "caf1d18b-4357-5bea-87fe-87f47c8027af",
+        "prompt": "Miten teknologian lisääntyminen voi tekstin mukaan vaikuttaa terveydenhuollon ammattilaisten työhön?",
+        "options": [
+          "Se vähentää työn mielekkyyttä, kun aikaa vie datan analysointi ja teknisten laitteiden käyttö itse potilastyön sijaan",
+          "Se lisää työn mielekkyyttä, koska rutiinitehtävät vähenevät",
+          "Sillä ei ole vaikutusta työn sisältöön",
+          "Se lisää potilastyöhön käytettävissä olevaa aikaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

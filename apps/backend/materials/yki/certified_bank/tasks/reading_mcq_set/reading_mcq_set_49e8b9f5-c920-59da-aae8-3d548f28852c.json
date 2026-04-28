@@ -1,0 +1,73 @@
+{
+  "id": "49e8b9f5-c920-59da-aae8-3d548f28852c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pizzeria menu ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "PIZZERIA ITALIA – MENU\n\nPizzat:\nMargherita 12 €\nBolognese 14 €\nKebab-pizza 15 €\n\nKebapit:\nKebab ranskalaisilla 14 €\nKebab salaatti 13 €\n\nLounas ma–pe klo 11–14: Lounaspizza + juoma 12 €\n\nNouto: 10% alennus noutoruuasta.\nKotiinkuljetus 4 € (tilaus vähintään 15 €).\n\nAvoinna: ma–to 11–22, pe–la 11–23, su 12–22.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Paljonko Margherita-pizza maksaa?",
+        "options": [
+          "12 €",
+          "14 €",
+          "15 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä lounaaseen kuuluu?",
+        "options": [
+          "pizza ja salaatti",
+          "pizza ja juoma",
+          "pizza ja ranskalaiset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Paljonko kotiinkuljetus maksaa?",
+        "options": [
+          "3 €",
+          "4 €",
+          "5 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Milloin pizzeria on auki sunnuntaisin?",
+        "options": [
+          "11–22",
+          "12–22",
+          "13–22"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

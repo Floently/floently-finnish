@@ -1,0 +1,37 @@
+{
+  "id": "02e985aa-018c-59dd-88b8-76022f825d1b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan nuorisopalveluihin. Olette nuorten ryhmä, joka haluaa järjestää elokuvailtoja nuorisotalolla. Kysy, onko tilaa vapaana, miten sitä voi varata ja saako sinne tuoda omia virvokkeita. Kerro myös, minkä ikäisille illat on suunnattu ja kuinka usein niitä on tarkoitus järjestää.",
+    "materials": {
+      "scenario": "Elokuvaillat nuorisotalolla"
+    },
+    "items": [
+      {
+        "id": "2761273a-daaa-5fb1-94ab-99f04d2e6e0f",
+        "prompt": "Kirjoita virallinen sähköposti kunnan nuorisopalveluihin. Olette nuorten ryhmä, joka haluaa järjestää elokuvailtoja nuorisotalolla. Kysy, onko tilaa vapaana, miten sitä voi varata ja saako sinne tuoda omia virvokkeita. Kerro myös, minkä ikäisille illat on suunnattu ja kuinka usein niitä on tarkoitus järjestää."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

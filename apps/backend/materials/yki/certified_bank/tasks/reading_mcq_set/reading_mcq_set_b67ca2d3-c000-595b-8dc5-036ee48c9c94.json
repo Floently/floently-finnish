@@ -1,0 +1,66 @@
+{
+  "id": "b67ca2d3-c000-595b-8dc5-036ee48c9c94",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "HISSIN KORJAUS\n\nTiedoksi asukkaille! Talon hissiä korjataan maanantaina 5.6. kello 9–15. Tänä aikana hissi ei toimi. Pahoittelemme melua ja häiriötä. Kiitos ymmärryksestä!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "9854a548-dae8-517f-ac08-4461365691d4",
+        "prompt": "Milloin hissiä korjataan?",
+        "options": [
+          "sunnuntaina 4.6.",
+          "maanantaina 5.6.",
+          "tiistaina 6.6.",
+          "keskiviikkona 7.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6b90857a-cee2-5689-be82-a5a90d243f63",
+        "prompt": "Kuinka kauan korjaus kestää?",
+        "options": [
+          "2 tuntia",
+          "4 tuntia",
+          "6 tuntia",
+          "8 tuntia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "afdd3865-8a64-5da0-82c1-2450d29a1c23",
+        "prompt": "Mitä hissille tapahtuu korjauksen aikana?",
+        "options": [
+          "se toimii normaalisti",
+          "se ei toimi",
+          "se on nopeampi",
+          "se on hitaampi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

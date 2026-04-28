@@ -1,0 +1,64 @@
+{
+  "id": "c40c3391-d496-5348-a22b-f45a913379c0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella työharjoittelupaikkaa. Keskustele yrityksen HR-henkilön kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Opiskelija",
+        "partner": "HR-koordinaattori"
+      }
+    },
+    "items": [
+      {
+        "id": "srp45_1",
+        "ai_first_turn_fi": "Hei, Yritys Oy."
+      },
+      {
+        "id": "srp45_2",
+        "ai_first_turn_fi": "Hienoa. Mikä on koulutusalasi ja milloin harjoittelu pitäisi alkaa?"
+      },
+      {
+        "id": "srp45_3",
+        "ai_first_turn_fi": "Meillä on mahdollisuuksia harjoitteluun. Onko sinulla CV ja hakemus lähetettynä?"
+      },
+      {
+        "id": "srp45_4",
+        "ai_first_turn_fi": "Suosittelen lähettämään hakemuksen sähköpostitse minulle. Voitko tehdä sen?"
+      },
+      {
+        "id": "srp45_5",
+        "ai_first_turn_fi": "Totta kai, osoite on hr@yritys.fi. Laita viestiin myös toivottu harjoittelun ajankohta."
+      },
+      {
+        "id": "srp45_6",
+        "ai_first_turn_fi": "Hyvä. Käsittelemme hakemukset parin viikon sisällä. Kysyttävää vielä?"
+      },
+      {
+        "id": "srp45_7",
+        "ai_first_turn_fi": "Harjoittelu kestää tyypillisesti 3-6 kuukautta. Kiitos soitosta ja hakemusta odotellessa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella työharjoittelupaikkaa. Keskustele yrityksen HR-henkilön kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

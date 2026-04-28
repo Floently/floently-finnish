@@ -1,0 +1,37 @@
+{
+  "id": "d497fc51-b4b7-5a50-ab18-c037ffac7c21",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on englanninkielinen teksti, jota et täysin ymmärrä. Kirjoita sähköposti ystävälle, joka osaa englantia hyvin, ja pyydä apua. Kerro, mikä osa tekstistä on epäselvä.",
+    "materials": {
+      "scenario": "Sinulla on englanninkielinen teksti, jota et täysin ymmärrä. Kirjoita sähköposti ystävälle, joka osaa englantia hyvin, ja pyydä apua. Kerro, mikä osa tekstistä on epäselvä."
+    },
+    "items": [
+      {
+        "id": "d3c52ec5-281f-599c-8288-ae5299225bcb",
+        "prompt": "Sinulla on englanninkielinen teksti, jota et täysin ymmärrä. Kirjoita sähköposti ystävälle, joka osaa englantia hyvin, ja pyydä apua. Kerro, mikä osa tekstistä on epäselvä."
+      }
+    ],
+    "rubric": "Sinulla on englanninkielinen teksti, jota et täysin ymmärrä. Kirjoita sähköposti ystävälle, joka osaa englantia hyvin, ja pyydä apua. Kerro, mikä osa tekstistä on epäselvä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

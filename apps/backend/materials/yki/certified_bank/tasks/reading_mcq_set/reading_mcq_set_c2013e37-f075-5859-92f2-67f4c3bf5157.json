@@ -1,0 +1,66 @@
+{
+  "id": "c2013e37-f075-5859-92f2-67f4c3bf5157",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "VESIKATKO 10.6.\n\nTiedoksi!\n\nHuoltotöiden vuoksi vesi katkaistaan koko talosta torstaina 10.6. kello 8–16.\n\nTänä aikana hanasta ei tule vettä. Suosittelemme, että otatte vettä talteen edellisenä iltana. WC:tä voi käyttää, mutta huuhteluun tarvitaan ämpärillä vettä.\n\nVeden tultua takaisin anna hanan juosta hetki, jos vesi on ruskehtavaa. Se johtuu ilmasta ja on harmitonta.\n\nPahoittelemme häiriötä!\n\nHuoltoyhtiö  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 70
+    },
+    "questions": [
+      {
+        "id": "9079a935-d11b-5912-9a0a-1bded9fdb5b7",
+        "prompt": "Milloin vesi katkaistaan?",
+        "options": [
+          "keskiviikkona 9.6.",
+          "torstaina 10.6.",
+          "perjantaina 11.6.",
+          "lauantaina 12.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "16f5a988-c239-5a72-b851-1534ab780f42",
+        "prompt": "Kuinka kauan vesikatko kestää?",
+        "options": [
+          "4 tuntia",
+          "6 tuntia",
+          "8 tuntia",
+          "10 tuntia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dee3ccc4-f319-53c0-a94f-58d59336be99",
+        "prompt": "Mitä pitää tehdä, jos vesi on ruskehtavaa veden tultua takaisin?",
+        "options": [
+          "soittaa huoltomiehelle",
+          "antaa hanan juosta hetki",
+          "ei käyttää vettä ollenkaan",
+          "keittää vesi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

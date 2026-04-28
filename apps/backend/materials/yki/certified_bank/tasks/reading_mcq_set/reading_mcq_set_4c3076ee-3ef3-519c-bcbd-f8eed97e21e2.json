@@ -1,0 +1,73 @@
+{
+  "id": "4c3076ee-3ef3-519c-bcbd-f8eed97e21e2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.57,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti demokratiasta ja sosiaalisesta mediasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Sosiaalinen media on mullistanut tavan, jolla keskustelemme politiikasta ja vaikutamme yhteiskunnallisiin asioihin. Se on tuonut uusia mahdollisuuksia, mutta myös vakavia uhkia demokratialle.\n\nYksi somen suurimmista ansioista on osallistumisen demokratisoituminen. Kuka tahansa voi perustaa ryhmän, jakaa tietoa ja organisoida tapahtumia. Tämä on madaltanut kynnystä osallistua ja antanut äänen niille, jotka aiemmin jäivät kuulumattomiin.\n\nToiseksi some mahdollistaa nopean tiedonvälityksen. Uutiset leviävät sekunneissa, ja kansalaiset voivat seurata tapahtumia reaaliajassa. Tämä on lisännyt läpinäkyvyyttä ja vaikeuttanut vallanpitäjien toiminnan salailua.\n\nKolmanneksi some on luonut uudenlaisia yhteisöjä ja verkostoja. Ihmiset, joita yhdistävät samat arvot tai tavoitteet, voivat löytää toisensa ja toimia yhdessä. Tämä on vahvistanut kansalaisyhteiskuntaa.\n\nKriitikot kuitenkin varoittavat, että some voi myös vahingoittaa demokratiaa. Yksi suurimmista ongelmista on disinformaatio. Valheelliset uutiset ja salaliittoteoriat leviävät nopeasti ja tavoittavat laajoja yleisöjä. Tämä heikentää kansalaisten kykyä tehdä tietoon perustuvia päätöksiä.\n\nToinen haaste on kuplat ja kaikukammiot. Algoritmit näyttävät meille sisältöä, joka vahvistaa omia näkemyksiämme. Tämä voi johtaa polarisaatioon ja siihen, että emme kohtaa erilaisia mielipiteitä. Keskustelu kärjistyy, ja yhteisymmärrys vaikeutuu.\n\nKolmas näkökulma on vihapuhe ja häirintä. Some antaa alustan myös vihamieliselle puheelle, joka kohdistuu usein vähemmistöihin tai naisiin. Tämä voi vaientaa ihmisiä ja estää heitä osallistumasta julkiseen keskusteluun.\n\nNeljänneksi on kysymys algoritmien vallasta. Some-yritykset päättävät, mitä näemme ja missä järjestyksessä. Heillä on valtava valta ohjata mielipiteitä ja vaikuttaa vaaleihin. Tämä on ongelma, johon ei ole vielä löydetty ratkaisua.\n\nLopuksi voidaan todeta, että some on kaksiteräinen miekka. Se voi vahvistaa demokratiaa, mutta myös heikentää sitä. Tarvitaan medialukutaitoa, sääntelyä ja vastuullisuutta sekä alustoilta että käyttäjiltä. Tärkeintä on, että demokraattinen keskustelu säilyy mahdollisimman avoimena ja moniäänisenä.",
+      "word_count": 255
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä hyötyjä some on tuonut demokratialle?",
+        "options": [
+          "vain nopean tiedonvälityksen",
+          "osallistumisen demokratisoitumisen, nopean tiedonvälityksen ja uusia yhteisöjä",
+          "vain uusia yhteisöjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä ongelmia disinformaatio aiheuttaa?",
+        "options": [
+          "se nopeuttaa tiedonkulkua",
+          "se heikentää kansalaisten kykyä tehdä tietoon perustuvia päätöksiä",
+          "se lisää luottamusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä tarkoitetaan somekuplilla?",
+        "options": [
+          "meille näytetään sisältöä, joka vahvistaa omia näkemyksiämme",
+          "kaikki näkevät samat uutiset",
+          "some on täynnä mainoksia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mikä ongelma algoritmien vallassa on?",
+        "options": [
+          "ne ovat tehottomia",
+          "some-yritykset voivat ohjata mielipiteitä ja vaikuttaa vaaleihin",
+          "ne ovat liian läpinäkyviä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "fe0d552c-c150-51d1-9dee-87cb136d5016",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.729,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti valtion taloudellisen tutkimuskeskuksen ylijohtajalle. Olette tutkimuslaitos, ja haluatte tehdä yhteistyötä keskuksen kanssa laajassa taloustutkimuksessa, joka koskee työmarkkinoiden rakennemuutosta. Kerro tutkimushankkeestanne, sen tavoitteista ja siitä, millaista yhteistyötä ehdotatte. Kysy, onko keskus kiinnostunut yhteistyöstä ja miten se voisi käytännössä toteutua. Tarjoa myös mahdollisuutta tapaamiseen ja esittele hankkeen alustavia tuloksia.",
+    "materials": {
+      "scenario": "Yhteistyöehdotus työmarkkinatutkimuksessa"
+    },
+    "items": [
+      {
+        "id": "e64b8b83-6528-5464-9d75-563ee490f3d5",
+        "prompt": "Kirjoita virallinen sähköposti valtion taloudellisen tutkimuskeskuksen ylijohtajalle. Olette tutkimuslaitos, ja haluatte tehdä yhteistyötä keskuksen kanssa laajassa taloustutkimuksessa, joka koskee työmarkkinoiden rakennemuutosta. Kerro tutkimushankkeestanne, sen tavoitteista ja siitä, millaista yhteistyötä ehdotatte. Kysy, onko keskus kiinnostunut yhteistyöstä ja miten se voisi käytännössä toteutua. Tarjoa myös mahdollisuutta tapaamiseen ja esittele hankkeen alustavia tuloksia."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

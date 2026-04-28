@@ -1,0 +1,88 @@
+{
+  "id": "7283079b-0d7d-51a9-9615-16737a215e2f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.682,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomessa on tuhansia järviä. Saimaa on suurin järvi. Järvet ovat puhtaita. Niissä voi uida kesällä. Talvella jäällä voi hiihtää ja luistella. Järvien rannoilla on paljon mökkejä. Ihmiset kalastavat järvistä. Ahven ja hauki ovat yleisiä kaloja. Järvet ovat tärkeitä luonnossa. Ne ovat kauniita ja rauhoittavia. Järven rannalla on hyvä rentoutua. Kuuntelee aaltojen liplatusta. Järvi kuuluu suomalaiseen maisemaan.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on Suomen suurin järvi?",
+        "options": [
+          "Päijänne",
+          "Saimaa",
+          "Inarijärvi",
+          "Oulujärvi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaisia järvet ovat?",
+        "options": [
+          "Sameita",
+          "Puhtaita",
+          "Likaisia",
+          "Suolaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä järvissä voi tehdä kesällä?",
+        "options": [
+          "Hiihtää",
+          "Uida",
+          "Luistella",
+          "Lasketella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä jäällä voi tehdä talvella?",
+        "options": [
+          "Uida",
+          "Hiihtää ja luistella",
+          "Kalastaa veneestä",
+          "Grillata"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kaloja järvissä on yleisesti?",
+        "options": [
+          "Lohi ja siika",
+          "Ahven ja hauki",
+          "Turska ja silakka",
+          "Kuha ja made"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

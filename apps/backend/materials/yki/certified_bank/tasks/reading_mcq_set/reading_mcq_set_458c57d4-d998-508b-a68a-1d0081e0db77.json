@@ -1,0 +1,77 @@
+{
+  "id": "458c57d4-d998-508b-a68a-1d0081e0db77",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomeen muuttaa vuosittain tuhansia ihmisiä ulkomailta. Maahanmuuttajia tulee työn, opiskelun, perhesiteiden tai kansainvälisen suojelun vuoksi. Maahanmuuttovirasto käsittelee oleskelulupahakemuksia ja turvapaikkahakemuksia. Kotouttamispolitiikalla pyritään edistämään maahanmuuttajien integroitumista suomalaiseen yhteiskuntaan. Kotoutumiskoulutuksessa opiskellaan suomen kieltä ja suomalaista yhteiskuntaa. Työperäistä maahanmuuttoa halutaan lisätä, koska työikäinen väestö vähenee. Maahanmuuttajat työllistyvät kuitenkin kantaväestöä heikommin, ja siihen pyritään vaikuttamaan erilaisin toimin. Kunnat tarjoavat kotoutumispalveluja, ja järjestöt täydentävät niitä. Maahanmuuttopolitiikasta käydään jatkuvaa keskustelua.",
+      "word_count": 64
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_036",
+        "prompt": "Miksi ihmiset muuttavat Suomeen?",
+        "options": [
+          "Vain työn vuoksi",
+          "Työn, opiskelun, perhesiteiden tai kansainvälisen suojelun vuoksi",
+          "Vain opiskelun vuoksi",
+          "Vain turistiksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_036",
+        "prompt": "Mikä viranomainen käsittelee oleskelulupia?",
+        "options": [
+          "Kela",
+          "Maahanmuuttovirasto",
+          "Poliisi",
+          "TE-toimisto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_036",
+        "prompt": "Mitä kotoutumiskoulutuksessa opiskellaan?",
+        "options": [
+          "Vain suomen kieltä",
+          "Suomen kieltä ja suomalaista yhteiskuntaa",
+          "Vain ammattiaineita",
+          "Vain tietotekniikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_036",
+        "prompt": "Miksi työperäistä maahanmuuttoa halutaan lisätä?",
+        "options": [
+          "Koska työpaikkoja on liikaa",
+          "Koska työikäinen väestö vähenee",
+          "Koska maahanmuuttajat ovat halvempaa työvoimaa",
+          "Koska Suomi haluaa kasvattaa väkilukua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

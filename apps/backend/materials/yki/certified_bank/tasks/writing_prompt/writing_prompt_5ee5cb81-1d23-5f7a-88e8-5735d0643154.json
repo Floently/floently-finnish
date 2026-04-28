@@ -1,0 +1,37 @@
+{
+  "id": "5ee5cb81-1d23-5f7a-88e8-5735d0643154",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö sähköpotkulautojen nopeuksia rajoittaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Sähköpotkulautojen nopeusrajoitukset"
+    },
+    "items": [
+      {
+        "id": "b8f513ee-c68a-5bab-bcee-1e8ee1fe7652",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö sähköpotkulautojen nopeuksia rajoittaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

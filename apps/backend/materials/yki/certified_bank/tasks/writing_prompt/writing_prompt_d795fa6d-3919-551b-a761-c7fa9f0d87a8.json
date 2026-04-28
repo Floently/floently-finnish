@@ -1,0 +1,37 @@
+{
+  "id": "d795fa6d-3919-551b-a761-c7fa9f0d87a8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Täytä lomake. Kirjoita jokaisen kohdan alle lyhyt vastaus suomeksi.",
+    "materials": {
+      "scenario": "Rekisteröityminen kurssille."
+    },
+    "items": [
+      {
+        "id": "5d6d2983-916b-58e5-b379-49b91199a3bc",
+        "prompt": "Täytä lomake. Kirjoita jokaisen kohdan alle lyhyt vastaus suomeksi."
+      }
+    ],
+    "rubric": "Nimi\nSähköposti\nKurssi (valitse yksi)\nLyhyt kuvaus, miksi haluat osallistua",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

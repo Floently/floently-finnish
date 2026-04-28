@@ -1,0 +1,40 @@
+{
+  "id": "fe4ae1c5-2847-5357-a847-d7ddc802b544",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu suomea roolisi mukaan.",
+    "materials": {
+      "roles": {
+        "user": "työnhakija",
+        "partner": "haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp10_01",
+        "ai_first_turn_fi": "Kerro vähän itsestäsi ja työkokemuksestasi."
+      }
+    ],
+    "rubric": "Puhu suomea roolisi mukaan.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

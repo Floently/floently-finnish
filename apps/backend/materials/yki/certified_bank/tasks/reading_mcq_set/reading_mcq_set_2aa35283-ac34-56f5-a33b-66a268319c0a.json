@@ -1,0 +1,66 @@
+{
+  "id": "2aa35283-ac34-56f5-a33b-66a268319c0a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.753,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Medialla on keskeinen rooli toimivassa demokratiassa. Sen tehtäviin kuuluu tiedonvälitys, vallan vahtiminen, keskustelun ylläpitäminen ja kansalaisten osallistumisen mahdollistaminen. Laadukas journalismi auttaa ihmisiä ymmärtämään yhteiskunnallisia kysymyksiä ja tekemään perusteltuja päätöksiä esimerkiksi vaaleissa. Samalla media toimii julkisena areenana, jossa erilaiset näkemykset voivat kohdata ja jossa yhteiskunnallisia ongelmia voidaan käsitellä. Viime vuosina median toimintaympäristö on kuitenkin muuttunut merkittävästi. Perinteisten medioiden, kuten sanomalehtien ja television, asema on heikentynyt samalla kun sosiaalinen media ja verkkosisällöt ovat kasvattaneet suosiotaan. Tämä on tuonut mukanaan uusia haasteita. Levikkien lasku ja mainostulojen siirtyminen verkkoon ovat heikentäneet perinteisen journalismin taloudellisia edellytyksiä. Samalla sosiaalisessa mediassa leviää nopeasti disinformaatiota ja valeuutisia, jotka voivat vaikuttaa yleiseen mielipiteeseen ja jopa vaalituloksiin. Algoritmit voivat luoda kaikukammioita, joissa ihmiset altistuvat vain omia näkemyksiään vahvistavalle sisällölle. Tämä voi polarisoida yhteiskuntaa ja heikentää kykyä ymmärtää erilaisia näkökulmia. Median roolin turvaaminen demokratiassa edellyttää panostuksia mediakasvatukseen, journalistisen riippumattomuuden vahvistamista ja keskustelua siitä, miten turvataan moniäänisyys muuttuvassa mediaympäristössä.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "c8d9e0f1-a2b3-4c4d-9e5f-6a7b8c9d0e1f",
+        "prompt": "Mikä on median keskeinen tehtävä demokratiassa?",
+        "options": [
+          "Vain viihteen tuottaminen",
+          "Tiedonvälitys, vallan vahtiminen ja keskustelun ylläpitäminen",
+          "Vain mainostaminen",
+          "Poliittisten puolueiden edustaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d9e0f1a2-b3c4-4d5e-9f6a-7b8c9d0e1f2a",
+        "prompt": "Mitä haasteita sosiaalinen media on tuonut median kenttään?",
+        "options": [
+          "Lisännyt journalistien määrää",
+          "Disinformaation leviäminen ja kaikukammioiden syntyminen",
+          "Vähentänyt median käyttöä",
+          "Yhtenäistänyt mielipiteitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e0f1a2b3-c4d5-4e6f-9a7b-8c9d0e1f2a3b",
+        "prompt": "Mitä tarvitaan median roolin turvaamiseksi demokratiassa?",
+        "options": [
+          "Median täydellistä sääntelyä",
+          "Panostuksia mediakasvatukseen ja journalistisen riippumattomuuden vahvistamista",
+          "Sosiaalisen median kieltämistä",
+          "Vain perinteisen median tukemista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "5b326401-5d99-535a-b896-14b5170a70fd",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele hammashoitajan kanssa. Kysy neuvoa hampaiden kotihoidosta.",
+    "materials": {
+      "roles": {
+        "user": "hammaslääkärin vastaanotolla tarkastuksessa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "79b4cae1-e2af-5f67-bde8-e845352e42eb",
+        "ai_first_turn_fi": "Hei, istu alas. Tarkistetaan nyt hampaat. Onko sulla jotain kysyttävää hampaiden hoidosta?"
+      }
+    ],
+    "rubric": "Keskustele hammashoitajan kanssa. Kysy neuvoa hampaiden kotihoidosta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

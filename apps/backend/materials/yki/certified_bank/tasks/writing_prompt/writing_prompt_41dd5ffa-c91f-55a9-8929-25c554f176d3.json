@@ -1,0 +1,37 @@
+{
+  "id": "41dd5ffa-c91f-55a9-8929-25c554f176d3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: verkkosivustolla. Tarkoitus: vertaile vaihtoehtoja. Rajoite: aloita päätelmällä.",
+    "materials": {
+      "scenario": "service encounter online portal"
+    },
+    "items": [
+      {
+        "id": "39bc9081-e76c-55b9-b71a-c2badac0bf90",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: verkkosivustolla. Tarkoitus: vertaile vaihtoehtoja. Rajoite: aloita päätelmällä."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "d827a5a9-d5dc-5dcb-894b-5650c347c108",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Yhä useampi suomalainen harkitsee kasvisruokavaliota joko terveys- tai ympäristösyistä. Kasvisten, palkokasvien ja nyhtökauran kaltaisten tuotteiden kysyntä on kasvanut. Kaupat ovat vastanneet tähän laajentamalla kasvistuotevalikoimaansa. Ravitsemusasiantuntijat muistuttavat, että kasvisruokavaliossakin on tärkeää huolehtia riittävästä proteiinin, raudan ja B12-vitamiinin saannista. Monille lihan vähentäminen onkin helpompi tapa kuin täysin luopuminen.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi yhä useampi suomalainen harkitsee kasvisruokavaliota?",
+        "options": [
+          "Vaihtelun vuoksi",
+          "Terveys- tai ympäristösyistä",
+          "Koska liha on kallista",
+          "Koska kasvikset ovat halvempia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä tuotteiden kysyntä on kasvanut?",
+        "options": [
+          "Lihan ja kalan",
+          "Kasvisten, palkokasvien ja nyhtökauran",
+          "Maitotuotteiden ja juuston",
+          "Leivän ja viljan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kaupat ovat reagoineet kysynnän kasvuun?",
+        "options": [
+          "Ne ovat lopettaneet lihan myynnin",
+          "Ne ovat laajentaneet kasvistuotevalikoimaansa",
+          "Ne ovat nostaneet kasvisten hintoja",
+          "Ne eivät ole tehneet mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ravitsemusasiantuntijat muistuttavat kasvisruokavaliosta?",
+        "options": [
+          "Se on aina terveellisempää",
+          "Proteiinin, raudan ja B12-vitamiinin saannista on huolehdittava",
+          "Siihen ei liity riskejä",
+          "Se sopii kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on monille helpompi tapa kuin täysin luopua lihasta?",
+        "options": [
+          "Syödä lihaa vain kerran viikossa",
+          "Vähentää lihan syöntiä",
+          "Syödä vain kanaa",
+          "Luopua kaikesta eläinperäisestä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan palkokasveilla?",
+        "options": [
+          "Hedelmiä ja marjoja",
+          "Papuja, linssejä ja herneitä",
+          "Juureksia ja vihanneksia",
+          "Sieniä ja sieniruokia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

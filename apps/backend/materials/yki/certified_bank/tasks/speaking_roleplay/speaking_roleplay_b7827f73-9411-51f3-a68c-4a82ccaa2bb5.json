@@ -1,0 +1,64 @@
+{
+  "id": "b7827f73-9411-51f3-a68c-4a82ccaa2bb5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka palauttaa verkkokaupasta ostetut väärät tuotteet. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Verkkokaupan asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp2_1",
+        "ai_first_turn_fi": "Hei, verkkokauppa Vaatetukseen, miten voin auttaa?"
+      },
+      {
+        "id": "srp2_2",
+        "ai_first_turn_fi": "Ymmärrän, harmillista että koot eivät sopineet. Mikä on tilausnumerosi?"
+      },
+      {
+        "id": "srp2_3",
+        "ai_first_turn_fi": "Kiitos. Kyseessä on siis kolme paitaa. Haluatko palauttaa ne ja saada rahat takaisin vai vaihtaa ne oikeisiin kokoihin?"
+      },
+      {
+        "id": "srp2_4",
+        "ai_first_turn_fi": "Totta kai onnistuu. Mitkä koot tarvitset alkuperäisten tilalle?"
+      },
+      {
+        "id": "srp2_5",
+        "ai_first_turn_fi": "Selvä. Lähetämme sinulle palautusohjeet sähköpostitse. Saat uudet paidat heti, kun olemme saaneet vanhat takaisin. Sopiiko tämä?"
+      },
+      {
+        "id": "srp2_6",
+        "ai_first_turn_fi": "Kiitos. Vielä yhteystietosi varmistukseksi?"
+      },
+      {
+        "id": "srp2_7",
+        "ai_first_turn_fi": "Kaikki kunnossa. Saat postia pian. Mukavaa päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka palauttaa verkkokaupasta ostetut väärät tuotteet. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

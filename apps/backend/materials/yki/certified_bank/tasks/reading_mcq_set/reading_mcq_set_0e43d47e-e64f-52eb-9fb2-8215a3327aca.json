@@ -1,0 +1,66 @@
+{
+  "id": "0e43d47e-e64f-52eb-9fb2-8215a3327aca",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kampaamon hinnasto ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PARTURI-KAMPAAMO SIILI\n\nHINNASTO\n\nNaisten hiustenleikkaus 45 €\nMiesten hiustenleikkaus 30 €\nLasten hiustenleikkaus (alle 12 v) 25 €\n\nPesu ja föönaus 15 €\nRaidat alkaen 60 €\n\nOpiskelija- ja eläkeläisalennus -20 % (ma–to)\n\nKäteinen, pankkikortti ja lasku.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko miesten hiustenleikkaus maksaa?",
+        "options": [
+          "25 €",
+          "30 €",
+          "45 €",
+          "60 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä ikäisille on lasten hinta?",
+        "options": [
+          "Alle 5-vuotiaille",
+          "Alle 10-vuotiaille",
+          "Alle 12-vuotiaille",
+          "Alle 15-vuotiaille"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Minä päivinä opiskelija saa alennusta?",
+        "options": [
+          "maanantaista torstaihin",
+          "maanantaista perjantaihin",
+          "vain maanantaisin",
+          "viikonloppuisin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

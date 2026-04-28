@@ -1,0 +1,66 @@
+{
+  "id": "96a4689b-e217-51a3-90aa-545f07bde2aa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.498,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADONNUT KISSA\n\nMustavalkoinen kissa nimeltä Viiru on kadonnut 10.5. Helsingin Vallilasta. Viiru on 3-vuotias ja sillä on punainen pantta. Jos näet Viirun, soita 040 123 4567. Palkkio löytäjälle.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä värinen kissa on kadonnut?",
+        "options": [
+          "A) musta",
+          "B) valkoinen",
+          "C) mustavalkoinen",
+          "D) ruskea"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on kissan nimi?",
+        "options": [
+          "A) Musti",
+          "B) Viiru",
+          "C) Mikko",
+          "D) Riku"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä kaupunginosasta kissa katosi?",
+        "options": [
+          "A) Kallio",
+          "B) Vallila",
+          "C) Töölö",
+          "D) Käpylä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

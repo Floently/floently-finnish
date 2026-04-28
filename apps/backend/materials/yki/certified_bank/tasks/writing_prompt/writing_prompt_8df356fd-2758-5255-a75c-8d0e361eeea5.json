@@ -1,0 +1,37 @@
+{
+  "id": "8df356fd-2758-5255-a75c-8d0e361eeea5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan ympäristöterveydenhuoltoon. Olet huomannut uimarannalla sinilevää ja haluat ilmoittaa siitä. Kerro havaintopaikka ja -aika, miltä vesi näyttää ja kysy, onko rannalle tulossa terveystarkastajan arviota.",
+    "materials": {
+      "scenario": "Ilmoitus sinilevästä"
+    },
+    "items": [
+      {
+        "id": "58f28693-2bee-5e3e-a3ff-8eaf732b5d7f",
+        "prompt": "Kirjoita virallinen sähköposti kunnan ympäristöterveydenhuoltoon. Olet huomannut uimarannalla sinilevää ja haluat ilmoittaa siitä. Kerro havaintopaikka ja -aika, miltä vesi näyttää ja kysy, onko rannalle tulossa terveystarkastajan arviota."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

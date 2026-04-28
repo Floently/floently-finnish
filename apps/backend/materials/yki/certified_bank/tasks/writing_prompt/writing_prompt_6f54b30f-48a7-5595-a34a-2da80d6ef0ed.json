@@ -1,0 +1,37 @@
+{
+  "id": "6f54b30f-48a7-5595-a34a-2da80d6ef0ed",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.505,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön autotallin ovessa on vika. Se ei aukea kauko-ohjaimella. Kerro, missä autotalli sijaitsee. Pyydä, että ovi korjataan nopeasti.",
+    "materials": {
+      "scenario": "Vikailmoitus autotallin ovesta"
+    },
+    "items": [
+      {
+        "id": "77c7cfbe-5c44-5f6c-abe6-c0dfd565c84d",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön autotallin ovessa on vika. Se ei aukea kauko-ohjaimella. Kerro, missä autotalli sijaitsee. Pyydä, että ovi korjataan nopeasti."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "9aa3416f-0b1e-55ca-971e-dfd719793957",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Kerro, että olet pahoillasi, että portti jäi auki eilen. Kerro, että se oli vahinko. Lupaa, että tarkistat aina jatkossa, että se on kiinni.",
+    "materials": {
+      "scenario": "Viesti naapurille anteeksipyyntö portin auki jättämisestä"
+    },
+    "items": [
+      {
+        "id": "c362cb44-14eb-537b-b8d4-f62d6db7976a",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Kerro, että olet pahoillasi, että portti jäi auki eilen. Kerro, että se oli vahinko. Lupaa, että tarkistat aina jatkossa, että se on kiinni."
+      }
+    ],
+    "rubric": "Pyydä anteeksi\nKerro, mikä jäi auki\nKerro, että se oli vahinko\nLupaa tarkistaa jatkossa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

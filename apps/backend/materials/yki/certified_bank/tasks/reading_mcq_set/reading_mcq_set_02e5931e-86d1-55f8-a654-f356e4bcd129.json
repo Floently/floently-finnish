@@ -1,0 +1,77 @@
+{
+  "id": "02e5931e-86d1-55f8-a654-f356e4bcd129",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "VANTAA-KYSELY 2025: ASUKKAAT TYYTYVÄISIÄ PALVELUIHIN\n\nVantaan kaupunki toteutti alkuvuodesta laajan asukaskyselyn, johon vastasi yli 3000 asukasta. Kyselyssä kartoitettiin tyytyväisyyttä kaupungin palveluihin, viheralueisiin ja liikennejärjestelyihin.\n\nTulosten mukaan asukkaat ovat kaiken kaikkiaan tyytyväisiä. Koulutus- ja päiväkotipalvelut saivat parhaat arvosanat: 87 % vastaajista oli tyytyväisiä. Myös kirjastot ja kulttuuripalvelut keräsivät kiitosta, erityisesti nuorten aikuisten keskuudessa.\n\nSen sijaan joukkoliikenne jakoi mielipiteitä. Esikaupunkialueilla asuvat kokivat yhteydet riittämättömiksi erityisesti ilta-aikaan. Vastaajat toivoivat tiheämpiä vuoroja ja suorempia yhteyksiä keskustaan.\n\nViheralueista puistot ja ulkoilureitit saivat hyvää palautetta. Lähiluonto on vantaalaisille tärkeää. Nuoret perheet arvostivat leikkipuistoja ja niiden turvallisuutta.\n\nTerveyspalveluissa nousi esiin pitkät jonotusajat. Vaikka hoidon laatua kiiteltiin, ajan saaminen perusterveydenhuoltoon koettiin liian hitaaksi. Kaupunki panostaa digitaalisiin palveluihin ja etävastaanottoihin.\n\nKyselyn tuloksia käytetään kaupungin kehittämissuunnitelmien pohjana.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 145
+    },
+    "questions": [
+      {
+        "id": "4f65560e-dcfe-55c9-9146-7f28469c24c6",
+        "prompt": "Mihin palveluihin oltiin tyytyväisimpiä?",
+        "options": [
+          "Joukkoliikenteeseen",
+          "Koulutus- ja päiväkotipalveluihin",
+          "Terveyspalveluihin",
+          "Pyöräteihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7aa041c2-504c-5029-a4ef-44b228961a0c",
+        "prompt": "Mitä ongelmia joukkoliikenteessä havaittiin?",
+        "options": [
+          "Liian kalliit liput",
+          "Huonot yhteydet iltaisin",
+          "Likaiset bussit",
+          "Epäystävälliset kuljettajat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2c199180-3e10-5e67-ac12-710366c1d487",
+        "prompt": "Mikä terveyspalveluissa koettiin ongelmaksi?",
+        "options": [
+          "Huono hoito",
+          "Kalliit hinnat",
+          "Pitkät jonotusajat",
+          "Sijainti"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "44931a88-caf5-56e6-a60b-d634e789eb2b",
+        "prompt": "Mitä nuoret perheet arvostivat erityisesti?",
+        "options": [
+          "Ostoskeskuksia",
+          "Leikkipuistoja ja turvallisuutta",
+          "Baareja",
+          "Työpaikkoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

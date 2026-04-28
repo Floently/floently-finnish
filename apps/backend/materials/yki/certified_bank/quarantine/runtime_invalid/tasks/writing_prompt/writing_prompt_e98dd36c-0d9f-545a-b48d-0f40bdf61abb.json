@@ -1,0 +1,37 @@
+{
+  "id": "e98dd36c-0d9f-545a-b48d-0f40bdf61abb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cafeteria. Purpose: react to a situation. Constraint: mention a follow up step.",
+    "materials": {
+      "scenario": "fitness in cafeteria"
+    },
+    "items": [
+      {
+        "id": "1ebf930c-ff57-5623-9ee9-7b6ad6b17949",
+        "prompt": "Write for the receiver in this scenario: cafeteria. Purpose: react to a situation. Constraint: mention a follow up step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "8d1261bd-b9f2-5147-9cc4-7496d520cc19",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.74,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen hyvinvointivaltio on rakennettu vahvan julkisen sektorin varaan. Sen keskeisiä periaatteita ovat universaalisuus, eli palvelut ja etuudet kuuluvat kaikille kansalaisille, sekä solidaarisuus, eli vahvemmat tukevat heikompia. Tämä malli on vähentänyt köyhyyttä, lisännyt tasa-arvoa ja luonut vakautta. Se on myös ollut taloudellisesti tehokas, koska terve ja koulutettu väestö on tuottava. Hyvinvointivaltio on kuitenkin kallis. Sitä rahoitetaan veroilla, jotka ovat kansainvälisesti vertailtuna korkeat. Viime vuosina julkisen talouden paineet ovat kasvaneet. Väestön ikääntyminen lisää menoja, ja talouden globalisaatio vaikeuttaa verotusta. Samalla kansalaisten odotukset palvelujen laadusta ovat korkealla. Tämä on synnyttänyt keskustelua hyvinvointivaltion tulevaisuudesta. Jotkut haluavat säilyttää nykyisen mallin ja rahoittaa sitä tarvittaessa lisää veroja korottamalla. Toiset kannattavat palvelujen tehostamista ja yksityisen sektorin roolin lisäämistä. Kolmannet haluavat leikata menoja ja pienentää julkista sektoria. Kyse on syvistä arvovalinnoista. Ratkaisuja etsittäessä on tasapainoiltava eri tavoitteiden välillä. Tärkeää on, että hyvinvointivaltion perusperiaatteet säilyvät: jokaisella on oikeus turvalliseen elämään ja tarvitsemiinsa palveluihin.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä ovat hyvinvointivaltion keskeisiä periaatteita?",
+        "options": [
+          "Valikoivuus ja kilpailu.",
+          "Universaalisuus ja solidaarisuus.",
+          "Tehokkuus ja tuottavuus.",
+          "Yksityisyys ja vapaus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä hyvinvointivaltiosta on ollut?",
+        "options": [
+          "Se on lisännyt köyhyyttä.",
+          "Se on vähentänyt köyhyyttä, lisännyt tasa-arvoa, luonut vakautta ja ollut taloudellisesti tehokas.",
+          "Se on heikentänyt taloutta.",
+          "Sillä ei ole ollut vaikutuksia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten hyvinvointivaltio rahoitetaan?",
+        "options": [
+          "Lainarahalla.",
+          "Veroilla, jotka ovat kansainvälisesti vertailtuna korkeat.",
+          "Ulkomaisella avulla.",
+          "Yksityisillä lahjoituksilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä paineita hyvinvointivaltio kohtaa?",
+        "options": [
+          "Väestön nuorentuminen ja syntyvyyden kasvu.",
+          "Väestön ikääntyminen, globalisaatio ja korkeat odotukset palvelujen laadusta.",
+          "Liian vähäinen verotus.",
+          "Liian alhaiset odotukset."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ratkaisuvaihtoehtoja hyvinvointivaltion tulevaisuudesta on esitetty?",
+        "options": [
+          "Vain nykyisen mallin säilyttäminen.",
+          "Nykyisen mallin säilyttäminen, tehostaminen ja yksityisen sektorin lisääminen, sekä leikkaukset.",
+          "Vain tehostaminen.",
+          "Vain leikkaukset."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä hyvinvointivaltion tulevaisuudesta käytävä keskustelu heijastelee?",
+        "options": [
+          "Teknologian kehitystä.",
+          "Syviä arvovalintoja.",
+          "Kansainvälistä kilpailukykyä.",
+          "Luonnonvarojen riittävyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on tärkeää säilyttää hyvinvointivaltiossa?",
+        "options": [
+          "Alhaiset verot.",
+          "Perusperiaatteet: jokaisella on oikeus turvalliseen elämään ja tarvitsemiinsa palveluihin.",
+          "Pieni julkinen sektori.",
+          "Yksityisten palvelujen ensisijaisuus."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

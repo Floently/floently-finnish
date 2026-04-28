@@ -1,0 +1,66 @@
+{
+  "id": "59d12bbd-2683-5795-b60c-299dd0287b61",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue asukaskyselyn tulokset ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TULOKSIA KEVÄÄN ASUKASKYSELYSTÄ (vastanneita 750)\n\nKysyimme, mitä palveluita asukkaat toivovat uuteen keskustan kauppakeskukseen. Eniten ääniä saivat:\n1. Kohtuuhintainen ruokakauppa (72 %)\n2. Kirjasto ja oleskelutiloja (65 %)\n3. Edullisia ravintoloita ja kahviloita (58 %)\n4. Pyöräparkki ja huoltopiste (52 %)\n5. Lasten leikkipaikka (40 %)\n\nAvoimissa kommenteissa toivottiin myös, ettei kauppakeskuksesta tule pelkkää liiketilaa, vaan sinne jätetään tilaa yhteisöllisyydelle.",
+      "word_count": 59
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä palvelua toivottiin eniten?",
+        "options": [
+          "Kirjastoa",
+          "Edullista ruokakauppaa",
+          "Pyöräparkkia",
+          "Lasten leikkipaikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka monta prosenttia vastaajista toivoi pyöräparkkia?",
+        "options": [
+          "40 %",
+          "52 %",
+          "58 %",
+          "65 %"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä avoimissa kommenteissa toivottiin?",
+        "options": [
+          "Enemmän parkkipaikkoja",
+          "Tilaa yhteisöllisyydelle",
+          "Kalliimpia erikoisliikkeitä",
+          "Enemmän mainoksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

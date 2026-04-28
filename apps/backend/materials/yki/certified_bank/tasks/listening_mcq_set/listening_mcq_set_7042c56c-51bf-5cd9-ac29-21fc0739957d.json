@@ -1,0 +1,88 @@
+{
+  "id": "7042c56c-51bf-5cd9-ac29-21fc0739957d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele lemmikkieläinkaupan mainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Lemmikkieläinkauppa Hau & Miau juhlii 10-vuotista taivaltaan. Koko viikonlopun ajan -20 prosenttia kaikista tuotteista. Tarjouksessa on muun muassa koiranruokaa, kissanhiekkaa, leluja ja tarvikkeita. Lisäksi lauantaina kello 12-14 kaupassa on vierailulla koirakouluttaja, joka antaa ilmaisia vinkkejä koirien koulutukseen. Sunnuntaina on kissanpäivä, jolloin paikalla on kissalääkäri vastaamassa kysymyksiin. Tervetuloa mukaan juhlimaan!",
+      "audio_asset_id": "b5560bce-8eb6-4e07-a9e6-7d0b54554f21"
+    },
+    "questions": [
+      {
+        "id": "l65q1",
+        "prompt": "Mitä kauppa juhlii?",
+        "options": [
+          "5-vuotista taivalta.",
+          "15-vuotista taivalta.",
+          "20-vuotista taivalta.",
+          "10-vuotista taivalta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l65q2",
+        "prompt": "Kuinka paljon alennusta on kaikista tuotteista?",
+        "options": [
+          "-20 prosenttia.",
+          "-10 prosenttia.",
+          "-15 prosenttia.",
+          "-25 prosenttia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l65q3",
+        "prompt": "Milloin koirakouluttaja on paikalla?",
+        "options": [
+          "Perjantaina kello 14-16.",
+          "Sunnuntaina kello 12-14.",
+          "Lauantaina kello 12-14.",
+          "Koko viikonlopun."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l65q4",
+        "prompt": "Mitä koirakouluttaja tekee?",
+        "options": [
+          "Myy koiranruokaa.",
+          "Esittelee uusia koirarotuja.",
+          "Antaa ilmaisia vinkkejä koirien koulutukseen.",
+          "Pitää koiramäyttelyn."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l65q5",
+        "prompt": "Kuka on paikalla sunnuntaina?",
+        "options": [
+          "Koirakouluttaja.",
+          "Eläinkaupan omistaja.",
+          "Koiratrimmaaja.",
+          "Kissalääkäri."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

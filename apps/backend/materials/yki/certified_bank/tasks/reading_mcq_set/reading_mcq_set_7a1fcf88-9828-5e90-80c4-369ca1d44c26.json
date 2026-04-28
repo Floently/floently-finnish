@@ -1,0 +1,77 @@
+{
+  "id": "7a1fcf88-9828-5e90-80c4-369ca1d44c26",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli kaupunkipyörien suosiosta.",
+    "materials": {
+      "text": "KAUPUNKIPYÖRÄT KASVATTANEET SUOSIOTAAN\n\nKaupunkipyörät ovat viime vuosina yleistyneet suurissa suomalaisissa kaupungeissa. Helsingissä, Tampereella ja Turussa on omat kaupunkipyöräjärjestelmänsä, ja käyttäjämäärät ovat kasvaneet tasaisesti. Kesäkuukausina pyöriä käytetään päivittäin tuhansia kertoja.\n\nKäyttäjät ovat tyytyväisiä. \"En omista omaa pyörää, joten tämä on täydellistä. Voin ottaa pyörän lyhyitä matkoja varten enkä ole riippuvainen busseista\", kertoo helsinkiläinen opiskelija Anna Nieminen. Hän käyttää kaupunkipyöriä useita kertoja viikossa.\n\nKaupunkipyörillä on myös haasteensa. Pyöriä on välillä liian vähän suosituimmilla asemilla, ja huoltoa tarvitaan jatkuvasti. Kaupungit ovat kuitenkin sitoutuneet kehittämään järjestelmää. Ensi vuonna on tarkoitus lisätä uusia asemia ja pyöriä.",
+      "word_count": 91
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä kaupungeissa on kaupunkipyöräjärjestelmiä?",
+        "options": [
+          "Vain Helsingissä",
+          "Helsingissä, Tampereella ja Turussa",
+          "Kaikissa Suomen kaupungeissa",
+          "Vain pääkaupunkiseudulla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi Anna Nieminen käyttää kaupunkipyöriä?",
+        "options": [
+          "Hänellä ei ole omaa pyörää ja se on kätevää",
+          "Se on halvempaa kuin bussi",
+          "Hän haluaa liikkua ja urheilla",
+          "Se on nopeampaa kuin auto"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita kaupunkipyörillä on?",
+        "options": [
+          "Liian kalliit hinnat",
+          "Pyöriä liian vähän suosituimmilla asemilla",
+          "Huono sää",
+          "Varkaudet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kaupungit aikovat tehdä ensi vuonna?",
+        "options": [
+          "Lopettaa järjestelmän",
+          "Lisätä uusia asemia ja pyöriä",
+          "Nostaa hintoja",
+          "Vähentää pyörien määrää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "74f8a9f1-3bb0-5cd0-9329-4dc74dfab024",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaavoituspäätöksissä painottaa enemmän asukkaiden mielipiteitä vai asiantuntijoiden näkemyksiä?'. Analysoi demokratiaa ja suunnittelun laatua.",
+    "materials": {
+      "scenario": "Kaavoitus ja asukkaiden osallistuminen"
+    },
+    "items": [
+      {
+        "id": "94aec588-a763-5ca8-a9e4-89da1ee212e1",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaavoituspäätöksissä painottaa enemmän asukkaiden mielipiteitä vai asiantuntijoiden näkemyksiä?'. Analysoi demokratiaa ja suunnittelun laatua."
+      }
+    ],
+    "rubric": "Demokratia\nSuunnittelun laatu\nNimby-ilmiö\nAsiantuntijuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "594f925c-d2a9-55b1-89c3-7f55052bf71f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Yrittäjyys kiinnostaa yhä useampia nuoria. Heitä houkuttelee vapaus, luovuus ja mahdollisuus vaikuttaa omaan työhön. Yrittäjyys vaatii kuitenkin rohkeutta, pitkäjänteisyyttä ja talouden hallintaa. Moni nuori perustaa yrityksen sivutoimisena opiskelun ohella. Oppilaitokset tarjoavat yrittäjyyskursseja ja sparrausta. Yrittäjyys nähdään tulevaisuuden työelämätaitona.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä kiinnostaa yhä useampia nuoria?",
+        "options": [
+          "Opiskelu",
+          "Yrittäjyys",
+          "Eläkkeelle jääminen",
+          "Työttömyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä nuoria houkuttelee yrittäjyydessä?",
+        "options": [
+          "Vakaus ja turvallisuus",
+          "Vapaus, luovuus ja mahdollisuus vaikuttaa",
+          "Korkea palkka ja lyhyt työpäivä",
+          "Helppous ja nopea rikastuminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä yrittäjyys vaatii?",
+        "options": [
+          "Vain hyvän idean",
+          "Rohkeutta, pitkäjänteisyyttä ja talouden hallintaa",
+          "Paljon rahaa ja kontakteja",
+          "Vain onnea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin moni nuori perustaa yrityksen?",
+        "options": [
+          "Valmistumisen jälkeen",
+          "Sivutoimisena opiskelun ohella",
+          "Vasta työelämässä",
+          "Eläkkeellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä oppilaitokset tarjoavat yrittäjyyteen liittyen?",
+        "options": [
+          "Rahaa yrityksen perustamiseen",
+          "Yrittäjyyskursseja ja sparrausta",
+          "Valmiita asiakkaita",
+          "Ilmaisia toimitiloja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi yrittäjyys nähdään tärkeänä?",
+        "options": [
+          "Tulevaisuuden työelämätaitona",
+          "Vain keinona rikastua",
+          "Pakollisena kaikille",
+          "Helppona tienä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

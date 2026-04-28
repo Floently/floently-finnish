@@ -1,0 +1,88 @@
+{
+  "id": "a512691d-5e07-5d47-b5e4-98e6c4aa1337",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti. Valitse jokaiseen kysymykseen yksi vaihtoehto.",
+    "materials": {
+      "text": "ILMOITUS\n\nAsukastiedote koskee yhteistä varastoa Oulussa. Yhteisessä tilassa tehdään siivous joulukuussa. Siivous alkaa 26.7. klo 8.30 ja kestää noin kaksi tuntia. Tänä aikana tilaan ei voi viedä tai hakea tavaroita.\n\nJos sinulla on pyörä tai lastenvaunut varastossa, tarkista että ne ovat selvästi merkitty omalla nimellä. Älä jätä tavaroita käytävään, koska siivouskone tarvitsee tilaa. Jos löydät irtotavaraa, laita se pahvilaatikkoon oven viereen.\n\nSiivouksen jälkeen lattia kuivuu hetken, joten ovet pidetään auki klo 15.00 asti. Jos et pääse paikalle, voit soittaa isännöinnille numeroon 0451343880 arkipäivänä.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä ilmoituksessa kerrotaan?",
+        "options": [
+          "Pihajuhlasta",
+          "Sähkön hinnasta",
+          "Siivouksesta",
+          "Uudesta asukkaasta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin siivous alkaa?",
+        "options": [
+          "26.7. klo 21.00",
+          "26.7. klo 8.30",
+          "26.7. klo 15.00",
+          "28.1. klo 8.30"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää tehdä pyörän tai vaunujen kanssa?",
+        "options": [
+          "Pestä ne ulkona",
+          "Viedä ne parvekkeelle",
+          "Merkitä ne omalla nimellä",
+          "Myydä ne pois"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ei saa jättää käytävään?",
+        "options": [
+          "Tavaroita",
+          "Mainoksia",
+          "Kukkia",
+          "Terveisiä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin irtotavara laitetaan?",
+        "options": [
+          "Kadulle",
+          "Hissiin",
+          "Roska-autoon",
+          "Pahvilaatikkoon oven viereen"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

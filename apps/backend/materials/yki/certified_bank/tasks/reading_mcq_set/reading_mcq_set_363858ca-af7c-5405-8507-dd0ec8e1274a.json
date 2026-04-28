@@ -1,0 +1,88 @@
+{
+  "id": "363858ca-af7c-5405-8507-dd0ec8e1274a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kotimainen muotoilu on perinteisesti yhdistetty laatuun ja toimivuuteen. Nämä ominaisuudet sopivat hyvin kestävän kehityksen tavoitteisiin. Yksi keskeisimmistä piirteistä on tuotteiden pitkäikäisyys. Suomalaiset muotoilijat ovat tavoiteleet ajattomuutta. Laadukkaat materiaalit tekevät tuotteista kestäviä. Niitä voi käyttää vuosikymmeniä. Toinen keskeinen piirre on korjattavuus. Perinteisessä suomalaisessa muotoilussa tuotteet on usein suunniteltu niin, että niitä voidaan korjata. Rikki mennyt osa voidaan vaihtaa. Kolmas piirre on materiaalien laatu. Suomalaiset muotoilijat arvostavat luonnonmateriaaleja, kuten puuta ja lasia. Nämä materiaalit ovat uusiutuvia. Neljäs piirre on tuotteiden monikäyttöisyys. Monet design-esineet on suunniteltu niin, että niitä voidaan käyttää monin eri tavoin. Viides piirre on valmistuksen paikallisuus. Monet suomalaiset design-yritykset valmistavat tuotteensa Suomessa.",
+      "word_count": 102
+    },
+    "questions": [
+      {
+        "id": "485c6e76-f68e-5ffc-b5a4-ea5dd4a7d5c1",
+        "prompt": "Mihin kotimainen muotoilu on perinteisesti yhdistetty?",
+        "options": [
+          "Halpuuteen ja kertakäyttöisyyteen",
+          "Laatuun ja toimivuuteen",
+          "Monimutkaisuuteen",
+          "Ulkomaisiin vaikutteisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b6b97f17-df41-5f30-81d4-fa4c7e274930",
+        "prompt": "Mitä tarkoitetaan tuotteiden pitkäikäisyydellä?",
+        "options": [
+          "Tuotteet menevät nopeasti rikki",
+          "Tuotteet on suunniteltu kestämään vuosikymmeniä",
+          "Tuotteet ovat kertakäyttöisiä",
+          "Tuotteet ovat muodikkaita vain hetken"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a93a2c75-bcf3-5ac6-bae1-702588669fed",
+        "prompt": "Miten korjattavuus liittyy kestävään muotoiluun?",
+        "options": [
+          "Se ei liity millään tavalla",
+          "Korjattavat tuotteet voidaan korjata, mikä pidentää niiden käyttöikää",
+          "Se tekee tuotteista heikompia",
+          "Se lisää tarvetta ostaa uusia tuotteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6a941246-15a4-54a2-8b24-ad8dafe6e9c1",
+        "prompt": "Mitä luonnonmateriaaleja suomalaiset muotoilijat arvostavat?",
+        "options": [
+          "Muovia ja metallia",
+          "Puuta ja lasia",
+          "Betonia ja terästä",
+          "Kumia ja nahkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e47fa6aa-502f-500d-81fc-7823baac6a98",
+        "prompt": "Mitä hyötyä tuotteiden monikäyttöisyydestä on?",
+        "options": [
+          "Se lisää tarvetta omistaa monta tuotetta",
+          "Se vähentää tarvetta omistaa monta erillistä tuotetta",
+          "Se tekee tuotteista vaikeita käyttää",
+          "Sillä ei ole hyötyjä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "12716b52-2434-5a55-8795-1997193b9d3a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele bussikuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat! Seuraava pysäkki on Kauppatori. Bussi numero 12 jatkaa tästä kohti yliopistoa. Matkakorttia voi ladata kuljettajalta. Seuraava bussi lähtee 10 minuutin kuluttua.",
+      "audio_asset_id": "069e1b1d-2422-4fb9-b364-fb019cdd943c"
+    },
+    "questions": [
+      {
+        "id": "a95d5520-dffd-5be8-a702-9e1ab7c9aeea",
+        "prompt": "Mikä on seuraava pysäkki?",
+        "options": [
+          "Rautatieasema",
+          "Kauppatori",
+          "Yliopisto",
+          "Keskusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a61e86b9-655c-5a11-a494-66ecc55a932c",
+        "prompt": "Mihin bussi numero 12 menee?",
+        "options": [
+          "Satamaan",
+          "Yliopistolle",
+          "Lentokentälle",
+          "Ostarille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0bd89fe4-ed7b-5eb4-be95-1f8fdeacc374",
+        "prompt": "Milloin seuraava bussi lähtee?",
+        "options": [
+          "5 min päästä",
+          "10 min päästä",
+          "15 min päästä",
+          "20 min päästä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

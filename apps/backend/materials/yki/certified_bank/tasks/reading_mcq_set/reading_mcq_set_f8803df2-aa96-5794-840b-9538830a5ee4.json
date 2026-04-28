@@ -1,0 +1,77 @@
+{
+  "id": "f8803df2-aa96-5794-840b-9538830a5ee4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.798,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Koulutuksen ja yhteiskunnan välinen suhde on yksi keskeisimmistä yhteiskunnallisista kysymyksistä. Koulutusjärjestelmä ei ole vain yksilöiden tietojen ja taitojen kehittämisen väline, vaan se myös uusintaa yhteiskunnallisia rakenteita ja arvoja. Koulutus vaikuttaa siihen, millaisia kansalaisia yhteiskuntaan kasvaa, millaisia arvoja he kannattavat ja millaisia taitoja heillä on. Tämän vuoksi koulutuspolitiikka on aina myös arvopolitiikkaa. Perinteisesti koulutus on nähty välineenä sosiaalisen liikkuvuuden edistämiseen. Hyvä koulutus avaa ovia parempiin työpaikkoihin ja korkeampaan tulotasoon riippumatta siitä, mistä lähtökohdista ihminen tulee. Tämä ajatus on ollut keskeinen perustelu julkiselle koulutusjärjestelmälle. Tutkimukset ovat kuitenkin osoittaneet, että koulutuksen tasa-arvopotentiaali ei toteudu käytännössä niin hyvin kuin toivotaan. Vanhempien koulutustausta ennustaa edelleen vahvasti lasten koulumenestystä ja koulutusvalintoja. Tämä johtuu osin siitä, että koulutusjärjestelmä ei ole irrallaan muista yhteiskunnallisista rakenteista. Hyväosaiset pystyvät tukemaan lapsiaan koulunkäynnissä monin tavoin, joihin vähemmän koulutetuilla vanhemmilla ei ole resursseja. Lisäksi koulutusjärjestelmä itsessään saattaa suosia tietynlaisia, usein keskiluokkaisia, kulttuurisia pääomia ja arvostuksia. Tämä tarkoittaa, että koulutus ei pelkästään vähennä eriarvoisuutta vaan saattaa myös uusintaa sitä. Toisaalta koulutus voi myös toimia muutosvoimana. Koulutus voi antaa yksilöille välineitä kriittiseen ajatteluun ja yhteiskunnalliseen vaikuttamiseen. Se voi myös edistää suvaitsevaisuutta, ympäristötietoisuutta ja globaalia vastuuta. Tämä edellyttää kuitenkin, että koulutusjärjestelmää kehitetään tietoisesti näiden tavoitteiden suuntaan. Tulevaisuuden kannalta on tärkeää, että koulutusjärjestelmää kehitetään kokonaisvaltaisesti ottaen huomioon sekä yksilöiden tarpeet että yhteiskunnan tavoitteet. Koulutus ei saa olla vain väline talouskasvulle, vaan sen tulee myös kasvattaa ihmisistä aktiivisia, vastuullisia ja kriittisiä kansalaisia. Samalla on huolehdittava siitä, että koulutus todella edistää tasa-arvoa eikä uusinna olemassa olevia eriarvoisuuksia.",
+      "word_count": 239
+    },
+    "questions": [
+      {
+        "id": "57b90576-b2f0-565c-a440-a5216c6f7993",
+        "prompt": "Mikä on tekstin keskeinen väite koulutuksen ja yhteiskunnan suhteesta?",
+        "options": [
+          "Koulutus on täysin riippumaton yhteiskunnallisista rakenteista",
+          "Koulutus sekä edistää sosiaalista liikkuvuutta että uusintaa yhteiskunnallisia eriarvoisuuksia",
+          "Koulutus on yksinomaan väline talouskasvun edistämiseen",
+          "Koulutusjärjestelmällä ei ole vaikutusta yhteiskunnallisiin arvoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8262654-f440-5379-bf98-eab0d3fb60af",
+        "prompt": "Tekstin mukaan miksi koulutuksen tasa-arvopotentiaali ei toteudu käytännössä?",
+        "options": [
+          "Koska koulutusjärjestelmä on rakennettu suosimaan heikko-osaisia",
+          "Koska hyväosaiset pystyvät tukemaan lapsiaan paremmin ja koulutusjärjestelmä saattaa suosia keskiluokkaisia kulttuurisia pääomia",
+          "Koska valtio ei panosta riittävästi koulutukseen",
+          "Koska opettajat ovat huonosti koulutettuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "40f9e5e1-640c-563d-bf80-c4897f665c70",
+        "prompt": "Mitä myönteisiä vaikutuksia koulutuksella voi tekstin mukaan olla?",
+        "options": [
+          "Se voi lisätä eriarvoisuutta ja heikentää sosiaalista liikkuvuutta",
+          "Se voi antaa välineitä kriittiseen ajatteluun, yhteiskunnalliseen vaikuttamiseen sekä edistää suvaitsevaisuutta ja ympäristötietoisuutta",
+          "Se voi vähentää yksilöiden mahdollisuuksia vaikuttaa yhteiskuntaan",
+          "Se voi vahvistaa perinteisiä arvoja ja vastustaa muutosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a5612134-55aa-5adf-9664-276d17deb49a",
+        "prompt": "Mitä tekstin mukaan tarvitaan, jotta koulutusjärjestelmää kehitetään oikeaan suuntaan?",
+        "options": [
+          "Keskittymistä yksinomaan talouskasvun edistämiseen",
+          "Kokonaisvaltaista kehittämistä, joka ottaa huomioon yksilöiden tarpeet ja yhteiskunnan tavoitteet sekä tasa-arvon edistämisen",
+          "Paluuta perinteisiin opetusmenetelmiin ja arvoihin",
+          "Koulutuksen yksityistämistä ja markkinaehtoistamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

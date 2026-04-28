@@ -1,0 +1,77 @@
+{
+  "id": "3a6a6a7e-d366-50c8-b326-8474de86638f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Helsingin keskustaan avataan uusi lähiruokatori ensi syksynä. Torilla myydään vain suomalaisia tuotteita, kuten vihanneksia, marjoja, lihaa, kalaa ja leipomotuotteita. Tavoitteena on tarjota kaupunkilaisille mahdollisuus ostaa tuoreita ja lähellä tuotettuja elintarvikkeita.\n\nTorin taustalla on joukko pieniä paikallisia tuottajia, jotka haluavat tuoda tuotteitaan suoraan kuluttajille ilman välikäsiä. 'Haluamme, että kuluttajat tietävät, mistä heidän ruokansa tulee', sanoo yksi perustajista.\n\nTori aukeaa syyskuussa ja on auki torstaisin ja perjantaisin kello 12–19 sekä lauantaisin kello 10–16. Talvella tori on auki vain kerran kuussa, mutta keväällä ja kesällä useammin.\n\nKaupunki tukee hanketta antamalla tilan edulliseen vuokraan. 'On tärkeää, että kaupungissa on monipuolisia ruokamarkkinoita', sanoo kaupungin edustaja.\n\nTori toivoo saavansa asiakkaita niin paikallisilta asukkailta kuin turisteiltakin. 'Suomalainen ruoka kiinnostaa myös matkailijoita', perustajat uskovat.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "0ddc682e-5508-53e8-b5c9-b4aaabbdeb3e",
+        "prompt": "Mitä torilla myydään?",
+        "options": [
+          "A) ulkomaalaisia tuotteita",
+          "B) vain suomalaisia tuotteita",
+          "C) käytettyjä tavaroita",
+          "D) vaatteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c0dff7a3-f4d4-5589-8f41-9389efe93501",
+        "prompt": "Milloin tori aukeaa?",
+        "options": [
+          "A) kesällä",
+          "B) syksyllä",
+          "C) talvella",
+          "D) keväällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4e5f99e1-7a56-5ecc-8e23-a7e29fdc7b78",
+        "prompt": "Minä päivinä tori on auki syksyllä?",
+        "options": [
+          "A) maanantaisin ja tiistaisin",
+          "B) keskiviikkoisin ja torstaisin",
+          "C) torstaisin, perjantaisin ja lauantaisin",
+          "D) vain lauantaisin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "750dc6b2-08d7-5a23-9670-eb86b1c622f6",
+        "prompt": "Miten kaupunki tukee hanketta?",
+        "options": [
+          "A) antamalla rahaa",
+          "B) antamalla tilan edulliseen vuokraan",
+          "C) mainostamalla toria",
+          "D) järjestämällä tapahtumia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

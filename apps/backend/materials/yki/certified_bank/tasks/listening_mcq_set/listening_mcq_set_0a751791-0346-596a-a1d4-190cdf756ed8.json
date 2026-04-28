@@ -1,0 +1,77 @@
+{
+  "id": "0a751791-0346-596a-a1d4-190cdf756ed8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuulutus ja vastaa kysymyksiin. Kuulet kuulutuksen kaksi kertaa.",
+    "materials": {
+      "transcript": "Hyvät matkustajat! Linja-auto numero 73 Seutulaan lähtee laiturilta 6. Linja-auto lähtee 5 minuutin päästä. Seuraava vuoro Seutulaan on tunnin kuluttua.",
+      "audio_asset_id": "a60d5534-bfb2-464e-b0f9-353859d5d147"
+    },
+    "questions": [
+      {
+        "id": "ec3715ff-124c-583a-bf3b-c5ba12a54b9e",
+        "prompt": "Mille laiturille bussi menee?",
+        "options": [
+          "laituri 3",
+          "laituri 5",
+          "laituri 6",
+          "laituri 8"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "96341d00-c983-51fc-8727-9d874b6db143",
+        "prompt": "Minne bussi on menossa?",
+        "options": [
+          "Helsinkiin",
+          "Tampereelle",
+          "Seutulaan",
+          "Turkuun"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "03f22b65-09cb-526f-9edc-ead59609e76a",
+        "prompt": "Monenko minuutin päästä bussi lähtee?",
+        "options": [
+          "2 minuuttia",
+          "5 minuuttia",
+          "10 minuuttia",
+          "15 minuuttia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b9985f7b-3139-5860-912d-bad6b6ec534b",
+        "prompt": "Milloin seuraava bussi menee?",
+        "options": [
+          "puolen tunnin päästä",
+          "tunnin päästä",
+          "kahden tunnin päästä",
+          "ei enää tänään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

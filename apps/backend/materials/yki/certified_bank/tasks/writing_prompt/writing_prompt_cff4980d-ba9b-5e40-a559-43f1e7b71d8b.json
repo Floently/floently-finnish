@@ -1,0 +1,37 @@
+{
+  "id": "cff4980d-ba9b-5e40-a559-43f1e7b71d8b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö elintarvikkeiden sokeripitoisuutta rajoittaa lailla kansanterveyden parantamiseksi?'. Pohdi terveysvaikutuksia, elinkeinovapautta ja kuluttajien valinnanvapautta.",
+    "materials": {
+      "scenario": "Sokeripitoisuuden rajoittaminen"
+    },
+    "items": [
+      {
+        "id": "d35d129a-2a62-5709-8625-f12e8c565962",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö elintarvikkeiden sokeripitoisuutta rajoittaa lailla kansanterveyden parantamiseksi?'. Pohdi terveysvaikutuksia, elinkeinovapautta ja kuluttajien valinnanvapautta."
+      }
+    ],
+    "rubric": "Kansanterveys\nElinkeinovapaus\nKuluttajien valinnanvapaus\nSääntely",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

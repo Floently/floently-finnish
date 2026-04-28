@@ -1,0 +1,99 @@
+{
+  "id": "0155a68b-04dd-5d61-b1ff-0f7b2d5cc78f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta koulusta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin opetuspalvelujen tiedote. Uusi monitoimikoulu Kivikkoon avaa ovensa elokuussa 2026. Kouluun tulee tilat noin 600 oppilaalle esikoulusta yhdeksänteen luokkaan. Koulussa on modernit ja joustavat oppimisympäristöt. Luokkahuoneiden sijaan koulussa on avoimia oppimisalueita, ryhmätyötiloja ja rauhallisia tiloja itsenäiseen työskentelyyn. Koulussa on myös liikuntasali, uima-allas, kirjasto ja ruokala. Erityistä huomiota on kiinnitetty sisäilman laatuun ja energiatehokkuuteen. Koulu on rakennettu puusta ja siinä on aurinkopaneelit katolla. Koulun pihasta tulee monipuolinen liikunta- ja oleskelualue, jossa on muun muassa tekonurmi, kiipeilytelineitä ja katettu ulkoluokka. Koulu toimii myös alueen asukkaiden kohtaamispaikkana iltaisin ja viikonloppuisin, jolloin liikuntatilat ja kirjasto ovat vapaasti käytettävissä. Tervetuloa tutustumaan uuteen kouluun avajaispäivänä 15.8.2026.",
+      "audio_asset_id": "d9e0f1a2-b3c4-5d6e-7f8a-9b0c1d2e3f4a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin opetuspalvelut tiedottavat?",
+        "options": [
+          "Uuden päiväkodin avajaisista.",
+          "Uuden koulun avaamisesta.",
+          "Koulujen loma-ajoista.",
+          "Kouluruokailun muutoksista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Milloin uusi koulu avataan?",
+        "options": [
+          "Elokuussa 2025.",
+          "Elokuussa 2026.",
+          "Elokuussa 2027.",
+          "Elokuussa 2028."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Kuinka monelle oppilaalle koulussa on tilat?",
+        "options": [
+          "Noin 400.",
+          "Noin 500.",
+          "Noin 600.",
+          "Noin 700."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Millaisia oppimisympäristöjä koulussa on?",
+        "options": [
+          "Perinteisiä luokkahuoneita.",
+          "Avoimia oppimisalueita, ryhmätyötiloja ja rauhallisia tiloja.",
+          "Vain luentosaleja.",
+          "Vain ulkotiloja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä erityistä koulun rakentamisessa on huomioitu?",
+        "options": [
+          "Halvat materiaalit.",
+          "Sisäilman laatu ja energiatehokkuus.",
+          "Nopea rakennusaika.",
+          "Korkea kerrosluku."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Milloin koulun tilat ovat asukkaiden käytettävissä?",
+        "options": [
+          "Vain kouluaikana.",
+          "Iltaisin ja viikonloppuisin.",
+          "Vain kesällä.",
+          "Ei koskaan."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

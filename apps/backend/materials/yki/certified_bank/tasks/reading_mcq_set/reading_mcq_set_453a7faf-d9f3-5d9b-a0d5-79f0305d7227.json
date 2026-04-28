@@ -1,0 +1,66 @@
+{
+  "id": "453a7faf-d9f3-5d9b-a0d5-79f0305d7227",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kuntosalin säännöt ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KUNTOSALI TREENAAJAN SÄÄNNÖT\n\nTervetuloa treenaamaan! Noudata seuraavia sääntöjä:\n\n1. Käytä aina pyyhettä laitteiden päällä.\n2. Puhdista laitteet käytön jälkeen desinfiointiaineella.\n3. Laita painot takaisin telineisiin.\n4. Älä jätä laitteisiin painoja.\n5. Hiljaisuus klo 21 jälkeen – ei kovaa puhelimen käyttöä.\n6. Juomapullon voi täyttää vesiautomaatista.\n7. Henkilökunnalle saa aina kysyä apua.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 67
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä pitää tehdä laitteiden jälkeen?",
+        "options": [
+          "Jättää ne paikoilleen",
+          "Puhdistaa desinfiointiaineella",
+          "Sammuttaa ne",
+          "Ilmoittaa henkilökunnalle"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä painoille pitää tehdä?",
+        "options": [
+          "Jättää laitteisiin",
+          "Viedä telineisiin",
+          "Heittää lattialle",
+          "Viedä kotiin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Saako kovaa puhelinta käyttää klo 21 jälkeen?",
+        "options": [
+          "Kyllä, aina",
+          "Ei, silloin on hiljaisuus",
+          "Vain jos on yksin",
+          "Vain pukuhuoneessa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

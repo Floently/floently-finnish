@@ -1,0 +1,99 @@
+{
+  "id": "9824c9b9-906a-57f3-ba3e-6a8151692a5f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta muotoilusta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta muotoilusta. Haastattelussa on muotoilija Eeva Hiltunen. Eeva, mikä tekee suomalaisesta muotoilusta ainutlaatuista? Eeva: Se on yksinkertaisuutta ja toimivuutta. Muotoilussa ei ole turhia koristeita, vaan jokaisella yksityiskohdalla on tarkoitus. Se on myös rehellisyyttä: materiaalit saavat näkyä ja tuntua. Toimittaja: Mistä tämä perinne tulee? Eeva: Se on peräisin sodanjälkeisestä ajasta, jolloin materiaaleista oli pulaa. Piti tehdä kestävää ja yksinkertaista. Samalla vaikutteita tuli luonnosta, kuten metsistä ja järvistä. Toimittaja: Miten suomalainen muotoilu on muuttunut? Eeva: Nyt on enemmän värejä ja kokeiluja. Nuoret suunnittelijat yhdistävät perinteitä ja uutta teknologiaa. Esimerkiksi huonekaluihin voidaan upottaa langaton lataus. Mutta ydin on edelleen sama: ihmislähtöisyys. Toimittaja: Mikä on tämän hetken trendi? Eeva: Kestävyys on todella tärkeää. Halutaan tehdä esineitä, jotka kestävät sukupolvelta toiselle. Myös kierrätysmateriaalien käyttö on lisääntynyt. Toinen trendi on tarinallisuus. Ihmiset haluavat tietää, kuka on tehnyt ja mistä materiaalit tulevat. Toimittaja: Miten suomalainen muotoilu pärjää maailmalla? Eeva: Erittäin hyvin. Se on tunnettu laadusta ja ajattomuudesta. Esimerkiksi japanilaiset arvostavat suomalaista muotoilua todella paljon. Toimittaja: Kiitos Eeva.",
+      "audio_asset_id": "55ba9eb8-5969-4889-aa08-6ac5e2944e71"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen arkkitehtuuri.",
+          "Suomalainen muotoilu ja sen erityispiirteet.",
+          "Suomalainen taide.",
+          "Suomalainen käsityöperinne."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä Eevan mukaan suomalaiselle muotoilulle on tyypillistä?",
+        "options": [
+          "Yksinkertaisuus, toimivuus ja materiaalien rehellisyys.",
+          "Monimutkaisuus ja koristeellisuus.",
+          "Värien runsaus ja kuosit.",
+          "Ulkomaisten tyylien kopiointi."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mistä suomalaisen muotoilun perinne on peräisin?",
+        "options": [
+          "Ranskalaisesta muodista.",
+          "Amerikkalaisesta teollisuudesta.",
+          "Sodanjälkeisestä ajasta ja luonnosta.",
+          "Itämaisesta filosofiasta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten nuoret suunnittelijat uudistavat muotoilua?",
+        "options": [
+          "He tekevät vain perinteisiä esineitä.",
+          "He yhdistävät perinteitä ja uutta teknologiaa.",
+          "He kopioivat vanhoja malleja.",
+          "He käyttävät vain muovia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on tämän hetken trendi muotoilussa?",
+        "options": [
+          "Kertakäyttöisyys.",
+          "Halpuus.",
+          "Kestävyys ja kierrätysmateriaalit.",
+          "Muovin käyttö."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq6",
+        "prompt": "Missä maassa suomalaista muotoilua arvostetaan erityisen paljon?",
+        "options": [
+          "Ranskassa.",
+          "Brasiliassa.",
+          "Australiassa.",
+          "Japanissa."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

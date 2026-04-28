@@ -1,0 +1,37 @@
+{
+  "id": "bc5ebe05-4a7e-5909-b8f0-1cf3cae0b1d0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute työpaikan taukotilasta. Onko siellä siistiä? Onko kahvia ja teetä aina tarjolla?",
+    "materials": {
+      "scenario": "Palaute työpaikan taukotilasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute työpaikan taukotilasta. Onko siellä siistiä? Onko kahvia ja teetä aina tarjolla?"
+      }
+    ],
+    "rubric": "Kirjoita palaute työpaikan taukotilasta. Onko siellä siistiä? Onko kahvia ja teetä aina tarjolla?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

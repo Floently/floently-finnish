@@ -1,0 +1,37 @@
+{
+  "id": "2c8a24d2-ab67-5605-a6f4-e4cadb22696b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.342,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: community center. Purpose: give feedback. Constraint: use clear structure.",
+    "materials": {
+      "scenario": "hobbies in community_center"
+    },
+    "items": [
+      {
+        "id": "05c117e6-98c3-5d56-af88-2a2d89da9796",
+        "prompt": "Write for the receiver in this scenario: community center. Purpose: give feedback. Constraint: use clear structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "f3d2b03b-6d47-5a6a-b1e4-bf3e6cdd4cb7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kaupunkien tarjota enemmän maksuttomia tapahtumia perheille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Maksuttomat tapahtumat perheille"
+    },
+    "items": [
+      {
+        "id": "035fdb78-9dc1-579b-bf19-eeda3a5b240b",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kaupunkien tarjota enemmän maksuttomia tapahtumia perheille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

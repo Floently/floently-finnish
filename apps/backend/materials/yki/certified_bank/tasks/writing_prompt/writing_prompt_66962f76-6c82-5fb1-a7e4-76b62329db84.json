@@ -1,0 +1,37 @@
+{
+  "id": "66962f76-6c82-5fb1-a7e4-76b62329db84",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a chief judge position in an administrative court. Tell about your experience as a judge, legal expertise, and administrative tasks. Also describe how you have developed court operations and promoted the realization of legal protection. Length about 340 words.",
+    "materials": {
+      "scenario": "Hakemus hallinto-oikeuden ylituomarin tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a chief judge position in an administrative court. Tell about your experience as a judge, legal expertise, and administrative tasks. Also describe how you have developed court operations and promoted the realization of legal protection. Length about 340 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a chief judge position in an administrative court. Tell about your experience as a judge, legal expertise, and administrative tasks. Also describe how you have developed court operations and promoted the realization of legal protection. Length about 340 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

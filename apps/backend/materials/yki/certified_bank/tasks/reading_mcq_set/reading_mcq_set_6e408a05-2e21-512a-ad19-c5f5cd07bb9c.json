@@ -1,0 +1,77 @@
+{
+  "id": "6e408a05-2e21-512a-ad19-c5f5cd07bb9c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi kaupungistumisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Asumisen eriarvoistuminen on yksi keskeisimmistä ongelmista. Tämä johtaa segregaatioon. Liikenne ja infrastruktuuri ovat toinen keskeinen haaste. Autokeskeinen suunnittelu on osoittautunut kestämättömäksi. Kolmas ulottuvuus on ilmastonmuutos. Kaupungit tuottavat suurimman osan päästöistä, mutta ne ovat myös haavoittuvaisia. Ratkaisut edellyttävät kokonaisvaltaista suunnittelua, jossa yhdistyvät asuminen, liikenne, palvelut ja viheralueet.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä seurauksia asumisen eriarvoistumisella on?",
+        "options": [
+          "Asuntojen hinnat laskevat",
+          "Segregaatiota, palveluiden eriytymistä ja sosiaalisten verkostojen kaventumista",
+          "Kaupungit autioituvat",
+          "Julkinen liikenne paranee"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on autokeskeisen suunnittelun ongelma?",
+        "options": [
+          "Liian kallista",
+          "Osoittautunut kestämättömäksi",
+          "Autoilijat eivät pidä",
+          "Vie tilaa pyöräilijöiltä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten ilmastonmuutos vaikuttaa kaupunkeihin?",
+        "options": [
+          "Vähentää päästöjä",
+          "Lämpösaarekeilmiö, rankkasateet ja merenpinnan nousu uhkaavat infrastruktuuria",
+          "Parantaa ilmanlaatua",
+          "Lisää viheralueita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja esitetään?",
+        "options": [
+          "Kasvun rajoittamista",
+          "Kokonaisvaltaista suunnittelua ja osallistavaa kehittämistä",
+          "Autoliikenteen lisäämistä",
+          "Keskustojen purkamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

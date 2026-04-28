@@ -1,0 +1,77 @@
+{
+  "id": "97c5203e-eb77-59e3-af48-f3ae555e59fe",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.279,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tekstiviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "VIESTI: Hei! Hammaslääkäriaikasi on peruttu 15.4. Uusi aika on varattu 22.4. klo 13.15. Jos et pääse, peru aikasi viimeistään 20.4. soittamalla numeroon 050 123 4567.",
+      "word_count": 25
+    },
+    "questions": [
+      {
+        "id": "ac303817-9cc3-518a-98f0-d4b56f913c34",
+        "prompt": "Milloin alkuperäinen hammaslääkäriaika oli?",
+        "options": [
+          "15.4.",
+          "22.4.",
+          "20.4.",
+          "13.4."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b57c5df8-ea66-56f6-bd57-907679a4e56d",
+        "prompt": "Mikä on uusi aika?",
+        "options": [
+          "15.4. klo 13.15",
+          "22.4. klo 13.15",
+          "20.4. klo 13.15",
+          "22.4. klo 14.15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cd6b5bd3-cdd1-5259-bd74-475490c23201",
+        "prompt": "Mihin mennessä aika pitää perua?",
+        "options": [
+          "15.4.",
+          "20.4.",
+          "22.4.",
+          "13.4."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "52265188-b8ab-5a23-81db-8fa519a1bccc",
+        "prompt": "Miten ajan voi perua?",
+        "options": [
+          "Tekstiviestillä",
+          "Sähköpostilla",
+          "Soittamalla",
+          "Verkkosivulla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

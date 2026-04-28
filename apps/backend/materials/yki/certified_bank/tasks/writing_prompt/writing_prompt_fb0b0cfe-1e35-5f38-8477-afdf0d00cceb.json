@@ -1,0 +1,37 @@
+{
+  "id": "fb0b0cfe-1e35-5f38-8477-afdf0d00cceb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien jätösten siivoamiseen puistoissa kiinnittää enemmän huomiota?'. Pohdi vastuullisuutta, viihtyisyyttä ja valvontaa.",
+    "materials": {
+      "scenario": "Koirien jätökset puistoissa"
+    },
+    "items": [
+      {
+        "id": "946f9ed1-f69a-5b97-9b28-94b914685dd5",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien jätösten siivoamiseen puistoissa kiinnittää enemmän huomiota?'. Pohdi vastuullisuutta, viihtyisyyttä ja valvontaa."
+      }
+    ],
+    "rubric": "Vastuullisuus\nViihtyisyys\nValvonta\nAsenteet",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

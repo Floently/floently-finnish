@@ -1,0 +1,66 @@
+{
+  "id": "58dbb30a-4a45-53cd-99bb-f0c51250078e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelman kirja-arvostelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Ja sitten vuorossa on viikon kirja. Tällä kertaa käsittelyssä on suomalainen nykyromaani, Emma Järvisen teos 'Maa jota ei ole'. Kirja kertoo nuoresta naisesta, joka matkustaa yksin Pohjois-Norjaan etsimään itseään ja käsittelemään menneisyyden traumoja.\n\nKirja on saanut erinomaisia arvosteluja. Kriitikot kiittävät erityisesti kielen kauneutta ja herkkyyttä, jolla kirjailija kuvaa luontoa ja ihmisen sisäistä maailmaa. Tarina etenee rauhallisesti, melkein meditatiivisesti, ja lukija pääsee syvälle päähenkilön ajatuksiin.\n\nJotkut arvostelijat ovat tosin huomauttaneet, että kirjan tahti on paikoin liian hidas ja että juoni jää ohueksi. Itse olen kuitenkin eri mieltä. Mielestäni juuri hitaus ja yksityiskohtien kuvaus ovat tämän kirjan vahvuus. Se ei ole toimintatrilleri vaan syvällinen psykologinen romaani.\n\nSuosittelen kirjaa kaikille, jotka pitävät kauniista kielestä ja pohjoismaisesta luontokuvauksesta. Se sopii hyvin luettavaksi esimerkiksi mökillä tai matkalla. Kirja on ilmestynyt kustantamo Avaimen kautta ja sitä saa kaikista hyvin varustetuista kirjakaupoista.",
+      "audio_asset_id": "9dd35c28-b1a6-4074-b36b-8338db3d9e27"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä kirja 'Maa jota ei ole' kertoo?",
+        "options": [
+          "Rikosdraama Helsingissä",
+          "Nuoresta naisesta, joka matkustaa Pohjois-Norjaan",
+          "Historiallinen kertomus sodasta",
+          "Rakkausromaani Pariisissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kriitikot kiittävät kirjassa?",
+        "options": [
+          "Nopeatempoista juonta",
+          "Kielen kauneutta ja luonnon kuvausta",
+          "Toimintakohtauksia",
+          "Huumoria"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kritiikkiä kirja on saanut?",
+        "options": [
+          "Liian pitkä",
+          "Liian hidas tahti ja ohut juoni",
+          "Liian monimutkainen",
+          "Huono kieli"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

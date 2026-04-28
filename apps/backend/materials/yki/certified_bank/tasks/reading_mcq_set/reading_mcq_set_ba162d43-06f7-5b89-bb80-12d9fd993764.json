@@ -1,0 +1,66 @@
+{
+  "id": "ba162d43-06f7-5b89-bb80-12d9fd993764",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Väestön ikääntyminen on yksi suurimmista haasteista suomalaiselle hyvinvointiyhteiskunnalle. Yli 65-vuotiaiden määrä kasvaa nopeasti, ja yhä useampi heistä on yli 85-vuotias, jolloin palveluiden tarve on suurimmillaan. Tämä luo paineita sekä julkiselle taloudelle että hoitohenkilöstön riittävyydelle. Vanhustenhoitoa järjestetään monella eri tasolla. Kotihoito on ensisijainen vaihtoehto, ja sitä pyritään vahvistamaan, jotta ikäihmiset voivat asua kotonaan mahdollisimman pitkään. Kotihoito sisältää sairaanhoidollisia toimenpiteitä, lääkehoitoa, hygienian hoitoa ja arkielämän tukemista. Teknologia, kuten turvarannekkeet, etähoiva ja älykodin ratkaisut, mahdollistavat turvallisemman kotona asumisen. Kun kotihoito ei enää riitä, seuraava vaihe on tehostettu palveluasuminen eli ympärivuorokautinen hoiva hoivakodeissa. Laatusuositukset ohjaavat hoivakotien toimintaa, mutta alalla on ollut myös ongelmia henkilöstön riittävyyden ja hoidon laadun kanssa. Omaishoito on merkittävä osa vanhustenhoitoa: puolisot, lapset tai muut läheiset hoitavat ikääntynyttä usein sitovasti ja raskaasti. Omaishoitajille on saatavilla tukea, kuten omaishoidon tukea, vapaapäiviä ja valmennusta, mutta tuen tarve on usein suurempi kuin tarjonta. Ikääntyvien palveluiden kehittämisessä korostetaan asiakaslähtöisyyttä ja valinnanvapautta. Palvelusetelit ja henkilökohtainen budjetointi antavat ikäihmisille mahdollisuuden valita palveluntuottajan. Myös kolmannen sektorin rooli on tärkeä: järjestöt tarjoavat vapaaehtoistoimintaa, kerhoja ja neuvontaa. Ikääntymispoliittiset strategiat tähtäävät siihen, että ikäihmiset voivat elää aktiivista ja mielekästä elämää ja osallistua yhteiskuntaan. Seniorikeskukset, kulttuuri- ja liikuntapalvelut sekä sukupolvien välinen toiminta edistävät hyvinvointia. Tulevaisuudessa tarvitaan innovatiivisia ratkaisuja, jotka yhdistävät teknologian, henkilöstön osaamisen ja yhteisöllisyyden, jotta ikääntyvä väestö saa tarvitsemansa palvelut.",
+      "word_count": 209
+    },
+    "questions": [
+      {
+        "id": "c8d9e0f1-a2b3-4c4d-9e5f-6a7b8c9d0e1f",
+        "prompt": "Mikä on ensisijainen vaihtoehto vanhustenhoidossa?",
+        "options": [
+          "Hoivakoti",
+          "Kotihoito",
+          "Sairaala",
+          "Tehostettu palveluasuminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d9e0f1a2-b3c4-4d5e-9f6a-7b8c9d0e1f2a",
+        "prompt": "Mikä teknologia mahdollistaa turvallisemman kotona asumisen?",
+        "options": [
+          "Robotti-imurit",
+          "Turvarannekkeet, etähoiva ja älykodin ratkaisut",
+          "Älypuhelimet",
+          "Videopelit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e0f1a2b3-c4d5-4e6f-9a7b-8c9d0e1f2a3b",
+        "prompt": "Mitä tarkoittaa omaishoito?",
+        "options": [
+          "Hoitoa sairaalassa",
+          "Läheisten antamaa hoitoa ikääntyneelle",
+          "Kunnan järjestämää hoitoa",
+          "Yksityisen yrityksen hoitoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

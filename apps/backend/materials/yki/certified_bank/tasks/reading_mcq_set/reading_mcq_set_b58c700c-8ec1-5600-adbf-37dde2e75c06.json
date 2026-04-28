@@ -1,0 +1,66 @@
+{
+  "id": "b58c700c-8ec1-5600-adbf-37dde2e75c06",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Tarvitsisin lainaksi kirjaa. Onko sinulla Tove Janssonin Muumipapan urotyöt? Tarvitsen sitä kurssia varten. Palautan sen ensi viikolla.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 34
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_015_q1",
+        "prompt": "Mitä lähettäjä pyytää?",
+        "options": [
+          "rahaa",
+          "kirjaa",
+          "ruokaa",
+          "apua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_015_q2",
+        "prompt": "Miksi hän tarvitsee sitä?",
+        "options": [
+          "harrastusta varten",
+          "kurssia varten",
+          "lukemista varten",
+          "lahjaksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_015_q3",
+        "prompt": "Milloin hän palauttaa sen?",
+        "options": [
+          "tänään",
+          "huomenna",
+          "ensi viikolla",
+          "kuukauden päästä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

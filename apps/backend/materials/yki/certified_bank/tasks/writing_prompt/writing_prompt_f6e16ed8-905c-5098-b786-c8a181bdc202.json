@@ -1,0 +1,37 @@
+{
+  "id": "f6e16ed8-905c-5098-b786-c8a181bdc202",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti hierojalle. Kerro hieronnan laadusta, ilmapiiristä ja hinnasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute hierojalle"
+    },
+    "items": [
+      {
+        "id": "a3b9f32a-3d81-5542-ab1c-53d836150fc7",
+        "prompt": "Kirjoita palauteteksti hierojalle. Kerro hieronnan laadusta, ilmapiiristä ja hinnasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Hieronnan laatu\nIlmapiiri\nHinta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

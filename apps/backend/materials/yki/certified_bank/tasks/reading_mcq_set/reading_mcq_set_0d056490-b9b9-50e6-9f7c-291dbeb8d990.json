@@ -1,0 +1,88 @@
+{
+  "id": "0d056490-b9b9-50e6-9f7c-291dbeb8d990",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Ikääntyvien digitaitojen tukeminen on noussut tärkeäksi yhteiskunnalliseksi tehtäväksi, kun yhä useammat palvelut siirtyvät verkkoon. Digitaidot ovat välttämättömiä arjessa selviytymiseen, ja ilman niitä monet ikäihmiset voivat syrjäytyä yhteiskunnasta. Siksi on tärkeää panostaa ikäihmisten digitaitojen opetukseen ja tukeen. Yksi keskeisimmistä haasteista on ikäihmisten erilaiset lähtökohdat. Osa on käyttänyt tietokoneita työssään ja omaksuu uudet laitteet helposti, kun taas toisilla ei ole lainkaan kokemusta digitaalisesta maailmasta. Opetuksen on oltava yksilöllistä ja kohdennettua, ja sen on lähdettävä ikäihmisen omista tarpeista ja kiinnostuksen kohteista. Toinen keskeinen haaste on oppimisen hitaus ja muistamisen vaikeudet. Ikäihmiset saattavat tarvita enemmän aikaa ja toistoja oppiakseen uusia asioita. Heitä ei saa kiirehtiä, ja opetuksen on oltava kärsivällistä ja kannustavaa. Myös pelko epäonnistumisesta ja tekniikan rikkoutumisesta voi olla esteenä oppimiselle. Kolmas haaste on välineiden ja yhteyksien puute. Kaikilla ikäihmisillä ei ole tietokonetta, tablettia tai älypuhelinta, eikä heillä välttämättä ole varaa hankkia niitä. Myös verkkoyhteydet voivat olla puutteellisia, erityisesti maaseudulla. Tarvitaan ratkaisuja, kuten lainalaitteita ja yhteisiä verkkoyhteyksiä, jotta kaikilla olisi mahdollisuus opetella. Neljäs haaste on tuen saamisen vaikeus. Ikäihmiset eivät aina tiedä, mistä he voisivat saada apua digiongelmiin. Omaiset voivat asua kaukana, eikä naapureistakaan aina ole apua. Tarvitaan helposti saavutettavia neuvontapalveluita, kuten kirjastojen digitukea, järjestöjen vertaisopastusta ja puhelinneuvontaa.",
+      "word_count": 195
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi ikääntyvien digitaitojen tukeminen on tärkeää?",
+        "options": [
+          "Jotta he voivat ostaa uusia laitteita",
+          "Koska yhä useammat palvelut siirtyvät verkkoon ja ilman digitaitoja voi syrjäytyä",
+          "Jotta he voivat pelata tietokonepelejä",
+          "Koska se on muotia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on yksi keskeisimmistä haasteista ikääntyvien digiopetuksessa?",
+        "options": [
+          "Liian nopea oppiminen",
+          "Erilaiset lähtökohdat ja tarpeet",
+          "Liian paljon opetusmateriaalia",
+          "Liian nuoret opettajat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten oppimisen hitaus ja muistamisen vaikeudet tulisi huomioida opetuksessa?",
+        "options": [
+          "Opettamalla nopeammin",
+          "Kärsivällisyydellä, toistoilla ja kannustuksella",
+          "Jättämällä vaikeimmat asiat pois",
+          "Käyttämällä vain nuoria opettajia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ongelmia välineiden ja yhteyksien puute aiheuttaa?",
+        "options": [
+          "Kaikilla on liian hyvät laitteet",
+          "Kaikilla ei ole mahdollisuutta opetella digitaalisia taitoja",
+          "Laitteet ovat liian halpoja",
+          "Yhteydet ovat liian nopeita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä ikäihmiset voivat saada apua digiongelmiin?",
+        "options": [
+          "Vain omaisilta",
+          "Kirjastojen digituesta, järjestöjen vertaisopastuksesta ja puhelinneuvonnasta",
+          "Vain kaupasta",
+          "Vain internetistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

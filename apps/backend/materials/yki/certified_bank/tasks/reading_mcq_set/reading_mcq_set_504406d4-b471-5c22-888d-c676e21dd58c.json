@@ -1,0 +1,77 @@
+{
+  "id": "504406d4-b471-5c22-888d-c676e21dd58c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Merenkulku on Suomelle elintärkeää, koska noin 90 % viennistä ja tuonnista kulkee meriteitse. Suomen tärkeimpiä satamia ovat Helsinki, Hamina-Kotka, Turku ja Rauma. Talvella jäät haastavat merenkulkua, ja jäänmurtajat pitävät väylät auki. Merenkulkualalla työskentelee tuhansia ihmisiä laivoissa, satamissa ja logistiikkayrityksissä. Matkustajalaivaliikenne Ruotsiin, Viroon ja Saksaan on vilkasta, ja risteilyt ovat suosittuja. Laivat kuljettavat myös rahtia. Merenkulun ympäristövaikutuksia pyritään vähentämään esimerkiksi siirtymällä vähäpäästöisempiin polttoaineisiin ja parantamalla energiatehokkuutta. Itämeren suojelu on tärkeää, ja merenkulun päästöjä säännellään kansainvälisesti.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_039",
+        "prompt": "Kuinka suuri osa Suomen viennistä ja tuonnista kulkee meriteitse?",
+        "options": [
+          "Noin 50 %",
+          "Noin 70 %",
+          "Noin 90 %",
+          "Noin 30 %"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2_reading_b1_039",
+        "prompt": "Mitkä ovat tärkeimpiä satamia Suomessa?",
+        "options": [
+          "Oulu ja Vaasa",
+          "Helsinki, Hamina-Kotka, Turku ja Rauma",
+          "Pori ja Kemi",
+          "Lappeenranta ja Joensuu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_039",
+        "prompt": "Mikä haastaa talvella merenkulkua?",
+        "options": [
+          "Myrskyt",
+          "Jäät",
+          "Sumu",
+          "Pimeys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_039",
+        "prompt": "Minne on matkustajalaivaliikennettä?",
+        "options": [
+          "Vain Viroon",
+          "Ruotsiin, Viroon ja Saksaan",
+          "Vain Ruotsiin",
+          "Venäjälle ja Puolaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

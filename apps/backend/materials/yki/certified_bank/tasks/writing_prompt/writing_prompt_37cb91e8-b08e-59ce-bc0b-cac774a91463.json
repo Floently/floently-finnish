@@ -1,0 +1,37 @@
+{
+  "id": "37cb91e8-b08e-59ce-bc0b-cac774a91463",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Söit lounasta lähikahvilassa. Kirjoita palaute. Kerro, maistoiko ruoka hyvältä, oliko palvelu nopeaa ja oliko kahvila siisti.",
+    "materials": {
+      "scenario": "Palaute kahvilalounaasta"
+    },
+    "items": [
+      {
+        "id": "45e9f614-807f-53c4-977e-8cb6660b2a0e",
+        "prompt": "Söit lounasta lähikahvilassa. Kirjoita palaute. Kerro, maistoiko ruoka hyvältä, oliko palvelu nopeaa ja oliko kahvila siisti."
+      }
+    ],
+    "rubric": "Ruoan maku\nPalvelun nopeus\nSiisteys",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

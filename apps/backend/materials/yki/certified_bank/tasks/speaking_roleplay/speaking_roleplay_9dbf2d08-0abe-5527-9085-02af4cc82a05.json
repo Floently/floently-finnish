@@ -1,0 +1,40 @@
+{
+  "id": "9dbf2d08-0abe-5527-9085-02af4cc82a05",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.291,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you like about Finnish summer and what you can do in Finland in summer.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "9ba8bce2-9058-58e6-baf0-5aadde9c163e",
+        "ai_first_turn_fi": "Tykkäätkö Suomen kesästä? Mitä aiot tehdä tänä kesänä?"
+      }
+    ],
+    "rubric": "Tell what you like about Finnish summer and what you can do in Finland in summer.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

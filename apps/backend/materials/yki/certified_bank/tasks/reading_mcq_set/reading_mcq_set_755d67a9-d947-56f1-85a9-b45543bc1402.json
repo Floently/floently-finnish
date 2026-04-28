@@ -1,0 +1,77 @@
+{
+  "id": "755d67a9-d947-56f1-85a9-b45543bc1402",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.758,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KOULUTUSJÄRJESTELMÄN UUDISTAMISEN HAASTEET\n\nSuomalainen koulutusjärjestelmä on ollut kansainvälinen menestystarina. PISA-tulokset olivat huippuluokkaa, ja koulutus nähtiin tasa-arvon ja hyvinvoinnin takeena. Viime vuosina tilanne on kuitenkin muuttunut. PISA-tulokset ovat laskeneet, ja keskustelu koulutuksen tilasta on vilkastunut.\n\nYksi keskeinen haaste on oppimistulosten heikkeneminen. Erityisesti poikien heikko osaaminen ja kouluviihtymättömyys huolestuttavat. Myös maahanmuuttajataustaisten oppilaiden oppimistulokset ovat kantaväestöä heikompia. Tämä lisää eriarvoisuutta.\n\nToinen haaste on koulutuksen rahoitus. Monet kunnat ovat joutuneet säästämään koulutuksesta, mikä on johtanut suurempiin ryhmiin, tukiopetuksen vähenemiseen ja oppimateriaalien puutteeseen. Opettajien työ on kuormittavampaa, eikä ala houkuttele nuoria.\n\nKolmas haaste on opetussuunnitelmien uudistaminen. Työelämä muuttuu nopeasti, ja koulutuksen pitäisi pysyä mukana. Tarvitaan enemmän digiosaamista, yrittäjyyttä, kansainvälisyyttä ja yhteiskunnallista osaamista. Samalla pitää säilyttää vahva perusosaaminen.\n\nNeljäs haaste on koulutuksen ja työelämän yhteensovittaminen. Nuoret valmistuvat yhä vanhempina, ja työelämään siirtyminen on monille vaikeaa. Ammatillinen koulutus on kärsinyt leikkauksista, ja työvoimapula tietyillä aloilla pahenee.\n\nViides haaste on koulutuksen eriarvoistuminen. Vanhempien koulutustaso ja varallisuus vaikuttavat yhä enemmän lasten koulumenestykseen. Koulujen väliset erot ovat kasvaneet, eikä tasa-arvoinen koulutus enää toteudu.\n\nTulevaisuudessa tarvitaan pitkäjänteistä koulutuspolitiikkaa. Rahoitusta on turvattava, opettajankoulutusta kehitettävä ja opetussuunnitelmia uudistettava. Tärkeintä on kuitenkin ymmärtää, että koulutus on investointi tulevaisuuteen – ei menoerä.",
+      "word_count": 187
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yksi keskeinen haaste suomalaisessa koulutuksessa?",
+        "options": [
+          "Koulutustaso on liian korkea",
+          "Oppimistulosten heikkeneminen ja erityisesti poikien heikko osaaminen",
+          "Liian vähän kouluja",
+          "Liian paljon opettajia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten rahoitusleikkaukset ovat vaikuttaneet kouluihin?",
+        "options": [
+          "Ne ovat parantaneet opetuksen laatua",
+          "Ne ovat johtaneet suurempiin ryhmiin ja tukiopetuksen vähenemiseen",
+          "Ne eivät ole vaikuttaneet mitenkään",
+          "Ne ovat lisänneet opettajien määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haastetta työelämän muutos aiheuttaa koulutukselle?",
+        "options": [
+          "Koulutuksen pitäisi pysyä muuttumattomana",
+          "Koulutuksen pitäisi uudistua vastaamaan työelämän tarpeita, mutta samalla säilyttää perusosaaminen",
+          "Työelämä ei tarvitse koulutusta",
+          "Koulutus on jo valmiiksi liian työelämälähtöistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä koulutuksen eriarvoistuminen tarkoittaa?",
+        "options": [
+          "Kaikilla on samanlaiset mahdollisuudet",
+          "Vanhempien tausta vaikuttaa yhä enemmän lasten koulumenestykseen",
+          "Koulut ovat kaikki samanlaisia",
+          "Eriarvoisuus on vähentynyt"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

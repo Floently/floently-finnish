@@ -1,0 +1,37 @@
+{
+  "id": "517d3b15-d537-5caa-90d6-dd3a3194e4d3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet lähettänyt laskun asiakkaalle, mutta se on erääntynyt, etkä ole saanut maksua. Kirjoita ammattimainen ja kohtelias sähköposti, jossa tiedustelet laskun maksamisen tilaa. Mainitse laskun numero ja summa, ja kysy, onko maksamisessa ollut ongelmia, joissa voit auttaa.",
+    "materials": {
+      "scenario": "Olet lähettänyt laskun asiakkaalle, mutta se on erääntynyt, etkä ole saanut maksua. Kirjoita ammattimainen ja kohtelias sähköposti, jossa tiedustelet laskun maksamisen tilaa. Mainitse laskun numero ja summa, ja kysy, onko maksamisessa ollut ongelmia, joissa voit auttaa."
+    },
+    "items": [
+      {
+        "id": "7fd745a0-e75c-5298-98ad-75a65c7e967e",
+        "prompt": "Olet lähettänyt laskun asiakkaalle, mutta se on erääntynyt, etkä ole saanut maksua. Kirjoita ammattimainen ja kohtelias sähköposti, jossa tiedustelet laskun maksamisen tilaa. Mainitse laskun numero ja summa, ja kysy, onko maksamisessa ollut ongelmia, joissa voit auttaa."
+      }
+    ],
+    "rubric": "Olet lähettänyt laskun asiakkaalle, mutta se on erääntynyt, etkä ole saanut maksua. Kirjoita ammattimainen ja kohtelias sähköposti, jossa tiedustelet laskun maksamisen tilaa. Mainitse laskun numero ja summa, ja kysy, onko maksamisessa ollut ongelmia, joissa voit auttaa.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

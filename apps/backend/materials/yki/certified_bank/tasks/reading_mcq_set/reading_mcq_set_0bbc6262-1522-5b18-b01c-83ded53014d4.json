@@ -1,0 +1,66 @@
+{
+  "id": "0bbc6262-1522-5b18-b01c-83ded53014d4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.342,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kuntosalin esite ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TERVETULOA LIIKKUMAAN!\n\nKuntosali Kuntoon tarjoaa monipuolisia palveluita:\n\nKuntosali: 30 € / kk. Sisältää laitteet ja pukuhuoneet.\n\nRyhmäliikunta: 40 € / kk. Mukana yli 20 eri tuntia viikossa: jumppa, jooga, spinning ja bodypump.\n\nOhjattu harjoittelu: 60 € / kk. Saat henkilökohtaisen ohjelman ja ohjaajan kanssa treenit kerran viikossa.\n\nKokeile ilmaiseksi! Ensimmäinen käynti on ilmainen. Voit tulla tutustumaan ja kokeilla laitteita.\n\nAukioloajat:\nma–pe 6–22\nla–su 8–20  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 80
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko pelkkä kuntosali maksaa kuukaudessa?",
+        "options": [
+          "30 €",
+          "40 €",
+          "50 €",
+          "60 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ryhmäliikuntatarjous sisältää?",
+        "options": [
+          "vain jumppaa",
+          "henkilökohtaisen ohjaajan",
+          "yli 20 tuntia viikossa",
+          "ilmaiset juomat"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Voiko kuntosalille mennä kokeilemaan ilmaiseksi?",
+        "options": [
+          "ei, pitää maksaa heti",
+          "kyllä, ensimmäinen käynti on ilmainen",
+          "vain jos on jäsen",
+          "vain ryhmäliikuntaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

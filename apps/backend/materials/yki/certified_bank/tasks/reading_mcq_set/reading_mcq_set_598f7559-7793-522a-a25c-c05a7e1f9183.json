@@ -1,0 +1,110 @@
+{
+  "id": "598f7559-7793-522a-a25c-c05a7e1f9183",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.738,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen väestön ikääntyminen on yksi merkittävimmistä yhteiskunnallisista muutoksista. Se vaikuttaa työmarkkinoihin, julkiseen talouteen, palveluihin ja asenteisiin. Työikäisten määrä vähenee, kun suuret ikäluokat jäävät eläkkeelle. Samaan aikaan eläkkeellä olevien määrä kasvaa, mikä lisää eläkemenoja ja hoivapalvelujen tarvetta. Tämä asettaa paineita julkiselle taloudelle. Ikääntyminen on kuitenkin myös mahdollisuus. Ikääntyneillä on paljon osaamista ja kokemusta, jota voidaan hyödyntää työelämässä, vapaaehtoistyössä ja yritystoiminnassa. Monet haluavat jatkaa työelämässä pidempään, jos se on mahdollista ja mielekästä. Myös ikääntyneille suunnatut palvelut ja tuotteet ovat kasvava markkina. Terveydenhuollossa ja hoivapalveluissa tarvitaan uusia innovaatioita. Teknologia voi auttaa ikääntyneitä asumaan kotona pidempään ja saamaan tarvitsemaansa tukea. Etähoiva, turvateknologia ja älykkäät kodin järjestelmät ovat esimerkkejä tästä. Myös asumisratkaisuja, kuten senioritaloja ja palveluasumista, kehitetään. Ikääntymispolitiikassa on kyse siitä, miten yhteiskunta vastaa ikääntyneiden tarpeisiin ja miten heidän voimavaransa saadaan käyttöön. Tarvitaan pitkäjänteistä suunnittelua ja yhteistyötä eri toimijoiden välillä. Tavoitteena on, että ikääntyneet voivat elää aktiivista ja turvallista elämää ja että heidän panostaan arvostetaan.",
+      "word_count": 150
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten väestön ikääntyminen vaikuttaa työmarkkinoihin?",
+        "options": [
+          "Työikäisten määrä kasvaa.",
+          "Työikäisten määrä vähenee.",
+          "Työmarkkinat pysyvät ennallaan.",
+          "Kaikki työikäiset jäävät eläkkeelle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä paineita ikääntyminen asettaa julkiselle taloudelle?",
+        "options": [
+          "Verotulot kasvavat ja menot vähenevät.",
+          "Verotulot vähenevät ja menot kasvavat.",
+          "Sillä ei ole vaikutusta.",
+          "Verotulot ja menot pysyvät samoina."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen tarjoaa?",
+        "options": [
+          "Ei mitään mahdollisuuksia.",
+          "Ikääntyneiden osaamisen hyödyntäminen ja uudet markkinat.",
+          "Vain uusia markkinoita.",
+          "Vain vapaaehtoistyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten teknologia voi auttaa ikääntyneitä?",
+        "options": [
+          "Se vaikeuttaa elämää.",
+          "Se auttaa asumaan kotona pidempään ja saamaan tarvittavaa tukea.",
+          "Sillä ei ole merkitystä.",
+          "Se korvaa ihmiskontaktit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä esimerkkejä ikääntyneille suunnatusta teknologiasta mainitaan?",
+        "options": [
+          "Robotti-imurit ja älypuhelimet.",
+          "Etähoiva, turvateknologia ja älykkäät kodin järjestelmät.",
+          "Vain turvarannekkeet.",
+          "Vain lääkeannostelijat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä asumisratkaisuja ikääntyneille kehitetään?",
+        "options": [
+          "Vain omakotitaloja.",
+          "Senioritaloja ja palveluasumista.",
+          "Vain kerrostaloja.",
+          "Vain hoitokoteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on ikääntymispolitiikan tavoite?",
+        "options": [
+          "Vähentää ikääntyneiden määrää.",
+          "Turvata ikääntyneille aktiivinen ja turvallinen elämä ja arvostaa heidän panostaan.",
+          "Siirtää ikääntyneet pois yhteiskunnasta.",
+          "Vain säästää rahaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

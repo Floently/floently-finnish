@@ -1,0 +1,73 @@
+{
+  "id": "ecea4ba3-3529-5c75-b23f-ecf1c9849cf6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.57,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti digitaalisesta hyvinvoinnista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Digitaalinen hyvinvointi on käsite, joka on noussut keskeiseksi keskustelunaiheeksi teknologian yleistyttyä. Sillä tarkoitetaan tasapainoa teknologian käytön ja muun elämän välillä. Kysymys on sekä yksilön valinnoista että yhteiskunnan rakenteista.\n\nTeknologian tarjoamat mahdollisuudet ovat valtavat. Some pitää yhteyttä ystäviin, verkkopalvelut helpottavat arkea, ja viihde on aina saatavilla. Mutta samalla teknologia voi aiheuttaa stressiä, riippuvuutta ja unihäiriöitä. Tätä kutsutaan teknologian varjopuoleksi.\n\nYksi keskeinen ongelma on loputon virikevirta. Sovellukset on suunniteltu pitämään käyttäjä mahdollisimman pitkään ruudulla. Tämä voi johtaa siihen, että aikaa kuluu huomaamatta tunteja, ja tärkeät asiat, kuten uni, liikunta ja ihmissuhteet, jäävät vähemmälle.\n\nToinen haaste on somevertailu. Ihmiset esittävät itsestään idealisoituja versioita, mikä voi aiheuttaa muissa riittämättömyyden tunnetta. Erityisesti nuorille tämä on iso ongelma. Jatkuva vertailu voi johtaa masennukseen ja ahdistukseen.\n\nKolmas näkökulma on työn ja vapaa-ajan rajan hämärtyminen. Kun työsähköpostit ja -viestit kulkevat mukana kaikkialla, on vaikea irrottautua työstä. Tämä voi johtaa työuupumukseen. Tarvitaan selkeitä rajoja ja kykyä sanoa ei.\n\nRatkaisuja on monenlaisia. Yksilöt voivat asettaa itselleen ruutuaikarajoja, pitää puhelinta poissa makuuhuoneesta ja valita tietoisesti, mitä sovelluksia käyttävät. Teknologiayritykset voivat suunnitella sovelluksia, jotka eivät ole riippuvuutta aiheuttavia. Yhteiskunta voi säädellä ja kouluttaa.\n\nKriitikot huomauttavat, että digitaalinen hyvinvointi on usein yksilön vastuulla, vaikka ongelmat ovat rakenteellisia. Teknologiayritykset hyötyvät käyttäjien ajasta, joten heillä ei ole kannustinta muuttaa toimintamallejaan. Tarvitaan lainsäädäntöä ja painetta.\n\nToinen haaste on digitaalinen eriarvoisuus. Kaikilla ei ole tietoa tai taitoa hallita omaa teknologian käyttöään. Lapset ja nuoret tarvitsevat aikuisten ohjausta. Kouluilla on tässä tärkeä rooli.\n\nLopuksi voidaan todeta, että digitaalinen hyvinvointi on yksi aikamme keskeisistä haasteista. Se vaatii sekä yksilöllisiä että yhteiskunnallisia ratkaisuja. Tärkeintä on, että teknologia palvelee meitä, emme me sitä.",
+      "word_count": 262
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä tarkoitetaan digitaalisella hyvinvoinnilla?",
+        "options": [
+          "teknologian käyttöä",
+          "tasapainoa teknologian ja muun elämän välillä",
+          "teknologian kieltämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mikä on yksi teknologian varjopuoli?",
+        "options": [
+          "se on kallista",
+          "loputon virikevirta voi viedä aikaa tärkeiltä asioilta",
+          "se on vaikeakäyttöistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä ongelmia somevertailu voi aiheuttaa?",
+        "options": [
+          "se on aina hyväksi",
+          "riittämättömyyden tunnetta, masennusta ja ahdistusta",
+          "se lisää itsetuntoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Miksi digitaalinen hyvinvointi on myös yhteiskunnallinen kysymys?",
+        "options": [
+          "vain yksilö voi vaikuttaa",
+          "teknologiayritykset hyötyvät käyttäjien ajasta, ja tarvitaan lainsäädäntöä",
+          "se ei ole yhteiskunnallinen kysymys"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

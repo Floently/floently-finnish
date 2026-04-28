@@ -1,0 +1,66 @@
+{
+  "id": "d7ffb4e6-f396-5197-b667-4b67687e07c4",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Mikko: Hei Maija, mitä kuuluu?\nMaija: Ihan hyvää, kiitos. Olin juuri lomalla Lapissa. Olipa ihana reissu!\nMikko: Ai, kerro lisää! Mitä siellä teit?\nMaija: Kävin hiihtämässä ja poroajelulla. Näin myös revontulet, ne olivat upeat! Sää oli kylmä, melkein -20 astetta, mutta onneksi oli hyvät varusteet.\nMikko: Kuulostaa hienolta! Minäkin haluaisin joskus nähdä revontulet.\nMaija: Kannattaa ehdottomasti lähteä! Yövyin tunturimajassa ja se oli todella tunnelmallista.",
+      "audio_asset_id": "f003d01e-3eff-556b-a3b3-709953e261b2"
+    },
+    "questions": [
+      {
+        "id": "list_004",
+        "prompt": "Mitä Maija teki Lapissa?",
+        "options": [
+          "Kävi kalassa ja marjassa",
+          "Hiihti ja kävi poroajelulla",
+          "Kävi kaupungilla ja shoppaili",
+          "Kävi museoissa ja teatterissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_005",
+        "prompt": "Millainen sää Lapissa oli?",
+        "options": [
+          "Lämmin ja aurinkoinen",
+          "Sateinen ja tuulinen",
+          "Kylmä, noin -20 astetta",
+          "Leuto ja pilvinen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_006",
+        "prompt": "Missä Maija yöpyi?",
+        "options": [
+          "Hotellissa",
+          "Tunturimajassa",
+          "Retkeilymajassa",
+          "Airbnb:ssä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

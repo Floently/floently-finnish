@@ -1,0 +1,37 @@
+{
+  "id": "c3da48fa-6b64-52c0-a42c-e4dbb0092188",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Kirjoita työhakemus."
+    },
+    "items": [
+      {
+        "id": "96cc2e45-ef34-5c77-be5a-cde6c5778c14",
+        "prompt": "Näet työpaikkailmoituksen: \"Haemme osa-aikaista myyjää viikonloppuihin. Tehtäviin kuuluu asiakaspalvelu, kassatyö ja hyllytys.\"\n\nKirjoita hakemus, jossa:\n- kerrot itsestäsi ja taustastasi\n- kuvaat, miksi olet sopiva tehtävään\n- kerrot, milloin voit aloittaa\n- mainitset yhteystietosi"
+      }
+    ],
+    "rubric": "Näet työpaikkailmoituksen: \"Haemme osa-aikaista myyjää viikonloppuihin. Tehtäviin kuuluu asiakaspalvelu, kassatyö ja hyllytys.\"\n\nKirjoita hakemus, jossa:\n- kerrot itsestäsi ja taustastasi\n- kuvaat, miksi olet sopiva tehtävään\n- kerrot, milloin voit aloittaa\n- mainitset yhteystietosi",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

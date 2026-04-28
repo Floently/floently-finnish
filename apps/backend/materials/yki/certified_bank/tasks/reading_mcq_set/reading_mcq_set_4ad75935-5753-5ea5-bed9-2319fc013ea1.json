@@ -1,0 +1,77 @@
+{
+  "id": "4ad75935-5753-5ea5-bed9-2319fc013ea1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.771,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Maahanmuuttopolitiikka on yksi aikamme kiistellyimmistä yhteiskunnallisista kysymyksistä. Keskustelua käydään niin maahanmuuton määrästä, syistä kuin seurauksistakin, ja se jakaa voimakkaasti mielipiteitä. Kysymys on monitahoinen, eikä siihen ole olemassa yksinkertaisia vastauksia. Maahanmuuton kannattajat korostavat sen taloudellisia ja demografisia hyötyjä. Väestön ikääntyessä ja syntyvyyden laskiessa maahanmuutto nähdään keinona turvata työvoiman saatavuus ja julkisen talouden kestävyys. Maahanmuuttajat tuovat mukanaan osaamista, yrittäjyyttä ja uusia näkökulmia, jotka voivat vahvistaa taloutta ja kulttuuria. He myös maksavat veroja ja kuluttavat, mikä lisää kysyntää ja työllisyyttä. Humanitaarisesta näkökulmasta maahanmuutto on velvollisuus auttaa niitä, jotka pakenevat sotaa, vainoa ja kurjuutta. Maahanmuuton kriitikot puolestaan varoittavat sen tuomista haasteista. He pelkäävät, että suuri ja nopea maahanmuutto voi heikentää kantaväestön työllistymismahdollisuuksia ja painaa palkkoja alas erityisesti matalapalkka-aloilla. He ovat huolissaan julkisten palvelujen, kuten koulutuksen ja terveydenhuollon, kuormittumisesta ja kotouttamisen kustannuksista. Lisäksi he näkevät uhkana kulttuurisen yhtenäisyyden heikkenemisen ja sosiaalisten jännitteiden lisääntymisen. Kolmas näkökulma korostaa, että onnistunut maahanmuuttopolitiikka vaatii toimia niin maahanmuuton säätelyssä, kotouttamisessa kuin asenteisiin vaikuttamisessakin. Se on pitkäjänteistä työtä, jonka tulokset näkyvät vasta vuosien kuluttua.",
+      "word_count": 163
+    },
+    "questions": [
+      {
+        "id": "87666818-2502-5aad-a7e8-2d7bffd8b7b0",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Maahanmuuton taloudelliset vaikutukset",
+          "Maahanmuuttopolitiikkaan liittyvä monitahoinen keskustelu ja erilaiset näkökulmat",
+          "Kotouttamisen haasteet ja ongelmat",
+          "Humanitaarisen maahanmuuton merkitys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6ada5b85-6032-5d51-be7e-cbf78e603dce",
+        "prompt": "Tekstin mukaan mitä taloudellisia hyötyjä maahanmuuton kannattajat korostavat?",
+        "options": [
+          "Maahanmuuttajat lisäävät julkisten palvelujen kuormitusta",
+          "Maahanmuuttajat tuovat osaamista, yrittäjyyttä ja maksavat veroja",
+          "Maahanmuuttajat vievät työpaikat kantaväestöltä",
+          "Maahanmuuttajat heikentävät kulttuurista yhtenäisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "46913712-c7ae-573b-9c4b-a778051e69cf",
+        "prompt": "Mitä huolenaiheita maahanmuuton kriitikot esittävät tekstin mukaan?",
+        "options": [
+          "Maahanmuutto lisää kulttuurista monimuotoisuutta",
+          "Maahanmuutto heikentää kantaväestön työllistymismahdollisuuksia ja kuormittaa julkisia palveluja",
+          "Maahanmuutto vähentää julkisia menoja",
+          "Maahanmuutto parantaa julkisen talouden kestävyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "50c88c16-b6cc-53fb-8137-5afbf4fc42bc",
+        "prompt": "Mitä kolmas, onnistumisen edellytyksiä korostava näkemys pitää tärkeänä maahanmuuttopolitiikassa?",
+        "options": [
+          "Vain maahanmuuton rajoittamista",
+          "Vain kotouttamisen tehostamista",
+          "Toimia maahanmuuton säätelyssä, kotouttamisessa ja asenteisiin vaikuttamisessa",
+          "Vain humanitaarisen maahanmuuton lisäämistä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

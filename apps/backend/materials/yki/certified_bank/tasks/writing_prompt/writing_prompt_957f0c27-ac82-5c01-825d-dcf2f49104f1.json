@@ -1,0 +1,37 @@
+{
+  "id": "957f0c27-ac82-5c01-825d-dcf2f49104f1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti lääkealan turvallisuus- ja kehittämiskeskukseen. Olet saanut lääkkeestä haittavaikutuksen, jota ei ole mainittu pakkausselosteessa. Ilmoita haittavaikutuksesta, kerro lääkkeen nimi ja annostus, ja kysy, miten haittavaikutukset kirjataan ylös.",
+    "materials": {
+      "scenario": "Kirjoita virallinen sähköposti lääkealan turvallisuus- ja kehittämiskeskukseen. Olet saanut lääkkeestä haittavaikutuksen, jota ei ole mainittu pakkausselosteessa. Ilmoita haittavaikutuksesta, kerro lääkkeen nimi ja annostus, ja kysy, miten haittavaikutukset kirjataan ylös."
+    },
+    "items": [
+      {
+        "id": "c0596dcd-a022-5c0b-987c-518537c68ca1",
+        "prompt": "Kirjoita virallinen sähköposti lääkealan turvallisuus- ja kehittämiskeskukseen. Olet saanut lääkkeestä haittavaikutuksen, jota ei ole mainittu pakkausselosteessa. Ilmoita haittavaikutuksesta, kerro lääkkeen nimi ja annostus, ja kysy, miten haittavaikutukset kirjataan ylös."
+      }
+    ],
+    "rubric": "Kirjoita virallinen sähköposti lääkealan turvallisuus- ja kehittämiskeskukseen. Olet saanut lääkkeestä haittavaikutuksen, jota ei ole mainittu pakkausselosteessa. Ilmoita haittavaikutuksesta, kerro lääkkeen nimi ja annostus, ja kysy, miten haittavaikutukset kirjataan ylös.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "85256223-5bc8-51a8-80e0-b6ad49dc0669",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Leikkipuistossa on uusi liukumäki. Se on iso ja keltainen. Lapset ovat olleet siitä innoissaan. Puistossa on myös uusia keinu ja hiekkalaatikko. Leikkipuisto on auki joka päivä aamusta iltaan. Puisto on tarkoitettu kaikille lapsille. Vanhemmat voivat istua penkeillä ja seurata lasten leikkiä.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä leikkipuistossa on uutta?",
+        "options": [
+          "Uusi keinu",
+          "Uusi liukumäki",
+          "Uusi hiekkalaatikko",
+          "Uusi kiipeilyteline"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä värinen uusi liukumäki on?",
+        "options": [
+          "Punainen",
+          "Keltainen",
+          "Sininen",
+          "Vihreä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten lapset ovat suhtautuneet uuteen liukumäkeen?",
+        "options": [
+          "He ovat peloissaan",
+          "He ovat innoissaan",
+          "He eivät välitä",
+          "He eivät ole huomanneet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä muuta uutta puistossa on liukumäen lisäksi?",
+        "options": [
+          "Uusi kahvila",
+          "Uudet keinut ja hiekkalaatikko",
+          "Uusi kenttä",
+          "Uudet pensaat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenelle leikkipuisto on tarkoitettu?",
+        "options": [
+          "Vaan alle kouluikäisille",
+          "Kaikille lapsille",
+          "Vaan koululaisille",
+          "Vaan tytöille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä vanhemmat voivat tehdä puistossa?",
+        "options": [
+          "Leikkiä lasten kanssa",
+          "Istua penkeillä ja seurata leikkiä",
+          "Osallistua leikkeihin",
+          "Järjestää tapahtumia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

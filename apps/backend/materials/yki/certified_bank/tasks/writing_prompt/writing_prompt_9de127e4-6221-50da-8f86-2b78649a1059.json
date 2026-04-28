@@ -1,0 +1,37 @@
+{
+  "id": "9de127e4-6221-50da-8f86-2b78649a1059",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute lähikirjaston aukioloajoista. Ovatko ne sopivat? Pitäisikö kirjaston olla auki myöhemmin?",
+    "materials": {
+      "scenario": "Palaute kirjaston aukioloajoista"
+    },
+    "items": [
+      {
+        "id": "04999f26-9399-5b4e-a367-6d00fbf301cd",
+        "prompt": "Kirjoita palaute lähikirjaston aukioloajoista. Ovatko ne sopivat? Pitäisikö kirjaston olla auki myöhemmin?"
+      }
+    ],
+    "rubric": "Kirjoita palaute lähikirjaston aukioloajoista. Ovatko ne sopivat? Pitäisikö kirjaston olla auki myöhemmin?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

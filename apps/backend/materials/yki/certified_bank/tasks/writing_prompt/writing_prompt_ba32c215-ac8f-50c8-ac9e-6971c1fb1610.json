@@ -1,0 +1,37 @@
+{
+  "id": "ba32c215-ac8f-50c8-ac9e-6971c1fb1610",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti ministeriöön.",
+    "materials": {
+      "scenario": "Anna palautetta lakiehdotuksesta"
+    },
+    "items": [
+      {
+        "id": "fc2c908b-f169-5113-be0a-b815f25a275b",
+        "prompt": "Hallitus on antanut lakiehdotuksen, joka vaikuttaa alaasi tai elämäntilanteeseesi. Kirjoita sähköposti ja anna palautetta. Kerro, mitä mieltä olet ehdotuksesta ja miten sitä pitäisi mielestäsi muuttaa. Perustele huolellisesti."
+      }
+    ],
+    "rubric": "Hallitus on antanut lakiehdotuksen, joka vaikuttaa alaasi tai elämäntilanteeseesi. Kirjoita sähköposti ja anna palautetta. Kerro, mitä mieltä olet ehdotuksesta ja miten sitä pitäisi mielestäsi muuttaa. Perustele huolellisesti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

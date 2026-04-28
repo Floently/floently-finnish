@@ -1,0 +1,77 @@
+{
+  "id": "928de833-1aa5-51af-884a-e227408cc26b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.787,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Julkisen keskustelun tila on viime vuosina herättänyt laajaa huolta niin Suomessa kuin kansainvälisestikin. Keskustelun polarisoituminen, vihapuheen lisääntyminen ja asiantuntijatiedon kyseenalaistaminen ovat ilmiöitä, jotka vaikeuttavat rakentavaa yhteiskunnallista vuoropuhelua ja heikentävät demokratian toimintaedellytyksiä. Tämä kehitys on monien tekijöiden summa, eikä sille ole yhtä yksinkertaista selitystä. Yksi keskeinen tekijä on sosiaalisen median nousu ja perinteisen median aseman heikkeneminen. Sosiaalinen media mahdollistaa nopean ja laajan tiedonvälityksen, mutta se on myös omiaan luomaan kuplia, joissa ihmiset altistuvat lähinnä omia näkemyksiään vahvistavalle tiedolle. Algoritmit suosivat sisältöjä, jotka herättävät voimakkaita tunnereaktioita, mikä voi lisätä polarisaatiota ja vihapuhetta. Perinteinen media puolestaan on menettänyt sekä taloudellisia resurssejaan että yleisönsä luottamusta, mikä heikentää sen kykyä toimia yhteiskunnallisen keskustelun foorumina ja totuudenmukaisen tiedon välittäjänä. Toinen tekijä on poliittisen kulttuurin muutos. Perinteiset puolueet ja ideologiat ovat menettäneet kannatustaan, ja tilalle on noussut populistisia liikkeitä, jotka usein asettuvat asiantuntijoita ja perinteistä mediaa vastaan. Ne hyödyntävät kansalaisten turhautumista ja epävarmuutta ja tarjoavat yksinkertaisia vastauksia monimutkaisiin ongelmiin. Tämä on omiaan kärjistämään keskustelua ja vaikeuttamaan kompromissien löytämistä. Kolmas tekijä on yhteiskunnallinen eriarvoistuminen ja siitä seuraava turhautuminen. Ne, jotka kokevat jääneensä yhteiskunnallisen kehityksen jalkoihin, ovat alttiita vastaanottamaan viestejä, jotka syyttävät heidän ongelmistaan maahanmuuttajia, eliittiä tai EU:ta. Tämä ruokkii vastakkainasettelua ja heikentää luottamusta yhteiskunnallisiin instituutioihin. Julkisen keskustelun tilan parantaminen on monitahoinen haaste, joka vaatii toimia monilla eri rintamilla. Tarvitaan panostuksia mediakasvatukseen ja kriittiseen lukutaitoon, jotta kansalaiset kykenevät arvioimaan tiedon luotettavuutta ja tunnistamaan disinformaation. Tarvitaan myös toimia, jotka vahvistavat perinteisen median asemaa ja resursseja. Lisäksi tarvitaan poliittista kulttuuria, joka arvostaa asiantuntijatietoa ja kykenee rakentavaan vuoropuheluun eri näkemysten välillä. Keskeistä on myös eriarvoisuuden vähentäminen ja syrjäytymisen ehkäisy, jotta kaikilla olisi kokemus siitä, että heillä on mahdollisuus vaikuttaa omaan elämäänsä ja yhteiskuntaan.",
+      "word_count": 271
+    },
+    "questions": [
+      {
+        "id": "a22d82e7-1be7-5328-948c-76946bc8859b",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Sosiaalisen median haitat ja hyödyt",
+          "Poliittisen kulttuurin muutos Suomessa",
+          "Julkisen keskustelun tilan heikkeneminen ja siihen vaikuttavat tekijät",
+          "Eriarvoisuuden vaikutukset yhteiskuntaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ca76a31e-66e3-53e7-b0a8-fd7edc388bb6",
+        "prompt": "Tekstin mukaan miten sosiaalinen median algoritmit voivat vaikuttaa julkiseen keskusteluun?",
+        "options": [
+          "Ne suosivat asiantuntijatietoa ja vähentävät vihapuhetta",
+          "Ne suosivat sisältöjä, jotka herättävät voimakkaita tunnereaktioita, mikä voi lisätä polarisaatiota",
+          "Ne lisäävät ihmisten altistumista monipuolisille näkökulmille",
+          "Ne vähentävät ihmisten aikaa viettää somessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "40f4b3df-3b60-54b8-82d6-e20dfd6b301b",
+        "prompt": "Mitä seurauksia populististen liikkeiden nousulla on tekstin mukaan?",
+        "options": [
+          "Ne lisäävät asiantuntijatiedon arvostusta",
+          "Ne vahvistavat perinteisen median asemaa",
+          "Ne kärjistävät keskustelua ja vaikeuttavat kompromissien löytämistä",
+          "Ne vähentävät kansalaisten turhautumista ja epävarmuutta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "376df473-f048-511f-a1e6-a4370b7ba5e3",
+        "prompt": "Mitä keinoja tekstissä ehdotetaan julkisen keskustelun tilan parantamiseksi?",
+        "options": [
+          "Sosiaalisen median käytön rajoittamista ja populististen liikkeiden kieltämistä",
+          "Mediakasvatusta, perinteisen median vahvistamista, rakentavaa poliittista kulttuuria ja eriarvoisuuden vähentämistä",
+          "Vain asiantuntijoiden kuuntelemista ja kansalaisten mielipiteiden sivuuttamista",
+          "Julkisen keskustelun siirtämistä kokonaan pois sosiaalisesta mediasta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

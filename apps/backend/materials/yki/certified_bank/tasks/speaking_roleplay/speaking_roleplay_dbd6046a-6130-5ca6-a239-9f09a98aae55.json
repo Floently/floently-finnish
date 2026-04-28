@@ -1,0 +1,60 @@
+{
+  "id": "dbd6046a-6130-5ca6-a239-9f09a98aae55",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka palauttaa kirjastoon myöhässä olevia kirjoja ja maksaa myöhästymismaksun. Keskustele kirjastonhoitajan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kirjastonhoitaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp11_1",
+        "ai_first_turn_fi": "Hei, miten voin auttaa?"
+      },
+      {
+        "id": "srp11_2",
+        "ai_first_turn_fi": "Laitathan ne tähän palautuslaitteeseen. Kuittikin tulee automaattisesti."
+      },
+      {
+        "id": "srp11_3",
+        "ai_first_turn_fi": "Näyttää siltä, että nämä kaksi kirjaa ovat kaksi viikkoa myöhässä. Myöhästymismaksu on 6 euroa. Haluatko maksaa sen nyt?"
+      },
+      {
+        "id": "srp11_4",
+        "ai_first_turn_fi": "Maksu käy käteisellä tai kortilla. Miten haluat maksaa?"
+      },
+      {
+        "id": "srp11_5",
+        "ai_first_turn_fi": "Kiitos. Tässä on kuitti maksusta. Haluatko uusia joitakin lainojasi?"
+      },
+      {
+        "id": "srp11_6",
+        "ai_first_turn_fi": "Selvä. Mukavaa päivänjatkoa ja tervetuloa uudelleen!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka palauttaa kirjastoon myöhässä olevia kirjoja ja maksaa myöhästymismaksun. Keskustele kirjastonhoitajan kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "e1025fdd-7570-5699-8d36-3d22967de9a2",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.28,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what food you like and if you know how to cook.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "6a5b4844-5bf5-56bf-9777-41153f245ff2",
+        "ai_first_turn_fi": "Mitä sä syöt usein? Tykkäätkö kokata?"
+      }
+    ],
+    "rubric": "Tell what food you like and if you know how to cook.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

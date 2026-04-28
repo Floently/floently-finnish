@@ -1,0 +1,37 @@
+{
+  "id": "174909d7-db34-5bd5-8ac0-3df0dd33aafe",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipidekirjoitus.",
+    "materials": {
+      "scenario": "Kirjoita mielipidekirjoitus."
+    },
+    "items": [
+      {
+        "id": "f52b5b12-e545-5998-8a56-4a3350d2bbe5",
+        "prompt": "Paikallislehti kysyy lukijoiden mielipiteitä: Pitäisikö kaupungin panostaa enemmän joukkoliikenteeseen vai pyöräilyyn?\n\nKirjoita lyhyt mielipidekirjoitus, jossa:\n- kerrot kumpaa vaihtoehtoa kannatat\n- perustelet mielipiteesi vähintään kolmella syyllä\n- otat huomioon myös vastakkaisen näkökulman"
+      }
+    ],
+    "rubric": "Paikallislehti kysyy lukijoiden mielipiteitä: Pitäisikö kaupungin panostaa enemmän joukkoliikenteeseen vai pyöräilyyn?\n\nKirjoita lyhyt mielipidekirjoitus, jossa:\n- kerrot kumpaa vaihtoehtoa kannatat\n- perustelet mielipiteesi vähintään kolmella syyllä\n- otat huomioon myös vastakkaisen näkökulman",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

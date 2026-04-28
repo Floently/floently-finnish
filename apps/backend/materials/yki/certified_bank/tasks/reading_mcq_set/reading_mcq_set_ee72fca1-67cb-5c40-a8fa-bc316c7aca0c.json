@@ -1,0 +1,99 @@
+{
+  "id": "ee72fca1-67cb-5c40-a8fa-bc316c7aca0c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähitorilla on joka keskiviikko kirpputori. Siellä voi myydä ja ostaa käytettyjä tavaroita. Kirpputori on avoinna kello 12–18. Myyntipaikan voi varata etukäteen. Paikalla on myös kahvio, josta saa kahvia ja pullaa. Kirpputori on suosittu, joten paikalle kannattaa tulla ajoissa. Tervetuloa tekemään löytöjä!",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin lähitorilla on kirpputori?",
+        "options": [
+          "Joka maanantai",
+          "Joka keskiviikko",
+          "Joka perjantai",
+          "Joka lauantai"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirpputorilla voi tehdä?",
+        "options": [
+          "Vain ostaa uusia tavaroita",
+          "Myydä ja ostaa käytettyjä tavaroita",
+          "Vain myydä itse tehtyjä tuotteita",
+          "Vaihtaa tavaroita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin kirpputori on auki?",
+        "options": [
+          "Kello 10–16",
+          "Kello 12–18",
+          "Kello 14–20",
+          "Kello 9–15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten myyntipaikan saa?",
+        "options": [
+          "Se on aina vapaana",
+          "Sen voi varata etukäteen",
+          "Se jaetaan arvalla",
+          "Se on ilmainen kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä paikalla on kirpputorin lisäksi?",
+        "options": [
+          "Leikkipaikka",
+          "Kahvio",
+          "Kirjastoauto",
+          "Infopiste"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi kannattaa tulla ajoissa?",
+        "options": [
+          "Koska kahvio menee kiinni",
+          "Koska kirpputori on suosittu",
+          "Koska myyntipaikat loppuvat",
+          "Koska tavarat myydään nopeasti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "5bef6a2e-8dc1-5d79-96aa-2ba1623eb04c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kannanotto (noin 370-420 sanaa) otsikolla 'Pitäisikö eläinten hyvinvointi ottaa huomioon voimakkaammin EU:n maatalouspolitiikassa?'. Pohdi maataloustukien ja eläinten hyvinvoinnin välistä yhteyttä. Tulisiko tukia suunnata enemmän eläinten hyvinvointia parantaviin tuotantotapoihin? Vai lisäisikö se byrokratiaa ja heikentäisi kilpailukykyä? Perustele.",
+    "materials": {
+      "scenario": "Eläinten hyvinvointi EU:n maatalouspolitiikassa"
+    },
+    "items": [
+      {
+        "id": "aeb1c674-1f2c-571f-b4bb-5bbee243431f",
+        "prompt": "Kirjoita kannanotto (noin 370-420 sanaa) otsikolla 'Pitäisikö eläinten hyvinvointi ottaa huomioon voimakkaammin EU:n maatalouspolitiikassa?'. Pohdi maataloustukien ja eläinten hyvinvoinnin välistä yhteyttä. Tulisiko tukia suunnata enemmän eläinten hyvinvointia parantaviin tuotantotapoihin? Vai lisäisikö se byrokratiaa ja heikentäisi kilpailukykyä? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita kannanotto (noin 370-420 sanaa) otsikolla 'Pitäisikö eläinten hyvinvointi ottaa huomioon voimakkaammin EU:n maatalouspolitiikassa?'. Pohdi maataloustukien ja eläinten hyvinvoinnin välistä yhteyttä. Tulisiko tukia suunnata enemmän eläinten hyvinvointia parantaviin tuotantotapoihin? Vai lisäisikö se byrokratiaa ja heikentäisi kilpailukykyä? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

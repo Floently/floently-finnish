@@ -1,0 +1,99 @@
+{
+  "id": "6269cb13-825d-5c79-82e5-6985c153f308",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yrityksen tiedotustilaisuus ja vastaa.",
+    "materials": {
+      "transcript": "Hyvää huomenta kaikille. Tervetuloa Aurinko Energian tiedotustilaisuuteen. Olen toimitusjohtaja Marja Lehtinen. Kerron teille tänään tärkeistä uutisista. Yhtiömme on kasvanut voimakkaasti viimeisen vuoden aikana. Olemme laajentaneet aurinkopaneelien asennusta koko maahan, ja meillä on nyt toimipisteet 15 paikkakunnalla. Tämän kasvun myötä haemme uusia osakkaita ja olemme päättäneet listautua pörssiin. Listautuminen tapahtuu ensi vuoden alussa. Tämä antaa meille mahdollisuuden kerätä pääomaa uusiin investointeihin, kuten merituulivoimapuiston rakentamiseen. Toinen uutinen koskee uutta yhteistyökumppania. Olemme solmineet sopimuksen saksalaisen teknologiayrityksen kanssa, jonka akkuteknologia mahdollistaa aurinkoenergian varastoinnin aiempaa tehokkaammin. Tämä on merkittävä askel kohti ympärivuorokautista uusiutuvaa energiaa. Kolmanneksi haluan kertoa, että olemme sitoutuneet hiilineutraaliuteen. Tavoitteemme on vähentää oman toimintamme päästöt nollaan vuoteen 2030 mennessä. Tämä tarkoittaa muun muassa kaikkien työsuhdeautojen sähköistämistä ja toimistojen energiatehokkuuden parantamista. Kiitos mielenkiinnostanne. Nyt on aika kysymyksille.",
+      "audio_asset_id": "4c3ade5f-b86e-4027-bd15-c4baee2f778c"
+    },
+    "questions": [
+      {
+        "id": "33cef097-8709-5fde-8521-4f2f643a91f4",
+        "prompt": "Kuka puhuu tiedotustilaisuudessa?",
+        "options": [
+          "Yrityksen hallituksen puheenjohtaja.",
+          "Ulkopuolinen konsultti.",
+          "Yrityksen pääinsinööri.",
+          "Yrityksen toimitusjohtaja."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "ff6764fb-18dc-5368-a67d-2b99f1641f4c",
+        "prompt": "Mitä yritys aikoo tehdä ensi vuoden alussa?",
+        "options": [
+          "Myydä koko liiketoiminnan.",
+          "Lopettaa aurinkopaneelien myynnin.",
+          "Listautua pörssiin.",
+          "Muuttaa ulkomaille."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "259b04de-a7eb-5655-9555-10589a728e24",
+        "prompt": "Mihin listautumisella saatavaa pääomaa aiotaan käyttää?",
+        "options": [
+          "Merituulivoimapuiston rakentamiseen.",
+          "Uuden pääkonttorin rakentamiseen.",
+          "Markkinointikampanjaan.",
+          "Osakkeiden takaisinostoon."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "7e2e7c31-9741-5553-8b41-e0bbf4a21aca",
+        "prompt": "Mitä uutta yhteistyökumppanin teknologia mahdollistaa?",
+        "options": [
+          "Halvempia aurinkopaneeleja.",
+          "Nopeampia asennuksia.",
+          "Aurinkoenergian tehokkaamman varastoinnin.",
+          "Parempaa asiakaspalvelua."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "62ee0504-daa3-58fa-9aed-efa6e1918d8c",
+        "prompt": "Mikä on yrityksen tavoite vuoteen 2030 mennessä?",
+        "options": [
+          "Tuplata liikevaihto.",
+          "Palkata 500 uutta työntekijää.",
+          "Olla hiilineutraali.",
+          "Avata toimipiste jokaiseen kaupunkiin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dffb392c-5781-55f6-9f1f-a5fb8634ca13",
+        "prompt": "Mitä keinoja yritys käyttää hiilineutraaliuden saavuttamiseksi?",
+        "options": [
+          "Kaikkien työntekijöiden etätyöpakko.",
+          "Lentomatkustuksen kieltäminen.",
+          "Työsuhdeautojen sähköistäminen ja energiatehokkuuden parantaminen.",
+          "Toimistojen sulkeminen."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

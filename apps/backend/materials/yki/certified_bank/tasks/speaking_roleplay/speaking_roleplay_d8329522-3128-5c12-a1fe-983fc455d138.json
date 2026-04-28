@@ -1,0 +1,60 @@
+{
+  "id": "d8329522-3128-5c12-a1fe-983fc455d138",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen naapurin melusta. Keskustele isännöitsijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asukas",
+        "partner": "Isännöitsijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp46_1",
+        "ai_first_turn_fi": "Hei, IsännöintiToimisto."
+      },
+      {
+        "id": "srp46_2",
+        "ai_first_turn_fi": "Voi ei, ikävä kuulla. Mikä taloyhtiö ja mikä osoite?"
+      },
+      {
+        "id": "srp46_3",
+        "ai_first_turn_fi": "Kiitos. Mistä asunnosta melu kuuluu ja mihin aikaan?"
+      },
+      {
+        "id": "srp46_4",
+        "ai_first_turn_fi": "Onko sinusta tullut jo puhuttua naapurille asiasta?"
+      },
+      {
+        "id": "srp46_5",
+        "ai_first_turn_fi": "Ymmärrän. Otan yhteyttä naapuriin ja keskustelen asiasta. Jos melu jatkuu, voimme tarvittaessa tehdä virallisen huomautuksen."
+      },
+      {
+        "id": "srp46_6",
+        "ai_first_turn_fi": "Pidämme sinut ajan tasalla. Toivottavasti tilanne rauhoittuu pian."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen naapurin melusta. Keskustele isännöitsijän kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "3083a421-0f38-5788-9a6a-006cb2ab25d7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.74,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen koulutusjärjestelmän kansainvälinen menestys on herättänyt laajaa kiinnostusta ja tutkimusta. Sen ainutlaatuisuus perustuu useisiin toisiinsa kytkeytyviin tekijöihin, joita on vaikea kopioida sellaisenaan. Keskeisin näistä on koulutuksen tasa-arvo. Suomessa lähdetään siitä periaatteesta, että jokaisella lapsella ja nuorella on synnyinpaikasta, varallisuudesta tai perhetaustasta riippumatta oikeus saada laadukasta ja maksutonta koulutusta omien kykyjensä mukaisesti. Tämä periaate on kirjattu lakiin ja se ohjaa koulutuspolitiikkaa kaikilla tasoilla. Toinen olennainen tekijä on opettajien korkea koulutus ja yhteiskunnallinen arvostus. Suomessa opettajaksi ei päädy kuka tahansa, vaan alalle vaaditaan maisterin tutkinto, ja se on erittäin suosittu ja kilpailtu. Opettajat ovat autonomisia ammattilaisia, joilla on laaja vapaus suunnitella omaa työtään ja valita parhaaksi katsomansa opetusmenetelmät. Kolmas tekijä on syvä luottamus, joka vallitsee koulutusjärjestelmän kaikilla tasoilla. Viranomaiset luottavat siihen, että koulut hoitavat tehtävänsä hyvin ilman jatkuvaa valvontaa. Koulut luottavat opettajien ammattitaitoon, ja opettajat puolestaan luottavat oppilaiden haluun oppia. Tästä syystä standardoitua testausta ja koulujen välisiä vertailuja on hyvin vähän. Neljäs tärkeä periaate on oppilaan kokonaisvaltaisen hyvinvoinnin korostaminen. Koulussa ei ole tärkeintä vain oppiainesisältöjen hallinta, vaan myös se, että oppilaalla on turvallinen ja kannustava ilmapiiri.",
+      "word_count": 174
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kaikkein keskeisin tekijä suomalaisen koulutuksen menestyksen takana?",
+        "options": [
+          "Oppilaiden jatkuva testaaminen.",
+          "Koulutuksen tasa-arvo ja maksuttomuus.",
+          "Koulujen välinen kilpailu.",
+          "Suuret luokkakoot."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista koulutusta suomalaisilla opettajilla on?",
+        "options": [
+          "Ammattikoulututkinto.",
+          "Maisterin tutkinto.",
+          "Tohtorin tutkinto.",
+          "Pelkkä opettajankoulutus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vapauksia suomalaisilla opettajilla on?",
+        "options": [
+          "Hyvin vähän vapauksia.",
+          "Laaja vapaus suunnitella opetustaan ja valita menetelmiä.",
+          "Vain vapaus valita oppikirjat.",
+          "Vapaus päättää oppilaiden arvosanoista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin perustuu luottamus koulutusjärjestelmässä?",
+        "options": [
+          "Jatkuvaan valvontaan.",
+          "Siihen, että kaikki tasot luottavat toistensa ammattitaitoon.",
+          "Tiukkoihin sanktioihin.",
+          "Oppilaiden vanhempien valvontaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi standardoitua testausta on vähän?",
+        "options": [
+          "Se on liian kallista.",
+          "Koska järjestelmässä vallitsee luottamus, eikä jatkuvalle mittaamiselle koeta olevan tarvetta.",
+          "Oppilaat eivät suostu osallistumaan testeihin.",
+          "Testituloksia ei käytetä mihinkään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä koulussa painotetaan oppilaan hyvinvoinnin osalta?",
+        "options": [
+          "Kilpailua ja arvosanoja.",
+          "Turvallista ja kannustavaa ilmapiiriä.",
+          "Yksin puurtamista.",
+          "Ulkoa oppimista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on tekstin keskeinen viesti suomalaisesta koulutuksesta?",
+        "options": [
+          "Se on menestynyt, koska se on erittäin kilpailuhenkinen.",
+          "Sen menestys perustuu monen tekijän yhdistelmään, jossa tasa-arvo ja luottamus ovat avainasemassa.",
+          "Se on menestynyt, koska oppilaat ovat poikkeuksellisen lahjakkaita.",
+          "Se on menestynyt, koska koulupäivät ovat erittäin pitkiä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

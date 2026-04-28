@@ -1,0 +1,66 @@
+{
+  "id": "bf5f0e2d-751f-5ae6-979a-67e4e170ce1c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhä useampi julkinen palvelu siirtyy verkkoon. Se on monille helpotus, mutta ikäihmisille se voi olla kynnys. Eläkkeellä oleva Maija-Liisa, 78, kertoo: 'Ennen menin pankkiin asioimaan, nyt kaikki pitää hoitaa kännykällä. Lapsenlapsi on opettanut, mutta tunnusluvut ja vahvistukset menevät helposti sekaisin.' Vanhusneuvoston puheenjohtaja vaatii, että digitaalisten palveluiden rinnalle on säilytettävä vaihtoehtoja. 'Me emme vastusta digiä, mutta jokaisella pitää olla oikeus asioida myös ihmisen kanssa.' Pankit ja virastot perustelevat digitointia kustannussäästöillä, mutta kohtuuttomuutta ei saa syntyä.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä mieltä Maija-Liisa on digipalveluista?",
+        "options": [
+          "Ne ovat helppoja käyttää",
+          "Ne menevät helposti sekaisin",
+          "Ne ovat turhia",
+          "Ne ovat liian hitaita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä vanhusneuvoston puheenjohtaja vaatii?",
+        "options": [
+          "Digipalvelut pitää lopettaa",
+          "Pitää säilyttää vaihtoehtoja digille",
+          "Vain nuoret saavat käyttää digiä",
+          "Pankkeja pitää rangaista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi pankit ja virastot perustelevat digitointia?",
+        "options": [
+          "Asiakkaiden toiveilla",
+          "Kustannussäästöillä",
+          "Nopeudella",
+          "Turvallisuudella"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

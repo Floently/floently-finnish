@@ -1,0 +1,77 @@
+{
+  "id": "257b5989-c475-5784-bb92-b66d8848cf5d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.743,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Väestön ikääntyminen on yksi keskeisimmistä yhteiskunnallisista haasteista Suomessa. Syntyvyys on laskenut, ja elinajanodote on noussut. Tämä johtaa siihen, että työikäisen väestön osuus pienenee ja eläkeläisten määrä kasvaa. Seurauksena on paineita julkiselle taloudelle, kun verotulot vähenevät ja eläke- ja hoitomenot kasvavat. Tämä edellyttää uudistuksia eläkejärjestelmään, työmarkkinoihin ja sosiaali- ja terveyspalveluihin. Ikääntyminen tarjoaa myös mahdollisuuksia, kuten uusia markkinoita ikääntyneille suunnatuille tuotteille ja palveluille, sekä ikääntyneiden potentiaalin hyödyntämisen vapaaehtoistyössä ja kokemuksen jakamisessa. Yhteiskunnan on sopeuduttava ikääntymiseen monin tavoin.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "mcq_380",
+        "prompt": "Mikä on keskeisin yhteiskunnallinen haaste Suomessa väestön osalta?",
+        "options": [
+          "Väestön nuorentuminen",
+          "Väestön ikääntyminen",
+          "Syntyvyyden nousu",
+          "Elinajanodotteen lasku"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_381",
+        "prompt": "Mitä väestön ikääntyminen aiheuttaa julkiselle taloudelle?",
+        "options": [
+          "Verotulot kasvavat ja menot vähenevät",
+          "Verotulot vähenevät ja menot kasvavat",
+          "Verotulot ja menot pysyvät ennallaan",
+          "Verotulot ja menot vähenevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_382",
+        "prompt": "Mitä uudistuksia väestön ikääntyminen edellyttää?",
+        "options": [
+          "Vain eläkejärjestelmän uudistuksia",
+          "Eläkejärjestelmän, työmarkkinoiden ja sosiaali- ja terveyspalveluiden uudistuksia",
+          "Vain työmarkkinoiden uudistuksia",
+          "Vain sosiaali- ja terveyspalveluiden uudistuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_383",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen tarjoaa?",
+        "options": [
+          "Vain uusia markkinoita",
+          "Uusia markkinoita ja ikääntyneiden potentiaalin hyödyntämistä",
+          "Vain vapaaehtoistyötä",
+          "Vain kokemuksen jakamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

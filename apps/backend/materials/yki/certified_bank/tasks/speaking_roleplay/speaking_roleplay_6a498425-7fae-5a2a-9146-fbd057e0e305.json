@@ -1,0 +1,40 @@
+{
+  "id": "6a498425-7fae-5a2a-9146-fbd057e0e305",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.302,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what services are in your neighborhood. What do you use most often?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "1d288a35-6f18-5cee-a80a-f7f5ed22e929",
+        "ai_first_turn_fi": "Mitä palveluja täällä on lähellä? Onko kauppaa, postia, apteekkia?"
+      }
+    ],
+    "rubric": "Tell what services are in your neighborhood. What do you use most often?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

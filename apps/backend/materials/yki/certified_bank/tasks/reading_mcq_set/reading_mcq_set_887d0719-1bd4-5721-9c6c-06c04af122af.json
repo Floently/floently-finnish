@@ -1,0 +1,77 @@
+{
+  "id": "887d0719-1bd4-5721-9c6c-06c04af122af",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Vapaaehtoistyö on Suomessa merkittävä osa kansalaisyhteiskuntaa. Tuhannet suomalaiset tekevät vapaaehtoistyötä esimerkiksi urheiluseuroissa, kulttuurijärjestöissä, sosiaali- ja terveysjärjestöissä sekä ympäristöjärjestöissä. Vapaaehtoistyö voi olla satunnaista auttamista tai säännöllistä sitoutumista. Tyypillisiä tehtäviä ovat tapahtumien järjestäminen, varainkeruu, hallintotehtävät, vertaistuki ja käytännön auttaminen, kuten kauppa-apu tai ulkoilutus. Vapaaehtoistyö tuottaa tekijälleen merkityksellisyyden tunnetta, uusia taitoja ja sosiaalisia suhteita. Monet kokevat sen tärkeänä vastapainona työlle. Järjestöt etsivät jatkuvasti uusia vapaaehtoisia ja tarjoavat tehtäviin perehdytystä.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_020",
+        "prompt": "Millaisissa järjestöissä suomalaiset tekevät vapaaehtoistyötä?",
+        "options": [
+          "Vain urheiluseuroissa",
+          "Urheiluseuroissa, kulttuuri-, sosiaali- ja terveysjärjestöissä sekä ympäristöjärjestöissä",
+          "Vain sosiaali- ja terveysjärjestöissä",
+          "Vain uskonnollisissa yhteisöissä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_020",
+        "prompt": "Mitä tyypillisiä vapaaehtoistehtäviä on?",
+        "options": [
+          "Vain rahan kerääminen",
+          "Tapahtumien järjestäminen, varainkeruu, hallinto, vertaistuki ja käytännön auttaminen",
+          "Vain siivous",
+          "Vain lastenhoito"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_020",
+        "prompt": "Mitä hyötyä vapaaehtoistyöstä on tekijälle?",
+        "options": [
+          "Rahallinen korvaus",
+          "Merkityksellisyyden tunne, uudet taidot ja sosiaaliset suhteet",
+          "Työkokemus",
+          "Ilmainen asuminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_020",
+        "prompt": "Mitä järjestöt tarjoavat vapaaehtoisille?",
+        "options": [
+          "Palkkaa",
+          "Perehdytystä tehtäviin",
+          "Asunnon",
+          "Autoedun"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

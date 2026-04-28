@@ -1,0 +1,99 @@
+{
+  "id": "4ce32d36-c076-5b20-839e-72b3c4f0c190",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet kaupungit ovat lisänneet puistojen penkkejä ja roskiksia. Asukkaat ovat olleet tyytyväisiä. Puistoissa on nyt mukavampi viettää aikaa. Roskiksia tyhjennetään useammin, joten alueet pysyvät siistimpinä. Seuraavaksi kaupunki suunnittelee lisäävänsä puistoihin uusia istutuksia ja puita.",
+      "word_count": 34
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kaupungit ovat lisänneet puistoihin?",
+        "options": [
+          "Lisää puita ja istutuksia",
+          "Penkkejä ja roskiksia",
+          "Leikkikenttiä ja keinuja",
+          "Koirapuistoja ja aitoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten asukkaat ovat suhtautuneet muutoksiin?",
+        "options": [
+          "He ovat olleet pettyneitä",
+          "He eivät ole huomanneet muutosta",
+          "He ovat olleet tyytyväisiä",
+          "He ovat valittaneet roskiksista"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi roskiksia tyhjennetään useammin?",
+        "options": [
+          "Koska roskia on vähemmän",
+          "Jotta puistot pysyvät siistimpinä",
+          "Koska asukkaat ovat pyytäneet",
+          "Jotta roskikset eivät kulu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kaupunki suunnittelee tekevänsä seuraavaksi?",
+        "options": [
+          "Poistaa vanhat penkit",
+          "Lisätä roskiksia",
+          "Lisätä uusia istutuksia ja puita",
+          "Rakentaa uusia teitä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on tekstin pääviesti?",
+        "options": [
+          "Puistoissa on liikaa roskiksia",
+          "Kaupunki kehittää puistoja asukkaiden iloksi",
+          "Istutukset eivät onnistu kaupungissa",
+          "Asukkaat eivät pidä puistoista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä hyötyä roskiksien useammasta tyhjennyksestä on?",
+        "options": [
+          "Roskikset eivät täyty koskaan",
+          "Alueet pysyvät siistimpinä",
+          "Roskiksia tarvitaan vähemmän",
+          "Puistot ovat hiljaisempia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

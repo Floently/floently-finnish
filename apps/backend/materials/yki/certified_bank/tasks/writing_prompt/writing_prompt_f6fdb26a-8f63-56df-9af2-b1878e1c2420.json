@@ -1,0 +1,37 @@
+{
+  "id": "f6fdb26a-8f63-56df-9af2-b1878e1c2420",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita valitus isännöitsijälle.",
+    "materials": {
+      "scenario": "Kirjoita valitus isännöitsijälle."
+    },
+    "items": [
+      {
+        "id": "w_b1_010_006_item",
+        "prompt": "Kirjoita valitus."
+      }
+    ],
+    "rubric": "Kirjoita valitus isännöitsijälle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "ed2f2917-e02c-5a79-a05e-c42b73af41a9",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä varauksen vuokra-asuntoon. Keskustele vuokranantajan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Vuokranantaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp40_1",
+        "ai_first_turn_fi": "Hei, Matti täällä."
+      },
+      {
+        "id": "srp40_2",
+        "ai_first_turn_fi": "Hienoa! Olen iloinen että päädyit tähän. Milloin haluaisit muuttaa?"
+      },
+      {
+        "id": "srp40_3",
+        "ai_first_turn_fi": "Se sopii hyvin. Vuokrasopimus voidaan tehdä vaikka heti. Haluatko tulla tekemään sen tänään?"
+      },
+      {
+        "id": "srp40_4",
+        "ai_first_turn_fi": "Loistavaa. Tavataan siis tänään kello 17 asunnolla. Muistathan ottaa henkilöllisyystodistuksen mukaan."
+      },
+      {
+        "id": "srp40_5",
+        "ai_first_turn_fi": "Vuokravakuus on 1800 euroa ja se pitää maksaa ennen muuttoa. Saanko pankkitilinumerosi?"
+      },
+      {
+        "id": "srp40_6",
+        "ai_first_turn_fi": "Kiitos. Laitan sinulle sähköpostilla vuokrasopimuksen luonnoksen etukäteen luettavaksi."
+      },
+      {
+        "id": "srp40_7",
+        "ai_first_turn_fi": "Nähdään tänään!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä varauksen vuokra-asuntoon. Keskustele vuokranantajan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

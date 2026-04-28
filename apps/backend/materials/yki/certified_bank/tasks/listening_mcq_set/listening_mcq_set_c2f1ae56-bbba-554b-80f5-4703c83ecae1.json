@@ -1,0 +1,66 @@
+{
+  "id": "c2f1ae56-bbba-554b-80f5-4703c83ecae1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele bussikuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tämä on bussi numero 42. Valitettavasti bussi on myöhässä noin 10 minuuttia ruuhkan vuoksi. Seuraava pysäkki on Messukeskus. Pahoittelemme viivästystä.",
+      "audio_asset_id": "4b65e6e3-1d11-599d-80de-ba5dab0788dc"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä bussi on myöhässä?",
+        "options": [
+          "bussi 24",
+          "bussi 42",
+          "bussi 14",
+          "bussi 21"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko bussi on myöhässä?",
+        "options": [
+          "5 min",
+          "10 min",
+          "15 min",
+          "20 min"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on seuraava pysäkki?",
+        "options": [
+          "Rautatieasema",
+          "Keskusta",
+          "Messukeskus",
+          "Yliopisto"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

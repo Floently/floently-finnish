@@ -1,0 +1,88 @@
+{
+  "id": "61d30299-60ed-5c20-9c2a-8538a14f0a11",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele väittely kaupunkien viheralueista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Seuraavaksi väittelemme siitä, pitäisikö kaupunkien viheralueita vähentää uuden rakentamisen tieltä. Ensimmäisenä puheenvuoro kaupunginvaltuutettu Matti Rannalle. Ranta: Kaupungit tarvitsevat lisää asuntoja ja työpaikkoja. Rakentaminen on välttämätöntä, ja joskus se tapahtuu viheralueiden kustannuksella. Voimme kuitenkin luoda uusia viheralueita korvaamaan menetettyjä. Puheenjohtaja: Kiitos. Vastapuheenvuoro ympäristöasiantuntija Anna Kiveltä. Kivi: Viheralueet ovat korvaamattomia. Ne puhdistavat ilmaa, vähentävät melua, tasoittavat lämpötiloja ja ovat tärkeitä virkistykselle ja hyvinvoinnille. Niiden vähentäminen heikentää kaupunkilaisten elämänlaatua. Ranta: Rakentaminen voidaan toteuttaa tiiviisti, jolloin osa viheralueesta voidaan säästää. Esimerkiksi kerrostalot vievät vähemmän tilaa kuin omakotitalot. Kivi: Tiivis rakentaminen on hyvä asia, mutta se ei saa tarkoittaa kaikkien viheralueiden hävittämistä. Tarvitaan kompromisseja. Viheralueita pitää olla myös lähellä, jotta ne ovat kaikkien saavutettavissa. Ranta: Ehkä voimme rakentaa puistoja rakennusten katoille ja sisäpihoille. Kivi: Ne ovat hyvä lisä, mutta eivät korvaa maanpäällisiä puistoja, joissa on puita ja tilaa liikkua.",
+      "audio_asset_id": "e3f4a5b6-c7d8-9e0f-1a2b-3c4d5e6f7a8b"
+    },
+    "questions": [
+      {
+        "id": "l178q1",
+        "prompt": "Mitä mieltä Matti Ranta on viheralueiden vähentämisestä?",
+        "options": [
+          "Se on aina huono asia.",
+          "Rakentaminen on välttämätöntä, ja uusia viheralueita voidaan luoda korvaamaan menetettyjä.",
+          "Viheralueita ei saa koskaan vähentää.",
+          "Kaikki viheralueet pitää säilyttää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l178q2",
+        "prompt": "Miten Anna Kivi perustelee viheralueiden tärkeyttä?",
+        "options": [
+          "Ne ovat kauniita.",
+          "Ne puhdistavat ilmaa, vähentävät melua, tasoittavat lämpötiloja ja ovat tärkeitä virkistykselle.",
+          "Ne lisäävät kiinteistöjen arvoa.",
+          "Ne ovat suosittuja turistien keskuudessa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l178q3",
+        "prompt": "Mitä Ranta ehdottaa, jotta osa viheralueesta voitaisiin säästää?",
+        "options": [
+          "Rakentaa väljemmin.",
+          "Rakentaa tiiviisti, esimerkiksi kerrostaloja.",
+          "Rakentaa vain lähiöihin.",
+          "Rakentaa kauemmaksi keskustasta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l178q4",
+        "prompt": "Mitä Kivi vastaa tiiviistä rakentamisesta?",
+        "options": [
+          "Se on huono asia.",
+          "Se on hyvä, mutta se ei saa tarkoittaa kaikkien viheralueiden hävittämistä.",
+          "Se ei vaikuta viheralueisiin.",
+          "Se on ainoa ratkaisu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l178q5",
+        "prompt": "Mitä vaihtoehtoisia viheralueita Ranta ehdottaa?",
+        "options": [
+          "Puistoja rakennusten katoille ja sisäpihoille.",
+          "Puistoja kaupungin ulkopuolelle.",
+          "Viheralueita vain lähiöihin.",
+          "Puistoja teollisuusalueille."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

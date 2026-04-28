@@ -1,0 +1,37 @@
+{
+  "id": "282d4e9c-4c40-5d51-b7f4-cccd1f4b3be9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen reklamaatio.",
+    "materials": {
+      "scenario": "Sähkökatkokset"
+    },
+    "items": [
+      {
+        "id": "351fe7fc-f615-5a29-9c54-626607e9643f",
+        "prompt": "Kirjoita reklamaatio sähköyhtiölle toistuvista sähkökatkoksista."
+      }
+    ],
+    "rubric": "Kirjoita reklamaatio sähköyhtiölle toistuvista sähkökatkoksista.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

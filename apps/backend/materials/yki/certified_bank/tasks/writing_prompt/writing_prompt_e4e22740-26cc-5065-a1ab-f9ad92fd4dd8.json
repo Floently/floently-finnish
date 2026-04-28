@@ -1,0 +1,37 @@
+{
+  "id": "e4e22740-26cc-5065-a1ab-f9ad92fd4dd8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.685,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an office secretary position in a medium-sized company. Tell about your education, previous experience in office tasks, and what office programs you master. Also describe how your systematic approach shows in your work. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus toimistosihteerin tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for an office secretary position in a medium-sized company. Tell about your education, previous experience in office tasks, and what office programs you master. Also describe how your systematic approach shows in your work. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an office secretary position in a medium-sized company. Tell about your education, previous experience in office tasks, and what office programs you master. Also describe how your systematic approach shows in your work. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

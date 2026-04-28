@@ -1,0 +1,88 @@
+{
+  "id": "a9c317f0-b3fc-559e-acca-c1d2f8a20aa9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin pyöräilyväylistä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupunki on saanut valtionavustusta pyöräilyväylien kehittämiseen. Avustuksen suuruus on 2,5 miljoonaa euroa. Rahalla rakennetaan uusia pyöräteitä yhdistämään keskusta ja lähiöitä. Tavoitteena on luoda yhtenäinen pyöräilyverkosto, jossa pyöräily on turvallista ja sujuvaa. Uusia pyöräteitä tulee erityisesti Itäväylän ja Pohjoisväylän varsille. Lisäksi parannetaan pyöräteiden talvikunnossapitoa ja rakennetaan uusia pyöräparkkeja. Kaupunki panostaa myös pyöräilyn ja joukkoliikenteen yhdistämiseen. Uusille pyöräpysäköintialueille tulee katoksia ja latauspisteitä sähköpyörille. Hankkeen on määrä valmistua vuoden 2026 loppuun mennessä. Tavoitteena on, että pyöräilyn osuus kaikesta liikkumisesta kasvaa nykyisestä 15 prosentista 25 prosenttiin.",
+      "audio_asset_id": "0c02f0f0-7f0b-4d40-96c3-52c9b0f13a11"
+    },
+    "questions": [
+      {
+        "id": "718f82bb-5324-5aba-9c6f-787de542b772",
+        "prompt": "Paljonko kaupunki sai valtionavustusta pyöräilyväylien kehittämiseen?",
+        "options": [
+          "2,5 miljoonaa euroa.",
+          "1,5 miljoonaa euroa.",
+          "2 miljoonaa euroa.",
+          "3 miljoonaa euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e332a68f-a37b-531a-a656-f1140699831e",
+        "prompt": "Mikä on tavoitteena uusilla pyöräteillä?",
+        "options": [
+          "Lisätä autoliikennettä.",
+          "Vähentää pyöräilyä.",
+          "Luoda yhtenäinen, turvallinen ja sujuva pyöräilyverkosto.",
+          "Siirtää pyöräilyä pois keskustasta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "461b5553-fe42-5ead-ad9a-0f20783d8d06",
+        "prompt": "Minne uusia pyöräteitä tulee erityisesti?",
+        "options": [
+          "Keskustaan ja Länsiväylälle.",
+          "Eteläväylälle ja rantareitille.",
+          "Läntisille esikaupunkialueille.",
+          "Itäväylän ja Pohjoisväylän varsille."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "209de391-34c0-5a63-aa7a-e601177ba738",
+        "prompt": "Mitä uusille pyöräpysäköintialueille tulee?",
+        "options": [
+          "Autopaikkoja.",
+          "Huoltopisteitä.",
+          "Pesupaikkoja.",
+          "Katoksia ja latauspisteitä sähköpyörille."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "bda626ad-2bbe-5e60-8115-cbf4b7f3b6cb",
+        "prompt": "Mihin pyöräilyn osuutta liikkumisesta halutaan kasvattaa?",
+        "options": [
+          "15 prosentista 20 prosenttiin.",
+          "20 prosentista 30 prosenttiin.",
+          "15 prosentista 25 prosenttiin.",
+          "10 prosentista 20 prosenttiin."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

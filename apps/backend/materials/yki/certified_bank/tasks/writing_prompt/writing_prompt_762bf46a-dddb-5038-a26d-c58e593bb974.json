@@ -1,0 +1,37 @@
+{
+  "id": "762bf46a-dddb-5038-a26d-c58e593bb974",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kolumni (noin 380-430 sanaa) otsikolla 'Pitäisikö some-jättejä velvoittaa maksamaan sisällöntuottajilleen, jos ne käyttävät heidän sisältöjään tekoälyn kouluttamiseen?'. Pohdi tekoälyn kouluttamiseen käytetyn datan alkuperää ja tekijänoikeuksia. Tulisiko some-alustojen maksaa korvauksia, jos ne hyödyntävät käyttäjien sisältöjä tekoälymallien kehittämiseen? Vai onko se osa käyttöehtoja? Perustele.",
+    "materials": {
+      "scenario": "Some-sisältö tekoälyn koulutuksessa"
+    },
+    "items": [
+      {
+        "id": "1a3715b5-50f2-5edb-a9d4-74aaa32e4bcb",
+        "prompt": "Kirjoita kolumni (noin 380-430 sanaa) otsikolla 'Pitäisikö some-jättejä velvoittaa maksamaan sisällöntuottajilleen, jos ne käyttävät heidän sisältöjään tekoälyn kouluttamiseen?'. Pohdi tekoälyn kouluttamiseen käytetyn datan alkuperää ja tekijänoikeuksia. Tulisiko some-alustojen maksaa korvauksia, jos ne hyödyntävät käyttäjien sisältöjä tekoälymallien kehittämiseen? Vai onko se osa käyttöehtoja? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita kolumni (noin 380-430 sanaa) otsikolla 'Pitäisikö some-jättejä velvoittaa maksamaan sisällöntuottajilleen, jos ne käyttävät heidän sisältöjään tekoälyn kouluttamiseen?'. Pohdi tekoälyn kouluttamiseen käytetyn datan alkuperää ja tekijänoikeuksia. Tulisiko some-alustojen maksaa korvauksia, jos ne hyödyntävät käyttäjien sisältöjä tekoälymallien kehittämiseen? Vai onko se osa käyttöehtoja? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

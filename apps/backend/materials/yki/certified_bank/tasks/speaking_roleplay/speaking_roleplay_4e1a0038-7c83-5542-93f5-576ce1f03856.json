@@ -1,0 +1,40 @@
+{
+  "id": "4e1a0038-7c83-5542-93f5-576ce1f03856",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "asiakas",
+        "partner": "lipunmyyjä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp99_01",
+        "ai_first_turn_fi": "Konserttilippujen myynti, päivää."
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

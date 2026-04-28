@@ -1,0 +1,110 @@
+{
+  "id": "c8dc0e31-fa71-5aea-b5b6-c1516f8f1ac8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Energiapolitiikka on yksi keskeisimmistä kysymyksistä ilmastonmuutoksen torjunnassa. Suomi on sitoutunut vähentämään kasvihuonekaasupäästöjään ja lisäämään uusiutuvan energian osuutta. Tavoitteena on hiilineutraalius vuoteen 2035 mennessä. Tämä vaatii merkittäviä muutoksia energiantuotannossa ja -kulutuksessa. Fossiilisista polttoaineista on luovuttava ja siirryttävä uusiutuviin energialähteisiin, kuten tuuli-, aurinko- ja bioenergiaan. Myös ydinvoimaa pidetään yhtenä vaihtoehtona, koska se on päästötöntä. Energiapolitiikka ei kuitenkaan ole pelkästään tekninen kysymys. Siihen liittyy vahvasti myös taloudellisia, sosiaalisia ja geopoliittisia ulottuvuuksia. Energian hinta vaikuttaa kansalaisten arkeen ja teollisuuden kilpailukykyyn. Energiaomavaraisuus ja huoltovarmuus ovat tärkeitä turvallisuuskysymyksiä, erityisesti kansainvälisten kriisien aikana. Myös energiantuotannon vaikutukset ympäristöön ja paikallisyhteisöihin herättävät keskustelua. Tuulivoimaloiden maisemavaikutukset ja biopolttoaineiden kestävyys ovat esimerkkejä asioista, joista ollaan monta mieltä. Energiapolitiikassa joudutaan tekemään vaikeita valintoja ja sovittamaan yhteen erilaisia tavoitteita.",
+      "word_count": 116
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on Suomen tavoite ilmastopolitiikassa?",
+        "options": [
+          "Lisätä fossiilisten polttoaineiden käyttöä.",
+          "Hiilineutraalius vuoteen 2035 mennessä.",
+          "Vähentää uusiutuvan energian käyttöä.",
+          "Luopua ydinvoimasta kokonaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä muutoksia energiantuotannossa tarvitaan?",
+        "options": [
+          "Fossiilisten polttoaineiden käytön lisäämistä.",
+          "Siirtymistä uusiutuviin energialähteisiin.",
+          "Energian kulutuksen lisäämistä.",
+          "Uusien hiilivoimaloiden rakentamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi ydinvoimaa pidetään vaihtoehtona?",
+        "options": [
+          "Se on halpaa.",
+          "Se on päästötöntä.",
+          "Sitä on runsaasti saatavilla.",
+          "Se on turvallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä taloudellisia vaikutuksia energiapolitiikalla on?",
+        "options": [
+          "Se vaikuttaa vain valtion budjettiin.",
+          "Energian hinta vaikuttaa kansalaisten arkeen ja teollisuuden kilpailukykyyn.",
+          "Sillä ei ole taloudellisia vaikutuksia.",
+          "Se vaikuttaa vain vientiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi energiaomavaraisuus on tärkeää?",
+        "options": [
+          "Se vähentää energian kulutusta.",
+          "Se on tärkeä turvallisuuskysymys kansainvälisten kriisien aikana.",
+          "Se lisää riippuvuutta muista maista.",
+          "Se nostaa energian hintaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä esimerkkejä energiantuotannon ristiriidoista mainitaan?",
+        "options": [
+          "Aurinkovoiman liiallinen määrä.",
+          "Tuulivoimaloiden maisemavaikutukset ja biopolttoaineiden kestävyys.",
+          "Vesivoiman liiallinen käyttö.",
+          "Ydinvoiman liiallinen turvallisuus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millaista päätöksentekoa energiapolitiikka vaatii?",
+        "options": [
+          "Helppoja valintoja, jotka miellyttävät kaikkia.",
+          "Vaikeita valintoja ja erilaisten tavoitteiden yhteensovittamista.",
+          "Vain teknisiä päätöksiä.",
+          "Päätöksiä, jotka eivät vaikuta kansalaisiin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

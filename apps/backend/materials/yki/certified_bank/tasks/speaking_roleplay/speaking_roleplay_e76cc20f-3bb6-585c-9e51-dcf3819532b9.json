@@ -1,0 +1,40 @@
+{
+  "id": "e76cc20f-3bb6-585c-9e51-dcf3819532b9",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.498,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Harjoittele keskustelua.",
+    "materials": {
+      "roles": {
+        "user": "lääkärin vastaanotolla",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "53134e3e-ab48-545e-aa83-d387045fc2dc",
+        "ai_first_turn_fi": "No niin, kertokaa mikä teillä on hätänä. Kauanko oireita on kestänyt?"
+      }
+    ],
+    "rubric": "Harjoittele keskustelua.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "f9531a9b-524c-57f0-86a7-bda003a649c2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomeen perustaa lisää kansallispuistoja suojelualueiden laajentamiseksi?'. Arvioi luonnon monimuotoisuutta, matkailua ja paikallisten elinkeinoja.",
+    "materials": {
+      "scenario": "Kansallispuistojen perustaminen"
+    },
+    "items": [
+      {
+        "id": "595b4294-ba64-5da7-be62-3474b1a4c8ad",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomeen perustaa lisää kansallispuistoja suojelualueiden laajentamiseksi?'. Arvioi luonnon monimuotoisuutta, matkailua ja paikallisten elinkeinoja."
+      }
+    ],
+    "rubric": "Luonnon monimuotoisuus\nMatkailu\nPaikalliset elinkeinot\nVirkistyskäyttö",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

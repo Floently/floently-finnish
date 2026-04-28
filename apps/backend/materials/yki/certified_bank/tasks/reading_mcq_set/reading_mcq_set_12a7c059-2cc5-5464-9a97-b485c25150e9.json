@@ -1,0 +1,66 @@
+{
+  "id": "12a7c059-2cc5-5464-9a97-b485c25150e9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.284,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei!\n\nMennäänkö huomenna elokuviin? Tarjous: kaikki liput 8 euroa. Leffa alkaa klo 18. Sopiiko sinulle? Vastaa pian!\n\nTerveisin,\nMaija",
+      "word_count": 19
+    },
+    "questions": [
+      {
+        "id": "9ce57ecd-c8d4-5263-adec-50c832f1a66e",
+        "prompt": "Mitä Maija ehdottaa?",
+        "options": [
+          "Kävelyä",
+          "Elokuvia",
+          "Kahvia",
+          "Uimista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f81e56e8-775a-5372-818c-a3c6799223fa",
+        "prompt": "Paljonko liput maksavat?",
+        "options": [
+          "6 euroa",
+          "8 euroa",
+          "10 euroa",
+          "Ilmaiseksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9ef4167c-969a-5996-b1ba-96acdc6b822a",
+        "prompt": "Milloin elokuva alkaa?",
+        "options": [
+          "klo 16",
+          "klo 17",
+          "klo 18",
+          "klo 19"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

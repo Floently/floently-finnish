@@ -1,0 +1,88 @@
+{
+  "id": "dc16de6a-9ab9-54c3-beec-7752c754d687",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen uudesta kirjastosta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Lahden kaupunkiin rakennetaan uusi pääkirjasto. Kirjasto valmistuu vuonna 2026 ja se sijaitsee keskustan tuntumassa. Uudessa kirjastossa on lainauspalvelujen lisäksi kahvila, kokoustiloja ja lastenosasto. Rakennuksessa käytetään puuta ja lasia. Katolle tulee aurinkopaneeleja. Hankkeen kustannukset ovat noin 25 miljoonaa euroa.",
+      "audio_asset_id": "e7f8a9b0-c1d2-3e4f-5a6b-7c8d9e0f1a2b"
+    },
+    "questions": [
+      {
+        "id": "l242q1",
+        "prompt": "Mihin kaupunkiin rakennetaan uusi pääkirjasto?",
+        "options": [
+          "Tampere.",
+          "Turku.",
+          "Lahti.",
+          "Oulu."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l242q2",
+        "prompt": "Milloin kirjasto valmistuu?",
+        "options": [
+          "2025.",
+          "2026.",
+          "2027.",
+          "2028."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l242q3",
+        "prompt": "Mitä palveluja kirjastossa on lainauksen lisäksi?",
+        "options": [
+          "Uimahalli ja kuntosali.",
+          "Kahvila, kokoustiloja ja lastenosasto.",
+          "Teatteri ja elokuvasali.",
+          "Liikuntasali ja keilahalli."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l242q4",
+        "prompt": "Mitä materiaaleja rakennuksessa käytetään?",
+        "options": [
+          "Betonia ja tiiltä.",
+          "Puuta ja lasia.",
+          "Terästä ja betonia.",
+          "Kiveä ja metallia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l242q5",
+        "prompt": "Paljonko hankkeen kustannukset ovat?",
+        "options": [
+          "Noin 15 miljoonaa euroa.",
+          "Noin 20 miljoonaa euroa.",
+          "Noin 25 miljoonaa euroa.",
+          "Noin 30 miljoonaa euroa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

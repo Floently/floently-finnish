@@ -1,0 +1,88 @@
+{
+  "id": "8e43c8bb-08e3-50ab-a0a3-d1f05719d22d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.757,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Julkisen liikenteen kehittäminen on keskeinen osa kestävää kaupunkisuunnittelua. Hyvin toimiva julkinen liikenne vähentää yksityisautoilua, päästöjä ja ruuhkia sekä parantaa kaikkien mahdollisuuksia liikkua. Julkisen liikenteen kehittäminen vaatii pitkäjänteistä suunnittelua ja investointeja. Yksi keskeisimmistä kehittämiskohteista on palvelutason parantaminen. Tämä tarkoittaa tiheitä vuorovälejä, nopeita yhteyksiä ja hyvää saavutettavuutta. Ihmiset valitsevat julkisen liikenteen, jos se on kilpailukykyinen vaihtoehto autolle. Erityisesti ruuhka-aikoina ja tärkeillä reiteillä liikenteen on oltava sujuvaa. Toinen kehittämiskohde on eri liikennemuotojen yhteensovittaminen. Kaupungeissa on monia eri liikennemuotoja: bussit, raitiovaunut, metrot, junat, pyörät ja kävely. Jotta julkinen liikenne olisi sujuvaa, eri muotojen on toimittava saumattomasti yhteen. Tämä vaatii yhteistä lippujärjestelmää, aikataulujen yhteensovittamista ja toimivia vaihtoyhteyksiä. Kolmas kehittämiskohde on uusien liikkumispalveluiden integrointi. Yhteiskäyttöautot, -pyörät, potkulaudat ja muut uudet palvelut täydentävät julkista liikennettä. Ne tarjoavat joustavia ratkaisuja erityisesti ensimmäisen ja viimeisen kilometrin matkoille. Neljäs kehittämiskohde on esteettömyys. Julkisen liikenteen on oltava kaikkien käytettävissä iästä ja toimintakyvystä riippumatta. Tämä tarkoittaa matalalattia-ajoneuvoja, selkeitä opasteita ja helppokäyttöisiä lippujärjestelmiä. Viides kehittämiskohde on ympäristöystävällisyys. Julkisen liikenteen kalustoa uusitaan vähäpäästöisemmäksi, ja siirrytään sähköbusseihin ja muihin puhtaisiin teknologioihin. Tämä vähentää liikenteen ympäristövaikutuksia ja parantaa ilmanlaatua kaupungeissa.",
+      "word_count": 174
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä hyvin toimivasta julkisesta liikenteestä on?",
+        "options": [
+          "Se lisää yksityisautoilua",
+          "Se vähentää yksityisautoilua, päästöjä ja ruuhkia sekä parantaa liikkumismahdollisuuksia",
+          "Se lisää päästöjä",
+          "Se heikentää liikkumismahdollisuuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan palvelutason parantamisella julkisessa liikenteessä?",
+        "options": [
+          "Hintojen nostamista",
+          "Tiheitä vuorovälejä, nopeita yhteyksiä ja hyvää saavutettavuutta",
+          "Pysäkkien vähentämistä",
+          "Reittien harventamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä eri liikennemuotojen yhteensovittaminen vaatii?",
+        "options": [
+          "Vain busseja",
+          "Yhteistä lippujärjestelmää, aikataulujen yhteensovittamista ja toimivia vaihtoyhteyksiä",
+          "Vain raitiovaunuja",
+          "Vain metroja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia liikkumispalveluita voidaan integroida julkiseen liikenteeseen?",
+        "options": [
+          "Taksit ja lentokoneet",
+          "Yhteiskäyttöautot, -pyörät ja potkulaudat",
+          "Yksityisautot",
+          "Raskas liikenne"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan julkisen liikenteen esteettömyydellä?",
+        "options": [
+          "Vain liikuntarajoitteisten huomioimista",
+          "Sitä, että liikenne on kaikkien käytettävissä iästä ja toimintakyvystä riippumatta",
+          "Vain ikääntyneiden huomioimista",
+          "Vain lasten huomioimista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

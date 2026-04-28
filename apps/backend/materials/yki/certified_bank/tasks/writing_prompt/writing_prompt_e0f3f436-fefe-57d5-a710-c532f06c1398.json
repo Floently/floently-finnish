@@ -1,0 +1,37 @@
+{
+  "id": "e0f3f436-fefe-57d5-a710-c532f06c1398",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kuntosalin ohjaajasta. Auttaako hän tarpeeksi? Onko hän ystävällinen?",
+    "materials": {
+      "scenario": "Palaute kuntosalin ohjaajasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute kuntosalin ohjaajasta. Auttaako hän tarpeeksi? Onko hän ystävällinen?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kuntosalin ohjaajasta. Auttaako hän tarpeeksi? Onko hän ystävällinen?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

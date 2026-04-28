@@ -1,0 +1,37 @@
+{
+  "id": "147e915d-a16b-5d33-b34c-cdb5b263b971",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö tekoälyn käyttöä julkishallinnossa rajoittaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Tekoälyn käyttö julkishallinnossa"
+    },
+    "items": [
+      {
+        "id": "c60c59d7-8273-56a6-ab76-4d304876f651",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö tekoälyn käyttöä julkishallinnossa rajoittaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

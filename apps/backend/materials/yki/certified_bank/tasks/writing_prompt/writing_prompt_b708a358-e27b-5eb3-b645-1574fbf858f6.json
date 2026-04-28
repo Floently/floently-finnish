@@ -1,0 +1,37 @@
+{
+  "id": "b708a358-e27b-5eb3-b645-1574fbf858f6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Kirjoita mielipideteksti."
+    },
+    "items": [
+      {
+        "id": "2506db40-7f03-5ddf-8015-cc68dd47ac9d",
+        "prompt": "Onko matkustaminen tärkeää henkilökohtaiselle kehitykselle?"
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

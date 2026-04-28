@@ -1,0 +1,37 @@
+{
+  "id": "0e6b56ea-467b-5029-b2f1-0ab23320f1e1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Hän lainasi sinulle kirjaa viime kuussa. Olet lukenut kirjan loppuun ja haluat palauttaa sen. Kerro, että voit tuoda kirjan hänen kotiinsa tänään iltapäivällä klo 15 jälkeen. Kysy, sopiiko se ja onko hän kotona.",
+    "materials": {
+      "scenario": "Viesti ystävälle lainakirjan palauttamisesta"
+    },
+    "items": [
+      {
+        "id": "916fb1b0-1a56-5b60-b2ef-f6c48c9ef9e9",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Hän lainasi sinulle kirjaa viime kuussa. Olet lukenut kirjan loppuun ja haluat palauttaa sen. Kerro, että voit tuoda kirjan hänen kotiinsa tänään iltapäivällä klo 15 jälkeen. Kysy, sopiiko se ja onko hän kotona."
+      }
+    ],
+    "rubric": "Kerro, että kirja on luettu loppuun\nKerro, että haluat palauttaa sen\nEhdota palautusaikaa (tänään klo 15 jälkeen)\nKysy, sopiiko aika\nKysy, onko hän kotona",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

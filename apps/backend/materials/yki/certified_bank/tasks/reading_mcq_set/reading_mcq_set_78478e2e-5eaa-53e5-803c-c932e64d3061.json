@@ -1,0 +1,77 @@
+{
+  "id": "78478e2e-5eaa-53e5-803c-c932e64d3061",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Luomuliiton kyselyn mukaan 68 prosenttia suomalaisista pitää lähiruoan alkuperää tärkeänä. Eniten lähiruokaa ostavat lapsiperheet ja kaupunkien ulkopuolella asuvat. Lähiruoka on usein tuoreempaa ja tukee paikallista taloutta. Saatavuudessa on kuitenkin alueellisia eroja, ja hinta on usein korkeampi.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 64
+    },
+    "questions": [
+      {
+        "id": "15df4e39-1f7e-50cb-80d4-b0229513a9d7",
+        "prompt": "Kuinka moni pitää lähiruoan alkuperää tärkeänä?",
+        "options": [
+          "48%",
+          "58%",
+          "68%",
+          "78%"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d938b61e-3f76-5bd3-b24d-72a7ac7a0d3f",
+        "prompt": "Ketkä ostavat eniten lähiruokaa?",
+        "options": [
+          "Yksinasuvat",
+          "Lapsiperheet ja kaupunkien ulkopuolella asuvat",
+          "Eläkeläiset",
+          "Opiskelijat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "92e93fc3-a0a8-5bb5-95f3-7add13cf93fb",
+        "prompt": "Mitä hyötyä lähiruoasta on?",
+        "options": [
+          "Se on halvempaa",
+          "Se on tuoreempaa ja tukee paikallista taloutta",
+          "Sitä saa kaikkialla",
+          "Se säilyy pidempään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fbaf4fe6-e7f7-5b5d-8993-20e9d99d924e",
+        "prompt": "Mikä on lähiruoan haaste?",
+        "options": [
+          "Se ei ole terveellistä",
+          "Saatavuudessa on alueellisia eroja ja hinta on korkeampi",
+          "Sitä ei voi pakastaa",
+          "Se ei maistu hyvältä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

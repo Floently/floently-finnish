@@ -1,0 +1,37 @@
+{
+  "id": "c17b2093-7dfa-5be4-83c6-4658825df0ec",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet huolissasi kulttuuripalveluiden vähenemisestä kotikunnassasi. Kirjoita mielipidekirjoitus paikallislehteen.",
+    "materials": {
+      "scenario": "Olet huolissasi kulttuuripalveluiden vähenemisestä kotikunnassasi. Kirjoita mielipidekirjoitus paikallislehteen."
+    },
+    "items": [
+      {
+        "id": "378976a8-5c55-5fd9-853e-06aaea8912b8",
+        "prompt": "Kirjoita noin 160 sanan mielipidekirjoitus, jossa:\n- kerrot, mitä kulttuuripalveluita kunnassasi on vähennetty (esim. kirjasto, musiikkiopisto, teatteri)\n- kerrot, miksi kulttuuri on tärkeää (hyvinvointi, lasten ja nuorten kehitys, yhteisöllisyys)\n- kerrot, mitä menetetään, jos kulttuuripalveluita vähennetään\n- kehotat päättäjiä panostamaan kulttuuriin"
+      }
+    ],
+    "rubric": "Kirjoita noin 160 sanan mielipidekirjoitus, jossa:\n- kerrot, mitä kulttuuripalveluita kunnassasi on vähennetty (esim. kirjasto, musiikkiopisto, teatteri)\n- kerrot, miksi kulttuuri on tärkeää (hyvinvointi, lasten ja nuorten kehitys, yhteisöllisyys)\n- kerrot, mitä menetetään, jos kulttuuripalveluita vähennetään\n- kehotat päättäjiä panostamaan kulttuuriin",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

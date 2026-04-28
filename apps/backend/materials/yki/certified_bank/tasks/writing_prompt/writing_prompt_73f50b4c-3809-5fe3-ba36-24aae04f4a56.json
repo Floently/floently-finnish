@@ -1,0 +1,37 @@
+{
+  "id": "73f50b4c-3809-5fe3-ba36-24aae04f4a56",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti lähikirjastosta. Arvioi asiakaspalvelua, tilojen siisteyttä ja aukioloaikoja. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute lähikirjastosta"
+    },
+    "items": [
+      {
+        "id": "d6232d34-a0ff-58b6-b2b6-5bcd5a42f181",
+        "prompt": "Kirjoita palauteteksti lähikirjastosta. Arvioi asiakaspalvelua, tilojen siisteyttä ja aukioloaikoja. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Asiakaspalvelu\nTilojen siisteys\nAukioloajat\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

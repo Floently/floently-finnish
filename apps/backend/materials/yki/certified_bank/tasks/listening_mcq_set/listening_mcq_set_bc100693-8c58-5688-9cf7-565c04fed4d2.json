@@ -1,0 +1,99 @@
+{
+  "id": "bc100693-8c58-5688-9cf7-565c04fed4d2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yliopiston luento kestävästä kehityksestä ja vastaa.",
+    "materials": {
+      "transcript": "Hyvää huomenta, tänään käsittelemme kestävän kehityksen haasteita kaupungeissa. Kestävä kehitys jaetaan usein kolmeen osa-alueeseen: ekologiseen, taloudelliseen ja sosiaaliseen. Ekologinen kestävyys tarkoittaa luonnonvarojen kestävää käyttöä ja saastumisen vähentämistä. Kaupungeissa tämä tarkoittaa esimerkiksi joukkoliikenteen parantamista, viheralueiden lisäämistä ja energiatehokkuutta. Taloudellinen kestävyys tarkoittaa, että talouskasvu ei perustu luonnonvarojen ylikulutukseen. Kaupunkien kannalta se tarkoittaa esimerkiksi kiertotaloutta, jossa materiaalit pysyvät käytössä mahdollisimman pitkään. Sosiaalinen kestävyys on usein unohdetuin osa-alue. Se tarkoittaa oikeudenmukaisuutta, turvallisuutta ja osallisuutta. Kaupunki ei ole kestävä, jos osa asukkaista syrjäytyy tai kokee olonsa turvattomaksi. Kaupunkisuunnittelussa pitää ottaa huomioon kaikki nämä kolme ulottuvuutta. Esimerkiksi uusi asuinalue ei saa olla pelkästään ekologinen, jos se on niin kallis, että vain harvat voivat asua siellä. Tai se ei saa olla pelkästään halpa, jos se on rakennettu luontoarvoja tuhoamalla. Tarvitaan kokonaisvaltaista suunnittelua, jossa eri intressit sovitetaan yhteen. Tämä on vaativaa, mutta välttämätöntä tulevaisuuden kaupunkien kannalta.",
+      "audio_asset_id": "c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on luennon aihe?",
+        "options": [
+          "Ilmastonmuutos ja sen vaikutukset.",
+          "Kestävän kehityksen haasteet kaupungeissa.",
+          "Uusiutuvan energian teknologiat.",
+          "Kiertotalouden periaatteet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mihin kolmeen osa-alueeseen kestävä kehitys jaetaan?",
+        "options": [
+          "Paikalliseen, kansalliseen ja globaaliin.",
+          "Ekologiseen, taloudelliseen ja sosiaaliseen.",
+          "Lyhyt-, keski- ja pitkäaikaiseen.",
+          "Yksilön, yhteisön ja valtion."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä ekologinen kestävyys kaupungeissa tarkoittaa?",
+        "options": [
+          "Uusien ostoskeskusten rakentamista.",
+          "Joukkoliikenteen parantamista ja viheralueiden lisäämistä.",
+          "Autoteiden lisäämistä.",
+          "Teollisuuden lisäämistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä taloudellinen kestävyys kaupungeissa tarkoittaa?",
+        "options": [
+          "Veronkorotuksia.",
+          "Kiertotaloutta, jossa materiaalit pysyvät käytössä.",
+          "Uusien kauppojen rakentamista.",
+          "Turismin lisäämistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä osa-alue on usein unohdetuin?",
+        "options": [
+          "Ekologinen.",
+          "Taloudellinen.",
+          "Sosiaalinen.",
+          "Poliittinen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä sosiaalinen kestävyys tarkoittaa?",
+        "options": [
+          "Oikeudenmukaisuutta, turvallisuutta ja osallisuutta.",
+          "Vain turvallisuutta.",
+          "Vain oikeudenmukaisuutta.",
+          "Vain osallisuutta."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

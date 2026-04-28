@@ -1,0 +1,66 @@
+{
+  "id": "2fbfab13-c3ff-597a-9c71-fa03afe74f0f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pizzeria Marian menu ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PIZZERIA MARIA\n\nPizzat:\nMargherita (tomaatti, mozzarella) 9,50 €\nBolognese (jauheliha, sipuli) 11,50 €\nKinkku & herkkusieni 11 €\nTonnikala & sipuli 11,50 €\n\nKebab ranskalaisilla 12,50 €\nSalaatit 8–10 €\n\nLounas ma–pe 11–14: sisältää salaattipöydän ja kahvin.\n\nAvoinna ma–la 11–22, su 12–21  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 58
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko Margherita-pizza maksaa?",
+        "options": [
+          "9,50 €",
+          "11 €",
+          "11,50 €",
+          "12,50 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Bolognese-pizzassa on?",
+        "options": [
+          "Kinkkua",
+          "Tonnikalaa",
+          "Jauhelihaa ja sipulia",
+          "Herkkusieniä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaan ravintola sulkeutuu sunnuntaisin?",
+        "options": [
+          "klo 20",
+          "klo 21",
+          "klo 22",
+          "klo 23"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

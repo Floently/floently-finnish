@@ -1,0 +1,37 @@
+{
+  "id": "303e92a6-3339-57a7-91cb-4ff7fb211000",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö julkisten rakennusten energiatehokkuutta parantaa nopeammalla aikataululla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Julkisten rakennusten energiatehokkuus"
+    },
+    "items": [
+      {
+        "id": "bd395a1a-cecc-5595-8e94-e45571027e08",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö julkisten rakennusten energiatehokkuutta parantaa nopeammalla aikataululla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

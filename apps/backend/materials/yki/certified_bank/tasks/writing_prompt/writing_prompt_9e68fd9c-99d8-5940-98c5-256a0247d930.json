@@ -1,0 +1,37 @@
+{
+  "id": "9e68fd9c-99d8-5940-98c5-256a0247d930",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a director-general position at the European Commission. Tell about your experience in EU policy preparation, multicultural leadership, and demanding negotiations. Also describe how you have promoted European integration and built compromises between different member states. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus Euroopan komission pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "e0b428e5-8924-5ec8-a15c-d43046eec362",
+        "prompt": "Write a job application. You are applying for a director-general position at the European Commission. Tell about your experience in EU policy preparation, multicultural leadership, and demanding negotiations. Also describe how you have promoted European integration and built compromises between different member states. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a director-general position at the European Commission. Tell about your experience in EU policy preparation, multicultural leadership, and demanding negotiations. Also describe how you have promoted European integration and built compromises between different member states. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "3ec52468-0049-5fa1-a05e-aeebf64abc62",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton terveystarkastus kaikille 40 vuotta täyttäville?'. Arvioi ennaltaehkäisyä, kansanterveyttä ja kustannuksia.",
+    "materials": {
+      "scenario": "Maksuton terveystarkastus keski-ikäisille"
+    },
+    "items": [
+      {
+        "id": "6650c312-7332-5d03-941e-4eb7f06526e4",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton terveystarkastus kaikille 40 vuotta täyttäville?'. Arvioi ennaltaehkäisyä, kansanterveyttä ja kustannuksia."
+      }
+    ],
+    "rubric": "Ennaltaehkäisy\nKansanterveys\nKustannukset\nSairauksien varhainen toteaminen",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

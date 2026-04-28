@@ -1,0 +1,37 @@
+{
+  "id": "669cf146-c7d3-5507-afdb-e72f1a7ad83f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti tasavallan presidentin kansliaan. Haluat onnitella tasavallan presidenttiä itsenäisyyspäivän johdosta ja tuoda esiin huolesi tietystä yhteiskunnallisesta kysymyksestä. Ilmaise kantasi kunnioittavasti mutta selkeästi.",
+    "materials": {
+      "scenario": "Onnittelu ja kannanotto presidentille"
+    },
+    "items": [
+      {
+        "id": "c3b81ebc-b9d7-572d-8231-eae0b650b146",
+        "prompt": "Kirjoita virallinen sähköposti tasavallan presidentin kansliaan. Haluat onnitella tasavallan presidenttiä itsenäisyyspäivän johdosta ja tuoda esiin huolesi tietystä yhteiskunnallisesta kysymyksestä. Ilmaise kantasi kunnioittavasti mutta selkeästi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

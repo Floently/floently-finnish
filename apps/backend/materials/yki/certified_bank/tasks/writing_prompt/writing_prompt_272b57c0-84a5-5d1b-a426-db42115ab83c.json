@@ -1,0 +1,37 @@
+{
+  "id": "272b57c0-84a5-5d1b-a426-db42115ab83c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Maksuton liikenne"
+    },
+    "items": [
+      {
+        "id": "2ca775bc-d7eb-5888-a8ad-f9c4a4529219",
+        "prompt": "Pitäisikö julkisen liikenteen olla maksutonta suurissa kaupungeissa?"
+      }
+    ],
+    "rubric": "Pitäisikö julkisen liikenteen olla maksutonta suurissa kaupungeissa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

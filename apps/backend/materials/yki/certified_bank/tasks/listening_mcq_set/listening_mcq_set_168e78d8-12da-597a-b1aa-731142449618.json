@@ -1,0 +1,66 @@
+{
+  "id": "168e78d8-12da-597a-b1aa-731142449618",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kahden opiskelijan keskustelu ryhmätyöstä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, mitä mieltä olit eilisestä luennosta?\nB: Ihan mielenkiintoinen, mutta aika tiivis. Puhuttiin niin paljon asioita, että meinaa mennä sekaisin.\nA: Joo, mä kirjoitin muistiinpanoja ihan hulluna. Olikohan meillä jotain ryhmätyötä tähän liittyen?\nB: Oli, piti valmistella pienryhmissä esitys jostain luennon teemasta. Meidän ryhmä sai aiheeksi kestävän kehityksen markkinoinnissa.\nA: Aivan, muistankin. Ollaanks me jo sovittu, milloin tavataan?\nB: Ei olla. Laitetaanko kalenteriin ensi viikon tiistai? Mulle kävis iltapäivällä kello 14 jälkeen.\nA: Tiistai käy, mutta mulla on vasta klo 15 jälkeen. Sopiiko sitten?\nB: Joo, sopii. Tavataan kirjaston ryhmätyötilassa. Varaan sen netissä.\nA: Pitääkö meidän tehdä jotain ennen tapaamista?\nB: Jokaisen pitää lukea ainakin yksi artikkeli aiheesta ja tuoda siitä tiivistelmä. Jaetaan artikkelit sähköpostilla.",
+      "audio_asset_id": "d61005d8-3309-43e3-8248-cac16b46027f"
+    },
+    "questions": [
+      {
+        "id": "226879d4-8ad2-5b4b-998e-e411d59a1430",
+        "prompt": "Mikä on heidän ryhmätyönsä aihe?",
+        "options": [
+          "Digimarkkinointi",
+          "Kestävä kehitys markkinoinnissa",
+          "Sosiaalinen media",
+          "Brändin rakentaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "58cd2349-1602-547d-9b9b-58945b669872",
+        "prompt": "Milloin he sopivat tapaavansa?",
+        "options": [
+          "Maanantaina klo 14",
+          "Tiistaina klo 15 jälkeen",
+          "Keskiviikkona klo 10",
+          "Torstaina illalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cf76f01c-434a-53ff-8181-5a8d4135baa5",
+        "prompt": "Mitä pitää tehdä ennen tapaamista?",
+        "options": [
+          "Kirjoittaa koko esitys",
+          "Lukea artikkeli ja tehdä tiivistelmä",
+          "Ostaa tarvikkeita",
+          "Harjoitella esitystä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

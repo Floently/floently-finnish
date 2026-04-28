@@ -1,0 +1,66 @@
+{
+  "id": "6ee2ce5a-39cd-5309-b0f8-3a9dbf00021b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.501,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIMPPAKYYTI\n\nHaen kyytiläisiä työmatkalle Helsingistä Espooseen. Lähtö maanantaisin ja keskiviikkoisin klo 7.30 Kampista. Paluu klo 16.30 Tapiolasta. Matkan hinta 5 euroa/kerta. Auto on uusi ja turvallinen. Ota yhteyttä: matti.k@gmail.com tai 040 123 4567.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minne päin matka on?",
+        "options": [
+          "A) Helsingistä Vantaalle",
+          "B) Helsingistä Espooseen",
+          "C) Espoosta Helsinkiin",
+          "D) Vantaalta Helsinkiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kautta lähdetään?",
+        "options": [
+          "A) Rautatieasemalta",
+          "B) Kampista",
+          "C) Hakaniemestä",
+          "D) Itäkeskuksesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko yksi matka maksaa?",
+        "options": [
+          "A) 3 euroa",
+          "B) 4 euroa",
+          "C) 5 euroa",
+          "D) 6 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

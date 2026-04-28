@@ -1,0 +1,73 @@
+{
+  "id": "c877ad0e-1a32-593b-a5a0-3aaa6d5df0b8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirjaston aukioloajat ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KAUPUNGINKIRJASTO – AUKIOLOAJAT\n\nPääkirjasto:\nMaanantaista perjantaihin: kello 9–20\nLauantaisin: kello 10–16\nSunnuntaisin: suljettu\n\nLähikirjasto Keskusta:\nMaanantaista perjantaihin: kello 11–19\nLauantaisin: kello 10–15\nSunnuntaisin: suljettu\n\nOmatoimikirjasto on avoinna joka päivä kello 7–22.\n\nLainat voi uusia netissä.",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin pääkirjasto on auki lauantaisin?",
+        "options": [
+          "kello 9–16",
+          "kello 10–16",
+          "kello 11–15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Milloin lähikirjasto Keskusta on auki arkisin?",
+        "options": [
+          "kello 9–20",
+          "kello 10–18",
+          "kello 11–19"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_003",
+        "prompt": "Milloin omatoimikirjasto on auki?",
+        "options": [
+          "arkisin kello 9–20",
+          "joka päivä kello 7–22",
+          "vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Voiko lainoja uusia netissä?",
+        "options": [
+          "kyllä",
+          "ei",
+          "vain kirjastossa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "49a49258-fc45-517d-a769-a3bad3598819",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ruokakaupan kanta-asiakasohjelmasta. Saako sillä hyviä etuja? Onko se helppo käyttää?",
+    "materials": {
+      "scenario": "Palaute kaupan kanta-asiakasohjelmasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute ruokakaupan kanta-asiakasohjelmasta. Saako sillä hyviä etuja? Onko se helppo käyttää?"
+      }
+    ],
+    "rubric": "Kirjoita palaute ruokakaupan kanta-asiakasohjelmasta. Saako sillä hyviä etuja? Onko se helppo käyttää?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

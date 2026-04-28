@@ -1,0 +1,37 @@
+{
+  "id": "5cf49c84-a93f-5188-bd66-0ee7c3aba714",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ulosottovirastoon. Olet saanut ulosottomerkinnän, koska et ole maksanut laskua, jota et ole koskaan saanut. Kerro, mistä laskusta on kyse, toimita selvitys, ettet ole saanut laskua, ja pyydä merkinnän poistamista. Kysy myös, miten voit maksaa laskun nyt.",
+    "materials": {
+      "scenario": "Ulosottomerkintä maksamattomasta laskusta"
+    },
+    "items": [
+      {
+        "id": "0186d05c-4bb5-5e74-b8df-5bec64ab32be",
+        "prompt": "Kirjoita virallinen sähköposti ulosottovirastoon. Olet saanut ulosottomerkinnän, koska et ole maksanut laskua, jota et ole koskaan saanut. Kerro, mistä laskusta on kyse, toimita selvitys, ettet ole saanut laskua, ja pyydä merkinnän poistamista. Kysy myös, miten voit maksaa laskun nyt."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "1510e986-0e12-5f33-ba83-9f5de035b4ea",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Puhelinmyynti on monille harmin aihe. Ihmiset kokevat, että heihin otetaan yhteyttä liian usein ja sopimattomina aikoina. Uusi laki kuitenkin helpottaa tilannetta. Sen mukaan saa kieltää oman numeron käytön markkinoinnissa. Kielto on voimassa toistaiseksi ja koskee kaikkia yrityksiä. Tämä vähentää ei-toivottuja puheluita ja lisää kuluttajien rauhaa.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on monille harmin aihe?",
+        "options": [
+          "Sähköpostimarkkinointi",
+          "Puhelinmyynti",
+          "Katumainonta",
+          "Television mainokset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ihmiset kokevat puhelinmyynnistä?",
+        "options": [
+          "Heihin otetaan liian harvoin yhteyttä",
+          "Heihin otetaan liian usein ja sopimattomina aikoina yhteyttä",
+          "Se on aina mukavaa",
+          "Se on aina hyödyllistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä helpottaa tilannetta?",
+        "options": [
+          "Uusi teknologia",
+          "Uusi laki",
+          "Yritysten vapaaehtoinen lupaus",
+          "Kuluttajien valistus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uuden lain mukaan saa kieltää?",
+        "options": [
+          "Kaiken mainonnan",
+          "Oman numeron käytön markkinoinnissa",
+          "Yritysten toiminnan",
+          "Kaikki puhelut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kuinka kauan kielto on voimassa?",
+        "options": [
+          "Vuoden",
+          "Viisi vuotta",
+          "Toistaiseksi",
+          "Kuukauden"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä hyötyä kiellosta on?",
+        "options": [
+          "Se lisää markkinointia",
+          "Se vähentää ei-toivottuja puheluita ja lisää kuluttajien rauhaa",
+          "Se parantaa yritysten myyntiä",
+          "Se tekee puhelinmyynnistä halvempaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

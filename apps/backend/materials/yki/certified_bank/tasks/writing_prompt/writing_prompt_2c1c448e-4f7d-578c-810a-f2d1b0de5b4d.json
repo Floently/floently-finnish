@@ -1,0 +1,37 @@
+{
+  "id": "2c1c448e-4f7d-578c-810a-f2d1b0de5b4d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet kiinnostunut ostamaan käytetyn polkupyörän. Löysit ilmoituksen netistä. Kirjoita sähköposti myyjälle.\n\nKerro:\n- että olet kiinnostunut pyörästä\n- kysy, onko pyörä vielä myynnissä\n- kysy, minkä kokoinen se on ja minkä ikäinen\n- kysy, onko siinä vaihteet\n- kysy, voiko tulla katsomaan pyörää tulevana viikonloppuna",
+    "materials": {
+      "scenario": "Olet kiinnostunut ostamaan käytetyn polkupyörän. Löysit ilmoituksen netistä. Kirjoita sähköposti myyjälle.\n\nKerro:\n- että olet kiinnostunut pyörästä\n- kysy, onko pyörä vielä myynnissä\n- kysy, minkä kokoinen se on ja minkä ikäinen\n- kysy, onko siinä vaihteet\n- kysy, voiko tulla katsomaan pyörää tulevana viikonloppuna"
+    },
+    "items": [
+      {
+        "id": "9efa0664-6783-5b5c-b2b9-6ef277faa57a",
+        "prompt": "Olet kiinnostunut ostamaan käytetyn polkupyörän. Löysit ilmoituksen netistä. Kirjoita sähköposti myyjälle.\n\nKerro:\n- että olet kiinnostunut pyörästä\n- kysy, onko pyörä vielä myynnissä\n- kysy, minkä kokoinen se on ja minkä ikäinen\n- kysy, onko siinä vaihteet\n- kysy, voiko tulla katsomaan pyörää tulevana viikonloppuna"
+      }
+    ],
+    "rubric": "Olet kiinnostunut ostamaan käytetyn polkupyörän. Löysit ilmoituksen netistä. Kirjoita sähköposti myyjälle.\n\nKerro:\n- että olet kiinnostunut pyörästä\n- kysy, onko pyörä vielä myynnissä\n- kysy, minkä kokoinen se on ja minkä ikäinen\n- kysy, onko siinä vaihteet\n- kysy, voiko tulla katsomaan pyörää tulevana viikonloppuna",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

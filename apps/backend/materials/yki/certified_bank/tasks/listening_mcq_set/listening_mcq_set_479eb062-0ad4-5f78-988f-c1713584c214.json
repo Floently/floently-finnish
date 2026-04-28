@@ -1,0 +1,77 @@
+{
+  "id": "479eb062-0ad4-5f78-988f-c1713584c214",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yliopiston luento median vastuusta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Hyvät kuulijat. Tänään käsittelemme median vastuuta demokratiassa. Mediaa kutsutaan usein neljänneksi valtiomahdiksi, koska se valvoo vallankäyttäjiä ja välittää tietoa kansalaisille. Mutta mikä on median vastuu, ja miten se on muuttunut?\n\nPerinteisesti median tehtävä on ollut välittää luotettavaa tietoa, selittää monimutkaisia asioita ja tarjota foorumi keskustelulle. Tämä on edellyttänyt riippumattomuutta, ammattitaitoa ja eettisiä periaatteita.\n\nNykyään mediakenttä on pirstaloitunut. Perinteisen median rinnalle on tullut some, somevaikuttajat ja erilaiset verkkomediat. Tämä on monipuolistanut keskustelua, mutta myös lisännyt disinformaation määrää.\n\nYksi keskeisimmistä haasteista on kaupallistuminen. Media elää mainostuloilla ja klikkauksilla. Tämä voi johtaa siihen, että sisältöä tehdään klikkien, ei tiedon ehdolla. Tunteita herättävät otsikot myyvät, vaikka ne olisivat harhaanjohtavia.\n\nToinen haaste on luottamuksen heikkeneminen. Ihmiset eivät enää luota mediaan samalla tavalla kuin ennen. Tämä on osin ansaittua – median tekemät virheet ja klikkijournalismi ovat syöneet luottamusta. Mutta se on myös seurausta disinformaatiokampanjoista, jotka tarkoituksella heikentävät luottamusta.\n\nTulevaisuudessa tarvitaan uudenlaista mediakasvatusta. Ihmisten on osattava arvioida lähteitä ja tunnistaa disinformaatio. Myös medialla itsellään on vastuu: sen on oltava läpinäkyvää, kerrottava virheistään ja tehtävä työtä luottamuksen palauttamiseksi.\n\nLopuksi on muistettava, että media on demokratian peruspilareita. Ilman luotettavaa mediaa ei ole toimivaa demokratiaa. Siksi meidän kaikkien on puolustettava sitä.",
+      "audio_asset_id": "c70b14ae-f409-56c6-895b-ce6465c96538"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_001_q1",
+        "prompt": "Mikä on median perinteinen tehtävä demokratiassa?",
+        "options": [
+          "viihdyttää",
+          "välittää luotettavaa tietoa, valvoa vallankäyttäjiä ja tarjota foorumi keskustelulle",
+          "tuottaa voittoa",
+          "olla puolueellinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_001_q2",
+        "prompt": "Mitä ongelmia kaupallistuminen tuo mediaan?",
+        "options": [
+          "se lisää monipuolisuutta",
+          "se voi johtaa klikkijournalismiin ja harhaanjohtaviin otsikoihin",
+          "se parantaa laatua",
+          "sillä ei ole vaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_001_q3",
+        "prompt": "Miksi luottamus mediaan on heikentynyt?",
+        "options": [
+          "media on liian luotettavaa",
+          "median virheet, klikkijournalismi ja disinformaatiokampanjat",
+          "ihmiset eivät lue uutisia",
+          "media on liian kallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_001_q4",
+        "prompt": "Mitä tarvitaan tulevaisuudessa?",
+        "options": [
+          "vähemmän mediaa",
+          "mediakasvatusta ja median omaa vastuuta luottamuksen palauttamiseksi",
+          "some-kieltoa",
+          "vain perinteistä mediaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

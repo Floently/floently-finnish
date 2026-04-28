@@ -1,0 +1,37 @@
+{
+  "id": "a84c4268-18f0-5ff2-a121-715976242c1e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan rokotusta varten. Kerro, että tarvitset matkailijan rokotteita. Kerro, mihin maahan olet matkustamassa. Kysy, mitä rokotteita suositellaan ja paljonko ne maksavat.",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle matkailijan rokotuksista"
+    },
+    "items": [
+      {
+        "id": "905a0123-eddb-5ff9-81ff-2be9dd8765f0",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan rokotusta varten. Kerro, että tarvitset matkailijan rokotteita. Kerro, mihin maahan olet matkustamassa. Kysy, mitä rokotteita suositellaan ja paljonko ne maksavat."
+      }
+    ],
+    "rubric": "Kerro, että tarvitset rokotuksia\nKerro matkakohde\nKysy suositeltuja rokotteita\nKysy hintaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

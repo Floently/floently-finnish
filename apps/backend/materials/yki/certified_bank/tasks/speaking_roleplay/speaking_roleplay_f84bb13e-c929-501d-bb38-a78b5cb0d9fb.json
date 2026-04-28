@@ -1,0 +1,40 @@
+{
+  "id": "f84bb13e-c929-501d-bb38-a78b5cb0d9fb",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu suomea roolisi mukaisesti.",
+    "materials": {
+      "roles": {
+        "user": "uusi asukas",
+        "partner": "naapuri"
+      }
+    },
+    "items": [
+      {
+        "id": "srp06_01",
+        "ai_first_turn_fi": "Hei, oletko muuttanut juuri tähän taloon?"
+      }
+    ],
+    "rubric": "Puhu suomea roolisi mukaisesti.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

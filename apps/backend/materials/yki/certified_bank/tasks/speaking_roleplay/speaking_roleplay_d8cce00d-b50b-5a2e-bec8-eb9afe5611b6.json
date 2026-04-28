@@ -1,0 +1,40 @@
+{
+  "id": "d8cce00d-b50b-5a2e-bec8-eb9afe5611b6",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.281,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you do in the evening before going to sleep. Do you watch TV, read a book, take a shower?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "de3f1d01-3f01-5747-a58a-60e83239a48f",
+        "ai_first_turn_fi": "Mitä sä teet yleensä ennen kuin meet nukkumaan?"
+      }
+    ],
+    "rubric": "Tell what you do in the evening before going to sleep. Do you watch TV, read a book, take a shower?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

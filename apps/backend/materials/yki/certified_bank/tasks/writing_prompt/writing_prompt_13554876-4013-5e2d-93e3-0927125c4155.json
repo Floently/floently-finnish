@@ -1,0 +1,37 @@
+{
+  "id": "13554876-4013-5e2d-93e3-0927125c4155",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö sote-palveluissa siirtyä enemmän digitaalisiin vastaanottoihin?'. Pohdi saavutettavuutta ja hoidon laatua.",
+    "materials": {
+      "scenario": "Digitaaliset vastaanotot sote-palveluissa"
+    },
+    "items": [
+      {
+        "id": "745db547-acdc-5e18-a7e5-e3eb66003280",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö sote-palveluissa siirtyä enemmän digitaalisiin vastaanottoihin?'. Pohdi saavutettavuutta ja hoidon laatua."
+      }
+    ],
+    "rubric": "Saavutettavuus\nHoidon laatu\nKustannukset\nTietoturva",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

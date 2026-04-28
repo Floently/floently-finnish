@@ -1,0 +1,110 @@
+{
+  "id": "752704e4-fbe6-50b6-b80c-4f829e4ea5ee",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.728,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen koulutusjärjestelmän menestys perustuu moniin tekijöihin. Tasa-arvo on keskeisin periaate. Jokaisella lapsella on oikeus laadukkaaseen koulutukseen asuinpaikasta tai perheen varallisuudesta riippumatta. Peruskoulu on kaikille yhteinen ja maksuton. Opettajilla on maisterin tutkinto ja he ovat arvostettuja ammattilaisia. Kouluissa korostetaan oppimisen iloa ja yhdessä tekemistä. Testejä ja kokeita on vähemmän kuin monissa muissa maissa. Viime vuosina on kuitenkin ilmennyt haasteita. Oppimistulokset ovat laskeneet hieman. Koulujen välillä on alkanut syntyä eroja. Oppilaiden hyvinvointi on huolestuttanut. Koulu-uupumus ja mielenterveysongelmat ovat lisääntyneet. Myös maahanmuuttajataustaisten oppilaiden määrä on kasvanut, mikä asettaa uusia vaatimuksia opetukselle. Koulujärjestelmää kehitetään jatkuvasti vastaamaan näihin haasteisiin. Panostetaan digitaalisiin taitoihin ja tunnetaitoihin. Tavoitteena on, että jokainen lapsi saa hyvät eväät tulevaisuuteen. Suomalainen koulutus on edelleen kansainvälisesti arvostettua, mutta se vaatii jatkuvaa kehittämistä ja uudistumista.",
+      "word_count": 121
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on keskeisin periaate suomalaisessa koulutusjärjestelmässä?",
+        "options": [
+          "Kilpailu.",
+          "Tasa-arvo.",
+          "Yksityistäminen.",
+          "Valikointi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista koulutusta suomalaisilla opettajilla on?",
+        "options": [
+          "Ammattikoulututkinto.",
+          "Maisterin tutkinto.",
+          "Tohtorin tutkinto.",
+          "Pelkkä opettajankoulutus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kouluissa korostetaan?",
+        "options": [
+          "Kilpailua ja paremmuutta.",
+          "Oppimisen iloa ja yhdessä tekemistä.",
+          "Yksin puurtamista.",
+          "Arvosanoja ja kokeita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haasteita suomalainen koulu kohtaa?",
+        "options": [
+          "Liian hyviä oppimistuloksia.",
+          "Oppimistulosten laskua, koulujen erojen kasvua ja hyvinvointiongelmia.",
+          "Liian vähän oppilaita.",
+          "Liian paljon rahaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä terveysongelmia oppilailla on lisääntynyt?",
+        "options": [
+          "Fyysiset sairaudet.",
+          "Koulu-uupumus ja mielenterveysongelmat.",
+          "Tapaturmat.",
+          "Liikuntavammat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä uusia vaatimuksia maahanmuuttajataustaisten oppilaiden määrän kasvu asettaa?",
+        "options": [
+          "Ei mitään uusia vaatimuksia.",
+          "Uusia vaatimuksia opetukselle.",
+          "Vain vähemmän oppilaita luokissa.",
+          "Vain lisää kouluja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mihin koulujärjestelmää kehitetään?",
+        "options": [
+          "Takaisin vanhaan malliin.",
+          "Digitaalisiin taitoihin ja tunnetaitoihin.",
+          "Vain ulkomaisten mallien mukaan.",
+          "Vain kokeiden lisäämiseen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

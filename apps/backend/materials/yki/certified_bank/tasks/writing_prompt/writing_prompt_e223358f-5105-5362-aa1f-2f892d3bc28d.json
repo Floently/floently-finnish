@@ -1,0 +1,37 @@
+{
+  "id": "e223358f-5105-5362-aa1f-2f892d3bc28d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin liikuntapalveluista. Kerro liikuntapaikkojen kunnosta, kurssitarjonnasta ja harrastemaksuista. Ehdota yhtä uutta liikuntamuotoa.",
+    "materials": {
+      "scenario": "Palaute kaupungin liikuntapalveluista"
+    },
+    "items": [
+      {
+        "id": "b4305f60-f3f3-59c0-a1db-1fad82e701e8",
+        "prompt": "Kirjoita palauteteksti kaupungin liikuntapalveluista. Kerro liikuntapaikkojen kunnosta, kurssitarjonnasta ja harrastemaksuista. Ehdota yhtä uutta liikuntamuotoa."
+      }
+    ],
+    "rubric": "Liikuntapaikkojen kunto\nKurssitarjonta\nHarrastemaksut\nUusi liikuntamuoto",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

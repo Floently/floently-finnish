@@ -1,0 +1,88 @@
+{
+  "id": "3e72fe93-7c3a-5c25-b7ea-c3deadc483fa",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesipekka tiedottaa poikkeuksista joulun aikaan. Jouluaattona ja joulupäivänä uimahalli on suljettu. Tapaninpäivänä olemme avoinna kello 10-16. Uudenvuodenaattona olemme avoinna kello 8-14. Uudenvuodenpäivänä olemme suljettu. Muistutamme, että vesiliukumäki on huollossa 27.-29. joulukuuta. Muut altaat ja saunat ovat normaalisti käytössä. Uimakoulut eivät kokoonnu joululomalla. Tammikuussa uimakoulut jatkuvat normaalisti. Uimahallin asiakaspalvelu on tavoitettavissa puhelimitse arkisin kello 8-16. Hyvää joulua ja onnellista uutta vuotta!",
+      "audio_asset_id": "de55621f-2a9e-4e51-8330-4628dac4bd66"
+    },
+    "questions": [
+      {
+        "id": "a0b19cdf-ec26-5be9-9293-3676df612042",
+        "prompt": "Minä päivinä uimahalli on suljettu?",
+        "options": [
+          "Vain jouluaattona ja joulupäivänä.",
+          "Jouluaattona, joulupäivänä ja uudenvuodenpäivänä.",
+          "Vain uudenvuodenaattona.",
+          "Jouluaatosta uudenvuodenpäivään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1d524019-c8fe-5a69-9d6c-0482ed4ac69f",
+        "prompt": "Mihin asti uimahalli on auki tapaninpäivänä?",
+        "options": [
+          "Kello 16.",
+          "Kello 14.",
+          "Kello 15.",
+          "Kello 17."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "bd398260-40a6-539c-b2ae-f0259232a675",
+        "prompt": "Mikä on huollossa 27.-29. joulukuuta?",
+        "options": [
+          "Kaikki altaat.",
+          "Sauna.",
+          "Vesiliukumäki.",
+          "Pukuhuoneet."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c0437a7a-1a09-53b5-9a0d-5db6c5fabb21",
+        "prompt": "Kokoontuvatko uimakoulut joululomalla?",
+        "options": [
+          "Kyllä, normaalisti.",
+          "Ei, ne jatkuvat tammikuussa.",
+          "Vain osa kokoontuu.",
+          "Kyllä, mutta eri aikoina."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "aa01795c-2926-5dab-9b67-f73d80ab13cf",
+        "prompt": "Milloin asiakaspalveluun voi soittaa arkisin?",
+        "options": [
+          "Kello 8-20.",
+          "Kello 9-17.",
+          "Kello 10-18.",
+          "Kello 8-16."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "a34145de-230c-5b6f-aac5-ad78f8f64e7d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: classroom. Tarkoitus: vertaile vaihtoehtoja. Rajoite: osoita vastaanottajalle.",
+    "materials": {
+      "scenario": "perhe-elämästä luokkahuoneesta"
+    },
+    "items": [
+      {
+        "id": "c915c565-8e40-5426-a9ef-846bd39ffc13",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: classroom. Tarkoitus: vertaile vaihtoehtoja. Rajoite: osoita vastaanottajalle."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

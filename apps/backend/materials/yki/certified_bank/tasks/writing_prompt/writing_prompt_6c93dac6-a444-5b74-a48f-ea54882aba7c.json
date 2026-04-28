@@ -1,0 +1,37 @@
+{
+  "id": "6c93dac6-a444-5b74-a48f-ea54882aba7c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti, jossa pohdit väitteen todenperäisyyttä omien havaintojesi perusteella. Perustele, miksi olet samaa tai eri mieltä.",
+    "materials": {
+      "scenario": "Opiskelijoiden asuntotilanne on kriittinen monissa kaupungeissa"
+    },
+    "items": [
+      {
+        "id": "7e1bedec-60d4-5243-b2aa-03a20681222e",
+        "prompt": "Kirjoita mielipideteksti, jossa pohdit väitteen todenperäisyyttä omien havaintojesi perusteella. Perustele, miksi olet samaa tai eri mieltä."
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti, jossa pohdit väitteen todenperäisyyttä omien havaintojesi perusteella. Perustele, miksi olet samaa tai eri mieltä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

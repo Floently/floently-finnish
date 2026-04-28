@@ -1,0 +1,37 @@
+{
+  "id": "8be6b71d-e3bd-5415-95f1-7fb139b05678",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö sosiaalisen median alustoja säännellä tiukemmin disinformaation leviämisen estämiseksi?'. Arvioi sananvapautta ja yhteiskunnallista vakautta.",
+    "materials": {
+      "scenario": "Some-sääntely ja disinformaatio"
+    },
+    "items": [
+      {
+        "id": "79ad9922-d020-5c94-97f6-5169d02aa5fa",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö sosiaalisen median alustoja säännellä tiukemmin disinformaation leviämisen estämiseksi?'. Arvioi sananvapautta ja yhteiskunnallista vakautta."
+      }
+    ],
+    "rubric": "Disinformaatio\nSananvapaus\nYhteiskunnallinen vakaus\nTekniset ratkaisut",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

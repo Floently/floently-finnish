@@ -1,0 +1,77 @@
+{
+  "id": "7004ba99-8078-5720-a3ac-37b884ec0178",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.593,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli kunnan osallistuvasta budjetoinnista ja vastaa monivalintakysymyksiin tekstin perusteella.",
+    "materials": {
+      "text": "Kaupunki varasi tänä vuonna osallistuvaan budjetointiin 600 000 euroa ja kutsui asukkaat ehdottamaan, mihin summa pitäisi käyttää. Ensimmäisessä vaiheessa verkkoalustalle jätettiin yli neljäsataa ideaa, joista viranhaltijat karsivat pois toteuttamiskelvottomat tai jo aiemmin päätetyt hankkeet. Jäljelle jäi 38 ehdotusta, jotka vietiin asukasäänestykseen. Äänestykseen osallistui aiempaa enemmän nuoria, koska koulut ottivat aiheen osaksi yhteiskuntaopin kurssia ja järjestivät omia keskustelutilaisuuksia. Samalla osa ikäihmisistä koki, että sähköinen äänestys oli hankala, vaikka kirjastoissa oli neuvontaa tarjolla. Kaupunki sai tästä ristiriitaista palautetta: toiset pitivät järjestelmää avoimena, toiset taas kokivat, että käytännön tuki tuli liian myöhään. Eniten ääniä sai ehdotus, jossa puistojen valaistusta parannetaan pimeimmille reiteille. Toiseksi sijoittui liikkuva nuorisotila, joka kiertäisi eri kaupunginosissa iltaisin. Budjettityön seurantaryhmä kuitenkin muistutti, että äänten määrä ei yksin ratkaise kaikkea, sillä hankkeiden on sovittava myös vuosittaisiin ylläpitokuluihin. Juuri tämä kohta herätti eniten keskustelua valtuustossa. Osa päättäjistä katsoi, että asukkaiden valintaa pitää kunnioittaa mahdollisimman suoraan, kun taas toiset korostivat, että pitkäjänteinen taloussuunnittelu suojaa palveluja paremmin kuin nopeat, yksittäiset investoinnit. Kaupunginjohtaja ehdotti kompromissia: voittaneista hankkeista toteutetaan ensin ne osat, jotka voidaan käynnistää ilman lisähenkilöstöä, ja vaikutuksia arvioidaan puolen vuoden välein. Tällä tavalla voidaan säilyttää asukkaiden osallisuuden tunne ja samalla varmistaa, ettei talousarvioon synny pysyvää menojen kasvua ilman päätöstä.",
+      "word_count": 195
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi nuorten osallistuminen kasvoi artikkelin mukaan?",
+        "options": [
+          "äänestys oli pakollinen",
+          "koulut käsittelivät aihetta opetuksessa",
+          "äänestysliput jaettiin koteihin",
+          "nuorille maksettiin osallistumisesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä ongelma liittyi ikäihmisten osallistumiseen?",
+        "options": [
+          "äänestyspaikkoja oli liian vähän",
+          "ehdotuksia ei saanut kommentoida",
+          "sähköinen äänestys koettiin vaikeaksi",
+          "äänestysaika oli liian pitkä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä valtuustossa syntyi suurin erimielisyys?",
+        "options": [
+          "kuinka monta ideaa sai jättää",
+          "pitääkö äänten määrää vai talousvaikutuksia painottaa",
+          "pitäisikö koulut ottaa mukaan",
+          "saako kirjasto tarjota neuvontaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä oli kaupunginjohtajan kompromissi?",
+        "options": [
+          "koko hanke siirretään ensi vuoteen",
+          "rahoitus jaetaan tasan kaikille ehdotuksille",
+          "toteutus aloitetaan osista, jotka eivät vaadi lisähenkilöstöä",
+          "äänestys uusitaan paperilomakkeella"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "78be55b6-e94d-51f7-847b-8a4c7f282ae4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olemme eläneet kertakäyttökulttuurin kulta-aikaa. Vaatteita, elektroniikkaa ja huonekaluja ostetaan, käytetään vähän aikaa ja heitetään pois. Tämä ei ole kestävää.\n\nKertakäyttökulttuuri on seurausta halvasta tuotannosta ja tehokkaasta markkinoinnista. Meille on opetettu, että uusi on parempi ja vanha on pois muodista. Korjaaminen on kallista ja hankalaa, joten on helpompi ostaa uusi.\n\nSeuraukset ovat vakavia. Luonnonvarat hupenevat, jätemäärät kasvavat ja ilmasto lämpenee. Tekstiiliteollisuus on yksi maailman saastuttavimmista aloista, ja elektroniikkajäte on nopeimmin kasvava jätevirta.\n\nMutta muutosta on ilmassa. Nuoret aikuiset ovat kiinnostuneita kirpputoreista, korjaamisesta ja kierrätyksestä. Somevaikuttajat kannustavat ostamaan vähemmän ja laatua. Myös yritykset ovat heränneet: korjauspalvelut yleistyvät ja vuokraus korvaa omistamista.\n\nTämä kehitys on tervetullutta, mutta se ei yksin riitä. Tarvitaan myös poliittisia päätöksiä: tuotesuunnittelua, joka mahdollistaa korjaamisen, ja verotusta, joka ohjaa kestävämpään kulutukseen. Kertakäyttökulttuurista irtautuminen vaatii sekä yksilön että yhteiskunnan toimia.",
+      "word_count": 130
+    },
+    "questions": [
+      {
+        "id": "item_067_1",
+        "prompt": "Mitä tarkoitetaan kertakäyttökulttuurilla?",
+        "options": [
+          "tavaroita käytetään pitkään",
+          "tavaroita ostetaan, käytetään vähän aikaa ja heitetään pois",
+          "tavarat korjataan aina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_067_2",
+        "prompt": "Miksi kertakäyttökulttuuri on yleistynyt?",
+        "options": [
+          "koska tavarat ovat kalliita",
+          "halpa tuotanto, tehokas markkinointi ja korjaamisen vaikeus",
+          "koska ihmiset eivät välitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_067_3",
+        "prompt": "Mitä seurauksia kertakäyttökulttuurilla on?",
+        "options": [
+          "luonnonvarat hupenevat ja jätemäärät kasvavat",
+          "ihmiset ovat onnellisempia",
+          "talous kasvaa nopeammin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_067_4",
+        "prompt": "Mitä muutosta kirjoittaja näkee?",
+        "options": [
+          "ihmiset ostavat enemmän",
+          "nuoret ovat kiinnostuneita kirpputoreista ja korjaamisesta",
+          "kertakäyttökulttuuri voimistuu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

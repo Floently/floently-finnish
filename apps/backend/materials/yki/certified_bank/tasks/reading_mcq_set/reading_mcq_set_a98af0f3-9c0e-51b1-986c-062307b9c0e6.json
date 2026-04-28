@@ -1,0 +1,99 @@
+{
+  "id": "a98af0f3-9c0e-51b1-986c-062307b9c0e6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet nuoret aloittavat kesätyöt heti koulujen päätyttyä. Kesätyöt ovat tärkeitä, sillä ne antavat työkokemusta ja omaa rahaa. Työpaikkoja on tarjolla esimerkiksi kaupoissa, kahviloissa ja toimistoissa. Nuoret voivat myös perustaa oman kesäyrityksen. Kesätyön hakeminen kannattaa aloittaa hyvissä ajoin keväällä.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin monet nuoret aloittavat kesätyöt?",
+        "options": [
+          "Ennen koulujen päättymistä",
+          "Heti koulujen päätyttyä",
+          "Kesän lopussa",
+          "Syksyllä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi kesätyöt ovat tärkeitä?",
+        "options": [
+          "Ne antavat lomaa",
+          "Ne antavat työkokemusta ja omaa rahaa",
+          "Ne ovat pakollisia",
+          "Ne ovat ainoa tapa saada rahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä on tarjolla kesätyöpaikkoja?",
+        "options": [
+          "Vain kaupoissa",
+          "Kaupoissa, kahviloissa ja toimistoissa",
+          "Vain ulkomailla",
+          "Vain kotona"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä nuoret voivat myös perustaa?",
+        "options": [
+          "Kesäkerhon",
+          "Oman kesäyrityksen",
+          "Urheilujoukkueen",
+          "Kesäleirin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin kesätyön hakeminen kannattaa aloittaa?",
+        "options": [
+          "Kesällä",
+          "Hyvissä ajoin keväällä",
+          "Talvella",
+          "Viime hetkellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä kesätyöt antavat nuorille?",
+        "options": [
+          "Vain rahaa",
+          "Vain työkokemusta",
+          "Sekä työkokemusta että rahaa",
+          "Vain uusia kavereita"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

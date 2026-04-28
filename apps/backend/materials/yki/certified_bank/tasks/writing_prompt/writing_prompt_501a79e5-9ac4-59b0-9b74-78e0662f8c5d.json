@@ -1,0 +1,37 @@
+{
+  "id": "501a79e5-9ac4-59b0-9b74-78e0662f8c5d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kannanotto (noin 350-400 sanaa) otsikolla 'Pitäisikö tekoälyn kehitystä hidastaa eettisistä syistä?'. Pohdi tekoälyn nopean kehityksen riskejä, kuten työpaikkojen häviämistä, algoritmien vinoumia ja autonomisia aseita. Pitäisikö kehitykselle asettaa kansainvälisiä rajoja? Vai onko se mahdotonta ja vain hidastaisi hyödyllistä kehitystä? Perustele.",
+    "materials": {
+      "scenario": "Tekoälyn kehityksen hidastaminen"
+    },
+    "items": [
+      {
+        "id": "3589af3b-8da9-5b7a-9fee-f77cb2c10d4b",
+        "prompt": "Kirjoita kannanotto (noin 350-400 sanaa) otsikolla 'Pitäisikö tekoälyn kehitystä hidastaa eettisistä syistä?'. Pohdi tekoälyn nopean kehityksen riskejä, kuten työpaikkojen häviämistä, algoritmien vinoumia ja autonomisia aseita. Pitäisikö kehitykselle asettaa kansainvälisiä rajoja? Vai onko se mahdotonta ja vain hidastaisi hyödyllistä kehitystä? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita kannanotto (noin 350-400 sanaa) otsikolla 'Pitäisikö tekoälyn kehitystä hidastaa eettisistä syistä?'. Pohdi tekoälyn nopean kehityksen riskejä, kuten työpaikkojen häviämistä, algoritmien vinoumia ja autonomisia aseita. Pitäisikö kehitykselle asettaa kansainvälisiä rajoja? Vai onko se mahdotonta ja vain hidastaisi hyödyllistä kehitystä? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "0ff9da3c-0fa3-5566-97dd-840dc00b86b5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.308,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADONNUT KISSA\n\nKissa nimeltä Viiru katosi 5.5. Tapaninkylän alueelta.\n\nUlkonäkö: musta, valkoinen rinta ja tassut. Silmät vihreät.\n\nJos näet kissan, soita: 040 123 4567 tai 050 987 6543.\n\nPalkkio!",
+      "word_count": 29
+    },
+    "questions": [
+      {
+        "id": "3fc1319d-2550-542e-9c2f-7d1e593fc67b",
+        "prompt": "Mikä on kissan nimi?",
+        "options": [
+          "Mirri",
+          "Viiru",
+          "Musta",
+          "Tassu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ab4d461c-2d42-5ad9-b11f-716d80246476",
+        "prompt": "Minkä värinen kissa on?",
+        "options": [
+          "Kokonaan musta",
+          "Musta ja valkoinen",
+          "Musta ja ruskea",
+          "Harmaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "27a867e7-43d2-5ab5-b836-c25d9282bd72",
+        "prompt": "Mistä alueelta kissa katosi?",
+        "options": [
+          "Keskustasta",
+          "Tapaninkylästä",
+          "Malminkartanolta",
+          "Pasilasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e93bae74-1370-5cb8-b22b-999647884c74",
+        "prompt": "Mitä pitää tehdä, jos näkee kissan?",
+        "options": [
+          "Soittaa poliisille",
+          "Soittaa numeroon 040 123 4567",
+          "Lähettää sähköpostia",
+          "Odottaa paikalla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

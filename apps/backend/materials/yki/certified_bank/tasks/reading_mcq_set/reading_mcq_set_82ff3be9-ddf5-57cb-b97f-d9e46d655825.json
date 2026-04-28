@@ -1,0 +1,77 @@
+{
+  "id": "82ff3be9-ddf5-57cb-b97f-d9e46d655825",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.625,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tutkimusessee kulttuuripolitiikan malleista ja vastaa kysymyksiin tekstin argumentaation perusteella.",
+    "materials": {
+      "text": "Kaupunkien kilpailukykyä käsittelevässä keskustelussa kulttuuripolitiikka esitetään usein instrumentaalisesti: kulttuuri nähdään vetovoimatekijänä, joka houkuttelee osaajia, yrityksiä ja matkailijoita. Tarkasteltu tutkimusessee hyväksyy tämän näkökulman osittain, mutta varoittaa, että liian yksipuolinen vetovoimapuhe voi kaventaa kulttuurin yhteiskunnallista tehtävää. Esseessä argumentti rakentuu väitteelle, että kulttuuripolitiikan legitimiteetti ei perustu vain taloudellisiin kerrannaisvaikutuksiin, vaan myös kykyyn tuottaa tiloja, joissa eri ryhmät voivat neuvotella yhteisistä merkityksistä ilman välitöntä markkinalogiikkaa.\n\nEssee analysoi kolmea politiikkamallia. Ensimmäisessä mallissa rahoitus kohdistetaan suurille näkyville hankkeille, joiden odotetaan nostavan kaupungin profiilia nopeasti. Mallin etuna on selkeä viestittävyys, mutta haittana riski siitä, että resurssit kasaantuvat toimijoille, joilla on jo valmiiksi vahvat verkostot. Toisessa mallissa painotetaan ruohonjuuritason toimijoita ja alueellisia mikrorahoituksia. Tämä voi lisätä osallisuutta, mutta samalla hallinnollinen kuormitus kasvaa, koska rahoituksen vaikuttavuuden seuranta edellyttää monia pieniä arviointiprosesseja. Kolmas malli pyrkii yhdistämään nämä kaksi logiikkaa rakentamalla pitkäkestoisia kumppanuuksia, joissa osa rahoituksesta sidotaan paikalliseen osallistumiseen ja osa kansainväliseen näkyvyyteen.\n\nTutkimusessee huomauttaa, että mallien vertailu epäonnistuu usein siksi, että arviointikriteerit asetetaan liian kapeasti. Jos mittarina on vain kävijämäärä, hiljaiset mutta yhteisöllisesti merkittävät hankkeet näyttäytyvät tehottomina. Jos taas mittarina on vain osallistumiskokemus, jää helposti arvioimatta, miten toiminta kestää taloudellisesti pitkällä aikavälillä. Essee ehdottaa moniulotteista arviointikehikkoa, jossa taloudellinen, sosiaalinen ja kulttuurinen vaikuttavuus tarkastellaan rinnakkain ja eri aikajänteillä.\n\nKeskeinen jännite liittyy myös päätöksenteon kieleen. Kun kulttuuritoimijoilta vaaditaan yhä tarkempia tulosindikaattoreita, osa toiminnan arvoista alkaa mukautua niihin mittareihin, joita on helpoin raportoida. Tätä essee kuvaa mittarivetoiseksi sopeutumiseksi: toimijat eivät välttämättä muuta tavoitteitaan, mutta he muuttavat tapaa puhua niistä niin, että ne sopivat rahoittajan logiikkaan. Pitkällä aikavälillä tämä voi kaventaa toimintakenttää, koska vaikeasti mitattavat mutta yhteiskunnallisesti tärkeät tavoitteet jäävät varjoon.\n\nLopuksi essee esittää, että kestävän kulttuuripolitiikan ydin on institutionaalinen moniarvoisuus. Se tarkoittaa käytännössä sitä, että rahoitusjärjestelmässä tunnustetaan useita onnistumisen muotoja eikä kaikkia toimijoita pakoteta samaan vaikuttavuusmalliin. Tällöin päätöksenteko ei perustu oletukseen yhdestä oikeasta tehokkuuskriteeristä, vaan kykyyn perustella, miksi eri kriteerit ovat relevantteja eri tilanteissa. Esseen mukaan juuri tämä perustelun laatu ratkaisee, nähdäänkö kulttuuripolitiikka kulueränä vai demokraattisen yhteiskunnan infrastruktuurina. Essee liittää tähän myös alueellisen ulottuvuuden: sama rahoitusmalli voi tuottaa hyvin erilaisia seurauksia riippuen siitä, onko alueella valmiiksi vahva kulttuuri-infrastruktuuri vai toimiiko kenttä pitkälti vapaaehtoisuuden varassa. Tämän vuoksi yhdenmukainen arviointimalli voi vahvistaa olemassa olevia eroja, vaikka tarkoitus olisi päinvastainen. Kirjoittajan mukaan aidosti oikeudenmukainen järjestelmä edellyttää, että arviointi tunnistaa lähtötilanteiden erilaisuuden eikä tulkitse kaikkia poikkeamia heikoksi suorituskyvyksi.",
+      "word_count": 371
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä vetovoimapuhetta koskevaa riskiä essee korostaa?",
+        "options": [
+          "kulttuurin kansainvälinen näkyvyys katoaa",
+          "kulttuurin yhteiskunnallinen tehtävä kaventuu instrumentaaliseksi",
+          "rahoitus kasvaa liian nopeasti",
+          "mittareita ei voi käyttää lainkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on ensimmäisen politiikkamallin keskeinen heikkous?",
+        "options": [
+          "hitaat päätökset",
+          "resurssien kasaantuminen jo vahvoille toimijoille",
+          "liian pieni näkyvyys",
+          "kansainvälisten verkostojen puute"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi essee ehdottaa moniulotteista arviointikehikkoa?",
+        "options": [
+          "yksi mittari ei tavoita vaikuttavuuden eri ulottuvuuksia",
+          "mittaamisesta tulisi luopua kokonaan",
+          "rahoituksen määrä vähenisi",
+          "vertailu eri hankkeiden välillä estyy"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä institutionaalinen moniarvoisuus tarkoittaa esseen lopussa?",
+        "options": [
+          "yhtä pakollista tehokkuuskriteeriä kaikille",
+          "useiden onnistumisen muotojen tunnustamista rahoitusjärjestelmässä",
+          "kulttuurirahoituksen poistamista",
+          "päätösten siirtämistä markkinoille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

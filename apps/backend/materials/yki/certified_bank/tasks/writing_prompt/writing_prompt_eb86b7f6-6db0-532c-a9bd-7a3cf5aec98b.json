@@ -1,0 +1,37 @@
+{
+  "id": "eb86b7f6-6db0-532c-a9bd-7a3cf5aec98b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa opettaa enemmän mediakriittisyyttä disinformaation torjumiseksi?'. Pohdi nykyistä opetusta, teknologian kehitystä ja demokratiaa.",
+    "materials": {
+      "scenario": "Mediakriittisyys kouluissa"
+    },
+    "items": [
+      {
+        "id": "5f62f0c2-9495-502c-9d4f-bbfa51f5c5f4",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa opettaa enemmän mediakriittisyyttä disinformaation torjumiseksi?'. Pohdi nykyistä opetusta, teknologian kehitystä ja demokratiaa."
+      }
+    ],
+    "rubric": "Disinformaatio\nNykyinen opetus\nTeknologian kehitys\nDemokratia",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

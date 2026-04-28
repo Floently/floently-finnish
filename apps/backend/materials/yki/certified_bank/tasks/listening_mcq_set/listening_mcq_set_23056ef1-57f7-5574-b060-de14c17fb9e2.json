@@ -1,0 +1,66 @@
+{
+  "id": "23056ef1-57f7-5574-b060-de14c17fb9e2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.313,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele bussikuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tiedote linjan 55 matkustajille. Bussi on hieman myöhässä ruuhkan takia. Arvioitu saapumisaika päätepysäkille on noin kello 16.45. Seuraava bussi lähtee kello 17.05. Pahoittelemme viivästystä. Seuraava pysäkki on Rautatieasema.",
+      "audio_asset_id": "a780e824-fac8-4cf0-9be8-0679ed9ee3b1"
+    },
+    "questions": [
+      {
+        "id": "23e29d14-a332-501b-9ac3-a0a8c8f68775",
+        "prompt": "Miksi bussi on myöhässä?",
+        "options": [
+          "bussi on rikki",
+          "ruuhkan takia",
+          "sään takia",
+          "kuljettaja on myöhässä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "980f11b8-1169-53ce-a8be-870a597a6467",
+        "prompt": "Mihin aikaan bussi saapuu päätepysäkille?",
+        "options": [
+          "16.30",
+          "16.45",
+          "17.05",
+          "17.15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8997130e-ab8b-5f2e-a3d7-5dacdb4ed5ed",
+        "prompt": "Mikä on seuraava pysäkki?",
+        "options": [
+          "Keskusta",
+          "Rautatieasema",
+          "Linja-autoasema",
+          "Kauppatori"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

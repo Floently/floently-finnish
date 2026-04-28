@@ -1,0 +1,37 @@
+{
+  "id": "bc07329c-aeb9-512d-8667-0c663098a9e0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti lähikahvilasta. Arvioi kahvin laatua, leivonnaisia ja viihtyisyyttä. Ehdota yhtä uutta tuotetta.",
+    "materials": {
+      "scenario": "Palaute lähikahvilasta"
+    },
+    "items": [
+      {
+        "id": "07d0544a-4499-592e-83f9-cda91a85247f",
+        "prompt": "Kirjoita palauteteksti lähikahvilasta. Arvioi kahvin laatua, leivonnaisia ja viihtyisyyttä. Ehdota yhtä uutta tuotetta."
+      }
+    ],
+    "rubric": "Kahvin laatu\nLeivonnaiset\nViihtyisyys\nUusi tuote",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

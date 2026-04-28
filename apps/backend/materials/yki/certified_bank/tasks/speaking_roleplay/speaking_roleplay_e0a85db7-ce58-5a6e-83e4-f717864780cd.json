@@ -1,0 +1,40 @@
+{
+  "id": "e0a85db7-ce58-5a6e-83e4-f717864780cd",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa analyyttistä ja kriittistä kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet valtuutettu, joka haluaa puolustaa nuorten palveluita.",
+        "partner": "Muut valtuutetut ja kaupungin johto - eri mieltä, haluavat perustella omia näkemyksiään."
+      }
+    },
+    "items": [
+      {
+        "id": "srp34",
+        "ai_first_turn_fi": "Arvoisa puheenjohtaja, hyvät valtuutetut. Haluan ottaa kantaa budjettiesityksen kohtaan, joka koskee nuorisopalveluita."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa analyyttistä ja kriittistä kieltä.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

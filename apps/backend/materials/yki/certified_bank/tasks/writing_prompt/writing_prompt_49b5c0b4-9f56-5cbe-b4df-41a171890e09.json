@@ -1,0 +1,37 @@
+{
+  "id": "49b5c0b4-9f56-5cbe-b4df-41a171890e09",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.356,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit katsomassa paikallisen teatterin komediaesityksen. Kirjoita palaute. Arvioi näyttelijöiden suoritusta, esityksen hauskuutta ja teatterin tunnelmaa.",
+    "materials": {
+      "scenario": "Palaute teatterikomediasta"
+    },
+    "items": [
+      {
+        "id": "dbd36ac2-3360-50d2-8918-81c47a1dbb4f",
+        "prompt": "Kävit katsomassa paikallisen teatterin komediaesityksen. Kirjoita palaute. Arvioi näyttelijöiden suoritusta, esityksen hauskuutta ja teatterin tunnelmaa."
+      }
+    ],
+    "rubric": "Näyttelijöiden suoritus\nEsityksen hauskuus\nTeatterin tunnelma",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

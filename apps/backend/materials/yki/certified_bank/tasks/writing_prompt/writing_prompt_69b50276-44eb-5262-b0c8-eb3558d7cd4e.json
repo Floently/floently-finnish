@@ -1,0 +1,37 @@
+{
+  "id": "69b50276-44eb-5262-b0c8-eb3558d7cd4e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kaupungin jäteastioista. Onko niitä tarpeeksi? Ovatko ne siistejä?",
+    "materials": {
+      "scenario": "Palaute kaupungin jäteastioista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute kaupungin jäteastioista. Onko niitä tarpeeksi? Ovatko ne siistejä?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kaupungin jäteastioista. Onko niitä tarpeeksi? Ovatko ne siistejä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

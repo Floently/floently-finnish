@@ -1,0 +1,37 @@
+{
+  "id": "ca7b8a21-506f-55f8-a8b4-3f93e559b8e3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uimahalliin. Haluat tiedustella, onko uimahallissa mahdollista järjestää vesijumppaa ikääntyville. Kerro, millaisesta ryhmästä on kyse ja milloin kurssi voisi olla. Kysy myös hintaa.",
+    "materials": {
+      "scenario": "Tiedustelu vesijumpasta ikääntyville"
+    },
+    "items": [
+      {
+        "id": "ed77f533-c070-5fcf-9d90-f0e1dfa10dd7",
+        "prompt": "Kirjoita sähköposti uimahalliin. Haluat tiedustella, onko uimahallissa mahdollista järjestää vesijumppaa ikääntyville. Kerro, millaisesta ryhmästä on kyse ja milloin kurssi voisi olla. Kysy myös hintaa."
+      }
+    ],
+    "rubric": "Ryhmän kuvaus\nToivottu ajankohta\nHinta",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

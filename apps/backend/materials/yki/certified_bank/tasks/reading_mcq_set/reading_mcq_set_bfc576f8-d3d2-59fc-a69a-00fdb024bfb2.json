@@ -1,0 +1,77 @@
+{
+  "id": "bfc576f8-d3d2-59fc-a69a-00fdb024bfb2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "MUUTOKSIA OPINTOTUESSA 1.8.2025 ALKAEN\n\nOpintotukeen tulee muutoksia ensi syksynä. Tavoitteena on kannustaa opiskelijoita valmistumaan nopeammin ja tekemään enemmän töitä opintojen ohessa.\n\nOpintoraha nousee 20 euroa kuukaudessa. Asumislisään tulee korotus erityisesti kalliilla asuinalueilla, kuten pääkaupunkiseudulla.\n\nTärkein muutos koskee tulorajoja. Uudistuksen jälkeen opiskelija voi ansaita enemmän menettämättä opintotukea. Uudet tulorajat ovat lukuvuodelle 2025–2026: 15 000 euroa (aiemmin 12 500 euroa).\n\nOpiskelijan pitää itse seurata tulorajojen ylittymistä. Jos tulot ylittävät rajan, liikaa maksettu tuki peritään takaisin. Takaisinperintää voi välttää hakemalla tukia uudelleenarviointia.\n\nLisätietoa Kelan asiakaspalvelusta tai verkkosivuilta.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 112
+    },
+    "questions": [
+      {
+        "id": "428fdf7e-8b06-50ff-b89c-1207b35c3acd",
+        "prompt": "Mikä on opintotuen muutosten tavoite?",
+        "options": [
+          "Vähentää opiskelijoita",
+          "Kannustaa nopeampaan valmistumiseen ja työntekoon",
+          "Säästää valtion rahaa",
+          "Helpottaa Kelan työtä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "09391f6a-868f-5a8a-a6d0-0eaa521d8dcf",
+        "prompt": "Kuinka paljon opintoraha nousee?",
+        "options": [
+          "10 €",
+          "15 €",
+          "20 €",
+          "25 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e192f0cc-d3f2-5f5e-a8c0-ab25854a75b7",
+        "prompt": "Mikä on uusi tuloraja lukuvuodelle 2025–2026?",
+        "options": [
+          "10 000 €",
+          "12 500 €",
+          "15 000 €",
+          "17 500 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8ec60bc3-be04-57cb-a4d1-466c7a7522b8",
+        "prompt": "Mitä tapahtuu, jos tuloraja ylittyy?",
+        "options": [
+          "Tuki lakkaa",
+          "Liika tuki peritään takaisin",
+          "Ei mitään",
+          "Tuki kaksinkertaistuu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "cbc746a5-fabd-5434-a9bf-8def87df0cc1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.68,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a rehabilitation counselor position in a health center. Tell about your education in healthcare, experience in guiding clients, and how you support clients' well-being. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus kuntoutusohjaajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "ec5d3a96-4f2e-50f6-a253-03b3a57a73b1",
+        "prompt": "Write a job application. You are applying for a rehabilitation counselor position in a health center. Tell about your education in healthcare, experience in guiding clients, and how you support clients' well-being. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a rehabilitation counselor position in a health center. Tell about your education in healthcare, experience in guiding clients, and how you support clients' well-being. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

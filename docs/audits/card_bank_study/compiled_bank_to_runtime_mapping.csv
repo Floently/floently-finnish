@@ -1,0 +1,7 @@
+external_path,classification,target_runtime_layer,mapping_rule,automation,human_review
+complied_card_materials/cards/*.json,already_integrated_legacy,apps/backend/practice/data/cards/*.json,byte-identical donor; do not import again,none,"review for retirement/removal, not ingestion"
+complied_card_materials/fraasit/*/*.json,high_value_curated_cards,materials/cards/published/professional/*/phrases or accepted canonical cards,schema mostly runtime-ready but IDs differ from current runtime set; import as canonical published cards after dedupe,high,medium
+complied_card_materials/sanasto/*/*.json,curated_vocab_cards,materials/cards/published/professional/*/words,runtime-ready-ish bilingual cards; dedupe against current published IDs and normalize distractors/tags,high,medium
+complied_card_materials/kielioppi/*/*.json,curated_grammar_cards,materials/cards/published/* grammar sets plus loader fix,"schema-ready grammar cards; current main loader drops them, so loader or main router must be fixed before import matters",high,low
+complied_card_materials/new_practice/*.json,convertible_structured_pack,new cards runtime or canonical published cards,use adapter pipeline similar to new_practice_repository; preserve teach/context/gap triplets,high,medium
+complied_card_materials/combined/*.json,noisy_aggregate,donor_only_not_direct_runtime,"mine only after language filtering, dedupe, Finnish-only validation, and profession tagging",medium,high

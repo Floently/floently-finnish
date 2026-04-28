@@ -1,0 +1,60 @@
+{
+  "id": "9b164d22-37ef-54f3-9c79-a7b90e88c13d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa kampaamoajan. Keskustele kampaamon vastaanoton kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kampaamon vastaanottaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp22_1",
+        "ai_first_turn_fi": "Hei, Parturi-Kampaamo Pääväri."
+      },
+      {
+        "id": "srp22_2",
+        "ai_first_turn_fi": "Voin auttaa. Mikä on nimesi ja mihin aikaan sinulla oli varaus?"
+      },
+      {
+        "id": "srp22_3",
+        "ai_first_turn_fi": "Kiitos tiedosta. Peruutan sen. Onko kyseessä flunssa vai joku muu syy?"
+      },
+      {
+        "id": "srp22_4",
+        "ai_first_turn_fi": "Ymmärrän. Toivottavasti paranet pian. Haluaisitko varata uuden ajan heti vai myöhemmin?"
+      },
+      {
+        "id": "srp22_5",
+        "ai_first_turn_fi": "Meillä on vapaita aikoja ensi viikon keskiviikkona kello 14 ja perjantaina kello 10. Kumpi sopisi paremmin?"
+      },
+      {
+        "id": "srp22_6",
+        "ai_first_turn_fi": "Selvä, varataan keskiviikko kello 14. Saat vahvistuksen tekstiviestillä. Paranemisia!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa kampaamoajan. Keskustele kampaamon vastaanoton kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

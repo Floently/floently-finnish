@@ -1,0 +1,37 @@
+{
+  "id": "1dfaaf0f-d901-5fee-9110-736b28106659",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti uudelle naapurille. Toivota hänet tervetulleeksi taloon. Kerro, että asut samassa kerroksessa ja että voit auttaa, jos hänellä on kysyttävää. Kerro myös, missä roskakatos sijaitsee.",
+    "materials": {
+      "scenario": "Viesti uudelle naapurille tervetulotoivotuksesta"
+    },
+    "items": [
+      {
+        "id": "e37d106a-4f6a-5ebd-947c-e19f0074d97a",
+        "prompt": "Kirjoita lyhyt viesti uudelle naapurille. Toivota hänet tervetulleeksi taloon. Kerro, että asut samassa kerroksessa ja että voit auttaa, jos hänellä on kysyttävää. Kerro myös, missä roskakatos sijaitsee."
+      }
+    ],
+    "rubric": "Toivota tervetulleeksi\nKerro, että asut samassa kerroksessa\nTarjoudu auttamaan\nKerro, missä roskakatos on",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

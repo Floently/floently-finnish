@@ -1,0 +1,76 @@
+{
+  "id": "0adc70c8-3e76-56f3-84c6-f5b5463b430f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu työhyvinvoinnista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme työhyvinvoinnista. Vieraanani on psykologi Tarja Mäkelä.\n\nTarja: Työhyvinvointi on laaja käsite. Se ei ole vain sairauspoissaolojen määrää, vaan sitä, miten ihmiset voivat töissä.\n\nToimittaja: Mitkä tekijät vaikuttavat eniten työhyvinvointiin?\n\nTarja: Tutkimuksissa nousee esiin kolme asiaa: työn hallinta, sosiaalinen tuki ja oikeudenmukainen johtaminen. Kun ihminen voi vaikuttaa omaan työhönsä, saa tukea työkavereilta ja kokee tulleensa kohdelluksi oikeudenmukaisesti, hyvinvointi on parempi.\n\nToimittaja: Entä stressi? Se on monella arkipäivää.\n\nTarja: Stressi ei ole aina huono asia. Sopiva määrä haasteita auttaa kehittymään. Ongelma on pitkittynyt stressi, josta ei pääse palautumaan. Silloin puhutaan työuupumuksesta.\n\nToimittaja: Miten työuupumusta voi ehkäistä?\n\nTarja: Työn mitoitus on tärkeää. Työtehtävien pitää olla kohtuullisia. Myös palautuminen on keskeistä. Työpäivän jälkeen pitää olla aikaa levätä ja tehdä muita asioita. Työnantajan pitää tukea tätä.\n\nToimittaja: Mikä on esimiehen rooli?\n\nTarja: Erittäin tärkeä. Esimies on usein se, joka näkee ensimmäisenä, jos joku voi huonosti. Hänen pitää uskaltaa puuttua ja tarjota apua. Myös työyhteisön ilmapiiri on esimiehen vastuulla.\n\nToimittaja: Mitä työntekijä itse voi tehdä?\n\nTarja: Huolehtia omasta palautumisesta, pyytää apua ajoissa, pitää rajoja. Työ ei saa viedä koko elämää.",
+      "audio_asset_id": "f3075050-04d5-4a74-a429-ccaeef9cfa0b"
+    },
+    "questions": [
+      {
+        "id": "bca0c8d0-a34a-5aba-8cff-a1214d3a4af8",
+        "prompt": "Mitkä kolme asiaa vaikuttavat eniten työhyvinvointiin?",
+        "options": [
+          "Palkka, lomat, työaika",
+          "Työn hallinta, sosiaalinen tuki, oikeudenmukainen johtaminen",
+          "Työkaverit, kahvihuone, palkka",
+          "Koulutus, urakehitys, bonus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d5b6f345-7e8e-509a-b800-41afddd5ae4d",
+        "prompt": "Milloin stressi on ongelma?",
+        "options": [
+          "Aina",
+          "Pitkittyneenä, kun ei palaudu",
+          "Vain alussa",
+          "Kun on liian vähän töitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2cecd4b1-5cfc-5bee-adf0-b77fb06764e7",
+        "prompt": "Miten työuupumusta voi ehkäistä?",
+        "options": [
+          "Pidemmillä lomilla",
+          "Työn mitoituksella ja palautumisella",
+          "Lisäämällä työtunteja",
+          "Vaihtamalla työpaikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2ab57f29-1b66-5fc7-aeeb-46391a0ab173",
+        "prompt": "Mikä on esimiehen rooli?",
+        "options": [
+          "Vain valvoa",
+          "Nähdä ongelmat ja puuttua ajoissa",
+          "Jakaa työt Pitää kokouksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

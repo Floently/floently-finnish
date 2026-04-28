@@ -1,0 +1,37 @@
+{
+  "id": "b1a7b99f-30ae-5c71-8766-8972467aa52d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.349,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute hammaslääkärikäynnistä. Oliko odotusaika pitkä? Oliko hammaslääkäri ystävällinen?",
+    "materials": {
+      "scenario": "Palaute hammaslääkäristä"
+    },
+    "items": [
+      {
+        "id": "31011084-bafb-5099-b74d-c90b2662bceb",
+        "prompt": "Kirjoita palaute hammaslääkärikäynnistä. Oliko odotusaika pitkä? Oliko hammaslääkäri ystävällinen?"
+      }
+    ],
+    "rubric": "Kirjoita palaute hammaslääkärikäynnistä. Oliko odotusaika pitkä? Oliko hammaslääkäri ystävällinen?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "d80182fc-6fa7-5ad9-b4c5-8028bd0c9a5b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työhaastattelu ja vastaa kysymyksiin. Kuulet keskustelun kaksi kertaa.",
+    "materials": {
+      "transcript": "Haastattelija: Kerro vähän itsestäsi ja miksi haet tätä työpaikkaa.\nHakija: Olen valmistunut tradenomiksi kolme vuotta sitten ja työskennellyt sen jälkeen asiakaspalvelussa. Haluan kehittyä ja saada uusia haasteita. Tämä myyntitehtävä vaikuttaa mielenkiintoiselta, koska siinä pääsee käyttämään kielitaitoa ja tekemään tiimityötä.\nHaastattelija: Entä mitkä ovat vahvuutesi?\nHakija: Olen sosiaalinen ja ratkaisen ongelmia mielelläni. Asiakkaat ovat antaneet hyvää palautetta, että olen ystävällinen ja autan aina. Opin nopeasti uudet asiat.\nHaastattelija: Miten suhtaudut kiireeseen?\nHakija: Kiire ei haittaa, päinvastoin – tykkään, kun on tekemistä. Osaan priorisoida, eikä stressi tartu minuun helposti.\nHaastattelija: Meillä on tiimipalaveri joka maanantaiaamu. Sopiiko se sinulle?\nHakija: Kyllä, sopii hyvin.\nHaastattelija: Hyvä. Palaamme asiaan ensi viikolla.",
+      "audio_asset_id": "8f1072dd-7263-4b14-aa9c-d4bff9273590"
+    },
+    "questions": [
+      {
+        "id": "731be062-ebd2-5d63-a5e8-522c062fb79c",
+        "prompt": "Miksi hakija haluaa tätä työtä?",
+        "options": [
+          "Palkan takia",
+          "Haluaa kehittyä ja saada haasteita",
+          "Työpaikka on lähellä",
+          "Ei muuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "180b3b4b-ee5c-5c06-b25f-1e5c670d9e84",
+        "prompt": "Mitä vahvuuksia hakija mainitsee?",
+        "options": [
+          "Tekninen osaaminen",
+          "Sosiaalisuus ja ongelmanratkaisu",
+          "Johtamistaidot",
+          "Kielitaito"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "905eee3e-28b5-59c3-87c0-73adaf003dfd",
+        "prompt": "Miten hakija suhtautuu kiireeseen?",
+        "options": [
+          "Ei pidä",
+          "Stressaantuu",
+          "Ei haittaa, tykkää tekemisestä",
+          "Haluaa vähemmän töitä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "bd0e0fbf-4f85-5b4f-9e42-5762698fe56f",
+        "prompt": "Milloin tiimipalaverit pidetään?",
+        "options": [
+          "Perjantaisin",
+          "Maanantaisin",
+          "Keskiviikkoisin",
+          "Kerran kuussa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

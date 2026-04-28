@@ -1,0 +1,88 @@
+{
+  "id": "2b66b861-df22-58a5-9a7d-8f887793ecc2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu verkkokaupan asiakaspalvelussa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Soitin koskien tilaustani numero 56789. Tilasin viikko sitten lenkkarit, mutta paketti ei ole vielä saapunut. Asiakaspalvelija: Hetki, tarkistan. Katsotaan... Tilaus on kyllä merkitty lähetetyksi. Voitteko tarkistaa seurantakoodin? Asiakas: Koodi on 12345, ja siinä lukee, että paketti on ollut noudettavissa noutopisteessä jo kolme päivää sitten. Asiakaspalvelija: Aivan, se on toimitettu teidän lähimpään noutopisteeseen. Ette ole saaneet noutoilmoitusta? Asiakas: En ole saanut mitään tekstiviestiä enkä sähköpostia. Asiakaspalvelija: Selvä, tarkistan yhteystiedot. Tässä näkyy, että puhelinnumerosta puuttuu yksi numero. Se on voinut aiheuttaa ongelman. Voin lähettää noutoilmoituksen uudelleen nyt tekstiviestillä. Asiakas: Kiitos, se olisi hyvä. Asiakaspalvelija: Lähetin sen juuri. Paketti odottaa teitä noutopisteessä vielä viikon. Asiakas: Kiitos avusta!",
+      "audio_asset_id": "d2e3f4a5-b6c7-8d9e-0f1a-2b3c4d5e6f7a"
+    },
+    "questions": [
+      {
+        "id": "l52q1",
+        "prompt": "Mikä on asiakkaan tilausnumero?",
+        "options": [
+          "12345.",
+          "56789.",
+          "98765.",
+          "54321."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l52q2",
+        "prompt": "Mitä asiakas on tilannut?",
+        "options": [
+          "Kengät.",
+          "Lenkkarit.",
+          "Takin.",
+          "Laukun."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l52q3",
+        "prompt": "Missä paketti on seurantakoodin mukaan?",
+        "options": [
+          "Kuljetuksessa.",
+          "Palautettu lähettäjälle.",
+          "Ollut noudettavissa noutopisteessä kolme päivää.",
+          "Odottamassa varastossa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l52q4",
+        "prompt": "Miksi asiakas ei ole saanut noutoilmoitusta?",
+        "options": [
+          "Asiakaspalvelija unohti lähettää sen.",
+          "Pakettia ei ole vielä toimitettu.",
+          "Puhelinnumerosta puuttuu yksi numero.",
+          "Asiakas on ilmoittanut väärän sähköpostin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l52q5",
+        "prompt": "Kuinka kauan paketti vielä odottaa noutopisteessä?",
+        "options": [
+          "Kolme päivää.",
+          "Viikon.",
+          "Kaksi viikkoa.",
+          "Kuukauden."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

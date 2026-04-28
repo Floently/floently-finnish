@@ -1,0 +1,37 @@
+{
+  "id": "e6dfe439-4a86-5410-8a3e-955981cfb917",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.75,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuljetusliike on aiheuttanut vahinkoa muutossi yhteydessä ja kieltäytyy korvaamasta. Kirjoita virallinen reklamaatio, jossa luetteloit vahingoittuneet tavarat, arvioit niiden arvon, viittaat kuljetussopimukseen ja kuluttajansuojalakiin, kuvaat yrityksen asiakaspalvelun vastaanoton, vaadit korvausta ja asetat määräajan vastaukselle.",
+    "materials": {
+      "scenario": "Muuttotavarat vaurioituneet"
+    },
+    "items": [
+      {
+        "id": "1381a0c4-6c2f-5882-92cc-2de79f664055",
+        "prompt": "Kuljetusliike on aiheuttanut vahinkoa muutossi yhteydessä ja kieltäytyy korvaamasta. Kirjoita virallinen reklamaatio, jossa luetteloit vahingoittuneet tavarat, arvioit niiden arvon, viittaat kuljetussopimukseen ja kuluttajansuojalakiin, kuvaat yrityksen asiakaspalvelun vastaanoton, vaadit korvausta ja asetat määräajan vastaukselle."
+      }
+    ],
+    "rubric": "Kuljetusliike on aiheuttanut vahinkoa muutossi yhteydessä ja kieltäytyy korvaamasta. Kirjoita virallinen reklamaatio, jossa luetteloit vahingoittuneet tavarat, arvioit niiden arvon, viittaat kuljetussopimukseen ja kuluttajansuojalakiin, kuvaat yrityksen asiakaspalvelun vastaanoton, vaadit korvausta ja asetat määräajan vastaukselle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

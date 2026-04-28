@@ -1,0 +1,37 @@
+{
+  "id": "6d9bdf88-6754-574a-ba5b-5d9c04b3a875",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuvaile lyhyesti metsäretkeä.",
+    "materials": {
+      "scenario": "Retki metsään"
+    },
+    "items": [
+      {
+        "id": "b60ec030-4a93-55f5-8669-067ce849c28a",
+        "prompt": "Kuvaile lyhyesti metsäretkeä."
+      }
+    ],
+    "rubric": "Kuvaile lyhyesti metsäretkeä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "22b72cca-3ba8-58f4-a82d-9763b6db9bd2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt hammaslääkärissä ja saanut paikan. Kirjoita palaute. Kerro, sattuiko se ja oliko lääkäri ammattitaitoinen.",
+    "materials": {
+      "scenario": "Palaute hammaslääkärin paikkauksesta"
+    },
+    "items": [
+      {
+        "id": "34c58b7f-e17f-5176-88c0-ebf6a7c73da5",
+        "prompt": "Olet käynyt hammaslääkärissä ja saanut paikan. Kirjoita palaute. Kerro, sattuiko se ja oliko lääkäri ammattitaitoinen."
+      }
+    ],
+    "rubric": "Olet käynyt hammaslääkärissä ja saanut paikan. Kirjoita palaute. Kerro, sattuiko se ja oliko lääkäri ammattitaitoinen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

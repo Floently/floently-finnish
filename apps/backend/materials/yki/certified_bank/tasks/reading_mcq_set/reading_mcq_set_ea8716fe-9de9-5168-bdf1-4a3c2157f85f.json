@@ -1,0 +1,99 @@
+{
+  "id": "ea8716fe-9de9-5168-bdf1-4a3c2157f85f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet suomalaiset nukkuvat liian vähän. Kiireinen elämä ja ruudun ääressä vietetty aika vähentävät unta. Unen puute vaikuttaa terveyteen ja jaksamiseen. Asiantuntijat suosittelevat, että aikuiset nukkuvat 7–9 tuntia yössä. Hyvä nukkumaanmenorutiini ja rauhallinen makuuhuone auttavat nukahtamaan. Unen tärkeyttä ei kannata väheksyä.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä monet suomalaiset tekevät liian vähän?",
+        "options": [
+          "Syövät",
+          "Nukkuvat",
+          "Liikkuvat",
+          "Juovat vettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä vähentää unta tekstin mukaan?",
+        "options": [
+          "Liikunta ja ulkoilu",
+          "Kiireinen elämä ja ruudun ääressä vietetty aika",
+          "Terveellinen ruokavalio",
+          "Lukeminen ennen nukkumaanmenoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin unen puute vaikuttaa?",
+        "options": [
+          "Vain mielialaan",
+          "Vain painoon",
+          "Terveyteen ja jaksamiseen",
+          "Vain ulkonäköön"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuinka monta tuntia aikuisten suositellaan nukkuvan?",
+        "options": [
+          "5–6 tuntia",
+          "7–9 tuntia",
+          "10–12 tuntia",
+          "Alle 5 tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä auttaa nukahtamaan?",
+        "options": [
+          "Kahvin juonti ennen nukkumaanmenoa",
+          "Hyvä nukkumaanmenorutiini ja rauhallinen makuuhuone",
+          "Television katselu sängyssä",
+          "Puhelimen käyttö pimeässä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ei kannata väheksyä?",
+        "options": [
+          "Työn merkitystä",
+          "Unen tärkeyttä",
+          "Rahan merkitystä",
+          "Harrastusten tärkeyttä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

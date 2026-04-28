@@ -1,0 +1,37 @@
+{
+  "id": "7699ecfe-b4ac-5cf9-8959-1f982a130613",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti hammashoitolaan. Haluat perua varatun ajan, koska olet sairastunut. Kerro nimesi ja varausaika. Kysy, miten voit varata uuden ajan myöhemmin.",
+    "materials": {
+      "scenario": "Ajan peruutus hammashoitolaan"
+    },
+    "items": [
+      {
+        "id": "317fcf3b-ae76-5720-9a95-6074692db738",
+        "prompt": "Kirjoita sähköposti hammashoitolaan. Haluat perua varatun ajan, koska olet sairastunut. Kerro nimesi ja varausaika. Kysy, miten voit varata uuden ajan myöhemmin."
+      }
+    ],
+    "rubric": "Varauksen tiedot\nPerumisen syy\nUuden ajan varaus",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

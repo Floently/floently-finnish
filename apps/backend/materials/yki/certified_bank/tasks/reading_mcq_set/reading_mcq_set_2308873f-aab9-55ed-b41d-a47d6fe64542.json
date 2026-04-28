@@ -1,0 +1,66 @@
+{
+  "id": "2308873f-aab9-55ed-b41d-a47d6fe64542",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi globaalista talousjärjestelmästä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Globaali talousjärjestelmä on kriisissä, väittää taloustieteilijä Sirpa Kolehmainen tuoreessa kirjassaan. Hänen mukaansa vuoden 2008 finanssikriisin jälkeen tehdyt uudistukset eivät ole riittäneet, vaan samat ongelmat ovat edelleen olemassa: liiallinen velkaantuminen, rahoitusmarkkinoiden epävakaus ja kasvava eriarvoisuus. Kolehmainen analysoi, että ongelman ydin on järjestelmän rakenteissa, ei yksittäisissä toimijoissa. 'Kun voiton tavoittelu on ainoa ohjenuora, seurauksena on väistämättä kriisejä.' Hän ehdottaa perusteellisempaa uudistusta, jossa taloutta ohjattaisiin enemmän yhteiskunnallisten tavoitteiden, kuten kestävän kehityksen ja hyvinvoinnin, pohjalta. Tämä tarkoittaisi esimerkiksi rahoitusmarkkinoiden tiukempaa sääntelyä, veroparatiisien kitkemistä ja yritysten vastuullisuusvaatimusten kiristämistä. Kolehmainen myöntää, että tällaiset uudistukset ovat poliittisesti vaikeita, koska ne haastavat vakiintuneita etuja. 'Globaali talous on kuin supertankkeri, sen kääntäminen vaatii aikaa ja valtavasti voimaa.' Hän kuitenkin uskoo, että paine muutokseen kasvaa kriisien myötä. Kysymys on vain siitä, ehditäänkö tehdä hallittu muutos ennen seuraavaa suurta romahdusta.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "2bf6b417-1294-505e-a59f-8533d6753cd4",
+        "prompt": "Mitä Sirpa Kolehmainen väittää vuoden 2008 jälkeisistä uudistuksista?",
+        "options": [
+          "Ne ovat olleet riittäviä",
+          "Ne eivät ole riittäneet",
+          "Ne ovat olleet liian radikaaleja",
+          "Niitä ei ole tehty ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7bc73f6d-e2b7-5544-9bef-67baceaf43ad",
+        "prompt": "Mikä on Kolehmaisen mukaan ongelman ydin?",
+        "options": [
+          "Pankkiirien ahneus",
+          "Järjestelmän rakenteet",
+          "Poliitikkojen osaamattomuus",
+          "Kuluttajien holtiton käyttäytyminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "49ad5553-10dc-52e1-a70b-3f619eb758c6",
+        "prompt": "Mitä Kolehmainen ehdottaa ratkaisuksi?",
+        "options": [
+          "Paluuta vanhaan hyvään aikaan",
+          "Talouden ohjaamista yhteiskunnallisten tavoitteiden pohjalta",
+          "Vapaiden markkinoiden täydellistä vapauttamista",
+          "Globalisaation purkamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

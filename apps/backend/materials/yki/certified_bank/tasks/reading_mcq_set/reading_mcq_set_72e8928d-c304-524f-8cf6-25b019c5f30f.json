@@ -1,0 +1,88 @@
+{
+  "id": "72e8928d-c304-524f-8cf6-25b019c5f30f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen design on läsnä jokapäiväisessä arjessamme. Se on osa kotejamme ja julkisia tiloja. Suomalainen design tunnetaan toimivuudesta ja selkeydestä. Yksi keskeisimmistä arjen ilmentymistä on astiat. Arabia ja Iittala ovat monen suomalaisen kodin peruskalustoa. Ne kestävät aikaa ja käyttöä. Toinen keskeinen ilmentymä on huonekalut. Alvar Aallon klassikkohuonekalut ovat arvostettuja. Ne ovat toimivia ja kauniita. Kolmas ilmentymä on tekstiilit. Marimekon rohkeat kuosit ilahduttavat arjessa. Neljäs ilmentymä on valaisimet. Suomalainen valaisinmuotoilu on tunnettua. Viides ilmentymä on julkinen muotoilu. Suomalaiset arkkitehdit ovat suunnitelleet monia julkisia rakennuksia ja kaupunkitiloja.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä suomalainen design näkyy?",
+        "options": [
+          "Vain museoissa",
+          "Kodeissa ja julkisissa tiloissa",
+          "Vain gallerioissa",
+          "Vain kaupoissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä suomalainen design tunnetaan?",
+        "options": [
+          "Koristeellisuudesta",
+          "Toimivuudesta ja selkeydestä",
+          "Halpuudesta",
+          "Monimutkaisuudesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä suomalaiset astiamerkit mainitaan tekstissä?",
+        "options": [
+          "Marimekko ja Lapuan Kankurit",
+          "Arabia ja Iittala",
+          "Alvar Aalto ja Eero Aarnio",
+          "Paavo Tynell ja Liisa Pöyhönen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka on tunnettu suomalainen huonekalumuotoilija?",
+        "options": [
+          "Tove Jansson",
+          "Alvar Aalto",
+          "Mauri Kunnas",
+          "Sofi Oksanen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä Marimekko tunnetaan?",
+        "options": [
+          "Yksinkertaisista valkoisista paidoista",
+          "Rohkeista kuoseista ja väreistä",
+          "Klassisista mustista mekoista",
+          "Villaisista talvivaatteista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

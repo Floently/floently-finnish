@@ -1,0 +1,110 @@
+{
+  "id": "f901666c-f7db-5487-a1d3-f29909a1d3dc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.738,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen ilmasto lämpenee ja muuttuu. Talvet lyhenevät ja leudontuvat, sateet lisääntyvät ja ääri-ilmiöt, kuten helleaallot ja rankkasateet, yleistyvät. Tällä on monia vaikutuksia. Luonto muuttuu, kun eläin- ja kasvilajit siirtyvät pohjoiseen. Uudet tuholaiset ja taudit voivat yleistyä. Maataloudessa kasvukausi pitenee, mutta samalla kuivuus ja tulvat voivat aiheuttaa ongelmia. Myös ihmisten terveyteen ilmastonmuutos vaikuttaa. Helteet voivat olla vaarallisia vanhuksille ja sairaille. Uudet taudit voivat levitä pohjoiseen. Toisaalta kylmät talvet vähenevät, mikä voi vähentää vilustumissairauksia. Ilmastonmuutokseen on sopeuduttava. Kaupunkisuunnittelussa on otettava huomioon rankkasateet ja tulvat. Rakentamisessa on varauduttava lämpenevään ilmastoon. Maataloudessa on kehitettävä uusia lajikkeita ja viljelymenetelmiä. Myös varautuminen terveysriskeihin on tärkeää. Sopeutumisen lisäksi on tärkeää hillitä ilmastonmuutosta vähentämällä päästöjä. Suomi on sitoutunut tavoitteisiin, ja työtä tehdään monilla aloilla. Energiantuotantoa uudistetaan, liikennettä sähköistetään ja metsien hiilinieluja vahvistetaan. Ilmastonmuutos on globaali ongelma, joka vaatii kansainvälistä yhteistyötä. Jokainen maa ja jokainen kansalainen voi omalla toiminnallaan vaikuttaa.",
+      "word_count": 141
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten Suomen ilmasto on muuttumassa?",
+        "options": [
+          "Talvet pitenevät ja kylmenevät.",
+          "Talvet lyhenevät ja leudontuvat, sateet lisääntyvät ja ääri-ilmiöt yleistyvät.",
+          "Ilmasto pysyy samana.",
+          "Kesät viilenevät."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten luonto muuttuu ilmaston lämmetessä?",
+        "options": [
+          "Lajit pysyvät samoina.",
+          "Eläin- ja kasvilajit siirtyvät pohjoiseen ja uudet tuholaiset voivat yleistyä.",
+          "Lajit vähenevät.",
+          "Mikään ei muutu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten maatalouteen ilmastonmuutos vaikuttaa?",
+        "options": [
+          "Vain kielteisesti.",
+          "Kasvukausi pitenee, mutta kuivuus ja tulvat voivat aiheuttaa ongelmia.",
+          "Vain myönteisesti.",
+          "Ei mitenkään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten ihmisten terveyteen ilmastonmuutos vaikuttaa?",
+        "options": [
+          "Vain myönteisesti.",
+          "Helteet voivat olla vaarallisia ja uudet taudit voivat levitä, mutta kylmät talvet vähenevät.",
+          "Ei mitenkään.",
+          "Vain kielteisesti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten kaupunkisuunnittelussa on otettava huomioon ilmastonmuutos?",
+        "options": [
+          "Ei mitenkään.",
+          "Rankkasateet ja tulvat on otettava huomioon.",
+          "Vain helteet on otettava huomioon.",
+          "Vain pakkaset on otettava huomioon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä hillitsemistoimia Suomessa tehdään?",
+        "options": [
+          "Ei mitään.",
+          "Energiantuotannon uudistamista, liikenteen sähköistämistä ja metsien hiilinielujen vahvistamista.",
+          "Vain energiantuotannon uudistamista.",
+          "Vain liikenteen sähköistämistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millainen ongelma ilmastonmuutos on?",
+        "options": [
+          "Vain paikallinen ongelma.",
+          "Globaali ongelma, joka vaatii kansainvälistä yhteistyötä.",
+          "Vain teollisuusmaiden ongelma.",
+          "Vain kehitysmaiden ongelma."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

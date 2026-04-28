@@ -1,0 +1,66 @@
+{
+  "id": "bb806b80-8681-5ae9-9d69-8911a57fdfbb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kulttuuri on tärkeä osa suomalaista identiteettiä ja yhteiskuntaa. Se kattaa perinteet, taiteen, kielen ja arvot. Suomalainen kulttuuri tunnetaan muun muassa designista, arkkitehtuurista, musiikista ja kirjallisuudesta. Kulttuuriala työllistää tuhansia ihmisiä ja tuottaa merkittävän osan vientituloista. Kulttuurilla on myös tärkeä rooli hyvinvoinnin edistäjänä: se tarjoaa elämyksiä, lisää yhteisöllisyyttä ja auttaa käsittelemään vaikeita asioita. Kulttuurin rahoitus on moninaista: se saa tukea valtiolta, kunnilta, säätiöiltä ja yksityisiltä tahoilta. Digitalisaatio on muuttanut kulttuurin tuotantoa ja kulutusta, tuoden sekä uusia mahdollisuuksia että haasteita.",
+      "word_count": 77
+    },
+    "questions": [
+      {
+        "id": "mcq_144",
+        "prompt": "Mistä suomalainen kulttuuri tunnetaan?",
+        "options": [
+          "Vain perinteistä ja kielestä",
+          "Designista, arkkitehtuurista, musiikista ja kirjallisuudesta",
+          "Vain taiteesta",
+          "Vain arvoista ja perinteistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_145",
+        "prompt": "Mikä rooli kulttuurilla on hyvinvoinnin edistäjänä?",
+        "options": [
+          "Se tarjoaa vain viihdettä",
+          "Se tarjoaa elämyksiä ja lisää yhteisöllisyyttä",
+          "Se on taloudellinen taakka",
+          "Se vähentää yhteisöllisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_146",
+        "prompt": "Mistä kulttuuri saa rahoitusta?",
+        "options": [
+          "Vain valtiolta",
+          "Vain kunnilta",
+          "Vain yksityisiltä tahoilta",
+          "Valtiolta, kunnilta, säätiöiltä ja yksityisiltä"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

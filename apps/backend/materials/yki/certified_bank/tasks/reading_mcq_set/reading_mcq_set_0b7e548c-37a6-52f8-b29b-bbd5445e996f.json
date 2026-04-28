@@ -1,0 +1,88 @@
+{
+  "id": "0b7e548c-37a6-52f8-b29b-bbd5445e996f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen luonto on monipuolinen ja kaunis, ja siinä on erityispiirteenä valon vaihtelu vuodenaikojen mukaan. Valolla on suuri merkitys suomalaisille, ja se vaikuttaa mielialaan, jaksamiseen ja elämänrytmiin. Kesän yöttömät yöt ja talven pimeys ovat suomalaisille tuttuja ilmiöitä, ja ne ovat muovanneet kulttuuriamme ja elämäntapaamme. Yksi keskeisimmistä valoon liittyvistä ilmiöistä on kesän yötön yö. Pohjois-Suomessa aurinko ei laske lainkaan useaan viikkoon, ja etelässäkin kesäyöt ovat valoisia. Valo antaa energiaa ja iloa, ja se saa ihmiset liikkumaan ulkona ja nauttimaan luonnosta. Kesä on monelle siksi rakkain vuodenaika. Toinen keskeinen ilmiö on talven pimeys. Pimeys voi olla raskasta ja väsyttävää, ja se vaikuttaa monen mielialaan. Toisaalta pimeys tuo myös mahdollisuuksia: voi sytyttää kynttilöitä, käpertyä lukemaan kirjaa ja nauttia sisällä olosta. Revontulet valaisevat talven pimeää taivasta ja ovat upea luonnonilmiö. Kolmas ilmiö on vuodenaikojen vaihtelu ja siihen liittyvät valon muutokset. Keväällä valo palaa, ja luonto herää eloon. Syksyllä valo vähenee, ja ruskan värit loistavat kauneimmillaan. Neljäs ilmiö on valon vaikutus ihmisen fysiologiaan. Valo säätelee vuorokausirytmiä, unta, vireystilaa ja mielialaa. Riittävä valon saanti on tärkeää terveydelle. Talvella monet kärsivät pimeydestä johtuvasta väsymyksestä ja masennuksesta. Viides ilmiö on valon kulttuurinen merkitys. Valo on tärkeä teema suomalaisessa taiteessa, kirjallisuudessa ja musiikissa. Juhannus, joulu ja muut juhlat liittyvät valoon.",
+      "word_count": 200
+    },
+    "questions": [
+      {
+        "id": "fcdc4f43-96ea-57ac-80a5-b8a0f337adec",
+        "prompt": "Mikä on suomalaisen luonnon erityispiirre?",
+        "options": [
+          "Trooppinen ilmasto",
+          "Valon vaihtelu vuodenaikojen mukaan",
+          "Jatkuva lämpö",
+          "Jatkuva pimeys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6653445c-0378-5813-b8c8-9fe9d0499717",
+        "prompt": "Mitä tarkoitetaan yöttömällä yöllä?",
+        "options": [
+          "Yötä, jolloin on täysin pimeää",
+          "Ilmiötä, jossa aurinko ei laske lainkaan",
+          "Yötä, jolloin sataa",
+          "Yötä, jolloin on myrsky"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "49bae561-88bb-5b50-8d3b-d25973ac7c6b",
+        "prompt": "Miten talven pimeys vaikuttaa ihmisiin?",
+        "options": [
+          "Se lisää energiaa",
+          "Se voi olla raskasta ja väsyttävää ja vaikuttaa mielialaan",
+          "Sillä ei ole vaikutusta",
+          "Se parantaa unen laatua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e89b352f-9b22-5f90-a539-976450575402",
+        "prompt": "Mitä myönteistä pimeydessä voi olla?",
+        "options": [
+          "Ei mitään",
+          "Mahdollisuus sytyttää kynttilöitä, lukea kirjoja ja nauttia sisällä olosta",
+          "Se lisää ulkona liikkumista",
+          "Se parantaa näköä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "00aeda76-9be3-5ced-b160-68cb6aad8993",
+        "prompt": "Miten valo vaikuttaa ihmisen fysiologiaan?",
+        "options": [
+          "Sillä ei ole vaikutusta",
+          "Se säätelee vuorokausirytmiä, unta, vireystilaa ja mielialaa",
+          "Se heikentää terveyttä",
+          "Se aiheuttaa unettomuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

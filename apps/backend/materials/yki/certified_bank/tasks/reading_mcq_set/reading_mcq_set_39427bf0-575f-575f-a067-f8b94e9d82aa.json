@@ -1,0 +1,110 @@
+{
+  "id": "39427bf0-575f-575f-a067-f8b94e9d82aa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Luottamus on yhteiskunnan perusta. Se mahdollistaa yhteistyön, vähentää epävarmuutta ja tekee arjesta sujuvampaa. Suomessa luottamus on perinteisesti ollut korkeaa niin ihmisten välillä kuin instituutioitakin kohtaan. Tämä on näkynyt esimerkiksi siinä, että ihmiset luottavat poliisiin, oikeuslaitokseen ja viranomaisiin. Korkea luottamus on myös taloudellinen voimavara, sillä se vähentää liiketoiminnan kitkaa ja helpottaa päätöksentekoa. Viime vuosina on kuitenkin herännyt huoli luottamuksen heikkenemisestä. Sosiaalinen media ja polarisaatio voivat lisätä epäluottamusta, kun ihmiset altistuvat erilaisille todellisuuskäsityksille. Myös viranomaisten tekemät virheet ja epäonnistumiset voivat nakertaa luottamusta, jos niitä ei käsitellä avoimesti ja läpinäkyvästi. Luottamuksen rakentaminen on hidasta, mutta se voidaan menettää nopeasti. Siksi sen vaaliminen on tärkeää. Tämä edellyttää avoimuutta, rehellisyyttä ja vastuunkantoa niin päättäjiltä, viranomaisilta kuin kansalaisiltakin. Ilman luottamusta yhteiskunta ei toimi, ja se voi johtaa pahimmillaan eriarvoistumiseen ja yhteiskunnallisiin jännitteisiin.",
+      "word_count": 126
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi luottamus on tärkeää yhteiskunnassa?",
+        "options": [
+          "Se lisää byrokratiaa.",
+          "Se mahdollistaa yhteistyön, vähentää epävarmuutta ja tekee arjesta sujuvampaa.",
+          "Se vähentää tarvetta lakeihin.",
+          "Se lisää valtion valvontaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista luottamus on perinteisesti ollut Suomessa?",
+        "options": [
+          "Matalaa sekä ihmisiin että instituutioihin.",
+          "Korkeaa vain ihmisiin, mutta matalaa instituutioihin.",
+          "Korkeaa sekä ihmisiin että instituutioihin.",
+          "Matalaa vain instituutioihin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten korkea luottamus vaikuttaa talouteen?",
+        "options": [
+          "Se lisää byrokratiaa.",
+          "Se on taloudellinen voimavara, joka vähentää liiketoiminnan kitkaa.",
+          "Se hidastaa talouskasvua.",
+          "Sillä ei ole vaikutusta talouteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä voi heikentää luottamusta?",
+        "options": [
+          "Avoimuus ja läpinäkyvyys.",
+          "Sosiaalinen media, polarisaatio ja viranomaisten virheet.",
+          "Korkea koulutustaso.",
+          "Toimiva oikeuslaitos."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten viranomaisten virheet vaikuttavat luottamukseen?",
+        "options": [
+          "Ne lisäävät luottamusta, jos ne hoidetaan hyvin.",
+          "Ne voivat nakertaa luottamusta, jos niitä ei käsitellä avoimesti.",
+          "Ne eivät vaikuta luottamukseen millään tavalla.",
+          "Ne aina parantavat luottamusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä luottamuksen vaaliminen edellyttää?",
+        "options": [
+          "Salailua ja tiedon pimittämistä.",
+          "Avoimuutta, rehellisyyttä ja vastuunkantoa.",
+          "Tiukempaa lainsäädäntöä.",
+          "Viranomaisten vallan lisäämistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä seurauksia luottamuksen heikkenemisellä voi olla?",
+        "options": [
+          "Se voi johtaa eriarvoistumiseen ja yhteiskunnallisiin jännitteisiin.",
+          "Se parantaa talouskasvua.",
+          "Se lisää yhteistyötä.",
+          "Sillä ei ole mitään seurauksia."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

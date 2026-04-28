@@ -1,0 +1,77 @@
+{
+  "id": "33a9c872-79c5-55ed-acb6-0c55d7ba1a87",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kestävästä muodista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Aino: Hei, ostitko sä uusia vaatteita?\nMaija: Ostin yhden mekon kirpparilta. Yritän nykyään ostaa vain käytettynä.\nAino: Ai, miksi?\nMaija: Koska pikamuoti on tosi huonoksi ympäristölle. Tiesitkö, että tekstiiliteollisuus tuottaa enemmän päästöjä kuin lento- ja laivaliikenne yhteensä?\nAino: En tiennyt. Mutta onko kirppareilla aina kivaa?\nMaija: Nykyään on tosi hyvä valikoima. Netissä on myös paljon foorumeita.\nAino: Mutta eikö se ole vähän noloa ostaa käytettyä?\nMaija: Ei todellakaan! Päinvastoin, se on trendikästä. Ja säästää rahaa.\nAino: Mitä teet vanhoille vaatteille?\nMaija: Myyn ne eteenpäin tai vien kirpparille. Jos vaate on rikki, vien sen tekstiilinkeräykseen tai ompelen itse.\nAino: Vau, sä oot kyllä ekologinen!\nMaija: Yritän ainakin.",
+      "audio_asset_id": "15c1a743-1664-4b2b-ba7d-f0cd443c34eb"
+    },
+    "questions": [
+      {
+        "id": "6932f6d2-d8c9-507a-973c-c4a005978b1c",
+        "prompt": "Miksi Maija ostaa käytettyjä vaatteita?",
+        "options": [
+          "Halvempaa",
+          "Pikamuoti on huonoksi ympäristölle",
+          "Ei rahaa",
+          "Ei pidä uusista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "35fd16d9-99d0-545d-acfd-fa244c5d74f8",
+        "prompt": "Mitä Maija kertoo tekstiiliteollisuudesta?",
+        "options": [
+          "Vähän päästöjä",
+          "Enemmän päästöjä kuin lento- ja laivaliikenne",
+          "Puhdas ala",
+          "Ei vaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "08691bd1-afd9-5748-90fb-239ee8996e38",
+        "prompt": "Mitä mieltä Maija on käytettyjen ostamisesta?",
+        "options": [
+          "Noloa",
+          "Trendikästä ja järkevää",
+          "Vältettävä",
+          "Vain köyhille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "24f59990-3356-5aac-9b28-39ed2c3a7716",
+        "prompt": "Mitä Maija tekee rikkinäisille vaatteille?",
+        "options": [
+          "Heittää roskiin",
+          "Vie tekstiilinkeräykseen tai korjaa",
+          "Antaa pois",
+          "Polttaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

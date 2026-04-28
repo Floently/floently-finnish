@@ -1,0 +1,66 @@
+{
+  "id": "206f4501-8b44-591f-aaef-d42901463981",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PITÄISIKÖ KAUPAT OLLA AUKI SUNNUNTAISIN?\n\nSuomessa on viime vuosina käyty paljon keskustelua siitä, pitäisikö kauppojen olla auki sunnuntaisin. Mielipiteet jakautuvat jyrkästi.\n\nSunnuntaiaukiolon kannattajat sanovat, että nykyihminen tarvitsee joustavuutta. Moni tekee töitä viikonloppuisin ja haluaa tehdä ostokset silloin, kun itselle sopii. Myös turistit ja matkailijat toivovat, että kaupat olisivat auki joka päivä.\n\nVastustajat taas muistuttavat, että kaupan alan työntekijöillä pitää olla mahdollisuus vapaaseen viikonloppuun. Heidän mielestään sunnuntai on perinteisesti ollut lepopäivä ja perheen yhteistä aikaa. Jos kaikki kaupat ovat auki, pienet kaupat voivat kärsiä, koska ne eivät pysty kilpailemaan isojen kauppaketjujen kanssa.\n\nTutkimusten mukaan suomalaisten mielipiteet ovat muuttuneet viime vuosina. Yhä useampi hyväksyy sunnuntaiaukiolon, mutta samalla halutaan suojella työntekijöiden oikeuksia. Ehdotuksena on ollut, että sunnuntaista maksettaisiin korkeampaa palkkaa, jotta työntekijät voivat itse päättää, haluavatko he tehdä töitä sunnuntaina.",
+      "word_count": 127
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi jotkut haluavat kauppojen olevan auki sunnuntaisin?",
+        "options": [
+          "Koska sunnuntai on perinteinen ostospäivä",
+          "Koska ihmiset tarvitsevat joustavuutta",
+          "Koska kaikki muutkin maat tekevät niin",
+          "Koska se on työntekijöille kannattavampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on vastustajien tärkein perustelu?",
+        "options": [
+          "Kaupat menettävät rahaa",
+          "Asiakkaat eivät halua ostaa sunnuntaisin",
+          "Työntekijöillä pitää olla vapaa viikonloppu",
+          "Sunnuntaina on muita tapahtumia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ehdotusta tekstissä mainitaan ongelman ratkaisuksi?",
+        "options": [
+          "Sunnuntaista maksettaisiin korkeampaa palkkaa",
+          "Vain pienet kaupat olisivat auki",
+          "Kaupat olisivat auki vain muutaman tunnin",
+          "Työntekijät saisivat itse valita vapaapäivänsä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

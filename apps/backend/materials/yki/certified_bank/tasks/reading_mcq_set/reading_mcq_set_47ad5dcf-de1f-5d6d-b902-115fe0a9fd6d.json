@@ -1,0 +1,77 @@
+{
+  "id": "47ad5dcf-de1f-5d6d-b902-115fe0a9fd6d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Ilmastonmuutoksen hillintä ja siihen sopeutuminen edellyttävät toimia kaikilla yhteiskunnan sektoreilla. Hillintätoimilla pyritään vähentämään kasvihuonekaasupäästöjä esimerkiksi siirtymällä uusiutuvaan energiaan, parantamalla energiatehokkuutta ja vähentämällä liikenteen päästöjä. Sopeutumistoimilla varaudutaan ilmastonmuutoksen väistämättömiin vaikutuksiin, kuten äärisääilmiöihin, merenpinnan nousuun ja luonnon monimuotoisuuden muutoksiin. Suomessa sopeutumistarpeita on esimerkiksi maa- ja metsätaloudessa, vesihuollossa, infrastruktuurissa ja terveydenhuollossa. Ilmastonmuutoksen torjunta on globaali haaste, joka vaatii kansainvälistä yhteistyötä. Kansalliset toimet ovat kuitenkin välttämättömiä, jotta tavoitteet voidaan saavuttaa.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "mcq_420",
+        "prompt": "Mitä hillintätoimilla pyritään tekemään?",
+        "options": [
+          "Varaudutaan ilmastonmuutoksen vaikutuksiin",
+          "Vähentämään kasvihuonekaasupäästöjä",
+          "Lisäämään fossiilisten polttoaineiden käyttöä",
+          "Heikentämään energiatehokkuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_421",
+        "prompt": "Mitä sopeutumistoimilla pyritään tekemään?",
+        "options": [
+          "Vähentämään päästöjä",
+          "Varaudutaan ilmastonmuutoksen vaikutuksiin",
+          "Lisäämään liikenteen päästöjä",
+          "Vähentämään uusiutuvan energian käyttöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_422",
+        "prompt": "Millä aloilla Suomessa on sopeutumistarpeita?",
+        "options": [
+          "Vain maa- ja metsätaloudessa",
+          "Maa- ja metsätaloudessa, vesihuollossa, infrastruktuurissa ja terveydenhuollossa",
+          "Vain vesihuollossa",
+          "Vain infrastruktuurissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_423",
+        "prompt": "Miksi kansainvälinen yhteistyö on tärkeää ilmastonmuutoksen torjunnassa?",
+        "options": [
+          "Koska se on paikallinen ongelma",
+          "Koska se on globaali haaste",
+          "Koska kansalliset toimet eivät ole tarpeen",
+          "Koska Suomi voi ratkaista ongelman yksin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

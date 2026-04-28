@@ -1,0 +1,37 @@
+{
+  "id": "a4e589b7-4071-59ce-9c86-9099ecf63599",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti parturiin. Haluat varata ajan tukan värjäykseen ja leikkuuseen. Kerro, että haluat saman värin kuin viimeksi. Kerro, että haluat myös hieman lyhyemmän tukan. Kysy, onko aikoja lauantaille.",
+    "materials": {
+      "scenario": "Viesti parturiin värjäys ja leikkuu"
+    },
+    "items": [
+      {
+        "id": "29c3e66e-6d33-5a88-b1e2-adb53ef17b8d",
+        "prompt": "Kirjoita lyhyt viesti parturiin. Haluat varata ajan tukan värjäykseen ja leikkuuseen. Kerro, että haluat saman värin kuin viimeksi. Kerro, että haluat myös hieman lyhyemmän tukan. Kysy, onko aikoja lauantaille."
+      }
+    ],
+    "rubric": "Kerro, että haluat värjäyksen ja leikkuun\nKerro, minkä värinen\nKerro, miten haluat tukan\nKysy aikoja lauantaille",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "7778b566-a6c9-5845-abc7-0013ac4969da",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.742,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yliopiston luento koulutusjärjestelmän tulevaisuudesta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Hyvät kuulijat. Tänään käsittelemme koulutusjärjestelmän tulevaisuutta. Koulutus on yhteiskunnan perusta, mutta se on myös jatkuvan muutoksen kohteena. Miten koulutuksen pitäisi muuttua, jotta se vastaa tulevaisuuden tarpeita?\n\nYksi keskeinen haaste on nopea teknologinen kehitys. Tekoäly ja automaatio muuttavat työelämää, ja koulutuksen on pysyttävä mukana. Tarvitaan uudenlaista osaamista: kriittistä ajattelua, ongelmanratkaisua, luovuutta ja digitaalisia taitoja.\n\nToinen haaste on väestön ikääntyminen. Työikäisten määrä vähenee, ja koulutuksen on pystyttävä kouluttamaan osaajia yhä vähemmällä. Samalla aikuiskoulutuksen merkitys kasvaa, kun ihmiset vaihtavat alaa tai päivittävät osaamistaan.\n\nKolmas haaste on eriarvoisuus. Koulutuksen pitäisi olla tasa-arvoista, mutta valitettavasti erot kasvavat. Hyväosaisten lapset menestyvät paremmin, ja koulut ovat eriytyneet. Tämä on vakava ongelma, joka vaatii poliittisia ratkaisuja.\n\nTulevaisuudessa tarvitaan joustavampia koulutuspolkuja. Peruskoulun jälkeen nuorella pitäisi olla mahdollisuus valita monipuolisesti. Myös työn ja opiskelun yhdistäminen pitäisi olla helpompaa.\n\nOpettajan rooli muuttuu. Opettaja ei ole enää tiedonjakaja, vaan enemmänkin valmentaja ja ohjaaja. Hänen tehtävänsä on auttaa oppijaa löytämään omat vahvuutensa ja motivaationsa.\n\nLopuksi on muistettava, että koulutus on investointi tulevaisuuteen. Se ei ole menoerä, vaan panostus, joka maksaa itsensä takaisin. Siksi koulutukseen panostaminen on tärkeää, vaikka talous olisi tiukka.",
+      "audio_asset_id": "5c9cb37e-5362-5969-9850-21fd5203e8b5"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_003_q1",
+        "prompt": "Mitä haasteita koulutusjärjestelmällä on?",
+        "options": [
+          "liian paljon opiskelijoita",
+          "teknologinen kehitys, väestön ikääntyminen ja eriarvoisuus",
+          "liian vähän opettajia",
+          "liian kalliit koulut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_003_q2",
+        "prompt": "Mitä taitoja tulevaisuudessa tarvitaan?",
+        "options": [
+          "vain ulkoa opettelua",
+          "kriittistä ajattelua, ongelmanratkaisua, luovuutta ja digitaalisia taitoja",
+          "vain teknisiä taitoja",
+          "vain kielitaitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_003_q3",
+        "prompt": "Miten opettajan rooli muuttuu?",
+        "options": [
+          "opettajasta tulee tiedonjakaja",
+          "opettajasta tulee valmentaja ja ohjaaja",
+          "opettaja ei tee enää mitään",
+          "opettaja korvataan tietokoneella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_003_q4",
+        "prompt": "Mitä luennoitsija sanoo koulutuksen rahoituksesta?",
+        "options": [
+          "koulutus on menoerä",
+          "koulutus on investointi tulevaisuuteen",
+          "koulutukseen ei kannata panostaa",
+          "koulutus on liian kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

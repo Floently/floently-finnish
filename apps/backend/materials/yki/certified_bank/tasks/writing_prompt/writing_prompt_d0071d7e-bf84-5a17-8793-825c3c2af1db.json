@@ -1,0 +1,37 @@
+{
+  "id": "d0071d7e-bf84-5a17-8793-825c3c2af1db",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a service director position in a public sector organization. Tell about your experience in service management, developing customer orientation, and renewing service processes. Also describe how you have improved service availability and quality. Length about 340 words.",
+    "materials": {
+      "scenario": "Hakemus palvelujohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "3f5dd32d-92d9-50b1-8c50-3fca98185514",
+        "prompt": "Write a job application. You are applying for a service director position in a public sector organization. Tell about your experience in service management, developing customer orientation, and renewing service processes. Also describe how you have improved service availability and quality. Length about 340 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a service director position in a public sector organization. Tell about your experience in service management, developing customer orientation, and renewing service processes. Also describe how you have improved service availability and quality. Length about 340 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

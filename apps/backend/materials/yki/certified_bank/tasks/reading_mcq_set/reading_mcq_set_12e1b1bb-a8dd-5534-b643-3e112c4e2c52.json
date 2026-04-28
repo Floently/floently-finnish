@@ -1,0 +1,88 @@
+{
+  "id": "12e1b1bb-a8dd-5534-b643-3e112c4e2c52",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Metsät ovat tärkeä osa suomalaisten arkea ja vapaa-aikaa. Niitä käytetään monin tavoin virkistäytymiseen ja rentoutumiseen. Jokamiehenoikeudet takaavat jokaiselle mahdollisuuden liikkua metsissä, kerätä marjoja ja sieniä ja yöpyä tilapäisesti. Tämä on suomalainen erityispiirre. Yksi keskeisimmistä metsien virkistyskäyttötavoista on ulkoilu ja liikunta. Metsissä patikoidaan, juostaan, hiihdetään ja retkeillään. Metsä tarjoaa monipuoliset puitteet liikunnalle. Toinen keskeinen käyttötapa on marjastus ja sienestys. Mustikat, puolukat ja kantarellit houkuttelevat metsiin tuhansia suomalaisia loppukesällä ja syksyllä. Omaan ruokaan kerääminen on monelle tärkeä harrastus. Kolmas käyttötapa on luonnon tarkkailu ja rauhoittuminen. Metsässä voi kuunnella lintujen laulua ja ihailla maisemia. Luonnon rauha auttaa irrottautumaan arjen kiireistä. Neljäs käyttötapa on retkeily ja telttailu. Kansallispuistoissa ja retkeilyalueilla on merkittyjä reittejä, laavuja, tulipaikkoja ja telttailualueita. Viides käyttötapa on metsästys. Metsästys on perinteinen harrastus, jota harrastetaan luvallisesti ja kestävästi.",
+      "word_count": 126
+    },
+    "questions": [
+      {
+        "id": "3ca2a9cb-ad88-56ae-ae36-8c600baa3930",
+        "prompt": "Mikä oikeus mahdollistaa metsissä liikkumisen, marjastuksen ja sienestyksen?",
+        "options": [
+          "Maapäiväoikeus",
+          "Jokamiehenoikeus",
+          "Metsästysoikeus",
+          "Kalastusoikeus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0d87ead8-18d7-524a-bca1-4715d8c4f175",
+        "prompt": "Mitä hyötyä metsässä liikkumisesta on?",
+        "options": [
+          "Se on hyväksi vain kunnolle",
+          "Se on hyväksi terveydelle ja mielelle",
+          "Se on hyväksi vain mielelle",
+          "Sillä ei ole hyötyjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "43750272-54e6-5e94-81cc-10da3fc4e429",
+        "prompt": "Mitä marjoja ja sieniä suomalaiset keräävät metsistä?",
+        "options": [
+          "Vain mustikoita",
+          "Mustikoita, puolukoita ja kantarelleja",
+          "Vain puolukoita",
+          "Vain kantarelleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e6803686-4749-528f-acd9-056d14072407",
+        "prompt": "Mitä palveluita retkeilijöille on tarjolla kansallispuistoissa?",
+        "options": [
+          "Hotelleja ja ravintoloita",
+          "Merkittyjä reittejä, laavuja, tulipaikkoja ja telttailualueita",
+          "Kauppoja",
+          "Uimahalleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7199f13c-0e99-51c6-a1e8-723fdeccf0a2",
+        "prompt": "Mitä metsästys on suomalaisille?",
+        "options": [
+          "Vain tapa saada ruokaa",
+          "Perinteinen harrastus, jota harrastetaan luvallisesti ja kestävästi",
+          "Vain urheilua",
+          "Vain ajanvietettä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

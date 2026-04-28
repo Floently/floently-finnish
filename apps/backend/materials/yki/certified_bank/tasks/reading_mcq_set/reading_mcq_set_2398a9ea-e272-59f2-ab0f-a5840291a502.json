@@ -1,0 +1,73 @@
+{
+  "id": "2398a9ea-e272-59f2-ab0f-a5840291a502",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.587,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti monikulttuurisuudesta ja identiteetistä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Monikulttuurisuus on yksi aikamme keskeisimmistä yhteiskunnallisista ilmiöistä. Se herättää intohimoja sekä puolesta että vastaan. Keskustelu monikulttuurisuudesta on usein kuitenkin pinnallista ja keskittyy stereotypioihin. Mitä monikulttuurisuus oikeastaan tarkoittaa, ja miten se vaikuttaa identiteettiimme?\n\nMonikulttuurisuuden kannattajat korostavat sen rikastuttavaa vaikutusta. Eri kulttuureista tulevat ihmiset tuovat mukanaan uusia näkökulmia, tapoja, ruokaa, taidetta ja kieltä. Tämä tekee yhteiskunnasta monipuolisemman ja mielenkiintoisemman. Se myös haastaa meidät kyseenalaistamaan omia itsestäänselvyyksiämme ja laajentamaan maailmankuvaamme.\n\nToiseksi monikulttuurisuus nähdään voimavarana taloudelle. Maahanmuuttajat tuovat osaamista, työpanosta ja yrittäjyyttä. Monissa maissa maahanmuuttajat ovat perustaneet yrityksiä ja luoneet työpaikkoja. He myös maksavat veroja ja tukevat hyvinvointiyhteiskuntaa.\n\nKolmanneksi monikulttuurisuus on arvo sinänsä. Se kunnioittaa jokaisen oikeutta omaan kulttuuriinsa ja identiteettiinsä. Tämä on kirjattu ihmisoikeuksiin ja moniin kansainvälisiin sopimuksiin. Tasa-arvoinen yhteiskunta ei syrji ketään kulttuurisen taustan perusteella.\n\nKriitikot kuitenkin varoittavat, että monikulttuurisuus voi johtaa yhteiskunnan pirstoutumiseen. Kun eri ryhmät elävät rinnakkain ilman yhteistä identiteettiä, syntyy helposti rinnakkaisyhteiskuntia. Tämä voi heikentää sosiaalista koheesiota ja luottamusta.\n\nToinen haaste on arvojen yhteensovittaminen. Eri kulttuureissa voi olla hyvin erilaisia käsityksiä esimerkiksi tasa-arvosta, uskonnosta tai yksilönvapaudesta. Miten sovittaa nämä yhteen demokraattisen oikeusvaltion kanssa? Tämä on vaikea kysymys, johon ei ole yksinkertaisia vastauksia.\n\nKolmas näkökulma liittyy identiteettiin. Kansallinen identiteetti on monille tärkeä osa itsemäärittelyä. Monikulttuurisuus voi herättää pelkoa oman identiteetin menettämisestä. Tämä pelko on ymmärrettävä, mutta se ei saisi johtaa muiden kulttuurien halveksuntaan.\n\nNeljänneksi on kysymys kotouttamisesta. Maahanmuuttajien kotoutuminen vaatii aktiivisia toimia: kielikoulutusta, työllistymisen tukea ja asennemuokkausta. Jos kotouttaminen epäonnistuu, seurauksena on syrjäytymistä ja ongelmia.\n\nLopuksi voidaan todeta, että monikulttuurisuus on monimutkainen ilmiö, jossa on sekä mahdollisuuksia että haasteita. Se vaatii avointa keskustelua, empatiaa ja halua ymmärtää toisia. Tärkeintä on löytää tasapaino yhteisten arvojen ja kulttuurisen monimuotoisuuden välillä. Tämä on yksi aikamme suurista kysymyksistä.",
+      "word_count": 274
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä hyötyjä monikulttuurisuudella on kannattajien mukaan?",
+        "options": [
+          "vain taloudellisia",
+          "rikastuttava vaikutus, taloudellinen voimavara ja tasa-arvo",
+          "vain kulttuurisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä haasteita monikulttuurisuuteen liittyy?",
+        "options": [
+          "se on aina helppoa",
+          "yhteiskunnan pirstoutuminen, arvojen yhteensovittaminen ja identiteettikysymykset",
+          "vain kieliongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä tarkoitetaan rinnakkaisyhteiskunnilla?",
+        "options": [
+          "eri kulttuurien yhdessä elämistä",
+          "eri ryhmien elämistä erillään ilman yhteistä identiteettiä",
+          "kaikkien samanlaista kulttuuria"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä kotouttaminen vaatii?",
+        "options": [
+          "ei mitään",
+          "kielikoulutusta, työllistymisen tukea ja asennemuokkausta",
+          "vain kielikoulutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

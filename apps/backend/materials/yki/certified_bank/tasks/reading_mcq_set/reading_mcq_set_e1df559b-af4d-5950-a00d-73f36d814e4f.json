@@ -1,0 +1,66 @@
+{
+  "id": "e1df559b-af4d-5950-a00d-73f36d814e4f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.343,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "OHJEITA HAMPAIDEN HOITOON\n\nHyvä hammashoito ehkäisee reikiä ja iensairauksia. Muista nämä asiat:\n\nPese hampaat kahdesti päivässä. Aamulla ja illalla. Käytä fluorihammastahnaa. Harjaa hampaita vähintään kaksi minuuttia.\n\nKäytä hammaslankaa tai hammasväliharjaa kerran päivässä. Se puhdistaa hammasvälit, joihin harja ei ylety.\n\nVältä makeita välipaloja ja sokerijuomia. Sokeri aiheuttaa reikiä. Jos syöt makeaa, syö se aterian yhteydessä.\n\nKäy hammastarkastuksessa kerran vuodessa. Hammaslääkäri huomaa ongelmat ajoissa.\n\nJos hampaat vuotavat verta tai särkevät, ota yhteyttä hammashoitolaan.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 87
+    },
+    "questions": [
+      {
+        "id": "9b51d6b3-f7fa-5806-bc47-a770701f45a0",
+        "prompt": "Kuinka usein hampaat pitää pestä?",
+        "options": [
+          "kerran päivässä",
+          "kahdesti päivässä",
+          "kolmesti päivässä",
+          "kerran viikossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cbdc1c21-ab7c-5bf4-9eb5-bc13f286fe29",
+        "prompt": "Miksi pitää käyttää hammaslankaa?",
+        "options": [
+          "se valkaisee hampaat",
+          "se puhdistaa hammasvälit",
+          "se vahvistaa ikeniä",
+          "se raikastaa hengityksen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8aa2d948-081f-5266-aab9-518f221d2eb8",
+        "prompt": "Milloin kannattaa syödä makeaa, jos sitä syö?",
+        "options": [
+          "välipalana",
+          "aterian yhteydessä",
+          "ennen nukkumaanmenoa",
+          "aamulla tyhjään vatsaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

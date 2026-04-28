@@ -1,0 +1,66 @@
+{
+  "id": "080a9165-300c-5ee0-a7e8-21c9c10d5508",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.732,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Median murros on ollut nopeaa ja perusteellista. Perinteinen media, kuten sanomalehdet, televisio ja radio, on menettänyt asemaansa sosiaalisen median ja digitaalisten alustojen rinnalla. Uutisia kulutetaan yhä enemmän some-alustoilta, ja perinteiset mediat ovat joutuneet sopeutumaan uuteen tilanteeseen kehittämällä digitaalisia palveluita ja hakemaan uusia tulonlähteitä. Median murros on vaikuttanut myös journalismin laatuun ja luotettavuuteen. Disinformaatio ja valeuutiset leviävät nopeasti, ja yleisön on yhä vaikeampi erottaa luotettavaa tietoa epäluotettavasta. Medialukutaidon merkitys on kasvanut, ja se on tärkeä taito nyky-yhteiskunnassa.",
+      "word_count": 76
+    },
+    "questions": [
+      {
+        "id": "mcq_150",
+        "prompt": "Mitä perinteinen media on menettänyt sosiaaliselle medialle?",
+        "options": [
+          "Tulonlähteitä",
+          "Asemaansa uutislähteenä",
+          "Toimittajia",
+          "Mainostajia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_151",
+        "prompt": "Miten perinteiset mediat ovat sopeutuneet murrokseen?",
+        "options": [
+          "Vähentämällä digitaalisia palveluita",
+          "Kehittämällä digitaalisia palveluita ja hakemalla uusia tulonlähteitä",
+          "Vähentämällä journalismia",
+          "Luopumalla uutisista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_152",
+        "prompt": "Miksi medialukutaidon merkitys on kasvanut?",
+        "options": [
+          "Perinteinen media on luotettavampaa",
+          "Disinformaatio ja valeuutiset leviävät nopeasti",
+          "Some-alustat ovat luotettavampia",
+          "Uutisia ei enää tarvita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

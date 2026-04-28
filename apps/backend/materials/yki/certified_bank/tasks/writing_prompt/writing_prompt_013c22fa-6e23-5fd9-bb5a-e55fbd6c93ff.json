@@ -1,0 +1,37 @@
+{
+  "id": "013c22fa-6e23-5fd9-bb5a-e55fbd6c93ff",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ulkoministeriön konsulipalveluihin. Olet joutunut ulkomailla onnettomuuteen ja tarvitset apua saadaksesi yhteyden Suomen viranomaisiin. Kerro, missä olet, mitä on tapahtunut ja millaista apua tarvitset. Kysy, voiko suurlähetystö auttaa sinua esimerkiksi ottamaan yhteyttä paikallisiin viranomaisiin tai järjestämään matkustusasiakirjoja.",
+    "materials": {
+      "scenario": "Apua ulkomailla sattuneessa onnettomuudessa"
+    },
+    "items": [
+      {
+        "id": "0c3899f4-1195-5886-a9bc-00551c7fa0a2",
+        "prompt": "Kirjoita virallinen sähköposti ulkoministeriön konsulipalveluihin. Olet joutunut ulkomailla onnettomuuteen ja tarvitset apua saadaksesi yhteyden Suomen viranomaisiin. Kerro, missä olet, mitä on tapahtunut ja millaista apua tarvitset. Kysy, voiko suurlähetystö auttaa sinua esimerkiksi ottamaan yhteyttä paikallisiin viranomaisiin tai järjestämään matkustusasiakirjoja."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

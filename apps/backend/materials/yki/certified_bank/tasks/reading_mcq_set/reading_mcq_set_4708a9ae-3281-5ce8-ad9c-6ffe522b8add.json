@@ -1,0 +1,77 @@
+{
+  "id": "4708a9ae-3281-5ce8-ad9c-6ffe522b8add",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirjaston ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Keskuskirjastossa on lasten satutunti tiistaina 14.5. Satutunti alkaa kello 17.00 ja päättyy kello 17.40. Tapahtuma on ilmainen, mutta paikkoja on vain kaksikymmentä. Ilmoittautuminen tehdään kirjaston tiskillä tai puhelimella. Alle seitsemänvuotiaat tulevat aikuisen kanssa. Satutunnin jälkeen lapset voivat lainata kaksi kirjaa etuhintaan ilman varausmaksua. Kirjasto pyytää, että ulkovaatteet jätetään eteiseen ja puhelimet laitetaan äänettömälle. Jos lapsi sairastuu, perhe voi perua paikan saman päivän aikana. Seuraava satutunti on kahden viikon päästä samaan aikaan.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin satutunti alkaa?",
+        "options": [
+          "kello 16.30",
+          "kello 17.00",
+          "kello 17.30",
+          "kello 18.00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka monta paikkaa on?",
+        "options": [
+          "10",
+          "15",
+          "20",
+          "25"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten voi ilmoittautua?",
+        "options": [
+          "vain sähköpostilla",
+          "vain verkkolomakkeella",
+          "tiskillä tai puhelimella",
+          "vain paikan päällä alussa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kirjasto pyytää tekemään?",
+        "options": [
+          "ottamaan eväät saliin",
+          "jättämään ulkovaatteet eteiseen",
+          "tuomaan oman tyynyn",
+          "maksamaan varausmaksun"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

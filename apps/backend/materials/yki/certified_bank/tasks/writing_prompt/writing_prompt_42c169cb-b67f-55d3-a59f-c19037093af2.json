@@ -1,0 +1,37 @@
+{
+  "id": "42c169cb-b67f-55d3-a59f-c19037093af2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kirjaston lehtilukusaliin. Onko siellä uusia lehtiä? Onko istumapaikkoja tarpeeksi?",
+    "materials": {
+      "scenario": "Palaute kirjaston lehtilukusalista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute kirjaston lehtilukusaliin. Onko siellä uusia lehtiä? Onko istumapaikkoja tarpeeksi?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kirjaston lehtilukusaliin. Onko siellä uusia lehtiä? Onko istumapaikkoja tarpeeksi?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

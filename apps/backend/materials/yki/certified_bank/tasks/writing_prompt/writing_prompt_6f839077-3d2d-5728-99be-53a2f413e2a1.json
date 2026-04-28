@@ -1,0 +1,37 @@
+{
+  "id": "6f839077-3d2d-5728-99be-53a2f413e2a1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ulkoministeriön kehityspoliittiselle osastolle. Edustatte järjestöä, joka hakee rahoitusta kehitysyhteistyöhankkeelle. Kerro hankkeesta, sen tavoitteista ja kohdemaasta. Kysy hakuohjeista ja määräajoista.",
+    "materials": {
+      "scenario": "Rahoituksen hakeminen kehitysyhteistyöhankkeelle"
+    },
+    "items": [
+      {
+        "id": "0cfd315d-7c9f-57fb-8d89-7165ce9cafbe",
+        "prompt": "Kirjoita virallinen sähköposti ulkoministeriön kehityspoliittiselle osastolle. Edustatte järjestöä, joka hakee rahoitusta kehitysyhteistyöhankkeelle. Kerro hankkeesta, sen tavoitteista ja kohdemaasta. Kysy hakuohjeista ja määräajoista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

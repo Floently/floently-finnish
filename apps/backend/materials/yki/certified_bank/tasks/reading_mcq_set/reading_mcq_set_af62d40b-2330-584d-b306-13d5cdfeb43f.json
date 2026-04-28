@@ -1,0 +1,77 @@
+{
+  "id": "af62d40b-2330-584d-b306-13d5cdfeb43f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.784,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Hyvinvointivaltion tulevaisuudesta on käyty viime vuosina vilkasta keskustelua niin Suomessa kuin muuallakin Euroopassa. Keskustelun taustalla vaikuttavat useat toisiinsa kietoutuvat tekijät: väestön ikääntyminen, julkisen talouden kestävyysvaje, työelämän murros ja globaali taloudellinen kilpailu. Perinteinen pohjoismainen hyvinvointimalli, joka perustuu korkeaan verotukseen ja laajoihin julkisiin palveluihin, on joutunut uudenlaisten paineiden eteen. Samalla kun palvelujen kysyntä kasvaa ikääntyvän väestön myötä, työikäisen väestön määrä supistuu, mikä heikentää julkisen talouden rahoituspohjaa. Tämä on johtanut vaatimuksiin julkisen sektorin tehostamisesta, palvelurakenteiden uudistamisesta ja yksityisen palvelutuotannon lisäämisestä. Toisaalta hyvinvointivaltion puolustajat korostavat sen merkitystä sosiaalisen yhteenkuuluvuuden ja tasa-arvon ylläpitäjänä. Heidän mukaansa hyvinvointivaltio on keskeinen tekijä, joka on mahdollistanut Suomen menestyksen ja yhteiskuntarauhan. Leikkaukset ja heikennykset voivat heidän mukaansa johtaa eriarvoisuuden kasvuun, syrjäytymisen lisääntymiseen ja yhteiskunnallisten jännitteiden kärjistymiseen. Hyvinvointivaltion tulevaisuutta koskeva keskustelu onkin syvästi ideologinen: se heijastaa erilaisia käsityksiä siitä, mikä on julkisen vallan rooli, miten vastuu hyvinvoinnista tulisi jakaa yksilöiden, perheiden, yhteisöjen ja valtion kesken, ja mikä on talouskasvun ja sosiaalisen oikeudenmukaisuuden suhde. Yksi keskeinen kysymys liittyy siihen, miten turvata riittävät palvelut ja tulonsiirrot tilanteessa, jossa resurssit ovat niukat. Onko ratkaisu verotuksen kiristämisessä, julkisten menojen leikkauksissa, rakenteellisissa uudistuksissa vai kaikkien näiden yhdistelmässä? Entä miten varmistetaan, että uudistukset eivät kohtuuttomasti heikennä heikoimmassa asemassa olevien asemaa? Toinen keskeinen kysymys liittyy työn muutokseen. Jos perinteinen kokopäivätyö vähenee ja työurat pirstaloituvat, miten turvataan toimeentulo ja sosiaaliturva? Tarvitaanko uudenlaisia sosiaaliturvan malleja, kuten perustuloa, jotka tunnistaisivat työelämän monimuotoisuuden? Kolmas kysymys koskee hyvinvointipalvelujen rahoitusta ja tuotantotapaa. Voidaanko palveluja tehostaa ilman, että niiden laatu kärsii? Mikä on yksityisten ja kolmannen sektorin toimijoiden rooli tulevaisuuden hyvinvointiyhteiskunnassa? Hyvinvointivaltion tulevaisuutta koskevassa keskustelussa on kyse pohjimmiltaan siitä, millaisessa yhteiskunnassa haluamme elää. Se on arvokeskustelu, johon ei ole olemassa yhtä oikeaa vastausta. Ratkaisut syntyvät poliittisen päätöksenteon kautta, ja niihin vaikuttavat sekä taloudelliset realiteetit että arvovalinnat.",
+      "word_count": 281
+    },
+    "questions": [
+      {
+        "id": "2ea017c5-d9c2-5834-80ad-64de7cf21c25",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Väestön ikääntymisen vaikutukset eläkejärjestelmään",
+          "Hyvinvointivaltion tulevaisuuteen liittyvät haasteet ja arvovalinnat",
+          "Julkisen sektorin tehostamiskeinot",
+          "Yksityisen palvelutuotannon lisäämisen edut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a0ff9b42-3822-51b0-bca7-2cd9cfe34640",
+        "prompt": "Tekstin mukaan mikä on keskeinen ristiriita hyvinvointivaltion tulevaisuutta koskevassa keskustelussa?",
+        "options": [
+          "Väestön ikääntyminen vs. nuorten työttömyys",
+          "Julkisten menojen leikkaukset vs. palvelujen laadun heikkeneminen",
+          "Taloudelliset realiteetit vs. erilaiset arvot ja käsitykset julkisen vallan roolista",
+          "Korkea verotus vs. talouskasvu"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "665ae414-1617-5f3d-bb2a-058c211e31ad",
+        "prompt": "Mitä uudistuksia teksti ehdottaa ratkaisuksi työelämän murroksen tuomiin haasteisiin?",
+        "options": [
+          "Perinteisen kokopäivätyön aseman vahvistamista lainsäädännöllä",
+          "Uudenlaisia sosiaaliturvan malleja, jotka tunnistavat työurien pirstaloitumisen",
+          "Työajan pidentämistä ja eläkeiän nostamista",
+          "Ulkomaisen työvoiman lisäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "79fa32ca-c7fb-52bc-95b2-0be0c77ee67d",
+        "prompt": "Mitä hyvinvointivaltion puolustajat korostavat tekstin mukaan?",
+        "options": [
+          "Julkisten menojen leikkausten välttämättömyyttä",
+          "Yksityisen palvelutuotannon ylivoimaisuutta",
+          "Hyvinvointivaltion merkitystä sosiaalisen yhteenkuuluvuuden ja tasa-arvon ylläpitäjänä",
+          "Verotuksen alentamisen tärkeyttä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

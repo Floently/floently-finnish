@@ -1,0 +1,88 @@
+{
+  "id": "3ed4aeaf-eef4-54da-81f2-1752d2a21607",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan puheenvuoro tekoälyn etiikasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tekoälytutkija: Tekoäly kehittyy valtavaa vauhtia, mutta eettiset kysymykset ovat yhä ratkaisematta. Haastattelija: Mitä nämä eettiset kysymykset ovat? Tutkija: Esimerkiksi tekoälyn päätösten läpinäkyvyys. Jos tekoäly tekee päätöksen, joka vaikuttaa ihmisen elämään, meidän pitää ymmärtää, miten se päätyi siihen. Toinen on syrjintä. Tekoäly oppii datasta, ja jos data on vinoutunutta, se voi toistaa ja jopa vahvistaa syrjiviä rakenteita. Haastattelija: Miten tähän pitäisi suhtautua? Tutkija: Tarvitaan sääntelyä ja standardeja. Tekoälyn kehittäjillä pitää olla vastuu. Myös koulutus on tärkeää, jotta ihmiset ymmärtävät tekoälyn mahdollisuudet ja riskit. Haastattelija: Onko jotain, mistä olet erityisen huolissasi? Tutkija: Tekoälyn käyttö valvonnassa ja päätöksenteossa, kuten rekrytoinnissa tai lainojen myönnössä. Jos algoritmit ovat mustia laatikoita, on vaikea valittaa päätöksestä. Tarvitaan ihmistä viime kädessä tekemään päätöksiä.",
+      "audio_asset_id": "b9256b5e-8ff2-42b3-9863-3e2a89c873a9"
+    },
+    "questions": [
+      {
+        "id": "9421eb57-5981-576f-8698-0bc924f25618",
+        "prompt": "Mikä on tutkijan mukaan yksi tekoälyn eettinen ongelma?",
+        "options": [
+          "Tekoälyn päätösten läpinäkyvyys ja syrjinnän riski.",
+          "Tekoälyn nopeus.",
+          "Tekoälyn kalleus.",
+          "Tekoälyn vaatima suuri datamäärä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "6448378b-84c1-572a-8b88-4b9d9581c6ef",
+        "prompt": "Mitä tarkoitetaan tekoälyn syrjinnällä?",
+        "options": [
+          "Tekoäly suosii tiettyjä ihmisryhmiä.",
+          "Tekoäly ei toimi oikein.",
+          "Tekoäly oppii vinoutuneesta datasta ja voi vahvistaa syrjiviä rakenteita.",
+          "Tekoäly on kallista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "19c9338a-2515-5061-b957-eda5f2ac4dc3",
+        "prompt": "Mitä tutkija ehdottaa ratkaisuksi ongelmiin?",
+        "options": [
+          "Sääntelyä, standardeja, kehittäjien vastuuta ja koulutusta.",
+          "Tekoälyn kieltämistä.",
+          "Tekoälyn jättämistä vain yritysten käyttöön.",
+          "Lisää dataa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a301f546-c92d-5477-a5a7-8d3c90a7fd17",
+        "prompt": "Mistä tekoälyn käytöstä tutkija on erityisen huolissaan?",
+        "options": [
+          "Viihdesovelluksissa.",
+          "Valvonnassa ja päätöksenteossa, kuten rekrytoinnissa ja lainojen myönnössä.",
+          "Tutkimuksessa.",
+          "Liikenteessä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0ace9f23-d1a2-5548-96b7-8e2bb6732e5e",
+        "prompt": "Mitä tutkija pitää tärkeänä viime kädessä?",
+        "options": [
+          "Tekoäly tekee päätökset.",
+          "Yritykset tekevät päätökset.",
+          "Ihminen tekee päätökset.",
+          "Valtio tekee päätökset."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "422b3bd8-1c62-540b-b910-fb6d9b45bb7f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikaruokaravintoloissa kieltää lapsille suunnattu mainonta?'. Analysoi lasten terveyttä, markkinointia ja vanhempien vastuuta.",
+    "materials": {
+      "scenario": "Lapsille suunnattu mainonta"
+    },
+    "items": [
+      {
+        "id": "89df18e5-ca89-5210-a682-a7d4754531de",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikaruokaravintoloissa kieltää lapsille suunnattu mainonta?'. Analysoi lasten terveyttä, markkinointia ja vanhempien vastuuta."
+      }
+    ],
+    "rubric": "Lasten terveys\nMarkkinointi\nVanhempien vastuu\nElinkeinovapaus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

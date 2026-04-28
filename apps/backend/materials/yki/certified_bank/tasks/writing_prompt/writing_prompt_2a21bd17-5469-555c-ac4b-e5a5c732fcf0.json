@@ -1,0 +1,37 @@
+{
+  "id": "2a21bd17-5469-555c-ac4b-e5a5c732fcf0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut uuden puhelimen verkkokaupasta. Kirjoita palaute myyjälle kokemuksestasi.",
+    "materials": {
+      "scenario": "Palaute puhelimen tilauksesta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet tilannut uuden puhelimen verkkokaupasta. Kirjoita palaute myyjälle kokemuksestasi."
+      }
+    ],
+    "rubric": "Olet tilannut uuden puhelimen verkkokaupasta. Kirjoita palaute myyjälle kokemuksestasi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

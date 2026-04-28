@@ -1,0 +1,37 @@
+{
+  "id": "e2e8276e-6ca6-542c-ad4a-18a6cc3cdabe",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt sähköpotkulautaa. Kirjoita palaute yritykselle. Toimiiko sovellus hyvin? Ovatko lautojen hinnat sopivat?",
+    "materials": {
+      "scenario": "Palaute sähköpotkulautayritykselle"
+    },
+    "items": [
+      {
+        "id": "13dbd6c7-f909-53ac-ae34-49948d0c1e97",
+        "prompt": "Olet käyttänyt sähköpotkulautaa. Kirjoita palaute yritykselle. Toimiiko sovellus hyvin? Ovatko lautojen hinnat sopivat?"
+      }
+    ],
+    "rubric": "Olet käyttänyt sähköpotkulautaa. Kirjoita palaute yritykselle. Toimiiko sovellus hyvin? Ovatko lautojen hinnat sopivat?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

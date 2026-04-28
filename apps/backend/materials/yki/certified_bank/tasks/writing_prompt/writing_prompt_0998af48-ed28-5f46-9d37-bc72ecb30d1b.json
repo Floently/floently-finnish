@@ -1,0 +1,37 @@
+{
+  "id": "0998af48-ed28-5f46-9d37-bc72ecb30d1b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö työperäistä maahanmuuttoa lisätä Suomen väestörakenteen muutoksen vuoksi?'. Pohdi työmarkkinoiden tarpeita ja yhteiskunnallisia vaikutuksia.",
+    "materials": {
+      "scenario": "Työperäinen maahanmuutto"
+    },
+    "items": [
+      {
+        "id": "5594e796-8d67-5fc2-b724-3bc90ad8ed0e",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö työperäistä maahanmuuttoa lisätä Suomen väestörakenteen muutoksen vuoksi?'. Pohdi työmarkkinoiden tarpeita ja yhteiskunnallisia vaikutuksia."
+      }
+    ],
+    "rubric": "Väestörakenteen muutos\nTyömarkkinoiden tarpeet\nYhteiskunnalliset vaikutukset\nKotoutumisen haasteet",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "1b9b460e-e115-534a-b581-868a929159f0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti eläketurvakeskukseen. Olet jäämässä varhennetulle vanhuuseläkkeelle ja haluat tietää, miten se vaikuttaa eläkkeesi määrään ja verotukseen. Kerro syntymäaikasi, työhistoriasi ja milloin aiot jäädä eläkkeelle. Pyydä ennakkolaskelmaa ja tietoa siitä, miten eläkkeen hakeminen käytännössä tapahtuu.",
+    "materials": {
+      "scenario": "Varhennetun vanhuuseläkkeen vaikutukset"
+    },
+    "items": [
+      {
+        "id": "dd2ed8b0-3234-5d48-aae2-81cb58a8c99e",
+        "prompt": "Kirjoita virallinen sähköposti eläketurvakeskukseen. Olet jäämässä varhennetulle vanhuuseläkkeelle ja haluat tietää, miten se vaikuttaa eläkkeesi määrään ja verotukseen. Kerro syntymäaikasi, työhistoriasi ja milloin aiot jäädä eläkkeelle. Pyydä ennakkolaskelmaa ja tietoa siitä, miten eläkkeen hakeminen käytännössä tapahtuu."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "c030939d-6ebe-5027-9815-d4095697a025",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kaverille. Kerro, että olet saanut uuden työpaikan. Kerro, että aloitat ensi viikolla. Kysy, haluaako hän mennä juhlimaan torstaina.",
+    "materials": {
+      "scenario": "Viesti kaverille uudesta työpaikasta"
+    },
+    "items": [
+      {
+        "id": "b2faefc0-a779-5587-9e7e-8df47c36f7df",
+        "prompt": "Kirjoita lyhyt viesti kaverille. Kerro, että olet saanut uuden työpaikan. Kerro, että aloitat ensi viikolla. Kysy, haluaako hän mennä juhlimaan torstaina."
+      }
+    ],
+    "rubric": "Kerro uudesta työpaikasta\nKerro, milloin aloitat\nKysy juhlimaan",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

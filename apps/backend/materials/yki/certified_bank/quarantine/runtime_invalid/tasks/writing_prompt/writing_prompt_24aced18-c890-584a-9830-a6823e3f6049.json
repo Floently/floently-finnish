@@ -1,0 +1,37 @@
+{
+  "id": "24aced18-c890-584a-9830-a6823e3f6049",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.684,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: municipal_office. Purpose: ask_for_information. Constraint: keep_it_concise.",
+    "materials": {
+      "scenario": "kielen oppimisesta kaupungin toimistosta"
+    },
+    "items": [
+      {
+        "id": "35c134d6-072c-5fa1-a81b-2fef478e6718",
+        "prompt": "Write for the receiver in this scenario: municipal_office. Purpose: ask_for_information. Constraint: keep_it_concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

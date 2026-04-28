@@ -1,0 +1,110 @@
+{
+  "id": "d2083d6c-345b-526b-a0fe-3202178d8e1a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.759,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen huoltovarmuus on noussut aivan uudenlaiseen keskiöön viime vuosien kriisien myötä. Huoltovarmuudella tarkoitetaan yhteiskunnan kykyä turvata väestön toimeentulo ja talouden toiminta poikkeusoloissa, kuten vakavien häiriöiden tai kriisien aikana. Se kattaa laajasti yhteiskunnan kriittiset toiminnot: energiantuotannon ja -jakelun, ruokahuollon, terveydenhuollon, tietoliikenteen, logistiikan, rahoitusjärjestelmän ja teollisen tuotannon. Suomi on perinteisesti panostanut huoltovarmuuteen pitkäjänteisesti ja suunnitelmallisesti. Meillä on velvoitevarastointia esimerkiksi viljan, polttoaineiden, lääkkeiden ja monien muiden kriittisten tuotteiden osalta. Kriittistä infrastruktuuria on rakennettu kestäväksi ja varavoimaa on saatavilla. Huoltovarmuuskeskus koordinoi alan toimintaa ja kehittämistä yhteistyössä yritysten, viranomaisten ja järjestöjen kanssa. Viime vuosien kriisit, erityisesti koronapandemia ja Venäjän hyökkäys Ukrainaan, ovat koetelleet huoltovarmuutta ankarasti ja osoittaneet sen merkityksen konkreettisella tavalla. Ne ovat paljastaneet vakavia haavoittuvuuksia globaaleissa toimitusketjuissa ja vaarallisen energiariippuvuuden. Tämä on pakottanut miettimään huoltovarmuutta uudella tavalla ja laajentamaan varautumisen alaa. On varauduttava entistä monimuotoisempiin ja vaikeammin ennakoitaviin uhkiin, kuten kyberhyökkäyksiin, hybridivaikuttamiseen, disinformaatioon ja ilmastonmuutoksen aiheuttamiin ääri-ilmiöihin. Tarvitaan tiivistä sekä julkisten että yksityisten toimijoiden yhteistyötä. Yritysten on huolehdittava omasta varautumisestaan ja toimitusketjujensa häiriöttömyydestä. Myös kansalaisilla on tärkeä vastuu omasta varautumisestaan, esimerkiksi pitämällä kotona varastossa ruokaa, vettä, lääkkeitä ja muita välttämättömyystarvikkeita vähintään kolmeksi päiväksi.",
+      "word_count": 179
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan huoltovarmuudella?",
+        "options": [
+          "Armeijan varautumista sotilaalliseen konfliktiin.",
+          "Yhteiskunnan kykyä turvata väestön toimeentulo ja talouden toiminta poikkeusoloissa.",
+          "Vain elintarvikehuollon varmistamista.",
+          "Vain energiansaannin turvaamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kaikkea huoltovarmuus kattaa?",
+        "options": [
+          "Vain energian ja ruoan.",
+          "Energian, ruoan, terveydenhuollon, tietoliikenteen, logistiikan, rahoitusjärjestelmän ja teollisuuden.",
+          "Vain terveydenhuollon ja tietoliikenteen.",
+          "Vain logistiikan ja rahoitusjärjestelmän."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä pitkäjänteisestä huoltovarmuustyöstä Suomessa on?",
+        "options": [
+          "Ei mitään konkreettisia toimia.",
+          "Velvoitevarastointia, kriittisen infrastruktuurin kestävyys ja varavoima.",
+          "Vain varavoimaa sairaaloille.",
+          "Vain viljavarastoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä taho koordinoi huoltovarmuutta Suomessa?",
+        "options": [
+          "Pääministerin kanslia.",
+          "Huoltovarmuuskeskus.",
+          "Puolustusvoimat.",
+          "Sisäministeriö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä viime vuosien kriisit ovat osoittaneet huoltovarmuudesta?",
+        "options": [
+          "Että huoltovarmuus on täysin riittävää.",
+          "Haavoittuvuuksia globaaleissa toimitusketjuissa ja energiariippuvuudessa.",
+          "Että Suomi on täysin omavarainen kaikessa.",
+          "Että mikään ulkoinen tekijä ei uhkaa huoltovarmuutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä uusia, monimuotoisempia uhkia on noussut esiin?",
+        "options": [
+          "Vain perinteisiä sotilaallisia uhkia.",
+          "Kyberhyökkäyksiä, hybridivaikuttamista, disinformaatiota ja ilmastonmuutoksen ääri-ilmiöitä.",
+          "Vain taloudellisia uhkia, kuten kauppasotia.",
+          "Vain luonnonkatastrofeja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on kansalaisten suositeltu varautumistaso?",
+        "options": [
+          "Ei mitään varautumisvelvoitetta.",
+          "Pitää kotona varastossa ruokaa, vettä ja lääkkeitä vähintään kolmeksi päiväksi.",
+          "Rakentaa oma väestönsuoja.",
+          "Hankkia aseita itsepuolustukseksi."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

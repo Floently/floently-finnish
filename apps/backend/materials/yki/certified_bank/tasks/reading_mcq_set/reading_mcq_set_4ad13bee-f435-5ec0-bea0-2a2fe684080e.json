@@ -1,0 +1,77 @@
+{
+  "id": "4ad13bee-f435-5ec0-bea0-2a2fe684080e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.743,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Euroopan unionin tulevaisuudesta käydään vilkasta keskustelua. Unionin on vastattava moniin haasteisiin, kuten ilmastonmuutokseen, digitaaliseen murrokseen, väestön ikääntymiseen ja geopoliittiseen epävakauteen. Unionin on myös uudistuttava sisäisesti, jotta se pystyy toimimaan tehokkaasti ja saavuttamaan kansalaisten luottamuksen. Keskustelua käydään muun muassa unionin toimivallan laajuudesta, päätöksenteon tehostamisesta ja talouden ohjauksesta. Myös unionin laajentuminen on ajankohtainen kysymys. EU:n tulevaisuus riippuu siitä, miten se pystyy vastaamaan näihin haasteisiin ja uudistumaan. Jäsenmaiden välinen yhteistyö ja kompromissit ovat välttämättömiä.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "mcq_247",
+        "prompt": "Mitä haasteita Euroopan unionin on vastattava?",
+        "options": [
+          "Vain ilmastonmuutokseen",
+          "Ilmastonmuutokseen, digitaaliseen murrokseen, väestön ikääntymiseen ja geopoliittiseen epävakauteen",
+          "Vain digitaaliseen murrokseen",
+          "Vain väestön ikääntymiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_248",
+        "prompt": "Miksi EU:n on uudistuttava sisäisesti?",
+        "options": [
+          "Jotta se pysyy ennallaan",
+          "Jotta se pystyy toimimaan tehokkaasti ja saavuttamaan kansalaisten luottamuksen",
+          "Jotta se voi lisätä byrokratiaa",
+          "Jotta se voi vähentää jäsenmaiden välistä yhteistyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_249",
+        "prompt": "Mistä keskustelua käydään EU:n sisällä?",
+        "options": [
+          "Unionin toimivallan laajuudesta, päätöksenteon tehostamisesta ja talouden ohjauksesta",
+          "Vain unionin laajentumisesta",
+          "Vain talouden ohjauksesta",
+          "Vain päätöksenteon tehostamisesta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_250",
+        "prompt": "Mikä on välttämätöntä EU:n tulevaisuuden kannalta?",
+        "options": [
+          "Jäsenmaiden välinen kilpailu",
+          "Jäsenmaiden välinen yhteistyö ja kompromissit",
+          "Jäsenmaiden eristäytyminen",
+          "Jäsenmaiden itsenäisyyden lisääminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

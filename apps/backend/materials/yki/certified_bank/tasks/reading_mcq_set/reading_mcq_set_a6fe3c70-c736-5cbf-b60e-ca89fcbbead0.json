@@ -1,0 +1,88 @@
+{
+  "id": "a6fe3c70-c736-5cbf-b60e-ca89fcbbead0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Juhannusta vietetään kesäkuussa. Se on suuri juhla. Silloin alkaa monen loma. Juhannusta vietetään usein mökillä. Saunotaan ja grillataan. Järvessä uidaan. Juhannuksena poltetaan kokko. Kokko on iso nuotio. Ihmiset tanssivat ja laulavat. Juhannus on valoisa juhla. Aurinko paistaa pitkään. Yö on lyhyt ja vaalea. Juhannuksena on hauskaa yhdessä perheen ja ystävien kanssa.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin juhannusta vietetään?",
+        "options": [
+          "Toukokuussa",
+          "Kesäkuussa",
+          "Heinäkuussa",
+          "Elokuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä juhannusta usein vietetään?",
+        "options": [
+          "Kaupungissa",
+          "Mökillä",
+          "Hotellissa",
+          "Ravintolassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä juhannuksena tehdään?",
+        "options": [
+          "Hiihdetään",
+          "Saunotaan, grillataan ja uidaan",
+          "Luistellaan",
+          "Tehdään läksyjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä juhannuksena poltetaan?",
+        "options": [
+          "Kynttilöitä",
+          "Kokko",
+          "Nuotio",
+          "Raketteja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millainen yö juhannuksena on?",
+        "options": [
+          "Pitkä ja pimeä",
+          "Lyhyt ja vaalea",
+          "Kylmä",
+          "Myrskyinen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

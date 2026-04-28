@@ -1,0 +1,40 @@
+{
+  "id": "35ef6c7b-9e95-5e81-8420-ef5f879b0eeb",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa vakuuttavaa ja innostavaa kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet yrittäjä, joka uskoo tuotteeseensa ja haluaa saada rahoituksen kasvuun.",
+        "partner": "Sijoittajat - kiinnostuneita mutta kriittisiä, haluavat ymmärtää liiketoimintamallin, markkinapotentiaalin ja riskit."
+      }
+    },
+    "items": [
+      {
+        "id": "srp10",
+        "ai_first_turn_fi": "Kerro yrityksestäsi. Mikä on tuotteesi ja mikä tekee siitä ainutlaatuisen?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa vakuuttavaa ja innostavaa kieltä.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

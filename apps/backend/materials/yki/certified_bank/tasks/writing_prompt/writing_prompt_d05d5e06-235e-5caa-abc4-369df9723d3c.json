@@ -1,0 +1,37 @@
+{
+  "id": "d05d5e06-235e-5caa-abc4-369df9723d3c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on paljon roskia, koska roska-astiat ovat täynnä. Kerro, missä roska-astiat sijaitsevat ja pyydä tyhjennystä.",
+    "materials": {
+      "scenario": "Ilmoitus täysistä roska-astioista"
+    },
+    "items": [
+      {
+        "id": "8fd329b0-509d-5617-93b4-0caccf4a5cfe",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on paljon roskia, koska roska-astiat ovat täynnä. Kerro, missä roska-astiat sijaitsevat ja pyydä tyhjennystä."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nPyyntö tyhjennyksestä",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

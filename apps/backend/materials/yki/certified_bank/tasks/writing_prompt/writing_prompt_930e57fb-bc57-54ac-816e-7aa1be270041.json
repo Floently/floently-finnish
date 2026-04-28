@@ -1,0 +1,37 @@
+{
+  "id": "930e57fb-bc57-54ac-816e-7aa1be270041",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin laskettelurinteestä. Arvioi rinteiden kuntoa, hissien toimivuutta ja välinevuokrausta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin laskettelurinteestä"
+    },
+    "items": [
+      {
+        "id": "666c1298-beae-57f6-8adf-cb207a85ee5f",
+        "prompt": "Kirjoita palauteteksti kaupungin laskettelurinteestä. Arvioi rinteiden kuntoa, hissien toimivuutta ja välinevuokrausta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Rinteiden kunto\nHissien toimivuus\nVälinevuokraus\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

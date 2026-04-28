@@ -1,0 +1,66 @@
+{
+  "id": "8e38494f-49a7-5581-bf2a-9798c9ffd2db",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kauppakeskuksen opaste ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KAUPPAKESKUS PLAZA – KERROKSET\n\n1. kerros: Ruokakaupat, apteekki, kahvilat\n2. kerros: Vaateliikkeet, kengät, urheilu\n3. kerros: Ravintolat, elokuvateatteri, kirjasto\n\nAukioloajat:\nLiikkeet ma–pe 9–20, la 9–18, su 12–18\nRavintolat ma–su 11–22\nElokuvateatteri: katso ohjelmisto verkkosivuilta\n\nInfo-piste: 1. kerros, palvelee ma–pe 10–19, la 10–17  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 58
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä kerroksessa on apteekki?",
+        "options": [
+          "1. kerroksessa",
+          "2. kerroksessa",
+          "3. kerroksessa",
+          "Kellarissa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan liikkeet sulkeutuvat arkisin?",
+        "options": [
+          "klo 18",
+          "klo 19",
+          "klo 20",
+          "klo 21"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä kerroksessa on elokuvateatteri?",
+        "options": [
+          "1. kerroksessa",
+          "2. kerroksessa",
+          "3. kerroksessa",
+          "Ei mainita"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2f515727-8744-56b2-8cce-acd7b22dcbb6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lähiruuan olla edullisempaa kuin ulkomaisen ruuan. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lähiruuan hinta"
+    },
+    "items": [
+      {
+        "id": "65aaa39a-d7f5-5b63-8d3f-08a83fcd5ede",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lähiruuan olla edullisempaa kuin ulkomaisen ruuan. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "b12219fa-1bff-5735-83fb-cf0d519efc09",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Huomenta! Tänään on maanantai. Koulu alkaa kello 9. Älä unohda ottaa liikuntavaatteita mukaan!",
+      "audio_asset_id": "a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä viikonpäivä tänään on?",
+        "options": [
+          "Sunnuntai.",
+          "Maanantai.",
+          "Tiistai.",
+          "Keskiviikko."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan koulu alkaa?",
+        "options": [
+          "Kello 8.00.",
+          "Kello 9.00.",
+          "Kello 10.00.",
+          "Kello 8.30."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää muistaa ottaa mukaan?",
+        "options": [
+          "Läksyt.",
+          "Liikuntavaatteet.",
+          "Eväät.",
+          "Rahaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kenelle tämä viesti on tarkoitettu?",
+        "options": [
+          "Opettajalle.",
+          "Oppilaalle.",
+          "Vanhemmalle.",
+          "Kuskille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten puhuja suhtautuu asiaan?",
+        "options": [
+          "Hän on vihainen.",
+          "Hän muistuttaa ystävällisesti.",
+          "Hän on epävarma.",
+          "Hän on surullinen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "861f2578-5ee8-5506-a37e-c12b6d362391",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Helsingin kaupunki suunnittelee lisäävänsä puistojen määrää kantakaupungissa. Tavoitteena on luoda uusia viheralueita ja parantaa ilmanlaatua. Suunnitelman mukaan muutama vanha parkkipaikka muutetaan puistoksi.\n\nAsukkaat ovat suunnitelmasta kahta mieltä. Osa on innoissaan ja toivoo lisää istutuksia ja penkkejä. Toiset ovat huolissaan parkkipaikkojen vähenemisestä. 'Missä me autoilevat sitten pysäköimme?' kysyy paikallinen asukas.\n\nKaupunki vastaa kritiikkiin lupaamalla rakentaa uuden parkkihallin lähistölle. 'Ymmärrämme huolen, mutta kaupungin pitää olla viihtyisä myös jalankulkijoille ja pyöräilijöille', sanoo kaupunginarkkitehti.\n\nEnsimmäiset uudet puistot valmistuvat ensi vuonna. Kaupunki toivoo, että ne lisäävät alueen viihtyisyyttä ja houkuttelevat ihmisiä viettämään aikaa ulkona.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 117
+    },
+    "questions": [
+      {
+        "id": "101708f0-47d4-5b9b-8caf-0330b84cdc43",
+        "prompt": "Mitä kaupunki suunnittelee tekevänsä?",
+        "options": [
+          "A) Rakentaa uusia parkkihalleja",
+          "B) Lisätä puistojen määrää",
+          "C) Rakentaa uusia taloja",
+          "D) Laajentaa teitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "643811c6-faed-5513-9a3d-428274997592",
+        "prompt": "Mitä asukkaat pelkäävät?",
+        "options": [
+          "A) Puistot vievät liikaa tilaa",
+          "B) Parkkipaikat vähenevät",
+          "C) Alueelle tulee liikaa ihmisiä",
+          "D) Puistot ovat liian kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "76320f3a-1e1d-5bc8-bc07-d12aa9184073",
+        "prompt": "Mitä kaupunki lupaa tehdä vastauksena kritiikkiin?",
+        "options": [
+          "A) Rakentaa uuden parkkihallin",
+          "B) Jättää suunnitelman tekemättä",
+          "C) Vähentää autoliikennettä",
+          "D) Lisätä bussivuoroja"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "482a2314-e7f2-5158-b0a8-43970a4a9a20",
+        "prompt": "Milloin ensimmäiset puistot valmistuvat?",
+        "options": [
+          "A) tänä vuonna",
+          "B) ensi vuonna",
+          "C) kahden vuoden päästä",
+          "D) viiden vuoden päästä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

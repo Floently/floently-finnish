@@ -1,0 +1,37 @@
+{
+  "id": "0d2cac7e-96af-57f7-b2b6-abee1064e898",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kiinteistövälittäjälle. Olet kiinnostunut eräästä myynnissä olevasta asunnosta ja haluat varata ajan näyttöön. Kerro, mikä asunto kiinnostaa ja milloin sinulle sopisi käydä katsomassa sitä.",
+    "materials": {
+      "scenario": "Näyttöajan varaaminen asuntoon"
+    },
+    "items": [
+      {
+        "id": "a8afbc9e-c6d9-59d3-8617-8b452b293c9c",
+        "prompt": "Kirjoita sähköposti kiinteistövälittäjälle. Olet kiinnostunut eräästä myynnissä olevasta asunnosta ja haluat varata ajan näyttöön. Kerro, mikä asunto kiinnostaa ja milloin sinulle sopisi käydä katsomassa sitä."
+      }
+    ],
+    "rubric": "Asunnon tiedot\nToivottu ajankohta\nYhteystiedot",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

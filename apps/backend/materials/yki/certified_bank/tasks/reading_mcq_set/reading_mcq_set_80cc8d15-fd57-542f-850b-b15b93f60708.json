@@ -1,0 +1,77 @@
+{
+  "id": "80cc8d15-fd57-542f-850b-b15b93f60708",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti talvipyöräilystä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TALVIPYÖRÄILY ONNISTUU – NÄILLÄ VIKKEILLÄ\n\nYhä useampi suomalainen pyöräilee myös talvella. Se on edullista, terveellistä ja ympäristöystävällistä. Mutta talvipyöräily vaatii varusteita ja asennetta.\n\nTärkein asia on renkaat. Nastarenkaat antavat pitävän otteen jäisellä tiellä. Myös valot ovat pakolliset pimeässä. Hyvä heijastinliivi lisää näkyvyyttä.\n\nPukeutuminen on kerrospukeutumista. Tekninen aluskerrasto, välikerros ja tuulenpitävä takki pitävät lämpimänä. Kasvojen suojaaminen on tärkeää pakkasella.\n\nMonet pelkäävät liukkautta, mutta oikealla tekniikalla sekin onnistuu. Kannattaa välttää äkillisiä liikkeitä ja jarruttaa rauhallisesti. Myös rengaspaineita voi hieman laskea pidon parantamiseksi.\n\nKaupungit parantavat talvipyöräilyolosuhteita auralla ja hiekoituksella. Monilla pääväylillä on nykyään talvihoitoluokka, joka tarkoittaa, että ne aurataan nopeasti lumisateen jälkeen.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 127
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä ovat tärkeimmät varusteet talvipyöräilyyn?",
+        "options": [
+          "Nastarenkaat ja valot",
+          "Kypärä ja lasit",
+          "Lämpöpullot ja reppu",
+          "Vaihteisto ja lukko"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten kannattaa pukeutua talvipyöräilyyn?",
+        "options": [
+          "Yksi paksu takki",
+          "Kerrospukeutumalla",
+          "Vain urheiluvaatteet",
+          "Villasukat ja saappaat"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää muistaa liukkaalla kelillä?",
+        "options": [
+          "Kiihdyttää nopeasti",
+          "Jarruttaa äkillisesti",
+          "Välttää äkillisiä liikkeitä",
+          "Kääntyä jyrkästi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kaupungit tekevät auttaakseen talvipyöräilijöitä?",
+        "options": [
+          "Rakentavat katettuja pyöräteitä",
+          "Auraavat ja hiekoittavat",
+          "Kieltävät autot talvella",
+          "Jakavat ilmaisia nastarenkaita"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

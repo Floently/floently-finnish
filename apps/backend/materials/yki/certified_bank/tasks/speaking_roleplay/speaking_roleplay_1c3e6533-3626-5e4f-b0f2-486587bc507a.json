@@ -1,0 +1,40 @@
+{
+  "id": "1c3e6533-3626-5e4f-b0f2-486587bc507a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Neuvottele kaupungin kaavoitusarkkitehdin kanssa uuden asuinalueen pysäköintiratkaisuista. Perustele maanalaista pysäköintiä ja vastaa asukkaiden vaatimuksiin autopaikoista.",
+    "materials": {
+      "roles": {
+        "user": "arkkitehti ja suunnittelet uutta asuinaluetta",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "c1ad13ca-bf1d-5a5b-98a8-155871b55ff3",
+        "ai_first_turn_fi": "Maanpäällinen pysäköinti vie valtavasti tilaa. Jokaista autopaikkaa kohti tarvitaan 25 neliötä. Jos meillä on 200 asuntoa ja yksi autopaikka per asunto, se on 5000 neliötä pelkkää asfalttia. Se on melkein jalkapallokenttä. Sen tilan voisi käyttää puistoon, leikkipaikkaan, oleskelualueeseen. Ihmiset eivät halua katsoa parkkipaikalle, he haluavat katsoa vehreyttä. Maanalainen pysäköinti on kalliimpaa rakentaa, mutta se lisää asuntojen arvoa ja viihtyisyyttä. Se maksaa itsensä takaisin korkeampina neliöhintoina. Ja asukkaat ovat valmiita maksamaan siitä, koska he saavat paremman ympäristön."
+      }
+    ],
+    "rubric": "Neuvottele kaupungin kaavoitusarkkitehdin kanssa uuden asuinalueen pysäköintiratkaisuista. Perustele maanalaista pysäköintiä ja vastaa asukkaiden vaatimuksiin autopaikoista.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "c4de5966-6066-5ec5-a274-94d9efe01635",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.605,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti mentorointiohjelman vaikutuksista ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Yrityksen sisäinen mentorointiohjelma käynnistettiin viime vuonna tilanteessa, jossa henkilöstön vaihtuvuus oli kasvanut ja uusien työntekijöiden perehdytys kuormitti tiiminvetäjiä. Ohjelman ajatuksena oli yhdistää uusi työntekijä kokeneempaan kollegaan kuuden kuukauden ajaksi. Mentorointi ei tarkoittanut jatkuvaa valvontaa, vaan suunniteltuja tapaamisia, joissa käsiteltiin työn käytännön pulmia, priorisointia ja yhteistyötä eri tiimien välillä. Alkuvaiheessa tapaamisia pidettiin liian harvoin, koska kalentereista ei löytynyt yhteistä aikaa. Tämän vuoksi ohjelman koordinaattori siirsi tapaamiset osaksi virallista työaikaa ja määritteli vähimmäistiheydeksi kaksi tapaamista kuukaudessa.\n\nSeurantaraportti osoitti, että muutos paransi ohjelman toteutumista selvästi. Uudet työntekijät arvioivat, että he ymmärsivät organisaation epäviralliset käytännöt nopeammin, ja samalla kynnys kysyä apua madaltui. Mentorit puolestaan kokivat, että tehtävä kehitti heidän ohjaus- ja palautetaitojaan, vaikka osa piti lisävastuuta ajoittain raskaana kiireisimpinä viikkoina. Raportissa huomautettiin myös, että mentoroinnin hyödyt näkyivät epätasaisesti eri yksiköissä. Niissä yksiköissä, joissa esihenkilö osallistui ohjelman alkuvaiheeseen, tavoitteet olivat selkeämmät ja keskeytyksiä tapahtui vähemmän.\n\nOhjelman jatkosta päätettäessä johto joutui punnitsemaan kahta näkökulmaa. Toisaalta mentorointi vaatii työaikaa, joka on pois välittömästä tuotannosta. Toisaalta ennenaikaiset irtisanoutumiset ja epäselvät vastuut aiheuttavat huomattavasti suurempia kustannuksia pitkällä aikavälillä. Ratkaisuksi päätettiin, että mentorointiin varataan jatkossa vuosittainen resurssi, mutta samalla ohjelman vaikuttavuutta seurataan tarkemmin kolmella mittarilla: perehdytyksen kesto, henkilöstön pysyvyys ja tiimien välinen yhteistyö. Johto korosti, että ohjelma ei ole yleislääke kaikkiin työhyvinvoinnin ongelmiin, mutta se voi toimia rakenteena, joka tekee osaamisen jakamisesta systemaattisempaa.",
+      "word_count": 213
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä ongelma johti mentorointiohjelman käynnistämiseen?",
+        "options": [
+          "toimistotilan puute",
+          "kasvanut henkilöstön vaihtuvuus ja kuormittava perehdytys",
+          "asiakasvalitusten väheneminen",
+          "liian pitkä lounastauko"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä muutos paransi tapaamisten toteutumista?",
+        "options": [
+          "tapaamisten poistaminen",
+          "tapaamisten siirto työajan ulkopuolelle",
+          "tapaamisten kirjaaminen viralliseen työaikaan",
+          "mentorien vaihtaminen kuukausittain"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä yksiköissä tulokset olivat raportin mukaan parempia?",
+        "options": [
+          "yksiköissä, joissa esihenkilö osallistui aloitukseen",
+          "yksiköissä ilman esihenkilöitä",
+          "yksiköissä, joissa ei ollut uusia työntekijöitä",
+          "yksiköissä, joissa mentorointi oli vapaaehtoista ja satunnaista"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten johto ratkaisi resurssikeskustelun?",
+        "options": [
+          "lopettamalla ohjelman",
+          "varasi vuosittaisen resurssin ja asetti seurantamittarit",
+          "siirsi ohjelman kokonaan ulkoiselle yritykselle",
+          "poisti perehdytyksen uusilta työntekijöiltä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

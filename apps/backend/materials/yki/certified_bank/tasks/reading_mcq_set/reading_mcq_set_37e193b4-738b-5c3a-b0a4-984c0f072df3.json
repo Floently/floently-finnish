@@ -1,0 +1,66 @@
+{
+  "id": "37e193b4-738b-5c3a-b0a4-984c0f072df3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.36,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "JÄTEHUOLTO\n\nJäteastiat tyhjennetään seuraavasti:\n\nSekajäte: maanantaisin ja torstaisin\nBiojäte: tiistaisin ja perjantaisin\nMuovi: kerran kuussa, ensimmäinen keskiviikko\nPaperi: kerran kuussa, toinen torstai\nPahvi: kerran kuussa, kolmas maanantai\n\nJäteastiat pitää viedä tien varteen edellisenä iltana kello 20 mennessä.\n\nLajitteluohjeet löytyvät taloyhtiön ilmoitustaululta.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 57
+    },
+    "questions": [
+      {
+        "id": "6754b3b6-3bf7-5461-935d-c6fd63e5e0f8",
+        "prompt": "Minä päivinä sekajäte tyhjennetään?",
+        "options": [
+          "maanantaisin ja torstaisin",
+          "tiistaisin ja perjantaisin",
+          "keskiviikkoisin",
+          "kerran kuussa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "74766c2c-312a-5b88-a728-2c1c71c8eec5",
+        "prompt": "Milloin jäteastia pitää viedä tien varteen?",
+        "options": [
+          "tyhjennyspäivänä aamulla kello 6",
+          "edellisenä iltana kello 20 mennessä",
+          "edellisenä päivänä kello 12",
+          "milloin tahansa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "92e559b1-1fe0-52a5-9215-6f6fe8faa687",
+        "prompt": "Mistä löytyy lajitteluohjeet?",
+        "options": [
+          "kaupungin nettisivuilta",
+          "taloyhtiön ilmoitustaululta",
+          "postilaatikosta",
+          "naapureilta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

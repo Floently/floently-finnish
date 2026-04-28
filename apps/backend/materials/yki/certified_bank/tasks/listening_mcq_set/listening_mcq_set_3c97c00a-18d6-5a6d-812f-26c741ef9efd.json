@@ -1,0 +1,66 @@
+{
+  "id": "3c97c00a-18d6-5a6d-812f-26c741ef9efd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijahaastattelu someilmiöstä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tutkija Virtanen, mikä on mielestänne suurin muutos somessa viime vuosina?\nTutkija: Ehdottomasti videoiden nousu. TikTok ja Instagram Reels ovat muuttaneet sitä, miten nuoret käyttävää somea. Kuvien ja tekstin sijaan kommunikoidaan yhä enemmän lyhyillä videoilla.\nToimittaja: Miksi tämä on merkittävää?\nTutkija: Koska videot vaikuttavat tunteisiin voimakkaammin kuin teksti. Ne myös leviävät nopeammin. Tämä voi olla hyvä asia, jos halutaan levittää tärkeää tietoa, mutta myös ongelmallista, jos levitetään vaikkapa vihapuhetta tai disinformaatiota.\nToimittaja: Miten nuoret itse suhtautuvat tähän?\nTutkija: Tutkimuksemme mukaan nuoret ovat kriittisempiä kuin usein ajatellaan. He ymmärtävät, että some on bisnestä ja että sisällöt on tehty herättämään tunteita. Toisaalta algoritmit voivat vahvistaa tiettyjä näkökulmia ja luoda kuplia, joissa omat mielipiteet vahvistuvat.",
+      "audio_asset_id": "5095b1e0-411c-4961-9195-468c7ea5fa77"
+    },
+    "questions": [
+      {
+        "id": "d9c8115a-812d-5fd3-ad24-1dfd548b5613",
+        "prompt": "Mikä on tutkijan mukaan suurin muutos somessa?",
+        "options": [
+          "Tekstin lisääntyminen",
+          "Videoiden nousu",
+          "Mainosten väheneminen",
+          "Kuvien katoaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "80fb0319-6e90-5249-96f2-7c0da6e044a9",
+        "prompt": "Miksi videoiden nousu on merkittävää?",
+        "options": [
+          "Ne ovat tylsiä",
+          "Ne vaikuttavat tunteisiin voimakkaammin ja leviävät nopeammin",
+          "Ne ovat vaikeita tehdä",
+          "Ne kestävät kauan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ca15caa2-d972-52e1-89a1-da803524231f",
+        "prompt": "Mitä tutkimus kertoo nuorten suhtautumisesta someen?",
+        "options": [
+          "Nuoret eivät ymmärrä mitään",
+          "Nuoret ovat kriittisempiä kuin usein ajatellaan",
+          "Nuoret uskovat kaiken somessa",
+          "Nuoret eivät käytä somea"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

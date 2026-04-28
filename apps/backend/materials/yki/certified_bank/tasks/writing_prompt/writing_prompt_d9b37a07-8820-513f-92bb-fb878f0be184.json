@@ -1,0 +1,37 @@
+{
+  "id": "d9b37a07-8820-513f-92bb-fb878f0be184",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.667,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa rehtorina lukioon. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Rehtori"
+    },
+    "items": [
+      {
+        "id": "fb89a562-ee1e-56c2-9017-19a5e23d68d4",
+        "prompt": "Haet työpaikkaa rehtorina lukioon. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa rehtorina lukioon. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

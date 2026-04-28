@@ -1,0 +1,37 @@
+{
+  "id": "7a9ebcd5-9baf-5362-802f-9843094aee12",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö alkoholin mainontaa rajoittaa nykyistä enemmän. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Alkoholin mainonnan rajoittaminen"
+    },
+    "items": [
+      {
+        "id": "2625f0b5-572b-5e43-8969-add124d2aeb0",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö alkoholin mainontaa rajoittaa nykyistä enemmän. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

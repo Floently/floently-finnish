@@ -1,0 +1,66 @@
+{
+  "id": "a5fd9e8e-9ed6-590e-a297-72aaf39b22b0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Pekka: Soitan teidän ilmoituksesta koskien vuokra-asuntoa. Onko se vielä vapaana?\nVuokranantaja: Kyllä, asunto on yhä vapaana. Se on kaksio Töölössä, noin 45 neliötä.\nPekka: Kuulostaa hyvältä. Paljonko vuokra on?\nVuokranantaja: Vuokra on 950 euroa kuukaudessa, sisältää veden. Sähkö maksetaan erikseen.\nPekka: Entä milloin asunto olisi vapaana?\nVuokranantaja: Se vapautuu 1. päivä ensi kuuta. Voitte tulla katsomaan asuntoa vaikka huomenna iltapäivällä.\nPekka: Sopiiko kello 16?\nVuokranantaja: Kyllä, se käy minulle. Laitan teille osoitteen tekstiviestillä.",
+      "audio_asset_id": "e9b23fe2-a700-5b35-91d6-e8189350a523"
+    },
+    "questions": [
+      {
+        "id": "list_016",
+        "prompt": "Minkä kokoinen vuokra-asunto on?",
+        "options": [
+          "35 neliötä",
+          "45 neliötä",
+          "55 neliötä",
+          "65 neliötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_017",
+        "prompt": "Paljonko vuokra on?",
+        "options": [
+          "850 euroa",
+          "900 euroa",
+          "950 euroa",
+          "1000 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_018",
+        "prompt": "Milloin asunto on vapaana?",
+        "options": [
+          "1. päivä tätä kuuta",
+          "1. päivä ensi kuuta",
+          "15. päivä tätä kuuta",
+          "15. päivä ensi kuuta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

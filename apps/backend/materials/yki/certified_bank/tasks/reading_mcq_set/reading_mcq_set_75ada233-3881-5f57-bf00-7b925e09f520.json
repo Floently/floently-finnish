@@ -1,0 +1,110 @@
+{
+  "id": "75ada233-3881-5f57-bf00-7b925e09f520",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen työelämä on keskellä suurta murrosta. Digitalisaatio, automaatio ja tekoäly muuttavat työn sisältöä ja rakenteita. Monet rutiininomaiset tehtävät katoavat, kun koneet ja algoritmit ottavat ne hoitaakseen. Samalla syntyy uusia ammatteja ja työtehtäviä, jotka vaativat uudenlaista osaamista. Tämä edellyttää työntekijöiltä jatkuvaa oppimista ja sopeutumiskykyä. Työurat eivät ole enää lineaarisia, vaan ne koostuvat erilaisista jaksoista: opiskelua, työtä, yrittäjyyttä, työttömyyttä ja uudelleenkoulutusta. Työsuhteet ovat moninaistuneet. Vakituisen kokoaikatyön rinnalle ovat tulleet osa-aikatyö, määräaikaiset työsuhteet, vuokratyö, keikkatyö ja alustatyö. Tämä tuo joustavuutta, mutta myös epävarmuutta ja pirstaleisuutta. Moni ei tiedä, paljonko tuloja on seuraavassa kuussa, tai onko töitä ollenkaan. Työelämän muutos haastaa myös työlainsäädännön ja sosiaaliturvan. Nykyinen järjestelmä on rakennettu vakituisen kokoaikatyön varaan. Uusissa työnteon muodoissa työntekijän asema on usein epäselvä.",
+      "word_count": 116
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on keskeisin työelämän muutosta aiheuttava tekijä?",
+        "options": [
+          "Poliittiset päätökset.",
+          "Digitalisaatio, automaatio ja tekoäly.",
+          "Väestön ikääntyminen.",
+          "Globalisaatio."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu rutiininomaisille työtehtäville?",
+        "options": [
+          "Ne lisääntyvät.",
+          "Ne katoavat, kun koneet korvaavat ne.",
+          "Ne pysyvät samoina.",
+          "Ne siirtyvät ulkomaille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työntekijöiltä vaaditaan tulevaisuudessa?",
+        "options": [
+          "Yhden ammatin syvällistä hallintaa.",
+          "Jatkuvaa oppimista ja sopeutumiskykyä.",
+          "Fyysistä voimaa.",
+          "Kielten osaamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millaisia työsuhteita on yleistynyt?",
+        "options": [
+          "Vain vakituisia kokoaikatyösuhteita.",
+          "Osa-aikatyö, määräaikaiset työt, vuokratyö, keikkatyö ja alustatyö.",
+          "Vain yrittäjyyttä.",
+          "Vain etätyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä haittapuolia uusiin työnteon muotoihin liittyy?",
+        "options": [
+          "Liikaa vakautta.",
+          "Epävarmuutta ja pirstaleisuutta.",
+          "Liian korkeaa palkkaa.",
+          "Liian vähän työtä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi nykyinen työlainsäädäntö on haasteellinen uusille työnteon muodoille?",
+        "options": [
+          "Se on liian uusi.",
+          "Se on rakennettu vakituisen työn varaan.",
+          "Se on liian joustava.",
+          "Se ei koske ketään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millaisia työurat nykyään ovat?",
+        "options": [
+          "Lineaarisia ja ennakoitavia.",
+          "Erilaisista jaksoista koostuvia.",
+          "Vain yhdestä työpaikasta koostuvia.",
+          "Vakaita ja pysyviä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

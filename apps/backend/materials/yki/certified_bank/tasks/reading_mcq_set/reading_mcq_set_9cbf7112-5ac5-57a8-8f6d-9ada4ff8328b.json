@@ -1,0 +1,66 @@
+{
+  "id": "9cbf7112-5ac5-57a8-8f6d-9ada4ff8328b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "K-SUPERMARKET KESKUSTA\n\nAvoinna:\nma–pe 7–21\nla 8–20\nsu 10–18\n\nOsoite: Kauppakatu 10, 00100 Helsinki\n\nK-Supermarketissa on laaja valikoima tuoreita tuotteita. Leipäosasto leipoo pullat ja leivät itse. Meiltä saat myös valmiit ruoka-annokset mukaan.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "d352757c-4809-5df2-b9ae-3f499c116aa0",
+        "prompt": "Milloin kauppa on auki sunnuntaisin?",
+        "options": [
+          "7–21",
+          "8–20",
+          "10–18",
+          "suljettu"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c5500c64-b22d-5659-9695-6e82df9d2a98",
+        "prompt": "Mitä leipäosasto tekee?",
+        "options": [
+          "myy valmiita leipiä",
+          "leipoo itse",
+          "ei tee mitään",
+          "vain pakasteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "753cea85-42ca-530f-bc61-227e04127d8a",
+        "prompt": "Mitä muuta kaupasta saa?",
+        "options": [
+          "vain ruokaa",
+          "valmiita ruoka-annoksia",
+          "vain leipää",
+          "vaatteita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

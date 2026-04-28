@@ -1,0 +1,37 @@
+{
+  "id": "687000ee-3906-5b6b-9822-da91dedc2dd5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.296,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kouluun. Lapsesi on sairastunut ja hän on poissa koulusta. Kerro lapsen nimi ja luokka. Kerro, että hänellä on kuumetta ja yskää. Kysy, mitä läksyjä hänelle kertyy.",
+    "materials": {
+      "scenario": "Viesti kouluun lapsen poissaolosta"
+    },
+    "items": [
+      {
+        "id": "0d188920-646d-5ae2-8852-d8794e6d6067",
+        "prompt": "Kirjoita lyhyt viesti kouluun. Lapsesi on sairastunut ja hän on poissa koulusta. Kerro lapsen nimi ja luokka. Kerro, että hänellä on kuumetta ja yskää. Kysy, mitä läksyjä hänelle kertyy."
+      }
+    ],
+    "rubric": "Kerro, että lapsi on sairas\nKerro lapsen nimi ja luokka\nKerro oireet\nKysy läksyistä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

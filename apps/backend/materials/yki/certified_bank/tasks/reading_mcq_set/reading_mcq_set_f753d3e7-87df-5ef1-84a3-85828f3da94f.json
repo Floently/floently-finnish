@@ -1,0 +1,66 @@
+{
+  "id": "f753d3e7-87df-5ef1-84a3-85828f3da94f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lopuksi tekstissä muistutetaan, että sääntöjä voidaan vielä tarkistaa palautteen perusteella. Tekstissä erotetaan faktat ja mielipiteet melko selvästi. Kirjoittaja mainitsee, että päätös vaikuttaa erityisesti niihin, jotka asioivat usein perjantaina. Teksti käsittelee aihetta: blogiteksti lähiruokakaupan vaikutuksesta arkeen, ja se liittyy arjen lisäksi myös siihen, miten palvelut toimivat Espoossa. Jos ongelmia tulee, kaupungin palvelupiste neuvoo ottamaan yhteyttä puhelimitse tai verkon kautta. Osa lukijoista voi pitää uudistusta tarpeettomana, mutta toiset hyötyvät siitä heti. Perustelut nojaavat sekä kustannuksiin että käyttäjäkokemukseen. Kaupungin palvelupiste kuvaa muutoksen taustaa ja kertoo, miksi muutos tehdään juuri nyt. Tekstissä annetaan myös käytännön ohjeet ja vaihtoehtoja, jos uusi toimintatapa ei sovi kaikille. Toinen toteaa, että selkeä viestintä vähentää turhaa epävarmuutta. Yksi esimerkki liittyy jonotukseen ja siihen, miten varaus tehdään etukäteen. Eräs asiakas kertoo, että hän huomasi muutoksen vasta, kun sai ilmoituksen 7. päivä. Kokonaisuutena teksti pyrkii rauhoittamaan lukijaa ja tekemään muutoksesta ymmärrettävän. Lisäksi mukana on lyhyt perustelu siitä, miten muutos parantaa sujuvuutta tai säästää aikaa. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä perjantaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä perjantaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä perjantaina asti.",
+      "word_count": 192
+    },
+    "questions": [
+      {
+        "id": "b1_b2r04-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Matkustaminen ja sää",
+          "Ruoanlaitto kotona",
+          "Urheilutapahtuma",
+          "Lopuksi ja siihen liittyvä muutos"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r04-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Sairaalan remontti",
+          "Uusi elokuva",
+          "Lentojen peruuntuminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1_b2r04-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Odota viikko",
+          "Jätä asia kesken",
+          "Kysy neuvoa",
+          "Älä kerro kenellekään"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

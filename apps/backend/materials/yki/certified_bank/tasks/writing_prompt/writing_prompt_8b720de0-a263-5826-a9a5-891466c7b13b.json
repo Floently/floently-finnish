@@ -1,0 +1,37 @@
+{
+  "id": "8b720de0-a263-5826-a9a5-891466c7b13b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita argumentoiva teksti annetusta aiheesta.",
+    "materials": {
+      "scenario": "Kouluissa käytetään yhä enemmän digitaalisia välineitä opetuksessa. Jotkut pitävät tätä kehitystä positiivisena, kun taas toiset ovat huolissaan sen vaikutuksista keskittymiseen ja oppimiseen."
+    },
+    "items": [
+      {
+        "id": "e71b05d5-6715-5523-8fce-d034ec9830da",
+        "prompt": "Kirjoita argumentoiva teksti annetusta aiheesta."
+      }
+    ],
+    "rubric": "Kirjoita argumentoiva teksti annetusta aiheesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

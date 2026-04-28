@@ -1,0 +1,37 @@
+{
+  "id": "3e8ee31e-f098-5166-999e-8030332b03c0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä yhteiskäyttöautojen määrää yksityisautoilun vähentämiseksi?'. Pohdi liikkumista, ympäristöä ja kaupunkirakennetta.",
+    "materials": {
+      "scenario": "Yhteiskäyttöautot"
+    },
+    "items": [
+      {
+        "id": "5c89f8c5-93b0-5555-8f8c-3245d06a9ab6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä yhteiskäyttöautojen määrää yksityisautoilun vähentämiseksi?'. Pohdi liikkumista, ympäristöä ja kaupunkirakennetta."
+      }
+    ],
+    "rubric": "Liikkuminen\nYmpäristö\nKaupunkirakenne\nKustannukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

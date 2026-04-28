@@ -1,0 +1,99 @@
+{
+  "id": "6ee504dd-06fd-5584-8cc8-37591d8b975a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työuupumus on yhä yleisempää suomalaisilla työpaikoilla. Syiksi epäillään liiallista työmäärää, kiirettä ja huonoa johtamista. Työterveyslaitos suosittelee, että työpaikoilla kiinnitettäisiin enemmän huomiota työkuormituksen tasapuoliseen jakamiseen. Myös työntekijöiden mahdollisuus vaikuttaa omaan työhönsä vähentää uupumusriskiä. Työpaikoilla tulisi keskustella avoimesti jaksamisesta.",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yhä yleisempää suomalaisilla työpaikoilla?",
+        "options": [
+          "Lomautukset",
+          "Työuupumus",
+          "Palkankorotukset",
+          "Työpaikan vaihto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä syitä työuupumukselle tekstissä epäillään?",
+        "options": [
+          "Liian vähän työtä ja yksitoikkoisuutta",
+          "Liiallinen työmäärä, kiire ja huono johtaminen",
+          "Huonot työkaverit ja työmatkat",
+          "Liian korkea palkka ja vastuu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä Työterveyslaitos suosittelee työpaikoille?",
+        "options": [
+          "Lisää palkattomia vapaita",
+          "Työkuormituksen tasapuolista jakamista",
+          "Pidempiä työpäiviä",
+          "Enemmän kokouksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä muu vähentää uupumusriskiä?",
+        "options": [
+          "Mahdollisuus tehdä etätöitä",
+          "Mahdollisuus vaikuttaa omaan työhön",
+          "Työpaikan läheisyys kotiin",
+          "Ilmainen kahvi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä työpaikoilla tulisi keskustella avoimesti?",
+        "options": [
+          "Palkasta",
+          "Lomista",
+          "Jaksamisesta",
+          "Työpaikan säännöistä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'työkuormituksen tasapuolisella jakamisella'?",
+        "options": [
+          "Kaikille annetaan sama määrä töitä",
+          "Jokainen saa valita työtehtävänsä",
+          "Työt jaetaan oikeudenmukaisesti kaikkien kesken",
+          "Vain esihenkilöt tekevät vaativimmat työt"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

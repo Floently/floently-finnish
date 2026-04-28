@@ -1,0 +1,77 @@
+{
+  "id": "dc7dc0dd-eb89-589b-9611-e2528f566646",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelma kierrätyksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Juontaja: Tänään puhutaan muovin kierrätyksestä. Studiossa on asiantuntija Sanna Mäkelä. Tervetuloa!\nSanna: Kiitos.\nJuontaja: Miten muovin kierrätys toimii?\nSanna: Kaikki muovi ei kelpaa kierrätykseen. Vain pakkaukset, kuten jugurttipurkit ja muovipussit, kuuluvat muovinkeräykseen. Muovilelut ja astiat menevät sekajätteeseen.\nJuontaja: Pitääkö muovipakkaukset pestä?\nSanna: Kyllä, ne kannattaa huuhdella, jotta niihin ei jää ruokaa. Mutta ei tarvitse tiskata.\nJuontaja: Mihin kerätty muovi päätyy?\nSanna: Siitä tehdään uusia muovituotteita, kuten putkia, kukkaruukkuja ja jopa uusia pakkauksia. Kierrätys säästää öljyä ja vähentää päästöjä.\nJuontaja: Miksi muovipullot palautetaan kauppaan?\nSanna: Muovipulloissa on panttijärjestelmä. Ne menevät erilliseen kierrätykseen ja niistä tulee uusia pulloja.\nJuontaja: Kiitos, Sanna!",
+      "audio_asset_id": "3fa3d7f8-ab99-4a94-ba61-820ba537178d"
+    },
+    "questions": [
+      {
+        "id": "7a6938b2-d79d-55cf-99c9-9eace5274849",
+        "prompt": "Mitä muovia voi laittaa muovinkeräykseen?",
+        "options": [
+          "Kaikki muovitavarat",
+          "Vain pakkaukset",
+          "Vain lelut",
+          "Vaan muovipussit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "68471865-573e-5695-a169-ae9ade3556b7",
+        "prompt": "Miten muovipakkaukset pitää valmistella?",
+        "options": [
+          "Pestävä koneessa",
+          "Huuhdeltava ja kuivattava",
+          "Ei mitään",
+          "Pilkottava"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "81326cf0-d86b-54e7-9fba-910f21a01f34",
+        "prompt": "Mitä kerätystä muovista tehdään?",
+        "options": [
+          "Viedään kaatopaikalle",
+          "Poltetaan",
+          "Uusia muovituotteita",
+          "Viedään ulkomaille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "3b41c0da-f471-5dba-a4a5-24dc2b075da4",
+        "prompt": "Miksi muovipullot palautetaan kauppaan?",
+        "options": [
+          "Koska ovat isompia",
+          "Panttijärjestelmän takia",
+          "Pakko",
+          "Saa ilmaisen pullon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

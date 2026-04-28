@@ -1,0 +1,63 @@
+{
+  "id": "f5c8f76e-0fba-57d6-a0c2-0f90146a1a9b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, täällä soittaa hammashoitola Hymy. Sinulla on aika perjantaina 15.3. kello 11. Jos et pääse, peruuta aika viimeistään torstaina. Soita numeroon 010 567 890. Kiitos ja hyvää päivänjatkoa!",
+      "audio_asset_id": "25ac257f-edd0-48cf-bc24-3e4a3e71d32e"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä soitetaan?",
+        "options": [
+          "terveyskeskuksesta",
+          "hammashoitolasta",
+          "apteekista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin aika on?",
+        "options": [
+          "torstaina 15.3.",
+          "perjantaina 15.3.",
+          "maanantaina 15.3."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin numeroon pitää soittaa?",
+        "options": [
+          "010 123 456",
+          "010 567 890",
+          "020 567 890"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

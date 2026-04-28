@@ -1,0 +1,37 @@
+{
+  "id": "e2ef14fb-ea37-54f1-b077-d952147d79ec",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt hierojalla ja saanut hieronnan lahjaksi. Kirjoita palaute. Kerro, oliko hieronta miellyttävä kokemus.",
+    "materials": {
+      "scenario": "Palaute lahjaksi saadusta hieronnasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt hierojalla ja saanut hieronnan lahjaksi. Kirjoita palaute. Kerro, oliko hieronta miellyttävä kokemus."
+      }
+    ],
+    "rubric": "Olet käynyt hierojalla ja saanut hieronnan lahjaksi. Kirjoita palaute. Kerro, oliko hieronta miellyttävä kokemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

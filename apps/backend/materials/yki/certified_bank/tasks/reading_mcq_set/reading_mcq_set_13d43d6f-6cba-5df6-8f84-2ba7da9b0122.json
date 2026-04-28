@@ -1,0 +1,77 @@
+{
+  "id": "13d43d6f-6cba-5df6-8f84-2ba7da9b0122",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue puhelinliittymän hinnasto ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MOBIILI-SUOMI PUHELINLIITTYMÄT\n\nPerusliittymä 19,90 €/kk\n- puhelut 0,069 €/min\n- tekstiviestit 0,05 €/kpl\n- netti 1 Gt\n\nPremium-liittymä 29,90 €/kk\n- puhelut 0,049 €/min\n- tekstiviestit 0,039 €/kpl\n- netti 10 Gt\n\nPerheliittymä (2–4 henkilöä) 49,90 €/kk\n- kaikki edut kuten Premium, jaettu netti 20 Gt\n\nKaikki hinnat sisältävät arvonlisäveron 24 %.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "98f16b8d-3f63-5f31-9437-6c53fe5d9c85",
+        "prompt": "Paljonko Perusliittymä maksaa kuukaudessa?",
+        "options": [
+          "19,90 €",
+          "24,90 €",
+          "29,90 €",
+          "49,90 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "100d0cbc-b9e6-5bb2-b436-97ae0d9a0185",
+        "prompt": "Kuinka paljon nettiä kuuluu Premium-liittymään?",
+        "options": [
+          "1 Gt",
+          "5 Gt",
+          "10 Gt",
+          "20 Gt"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "994bd6d6-8f2a-5ca6-8236-55492f8e9d2b",
+        "prompt": "Mikä liittymä sopii parhaiten perheelle?",
+        "options": [
+          "Perusliittymä",
+          "Premium-liittymä",
+          "Perheliittymä",
+          "Ei mikään näistä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a5b3a08e-8df2-5fa3-9f91-18b7bfb93c81",
+        "prompt": "Sisältävätkö hinnat veron?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain osa",
+          "Ei tietoa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

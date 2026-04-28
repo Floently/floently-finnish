@@ -1,0 +1,77 @@
+{
+  "id": "8a8e964a-51be-5f56-a482-a7f9d5d2b0e0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.762,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "DIGITAALINEN VALLANKUMOUS JA TYÖN TULEVAISUUS\n\nDigitaalinen vallankumous on muuttanut työelämää perusteellisemmin kuin mikään aiempi teknologinen murros. Tekoäly, automaatio ja robotisaatio eivät ole enää tulevaisuutta, vaan ne ovat jo täällä muokkaamassa työtehtäviä, toimialoja ja kokonaisia ammattikuntia. Samalla kun teknologia luo uusia mahdollisuuksia, se herättää myös syvällisiä kysymyksiä työn merkityksestä, toimeentulosta ja eriarvoisuudesta.\n\nYksi keskeisimmistä muutoksista on rutiininomaisten työtehtävien automatisoituminen. Tämä koskee niin teollisuuden liukuhihnatöitä kuin toimistotyön rutiineja, kuten kirjanpitoa ja tietojen syöttämistä. Samalla syntyy uudenlaisia työtehtäviä, jotka vaativat luovuutta, ongelmanratkaisukykyä ja sosiaalisia taitoja – ominaisuuksia, joita koneet eivät toistaiseksi pysty korvaamaan.\n\nHaasteeksi muodostuu kuitenkin se, että kaikilla ei ole valmiuksia siirtyä uudenlaisiin tehtäviin. Työntekijät, joiden osaaminen vanhenee, voivat jäädä työmarkkinoiden ulkopuolelle. Tämä koskee erityisesti matalasti koulutettuja ja ikääntyviä työntekijöitä. Samalla korkeasti koulutettujen kysyntä kasvaa, mikä lisää eriarvoisuutta.\n\nToinen merkittävä muutos on työn pirstaloituminen. Perinteiset vakituiset työsuhteet vähenevät, ja tilalle tulee keikkatyötä, osa-aikaisuutta ja nollasopimuksia. Tämä tuo joustavuutta, mutta myös epävarmuutta. Työntekijän on vaikea suunnitella talouttaan ja elämäänsä, kun työtunnit ja tulot vaihtelevat.\n\nKolmas ulottuvuus on työn ja vapaa-ajan rajan hämärtyminen. Etätyö ja jatkuva tavoitettavissa oleminen tekevät irrottautumisesta vaikeaa. Työ seuraa kotiin, ja vapaa-aika pirstaloituu. Tämä voi johtaa uupumukseen ja työhyvinvoinnin heikkenemiseen.\n\nAsiantuntijat korostavat, että tarvitaan uudenlaisia ratkaisuja. Koulutusjärjestelmän on uudistuttava niin, että se tuottaa jatkuvan oppimisen valmiuksia. Sosiaaliturvaa on kehitettävä vastaamaan pirstaloituneita työuria. Työelämän pelisääntöjä on mietittävä uudelleen. Ja mikä tärkeintä: meidän on käytävä yhteiskunnallista keskustelua siitä, millaista työelämää haluamme ja miten teknologia palvelee ihmistä, ei päinvastoin.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 269
+    },
+    "questions": [
+      {
+        "id": "e1daece8-b6b6-5086-ac3b-d4dcc983f512",
+        "prompt": "Mitä rutiininomaisia työtehtäviä automatisointi koskee?",
+        "options": [
+          "Vain teollisuuden töitä",
+          "Teollisuuden liukuhihnatöitä ja toimistotyön rutiineja",
+          "Vain asiantuntijatöitä",
+          "Vain palvelualan töitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "532403f7-4622-5d2f-bf74-0a28beb9514d",
+        "prompt": "Ketkä ovat vaarassa jäädä työmarkkinoiden ulkopuolelle?",
+        "options": [
+          "Korkeasti koulutetut",
+          "Matalasti koulutetut ja ikääntyvät työntekijät",
+          "Nuoret työntekijät",
+          "Kaikki työntekijät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f537a773-c9ff-5147-b261-26cd87532c35",
+        "prompt": "Mitä ongelmia työn pirstaloituminen aiheuttaa?",
+        "options": [
+          "Työntekijät saavat enemmän vapaa-aikaa",
+          "Epävarmuutta ja vaikeuksia suunnitella taloutta",
+          "Korkeampia palkkoja",
+          "Parempaa työhyvinvointia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "003de640-ebf3-51b9-ae84-ad82df6d1a01",
+        "prompt": "Mitä asiantuntijat ehdottavat ratkaisuiksi?",
+        "options": [
+          "Teknologian käytön lopettamista",
+          "Koulutusjärjestelmän uudistamista, sosiaaliturvan kehittämistä ja yhteiskunnallista keskustelua",
+          "Paluuta vanhoihin työnteon malleihin",
+          "Työajan lyhentämistä kaikilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

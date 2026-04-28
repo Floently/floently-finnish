@@ -1,0 +1,37 @@
+{
+  "id": "d04b89f8-2dfe-5ffb-bb35-0d134f552ee2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kirjastojen tarjota enemmän digitaalisia aineistoja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Kirjastojen digitaaliset aineistot"
+    },
+    "items": [
+      {
+        "id": "9556fde4-ea52-56c2-9dca-ed40a4d2bec8",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kirjastojen tarjota enemmän digitaalisia aineistoja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

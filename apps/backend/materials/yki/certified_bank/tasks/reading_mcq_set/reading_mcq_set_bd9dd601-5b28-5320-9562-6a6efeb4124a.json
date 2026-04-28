@@ -1,0 +1,110 @@
+{
+  "id": "bd9dd601-5b28-5320-9562-6a6efeb4124a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen koulutusjärjestelmä on kansainvälisesti tunnettu ja arvostettu. Sen menestyksen takana on useita tekijöitä, jotka yhdessä luovat toimivan kokonaisuuden. Yksi keskeisimmistä on koulutuksen tasa-arvo. Suomessa kaikilla lapsilla on oikeus laadukkaaseen koulutukseen asuinpaikasta tai perheen varallisuudesta riippumatta. Peruskoulu on kaikille yhteinen, ja se on maksutonta oppimateriaaleineen ja koululounaineen. Toinen tärkeä tekijä on opettajien korkea koulutus ja ammattitaito. Opettajilla on oltava maisterin tutkinto, ja he ovat arvostettuja ammattilaisia, joilla on paljon vapautta suunnitella opetustaan. Kolmas tekijä on luottamus. Viranomaiset luottavat kouluihin, koulut luottavat opettajiin, ja opettajat luottavat oppilaisiin. Tästä syystä testausta ja valvontaa on vähän. Neljäs tekijä on oppilaan hyvinvoinnin korostaminen. Koulussa on tärkeää, että oppilaalla on hyvä olla. Oppimisen iloa ja yhdessä tekemistä painotetaan kilpailun ja testaamisen sijaan. Viime vuosina suomalainen koulu on kohdannut uusia haasteita. Oppimistulokset ovat laskeneet hieman, ja erot koulujen välillä ovat kasvaneet. Oppilaiden hyvinvointiin liittyvät ongelmat, kuten koulu-uupumus ja mielenterveyden haasteet, ovat lisääntyneet. Myös maahanmuuttajataustaisten oppilaiden määrä on kasvanut, mikä asettaa uusia vaatimuksia opetukselle. Koulujärjestelmää kehitetään jatkuvasti vastaamaan näihin haasteisiin. Panostetaan muun muassa digitaalisiin taitoihin, tunnetaitoihin ja yrittäjyyteen.",
+      "word_count": 170
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yksi keskeisimmistä tekijöistä suomalaisen koulutuksen menestyksen takana?",
+        "options": [
+          "Koulujen välinen kilpailu.",
+          "Koulutuksen tasa-arvo ja maksuttomuus.",
+          "Oppilaiden jatkuva testaaminen.",
+          "Yksityiskoulujen suuri määrä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista koulutusta suomalaisilla opettajilla on?",
+        "options": [
+          "Ammattikoulututkinto.",
+          "Maisterin tutkinto.",
+          "Tohtorin tutkinto.",
+          "Pelkkä opettajankoulutus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin koulussa luotetaan?",
+        "options": [
+          "Vain viranomaisiin.",
+          "Viranomaiset luottavat kouluihin, koulut opettajiin, ja opettajat oppilaisiin.",
+          "Vain opettajiin.",
+          "Vain oppilaisiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi testausta ja valvontaa on vähän?",
+        "options": [
+          "Koska se on liian kallista.",
+          "Koska järjestelmässä vallitsee luottamus.",
+          "Koska se on tarpeetonta.",
+          "Koska oppilaat eivät halua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä koulussa painotetaan oppilaan hyvinvoinnin osalta?",
+        "options": [
+          "Kilpailua ja paremmuutta.",
+          "Oppimisen iloa ja yhdessä tekemistä.",
+          "Yksin puurtamista.",
+          "Arvosanoja ja kokeita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä haasteita suomalainen koulu kohtaa?",
+        "options": [
+          "Liian hyviä oppimistuloksia.",
+          "Oppimistulosten laskua, koulujen erojen kasvua ja oppilaiden hyvinvointiongelmia.",
+          "Liian vähän oppilaita.",
+          "Liian paljon rahaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mihin koulujärjestelmää kehitetään?",
+        "options": [
+          "Takaisin vanhaan malliin.",
+          "Digitaalisiin taitoihin, tunnetaitoihin ja yrittäjyyteen.",
+          "Vain ulkomaisten mallien mukaan.",
+          "Vain kokeiden lisäämiseen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "80fb3114-3abd-5e0e-a865-6b6f55c83811",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle, joka asuu ulkomailla. Kerro, että sinulla on ikävä häntä. Kerro uutisia Suomesta: sää on ollut kylmä ja lumisateinen. Kysy, mitä hänelle kuuluu ja milloin hän mahdollisesti tulee käymään Suomessa.",
+    "materials": {
+      "scenario": "Viesti ulkomailla asuvalle ystävälle"
+    },
+    "items": [
+      {
+        "id": "46339cb8-29db-59f8-b14d-74e8ae15a9e1",
+        "prompt": "Kirjoita lyhyt viesti ystävälle, joka asuu ulkomailla. Kerro, että sinulla on ikävä häntä. Kerro uutisia Suomesta: sää on ollut kylmä ja lumisateinen. Kysy, mitä hänelle kuuluu ja milloin hän mahdollisesti tulee käymään Suomessa."
+      }
+    ],
+    "rubric": "Kerro, että on ikävä\nKerro uutisia Suomesta\nKysy kuulumisia\nKysy vierailusuunnitelmista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "7403ec7a-f9bf-5409-a25b-026642c05845",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lähikaupat säilyttää vaikka ne ovat kalliimpia kuin hypermarketit?'. Arvioi palvelujen saavutettavuutta, elinvoimaisuutta ja kilpailua.",
+    "materials": {
+      "scenario": "Lähikauppojen säilyttäminen"
+    },
+    "items": [
+      {
+        "id": "64c5b386-cde4-51c7-8da6-9d1928740f81",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lähikaupat säilyttää vaikka ne ovat kalliimpia kuin hypermarketit?'. Arvioi palvelujen saavutettavuutta, elinvoimaisuutta ja kilpailua."
+      }
+    ],
+    "rubric": "Palvelujen saavutettavuus\nElinvoimaisuus\nKilpailu\nHinnat",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

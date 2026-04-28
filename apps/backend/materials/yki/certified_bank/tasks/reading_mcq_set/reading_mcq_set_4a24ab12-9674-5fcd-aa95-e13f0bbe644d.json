@@ -1,0 +1,99 @@
+{
+  "id": "4a24ab12-9674-5fcd-aa95-e13f0bbe644d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen koulutusjärjestelmä on herättänyt kansainvälistä kiinnostusta. Perusopetus kestää yhdeksän vuotta, ja sen jälkeen nuoret voivat hakeutua joko lukioon tai ammatilliseen koulutukseen. Lukiossa keskitytään yleissivistäviin aineisiin ja se valmistaa ylioppilastutkintoon, joka on pääsyvaatimus yliopistoihin. Ammatillinen koulutus antaa käytännön taitoja tiettyyn ammattiin, ja sen jälkeen voi jatkaa ammattikorkeakouluun. Suomalaisessa koulutuksessa painotetaan yksilöllisyyttä ja oppilaan tukemista. Opettajilla on oltava maisterin tutkinto, ja ammatti on arvostettu. Koulutus on maksutonta kaikilla asteilla peruskoulusta korkeakouluihin.",
+      "word_count": 69
+    },
+    "questions": [
+      {
+        "id": "73d9257d-47b4-5e77-8412-c6537adede9e",
+        "prompt": "Kuinka kauan perusopetus kestää Suomessa?",
+        "options": [
+          "kuusi vuotta",
+          "yhdeksän vuotta",
+          "kaksitoista vuotta",
+          "viisitoista vuotta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "67f5ad9d-750d-5f3f-9f4c-3847ea000dbb",
+        "prompt": "Mitä opiskelija voi tehdä peruskoulun jälkeen?",
+        "options": [
+          "mennä suoraan töihin",
+          "hakeutua lukioon tai ammatilliseen koulutukseen",
+          "mennä yliopistoon",
+          "aloittaa oppisopimuskoulutuksen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "633be878-fcfe-5afa-83b1-c327e3699a8c",
+        "prompt": "Mihin ylioppilastutkinto valmistaa?",
+        "options": [
+          "ammatillisiin opintoihin",
+          "yliopisto-opintoihin",
+          "työelämään",
+          "jatkokoulutukseen ulkomailla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d780d450-9f1c-54d6-8e39-d1ab55b4bb0f",
+        "prompt": "Millainen koulutusvaatimus opettajilla on Suomessa?",
+        "options": [
+          "kandidaatin tutkinto",
+          "maisterin tutkinto",
+          "tohtorin tutkinto",
+          "ammatillinen opettajatutkinto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8a0b8436-6177-5673-94f8-eda0d3a1025a",
+        "prompt": "Mitä suomalaisessa koulutuksessa painotetaan?",
+        "options": [
+          "kilpailua ja arvosanoja",
+          "yksilöllisyyttä ja oppilaan tukemista",
+          "ulkomaan vaihtoja",
+          "tarkkoja oppimäärävaatimuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "657cce0c-7b4f-5075-8b4e-ce460525029b",
+        "prompt": "Mitä koulutus maksaa Suomessa?",
+        "options": [
+          "peruskoulu on maksuton, mutta lukio maksaa",
+          "kaikki koulutus on maksutonta",
+          "vain peruskoulu ja lukio ovat maksuttomia",
+          "korkeakoulutus on maksullista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

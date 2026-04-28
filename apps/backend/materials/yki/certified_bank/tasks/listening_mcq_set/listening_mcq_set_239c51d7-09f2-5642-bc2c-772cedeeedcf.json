@@ -1,0 +1,88 @@
+{
+  "id": "239c51d7-09f2-5642-bc2c-772cedeeedcf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.692,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu laskusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, soitan koskien laskuani, jonka sain tänään. Mielestäni siinä on virhe. Asiakaspalvelija: Voin tarkistaa asian. Mikä on laskun numero? Asiakas: Laskun numero on 567890. Asiakaspalvelija: Hetki, tarkistan. Tämä lasku koskee puhelinliittymäänne. Mikä siinä on väärin? Asiakas: Minulla pitäisi olla nuorisoalennus, mutta sitä ei ole vähennetty. Lasku on 39,90 euroa, mutta minun pitäisi maksaa vain 29,90 euroa. Asiakaspalvelija: Näen tässä, että olette oikeutettu alennukseen, mutta se ei ole jostain syystä mennyt laskulle. Pahoittelen virhettä. Hyvitän sen nyt ja lähetän uuden laskun. Asiakas: Kiitos. Milloin saan uuden laskun? Asiakaspalvelija: Saatte sen sähköpostiinne parin päivän kuluessa. Uusi eräpäivä on laskun saapumisesta kahden viikon päästä. Asiakas: Selvä, kiitos avusta!",
+      "audio_asset_id": "27ae0ffd-6f6b-483f-8a2c-cab4cb702235"
+    },
+    "questions": [
+      {
+        "id": "l168q1",
+        "prompt": "Miksi asiakas soittaa asiakaspalveluun?",
+        "options": [
+          "Hän haluaa tilata uuden liittymän.",
+          "Hänen laskussaan on mielestä virhe.",
+          "Hän haluaa vaihtaa liittymää.",
+          "Hän haluaa kysyä uudesta tarjouksesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l168q2",
+        "prompt": "Mikä on laskun numero?",
+        "options": [
+          "567890.",
+          "123456.",
+          "789012.",
+          "345678."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l168q3",
+        "prompt": "Mikä alkuperäisessä laskussa on väärin?",
+        "options": [
+          "Nuorisoalennusta ei ole vähennetty.",
+          "Summa on liian pieni.",
+          "Laskun eräpäivä on väärä.",
+          "Lasku on maksettu jo."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l168q4",
+        "prompt": "Mitä asiakaspalvelija lupaa tehdä?",
+        "options": [
+          "Hyvittää alennuksen ja lähettää uuden laskun.",
+          "Perua laskun.",
+          "Lähettää uuden liittymän.",
+          "Soittaa takaisin myöhemmin."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l168q5",
+        "prompt": "Milloin uusi lasku saapuu?",
+        "options": [
+          "Parin päivän kuluessa.",
+          "Samana päivänä.",
+          "Viikon kuluttua.",
+          "Kahden viikon kuluttua."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

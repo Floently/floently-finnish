@@ -1,0 +1,88 @@
+{
+  "id": "aa870069-68ad-597f-b586-e16583516d52",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiakaspalvelutilanne ja valitse oikea vastaus.",
+    "materials": {
+      "transcript": "Asiakas: Hei, soittelen koskien laskuani, joka erääntyi pari päivää sitten. En ole saanut maksettua sitä vielä, koska olin ulkomailla. Asiakaspalvelija: Ei se mitään, ymmärrän. Voin tarkistaa tilanteen. Minkäs laskun numero se on? Asiakas: Hetkinen, se on 12345. Asiakaspalvelija: Kiitos. Katsotaan. Oletteko jo kirjautunut verkkopankkiin? Asiakas: En ole, mutta voin maksaa sen vaikka heti. Asiakaspalvelija: Hyvä. Minä laitan siitä muistutuksen, ja jos maksatte tänään, mitään lisäkuluja ei tule. Muistathan jatkossa laittaa suoramaksun, niin vältyt vastaavilta tilanteilta. Asiakas: Kiitos neuvosta, minäpä laitan.",
+      "audio_asset_id": "da1a6ec4-5670-4ac3-8755-a6e41b669c1e"
+    },
+    "questions": [
+      {
+        "id": "6cb37cb4-17b8-5c39-b0ca-b53c885b54e2",
+        "prompt": "Miksi asiakas soittaa asiakaspalveluun?",
+        "options": [
+          "Hän haluaa tilata uuden tuotteen.",
+          "Hänen laskunsa on erääntynyt.",
+          "Hän ei ole saanut laskua.",
+          "Hän haluaa vaihtaa maksutapaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ee7dfd3e-c835-592d-a9bb-1f7c8e021120",
+        "prompt": "Miksi asiakas ei ole maksanut laskua ajoissa?",
+        "options": [
+          "Hänellä ei ole ollut rahaa.",
+          "Hän on ollut ulkomailla.",
+          "Hän on unohtanut koko laskun.",
+          "Lasku on hukkunut postissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f42e8cba-2839-5513-bc12-64e8aaa2a111",
+        "prompt": "Mikä on laskun numero?",
+        "options": [
+          "12345.",
+          "54321.",
+          "54321.",
+          "12354."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "c698dcae-cf41-503d-bf65-512966a0f17e",
+        "prompt": "Mitä asiakaspalvelija neuvoo asiakasta tekemään tulevaisuudessa?",
+        "options": [
+          "Maksamaan laskut käteisellä.",
+          "Laittamaan suoramaksun.",
+          "Soittamaan aina ennen eräpäivää.",
+          "Tilaamaan paperittoman laskun."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "582d97ae-57f7-5b93-9899-db970dbf762a",
+        "prompt": "Mitä seurauksia maksamisella tänään on?",
+        "options": [
+          "Lisäkuluja ei tule.",
+          "Laskuun tulee pieni korko.",
+          "Maksu on kaksinkertainen.",
+          "Asiakas saa hyvityksen."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

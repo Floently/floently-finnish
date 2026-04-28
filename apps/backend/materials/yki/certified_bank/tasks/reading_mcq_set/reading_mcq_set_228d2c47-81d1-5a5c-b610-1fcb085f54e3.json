@@ -1,0 +1,77 @@
+{
+  "id": "228d2c47-81d1-5a5c-b610-1fcb085f54e3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.787,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Tulevaisuuden työelämää koskeva keskustelu on pitkään keskittynyt teknologian murrokseen, automaatioon ja tekoälyn vaikutuksiin. Yhä enemmän huomiota on kuitenkin alettu kiinnittää toiseen, yhtä merkittävään muutosvoimaan: työn merkityksellisyyden kokemuksen muuttumiseen. Perinteisesti työ on nähty ensisijaisesti toimeentulon lähteenä, ja työpaikan valintaa ovat ohjanneet pitkälti taloudelliset tekijät. Tämä ei ole kadonnut, mutta rinnalle on noussut vahvemmin kysymys työn merkityksellisyydestä. Erityisesti nuoremmat sukupolvet odottavat työltä muutakin: he haluavat kokea tekevänsä jotain tärkeää, voivansa kehittyä ja toteuttaa itseään sekä tehdä työtä, joka on linjassa heidän arvojensa kanssa. Tämä kehitys heijastaa laajempaa yhteiskunnallista muutosta, jossa yksilöllisyyden ja itsensä toteuttamisen merkitys on korostunut. Se asettaa uudenlaisia haasteita työnantajille, joiden on kyettävä tarjoamaan työntekijöilleen merkityksellisiä tehtäviä, kehittymismahdollisuuksia ja arvojen mukainen työyhteisö. Toisaalta työn merkityksellisyyden korostuminen voi myös lisätä paineita. Jos työ ei vastaakaan odotuksia, se voi johtaa pettymyksiin ja turhautumiseen. On myös riski, että merkityksellisyyden tavoittelusta tulee uusi suorittamisen muoto. Työnantajat voivat luoda puitteita merkityksellisyyden kokemukselle, mutta lopullinen kokemus on aina yksilöllinen. Tulevaisuuden työelämässä menestyvät ne organisaatiot, jotka kykenevät yhdistämään taloudellisen tehokkuuden ja inhimilliset tarpeet. Ne ymmärtävät, että työntekijät eivät ole pelkkiä resursseja, vaan ihmisiä, joilla on tarve kokea työnsä merkitykselliseksi.",
+      "word_count": 182
+    },
+    "questions": [
+      {
+        "id": "aa9faad8-bebc-5037-89b6-0e65b30e5214",
+        "prompt": "Mikä on tekstin keskeinen väite työelämän muutoksesta?",
+        "options": [
+          "Teknologian murros on ainoa merkittävä työelämää muuttava tekijä",
+          "Työn merkityksellisyyden kokemus on nousemassa yhä tärkeämmäksi tekijäksi perinteisten taloudellisten motiivien rinnalle",
+          "Nuoret sukupolvet eivät ole kiinnostuneita työstä eivätkä toimeentulosta",
+          "Työnantajien ei tarvitse kiinnittää huomiota työntekijöiden arvoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d3022292-803b-5fc5-8d1d-da4131cc99f4",
+        "prompt": "Tekstin mukaan mitä nuoremmat sukupolvet odottavat työltä perinteisten taloudellisten tekijöiden lisäksi?",
+        "options": [
+          "Mahdollisuutta tehdä vähemmän työtä ja saada korkeampaa palkkaa",
+          "Mahdollisuutta tehdä jotain tärkeää, kehittyä, toteuttaa itseään ja työskennellä arvojensa mukaisesti",
+          "Täydellistä vapautta valita työaikansa ja -paikkansa ilman minkäänlaista johtamista",
+          "Varmuutta siitä, että työsuhde on voimassa eläkkeelle saakka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d7a758ff-5641-5772-b163-abef6ee390ee",
+        "prompt": "Mitä haasteita työn merkityksellisyyden korostuminen voi tekstin mukaan aiheuttaa?",
+        "options": [
+          "Se vähentää työntekijöiden motivaatiota ja sitoutumista, koska odotukset ovat liian korkealla",
+          "Se voi lisätä paineita, pettymyksiä ja turhautumista, jos työ ei vastaakaan odotuksia",
+          "Se tekee työnantajien tehtävästä helpompaa, koska työntekijät motivoituvat itsestään",
+          "Se vähentää tarvetta johtamiselle ja esimiestyölle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "af958968-e7cc-5f0e-8a34-5522c69ea9f8",
+        "prompt": "Mitä tekstissä sanotaan työnantajien roolista työn merkityksellisyyden kokemuksen synnyssä?",
+        "options": [
+          "Työnantajat voivat määrätä, mikä työntekijöille on merkityksellistä",
+          "Työnantajilla ei ole mitään roolia, sillä merkityksellisyys on täysin yksilön sisäinen kokemus",
+          "Työnantajat voivat luoda puitteita merkityksellisyyden kokemukselle, mutta itse kokemus on yksilöllinen",
+          "Työnantajien tulee keskittyä vain taloudelliseen tehokkuuteen ja unohtaa työntekijöiden henkilökohtaiset tarpeet"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "78cb557b-c8a0-58a1-8c79-ebffeba56efc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kuntosalilla on nyt uusia laitteita. Laitteet ovat moderneja ja helppokäyttöisiä. Salille on myös hankittu uusia painoja ja kahvakuulia. Ohjaajat neuvovat mielellään laitteiden käytössä. Kuntosalilla on myös uusi varausjärjestelmä. Sillä voi varata ajan etukäteen ja varmistaa, ettei sali ole liian täynnä.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kuntosalilla on uutta?",
+        "options": [
+          "Uusi kahvio",
+          "Uusia laitteita",
+          "Uusi pukuhuone",
+          "Uusi sauna"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaisia uudet laitteet ovat?",
+        "options": [
+          "Vanhoja ja hankalia",
+          "Moderneja ja helppokäyttöisiä",
+          "Kalliita ja vaarallisia",
+          "Yksinkertaisia ja tylsää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä muuta uutta salille on hankittu?",
+        "options": [
+          "Uusia mattoja ja pyyhkeitä",
+          "Uusia painoja ja kahvakuulia",
+          "Uusia juomapulloja",
+          "Uusia urheiluvaatteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ohjaajat tekevät mielellään?",
+        "options": [
+          "Myyvät kahvia",
+          "Neuvovat laitteiden käytössä",
+          "Siivoavat salia",
+          "Pitävät taukoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on uusi varausjärjestelmä?",
+        "options": [
+          "Sillä voi ostaa lippuja",
+          "Sillä voi varata ajan etukäteen",
+          "Sillä voi tilata juomia",
+          "Sillä voi soittaa ohjaajalle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä varausjärjestelmällä voi varmistaa?",
+        "options": [
+          "Että saa henkilökohtaisen ohjaajan",
+          "Että sali ei ole liian täynnä",
+          "Että hinnat ovat halvempia",
+          "Että saa ilmaisen kahvin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

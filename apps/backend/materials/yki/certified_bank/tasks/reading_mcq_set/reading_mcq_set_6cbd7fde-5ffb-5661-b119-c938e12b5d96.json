@@ -1,0 +1,73 @@
+{
+  "id": "6cbd7fde-5ffb-5661-b119-c938e12b5d96",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan ilmoitus työmatkaliikunnasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TULE TÖIHIN PYÖRÄLLÄ – KAMPANJA 2025\n\nHaluamme kannustaa henkilöstöämme kestävään liikkumiseen ja samalla parantaa työhyvinvointia. Siksi käynnistämme syyskuussa työmatkaliikuntakampanjan.\n\nKampanja-aika: 1.9.–30.11.2025\n\nKampanjaan voivat osallistua kaikki työntekijät, jotka kulkevat työmatkat pyörällä, kävellen tai julkisilla liikennevälineillä. Myös kimppakyydit lasketaan.\n\nPalkinnot:\n- Eniten työmatkoja liikkuva saa 200 euron lahjakortin urheiluliikkeeseen.\n- Satunnaisarvonnassa jaetaan viisi 50 euron lahjakorttia kahviloihin.\n- Jokainen osallistuja saa yrityksen logolla varustetun heijastimen.\n\nSeuranta:\nKirjaa työmatkasi kampanjasivulle. Jokainen yli 2 km:n matka lasketaan. Tarkemmat ohjeet saat HR:stä.\n\nTyösuhdepyöräetu:\nMuistutamme myös, että meillä on käytössä työsuhdepyöräetu. Voit hankkia itsellesi uuden pyörän verottomasti osana palkkaasi. Lisätietoja HR-järjestelmässä.\n\nTurvallisuus:\nKäytä aina kypärää ja heijastinta. Muista myös pyörän valot pimeällä.\n\nLisätietoja: tyohyvinvointi@yritys.fi\n\nHyviä työmatkoja!",
+      "word_count": 110
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mikä on kampanjan tavoite?",
+        "options": [
+          "vähentää työmatkoja",
+          "kannustaa kestävään liikkumiseen ja parantaa työhyvinvointia",
+          "lisätä autolla ajoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Kuinka kauan kampanja kestää?",
+        "options": [
+          "1.9.–30.10.",
+          "1.9.–30.11.",
+          "1.10.–31.12."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä saa eniten työmatkoja liikkunut?",
+        "options": [
+          "50 euron lahjakortin",
+          "200 euron lahjakortin",
+          "heijastimen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä työsuhdepyöräetu tarkoittaa?",
+        "options": [
+          "saa ilmaisen pyörän",
+          "saa pyörän verottomasti osana palkkaa",
+          "saa alennusta pyöräliikkeistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

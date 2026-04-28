@@ -1,0 +1,77 @@
+{
+  "id": "e405a38f-497c-54fd-894b-d412bc150cfb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.767,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KULUTUSYHTEISKUNNAN PARADOKSIT\n\nLänsimainen yhteiskunta on rakentunut kulutuksen varaan. Talouskasvu, työllisyys ja hyvinvointi ovat pitkälti riippuvaisia siitä, että ihmiset kuluttavat. Samalla kulutuksen ympäristövaikutukset ovat nousseet keskeiseksi huolenaiheeksi. Tämä luo paradoksaalisen tilanteen: tarvitsemme kulutusta talouden ylläpitämiseksi, mutta se on pitkällä aikavälillä kestämätöntä.\n\nYksi paradoksi liittyy onnellisuuteen. Kulutus mielletään usein tieksi hyvään elämään. Tutkimukset kuitenkin osoittavat, että tietyn perustason jälkeen materiaalinen hyvinvointi ei enää lisää onnellisuutta. Päinvastoin, jatkuva haluaminen ja vertailu voivat aiheuttaa stressiä ja riittämättömyyden tunnetta.\n\nToinen paradoksi koskee ajan ja rahan suhdetta. Ajan säästämiseen tähtäävät tuotteet ja palvelut ovat valtava liiketoiminta. Samalla ihmiset kokevat olevansa aikapulassa enemmän kuin koskaan. Teknologian piti vapauttaa aikaa, mutta se on pikemminkin täyttänyt sen.\n\nKolmas paradoksi liittyy yksilön ja yhteiskunnan vastuuseen. Toisaalta korostetaan yksilön valinnanvapautta ja vastuuta kestävistä valinnoista. Toisaalta suurin osa kulutuksen ympäristövaikutuksista on rakenteellisia – energiajärjestelmistä, liikennejärjestelmistä, teollisesta tuotannosta – joihin yksilö voi vaikuttaa vain rajallisesti.\n\nNeljäs paradoksi on kierrätyksen illuusio. Kierrätys on tärkeää, mutta se ei vähennä kulutuksen määrää. Kierrätys voi jopa luoda luvan kuluttaa enemmän. Todellinen muutos edellyttäisi kulutuksen vähentämistä ja tuotteiden pitkäikäisyyttä.\n\nViides paradoksi koskee globaalia oikeudenmukaisuutta. Länsimaiden korkea kulutustaso perustuu pitkälti kehitysmaiden luonnonvarojen hyödyntämiseen ja halpatuotantoon. Ilmastonmuutoksen vaikutukset kohdistuvat pahiten köyhiin maihin. Tämä on syvästi epäoikeudenmukaista.\n\nTulevaisuudessa tarvitaan uudenlaista ajattelua, joka ylittää nämä paradoksit. Se edellyttää siirtymää omistamisesta käyttöoikeuksiin, kiertotaloutta, tuotteiden pitkäikäisyyttä ja uudenlaisia hyvinvoinnin mittareita.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 249
+    },
+    "questions": [
+      {
+        "id": "9bf65d4f-5254-5b55-b3ee-76bf77c695f1",
+        "prompt": "Mitä kulutuksen ja onnellisuuden paradoksi tarkoittaa?",
+        "options": [
+          "Kulutus tekee aina onnelliseksi",
+          "Tietyn tason jälkeen lisäkulutus ei enää lisää onnellisuutta",
+          "Köyhät ovat onnellisempia",
+          "Kulutus ja onnellisuus eivät liity toisiinsa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "da02bc12-072f-5ce7-877b-bcac5078a639",
+        "prompt": "Miten teksti kuvaa ajan ja rahan suhdetta?",
+        "options": [
+          "Ihmisillä on nykyään enemmän aikaa",
+          "Ajan säästämiseen tarkoitetut tuotteet eivät ole säästäneet aikaa, vaan ihmiset kokevat aikapulaa",
+          "Raha säästää aina aikaa",
+          "Teknologia on ratkaissut aikapulan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "904821fb-f363-5020-8be2-2b42aec2ade4",
+        "prompt": "Mitä ongelmaa yksilön vastuun korostamisessa on?",
+        "options": [
+          "Yksilöt eivät halua tehdä mitään",
+          "Suuri osa päästöistä on rakenteellisia, joihin yksilö ei voi vaikuttaa",
+          "Yksilön vastuu on liian suuri",
+          "Yksilön teoilla ei ole merkitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e01b48a7-679a-58c2-8f2c-aaa40a15017e",
+        "prompt": "Mitä kierrätyksen paradoksilla tarkoitetaan?",
+        "options": [
+          "Kierrätys ei vähennä kulutuksen määrää ja voi jopa lisätä sitä",
+          "Kierrätys on turhaa",
+          "Kierrätys on liian kallista",
+          "Kierrätys toimii vain harvoissa maissa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

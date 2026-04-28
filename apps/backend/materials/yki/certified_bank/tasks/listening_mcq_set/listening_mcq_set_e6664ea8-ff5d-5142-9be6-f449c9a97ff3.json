@@ -1,0 +1,77 @@
+{
+  "id": "e6664ea8-ff5d-5142-9be6-f449c9a97ff3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.768,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele väittely energiapolitiikasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Hyvää iltaa ja tervetuloa Energia-illan väittelyyn. Tänään keskustelemme siitä, pitäisikö Suomeen rakentaa uutta ydinvoimaa. Vastakkain ovat ydinvoiman kannattaja, energiayhtiön johtaja Mikko Mäkelä, ja ydinvoiman vastustaja, ympäristöjärjestön edustaja Laura Virtanen.\n\nPuheenjohtaja: Aloitetaan teistä, Mikko Mäkelä. Miksi Suomi tarvitsee uutta ydinvoimaa?\n\nMäkelä: Kiitos. Suomi on sitoutunut hiilineutraaliuteen vuoteen 2035 mennessä. Sähkön tarve kasvaa valtavasti, kun liikenne sähköistyy, teollisuus siirtyy pois fossiilisista ja datakeskukset lisääntyvät. Tuuli- ja aurinkovoima ovat tärkeitä, mutta ne ovat säästä riippuvaisia. Tarvitaan perusvoimaa, joka toimii joka hetki, tuulee tai ei. Ydinvoima on hiilidioksidivapaata, vakaa ja turvallista. Teknologia on kehittynyt, ja uudet reaktorit ovat turvallisempia kuin koskaan.\n\nPuheenjohtaja: Laura Virtanen, miksi vastustatte ydinvoimaa?\n\nVirtanen: Ydinvoima on vanhanaikaista ja kallista. Uusien reaktorien rakentaminen kestää vuosikymmeniä ja maksaa miljardeja. Samalla rahalla saataisiin valtavasti uusiutuvaa energiaa. Ydinvoima tuottaa myös pitkäikäistä ydinjätettä, jonka loppusijoitus on ratkaisematon ongelma. Meidän pitäisi panostaa tuulivoimaan, aurinkovoimaan, energian varastointiin ja älykkäisiin sähköverkkoihin. Ne ovat nopeita rakentaa, niiden hinta laskee koko ajan, ja ne ovat turvallisia.\n\nPuheenjohtaja: Mäkelä, mitä vastaatte ydinjätteen ongelmaan?\n\nMäkelä: Suomi on maailman kärkeä ydinjätteen loppusijoituksessa. Olkiluotoon on rakennettu Onkalo, joka on ratkaisu tähän ongelmaan. Jäte saadaan turvallisesti kallioperään tuhansiksi vuosiksi. Tämä on tutkitusti toimiva ratkaisu. Ja kun verrataan uusiutuvien energiamuotojen elinkaaripäästöjä, ydinvoima on niidenkin kanssa kilpailukykyinen.\n\nPuheenjohtaja: Virtanen, entä turvallisuus?\n\nVirtanen: Fukushiman onnettomuus osoitti, että ydinvoimalat eivät ole sataprosenttisen turvallisia. Onnettomuuden seuraukset ovat katastrofaaliset, ja ne vaikuttavat sukupolvien ajan. Myös terrorismin uhka on todellinen. Ydinvoimalat ovat mahdollisia kohteita. Uusiutuvat energiamuodot ovat hajautettuja, eikä niihin liity samanlaisia riskejä.\n\nPuheenjohtaja: Mäkelä, mitä sanotte uusiutuvien nopeasta kehityksestä?\n\nMäkelä: Uusiutuvat ovat tärkeitä, eikä kukaan kiistä niiden merkitystä. Mutta ne eivät yksin riitä. Tarvitaan monipuolinen energiapaletti: ydinvoimaa, vesivoimaa, tuulta, aurinkoa, bioenergiaa. Mikään yksittäinen energiamuoto ei ratkaise kaikkea. Ja kun katsotaan kokonaisuutta, ydinvoiman elinkaaripäästöt ovat erittäin pienet, se on vakaa ja se luo pitkäaikaisia työpaikkoja.\n\nPuheenjohtaja: Virtanen, viimeinen sana teille.\n\nVirtanen: Tulevaisuus on uusiutuvassa energiassa ja energiatehokkuudessa. Meidän pitäisi panostaa älykkäisiin sähköverkkoihin, energian varastointiin ja kulutuksen joustoon. Ydinvoima on menneisyyttä, ja joka euro, joka sijoitetaan ydinvoimaan, on pois oikeasta vihreästä siirtymästä.\n\nMäkelä: Tulevaisuus tarvitsee kaikkia vähäpäästöisiä energiamuotoja. Ydinvoima on osa ratkaisua, ei ongelma.\n\nPuheenjohtaja: Kiitos molemmille.",
+      "audio_asset_id": "2598acf5-1279-559e-abb5-032197feb5ed"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi Mikko Mäkelä kannattaa ydinvoimaa?",
+        "options": [
+          "Se on halpaa",
+          "Se on vakaa, hiilidioksidivapaa perusvoima, joka toimii sääolosuhteista riippumatta",
+          "Se on helppo rakentaa",
+          "Se on suosittua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä perusteluja Laura Virtanen käyttää ydinvoimaa vastaan?",
+        "options": [
+          "Se on liian tehokasta",
+          "Se on vanhanaikaista, kallista, tuottaa pitkäikäistä jätettä ja on turvallisuusriski",
+          "Se on rumaa",
+          "Se vie liikaa tilaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten Mäkelä vastaa ydinjätteen ongelmaan?",
+        "options": [
+          "Se ei ole ongelma",
+          "Suomessa on Onkalo, joka on tutkittu ratkaisu loppusijoitukseen",
+          "Jäte viedään ulkomaille",
+          "Sitä ei tarvitse käsitellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä Virtanen ehdottaa ydinvoiman sijasta?",
+        "options": [
+          "Fossiilisia polttoaineita",
+          "Tuulivoimaa, aurinkovoimaa, energian varastointia ja älykkäitä sähköverkkoja",
+          "Lisää vesivoimaa",
+          "Energian säästöä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

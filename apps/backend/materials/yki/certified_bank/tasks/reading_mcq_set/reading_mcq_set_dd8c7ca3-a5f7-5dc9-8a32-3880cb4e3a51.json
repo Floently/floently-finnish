@@ -1,0 +1,73 @@
+{
+  "id": "dd8c7ca3-a5f7-5dc9-8a32-3880cb4e3a51",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.578,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti lähiluonnon merkityksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähiluonto on noussut viime vuosina keskeiseksi teemaksi kaupunkisuunnittelussa ja hyvinvointikeskustelussa. Sen on todettu vaikuttavan myönteisesti sekä fyysiseen että psyykkiseen terveyteen, mutta samalla siihen liittyy monia ulottuvuuksia, jotka ansaitsevat tarkempaa tarkastelua.\n\nEnsinnäkin lähiluonnon terveysvaikutukset on dokumentoitu laajasti. Jo lyhyt oleskelu puistossa tai metsässä laskee stressitasoja, alentaa verenpainetta ja parantaa mielialaa. Tämä ei ole vain subjektiivinen kokemus, vaan mitattavissa oleva fysiologinen vaste. Säännöllinen luonnossa liikkuminen vähentää myös riskiä sairastua moniin kansantauteihin.\n\nToiseksi lähiluonto edistää sosiaalista hyvinvointia. Puistot ja muut viheralueet ovat kohtaamispaikkoja, joissa ihmiset tapaavat naapureitaan ja viettävät aikaa yhdessä. Tämä vahvistaa yhteisöllisyyttä ja vähentää yksinäisyyttä. Erityisen tärkeää tämä on tiiviisti rakennetuissa kaupunginosissa, joissa omat pihat ovat pieniä tai niitä ei ole.\n\nKolmanneksi lähiluonto tarjoaa mahdollisuuksia fyysiseen aktiivisuuteen. Lenkkipolut, ulkokuntosalit ja ladut kannustavat liikkumaan. Tämä on tärkeää, koska istuva elämäntapa on yksi merkittävimmistä terveysuhista. Kun liikkumisen mahdollisuudet ovat lähellä, kynnys lähteä liikkeelle on matalampi.\n\nNeljänneksi lähiluonto on tärkeä oppimisympäristö. Lapset ja nuoret oppivat luonnossa havainnoimaan, tutkimaan ja ymmärtämään ekologisia yhteyksiä. Luonto tarjoaa elämyksiä ja seikkailuja, joita ei voi korvata ruudun äärellä. Samalla se opettaa kunnioittamaan ympäristöä.\n\nKriitikot huomauttavat, että kaikilla ei ole yhtäläistä pääsyä laadukkaaseen lähiluontoon. Tämä on ympäristöoikeudenmukaisuuden kysymys. Hyvätuloisilla alueilla on usein enemmän ja paremmin hoidettuja viheralueita kuin matalan tulotason alueilla. Tämä voi lisätä terveyseroja.\n\nToinen haaste on luonnon monimuotoisuuden säilyttäminen. Viheralueiden suunnittelussa on otettava huomioon myös ekologiset arvot. Pelkkä nurmikko ja yksittäiset puut eivät riitä, vaan tarvitaan monimuotoista kasvillisuutta, joka tarjoaa elinympäristön hyönteisille ja linnuille.\n\nLopuksi voidaan todeta, että lähiluonto on investointi, joka maksaa itsensä takaisin moninkertaisesti. Se ei ole vain kaunis lisä, vaan olennainen osa toimivaa ja terveellistä kaupunkia. Päätöksentekijöiden olisi syytä ottaa tämä vakavasti ja turvata viheralueiden riittävyys myös tiivistyvässä kaupungissa.",
+      "word_count": 274
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä terveysvaikutuksia lähiluonnolla on tekstin mukaan?",
+        "options": [
+          "vain fyysisiä",
+          "fyysisiä ja psyykkisiä, kuten stressin laskua ja mielialan paranemista",
+          "vain psyykkisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Miten lähiluonto edistää sosiaalista hyvinvointia?",
+        "options": [
+          "se on hyvä paikka olla yksin",
+          "se tarjoaa kohtaamispaikkoja ja vahvistaa yhteisöllisyyttä",
+          "se on aina täynnä ihmisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä ympäristöoikeudenmukaisuuden ongelmaa teksti nostaa esiin?",
+        "options": [
+          "luonto on vain rikkaiden käytössä",
+          "hyvätuloisilla alueilla on usein enemmän viheralueita",
+          "köyhät eivät pidä luonnosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä vaatimuksia luonnon monimuotoisuus asettaa viheralueille?",
+        "options": [
+          "vain nurmikkoa ja puita",
+          "monimuotoista kasvillisuutta, joka tarjoaa elinympäristön eläimille",
+          "ei mitään erityistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

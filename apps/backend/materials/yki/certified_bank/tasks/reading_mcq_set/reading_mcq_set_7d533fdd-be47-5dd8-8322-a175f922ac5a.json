@@ -1,0 +1,66 @@
+{
+  "id": "7d533fdd-be47-5dd8-8322-a175f922ac5a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LEIKKIPUISTON SÄÄNNÖT\n\nLeikkipuisto on avoinna klo 8–21. Puisto on tarkoitettu alle 12-vuotiaille lapsille. Vanhemmat vastaavat lapsistaan. Koiria ei saa tuoda puistoon. Roskat pitää laittaa roskikseen. Kiitos!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin asti leikkipuisto on auki?",
+        "options": [
+          "A) klo 20",
+          "B) klo 21",
+          "C) klo 22",
+          "D) klo 23"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kenelle leikkipuisto on tarkoitettu?",
+        "options": [
+          "A) aikuisille",
+          "B) alle 12-vuotiaille lapsille",
+          "C) yli 12-vuotiaille",
+          "D) koirille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Saa koiria tuoda leikkipuistoon?",
+        "options": [
+          "A) Kyllä",
+          "B) Vain pieniä koiria",
+          "C) Ei",
+          "D) Vain aamulla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

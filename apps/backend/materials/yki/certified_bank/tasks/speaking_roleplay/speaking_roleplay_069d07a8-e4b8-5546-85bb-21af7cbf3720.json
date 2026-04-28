@@ -1,0 +1,64 @@
+{
+  "id": "069d07a8-e4b8-5546-85bb-21af7cbf3720",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa varata ajan hammaslääkärille. Keskustele hammashoitolan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Hammashoitolan vastaanotto"
+      }
+    },
+    "items": [
+      {
+        "id": "srp39_1",
+        "ai_first_turn_fi": "Hei, Hammashoitola Hymy."
+      },
+      {
+        "id": "srp39_2",
+        "ai_first_turn_fi": "Totta kai. Mikä vaivaa?"
+      },
+      {
+        "id": "srp39_3",
+        "ai_first_turn_fi": "Onko kipu jatkuvaa vai tuleeko se syödessä?"
+      },
+      {
+        "id": "srp39_4",
+        "ai_first_turn_fi": "Ymmärrän. Päivystysaikoja on tänään kello 15 ja huomenna kello 9. Kumman haluat?"
+      },
+      {
+        "id": "srp39_5",
+        "ai_first_turn_fi": "Selvä, varataan tänään kello 15. Oletko käynyt meillä aiemmin?"
+      },
+      {
+        "id": "srp39_6",
+        "ai_first_turn_fi": "Hyvä. Tarvitsen nimesi ja henkilötunnuksesi."
+      },
+      {
+        "id": "srp39_7",
+        "ai_first_turn_fi": "Kiitos. Muistathan ottaa Kela-kortin mukaan. Nähdään kello 15!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa varata ajan hammaslääkärille. Keskustele hammashoitolan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

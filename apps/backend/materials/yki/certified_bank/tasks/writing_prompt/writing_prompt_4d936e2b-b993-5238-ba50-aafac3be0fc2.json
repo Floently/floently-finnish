@@ -1,0 +1,37 @@
+{
+  "id": "4d936e2b-b993-5238-ba50-aafac3be0fc2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö vanhusten lääkityksen säännöllistä arviointia lisätä yhteiskunnan kustannuksella?'. Arvioi terveysvaikutuksia, kustannuksia ja elämänlaatua.",
+    "materials": {
+      "scenario": "Vanhusten lääkityksen arviointi"
+    },
+    "items": [
+      {
+        "id": "137fc8f0-3c5c-565a-b813-f61c3ca0f2ff",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö vanhusten lääkityksen säännöllistä arviointia lisätä yhteiskunnan kustannuksella?'. Arvioi terveysvaikutuksia, kustannuksia ja elämänlaatua."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nKustannukset\nElämänlaatu\nEnnaltaehkäisy",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

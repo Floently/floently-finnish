@@ -1,0 +1,77 @@
+{
+  "id": "c98deb3e-3236-5766-bee1-2535f1dee4fd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiakkaan puhelu ravintolaan ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Työntekijä: Ravintola Pizzeria, päivää!\nAsiakas: Päivää, haluaisin tilata ruokaa.\nTyöntekijä: Joo, kerro toiveet.\nAsiakas: Yksi kebab-annos ja yksi pizza, kinkku-herkkusieni.\nTyöntekijä: Tuliko muuta?\nAsiakas: Kaksi cola-light.\nTyöntekijä: Osoite?\nAsiakas: Mäntykatu 5 B 12.\nTyöntekijä: Toimitusaika on noin 45 minuuttia. Maksu käteisellä tai kortilla.\nAsiakas: Käy hyvin. Kiitos!\nTyöntekijä: Kiitos tilauksesta!",
+      "audio_asset_id": "75df55c2-824e-4f65-8ca5-4eaa990dd20e"
+    },
+    "questions": [
+      {
+        "id": "c1289a14-3cb8-52df-af62-e3abacfbb256",
+        "prompt": "Mitä asiakas tilaa?",
+        "options": [
+          "vain pizzan",
+          "vain kebabin",
+          "kebabin ja pizzan",
+          "vain salaatin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a0a1d1e0-b504-5021-bbda-8e8e5ae8c005",
+        "prompt": "Mitä pizzaa asiakas haluaa?",
+        "options": [
+          "tonnikala",
+          "kinkku-herkkusieni",
+          "pekoni",
+          "juusto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "89f4ce9e-043d-52ae-879e-b691021a4fcd",
+        "prompt": "Mitä juomaa asiakas tilaa?",
+        "options": [
+          "vettä",
+          "colan",
+          "kaksi cola-light",
+          "mehua"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "48a653fa-13eb-50b5-8902-b1ad5111b5cc",
+        "prompt": "Kuinka pitkä toimitusaika on?",
+        "options": [
+          "20 minuuttia",
+          "30 minuuttia",
+          "45 minuuttia",
+          "60 minuuttia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

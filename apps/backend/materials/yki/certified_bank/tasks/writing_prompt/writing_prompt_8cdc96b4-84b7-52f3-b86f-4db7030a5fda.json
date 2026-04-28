@@ -1,0 +1,37 @@
+{
+  "id": "8cdc96b4-84b7-52f3-b86f-4db7030a5fda",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.505,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uuden auton jälleenmyyjälle.",
+    "materials": {
+      "scenario": "Kysy huolto-ohjelmasta ja takuusta"
+    },
+    "items": [
+      {
+        "id": "c80cfd79-bb7c-5bbe-b8cf-aa0e91c3dab3",
+        "prompt": "Olet ostanut uuden auton ja haluat tietää huolto-ohjelmasta tarkemmin. Kirjoita sähköposti ja kysy, milloin ensimmäinen huolto on ja mitä takuu kattaa. Kysy myös, miten toimit, jos autossa ilmenee ongelmia."
+      }
+    ],
+    "rubric": "Olet ostanut uuden auton ja haluat tietää huolto-ohjelmasta tarkemmin. Kirjoita sähköposti ja kysy, milloin ensimmäinen huolto on ja mitä takuu kattaa. Kysy myös, miten toimit, jos autossa ilmenee ongelmia.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

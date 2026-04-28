@@ -1,0 +1,77 @@
+{
+  "id": "96208b97-4792-50e4-882a-b8b352137bf1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele päiväkodin tiedote vanhemmille ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät vanhemmat! Päiväkoti on kiinni keskiviikkona 6.6. henkilökunnan koulutuspäivän vuoksi. Torstaina 7.6. päiväkoti on auki normaalisti. Muistathan ilmoittaa lapsen poissaoloista edellisenä päivänä kello 16 mennessä. Kesäkuussa päiväkoti on auki vain kello 7–17. Tiedotamme muutoksista tarkemmin myöhemmin.",
+      "audio_asset_id": "71fb1753-838b-4d4d-9171-0fc912db7abd"
+    },
+    "questions": [
+      {
+        "id": "2889bf97-854f-5d24-bd81-3bc179da071b",
+        "prompt": "Miksi päiväkoti on kiinni keskiviikkona?",
+        "options": [
+          "remontin takia",
+          "henkilökunnan koulutuksen takia",
+          "sähkökatkon takia",
+          "lomien takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "64ccd50e-2045-55c9-9121-5f8d8ec9f4df",
+        "prompt": "Mihin mennessä poissaolot pitää ilmoittaa?",
+        "options": [
+          "klo 14",
+          "klo 15",
+          "klo 16",
+          "klo 17"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e59c1c68-0e77-54d2-b5e5-66376bb80614",
+        "prompt": "Milloin päiväkoti on auki kesäkuussa?",
+        "options": [
+          "klo 6–18",
+          "klo 7–17",
+          "klo 8–16",
+          "klo 9–15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3ea51803-efa0-5096-a5a9-f5b77eef8407",
+        "prompt": "Onko päiväkoti auki torstaina?",
+        "options": [
+          "ei",
+          "kyllä, normaalisti",
+          "vain aamulla",
+          "vain iltapäivällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

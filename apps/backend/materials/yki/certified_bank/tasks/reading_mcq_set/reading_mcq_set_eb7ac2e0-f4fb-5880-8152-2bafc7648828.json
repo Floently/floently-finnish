@@ -1,0 +1,66 @@
+{
+  "id": "eb7ac2e0-f4fb-5880-8152-2bafc7648828",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KUNTOSALI\n\nKuntosali on avoinna maanantaista perjantaihin kello 6–22. Viikonloppuisin kello 8–20. Ohjatut tunnit ovat erillisessä tilassa.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_013_q1",
+        "prompt": "Mihin aikaan kuntosali sulkeutuu arkisin?",
+        "options": [
+          "kello 20",
+          "kello 21",
+          "kello 22",
+          "kello 23"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_013_q2",
+        "prompt": "Mihin aikaan kuntosali aukeaa viikonloppuisin?",
+        "options": [
+          "kello 6",
+          "kello 7",
+          "kello 8",
+          "kello 9"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_013_q3",
+        "prompt": "Missä ovat ohjatut tunnit?",
+        "options": [
+          "samassa tilassa",
+          "erillisessä tilassa",
+          "ulkona",
+          "ei ole ohjattuja tunteja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

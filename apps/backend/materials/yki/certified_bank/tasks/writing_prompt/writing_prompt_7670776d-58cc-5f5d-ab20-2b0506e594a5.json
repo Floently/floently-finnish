@@ -1,0 +1,37 @@
+{
+  "id": "7670776d-58cc-5f5d-ab20-2b0506e594a5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita reklamaatio verkkokauppaan.",
+    "materials": {
+      "scenario": "Kirjoita reklamaatio verkkokauppaan."
+    },
+    "items": [
+      {
+        "id": "fb272090-8a2e-5a73-9ae9-812871f81226",
+        "prompt": "Tilitit verkkokaupasta takin kaksi viikkoa sitten. Kun takki saapui, huomasit, että se on väärän kokoinen (liian pieni) ja lisäksi taskusta irtosi nappi. Haluat palauttaa takin ja saada rahat takaisin. Kirjoita reklamaatio (noin 150–200 sanaa), jossa:\n\n- kerrot tilauksen tiedot (tilausnumero, päivämäärä, tuote)\n- kuvailet ongelman\n- kerrot, mitä haluat (palautus ja hyvitys)\n- liität mukaan tarvittavat tiedot (tilausvahvistus, kuvat)\n- kerrot, mihin mennessä odotat vastausta\n\nKirjoita kohtelias mutta määrätietoinen viesti."
+      }
+    ],
+    "rubric": "Tilitit verkkokaupasta takin kaksi viikkoa sitten. Kun takki saapui, huomasit, että se on väärän kokoinen (liian pieni) ja lisäksi taskusta irtosi nappi. Haluat palauttaa takin ja saada rahat takaisin. Kirjoita reklamaatio (noin 150–200 sanaa), jossa:\n\n- kerrot tilauksen tiedot (tilausnumero, päivämäärä, tuote)\n- kuvailet ongelman\n- kerrot, mitä haluat (palautus ja hyvitys)\n- liität mukaan tarvittavat tiedot (tilausvahvistus, kuvat)\n- kerrot, mihin mennessä odotat vastausta\n\nKirjoita kohtelias mutta määrätietoinen viesti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "047c75c9-cfad-5fed-8f21-3b91c5860b12",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "VAPAAEHTOISTYÖN MERKITYS KASVAA\n\nVapaaehtoistyö on Suomessa suosittua. Arviolta kolmannes suomalaisista tekee vapaaehtoistyötä jossain muodossa. Se voi olla urheiluseurassa toimimista, vanhusten auttamista, tapahtumien järjestämistä tai luonnonsuojelua.\n\nMiksi ihmiset tekevät vapaaehtoistyötä? Useimmille tärkein syy on halu auttaa ja tehdä hyvää. Vapaaehtoistyö antaa mahdollisuuden vaikuttaa asioihin, jotka koetaan tärkeiksi. Se myös tuo sisältöä elämään ja mahdollistaa uusien ihmisten tapaamisen. Monet kokevat saavansa itsekin paljon – kiitollisuutta, uusia taitoja ja ystäviä.\n\nJärjestöt ovat täysin riippuvaisia vapaaehtoisista. Ilman heitä moni toiminta loppuisi. Vapaaehtoiset tekevät arvokasta työtä, jota yhteiskunta ei pystyisi rahoittamaan.\n\nHaasteitakin on. Vapaaehtoisia on vaikea löytää, ja sitoutuminen voi olla heikkoa. Monilla on kiireistä arkea, eikä aikaa aina riitä. Myös vapaaehtoisten koulutukseen ja tukemiseen pitäisi panostaa enemmän.\n\nTulevaisuudessa vapaaehtoistyön merkitys todennäköisesti kasvaa. Yhteiskunnan resurssit ovat rajalliset, ja järjestöjen rooli palveluiden tuottajana lisääntyy. Samalla tarvitaan uusia tapoja innostaa ihmisiä mukaan. Digitaaliset alustat ja lyhyet, joustavat vapaaehtoistehtävät voivat houkutella uusia tekijöitä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 173
+    },
+    "questions": [
+      {
+        "id": "1d9bc8ad-89cb-55df-91da-37a961ec6612",
+        "prompt": "Kuinka moni suomalainen tekee vapaaehtoistyötä?",
+        "options": [
+          "Noin puolet",
+          "Noin kolmannes",
+          "Noin neljännes",
+          "Noin kymmenesosa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6c37a914-d2e0-59ef-b704-64add5a9adb6",
+        "prompt": "Mikä on tärkein syy vapaaehtoistyön tekemiseen?",
+        "options": [
+          "Rahan saaminen",
+          "Halu auttaa ja tehdä hyvää",
+          "Työkokemuksen hankkiminen",
+          "Pakko"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b9aec9ae-9ac1-5b67-8d19-8e6718f07161",
+        "prompt": "Mikä on vapaaehtoistyön haaste?",
+        "options": [
+          "Vapaaehtoisia on liikaa",
+          "Vapaaehtoisia on vaikea löytää ja sitoutuminen voi olla heikkoa",
+          "Vapaaehtoistyö on kallista",
+          "Kukaan ei halua tehdä vapaaehtoistyötä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

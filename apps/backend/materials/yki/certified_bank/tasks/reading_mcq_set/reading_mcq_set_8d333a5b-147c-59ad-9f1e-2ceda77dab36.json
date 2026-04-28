@@ -1,0 +1,73 @@
+{
+  "id": "8d333a5b-147c-59ad-9f1e-2ceda77dab36",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KADONNUT PUHELIN\n\nOlen hukannut puhelimeni 12.7.2025 bussissa numero 55. Puhelin on musta ja siinä on punainen suojakuori.\n\nPuhelimessa on tärkeitä työyhteystietoja. Jos löydät puhelimen, soita numeroon 050 123 4581.\n\nVoit myös viedä sen bussiyhtiön toimistoon.\n\nLöytäjälle palkkio.\n\n-- Timo",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä puhelin katosi?",
+        "options": [
+          "11.7.2025",
+          "12.7.2025",
+          "13.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mistä puhelin katosi?",
+        "options": [
+          "bussista",
+          "linja-autoasemalta",
+          "kauppakeskuksesta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_003",
+        "prompt": "Minkä värinen suojakuori puhelimessa on?",
+        "options": [
+          "sininen",
+          "punainen",
+          "musta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Minne puhelimen voi viedä?",
+        "options": [
+          "poliisiasemalle",
+          "bussiyhtiön toimistoon",
+          "kauppakeskukseen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

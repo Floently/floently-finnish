@@ -1,0 +1,99 @@
+{
+  "id": "201e87a3-6575-58d0-946b-e75c561a7f1d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uuden kahvilan avajaisista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kahvila Fazerilan tiedote. Uusi kahvilamme avaa ovensa keskustassa osoitteessa Kauppakatu 10. Avajaisia vietetään lauantaina 5.8. kello 10–18. Avajaispäivänä kaikki kahvilatuotteet ovat -20% alennuksella. Tarjolla on myös ilmaisia maistiaisia. Uudessa kahvilassa on 60 asiakaspaikkaa ja kesäterassi. Tervetuloa nauttimaan kahvista ja herkuista!",
+      "audio_asset_id": "a8b9c0d1-e2f3-4a5b-6c7d-8e9f0a1b2c3d"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kahvila Fazerila tiedottaa?",
+        "options": [
+          "Kahvilan remontista.",
+          "Uuden kahvilan avajaisista.",
+          "Kahvilan loma-ajoista.",
+          "Kahvilan menun muutoksista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Missä uusi kahvila sijaitsee?",
+        "options": [
+          "Keskustorilla.",
+          "Kauppakatu 10.",
+          "Asemalla.",
+          "Puistossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Minä päivänä ja mihin aikaan avajaiset ovat?",
+        "options": [
+          "Perjantaina 4.8. kello 12–20.",
+          "Lauantaina 5.8. kello 10–18.",
+          "Sunnuntaina 6.8. kello 12–16.",
+          "Maanantaina 7.8. kello 8–16."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä tarjous on avajaispäivänä?",
+        "options": [
+          "Kaikki tuotteet puoleen hintaan.",
+          "-20% alennus kaikista kahvilatuotteista.",
+          "Osta yksi, saat toisen ilmaiseksi.",
+          "Ilmainen kahvi koko päivän."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Kuinka monta asiakaspaikkaa kahvilassa on?",
+        "options": [
+          "40.",
+          "60.",
+          "80.",
+          "100."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Onko kahvilassa terassi?",
+        "options": [
+          "Ei ole.",
+          "Kyllä, kesäterassi.",
+          "Vain talviterassi.",
+          "Terassia ei mainita."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

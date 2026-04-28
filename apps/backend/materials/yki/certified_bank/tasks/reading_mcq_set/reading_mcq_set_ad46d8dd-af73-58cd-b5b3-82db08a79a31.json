@@ -1,0 +1,73 @@
+{
+  "id": "ad46d8dd-af73-58cd-b5b3-82db08a79a31",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue asukasyhdistyksen tiedote pihasuunnitelmasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ASUKASKYSELY: TALOYHTIÖN PIHAREMONTTI\n\nHyvä asukas,\n\ntaloyhtiössämme on suunnitteilla piharemontti kesälle 2025. Haluamme kuulla asukkaiden toiveita ennen päätöksentekoa. Vastaa lyhyeen kyselyyn 15.4. mennessä.\n\n1. Mitä toivot pihalle? (voit valita useita)\n- Lisää istutuksia ja viheraluetta\n- Oleskelualue penkkeineen\n- Lasten leikkipaikka\n- Kuntovälineitä aikuisille\n- Grillauspaikka\n- Pyörätelineitä\n\n2. Mikä on tärkein asia pihassa mielestäsi?\n- Viihtyisyys\n- Toimivuus\n- Turvallisuus\n- Siisteys\n\n3. Toivotko pihalle yhteisiä tapahtumia, kuten talkoita tai grilli-iltoja?\n- Kyllä\n- Ei\n- En osaa sanoa\n\n4. Vapaa sana: Kerro toiveistasi tai ideoistasi.\n\nKyselyn tulokset esitellään kevätkokouksessa 20.5. Päätös remontista tehdään kesäkuussa. Remontin arvioitu kesto on 8 viikkoa, ja se tehdään todennäköisesti touko–heinäkuussa.\n\nLisätietoja: isännöitsijä Pekka Mäkelä, pekka.makela@isannointi.fi, puh. 123 4568.\n\nYstävällisin terveisin,\nTaloyhtiön hallitus",
+      "word_count": 118
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mihin mennessä kyselyyn pitää vastata?",
+        "options": [
+          "20.5.",
+          "15.4.",
+          "kesäkuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä pihalle voi toivoa?",
+        "options": [
+          "vain yhden asian",
+          "useita asioita",
+          "vain istutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Milloin remontti todennäköisesti tehdään?",
+        "options": [
+          "talvella 2025",
+          "touko–heinäkuussa 2025",
+          "syksyllä 2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Missä kyselyn tulokset esitellään?",
+        "options": [
+          "sähköpostilla",
+          "kevätkokouksessa",
+          "taloyhtiön ilmoitustaululla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

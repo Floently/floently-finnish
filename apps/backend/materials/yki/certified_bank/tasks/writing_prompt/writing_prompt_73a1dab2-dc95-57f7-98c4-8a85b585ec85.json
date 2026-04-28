@@ -1,0 +1,37 @@
+{
+  "id": "73a1dab2-dc95-57f7-98c4-8a85b585ec85",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kirjastoon. Haluat uusia lainaamasi dvd:t, koska et ole ehtinyt katsoa niitä. Kerro, että eräpäivä on ylihuomenna. Kerro nimesi ja dvd:iden nimet (voit keksiä).",
+    "materials": {
+      "scenario": "Viesti kirjastoon dvd:iden uusimisesta"
+    },
+    "items": [
+      {
+        "id": "50c88321-7cea-5c19-bf47-f82fb712f153",
+        "prompt": "Kirjoita lyhyt viesti kirjastoon. Haluat uusia lainaamasi dvd:t, koska et ole ehtinyt katsoa niitä. Kerro, että eräpäivä on ylihuomenna. Kerro nimesi ja dvd:iden nimet (voit keksiä)."
+      }
+    ],
+    "rubric": "Kerro, että haluat uusia dvd:t\nKerro eräpäivä\nKerro nimesi\nKerro dvd:iden nimet",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

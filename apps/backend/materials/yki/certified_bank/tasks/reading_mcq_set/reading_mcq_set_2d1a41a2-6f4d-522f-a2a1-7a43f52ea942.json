@@ -1,0 +1,77 @@
+{
+  "id": "2d1a41a2-6f4d-522f-a2a1-7a43f52ea942",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Analyysi käsittelee elämän loppuvaiheen oikeuksia tilanteissa, joissa potilaan tahto ja hoitolinjaukset joutuvat jännitteeseen. Tekstissä erotetaan päätöksenteon kolme tasoa: juridinen velvoite, kliininen arvio ja moraalinen harkinta. Kirjoittaja väittää, että ristiriitoja ei ratkaista yhden tason ylivaltaa korostamalla, vaan tekemällä näkyväksi, miten tasot vaikuttavat toisiinsa.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä kolme tasoa tekstissä erotetaan?",
+        "options": [
+          "talous, politiikka, media",
+          "juridiikka, kliininen arvio, moraalinen harkinta",
+          "uskonto, tiede, taide",
+          "potilas, omainen, vakuutus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirjoittaja kritisoi?",
+        "options": [
+          "kolmen tason käyttöä",
+          "yhden tason ylivaltaa",
+          "dokumentointia",
+          "kliinistä arviointia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten ristiriitoja tulisi ratkaista?",
+        "options": [
+          "päätetään nopeasti",
+          "tehdään tasojen vuorovaikutus näkyväksi",
+          "siirretään päätös aina oikeuteen",
+          "jätetään ratkaisematta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Tekstin painopiste on",
+        "options": [
+          "tekninen hoitomenetelmä",
+          "päätöksenteon periaatteet",
+          "budjettilaskelma",
+          "henkilöstömitoitus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

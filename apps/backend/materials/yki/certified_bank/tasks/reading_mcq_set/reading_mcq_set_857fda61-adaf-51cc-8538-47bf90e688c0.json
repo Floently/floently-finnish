@@ -1,0 +1,66 @@
+{
+  "id": "857fda61-adaf-51cc-8538-47bf90e688c0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Demokratia on kriisissä. Tämä väite toistuu jatkuvasti uutisissa ja keskusteluissa. Äänestysprosentit laskevat, populistiset liikkeet voimistuvat, luottamus poliittisiin instituutioihin heikkenee. Mutta onko kyse demokratian kriisistä vai pikemminkin sen muutoksesta?\n\nPerinteinen edustuksellinen demokratia perustuu ajatukseen, että kansalaiset valitsevat neljän vuoden välein edustajat, jotka tekevät päätöksiä heidän puolestaan. Tämä malli on toiminut kohtuullisesti vuosikymmeniä, mutta se ei enää vastaa nyky-yhteiskunnan tarpeita. Ihmiset haluavat olla mukana päätöksenteossa jatkuvasti, eivät vain vaaleissa. He vaativat läpinäkyvyyttä ja mahdollisuutta vaikuttaa heitä koskeviin asioihin.\n\nTeknologia tarjoaa tähän uusia mahdollisuuksia. Verkkoäänestykset, kansalaisaloitteet ja osallistuva budjetointi ovat esimerkkejä siitä, miten demokratiaa voidaan viedä lähemmäs kansalaisia. Mutta teknologia tuo mukanaan myös uhkia. Somealustat mahdollistavat disinformaation leviämisen ja kuplautumisen, jossa ihmiset altistuvat vain omalle mielipidepiirilleen. Tämä voi johtaa yhteiskunnan polarisoitumiseen ja vaikeuttaa yhteisen ymmärryksen löytämistä.\n\nToinen haaste on kansalaisten osallistumishalukkuus. Vaikka tekniset välineet olisivat olemassa, kaikki eivät halua tai kykene käyttämään niitä. Tämä voi luoda uudenlaisen demokratian eliitin, jossa aktiiviset ja koulutetut kansalaiset vaikuttavat enemmän kuin passiiviset. Miten varmistamme, että kaikkien ääni kuuluu?\n\nKolmas kysymys koskee asiantuntijuuden roolia. Monimutkaisissa asioissa, kuten ilmastonmuutos tai talouspolitiikka, kansalaisten suorat mielipiteet eivät aina ole paras lähtökohta päätöksenteolle. Tarvitaan asiantuntijoita, mutta heidänkään ei pidä saada liikaa valtaa. Tasapainon löytäminen asiantuntijuuden ja kansalaisvaikuttamisen välillä on yksi aikamme suurimmista haasteista.\n\nDemokratia ei ole kuollut, mutta se on muutoksessa. Meidän on uskallettava kokeilla uusia toimintamalleja ja samalla puolustettava demokratian perusarvoja: avoimuutta, tasa-arvoa ja ihmisoikeuksia. Vain siten voimme varmistaa, että demokratia säilyy elinvoimaisena myös tulevaisuudessa.",
+      "word_count": 234
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä ongelmia perinteisessä edustuksellisessa demokratiassa on kirjoittajan mukaan?",
+        "options": [
+          "A) Se toimii liian hyvin",
+          "B) Se ei vastaa nyky-yhteiskunnan tarpeita, koska ihmiset haluavat vaikuttaa jatkuvasti",
+          "C) Se on liian kallista",
+          "D) Sitä ei enää käytetä missään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uhkia teknologia tuo demokratialle?",
+        "options": [
+          "A) Se lisää osallistumista",
+          "B) Disinformaation leviäminen ja kuplautuminen",
+          "C) Se on liian helppoa",
+          "D) Se vähentää äänestämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita kansalaisten osallistumishalukkuudessa on?",
+        "options": [
+          "A) Kaikki osallistuvat liikaa",
+          "B) Kaikki eivät halua tai kykene käyttämään uusia osallistumismuotoja",
+          "C) Osallistuminen on liian helppoa",
+          "D) Vain nuoret osallistuvat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

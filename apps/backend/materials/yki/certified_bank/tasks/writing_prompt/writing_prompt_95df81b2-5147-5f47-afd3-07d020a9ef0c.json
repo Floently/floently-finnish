@@ -1,0 +1,37 @@
+{
+  "id": "95df81b2-5147-5f47-afd3-07d020a9ef0c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikaruokaravintoloissa pakolliset ravintosisältömerkinnät ottaa käyttöön myös Suomessa?'. Arvioi kuluttajansuojaa ja yritysten vastuuta.",
+    "materials": {
+      "scenario": "Ravintosisältömerkinnät pikaruoassa"
+    },
+    "items": [
+      {
+        "id": "653a73c6-9b8d-5e2b-b88c-171e7f109e52",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikaruokaravintoloissa pakolliset ravintosisältömerkinnät ottaa käyttöön myös Suomessa?'. Arvioi kuluttajansuojaa ja yritysten vastuuta."
+      }
+    ],
+    "rubric": "Kuluttajansuoja\nTerveysvaikutukset\nYritysten vastuu\nKansainväliset esimerkit",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

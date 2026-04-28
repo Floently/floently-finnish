@@ -1,0 +1,40 @@
+{
+  "id": "352189b4-a11e-5075-8ffa-fabf09642b97",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.297,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what languages you know and how long you have studied Finnish.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "680dc4e6-7bcf-5116-9554-6cff71076a92",
+        "ai_first_turn_fi": "Mitä kieliä sä puhut? Onko suomi vaikeaa?"
+      }
+    ],
+    "rubric": "Tell what languages you know and how long you have studied Finnish.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

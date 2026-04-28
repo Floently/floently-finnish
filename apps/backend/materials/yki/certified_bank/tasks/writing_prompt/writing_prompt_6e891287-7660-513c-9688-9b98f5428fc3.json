@@ -1,0 +1,37 @@
+{
+  "id": "6e891287-7660-513c-9688-9b98f5428fc3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työpaikan johdolle.",
+    "materials": {
+      "scenario": "Ehdota yrityksen arvojen päivittämistä"
+    },
+    "items": [
+      {
+        "id": "3d3ac9bc-4993-56ea-a73e-cb28bb27aacb",
+        "prompt": "Olet työskennellyt yrityksessä pitkään ja mielestäsi yrityksen arvot kaipaisivat päivitystä. Kirjoita sähköposti ja ehdota, että arvot käytäisiin läpi ja tarvittaessa päivitettäisiin. Perustele, miksi se olisi tärkeää."
+      }
+    ],
+    "rubric": "Olet työskennellyt yrityksessä pitkään ja mielestäsi yrityksen arvot kaipaisivat päivitystä. Kirjoita sähköposti ja ehdota, että arvot käytäisiin läpi ja tarvittaessa päivitettäisiin. Perustele, miksi se olisi tärkeää.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

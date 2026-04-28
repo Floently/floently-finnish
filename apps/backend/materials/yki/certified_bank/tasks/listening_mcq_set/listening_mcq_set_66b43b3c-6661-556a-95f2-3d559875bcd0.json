@@ -1,0 +1,77 @@
+{
+  "id": "66b43b3c-6661-556a-95f2-3d559875bcd0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät uimarit! Uimahalli sulkeutuu 30 minuutin kuluttua. Iso allas suljetaan 15 minuutin päästä siivouksen vuoksi. Lastenallas on auki normaalisti sulkemiseen asti. Saunat suljetaan 15 minuuttia ennen sulkemisaikaa. Pyydämme kaikkia poistumaan pukuhuoneisiin viimeistään sulkemisaikaan mennessä. Kiitos ja tervetuloa uudelleen!",
+      "audio_asset_id": "48344606-7f66-4e9f-a7ff-9582fcb504ed"
+    },
+    "questions": [
+      {
+        "id": "9c571ca8-e8db-5a0a-a6f9-816eef1a92bd",
+        "prompt": "Milloin uimahalli sulkeutuu?",
+        "options": [
+          "15 min päästä",
+          "30 min päästä",
+          "45 min päästä",
+          "60 min päästä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0ade03e9-6fdf-50e3-8be1-fa8817ceae63",
+        "prompt": "Miksi iso allas suljetaan aikaisemmin?",
+        "options": [
+          "lasten uimakoulun takia",
+          "siivouksen vuoksi",
+          "remontin takia",
+          "kilpailujen vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c43b5702-1a69-50fb-84bc-b3a73672c6d4",
+        "prompt": "Onko lastenallas auki normaalisti?",
+        "options": [
+          "ei, se suljetaan myös",
+          "kyllä, sulkemiseen asti",
+          "vain puoli tuntia",
+          "ei tänään ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7a98bba1-2c85-5594-ae45-b2aac40b7525",
+        "prompt": "Milloin saunat suljetaan?",
+        "options": [
+          "samaan aikaan hallin kanssa",
+          "15 min ennen sulkemista",
+          "30 min ennen sulkemista",
+          "heti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

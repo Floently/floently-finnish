@@ -1,0 +1,77 @@
+{
+  "id": "7ce17b9f-af97-5ab6-b23e-bbec32242b92",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.771,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Teknologian ja työllisyyden suhde on herättänyt vilkasta keskustelua taloustieteilijöiden keskuudessa. Historiallisesti teknologinen kehitys on sekä tuhonnut että luonut työpaikkoja, ja pitkällä aikavälillä työllisyys on säilynyt korkeana uusien toimialojen synnyttyä. Tämä on saanut monet taloustieteilijät suhtautumaan teknologian työllisyysvaikutuksiin optimistisesti. Heidän mukaansa uudet teknologiat luovat aina uusia, ennakoimattomia työtehtäviä, ja työmarkkinat sopeutuvat muutoksiin itsestään. Toiset tutkijat ovat kuitenkin huolestuneita siitä, että tekoälyn ja automaation kehitys voi tällä kertaa olla laadullisesti erilaista kuin aiemmat teknologiset murrokset. Heidän mukaansa tekoäly pystyy korvaamaan ihmisiä paitsi rutiininomaisissa myös monissa asiantuntijatehtävissä, mikä voi johtaa laajamittaiseen työttömyyteen ja eriarvoisuuden kasvuun. Kolmas näkemys korostaa, että teknologian vaikutukset työllisyyteen riippuvat pitkälti siitä, miten teknologiaa käytetään ja kuka sen tuottamia hyötyjä saa. Sen mukaan teknologia itsessään ei ole hyvä tai paha, vaan sen vaikutukset määräytyvät yhteiskunnallisten valintojen ja vallitsevien valtasuhteiden kautta. Tästä näkökulmasta keskeistä ei ole kysyä, tuhooko teknologia työpaikkoja, vaan se, kuka omistaa teknologian, kuka päättää sen käytöstä ja miten sen tuottamat hyödyt jaetaan.",
+      "word_count": 154
+    },
+    "questions": [
+      {
+        "id": "1ccd9b7f-e3fb-535e-8199-3b1b5daef0c3",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Teknologian historian vaiheet teollisesta vallankumouksesta nykypäivään",
+          "Teknologian ja työllisyyden suhdetta koskevat erilaiset taloustieteelliset näkemykset",
+          "Tekoälyn vaikutukset asiantuntijatyöhön",
+          "Teknologian tuottamien hyötyjen jakautuminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fc370e1b-2351-5733-9ea1-acec98c9caf6",
+        "prompt": "Tekstin mukaan miten teknologiaoptimistit suhtautuvat teknologian työllisyysvaikutuksiin?",
+        "options": [
+          "He uskovat, että teknologia väistämättä vähentää työpaikkoja ja lisää eriarvoisuutta",
+          "He katsovat, että uudet teknologiat luovat aina uusia työpaikkoja ja työmarkkinat sopeutuvat muutoksiin",
+          "He pitävät teknologian kehitystä pysäytettävissä olevana ilmiönä",
+          "He katsovat, että valtion on puututtava voimakkaasti teknologian kehitykseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dd467c9a-0826-55c4-b731-f267a7480062",
+        "prompt": "Mitä teknologiapessimistit pitävät ongelmallisena nykyisessä teknologisessa murroksessa?",
+        "options": [
+          "Tekoälyn kehitys on liian hidasta eikä tuo riittävästi tuottavuushyötyjä",
+          "Tekoäly pystyy korvaamaan ihmisiä paitsi rutiini- myös asiantuntijatehtävissä, mikä voi johtaa laajamittaiseen työttömyyteen",
+          "Teknologian kehitys on keskittynyt liikaa teollisuuteen ja unohtanut palvelualat",
+          "Teknologian tuottamat hyödyt jakautuvat liian tasaisesti väestön kesken"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fa5c222a-9f60-541a-8f9c-070a5d685efc",
+        "prompt": "Mitä kolmas, valtasuhteita korostava näkemys pitää keskeisenä teknologian työllisyysvaikutusten arvioinnissa?",
+        "options": [
+          "Sitä, kuinka nopeasti teknologia kehittyy ja leviää eri toimialoille",
+          "Sitä, kuka omistaa teknologian, kuka päättää sen käytöstä ja miten hyödyt jaetaan",
+          "Sitä, kuinka paljon teknologiaa käytetään eri maissa",
+          "Sitä, miten teknologia vaikuttaa eri ammattiryhmien työnkuviin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

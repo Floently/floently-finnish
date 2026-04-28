@@ -1,0 +1,99 @@
+{
+  "id": "ac75c640-53df-5530-82e0-bb0bbbf986e0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja valitse jokaiseen kysymykseen paras vaihtoehto.",
+    "materials": {
+      "text": "Yhtiön etätyösääntö on tarkennettu. Työntekijä voi tehdä etätyötä enintään kaksi päivää viikossa, ellei työnantaja hyväksy poikkeusta. Syynä on tiimin yhteistyön ja palaverien järjestämisen helpottaminen. Poikkeuslupa haetaan esimieheltä kirjallisesti. Jos etätyöpäiviä on useampia peräkkäin, työnantaja voi vaatia työntekijän tulevan toimistolle tietoturvasyistä. Uudet työntekijät suorittavat ensimmäisen kuukauden toimistolla. Sääntö tulee voimaan maaliskuun alusta. Tulkinnasta vastaa henkilöstöosasto. Jo olemassa olevat sopimukset säilyvät voimassa kuuden kuukauden ajan. Sen jälkeen kaikki noudattavat uutta sääntöä. Työntekijä voi pyytää henkilöstöosastolta lisätietoja. Palaverit pidetään edelleen osittain etänä. Vain tietyt viikoittaiset tapaamiset vaativat läsnäoloa. Tämä tasapainottaa joustavuutta ja yhteistyötä. Esimiehet saavat ohjeet sääntöjen soveltamisesta. Kyselyt ja palaute kootaan kolmen kuukauden kuluttua. Sääntöä voidaan tarkentaa tarpeen mukaan. Laitteet ja kirjautumiset toimivat sekä etänä että toimistolla. Ongelmatilanteissa ota yhteyttä IT-tukeen. Työvälineet ovat samat sekä etä- että toimistotyössä. Tervetuloa keskustelemaan sääntööstä esimiehesi tai henkilöstöosaston kanssa. Toimistolla olevat työpäivät merkitään kalenteriin. Näin tiimi tietää, milloin kaikki ovat paikalla.",
+      "word_count": 145
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka monta etätyöpäivää viikossa sääntö sallii ilman poikkeusta?",
+        "options": [
+          "enintään kaksi",
+          "vain yhden",
+          "kolme tai enemmän",
+          "ei yhtään"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi sääntöä on tarkennettu?",
+        "options": [
+          "yhteistyön ja palaverien helpottamiseksi",
+          "kustannusten vähentämiseksi",
+          "ei kerrota",
+          "työntekijäedun vuoksi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä poikkeuslupa haetaan?",
+        "options": [
+          "esimieheltä kirjallisesti",
+          "henkilöstöosastolta",
+          "suullisesti työnantajalta",
+          "ei haeta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi työnantaja voi vaatia toimistolle tulemista?",
+        "options": [
+          "tietoturvasyistä",
+          "palaverin vuoksi",
+          "ei kerrota",
+          "säännön rikkomisen takia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä uudet työntekijät tekevät ensimmäisen kuukauden?",
+        "options": [
+          "työskentelevät toimistolla",
+          "saavat etätyöluvan heti",
+          "eivät tiedä sääntöä",
+          "koulutetaan erikseen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Milloin sääntö tulee voimaan?",
+        "options": [
+          "maaliskuun alusta",
+          "heti",
+          "vuoden lopussa",
+          "ei mainita"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

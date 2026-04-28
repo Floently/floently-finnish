@@ -1,0 +1,88 @@
+{
+  "id": "6566ef75-c95d-5a81-9cc6-0bbe78a9bf3a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.673,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuntosalin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kuntosali Kuntoon tiedottaa, että olemme avoinna juhannusaattona kello 8-14. Juhannuspäivänä olemme suljettu. Lauantaina ja sunnuntaina olemme auki normaalisti kello 10-18. Hyvää juhannusta!",
+      "audio_asset_id": "bedc1850-707d-4082-99f2-fbb1a718f436"
+    },
+    "questions": [
+      {
+        "id": "l230q1",
+        "prompt": "Mihin asti kuntosali on auki juhannusaattona?",
+        "options": [
+          "Kello 12.",
+          "Kello 14.",
+          "Kello 13.",
+          "Kello 15."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l230q2",
+        "prompt": "Onko kuntosali auki juhannuspäivänä?",
+        "options": [
+          "Ei, suljettu.",
+          "Kyllä, normaalisti.",
+          "Kyllä, mutta lyhyemmän aikaa.",
+          "Vain aamupäivällä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l230q3",
+        "prompt": "Mihin aikaan kuntosali aukeaa lauantaina?",
+        "options": [
+          "Kello 9.",
+          "Kello 11.",
+          "Kello 12.",
+          "Kello 10."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l230q4",
+        "prompt": "Mihin asti kuntosali on auki sunnuntaina?",
+        "options": [
+          "Kello 16.",
+          "Kello 17.",
+          "Kello 18.",
+          "Kello 19."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l230q5",
+        "prompt": "Mikä on kuntosalin nimi?",
+        "options": [
+          "Kuntosali Treeni.",
+          "Kuntosali Kuntoon.",
+          "Kuntosali Voima.",
+          "Kuntosali Liike."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

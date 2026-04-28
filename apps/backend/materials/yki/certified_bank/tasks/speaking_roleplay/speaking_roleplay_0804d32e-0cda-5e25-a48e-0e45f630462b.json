@@ -1,0 +1,40 @@
+{
+  "id": "0804d32e-0cda-5e25-a48e-0e45f630462b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Käy neuvottelu pankinjohtajan kanssa sijoitusneuvoista. Kerro tavoitteesi ja kysy vaihtoehdoista.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan pankin sijoitusneuvojalle",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "9197f3c9-5b09-5c0b-8879-2870c0110813",
+        "ai_first_turn_fi": "Tervetuloa. Kiva, että olet kiinnostunut sijoittamisesta. Kerro nyt ensin, mikä on tilanteesi ja millaisia tavoitteita sinulla on rahoillesi."
+      }
+    ],
+    "rubric": "Käy neuvottelu pankinjohtajan kanssa sijoitusneuvoista. Kerro tavoitteesi ja kysy vaihtoehdoista.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

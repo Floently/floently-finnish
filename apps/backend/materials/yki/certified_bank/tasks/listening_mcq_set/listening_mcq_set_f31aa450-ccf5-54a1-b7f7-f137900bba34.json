@@ -1,0 +1,88 @@
+{
+  "id": "f31aa450-ccf5-54a1-b7f7-f137900bba34",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan puheenvuoro kaupunkisuunnittelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupunkisuunnittelussa on viime vuosina korostunut yhä enemmän asukkaiden hyvinvointi. Ennen suunnittelua ohjasivat tehokkuus ja autoliikenteen sujuvuus. Nykyään keskustellaan viheralueiden merkityksestä ja siitä, miten rakennettu ympäristö vaikuttaa mielenterveyteen. Tutkimukset osoittavat, että jo lyhyt oleskelu puistossa laskee stressihormonitasoja. Siksi uusilla asuinalueilla pyritään säilyttämään vanhoja puita ja luomaan helposti saavutettavia puistoja. Seuraava askel onkin integroida nämä viheralueet osaksi liikkumisen verkostoa, jotta ne eivät ole vain erillisiä saarekkeita vaan kulkevat luontevasti mukana arjen reiteillä. Tämä vaatii tiivistä yhteistyötä kaupungin eri toimialojen kesken.",
+      "audio_asset_id": "296da560-50e8-48a4-93e4-d3b67bc3b5d4"
+    },
+    "questions": [
+      {
+        "id": "cb226f9a-7186-55e6-a376-fb606c364ee7",
+        "prompt": "Mikä on ollut perinteisesti tärkeää kaupunkisuunnittelussa?",
+        "options": [
+          "Asukkaiden hyvinvointi.",
+          "Viheralueiden määrä.",
+          "Tehokkuus ja autoliikenteen sujuvuus.",
+          "Kulttuuritarjonta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c9b1c3fb-b284-5067-a07b-147c0abb9c2f",
+        "prompt": "Mitä tutkimukset ovat osoittaneet viheralueiden vaikutuksesta?",
+        "options": [
+          "Ne lisäävät liikennettä.",
+          "Ne laskevat stressihormonitasoja.",
+          "Ne ovat kalliita ylläpitää.",
+          "Ne vähentävät asukkaiden kanssakäymistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "58273262-d34d-5a9d-a246-9c8c451d9a1b",
+        "prompt": "Mitä uusilla asuinalueilla pyritään tekemään?",
+        "options": [
+          "Kaikkien vanhojen puiden kaataminen.",
+          "Isot parkkialueet.",
+          "Vanhojen puiden säilyttäminen ja puistojen luominen.",
+          "Korkeat kerrostalot."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "85f64bcd-6c1d-5cc5-89a2-818e57997a77",
+        "prompt": "Mikä on seuraava askel viheralueiden suunnittelussa?",
+        "options": [
+          "Niiden integroiminen osaksi liikkumisen verkostoa.",
+          "Niiden aitaaminen.",
+          "Niiden muuttaminen maksullisiksi.",
+          "Niiden korvaaminen leikkipuistoilla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "452f7658-0d61-5ef4-9514-188137263d4d",
+        "prompt": "Mitä tämä uusi suunnittelutapa vaatii?",
+        "options": [
+          "Tiivistä yhteistyötä kaupungin eri toimialojen kesken.",
+          "Lisää rahaa.",
+          "Poliittisia päätöksiä.",
+          "Asukkaiden hyväksyntää."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "ea555439-f717-50e4-84be-0213c1cd99aa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.753,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kotimainen muotoilu on perinteisesti yhdistetty laatuun, toimivuuteen ja ajattomaan estetiikkaan. Nämä ominaisuudet sopivat hyvin yhteen kestävän kehityksen tavoitteiden kanssa, ja suomalainen muotoilu voikin olla esimerkki kestävästä muotoilusta. Kestävä muotoilu ei ole vain materiaalivalintoja, vaan se on kokonaisvaltainen ajattelutapa, joka huomioi tuotteen koko elinkaaren. Yksi keskeisimmistä suomalaisen muotoilun kestävistä piirteistä on tuotteiden pitkäikäisyys. Suomalaiset muotoilijat ovat usein tavoiteleet ajattomuutta ja kestävyyttä muodin ja kertakäyttökulttuurin sijaan. Laadukkaat materiaalit, huolellinen käsityö ja yksinkertainen muotokieli tekevät tuotteista kestäviä ja ajattomia. Ne eivät mene nopeasti pois muodista, vaan niitä voi käyttää vuosikymmeniä. Toinen keskeinen piirre on korjattavuus. Perinteisessä suomalaisessa muotoilussa tuotteet on usein suunniteltu niin, että niitä voidaan korjata. Rikki mennyt osa voidaan vaihtaa uuteen, ja tuote saa uuden elämän. Tämä vähentää tarvetta ostaa uutta ja pidentää tuotteen käyttöikää. Kolmas piirre on materiaalien laatu ja ekologisuus. Suomalaiset muotoilijat arvostavat luonnonmateriaaleja, kuten puuta, villaa, pellavaa ja lasia. Nämä materiaalit ovat uusiutuvia, biohajoavia ja usein myös paikallisesti tuotettuja. Neljäs piirre on tuotteiden monikäyttöisyys ja muunneltavuus. Monet suomalaiset design-esineet on suunniteltu niin, että niitä voidaan käyttää monin eri tavoin ja eri tarkoituksiin. Tämä vähentää tarvetta omistaa monta erillistä tuotetta. Viides piirre on valmistuksen eettisyys ja paikallisuus. Monet suomalaiset design-yritykset valmistavat tuotteensa Suomessa, mikä takaa kohtuulliset työolot ja vähentää kuljetusten päästöjä.",
+      "word_count": 202
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin kotimainen muotoilu on perinteisesti yhdistetty?",
+        "options": [
+          "Halpuuteen ja kertakäyttöisyyteen",
+          "Laatuun, toimivuuteen ja ajattomaan estetiikkaan",
+          "Monimutkaisuuteen ja koristeellisuuteen",
+          "Ulkomaisiin vaikutteisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan tuotteiden pitkäikäisyydellä suomalaisessa muotoilussa?",
+        "options": [
+          "Tuotteet menevät nopeasti rikki",
+          "Tuotteet on suunniteltu kestämään vuosikymmeniä ja ne eivät mene nopeasti pois muodista",
+          "Tuotteet ovat kertakäyttöisiä",
+          "Tuotteet ovat muodikkaita vain hetken"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten korjattavuus liittyy kestävään muotoiluun?",
+        "options": [
+          "Se ei liity millään tavalla",
+          "Korjattavat tuotteet voidaan korjata rikkoutuessaan, mikä pidentää niiden käyttöikää",
+          "Se tekee tuotteista heikompia",
+          "Se lisää tarvetta ostaa uusia tuotteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä luonnonmateriaaleja suomalaiset muotoilijat arvostavat?",
+        "options": [
+          "Muovia ja metallia",
+          "Puuta, villaa, pellavaa ja lasia",
+          "Betonia ja terästä",
+          "Kumia ja nahkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä tuotteiden monikäyttöisyydestä on?",
+        "options": [
+          "Se lisää tarvetta omistaa monta tuotetta",
+          "Se vähentää tarvetta omistaa monta erillistä tuotetta",
+          "Se tekee tuotteista vaikeita käyttää",
+          "Sillä ei ole hyötyjä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "017f1801-1093-55da-939b-108def1b85f2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähikirjastossa on uusi lasten nurkkaus. Siellä on värikkäitä kirjoja, pehmeitä istuimia ja leluja. Lapset voivat lukea, piirtää ja leikkiä. Nurkkaus on tarkoitettu alle kouluikäisille. Myös satutunteja järjestetään kerran viikossa. Vanhemmat voivat istua mukavasti ja lukea omia kirjojaan samalla kun lapset leikkivät.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä lähikirjastossa on uutta?",
+        "options": [
+          "Uusi kahvila",
+          "Uusi lasten nurkkaus",
+          "Uusi tietokoneluokka",
+          "Uusi lehtilukusali"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lasten nurkkauksessa on?",
+        "options": [
+          "Tietokoneita ja tabletteja",
+          "Värikkäitä kirjoja, pehmeitä istuimia ja leluja",
+          "Opiskelupöytiä ja valaisimia",
+          "Kahviautomaatti ja pullaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lapset voivat tehdä nurkkauksessa?",
+        "options": [
+          "Katsella televisiota",
+          "Lukea, piirtää ja leikkiä",
+          "Pelata tietokonepelejä",
+          "Syödä välipalaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kenelle nurkkaus on tarkoitettu?",
+        "options": [
+          "Kaikille lapsille",
+          "Alle kouluikäisille",
+          "Koululaisille",
+          "Nuorille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kerran viikossa järjestetään?",
+        "options": [
+          "Kielikurssi",
+          "Satutunteja",
+          "Askartelukerho",
+          "Lukupiiri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä vanhemmat voivat tehdä lasten nurkkauksessa?",
+        "options": [
+          "Leikkiä lasten kanssa",
+          "Istua mukavasti ja lukea omia kirjoja",
+          "Juoda kahvia ja keskustella",
+          "Osallistua satutunnille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

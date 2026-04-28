@@ -1,0 +1,66 @@
+{
+  "id": "8b4acfa4-e1b7-5c04-bbc9-c76ee96b561f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TERVEYTEEN VAIKUTTAVAT MONET ASIAT\n\nTerveys ei ole vain sairauden poissaoloa. Siihen vaikuttavat monet asiat: elämäntavat, perimä, ympäristö, sosiaaliset suhteet ja taloudellinen tilanne. Terveyden edistäminen on yhteiskunnan ja yksilön yhteinen tehtävä.\n\nElämäntavat ovat tärkeässä roolissa. Terveellinen ruoka, riittävä liikunta, nukkuminen ja päihteiden välttäminen auttavat pysymään terveenä. Tutkimukset osoittavat, että liikunta vähentää monien sairauksien riskiä ja parantaa mielialaa.\n\nSosiaaliset suhteet vaikuttavat myös terveyteen. Yksinäisyys ja eristyneisyys lisäävät sairastumisriskiä. Hyvät ystävät ja toimiva perhe-elämä suojaavat stressiltä ja antavat voimaa.\n\nTaloudellinen tilanne on yksi keskeinen tekijä. Pienituloisilla on usein huonompi terveys kuin hyvätuloisilla. Heillä on vähemmän mahdollisuuksia vaikuttaa elämäntapoihin ja hakeutua hoitoon. Tämä on yhteiskunnallinen epäkohta, johon pitäisi puuttua.\n\nYmpäristökin vaikuttaa. Puhtaat vedet, hyvä ilmanlaatu ja viheralueet parantavat terveyttä. Melu ja saasteet taas lisäävät sairastumisriskiä.\n\nTulevaisuudessa terveydenhuollon pitäisi olla entistä ennaltaehkäisevämpää. Sen sijaan, että hoidetaan sairauksia, pitäisi panostaa terveyden edistämiseen ja sairauksien ehkäisyyn. Tämä vaatii yhteistyötä eri toimijoiden välillä ja pitkäjänteistä työtä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 176
+    },
+    "questions": [
+      {
+        "id": "c8f90342-1ae6-5c27-9219-4fc2c9543edb",
+        "prompt": "Mitkä kaikki asiat vaikuttavat terveyteen?",
+        "options": [
+          "Vain ruoka ja liikunta",
+          "Elämäntavat, perimä, ympäristö, sosiaaliset suhteet ja taloudellinen tilanne",
+          "Vain perimä",
+          "Vain lääkärissä käynti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7b126d6f-780e-5eff-a75f-df2327eee3a1",
+        "prompt": "Miten sosiaaliset suhteet vaikuttavat terveyteen?",
+        "options": [
+          "Ne eivät vaikuta mitenkään",
+          "Hyvät suhteet suojaavat stressiltä, yksinäisyys lisää sairastumisriskiä",
+          "Ne lisäävät sairastumisriskiä",
+          "Vain huonot suhteet vaikuttavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0608ee8c-42ec-5c53-9615-95637f62e08a",
+        "prompt": "Mikä on yhteiskunnallinen epäkohta terveydessä?",
+        "options": [
+          "Hyvätuloiset sairastavat enemmän",
+          "Pienituloisilla on usein huonompi terveys kuin hyvätuloisilla",
+          "Kaikilla on sama terveys",
+          "Terveydenhuolto on liian kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

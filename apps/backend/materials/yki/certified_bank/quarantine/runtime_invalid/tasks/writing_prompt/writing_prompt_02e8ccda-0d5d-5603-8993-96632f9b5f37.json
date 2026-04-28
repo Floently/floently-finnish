@@ -1,0 +1,37 @@
+{
+  "id": "02e8ccda-0d5d-5603-8993-96632f9b5f37",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: train_station. Purpose: make_a_choice. Constraint: mention_a_follow_up_step.",
+    "materials": {
+      "scenario": "kuluttajaoikeuksista train station"
+    },
+    "items": [
+      {
+        "id": "157032dc-c289-565a-8cc9-9a248cfb68f8",
+        "prompt": "Write for the receiver in this scenario: train_station. Purpose: make_a_choice. Constraint: mention_a_follow_up_step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

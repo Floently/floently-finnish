@@ -1,0 +1,37 @@
+{
+  "id": "811a538a-645a-55c8-92f8-8b7472a6ca53",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: work interview room. Purpose: justify an opinion. Constraint: keep it concise.",
+    "materials": {
+      "scenario": "volunteering in work_interview_room"
+    },
+    "items": [
+      {
+        "id": "12366a50-7c76-5cd5-a8c0-56fafaed26ee",
+        "prompt": "Write for the receiver in this scenario: work interview room. Purpose: justify an opinion. Constraint: keep it concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

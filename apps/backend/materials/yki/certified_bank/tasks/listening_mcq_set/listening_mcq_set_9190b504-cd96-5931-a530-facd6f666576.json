@@ -1,0 +1,99 @@
+{
+  "id": "9190b504-cd96-5931-a530-facd6f666576",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kimppakyydistä ja vastaa.",
+    "materials": {
+      "transcript": "Sari: Hei Jukka, ootko sä koskaan kokeillut kimppakyytejä? Jukka: En oo, mutta oon kyllä miettinyt. Sä olet vissiin käyttäny? Sari: Joo, mä käytän melkein joka päivä. Meillä on naapurustossa sovittu, että viedään vuorotellen lapsia harrastuksiin. Se on tosi kätevää. Jukka: Ai sellaista kimppakyytiä. Mä ajattelin enemmänkin jotain sovellusta, jolla voi jakaa työmatkoja. Sari: Joo, niitäkin on. Mun työkaveri käyttää jotain sovellusta, jonka kautta löytää kyytiä tai matkaseuraa. Se on halvempaa kuin taksi, ja samalla voi vähentää päästöjä. Jukka: Kuulostaa hyvältä. Miten se toimii? Sari: Sovellus ehdottaa reittejä ja näyttää, ketkä muut ovat menossa samaan suuntaan. Sitten voi sopia tapaamispaikan ja hinnan. Jukka: Onko se turvallista? Sari: Useimmissa sovelluksissa on käyttäjäarvostelut, ja kuljettajan tiedot tarkistetaan. Toki kannattaa aina olla järkevä ja sopia tapaaminen vaikka isolla parkkipaikalla. Jukka: Mä taidan ladata sellaisen. Työmatka on pitkä ja bensa maksaa. Sari: Kannattaa kokeilla! Säästät rahaa ja saat ehkä uusia tuttavuuksia.",
+      "audio_asset_id": "37cdd496-f377-4d54-9b42-191fee97d789"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä Sari ja Jukka keskustelevat?",
+        "options": [
+          "Kimppakyydeistä ja niiden käytöstä.",
+          "Julkisesta liikenteestä.",
+          "Auton ostosta.",
+          "Bensiinin hinnasta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Millaista kimppakyytiä Sari itse käyttää?",
+        "options": [
+          "Työmatkoihin sovelluksen kautta.",
+          "Naapuruston kanssa lasten harrastuskyytejä.",
+          "Taksin kanssa.",
+          "Bussilla kulkemista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä hyötyä kimppakyydistä on?",
+        "options": [
+          "Se on kalliimpaa kuin taksi.",
+          "Se on halvempaa ja vähentää päästöjä.",
+          "Se on hitaampaa.",
+          "Se on epämukavampaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten kimppakyytisovellus toimii?",
+        "options": [
+          "Se varaa taksin automaattisesti.",
+          "Se ehdottaa reittejä ja näyttää samaan suuntaan meneviä.",
+          "Se maksaa kyydin puolestasi.",
+          "Se kertoo bussien aikataulut."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miten turvallisuus on huomioitu sovelluksissa?",
+        "options": [
+          "Kuljettajia ei tarkisteta.",
+          "Vain naiset voivat ajaa.",
+          "Vain miehet voivat ajaa.",
+          "On käyttäjäarvostelut ja kuljettajan tiedot tarkistetaan."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Miksi Jukka on kiinnostunut kimppakyydistä?",
+        "options": [
+          "Hänellä ei ole autoa.",
+          "Hän haluaa päästä eroon autostaan.",
+          "Työmatka on pitkä ja bensa maksaa.",
+          "Hän ei pidä junasta."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

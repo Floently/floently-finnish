@@ -1,0 +1,37 @@
+{
+  "id": "e03763c8-e5dc-5307-b1dd-473336ac6a75",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on paljon rikkaruohoja ja pusikoita, jotka pitäisi siistiä. Kerro, missä kohdassa kasvillisuus on runsainta. Pyydä, että piha siistitään.",
+    "materials": {
+      "scenario": "Ilmoitus pihan siistimistarpeesta"
+    },
+    "items": [
+      {
+        "id": "b4d0632d-32dc-5319-b840-fabf95b51583",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on paljon rikkaruohoja ja pusikoita, jotka pitäisi siistiä. Kerro, missä kohdassa kasvillisuus on runsainta. Pyydä, että piha siistitään."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nSiistimispyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

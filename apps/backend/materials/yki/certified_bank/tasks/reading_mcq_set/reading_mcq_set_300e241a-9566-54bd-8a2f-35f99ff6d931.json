@@ -1,0 +1,73 @@
+{
+  "id": "300e241a-9566-54bd-8a2f-35f99ff6d931",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti tekoälyn etiikasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Tekoälyn nopea kehitys herättää monia eettisiä kysymyksiä. Samalla kun tekoäly tarjoaa valtavia mahdollisuuksia, se tuo mukanaan myös riskejä, joita emme vielä täysin ymmärrä.\n\nYksi keskeisimmistä kysymyksistä on vastuu. Jos tekoäly tekee virheen, kuka on vastuussa? Jos itseajava auto aiheuttaa onnettomuuden, onko syyllinen auton omistaja, valmistaja vai ohjelmoija? Tällä hetkellä lainsäädäntö ei anna selkeitä vastauksia.\n\nToinen tärkeä kysymys on läpinäkyvyys. Monet tekoälyjärjestelmät ovat niin monimutkaisia, että edes niiden kehittäjät eivät täysin ymmärrä, miten ne päätyvät tiettyihin ratkaisuihin. Tämä on ongelmallista esimerkiksi silloin, kun tekoälyä käytetään päätöksenteossa, joka vaikuttaa ihmisten elämään, kuten lainapäätöksissä tai työhönotossa.\n\nKolmas kysymys on vinoumat. Tekoäly oppii datasta, ja jos data sisältää vinoumia, tekoäly toistaa niitä. On tunnettuja tapauksia, joissa rekrytointitekoäly on suosinut miehiä naisten kustannuksella, koska se on oppinut historiallisesta datasta, jossa miehet ovat olleet valtaosassa johtotehtävissä. Tämä voi vahvistaa epätasa-arvoa.\n\nNeljäs kysymys on työelämän muutos. Tekoäly korvaa monia rutiinitehtäviä, mikä voi johtaa työpaikkojen häviämiseen. Toisaalta se luo myös uusia työpaikkoja. Miten yhteiskunta varautuu tähän muutokseen? Tarvitaan koulutusta ja sosiaaliturvan uudistamista.\n\nViides kysymys on yksityisyys. Tekoäly pystyy keräämään ja analysoimaan valtavia määriä dataa ihmisistä. Tämä voi johtaa yksityisyyden loukkauksiin ja manipulointiin. Kenellä on oikeus tähän dataan, ja miten sitä saa käyttää?\n\nKuudes kysymys on autonomiset aseet. Tekoälyllä toimivat aseet, jotka voivat tehdä tappopäätöksiä ilman ihmisen osallisuutta, herättävät syviä eettisiä kysymyksiä. Pitäisikö tällaiset aseet kieltää kokonaan?\n\nLopuksi voidaan todeta, että tekoälyn etiikka on monimutkainen ja tärkeä aihe. Tarvitaan keskustelua, lainsäädäntöä ja kansainvälistä yhteistyötä, jotta tekoälyä kehitetään ja käytetään vastuullisella tavalla. Teknologia ei ole arvoneutraalia – se heijastaa niitä arvoja, joita siihen ohjelmoidaan.",
+      "word_count": 254
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mikä on vastuukysymys tekoälyssä?",
+        "options": [
+          "kukaan ei ole vastuussa",
+          "jos tekoäly tekee virheen, on epäselvää, kuka on vastuussa",
+          "vastuu on aina käyttäjällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä tarkoitetaan läpinäkyvyyden ongelmalla?",
+        "options": [
+          "tekoäly on läpinäkyvää",
+          "tekoälyn päätöksentekoa on vaikea ymmärtää",
+          "tekoäly on aina oikeassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Miten tekoälyn vinoumat syntyvät?",
+        "options": [
+          "ne ovat ohjelmoitu tahallaan",
+          "ne syntyvät, kun tekoäly oppii vinoutuneesta datasta",
+          "ne ovat väistämättömiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä kysymyksiä autonomiset aseet herättävät?",
+        "options": [
+          "ne ovat tehokkaita",
+          "pitäisikö tappopäätökset jättää koneille",
+          "ne ovat halpoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

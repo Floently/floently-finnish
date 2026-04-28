@@ -1,0 +1,37 @@
+{
+  "id": "1bcd8245-0b33-5398-a125-3d84a6883878",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: palvelupisteellä. Tarkoitus: sovita muutoksesta. Rajoite: aloita päätelmällä.",
+    "materials": {
+      "scenario": "teknologiasta palvelupisteestä"
+    },
+    "items": [
+      {
+        "id": "ff05e4ae-bb83-5e71-8244-05eea3cf1d7a",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: palvelupisteellä. Tarkoitus: sovita muutoksesta. Rajoite: aloita päätelmällä."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

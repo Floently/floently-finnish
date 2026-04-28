@@ -1,0 +1,110 @@
+{
+  "id": "058205b8-d1d2-53d2-abbc-1a38ab96538a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Ilmastonmuutos on aikamme suurimpia haasteita, ja sen vaikutukset ulottuvat kaikkialle yhteiskuntaan. Perinteisesti ympäristöpolitiikka on keskittynyt teknologisiin ratkaisuihin, kuten uusiutuvaan energiaan ja energiatehokkuuteen. Yhä selvemmäksi on kuitenkin käynyt, että tekniset innovaatiot eivät yksin riitä, vaan tarvitaan myös syvällisiä muutoksia elämäntavoissa ja talouden rakenteissa. Tämä tarkoittaa esimerkiksi sitä, että meidän on opittava kuluttamaan vähemmän, arvostamaan kestävyyttä ja hyväksymään, että jatkuva talouskasvu ei ole mahdollista rajallisella planeetalla. Tällaiset ajatukset haastavat syvälle juurtuneita arvoja ja tottumuksia. Ne herättävät usein vastustusta, koska ne kyseenalaistavat elämäntavan, johon olemme tottuneet. Toisaalta ne avaavat mahdollisuuden rakentaa oikeudenmukaisempaa ja kestävämpää yhteiskuntaa, jossa hyvinvointi ei perustu luonnonvarojen jatkuvaan kulutukseen. Keskeistä onkin käydä avointa keskustelua siitä, millaista tulevaisuutta haluamme rakentaa ja millaisia uhrauksia olemme valmiita tekemään yhteisen hyvän eteen.",
+      "word_count": 118
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin ympäristöpolitiikka on perinteisesti keskittynyt?",
+        "options": [
+          "Kulutustottumusten muuttamiseen.",
+          "Teknologisiin ratkaisuihin, kuten uusiutuvaan energiaan.",
+          "Väestönkasvun rajoittamiseen.",
+          "Kansainvälisiin sopimuksiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tekniset innovaatiot eivät tekstin mukaan yksin pysty ratkaisemaan?",
+        "options": [
+          "Energiantuotannon ongelmia.",
+          "Liikenteen päästöjä.",
+          "Syvällisiä muutoksia elämäntavoissa ja talouden rakenteissa.",
+          "Teollisuuden päästöjä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä elämäntapojen muutoksia tekstissä ehdotetaan?",
+        "options": [
+          "Lisätään kulutusta talouden elvyttämiseksi.",
+          "Opitaan kuluttamaan vähemmän ja arvostamaan kestävyyttä.",
+          "Muutetaan maaseudulle.",
+          "Luovutaan kokonaan autoista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haasteita ajatus jatkuvan talouskasvun mahdottomuudesta herättää?",
+        "options": [
+          "Se on helppo hyväksyä.",
+          "Se haastaa syvälle juurtuneita arvoja ja tottumuksia.",
+          "Sillä ei ole vaikutusta ihmisten arkeen.",
+          "Se on jo toteutettu käytännössä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi uudet ajatukset herättävät usein vastustusta?",
+        "options": [
+          "Koska ne ovat tieteellisesti perustelemattomia.",
+          "Koska ne kyseenalaistavat totutun elämäntavan.",
+          "Koska ne ovat liian kalliita toteuttaa.",
+          "Koska ne eivät ole poliittisesti korrekteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä mahdollisuuksia muutos voi avata?",
+        "options": [
+          "Mahdollisuuden palata vanhaan.",
+          "Mahdollisuuden rakentaa oikeudenmukaisempaa ja kestävämpää yhteiskuntaa.",
+          "Mahdollisuuden lisätä kulutusta.",
+          "Mahdollisuuden vähentää kansainvälistä yhteistyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mistä tekstin mukaan pitäisi käydä avointa keskustelua?",
+        "options": [
+          "Teknologian kehityksestä.",
+          "Tulevaisuudesta ja uhrauksista yhteisen hyvän eteen.",
+          "Poliittisista puolueista.",
+          "Verotuksen tasosta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

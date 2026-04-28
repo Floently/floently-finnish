@@ -1,0 +1,77 @@
+{
+  "id": "a8740843-d120-5cc5-8f95-af9dff15b1ea",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.79,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Globaalin hallinnan haasteet ovat moninkertaistuneet 2000-luvulla. Ilmastonmuutos, pandemiat, kansainvälinen terrorismi ja talouden epävakaus ovat ongelmia, jotka eivät tunne valtioiden rajoja ja jotka edellyttävät ylikansallista yhteistyötä. Perinteiset kansainväliset instituutiot, kuten YK ja sen alajärjestöt, on rakennettu toisen maailmansodan jälkeen vallinneeseen maailmanjärjestykseen, jossa kansallisvaltiot olivat keskeisiä toimijoita. Tämä järjestelmä on osoittautunut riittämättömäksi vastaamaan nykyajan monimutkaisiin haasteisiin. Yksi keskeinen ongelma on päätöksenteon hitaus ja tehottomuus. YK:n turvallisuusneuvoston pysyvien jäsenten veto-oikeus on usein estänyt tarvittavat toimet, ja laajat jäsenmäärät tekevät päätöksenteosta monimutkaista. Toinen ongelma on resurssien puute. Monilla kansainvälisillä järjestöillä ei ole riittävästi taloudellisia resursseja eikä täytäntöönpanovaltaa, vaan ne ovat riippuvaisia jäsenvaltioidensa tahdosta ja panoksesta. Kolmas haaste liittyy legitimiteettiin. Kehitysmaat kokevat usein, että kansainväliset instituutiot palvelevat ensisijaisesti rikkaiden maiden etuja, ja niiden päätöksenteko ei ole riittävän läpinäkyvää tai osallistavaa. Tämä on johtanut vaatimuksiin instituutioiden uudistamisesta ja uudenlaisten toimijoiden, kuten kansalaisjärjestöjen ja yksityisen sektorin, roolin vahvistamisesta. Toisaalta on syntynyt myös uudenlaisia, epämuodollisempia yhteistyön muotoja. Esimerkiksi G20-ryhmä kokoaa yhteen maailman suurimpien talouksien johtajat, ja Pariisin ilmastosopimus on esimerkki niin sanotusta monenkeskisestä sopimuksesta, joka ei ole perinteinen kansainvälinen sopimus vaan joustavampi instrumentti. Myös kaupunkien, alueiden ja yksityisten yritysten välinen yhteistyö on lisääntynyt. Globaalin hallinnan tulevaisuus on avoin. Todennäköistä on, että tarvitaan monitasoista hallintaa, jossa erilaiset toimijat ja instituutiot toimivat yhdessä. Perinteisiä kansainvälisiä instituutioita on uudistettava, mutta niiden rinnalle tarvitaan myös uudenlaisia, joustavampia yhteistyön muotoja. Keskeistä on, että päätöksenteko on läpinäkyvää, osallistavaa ja oikeudenmukaista, ja että se perustuu parhaaseen mahdolliseen tietoon. Ilman toimivaa globaalia hallintaa on vaikea kuvitella, miten ihmiskunta kykenee vastaamaan edessään oleviin valtaviin haasteisiin.",
+      "word_count": 248
+    },
+    "questions": [
+      {
+        "id": "75a344c1-bc9e-5abb-b18d-eac69192c632",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "YK:n turvallisuusneuvoston uudistamistarve",
+          "Globaalin hallinnan haasteet ja tulevaisuudennäkymät",
+          "Kehitysmaiden asema kansainvälisissä järjestöissä",
+          "Ilmastonmuutoksen torjunta kansainvälisenä ongelmana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8a6e6e96-fbce-5945-a520-5828178b8f2c",
+        "prompt": "Tekstin mukaan miksi perinteiset kansainväliset instituutiot eivät pysty vastaamaan nykyajan haasteisiin?",
+        "options": [
+          "Ne ovat liian uusia eikä niillä ole kokemusta",
+          "Päätöksenteko on hidasta ja tehotonta, resurssit ovat puutteelliset, ja legitimiteetti on heikko",
+          "Ne keskittyvät liikaa taloudellisiin kysymyksiin ja unohtavat turvallisuuden",
+          "Ne toimivat vain rikkaiden maiden eduksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c7e1c6be-2791-5488-98b1-676c4b1e34d0",
+        "prompt": "Mitä uudenlaisia yhteistyön muotoja tekstissä mainitaan perinteisten instituutioiden rinnalla?",
+        "options": [
+          "Vain kansalaisjärjestöjen ja yksityisen sektorin roolin vahvistaminen",
+          "G20-ryhmä, Pariisin ilmastosopimuksen kaltaiset joustavat instrumentit sekä kaupunkien, alueiden ja yritysten välinen yhteistyö",
+          "Vain YK:n turvallisuusneuvoston uudistaminen",
+          "Uusien kansainvälisten sopimusten solmiminen perinteisten instituutioiden sisällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0c971873-87c1-55bf-9efe-469ada371662",
+        "prompt": "Mitä tekijöitä tekstin mukaan tarvitaan toimivaan globaaliin hallintaan?",
+        "options": [
+          "Vain vahvoja kansainvälisiä instituutioita, joilla on täytäntöönpanovaltaa",
+          "Monitasoista hallintaa, jossa erilaiset toimijat ja instituutiot toimivat yhdessä, sekä läpinäkyvää, osallistavaa ja oikeudenmukaista päätöksentekoa",
+          "Vain G20-ryhmän kaltaisia epämuodollisia yhteistyömuotoja",
+          "Kansallisvaltioiden yksinomaista päätösvaltaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

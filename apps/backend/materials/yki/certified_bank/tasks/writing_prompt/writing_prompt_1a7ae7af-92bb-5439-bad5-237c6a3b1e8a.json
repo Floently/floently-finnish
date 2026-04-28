@@ -1,0 +1,37 @@
+{
+  "id": "1a7ae7af-92bb-5439-bad5-237c6a3b1e8a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uudessa ravintolassa. Kirjoita palaute. Kerro ruoasta, palvelusta ja siisteydestä. Mainitse myös hinta.",
+    "materials": {
+      "scenario": "Palaute uudesta ravintolasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt uudessa ravintolassa. Kirjoita palaute. Kerro ruoasta, palvelusta ja siisteydestä. Mainitse myös hinta."
+      }
+    ],
+    "rubric": "Olet käynyt uudessa ravintolassa. Kirjoita palaute. Kerro ruoasta, palvelusta ja siisteydestä. Mainitse myös hinta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

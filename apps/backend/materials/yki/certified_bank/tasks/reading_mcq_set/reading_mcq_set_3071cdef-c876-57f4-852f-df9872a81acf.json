@@ -1,0 +1,66 @@
+{
+  "id": "3071cdef-c876-57f4-852f-df9872a81acf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.752,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Terveyspalvelut ovat murroksessa, jota ohjaavat väestön ikääntyminen, teknologian kehitys, kustannuspaineet ja muuttuvat potilasodotukset. Tulevaisuuden terveyspalvelut ovat todennäköisesti entistä yksilöllisempiä, ennakoivampia, digitaalisempia ja hajautetumpia. Yksilöllinen lääketiede on yksi keskeinen trendi. Genomitiedon, biopankkien ja tekoälyn avulla voidaan räätälöidä hoitoja potilaan geneettisen profiilin mukaan. Tämä parantaa hoidon tehoa ja vähentää haittavaikutuksia. Myös pitkäaikaissairauksien, kuten syövän ja diabeteksen, hoidossa yksilölliset lääkkeet ja hoidot yleistyvät. Ennaltaehkäisy korostuu. Hyvinvointiteknologia, kuten älykellot, aktiivisuusrannekkeet ja terveyssovellukset, antavat ihmisille mahdollisuuden seurata omaa terveyttään reaaliajassa. Ne voivat varoittaa poikkeavista arvoista ja kannustaa terveellisiin elämäntapoihin. Ennaltaehkäisevällä työllä voidaan vähentää sairauksien ilmaantuvuutta ja hillitä kustannusten kasvua. Digitaaliset palvelut lisääntyvät. Etävastaanotot, chat-palvelut ja digitaaliset hoitopolut mahdollistavat hoidon saamisen ajasta ja paikasta riippumatta. Tämä parantaa erityisesti harvaan asuttujen alueiden asukkaiden ja liikuntarajoitteisten palvelujen saatavuutta. Myös mielenterveyspalveluissa digitaaliset terapiat ja omahoito-ohjelmat ovat yleistyneet. Tekoäly ja robotiikka tulevat osaksi terveydenhuoltoa. Tekoäly voi auttaa diagnostiikassa, esimerkiksi kuvantamisessa, ja tunnistaa poikkeavuuksia nopeammin ja tarkemmin kuin ihminen. Robotiikkaa voidaan käyttää leikkauksissa, kuntoutuksessa ja logistiikassa. Ne eivät korvaa ihmistä, mutta vapauttavat aikaa hoitotyöhön. Hajautetut palvelut ja kotihoito vahvistuvat. Yhä useampi hoito voidaan toteuttaa kotona tai lähellä kotia, kun teknologia mahdollistaa etäseurannan ja -hoidon. Kotisairaala ja mobiilit terveyspalvelut vähentävät tarvetta sairaalahoidolle. Terveyspalveluiden kehittämisessä on otettava huomioon myös eettiset kysymykset, tietosuoja ja yhdenvertaisuus. Digitaalinen kuilu ei saa johtaa siihen, että osa väestöstä jää palveluiden ulkopuolelle. Tulevaisuuden terveyspalvelut vaativat investointeja, osaamista ja yhteistyötä eri toimijoiden välillä.",
+      "word_count": 223
+    },
+    "questions": [
+      {
+        "id": "f1a2b3c4-d5e6-4f7a-9b8c-9d0e1f2a3b4c",
+        "prompt": "Mitä tarkoitetaan yksilöllisellä lääketieteellä?",
+        "options": [
+          "Samaa hoitoa kaikille",
+          "Hoitojen räätälöintiä potilaan geneettisen profiilin mukaan",
+          "Vain kalliita hoitoja",
+          "Vain perinnöllisten sairauksien hoitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a2b3c4d5-e6f7-4a8b-9c9d-0e1f2a3b4c5d",
+        "prompt": "Miten ennaltaehkäisyä voidaan edistää teknologian avulla?",
+        "options": [
+          "Vain sairaaloissa tehdyillä tutkimuksilla",
+          "Hyvinvointiteknologialla, kuten älykelloilla ja terveyssovelluksilla",
+          "Vain lääkärin vastaanotoilla",
+          "Vain terveyskampanjoilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b3c4d5e6-f7a8-4b9c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Mitä haasteita terveyspalveluiden digitalisaatioon liittyy?",
+        "options": [
+          "Liian nopea kehitys",
+          "Digitaalinen kuilu ja tietosuoja",
+          "Liian halvat palvelut",
+          "Liian vähän käyttäjiä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

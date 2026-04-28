@@ -1,0 +1,77 @@
+{
+  "id": "0b5ecfb1-4e5d-5d6d-b343-b62a176f1eb6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.563,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupungin tietopalveluyksikkö käynnisti keväällä pyöräilyetuohjelman, koska henkilöstökyselyssä nousi esiin kaksi huolta: lyhyiden työmatkojen ruuhkat ja lisääntyneet pysäköintikulut. Uudessa mallissa työntekijä voi hankkia työsuhdepyörän ja maksaa sen osissa palkasta. Työnantaja osallistuu huoltosopimuksen hintaan ensimmäisen vuoden ajan. Kokeilu alkoi kahdessa tiimissä, ja kolmen kuukauden jälkeen sairauspoissaolot vähenivät hieman verrattuna edelliseen kevääseen. Samalla osa henkilöstöstä koki, että pyöräetu hyödyttää eniten keskustassa asuvia. Tämän vuoksi yksikkö lisäsi rinnalle joukkoliikennelipun osittaisen tuen niille, joilla työmatka on pitkä tai kulkee vaarallisen tieosuuden kautta. Johto arvioi mallia syksyllä uudelleen ja päättää, laajennetaanko etu koko organisaatioon vai jatketaanko kahdella vaihtoehdolla rinnakkain.",
+      "word_count": 93
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi ohjelma aloitettiin?",
+        "options": [
+          "uuden pyöräliikkeen vuoksi",
+          "ruuhkien ja pysäköintikulujen takia",
+          "lakimuutoksen vuoksi",
+          "koska kaikki pyysivät sähköpotkulautoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin työnantaja osallistuu ensimmäisen vuoden aikana?",
+        "options": [
+          "kypärän ostoon",
+          "huoltosopimuksen hintaan",
+          "sähkölaskuun",
+          "matkavakuutukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kokeilun jälkeen havaittiin?",
+        "options": [
+          "sairauspoissaolot kasvoivat",
+          "kukaan ei käyttänyt etua",
+          "sairauspoissaolot vähenivät hieman",
+          "kaikki pysäköintipaikat poistettiin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi rinnalle lisättiin joukkoliikennetuki?",
+        "options": [
+          "pyörät loppuivat varastosta",
+          "pitkien ja riskialttiiden työmatkojen takia",
+          "johtaja vaihtui",
+          "kesälomat alkoivat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

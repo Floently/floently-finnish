@@ -1,0 +1,88 @@
+{
+  "id": "a19c7f78-0ee5-5941-85b5-47e128e518c5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä on Kansaneläkelaitos Kela. Soitamme koskien hakemustanne. Olemme käsitelleet asumistukihakemuksenne ja tarvitsemme lisätietoja. Puuttuvia tietoja ovat vuokrasopimus ja palkkatodistukset. Toimittakaa ne meille viimeistään 10. päivä tätä kuuta. Jos teillä on kysyttävää, voitte soittaa numeroon 020 123456. Kiitos!",
+      "audio_asset_id": "f094e0d3-d0f5-430e-99bb-dfce420650ab"
+    },
+    "questions": [
+      {
+        "id": "l293q1",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Kela.",
+          "Verovirasto.",
+          "Työttömyyskassa.",
+          "Eläketurvakeskus."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l293q2",
+        "prompt": "Mitä hakemusta viesti koskee?",
+        "options": [
+          "Asumistukihakemusta.",
+          "Opintotukihakemusta.",
+          "Toimeentulotukihakemusta.",
+          "Lapsilisähakemusta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l293q3",
+        "prompt": "Mitä tietoja puuttuu hakemuksesta?",
+        "options": [
+          "Vuokrasopimus ja palkkatodistukset.",
+          "Henkilötunnus ja osoite.",
+          "Tilinumero ja verotiedot.",
+          "Passi ja Kela-kortti."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l293q4",
+        "prompt": "Mihin mennessä tiedot pitää toimittaa?",
+        "options": [
+          "5. päivä.",
+          "10. päivä.",
+          "15. päivä.",
+          "20. päivä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l293q5",
+        "prompt": "Mihin numeroon voi soittaa, jos on kysyttävää?",
+        "options": [
+          "020 123456.",
+          "020 654321.",
+          "020 789012.",
+          "020 345678."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

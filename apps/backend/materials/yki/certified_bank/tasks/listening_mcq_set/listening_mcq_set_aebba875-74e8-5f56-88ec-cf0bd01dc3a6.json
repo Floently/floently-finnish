@@ -1,0 +1,99 @@
+{
+  "id": "aebba875-74e8-5f56-88ec-cf0bd01dc3a6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta harrastuspassista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin nuorisopalvelujen tiedote. Olemme lanseeranneet uuden harrastuspassin kaikille 7–17-vuotiaille nuorille. Harrastuspassilla voi kokeilla eri harrastuksia maksutta tai edullisesti. Passilla pääsee esimerkiksi uimahalliin, luistelemaan, kokeilemaan eri liikuntalajeja ja osallistumaan työpajoihin. Passin saa lataamalla kaupungin sovelluksen ja rekisteröitymällä. Passi on voimassa koko lukuvuoden. Tavoitteena on madaltaa kynnystä kokeilla uusia harrastuksia ja löytää jokaiselle mieluisa tekeminen. Lisätietoa saa nuorisopalveluista ja verkkosivuiltamme. Tervetuloa kokeilemaan!",
+      "audio_asset_id": "9ab6afbe-f7ee-4768-9f22-9366b95df01c"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin nuorisopalvelut tiedottavat?",
+        "options": [
+          "Uudesta harrastuspassista.",
+          "Uudesta nuorisotilasta.",
+          "Uudesta kesäleiristä.",
+          "Uudesta kerhosta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minkä ikäisille harrastuspassi on tarkoitettu?",
+        "options": [
+          "7–17-vuotiaille.",
+          "3–6-vuotiaille.",
+          "18–25-vuotiaille.",
+          "Kaikille ikäryhmille."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä harrastuspassilla voi tehdä?",
+        "options": [
+          "Käydä elokuvissa.",
+          "Kokeilla eri harrastuksia maksutta tai edullisesti.",
+          "Saada alennusta vaatekaupoista.",
+          "Käydä ravintoloissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten harrastuspassin saa?",
+        "options": [
+          "Noutamalla nuorisotalolta.",
+          "Lataamalla kaupungin sovelluksen ja rekisteröitymällä.",
+          "Tilaamalla postitse.",
+          "Hakemalla kirjastosta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Kuinka kauan passi on voimassa?",
+        "options": [
+          "Yhden kuukauden.",
+          "Yhden vuoden.",
+          "Kaksi vuotta.",
+          "Koko lukuvuoden."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on harrastuspassin tavoite?",
+        "options": [
+          "Kerätä rahaa kaupungille.",
+          "Kilpailla muiden kaupunkien kanssa.",
+          "Vähentää nuorisotyötä.",
+          "Madaltaa kynnystä kokeilla uusia harrastuksia."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

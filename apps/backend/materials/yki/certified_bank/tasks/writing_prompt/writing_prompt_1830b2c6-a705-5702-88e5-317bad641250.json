@@ -1,0 +1,37 @@
+{
+  "id": "1830b2c6-a705-5702-88e5-317bad641250",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ollut työväenopiston tanssikurssilla. Kirjoita palaute. Arvioi opetusta, ryhmän kokoa ja kurssin sopivaa vaikeustasoa.",
+    "materials": {
+      "scenario": "Palaute tanssikurssista"
+    },
+    "items": [
+      {
+        "id": "5d150ad5-e075-5c92-8e5e-0ba1475b99ae",
+        "prompt": "Olet ollut työväenopiston tanssikurssilla. Kirjoita palaute. Arvioi opetusta, ryhmän kokoa ja kurssin sopivaa vaikeustasoa."
+      }
+    ],
+    "rubric": "Opetus\nRyhmän koko\nVaikeustaso",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

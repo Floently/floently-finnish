@@ -1,0 +1,77 @@
+{
+  "id": "492c0cee-1302-5fff-8a18-51b5f070c59c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työpaikkakoulutuksen osuus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kouluttaja: Tervetuloa asiakaspalvelukoulutukseen! Tänään puhumme hankalista asiakastilanteista. Ensimmäinen tärkeä asia: älä ota asiakkaan turhautumista henkilökohtaisesti. Usein asiakas on vihainen tilanteelle, ei sinulle.\nOsallistuja: Mutta mitä tehdä, jos asiakas huutaa?\nKouluttaja: Hyvä kysymys. Silloin kannattaa pysyä rauhallisena ja antaa asiakkaan purkaa tunnetta. Kuuntele ensin, älä keskeytä. Sitten voit sanoa vaikka: \"Ymmärrän, että tämä on turhauttavaa. Katsotaan yhdessä, mitä voimme tehdä.\"\nOsallistuja: Entä jos asiakas vaatii jotain, mitä emme voi tehdä?\nKouluttaja: Silloin on tärkeää kertoa rehellisesti, mitä voimme tehdä. Älä lupaa mitään, mitä et voi pitää. Kerro vaihtoehdoista ja ehdota ratkaisua. Jos et itse osaa auttaa, pyydä apua esihenkilöltä.\nOsallistuja: Miten toimia, jos asiakas on täysin väärässä?\nKouluttaja: Silloinkin kannattaa aloittaa myönteisesti. Voit sanoa: \"Kiitos, että kerroit tästä. Ymmärrän, että asia harmittaa.\" Sitten voit selittää faktat rauhallisesti. Tärkeintä on, että asiakas kokee tulleensa kuulluksi.\nKouluttaja: Muistakaa myös, että teillä on oikeus kohteliaaseen kohteluun. Jos tilanne on uhkaava, voitte pyytää apua tai poistua paikalta.",
+      "audio_asset_id": "eb929e57-3d00-492b-9014-289cfaf716e6"
+    },
+    "questions": [
+      {
+        "id": "0db0f197-759d-56ec-961d-019708feaeee",
+        "prompt": "Mikä on ensimmäinen neuvo hankalassa asiakastilanteessa?",
+        "options": [
+          "Huutaa takaisin",
+          "Älä ota asiakkaan turhautumista henkilökohtaisesti",
+          "Keskeytä asiakas",
+          "Soita poliisille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ebff2d44-5190-53d9-9660-33b6d4e4d758",
+        "prompt": "Mitä tehdä, jos asiakas huutaa?",
+        "options": [
+          "Huutaa kovempaa",
+          "Antaa asiakkaan purkaa tunnetta ja pysyä rauhallisena",
+          "Käskee asiakasta poistumaan",
+          "Ei tee mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "28b7b34c-edb0-5b3d-98fe-cf3c3e8d373b",
+        "prompt": "Mitä ei saa tehdä, jos asiakas vaatii mahdotonta?",
+        "options": [
+          "Kertoa vaihtoehdoista",
+          "Luvata jotain, mitä ei voi pitää",
+          "Pyytää esihenkilön apua",
+          "Selittää rauhallisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "51ad6659-dc04-569f-b522-8492e87e7204",
+        "prompt": "Mitä tehdä, jos tilanne on uhkaava?",
+        "options": [
+          "Jatkaa palvelua normaalisti",
+          "Pyytää apua tai poistua",
+          "Huutaa takaisin",
+          "Antaa asiakkaalle mitä tämä haluaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

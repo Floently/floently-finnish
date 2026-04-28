@@ -1,0 +1,88 @@
+{
+  "id": "07cd8809-ceb8-5721-8827-d2e36689b737",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kotimaiset käsityöperinteet ovat rikkaat. Ne kertovat suomalaisten taidosta ja luovuudesta. Ne ovat siirtyneet sukupolvelta toiselle. Nykyään perinteiset käsityöt ovat jälleen suosittuja. Yksi keskeisimmistä käsityöperinteistä on tekstiilityöt, kuten neulominen ja virkkaus. Suomalaiset villasukat ja lapaset ovat tunnettuja. Perinteiset kirjoneuleet ovat suosittuja edelleen. Toinen keskeinen perinne on puutyöt. Suomalaiset ovat taitavia käsittelemään puuta. Perinteiset hirsirakennukset ja saunat ovat osoitus tästä taidosta. Kolmas perinne on keramiikka. Suomalainen keramiikka, kuten Arabian astiat, on tunnettua. Neljäs perinne on korujen valmistus. Suomalainen hopeasepäntyö on perinteikästä. Viides perinne on perinneruokien valmistus. Ruisleivän leivonta ja kalojen savustus ovat perinteitä, jotka elävät edelleen.",
+      "word_count": 94
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kotimaiset käsityöperinteet kertovat suomalaisista?",
+        "options": [
+          "Vain taloudellisesta tilanteesta",
+          "Taidosta ja luovuudesta",
+          "Vain historiasta",
+          "Vain ulkomaisista vaikutteista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä ovat keskeisimpiä tekstiilityön perinteitä Suomessa?",
+        "options": [
+          "Vain ompelu",
+          "Neulominen ja virkkaus",
+          "Vain kirjonta",
+          "Vain pitsinnypläys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä suomalaiset villasukat ja lapaset tunnetaan?",
+        "options": [
+          "Värikkyydestään",
+          "Lämmittävyydestään ja kauniista kuvioistaan",
+          "Halpuudestaan",
+          "Nopeudestaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä perinteisiä puurakennuksia Suomessa on?",
+        "options": [
+          "Vain moderneja rakennuksia",
+          "Hirsirakennuksia ja saunoja",
+          "Vain kivitaloja",
+          "Vain betonirakennuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä perinneruokien valmistukseen kuuluu?",
+        "options": [
+          "Vain uusien reseptien kokeilu",
+          "Ruisleivän leivonta ja kalojen savustus",
+          "Vain pitsan leivonta",
+          "Vain ulkomaisten ruokien valmistus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

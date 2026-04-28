@@ -1,0 +1,110 @@
+{
+  "id": "9440ff1b-82d2-5cd7-a7d3-442364b7c79b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Sananvapaus on demokraattisen yhteiskunnan peruspilareita. Se takaa kansalaisten oikeuden ilmaista mielipiteensä ja saada tietoa ilman ennakkosensuuria. Digitaalisella aikakaudella sananvapaus on kuitenkin joutunut uudenlaisten haasteiden eteen. Sosiaalinen media on demokratisoinut keskustelua, mutta samalla se on mahdollistanut disinformaation, vihapuheen ja valeuutisten nopean leviämisen. Tämä on herättänyt kysymyksen siitä, pitäisikö sananvapautta rajoittaa entistä enemmän verkossa. Osa painottaa, että haitalliseen sisältöön on puututtava tiukemmin, jotta voidaan suojella demokratiaa ja haavoittuvia ryhmiä. Toiset varoittavat, että liiallinen puuttuminen voi johtaa sensuuriin ja kaventaa kansalaiskeskustelua. He korostavat, että paras lääke huonoa puhetta vastaan on hyvä puhe, ei kielto. Keskeistä onkin löytää tasapaino sananvapauden ja muiden perusoikeuksien, kuten yksityisyyden suojan ja syrjinnän kiellon, välillä. Tämä vaatii huolellista harkintaa ja jatkuvaa keskustelua siitä, millaisia rajoja yhteiskunta on valmis asettamaan.",
+      "word_count": 120
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi sananvapaus on tärkeä demokraattisessa yhteiskunnassa?",
+        "options": [
+          "Se takaa kansalaisten oikeuden äänestää.",
+          "Se takaa oikeuden ilmaista mielipiteensä ja saada tietoa ilman ennakkosensuuria.",
+          "Se takaa oikeuden omistaa omaisuutta.",
+          "Se takaa oikeuden kokoontua vapaasti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten sosiaalinen media on vaikuttanut sananvapauteen?",
+        "options": [
+          "Se on vähentänyt keskustelua.",
+          "Se on demokratisoinut keskustelua, mutta mahdollistanut disinformaation ja vihapuheen leviämisen.",
+          "Se on poistanut kaiken vihapuheen.",
+          "Sillä ei ole ollut mitään vaikutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä disinformaatiolla tarkoitetaan?",
+        "options": [
+          "Tarkoituksella levitettyä virheellistä tietoa.",
+          "Tieteellistä tutkimusta.",
+          "Viihdettä.",
+          "Mainoksia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä perusteita sananvapauden rajoittamiselle verkossa esitetään?",
+        "options": [
+          "Halutaan vähentää keskustelua.",
+          "Halutaan suojella demokratiaa ja haavoittuvia ryhmiä haitalliselta sisällöltä.",
+          "Halutaan lisätä valtion valvontaa.",
+          "Halutaan edistää kaupallisia intressejä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä riskejä sananvapauden liialliseen rajoittamiseen liittyy?",
+        "options": [
+          "Se voi johtaa sensuuriin ja kaventaa kansalaiskeskustelua.",
+          "Se lisää vihapuhetta.",
+          "Se heikentää talouskasvua.",
+          "Se vähentää innovaatioita."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä vaihtoehtoista ratkaisua vihapuheeseen esitetään?",
+        "options": [
+          "Kaiken kriittisen puheen kieltämistä.",
+          "Hyvää puhetta vastalääkkeeksi huonolle puheelle.",
+          "Sosiaalisen median lakkauttamista.",
+          "Vain virallisten tiedotusvälineiden sallimista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä muita perusoikeuksia sananvapauden kanssa pitää sovittaa yhteen?",
+        "options": [
+          "Omaisuuden suojaa ja elinkeinovapautta.",
+          "Yksityisyyden suojaa ja syrjinnän kieltoa.",
+          "Kokoontumisvapautta ja uskonnonvapautta.",
+          "Liikkumisvapautta ja ammatinvalinnan vapautta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

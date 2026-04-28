@@ -1,0 +1,64 @@
+{
+  "id": "61fa077b-e782-5074-a6f6-5054a3fa324d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka on tyytymätön kampaamokäyntiin. Keskustele kampaamon vastaanottajan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kampaamon vastaanottaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp15_1",
+        "ai_first_turn_fi": "Hei, Kauneushoitola Satuun."
+      },
+      {
+        "id": "srp15_2",
+        "ai_first_turn_fi": "Voi ei, ikävä kuulla. Kerro tarkemmin, mikä meni vikaan?"
+      },
+      {
+        "id": "srp15_3",
+        "ai_first_turn_fi": "Kuka kampaaja sinua leikkasi ja mihin aikaan kävit?"
+      },
+      {
+        "id": "srp15_4",
+        "ai_first_turn_fi": "Ymmärrän. Haluaisitko tulla korjauttamaan kampauksen toisella kampaajalla? Se ei tietenkään maksa sinulle mitään."
+      },
+      {
+        "id": "srp15_5",
+        "ai_first_turn_fi": "Milloin sinulle sopisi parhaiten tulla?"
+      },
+      {
+        "id": "srp15_6",
+        "ai_first_turn_fi": "Selvä, varataan ensi tiistai kello 14. Toivottavasti uusi kampaus miellyttää enemmän. Pahoittelut vielä eilisestä."
+      },
+      {
+        "id": "srp15_7",
+        "ai_first_turn_fi": "Kiitos palautteestasi, se auttaa meitä parantamaan toimintaamme. Tervetuloa uudelleen!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka on tyytymätön kampaamokäyntiin. Keskustele kampaamon vastaanottajan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

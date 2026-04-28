@@ -1,0 +1,37 @@
+{
+  "id": "bfa2076a-e889-5115-9e6c-1ace537eac28",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute bussikuskin palvelusta.",
+    "materials": {
+      "scenario": "Matkustuskokemus"
+    },
+    "items": [
+      {
+        "id": "fce13203-05c1-5f41-8ad7-ee4c0f3f0471",
+        "prompt": "Kirjoita palaute bussikuskin palvelusta."
+      }
+    ],
+    "rubric": "Kirjoita palaute bussikuskin palvelusta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

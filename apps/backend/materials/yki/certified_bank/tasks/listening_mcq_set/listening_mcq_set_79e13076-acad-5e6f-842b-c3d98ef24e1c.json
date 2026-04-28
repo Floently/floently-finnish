@@ -1,0 +1,66 @@
+{
+  "id": "79e13076-acad-5e6f-842b-c3d98ef24e1c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele opettajan puheenvuoro vanhempainillassa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvää iltaa kaikille vanhemmille. Kiitos, että olette tulleet paikalle. Tänään haluan kertoa teille luokan kuulumisia ja tulevista tapahtumista.\n\nOppilaat ovat sopeutuneet hyvin uuteen lukuvuoteen, ja ryhmähenki on hyvä. Toki haasteitakin on: muutamalla oppilaalla on ollut vaikeuksia läksyjen tekemisessä ja tunnille keskittymisessä. Toivon, että kotona muistutetaan läksyjen tärkeydestä ja seurataan koulumenestystä Wilman kautta.\n\nSeuraavaksi tärkeää tietoa: ensi viikon torstaina on koulun liikuntapäivä. Oppilaat tulevat normaalisti kouluun, mutta sitten siirrymme yhdessä urheilukentälle. Sään mukainen vaatetus, juomapullo ja eväät mukaan. Koulu tarjoaa mehun.\n\nSitten toinen asia: luokkaretki on suunniteltu toukokuun puoliväliin. Retki maksaa noin 35 euroa oppilasta kohti. Rahankeräystä on jo aloitettu myymällä vanhoja kirjoja ja leivonnaisia. Jos teillä on ideoita lisärahankeruuseen tai haluatte auttaa retken järjestelyissä, ottakaa yhteyttä luokan vanhempaintoimikuntaan.\n\nLopuksi haluan muistuttaa, että ensi viikon keskiviikkona on vanhempainvartti. Ajan voi varata Wilmasta. Kiitos!",
+      "audio_asset_id": "64dea32d-2ae8-4b94-928f-ccb3bfc6de2f"
+    },
+    "questions": [
+      {
+        "id": "6dd36cb3-3d66-5253-8d0e-3cb2f9ed0851",
+        "prompt": "Mikä on opettajan huolenaihe?",
+        "options": [
+          "Oppilaiden käytös välitunneilla",
+          "Läksyjen tekeminen ja keskittyminen muutamalla oppilaalla",
+          "Kiusaaminen",
+          "Poissaolot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "64e68a62-7a63-5bb7-aec3-c52cc579f995",
+        "prompt": "Milloin liikuntapäivä on?",
+        "options": [
+          "Maanantaina",
+          "Keskiviikkona",
+          "Torstaina",
+          "Perjantaina"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7db06e0d-72c7-594d-8dee-15f44881682d",
+        "prompt": "Paljonko luokkaretki maksaa oppilasta kohti?",
+        "options": [
+          "Noin 25 euroa",
+          "Noin 35 euroa",
+          "Noin 45 euroa",
+          "Noin 55 euroa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

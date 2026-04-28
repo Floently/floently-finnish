@@ -1,0 +1,66 @@
+{
+  "id": "f0e97c3f-a0b5-5f0b-8922-ea7497bdb9ce",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Olin kaupassa, mutta unohdin ostaa maitoa ja leipää. Voisitko käydä kaupassa matkalla kotiin? Kiitos!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "6b5af790-35a8-51fd-9a1d-49a16e10bf3a",
+        "prompt": "Mitä lähettäjä unohti ostaa?",
+        "options": [
+          "juustoa ja voita",
+          "maitoa ja leipää",
+          "mehua ja keksejä",
+          "karkkia ja limsaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5d5b98f5-49b3-5104-95d0-dc3831d99dc7",
+        "prompt": "Mitä hän pyytää vastaanottajaa tekemään?",
+        "options": [
+          "mennä kotiin",
+          "käydä kaupassa",
+          "soittaa takaisin",
+          "tuoda rahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cb79abe1-ca0b-5b12-bf2b-9b5e5c7e12cc",
+        "prompt": "Milloin hän pyytää tekemään sen?",
+        "options": [
+          "heti",
+          "matkalla kotiin",
+          "huomenna",
+          "viikonloppuna"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

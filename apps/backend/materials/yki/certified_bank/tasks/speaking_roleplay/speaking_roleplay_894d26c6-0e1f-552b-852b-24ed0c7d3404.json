@@ -1,0 +1,40 @@
+{
+  "id": "894d26c6-0e1f-552b-852b-24ed0c7d3404",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.281,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you go to the market square and what you buy there. Is there something special at the market?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "8b36133d-bc06-5940-8a42-b0550613d0e0",
+        "ai_first_turn_fi": "Käytkö sä usein torilla? Mitä sieltä voi ostaa?"
+      }
+    ],
+    "rubric": "Tell if you go to the market square and what you buy there. Is there something special at the market?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

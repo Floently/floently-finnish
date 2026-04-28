@@ -1,0 +1,66 @@
+{
+  "id": "d4b93534-1766-5808-b1de-859ec3198c1e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Yksinäisyys on noussut yhdeksi aikamme merkittävimmistä sosiaalisista ongelmista. Sosiologi Antti Karisto on tutkinut ilmiötä pitkään ja toteaa, että kyse on monitasoisesta ongelmasta, jota ei voi ratkaista yksinkertaisilla keinoilla. Hän erottaa toisistaan emotionaalisen yksinäisyyden ja sosiaalisen yksinäisyyden. Emotionaalinen yksinäisyys tarkoittaa läheisen ihmissuhteen puutetta, sosiaalinen yksinäisyys taas laajemman yhteisön puutetta. Kariston mukaan molemmat ovat lisääntyneet, mutta eri syistä. Emotionaalinen yksinäisyys liittyy usein perherakenteiden muutoksiin ja yksinasumisen yleistymiseen. Sosiaalinen yksinäisyys taas kytkeytyy yhteisöllisyyden heikkenemiseen ja kaupungistumiseen. 'Ennen oltiin osa kyläyhteisöä, nykyään naapuria ei tunneta.' Karisto korostaa, että yksinäisyys ei ole vain yksilön ongelma, vaan se heijastaa yhteiskunnan tilaa. 'Yksinäisyys maksaa: se lisää sairauksia, heikentää työkykyä ja vähentää hyvinvointia.' Ratkaisuiksi hän ehdottaa sekä rakenteellisia että kulttuurisia muutoksia. Tarvitaan kohtaamispaikkoja ja matalan kynnyksen toimintaa, mutta myös asenneilmaston muutosta, jossa yksinäisyydestä voidaan puhua ilman häpeää.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 162
+    },
+    "questions": [
+      {
+        "id": "60a2b481-40f9-5073-b8a3-f55d0c50d5dd",
+        "prompt": "Miten Antti Karisto erottelee yksinäisyyden tyypit?",
+        "options": [
+          "Nuorten ja vanhusten yksinäisyyteen",
+          "Emotionaaliseen ja sosiaaliseen yksinäisyyteen",
+          "Vapaaehtoiseen ja pakotettuun yksinäisyyteen",
+          "Maaseudun ja kaupungin yksinäisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5450e2ec-c7f2-579c-b603-88e4e5ebc61b",
+        "prompt": "Mikä on Kariston mukaan sosiaalisen yksinäisyyden taustalla?",
+        "options": [
+          "Perheiden pirstoutuminen",
+          "Yhteisöllisyyden heikkeneminen ja kaupungistuminen",
+          "Liiallinen somekäyttö",
+          "Työttömyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "808cf82b-ccac-57d9-883b-2fbce7659133",
+        "prompt": "Mitä ratkaisuja Karisto ehdottaa yksinäisyyteen?",
+        "options": [
+          "Lääkkeitä ja terapiaa",
+          "Kohtaamispaikkoja ja asenneilmaston muutosta",
+          "Ihmisten pakottamista sosiaalisiin tilanteisiin",
+          "Yksinasumisen kieltämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

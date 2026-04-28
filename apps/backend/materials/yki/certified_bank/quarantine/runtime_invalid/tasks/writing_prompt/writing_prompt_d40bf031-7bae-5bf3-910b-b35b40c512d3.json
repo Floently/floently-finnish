@@ -1,0 +1,37 @@
+{
+  "id": "d40bf031-7bae-5bf3-910b-b35b40c512d3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.301,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: sports_hall. Purpose: agree_on_a_change. Constraint: respect_the_schedule.",
+    "materials": {
+      "scenario": "fitness in sports_hall"
+    },
+    "items": [
+      {
+        "id": "e5266ee1-d078-5af9-927f-e01dd18d2d65",
+        "prompt": "Write for the receiver in this scenario: sports_hall. Purpose: agree_on_a_change. Constraint: respect_the_schedule."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

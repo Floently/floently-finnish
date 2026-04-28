@@ -1,0 +1,37 @@
+{
+  "id": "7655d0fb-f0c2-5257-b2d2-9f2ab2fbc86c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kaupungin ympäristöterveydenhuoltoon. Olet huolissasi naapurustossa olevasta jätevuoresta, joka saattaa houkutella tuholaisia. Ilmoita asiasta, kerro tarkka sijainti ja pyydä tarkastusta.",
+    "materials": {
+      "scenario": "Ilmoitus jätevuoresta"
+    },
+    "items": [
+      {
+        "id": "86a4cffd-9a9f-5a0f-a16e-959e79fe7584",
+        "prompt": "Kirjoita virallinen sähköposti kaupungin ympäristöterveydenhuoltoon. Olet huolissasi naapurustossa olevasta jätevuoresta, joka saattaa houkutella tuholaisia. Ilmoita asiasta, kerro tarkka sijainti ja pyydä tarkastusta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

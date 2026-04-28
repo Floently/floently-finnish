@@ -1,0 +1,37 @@
+{
+  "id": "50f95566-6269-50ee-8a49-da3175b4a4fc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti työ- ja elinkeinotoimistoon. Olet saanut työpaikan ja haluat tietää, miten se vaikuttaa työttömyysetuutesi maksatukseen. Kerro työsuhteesi alkamispäivä, työaika ja palkka. Kysy myös, tarvitseeko sinun toimittaa jotain selvityksiä ja miten ilmoitat työllistymisestä.",
+    "materials": {
+      "scenario": "Työllistymisen vaikutus työttömyysetuuteen"
+    },
+    "items": [
+      {
+        "id": "d38c1fad-62f9-54ff-897b-a81b0194459d",
+        "prompt": "Kirjoita virallinen sähköposti työ- ja elinkeinotoimistoon. Olet saanut työpaikan ja haluat tietää, miten se vaikuttaa työttömyysetuutesi maksatukseen. Kerro työsuhteesi alkamispäivä, työaika ja palkka. Kysy myös, tarvitseeko sinun toimittaa jotain selvityksiä ja miten ilmoitat työllistymisestä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

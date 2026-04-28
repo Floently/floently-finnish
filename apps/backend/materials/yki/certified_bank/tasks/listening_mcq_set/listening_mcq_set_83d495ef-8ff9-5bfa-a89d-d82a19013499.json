@@ -1,0 +1,66 @@
+{
+  "id": "83d495ef-8ff9-5bfa-a89d-d82a19013499",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, tiedätkö mitä se uusi työntekijä tekee?\nB: Joo, se on se uusi myyjä. Se aloitti tällä viikolla.\nA: Ai, mikä sen nimi on?\nB: Laura. Se on tosi mukava ja osaa hyvin asiakaspalvelua.\nA: Mistä se on tullut?\nB: Se on ollut aikaisemmin toisessa kaupassa töissä.\nA: No hyvä, me tarvitaan lisää porukkaa.",
+      "audio_asset_id": "3ec10bc2-22c2-5f15-b73b-0bc8204362ea"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka on uusi työntekijä?",
+        "options": [
+          "Matti",
+          "Laura",
+          "Anna",
+          "Juhani"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uusi työntekijä tekee?",
+        "options": [
+          "siivooja",
+          "myyjä",
+          "toimistotyöntekijä",
+          "varastotyöntekijä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä uusi työntekijä on tullut?",
+        "options": [
+          "koulusta",
+          "toisesta kaupasta",
+          "työttömäksi",
+          "ulkomailta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "d4fa4c24-5748-59ad-a7a6-92ece0c03db3",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.497,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele eläinlääkärin kanssa. Kerro lemmikkisi oireista ja kysy neuvoa.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan eläinlääkärille",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "a8f1daee-b471-5d90-a4c0-f3d3728f64d6",
+        "ai_first_turn_fi": "Hei, tulkaa sisään. Kertokaahan nyt, mikä koiralla on hätänä?"
+      }
+    ],
+    "rubric": "Keskustele eläinlääkärin kanssa. Kerro lemmikkisi oireista ja kysy neuvoa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

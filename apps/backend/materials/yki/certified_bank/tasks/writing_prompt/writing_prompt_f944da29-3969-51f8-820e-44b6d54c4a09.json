@@ -1,0 +1,37 @@
+{
+  "id": "f944da29-3969-51f8-820e-44b6d54c4a09",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työpaikan henkilöstöpäällikölle.",
+    "materials": {
+      "scenario": "Ehdota työpaikkaruokalan ruokalistaan parannuksia"
+    },
+    "items": [
+      {
+        "id": "6723e1f0-a23a-5493-9e1c-ea8b97e56221",
+        "prompt": "Käytät usein työpaikkaruokalassa, ja sinulla on ideoita ruokalistan kehittämiseksi. Kirjoita sähköposti ja ehdota parannuksia. Kerro, millaisia ruokia toivoisit lisää ja miksi ne olisivat hyväksi henkilöstölle."
+      }
+    ],
+    "rubric": "Käytät usein työpaikkaruokalassa, ja sinulla on ideoita ruokalistan kehittämiseksi. Kirjoita sähköposti ja ehdota parannuksia. Kerro, millaisia ruokia toivoisit lisää ja miksi ne olisivat hyväksi henkilöstölle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "47dc125e-eb46-5f73-a760-aa01376f695e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti ministeriöön. Olet huolissasi ilmastonmuutoksen vaikutuksista ja haluat, että Suomi tekee enemmän päästövähennyksiä. Kerro, miksi asia on tärkeä sinulle. Pyydä, että ministeriö ottaa asian vakavasti.",
+    "materials": {
+      "scenario": "Huoli ilmastonmuutoksesta"
+    },
+    "items": [
+      {
+        "id": "f420ea48-7242-5fef-99d7-11a336d98485",
+        "prompt": "Kirjoita sähköposti ministeriöön. Olet huolissasi ilmastonmuutoksen vaikutuksista ja haluat, että Suomi tekee enemmän päästövähennyksiä. Kerro, miksi asia on tärkeä sinulle. Pyydä, että ministeriö ottaa asian vakavasti."
+      }
+    ],
+    "rubric": "Huolen aihe\nHenkilökohtainen merkitys\nPyyntö toimia",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

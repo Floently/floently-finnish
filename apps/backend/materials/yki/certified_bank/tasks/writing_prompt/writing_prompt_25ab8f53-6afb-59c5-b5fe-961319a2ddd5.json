@@ -1,0 +1,37 @@
+{
+  "id": "25ab8f53-6afb-59c5-b5fe-961319a2ddd5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kuluttajariitalautakuntaan. Olet ostanut käytetyn auton, jossa on ollut paljon vikoja, eikä myyjä suostu korjaamaan niitä. Kerro kaupan ehdoista, vioista ja yhteydenotoista myyjään. Pyydä ohjeita riidan käsittelyyn.",
+    "materials": {
+      "scenario": "Riita käytetyn auton kaupasta"
+    },
+    "items": [
+      {
+        "id": "1790155b-8162-5dbd-81b6-bf0761e1a049",
+        "prompt": "Kirjoita virallinen sähköposti kuluttajariitalautakuntaan. Olet ostanut käytetyn auton, jossa on ollut paljon vikoja, eikä myyjä suostu korjaamaan niitä. Kerro kaupan ehdoista, vioista ja yhteydenotoista myyjään. Pyydä ohjeita riidan käsittelyyn."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

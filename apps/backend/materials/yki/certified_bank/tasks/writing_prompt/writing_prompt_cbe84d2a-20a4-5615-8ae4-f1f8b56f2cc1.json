@@ -1,0 +1,37 @@
+{
+  "id": "cbe84d2a-20a4-5615-8ae4-f1f8b56f2cc1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.699,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a member of the board position in a central bank. Tell about your experience in monetary policy preparation, financial supervision, and international cooperation. Also describe how you have influenced economic policy and communicated on economic issues to different stakeholders. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus keskuspankin johtokunnan jäsenen tehtävään"
+    },
+    "items": [
+      {
+        "id": "cf05b841-a69c-5e41-8f59-9c4fe41de7f1",
+        "prompt": "Write a job application. You are applying for a member of the board position in a central bank. Tell about your experience in monetary policy preparation, financial supervision, and international cooperation. Also describe how you have influenced economic policy and communicated on economic issues to different stakeholders. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a member of the board position in a central bank. Tell about your experience in monetary policy preparation, financial supervision, and international cooperation. Also describe how you have influenced economic policy and communicated on economic issues to different stakeholders. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

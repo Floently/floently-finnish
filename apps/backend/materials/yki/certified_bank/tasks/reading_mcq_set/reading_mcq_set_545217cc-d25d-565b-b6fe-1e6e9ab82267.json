@@ -1,0 +1,77 @@
+{
+  "id": "545217cc-d25d-565b-b6fe-1e6e9ab82267",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen hyvinvointiyhteiskunta perustuu ajatukseen, että kaikilla on oikeus peruspalveluihin ja sosiaaliturvaan. Julkinen terveydenhuolto, koulutus ja sosiaalipalvelut rahoitetaan veroilla. Kelan kautta maksetaan esimerkiksi työttömyyskorvausta, sairauspäivärahaa, lapsilisää ja opintotukea. Tavoitteena on vähentää eriarvoisuutta ja turvata jokaisen toimeentulo elämäntilanteesta riippumatta. Viime vuosina on keskusteltu siitä, miten hyvinvointiyhteiskunta pystytään rahoittamaan väestön ikääntyessä ja julkisen talouden paineiden kasvaessa. Monet palvelut ovat siirtyneet digitaalisiksi, mikä tuo sekä mahdollisuuksia että haasteita. Vapaaehtoistyöllä ja kolmannella sektorilla on tärkeä rooli hyvinvoinnin tukemisessa.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_015",
+        "prompt": "Millä hyvinvointiyhteiskunnan palvelut rahoitetaan?",
+        "options": [
+          "Maksuilla ja lahjoituksilla",
+          "Veroilla",
+          "Vain asiakasmaksuilla",
+          "EU:n tuella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_015",
+        "prompt": "Mitä Kela maksaa?",
+        "options": [
+          "Vain työttömyyskorvausta",
+          "Työttömyyskorvausta, sairauspäivärahaa, lapsilisää ja opintotukea",
+          "Vain lapsilisää",
+          "Vain opintotukea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_015",
+        "prompt": "Mikä on hyvinvointiyhteiskunnan tavoite?",
+        "options": [
+          "Tuottaa voittoa",
+          "Vähentää eriarvoisuutta ja turvata jokaisen toimeentulo",
+          "Tarjota vain perusterveydenhuoltoa",
+          "Siirtää kaikki palvelut yksityiselle sektorille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_015",
+        "prompt": "Mikä haaste hyvinvointiyhteiskunnalla on edessään?",
+        "options": [
+          "Liian suuri syntyvyys",
+          "Väestön ikääntyminen ja julkisen talouden paineet",
+          "Liian nuori väestö",
+          "Liian vähän veronmaksajia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

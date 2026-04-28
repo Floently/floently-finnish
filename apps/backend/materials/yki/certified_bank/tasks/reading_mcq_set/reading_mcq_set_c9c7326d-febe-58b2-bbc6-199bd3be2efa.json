@@ -1,0 +1,88 @@
+{
+  "id": "c9c7326d-febe-58b2-bbc6-199bd3be2efa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kaupunkiviljely on yleistynyt viime vuosina, ja se on tuonut uudenlaisen ulottuvuuden kaupunkilaisten arkeen ja kaupunkisuunnitteluun. Kaupunkiviljelyllä tarkoitetaan ruoan, yrttien ja koristekasvien kasvattamista kaupunkiympäristössä, kuten pihoilla, puistoissa, parvekkeilla, sisätiloissa ja erityisillä viljelypalstoilla. Se on pientä ja usein harrastuspohjaista, mutta sen merkitys voi olla suuri. Yksi keskeisimmistä kaupunkiviljelyn hyödyistä on sen tuottama ruoka. Itse kasvatetut vihannekset, yrtit ja marjat ovat tuoreita, maukkaita ja puhtaita. Ne vähentävät riippuvuutta kaupan teollisesta ruoantuotannosta ja pitkistä kuljetusketjuista. Kaupunkiviljely voi myös lisätä ruokaturvaa ja omavaraisuutta. Toinen keskeinen hyöty on ympäristövaikutukset. Kaupunkiviljely vähentää ruoan kuljetuksesta aiheutuvia päästöjä ja pakkausjätettä. Se myös lisää viheralueita kaupungeissa, mikä parantaa ilmanlaatua, vähentää hulevesien määrää ja lisää luonnon monimuotoisuutta. Viheralueet myös viilentävät kaupunkiympäristöä kuumina päivinä. Kolmas hyöty on yhteisöllisyys. Yhteisöviljelyhankkeet, joissa naapurit viljelevät yhdessä, tuovat ihmisiä yhteen ja vahvistavat yhteisöllisyyttä. Ne tarjoavat tilaisuuksia tavata uusia ihmisiä, jakaa kokemuksia ja oppia toisilta. Tämä on tärkeää erityisesti kaupungeissa, joissa anonyymiys on usein ongelma. Neljäs hyöty on hyvinvointi. Puutarhanhoito on tutkitusti hyväksi mielenterveydelle. Se vähentää stressiä, parantaa mielialaa ja antaa onnistumisen kokemuksia. Se on myös hyvää liikuntaa ja ulkoilmaa. Viides hyöty on koulutuksellinen ja kasvatuksellinen merkitys. Kaupunkiviljely opettaa lapsille ja aikuisille, mistä ruoka tulee ja miten kasvit kasvavat. Se lisää ymmärrystä luonnon kiertokulusta ja ekologisuudesta. Se voi myös innostaa terveellisempään ruokavalioon.",
+      "word_count": 205
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kaupunkiviljelyllä tarkoitetaan?",
+        "options": [
+          "Viljelyä maaseudulla",
+          "Ruoan, yrttien ja koristekasvien kasvattamista kaupunkiympäristössä",
+          "Teollista maataloutta",
+          "Eläinten kasvatusta kaupungeissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on yksi kaupunkiviljelyn keskeisimmistä hyödyistä?",
+        "options": [
+          "Se tuottaa voittoa",
+          "Se tuottaa tuoretta ja puhdasta ruokaa",
+          "Se vähentää työttömyyttä",
+          "Se lisää asumiskustannuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kaupunkiviljely vaikuttaa ympäristöön?",
+        "options": [
+          "Se lisää päästöjä",
+          "Se vähentää päästöjä, parantaa ilmanlaatua ja lisää luonnon monimuotoisuutta",
+          "Se kuluttaa paljon vettä",
+          "Se tuhoaa luontoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä kaupunkiviljelyllä on yhteisöllisyydelle?",
+        "options": [
+          "Se eristää ihmisiä toisistaan",
+          "Se tuo ihmisiä yhteen ja vahvistaa yhteisöllisyyttä",
+          "Se lisää kilpailua naapurustossa",
+          "Se vähentää sosiaalisia kontakteja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten kaupunkiviljely vaikuttaa hyvinvointiin?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä, parantaa mielialaa ja antaa onnistumisen kokemuksia",
+          "Se on liian rankkaa",
+          "Sillä ei ole vaikutusta hyvinvointiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

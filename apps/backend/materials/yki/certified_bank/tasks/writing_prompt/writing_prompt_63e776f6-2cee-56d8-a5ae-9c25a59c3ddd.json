@@ -1,0 +1,37 @@
+{
+  "id": "63e776f6-2cee-56d8-a5ae-9c25a59c3ddd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle.",
+    "materials": {
+      "scenario": "Ilmoita muuttoilmoituksesta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti vuokranantajalle."
+      }
+    ],
+    "rubric": "Olet muuttamassa pois vuokra-asunnostasi. Kirjoita sähköposti vuokranantajalle ja kerro, milloin muutat. Kysy, miten teette muuttoilmoituksen ja milloin saat takaisin vuokravakuuden.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

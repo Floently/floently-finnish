@@ -1,0 +1,37 @@
+{
+  "id": "c50c1da1-0126-5c13-b2dc-e65b0bb37683",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.469,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write your opinion. Justify your viewpoint. Give four reasons and tell what others might think.",
+    "materials": {
+      "scenario": "Pitäisikö eläinkokeet kieltää lääketeollisuudessa?"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write your opinion. Justify your viewpoint. Give four reasons and tell what others might think."
+      }
+    ],
+    "rubric": "Write your opinion. Justify your viewpoint. Give four reasons and tell what others might think.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

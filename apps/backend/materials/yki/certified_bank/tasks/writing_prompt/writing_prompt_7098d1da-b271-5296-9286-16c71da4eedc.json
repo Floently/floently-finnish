@@ -1,0 +1,37 @@
+{
+  "id": "7098d1da-b271-5296-9286-16c71da4eedc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkieläinten omistajien osallistua lemmikkikoulutukseen. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lemmikkieläinten omistajien osallistuminen lemmikkikoulutukseen"
+    },
+    "items": [
+      {
+        "id": "0c5c2cdd-5cc4-59ff-87c3-34df10805f6a",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkieläinten omistajien osallistua lemmikkikoulutukseen. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

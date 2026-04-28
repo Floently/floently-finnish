@@ -1,0 +1,99 @@
+{
+  "id": "437ca3f3-efb7-51d2-bad7-b0eaa1d384b0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta asukasbudjetoinnista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin viestintäosaston tiedote. Olemme käynnistäneet uuden asukasbudjetointihankkeen. Asukasbudjetoinnissa kaupunkilaiset saavat itse päättää, mihin tietty osa kaupungin budjetista käytetään. Tänä vuonna käytettävissä on 500 000 euroa. Asukkaat voivat ehdottaa ideoita, jotka parantavat kaupungin viihtyisyyttä, turvallisuutta tai ympäristöä. Ehdotuksia voi tehdä 1.4.–30.4. verkkosivujemme kautta. Tämän jälkeen ehdotukset arvioidaan, ja toteuttamiskelpoisimmat laitetaan yleiseen äänestykseen. Äänestysaika on 1.9.–30.9. Äänestää voivat kaikki 12 vuotta täyttäneet kaupunkilaiset. Äänestys tapahtuu verkossa tai paperilomakkeella kirjastoissa ja asukaspuistoissa. Eniten ääniä saaneet ideat toteutetaan ensi vuonna. Tervetuloa vaikuttamaan oman kaupunkisi kehittämiseen!",
+      "audio_asset_id": "8c95c08a-dcc6-4347-b42b-5ce4c9a50a0b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupunki tiedottaa?",
+        "options": [
+          "Uudesta verotuksesta.",
+          "Uudesta kaavasta.",
+          "Uudesta asukasbudjetointihankkeesta.",
+          "Uudesta vaalista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq2",
+        "prompt": "Paljonko rahaa on käytettävissä tänä vuonna?",
+        "options": [
+          "500 000 euroa.",
+          "200 000 euroa.",
+          "300 000 euroa.",
+          "1 000 000 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq3",
+        "prompt": "Milloin ideoita voi ehdottaa?",
+        "options": [
+          "1.3.–31.3.",
+          "1.5.–31.5.",
+          "1.4.–30.4.",
+          "1.6.–30.6."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Milloin äänestys järjestetään?",
+        "options": [
+          "1.8.–31.8.",
+          "1.9.–30.9.",
+          "1.10.–31.10.",
+          "1.11.–30.11."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Kuka voi äänestää?",
+        "options": [
+          "Kaikki 12 vuotta täyttäneet kaupunkilaiset.",
+          "Vain täysi-ikäiset.",
+          "Vain veronmaksajat.",
+          "Vain kaupungin työntekijät."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Milloin eniten ääniä saaneet ideat toteutetaan?",
+        "options": [
+          "Ensi vuonna.",
+          "Heti äänestyksen jälkeen.",
+          "Kahden vuoden päästä.",
+          "Ei koskaan."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

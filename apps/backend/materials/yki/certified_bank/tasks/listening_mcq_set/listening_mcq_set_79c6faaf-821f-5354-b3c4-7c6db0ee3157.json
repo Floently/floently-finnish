@@ -1,0 +1,88 @@
+{
+  "id": "79c6faaf-821f-5354-b3c4-7c6db0ee3157",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu auton vuokrauksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin vuokrata auton viikonlopuksi. Onko teillä vapaita autoja? Varaaja: On kyllä. Mihin aikaan tarvitsisitte? Asiakas: Perjantaina iltapäivällä, noin kello 16. Ja palautus sunnuntaina illalla, noin kello 20. Varaaja: Selvä. Meillä on vapaina pieniä ja keskikokoisia autoja. Pieni auto maksaa 45 euroa vuorokausi ja keskikokoinen 60 euroa. Asiakas: Otetaan se keskikokoinen. Onko se automaatti? Varaaja: Kyllä, kaikki autot ovat automaatteja. Saako olla vakuutukset? Asiakas: Onko perusturva mukana? Varaaja: Kyllä, perusturva kuuluu hintaan. Voitte halutessanne ottaa myös lisäturvan, joka kattaa pienemmän omavastuun. Asiakas: Otetaan perusturva. Varaaja: Selvä. Laitan varauksen teille. Tarvitsen vielä nimen ja puhelinnumeron.",
+      "audio_asset_id": "05dfb8d8-026b-4713-9924-e46a8b425bbb"
+    },
+    "questions": [
+      {
+        "id": "e3e5ad96-1056-5ee2-a6bb-e8fdcce0db86",
+        "prompt": "Miksi asiakas soittaa?",
+        "options": [
+          "Vuokratakseen auton viikonlopuksi.",
+          "Myydäkseen auton.",
+          "Korjatakseen auton.",
+          "Kysyäkseen auton hintaa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "998ea78a-bbf1-5e30-95fd-ac966e22b017",
+        "prompt": "Paljonko keskikokoinen auto maksaa vuorokaudessa?",
+        "options": [
+          "60 euroa.",
+          "45 euroa.",
+          "50 euroa.",
+          "55 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "d2a2dbaa-c59d-52ae-93f8-fb79d4567508",
+        "prompt": "Minkä kokoisen auton asiakas valitsee?",
+        "options": [
+          "Pienen.",
+          "Isomman.",
+          "Tila-auton.",
+          "Keskikokoisen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "8ebd665a-e11e-51a5-96a7-a6b6b90fc402",
+        "prompt": "Mitä vakuutusta asiakas haluaa?",
+        "options": [
+          "Perusturvan.",
+          "Lisäturvan.",
+          "Täyskaskon.",
+          "Ei vakuutusta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "8f70e5ba-e4b3-5eef-bbdf-0c5fb564ae19",
+        "prompt": "Mitä perusturva kattaa?",
+        "options": [
+          "Kaikki vahingot.",
+          "Pienemmän omavastuun.",
+          "Se kuuluu hintaan.",
+          "Renkaiden puhkeamisen."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

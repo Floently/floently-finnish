@@ -1,0 +1,37 @@
+{
+  "id": "3171c9e3-51ed-5a47-ae91-42ed9490ae9a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti ohjeen mukaan.",
+    "materials": {
+      "scenario": "Julkinen liikenne"
+    },
+    "items": [
+      {
+        "id": "b62fe437-4d72-50b2-898a-0f13cad8c024",
+        "prompt": "Kirjoita mielipideteksti aiheesta: Pitäisikö julkista liikennettä tukea enemmän?"
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti aiheesta: Pitäisikö julkista liikennettä tukea enemmän?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "4d76ac52-eff8-518a-b1f1-b9a784eebe65",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti maahanmuuttoviraston kansalaisuusyksikköön. Olet hakemassa Suomen kansalaisuutta ja sinua pyydetään toimittamaan lisäselvityksiä. Kerro, että olet toimittanut pyydetyt asiakirjat ja kysy, onko käsittelyssä vielä jotain puutteita. Pyydä myös arviota käsittelyajasta.",
+    "materials": {
+      "scenario": "Kansalaisuushakemuksen lisäselvitykset"
+    },
+    "items": [
+      {
+        "id": "b85da52e-205e-5dcd-9064-6b95ecebba6f",
+        "prompt": "Kirjoita virallinen sähköposti maahanmuuttoviraston kansalaisuusyksikköön. Olet hakemassa Suomen kansalaisuutta ja sinua pyydetään toimittamaan lisäselvityksiä. Kerro, että olet toimittanut pyydetyt asiakirjat ja kysy, onko käsittelyssä vielä jotain puutteita. Pyydä myös arviota käsittelyajasta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

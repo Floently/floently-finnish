@@ -1,0 +1,77 @@
+{
+  "id": "159c7d7e-930f-5b14-8f07-8cd6862df54a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.75,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PRIORISOINTI TERVEYDENHUOLLOSSA – TUSKALLISIA VALINTOJA\n\nTerveydenhuollon resurssit ovat rajalliset, mutta tarpeet rajattomat. Tämä pakottaa priorisointiin – valintoihin siitä, kuka saa hoitoa, millä perusteilla ja kuinka nopeasti. Nämä valinnat ovat syvästi eettisiä, eivät vain hallinnollisia.\n\nPriorisoinnissa voidaan käyttää erilaisia kriteerejä. Yksi on lääketieteellinen tarve: ne, jotka ovat vakavimmin sairaita, hoidetaan ensin. Toinen on vaikuttavuus: hoidot, joilla saavutetaan suurin hyöty, priorisoidaan. Kolmas on kustannusvaikuttavuus: miten paljon hyötyä saadaan suhteessa kustannuksiin.\n\nNämä kriteerit voivat olla ristiriidassa keskenään. Harvinainen ja kallis hoito voi pelastaa henkiä, mutta samalla rahalla voitaisiin hoitaa satoja tavallisia potilaita. Pitäisikö ikääntyneiden hoitoa vähentää, jotta lasten ja nuorten mielenterveyspalveluja voidaan lisätä?\n\nSuomessa priorisoinnista on keskusteltu pitkään. Hoitotakuu takaa, että hoitoon pääsee tietyssä ajassa, mutta se ei ratkaise resurssien kohdentamista. Käytännössä priorisointia tehdään joka päivä, mutta usein näkymättömästi ja epäjohdonmukaisesti.\n\nEettiset periaatteet korostavat ihmisarvoa ja oikeudenmukaisuutta. Jokaisella tulisi olla oikeus hoitoon tarpeensa mukaan, ei maksukykynsä mukaan. Mutta käytännössä tämä on vaikeaa toteuttaa. Pääseekö parempiosainen nopeammin hoitoon yksityisen sektorin kautta? Entä miten turvataan harvaan asuttujen alueiden palvelut?\n\nTerveystaloustieteilijät muistuttavat, että priorisointi on väistämätöntä ja siitä pitäisi keskustella avoimesti. Päätöksiä ei voi jättää vain virkamiehille, vaan tarvitaan laajaa yhteiskunnallista keskustelua. Myös kansalaisten osallisuus on tärkeää: mitä he pitävät tärkeänä?\n\nRatkaisut eivät ole helppoja. Terveydenhuollon etiikka on jatkuvaa tasapainoilua yksilön oikeuksien ja yhteisen hyvän välillä. Tässä keskustelussa ei ole oikeita ja vääriä vastauksia, vain parempia ja huonompia valintoja.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 256
+    },
+    "questions": [
+      {
+        "id": "ed46c9de-3c18-58e0-b1ad-3a55df248498",
+        "prompt": "Mitä priorisointi terveydenhuollossa tarkoittaa?",
+        "options": [
+          "Kaikkien hoitamista samalla tavalla",
+          "Valintoja siitä, kuka saa hoitoa ja millä perusteilla",
+          "Hoidon antamista vain rikkaille",
+          "Kaikkien sairauksien hoitamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ec1b1d37-42e6-56cb-b71c-7350120b64f6",
+        "prompt": "Mitä priorisointikriteerejä artikkelissa mainitaan?",
+        "options": [
+          "Vain lääketieteellinen tarve",
+          "Lääketieteellinen tarve, vaikuttavuus ja kustannusvaikuttavuus",
+          "Vain ikä",
+          "Vain maksukyky"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5352678f-0158-5c9e-8c6b-ab475bfc8313",
+        "prompt": "Mikä on priorisoinnin eettinen ongelma?",
+        "options": [
+          "Ketään ei voida jättää hoitamatta",
+          "Joudutaan valitsemaan eri potilasryhmien välillä",
+          "Kaikki hoidot ovat yhtä tärkeitä",
+          "Priorisointi on teknisesti mahdotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9ebadfed-8538-58f3-aa1f-cd6f5c4aa07d",
+        "prompt": "Mitä kirjoittaja ehdottaa priorisointikeskusteluksi?",
+        "options": [
+          "Vain asiantuntijat päättävät",
+          "Avoin keskustelu ja kansalaisten osallisuus",
+          "Poliitikot päättävät",
+          "Lääkärit päättävät"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

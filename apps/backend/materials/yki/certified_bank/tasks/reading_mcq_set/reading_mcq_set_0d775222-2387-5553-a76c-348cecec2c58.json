@@ -1,0 +1,63 @@
+{
+  "id": "0d775222-2387-5553-a76c-348cecec2c58",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TALOYHTIÖN PIHATAPAHTUMA\n\nLauantaina 24.8. klo 10–14\n\nOhjelmassa:\n- pihakirppis (myy omaan pöytään)\n- arpajaiset\n- kahvio\n- kasvien vaihtopiste\n- lasten pomppulinna\n\nIlmoittaudu kirppispöytään isännöitsijälle viimeistään 22.8.",
+      "word_count": 27
+    },
+    "questions": [
+      {
+        "id": "item_117_1",
+        "prompt": "Milloin pihakirppis järjestetään?",
+        "options": [
+          "sunnuntaina 25.8.",
+          "lauantaina 24.8.",
+          "perjantaina 23.8."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_117_2",
+        "prompt": "Mitä uutta tapahtumassa on pihakirppiksen lisäksi?",
+        "options": [
+          "vain arpajaiset",
+          "arpajaiset, kahvio, kasvien vaihtopiste ja pomppulinna",
+          "vain kahvio"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_117_3",
+        "prompt": "Mihin mennessä kirppispöytään pitää ilmoittautua?",
+        "options": [
+          "24.8.",
+          "23.8.",
+          "22.8."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

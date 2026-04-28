@@ -1,0 +1,37 @@
+{
+  "id": "ec741bc7-a87b-5200-8253-a6e3f1f2f9e3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: asiakaspalvelukeskuksessa. Tarkoitus: vertaile vaihtoehtoja. Rajoite: mainitse jatkotoimi.",
+    "materials": {
+      "scenario": "verkkokaupasta asiakaspalvelusta"
+    },
+    "items": [
+      {
+        "id": "9eb22e74-bddd-561e-8356-c51775be4bca",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: asiakaspalvelukeskuksessa. Tarkoitus: vertaile vaihtoehtoja. Rajoite: mainitse jatkotoimi."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

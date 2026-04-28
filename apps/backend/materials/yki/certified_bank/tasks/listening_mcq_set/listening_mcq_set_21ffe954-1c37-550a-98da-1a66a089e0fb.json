@@ -1,0 +1,88 @@
+{
+  "id": "21ffe954-1c37-550a-98da-1a66a089e0fb",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Huomenta! Tänään on kaunis päivä. Mennäänkö ulos? Mä voin ottaa eväät mukaan. Tavataan puistossa yhdeltä.",
+      "audio_asset_id": "d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4a"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen päivä tänään on?",
+        "options": [
+          "Sateinen.",
+          "Kaunis.",
+          "Kylmä.",
+          "Tuulinen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä puhuja ehdottaa?",
+        "options": [
+          "Mennä ulos.",
+          "Mennä kauppaan.",
+          "Mennä elokuviin.",
+          "Mennä kylään."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä puhuja aikoo ottaa mukaan?",
+        "options": [
+          "Juomaa.",
+          "Eväät.",
+          "Kirjan.",
+          "Pallon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä he tapaavat?",
+        "options": [
+          "Kotona.",
+          "Puistossa.",
+          "Kahvilassa.",
+          "Koululla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin aikaan he tapaavat?",
+        "options": [
+          "Kello 12.00.",
+          "Kello 13.00.",
+          "Kello 14.00.",
+          "Kello 15.00."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

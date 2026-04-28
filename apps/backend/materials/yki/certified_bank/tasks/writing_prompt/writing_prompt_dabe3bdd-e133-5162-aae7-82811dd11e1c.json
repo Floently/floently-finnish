@@ -1,0 +1,37 @@
+{
+  "id": "dabe3bdd-e133-5162-aae7-82811dd11e1c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti opiskeluterveydenhuoltoon.",
+    "materials": {
+      "scenario": "Kysy mielenterveyspalveluista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti opiskeluterveydenhuoltoon."
+      }
+    ],
+    "rubric": "Olet ollut viime aikoina ahdistunut ja haluaisit keskustella asiasta ammattilaisen kanssa. Kirjoita sähköposti ja kysy, mitä palveluita on tarjolla. Kysy, miten pääset vastaanotolle ja onko siitä kuluja.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

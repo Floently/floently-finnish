@@ -1,0 +1,59 @@
+# ── Dependencies ────────────────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Python ───────────────────────────────────────────────────────────────────────
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Environment ──────────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.keystore
+# Do NOT ignore .env.example — that is the documented contract.
+
+# ── Runtime / generated state (never committed) ──────────────────────────────────
+.tts_runtime/
+apps/backend/.tts_runtime/
+apps/backend/cache/
+apps/backend/runtime/state.json
+apps/backend/app/runtime/state.json
+apps/backend/app/runtime/uploads/
+apps/backend/runtime/uploads/
+apps/backend/runtime/materials/
+apps/backend/backend/runtime/
+apps/backend/app/cards/output/accepted/accepted_cards.json
+apps/backend/app/audio/storage/assets/
+engine/.runtime_audio_cache/
+
+# ── Build outputs ────────────────────────────────────────────────────────────────
+dist/
+build/
+.expo/
+*.tsbuildinfo
+apps/client/.expo/
+apps/client/node_modules/
+apps/backend/.venv/
+
+# ── IDE / OS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db

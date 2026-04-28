@@ -1,0 +1,40 @@
+{
+  "id": "a413e31c-74ef-59d9-8ef9-835bb981f8df",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi roolisi mukaan.",
+    "materials": {
+      "roles": {
+        "user": "naapuri",
+        "partner": "lomalle lähtevä naapuri"
+      }
+    },
+    "items": [
+      {
+        "id": "srp151_01",
+        "ai_first_turn_fi": "Hei, voisitko kastella kukkiani, kun olen lomalla?"
+      }
+    ],
+    "rubric": "Keskustele suomeksi roolisi mukaan.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

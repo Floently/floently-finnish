@@ -1,0 +1,73 @@
+{
+  "id": "393c335f-82a8-56a2-b8c5-6e48f8bb981a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KADONNUT KELLO\n\nOlen hukannut rannekellon 11.7.2025 linja-autoaseman odotushallista. Kello on hopeanvärinen, ja siinä on musta metalliranneke.\n\nKellon takaosaan on kaiverrettu teksti 'Äidille'.\n\nJos löydät kellon, soita numeroon 050 123 4580.\n\nLöytäjä saa palkkion.",
+      "word_count": 33
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä kello katosi?",
+        "options": [
+          "10.7.2025",
+          "11.7.2025",
+          "12.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mistä kello katosi?",
+        "options": [
+          "bussista",
+          "linja-autoaseman odotushallista",
+          "kaupasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Minkä värinen ranneke kellossa on?",
+        "options": [
+          "ruskea",
+          "musta",
+          "harmaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä kellon takaosassa on?",
+        "options": [
+          "päivämäärä",
+          "kaiverrus 'Äidille'",
+          "kellon merkki"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "faa5f0d2-ff58-5af3-be8d-ed22caa8adf7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.729,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue filosofinen essee ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ONNELLISUUDEN PARADOKSI\n\nOnnellisuuden tavoittelu on aikamme keskeisiä eetoksia. Samalla kun elintaso on noussut, onnellisuustutkimukset osoittavat, ettemme ole sen onnellisempia kuin ennen. Tätä kutsutaan onnellisuuden paradoksiksi. Filosofi Sara Heinämaa pohtii ilmiötä suhteessa hyvään elämään. Hänen mukaansa ongelma on siinä, että onnellisuudesta on tullut suoritus. 'Kun onnellisuudesta tulee tavoite, se karkaa käsistämme.' Heinämaa viittaa Aristoteleen ajatukseen siitä, että hyvä elämä ei ole yksittäisten mielihyvän hetkien summa, vaan kokonaisuus, jossa ihminen toteuttaa itseään ja kykyjään suhteessa toisiin.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä 'onnellisuuden paradoksilla' tarkoitetaan?",
+        "options": [
+          "Rikkaat ihmiset ovat onnettomia",
+          "Elintason noustessa onnellisuus ei lisäänny",
+          "Onnellisuutta on mahdotonta mitata",
+          "Nuoret ovat onnellisempia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten Sara Heinämaa selittää paradoksia?",
+        "options": [
+          "Ihmiset eivät osaa arvostaa hyvää elämää",
+          "Onnellisuudesta on tullut suoritus ja tavoite",
+          "Yhteiskunta on liian individualistinen",
+          "Ihmiset vertailevat itseään liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä Aristoteles opetti hyvästä elämästä?",
+        "options": [
+          "Se on mielihyvän maksimointia",
+          "Se on itsensä toteuttamista suhteessa toisiin",
+          "Se on yksilöllinen saavutus",
+          "Se on luopumista materiaalisesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "bf7c5faf-c93f-59dc-b21a-5ec1298ef5c4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ETÄTYÖN HYÖDYT JA HAITAT\n\nEtätyöstä on tullut monille uusi arki. Yhä useampi suomalainen tekee ainakin osan työstään kotona. Tutkimusten mukaan etätyössä on sekä hyviä että huonoja puolia.\n\nMonet työntekijät arvostavat etätyön joustavuutta. Työmatkoihin ei kulu aikaa, ja työpäivän voi aloittaa rauhassa omassa kodissa. Erityisesti lapsiperheissä tämä on koettu helpotukseksi, koska aikatauluja on helpompi sovittaa yhteen.\n\nToisaalta osa kokee etätyön yksinäiseksi. Työkavereita ei näe, eikä kahvihuoneessa pääse vaihtamaan kuulumisia. Myös työn ja vapaa-ajan raja voi hämärtyä, kun kotona on koko ajan töissä.\n\nTyönantajien näkökulmasta etätyö voi lisätä tuottavuutta, mutta se vaatii myös uudenlaista johtamista. Luottamus ja selkeät pelisäännöt ovat tärkeitä. Jos työntekijöitä ei johda oikein, etätyö voi heikentää työyhteisön henkeä.\n\nAsiantuntijat uskovat, että tulevaisuudessa monilla aloilla yleistyy hybridimalli, jossa osa viikosta tehdään toimistolla ja osa etänä. Näin voidaan yhdistää joustavuus ja yhteisöllisyys.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 159
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä etätyöstä on tekstin mukaan?",
+        "options": [
+          "Työmatkoihin kuluu vähemmän aikaa",
+          "Työkavereita näkee enemmän",
+          "Työpäivät ovat lyhyempiä",
+          "Palkka on korkeampi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on etätyön huono puoli?",
+        "options": [
+          "Työ on vaikeampaa",
+          "Työyhteisön henki voi kärsiä",
+          "Työnantajat eivät hyväksy sitä",
+          "Se sopii vain nuorille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hybridimalli tarkoittaa?",
+        "options": [
+          "Tehdään töitä kahdessa maassa",
+          "Tehdään töitä sekä toimistolla että etänä",
+          "Tehdään töitä vuorotellen eri tehtävissä",
+          "Tehdään töitä kahdelle työnantajalle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

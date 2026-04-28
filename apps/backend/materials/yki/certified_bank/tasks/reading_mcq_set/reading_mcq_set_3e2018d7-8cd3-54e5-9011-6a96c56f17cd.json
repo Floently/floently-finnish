@@ -1,0 +1,77 @@
+{
+  "id": "3e2018d7-8cd3-54e5-9011-6a96c56f17cd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kotitalousvähennyksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KOTITALOUSVÄHENNYS – NÄIN TOIMIT\n\nKotitalousvähennys on veroetu, jonka voit saada, kun teetättä kotona töitä, kuten siivousta, remonttia tai hoivatyötä. Vähennyksen tarkoitus on vähentää harmaata taloutta ja työllistää.\n\nVähennyksen määrä on 40 % työn osuudesta (ei materiaaleista). Enimmäismäärä on 2 250 euroa vuodessa henkilöä kohden. Jos olet aviopari, voitte saada yhteensä 4 500 euroa.\n\nVähennyksen saaminen edellyttää, että työn tekijä on merkitty ennakkoperintärekisteriin. Tarkista aina, että yritys on rekisterissä. Muuten et saa vähennystä.\n\nHae vähennystä veroilmoituksessa. Säilytä kuitit ja laskut. Niistä pitää näkyä työn osuus erikseen. Verottaja voi pyytää niitä myöhemmin.\n\nHuom! Kotitalousvähennystä ei saa, jos ostat materiaalit itse ja teet työn itse. Sen saa vain ostetusta työstä.",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko kotitalousvähennys on prosentteina työn osuudesta?",
+        "options": [
+          "20 %",
+          "30 %",
+          "40 %",
+          "50 %"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on vähennyksen enimmäismäärä yhdelle henkilölle vuodessa?",
+        "options": [
+          "1 500 €",
+          "2 000 €",
+          "2 250 €",
+          "2 500 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää tarkistaa työn tekijästä?",
+        "options": [
+          "Hän on kotoisin Suomesta",
+          "Hän on merkitty ennakkoperintärekisteriin",
+          "Hänellä on työkokemusta",
+          "Hän on halpa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Saako vähennyksen, jos tekee työn itse?",
+        "options": [
+          "Kyllä, aina",
+          "Kyllä, jos materiaalit on ostettu kaupasta",
+          "Ei, sen saa vain ostetusta työstä",
+          "Kyllä, jos työ on remonttia"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

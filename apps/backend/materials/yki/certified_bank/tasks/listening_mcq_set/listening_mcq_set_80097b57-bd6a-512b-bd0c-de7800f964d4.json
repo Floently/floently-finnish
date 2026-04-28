@@ -1,0 +1,66 @@
+{
+  "id": "80097b57-bd6a-512b-bd0c-de7800f964d4",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmyyjän soitto ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Myyjä: Hei, soitan TeleCom Oy:stä. Onko teillä hetki aikaa?\nAsiakas: No on, jos ei kestä kauan.\nMyyjä: Meillä on nyt uusi kampanja, jossa saatte puolet halvemmalla laajakaistan vuoden ajan. Normaalihinta on 44 euroa kuussa, nyt vain 22 euroa. Sopimus on määräaikainen 12 kuukautta, ja sen jälkeen hinta palautuu normaaliksi.\nAsiakas: Kuulostaa hyvältä, mutta mitä nopeutta se on?\nMyyjä: Se on 300 megabittiä, mikä riittää mainiosti perhekäyttöön, striimaamiseen ja pelaamiseen.\nAsiakas: Mulla on nyt 100 megabitin yhteys toisella toimittajalla. Miten tää vertautuu siihen?\nMyyjä: Tämä on kolme kertaa nopeampi. Ja hintakin on sama kuin teidän nykyinen. Vaihto on helppoa, me hoidamme kaiken.\nAsiakas: Entä tuleeko muita kuluja?\nMyyjä: Toimitusmaksu 49 euroa, mutta se hyvitetään ensimmäisessä laskussa.\nAsiakas: Kiitos tarjouksesta, mutta mun pitää miettiä rauhassa. Voitteko soittaa uudestaan vaikka ensi viikolla?",
+      "audio_asset_id": "e99eb3c3-8b22-49fb-b1af-1b538f36cc8b"
+    },
+    "questions": [
+      {
+        "id": "c43116fa-d038-540e-990a-79ca7378dff5",
+        "prompt": "Mitä myyjä tarjoaa?",
+        "options": [
+          "Matkapuhelinliittymää",
+          "Laajakaistaa puoleen hintaan vuodeksi",
+          "Televisiokanavia",
+          "Kotipuhelinta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "535c2cb1-e7e3-50c4-986c-ee2e7e59d06a",
+        "prompt": "Mikä on tarjottavan liittymän nopeus?",
+        "options": [
+          "100 megabittiä",
+          "200 megabittiä",
+          "300 megabittiä",
+          "500 megabittiä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d4822d01-d4cf-53e9-8a59-bfa5a3585fd2",
+        "prompt": "Tuleeko tarjoukseen muita kuluja?",
+        "options": [
+          "Ei mitään",
+          "Toimitusmaksu 49 euroa, joka hyvitetään",
+          "Asennusmaksu 100 euroa",
+          "Kuukausimaksu nousee puolen vuoden jälkeen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

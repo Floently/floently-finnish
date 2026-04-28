@@ -1,0 +1,63 @@
+{
+  "id": "ffbbef86-999f-5422-abd6-13706b6a95a9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÖYTYNYT KÄNNYKKÄ\n\nPunainen Samsung-puhelin löytyi 2.8. bussista linjalla 20.\n\nNouto bussiyhtiön toimistolta.\n\nMukaan tarvitaan henkilöllisyystodistus.",
+      "word_count": 15
+    },
+    "questions": [
+      {
+        "id": "item_111_1",
+        "prompt": "Minkä värinen löytynyt puhelin on?",
+        "options": [
+          "musta",
+          "sininen",
+          "punainen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_111_2",
+        "prompt": "Mistä puhelin löytyi?",
+        "options": [
+          "bussista linjalla 20",
+          "bussipysäkiltä",
+          "bussiyhtiön toimistolta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_111_3",
+        "prompt": "Mistä puhelimen voi noutaa?",
+        "options": [
+          "poliisiasemalta",
+          "bussiyhtiön toimistolta",
+          "kaupungintalolta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

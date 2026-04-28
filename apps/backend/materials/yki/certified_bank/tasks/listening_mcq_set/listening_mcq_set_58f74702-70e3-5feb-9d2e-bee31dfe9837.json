@@ -1,0 +1,63 @@
+{
+  "id": "58f74702-70e3-5feb-9d2e-bee31dfe9837",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelu kampaamoon ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kampaaja: Parturi-kampaamo Tukka, päivää.\nAsiakas: Hei, haluaisin varata ajan hiustenleikkuuseen.\nKampaaja: Joo, koska sopisi?\nAsiakas: Ensi viikolla, mielellään torstaina tai perjantaina.\nKampaaja: Katsotaan... torstaina kello 14 on yksi aika vapaana. Sopiiko?\nAsiakas: Kyllä, se sopii hyvin.\nKampaaja: Kenelle aika varataan?\nAsiakas: Maija Nieminen.\nKampaaja: Ja puhelinnumero?\nAsiakas: 050 123 4567.\nKampaaja: Kiitos, aika on varattu torstaina klo 14. Tervetuloa!",
+      "audio_asset_id": "1ebb4ba0-98fe-4694-98a5-4b7ce02e7c68"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minä päivänä asiakas saa ajan?",
+        "options": [
+          "tiistaina",
+          "keskiviikkona",
+          "torstaina"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan aika on?",
+        "options": [
+          "klo 13",
+          "klo 14",
+          "klo 15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on asiakkaan puhelinnumero?",
+        "options": [
+          "040 123 4567",
+          "050 123 4567",
+          "060 123 4567"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

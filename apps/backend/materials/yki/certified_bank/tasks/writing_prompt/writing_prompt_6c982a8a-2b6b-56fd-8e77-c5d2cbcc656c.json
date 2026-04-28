@@ -1,0 +1,37 @@
+{
+  "id": "6c982a8a-2b6b-56fd-8e77-c5d2cbcc656c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa lapsesi lopettavan päiväkodissa kuukauden kuluttua. Kerro lapsen nimi ja ryhmä sekä viimeinen päivä. Kiitä hyvästä hoidosta.",
+    "materials": {
+      "scenario": "Irtisanoutuminen päiväkodista"
+    },
+    "items": [
+      {
+        "id": "507495b9-79e6-5f1f-a1a9-bd87dcccfb39",
+        "prompt": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa lapsesi lopettavan päiväkodissa kuukauden kuluttua. Kerro lapsen nimi ja ryhmä sekä viimeinen päivä. Kiitä hyvästä hoidosta."
+      }
+    ],
+    "rubric": "Lapsen tiedot\nViimeinen päivä\nKiitos",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

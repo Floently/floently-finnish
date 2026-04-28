@@ -1,0 +1,73 @@
+{
+  "id": "238d11a9-044e-5fda-b6a5-c23eff336aae",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalainen koulujärjestelmä on ollut maailman paras. Tätä on toistettu niin kauan, että se on muuttunut itsestäänselvyydeksi. Mutta onko se sitä enää?\n\nPISA-tulosten lasku on herättänyt keskustelua, mutta se on vain jäävuoren huippu. Syvemmällä kytee koulutuksen eriarvoistuminen. Aiemmin koulu takasi kaikille samat mahdollisuudet asuinpaikasta ja perheen taustasta riippumatta. Nyt koulujen väliset erot kasvavat, ja vanhempien koulutustaso ennustaa lapsen menestystä aiempaa vahvemmin.\n\nMiksi näin on käynyt? Yksi syy on alueellinen eriytyminen. Hyväosaisten alueiden kouluilla on enemmän resursseja, koska vanhemmat keräävät rahaa ja koulujen kannatusyhdistykset toimivat aktiivisesti. Huonompiosaisten alueiden koulut sinnittelevät perusrahoituksen varassa.\n\nToinen syy on koulutuspolitiikan muutos. Kun kouluille annettiin enemmän vapautta, osa käytti sen hyvin, osa huonommin. Samalla valtakunnallinen ohjaus heikkeni. Tämä on johtanut tilanteeseen, jossa koulutus ei enää tasaa eroja vaan pikemminkin vahvistaa niitä.\n\nKolmas syy on asenteissa. Koulu ei enää ole se yhteinen hanke, joka se joskus oli. Kouluun kohdistetaan ristiriitaisia odotuksia, ja opettajien arvostus on laskenut.\n\nRatkaisu ei ole yksi, vaan monta. Tarvitaan rahoituksen uudelleenarviointia, varhaiskasvatuksen vahvistamista ja opettajankoulutuksen kehittämistä. Ennen kaikkea tarvitaan yhteistä tahtoa pitää kiinni siitä, että jokaisella lapsella on oikeus hyvään koulutukseen.",
+      "word_count": 177
+    },
+    "questions": [
+      {
+        "id": "item_073_1",
+        "prompt": "Mitä kirjoittaja pitää pinnallisena merkkinä koulutuksen ongelmista?",
+        "options": [
+          "opettajien palkkausta",
+          "PISA-tulosten laskua",
+          "koulujen määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_073_2",
+        "prompt": "Miten koulutus on kirjoittajan mukaan eriarvoistunut?",
+        "options": [
+          "kaikki koulut ovat samanlaisia",
+          "koulujen väliset erot kasvavat ja vanhempien tausta ennustaa menestystä",
+          "tytöt pärjäävät poikia paremmin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_073_3",
+        "prompt": "Mikä on yksi syy eriarvoistumiseen?",
+        "options": [
+          "kaikki koulut saavat saman verran lisärahaa",
+          "alueellinen eriytyminen ja koulujen kannatusyhdistykset",
+          "opettajat ovat huonoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_073_4",
+        "prompt": "Mitä ratkaisuja kirjoittaja ehdottaa?",
+        "options": [
+          "yksityiskoulujen perustamista",
+          "rahoituksen uudelleenarviointia ja varhaiskasvatuksen vahvistamista",
+          "oppilaiden testaamista useammin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

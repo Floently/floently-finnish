@@ -1,0 +1,37 @@
+{
+  "id": "68280235-d675-511c-8ab3-8135f431ed23",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kotisairaanhoidosta. Arvioi hoitajien ammattitaitoa, käyntien säännöllisyyttä ja viestintää omaisten kanssa. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kotisairaanhoidosta"
+    },
+    "items": [
+      {
+        "id": "a4718cd5-fc46-58ce-b11e-e6ebaef280e6",
+        "prompt": "Kirjoita palauteteksti kotisairaanhoidosta. Arvioi hoitajien ammattitaitoa, käyntien säännöllisyyttä ja viestintää omaisten kanssa. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Hoitajien ammattitaito\nKäyntien säännöllisyys\nViestintä omaisten kanssa\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

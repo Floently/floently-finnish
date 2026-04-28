@@ -1,0 +1,37 @@
+{
+  "id": "d6b6e7f5-e20c-5840-8389-76648b40921f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti pankkiin. Olet saanut perinnön ulkomailta ja haluat tiedustella, miten se ilmoitetaan verottajalle ja pankille. Kysy, tarvitaanko erillisiä lomakkeita ja miten rahat voidaan siirtää Suomen tilille mahdollisimman edullisesti.",
+    "materials": {
+      "scenario": "Ulkomaisen perinnön vastaanottaminen"
+    },
+    "items": [
+      {
+        "id": "797c271e-2204-52fa-8db1-2980c090ce1b",
+        "prompt": "Kirjoita virallinen sähköposti pankkiin. Olet saanut perinnön ulkomailta ja haluat tiedustella, miten se ilmoitetaan verottajalle ja pankille. Kysy, tarvitaanko erillisiä lomakkeita ja miten rahat voidaan siirtää Suomen tilille mahdollisimman edullisesti."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

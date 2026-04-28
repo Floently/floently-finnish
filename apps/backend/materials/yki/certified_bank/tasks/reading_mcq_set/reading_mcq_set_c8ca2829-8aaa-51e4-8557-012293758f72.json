@@ -1,0 +1,77 @@
+{
+  "id": "c8ca2829-8aaa-51e4-8557-012293758f72",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kaupunkipyöräjärjestelmät ovat yleistyneet Suomessa nopeasti. Helsingin jälkeen myös Turku, Tampere ja Oulu ovat ottaneet käyttöön omat pyöräjärjestelmänsä. Helsingissä tehtiin viime vuonna yli kaksi miljoonaa pyörämatkaa. Tutkimusten mukaan kaupunkipyörät vähentävät autoliikenteen tarvetta ja parantavat kaupunkilaisten terveyttä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 63
+    },
+    "questions": [
+      {
+        "id": "eacb8ec3-52b6-5c30-ac48-bfac668d3475",
+        "prompt": "Mitkä kaupungit ovat ottaneet kaupunkipyörät käyttöön?",
+        "options": [
+          "Vain Helsinki",
+          "Helsinki, Turku, Tampere ja Oulu",
+          "Kaikki suuret kaupungit",
+          "Vain pääkaupunkiseutu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a515c5c2-8090-5ef5-a42a-9400f8f2b635",
+        "prompt": "Kuinka monta pyörämatkaa Helsingissä tehtiin viime vuonna?",
+        "options": [
+          "Yli miljoona",
+          "Yli kaksi miljoonaa",
+          "Yli kolme miljoonaa",
+          "Yli neljä miljoonaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8181ddc6-2d82-59e3-9c37-3b2ccfd13c6b",
+        "prompt": "Mitä hyötyä kaupunkipyöristä on?",
+        "options": [
+          "Ne tuottavat voittoa",
+          "Ne vähentävät autoliikennettä ja parantavat terveyttä",
+          "Ne lisäävät matkailua",
+          "Ne ovat halpoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ddf742ed-46aa-55da-bdc9-a5f492e17f7d",
+        "prompt": "Missä kaupungeissa pyörät ovat käytössä ympäri vuoden?",
+        "options": [
+          "Turku ja Tampere",
+          "Helsinki ja Espoo",
+          "Oulu ja Rovaniemi",
+          "Kaikissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

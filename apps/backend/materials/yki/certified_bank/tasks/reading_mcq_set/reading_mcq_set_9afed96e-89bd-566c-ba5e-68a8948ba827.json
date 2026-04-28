@@ -1,0 +1,99 @@
+{
+  "id": "9afed96e-89bd-566c-ba5e-68a8948ba827",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Pientalojen omistajat ovat lisänneet aurinkopaneelien hankintaa. Paneelit tuottavat sähköä omakäyttöön ja ylijäämän voi myydä verkkoon. Investointi maksaa itsensä takaisin noin 10–15 vuodessa. Teknologian kehittyessä paneelit ovat tehostuneet ja hinnat laskeneet. Aurinkosähkö on puhdasta energiaa ja vähentää kotitalouden hiilijalanjälkeä. Myös valtio tukee paneelien hankintaa verotuksessa.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä pientalojen omistajat ovat lisänneet?",
+        "options": [
+          "Lämmitysöljyn käyttöä",
+          "Aurinkopaneelien hankintaa",
+          "Ilmalämpöpumppujen hankintaa",
+          "Puun polttoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aurinkopaneelien tuottama sähkö käytetään?",
+        "options": [
+          "Vain myyntiin",
+          "Omakäyttöön ja ylijäämän voi myydä",
+          "Vain varastointiin",
+          "Vain lämmitykseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuinka pitkässä ajassa investointi maksaa itsensä takaisin?",
+        "options": [
+          "5–10 vuodessa",
+          "10–15 vuodessa",
+          "15–20 vuodessa",
+          "Yli 20 vuodessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten paneelien teknologia on kehittynyt?",
+        "options": [
+          "Ne ovat tehottomampia ja kalliimpia",
+          "Ne ovat tehostuneet ja hinnat laskeneet",
+          "Ne ovat pysyneet samana",
+          "Ne ovat muuttuneet huonommiksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä aurinkosähköstä on ympäristölle?",
+        "options": [
+          "Se lisää päästöjä",
+          "Se on puhdasta energiaa ja vähentää hiilijalanjälkeä",
+          "Se kuluttaa paljon luonnonvaroja",
+          "Sillä ei ole vaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten valtio tukee paneelien hankintaa?",
+        "options": [
+          "Suorilla avustuksilla",
+          "Verotuksessa",
+          "Edullisilla lainoilla",
+          "Ilmaisilla asennuksilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

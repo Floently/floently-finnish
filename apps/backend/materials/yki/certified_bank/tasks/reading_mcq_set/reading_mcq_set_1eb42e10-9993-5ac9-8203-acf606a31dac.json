@@ -1,0 +1,66 @@
+{
+  "id": "1eb42e10-9993-5ac9-8203-acf606a31dac",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KIRPPUTORI LÖYTÖPAIKKA\n\nAvoinna:\nma–pe 10–18\nla 10–15\nsu suljettu\n\nMyyntipaikat:\nPöytä 10 €/päivä\nVaaterivi 5 €/päivä\n\nTuotteet pitää hinnastaa itse.\n\nMyyntipaikan voi varata nettisivujen kautta.\n\nKahvio palvelee kassan vieressä.",
+      "word_count": 29
+    },
+    "questions": [
+      {
+        "id": "cf99d634-d2be-5ecb-97a1-ca8e154e73d2",
+        "prompt": "Milloin kirpputori on auki perjantaina?",
+        "options": [
+          "klo 10–15",
+          "klo 10–18",
+          "klo 12–18",
+          "klo 10–20"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "efb50ca6-fafc-5d9a-9bb8-dbc65c19a846",
+        "prompt": "Paljonko pöytä maksaa päivässä?",
+        "options": [
+          "5 €",
+          "10 €",
+          "15 €",
+          "20 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "734be527-d294-52fe-b3de-1e0fa72ed6cb",
+        "prompt": "Mistä voi varata myyntipaikan?",
+        "options": [
+          "Puhelimella",
+          "Sähköpostilla",
+          "Nettisivujen kautta",
+          "Paikan päällä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

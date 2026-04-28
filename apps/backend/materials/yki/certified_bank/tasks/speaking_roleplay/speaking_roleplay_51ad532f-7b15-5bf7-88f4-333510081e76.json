@@ -1,0 +1,40 @@
+{
+  "id": "51ad532f-7b15-5bf7-88f4-333510081e76",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa neuvottelevaa ja sovittelevaa kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet puheenjohtaja, joka haluaa löytää kompromissin ja säilyttää hyvän ilmapiirin taloyhtiössä.",
+        "partner": "Asukkaat - kaksi eri ryhmää, jotka ajavat voimakkaasti omia etujaan."
+      }
+    },
+    "items": [
+      {
+        "id": "srp22",
+        "ai_first_turn_fi": "Tervetuloa kokoukseen. Tänään käsittelemme piharemonttia. Tiedän, että mielipiteet jakautuvat, mutta toivon rakentavaa keskustelua. Aloitetaan kuulemalla molempia näkökulmia."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa neuvottelevaa ja sovittelevaa kieltä.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

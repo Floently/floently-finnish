@@ -1,0 +1,37 @@
+{
+  "id": "55be29fb-eb17-5547-8a5e-db7f78f70620",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti annetun tilanteen perusteella.",
+    "materials": {
+      "scenario": "Olet osallistunut koulutukseen ja sinulta pyydetään palautetta järjestäjälle."
+    },
+    "items": [
+      {
+        "id": "85b2784c-b247-57de-9497-6ac346a76c04",
+        "prompt": "Kirjoita sähköposti annetun tilanteen perusteella."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti annetun tilanteen perusteella.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

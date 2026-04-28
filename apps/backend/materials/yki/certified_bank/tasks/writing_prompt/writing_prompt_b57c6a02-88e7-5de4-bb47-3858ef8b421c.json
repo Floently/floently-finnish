@@ -1,0 +1,37 @@
+{
+  "id": "b57c6a02-88e7-5de4-bb47-3858ef8b421c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a chancellor position at a university. Tell about your experience in science and research leadership, university policy, and societal influencing. Also describe your vision for the university's role in the international scientific community and Finnish society. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus yliopiston kanslerin tehtävään"
+    },
+    "items": [
+      {
+        "id": "618e54bf-db9e-59ac-b48c-71d92abaec94",
+        "prompt": "Write a job application. You are applying for a chancellor position at a university. Tell about your experience in science and research leadership, university policy, and societal influencing. Also describe your vision for the university's role in the international scientific community and Finnish society. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a chancellor position at a university. Tell about your experience in science and research leadership, university policy, and societal influencing. Also describe your vision for the university's role in the international scientific community and Finnish society. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "f6740bd1-2ef5-58c4-99a9-cb410eecfc3c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.492,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: housing association. Purpose: give feedback. Constraint: offer a concrete solution.",
+    "materials": {
+      "scenario": "transport in housing_association"
+    },
+    "items": [
+      {
+        "id": "fbc47998-1399-5647-8a04-ce5d721eaf77",
+        "prompt": "Write for the receiver in this scenario: housing association. Purpose: give feedback. Constraint: offer a concrete solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

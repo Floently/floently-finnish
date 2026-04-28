@@ -1,0 +1,37 @@
+{
+  "id": "b8714eee-ebf2-56d5-8635-67b9e4b24fc4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti koululle. Lapsesi on kokenut koulukiusaamista ja haluat keskustella asiasta rehtorin kanssa. Kerro, mitä on tapahtunut ja miten se on vaikuttanut lapseesi. Pyydä aikaa tapaamiselle.",
+    "materials": {
+      "scenario": "Yhteydenotto koulukiusaamisesta"
+    },
+    "items": [
+      {
+        "id": "5d4ff014-1059-58b8-8ccb-a50137aa32cd",
+        "prompt": "Kirjoita sähköposti koululle. Lapsesi on kokenut koulukiusaamista ja haluat keskustella asiasta rehtorin kanssa. Kerro, mitä on tapahtunut ja miten se on vaikuttanut lapseesi. Pyydä aikaa tapaamiselle."
+      }
+    ],
+    "rubric": "Tapahtuneen kuvaus\nVaikutukset lapseen\nTapaamispyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

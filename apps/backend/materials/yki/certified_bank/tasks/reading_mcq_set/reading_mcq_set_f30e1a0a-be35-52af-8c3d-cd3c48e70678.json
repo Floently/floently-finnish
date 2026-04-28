@@ -1,0 +1,99 @@
+{
+  "id": "f30e1a0a-be35-52af-8c3d-cd3c48e70678",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Koulussa on alkamassa uusi kerho: kokkikerho. Kerhossa opetellaan tekemään helppoja ja terveellisiä ruokia. Kokkikerho kokoontuu tiistaisin kello 14–16. Mukaan mahtuu 12 oppilasta. Ilmoittautuminen on koulun nettisivuilla. Kerho on tarkoitettu 5.- ja 6.-luokkalaisille. Kokkikerhossa on hauskaa ja oppii tärkeitä taitoja.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uusi kerho koulussa alkaa?",
+        "options": [
+          "Liikuntakerho",
+          "Kokkikerho",
+          "Käsityökerho",
+          "Lukukerho"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kerhossa opetellaan?",
+        "options": [
+          "Leipomaan pullaa",
+          "Tekemään helppoja ja terveellisiä ruokia",
+          "Laittamaan pitsaa",
+          "Valmistamaan jälkiruokia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin kokkikerho kokoontuu?",
+        "options": [
+          "Maanantaisin kello 14–16",
+          "Tiistaisin kello 14–16",
+          "Keskiviikkoisin kello 15–17",
+          "Torstaisin kello 14–15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuinka monta oppilasta mahtuu mukaan?",
+        "options": [
+          "8 oppilasta",
+          "12 oppilasta",
+          "15 oppilasta",
+          "20 oppilasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenelle kerho on tarkoitettu?",
+        "options": [
+          "Kaikille koululaisille",
+          "5.- ja 6.-luokkalaisille",
+          "Vaan 1.-2.-luokkalaisille",
+          "Vaan yläkoululaisille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mistä voi ilmoittautua kerhoon?",
+        "options": [
+          "Soittamalla koululle",
+          "Koulun nettisivuilla",
+          "Sähköpostilla",
+          "Opettajalta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

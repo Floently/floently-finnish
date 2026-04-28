@@ -1,0 +1,88 @@
+{
+  "id": "66b8f70f-a5b3-58b1-903b-ee7ee2eb9d49",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu pankkikortin katoamisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin ilmoittaa, että pankkikorttini on kadonnut. Asiakaspalvelija: Voin auttaa. Milloin huomasitte katoamisen? Asiakas: Tänään aamulla. Luulen, että se on voinut pudota bussissa eilen illalla. Asiakaspalvelija: Oletteko tarkistanut, onko sillä tehty ostoksia? Asiakas: Katselin verkkopankista, siellä on yksi epäilyttävä tapahtuma, 50 euroa kaupasta, jossa en ole käynyt. Asiakaspalvelija: Selvä. Suljemme korttinne heti. Saatte uuden kortin postissa noin viikon kuluessa. Teidän kannattaa myös tehdä korvausvaatimus tuosta 50 eurosta. Asiakas: Miten se tehdään? Asiakaspalvelija: Verkkopankissa on lomake. Täytätte sen, ja käsittelemme asian. Asiakas: Kiitos avusta!",
+      "audio_asset_id": "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c"
+    },
+    "questions": [
+      {
+        "id": "l291q1",
+        "prompt": "Miksi asiakas soittaa pankkiin?",
+        "options": [
+          "Tilatakseen uuden kortin.",
+          "Ilmoittaakseen kortin katoamisesta.",
+          "Kysyäkseen saldoa.",
+          "Vaihtaakseen tunnuslukua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l291q2",
+        "prompt": "Milloin asiakas huomasi kortin kadonneen?",
+        "options": [
+          "Eilen illalla.",
+          "Tänään aamulla.",
+          "Tänään iltapäivällä.",
+          "Kaksi päivää sitten."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l291q3",
+        "prompt": "Missä asiakas epäilee kortin kadonneen?",
+        "options": [
+          "Kaupassa.",
+          "Bussissa.",
+          "Työpaikalla.",
+          "Kotona."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l291q4",
+        "prompt": "Paljonko rahaa on käytetty luvattomasti?",
+        "options": [
+          "20 euroa.",
+          "30 euroa.",
+          "50 euroa.",
+          "100 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l291q5",
+        "prompt": "Kuinka kauan uuden kortin saamisessa kestää?",
+        "options": [
+          "3 päivää.",
+          "Viikon.",
+          "Kaksi viikkoa.",
+          "Kuukauden."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

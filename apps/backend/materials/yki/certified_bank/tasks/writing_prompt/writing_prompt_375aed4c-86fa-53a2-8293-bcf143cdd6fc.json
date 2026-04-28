@@ -1,0 +1,37 @@
+{
+  "id": "375aed4c-86fa-53a2-8293-bcf143cdd6fc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa lastenhoitajana. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Lastenhoitaja"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Haet työpaikkaa lastenhoitajana. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa lastenhoitajana. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

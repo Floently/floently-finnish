@@ -1,0 +1,40 @@
+{
+  "id": "03d61de4-6e1e-56e9-8b35-f7392069ec48",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.277,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what your dream job would be and why. What do you do in that job?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "c5689d72-37ad-5fc4-87a8-4af4fbb70f59",
+        "ai_first_turn_fi": "Mikä ois sun unelma-ammatti? Mitä haluaisit tehdä työksesi?"
+      }
+    ],
+    "rubric": "Tell what your dream job would be and why. What do you do in that job?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

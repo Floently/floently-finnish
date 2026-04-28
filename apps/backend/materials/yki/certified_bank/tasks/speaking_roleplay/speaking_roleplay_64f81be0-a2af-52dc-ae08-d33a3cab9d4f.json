@@ -1,0 +1,40 @@
+{
+  "id": "64f81be0-a2af-52dc-ae08-d33a3cab9d4f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella vaikeasta aiheesta lapsen kanssa ymmärrettävästi.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet vanhempi, joka haluaa suojella lasta mutta myös olla rehellinen.",
+        "partner": "Lapsi - hämmentynyt, peloissaan, tarvitsee turvaa ja selkeyttä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp37",
+        "ai_first_turn_fi": "Kulta, tule tähän viereen. Äidin ja isän pitäisi kertoa sinulle yksi tärkeä asia. Se saattaa olla vähän vaikea kuulla, mutta haluamme, että tiedät."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella vaikeasta aiheesta lapsen kanssa ymmärrettävästi.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

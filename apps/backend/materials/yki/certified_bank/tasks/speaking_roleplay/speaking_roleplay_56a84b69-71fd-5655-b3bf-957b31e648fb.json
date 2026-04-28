@@ -1,0 +1,40 @@
+{
+  "id": "56a84b69-71fd-5655-b3bf-957b31e648fb",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what household chores you do (cleaning, laundry, cooking). Do you like doing them?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "9425650a-bbc2-52ec-927f-af1afc567199",
+        "ai_first_turn_fi": "Kuka teillä hoitaa kotityöt? Mitä itse teet mielelläsi?"
+      }
+    ],
+    "rubric": "Tell what household chores you do (cleaning, laundry, cooking). Do you like doing them?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

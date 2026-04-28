@@ -1,0 +1,37 @@
+{
+  "id": "3057f30e-55ed-5626-8c59-c5a8a5123a3f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että tulet myöhässä kahvilaan, koska bussi oli myöhässä. Sano, että olet perillä noin 15 minuutin päästä.",
+    "materials": {
+      "scenario": "Viesti ystävälle myöhästymisestä"
+    },
+    "items": [
+      {
+        "id": "9a795c4f-f8a5-5d01-a34e-9235332fb5a0",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että tulet myöhässä kahvilaan, koska bussi oli myöhässä. Sano, että olet perillä noin 15 minuutin päästä."
+      }
+    ],
+    "rubric": "Kerro, että olet myöhässä\nKerro syy (bussi myöhässä)\nKerro, milloin olet perillä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

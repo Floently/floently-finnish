@@ -1,0 +1,66 @@
+{
+  "id": "3490d47c-14ae-5b87-9d2e-d50b83f28ee1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SISÄINEN TIEDOTE\nEnsi viikosta alkaen iltavuoro alkaa klo 14.30 (aiemmin 14.00). Muutos johtuu asiakasmäärien kasvusta iltapäivisin. Jos muutos aiheuttaa ongelmia, ota yhteyttä esihenkilöön viimeistään torstaina.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "b1r1q1",
+        "prompt": "Mihin aikaan iltavuoro alkaa ensi viikosta alkaen?",
+        "options": [
+          "14.00",
+          "14.30",
+          "15.00",
+          "13.30"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1r1q2",
+        "prompt": "Miksi muutos tehdään?",
+        "options": [
+          "Työntekijöitä on liian vähän",
+          "Asiakasmäärät kasvavat iltapäivisin",
+          "Palkkoja nostetaan",
+          "Koulutus alkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1r1q3",
+        "prompt": "Mitä pitää tehdä, jos muutos aiheuttaa ongelmia?",
+        "options": [
+          "Soittaa asiakkaalle",
+          "Odottaa seuraavaa viikkoa",
+          "Ottaa yhteyttä esihenkilöön torstaihin mennessä",
+          "Lähteä lomalle"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

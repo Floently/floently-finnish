@@ -1,0 +1,37 @@
+{
+  "id": "e23dced2-1cb7-5b61-aabb-9c5570c36a02",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti siivousfirmaan. Haluat tilata muuttosiivouksen. Kerro, että muutat kaksioon ja asunto on 55 neliötä. Kerro osoite ja haluamasi siivouspäivä (ensi lauantai). Kysy hintaa ja kauanko siivous kestää.",
+    "materials": {
+      "scenario": "Viesti siivousfirmaan muuttosiivouksesta"
+    },
+    "items": [
+      {
+        "id": "50e12e99-3df7-56d1-8404-056c2a0ba542",
+        "prompt": "Kirjoita lyhyt viesti siivousfirmaan. Haluat tilata muuttosiivouksen. Kerro, että muutat kaksioon ja asunto on 55 neliötä. Kerro osoite ja haluamasi siivouspäivä (ensi lauantai). Kysy hintaa ja kauanko siivous kestää."
+      }
+    ],
+    "rubric": "Kerro, että haluat muuttosiivouksen\nKerro asunnon koko ja tyyppi\nKerro osoite ja toivottu päivä\nKysy hintaa ja kestoa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

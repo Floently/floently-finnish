@@ -1,0 +1,99 @@
+{
+  "id": "e0bd415f-1eeb-51d9-bb81-215da35faaed",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uuden kauppakeskuksen avajaisista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kauppakeskus Keskustorin tiedotus. Uusi kauppakeskuksemme avaa ovensa perjantaina 6.10. kello 10. Avajaisviikonloppuna on tarjolla monenlaista ohjelmaa ja tarjouksia. Perjantaina kello 12–14 on ilmapalloja ja maskotteja lapsille. Lauantaina kello 11–16 on muotinäytös ja hyvinvointimessut. Sunnuntaina kello 12–15 on lasten teatteria. Avajaisviikonloppuna useissa liikkeissä on avajaistarjouksia, kuten kahden tuotteen hinnalla kolme. Myös parkkipaikat ovat ilmaisia koko viikonlopun ajan. Uudessa kauppakeskuksessa on yli 50 liikettä, ravintoloita ja kahviloita. Lisäksi sieltä löytyy muun muassa elokuvateatteri, kuntosali ja kirjasto. Tervetuloa tutustumaan uuteen ostosparatiisiin!",
+      "audio_asset_id": "a0029410-4885-443a-86c9-05228e82bf4d"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä tiedote koskee?",
+        "options": [
+          "Kauppakeskuksen remonttia.",
+          "Uuden kauppakeskuksen avajaisia.",
+          "Kauppakeskuksen laajennusta.",
+          "Kauppakeskuksen sulkemista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minä päivänä ja mihin aikaan avajaiset alkavat?",
+        "options": [
+          "Torstaina 5.10. kello 12.",
+          "Lauantaina 7.10. kello 11.",
+          "Sunnuntaina 8.10. kello 12.",
+          "Perjantaina 6.10. kello 10."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä ohjelmaa on perjantaina?",
+        "options": [
+          "Ilmapalloja ja maskotteja lapsille.",
+          "Muotinäytös ja hyvinvointimessut.",
+          "Lasten teatteria.",
+          "Konsertti."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq4",
+        "prompt": "Millaisia avajaistarjouksia on?",
+        "options": [
+          "Kahden tuotteen hinnalla kolme.",
+          "Kaikki tuotteet puoleen hintaan.",
+          "Ilmainen kahvi.",
+          "Lahjakortti jokaiselle."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä parkkipaikoista tiedotetaan?",
+        "options": [
+          "Ne ovat maksullisia.",
+          "Ne ovat ilmaisia koko avajaisviikonlopun.",
+          "Ne ovat vain henkilökunnalle.",
+          "Ne ovat suljettuna."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä kaikkea kauppakeskuksesta löytyy liikkeiden lisäksi?",
+        "options": [
+          "Uimahalli ja teatteri.",
+          "Elokuvateatteri, kuntosali ja kirjasto.",
+          "Hotelli ja ravintola.",
+          "Leikkipuisto ja päiväkoti."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

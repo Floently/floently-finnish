@@ -1,0 +1,66 @@
+{
+  "id": "7eefabbe-b3b2-52bc-b498-a322f6eb36f2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Työn ja perheen yhteensovittaminen on keskeinen hyvinvointikysymys ja tasa-arvon mittari nyky-yhteiskunnassa. Suomessa on pitkään pyritty tukemaan perheitä erilaisin yhteiskunnallisin järjestelyin, kuten vanhempainvapailla, päivähoitojärjestelmällä ja joustavilla työajoilla. Vanhempainvapaauudistus vuonna 2022 toi merkittäviä muutoksia: molemmille vanhemmille on varattu yhtä pitkä kiintiöity vapaa, ja osa vapaasta on siirrettävissä vanhempien kesken. Tämä uudistus pyrkii edistämään sekä tasa-arvoa että isien osallistumista lastenhoitoon. Työelämän joustot, kuten etätyömahdollisuudet ja liukuva työaika, auttavat monia perheitä arjen hallinnassa. Haasteitakin on. Työelämän vaatimukset ovat usein kovat, ja monet kokevat riittämättömyyden tunnetta yrittäessään täyttää sekä työn että perheen odotukset. Erityisesti pienten lasten vanhemmat, yksinhuoltajat ja omaisiaan hoitavat joutuvat usein tekemään kompromisseja uralla etenemisessä. Tutkimukset osoittavat, että naiset käyttävät edelleen enemmän aikaa lastenhoitoon ja kotitöihin, mikä näkyy naisten urakehityksessä ja palkkauksessa. Työn ja perheen yhteensovittaminen ei ole vain yksityinen asia, vaan se liittyy laajemmin työelämän rakenteisiin, asenteisiin ja yhteiskunnan tukiin. Työpaikoilla tarvitaan avointa keskustelua ja joustavia käytäntöjä, jotka mahdollistavat työn ja perheen yhdistämisen ilman, että se johtaa uupumukseen tai syrjintään.",
+      "word_count": 158
+    },
+    "questions": [
+      {
+        "id": "f1a2b3c4-d5e6-4f7a-9b8c-9d0e1f2a3b4c",
+        "prompt": "Mitä vuoden 2022 vanhempainvapaauudistus toi mukanaan?",
+        "options": [
+          "Vain äideille lisää vapaita",
+          "Molemmille vanhemmille yhtä pitkän kiintiöidyn vapaan",
+          "Vanhempainvapaiden poistamisen",
+          "Vain isille tarkoitetut vapaat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a2b3c4d5-e6f7-4a8b-9c9d-0e1f2a3b4c5d",
+        "prompt": "Mitä haasteita työn ja perheen yhteensovittamisessa on?",
+        "options": [
+          "Liian paljon vapaa-aikaa",
+          "Työelämän kovat vaatimukset ja riittämättömyyden tunne",
+          "Liian vähän työtä",
+          "Perheiden liian suuri tuki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b3c4d5e6-f7a8-4b9c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Mitä tutkimukset osoittavat naisten ja miesten ajankäytöstä perheessä?",
+        "options": [
+          "Miehet käyttävät enemmän aikaa lastenhoitoon",
+          "Naiset käyttävät edelleen enemmän aikaa lastenhoitoon ja kotitöihin",
+          "Ajan käyttö on täysin tasaista",
+          "Lapset hoitavat itse itsensä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "f10f1b21-56ae-5dd9-b852-9210443fb20d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kulttuurinen moninaisuus on lisääntynyt Suomessa viime vuosikymmeninä. Tämä näkyy esimerkiksi kielissä, uskonnoissa, tavoissa ja ruokakulttuureissa. Moninaisuus nähdään rikkautena, joka voi lisätä luovuutta, innovaatioita ja kansainvälistymistä. Se asettaa kuitenkin myös haasteita, kuten tarpeen tunnistaa ja purkaa syrjiviä rakenteita. Yhdenvertaisuuslain tavoitteena on edistää yhdenvertaisuutta ja ehkäistä syrjintää. Koulutus ja kasvatus ovat keskeisessä roolissa, kun rakennetaan avointa ja suvaitsevaista yhteiskuntaa. Myös työelämässä tarvitaan moninaisuuden johtamista, jotta kaikkien potentiaali saadaan käyttöön. Onnistunut moninaisuuspolitiikka vaatii pitkäjänteistä työtä ja yhteistyötä eri toimijoiden välillä.",
+      "word_count": 77
+    },
+    "questions": [
+      {
+        "id": "mcq_616",
+        "prompt": "Mitä hyötyä kulttuurisesta moninaisuudesta voi olla?",
+        "options": [
+          "Se vähentää luovuutta",
+          "Se voi lisätä luovuutta ja innovaatioita",
+          "Se hidastaa kansainvälistymistä",
+          "Se lisää syrjiviä rakenteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_617",
+        "prompt": "Mitä yhdenvertaisuuslain tavoitteena on?",
+        "options": [
+          "Edistää eriarvoisuutta",
+          "Edistää yhdenvertaisuutta ja ehkäistä syrjintää",
+          "Vähentää moninaisuutta",
+          "Lisätä syrjintää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_618",
+        "prompt": "Mikä on keskeisessä roolissa avoimen ja suvaitsevaistisen yhteiskunnan rakentamisessa?",
+        "options": [
+          "Lainsäädäntö",
+          "Koulutus ja kasvatus",
+          "Poliisi",
+          "Media"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_619",
+        "prompt": "Mitä työelämässä tarvitaan moninaisuuden hyödyntämiseksi?",
+        "options": [
+          "Moninaisuuden vähentämistä",
+          "Moninaisuuden johtamista",
+          "Syrjinnän lisäämistä",
+          "Yhdenmukaisuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

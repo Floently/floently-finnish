@@ -1,0 +1,37 @@
+{
+  "id": "f0b1868b-39a7-5b92-a678-406992761978",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.675,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a driver position in a transport company. Tell about your driving experience, valid driving licenses, and why you are a reliable driver. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus autonkuljettajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a driver position in a transport company. Tell about your driving experience, valid driving licenses, and why you are a reliable driver. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a driver position in a transport company. Tell about your driving experience, valid driving licenses, and why you are a reliable driver. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

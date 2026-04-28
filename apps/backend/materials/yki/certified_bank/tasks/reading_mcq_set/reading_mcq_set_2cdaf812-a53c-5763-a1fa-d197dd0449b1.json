@@ -1,0 +1,110 @@
+{
+  "id": "2cdaf812-a53c-5763-a1fa-d197dd0449b1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kansainvälinen muuttoliike on ilmiö, joka koskettaa myös Suomea yhä voimakkaammin. Ihmiset muuttavat maasta toiseen monista syistä: työn, opiskelun, perheen tai turvallisuuden vuoksi. Suomeen muutetaan eniten työn ja perhesyiden takia, mutta myös humanitaarisista syistä, kuten turvapaikanhakijoina. Maahanmuutto on monimuotoista. Osa tulee korkeasti koulutettuina asiantuntijoina, osa matalammin koulutettuina työntekijöinä, osa ilman koulutusta ja työkokemusta. Tämä asettaa haasteita kotouttamiselle. Kaikille pitäisi pystyä tarjoamaan mahdollisuus oppia kieltä, hankkia koulutusta ja työllistyä. Onnistunut kotoutuminen on yhteiskunnan etu. Se lisää työvoiman tarjontaa, monipuolistaa osaamista ja vahvistaa taloutta. Se myös vähentää jännitteitä ja edistää yhteiskuntarauhaa. Epäonnistunut kotoutuminen puolestaan voi johtaa syrjäytymiseen, eriarvoisuuteen ja yhteiskunnallisiin ongelmiin. Maahanmuuttopolitiikassa on kyse tasapainoilusta. Tarvitaan sekä avoimuutta että hallintaa. On päätettävä, ketä maahan otetaan ja millä perusteilla. Samalla on huolehdittava siitä, että maahan tulleilla on todelliset mahdollisuudet integroitua suomalaiseen yhteiskuntaan. Tämä vaatii resursseja, pitkäjänteistä suunnittelua ja yhteistyötä eri toimijoiden välillä.",
+      "word_count": 138
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä syistä ihmiset muuttavat maasta toiseen?",
+        "options": [
+          "Vain työn vuoksi.",
+          "Työn, opiskelun, perheen tai turvallisuuden vuoksi.",
+          "Vain turvallisuuden vuoksi.",
+          "Vain perheen vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä syistä Suomeen muutetaan eniten?",
+        "options": [
+          "Humanitaarisista syistä.",
+          "Työn ja perhesyiden takia.",
+          "Vain opiskelun takia.",
+          "Vain turvallisuuden takia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi maahanmuutto on monimuotoista?",
+        "options": [
+          "Kaikki tulevat samoista maista.",
+          "Maahanmuuttajilla on erilainen koulutus- ja työtausta.",
+          "Kaikki ovat samanlaisia.",
+          "Vain korkeasti koulutetut tulevat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haasteita maahanmuuton monimuotoisuus asettaa kotouttamiselle?",
+        "options": [
+          "Ei mitään haasteita.",
+          "Kaikille pitäisi pystyä tarjoamaan mahdollisuus oppia kieltä, hankkia koulutusta ja työllistyä.",
+          "Vain kielen oppiminen on tärkeää.",
+          "Vain työllistyminen on tärkeää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä onnistuneesta kotoutumisesta on?",
+        "options": [
+          "Se lisää kustannuksia.",
+          "Se lisää työvoiman tarjontaa, monipuolistaa osaamista, vahvistaa taloutta ja vähentää jännitteitä.",
+          "Se vähentää työvoiman tarjontaa.",
+          "Sillä ei ole hyötyjä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä seurauksia epäonnistuneesta kotoutumisesta voi olla?",
+        "options": [
+          "Yhteiskunnallista vakautta.",
+          "Syrjäytymistä, eriarvoisuutta ja yhteiskunnallisia ongelmia.",
+          "Taloudellista kasvua.",
+          "Vähemmän jännitteitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mistä maahanmuuttopolitiikassa on kyse?",
+        "options": [
+          "Vain rajojen sulkemisesta.",
+          "Tasapainoilusta avoimuuden ja hallinnan välillä, sekä kotoutumisen mahdollistamisesta.",
+          "Vain avoimuudesta.",
+          "Vain hallinnasta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

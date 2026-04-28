@@ -1,0 +1,77 @@
+{
+  "id": "d2c1d958-cd88-5472-a0f8-22cf91f14370",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa on aktiivinen järjestökenttä. Järjestöt toimivat monilla aloilla, kuten kulttuurissa, liikunnassa, sosiaalialalla, ympäristössä ja ihmisoikeuksissa. Järjestöjen toiminta perustuu vapaaehtoisuuteen ja jäsenyyteen. Monet järjestöt tarjoavat harrastusmahdollisuuksia, vertaistukea, neuvontaa ja vaikuttamistyötä. Urheiluseurat ovat perinteisesti suosittuja, ja niissä toimii tuhansia vapaaehtoisia valmentajia ja ohjaajia. Sosiaali- ja terveysjärjestöt auttavat sairaita, vammaisia ja syrjäytymisvaarassa olevia. Ympäristöjärjestöt tekevät työtä luonnon puolesta. Järjestöt saavat usein tukea julkisilta tahoilta, kuten opetus- ja kulttuuriministeriöltä, STEA:lta ja kunnilta.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_029",
+        "prompt": "Millä aloilla järjestöt toimivat?",
+        "options": [
+          "Vain liikunnassa",
+          "Kulttuurissa, liikunnassa, sosiaalialalla, ympäristössä ja ihmisoikeuksissa",
+          "Vain sosiaalialalla",
+          "Vain ympäristössä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_029",
+        "prompt": "Mihin järjestöjen toiminta perustuu?",
+        "options": [
+          "Palkkatyöhön",
+          "Vapaaehtoisuuteen ja jäsenyyteen",
+          "Pakollisuuteen",
+          "Valtion ohjaukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_029",
+        "prompt": "Mitä urheiluseurat tarjoavat?",
+        "options": [
+          "Vain kilpaurheilua",
+          "Harrastusmahdollisuuksia ja vapaaehtoistoimintaa",
+          "Vain ammattilaistasoa",
+          "Vain lasten urheilua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_029",
+        "prompt": "Mistä järjestöt saavat tukea?",
+        "options": [
+          "Vain yrityksiltä",
+          "Opetus- ja kulttuuriministeriöltä, STEA:lta ja kunnilta",
+          "Vain EU:lta",
+          "Vain jäsenmaksuista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

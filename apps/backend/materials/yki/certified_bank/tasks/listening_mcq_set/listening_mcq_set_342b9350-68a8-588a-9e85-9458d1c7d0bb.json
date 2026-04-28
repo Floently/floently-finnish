@@ -1,0 +1,88 @@
+{
+  "id": "342b9350-68a8-588a-9e85-9458d1c7d0bb",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei äiti! Mulla on vähän ongelma. Mä olen kaupassa ja unohdin lompakon kotiin. Voitko sä tulla tuomaan sen tai laittaa mulle vähän rahaa?",
+      "audio_asset_id": "3264db1a-f87f-5886-a758-a51a8cec1de0"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Kaupassa.",
+          "Kotona.",
+          "Koulussa.",
+          "Kirjastossa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on puhujan ongelma?",
+        "options": [
+          "Hänellä ei ole tarpeeksi rahaa.",
+          "Hän on hukannut lompakon.",
+          "Hän unohti lompakon kotiin.",
+          "Hänen lompakkonsa on varastettu."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä puhuja pyytää äitiä tekemään?",
+        "options": [
+          "Tulemaan kauppaan.",
+          "Tuomaan lompakon tai laittamaan rahaa.",
+          "Maksamaan puhelinlaskun.",
+          "Soittamaan kauppaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kenelle puhuja puhuu?",
+        "options": [
+          "Isälle.",
+          "Siskolle.",
+          "Kaverille.",
+          "Äidille."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten puhuja todennäköisesti tavoittaa äidin?",
+        "options": [
+          "Lähettämällä kirjeen.",
+          "Meno kotiin.",
+          "Huutamalla.",
+          "Soittamalla."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

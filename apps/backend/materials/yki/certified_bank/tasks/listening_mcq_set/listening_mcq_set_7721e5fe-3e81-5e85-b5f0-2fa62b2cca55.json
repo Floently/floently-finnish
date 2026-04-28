@@ -1,0 +1,77 @@
+{
+  "id": "7721e5fe-3e81-5e85-b5f0-2fa62b2cca55",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.3,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele terveyskeskuksen puhelinvastaaja ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tämä on terveyskeskus. Soittoaika on maanantaista perjantaihin kello 8–15. Jos haluat varata ajan, paina 1. Jos haluat neuvoja, paina 2. Jos haluat perua ajan, paina 3. Hätätapauksessa soita 112. Kiitos ja kuulemiin.",
+      "audio_asset_id": "d78eec3c-75d9-4e76-bde4-e05e3c520d42"
+    },
+    "questions": [
+      {
+        "id": "0979d327-cd78-54b0-b3b4-fdd593370db8",
+        "prompt": "Mihin aikaan terveyskeskukseen voi soittaa?",
+        "options": [
+          "klo 7–14",
+          "klo 8–15",
+          "klo 9–16",
+          "klo 10–17"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8a206dd7-29a7-53fa-be83-0007edd7a0f9",
+        "prompt": "Mitä pitää painaa, jos haluaa varata ajan?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "45651a36-e020-5ef5-b5a4-33e54c103513",
+        "prompt": "Mitä pitää painaa, jos haluaa neuvoja?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "87019f5d-dd93-5600-8b80-6b5cf8d4c251",
+        "prompt": "Mihin numeroon pitää soittaa hätätapauksessa?",
+        "options": [
+          "100",
+          "112",
+          "113",
+          "114"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

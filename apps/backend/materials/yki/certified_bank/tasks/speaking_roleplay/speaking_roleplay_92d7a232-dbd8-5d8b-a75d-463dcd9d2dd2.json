@@ -1,0 +1,40 @@
+{
+  "id": "92d7a232-dbd8-5d8b-a75d-463dcd9d2dd2",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.288,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you like animals and if you have had a pet. What animals do you like?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "20e2836b-8a85-5a62-988a-7366dee3fd20",
+        "ai_first_turn_fi": "Tykkäätkö eläimistä? Oliko sulla lemmikkejä kotimaassa?"
+      }
+    ],
+    "rubric": "Tell if you like animals and if you have had a pet. What animals do you like?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "7595b4ba-9383-5f0e-9caf-b4eb724d2b5d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.783,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Koulutuksen ja työelämän välinen suhde on murroksessa. Perinteinen malli, jossa ensin hankitaan ammatti ja sitten tehdään työura saman alan parissa, on väistymässä monimuotoisempien työurien tieltä. Nopea teknologinen kehitys, työtehtävien muuttuminen ja alojen välisten rajojen hämärtyminen edellyttävät yksilöiltä jatkuvaa uuden oppimista ja sopeutumiskykyä. Tämä asettaa uusia haasteita koulutusjärjestelmälle, jonka on kyettävä tarjoamaan paitsi vahvaa perusosaamista myös valmiuksia elinikäiseen oppimiseen ja alan vaihtoon. Keskustelu koulutuksen ja työelämän vastaavuudesta onkin vilkasta. Työnantajat kaipaavat usein valmiiksi tiettyyn tehtävään koulutettuja työntekijöitä, kun taas koulutuksen järjestäjät korostavat laaja-alaisten taitojen ja oppimaan oppimisen merkitystä. Tämä jännite heijastaa syvempää kysymystä siitä, mikä on koulutuksen tavoite: onko se ensisijaisesti työelämän tarpeisiin vastaamista vai yleissivistystä ja ihmisenä kasvamista? Käytännössä nämä tavoitteet eivät tietenkään ole toisiaan poissulkevia, mutta niiden painotukset vaihtelevat eri koulutusasteilla ja eri aikoina. Yksi keskeinen haaste on ennustaa tulevaisuuden osaamistarpeita. Teknologian kehitys on niin nopeaa, että on vaikea tietää, millaisia ammatteja ja taitoja tulevaisuudessa tarvitaan. Tämä korostaa tarvetta panostaa laaja-alaisiin taitoihin, kuten kriittiseen ajatteluun, ongelmanratkaisuun, luovuuteen ja yhteistyökykyyn. Näitä taitoja tarvitaan joka tapauksessa, riippumatta siitä, millaisia konkreettisia työtehtäviä tulevaisuus tuo tullessaan. Toinen haaste liittyy koulutuksen ja työelämän väliseen vuoropuheluun. Koulutuslaitosten ja työelämän toimijoiden välinen yhteistyö on tärkeää, jotta koulutus vastaa työelämän tarpeita ja jotta työelämä ymmärtää koulutuksen tavoitteita ja mahdollisuuksia. Työharjoittelut, oppisopimuskoulutus ja yhteiset kehittämishankkeet ovat esimerkkejä keinoista, joilla tätä vuoropuhelua voidaan vahvistaa. Kolmas haaste liittyy aikuiskoulutukseen ja jatkuvaan oppimiseen. Työelämässä olevien mahdollisuuksia täydentää osaamistaan ja vaihtaa alaa on parannettava. Tämä edellyttää joustavia koulutusmuotoja, kuten monimuoto- ja verkko-opintoja, sekä riittävää taloudellista tukea aikuisopiskelijoille. Koulutuksen ja työelämän suhde tulee tuskin koskaan olemaan täysin kitkaton. Molemmat ovat dynaamisia järjestelmiä, jotka elävät ja muuttuvat omassa tahdissaan. Tärkeintä onkin ylläpitää avointa keskustelua ja rakentaa rakenteita, jotka mahdollistavat joustavan sopeutumisen muutoksiin.",
+      "word_count": 278
+    },
+    "questions": [
+      {
+        "id": "fa818848-264c-5936-8c81-f02105d272ab",
+        "prompt": "Mikä on tekstin keskeinen väite koulutuksen ja työelämän suhteesta?",
+        "options": [
+          "Suhteen tulisi olla mahdollisimman kiinteä ja ennakoitava",
+          "Suhteessa on jännitteitä, jotka johtuvat erilaisista tavoitteista ja muutosten nopeudesta",
+          "Koulutusjärjestelmän tulisi keskittyä yksinomaan työelämän tarpeisiin",
+          "Työelämän tulisi mukautua täysin koulutusjärjestelmän tarjontaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0e2b6df2-0191-5fa4-afa5-7052359befb0",
+        "prompt": "Tekstin mukaan miksi tulevaisuuden osaamistarpeiden ennustaminen on vaikeaa?",
+        "options": [
+          "Koska työnantajat eivät kerro tarpeistaan",
+          "Koska teknologian kehitys on liian nopeaa ja epävarmaa",
+          "Koska koulutusjärjestelmä on liian hidas reagoimaan",
+          "Koska opiskelijat eivät ole kiinnostuneita työelämästä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2b32f226-a447-5665-972b-6ef08ffa066f",
+        "prompt": "Mitä laaja-alaisia taitoja teksti nostaa esiin tulevaisuuden kannalta tärkeinä?",
+        "options": [
+          "Erikoistuneita teknisiä taitoja tietyille aloille",
+          "Kielitaitoa ja matemaattista osaamista",
+          "Kriittistä ajattelua, ongelmanratkaisua, luovuutta ja yhteistyökykyä",
+          "Johtamistaitoja ja esiintymisvarmuutta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "20d045a2-04a5-54df-9812-5af1e8265ce5",
+        "prompt": "Mitä keinoja teksti ehdottaa koulutuksen ja työelämän välisen vuoropuhelun vahvistamiseksi?",
+        "options": [
+          "Työharjoitteluja, oppisopimuskoulutusta ja yhteisiä kehittämishankkeita",
+          "Tiukempaa sääntelyä ja ammattirajoja",
+          "Koulutuksen keskittämistä harvoille aloille",
+          "Työelämän edustajien määräämistä opetussuunnitelmien tekijöiksi"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

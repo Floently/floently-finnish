@@ -1,0 +1,110 @@
+{
+  "id": "09534c62-4fc9-52d4-8479-547244f2e6d4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Terveydenhuolto on yksi hyvinvointiyhteiskunnan kulmakivistä. Suomessa julkinen terveydenhuolto on tarkoitettu kaikille kansalaisille asuinpaikasta ja varallisuudesta riippumatta. Periaate on, että jokainen saa tarvitsemansa hoidon, vaikka ei itse pystyisi sitä maksamaan. Tämä järjestelmä on pitkään taannut terveyspalvelujen tasa-arvoista saatavuutta. Viime vuosina terveydenhuolto on kuitenkin kohdannut kasvavia paineita. Väestön ikääntyminen lisää palvelujen tarvetta, samalla kun kustannukset nousevat. Uudet ja kalliit hoidot sekä lääkkeet asettavat haasteita julkiselle taloudelle. Myös hoitajapula on pahentunut monilla alueilla. Tämä on johtanut keskusteluun siitä, miten terveydenhuolto pitäisi järjestää tulevaisuudessa. Osa korostaa julkisen terveydenhuollon vahvistamista ja lisärahoitusta. Toiset ehdottavat, että yksityisiä palveluja pitäisi käyttää nykyistä enemmän julkisen rinnalla. Kolmannet painottavat ennaltaehkäisyä ja terveyden edistämistä, jotta sairastavuus vähenisi. Keskeistä on löytää ratkaisuja, jotka takaavat laadukkaat ja tasa-arvoiset terveyspalvelut kaikille kestävällä tavalla.",
+      "word_count": 120
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin periaatteeseen suomalainen julkinen terveydenhuolto perustuu?",
+        "options": [
+          "Vain varakkaat saavat hoitoa.",
+          "Jokainen saa tarvitsemansa hoidon asuinpaikasta ja varallisuudesta riippumatta.",
+          "Hoitoa saa vain, jos pystyy maksamaan itse.",
+          "Vain kaupunkilaiset saavat hoitoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä järjestelmästä on ollut?",
+        "options": [
+          "Se on lisännyt eriarvoisuutta.",
+          "Se on taannut terveyspalvelujen tasa-arvoista saatavuutta.",
+          "Se on vähentänyt hoidon tarvetta.",
+          "Se on laskenut kustannuksia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä paineita terveydenhuolto kohtaa?",
+        "options": [
+          "Väestön nuorentuminen ja syntyvyyden kasvu.",
+          "Väestön ikääntyminen, kustannusten nousu ja hoitajapula.",
+          "Liian vähäinen teknologian käyttö.",
+          "Yksityisten palvelujen väheneminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten uudet hoidot ja lääkkeet vaikuttavat terveydenhuoltoon?",
+        "options": [
+          "Ne alentavat kustannuksia.",
+          "Ne asettavat haasteita julkiselle taloudelle.",
+          "Ne vähentävät hoidon tarvetta.",
+          "Ne helpottavat hoitajapulaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ratkaisuja terveydenhuollon ongelmiin esitetään?",
+        "options": [
+          "Vain julkisen terveydenhuollon vahvistamista.",
+          "Vain yksityisten palvelujen lisäämistä.",
+          "Vain ennaltaehkäisyä.",
+          "Julkisen terveydenhuollon vahvistamista, yksityisten palvelujen käyttöä ja ennaltaehkäisyä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan ennaltaehkäisyllä?",
+        "options": [
+          "Sairauksien hoitamista vasta kun ne ilmenevät.",
+          "Toimia, joilla pyritään vähentämään sairastavuutta ennen kuin sairauksia ilmenee.",
+          "Kalliiden hoitojen käyttöä.",
+          "Hoitojen maksamista itse."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on keskeistä terveydenhuollon tulevaisuuden ratkaisuissa?",
+        "options": [
+          "Laadukkaat ja tasa-arvoiset palvelut kaikille kestävällä tavalla.",
+          "Vain kustannusten minimointi.",
+          "Vain yksityisten palvelujen suosiminen.",
+          "Julkisen terveydenhuollon lakkauttaminen."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "92303772-10e7-5e99-8c20-b49df375f97e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kotimaanmatkailusta ja vastaa.",
+    "materials": {
+      "transcript": "Antti: Hei Sanna, mitä sä oot mieltä, että lähdettäiskö tänä kesänä kotimaanmatkalle? Sanna: Joo, se vois olla ihan kiva. Ollaan käyty ulkomailla monta vuotta, mutta kotimaassakin on varmasti paljon nähtävää. Mikä ois hyvä kohde? Antti: Mua kiinnostaisi Lappi. Ei ehkä mikään turistikeskus, vaan joku rauhallisempi paikka. Haluisin nähdä tuntureita ja vaeltaa. Sanna: Lappi on ihana, mutta se on kaukana ja matkustaminen maksaa. Junaliput ja majoitus voi olla aika kallista. Antti: Totta. Toinen vaihtoehto olisi Järvi-Suomi. Vuokrattaisiin mökki järven rannalta, vaikka Savonlinnan seudulta. Siellä voi meloa, uida ja käydä vaikka oopperassa. Sanna: Se kuulostaa tosi hyvältä. Meidän lapsetkin tykkäis varmaan. Onko sulla jotain tiettyä paikkaa mielessä? Antti: En oo vielä kattonut, mutta ajattelin, että katsottais yhdessä. Haluisin, että mökissä on sauna ja vene. Sanna: Selvä. Entäs mitä mieltä olet, että lähdettäiskö viikoksi vai kahdeksi? Antti: Meillä on lomaa viisi viikkoa, joten kahdeksikin vois hyvin lähteä. Mutta jos mökki on kiva, niin viikkokin riittää. Sanna: Joo, katsotaan nyt. Mitä muuta tekemistä siellä olisi? Antti: Savonlinnassa on vaikka mitä: Olavinlinna, museoita, risteilyjä. Ja jos sää on huono, voidaan käydä vaikka kylpylässä. Sanna: Kuulostaa hyvältä. Mites meidän budjetti? Antti: Ollaan säästetty, joten parilla tonnilla varmaan pärjätään. Sanna: Hyvä. No laitetaan suunnittelu vireille!",
+      "audio_asset_id": "dd5d60aa-3458-4a00-bd57-afa4a54f3b07"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mitä Antti ja Sanna suunnittelevat?",
+        "options": [
+          "Ulkomaanmatkaa Eurooppaan.",
+          "Kotimaanmatkaa ja mökin vuokrausta.",
+          "Uuden auton ostoa.",
+          "Kesämökin rakentamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mihin Anttia kiinnostaisi ensisijaisesti matkustaa?",
+        "options": [
+          "Helsinkiin kaupunkilomalle.",
+          "Ahvenanmaalle saaristoon.",
+          "Lappiin tuntureille.",
+          "Turun saaristoon."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on Sannan huoli Lappiin matkustamisesta?",
+        "options": [
+          "Siellä on liikaa hyttysiä.",
+          "Siellä ei ole mitään tekemistä.",
+          "Sää on aina huono.",
+          "Se on kaukana ja matkustaminen maksaa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä toista kohdetta he harkitsevat?",
+        "options": [
+          "Järvi-Suomi ja Savonlinnan seutu.",
+          "Pohjois-Karjala ja Kolin kansallispuisto.",
+          "Oulu ja Pohjanmaa.",
+          "Hämeenlinna ja Aulanko."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä toivomuksia Antilla on mökistä?",
+        "options": [
+          "Siinä on palju ja pelikone.",
+          "Siinä on sauna ja vene.",
+          "Siinä on oma ranta ja wlan.",
+          "Siinä on kolme makuuhuonetta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä nähtävää Savonlinnassa on?",
+        "options": [
+          "Vanha linna, museoita ja risteilyjä.",
+          "Suuri huvipuisto.",
+          "Maailman suurin jääkiekkoareena.",
+          "Eläintarha."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "49067fa2-52a0-5665-9748-b687ae7d9e00",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Teknologian nopea kehitys on herättänyt vilkasta keskustelua sen vaikutuksista työllisyyteen. Historiallisesti uudet teknologiat ovat sekä tuhonneet että luoneet työpaikkoja, ja pitkällä aikavälillä työllisyys on säilynyt korkeana. Tämä on saanut monet taloustieteilijät suhtautumaan optimistisesti myös tekoälyn ja automaation vaikutuksiin. Heidän mukaansa uudet teknologiat luovat aina uusia, ennakoimattomia työtehtäviä, ja työmarkkinat sopeutuvat muutoksiin itsestään. Toiset tutkijat ovat kuitenkin huolestuneempia. Heidän mukaansa tekoäly pystyy korvaamaan ihmisiä paitsi rutiininomaisissa myös monissa asiantuntijatehtävissä, mikä voi johtaa laajamittaiseen työttömyyteen ja eriarvoisuuden kasvuun. Tämä näkemys korostaa, että tällä kertaa muutos voi olla laadullisesti erilainen kuin aiemmat teknologiset murrokset. Kolmas näkökulma painottaa, että teknologian vaikutukset työllisyyteen riippuvat pitkälti siitä, miten sitä käytetään ja kuka sen tuottamia hyötyjä saa. Teknologia itsessään ei ole hyvä tai paha, vaan sen vaikutukset määräytyvät yhteiskunnallisten valintojen ja vallitsevien valtasuhteiden kautta. Tästä näkökulmasta keskeistä on se, kuka omistaa teknologian, kuka päättää sen käytöstä ja miten sen tuottamat hyödyt jaetaan.",
+      "word_count": 145
+    },
+    "questions": [
+      {
+        "id": "85201e4c-3f89-5f96-a527-b675fdda5efc",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Teknologian historian vaiheet",
+          "Teknologian ja työllisyyden suhdetta koskevat erilaiset näkemykset",
+          "Tekoälyn tekniset ominaisuudet",
+          "Työmarkkinoiden sopeutumiskyky"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cac90f8c-f9da-50e4-8caf-32778635ec25",
+        "prompt": "Tekstin mukaan miten teknologiaoptimistit suhtautuvat tekoälyn työllisyysvaikutuksiin?",
+        "options": [
+          "He uskovat tekoälyn väistämättä vähentävän työpaikkoja",
+          "He katsovat, että uudet teknologiat luovat aina uusia työpaikkoja ja työmarkkinat sopeutuvat",
+          "He pitävät tekoälyn kehitystä pysäytettävissä olevana",
+          "He vaativat valtion voimakkaita toimia teknologian säätelemiseksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "48663c76-b450-51f2-83c6-0cd16d4be0c3",
+        "prompt": "Mitä huolta teknologiapessimistit esittävät?",
+        "options": [
+          "Tekoälyn kehitys on liian hidasta",
+          "Tekoäly pystyy korvaamaan ihmisiä myös asiantuntijatehtävissä, mikä voi johtaa laajamittaiseen työttömyyteen",
+          "Teknologian kehitys on keskittynyt liikaa teollisuuteen",
+          "Teknologian tuottamat hyödyt jakautuvat liian tasaisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d97aa69a-e14b-5ced-b16f-6182087fdf2c",
+        "prompt": "Mitä kolmas, valtasuhteita korostava näkemys pitää keskeisenä?",
+        "options": [
+          "Sitä, kuinka nopeasti teknologia kehittyy",
+          "Sitä, kuka omistaa teknologian, kuka päättää sen käytöstä ja miten hyödyt jaetaan",
+          "Sitä, kuinka paljon teknologiaa käytetään",
+          "Sitä, miten teknologia vaikuttaa eri maiden väliseen kilpailuun"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

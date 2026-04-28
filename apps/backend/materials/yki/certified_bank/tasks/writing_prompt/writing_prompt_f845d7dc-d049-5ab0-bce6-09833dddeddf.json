@@ -1,0 +1,37 @@
+{
+  "id": "f845d7dc-d049-5ab0-bce6-09833dddeddf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.344,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kiitosviesti ystävällesi. Kerro:\n\n- Kiitos lahjasta (esim. kirja)\n- Kerro, mitä pidit lahjasta\n- Kerro, mitä teit syntymäpäivänäsi\n- Kysy, mitä ystävällesi kuuluu",
+    "materials": {
+      "scenario": "Kirjoita kiitosviesti ystävällesi. Kerro:\n\n- Kiitos lahjasta (esim. kirja)\n- Kerro, mitä pidit lahjasta\n- Kerro, mitä teit syntymäpäivänäsi\n- Kysy, mitä ystävällesi kuuluu"
+    },
+    "items": [
+      {
+        "id": "f2ef5a60-3f26-50a9-aa51-f717e5b597fc",
+        "prompt": "Kirjoita kiitosviesti ystävällesi. Kerro:\n\n- Kiitos lahjasta (esim. kirja)\n- Kerro, mitä pidit lahjasta\n- Kerro, mitä teit syntymäpäivänäsi\n- Kysy, mitä ystävällesi kuuluu"
+      }
+    ],
+    "rubric": "Kirjoita kiitosviesti ystävällesi. Kerro:\n\n- Kiitos lahjasta (esim. kirja)\n- Kerro, mitä pidit lahjasta\n- Kerro, mitä teit syntymäpäivänäsi\n- Kysy, mitä ystävällesi kuuluu",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

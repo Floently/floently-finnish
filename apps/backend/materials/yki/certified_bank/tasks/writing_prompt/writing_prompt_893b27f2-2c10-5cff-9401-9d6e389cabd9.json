@@ -1,0 +1,37 @@
+{
+  "id": "893b27f2-2c10-5cff-9401-9d6e389cabd9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.313,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti siskolle. Kerro, että olet tulossa käymään. Kerro, että tulet perjantaina ja lähdet sunnuntaina. Kysy, sopiiko se. Kysy, tarvitseeko tuoda jotain.",
+    "materials": {
+      "scenario": "Viesti siskolle vierailusta"
+    },
+    "items": [
+      {
+        "id": "6328ffe0-de49-5454-811e-2743fc58f53a",
+        "prompt": "Kirjoita lyhyt viesti siskolle. Kerro, että olet tulossa käymään. Kerro, että tulet perjantaina ja lähdet sunnuntaina. Kysy, sopiiko se. Kysy, tarvitseeko tuoda jotain."
+      }
+    ],
+    "rubric": "Kerro, että tulet käymään\nKerro, milloin tulet ja lähdet\nKysy, sopiiko\nKysy, tarvitseeko tuoda jotain",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

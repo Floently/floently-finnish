@@ -1,0 +1,37 @@
+{
+  "id": "1ce57578-98b9-5241-8b5e-235a82c7e75f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan fysioterapeutille. Sinulla on selkäkipuja. Kerro, että kipu on jatkunut kaksi viikkoa. Kysy, onko heillä aikoja ja paljonko käynti maksaa.",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle fysioterapia-ajasta"
+    },
+    "items": [
+      {
+        "id": "f7c180cd-f3e6-5a91-b25e-89f9518e98c2",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan fysioterapeutille. Sinulla on selkäkipuja. Kerro, että kipu on jatkunut kaksi viikkoa. Kysy, onko heillä aikoja ja paljonko käynti maksaa."
+      }
+    ],
+    "rubric": "Kerro, että haluat fysioterapeutille\nKerro ongelma (selkäkipu)\nKerro, kuinka kauan kipua on kestänyt\nKysy ajan saatavuutta\nKysy hintaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "00ac12b5-28c4-527f-8cb0-50833d46f495",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen reklamaatio ohjeen mukaan.",
+    "materials": {
+      "scenario": "Hallinnollinen virhe"
+    },
+    "items": [
+      {
+        "id": "8454d7c3-78b8-5409-bd72-759a9366f87d",
+        "prompt": "Kirjoita reklamaatio viranomaiselle hallinnollisesta virheestä."
+      }
+    ],
+    "rubric": "Kirjoita reklamaatio viranomaiselle hallinnollisesta virheestä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

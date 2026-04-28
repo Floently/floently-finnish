@@ -1,0 +1,77 @@
+{
+  "id": "cfcc3f9f-4996-5cf0-9a1e-08e2863dd477",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.775,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Globalisaation ja kansallisvaltion suhde on ollut viime vuosikymmeninä yksi yhteiskuntatieteiden keskeisimmistä tutkimuskohteista. Toisaalta globalisaatio on heikentänyt kansallisvaltioiden kykyä säädellä omaa talouttaan ja yhteiskuntaansa. Pääoma, tavarat ja ihmiset liikkuvat yli rajojen entistä vapaammin, mikä vähentää kansallisvaltioiden perinteistä valtaa. Toisaalta kansallisvaltiot ovat edelleen keskeisiä toimijoita kansainvälisessä politiikassa, ja ne pyrkivät sopeutumaan globalisaatioon ja hyötymään siitä. Globalisaation vastavoimana onkin noussut nationalismi ja protektionismi, jotka korostavat kansallisen itsemääräämisoikeuden palauttamista ja kotimaisen tuotannon suojaamista. Tämä kehitys on johtanut jännitteisiin niin kansainvälisessä kaupassa kuin politiikassakin. Tulevaisuuden kannalta keskeistä on, miten globalisaation ja kansallisvaltion välinen suhde kehittyy. Kykenevätkö kansallisvaltiot yhdessä luomaan uudenlaisia kansainvälisiä instituutioita ja sääntöjä, jotka hillitsevät globalisaation kielteisiä vaikutuksia mutta säilyttävät sen myönteiset puolet? Vai johtaako nationalismin nousu globalisaation taantumiseen ja paluuseen kohti suljetumpia kansallisia talouksia?",
+      "word_count": 121
+    },
+    "questions": [
+      {
+        "id": "a8d11196-5012-5ac7-8e9e-c30038a030ba",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Kansainvälisen kaupan esteet ja vapauttaminen",
+          "Globalisaation ja kansallisvaltion välinen jännite ja tulevaisuudennäkymät",
+          "Nationalismin nousu Euroopassa",
+          "Kansallisvaltioiden heikkeneminen globalisaation myötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "68cf5fb9-47b0-50af-aed9-598ef4b23e41",
+        "prompt": "Tekstin mukaan miten globalisaatio on heikentänyt kansallisvaltioita?",
+        "options": [
+          "Se on lisännyt valtioiden mahdollisuuksia säädellä talouttaan",
+          "Pääoma, tavarat ja ihmiset liikkuvat yli rajojen entistä vapaammin, mikä vähentää kansallisvaltioiden perinteistä valtaa",
+          "Se on vahvistanut kansallista itsemääräämisoikeutta",
+          "Sillä ei ole ollut vaikutusta kansallisvaltioiden asemaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3bfd23bb-38d3-5fed-a401-be1510a65f7d",
+        "prompt": "Mitä globalisaation vastavoimia tekstissä mainitaan?",
+        "options": [
+          "Kansainväliset instituutiot ja sopimukset",
+          "Nationalismi ja protektionismi",
+          "Vapaa kauppa ja taloudellinen integraatio",
+          "Monikansalliset yhtiöt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "32142907-3b8a-5fd3-b0b4-b717f16a38bc",
+        "prompt": "Mitä tulevaisuuden skenaarioita tekstissä esitetään globalisaation ja kansallisvaltion suhteen kehityksestä?",
+        "options": [
+          "Globalisaatio tulee aina voimistumaan ja kansallisvaltiot menettävät merkityksensä",
+          "Kansallisvaltiot tulevat aina säilyttämään asemansa globalisaatiosta huolimatta",
+          "Joko kansallisvaltiot luovat uudenlaisia kansainvälisiä instituutioita ja sääntöjä tai nationalismin nousu johtaa globalisaation taantumiseen",
+          "Globalisaatio ja kansallisvaltiot eivät ole millään tavalla vuorovaikutuksessa keskenään"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

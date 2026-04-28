@@ -1,0 +1,99 @@
+{
+  "id": "5b905548-5ea1-5760-8e5a-3358f704debf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin palveluista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät kuulijat, nyt kaupungin tiedotus. Kaupunki on uudistanut kierrätyspisteitä. Kaikille taloyhtiöille on jaettu uudet lajitteluohjeet. Muovipakkausten keräys on nyt laajentunut, ja muovin voi viedä omalle pihalle tulleeseen muovinkeräysastiaan. Lisäksi kaupunki järjestää syyskuussa suuren kierrätystapahtuman urheilupuistossa. Tapahtumassa voi vaihtaa, myydä ja lahjoittaa käyttökelpoisia tavaroita. Myös vaarallisen jätteen, kuten paristojen ja loisteputkien, vastaanotto on tapahtumassa. Kaupunki muistuttaa myös, että elektroniikkaromun voi viedä maksutta mihin tahansa kaupungin keräyspisteeseen. Samalla kannustamme asukkaita vähentämään turhaa tavaraa ja lainaamaan kirjastosta työkaluja, pelejä ja urheiluvälineitä. Lisätietoa kierrätyksestä ja tapahtumasta löytyy kaupungin verkkosivuilta ja kierrätyssovelluksesta.",
+      "audio_asset_id": "eeb14ec5-c32a-4f69-a084-837f36965a32"
+    },
+    "questions": [
+      {
+        "id": "76422671-460a-5476-b639-ed62d9bcf3d0",
+        "prompt": "Mikä on tiedotteen pääaihe?",
+        "options": [
+          "Uusien kerrostalojen rakentaminen.",
+          "Kirjaston uudet aukioloajat.",
+          "Kierrätyksen uudistukset ja tapahtuma.",
+          "Joukkoliikenteen aikataulumuutokset."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dfe69143-0d85-53d9-a47f-e5d96a4a6931",
+        "prompt": "Mitä uutta muovin keräykseen tulee?",
+        "options": [
+          "Muovi pitää viedä keskustaan.",
+          "Muovia ei enää kerätä ollenkaan.",
+          "Taloyhtiöille tulee omat muovinkeräysastiat.",
+          "Muovinkeräys on maksullista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1bb1c18d-b3da-547a-9a50-64fb5de9f9a1",
+        "prompt": "Milloin kierrätystapahtuma järjestetään?",
+        "options": [
+          "Kesäkuussa.",
+          "Elokuussa.",
+          "Lokakuussa.",
+          "Syyskuussa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "64c0c650-d946-5f56-8608-142484de5802",
+        "prompt": "Mitä tapahtumassa voi tehdä?",
+        "options": [
+          "Vain myydä vanhoja tavaroita.",
+          "Tuoda vain rikkinäisiä laitteita.",
+          "Ostaa uusia kierrätystuotteita.",
+          "Vaihtaa, myydä ja lahjoittaa tavaroita."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "2d740426-0456-5293-b510-180e65296f87",
+        "prompt": "Mitä kaupunki suosittelee turhan tavaran vähentämiseksi?",
+        "options": [
+          "Ostamaan vähemmän uusia tavaroita.",
+          "Myymään kaiken ylimääräisen netissä.",
+          "Heittämään kaiken pois.",
+          "Lainaamaan kirjastosta työkaluja ja välineitä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "7e5d97bd-ee8d-593e-8847-15c16ff687a7",
+        "prompt": "Mistä löytyy lisätietoa?",
+        "options": [
+          "Paikallislehdestä ja radiosta.",
+          "Kauppojen ilmoitustauluilta.",
+          "Mainoksesta postilaatikossa.",
+          "Kaupungin verkkosivuilta ja kierrätyssovelluksesta."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

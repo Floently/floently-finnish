@@ -1,0 +1,37 @@
+{
+  "id": "87318e03-5d60-518f-a9ab-9c088a123aad",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti lähileipomosta. Arvioi leivonnaisten tuoreutta, valikoimaa ja asiakaspalvelua. Ehdota yhtä uutta leivonnaista.",
+    "materials": {
+      "scenario": "Palaute lähileipomosta"
+    },
+    "items": [
+      {
+        "id": "30e787c7-0a8a-5f97-9632-168be6306010",
+        "prompt": "Kirjoita palauteteksti lähileipomosta. Arvioi leivonnaisten tuoreutta, valikoimaa ja asiakaspalvelua. Ehdota yhtä uutta leivonnaista."
+      }
+    ],
+    "rubric": "Leivonnaisten tuoreus\nValikoima\nAsiakaspalvelu\nUusi leivonnainen",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "5bf7259d-42e9-54f4-9d9d-5bc892da2f70",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti puolisolle.",
+    "materials": {
+      "scenario": "Mitä syödään tänään?"
+    },
+    "items": [
+      {
+        "id": "8ab6ae89-06d8-5935-bde3-c10e53b183eb",
+        "prompt": "Kirjoita lyhyt viesti puolisolle."
+      }
+    ],
+    "rubric": "Kirjoita lyhyt viesti puolisolle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

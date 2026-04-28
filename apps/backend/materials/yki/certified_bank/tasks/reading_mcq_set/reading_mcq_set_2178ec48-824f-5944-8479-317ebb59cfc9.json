@@ -1,0 +1,77 @@
+{
+  "id": "2178ec48-824f-5944-8479-317ebb59cfc9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.776,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kansainvälisen kaupan ja globalisaation tulevaisuus on ollut viime vuosina vilkkaan keskustelun kohteena. Pitkään vallinnut suuntaus kohti yhä vapaampaa kauppaa ja talouksien integraatiota on kohdannut vastatuulta monissa maissa. Protektionismi, eli kotimaisen tuotannon suojaaminen ulkomaiselta kilpailulta, on nostanut suosiotaan niin Yhdysvalloissa kuin Euroopassakin. Tämä kehitys on herättänyt kysymyksiä siitä, onko globalisaatio kääntymässä laskuun ja mikä on kansainvälisen kaupan tulevaisuus. Globalisaation ja vapaan kaupan kannattajat korostavat niiden taloudellisia hyötyjä. Vapaa kauppa mahdollistaa maiden erikoistumisen niihin tuotteisiin ja palveluihin, joissa ne ovat kilpailukykyisimpiä, mikä lisää kokonaistuottavuutta ja hyvinvointia. Se myös lisää kuluttajien valinnanvaraa ja laskee hintoja. Tästä näkökulmasta protektionismi nähdään haitallisena, koska se vähentää kilpailua, nostaa hintoja ja heikentää taloudellista tehokkuutta. Protektionismin kannattajat puolestaan katsovat, että vapaa kauppa on hyödyttänyt lähinnä suuryrityksiä ja varakkaita samalla kun se on heikentänyt teollisuustyöntekijöiden asemaa kehittyneissä maissa. Heidän mukaansa kansainvälinen kilpailu on johtanut teollisuustyöpaikkojen katoamiseen ja palkkojen polkemiseen. Tästä näkökulmasta kotimaisen tuotannon suojaaminen on välttämätöntä työllisyyden ja toimeentulon turvaamiseksi. Kolmas näkökulma korostaa, että globalisaatio ja kansainvälinen kauppa eivät ole mustavalkoinen kysymys. Sen mukaan on mahdollista kehittää sääntelyä, joka hillitsee globalisaation kielteisiä vaikutuksia mutta säilyttää sen myönteiset puolet. Tämä tarkoittaisi esimerkiksi työntekijöiden oikeuksien ja ympäristönsuojelun vahvistamista kansainvälisissä kauppasopimuksissa sekä toimia, jotka auttavat globalisaation häviäjiä sopeutumaan muutokseen.",
+      "word_count": 197
+    },
+    "questions": [
+      {
+        "id": "bf828ded-be2b-59fb-805b-04b75d22a6cc",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Globalisaation ja protektionismin taloudelliset vaikutukset",
+          "Kansainvälisen kaupan tulevaisuutta koskevat erilaiset näkemykset",
+          "Teollisuustyöpaikkojen katoaminen kehittyneissä maissa",
+          "Kansainvälisten kauppasopimusten ympäristövaikutukset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0b149967-4a96-5d6b-94aa-f93a046c6e0b",
+        "prompt": "Tekstin mukaan mitä hyötyjä globalisaation ja vapaan kaupan kannattajat korostavat?",
+        "options": [
+          "Ne suojaavat kotimaista tuotantoa ulkomaiselta kilpailulta",
+          "Ne mahdollistavat erikoistumisen, lisäävät tuottavuutta, kuluttajien valinnanvaraa ja laskevat hintoja",
+          "Ne parantavat teollisuustyöntekijöiden asemaa",
+          "Ne vähentävät tarvetta kansainväliselle sääntelylle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "42bf3f90-6ac1-5d82-82dd-6b871e3e17ee",
+        "prompt": "Mitä protektionismin kannattajat pitävät ongelmallisena vapaassa kaupassa?",
+        "options": [
+          "Se on hyödyttänyt lähinnä suuryrityksiä ja varakkaita ja heikentänyt teollisuustyöntekijöiden asemaa",
+          "Se on lisännyt kuluttajien valinnanvaraa liikaa",
+          "Se on vähentänyt kansainvälistä kilpailua",
+          "Se on nostanut hintoja ja heikentänyt taloudellista tehokkuutta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "2060d471-7ea4-5a47-ae78-87acd777eb0e",
+        "prompt": "Mitä kolmas, sääntelyä korostava näkemys ehdottaa globalisaation hallitsemiseksi?",
+        "options": [
+          "Paluuta protektionismiin ja kansallisiin markkinoihin",
+          "Vapaan kaupan täydellistä lakkauttamista",
+          "Sääntelyä, joka vahvistaa työntekijöiden oikeuksia ja ympäristönsuojelua sekä auttaa globalisaation häviäjiä sopeutumaan",
+          "Kehitysmaiden sulkemista pois kansainvälisestä kaupasta"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

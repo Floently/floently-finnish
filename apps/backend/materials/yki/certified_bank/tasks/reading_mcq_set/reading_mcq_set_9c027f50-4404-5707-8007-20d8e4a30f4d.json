@@ -1,0 +1,66 @@
+{
+  "id": "9c027f50-4404-5707-8007-20d8e4a30f4d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.297,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "SUURI ALE!\n\nTorstai–sunnuntai\n\nPaidat -30%\nFarkut -25%\nKengät -20%\nLaukut -15%\n\nAle koskee vain normaalihintaisia tuotteita.\n\nAvoinna:\nma–pe 9–21\nla 9–18\nsu 11–17\n\nTervetuloa!",
+      "word_count": 24
+    },
+    "questions": [
+      {
+        "id": "f82aacd3-dd31-5c45-9b7c-7252aca2d5e1",
+        "prompt": "Kuinka kauan ale kestää?",
+        "options": [
+          "Kaksi päivää",
+          "Kolme päivää",
+          "Neljä päivää",
+          "Viisi päivää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dea7d143-5083-5fbf-a499-5f91f691adc4",
+        "prompt": "Paljonko farkuista saa alennusta?",
+        "options": [
+          "15%",
+          "20%",
+          "25%",
+          "30%"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "625f0e9a-1f87-530c-b1f2-8ce6fcd2a405",
+        "prompt": "Milloin tavaratalo on auki sunnuntaina?",
+        "options": [
+          "klo 9–18",
+          "klo 10–16",
+          "klo 11–17",
+          "klo 12–18"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

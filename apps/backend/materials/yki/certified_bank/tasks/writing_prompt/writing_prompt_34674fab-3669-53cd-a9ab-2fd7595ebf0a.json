@@ -1,0 +1,37 @@
+{
+  "id": "34674fab-3669-53cd-a9ab-2fd7595ebf0a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute linja-auton täsmällisyydestä.",
+    "materials": {
+      "scenario": "Bussien aikataulut"
+    },
+    "items": [
+      {
+        "id": "06a6a029-6829-5331-8f53-03743e7d7b4f",
+        "prompt": "Kirjoita palaute linja-auton täsmällisyydestä."
+      }
+    ],
+    "rubric": "Kirjoita palaute linja-auton täsmällisyydestä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

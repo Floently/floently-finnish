@@ -1,0 +1,66 @@
+{
+  "id": "f36bda4d-458f-582e-9cd3-97f03c3fd6e2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Yhä useampi julkinen palvelu siirtyy verkkoon. Se on monille helpotus, mutta ikäihmisille se voi olla kynnys. Eläkkeellä oleva Maija-Liisa, 78, kertoo: 'Ennen menin pankkiin asioimaan, nyt kaikki pitää hoitaa kännykällä. Lapsenlapsi on opettanut, mutta tunnusluvut ja vahvistukset menevät helposti sekaisin.' Vanhusneuvoston puheenjohtaja vaatii, että digitaalisten palveluiden rinnalle on säilytettävä vaihtoehtoja. 'Me emme vastusta digiä, mutta jokaisella pitää olla oikeus asioida myös ihmisen kanssa.' Pankit ja virastot perustelevat digitointia kustannussäästöillä, mutta kohtuuttomuutta ei saa syntyä. Viime hallituskaudella säädettiin laki, joka velvoittaa tarjoamaan vaihtoehtoisia asiointitapoja, mutta käytännön toteutus ontuu monin paikoin.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 117
+    },
+    "questions": [
+      {
+        "id": "2faeab1d-450a-5894-9aba-a466e7ed2b0b",
+        "prompt": "Mitä mieltä Maija-Liisa on digipalveluista?",
+        "options": [
+          "Ne ovat helppoja käyttää",
+          "Ne menevät helposti sekaisin",
+          "Ne ovat turhia",
+          "Ne ovat liian hitaita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "da46ad5f-fce3-567d-94db-9b96c7932d33",
+        "prompt": "Mitä vanhusneuvoston puheenjohtaja vaatii?",
+        "options": [
+          "Digipalvelut pitää lopettaa",
+          "Pitää säilyttää vaihtoehtoja digille",
+          "Vain nuoret saavat käyttää digiä",
+          "Pankkeja pitää rangaista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9d883d00-c974-5ee4-a154-4a1515dfbe86",
+        "prompt": "Mitä laki edellyttää?",
+        "options": [
+          "Vain digipalveluita saa käyttää",
+          "Vaihtoehtoisia asiointitapoja pitää olla",
+          "Ikäihmisille pitää antaa ilmainen kännykkä",
+          "Pankkien pitää olla auki ympäri vuorokauden"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

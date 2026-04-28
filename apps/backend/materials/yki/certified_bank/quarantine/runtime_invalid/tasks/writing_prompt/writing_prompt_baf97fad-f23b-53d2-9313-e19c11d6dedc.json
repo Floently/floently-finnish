@@ -1,0 +1,37 @@
+{
+  "id": "baf97fad-f23b-53d2-9313-e19c11d6dedc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: online_portal. Purpose: propose_an_improvement. Constraint: include_two_reasons.",
+    "materials": {
+      "scenario": "budgeting in online_portal"
+    },
+    "items": [
+      {
+        "id": "6356e8d2-5426-5fed-b472-2c53d7608647",
+        "prompt": "Write for the receiver in this scenario: online_portal. Purpose: propose_an_improvement. Constraint: include_two_reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

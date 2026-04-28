@@ -1,0 +1,99 @@
+{
+  "id": "05fe364f-23f8-55e9-b9c3-fdc40601769c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monia mietityttää, miten omaa rahaa kannattaa sijoittaa. Perinteisiä sijoituskohteita ovat asunnot, osakkeet ja rahastot. Nykyään myös kryptovaluutat ja kestävä sijoittaminen kiinnostavat. Sijoittamisessa on tärkeää hajauttaa riskiä eli sijoittaa moneen eri kohteeseen. Asiantuntijat suosittelevat, että aloittelija perehtyy huolellisesti eri vaihtoehtoihin ja harkitsee omaa riskinsietokykyä. Pitkäjänteisyys kannattaa.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä monia mietityttää?",
+        "options": [
+          "Miten säästää rahaa",
+          "Miten omaa rahaa kannattaa sijoittaa",
+          "Miten lainaa kannattaa ottaa",
+          "Miten veroja voi vähentää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ovat perinteisiä sijoituskohteita?",
+        "options": [
+          "Kryptovaluutat",
+          "Asunnot, osakkeet ja rahastot",
+          "Keräilyesineet",
+          "Kulta ja hopea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä uusi sijoitusmuoto kiinnostaa nykyään?",
+        "options": [
+          "Postimerkit",
+          "Kryptovaluutat ja kestävä sijoittaminen",
+          "Vanhat autot",
+          "Taide"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoittaa riskin hajauttaminen sijoittamisessa?",
+        "options": [
+          "Sijoittaa kaikki rahat yhteen kohteeseen",
+          "Sijoittaa moneen eri kohteeseen",
+          "Välttää kaikkia riskejä",
+          "Ottaa isoja riskejä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä asiantuntijat suosittelevat aloittelijalle?",
+        "options": [
+          "Sijoittaa heti kaikki rahat osakkeisiin",
+          "Perehtyä huolellisesti eri vaihtoehtoihin ja harkita riskinsietokykyä",
+          "Välttää sijoittamista kokonaan",
+          "Seurata muiden neuvoja sokeasti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä sijoittamisessa kannattaa?",
+        "options": [
+          "Nopeat voitot",
+          "Pitkäjänteisyys",
+          "Suuret riskit",
+          "Vain yksi sijoituskohde"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "349930ba-1538-53b8-8216-e4f14bccaef6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uuden koirapuiston avajaisista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin viheralueiden tiedote. Uusi koirapuisto Metsälässä avataan lauantaina 10.6. kello 12. Koirapuisto sijaitsee Metsälänpuistossa, osoitteessa Koirakuja 5. Uudessa koirapuistossa on erilliset alueet isoille ja pienille koirille. Puistossa on myös istutuksia ja penkkejä koiranomistajille. Avajaispäivänä on tarjolla pientä purtavaa ja kahvia. Tervetuloa karvakavereiden kanssa!",
+      "audio_asset_id": "f3a4b5c6-d7e8-9f0a-1b2c-3d4e5f6a7b8c"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin viheralueet tiedottavat?",
+        "options": [
+          "Uuden puiston avajaisista.",
+          "Uuden koirapuiston avajaisista.",
+          "Uuden leikkipuiston avajaisista.",
+          "Uuden urheilupuiston avajaisista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Missä kaupunginosassa uusi koirapuisto sijaitsee?",
+        "options": [
+          "Keskustassa.",
+          "Metsälässä.",
+          "Hakaniemessä.",
+          "Pasilassa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Minä päivänä ja mihin aikaan koirapuisto avataan?",
+        "options": [
+          "Perjantaina 9.6. kello 14.",
+          "Lauantaina 10.6. kello 12.",
+          "Sunnuntaina 11.6. kello 13.",
+          "Maanantaina 12.6. kello 16."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä uudessa koirapuistossa on?",
+        "options": [
+          "Vain yksi alue kaikille koirille.",
+          "Erilliset alueet isoille ja pienille koirille.",
+          "Vain agilityrata.",
+          "Vain uimaranta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä avajaispäivänä on tarjolla?",
+        "options": [
+          "Ilmaista ruokaa.",
+          "Pientä purtavaa ja kahvia.",
+          "Koiran nameja.",
+          "Koirien agilitykilpailut."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on koirapuiston osoite?",
+        "options": [
+          "Metsäläntie 10.",
+          "Koirakuja 5.",
+          "Puistokatu 3.",
+          "Koiramäki 7."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

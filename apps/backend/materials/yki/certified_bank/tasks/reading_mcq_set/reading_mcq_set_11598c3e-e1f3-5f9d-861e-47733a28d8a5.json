@@ -1,0 +1,110 @@
+{
+  "id": "11598c3e-e1f3-5f9d-861e-47733a28d8a5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.726,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen koulutusjärjestelmä on herättänyt kansainvälistä kiinnostusta jo vuosikymmeniä. Sen menestyksen salaisuuksia on analysoitu lukuisissa tutkimuksissa. Yksi keskeinen tekijä on koulutuksen tasa-arvo. Kaikilla lapsilla on oikeus laadukkaaseen koulutukseen asuinpaikasta tai perheen taustasta riippumatta. Koulu on maksutonta, ja oppilaat saavat ilmaisen lounaan ja oppimateriaalit. Toinen tekijä on opettajien korkea koulutus ja ammattitaito. Opettajilla on oltava maisterin tutkinto, ja he ovat arvostettuja ammattilaisia. Heillä on paljon vapautta suunnitella opetustaan ja valita menetelmiä. Kolmas tekijä on oppilaan hyvinvoinnin korostaminen. Koulussa on tärkeää, että oppilaalla on hyvä olla. Oppimisen iloa ja yhdessä tekemistä painotetaan. Neljäs tekijä on luottamus. Viranomaiset luottavat kouluihin, koulut luottavat opettajiin, ja opettajat luottavat oppilaisiin. Testausta ja valvontaa on vähän. Viime vuosina suomalainen koulu on kohdannut uusia haasteita. Oppimistulokset ovat laskeneet hieman, ja erot koulujen välillä ovat kasvaneet. Oppilaiden hyvinvointiin liittyvät ongelmat, kuten koulu-uupumus, ovat lisääntyneet. Myös maahanmuuttajataustaisten oppilaiden määrä on kasvanut, mikä asettaa uusia vaatimuksia opetukselle. Koulujärjestelmää kehitetään jatkuvasti vastaamaan näihin haasteisiin.",
+      "word_count": 151
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yksi keskeinen tekijä suomalaisen koulutuksen menestyksen takana?",
+        "options": [
+          "Koulujen välinen kilpailu.",
+          "Koulutuksen tasa-arvo ja maksuttomuus.",
+          "Oppilaiden valikointi.",
+          "Yksityiskoulujen suuri määrä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista koulutusta suomalaisilla opettajilla on?",
+        "options": [
+          "Ammattikoulututkinto.",
+          "Maisterin tutkinto.",
+          "Tohtorin tutkinto.",
+          "Pelkkä opettajankoulutus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä opettajilla on paljon?",
+        "options": [
+          "Valvontaa.",
+          "Vapautta suunnitella opetustaan.",
+          "Kokeita.",
+          "Byrokratiaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä koulussa painotetaan?",
+        "options": [
+          "Kilpailua ja arvosanoja.",
+          "Oppimisen iloa ja yhdessä tekemistä.",
+          "Yksin puurtamista.",
+          "Ulkoa oppimista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin koulussa luotetaan?",
+        "options": [
+          "Vain viranomaisiin.",
+          "Viranomaiset luottavat kouluihin, koulut opettajiin, ja opettajat oppilaisiin.",
+          "Vain opettajiin.",
+          "Vain oppilaisiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä haasteita suomalainen koulu kohtaa?",
+        "options": [
+          "Liian hyviä oppimistuloksia.",
+          "Oppimistulosten laskua, koulujen erojen kasvua ja hyvinvointiongelmia.",
+          "Liian vähän oppilaita.",
+          "Liian paljon rahaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä uusia vaatimuksia maahanmuuttajataustaisten oppilaiden määrän kasvu asettaa?",
+        "options": [
+          "Ei mitään uusia vaatimuksia.",
+          "Uusia vaatimuksia opetukselle.",
+          "Vain vähemmän oppilaita luokissa.",
+          "Vain lisää kouluja."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

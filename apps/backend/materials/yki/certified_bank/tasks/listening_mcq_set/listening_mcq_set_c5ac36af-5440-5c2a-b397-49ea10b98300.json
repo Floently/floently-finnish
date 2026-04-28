@@ -1,0 +1,88 @@
+{
+  "id": "c5ac36af-5440-5c2a-b397-49ea10b98300",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.68,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu auton vuokrauksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin vuokrata auton viikonlopuksi. Onko teillä vapaita autoja? Varaaja: On kyllä. Milloin tarvitsisitte? Asiakas: Perjantaista sunnuntaihin. Varaaja: Meillä on vapaina pieniä autoja 45 euroa vuorokausi ja keskikokoisia 60 euroa vuorokausi. Asiakas: Otetaan pieni. Varaaja: Selvä. Tarvitsen vielä nimen ja puhelinnumeron.",
+      "audio_asset_id": "417f14d7-b79c-426e-828f-bea40b814536"
+    },
+    "questions": [
+      {
+        "id": "f2cdb38a-7eae-5657-829b-9ed1e8a4be11",
+        "prompt": "Miksi asiakas soittaa?",
+        "options": [
+          "Vuokratakseen auton viikonlopuksi.",
+          "Myydäkseen auton.",
+          "Korjatakseen auton.",
+          "Kysyäkseen auton hintaa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b84f1da6-4dfd-56f2-a84c-44a40713763b",
+        "prompt": "Mille päiville asiakas haluaa vuokrata auton?",
+        "options": [
+          "Maanantaista keskiviikkoon.",
+          "Torstaista lauantaihin.",
+          "Lauantaista maanantaihin.",
+          "Perjantaista sunnuntaihin."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "4068c5ba-55e0-5e65-ab43-eca278a06428",
+        "prompt": "Paljonko pieni auto maksaa vuorokaudessa?",
+        "options": [
+          "35 euroa.",
+          "40 euroa.",
+          "50 euroa.",
+          "45 euroa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "ec914e54-07f7-5d1d-b950-bc1349fb7b29",
+        "prompt": "Minkä kokoisen auton asiakas valitsee?",
+        "options": [
+          "Keskikokoisen.",
+          "Isomman.",
+          "Tila-auton.",
+          "Pienen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "5f1a2403-1962-5c6a-ba36-116cc111b41d",
+        "prompt": "Mitä tietoja varaaja vielä tarvitsee?",
+        "options": [
+          "Sähköpostin ja osoitteen.",
+          "Kortin numeron.",
+          "Nimen ja puhelinnumeron.",
+          "Ajokortin numeron."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

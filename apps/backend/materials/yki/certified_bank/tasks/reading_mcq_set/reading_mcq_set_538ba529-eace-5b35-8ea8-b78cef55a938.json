@@ -1,0 +1,77 @@
+{
+  "id": "538ba529-eace-5b35-8ea8-b78cef55a938",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.311,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue naapurin jättämä viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei yläkerran naapuri!\n\nSoitin ovikelloa, mutta kukaan ei ollut kotona. Haluaisin kysyä, voisitko kastella kukkani ensi viikolla? Olen matkalla 10.6.–17.6. Avaimen saat tarvittaessa talonmieheltä.\n\nKiitos jo etukäteen!\nTerveisin,\nMaija alakerrasta",
+      "word_count": 30
+    },
+    "questions": [
+      {
+        "id": "4e834952-d8a6-5e56-ad2f-f05ff8dab19a",
+        "prompt": "Kuka jätti viestin?",
+        "options": [
+          "Talonmies",
+          "Yläkerran naapuri",
+          "Maija alakerrasta",
+          "Postinkantaja"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a29cdf68-e07a-52fe-a7d9-51fcf264b087",
+        "prompt": "Mitä Maija haluaa kysyä?",
+        "options": [
+          "Voiko hän lainata avainta",
+          "Voiko naapuri kastella kukat",
+          "Milloin naapuri tulee kotiin",
+          "Voiko hän tulla kahville"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "61a76113-63fa-5348-8a6b-8f43dbd15a19",
+        "prompt": "Milloin Maija on matkalla?",
+        "options": [
+          "10.6.–17.6.",
+          "1.6.–8.6.",
+          "15.6.–22.6.",
+          "5.6.–12.6."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "caf0562b-6961-5b09-88a8-d83b1ad8e0c1",
+        "prompt": "Mistä saa avaimen tarvittaessa?",
+        "options": [
+          "Maijalta",
+          "Postilaatikosta",
+          "Talonmieheltä",
+          "Naapurilta"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

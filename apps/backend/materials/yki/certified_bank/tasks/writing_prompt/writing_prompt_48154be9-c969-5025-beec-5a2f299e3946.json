@@ -1,0 +1,37 @@
+{
+  "id": "48154be9-c969-5025-beec-5a2f299e3946",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti hätäkeskuslaitokselle. Haluat antaa palautetta hyvästä palvelusta hätätilanteessa. Kerro tapahtumasta ja kiitä auttajia. Kysy samalla, voiko vapaaehtoisena osallistua hätäkeskustoimintaan.",
+    "materials": {
+      "scenario": "Palaute ja kiitos hätäkeskukselle"
+    },
+    "items": [
+      {
+        "id": "1492b6e2-94e7-57af-b86a-e8f864cf043e",
+        "prompt": "Kirjoita virallinen sähköposti hätäkeskuslaitokselle. Haluat antaa palautetta hyvästä palvelusta hätätilanteessa. Kerro tapahtumasta ja kiitä auttajia. Kysy samalla, voiko vapaaehtoisena osallistua hätäkeskustoimintaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

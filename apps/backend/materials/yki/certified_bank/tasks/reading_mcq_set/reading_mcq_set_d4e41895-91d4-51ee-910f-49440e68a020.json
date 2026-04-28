@@ -1,0 +1,88 @@
+{
+  "id": "d4e41895-91d4-51ee-910f-49440e68a020",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni digitaalisista palveluista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "DIGITAALISET PALVELUT – KAIKILLA EI OLE ÄLYPUHELINTA\n\nSuomessa on siirrytty vauhdilla digitaalisiin palveluihin. Verkossa hoidetaan pankkiasiat, varataan lääkäriaika, haetaan opiskelupaikkaa ja asioidaan viranomaisten kanssa. Tämä on monelle helppoa ja tehokasta. Mutta entä ne, jotka eivät pysy mukana?\n\nNoin 700 000 suomalaista ei käytä internetiä tai käyttää sitä hyvin vähän. He ovat usein iäkkäitä, matalasti koulutettuja tai muuten heikossa asemassa. Heille digiloikka on tarkoittanut palvelujen karkaamista kauemmas.\n\nPankkipalvelut ovat hyvä esimerkki. Käteistä on yhä vaikeampi nostaa, ja monet pankit ovat vähentäneet konttoreitaan. Jos sinulla ei ole verkkopankkia, saatat joutua matkustamaan toiselle paikkakunnalle hoitamaan asioita.\n\nMyös terveydenhuolto on yhä enemmän digitaalista. Monet lääkäriajat hoidetaan etänä. Tämä on hyvä, mutta vanhukselle etävastaanotto voi olla mahdoton, jos ei osaa käyttää kameraa tai applikaatiota.\n\nRatkaisuja on olemassa. Kirjastot tarjoavat digitukea, ja monet järjestöt auttavat. Mutta tämä on pientä verrattuna tarpeeseen. Pitäisi myös muistaa, että kaikilla ei ole halua tai kykyä oppia uutta tekniikkaa.\n\nYhteiskunnan pitäisi tarjota vaihtoehtoja. Kaikkea ei voi pakottaa digitaaliseksi. Lähipalveluja pitää säilyttää, ja ihmisille pitää antaa mahdollisuus asioida myös perinteisesti. Muuten syntyy uusi syrjäytyminen – digitaalinen syrjäytyminen.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 208
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka moni suomalainen ei käytä internetiä juuri lainkaan?",
+        "options": [
+          "Noin 100 000",
+          "Noin 300 000",
+          "Noin 500 000",
+          "Noin 700 000"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Ketkä ovat usein digipalvelujen ulkopuolella?",
+        "options": [
+          "Nuoret",
+          "Työssäkäyvät",
+          "Iäkkäät ja matalasti koulutetut",
+          "Lapset"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on ongelma pankkipalveluissa?",
+        "options": [
+          "Ne ovat liian kalliita",
+          "Käteistä on vaikea nostaa ja konttoreita on vähennetty",
+          "Ne eivät toimi",
+          "Ne ovat vain nuorille"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja kirjoittaja ehdottaa?",
+        "options": [
+          "Vain digitukea",
+          "Vain lähipalvelujen säilyttämistä",
+          "Sekä digitukea että vaihtoehtoisia lähipalveluja",
+          "Kaikki pakotetaan digitaaliseksi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on kirjoittajan pääväite?",
+        "options": [
+          "Digitaaliset palvelut ovat huonoja",
+          "Digitalisaatio on hyvä, mutta kaikille on tarjottava vaihtoehtoja",
+          "Vanhojen pitää oppia käyttämään digipalveluja",
+          "Digitaaliset palvelut pitää kieltää"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

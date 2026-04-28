@@ -1,0 +1,88 @@
+{
+  "id": "46bd98ed-c2be-5c6b-880a-e8a3c6c4368d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.683,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Joulua vietetään 24. joulukuuta. Se on perheen juhla. Kotona on joulukuusi. Sen alla on lahjoja. Syödään hyvää ruokaa. Joulupöydässä on kinkkua ja laatikoita. Joulupukki tuo lahjat. Lapset odottavat pukkia. Jouluna on rauhallista. Monet käyvät joulukirkossa. Joululauluja kuunnellaan. Joulu on tärkeä juhla. Se tuo perheen yhteen. Jouluna on hyvä olla.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minä päivänä joulua vietetään?",
+        "options": [
+          "24. marraskuuta",
+          "24. joulukuuta",
+          "24. tammikuuta",
+          "24. lokakuuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kotona on jouluna?",
+        "options": [
+          "Joulukuusi",
+          "Juhannuskokko",
+          "Pääsiäisvirpomavitsoja",
+          "Vapputeltta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä joulupöydässä on?",
+        "options": [
+          "Silliä ja uusia perunoita",
+          "Kinkkua ja laatikoita",
+          "Grilliruokaa",
+          "Mämmiä ja lammasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka tuo joululahjat?",
+        "options": [
+          "Joulupukki",
+          "Joulutonttu",
+          "Joulumuori",
+          "Jouluenkeli"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Millainen joulu on?",
+        "options": [
+          "Kiireinen",
+          "Rauhallinen",
+          "Meluisa",
+          "Surullinen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

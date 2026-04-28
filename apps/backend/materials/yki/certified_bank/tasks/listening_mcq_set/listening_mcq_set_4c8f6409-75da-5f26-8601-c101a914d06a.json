@@ -1,0 +1,99 @@
+{
+  "id": "4c8f6409-75da-5f26-8601-c101a914d06a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä soittaa Timo Autokoulusta. Soitan koska sinulla on ollut kyselyä B-ajokortin hinnasta. Meillä on nyt tarjous: autokoulun hinta on 2200 euroa, ja siihen sisältyy kaikki opetukset, teoriatunnit, kirjat ja yksi inssiajo. Teoriatunteja on 20 ja ajotunteja 18. Voit maksaa kurssin myös osamaksulla. Jos haluat varata ajan, soita meille takaisin tai tule käymään toimistollamme. Tarkemmat tiedot löytyy nettisivuiltamme. Kiitos ja moi moi!",
+      "audio_asset_id": "e7feeef4-0aa6-413e-8111-ca4a5e90b52a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Autokoulun opettaja.",
+          "Koulun rehtori.",
+          "Liikenneopettaja.",
+          "Ajokortin hakija."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mikä on tarjoushinta B-ajokortille?",
+        "options": [
+          "1800 euroa.",
+          "2200 euroa.",
+          "2000 euroa.",
+          "2500 euroa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Kuinka monta ajotuntia kurssiin sisältyy?",
+        "options": [
+          "18 tuntia.",
+          "15 tuntia.",
+          "20 tuntia.",
+          "22 tuntia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä kurssin hintaan sisältyy?",
+        "options": [
+          "Vain ajotunnit.",
+          "Vain teoriatunnit.",
+          "Opetukset, teoriatunnit, kirjat ja yksi inssiajo.",
+          "Vain kirjat ja inssiajo."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Voiko kurssin maksaa osamaksulla?",
+        "options": [
+          "Kyllä, sen voi maksaa osamaksulla.",
+          "Ei, pitää maksaa kerralla.",
+          "Vain käteisellä.",
+          "Vain laskulla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mistä saa tarkemmat tiedot?",
+        "options": [
+          "Soittamalla takaisin.",
+          "Tulemalla toimistolle.",
+          "Nettisivuilta.",
+          "Kaikista edellä mainituista."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

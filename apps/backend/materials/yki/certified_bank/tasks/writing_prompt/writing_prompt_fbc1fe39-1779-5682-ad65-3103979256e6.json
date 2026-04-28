@@ -1,0 +1,37 @@
+{
+  "id": "fbc1fe39-1779-5682-ad65-3103979256e6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ympäristöministeriön ilmastoasioiden osaston ylitarkastajalle. Olette tutkimuslaitos, ja haluatte tehdä selvityksen ilmastonmuutoksen vaikutuksista Suomen luontoon. Kerro tutkimushankkeestanne, sen tavoitteista ja menetelmistä. Kysy, voitteko saada rahoitusta ministeriöltä ja miten hakuprosessi toimii. Tarjoa myös mahdollisuutta esitellä hanketta tarkemmin.",
+    "materials": {
+      "scenario": "Rahoitusta ilmastotutkimukselle"
+    },
+    "items": [
+      {
+        "id": "4f322eea-013d-559f-a571-88c61abd6534",
+        "prompt": "Kirjoita virallinen sähköposti ympäristöministeriön ilmastoasioiden osaston ylitarkastajalle. Olette tutkimuslaitos, ja haluatte tehdä selvityksen ilmastonmuutoksen vaikutuksista Suomen luontoon. Kerro tutkimushankkeestanne, sen tavoitteista ja menetelmistä. Kysy, voitteko saada rahoitusta ministeriöltä ja miten hakuprosessi toimii. Tarjoa myös mahdollisuutta esitellä hanketta tarkemmin."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

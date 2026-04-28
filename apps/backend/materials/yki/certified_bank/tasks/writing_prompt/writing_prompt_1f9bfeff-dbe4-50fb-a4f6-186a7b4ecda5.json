@@ -1,0 +1,37 @@
+{
+  "id": "1f9bfeff-dbe4-50fb-a4f6-186a7b4ecda5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.44,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write your opinion on the topic. Tell what you think and why. Give two reasons.",
+    "materials": {
+      "scenario": "Pitäisikö julkisen liikenteen olla ilmaista?"
+    },
+    "items": [
+      {
+        "id": "bdbadad1-044a-53be-9c51-17686d7a6c37",
+        "prompt": "Write your opinion on the topic. Tell what you think and why. Give two reasons."
+      }
+    ],
+    "rubric": "Write your opinion on the topic. Tell what you think and why. Give two reasons.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

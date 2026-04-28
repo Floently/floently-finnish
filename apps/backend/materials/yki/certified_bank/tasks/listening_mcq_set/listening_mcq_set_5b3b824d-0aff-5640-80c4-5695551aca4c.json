@@ -1,0 +1,66 @@
+{
+  "id": "5b3b824d-0aff-5640-80c4-5695551aca4c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele opettajan ohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvää huomenta kaikille. Tänään meillä on suomen kielen tunti. Ensin teemme yhdessä kuunteluharjoituksen sivulta 23. Sen jälkeen saatte tehdä parin kanssa tehtävää 4. Muistatteko, että ensi viikolla on pieni sanakoe? Sanat löytyvät kappaleesta 5. Jos joku on poissa ensi kerralla, siitä pitää ilmoittaa etukäteen sähköpostilla. Nyt voitte avata kirjan sivulta 23 ja kuunnella.",
+      "audio_asset_id": "2e787c1e-25a7-53fc-b925-6942f5b776fd"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tunnilla tehdään ensin?",
+        "options": [
+          "sanakoe",
+          "kuunteluharjoitus",
+          "paritehtävä",
+          "keskustelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä luvusta sanat ovat kokeeseen?",
+        "options": [
+          "luku 3",
+          "luku 4",
+          "luku 5",
+          "luku 6"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää tehdä, jos on poissa ensi viikolla?",
+        "options": [
+          "soittaa opettajalle",
+          "lähettää sähköpostia",
+          "tulla toisena päivänä",
+          "tehdä tehtävät kotona"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

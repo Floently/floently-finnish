@@ -1,0 +1,66 @@
+{
+  "id": "b9a75c65-2189-5f30-aaf6-ad8c175e0e0e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.502,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ILMOITUS\nK-Market Mänty on avoinna:\nma–pe 8–20\nla 9–18\nsu 10–16\nPoikkeus: perjantaina 1.3. suljemme klo 18.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "a1r1q1",
+        "prompt": "Mihin aikaan kauppa on auki sunnuntaina?",
+        "options": [
+          "8–20",
+          "9–18",
+          "10–16",
+          "10–18"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1r1q2",
+        "prompt": "Milloin kauppa sulkee aikaisemmin?",
+        "options": [
+          "maanantaina",
+          "perjantaina 1.3.",
+          "lauantaina",
+          "sunnuntaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1r1q3",
+        "prompt": "Mihin aikaan kauppa sulkee lauantaina?",
+        "options": [
+          "16",
+          "18",
+          "20",
+          "21"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

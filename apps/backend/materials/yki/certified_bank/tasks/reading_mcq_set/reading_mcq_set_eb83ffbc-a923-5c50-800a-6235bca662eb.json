@@ -1,0 +1,66 @@
+{
+  "id": "eb83ffbc-a923-5c50-800a-6235bca662eb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin hinnasto ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI AALLON HINNASTO\n\nAikuiset (yli 18 v): 7,50 €\nLapset (4–17 v): 4,50 €\nPerhelippu (2 aikuista + 2 lasta): 20 €\nEläkeläiset: 5,50 €\n\nUimakoulu (5–12 v): 60 € / kurssi\n\nKausikortti (3 kk):\nAikuiset: 90 €\nLapset: 50 €\n\nUimahalli on auki ma–pe 6–20, la–su 8–18.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 64
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko maksaa pääsy uimahalliin aikuiselta?",
+        "options": [
+          "5,50 €",
+          "6,50 €",
+          "7,50 €",
+          "8,50 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä perhelippu maksaa?",
+        "options": [
+          "18 €",
+          "20 €",
+          "22 €",
+          "24 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin uimahalli on auki lauantaisin?",
+        "options": [
+          "6–18",
+          "8–18",
+          "8–20",
+          "10–20"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

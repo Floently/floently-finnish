@@ -1,0 +1,110 @@
+{
+  "id": "6b4ea56b-8df1-5ded-9960-daca9a828943",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Tulevaisuuden työelämässä korostuvat joustavuus, jatkuva oppiminen ja monialainen osaaminen. Teknologian kehitys ja globalisaatio muuttavat työtehtäviä ja luovat uusia ammatteja samalla kun vanhoja katoaa. Tämä tarkoittaa, että työntekijöiden on oltava valmiita kehittämään osaamistaan läpi työuran. Perinteinen malli, jossa kouluttaudutaan nuorena yhteen ammattiin ja tehdään sitä eläkkeelle asti, on monilla aloilla historiaa. Työnantajat etsivät yhä useammin ihmisiä, joilla on laaja-alainen osaaminen ja kyky oppia uutta. Myös yrittäjyys ja itsensä työllistäminen yleistyvät. Tämä asettaa uusia vaatimuksia koulutusjärjestelmälle. Sen pitäisi antaa valmiuksia jatkuvaan oppimiseen ja kykyyn sopeutua muutoksiin, ei vain valmiita tietoja ja taitoja tiettyyn ammattiin. Myös työelämän ulkopuolella opittu osaaminen pitäisi tunnustaa nykyistä paremmin. Yhteiskunnan on tuettava ihmisiä muutoksissa esimerkiksi koulutusmahdollisuuksilla, työvoimapalveluilla ja sosiaaliturvalla. Tulevaisuudessa menestyvät ne, jotka kykenevät uudistumaan ja näkemään muutoksessa mahdollisuuksia uhkien sijaan.",
+      "word_count": 123
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä asiat korostuvat tulevaisuuden työelämässä?",
+        "options": [
+          "Yksi ammatti koko elämäksi.",
+          "Joustavuus, jatkuva oppiminen ja monialainen osaaminen.",
+          "Fyysinen voima ja kestävyys.",
+          "Hierarkkiset rakenteet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten teknologia ja globalisaatio vaikuttavat työelämään?",
+        "options": [
+          "Ne säilyttävät kaikki vanhat ammatit.",
+          "Ne muuttavat työtehtäviä ja luovat uusia ammatteja samalla kun vanhoja katoaa.",
+          "Ne vähentävät tarvetta koulutukselle.",
+          "Ne pysäyttävät työelämän kehityksen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työntekijöiltä vaaditaan?",
+        "options": [
+          "Pysymistä samassa ammatissa koko elämä.",
+          "Valmiutta kehittää osaamista läpi työuran.",
+          "Vain yhden erikoisalan hallintaa.",
+          "Kieltäytymistä kaikesta uudesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millainen perinteinen koulutusmalli on jäämässä historiaan?",
+        "options": [
+          "Malli, jossa kouluttaudutaan jatkuvasti.",
+          "Malli, jossa kouluttaudutaan nuorena yhteen ammattiin ja tehdään sitä eläkkeelle asti.",
+          "Malli, jossa oppiminen tapahtuu vain työpaikalla.",
+          "Malli, jossa koulutus on vapaaehtoista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä työnantajat etsivät työntekijöistä?",
+        "options": [
+          "Yhden asian syvällistä osaamista.",
+          "Laaja-alaista osaamista ja kykyä oppia uutta.",
+          "Pitkää kokemusta samasta tehtävästä.",
+          "Korkeaa ikää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä vaatimuksia työelämän muutos asettaa koulutusjärjestelmälle?",
+        "options": [
+          "Sen pitää keskittyä vain yhteen ammattiin.",
+          "Sen pitää antaa valmiuksia jatkuvaan oppimiseen ja sopeutumiseen.",
+          "Sen pitää vähentää koulutuksen määrää.",
+          "Sen pitää keskittyä vain teoriaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Ketkä menestyvät tulevaisuuden työelämässä?",
+        "options": [
+          "Ne, jotka pitäytyvät yhdessä ammatissa.",
+          "Ne, jotka kykenevät uudistumaan ja näkemään muutoksessa mahdollisuuksia.",
+          "Ne, jotka vastustavat kaikkea uutta.",
+          "Ne, joilla on korkein koulutus."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "af87f2d6-1351-5059-9f3c-859aba0d5466",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.307,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit eilen uudessa kahvilassa. Kirjoita lyhyt palaute. Kerro, mistä pidit ja mikä oli huonoa. Oliko palvelu ystävällistä? Oliko kahvi hyvää?",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "b8013037-b8b6-5eb1-8563-2f2012936a20",
+        "prompt": "Kirjoita 5–7 lausetta."
+      }
+    ],
+    "rubric": "Kirjoita 5–7 lausetta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

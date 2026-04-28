@@ -1,0 +1,66 @@
+{
+  "id": "c85ee1b8-fcc0-5ef7-b0b9-e26324797a59",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.495,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Hammaslääkäriaikasi on peruttu. Uusi aika on torstaina 15.6. kello 14.30. Jos et pääse, soita numeroon 09 123 4567 viimeistään maanantaina. Terveisin, Hammaslääkäriasema Omena.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uusi hammaslääkäriaika on?",
+        "options": [
+          "A) maanantaina 15.6.",
+          "B) tiistaina 15.6.",
+          "C) keskiviikkona 15.6.",
+          "D) torstaina 15.6."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin kellonaikaan aika on?",
+        "options": [
+          "A) klo 13.30",
+          "B) klo 14.00",
+          "C) klo 14.30",
+          "D) klo 15.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin mennessä pitää soittaa, jos ei pääse?",
+        "options": [
+          "A) torstaina",
+          "B) perjantaina",
+          "C) maanantaina",
+          "D) keskiviikkona"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

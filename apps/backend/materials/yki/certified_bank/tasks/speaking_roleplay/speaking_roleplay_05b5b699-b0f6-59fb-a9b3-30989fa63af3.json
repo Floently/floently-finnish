@@ -1,0 +1,40 @@
+{
+  "id": "05b5b699-b0f6-59fb-a9b3-30989fa63af3",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu 2-3 minuuttia aiheesta.",
+    "materials": {
+      "roles": {
+        "user": "mukana terveyspoliittisessa keskustelussa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "fce2b972-bc2d-5dc7-a7b2-43950ed6a27e",
+        "ai_first_turn_fi": "Pohdi, pitäisikö julkisia terveyspalveluita yksityistää tai antaa enemmän tilaa yksityisille toimijoille. Mitä vaikutuksia sillä olisi palveluiden saatavuuteen, laatuun ja kustannuksiin? Entä tasa-arvoon?"
+      }
+    ],
+    "rubric": "Puhu 2-3 minuuttia aiheesta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

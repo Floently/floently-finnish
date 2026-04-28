@@ -1,0 +1,73 @@
+{
+  "id": "ab660b99-d7b8-5f1d-b830-5b926fe27b1a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunkien joukkoliikenne on murroksessa. Sähköpotkulaudat, kaupunkipyörät ja kimppakyytipalvelut ovat tuoneet uusia vaihtoehtoja. Samaan aikaan bussien ja junien käyttäjämäärät ovat laskeneet monissa kaupungeissa.\n\nTämä on ongelma, koska joukkoliikenne on yksi tehokkaimmista keinoista vähentää liikenteen päästöjä. Yksi bussi korvaa kymmeniä autoja. Jos ihmiset siirtyvät yksityisiin, vähäpäästöisiin vaihtoehtoihin mutta tekevät sen yksin, päästöhyöty jää saavuttamatta.\n\nJoukkoliikenteen houkuttelevuutta pitäisi lisätä. Tämä tarkoittaa tiheämpiä vuoroja, luotettavuutta ja kohtuullisia hintoja. Monessa kaupungissa onkin panostettu pikaraitioteihin ja sähköbusseihin. Pelkkä kaluston uusiminen ei kuitenkaan riitä, jos palvelu ei vastaa ihmisten tarpeita.\n\nToinen näkökulma on joukkoliikenteen ja uusien liikkumispalveluiden yhdistäminen. Jos matka alkaa yhteiskäyttöpyörällä, jatkuu bussilla ja päättyy kimppakyytiin, tarvitaan yhteinen maksujärjestelmä ja aikataulutieto. Tämä on teknisesti mahdollista, mutta vaatii yhteistyötä eri toimijoiden välillä.\n\nKolmas haaste on maaseutu, jossa joukkoliikenne ei voi olla yhtä tiheää kuin kaupungissa. Siellä tarvitaan joustavia palveluita, kuten kutsutaksia tai kyläkyytejä. Teknologia voi auttaa, mutta perusrahoitus on turvattava julkisin varoin.\n\nJoukkoliikenteen tulevaisuus ei ole mustavalkoinen. Tarvitaan sekä perinteistä joukkoliikennettä että uusia palveluita, jotka täydentävät toisiaan.",
+      "word_count": 160
+    },
+    "questions": [
+      {
+        "id": "item_074_1",
+        "prompt": "Miksi joukkoliikenteen käyttäjämäärien lasku on ongelma?",
+        "options": [
+          "bussit ovat kalliita",
+          "joukkoliikenne on tehokas tapa vähentää päästöjä",
+          "ihmiset eivät pidä busseista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_074_2",
+        "prompt": "Miten joukkoliikenteen houkuttelevuutta voi lisätä?",
+        "options": [
+          "vähentämällä vuoroja",
+          "tiheämmillä vuoroilla, luotettavuudella ja kohtuullisilla hinnoilla",
+          "nostamalla hintoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_074_3",
+        "prompt": "Mitä tarkoitetaan joukkoliikenteen ja uusien palveluiden yhdistämisellä?",
+        "options": [
+          "vain bussilla matkustamista",
+          "yhteistä maksujärjestelmää ja aikataulutietoa eri kulkuneuvoille",
+          "uusien bussien ostamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_074_4",
+        "prompt": "Mitä haasteita maaseudulla on joukkoliikenteessä?",
+        "options": [
+          "liikaa busseja",
+          "harva asutus vaatii joustavia palveluita ja julkista rahoitusta",
+          "ihmiset eivät halua matkustaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

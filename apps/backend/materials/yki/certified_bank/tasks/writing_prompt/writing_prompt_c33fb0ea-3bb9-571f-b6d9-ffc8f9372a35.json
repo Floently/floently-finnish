@@ -1,0 +1,37 @@
+{
+  "id": "c33fb0ea-3bb9-571f-b6d9-ffc8f9372a35",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti koululle. Lapsesi on aloittamassa koulun, ja haluat tiedustella iltapäiväkerhon paikkoja. Kerro lapsesi nimi, ikä ja milloin tarvitsisit paikan. Kysy myös hintaa ja aikataulua.",
+    "materials": {
+      "scenario": "Tiedustelu iltapäiväkerhosta"
+    },
+    "items": [
+      {
+        "id": "652f80ec-6e19-55fb-9cf6-b7fd380c7601",
+        "prompt": "Kirjoita sähköposti koululle. Lapsesi on aloittamassa koulun, ja haluat tiedustella iltapäiväkerhon paikkoja. Kerro lapsesi nimi, ikä ja milloin tarvitsisit paikan. Kysy myös hintaa ja aikataulua."
+      }
+    ],
+    "rubric": "Lapsen tiedot\nTarveajankohta\nHinta- ja aikataulukysymykset",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

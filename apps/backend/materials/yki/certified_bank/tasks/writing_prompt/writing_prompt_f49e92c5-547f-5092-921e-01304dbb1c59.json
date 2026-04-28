@@ -1,0 +1,37 @@
+{
+  "id": "f49e92c5-547f-5092-921e-01304dbb1c59",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti terveyskeskukseen. Olet saanut kutsun terveystarkastukseen, mutta et pääse kyseisenä päivänä. Kerro nimesi, kutsun päivämäärä ja ehdota uutta aikaa, joka sopisi sinulle paremmin.",
+    "materials": {
+      "scenario": "Ajan siirto terveystarkastukseen"
+    },
+    "items": [
+      {
+        "id": "4dcc47d2-fd8f-5d62-a7f3-ec11098ee194",
+        "prompt": "Kirjoita sähköposti terveyskeskukseen. Olet saanut kutsun terveystarkastukseen, mutta et pääse kyseisenä päivänä. Kerro nimesi, kutsun päivämäärä ja ehdota uutta aikaa, joka sopisi sinulle paremmin."
+      }
+    ],
+    "rubric": "Kutsun tiedot\nEste\nUusi ehdotettu aika",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

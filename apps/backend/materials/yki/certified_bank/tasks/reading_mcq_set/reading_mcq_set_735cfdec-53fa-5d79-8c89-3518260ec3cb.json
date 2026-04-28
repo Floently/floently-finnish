@@ -1,0 +1,63 @@
+{
+  "id": "735cfdec-53fa-5d79-8c89-3518260ec3cb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.48,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADONNUT KISSA\n\nMusta lyhytkarvainen kissa, jolla on vihreät silmät.\n\nNimi: Nemo. Erittäin ujo.\n\nKadonnut 18.8. Kalevan kaupunginosasta.\n\nJos näet kissan, soita puh. 050 987 6543.\n\nPalkkio 75 €.",
+      "word_count": 28
+    },
+    "questions": [
+      {
+        "id": "item_116_1",
+        "prompt": "Minkä värinen kadonnut kissa on?",
+        "options": [
+          "musta",
+          "valkoinen",
+          "harmaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_116_2",
+        "prompt": "Mikä on kissan nimi?",
+        "options": [
+          "Nemo",
+          "Luna",
+          "Tassu"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_116_3",
+        "prompt": "Paljonko palkkio on?",
+        "options": [
+          "50 €",
+          "75 €",
+          "100 €"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

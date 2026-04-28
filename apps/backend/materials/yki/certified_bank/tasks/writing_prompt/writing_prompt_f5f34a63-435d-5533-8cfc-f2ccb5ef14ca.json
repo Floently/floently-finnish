@@ -1,0 +1,37 @@
+{
+  "id": "f5f34a63-435d-5533-8cfc-f2ccb5ef14ca",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö julkisiin rakennuksiin lisätä maksuttomia lastenhoitotiloja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Maksuttomat lastenhoitotilat julkisissa rakennuksissa"
+    },
+    "items": [
+      {
+        "id": "24b622eb-c08c-59c7-9f91-c5878640f668",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö julkisiin rakennuksiin lisätä maksuttomia lastenhoitotiloja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "7e3f7c0c-c080-5ffd-b147-6371be941646",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: service_desk. Purpose: compare_options. Constraint: be_polite.",
+    "materials": {
+      "scenario": "liikunnasta palvelupisteestä"
+    },
+    "items": [
+      {
+        "id": "0027cf21-a8ef-5c4d-a568-92d38374695d",
+        "prompt": "Write for the receiver in this scenario: service_desk. Purpose: compare_options. Constraint: be_polite."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

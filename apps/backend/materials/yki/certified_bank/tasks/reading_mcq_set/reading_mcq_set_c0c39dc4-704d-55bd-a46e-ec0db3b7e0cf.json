@@ -1,0 +1,66 @@
+{
+  "id": "c0c39dc4-704d-55bd-a46e-ec0db3b7e0cf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIELIKURSSILLA ULKOMAILLA – KOKEMUKSIA JA OPETUKSIA\n\nViime kesänä osallistuin kielikurssille Lontoossa. Halusin parantaa englannin kielen taitoani ja kokea jotain uutta. Kurssi kesti neljä viikkoa, ja asuin englantilaisessa perheessä. Se oli yksi elämäni parhaista kokemuksista.\n\nKurssilla opiskeltiin aamuisin. Meillä oli pieni ryhmä, ja opetus oli vuorovaikutteista. Puhuimme paljon, teimme ryhmätöitä ja keskustelimme ajankohtaisista aiheista. Opettajat olivat ammattitaitoisia ja kannustavia. Opin paljon uutta sanastoa ja uskalsin puhua rohkeammin.\n\nIltapäivät olivat vapaita. Tutustuin Lontooseen, kävin museoissa ja kahviloissa. Tapasin muita opiskelijoita eri maista ja ystävystyin heidän kanssaan. Puhuimme englantia koko ajan, joten kielitaito kehittyi huomaamatta.\n\nAsuminen perheessä oli erityisen antoisaa. He olivat ystävällisiä ja auttoivat minua sopeutumaan. Söimme yhdessä illallista ja keskustelimme arjesta. Opin paljon brittien tavoista ja kulttuurista.\n\nKurssin jälkeen englannin taitoni oli selvästi parempi. Uskalsin puhua vapaammin ja ymmärsin paremmin puhekieltä. Mutta tärkeintä oli itseluottamuksen kasvu. Huomasin, että pärjään vieraassa maassa ja osaan kommunikoida.\n\nSuosittelen lämpimästi kielikurssia ulkomailla. Se on tehokas tapa oppia kieltä ja samalla kokea seikkailu. Tärkeää on valita kurssi, joka sopii omalle tasolle ja tavoitteille. Myös majoitus kannattaa miettiä tarkkaan – perheessä asuminen antaa paljon enemmän kuin hotellissa oleminen.",
+      "word_count": 181
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja teki Lontoossa?",
+        "options": [
+          "Lomaili ystävien kanssa",
+          "Osallistui kielikurssille ja asui englantilaisessa perheessä",
+          "Työskenteli hotellissa",
+          "Opiskeli yliopistossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen opetus kurssilla oli?",
+        "options": [
+          "Luentoja ja kirjoitustehtäviä",
+          "Vuorovaikutteista, paljon puhetta ja ryhmätöitä",
+          "Vain kielioppia",
+          "Etäopetusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä oli kurssin tärkein anti kirjoittajalle?",
+        "options": [
+          "Uusi ystävä",
+          "Englannin kielen taidon paraneminen ja itseluottamuksen kasvu",
+          "Lontooseen tutustuminen",
+          "Hyvä ruoka"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

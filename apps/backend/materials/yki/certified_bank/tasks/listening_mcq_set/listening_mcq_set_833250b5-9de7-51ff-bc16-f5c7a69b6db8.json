@@ -1,0 +1,99 @@
+{
+  "id": "833250b5-9de7-51ff-bc16-f5c7a69b6db8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu opiskelijavaihdosta ja vastaa.",
+    "materials": {
+      "transcript": "Anna: Hei Ville, mitä sä tiedät opiskelijavaihdosta? Ville: No aika paljon, kun olin itse vaihdossa viime vuonna. Miksi sä kyselet? Anna: Mietin, että lähtisin itsekin vaihtoon. Kerro vähän, miten se toimi? Ville: Ensinnäkin, se vaatii aika paljon suunnittelua. Pitää hakea vaihtopaikkaa noin vuosi etukäteen. On tärkeää, että sulla on hyvä opintomenestys ja että olet suorittanut tarpeeksi opintoja. Anna: Minne sä lähdit? Ville: Saksaan, Berliiniin. Se oli aivan mahtava kokemus. Yliopisto oli iso ja kansainvälinen, ja sain paljon uusia ystäviä. Anna: Miten kieli? Pärjäsitkö saksaksi? Ville: Onneksi opetus oli englanniksi, koska mun saksa on aika alkeellista. Kannattaa tarkistaa, millä kielellä opetus on. Jos haluat paikalliseen yliopistoon, saatat tarvita kielitaitoa. Anna: Entäs raha-asiat? Ville: Vaihto-opiskelijalle maksetaan normaali opintotuki ja asumislisä. Lisäksi voi saada apurahaa. Itse sain Erasmus-apurahan, joka kattoi osan matka- ja elinkustannuksista. Anna: Oliko vaikeaa sopeutua? Ville: Alussa oli vähän outoa, mutta siihen tottuu nopeasti. Tärkeintä on olla avoin ja tutustua uusiin ihmisiin. Suosittelen lämpimästi! Anna: Kiitos, tää oli tosi hyödyllistä!",
+      "audio_asset_id": "589f96d2-2c04-4c71-bd00-868feb4f1b62"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mitä Anna suunnittelee?",
+        "options": [
+          "Muuttoa ulkomaille.",
+          "Kesätyön hakemista ulkomailta.",
+          "Opiskelijavaihtoon lähtemistä.",
+          "Vaihto-oppilaaksi ryhtymistä lukiossa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq2",
+        "prompt": "Milloin vaihtopaikkaa pitää hakea?",
+        "options": [
+          "Kaksi kuukautta ennen lähtöä.",
+          "Vasta perillä paikan päällä.",
+          "Noin vuosi etukäteen.",
+          "Heti lukukauden alettua."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq3",
+        "prompt": "Minne Ville oli vaihdossa?",
+        "options": [
+          "Ranskaan, Pariisiin.",
+          "Espanjaan, Barcelonaan.",
+          "Saksaan, Berliiniin.",
+          "Iso-Britanniaan, Lontooseen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Millä kielellä Villen opinnot olivat?",
+        "options": [
+          "Saksaksi.",
+          "Ranskaksi.",
+          "Englanniksi.",
+          "Suomeksi."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä rahoitusta vaihto-opiskelija voi saada?",
+        "options": [
+          "Vain normaalia opintotukea.",
+          "Vain apurahan.",
+          "Erityistä vaihto-opiskelijalainaa.",
+          "Normaalin opintotuen ja mahdollisesti apurahan."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on Villen mukaan tärkeintä sopeutumisessa?",
+        "options": [
+          "Olla avoin ja tutustua uusiin ihmisiin.",
+          "Oppia kieli ennen lähtöä.",
+          "Olla mahdollisimman paljon yksin.",
+          "Matkustaa joka viikonloppu."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

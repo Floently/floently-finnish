@@ -1,0 +1,40 @@
+{
+  "id": "b732e680-8360-59c8-80bf-b5ccc5c44b99",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu suomea roolisi mukaan.",
+    "materials": {
+      "roles": {
+        "user": "asiakas",
+        "partner": "tarjoilija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp120_01",
+        "ai_first_turn_fi": "Hei, tervetuloa lounaalle!"
+      }
+    ],
+    "rubric": "Puhu suomea roolisi mukaan.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

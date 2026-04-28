@@ -1,0 +1,37 @@
+{
+  "id": "a3522d90-0fc1-591e-9752-4fcb25d77360",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö Suomessa siirtyä nelipäiväiseen työviikkoon. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Nelipäiväinen työviikko"
+    },
+    "items": [
+      {
+        "id": "b5ee7ea9-7471-5128-b70c-de74040840f2",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö Suomessa siirtyä nelipäiväiseen työviikkoon. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

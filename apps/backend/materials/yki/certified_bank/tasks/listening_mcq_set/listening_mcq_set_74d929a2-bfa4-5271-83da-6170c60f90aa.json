@@ -1,0 +1,88 @@
+{
+  "id": "74d929a2-bfa4-5271-83da-6170c60f90aa",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Tässä on Joonas. Mä soitin sun kotiin, mutta kukaan ei vastannut. Oonko mä ymmärtänyt oikein, että meillä on huomenna treenit kello 10? Vastaa mulle, jos on jotain muuta.",
+      "audio_asset_id": "1a6c9993-5214-4ef1-926d-97ff9c210f00"
+    },
+    "questions": [
+      {
+        "id": "1826cbf3-ca2e-5941-9e63-9eb10d5352c8",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Joonas.",
+          "Jaakko.",
+          "Teemu.",
+          "Mikko."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "80d6f0fb-34ca-50a0-a0e2-9593dd48b257",
+        "prompt": "Miksi puhuja soitti kotiin?",
+        "options": [
+          "Kysyäkseen kuulumisia.",
+          "Koska kukaan ei vastannut.",
+          "Vahvistaakseen treeniajan.",
+          "Peruakseen treenit."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "dff06856-7746-5a54-9beb-2fa09d83ff77",
+        "prompt": "Mitä puhuja haluaa varmistaa?",
+        "options": [
+          "Ovatko treenit peruttu.",
+          "Mihin aikaan treenit alkavat.",
+          "Ovatko treenit huomenna kello 10.",
+          "Missä treenit ovat."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c863ecca-1360-54e5-b337-2ff13d045800",
+        "prompt": "Mitä puhuja pyytää toista tekemään?",
+        "options": [
+          "Vastaamaan, jos on jotain muuta.",
+          "Soittamaan takaisin.",
+          "Tulemaan treeneihin.",
+          "Perumaan treenit."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "fdc5c122-d8d9-5904-8242-28d43bf8f26f",
+        "prompt": "Mikä on viestin tyyli?",
+        "options": [
+          "Virallinen.",
+          "Rento ja epävarma.",
+          "Vihainen.",
+          "Surullinen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "cb8eda26-e19d-5f8c-bef7-910d10d16a6c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.313,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit laittaa uuden lukon oveen. Kerro, että nykyinen lukko on vanha ja hidas. Kysy, saako sen vaihtaa. Kysy, voiko vuokranantaja maksaa uuden.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle lukon vaihdosta"
+    },
+    "items": [
+      {
+        "id": "253e5e74-0000-505c-aafc-9597f3db8c37",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit laittaa uuden lukon oveen. Kerro, että nykyinen lukko on vanha ja hidas. Kysy, saako sen vaihtaa. Kysy, voiko vuokranantaja maksaa uuden."
+      }
+    ],
+    "rubric": "Kerro, että haluat vaihtaa lukon\nKerro, miksi (vanha, hidas)\nKysy, saako vaihtaa\nKysy, voiko vuokranantaja maksaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

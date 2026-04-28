@@ -1,0 +1,37 @@
+{
+  "id": "2ed08d8d-3315-5151-b5bc-7bf59294d468",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Lähdet lomalle viikoksi ja pyydät häntä kastelemaan kukkia. Kerro, että kukat ovat olohuoneessa ja keittiössä. Kerro, että ne tarvitsevat vettä noin kerran viikossa. Kerro, missä kastelukannu on.",
+    "materials": {
+      "scenario": "Viesti naapurille kukkien kastelusta"
+    },
+    "items": [
+      {
+        "id": "b99da189-f19c-588f-825c-572c72bfdd44",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Lähdet lomalle viikoksi ja pyydät häntä kastelemaan kukkia. Kerro, että kukat ovat olohuoneessa ja keittiössä. Kerro, että ne tarvitsevat vettä noin kerran viikossa. Kerro, missä kastelukannu on."
+      }
+    ],
+    "rubric": "Kerro, että lähdet lomalle\nPyydä kastelemaan kukat\nKerro, missä kukat ovat\nKerro, kuinka usein niitä kastellaan\nKerro, missä kastelukannu on",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

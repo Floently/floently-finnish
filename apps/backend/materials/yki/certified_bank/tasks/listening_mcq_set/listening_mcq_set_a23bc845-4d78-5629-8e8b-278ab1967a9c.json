@@ -1,0 +1,77 @@
+{
+  "id": "a23bc845-4d78-5629-8e8b-278ab1967a9c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen asumisesta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Uutisia. Asumisen hinnat ovat nousseet jälleen pääkaupunkiseudulla. Tilastokeskuksen mukaan vuokrat nousivat viime vuonna 3,2 prosenttia. Eniten nousivat pienten asuntojen hinnat, joita opiskelijat ja nuoret kysyvät.\n\nHelsingissä yksiön keskivuokra on nyt noin 850 euroa. Espoossa ja Vantaalla vuokrat ovat hieman halvempia, mutta myös siellä nousua on tapahtunut. Taustalla on korkojen nousu ja yleinen kustannustason kohoaminen.\n\nVuokralaiset ovat huolissaan. Monet kertovat, että asumismenot vievät yhä suuremman osan tuloista. Opiskelijajärjestöt vaativat, että opintotukea pitäisi korottaa tai että opiskelija-asuntoja pitäisi rakentaa lisää.\n\nKaupunki suunnittelee uusia kohtuuhintaisia vuokra-asuntoja, mutta rakentaminen vie aikaa. Samaan aikaan väestö kasvaa ja asuntopula pahenee. Asiantuntijat varoittavat, että asumisen hinta voi johtaa segregaatioon, kun pienituloiset joutuvat muuttamaan yhä kauemmaksi keskustasta.",
+      "audio_asset_id": "71f508e3-dfc0-5399-9306-1dff39cc6f07"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_002_q1",
+        "prompt": "Kuinka paljon vuokrat nousivat viime vuonna?",
+        "options": [
+          "2,2 prosenttia",
+          "2,7 prosenttia",
+          "3,2 prosenttia",
+          "3,7 prosenttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b1b2_listening_mcq_002_q2",
+        "prompt": "Paljonko yksiö maksaa Helsingissä keskimäärin?",
+        "options": [
+          "noin 750 euroa",
+          "noin 800 euroa",
+          "noin 850 euroa",
+          "noin 900 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b1b2_listening_mcq_002_q3",
+        "prompt": "Mitä opiskelijajärjestöt vaativat?",
+        "options": [
+          "vuokrien laskua",
+          "opintotuen korotusta ja lisää opiskelija-asuntoja",
+          "asumistuen poistoa",
+          "vuokrasääntelyä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_002_q4",
+        "prompt": "Mistä asiantuntijat varoittavat?",
+        "options": [
+          "asunnot halpenevat",
+          "segregaatiosta, kun pienituloiset joutuvat muuttamaan kauemmas",
+          "liian halvoista asunnoista",
+          "liian suurista asunnoista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

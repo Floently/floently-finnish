@@ -1,0 +1,40 @@
+{
+  "id": "65fa9f13-6f78-5cb8-bc55-4f54edb2d2ab",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.274,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you go to cafes and what you drink or eat there. Do you go alone or with friends?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "bcb7491b-a423-5414-8e02-2c779a2a1f18",
+        "ai_first_turn_fi": "Käytkö sä usein kahviloissa? Mitä tilaat yleensä?"
+      }
+    ],
+    "rubric": "Tell if you go to cafes and what you drink or eat there. Do you go alone or with friends?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

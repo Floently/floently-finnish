@@ -1,0 +1,37 @@
+{
+  "id": "6e3e7258-25e8-5c0e-adb2-0bab5eb04592",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin asuntotoimistoon. Kysy, miten voit hakea kohtuuhintaista vuokra-asuntoa. Kerro perheesi koosta ja toiveistasi asunnon suhteen, kuten huonelukumäärästä ja sijainnista.",
+    "materials": {
+      "scenario": "Tiedustelu vuokra-asunnon hakemisesta"
+    },
+    "items": [
+      {
+        "id": "7ec9ca1f-aa88-5e55-a977-e05fb00d4c85",
+        "prompt": "Kirjoita sähköposti kaupungin asuntotoimistoon. Kysy, miten voit hakea kohtuuhintaista vuokra-asuntoa. Kerro perheesi koosta ja toiveistasi asunnon suhteen, kuten huonelukumäärästä ja sijainnista."
+      }
+    ],
+    "rubric": "Perheen koko\nAsumistoiveet\nOhjeiden kysyminen",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

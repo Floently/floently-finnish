@@ -1,0 +1,66 @@
+{
+  "id": "c7ac26a2-354b-5e68-9f16-9c649f10e173",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.501,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue hammaslääkärin viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei Jukka!\n\nMuistathan, että sinulla on aika hammaslääkärille maanantaina 12.6. kello 9.30.\n\nJos et pääse, peru aika viimeistään perjantaina 9.6. soittamalla numeroon 044 123 4567.\n\nPeruuttamattomasta ajasta perimme 50 € maksun.\n\nTervetuloa!\n\nHammaslääkäriasema Hymy  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin Jukalla on hammaslääkäriaika?",
+        "options": [
+          "Perjantaina 9.6.",
+          "Maanantaina 12.6.",
+          "Tiistaina 13.6.",
+          "Keskiviikkona 14.6."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kello aika on?",
+        "options": [
+          "klo 8.30",
+          "klo 9.00",
+          "klo 9.30",
+          "klo 10.00"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko maksu on peruuttamattomasta ajasta?",
+        "options": [
+          "30 €",
+          "40 €",
+          "50 €",
+          "60 €"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "5b4c3ad0-d97f-5e44-bfc6-50e1bf14e8a6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu suomalaisesta lasten kulttuurista ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme lasten kulttuurista Suomessa. Haastattelussa on lastenkulttuurin asiantuntija Sanna Mäkelä. Sanna, millaisia mahdollisuuksia lapsilla on osallistua kulttuuriin? Sanna: Todella paljon. Lähes jokaisessa kaupungissa on lastenkulttuurikeskuksia, teattereita, museoita ja orkestereita, jotka tarjoavat ohjelmaa lapsille. Myös kirjastot ovat tärkeitä. Niissä on satutunteja, lukupiirejä ja tapahtumia. Toimittaja: Miten lasten oma kulttuurinen ilmaisu näkyy? Sanna: Se on tärkeää. Lapset saavat itse tehdä taidetta. On kuvataidekouluja, musiikkiopistoja, tanssikouluja ja teatterikerhoja. Myös kouluissa on paljon kulttuurikasvatusta. Toimittaja: Mikä on tärkeää lasten kulttuurissa? Sanna: Laatu ja saavutettavuus. Kulttuurin pitää olla lapsille sopivaa ja kiinnostavaa. Sen pitää olla myös helposti saatavilla, ihan jokaisen lapsen ulottuvilla. Toimittaja: Entä haasteet? Sanna: Alueelliset erot ovat isoja. Pääkaupunkiseudulla on paljon tarjontaa, mutta pienemmillä paikkakunnilla vähemmän. Myös hinta voi olla este. Kaikilla perheillä ei ole varaa maksaa kalliita harrastuksia. Toimittaja: Miten lasten kulttuuria voidaan kehittää? Sanna: Tarvitaan lisää rahoitusta ja yhteistyötä eri toimijoiden välillä. Myös digitaalinen kulttuuri on mahdollisuus: verkon kautta tavoitetaan lapsia ympäri maan. Toimittaja: Kiitos Sanna.",
+      "audio_asset_id": "b8812b52-a26d-4e7f-bce1-56b80dd8a58f"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Aikuisten kulttuuri.",
+          "Lasten kulttuuri Suomessa.",
+          "Koulujen kulttuuriopetus.",
+          "Harrastusmahdollisuudet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Millaisia kulttuuripalveluja lapsille on?",
+        "options": [
+          "Vain teatteria.",
+          "Lastenkulttuurikeskuksia, teattereita, museoita, orkestereita ja kirjastoja.",
+          "Vain museoita.",
+          "Vain konsertteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Miten lasten oma kulttuurinen ilmaisu näkyy?",
+        "options": [
+          "Lapset ovat passiivisia vastaanottajia.",
+          "He eivät ole kiinnostuneita kulttuurista.",
+          "Vain harvat lapset harrastavat taidetta.",
+          "He tekevät itse taidetta kouluissa ja harrastuksissa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on tärkeää lasten kulttuurissa?",
+        "options": [
+          "Kalleus ja vaikeus.",
+          "Vain se, että sitä on paljon.",
+          "Laatu ja saavutettavuus.",
+          "Vain se, että se on suosittua."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on lasten kulttuurin haaste?",
+        "options": [
+          "Liian paljon tarjontaa.",
+          "Alueelliset erot ja hinta.",
+          "Liian laadukasta.",
+          "Liian helppoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Miten lasten kulttuuria voidaan kehittää?",
+        "options": [
+          "Vähentämällä rahoitusta.",
+          "Lisäämällä rahoitusta ja yhteistyötä sekä hyödyntämällä digitaalisuutta.",
+          "Keskittämällä kaikki isoon kaupunkiin.",
+          "Lopettamalla kaikki kulttuuritoiminta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

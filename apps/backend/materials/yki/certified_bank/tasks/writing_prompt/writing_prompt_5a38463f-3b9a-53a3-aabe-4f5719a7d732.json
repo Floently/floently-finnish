@@ -1,0 +1,37 @@
+{
+  "id": "5a38463f-3b9a-53a3-aabe-4f5719a7d732",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä yhteisöpuutarhoja ja viljelypalstoja?'. Analysoi ruoantuotantoa, yhteisöllisyyttä ja kaupunkiympäristöä.",
+    "materials": {
+      "scenario": "Yhteisöpuutarhat"
+    },
+    "items": [
+      {
+        "id": "5998e4a5-e033-5ba0-a4b2-1948e5938229",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien lisätä yhteisöpuutarhoja ja viljelypalstoja?'. Analysoi ruoantuotantoa, yhteisöllisyyttä ja kaupunkiympäristöä."
+      }
+    ],
+    "rubric": "Ruoantuotanto\nYhteisöllisyys\nKaupunkiympäristö\nVirkistyskäyttö",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

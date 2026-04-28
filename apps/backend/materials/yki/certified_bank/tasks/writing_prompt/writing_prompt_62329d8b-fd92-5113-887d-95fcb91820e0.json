@@ -1,0 +1,37 @@
+{
+  "id": "62329d8b-fd92-5113-887d-95fcb91820e0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.729,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet lähdössä vaihto-opiskelijaksi ulkomaille. Kirjoita sähköposti kohdeyliopiston asuntotoimistolle.\n\nKerro:\n- kuka olet ja mistä tulet\n- että olet tulossa vaihto-opiskelijaksi syyslukukaudeksi\n- että haluat varata opiskelija-asunnon\n- minkä tyyppistä asuntoa toivot (esim. yksiö, soluasunto)\n- kysy, mitä dokumentteja tarvitaan ja mikä on hakuajan viimeinen päivä",
+    "materials": {
+      "scenario": "Olet lähdössä vaihto-opiskelijaksi ulkomaille. Kirjoita sähköposti kohdeyliopiston asuntotoimistolle.\n\nKerro:\n- kuka olet ja mistä tulet\n- että olet tulossa vaihto-opiskelijaksi syyslukukaudeksi\n- että haluat varata opiskelija-asunnon\n- minkä tyyppistä asuntoa toivot (esim. yksiö, soluasunto)\n- kysy, mitä dokumentteja tarvitaan ja mikä on hakuajan viimeinen päivä"
+    },
+    "items": [
+      {
+        "id": "590ca433-7e5d-5d8c-8042-5836ef1978f3",
+        "prompt": "Olet lähdössä vaihto-opiskelijaksi ulkomaille. Kirjoita sähköposti kohdeyliopiston asuntotoimistolle.\n\nKerro:\n- kuka olet ja mistä tulet\n- että olet tulossa vaihto-opiskelijaksi syyslukukaudeksi\n- että haluat varata opiskelija-asunnon\n- minkä tyyppistä asuntoa toivot (esim. yksiö, soluasunto)\n- kysy, mitä dokumentteja tarvitaan ja mikä on hakuajan viimeinen päivä"
+      }
+    ],
+    "rubric": "Olet lähdössä vaihto-opiskelijaksi ulkomaille. Kirjoita sähköposti kohdeyliopiston asuntotoimistolle.\n\nKerro:\n- kuka olet ja mistä tulet\n- että olet tulossa vaihto-opiskelijaksi syyslukukaudeksi\n- että haluat varata opiskelija-asunnon\n- minkä tyyppistä asuntoa toivot (esim. yksiö, soluasunto)\n- kysy, mitä dokumentteja tarvitaan ja mikä on hakuajan viimeinen päivä",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "bd11ff3f-2c9d-53bf-aabf-2d7507ecb86f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.753,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita argumentoiva essee (noin 380-430 sanaa) otsikolla 'Pitäisikö eläinten hyvinvointi ottaa huomioon voimakkaammin eläinjalostuksessa, vaikka se vähentäisi rotujen monimuotoisuutta?'. Pohdi eläinjalostuksen eettisiä ongelmia, kuten liioiteltuja rotupiirteitä, jotka aiheuttavat terveysongelmia. Tulisiko jalostusta rajoittaa lailla tai kannustimilla, vaikka se johtaisi joidenkin rotujen harvinaistumiseen? Perustele.",
+    "materials": {
+      "scenario": "Eläinjalostuksen rajoittaminen"
+    },
+    "items": [
+      {
+        "id": "add05946-7664-57f1-9c96-a21d8c19d517",
+        "prompt": "Kirjoita argumentoiva essee (noin 380-430 sanaa) otsikolla 'Pitäisikö eläinten hyvinvointi ottaa huomioon voimakkaammin eläinjalostuksessa, vaikka se vähentäisi rotujen monimuotoisuutta?'. Pohdi eläinjalostuksen eettisiä ongelmia, kuten liioiteltuja rotupiirteitä, jotka aiheuttavat terveysongelmia. Tulisiko jalostusta rajoittaa lailla tai kannustimilla, vaikka se johtaisi joidenkin rotujen harvinaistumiseen? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita argumentoiva essee (noin 380-430 sanaa) otsikolla 'Pitäisikö eläinten hyvinvointi ottaa huomioon voimakkaammin eläinjalostuksessa, vaikka se vähentäisi rotujen monimuotoisuutta?'. Pohdi eläinjalostuksen eettisiä ongelmia, kuten liioiteltuja rotupiirteitä, jotka aiheuttavat terveysongelmia. Tulisiko jalostusta rajoittaa lailla tai kannustimilla, vaikka se johtaisi joidenkin rotujen harvinaistumiseen? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

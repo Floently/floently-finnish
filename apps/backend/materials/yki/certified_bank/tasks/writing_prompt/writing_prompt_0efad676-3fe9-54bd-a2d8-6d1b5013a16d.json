@@ -1,0 +1,37 @@
+{
+  "id": "0efad676-3fe9-54bd-a2d8-6d1b5013a16d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti energiavirastoon. Olet kiinnostunut asentamaan aurinkopaneelit omakotitalosi katolle ja haluat tietoa mahdollisista tuista ja luvista. Kysy myös sähkön pientuotannon ilmoitusvelvollisuudesta.",
+    "materials": {
+      "scenario": "Aurinkopaneelien asennus"
+    },
+    "items": [
+      {
+        "id": "0a590720-8f98-56c4-b526-651862926451",
+        "prompt": "Kirjoita virallinen sähköposti energiavirastoon. Olet kiinnostunut asentamaan aurinkopaneelit omakotitalosi katolle ja haluat tietoa mahdollisista tuista ja luvista. Kysy myös sähkön pientuotannon ilmoitusvelvollisuudesta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

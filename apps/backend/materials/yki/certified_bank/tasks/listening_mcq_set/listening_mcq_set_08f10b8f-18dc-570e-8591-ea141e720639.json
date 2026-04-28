@@ -1,0 +1,77 @@
+{
+  "id": "08f10b8f-18dc-570e-8591-ea141e720639",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijaluento kaupunkien viheralueiden merkityksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät kuulijat. Puhun tänään kaupunkien viheralueiden merkityksestä – terveyden, ilmaston ja sosiaalisen kestävyyden näkökulmasta.\n\nTutkimukset osoittavat, että lähellä olevat viheralueet vähentävät stressiä, parantavat mielialaa ja jopa laskevat verenpainetta. Jo 15 minuutin oleskelu puistossa vaikuttaa myönteisesti. Lapsille luonto on erityisen tärkeää: se kehittää motorisia taitoja ja mielikuvitusta.\n\nViheralueet ovat tärkeitä ilmaston kannalta. Ne viilentävät kaupunki-ilmaa, mikä on yhä tärkeämpää ilmaston lämmetessä. Puut sitovat hiiltä ja vähentävät tulvariskiä imemällä sadevettä.\n\nKolmas näkökulma on sosiaalinen. Puistot ovat paikkoja, joissa ihmiset kohtaavat toisiaan – yli sosiaalisten ja kulttuuristen rajojen. Ne vähentävät yksinäisyyttä ja lisäävät yhteisöllisyyttä.\n\nMutta kaikki viheralueet eivät ole samanarvoisia. Monimuotoisuus on tärkeää. Myös saavutettavuus on keskeistä – viheralueen pitää olla lähellä.\n\nHaasteita on. Tiivistyvässä kaupungissa viheralueista kilpaillaan. Usein niistä tingitään, koska hyödyt ovat pitkäaikaisia ja vaikeasti mitattavia.\n\nRatkaisuja on olemassa. Viherkatot ja -seinät, puistojen monikäyttö – nämä ovat esimerkkejä innovaatioista.\n\nLopuksi: viheralueet ovat oikeudenmukaisuuskysymys. Hyvätuloisilla alueilla on yleensä enemmän viheralueita. Tämä lisää terveyseroja. Siksi kaupunkisuunnittelussa pitää panostaa viheralueiden tasapuoliseen jakautumiseen.",
+      "audio_asset_id": "d2c0c773-4803-41cf-bbd5-9f1c5ecc0fbb"
+    },
+    "questions": [
+      {
+        "id": "7adf3c95-3383-5ddb-a649-39e7e5a02c4a",
+        "prompt": "Mitä terveysvaikutuksia viheralueilla on?",
+        "options": [
+          "Lisäävät stressiä",
+          "Vähentävät stressiä, parantavat mielialaa, laskevat verenpainetta",
+          "Aiheuttavat allergioita",
+          "Ei vaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a80ab9ab-9c67-564a-bd00-d0f754009975",
+        "prompt": "Miten viheralueet vaikuttavat ilmastoon?",
+        "options": [
+          "Lämmittävät ilmaa",
+          "Viilentävät, sitovat hiiltä, vähentävät tulvariskiä",
+          "Lisäävät päästöjä",
+          "Ei vaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "61ae5600-d204-5d4d-9680-63cca49f407a",
+        "prompt": "Mikä on suuri haaste kaupunkisuunnittelussa?",
+        "options": [
+          "Viheralueita on liikaa",
+          "Viheralueista tingitään, koska hyödyt ovat vaikeasti mitattavia",
+          "Ihmiset eivät halua viheralueita",
+          "Liian kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "90930554-65fd-5767-a76f-ad4d77a2934c",
+        "prompt": "Miksi viheralueet ovat oikeudenmukaisuuskysymys?",
+        "options": [
+          "Kaikille yhtä helposti",
+          "Hyvätuloisilla alueilla on enemmän viheralueita, mikä lisää eriarvoisuutta",
+          "Vain rikkaat nauttivat luonnosta",
+          "Köyhät eivät arvosta viheralueita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "0e68dd64-a1cd-5fe5-a080-106003a0ef62",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.732,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen maaseutualueet ovat kokeneet suuria muutoksia viime vuosikymmeninä. Kaupungistuminen on tyhjentänyt kyliä, ja palvelut ovat vähentyneet. Monilla paikkakunnilla koulu, kauppa ja posti on lakkautettu. Nuoret muuttavat kaupunkeihin opiskelemaan ja työn perässä, eivätkä useinkaan palaa. Tämä on johtanut väestön ikääntymiseen ja alueelliseen eriarvoisuuteen. Maaseudulla on kuitenkin myös vahvuuksia. Luonto, rauha ja väljyys ovat arvokkaita. Maaseutu tarjoaa mahdollisuuksia esimerkiksi luontomatkailulle, ruoantuotannolle ja uusiutuvalle energialle. Monilla alueilla on vahva yhteisöllisyys ja paikallinen identiteetti. Monet kaupunkilaiset kaipaavat maaseudun rauhaa ja hakeutuvat sinne lomalle tai jopa muuttavat takaisin. Etätyön yleistyminen on luonut uusia mahdollisuuksia. Yhä useampi voi tehdä työtä etänä, mikä mahdollistaa asumisen kauempana työpaikoista. Tämä voi elvyttää maaseutua ja tuoda sinne uusia asukkaita ja työpaikkoja. Myös digitaaliset palvelut helpottavat asumista syrjäseuduilla, kun asioita voi hoitaa verkossa. Maaseudun kehittäminen vaatii monipuolisia toimia. Tarvitaan investointeja infrastruktuuriin, kuten laajakaistaan ja teihin. Tarvitaan myös uusia elinkeinoja ja palveluja. Paikallinen yrittäjyys ja yhteisöllisyys ovat avainasemassa. Maaseudulla on tulevaisuus, jos sen vahvuudet osataan hyödyntää ja uudistumiskykyä löytyy.",
+      "word_count": 157
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä seurauksia kaupungistumisella on ollut maaseudulle?",
+        "options": [
+          "Väestön kasvua ja palvelujen lisääntymistä.",
+          "Väestön vähenemistä ja palvelujen katoamista.",
+          "Nuorten määrän kasvua.",
+          "Elinkeinojen monipuolistumista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä palveluja maaseudulla on lakkautettu?",
+        "options": [
+          "Vain kouluja.",
+          "Kouluja, kauppoja ja posteja.",
+          "Vain kauppoja.",
+          "Vain posteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi nuoret muuttavat pois maaseudulta?",
+        "options": [
+          "Viihtyäkseen paremmin.",
+          "Opiskelemaan ja työn perässä.",
+          "Luonnon vuoksi.",
+          "Rauhan vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä vahvuuksia maaseudulla on?",
+        "options": [
+          "Palvelut ja vilkas elämä.",
+          "Luonto, rauha, väljyys ja yhteisöllisyys.",
+          "Työpaikat ja koulutus.",
+          "Hyvät liikenneyhteydet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä mahdollisuuksia maaseutu tarjoaa elinkeinoille?",
+        "options": [
+          "Vain maataloutta.",
+          "Luontomatkailua, ruoantuotantoa ja uusiutuvaa energiaa.",
+          "Vain teollisuutta.",
+          "Vain palveluja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten etätyön yleistyminen voi vaikuttaa maaseutuun?",
+        "options": [
+          "Se vähentää asukkaiden määrää.",
+          "Se voi elvyttää maaseutua ja tuoda sinne uusia asukkaita ja työpaikkoja.",
+          "Sillä ei ole vaikutusta.",
+          "Se lisää muuttoliikettä kaupunkeihin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä maaseudun kehittäminen vaatii?",
+        "options": [
+          "Vain valtion tukea.",
+          "Investointeja infrastruktuuriin, uusia elinkeinoja, paikallista yrittäjyyttä ja yhteisöllisyyttä.",
+          "Vain lisää palveluja.",
+          "Vain nuorten paluuta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

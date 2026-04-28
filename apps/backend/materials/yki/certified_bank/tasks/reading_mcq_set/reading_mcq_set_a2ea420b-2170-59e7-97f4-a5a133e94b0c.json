@@ -1,0 +1,77 @@
+{
+  "id": "a2ea420b-2170-59e7-97f4-a5a133e94b0c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti työhaastatteluvinkeistä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TYÖHAASTATTELU – NÄIN ONNISTUT\n\nTyöhaastattelu jännittää monia. Hyvä valmistautuminen auttaa. Tässä muutamia vinkkejä.\n\n1. Tutustu työpaikkaan. Mene yrityksen nettisivuille ja katso, mitä he tekevät. Lue myös uusimmat uutiset. Se osoittaa, että olet kiinnostunut.\n\n2. Mieti valmiiksi, mitä haluat kertoa itsestäsi. Mitkä ovat vahvuutesi? Miksi juuri sinä sopisit tähän työhön? Mieti myös heikkouksia – haastattelija saattaa kysyä niitä.\n\n3. Valmistele kysymyksiä haastattelijalle. Se osoittaa, että olet kiinnostunut. Hyviä kysymyksiä: Millainen on työyhteisön ilmapiiri? Mitkä ovat tärkeimmät tavoitteet tässä työssä?\n\n4. Pukeudu siististi. Ei tarvitse olla puku, mutta siisti ja tilanteeseen sopiva asu.\n\n5. Ole ajoissa. Saavu 5–10 minuuttia ennen haastattelua. Myöhästyminen antaa huonon kuvan.\n\nHaastattelun jälkeen voit lähettää kiitosviestin. Se on kohteliasta ja jättää hyvän muiston.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 143
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kannattaa tutustua yritykseen ennen haastattelua?",
+        "options": [
+          "Se on hauskaa",
+          "Se osoittaa, että olet kiinnostunut",
+          "Se on pakollista",
+          "Se auttaa nukahtamaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haastattelija saattaa kysyä?",
+        "options": [
+          "Heikkouksia",
+          "Puhelinnumeroa",
+          "Osoitetta",
+          "Syntymäaikaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin on hyvä saapua haastatteluun?",
+        "options": [
+          "Tasan sovittuna aikana",
+          "5–10 minuuttia etuajassa",
+          "5–10 minuuttia myöhässä",
+          "Puoli tuntia etuajassa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä voi tehdä haastattelun jälkeen?",
+        "options": [
+          "Soittaa ja kysyä, saiko työn",
+          "Lähettää kiitosviestin",
+          "Mennä yritykseen uudestaan",
+          "Odottaa kuukausi"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

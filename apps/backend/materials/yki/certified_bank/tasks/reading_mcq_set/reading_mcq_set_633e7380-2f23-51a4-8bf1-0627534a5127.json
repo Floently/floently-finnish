@@ -1,0 +1,99 @@
+{
+  "id": "633e7380-2f23-51a4-8bf1-0627534a5127",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähiluonto on monelle tärkeä virkistyspaikka. Metsässä kävely, marjastus ja sienestys ovat suosittuja harrastuksia. Luonnossa liikkuminen vähentää stressiä ja parantaa mielialaa. Monet kaupungit kehittävät lähiluontokohteita, kuten ulkoilureittejä ja laavuja. Tavoitteena on, että jokaisella olisi mahdollisuus päästä luontoon helposti. Luonto on tärkeä myös lasten kehitykselle.",
+      "word_count": 43
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on monelle tärkeä virkistyspaikka?",
+        "options": [
+          "Kauppakeskus",
+          "Lähiluonto",
+          "Urheiluhalli",
+          "Kirjasto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä harrastukset ovat suosittuja?",
+        "options": [
+          "Kaupungilla kävely",
+          "Metsässä kävely, marjastus ja sienestys",
+          "Uimahallissa käynti",
+          "Elokuvissa käynti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten luonnossa liikkuminen vaikuttaa?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä ja parantaa mielialaa",
+          "Sillä ei ole vaikutusta",
+          "Se tekee olon väsyneeksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä monet kaupungit kehittävät?",
+        "options": [
+          "Uusia kauppoja",
+          "Lähiluontokohteita",
+          "Uusia teitä",
+          "Julkista liikennettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on kehittämisen tavoite?",
+        "options": [
+          "Luonto suljetaan yleisöltä",
+          "Jokaisella olisi mahdollisuus päästä luontoon helposti",
+          "Vain retkeilijät pääsevät luontoon",
+          "Luonto muutetaan puistoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Kenelle luonto on tärkeä?",
+        "options": [
+          "Vain aikuisille",
+          "Vain lapsille",
+          "Sekä aikuisille että lapsille",
+          "Vain vanhuksille"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

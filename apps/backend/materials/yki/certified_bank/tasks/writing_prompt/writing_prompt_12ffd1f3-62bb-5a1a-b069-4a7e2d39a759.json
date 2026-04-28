@@ -1,0 +1,37 @@
+{
+  "id": "12ffd1f3-62bb-5a1a-b069-4a7e2d39a759",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti työkaverille. Sinulla on ylimääräinen lippu perjantain konserttiin. Lippu on hyvä paikka (katsomo B, rivi 5). Kerro, että voit antaa lipun halvemmalla, koska et itse pääse. Kysy, haluaako hän ostaa sen.",
+    "materials": {
+      "scenario": "Viesti työkaverille konserttilipusta"
+    },
+    "items": [
+      {
+        "id": "71c84db1-60d1-5b01-8d5e-b46164b77507",
+        "prompt": "Kirjoita lyhyt viesti työkaverille. Sinulla on ylimääräinen lippu perjantain konserttiin. Lippu on hyvä paikka (katsomo B, rivi 5). Kerro, että voit antaa lipun halvemmalla, koska et itse pääse. Kysy, haluaako hän ostaa sen."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on ylimääräinen lippu\nKerro, mihin konserttiin ja milloin\nKerro lipun paikka\nKerro, että myyt sen halvemmalla\nKysy, haluaako hän ostaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "368b2c31-bfd4-5080-b7cc-cdd483068cc5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta ilmastosuunnitelmasta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin ympäristöpalvelujen tiedote. Olemme hyväksyneet uuden ilmastosuunnitelman vuosille 2026–2035. Suunnitelman tavoitteena on tehdä kaupungista hiilineutraali vuoteen 2035 mennessä. Suunnitelma sisältää 50 eri toimenpidettä. Keskeisiä toimia ovat liikenteen päästöjen vähentäminen, energiatehokkuuden parantaminen ja uusiutuvan energian lisääminen. Liikenteessä panostetaan joukkoliikenteeseen, pyöräilyyn ja kävelyyn. Sähköautojen latausverkostoa laajennetaan. Energiatehokkuutta parannetaan rakennusten energiakorjauksilla ja energianeuvonnalla. Uusiutuvaa energiaa lisätään rakentamalla uusia tuulivoimaloita ja aurinkovoimaloita. Lisäksi lisätään viheralueita ja parannetaan hulevesien hallintaa. Suunnitelman toteuttamiseen on varattu 50 miljoonaa euroa. Seuraamme suunnitelman toteutumista vuosittain ja raportoimme siitä asukkaille. Jokainen kaupunkilainen voi osallistua ilmastotyöhön omilla valinnoillaan. Tervetuloa tutustumaan suunnitelmaan verkkosivuillamme.",
+      "audio_asset_id": "ea954649-c5f1-46aa-a778-58bd9024e5f5"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin ympäristöpalvelut tiedottavat?",
+        "options": [
+          "Uudesta ilmastosuunnitelmasta.",
+          "Uudesta jätehuoltosuunnitelmasta.",
+          "Uudesta vesihuoltosuunnitelmasta.",
+          "Uudesta liikennesuunnitelmasta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mihin vuoteen mennessä kaupunki tavoittelee hiilineutraaliutta?",
+        "options": [
+          "2030.",
+          "2035.",
+          "2040.",
+          "2045."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Kuinka monta toimenpidettä suunnitelma sisältää?",
+        "options": [
+          "20.",
+          "30.",
+          "40.",
+          "50."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä liikenteessä tehdään päästöjen vähentämiseksi?",
+        "options": [
+          "Lisätään autoteitä.",
+          "Panostetaan joukkoliikenteeseen, pyöräilyyn ja kävelyyn.",
+          "Kielletään autot kokonaan.",
+          "Lisätään bensaveroa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miten energiatehokkuutta parannetaan?",
+        "options": [
+          "Rakentamalla uusia voimaloita.",
+          "Lisäämällä energiankulutusta.",
+          "Rakennusten energiakorjauksilla ja energianeuvonnalla.",
+          "Vähentämällä uusiutuvaa energiaa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq6",
+        "prompt": "Paljonko rahaa suunnitelman toteuttamiseen on varattu?",
+        "options": [
+          "50 miljoonaa euroa.",
+          "30 miljoonaa euroa.",
+          "40 miljoonaa euroa.",
+          "60 miljoonaa euroa."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

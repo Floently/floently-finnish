@@ -1,0 +1,88 @@
+{
+  "id": "8760a683-ab63-5610-98b6-5c6eb8e11fdb",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.679,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu auton renkaiden vaihdosta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin varata ajan talvirenkaiden vaihtoon. Onko teillä aikoja? Varaaja: On kyllä. Meillä on vapaa aika ensi tiistaina kello 13 tai torstaina kello 9. Asiakas: Torstai kello 9 sopii hyvin. Paljonko vaihto maksaa? Varaaja: Se on 60 euroa, sisältää renkaiden tasapainotuksen. Asiakas: Selvä, varataan se. Varaaja: Kiitos, nähdään torstaina!",
+      "audio_asset_id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d"
+    },
+    "questions": [
+      {
+        "id": "l226q1",
+        "prompt": "Miksi asiakas soittaa?",
+        "options": [
+          "Määräaikaishuoltoon.",
+          "Talvirenkaiden vaihtoon.",
+          "Katsastukseen.",
+          "Korjaukseen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l226q2",
+        "prompt": "Mille päivälle aika varataan?",
+        "options": [
+          "Ensi maanantai.",
+          "Ensi tiistai.",
+          "Ensi torstai.",
+          "Ensi perjantai."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l226q3",
+        "prompt": "Mihin kellonaikaan aika on?",
+        "options": [
+          "Kello 8.",
+          "Kello 9.",
+          "Kello 10.",
+          "Kello 11."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l226q4",
+        "prompt": "Paljonko renkaiden vaihto maksaa?",
+        "options": [
+          "40 euroa.",
+          "50 euroa.",
+          "60 euroa.",
+          "70 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l226q5",
+        "prompt": "Mitä hinta sisältää?",
+        "options": [
+          "Renkaiden pesun.",
+          "Renkaiden tasapainotuksen.",
+          "Renkaiden säilytyksen.",
+          "Uudet venttiilit."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

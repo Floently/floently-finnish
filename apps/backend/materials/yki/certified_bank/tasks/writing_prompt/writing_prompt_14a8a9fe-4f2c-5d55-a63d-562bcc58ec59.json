@@ -1,0 +1,37 @@
+{
+  "id": "14a8a9fe-4f2c-5d55-a63d-562bcc58ec59",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan etätyökäytännöistä. Kerro käytäntöjen selkeydestä, tuesta ja yhteisöllisyydestä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute työpaikan etätyökäytännöistä"
+    },
+    "items": [
+      {
+        "id": "dd106460-8383-5852-911c-fbfe2f8acc37",
+        "prompt": "Kirjoita palauteteksti työpaikan etätyökäytännöistä. Kerro käytäntöjen selkeydestä, tuesta ja yhteisöllisyydestä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Käytäntöjen selkeys\nTuki\nYhteisöllisyys\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

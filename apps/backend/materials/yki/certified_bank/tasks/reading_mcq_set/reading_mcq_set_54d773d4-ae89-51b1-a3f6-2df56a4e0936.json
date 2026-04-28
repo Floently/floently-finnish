@@ -1,0 +1,77 @@
+{
+  "id": "54d773d4-ae89-51b1-a3f6-2df56a4e0936",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan uutiskirje ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "HENKILÖSTÖTIEDOTE 4/2025\n\nHyvät työkaverit!\n\nTässä kuussa meillä on ilo ilmoittaa kahdesta uudesta työntekijästä: Sanna Mäkelä aloittaa markkinointikoordinaattorina 1.6. ja Jukka Virtanen IT-tukihenkilönä 15.6. Toivotamme heidät lämpimästi tervetulleiksi!\n\nMuistutus: Kesäjuhlat järjestetään perjantaina 16.6. kello 15 alkaen yrityksen kesämökillä Nuuksiossa. Ilmoittaudu viimeistään 1.6., jotta osaamme varata riittävästi ruokaa ja juomaa. Juhliin mahtuu mukaan myös perheenjäseniä.\n\nTyöterveyshuolto on kesällä avoinna rajoitetusti. Heinäkuussa lääkäri on paikalla vain maanantaisin ja keskiviikkoisin kello 9–12. Kiireellisissä tapauksissa ota yhteyttä päivystykseen.\n\nHyvää alkavaa kesää kaikille!\n\n– Henkilöstöosasto",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka aloittaa IT-tukihenkilönä?",
+        "options": [
+          "Sanna Mäkelä",
+          "Jukka Virtanen",
+          "Matti Meikäläinen",
+          "Liisa Korhonen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin mennessä kesäjuhliin pitää ilmoittautua?",
+        "options": [
+          "15.6.",
+          "16.6.",
+          "1.6.",
+          "30.5."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten työterveyshuolto toimii heinäkuussa?",
+        "options": [
+          "Normaalisti joka päivä",
+          "Vain maanantaisin ja keskiviikkoisin aamulla",
+          "Kiinni koko heinäkuun",
+          "Vain puhelimitse"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tiedotteessa kerrotaan kesäjuhlista?",
+        "options": [
+          "Ne ovat vain työntekijöille",
+          "Ne pidetään yrityksen kesämökillä",
+          "Ne ovat ilman ruokaa",
+          "Ne perutaan tänä vuonna"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "a2de8769-15df-5658-b31d-eed7fe52f9af",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Monella suomalaisella on kesämökki. Se sijaitsee usein järven rannalla. Mökillä vietetään kesälomaa ja viikonloppuja. Siellä ollaan luonnon keskellä. Mökillä saunotaan ja uidaan. Kalastetaan ja grillataan. Lapset leikkivät ja uivat. Mökillä ei ole kiirettä. Siellä levätään ja nautitaan hiljaisuudesta. Illalla katsellaan auringonlaskua. Mökki on monelle rakas paikka. Sinne mennään mielellään aina uudestaan.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä kesämökki usein sijaitsee?",
+        "options": [
+          "Kaupungin keskustassa",
+          "Järven rannalla",
+          "Metsän keskellä",
+          "Vuoren rinteellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin mökillä vietetään aikaa?",
+        "options": [
+          "Talvilomalla",
+          "Kesälomalla ja viikonloppuisin",
+          "Jouluna",
+          "Pääsiäisenä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä mökillä tehdään?",
+        "options": [
+          "Hiihdetään ja luistellaan",
+          "Saunotaan, uidaan, kalastetaan ja grillataan",
+          "Käydään töissä",
+          "Kävellään kaupungilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millainen tunnelma mökillä on?",
+        "options": [
+          "Kiireinen",
+          "Rauhallinen",
+          "Meluisa",
+          "Stressaava"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä illalla mökillä katsellaan?",
+        "options": [
+          "Televisiota",
+          "Auringonlaskua",
+          "Elokuvaa",
+          "Uutisia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

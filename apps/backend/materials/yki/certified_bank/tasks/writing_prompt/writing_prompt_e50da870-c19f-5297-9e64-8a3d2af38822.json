@@ -1,0 +1,37 @@
+{
+  "id": "e50da870-c19f-5297-9e64-8a3d2af38822",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.307,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuvaile jotakin ystävää, joka on erilainen kuin sinä.",
+    "materials": {
+      "scenario": "Erilainen ystävä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kuvaile jotakin ystävää, joka on erilainen kuin sinä."
+      }
+    ],
+    "rubric": "Kuvaile jotakin ystävää, joka on erilainen kuin sinä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

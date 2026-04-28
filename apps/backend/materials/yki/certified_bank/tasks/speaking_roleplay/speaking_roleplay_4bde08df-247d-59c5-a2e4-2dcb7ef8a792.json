@@ -1,0 +1,60 @@
+{
+  "id": "4bde08df-247d-59c5-a2e4-2dcb7ef8a792",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata taksi illallisen jälkeen. Keskustele taksikeskuksen kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Taksikeskuksen välittäjä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp20_1",
+        "ai_first_turn_fi": "Hei, taksikeskus, miten voin auttaa?"
+      },
+      {
+        "id": "srp20_2",
+        "ai_first_turn_fi": "Mistä osoitteesta haluatte taksin ja mihin olette menossa?"
+      },
+      {
+        "id": "srp20_3",
+        "ai_first_turn_fi": "Montako henkilöä teitä on?"
+      },
+      {
+        "id": "srp20_4",
+        "ai_first_turn_fi": "Selvä. Milloin haluaisitte taksin? Nytkö heti?"
+      },
+      {
+        "id": "srp20_5",
+        "ai_first_turn_fi": "Odotusaika on tällä hetkellä noin 10 minuuttia. Sopiiko tämä?"
+      },
+      {
+        "id": "srp20_6",
+        "ai_first_turn_fi": "Hyvä. Taksi on tulossa. Saatte taksin numeron tekstiviestillä. Kiitos soitosta!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata taksi illallisen jälkeen. Keskustele taksikeskuksen kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

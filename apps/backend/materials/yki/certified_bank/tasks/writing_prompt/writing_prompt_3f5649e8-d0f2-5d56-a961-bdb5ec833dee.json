@@ -1,0 +1,37 @@
+{
+  "id": "3f5649e8-d0f2-5d56-a961-bdb5ec833dee",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti työsuojeluviranomaiselle. Työpaikallasi on puutteita työturvallisuudessa, kuten puuttuvia suojavarusteita ja vaarallisia työmenetelmiä. Kuvaile puutteet, kerro mitä olette yrittäneet tehdä asian korjaamiseksi ja pyydä työsuojelutarkastusta. Kerro myös, voitko tehdä ilmoituksen nimettömänä.",
+    "materials": {
+      "scenario": "Työturvallisuuspuutteet"
+    },
+    "items": [
+      {
+        "id": "0af2ab2c-aae4-5b56-87c9-d8fe94290077",
+        "prompt": "Kirjoita virallinen sähköposti työsuojeluviranomaiselle. Työpaikallasi on puutteita työturvallisuudessa, kuten puuttuvia suojavarusteita ja vaarallisia työmenetelmiä. Kuvaile puutteet, kerro mitä olette yrittäneet tehdä asian korjaamiseksi ja pyydä työsuojelutarkastusta. Kerro myös, voitko tehdä ilmoituksen nimettömänä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

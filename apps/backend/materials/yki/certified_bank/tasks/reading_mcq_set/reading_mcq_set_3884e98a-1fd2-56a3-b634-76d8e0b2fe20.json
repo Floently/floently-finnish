@@ -1,0 +1,66 @@
+{
+  "id": "3884e98a-1fd2-56a3-b634-76d8e0b2fe20",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.767,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Monipaikkainen asuminen on ilmiö, jossa ihmiset viettävät aikaa ja asuvat useammassa kuin yhdessä paikassa. Se voi tarkoittaa esimerkiksi työssäkäyntiä kaupungissa ja viikonloppuja mökillä, etätyön tekemistä vuoroin kotona ja vuoroin mökillä, tai opiskelijoiden asumista sekä opiskelupaikkakunnalla että kotipaikkakunnalla. Ilmiö on voimistunut etätyön yleistymisen myötä, ja se on saanut uusia muotoja, kuten digital nomadit, jotka työskentelevät verkossa ja asuvat eri paikoissa. Monipaikkaisella asumisella on merkittäviä vaikutuksia aluekehitykseen. Toisaalta se voi elävöittää maaseutua ja pieniä kaupunkeja, kun ihmiset tuovat sinne ostovoimaa ja osaamista, vaikka eivät asu siellä vakituisesti. Paikalliset palvelut, kuten kaupat ja ravintolat, hyötyvät sesonkiluonteisesta asiakaskunnasta. Toisaalta monipaikkainen asuminen voi aiheuttaa paineita infrastruktuurille ja palveluille, jotka on mitoitettu vakituisen väestön mukaan. Kunnat joutuvat pohtimaan, miten ne suhtautuvat osa-aikaisiin asukkaisiin: pitäisikö heidän osallistua kustannuksiin esimerkiksi kiinteistöveron kautta? Monipaikkainen asuminen haastaa perinteisen käsityksen asukkuudesta ja kunnallispalveluiden rahoituksesta. Tällä hetkellä monipaikkaiset asukkaat käyttävät usein kunnan palveluita, kuten teitä ja kirjastoja, mutta eivät ole äänioikeutettuja kunnallisvaaleissa eivätkä maksa kunnallisveroa asuinkuntaansa, elleivät he ole kirjoilla siellä. Tämä on herättänyt keskustelua siitä, pitäisikö verotuksen tai äänioikeuden uudistaa vastaamaan todellista asumista. Ilmiöllä on myös sosiaalisia ulottuvuuksia. Monipaikkainen asuminen voi vahvistaa yhteisöllisyyttä ja siteitä eri paikkoihin, mutta se voi myös lisätä eriarvoisuutta, koska kaikilla ei ole mahdollisuutta omistaa toista asuntoa tai mökkiä. Tulevaisuudessa monipaikkaisen asumisen odotetaan yleistyvän, mikä edellyttää uudenlaisia poliittisia ja hallinnollisia ratkaisuja.",
+      "word_count": 214
+    },
+    "questions": [
+      {
+        "id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+        "prompt": "Mitä tarkoitetaan monipaikkaisella asumisella?",
+        "options": [
+          "Asumista samassa paikassa koko ajan",
+          "Useammassa kuin yhdessä paikassa asumista ja oleskelua",
+          "Asumista ulkomailla",
+          "Vuokra-asumista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d5e6f7a8-b9c0-4d1e-9f2a-3b4c5d6e7f8a",
+        "prompt": "Mitä haasteita monipaikkainen asuminen aiheuttaa kunnille?",
+        "options": [
+          "Liian paljon verotuloja",
+          "Infrastruktuurin ja palveluiden mitoitus ja rahoitus",
+          "Liian vähän asukkaita",
+          "Liian korkea syntyvyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e6f7a8b9-c0d1-4e2f-9a3b-4c5d6e7f8a9b",
+        "prompt": "Miksi monipaikkainen asuminen voi lisätä eriarvoisuutta?",
+        "options": [
+          "Koska kaikilla ei ole varaa toiseen asuntoon tai mökkiin",
+          "Koska se on kiellettyä",
+          "Koska se on vain rikkaille",
+          "Koska se vaatii paljon matkustamista"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

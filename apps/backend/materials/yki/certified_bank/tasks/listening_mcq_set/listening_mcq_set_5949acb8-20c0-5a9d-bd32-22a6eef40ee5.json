@@ -1,0 +1,77 @@
+{
+  "id": "5949acb8-20c0-5a9d-bd32-22a6eef40ee5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta musiikista ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta musiikista. Minulla on täällä muusikko Anna, joka soittaa folk-yhtyeessä. Anna, millaista musiikkia teette?\n\nAnna: Soitamme suomalaista kansanmusiikkia, mutta modernilla twistillä. Käytämme perinteisiä soittimia, kuten kanteletta, mutta sovitukset ovat uusia. Haluamme tuoda kansanmusiikkia uuden yleisön tietoisuuteen.\n\nToimittaja: Miten yleisö on ottanut musiikkinne vastaan?\n\nAnna: Todella hyvin! Meillä on paljon nuoria kuuntelijoita, jotka eivät ole aiemmin kuunnelleet kansanmusiikkia. He tykkäävät siitä, että se on erilaista ja yllättävää. Myös vanhempi yleisö arvostaa perinteiden kunnioitusta.\n\nToimittaja: Mikä on suomalaisen musiikin erityispiirre?\n\nAnna: Se on hyvin tunnepitoista. Siinä on usein haikeutta ja melankoliaa, mutta myös iloa ja energiaa. Suomalaiset artistit ovat rohkeita kokeilemaan uusia juttuja.\n\nToimittaja: Mitä suunnitelmia teillä on tulevaisuudessa?\n\nAnna: Teemme uutta levyä ja suunnittelemme kiertuetta. Toivottavasti pääsemme esiintymään myös ulkomaille. Suomalainen musiikki kiinnostaa maailmalla – se on tarpeeksi eksoottista mutta samalla jotain, mihin moni voi samaistua.",
+      "audio_asset_id": "aefe8772-2210-5c21-be80-2375a34f6489"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_014_q1",
+        "prompt": "Millaista musiikkia Annan yhtye soittaa?",
+        "options": [
+          "vain perinteistä kansanmusiikkia",
+          "kansanmusiikkia modernilla twistillä",
+          "rockia",
+          "klassista musiikkia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_014_q2",
+        "prompt": "Mitä soittimia he käyttävät?",
+        "options": [
+          "vain kitaraa",
+          "perinteisiä soittimia, kuten kanteletta",
+          "vain pianoa",
+          "vain syntetisaattoreita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_014_q3",
+        "prompt": "Millainen yleisö on ottanut musiikin vastaan?",
+        "options": [
+          "vain vanhempi yleisö",
+          "vain nuoret",
+          "sekä nuoret että vanhempi yleisö",
+          "ei kukaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b1b2_listening_mcq_014_q4",
+        "prompt": "Mikä on suomalaisen musiikin erityispiirre Annan mukaan?",
+        "options": [
+          "se on iloista",
+          "se on tunnepitoista, siinä on haikeutta ja melankoliaa",
+          "se on nopeatempoista",
+          "se on yksinkertaista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

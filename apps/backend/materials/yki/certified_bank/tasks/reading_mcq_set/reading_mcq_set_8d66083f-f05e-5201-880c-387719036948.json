@@ -1,0 +1,77 @@
+{
+  "id": "8d66083f-f05e-5201-880c-387719036948",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.809,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Median rooli demokraattisessa yhteiskunnassa on perinteisesti nähty tiedonvälittäjänä, vallan vahtikoirana ja julkisen keskustelun areenana. Luotettavan journalismin on katsottu olevan demokratian kulmakivi, joka mahdollistaa kansalaisten osallistumisen ja päätöksenteon. Viime vuosina tämä rooli on kuitenkin joutunut monenlaisten paineiden alle. Kaupallistuminen, digitalisaatio ja sosiaalisen median nousu ovat muuttaneet mediamaisemaa perusteellisesti ja synnyttäneet uudenlaisia jännitteitä. Perinteiset mediat, kuten sanomalehdet ja televisiokanavat, ovat menettäneet asemaansa samalla kun uudet digitaaliset alustat ovat nousseet keskeisiksi tiedonvälittäjiksi. Tämä on johtanut siihen, että perinteisen journalismin ansaintalogiikka on murentunut, ja monet mediat ovat joutuneet vähentämään toimituksellisia resurssejaan. Samalla kilpailu yleisön huomiosta on kiristynyt, mikä on johtanut sisältöjen viihteellistymiseen ja klikkiotsikoiden yleistymiseen. Toinen keskeinen haaste liittyy disinformaation ja valeuutisten leviämiseen. Sosiaalinen media mahdollistaa harhaanjohtavan tiedon nopean ja laajan levittämisen, ja algoritmit usein suosivat sensaationhakuisia ja tunnepitoisia sisältöjä. Tämä on heikentänyt kansalaisten luottamusta mediaan ja vaikeuttanut tosiasioihin perustuvaa julkista keskustelua. Pahimmillaan disinformaatiota käytetään tietoisesti vaikuttamiskeinona vaaleissa ja muissa demokraattisissa prosesseissa. Kolmas haaste liittyy median omistuksen keskittymiseen ja poliittiseen ohjailuun. Monissa maissa media on keskittynyt harvojen suurten omistajien käsiin, mikä herättää kysymyksiä median moniäänisyydestä ja riippumattomuudesta. Toisaalta joissakin maissa poliittiset toimijat pyrkivät suoraan ohjailemaan median sisältöjä tai heikentämään sen asemaa. Tämä näkyy esimerkiksi hyökkäyksinä toimittajia vastaan ja yrityksinä lakkauttaa julkisen palvelun mediatehtäviä. Median roolin puolustajat korostavat, että riippumaton ja moniääninen media on demokratian perusedellytys. He vaativat toimia median monipuolisuuden turvaamiseksi, kuten julkisen palvelun median rahoituksen vahvistamista, mediayhtiöiden omistuksen läpinäkyvyyttä ja toimittajien työskentelyolosuhteiden parantamista. Lisäksi he korostavat mediakasvatuksen merkitystä: kansalaisten on kyettävä arvioimaan tiedon luotettavuutta ja tunnistamaan disinformaatio. Median tulevaisuus on tiiviisti sidoksissa demokratian tulevaisuuteen. Jos luottamus mediaan heikkenee ja kansalaiset eivät kykene erottamaan tosiasioita fiktiosta, demokraattinen päätöksenteko vaikeutuu ja yhteiskunta polarisoituu. Siksi median aseman vahvistaminen on yksi aikamme keskeisimmistä yhteiskunnallisista tehtävistä.",
+      "word_count": 278
+    },
+    "questions": [
+      {
+        "id": "eddfe179-bd05-5fcf-bbe0-9d4592c4e76b",
+        "prompt": "Mikä on tekstin keskeinen väite median roolista demokraattisessa yhteiskunnassa?",
+        "options": [
+          "Median rooli on pysynyt ennallaan huolimatta teknologian kehityksestä",
+          "Median perinteinen rooli tiedonvälittäjänä on korvautunut täysin viihteellä",
+          "Median rooli on monien haasteiden alla, ja sen aseman vahvistaminen on tärkeää demokratialle",
+          "Media on menettänyt merkityksensä kokonaan sosiaalisen median rinnalla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c0335741-3afd-595a-87fc-340388222c6e",
+        "prompt": "Tekstin mukaan miten kaupallistuminen on vaikuttanut perinteiseen journalismiin?",
+        "options": [
+          "Se on vahvistanut journalismia lisäämällä resursseja",
+          "Se on johtanut toimituksellisten resurssien vähenemiseen ja sisältöjen viihteellistymiseen",
+          "Se on lisännyt journalistien riippumattomuutta omistajista",
+          "Se on vähentänyt kilpailua yleisön huomiosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d431ebd1-e438-5a1f-995c-835f20b4145a",
+        "prompt": "Mitä haittoja disinformaatiosta ja valeuutisista on tekstin mukaan?",
+        "options": [
+          "Ne lisäävät kansalaisten median käyttöä",
+          "Ne heikentävät luottamusta mediaan ja vaikeuttavat tosiasioihin perustuvaa julkista keskustelua",
+          "Ne vahvistavat perinteisen journalismin asemaa",
+          "Ne vähentävät tarvetta mediakasvatukselle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0d528813-5949-5f71-946f-3629c369dc16",
+        "prompt": "Mitä keinoja tekstissä ehdotetaan median monipuolisuuden turvaamiseksi?",
+        "options": [
+          "Julkisen palvelun median rahoituksen vahvistamista, omistuksen läpinäkyvyyttä ja mediakasvatusta",
+          "Median täydellistä yksityistämistä ja kaupallistamista",
+          "Sosiaalisen median alustojen sulkemista",
+          "Toimittajien lukumäärän vähentämistä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

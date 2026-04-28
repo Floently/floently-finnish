@@ -1,0 +1,37 @@
+{
+  "id": "912d3d6f-0e97-560a-8a4f-e29db3f2e96c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita perusteltu mielipidekirjoitus, jossa esität omat ajatuksesi ja havaintosi aiheesta. Perustele, miksi asiat pitäisi tehdä toisin.",
+    "materials": {
+      "scenario": "Vanhempien pitäisi valvoa lasten somekäyttöä enemmän"
+    },
+    "items": [
+      {
+        "id": "5425083e-d1b6-55f1-a3aa-e330a6b8775e",
+        "prompt": "Kirjoita perusteltu mielipidekirjoitus, jossa esität omat ajatuksesi ja havaintosi aiheesta. Perustele, miksi asiat pitäisi tehdä toisin."
+      }
+    ],
+    "rubric": "Kirjoita perusteltu mielipidekirjoitus, jossa esität omat ajatuksesi ja havaintosi aiheesta. Perustele, miksi asiat pitäisi tehdä toisin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

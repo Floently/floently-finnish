@@ -1,0 +1,37 @@
+{
+  "id": "438e465d-314c-59b3-a412-6b3eb47a4b38",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Olet käynyt verikokeissa ja haluat tietää tulokset. Kerro, milloin kävit (viime viikolla). Kerro nimesi ja syntymäaikasi. Kysy, voiko tulokset nähdä verkossa vai pitääkö soittaa.",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle verikokeiden tuloksista"
+    },
+    "items": [
+      {
+        "id": "d10d64d7-9e16-5c49-a71b-b56ad12440d0",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Olet käynyt verikokeissa ja haluat tietää tulokset. Kerro, milloin kävit (viime viikolla). Kerro nimesi ja syntymäaikasi. Kysy, voiko tulokset nähdä verkossa vai pitääkö soittaa."
+      }
+    ],
+    "rubric": "Kerro, että kävit verikokeissa\nKerro, milloin kävit\nKerro nimesi ja syntymäaikasi\nKysy tuloksia\nKysy, miten näet ne",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

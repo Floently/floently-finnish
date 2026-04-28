@@ -1,0 +1,37 @@
+{
+  "id": "6d7ac5e4-4eae-5832-a4e3-894e932337be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Huomasit, että taloyhtiön pihavalaistus ei toimi kunnolla. Osa lampuista on rikki ja piha on pimeä. Kerro ongelmasta ja pyydä, että valaistus korjataan turvallisuuden vuoksi.",
+    "materials": {
+      "scenario": "Vikailmoitus pihavalaistuksesta"
+    },
+    "items": [
+      {
+        "id": "be1e05ea-4010-5d70-accd-e0a3e7d58809",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Huomasit, että taloyhtiön pihavalaistus ei toimi kunnolla. Osa lampuista on rikki ja piha on pimeä. Kerro ongelmasta ja pyydä, että valaistus korjataan turvallisuuden vuoksi."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nTurvallisuusriski\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

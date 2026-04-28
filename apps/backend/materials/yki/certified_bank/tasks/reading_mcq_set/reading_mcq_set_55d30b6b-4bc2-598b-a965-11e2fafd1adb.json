@@ -1,0 +1,66 @@
+{
+  "id": "55d30b6b-4bc2-598b-a965-11e2fafd1adb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.344,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kuntosalin esite ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KUNTOSALI AKTIIVI\n\nOsoite: Mannerheimintie 50, 00250 Helsinki\n\nAukioloajat: ma–pe 6–22, la–su 8–20\n\nHinnasto:\nKertamaksu: 10 €\nKuukausikortti: 45 €\nPuolen vuoden kortti: 220 €\nVuosikortti: 380 €\n\nOpiskelija- ja eläkeläisalennus: -20 % kuukausi- ja vuosikorteista.\n\nKuntosalilla on laitteet, vapaat painot ja ryhmäliikuntatunteja. Pukuhuoneet ja suihkut.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko maksaa yksi kerta kuntosalilla?",
+        "options": [
+          "8 €",
+          "10 €",
+          "12 €",
+          "15 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko opiskelija maksaa kuukausikortista?",
+        "options": [
+          "36 €",
+          "40 €",
+          "45 €",
+          "50 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin kuntosali on auki lauantaisin?",
+        "options": [
+          "6–20",
+          "8–20",
+          "8–18",
+          "10–20"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

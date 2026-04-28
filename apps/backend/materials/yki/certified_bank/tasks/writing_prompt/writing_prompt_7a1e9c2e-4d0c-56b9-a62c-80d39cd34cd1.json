@@ -1,0 +1,37 @@
+{
+  "id": "7a1e9c2e-4d0c-56b9-a62c-80d39cd34cd1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti suomen kielen kurssista. Kerro opetuksen selkeydestä, kurssimateriaaleista ja aikataulusta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute suomen kielen kurssista"
+    },
+    "items": [
+      {
+        "id": "7888ffb1-2a0e-5d40-a299-4438730d5f31",
+        "prompt": "Kirjoita palauteteksti suomen kielen kurssista. Kerro opetuksen selkeydestä, kurssimateriaaleista ja aikataulusta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Opetuksen selkeys\nKurssimateriaalit\nAikataulu\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

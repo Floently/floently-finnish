@@ -1,0 +1,66 @@
+{
+  "id": "5000481a-5788-5f9e-97ef-aaaf7fc868eb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Ilmastopolitiikka on noussut yhdeksi keskeisimmistä poliittisista kysymyksistä maailmanlaajuisesti. Pariisin ilmastosopimus vuodelta 2015 asetti tavoitteeksi rajoittaa maapallon keskilämpötilan nousun selvästi alle kahteen asteeseen ja pyrkiä 1,5 asteen tavoitteeseen. Tämä edellyttää nopeita ja laajoja päästövähennyksiä kaikilla sektoreilla. EU on asettanut kunnianhimoisen tavoitteen olla hiilineutraali vuoteen 2050 mennessä. Suomen tavoite on olla hiilineutraali jo vuoteen 2035 mennessä. Ilmastopolitiikan toimet, kuten päästökauppa, uusiutuvan energian tukeminen ja energiaverotus, vaikuttavat laajasti yrityksiin ja kansalaisiin.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "mcq_096",
+        "prompt": "Mikä on Pariisin ilmastosopimuksen tavoite?",
+        "options": [
+          "Hiilineutraalius vuoteen 2050 mennessä",
+          "Rajoittaa lämpötilan nousu alle kahteen asteeseen",
+          "Kieltää fossiiliset polttoaineet",
+          "Perustaa kansainvälinen ilmastorahasto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_097",
+        "prompt": "Mihin vuoteen mennessä Suomi on asettanut tavoitteeksi olla hiilineutraali?",
+        "options": [
+          "2040",
+          "2050",
+          "2035",
+          "2030"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_098",
+        "prompt": "Mikä on mainittu ilmastopolitiikan keinona?",
+        "options": [
+          "Teollisuuden alasajo",
+          "Päästökauppa",
+          "Yksityisautoilun kielto",
+          "Lentoverojen poisto"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

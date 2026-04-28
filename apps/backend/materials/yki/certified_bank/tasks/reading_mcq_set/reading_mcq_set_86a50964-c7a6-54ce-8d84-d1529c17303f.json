@@ -1,0 +1,77 @@
+{
+  "id": "86a50964-c7a6-54ce-8d84-d1529c17303f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kansainvälisistä opiskelijoista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kansainvälisiä opiskelijoita on Suomessa noin 25 000, mikä on noin 8 prosenttia kaikista korkeakouluopiskelijoista. He lisäävät korkeakoulujen kansainvälisyyttä ja vahvistavat Suomen vetovoimaa. Haasteina ovat suomen kielen oppiminen ja yksinäisyys. Korkeakoulut ovat panostaneet tukipalveluihin ja kielikoulutukseen.",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "9fc802a0-2f04-569e-a67b-45f6b0b14de0",
+        "prompt": "Kuinka monta kansainvälistä opiskelijaa Suomessa on?",
+        "options": [
+          "15 000",
+          "20 000",
+          "25 000",
+          "30 000"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "65bb2593-95d0-5d96-949e-4d40d18a8d59",
+        "prompt": "Mitä hyötyä kansainvälisistä opiskelijoista on?",
+        "options": [
+          "He maksavat korkeampia maksuja",
+          "He lisäävät kansainvälisyyttä ja vahvistavat vetovoimaa",
+          "He vievät työpaikat",
+          "He eivät tarvitse tukipalveluja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "102115af-4870-5387-b2ba-6a4bdb0de50b",
+        "prompt": "Mikä on yleinen ongelma?",
+        "options": [
+          "Liian helppo koulutus",
+          "Suomen kielen oppiminen ja yksinäisyys",
+          "Liian kalliit asunnot",
+          "Huono opetuksen taso"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a3b812fb-f527-54be-b142-f78d61a982d5",
+        "prompt": "Mihin korkeakoulut ovat panostaneet?",
+        "options": [
+          "Markkinointiin",
+          "Tukipalveluihin ja kielikoulutukseen",
+          "Tutkimukseen",
+          "Kampusten laajentamiseen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

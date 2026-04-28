@@ -1,0 +1,37 @@
+{
+  "id": "261eb60f-48e3-5e2d-8be5-f5eae35098d1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti maahanmuuttoviraston kansalaisuusyksikköön. Olet hakemassa Suomen kansalaisuutta ja haluat tietää, vaikuttaako ulkomailla asuminen hakemuksen käsittelyyn. Kerro omasta tilanteestasi ja kysy tarkentavia ohjeita.",
+    "materials": {
+      "scenario": "Kansalaisuushakemus ja ulkomailla asuminen"
+    },
+    "items": [
+      {
+        "id": "f078a03e-b897-50a9-9f06-507bb2e7720b",
+        "prompt": "Kirjoita virallinen sähköposti maahanmuuttoviraston kansalaisuusyksikköön. Olet hakemassa Suomen kansalaisuutta ja haluat tietää, vaikuttaako ulkomailla asuminen hakemuksen käsittelyyn. Kerro omasta tilanteestasi ja kysy tarkentavia ohjeita."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

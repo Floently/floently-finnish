@@ -1,0 +1,99 @@
+{
+  "id": "a2d0b0db-adfd-5da2-b409-9d5bd667c3dd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta kulttuuritapahtumasta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin kulttuuripalvelujen tiedote. Järjestämme elokuussa uuden kulttuuritapahtuman nimeltä 'Taiteiden yö'. Tapahtuma on lauantaina 19.8. kello 18–24. Tapahtuman aikana kaupungin keskusta täyttyy taiteesta ja kulttuurista. Kadut, puistot, kahvilat ja liikkeet muuttuvat näyttämöiksi. Ohjelmassa on musiikkia, teatteria, tanssia, kuvataidetta, runoutta ja paljon muuta. Suurin osa tapahtumista on ilmaisia. Mukana on sekä ammattilaisia että harrastajia. Tapahtuman aikana on myös opastettuja kierroksia ja työpajoja. Kahvilat ja ravintolat ovat auki tavallista pidempään. Tapahtuman tarkempi ohjelma julkaistaan elokuun alussa verkkosivuillamme. Tervetuloa viettämään taiteellista yötä!",
+      "audio_asset_id": "e0f1a2b3-c4d5-6e7f-8a9b-0c1d2e3f4a5b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on uuden kulttuuritapahtuman nimi?",
+        "options": [
+          "Kulttuuriyö.",
+          "Taiteiden yö.",
+          "Kaupungin yö.",
+          "Elokuun yö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minä päivänä ja mihin aikaan tapahtuma järjestetään?",
+        "options": [
+          "Perjantaina 18.8. kello 20–02.",
+          "Lauantaina 19.8. kello 18–24.",
+          "Sunnuntaina 20.8. kello 16–22.",
+          "Maanantaina 21.8. kello 17–23."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Missä tapahtuma järjestetään?",
+        "options": [
+          "Vain museossa.",
+          "Kaupungin keskustassa kaduilla, puistoissa ja kahviloissa.",
+          "Vain kirjastossa.",
+          "Vain teatterissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä ohjelmassa on?",
+        "options": [
+          "Vain musiikkia.",
+          "Musiikkia, teatteria, tanssia, kuvataidetta, runoutta.",
+          "Vain elokuvia.",
+          "Vain teatteria."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Paljonko tapahtumat maksavat?",
+        "options": [
+          "Kaikki maksaa.",
+          "Suurin osa on ilmaisia.",
+          "Vain työpajat maksavat.",
+          "Vain konsertit maksavat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Milloin tarkempi ohjelma julkaistaan?",
+        "options": [
+          "Heinäkuun alussa.",
+          "Elokuun alussa.",
+          "Syyskuun alussa.",
+          "Lokakuun alussa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

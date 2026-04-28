@@ -1,0 +1,37 @@
+{
+  "id": "8d985238-e6cd-51a6-8659-b581429e982b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt kampaajalla. Kirjoita palaute. Kerro, onnistuiko kampaus, oliko hinta mielestäsi sopiva ja keskusteliko kampaaja kanssasi mukavasti.",
+    "materials": {
+      "scenario": "Palaute kampaamosta"
+    },
+    "items": [
+      {
+        "id": "216a6436-c5a3-5dbc-a9c4-05e07193016e",
+        "prompt": "Olet käynyt kampaajalla. Kirjoita palaute. Kerro, onnistuiko kampaus, oliko hinta mielestäsi sopiva ja keskusteliko kampaaja kanssasi mukavasti."
+      }
+    ],
+    "rubric": "Kampauksen onnistuminen\nHinnan sopivuus\nKampaajan keskustelutaidot",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

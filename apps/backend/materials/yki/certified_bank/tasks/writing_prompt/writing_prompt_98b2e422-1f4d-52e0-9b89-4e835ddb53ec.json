@@ -1,0 +1,37 @@
+{
+  "id": "98b2e422-1f4d-52e0-9b89-4e835ddb53ec",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö terveellisestä ruoasta tehdä edullisempaa verotuksen avulla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Terveellisen ruoan verotus"
+    },
+    "items": [
+      {
+        "id": "be2b8252-28ed-5fb3-8f90-10bf3944464f",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö terveellisestä ruoasta tehdä edullisempaa verotuksen avulla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "75b8b73d-10b9-5344-8ad3-72be24fc5d5d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a governor of the Bank of Finland position. Tell about your experience in monetary policy, financial stability supervision, and international cooperation. Also describe how you have influenced European economic policy and promoted Finland's economic stability. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus Suomen Pankin pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "b32d4381-4cf8-5b94-bcfb-571417d840c5",
+        "prompt": "Write a job application. You are applying for a governor of the Bank of Finland position. Tell about your experience in monetary policy, financial stability supervision, and international cooperation. Also describe how you have influenced European economic policy and promoted Finland's economic stability. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a governor of the Bank of Finland position. Tell about your experience in monetary policy, financial stability supervision, and international cooperation. Also describe how you have influenced European economic policy and promoted Finland's economic stability. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

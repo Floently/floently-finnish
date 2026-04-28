@@ -1,0 +1,77 @@
+{
+  "id": "254f6fae-ec95-509c-8fe4-ae4590a594df",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.768,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Hyvinvointivaltion rahoituspohja on yksi aikamme polttavimmista poliittisista kysymyksistä. Väestön ikääntyminen, julkisten menojen kasvu ja globaali taloudellinen kilpailu asettavat paineita julkiselle taloudelle. Keskustelu verotuksesta on keskeinen osa tätä kysymyksenasettelua. Kannattaako verotuksen olla progressiivista, jotta tuloeroja voidaan tasata ja rahoittaa laajoja julkisia palveluja? Vai pitäisikö verotuksen olla mahdollisimman alhaista ja tasasuhtaista, jotta se kannustaa työntekoon ja yritystoimintaan eikä heikennä kansainvälistä kilpailukykyä? Nämä kysymykset jakavat mielipiteitä ja kytkeytyvät laajempiin arvovalintoihin siitä, millaista yhteiskuntaa halutaan rakentaa. Toiset korostavat, että korkea ja progressiivinen verotus on välttämätöntä hyvinvointivaltion rahoittamiseksi ja eriarvoisuuden vähentämiseksi. Heidän mukaansa verovaroin rahoitettavat julkiset palvelut, kuten koulutus, terveydenhuolto ja sosiaaliturva, ovat keskeinen osa suomalaista yhteiskuntasopimusta. Ne vähentävät köyhyyttä, lisäävät tasa-arvoa ja luovat pohjan taloudelliselle kasvulle. Toiset taas katsovat, että korkea verotus heikentää kannustimia ja vähentää työn tarjontaa, mikä hidastaa talouskasvua ja heikentää julkista taloutta pitkällä aikavälillä. He kannattavat verotuksen keventämistä erityisesti työn ja yrittäjyyden osalta ja julkisten menojen sopeuttamista vastaavasti.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "e2e25766-aa14-5322-8a12-fb7ee78669dd",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Väestön ikääntymisen vaikutukset eläkejärjestelmään",
+          "Hyvinvointivaltion rahoitukseen ja verotukseen liittyvä arvokeskustelu",
+          "Globaalin taloudellisen kilpailun vaikutukset Suomen talouteen",
+          "Julkisten menojen leikkausten välttämättömyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0c86e1a8-1bb8-5b71-a6aa-803a1798d1fa",
+        "prompt": "Tekstin mukaan miten progressiivisen verotuksen kannattajat perustelevat näkemystään?",
+        "options": [
+          "Se on välttämätöntä kansainvälisen kilpailukyvyn turvaamiseksi",
+          "Se kannustaa työntekoon ja yritystoimintaan enemmän kuin tasavero",
+          "Se on välttämätöntä hyvinvointivaltion rahoittamiseksi ja eriarvoisuuden vähentämiseksi",
+          "Se on teknisesti helpoin tapa kerätä veroja"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7ad6af29-990c-5497-a620-ed4131a24763",
+        "prompt": "Mitä perusteita verotuksen keventämisen kannattajat esittävät?",
+        "options": [
+          "Korkea verotus vähentää eriarvoisuutta ja parantaa hyvinvointipalveluja",
+          "Korkea verotus heikentää kannustimia, vähentää työn tarjontaa ja hidastaa talouskasvua",
+          "Korkea verotus on välttämätöntä julkisten menojen rahoittamiseksi",
+          "Korkea verotus on perustuslain vastaista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "256a3561-978f-5354-85b3-de2a8dbc1f07",
+        "prompt": "Mitä tekstissä sanotaan hyvinvointivaltion rahoituspohjaan kohdistuvista paineista?",
+        "options": [
+          "Rahoituspohja on vakaa eikä vaadi muutoksia",
+          "Väestön ikääntyminen, julkisten menojen kasvu ja globaali kilpailu asettavat paineita julkiselle taloudelle",
+          "Rahoituspohjaa voidaan vahvistaa ainoastaan yritysverotusta kiristämällä",
+          "Rahoituspohjan ongelmat johtuvat yksinomaan veronkierrosta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

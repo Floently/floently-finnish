@@ -1,0 +1,37 @@
+{
+  "id": "87a8f2f3-7b12-547a-8759-14aa99209436",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute suomen kielen kurssista. Mikä on auttanut sinua oppimaan? Mikä on ollut vaikeaa?",
+    "materials": {
+      "scenario": "Palaute kielikurssista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute suomen kielen kurssista. Mikä on auttanut sinua oppimaan? Mikä on ollut vaikeaa?"
+      }
+    ],
+    "rubric": "Kirjoita palaute suomen kielen kurssista. Mikä on auttanut sinua oppimaan? Mikä on ollut vaikeaa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

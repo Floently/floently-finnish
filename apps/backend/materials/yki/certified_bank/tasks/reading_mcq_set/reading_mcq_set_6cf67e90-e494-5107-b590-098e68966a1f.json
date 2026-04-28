@@ -1,0 +1,73 @@
+{
+  "id": "6cf67e90-e494-5107-b590-098e68966a1f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.594,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti yksilöllisyydestä ja yhteisöllisyydestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yksilöllisyys ja yhteisöllisyys asetetaan usein vastakkain. Modernia länsimaista yhteiskuntaa on kuvattu individualistiseksi, jossa yksilön vapaus ja oman tien kulkeminen ovat keskeisiä arvoja. Samalla puhutaan yhteisöllisyyden kriisistä: ihmiset ovat yksinäisiä, naapureita ei tunneta ja perinteiset yhteisöt, kuten perhe ja kyläyhteisö, ovat heikentyneet.\n\nTämä vastakkainasettelu on kuitenkin liian yksinkertainen. Sosiologit ovat pitkään korostaneet, että yksilöllisyys ja yhteisöllisyys eivät ole toistensa vastakohtia vaan pikemminkin toisiaan täydentäviä ilmiöitä. Vahva yksilöllisyys edellyttää tuekseen yhteisöjä, ja elinvoimaiset yhteisöt tarvitsevat yksilöitä, jotka tuovat niihin uusia ajatuksia.\n\nYksi näkökulma on yhteisöjen muodon muutos. Perinteiset, paikkaan sidotut yhteisöt ovat todellakin heikentyneet, mutta tilalle on tullut uudenlaisia yhteisöjä. Nämä voivat perustua vaikkapa harrastuksiin, arvoihin tai elämäntilanteeseen. Some on mahdollistanut yhteisöt, jotka eivät tunne maantieteellisiä rajoja. Tällaiset yhteisöt voivat olla hyvin merkityksellisiä jäsenilleen, vaikka ne ovatkin luonteeltaan toisenlaisia kuin perinteiset.\n\nToinen näkökulma on yksilöllisyyden paradoksi. Ihminen haluaa olla oma itsensä ja erottua muista, mutta samalla hän kaipaa hyväksyntää ja kuulumista johonkin. Tämä ristiriita on läsnä monissa arjen valinnoissa. Brändit ja tuotteet markkinoivat yksilöllisyyttä, mutta samalla ne luovat yhteisöjä, joissa samanhenkiset ihmiset kokoontuvat tietyn tuotteen tai elämäntavan ympärille.\n\nKolmas näkökulma liittyy yhteiskunnalliseen kehitykseen. Yksilöllistymiskehitys on osa laajempaa modernisaatiota, jossa perinteet ja uskonnot ovat menettäneet merkitystään. Ihmiset joutuvat itse rakentamaan identiteettinsä ja valitsemaan arvonsa. Tämä vapaus on monella tapaa arvokasta, mutta se luo myös paineita. Kaikilla ei ole samoja mahdollisuuksia tehdä valintoja, ja osa putoaa turvaverkkojen ulkopuolelle.\n\nLopuksi voidaan kysyä, onko yhteisöllisyyden kaipuu itse asiassa kaipuuta johonkin, mitä ei enää ole olemassa. Ehkä emme tarvitse vanhoja yhteisöjä vaan uudenlaisia tapoja olla yhdessä. Tämä edellyttää, että ymmärrämme yksilöllisyyden ja yhteisöllisyyden uudella tavalla – ei vastakohtina vaan toisiaan tukevina voimina. Tulevaisuuden haaste on rakentaa yhteiskunta, jossa sekä yksilön vapaus että yhteisöllisyys voivat kukoistaa.",
+      "word_count": 278
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Miten teksti suhtautuu yksilöllisyyden ja yhteisöllisyyden vastakkainasetteluun?",
+        "options": [
+          "pitää sitä oikeana",
+          "pitää sitä liian yksinkertaistavana",
+          "ei kommentoi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä uudenlaisia yhteisöjä on tekstin mukaan syntynyt?",
+        "options": [
+          "perinteisiä naapurustoyhteisöjä",
+          "harrastuksiin, arvoihin ja someen perustuvia yhteisöjä",
+          "vain uskonnollisia yhteisöjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä tarkoitetaan 'yksilöllisyyden paradoksilla'?",
+        "options": [
+          "ihminen haluaa olla yksin",
+          "ihminen haluaa erottua muista mutta samalla kuulua joukkoon",
+          "yksilöllisyys on mahdotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä haittapuolia yksilöllistymiskehityksellä on tekstin mukaan?",
+        "options": [
+          "kaikilla ei ole samoja mahdollisuuksia ja osa putoaa turvaverkkojen ulkopuolelle",
+          "ihmiset eivät enää halua olla yksilöllisiä",
+          "yhteiskunta on liian vanhanaikainen"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

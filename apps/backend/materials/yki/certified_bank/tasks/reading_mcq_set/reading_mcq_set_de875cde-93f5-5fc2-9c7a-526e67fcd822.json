@@ -1,0 +1,99 @@
+{
+  "id": "de875cde-93f5-5fc2-9c7a-526e67fcd822",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kirjastossa on uusi omatoimipalvelu. Omatoimikirjastossa asiakkaat voivat asioida myös silloin, kun henkilökuntaa ei ole paikalla. Sisään pääsee kirjastokortilla ja tunnusluvulla. Lainata ja palauttaa voi omatoimisesti automaateilla. Omatoimiaika on arkisin kello 8–22 ja viikonloppuisin kello 9–20. Henkilökuntaa on paikalla arkisin kello 10–18.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uusi palvelu kirjastossa on?",
+        "options": [
+          "Uusi lainausjärjestelmä",
+          "Omatoimipalvelu",
+          "Kirjakahvila",
+          "E-kirjasto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin omatoimikirjastossa voi asioida?",
+        "options": [
+          "Vain kun henkilökuntaa on paikalla",
+          "Myös silloin, kun henkilökuntaa ei ole paikalla",
+          "Vain aamuisin",
+          "Vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten sisään pääsee?",
+        "options": [
+          "Nimellä ja osoitteella",
+          "Kirjastokortilla ja tunnusluvulla",
+          "Henkilökortilla",
+          "Maksamalla pääsymaksun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten lainaaminen ja palauttaminen tapahtuu omatoimiaikana?",
+        "options": [
+          "Henkilökunnan avulla",
+          "Omatoimisesti automaateilla",
+          "Verkossa",
+          "Puhelimitse"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin omatoimiaika on arkisin?",
+        "options": [
+          "Kello 8–22",
+          "Kello 9–20",
+          "Kello 10–18",
+          "Kello 12–20"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Milloin henkilökuntaa on paikalla?",
+        "options": [
+          "Arkisin kello 8–22",
+          "Arkisin kello 10–18",
+          "Viikonloppuisin kello 9–20",
+          "Joka päivä kello 12–16"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

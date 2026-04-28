@@ -1,0 +1,37 @@
+{
+  "id": "8f7514fe-d160-5659-8210-b7710c5118c9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkien olla sallittuja vuokra-asunnoissa ilman erillistä lupaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lemmikit vuokra-asunnoissa ilman erillistä lupaa"
+    },
+    "items": [
+      {
+        "id": "aa028a7c-d38b-52ec-9dee-f890b603629e",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkien olla sallittuja vuokra-asunnoissa ilman erillistä lupaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

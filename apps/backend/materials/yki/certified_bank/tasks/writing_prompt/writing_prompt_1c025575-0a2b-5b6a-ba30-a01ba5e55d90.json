@@ -1,0 +1,37 @@
+{
+  "id": "1c025575-0a2b-5b6a-ba30-a01ba5e55d90",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö puistojen ja ulkoilualueiden kunnossapitoon panostaa enemmän?'. Arvioi viihtyisyyttä, terveysvaikutuksia ja kustannuksia.",
+    "materials": {
+      "scenario": "Ulkoilualueiden kunnossapito"
+    },
+    "items": [
+      {
+        "id": "d94dd5a2-ba60-5c49-b337-4485d5ac2ee7",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö puistojen ja ulkoilualueiden kunnossapitoon panostaa enemmän?'. Arvioi viihtyisyyttä, terveysvaikutuksia ja kustannuksia."
+      }
+    ],
+    "rubric": "Viihtyisyys\nTerveysvaikutukset\nKustannukset\nSaavutettavuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

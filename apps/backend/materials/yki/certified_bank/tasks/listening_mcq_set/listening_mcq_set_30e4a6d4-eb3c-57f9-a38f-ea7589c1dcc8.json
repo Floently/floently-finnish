@@ -1,0 +1,66 @@
+{
+  "id": "30e4a6d4-eb3c-57f9-a38f-ea7589c1dcc8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele ohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tässä ohjeita uusille asukkaille. Roskakatos on talon takana. Sinne laitetaan sekajäte, biojäte, muovi ja pahvi. Lajitteluohjeet löytyvät roskakatoksen seinältä. Pyykkitupa on kellarissa. Varauksen voi tehdä ilmoitustaululla olevasta listasta.",
+      "audio_asset_id": "5e4d49ae-24dd-5995-9457-8616fba8bd74"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä roskakatos on?",
+        "options": [
+          "talon edessä",
+          "talon takana",
+          "kellarissa",
+          "pihalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä löytyy lajitteluohjeet?",
+        "options": [
+          "postilaatikosta",
+          "roskakatoksen seinältä",
+          "ilmoitustaululta",
+          "isännöitsijältä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä pyykkitupa on?",
+        "options": [
+          "yläkerrassa",
+          "kellarissa",
+          "ulkona",
+          "viereisessä talossa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

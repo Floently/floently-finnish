@@ -1,0 +1,88 @@
+{
+  "id": "9be87ad9-ca2a-5453-89b6-f3b0e640a136",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.685,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesipekka tiedottaa, että allasosasto on suljettu huomenna teknisen huollon vuoksi. Kuntosali ja kahvio ovat avoinna normaalisti. Pahoittelemme häiriötä. Uimahalli on jälleen avoinna normaalisti torstaina.",
+      "audio_asset_id": "e7f8a9b0-c1d2-3e4f-5a6b-7c8d9e0f1a2b"
+    },
+    "questions": [
+      {
+        "id": "l212q1",
+        "prompt": "Miksi allasosasto on suljettu huomenna?",
+        "options": [
+          "Siivouksen vuoksi.",
+          "Teknisen huollon vuoksi.",
+          "Henkilökunnan koulutuksen vuoksi.",
+          "Vähäisen kävijämäärän vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l212q2",
+        "prompt": "Mitkä tilat ovat auki huomenna?",
+        "options": [
+          "Vain allasosasto.",
+          "Kuntosali ja kahvio.",
+          "Vain kuntosali.",
+          "Vain kahvio."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l212q3",
+        "prompt": "Minä päivänä uimahalli on jälleen auki normaalisti?",
+        "options": [
+          "Keskiviikkona.",
+          "Torstaina.",
+          "Perjantaina.",
+          "Lauantaina."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l212q4",
+        "prompt": "Mikä on uimahallin nimi?",
+        "options": [
+          "Vesipekka.",
+          "Vesileijona.",
+          "Vesiveijari.",
+          "Vesitähti."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l212q5",
+        "prompt": "Mitä tiedotteessa pahoitellaan?",
+        "options": [
+          "Häiriötä.",
+          "Hintojen nousua.",
+          "Myöhästymistä.",
+          "Peruutusta."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

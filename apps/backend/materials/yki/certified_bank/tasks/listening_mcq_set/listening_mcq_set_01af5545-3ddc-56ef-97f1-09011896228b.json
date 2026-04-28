@@ -1,0 +1,66 @@
+{
+  "id": "01af5545-3ddc-56ef-97f1-09011896228b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kahden naisen keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, mitä teet viikonloppuna?\nB: Meen katsomaan elokuvaa ystävän kanssa. Siellä on uusi suomalainen elokuva.\nA: Ai, mikä se on?\nB: Se on komedia. Tykkään kattoa jotain hauskaa.\nA: Kuulostaa hyvältä. Mä meen mökille perheen kanssa.\nB: Kivaa! Teettekö te siellä jotain erityistä?\nA: Saunotaan, uidaan ja syödään hyvin. Ja lapset tykkää kalastaa.\nB: No, nähdään ensi viikolla töissä!",
+      "audio_asset_id": "7a305e63-7972-5f5e-a534-3492ee889cf5"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä B aikoo tehdä viikonloppuna?",
+        "options": [
+          "mennä mökille",
+          "mennä elokuviin",
+          "matkustaa",
+          "lukea kirjaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen elokuva on kyseessä?",
+        "options": [
+          "draama",
+          "komedia",
+          "toiminta",
+          "kauhu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä A tekee viikonloppuna?",
+        "options": [
+          "menee töihin",
+          "menee mökille perheen kanssa",
+          "matkustaa ulkomaille",
+          "jää kotiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

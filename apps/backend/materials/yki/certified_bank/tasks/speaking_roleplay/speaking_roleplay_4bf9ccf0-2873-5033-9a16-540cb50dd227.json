@@ -1,0 +1,40 @@
+{
+  "id": "4bf9ccf0-2873-5033-9a16-540cb50dd227",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.505,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Soita asiakaspalveluun ja pyydä apua. Kerro ongelmasi, vastaa kysymyksiin ja sovi ratkaisusta.",
+    "materials": {
+      "roles": {
+        "user": "ostanut uuden puhelimen",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "4638cab8-975a-5837-899f-b176a201533f",
+        "ai_first_turn_fi": "Asiakaspalvelu, Mari puhelimessa. Kuinka voin auttaa?"
+      }
+    ],
+    "rubric": "Soita asiakaspalveluun ja pyydä apua. Kerro ongelmasi, vastaa kysymyksiin ja sovi ratkaisusta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

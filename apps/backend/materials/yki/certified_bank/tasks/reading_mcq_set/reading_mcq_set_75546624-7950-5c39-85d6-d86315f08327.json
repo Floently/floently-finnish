@@ -1,0 +1,77 @@
+{
+  "id": "75546624-7950-5c39-85d6-d86315f08327",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.776,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIETEEN JA POLITIIKAN SUHDE DEMOKRATIASSA\n\nTieteen ja politiikan suhde on ollut viime aikoina vilkkaan keskustelun kohteena. Toisaalta odotetaan, että päätöksenteko perustuu tutkittuun tietoon. Toisaalta tiede harvoin tarjoaa yksiselitteisiä vastauksia monimutkaisiin yhteiskunnallisiin kysymyksiin. Tämä jännite on demokratialle sekä haaste että mahdollisuus.\n\nUsein ajatellaan, että tiede tuottaa neutraalia faktaa, ja politiikan tehtävä on soveltaa sitä. Tämä on kuitenkin liian yksinkertainen malli. Tiede ei ole arvovapaata – tutkijat tekevät valintoja siitä, mitä tutkitaan, millä menetelmillä ja miten tuloksia tulkitaan. Politiikassa taas ei ole kyse vain faktojen soveltamisesta, vaan arvoista, intresseistä ja kompromisseista.\n\nPäättäjillä on tarve saada tieteellistä tietoa, mutta samalla he kohtaavat tieteen epävarmuuden. Tutkijat ovat usein eri mieltä keskenään – se on tieteen luonne. Päättäjille tämä on vaikeaa, koska päätöksiä pitäisi tehdä nyt. Tämä voi johtaa siihen, että politiikassa hyödynnetään vain sellaista tiedettä, joka tukee ennalta päätettyjä tavoitteita.\n\nToinen ongelma on tieteen politisoituminen. Tietyt tieteelliset faktat, kuten ilmastonmuutos tai rokotteiden turvallisuus, ovat muuttuneet poliittisen identiteetin kysymyksiksi. Tämä on vaarallista, koska se tekee yhteisestä päätöksenteosta vaikeaa.\n\nRatkaisuna pidetään rakenteita, jotka tuovat tiedettä systemaattisemmin päätöksentekoon. Tiedepaneelit, kuten ilmastopaneeli, ovat hyvä esimerkki. Myös virkamiesten tieteellinen osaaminen on tärkeää. Tutkijoiden pitäisi osallistua yhteiskunnalliseen keskusteluun, mutta samalla säilyttää tieteen autonomia.\n\nTulevaisuudessa tarvitaan sekä tieteen että politiikan vastuullisuutta ja avoimuutta. Faktoilla on merkitystä, mutta ne eivät yksin määrää, mikä on oikea ratkaisu. Demokratiassa tarvitaan arvokeskustelua, kompromisseja ja kansalaisten osallistumista – tieteen rooli on tarjota parasta mahdollista tietoa tähän keskusteluun.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 264
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi malli, jossa tiede tuottaa faktaa ja politiikka soveltaa sitä, on liian yksinkertainen?",
+        "options": [
+          "Koska tiede on aina oikeassa",
+          "Koska tiede ei ole arvovapaata ja politiikassa on kyse myös arvoista ja intresseistä",
+          "Koska politiikka ei tarvitse tiedettä",
+          "Koska tiedettä ei voi soveltaa käytäntöön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haastetta tieteen epävarmuus aiheuttaa päättäjille?",
+        "options": [
+          "He eivät ymmärrä tiedettä",
+          "He tarvitsevat päätöksiä nyt, mutta tiede harvoin antaa yksiselitteisiä vastauksia",
+          "He luottavat liikaa tieteeseen",
+          "He eivät halua käyttää tiedettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan tieteen politisoitumisella?",
+        "options": [
+          "Tutkijat ovat mukana politiikassa",
+          "Tieteelliset faktat muuttuvat poliittisen identiteetin kysymyksiksi",
+          "Politiikka ohjaa tutkimusta",
+          "Tiede on aina poliittista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on tieteen rooli demokratiassa tekstin mukaan?",
+        "options": [
+          "Määrätä, mikä on oikein",
+          "Tarjota parasta mahdollista tietoa yhteiskunnalliseen keskusteluun",
+          "Korvata poliittinen päätöksenteko",
+          "Olla mukana kaikessa päätöksenteossa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

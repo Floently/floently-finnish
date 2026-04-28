@@ -1,0 +1,73 @@
+{
+  "id": "9076ed72-6111-5031-b092-275e7b127eb7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.588,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kansalaispalkasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kansalaispalkka on herättänyt vilkasta keskustelua niin Suomessa kuin kansainvälisestikin. Yksinkertaistettuna se tarkoittaisi, että jokainen kansalainen saisi valtiolta säännöllisen, ehdoton perustulon ilman, että sitä verotettaisiin pois tai että se edellyttäisi vastikkeellista toimintaa, kuten työnhakua.\n\nKannattajat argumentoivat, että kansalaispalkka yksinkertaistaisi byrokratiaa. Nykyinen sosiaaliturvajärjestelmä on monimutkainen ja sisältää lukuisia eri tukia, jotka vaativat jatkuvaa selvittelyä. Kansalaispalkka korvaisi nämä kaikki yhdellä kuukausittaisella maksulla, mikä vähentäisi hallinnollisia kuluja ja lisäisi yksilön vapautta.\n\nToinen keskeinen argumentti liittyy työn muutokseen. Kannattajien mukaan perinteinen palkkatyö vähenee automaation ja tekoälyn myötä. Ihmiset tarvitsevat toimeentulon, vaikka perinteistä työtä ei olisi tarjolla. Kansalaispalkka mahdollistaisi myös osa-aikaisen työn, keikkatyön ja yrittäjyyden ilman pelkoa tukien menettämisestä.\n\nKriitikot puolestaan varoittavat, että kansalaispalkka saattaisi vähentää halukkuutta tehdä töitä. Jos perustoimeentulo on taattu, miksi kukaan tekisi raskaita tai epämiellyttäviä töitä? Toinen huoli on rahoitus: mistä rahat otetaan? Jos kansalaispalkka olisi riittävän suuri elämiseen, se vaatisi merkittäviä veronkorotuksia, mikä saattaisi heikentää talouden kilpailukykyä.\n\nKolmas kritiikin aihe on oikeudenmukaisuus. Onko oikein, että varakkaatkin saisivat saman perustulon? Vastineeksi vaaditaan usein progressiivista verotusta, joka kuitenkin monimutkaistaisi järjestelmää uudelleen. Jotkut ovatkin ehdottaneet mallia, jossa kansalaispalkka olisi veronalaista tuloa, jolloin hyvätuloiset maksaisivat sen takaisin veroissa.\n\nKokeiluja on tehty esimerkiksi Suomessa vuosina 2017–2018, jolloin 2000 työtöntä sai 560 euroa kuukaudessa ilman ehtoja. Tulokset osoittivat, että kansalaispalkan saajat voivat paremmin ja luottivat yhteiskuntaan enemmän, mutta työllistymisessä ei ollut merkittävää eroa verrokkiryhmään.\n\nKeskustelu jatkuu, eikä yksimielisyyttä ole näkyvissä. Kyse on viime kädessä siitä, millaista yhteiskuntaa haluamme rakentaa: halutaanko painottaa yksilön vapautta vai työn kannustimia, tehokkuutta vai inhimillisyyttä.",
+      "word_count": 242
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mikä on kannattajien mukaan kansalaispalkan keskeinen etu byrokratian kannalta?",
+        "options": [
+          "Se lisää työntekoa",
+          "Se yksinkertaistaisi järjestelmää yhdellä maksulla",
+          "Se on helppo ottaa käyttöön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Miten kannattajat yhdistävät kansalaispalkan työn murrokseen?",
+        "options": [
+          "Se pakottaa ihmiset töihin",
+          "Se turvaa toimeentulon automaation vähentäessä työpaikkoja",
+          "Se lisää tehdastyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mikä on kriitikoiden päähuoli kansalaispalkan vaikutuksesta työntekoon?",
+        "options": [
+          "Se lisää ylitöitä",
+          "Se saattaa vähentää halukkuutta tehdä työtä",
+          "Se pakottaa ihmiset tekemään kahta työtä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä Suomen kokeilu osoitti?",
+        "options": [
+          "Työllisyys parani merkittävästi",
+          "Hyvinvointi lisääntyi, mutta työllisyys ei muuttunut",
+          "Kansalaispalkka oli liian kallis"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

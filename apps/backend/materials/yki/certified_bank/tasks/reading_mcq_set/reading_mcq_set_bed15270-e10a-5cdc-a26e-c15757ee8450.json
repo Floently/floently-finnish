@@ -1,0 +1,77 @@
+{
+  "id": "bed15270-e10a-5cdc-a26e-c15757ee8450",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen koulutusjärjestelmä on saanut kansainvälistä tunnustusta. Se perustuu tasa-arvoon ja yksilölliseen tukeen. Peruskoulu on yhdeksänvuotinen ja yhtenäinen koko maassa. Sen jälkeen nuoret voivat hakeutua joko lukioon tai ammatilliseen koulutukseen. Lukio valmistaa ylioppilastutkintoon ja korkeakouluopintoihin. Ammatillinen koulutus antaa käytännön ammattitaidon ja mahdollisuuden jatko-opintoihin. Korkeakoulutus jakautuu yliopistoihin ja ammattikorkeakouluihin. Yliopistoissa painottuu tieteellinen tutkimus, ammattikorkeakouluissa työelämäläheisyys. Koulutus on maksutonta kaikilla asteilla peruskoulusta korkeakoulutukseen. Opiskelijat saavat myös opintotukea ja lainatakauksen. Opettajan ammatti on arvostettu, ja opettajilla on oltava maisterin tutkinto. Järjestelmän vahvuuksia ovat joustavuus, yksilöllisyys ja mahdollisuus elinikäiseen oppimiseen.",
+      "word_count": 85
+    },
+    "questions": [
+      {
+        "id": "06315764-9fe9-5287-83c2-b8ea3b90a27b",
+        "prompt": "Kuinka pitkä peruskoulu on Suomessa?",
+        "options": [
+          "Kahdeksanvuotinen",
+          "Yhdeksänvuotinen",
+          "Kymmenenvuotinen",
+          "Yksitoistavuotinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4b8d51f0-a6ee-512d-a965-5cca78e9558f",
+        "prompt": "Mitä ammatillinen koulutus antaa?",
+        "options": [
+          "Vain teoreettista tietoa",
+          "Käytännön ammattitaidon",
+          "Valmiuden yliopistoon ilman tutkintoa",
+          "Kansainvälisen tutkinnon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6e86f157-67cb-52d3-8373-96efec4879a7",
+        "prompt": "Mitä tutkintoa opettajilta vaaditaan?",
+        "options": [
+          "Kandidaatin tutkinto",
+          "Maisterin tutkinto",
+          "Lisensiaatin tutkinto",
+          "Tohtorin tutkinto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4b82c5b0-b682-550b-bbe1-4271c7c52085",
+        "prompt": "Mihin koulutus Suomessa perustuu?",
+        "options": [
+          "Kilpailuun ja valikointiin",
+          "Tasa-arvoon ja yksilölliseen tukeen",
+          "Maksullisuuteen ja yksityistämiseen",
+          "Ulkomaalaisiin malleihin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

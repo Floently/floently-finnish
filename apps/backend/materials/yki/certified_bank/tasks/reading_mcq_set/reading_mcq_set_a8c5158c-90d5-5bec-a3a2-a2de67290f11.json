@@ -1,0 +1,99 @@
+{
+  "id": "a8c5158c-90d5-5bec-a3a2-a2de67290f11",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työelämässä arvostetaan yhä enemmän pehmeitä taitoja, kuten vuorovaikutustaitoja, ongelmanratkaisukykyä ja joustavuutta. Tekninen osaaminen on tärkeää, mutta usein työyhteisöön sopivuus ja yhteistyökyky ratkaisevat. Pehmeitä taitoja voi oppia ja kehittää. Työpaikoilla järjestetään koulutuksia, ja ne huomioidaan myös rekrytoinneissa. Monet työnantajat katsovat, että oikea asenne ja motivaatio ovat tärkeämpiä kuin täydellinen cv.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä työelämässä arvostetaan yhä enemmän?",
+        "options": [
+          "Vain teknistä osaamista",
+          "Pehmeitä taitoja",
+          "Vain koulutodistuksia",
+          "Vain työkokemusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä pehmeisiin taitoihin kuuluu?",
+        "options": [
+          "Ohjelmointi ja matematiikka",
+          "Vuorovaikutustaidot, ongelmanratkaisukyky ja joustavuus",
+          "Kielitaito ja tekniikan osaaminen",
+          "Raportointi ja analysointi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä usein ratkaisee työpaikan saannissa teknisen osaamisen lisäksi?",
+        "options": [
+          "Työyhteisöön sopivuus ja yhteistyökyky",
+          "Palkan suuruus",
+          "Työmatkan pituus",
+          "Työtehtävien määrä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Voiko pehmeitä taitoja oppia?",
+        "options": [
+          "Ei, ne ovat synnynnäisiä",
+          "Kyllä, niitä voi oppia ja kehittää",
+          "Vain lapsena",
+          "Vain tietyissä ammateissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Missä yhteydessä pehmeät taidot huomioidaan?",
+        "options": [
+          "Vain koulutuksissa",
+          "Sekä koulutuksissa että rekrytoinneissa",
+          "Vaan rekrytoinneissa",
+          "Ei missään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä monet työnantajat pitävät tärkeämpänä kuin täydellistä cv:tä?",
+        "options": [
+          "Kielitaitoa",
+          "Oikeaa asennetta ja motivaatiota",
+          "Työkokemuksen pituutta",
+          "Koulutuksen tasoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

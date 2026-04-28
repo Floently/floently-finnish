@@ -1,0 +1,66 @@
+{
+  "id": "cffc9135-6e45-532e-82af-6ab801dd33c3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, oletko miettinyt, mitä teet sitten, kun eläkkeelle jäät?\nB: Olen kyllä. Se on vasta muutaman vuoden päästä. Ajattelin, että matkustelen paljon. Ollaan puolison kanssa haaveiltu Euroopan-risteilyistä.\nA: Kuulostaa hyvältä. Minä taas ajattelin, että aloitan uuden harrastuksen. Ehkä opin soittamaan kitaraa tai maalaamaan.\nB: Se on hyvä idea. Tärkeintä on, että on tekemistä. Moni masentuu, kun työ loppuu.\nA: Joo, sitä mä vähän pelkäänkin. On tottunut siihen, että on kiire.\nB: Kannattaa miettiä jo etukäteen. Mä olen vähentänyt työtunteja jo nyt, että totuttelen.\nA: Ai, miten se onnistuu?\nB: Sovin esimiehen kanssa, että teen nelipäiväistä viikkoa. Se on toiminut hyvin.\nA: Pitäisiköhän munkin kokeilla.",
+      "audio_asset_id": "576b2e15-c827-5599-a8fc-382326c9e495"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä B aikoo tehdä eläkkeellä?",
+        "options": [
+          "Jäädä kotiin",
+          "Matkustella puolison kanssa",
+          "Aloittaa uuden työn",
+          "Muuttaa ulkomaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä A pelkää eläkkeelle jäädessä?",
+        "options": [
+          "Rahan loppumista",
+          "Masentumista ja tekemisen puutetta",
+          "Yksinäisyyttä",
+          "Sairastumista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten B on valmistautunut eläkkeeseen?",
+        "options": [
+          "Säästämällä rahaa",
+          "Vähentämällä työtunteja",
+          "Opiskelemalla uutta",
+          "Muuttamalla pienempään asuntoon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

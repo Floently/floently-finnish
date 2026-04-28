@@ -1,0 +1,37 @@
+{
+  "id": "6e26125d-2b2f-591f-8025-27f3745c9b76",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti koulutuskeskukseen.",
+    "materials": {
+      "scenario": "Kysy ammattitutkinnon suorittamisesta"
+    },
+    "items": [
+      {
+        "id": "462d7d03-22c5-5148-b34e-a6638b643956",
+        "prompt": "Olet kiinnostunut suorittamaan ammattitutkinnon työn ohessa. Kirjoita sähköposti ja kysy, mitä vaihtoehtoja on. Kysy, kauanko tutkinnon suorittaminen kestää ja paljonko se maksaa. Kysy myös, voiko opiskella etänä."
+      }
+    ],
+    "rubric": "Olet kiinnostunut suorittamaan ammattitutkinnon työn ohessa. Kirjoita sähköposti ja kysy, mitä vaihtoehtoja on. Kysy, kauanko tutkinnon suorittaminen kestää ja paljonko se maksaa. Kysy myös, voiko opiskella etänä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

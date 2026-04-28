@@ -1,0 +1,77 @@
+{
+  "id": "edc23026-b26b-53ae-a147-efd4c8f38fcf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kiertotalous on noussut keskeiseksi teemaksi suomalaisessa yhteiskuntakeskustelussa. Siinä on kyse resurssien tehokkaasta käytöstä, jätteiden vähentämisestä ja materiaalien kierrättämisestä uudelleen käyttöön.\n\nSuomi on asettanut tavoitteekseen olla kiertotalouden edelläkävijä vuoteen 2035 mennessä. Tämä tarkoittaa, että materiaalien kulutusta on vähennettävä, tuotteiden käyttöikää pidennettävä ja kierrätystä tehostettava. Erityisesti rakentaminen, tekstiilit ja muovit ovat aloja, joissa on paljon parannettavaa.\n\nSitra on arvioinut, että kiertotaloudella voidaan saavuttaa Suomessa jopa 3 miljardin euron vuosittaiset säästöt. Samalla se luo uusia työpaikkoja esimerkiksi korjaus- ja kierrätysaloille. Jo nyt monet suomalaiset yritykset ovat kehittäneet innovatiivisia kiertotalousratkaisuja, kuten vaatteiden vuokrauspalveluja ja elektroniikan korjauspalveluja.\n\nKuluttajilla on tärkeä rooli kiertotalouden edistämisessä. Lajittelu, tavaroiden korjauttaminen ja käytettynä ostaminen ovat konkreettisia tekoja, joita jokainen voi tehdä. Myös asenteiden muutos on tärkeää: uuden ostamisen sijaan kannattaa miettiä, voisiko tavaran hankkia lainaamalla, vuokraamalla tai ostamalla käytettynä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 157
+    },
+    "questions": [
+      {
+        "id": "eca1c3b6-baea-54de-9c6e-0e235dc744dc",
+        "prompt": "Mitä kiertotalous tarkoittaa?",
+        "options": [
+          "Rahan kiertämistä taloudessa",
+          "Resurssien tehokasta käyttöä ja materiaalien kierrätystä",
+          "Tuotteiden valmistamista ulkomailla",
+          "Vain muovin kierrätystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c69ff1-0651-5b79-a9ec-493c9cdd249a",
+        "prompt": "Milloin Suomi haluaa olla kiertotalouden edelläkävijä?",
+        "options": [
+          "Vuoteen 2025 mennessä",
+          "Vuoteen 2030 mennessä",
+          "Vuoteen 2035 mennessä",
+          "Vuoteen 2040 mennessä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d5587b70-c52c-58c5-82ad-3d038f299cb9",
+        "prompt": "Kuinka paljon säästöjä kiertotaloudella voidaan saavuttaa?",
+        "options": [
+          "Noin 1 miljardi euroa vuodessa",
+          "Noin 2 miljardia euroa vuodessa",
+          "Noin 3 miljardia euroa vuodessa",
+          "Noin 4 miljardia euroa vuodessa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "2e0f78a9-de36-523f-837b-be5ce29dadee",
+        "prompt": "Mitä kuluttajat voivat tehdä kiertotalouden hyväksi?",
+        "options": [
+          "Ostaa aina uutta",
+          "Lajitella, korjauttaa ja ostaa käytettynä",
+          "Kuluttaa enemmän",
+          "Vain kierrättää muovit"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

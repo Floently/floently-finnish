@@ -1,0 +1,37 @@
+{
+  "id": "287983d5-689b-52eb-9431-b63e38ab510a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita analyyttinen mielipideteksti.",
+    "materials": {
+      "scenario": "Teknologinen riippuvuus"
+    },
+    "items": [
+      {
+        "id": "e9da2873-62f0-546b-ad5e-cf33f2c73726",
+        "prompt": "Onko teknologinen kehitys lisännyt ihmisen riippuvuutta järjestelmistä?"
+      }
+    ],
+    "rubric": "Onko teknologinen kehitys lisännyt ihmisen riippuvuutta järjestelmistä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

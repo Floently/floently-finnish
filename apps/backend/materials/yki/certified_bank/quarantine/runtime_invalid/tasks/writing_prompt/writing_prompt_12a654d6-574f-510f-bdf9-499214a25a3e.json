@@ -1,0 +1,37 @@
+{
+  "id": "12a654d6-574f-510f-bdf9-499214a25a3e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cafeteria. Purpose: compare_options. Constraint: address_the_receiver.",
+    "materials": {
+      "scenario": "kielen oppimisesta cafeteria"
+    },
+    "items": [
+      {
+        "id": "28310f55-4b70-525c-9459-0c12bad862ef",
+        "prompt": "Write for the receiver in this scenario: cafeteria. Purpose: compare_options. Constraint: address_the_receiver."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

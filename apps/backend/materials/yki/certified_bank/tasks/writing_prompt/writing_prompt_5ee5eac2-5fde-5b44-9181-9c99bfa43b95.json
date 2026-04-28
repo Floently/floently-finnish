@@ -1,0 +1,37 @@
+{
+  "id": "5ee5eac2-5fde-5b44-9181-9c99bfa43b95",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti asunnon myyjälle.",
+    "materials": {
+      "scenario": "Kysy lisätietoja asunnosta ennen ostopäätöstä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti asunnon myyjälle."
+      }
+    ],
+    "rubric": "Olet kiinnostunut ostamaan asunnon, mutta haluaisit vielä muutaman lisätiedon ennen päätöksen tekemistä. Kirjoita sähköposti ja kysy esimerkiksi remonteista, naapurustosta ja mahdollisista kunnossapitovastikkeista.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

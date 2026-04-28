@@ -1,0 +1,77 @@
+{
+  "id": "0b333da1-7a17-57b8-8594-2b2d5a8dda49",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu koulutuksen ja työelämän suhteesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa paneeliin. Keskustelemme siitä, vastaako koulutus työelämän tarpeita.\n\nAnna Kivelä (professori): Koulutuksen tehtävä ei ole pelkästään palvella työelämää. Koulutus sivistää ja antaa valmiuksia kansalaisuuteen.\n\nJuhani Mäkelä (elinkeinoelämä): Ymmärrän, mutta työelämä odottaa osaajia. Meillä on pulaa tietyistä osaajista, kuten ohjelmistokehittäjistä.\n\nSanna Nieminen (opiskelija): Nuoren pitäisi valita ammatti 18-vuotiaana ja pysyä siinä? Työelämä muuttuu, tarvitaan yleistaitoja: kriittistä ajattelua, ongelmanratkaisua.\n\nAnna: Sanna osuu asiaan. Yleissivistys ja oppimaan oppimisen taidot auttavat työelämän muutoksissa.\n\nJuhani: Tarvitaan sekä perusosaamista että työelämäyhteyksiä. Oppisopimusmallit Keski-Euroopassa ovat hyviä.\n\nSanna: Oppisopimus on hyvä, mutta se ei sovi kaikille. Koulutus ei saa menettää kriittistä tehtäväänsä.\n\nPuheenjohtaja: Miten tämä pitäisi järjestää?\n\nAnna: Joustavia opintopolkuja, mahdollisuus yhdistää eri alojen opintoja.\n\nJuhani: Tiiviimpää yhteistyötä oppilaitosten ja työelämän välillä.\n\nSanna: Opiskelijoiden ääntä pitää kuulla.",
+      "audio_asset_id": "c36d6d8b-825c-40a7-8d3a-792ac92c0783"
+    },
+    "questions": [
+      {
+        "id": "a761654d-2ce9-5c23-945d-aebff47f1e86",
+        "prompt": "Mitä mieltä Anna Kivelä on koulutuksen tehtävästä?",
+        "options": [
+          "Vain työelämän palvelu",
+          "Sivistävä tehtävä, muutakin kuin työelämä",
+          "Ei merkitystä",
+          "Pitää lakkauttaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "21d5c94d-d4cb-51bb-89e5-84b1da1d77df",
+        "prompt": "Mitä Sanna pitää tärkeämpänä kuin ammattitaitoja?",
+        "options": [
+          "Teknisiä taitoja",
+          "Yleistaitoja",
+          "Kielitaitoa",
+          "Matematiikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "18a8f94e-0e15-56b2-b08a-fb3517d27cf1",
+        "prompt": "Mitä esimerkkiä Juhani nostaa esiin?",
+        "options": [
+          "Yliopistorahoitus",
+          "Oppisopimusmallit",
+          "Ammattikoulujen lakkauttaminen",
+          "Maksullinen koulutus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b26b3ba4-4447-59a2-bc20-bd60a384de5e",
+        "prompt": "Mitä yhteistä ehdotusta kaikki kannattavat?",
+        "options": [
+          "Yhtä mallia",
+          "Joustavia opintopolkuja ja yhteistyötä",
+          "Koulutuksen yksityistämistä",
+          "Opintojen lyhentämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

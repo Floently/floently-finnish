@@ -1,0 +1,37 @@
+{
+  "id": "f2d5fba6-4690-5776-9902-dc29e959fb82",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: urheiluhallissa. Tarkoitus: perustele mielipide. Rajoite: mainitse kaksi syytä.",
+    "materials": {
+      "scenario": "palauteen sports hall"
+    },
+    "items": [
+      {
+        "id": "09428811-a8e3-5258-9a6d-aa936e0cd7a1",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: urheiluhallissa. Tarkoitus: perustele mielipide. Rajoite: mainitse kaksi syytä."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

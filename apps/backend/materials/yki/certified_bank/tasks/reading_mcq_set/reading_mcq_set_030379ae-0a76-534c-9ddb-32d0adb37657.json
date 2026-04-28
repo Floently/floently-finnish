@@ -1,0 +1,77 @@
+{
+  "id": "030379ae-0a76-534c-9ddb-32d0adb37657",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.751,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli geenitietojen käytöstä ja yksityisyydestä.",
+    "materials": {
+      "text": "GEENITIEDOT – KENEN OMAISUUTTA?\n\nKuluttajille suunnatut geenitestit ovat yleistyneet räjähdysmäisesti. Muutamalla sadalla eurolla kuka tahansa voi saada tietoa omasta terveydestään, alkuperästään ja sukujuurestaan. Testit lupaavat paljastaa riskin sairastua Alzheimerin tautiin ja kertoa, mistä päin maailmaa esi-isät ovat tulleet.\n\nTestien suosio on kuitenkin herättänyt vakavia kysymyksiä yksityisyydestä. Kun kuluttaja lähettää DNA-näytteen testausyritykselle, hän ei useinkaan tiedä, mitä yritys tiedoilla tekee. Tietoja voidaan myydä eteenpäin lääkeyhtiöille, vakuutusyhtiöille tai jopa poliisille. Monissa maissa geenitietoja ei suojaa sama lainsäädäntö kuin potilastietoja.\n\nTietosuoja-asiantuntijat ovat huolissaan. Geenitieto on kaikkein henkilökohtaisinta tietoa. Se ei koske vain sinua, vaan myös biologisia sukulaisiasi. Jos tieto vuotaa, sillä on vaikutuksia koko sukuusi.\n\nLääketieteen etiikan asiantuntijat muistuttavat, että geenitestien tulokset voivat olla psyykkisesti raskaita. Tieto siitä, että sinulla on suurentunut riski sairastua parantumattomaan tautiin, voi aiheuttaa ahdistusta. Testejä tekevien yritysten pitäisi tarjota myös neuvontaa.\n\nEU on valmistelemassa uutta lainsäädäntöä, joka toisi geenitiedot saman suojan piiriin kuin muutkin arkaluonteiset henkilötiedot. Toistaiseksi vastuu on kuitenkin kuluttajalla. Asiantuntijat neuvovat lukemaan ehdot tarkkaan ja harkitsemaan tarkkaan, haluaako luovuttaa DNA:nsa kaupallisen yrityksen käyttöön.\n\nKysymys omistajuudesta on monimutkainen. Kuuluuko geenitieto yksilölle, hänen perheelleen vai koko ihmiskunnalle? Onko oikein, että yritykset voivat patentoida geenejä ja tehdä voittoa tiedolla, jonka jokainen kantaa mukanaan? Nämä kysymykset ovat vasta alkua keskustelulle, joka tulee jatkumaan vuosikymmeniä.\n\nTeknologian kehitys on nopeaa, mutta lainsäädäntö ja etiikka laahaavat perässä. Tässä ristiriidassa syntyvät suurimmat riskit. Tarvitaan kansainvälistä yhteistyötä, koska geenitiedot eivät tunne rajoja.",
+      "word_count": 227
+    },
+    "questions": [
+      {
+        "id": "74014090-9f84-53fd-aa7c-f8fbc6e723a0",
+        "prompt": "Miksi geenitestien suosio on herättänyt huolta?",
+        "options": [
+          "Testit ovat liian kalliita",
+          "Kuluttajat eivät tiedä, mitä yritykset tiedoilla tekevät",
+          "Testit eivät ole luotettavia",
+          "Testit kestävät liian kauan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a74f6ce7-4bdb-573c-afa5-5132b517f60c",
+        "prompt": "Mitä erityistä geenitiedossa on?",
+        "options": [
+          "Se on helppo muuttaa",
+          "Se koskee myös biologisia sukulaisia",
+          "Se on aina julkista",
+          "Se on arvotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1192a315-0683-5ad7-a56a-af41991b9ef4",
+        "prompt": "Mitä riskejä geenitesteihin liittyy psyykkisesti?",
+        "options": [
+          "Ne ovat aina positiivisia",
+          "Tieto sairastumisriskistä voi aiheuttaa ahdistusta",
+          "Ne vievät paljon aikaa",
+          "Ne ovat tylsiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7a379627-9254-5608-9aa6-b24fecab2e66",
+        "prompt": "Mitä asiantuntijat neuvovat geenitestejä harkitsevia?",
+        "options": [
+          "Älä koskaan tee testiä",
+          "Lue ehdot tarkkaan ja harkitse tarkkaan",
+          "Tee testi heti",
+          "Kysy lääkäriltä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

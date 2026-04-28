@@ -1,0 +1,88 @@
+{
+  "id": "ba25bd6c-7c08-591e-a0b4-f623dda8f8e9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu etätyön vaikutuksista kaupunkikeskustoihin ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Onko sinusta tuntunut, että keskusta on hiljenemässä? Henkilö B: Kyllä, monet liikkeet ovat menneet kiinni. Kahviloissa on vähemmän väkeä. Henkilö A: Luulen, että etätyö on iso syy. Ihmiset eivät käy enää niin paljon keskustassa lounaalla tai kahvilla. Henkilö B: Totta. Toimistot ovat puolityhjiä, ja se näkyy. Henkilö A: Mutta toisaalta, asuminen keskustassa on lisääntynyt. Uusia asuntoja rakennetaan koko ajan. Henkilö B: Niin, ja illalla ja viikonloppuna keskustassa on edelleen elämää. Ehkä se on muuttumassa enemmän asuin- ja vapaa-ajan alueeksi. Henkilö A: Mitä mieltä olet, pitäisikö kaupungin tehdä jotain? Henkilö B: Ehkä kannustaa tapahtumia ja kulttuuria, jotka tuovat ihmisiä paikalle. Myös viihtyisät kävelyalueet ja puistot ovat tärkeitä. Henkilö A: Ja hyvät pyörätiet ja julkinen liikenne. Niillä voi houkutella ihmisiä tulemaan keskustaan myös muualta.",
+      "audio_asset_id": "7330ba78-409e-4c02-81b2-ba0c5e8e6112"
+    },
+    "questions": [
+      {
+        "id": "4798d551-6ff3-5e3e-9fa7-6533fc2757ab",
+        "prompt": "Mitä muutosta henkilöt ovat havainneet keskustassa?",
+        "options": [
+          "Monet liikkeet ovat menneet kiinni ja kahviloissa on vähemmän väkeä.",
+          "Keskusta on vilkastunut.",
+          "Uusia kauppoja on avattu paljon.",
+          "Julkinen liikenne on parantunut."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "2a4cc30f-df50-5552-8cf8-a8ccefe2bcfe",
+        "prompt": "Mikä on henkilöiden mukaan todennäköinen syy muutokseen?",
+        "options": [
+          "Verkkokaupan kasvu.",
+          "Keskustan huono maine.",
+          "Etätyön lisääntyminen.",
+          "Liian kalliit vuokrat."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "55f61696-59c4-55f3-a34a-966053403283",
+        "prompt": "Mikä on lisääntynyt keskustassa?",
+        "options": [
+          "Toimistot.",
+          "Asuminen.",
+          "Pysäköintitalot.",
+          "Teollisuus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d639a0b4-fff5-592e-8024-2b5a7ebbaef5",
+        "prompt": "Milloin keskustassa on edelleen elämää?",
+        "options": [
+          "Arkiaamuisin.",
+          "Arkisin kello 8-16.",
+          "Illalla ja viikonloppuna.",
+          "Keskellä päivää."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6915484a-76c6-5c2b-adba-6e68de6a4097",
+        "prompt": "Mitä henkilöt ehdottavat, että kaupunki voisi tehdä?",
+        "options": [
+          "Kieltää etätyön.",
+          "Rakentaa lisää parkkihalleja.",
+          "Alentaa liikkeiden vuokria.",
+          "Kannustaa tapahtumia, kulttuuria ja panostaa viihtyisiin kävelyalueisiin."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

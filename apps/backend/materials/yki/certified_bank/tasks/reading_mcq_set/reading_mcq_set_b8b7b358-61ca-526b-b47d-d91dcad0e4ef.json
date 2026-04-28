@@ -1,0 +1,66 @@
+{
+  "id": "b8b7b358-61ca-526b-b47d-d91dcad0e4ef",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Olen sairas enkä pääse töihin tänään. Minulla on kuumetta ja kurkku kipeä. Menen lääkäriin tänään kello 14. Toivottavasti huomenna olen jo parempi. Voin sitten tehdä töitä kotoa käsin. Minulla on tärkeitä papereita, jotka pitää saada valmiiksi perjantaihin mennessä. Voisitko lähettää ne minulle sähköpostilla? Kiitos! – Anna  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 63
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi Anna ei mene töihin?",
+        "options": [
+          "Hänellä on vapaapäivä",
+          "Hän on sairas",
+          "Hän matkustaa",
+          "Hänellä on menoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin Anna menee lääkäriin?",
+        "options": [
+          "kello 10",
+          "kello 12",
+          "kello 14",
+          "kello 16"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä Anna pyytää työkaveriltaan?",
+        "options": [
+          "soittamaan hänelle",
+          "lähettämään paperit sähköpostilla",
+          "tulemaan kylään",
+          "tekemään hänen työnsä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

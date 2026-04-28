@@ -1,0 +1,99 @@
+{
+  "id": "00a3e047-9233-5382-80ba-b4cdfa460ae0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta kulttuurikeskuksesta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin kulttuuripalvelujen tiedote. Olemme iloisia voidessamme ilmoittaa, että uusi kulttuurikeskus Kulttuuritehdas avaa ovensa 1.10. Kulttuuritehdas sijaitsee vanhassa teollisuusrakennuksessa osoitteessa Tehtaankatu 15. Kulttuuritehtaaseen tulee monipuolisia tiloja eri taiteenaloille. Siellä on teatterisali, konserttisali, näyttelytila, työpajatiloja ja kahvila. Kulttuuritehtaassa tulee toimimaan useita kulttuuriyhdistyksiä ja taiteilijoita. Tarjolla on kursseja, työpajoja, näyttelyitä ja esityksiä niin ammattilaisille kuin harrastajillekin. Avajaisviikonloppuna 1.–2.10. on avoimet ovet. Ohjelmassa on esittelykierroksia, työpajoja ja esityksiä. Tervetuloa tutustumaan uuteen kulttuurin keskittymään!",
+      "audio_asset_id": "d1e2f3a4-b5c6-7d8e-9f0a-1b2c3d4e5f6a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin kulttuuripalvelut tiedottavat?",
+        "options": [
+          "Uuden museon avajaisista.",
+          "Uuden kulttuurikeskuksen avajaisista.",
+          "Uuden teatterin avajaisista.",
+          "Uuden konserttisalin avajaisista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minä päivänä Kulttuuritehdas avataan?",
+        "options": [
+          "1.9.",
+          "1.10.",
+          "1.11.",
+          "1.12."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä oli entinen rakennus, johon Kulttuuritehdas tulee?",
+        "options": [
+          "Vanha koulu.",
+          "Vanha teollisuusrakennus.",
+          "Vanha sairaala.",
+          "Vanha asema."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä tiloja Kulttuuritehtaassa on?",
+        "options": [
+          "Vain teatterisali.",
+          "Teatterisali, konserttisali, näyttelytila, työpajatiloja ja kahvila.",
+          "Vain konserttisali ja kahvila.",
+          "Vain työpajatiloja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Ketä varten Kulttuuritehdas on tarkoitettu?",
+        "options": [
+          "Vain ammattilaisille.",
+          "Sekä ammattilaisille että harrastajille.",
+          "Vain lapsille.",
+          "Vain eläkeläisille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä avajaisviikonloppuna on ohjelmassa?",
+        "options": [
+          "Vain konsertteja.",
+          "Esittelykierroksia, työpajoja ja esityksiä.",
+          "Vain työpajoja.",
+          "Vain näyttelyitä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

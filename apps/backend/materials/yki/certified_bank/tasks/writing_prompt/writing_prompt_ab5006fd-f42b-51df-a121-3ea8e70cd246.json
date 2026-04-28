@@ -1,0 +1,37 @@
+{
+  "id": "ab5006fd-f42b-51df-a121-3ea8e70cd246",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat kysyä, voitko asentaa asuntoon turvaportin, koska sinulla on pieni lapsi. Kerro, miksi se on tarpeen ja millainen portti olisi. Kysy, tarvitaanko siihen lupa.",
+    "materials": {
+      "scenario": "Lupakysymys turvaportin asennuksesta"
+    },
+    "items": [
+      {
+        "id": "9cf4ec61-5359-5a31-b0c0-72aa8ece8a03",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat kysyä, voitko asentaa asuntoon turvaportin, koska sinulla on pieni lapsi. Kerro, miksi se on tarpeen ja millainen portti olisi. Kysy, tarvitaanko siihen lupa."
+      }
+    ],
+    "rubric": "Tarpeen kuvaus\nPortin kuvaus\nLupakysymys",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

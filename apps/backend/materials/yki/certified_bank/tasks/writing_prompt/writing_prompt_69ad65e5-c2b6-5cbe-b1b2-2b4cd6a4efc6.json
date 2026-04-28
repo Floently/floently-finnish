@@ -1,0 +1,37 @@
+{
+  "id": "69ad65e5-c2b6-5cbe-b1b2-2b4cd6a4efc6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ostanut tuotteen verkkokaupasta. Kirjoita palaute myyjälle.",
+    "materials": {
+      "scenario": "Palaute verkkokaupasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet ostanut tuotteen verkkokaupasta. Kirjoita palaute myyjälle."
+      }
+    ],
+    "rubric": "Olet ostanut tuotteen verkkokaupasta. Kirjoita palaute myyjälle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

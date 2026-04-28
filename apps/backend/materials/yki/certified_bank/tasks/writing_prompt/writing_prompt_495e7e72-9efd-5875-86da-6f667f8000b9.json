@@ -1,0 +1,37 @@
+{
+  "id": "495e7e72-9efd-5875-86da-6f667f8000b9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt viesti."
+    },
+    "items": [
+      {
+        "id": "096116f4-3f20-5d8a-8085-2be6a79d702a",
+        "prompt": "Olet kaupassa ja haluat kysyä ystävältäsi, tarvitseeko hän jotain. Kirjoita viesti.\nKerro:\n- että olet kaupassa\n- kysy, tarvitseeko hän jotain\n- kerro, että tulet pian kotiin."
+      }
+    ],
+    "rubric": "Olet kaupassa ja haluat kysyä ystävältäsi, tarvitseeko hän jotain. Kirjoita viesti.\nKerro:\n- että olet kaupassa\n- kysy, tarvitseeko hän jotain\n- kerro, että tulet pian kotiin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

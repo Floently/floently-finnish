@@ -1,0 +1,37 @@
+{
+  "id": "43d34f3e-68ef-5099-970c-50ffeb11ec2a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uimahallin kahviossa. Kirjoita palaute. Kerro, onko valikoima hyvä ja ovatko hinnat sopivat.",
+    "materials": {
+      "scenario": "Palaute uimahallin kahviosta"
+    },
+    "items": [
+      {
+        "id": "b47061de-139f-566a-8ab0-f0217c324ff7",
+        "prompt": "Olet käynyt uimahallin kahviossa. Kirjoita palaute. Kerro, onko valikoima hyvä ja ovatko hinnat sopivat."
+      }
+    ],
+    "rubric": "Olet käynyt uimahallin kahviossa. Kirjoita palaute. Kerro, onko valikoima hyvä ja ovatko hinnat sopivat.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

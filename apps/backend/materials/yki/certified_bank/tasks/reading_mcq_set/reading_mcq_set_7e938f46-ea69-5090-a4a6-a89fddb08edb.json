@@ -1,0 +1,63 @@
+{
+  "id": "7e938f46-ea69-5090-a4a6-a89fddb08edb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhä useampi koulu on ottanut käyttöön kännykkäkiellon oppituntien ajaksi. Taustalla on huoli oppilaiden keskittymisestä.\n\nErään yläkoulun rehtori kertoo, että kokeilu on ollut onnistunut. \"Oppilaat ovat aktiivisempia tunnilla ja välitunneilla näkee enemmän liikuntaa.\"\n\nOsa vanhemmista on kuitenkin huolissaan turvallisuudesta. Koulu on vastannut, että kännykän käyttö on sallittua tarvittaessa.\n\nOppilaiden mielipiteet jakautuvat.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "item_143_1",
+        "prompt": "Miksi koulut ottavat käyttöön kännykkäkieltoa?",
+        "options": [
+          "koska kännykät ovat kalliita",
+          "huoli keskittymisestä",
+          "koska opettajat eivät osaa käyttää kännyköitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_143_2",
+        "prompt": "Mitä hyötyjä rehtori on havainnut?",
+        "options": [
+          "oppilaat ovat aktiivisempia ja liikkuvat enemmän",
+          "oppilaat saavat parempia numeroita",
+          "kännykät eivät ole enää rikki"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_143_3",
+        "prompt": "Mistä vanhemmat ovat huolissaan?",
+        "options": [
+          "lapset eivät opi käyttämään kännykkää",
+          "turvallisuudesta hätätilanteissa",
+          "kännykät menevät rikki"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

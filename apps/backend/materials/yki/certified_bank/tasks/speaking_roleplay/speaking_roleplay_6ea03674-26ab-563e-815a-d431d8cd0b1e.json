@@ -1,0 +1,64 @@
+{
+  "id": "6ea03674-26ab-563e-815a-d431d8cd0b1e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka soittaa huoltofirmaan. Keskustele vuorotellen automaattisen järjestelmän kanssa ja hoida asiasi.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Huoltofirman automaattinen puhelinjärjestelmä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp1",
+        "ai_first_turn_fi": "Kiitos soittamisesta Huolto-Kaikuun. Paina 1, jos asiasi koskee kodinkoneiden korjausta. Paina 2, jos asiasi koskee laskutusta. Paina 3, jos haluat puhua asiakaspalvelijan kanssa."
+      },
+      {
+        "id": "srp2",
+        "ai_first_turn_fi": "Oletko soittanut meille aiemmin? Paina 1, jos olet. Paina 2, jos et ole."
+      },
+      {
+        "id": "srp3",
+        "ai_first_turn_fi": "Kerro lyhyesti, mikä ongelma sinulla on. Puhu selkeästi äänimerkin jälkeen."
+      },
+      {
+        "id": "srp4",
+        "ai_first_turn_fi": "Kiitos tiedosta. Vapaita aikoja on ensi viikon tiistaina kello 9-12 tai keskiviikkona kello 13-16. Kumpi sopii sinulle paremmin?"
+      },
+      {
+        "id": "srp5",
+        "ai_first_turn_fi": "Sopii hyvin. Voitko vielä vahvistaa osoitteesi, jotta teknikko osaa tulla oikeaan paikkaan?"
+      },
+      {
+        "id": "srp6",
+        "ai_first_turn_fi": "Kiitos. Oletko kotona koko sovittuna aikana, vai pitääkö teknikon soittaa ennen tuloa?"
+      },
+      {
+        "id": "srp7",
+        "ai_first_turn_fi": "Selvä. Saat vahvistusviestin tekstiviestillä. Kiitos soittamisesta ja hyvää päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka soittaa huoltofirmaan. Keskustele vuorotellen automaattisen järjestelmän kanssa ja hoida asiasi.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

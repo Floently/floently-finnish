@@ -1,0 +1,77 @@
+{
+  "id": "325affbe-50c4-55bb-bd89-82c653e41a82",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Globalisaation vastavoimana on noussut nationalismi ja protektionismi monissa maissa. Tämä näkyy esimerkiksi kauppasodissa, rajojen sulkemisessa ja muuttoliikkeen rajoittamisessa. Protektionistiset toimet voivat suojata kotimaisia työpaikkoja lyhyellä aikavälillä, mutta ne voivat myös heikentää talouskasvua ja lisätä kuluttajien kustannuksia pitkällä aikavälillä. Globalisaation kritiikki kohdistuu usein sen epätasaisiin hyötyihin: kaikki eivät ole hyötyneet globalisaatiosta, ja voittajat ja häviäjät jakautuvat epätasaisesti. Globalisaation hallinta ja sen haittojen lieventäminen on yksi aikamme suurimmista poliittisista haasteista. Ratkaisuiksi on esitetty muun muassa globaalin verotuksen kehittämistä, työntekijöiden oikeuksien vahvistamista ja ympäristönsuojelun tiukentamista.",
+      "word_count": 82
+    },
+    "questions": [
+      {
+        "id": "mcq_271",
+        "prompt": "Mikä on noussut globalisaation vastavoimana?",
+        "options": [
+          "Kansainvälinen yhteistyö",
+          "Nationalismi ja protektionismi",
+          "Vapaa kauppa",
+          "Monikulttuurisuus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_272",
+        "prompt": "Mitä protektionistiset toimet voivat aiheuttaa pitkällä aikavälillä?",
+        "options": [
+          "Ne vahvistavat talouskasvua",
+          "Ne heikentävät talouskasvua ja lisäävät kuluttajien kustannuksia",
+          "Ne vähentävät kuluttajien kustannuksia",
+          "Ne lisäävät kansainvälistä kauppaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_273",
+        "prompt": "Mihin globalisaation kritiikki usein kohdistuu?",
+        "options": [
+          "Sen tasaisiin hyötyihin",
+          "Sen epätasaisiin hyötyihin",
+          "Sen liian nopeaan etenemiseen",
+          "Sen hidastumiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_274",
+        "prompt": "Mitä ratkaisuja globalisaation haittoihin on esitetty?",
+        "options": [
+          "Globaalin verotuksen kehittämistä, työntekijöiden oikeuksien vahvistamista ja ympäristönsuojelun tiukentamista",
+          "Vain globaalin verotuksen kehittämistä",
+          "Vain työntekijöiden oikeuksien vahvistamista",
+          "Vain ympäristönsuojelun tiukentamista"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

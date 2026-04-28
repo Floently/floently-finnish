@@ -1,0 +1,88 @@
+{
+  "id": "2d94b8ba-6220-57c2-ba45-814a7a92d555",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele väittely julkisten palvelujen yksityistämisestä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tänään väittelemme siitä, pitäisikö julkisia palveluja yksityistää. Ensimmäisenä puheenvuoro kansanedustaja Matti Virtaselta. Virtanen: Yksityistäminen lisää kilpailua ja tehokkuutta. Se voi parantaa palvelujen laatua ja alentaa kustannuksia. Yksityiset yritykset ovat usein innovatiivisempia. Puheenjohtaja: Kiitos. Vastapuheenvuoro professori Anna Kiveltä. Kivi: Julkiset palvelut ovat tasa-arvon perusta. Yksityistäminen johtaa helposti siihen, että palvelut keskittyvät sinne, missä on maksukykyisiä asiakkaita. Syrjäseuduilla ja köyhillä alueilla palvelut voivat heiketä. Virtanen: Kunta voi kuitenkin asettaa ehtoja yksityiselle palveluntuottajalle. Voidaan vaatia, että palvelua on tarjottava kaikilla alueilla. Kivi: Käytännössä se on vaikeaa. Yksityinen toimija hakee voittoa, mikä voi johtaa karsintaan ja laadun heikkenemiseen. Julkinen valvonta ei aina toimi. Julkinen palvelu on läpinäkyvämpää ja demokraattisempaa.",
+      "audio_asset_id": "da346d8b-dc54-40a1-a252-d24ead2db71d"
+    },
+    "questions": [
+      {
+        "id": "f32d3d0f-3c08-59f7-b499-cf531e65b7aa",
+        "prompt": "Mitä mieltä Matti Virtanen on julkisten palvelujen yksityistämisestä?",
+        "options": [
+          "Se on huono asia.",
+          "Se lisää kilpailua, tehokkuutta, voi parantaa laatua ja alentaa kustannuksia.",
+          "Sillä ei ole vaikutusta.",
+          "Se pitäisi kieltää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "01466004-521a-5068-aad9-2e75ad028396",
+        "prompt": "Miten Anna Kivi perustelee julkisten palvelujen tärkeyttä?",
+        "options": [
+          "Ne ovat tehokkaampia.",
+          "Ne ovat halvempia.",
+          "Ne ovat tasa-arvon perusta ja yksityistäminen voi heikentää palveluja syrjäseuduilla.",
+          "Ne ovat suositumpia."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0894ea0f-d5b0-5886-a450-b8886f54777a",
+        "prompt": "Mitä Virtanen ehdottaa yksityistämisen ongelmien ratkaisuksi?",
+        "options": [
+          "Kunta voi asettaa ehtoja yksityiselle palveluntuottajalle.",
+          "Kieltää yksityistäminen kokonaan.",
+          "Lisätä yksityistämistä.",
+          "Perustaa lisää julkisia palveluja."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "01fc8bde-50f8-5cae-aa25-406120024464",
+        "prompt": "Mitä Kivi vastaa tähän?",
+        "options": [
+          "Se on hyvä idea.",
+          "Se toimii aina hyvin.",
+          "Käytännössä se on vaikeaa, koska yksityinen toimija hakee voittoa, mikä voi johtaa karsintaan.",
+          "Se on jo käytössä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "264c2dbe-15fb-52ad-8f63-5c3922bc3d43",
+        "prompt": "Mitä Kivi pitää julkisten palvelujen etuna?",
+        "options": [
+          "Ne ovat nopeampia.",
+          "Ne ovat halvempia.",
+          "Ne ovat innovatiivisempia.",
+          "Ne ovat läpinäkyvämpiä ja demokraattisempia."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

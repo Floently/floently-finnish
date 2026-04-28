@@ -1,0 +1,66 @@
+{
+  "id": "5653dcaf-df63-5082-ac30-fb5adbb69c7c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen lastenkirjallisuus on monipuolista ja arvostettua. Tove Janssonin Muumi-kirjat ovat kansainvälisesti tunnettuja, ja niitä on käännetty kymmenille kielille. Muumit kertovat perheestä ja ystävyydestä, ja ne ovat rakastettuja niin lasten kuin aikuistenkin keskuudessa. Muita tunnettuja lastenkirjailijoita ovat Mauri Kunnas, jonka kirjat, kuten Herkules ja Koiramäen talvi, ovat täynnä huumoria ja yksityiskohtia. Kirjailijat kuten Hannele Huovi, Jukka Parkkinen ja Timo Parvela ovat myös suosittuja. Parvelan Ella-kirjat ovat erityisen pidettyjä koululaisille. Kuvakirjat ovat tärkeä osa lastenkirjallisuutta. Kuvittajat kuten Kristiina Louhi, Markus Majaluoma ja Salla Savolainen ovat tunnettuja. Hyvä kuvitus tukee tarinaa ja innostaa lasta lukemaan. Suomessa panostetaan lasten lukemiseen. Kirjastot järjestävät satutunteja ja lukukampanjoita, kuten Lukuklaani ja Lukukoira. Kouluissa on kirjastovierailuja ja lukudiplomeja, jotka kannustavat lapsia lukemaan monipuolisesti. Lastenkirjallisuuden päivää vietetään 15. maaliskuuta, joka on Tove Janssonin syntymäpäivä. Sinä päivänä kouluissa ja kirjastoissa järjestetään tapahtumia. Uudet lastenkirjat saavat usein paljon huomiota, ja lastenkirjallisuuden Finlandia-palkinto jaetaan vuosittain. Lastenkirjallisuus on tärkeää, koska se herättää lukemisen ilon ja kehittää mielikuvitusta.",
+      "word_count": 154
+    },
+    "questions": [
+      {
+        "id": "f3a4b5c6-d7e8-4f9a-9b0c-1d2e3f4a5b6c",
+        "prompt": "Kuka on kirjoittanut Muumi-kirjat?",
+        "options": [
+          "Mauri Kunnas",
+          "Tove Jansson",
+          "Hannele Huovi",
+          "Timo Parvela"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a4b5c6d7-e8f9-4a0b-9c1d-2e3f4a5b6c7d",
+        "prompt": "Milloin vietetään lastenkirjallisuuden päivää?",
+        "options": [
+          "6. joulukuuta",
+          "15. maaliskuuta",
+          "1. toukokuuta",
+          "24. helmikuuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b5c6d7e8-f9a0-4b1c-9d2e-3f4a5b6c7d8e",
+        "prompt": "Mitkä kirjat ovat erityisen pidettyjä koululaisille?",
+        "options": [
+          "Muumi-kirjat",
+          "Ella-kirjat",
+          "Koiramäen kirjat",
+          "Herkules-kirjat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

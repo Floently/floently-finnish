@@ -1,0 +1,73 @@
+{
+  "id": "623ded18-3a50-5046-8b40-e1b7b28472ce",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työhaastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Haastattelija: Kerro vähän itsestäsi ja miksi haet tätä myyjän paikkaa.\nHakija: Olen valmistunut merkonomiksi kolme vuotta sitten. Olen työskennellyt kahdessa eri kaupassa, joten minulla on kokemusta asiakaspalvelusta ja kassatyöstä. Pidän ihmisten kanssa työskentelystä ja haluan kehittyä myynnissä.\nHaastattelija: Millainen olet työntekijänä?\nHakija: Olen täsmällinen ja tunnollinen. Tykkään tehdä töitä järjestelmällisesti ja autan mielelläni muita. Opettelen nopeasti uudet asiat.\nHaastattelija: Miksi haluat vaihtaa työpaikkaa?\nHakija: Nykyisessä paikassa ei ole enää kehittymismahdollisuuksia. Haluaisin päästä isompaan myymälään, missä voin oppia lisää.",
+      "audio_asset_id": "8bcd47b7-4f4a-4db5-9b24-c83a65088a71"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on hakijan koulutus?",
+        "options": [
+          "tradenomi",
+          "merkonomi",
+          "myyjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kokemusta hakijalla on?",
+        "options": [
+          "varastotyötä",
+          "asiakaspalvelua ja kassatyötä",
+          "esimiestyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi hakija haluaa vaihtaa työpaikkaa?",
+        "options": [
+          "huonon palkan takia",
+          "ei ole kehittymismahdollisuuksia",
+          "pitkän työmatkan takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millainen työntekijä hakija sanoo olevansa?",
+        "options": [
+          "luova ja taiteellinen",
+          "täsmällinen ja tunnollinen",
+          "hidas ja varovainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

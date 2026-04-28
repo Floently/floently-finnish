@@ -1,0 +1,73 @@
+{
+  "id": "2d35777a-abb2-560f-b99d-43c243646ec8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LINJA-AUTOLIIKENTEEN MUUTOS\n\nLinja 14 ei kulje 20.7.–5.8. välisenä aikana tienrakennuksen vuoksi.\n\nKorvaava linja 14K kulkee samaa reittiä.\n\nLisätietoja liikennöitsijän verkkosivuilta.\n\nPahoittelemme häiriötä.",
+      "word_count": 22
+    },
+    "questions": [
+      {
+        "id": "item_003_1",
+        "prompt": "Miksi linja 14 ei kulje?",
+        "options": [
+          "bussien huollon takia",
+          "tienrakennuksen vuoksi",
+          "lakon takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003_2",
+        "prompt": "Kauanko linja 14 on pois käytöstä?",
+        "options": [
+          "viikon",
+          "kaksi viikkoa",
+          "yli kaksi viikkoa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_003_3",
+        "prompt": "Mikä linja korvaa linjan 14?",
+        "options": [
+          "linja 12",
+          "linja 14K",
+          "linja 15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003_4",
+        "prompt": "Mistä saa lisätietoja?",
+        "options": [
+          "lehdestä",
+          "liikennöitsijän verkkosivuilta",
+          "bussipysäkiltä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "ab31e780-1ce7-5bcf-9be2-4bda01719902",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita ohje.",
+    "materials": {
+      "scenario": "Kirjoita ohje."
+    },
+    "items": [
+      {
+        "id": "fb45950d-375d-5135-9c3e-062fea135077",
+        "prompt": "Sinulla on kylässä ystävä, joka ei tunne kaupunkiasi. Kirjoita ohjeet, miten hän löytää lähimpään ruokakauppaan.\nKerro:\n- mistä lähdetään\n- mihin suuntaan pitää mennä\n- mikä on maamerkki (esim. kirkko, kauppa)."
+      }
+    ],
+    "rubric": "Sinulla on kylässä ystävä, joka ei tunne kaupunkiasi. Kirjoita ohjeet, miten hän löytää lähimpään ruokakauppaan.\nKerro:\n- mistä lähdetään\n- mihin suuntaan pitää mennä\n- mikä on maamerkki (esim. kirkko, kauppa).",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

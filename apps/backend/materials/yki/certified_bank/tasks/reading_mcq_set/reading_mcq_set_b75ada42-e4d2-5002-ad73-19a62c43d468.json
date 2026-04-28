@@ -1,0 +1,77 @@
+{
+  "id": "b75ada42-e4d2-5002-ad73-19a62c43d468",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.784,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Tekoälyn kehitys ja sen vaikutukset työelämään ovat olleet viime vuosien keskeisimpiä yhteiskunnallisia keskustelunaiheita. Toistuvasti esitetty kysymys kuuluu: viekö tekoäly työpaikkamme? Vastaus on kuitenkin paljon monimutkaisempi kuin yksinkertainen kyllä tai ei. Historiallisesti teknologinen kehitys on sekä tuhonnut että luonut työpaikkoja, ja pitkällä aikavälillä työllisyys on säilynyt korkeana uusien toimialojen synnyttyä. Tämän historiallisen evidenssin perusteella monet taloustieteilijät suhtautuvat tekoälyn työllisyysvaikutuksiin optimistisesti. Heidän mukaansa uudet teknologiat luovat aina uusia, ennakoimattomia työtehtäviä, ja työmarkkinat sopeutuvat muutoksiin itsestään. Toiset tutkijat ovat kuitenkin huolestuneita siitä, että tekoälyn kehitys voi tällä kertaa olla laadullisesti erilaista kuin aiemmat teknologiset murrokset. Heidän mukaansa tekoäly pystyy korvaamaan ihmisiä paitsi rutiininomaisissa myös monissa asiantuntijatehtävissä, mikä voi johtaa laajamittaiseen työttömyyteen ja eriarvoisuuden kasvuun. Kolmas näkemys korostaa, että tekoälyn vaikutukset työllisyyteen riippuvat pitkälti siitä, miten teknologiaa käytetään ja kuka sen tuottamia hyötyjä saa. Teknologia itsessään ei ole hyvä tai paha, vaan sen vaikutukset määräytyvät yhteiskunnallisten valintojen ja vallitsevien valtasuhteiden kautta. Tästä näkökulmasta keskeistä ei ole kysyä, tuhooko tekoäly työpaikkoja, vaan se, kuka omistaa tekoälyn, kuka päättää sen käytöstä ja miten sen tuottamat hyödyt jaetaan. Tulevaisuuden työmarkkinat muotoutuvat pitkälti sen mukaan, millaisia päätöksiä tänään tehdään tekoälyn kehittämisestä, käyttöönotosta ja sääntelystä. Tarvitaan ennakkoluulotonta keskustelua ja kokeiluja, jotta voidaan löytää toimivia ratkaisuja ja varmistaa, että tekoälyn tuomat mahdollisuudet koituvat kaikkien hyväksi.",
+      "word_count": 205
+    },
+    "questions": [
+      {
+        "id": "cc471713-5a34-59e6-8d62-252beacbf096",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Tekoälyn teknologinen kehitys ja sen nopeus",
+          "Tekoälyn vaikutukset työllisyyteen ja siihen liittyvät erilaiset näkökulmat",
+          "Historialliset teknologiamurrokset ja niiden seuraukset",
+          "Tekoälyn omistajuuteen liittyvät oikeudelliset kysymykset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "942a0382-ac2d-5c64-abd9-349436df929c",
+        "prompt": "Tekstin mukaan miten historiallinen evidenssi vaikuttaa joidenkin taloustieteilijöiden optimismiin tekoälyn työllisyysvaikutuksista?",
+        "options": [
+          "Historia osoittaa, että teknologia väistämättä vähentää työpaikkoja pitkällä aikavälillä",
+          "Koska aiemmat teknologiamurrokset ovat lopulta luoneet uusia työpaikkoja, he uskovat saman toistuvan",
+          "Historialla ei ole merkitystä, koska tekoäly on täysin uusi ilmiö",
+          "He uskovat, että tekoäly hidastaa talouskasvua ja vähentää työllisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "63959b74-531a-5127-bdd9-4f68575409e0",
+        "prompt": "Mitä huolta teknologiapessimistit esittävät tekoälyn vaikutuksista?",
+        "options": [
+          "Tekoälyn kehitys on liian hidasta eikä tuo riittävästi tuottavuushyötyjä",
+          "Tekoäly pystyy korvaamaan ihmisiä myös asiantuntijatehtävissä, mikä voi johtaa laajamittaiseen työttömyyteen",
+          "Teknologian kehitys on keskittynyt liikaa teollisuuteen ja unohtanut palvelualat",
+          "Tekoälyn tuottamat hyödyt jakautuvat liian tasaisesti väestön kesken"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "046af549-530f-5f62-bb37-4375d0e29e96",
+        "prompt": "Mitä kolmas, valtasuhteita korostava näkemys pitää keskeisenä tekoälyn työllisyysvaikutusten arvioinnissa?",
+        "options": [
+          "Sitä, kuinka nopeasti tekoäly kehittyy ja leviää eri toimialoille",
+          "Sitä, kuka omistaa tekoälyn, kuka päättää sen käytöstä ja miten hyödyt jaetaan",
+          "Sitä, kuinka paljon tekoälyä käytetään eri maissa",
+          "Sitä, miten tekoäly vaikuttaa eri ammattiryhmien työnkuviin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

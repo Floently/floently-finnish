@@ -1,0 +1,37 @@
+{
+  "id": "e9ecc044-830b-509d-85ca-30fa34c1b9cb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ohjeen mukaan.",
+    "materials": {
+      "scenario": "Asunto-ongelma"
+    },
+    "items": [
+      {
+        "id": "55d6a141-13d1-5505-afa5-3d88c8782910",
+        "prompt": "Kirjoita viesti vuokranantajalle ja kerro, että hana vuotaa."
+      }
+    ],
+    "rubric": "Kirjoita viesti vuokranantajalle ja kerro, että hana vuotaa.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "5a903409-f1d2-5715-bdbe-8f423ef34fda",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.293,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you work on weekends or if you are always free. What do you do on weekends if you don't work?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "b2614cc2-92ce-5e7f-8971-dd683d5c12fe",
+        "ai_first_turn_fi": "Teetkö sä joskus töitä viikonloppuna? Vai onko viikonloppu aina vapaata?"
+      }
+    ],
+    "rubric": "Tell if you work on weekends or if you are always free. What do you do on weekends if you don't work?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

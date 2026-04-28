@@ -1,0 +1,66 @@
+{
+  "id": "e6ad23ed-f858-579e-a443-f64c97db0587",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.342,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa työhaastattelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Haastattelija: Kerro vähän itsestäsi.\nHakija: Olen 25-vuotias ja asun Tampereella. Opiskelen viimeistä vuotta tradenomiksi. Olen työskennellyt aikaisemmin kaupassa ja kahvilassa. Pidän asiakaspalvelusta ja olen tottunut työskentelemään kiireessä.\nHaastattelija: Millainen työntekijä olet?\nHakija: Olen ahkera ja täsmällinen. Tulen hyvin toimeen erilaisten ihmisten kanssa.",
+      "audio_asset_id": "8c34be81-c3bc-4861-a08e-0f9bf55b16eb"
+    },
+    "questions": [
+      {
+        "id": "6fa836dc-634e-56df-9f41-3188b833aaa3",
+        "prompt": "Mitä hakija opiskelee?",
+        "options": [
+          "Insinööriksi",
+          "Tradenomiksi",
+          "Lääkäriksi",
+          "Opettajaksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "beda86c2-e17d-5db5-8690-9bf774042da2",
+        "prompt": "Missä hakija on työskennellyt aikaisemmin?",
+        "options": [
+          "Toimistossa ja varastolla",
+          "Kaupassa ja kahvilassa",
+          "Koulussa ja päiväkodissa",
+          "Ravintolassa ja hotellissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c7f1bdb2-a92c-5094-ad05-bf2bd17f1652",
+        "prompt": "Millainen työntekijä hakija on?",
+        "options": [
+          "Hidas ja huolellinen",
+          "Ahkera ja täsmällinen",
+          "Luova ja villi",
+          "Ujo ja hiljainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "f04ebb93-eb15-5931-84c2-3d832c89332a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.675,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kauppakeskuksen kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät asiakkaat. Tervetuloa kauppakeskus Keskustaan. Muistutamme, että parkkihallimme on täynnä. Vapautuvia paikkoja on noin 15 minuutin kuluttua. Seuraamme tilannetta ja toivotamme hyvää ostospäivää!",
+      "audio_asset_id": "eb7e9974-32dc-45ac-a250-d1ef6fb3931d"
+    },
+    "questions": [
+      {
+        "id": "c55d64ad-63fd-56cf-bc12-c9fdd89e1330",
+        "prompt": "Mikä on kauppakeskuksen nimi?",
+        "options": [
+          "Keskusta.",
+          "Plaza.",
+          "Forum.",
+          "Galleria."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "f8d153f6-6fe2-57d7-a314-98b530f0f03a",
+        "prompt": "Mikä on tilanne parkkihallissa?",
+        "options": [
+          "Paljon vapaita paikkoja.",
+          "Parkkihalli on täynnä.",
+          "Parkkihalli on suljettu.",
+          "Parkkihalli on remontissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1ad1efe2-441f-5e9e-accd-3b0c83ecebd6",
+        "prompt": "Kuinka pian vapautuvia paikkoja arvioidaan olevan?",
+        "options": [
+          "5 minuutin kuluttua.",
+          "10 minuutin kuluttua.",
+          "20 minuutin kuluttua.",
+          "15 minuutin kuluttua."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "c71d7c98-187d-5234-b2f1-2ed11c7b6909",
+        "prompt": "Mitä kuulutuksessa toivotetaan?",
+        "options": [
+          "Hyvää ostospäivää.",
+          "Hyvää päivänjatkoa.",
+          "Näkemiin.",
+          "Tervetuloa uudelleen."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "5fb32c59-84c9-5941-a11c-fe94a3fbf4e4",
+        "prompt": "Mitä asiakkaiden odotetaan tekevän?",
+        "options": [
+          "Lähteä pois.",
+          "Kääntyä takaisin.",
+          "Odottamaan vapautuvia paikkoja.",
+          "Käyttää toista parkkihallia."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "b9a0aa31-7fc3-5447-94b4-18597b4b176d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö julkisissa tiloissa olla enemmän istumapaikkoja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Istumapaikat julkisissa tiloissa"
+    },
+    "items": [
+      {
+        "id": "54d769f3-a695-53d5-abad-69b244d7eca3",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö julkisissa tiloissa olla enemmän istumapaikkoja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

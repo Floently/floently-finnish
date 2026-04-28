@@ -1,0 +1,37 @@
+{
+  "id": "19074ccc-d0de-599d-8d32-b0c1554ae126",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti sosiaali- ja terveysalan lupa- ja valvontavirastolle. Olet tehnyt valituksen terveyskeskuksen hoidosta, etkä ole saanut vastausta. Kerro, milloin teit valituksen, mitä asia koski ja miksi et ole tyytyväinen saamaasi kohteluun. Pyydä, että asia tutkitaan uudelleen.",
+    "materials": {
+      "scenario": "Valituksen käsittelyn viivästyminen"
+    },
+    "items": [
+      {
+        "id": "85bfcc6a-c455-5506-ad1b-c8f63e443e94",
+        "prompt": "Kirjoita virallinen sähköposti sosiaali- ja terveysalan lupa- ja valvontavirastolle. Olet tehnyt valituksen terveyskeskuksen hoidosta, etkä ole saanut vastausta. Kerro, milloin teit valituksen, mitä asia koski ja miksi et ole tyytyväinen saamaasi kohteluun. Pyydä, että asia tutkitaan uudelleen."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

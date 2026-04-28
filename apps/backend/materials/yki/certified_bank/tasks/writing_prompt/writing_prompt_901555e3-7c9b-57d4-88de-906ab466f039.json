@@ -1,0 +1,37 @@
+{
+  "id": "901555e3-7c9b-57d4-88de-906ab466f039",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksiin saada ilmainen ehkäisy kaikille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ilmainen ehkäisy terveyskeskuksissa"
+    },
+    "items": [
+      {
+        "id": "d36ed87f-f284-57b5-9dd7-c31e964c41f2",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksiin saada ilmainen ehkäisy kaikille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

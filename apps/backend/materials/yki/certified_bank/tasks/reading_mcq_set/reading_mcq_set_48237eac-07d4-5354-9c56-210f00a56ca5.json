@@ -1,0 +1,88 @@
+{
+  "id": "48237eac-07d4-5354-9c56-210f00a56ca5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Harrastuksilla on tärkeä rooli ihmisten hyvinvoinnissa ja elämänlaadussa. Ne tarjoavat mahdollisuuden rentoutua, oppia uutta, tavata ihmisiä ja toteuttaa itseään. Harrastukset voivat olla hyvin erilaisia: liikuntaa, kulttuuria, kädentaitoja, musiikkia, lukemista tai mitä tahansa muuta, mistä ihminen nauttii. Yksi keskeisimmistä harrastusten hyödyistä on niiden kyky vähentää stressiä. Harrastuksen parissa ihminen pääsee irrottautumaan arjen huolista ja keskittymään johonkin mieluisaan. Tämä auttaa palautumaan työn ja muiden velvollisuuksien rasituksista. Toinen tärkeä hyöty on sosiaalisten suhteiden vahvistaminen. Monet harrastukset ovat yhteisöllisiä, ja niissä tapaa uusia ihmisiä ja solmii ystävyyssuhteita. Yhteinen harrastus yhdistää ja luo yhteenkuuluvuuden tunnetta. Kolmas hyöty on itsetunnon ja itseluottamuksen vahvistuminen. Harrastuksessa oppii uusia taitoja, kehittyy ja saa onnistumisen kokemuksia. Tämä lisää uskoa omiin kykyihin ja vahvistaa itsetuntoa. Neljäs hyöty on luovuuden ja mielikuvituksen vapautuminen. Erityisesti luovat harrastukset, kuten kirjoittaminen, maalaaminen tai soittaminen, antavat mahdollisuuden ilmaista itseään ja toteuttaa luovuuttaan. Viides hyöty on fyysisen kunnon ja terveyden ylläpitäminen. Liikuntaharrastukset pitävät kunnossa, ehkäisevät sairauksia ja parantavat unen laatua. Harrastusten merkitys korostuu erityisesti elämän muutosvaiheissa, kuten eläkkeelle jäädessä tai muuton yhteydessä. Ne antavat sisältöä ja rytmiä elämään ja auttavat sopeutumaan uusiin tilanteisiin. Siksi on tärkeää, että kaikilla on mahdollisuus harrastaa omien kiinnostustensa mukaan.",
+      "word_count": 187
+    },
+    "questions": [
+      {
+        "id": "676570ba-a839-5372-81e2-e854e2e0b9ad",
+        "prompt": "Mikä on yksi keskeisimmistä harrastusten hyödyistä?",
+        "options": [
+          "Ne lisäävät stressiä",
+          "Ne vähentävät stressiä ja auttavat palautumaan",
+          "Ne vievät aikaa levolta",
+          "Ne ovat pakollisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b89f7bf0-9fb5-5c7d-b7a4-ade8cb59bddd",
+        "prompt": "Miten harrastukset vahvistavat sosiaalisia suhteita?",
+        "options": [
+          "Ne eristävät ihmisiä toisistaan",
+          "Monet harrastukset ovat yhteisöllisiä ja niissä tapaa uusia ihmisiä",
+          "Ne lisäävät kilpailua ihmisten välillä",
+          "Ne vähentävät yhteydenpitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "25a3e111-bdfa-56e7-addb-4d42e766346c",
+        "prompt": "Miten harrastukset vaikuttavat itsetuntoon?",
+        "options": [
+          "Ne heikentävät itsetuntoa",
+          "Oppimalla uusia taitoja ja saamalla onnistumisen kokemuksia itsetunto vahvistuu",
+          "Ne eivät vaikuta itsetuntoon",
+          "Ne saavat ihmisen tuntemaan itsensä huonommaksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4a9f112a-fa08-5327-b65a-59b0e446b0e2",
+        "prompt": "Millaiset harrastukset vapauttavat erityisesti luovuutta?",
+        "options": [
+          "Liikuntaharrastukset",
+          "Luovat harrastukset, kuten kirjoittaminen, maalaaminen tai soittaminen",
+          "Sosiaaliset harrastukset",
+          "Tekniset harrastukset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fd68ebc2-369c-5357-8a80-82d5eef49d71",
+        "prompt": "Miksi harrastukset ovat tärkeitä elämän muutosvaiheissa?",
+        "options": [
+          "Ne estävät muutoksia",
+          "Ne antavat sisältöä ja rytmiä elämään ja auttavat sopeutumaan uusiin tilanteisiin",
+          "Ne vaikeuttavat sopeutumista",
+          "Ne ovat turhia muutostilanteissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

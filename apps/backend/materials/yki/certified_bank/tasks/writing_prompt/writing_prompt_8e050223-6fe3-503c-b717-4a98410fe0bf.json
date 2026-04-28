@@ -1,0 +1,37 @@
+{
+  "id": "8e050223-6fe3-503c-b717-4a98410fe0bf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikamuodin verotusta kiristää ympäristösyistä?'. Arvioi kuluttajakäyttäytymistä ja teollisuuden vastuuta.",
+    "materials": {
+      "scenario": "Pikamuodin verotus"
+    },
+    "items": [
+      {
+        "id": "9be10d52-c931-5d0e-acfb-53400c4e186e",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikamuodin verotusta kiristää ympäristösyistä?'. Arvioi kuluttajakäyttäytymistä ja teollisuuden vastuuta."
+      }
+    ],
+    "rubric": "Ympäristövaikutukset\nKuluttajakäyttäytyminen\nTeollisuuden vastuu\nSosiaaliset vaikutukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

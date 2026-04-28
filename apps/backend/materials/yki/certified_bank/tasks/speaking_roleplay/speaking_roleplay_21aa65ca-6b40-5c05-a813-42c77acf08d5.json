@@ -1,0 +1,64 @@
+{
+  "id": "21aa65ca-6b40-5c05-a813-42c77acf08d5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä reklamaation puhelinliittymästä. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Teleoperaattorin asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp35_1",
+        "ai_first_turn_fi": "Hei, Telian asiakaspalvelu, Maija."
+      },
+      {
+        "id": "srp35_2",
+        "ai_first_turn_fi": "Ikävä kuulla. Mikä on asiakasnumerosi?"
+      },
+      {
+        "id": "srp35_3",
+        "ai_first_turn_fi": "Kiitos. Katsotaan laskuasi. Mikä summa on mielestäsi virheellinen?"
+      },
+      {
+        "id": "srp35_4",
+        "ai_first_turn_fi": "Näen tässä lisäpalvelumaksun 15 euroa. Et ole tilannut tätä palvelua, joten hyvitämme sen seuraavalla laskulla. Pahoittelut virheestä."
+      },
+      {
+        "id": "srp35_5",
+        "ai_first_turn_fi": "Lähetän sinulle korjatun laskun sähköpostitse. Haluatko, että tarkistan samalla muut laskusi?"
+      },
+      {
+        "id": "srp35_6",
+        "ai_first_turn_fi": "Selvä. Kaikki muut laskut ovat kunnossa. Tarvitsetko vielä muuta apua?"
+      },
+      {
+        "id": "srp35_7",
+        "ai_first_turn_fi": "Hyvä. Mukavaa päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä reklamaation puhelinliittymästä. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

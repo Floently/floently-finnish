@@ -1,0 +1,88 @@
+{
+  "id": "0b06c4c2-d7d4-5073-9772-1d76f14599b9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni lihansyönnin vähentämisestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LIHANSYÖNNIN VÄHENTÄMINEN – KENEN VASTUULLA?\n\nIlmastopaneelit ja terveysviranomaiset ovat vuosia suositelleet lihansyönnin vähentämistä. Punainen liha ja prosessoitu liha lisäävät sairauksien riskiä ja kuormittavat ympäristöä. Silti lihankulutus ei ole laskenut Suomessa. Miksi?\n\nYksi selitys on kulttuuri. Liha on suomalaiselle ruokaperinteelle keskeistä. Juhlapöydässä on kinkku, arkena makkara ja lihapullat. Kasvisruoka nähdään edelleen poikkeuksena, ei vaihtoehtona.\n\nToinen selitys on teollisuuden vaikutusvalta. Lihateollisuus on voimakas toimija, joka markkinoi tuotteitaan tehokkaasti. Samaan aikaan kasvisvaihtoehtoja on kaupoissa, mutta ne ovat usein kalliimpia.\n\nKolmas selitys on tiedon puute tai välinpitämättömyys. Moni tietää, että lihansyöntiä pitäisi vähentää, mutta ei halua luopua tottumuksistaan. Ajatellaan, että yksilön teoilla ei ole merkitystä.\n\nMutta kenen vastuulla muutos on? Yksilön vai yhteiskunnan? Jos kaikki odottavat, että joku muu toimii, mikään ei muutu. Toisaalta yhteiskunta voi helpottaa valintoja esimerkiksi verotuksella tai julkisten hankintojen ohjauksella.\n\nRatkaisu ei ole pakottaminen vaan mahdollisuuksien luominen. Kun kasvisruoka on hyvää, edullista ja helposti saatavilla, yhä useampi valitsee sen. Ja jokainen ateria on mahdollisuus.",
+      "word_count": 154
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi lihansyönti ei ole vähentynyt kulttuurisista syistä?",
+        "options": [
+          "Liha on kallista",
+          "Liha on osa suomalaista ruokaperinnettä",
+          "Ihmiset eivät pidä kasviksista",
+          "Kasvisruoka on vaikea valmistaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten lihateollisuus vaikuttaa tilanteeseen?",
+        "options": [
+          "Se vähentää tuotantoa",
+          "Se markkinoi lihaa tehokkaasti",
+          "Se tukee kasvisruokaa",
+          "Se on vähentynyt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan välinpitämättömyydellä?",
+        "options": [
+          "Ihmiset eivät tiedä asioista",
+          "Ihmiset eivät välitä vaikka tietävät",
+          "Ihmiset haluavat muutosta",
+          "Ihmiset syövät liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kenen vastuulla muutos on kirjoittajan mukaan?",
+        "options": [
+          "Vain yksilön",
+          "Vain yhteiskunnan",
+          "Sekä yksilön että yhteiskunnan",
+          "Vain teollisuuden"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on kirjoittajan ehdotus ratkaisuksi?",
+        "options": [
+          "Lihan syönti kielletään",
+          "Kasvisruoasta tehdään hyvää, edullista ja helposti saatavilla",
+          "Lihalle asetetaan korkea vero",
+          "Ihmisiä pakotetaan syömään kasviksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

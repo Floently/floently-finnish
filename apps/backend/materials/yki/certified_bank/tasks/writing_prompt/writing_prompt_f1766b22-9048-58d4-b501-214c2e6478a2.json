@@ -1,0 +1,37 @@
+{
+  "id": "f1766b22-9048-58d4-b501-214c2e6478a2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kaupunkien keskustoissa olla enemmän ilmaisia tapahtumia. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ilmaiset tapahtumat kaupunkien keskustoissa"
+    },
+    "items": [
+      {
+        "id": "6602f65b-9535-5cb3-ab31-d6507155c848",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kaupunkien keskustoissa olla enemmän ilmaisia tapahtumia. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "f01cb65a-a13f-59d8-a6c6-90a4b297308f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kasvien hoito-ohje ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "YKSIVUOTISTEN KESÄKUKKIEN HOITO\n\nKastelu: Kastele runsaasti, mutta älä jätä vettä aluslautaselle. Multa saa olla kosteaa, ei märkää. Kuumalla säällä kastele joka päivä.\n\nLannoitus: Lannoita kerran viikossa kesäkukille tarkoitetulla lannoitteella.\n\nKuihtuneet kukat: Poista kuivuneet kukat, niin uusia tulee tilalle.\n\nTalvetus: Yksivuotiset kukat eivät talvehdi, vaan ne pitää uusia joka kevät.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "0acea420-bc9b-5da5-90e0-33326eac1ed5",
+        "prompt": "Kuinka usein kukkia pitää kastella kuumalla säällä?",
+        "options": [
+          "Kerran viikossa",
+          "Joka päivä",
+          "Kerran kuussa",
+          "Ei ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "75918e02-ff61-5452-9efe-fca25538e06e",
+        "prompt": "Mitä pitää tehdä kuihtuneille kukille?",
+        "options": [
+          "Jättää paikoilleen",
+          "Poistaa ne",
+          "Kastella enemmän",
+          "Lannoittaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c520e7c5-1acb-55a1-8890-5372036a4a71",
+        "prompt": "Voiko yksivuotiset kukat talvettaa?",
+        "options": [
+          "Kyllä, sisällä",
+          "Kyllä, ulkona",
+          "Ei voi",
+          "Vain jos lannoittaa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "a295c55c-c18e-5ef2-8196-e9dff70a5851",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.728,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomi on tunnettu korkeasta koulutustasostaan. Lähes koko väestö osaa lukea ja kirjoittaa, ja suurin osa nuorista suorittaa toisen asteen tutkinnon. Korkeakoulutettujen osuus väestöstä on kansainvälisesti vertailtuna korkea. Koulutus nähdään Suomessa tärkeänä sekä yksilön että yhteiskunnan kannalta. Yksilölle koulutus avaa mahdollisuuksia työelämässä ja lisää hyvinvointia. Yhteiskunnalle koulutettu väestö on kilpailuetu ja turvaa hyvinvointivaltion rahoituksen. Koulutusjärjestelmää onkin kehitetty pitkäjänteisesti ja siihen on panostettu paljon resursseja. Viime vuosina koulutus on kohdannut uusia haasteita. Osa nuorista jää ilman toisen asteen tutkintoa, ja oppimistulokset ovat laskeneet tietyillä aloilla. Myöskään kaikki korkeakoulutetut eivät työllisty koulutustaan vastaaviin tehtäviin. Tämä on johtanut keskusteluun koulutuksen ja työelämän vastaavuudesta. Tarvitaan joustavampia koulutuspolkuja, elinikäistä oppimista ja tiiviimpää yhteistyötä oppilaitosten ja työelämän välillä. Koulutus on edelleen suomalaisten menestyksen perusta, mutta sitä on uudistettava vastaamaan tulevaisuuden tarpeita.",
+      "word_count": 124
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä Suomi on tunnettu koulutuksessa?",
+        "options": [
+          "Matalasta koulutustasosta.",
+          "Korkeasta koulutustasosta ja lukutaidosta.",
+          "Vain ammatillisen koulutuksen määrästä.",
+          "Vain yliopistojen määrästä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä koulutuksesta on yksilölle?",
+        "options": [
+          "Se on pakollista.",
+          "Se avaa mahdollisuuksia työelämässä ja lisää hyvinvointia.",
+          "Se takaa korkean palkan.",
+          "Se vähentää vapaa-aikaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä koulutuksesta on yhteiskunnalle?",
+        "options": [
+          "Se on kallista.",
+          "Koulutettu väestö on kilpailuetu ja turvaa hyvinvointivaltion rahoituksen.",
+          "Se lisää työttömyyttä.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haasteita koulutus kohtaa?",
+        "options": [
+          "Liian paljon koulutettuja.",
+          "Osa nuorista jää ilman tutkintoa ja oppimistulokset ovat laskeneet.",
+          "Kaikki työllistyvät helposti.",
+          "Koulutus on liian halpaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ongelmaa korkeakoulutettujen työllistymisessä on?",
+        "options": [
+          "He työllistyvät aina koulutustaan vastaaviin tehtäviin.",
+          "Kaikki eivät työllisty koulutustaan vastaaviin tehtäviin.",
+          "Heitä on liian vähän.",
+          "Heitä on liian paljon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ratkaisuja koulutuksen haasteisiin esitetään?",
+        "options": [
+          "Koulutuksen vähentämistä.",
+          "Joustavampia koulutuspolkuja, elinikäistä oppimista ja yhteistyötä työelämän kanssa.",
+          "Vain yliopistokoulutuksen lisäämistä.",
+          "Vain peruskoulutuksen vähentämistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on koulutuksen asema Suomessa?",
+        "options": [
+          "Se on menettänyt merkityksensä.",
+          "Se on edelleen menestyksen perusta, mutta sitä on uudistettava.",
+          "Se on vanhanaikaista.",
+          "Se on korvattu muilla asioilla."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

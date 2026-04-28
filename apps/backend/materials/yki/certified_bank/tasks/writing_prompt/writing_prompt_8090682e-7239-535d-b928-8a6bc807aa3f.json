@@ -1,0 +1,37 @@
+{
+  "id": "8090682e-7239-535d-b928-8a6bc807aa3f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton ehkäisy myös keski-ikäisille?'. Arvioi terveysvaikutuksia, syntyvyyttä ja kustannuksia.",
+    "materials": {
+      "scenario": "Maksuton ehkäisy keski-ikäisille"
+    },
+    "items": [
+      {
+        "id": "61e22429-3c1a-56a5-b8fe-26697e06c5a0",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton ehkäisy myös keski-ikäisille?'. Arvioi terveysvaikutuksia, syntyvyyttä ja kustannuksia."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nSyntyvyys\nKustannukset\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "271ae966-6f01-5a9b-8977-6e8b791d266e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, olen tulossa hakemaan uutta passia. Minulla on aika kello 10.\nVirkailija: Hei, tervetuloa. Voitteko näyttää kutsun ja vanhan passin?\nAsiakas: Tässä ovat. Olenko myöhässä? Kello on vasta 9.45.\nVirkailija: Ette ollenkaan. Voitte istua odottamaan, kutsumme teidät kun on teidän vuoro.\nAsiakas: Kiitos. Kauanko passin saamisessa yleensä kestää?\nVirkailija: Noin kaksi viikkoa, mutta voitte myös tilata sen viidessä arkipäivässä lisämaksusta.\nAsiakas: Tavallinen kaksi viikkoa riittää. Kiitos.",
+      "audio_asset_id": "ba7c21f4-7384-5bcf-9fcf-4c0fddb5fb0a"
+    },
+    "questions": [
+      {
+        "id": "list_208",
+        "prompt": "Mihin aikaan asiakkaalla on aika?",
+        "options": [
+          "Kello 9.45",
+          "Kello 10",
+          "Kello 10.15",
+          "Kello 10.30"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_209",
+        "prompt": "Kuinka kauan passin saaminen normaalisti kestää?",
+        "options": [
+          "Viikon",
+          "Kaksi viikkoa",
+          "Kolme viikkoa",
+          "Kuukauden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_210",
+        "prompt": "Mitä asiakas päättää tehdä?",
+        "options": [
+          "Ottaa nopeutetun käsittelyn",
+          "Ottaa tavallisen käsittelyn",
+          "Peruu hakemuksen",
+          "Tulee myöhemmin uudelleen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "f1c9f86e-b757-5005-b133-7fcb94b7d4b5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uimahallin aukioloajoista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kuulutus Kivikon uimahallista. Tiedotamme, että uimahalli on suljettu ensi maanantaina 12.6. henkilökunnan koulutuspäivän vuoksi. Tiistaista perjantaihin olemme avoinna normaalisti kello 10–20. Viikonloppuisin olemme avoinna kello 9–18. Uimakoulut ja vesijumppa pidetään normaalin aikataulun mukaisesti lukuun ottamatta maanantaita. Lisäksi haluamme muistuttaa, että altaissa on tällä hetkellä viileämpää vettä kuin normaalisti teknisen häiriön vuoksi. Vikaa korjataan parhaillaan, ja pahoittelemme lämpötilasta aiheutuvaa haittaa. Pukukaapeissa on ruuhkaa erityisesti iltapäivisin, joten suosittelemme varaamaan riittävästi aikaa. Tervetuloa uimaan!",
+      "audio_asset_id": "f10a83a4-32e0-4d52-8bf1-4c04ab75ec12"
+    },
+    "questions": [
+      {
+        "id": "d3d9acf3-d74d-5d43-8cf6-3006ac85b670",
+        "prompt": "Miksi uimahalli on suljettu maanantaina?",
+        "options": [
+          "Vesivahingon vuoksi.",
+          "Henkilökunnan koulutuspäivän vuoksi.",
+          "Sähkökatkon vuoksi.",
+          "Remontin vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "02799a9c-8399-51cd-8105-ebe8266188f9",
+        "prompt": "Mihin aikaan uimahalli on auki tiistaista perjantaihin?",
+        "options": [
+          "8–18.",
+          "10–20.",
+          "9–19.",
+          "11–21."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "57361109-50cf-581b-8048-8c19a6d86249",
+        "prompt": "Mihin aikaan uimahalli on auki viikonloppuisin?",
+        "options": [
+          "9–18.",
+          "8–16.",
+          "10–20.",
+          "11–19."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b116d1fa-ea4f-5c20-8092-18b8ce2d30ae",
+        "prompt": "Mikä on poikkeavaa altaiden vedessä tällä hetkellä?",
+        "options": [
+          "Vesi on viileämpää kuin normaalisti.",
+          "Vesi on likaista.",
+          "Vesi on lämpimämpää kuin normaalisti.",
+          "Vettä ei ole ollenkaan."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "14d28aac-d323-582d-b012-ba22e5083980",
+        "prompt": "Milloin pukukaapeissa on ruuhkaa?",
+        "options": [
+          "Aamuisin.",
+          "Viikonloppuisin.",
+          "Iltapäivisin.",
+          "Koulutuspäivinä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ff065b6d-c63b-5ae7-b3e9-65dfb0d17cd8",
+        "prompt": "Pidetäänkö uimakoulut maanantaina?",
+        "options": [
+          "Kyllä, normaalisti.",
+          "Vain vesijumppa pidetään.",
+          "Ei, ne on peruttu.",
+          "Vain lasten uimakoulut pidetään."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

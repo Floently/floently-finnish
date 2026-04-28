@@ -1,0 +1,37 @@
+{
+  "id": "e32510d5-3f68-59a0-8251-c59d2290baf9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.342,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle, jonka kanssa olette suunnitelleet matkaa. Kerro, että löysit netistä hyvän ja edullisen hotellin. Hotelli on lähellä keskustaa ja hintaan sisältyy aamiainen. Lähetä linkki (voit keksiä) ja kysy, mitä hän miettii.",
+    "materials": {
+      "scenario": "Viesti ystävälle hotellilöydöstä"
+    },
+    "items": [
+      {
+        "id": "acb45bd1-3b12-5b4b-8e32-3012ae39e3cb",
+        "prompt": "Kirjoita lyhyt viesti ystävälle, jonka kanssa olette suunnitelleet matkaa. Kerro, että löysit netistä hyvän ja edullisen hotellin. Hotelli on lähellä keskustaa ja hintaan sisältyy aamiainen. Lähetä linkki (voit keksiä) ja kysy, mitä hän miettii."
+      }
+    ],
+    "rubric": "Kerro, että löysit hotellin\nKerro, että se on edullinen\nKerro, missä se sijaitsee\nKerro, mitä hintaan sisältyy\nKysy ystävän mielipidettä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

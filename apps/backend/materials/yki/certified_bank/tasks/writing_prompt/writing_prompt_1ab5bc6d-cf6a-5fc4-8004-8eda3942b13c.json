@@ -1,0 +1,37 @@
+{
+  "id": "1ab5bc6d-cf6a-5fc4-8004-8eda3942b13c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: asunto-osakeyhtiössä. Tarkoitus: ratkaise ongelma. Rajoite: osoita vastaanottajalle.",
+    "materials": {
+      "scenario": "matkailusta asunto-osakeyhtiöstä"
+    },
+    "items": [
+      {
+        "id": "9d43bc32-50b3-5c9b-b419-afe289f09dc2",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: asunto-osakeyhtiössä. Tarkoitus: ratkaise ongelma. Rajoite: osoita vastaanottajalle."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

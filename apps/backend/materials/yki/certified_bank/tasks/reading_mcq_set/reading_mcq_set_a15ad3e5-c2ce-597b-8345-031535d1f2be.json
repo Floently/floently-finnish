@@ -1,0 +1,88 @@
+{
+  "id": "a15ad3e5-c2ce-597b-8345-031535d1f2be",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Illalla perhe on kotona. Syödään päivällistä yhdessä. Sen jälkeen rentoudutaan. Katsotaan televisiota. Luetaan kirjoja. Lapset leikkivät. He tekevät läksyjään. Saunotaan viikonloppuisin. Lasten kanssa luetaan iltasatuja. Myöhään illalla mennään nukkumaan. Hyvä uni on tärkeää. Illalla on hyvä rauhoittua. Ei kannata katsoa jännittäviä elokuvia ennen nukkumaanmenoa. Rauhallinen ilta auttaa nukahtamaan hyvin.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä illalla syödään?",
+        "options": [
+          "Aamupalaa",
+          "Päivällistä",
+          "Lounasta",
+          "Välipalaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä illalla katsotaan?",
+        "options": [
+          "Televisiota",
+          "Elokuvia teatterissa",
+          "Urheilua",
+          "Uutisia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lapset tekevät illalla?",
+        "options": [
+          "Menevät aikaisin nukkumaan",
+          "Leikkivät, tekevät läksyjä ja kuuntelevat iltasatuja",
+          "Katsovat televisiota",
+          "Ovat tietokoneella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin saunotaan usein?",
+        "options": [
+          "Aamuisin",
+          "Viikonloppuisin",
+          "Joka ilta",
+          "Kesällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millainen ilta auttaa nukahtamaan hyvin?",
+        "options": [
+          "Jännittävä",
+          "Rauhallinen",
+          "Meluisa",
+          "Kiireinen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

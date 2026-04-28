@@ -1,0 +1,88 @@
+{
+  "id": "685ec24d-3c84-52ed-b732-23b8d404ea5a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.773,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kulttuurien välinen vuorovaikutus on muodostunut keskeiseksi osaamisalueeksi globalisoituvassa työelämässä, jossa työskennellään yhä useammin kansainvälisissä tiimeissä ja asiakkaiden kanssa eri puolilta maailmaa. Kulttuurien välisen viestinnän haasteet liittyvät usein syvälle juurtuneisiin, usein tiedostamattomiin kulttuurisiin oletuksiin, jotka vaikuttavat siihen, miten viestimme ja tulkitsemme toisten viestintää. Yksi keskeisimmistä haasteista on erilaiset viestintätyylit. Suomalainen viestintä on usein suoraa, asiapitoista ja vähäeleistä, mikä voi tuntua töykeältä tai välinpitämättömältä kulttuureista, joissa viestintä on epäsuorempaa ja tunnepitoisempaa. Toisaalta suomalaiset voivat kokea vilkkaasti elehtivät ja tunteitaan avoimesti ilmaisevat ihmiset päällekäyvinä tai epäasiallisina. Toinen keskeinen haaste on erilaiset käsitykset ajasta. Monissa kulttuureissa aika nähdään lineaarisena ja täsmällisyys on tärkeää, kun taas toisissa kulttuureissa aika on joustavampaa ja ihmissuhteet ovat täsmällisyyttä tärkeämpiä. Nämä erot voivat johtaa väärinymmärryksiin ja turhautumiseen, jos osapuolet eivät ymmärrä toistensa aikakäsityksiä. Kolmas haaste on erilaiset käsitykset hierarkiasta ja auktoriteetista. Joissakin kulttuureissa hierarkiat ovat jyrkkiä ja esihenkilön auktoriteettia ei kyseenalaisteta, kun taas toisissa kulttuureissa suositaan matalaa hierarkiaa ja avointa keskustelua. Tämä vaikuttaa siihen, miten päätöksiä tehdään, miten palautetta annetaan ja miten konflikteja käsitellään. Neljäs haaste on kielimuuri. Vaikka työkielenä olisi yhteinen kieli, kuten englanti, eivät kaikki osaa sitä yhtä sujuvasti, mikä voi johtaa väärinymmärryksiin ja siihen, että osa tiimin jäsenistä jää syrjään keskusteluista. Tämä voi heikentää tiimin yhteistyötä ja innovaatiokykyä.",
+      "word_count": 202
+    },
+    "questions": [
+      {
+        "id": "3d70c136-be00-5ba7-962f-4c11d58af1fc",
+        "prompt": "Mihin kulttuurien välisen viestinnän haasteet usein liittyvät?",
+        "options": [
+          "Kielioppivirheisiin",
+          "Tiedostamattomiin kulttuurisiin oletuksiin",
+          "Teknisiin ongelmiin",
+          "Työaikojen eroihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3d86ed1d-e680-5661-9a2e-01c8c22b15d7",
+        "prompt": "Miten suomalainen viestintätyyli kuvataan tekstissä?",
+        "options": [
+          "Epäsuorana ja tunnepitoisena",
+          "Suorana, asiapitoisena ja vähäeleisenä",
+          "Vilkkaana ja elehtivänä",
+          "Passiivisena ja välinpitämättömänä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b672bc8b-4bfa-5413-aa02-4357f3abd078",
+        "prompt": "Mitä erilaisia käsityksiä ajasta on eri kulttuureissa?",
+        "options": [
+          "Toisissa aikaa mitataan tunneissa, toisissa päivissä",
+          "Toisissa täsmällisyys on tärkeää, toisissa aika on joustavampaa",
+          "Toisissa aikaa on paljon, toisissa vähän",
+          "Toisissa aika on rahaa, toisissa ei"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5cef2835-0897-56a9-b95c-3ab77a8e806c",
+        "prompt": "Miten erilaiset käsitykset hierarkiasta vaikuttavat työelämässä?",
+        "options": [
+          "Ne vaikuttavat palkkatasoon",
+          "Ne vaikuttavat päätöksentekoon, palautteen antoon ja konfliktien käsittelyyn",
+          "Ne vaikuttavat työaikoihin",
+          "Ne vaikuttavat lomien pituuteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c2b851b5-8941-5dd4-8fc8-fc89f9752114",
+        "prompt": "Mitä ongelmia kielimuuri voi aiheuttaa?",
+        "options": [
+          "Se voi johtaa kielioppivirheisiin",
+          "Se voi johtaa väärinymmärryksiin ja siihen, että osa tiimin jäsenistä jää syrjään",
+          "Se hidastaa internet-yhteyttä",
+          "Se lisää työtehokkuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

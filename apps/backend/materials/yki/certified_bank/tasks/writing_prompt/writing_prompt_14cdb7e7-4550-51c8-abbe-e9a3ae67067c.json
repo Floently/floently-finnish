@@ -1,0 +1,37 @@
+{
+  "id": "14cdb7e7-4550-51c8-abbe-e9a3ae67067c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan korvatulehdukseen. Kerro, että korvaa särkee ja se on ollut kipeä kaksi päivää. Kerro, että sinulla on ollut flunssaa. Kysy, saatko ajan pian.",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle korvatulehduksesta"
+    },
+    "items": [
+      {
+        "id": "7e840658-22ef-5942-b41a-89a431156b2c",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan korvatulehdukseen. Kerro, että korvaa särkee ja se on ollut kipeä kaksi päivää. Kerro, että sinulla on ollut flunssaa. Kysy, saatko ajan pian."
+      }
+    ],
+    "rubric": "Kerro, että haluat ajan\nKerro oireet (korva kipeä)\nKerro, kuinka kauan kipua on kestänyt\nKerro taustasta (flunssa)\nKysy aikaa pian",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

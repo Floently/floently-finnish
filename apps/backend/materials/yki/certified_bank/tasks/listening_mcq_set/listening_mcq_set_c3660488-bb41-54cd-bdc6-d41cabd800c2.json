@@ -1,0 +1,77 @@
+{
+  "id": "c3660488-bb41-54cd-bdc6-d41cabd800c2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele viesti ja valitse oikea vastaus.",
+    "materials": {
+      "transcript": "Hei, tämä on Hammassilta. Aikasi torstaina kello 14.15 on peruttu hammaslääkärin sairastumisen vuoksi. Uusi aika on ensi maanantaina kello 9.30. Vahvista aika vastaamalla viestiin tänään ennen kello 18.",
+      "audio_asset_id": "4d749596-cf7c-520c-bf1f-5a4ab3ba9316"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Milloin alkuperäinen aika oli?",
+        "options": [
+          "keskiviikkona 14.15",
+          "torstaina 14.15",
+          "torstaina 9.30",
+          "maanantaina 14.15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Miksi aika peruttiin?",
+        "options": [
+          "laitevika",
+          "sairastuminen",
+          "sää",
+          "loma"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Milloin uusi aika on?",
+        "options": [
+          "maanantaina 9.30",
+          "maanantaina 10.30",
+          "torstaina 9.30",
+          "perjantaina 9.30"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mihin mennessä aika pitää vahvistaa?",
+        "options": [
+          "klo 16",
+          "klo 17",
+          "klo 18",
+          "klo 19"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

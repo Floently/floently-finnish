@@ -1,0 +1,66 @@
+{
+  "id": "312cebca-252e-518e-ad81-9a62e7950e15",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.761,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Globalisaatio on lisännyt ihmisten, tavaroiden ja ideoiden liikkuvuutta yli rajojen, mikä on samalla herättänyt keskustelua kansallisen identiteetin merkityksestä ja tulevaisuudesta. Toisaalta globalisaatio nähdään mahdollisuutena: se avaa ovia uusille kulttuurivaikutteille, taloudelliselle yhteistyölle ja monimuotoisuudelle. Ihmiset voivat omaksua vaikutteita eri kulttuureista ja rakentaa monikerroksisia identiteettejä, jotka eivät enää sido itseään yksinomaan kansallisvaltioon. Toisaalta globalisaatio on herättänyt vastareaktioita ja nationalismin nousua monissa maissa. Osalle ihmisistä nopea muutos ja perinteisten rakenteiden mureneminen aiheuttavat turvattomuutta, ja he hakevat turvaa kansallisista symboleista ja perinteistä. Kansallinen identiteetti voi toimia ankkurina muutoksessa, mutta samalla se voi sulkea pois ne, jotka eivät sulaudu perinteisiin normeihin. Tutkijat puhuvat usein identiteetin neuvottelusta: globalisoituvassa maailmassa identiteetti ei ole pysyvä ja muuttumaton, vaan sitä rakennetaan ja muokataan jatkuvasti suhteessa ympäröivään maailmaan. Tämä asettaa haasteita myös koulutukselle ja kotouttamiselle, joiden tulisi tukea sekä kulttuurista jatkuvuutta että avoimuutta uudelle.",
+      "word_count": 134
+    },
+    "questions": [
+      {
+        "id": "c8d9e0f1-a2b3-4c4d-9e5f-6a7b8c9d0e1f",
+        "prompt": "Mitä mahdollisuuksia globalisaatio tarjoaa identiteetin kannalta?",
+        "options": [
+          "Vain perinteisten identiteettien vahvistumista",
+          "Mahdollisuuden omaksua vaikutteita eri kulttuureista ja rakentaa monikerroksisia identiteettejä",
+          "Vain kansallisen identiteetin heikkenemistä",
+          "Identiteetin täydellistä häviämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d9e0f1a2-b3c4-4d5e-9f6a-7b8c9d0e1f2a",
+        "prompt": "Miksi nationalismi on noussut joissakin maissa globalisaation vastareaktiona?",
+        "options": [
+          "Koska globalisaatio on taloudellisesti kannattamatonta",
+          "Koska nopea muutos ja perinteiden mureneminen aiheuttavat turvattomuutta",
+          "Koska kansalliset symbolit ovat kiellettyjä",
+          "Koska kaikki haluavat palata menneisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e0f1a2b3-c4d5-4e6f-9a7b-8c9d0e1f2a3b",
+        "prompt": "Mitä tarkoitetaan identiteetin neuvottelulla globalisoituvassa maailmassa?",
+        "options": [
+          "Identiteetistä luopumista",
+          "Identiteetin rakentamista ja muokkaamista suhteessa ympäröivään maailmaan",
+          "Identiteetin säilyttämistä muuttumattomana",
+          "Vain virallista identiteettikeskustelua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

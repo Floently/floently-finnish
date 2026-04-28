@@ -1,0 +1,99 @@
+{
+  "id": "4cd59b6f-e7de-5343-b5c3-4a65d1cb7552",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.563,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Vapaaehtoistyön merkitys on kasvanut Suomessa. Monet järjestöt tarvitsevat apua esimerkiksi vanhusten ulkoiluttamisessa tai nuorten harrastusryhmien ohjaamisessa. Vapaaehtoiset kokevat saavansa itsekin paljon: uusia ihmissuhteita, merkityksellistä tekemistä ja joskus jopa hyödyllistä työkokemusta. Kaupungit ovat alkaneet tukea vapaaehtoistoimintaa järjestämällä koulutuksia ja tarjoamalla tiloja kokoontumisiin.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä vapaaehtoisia tarvitaan tekstin mukaan?",
+        "options": [
+          "Vain urheilutapahtumissa",
+          "Vanhusten ulkoiluttamisessa ja nuorten ryhmissä",
+          "Poliisitoiminnassa",
+          "Yritysten hallituksissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä vapaaehtoiset itse kokevat saavansa?",
+        "options": [
+          "Rahallista korvausta",
+          "Uusia ihmissuhteita ja merkityksellistä tekemistä",
+          "Ilmaisia matkoja",
+          "Alennuksia kaupoista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kaupungit ovat alkaneet tukea vapaaehtoistoimintaa?",
+        "options": [
+          "Maksamalla palkkaa vapaaehtoisille",
+          "Järjestämällä koulutuksia ja tarjoamalla tiloja",
+          "Pakottamalla kaikki mukaan",
+          "Kieltämällä muun toiminnan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä muuta vapaaehtoistyö voi tarjota tekijälleen?",
+        "options": [
+          "Varmuuden työpaikasta",
+          "Hyödyllistä työkokemusta",
+          "Eläkkeen korotusta",
+          "Ilmaisen asunnon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on vapaaehtoistyön merkitys Suomessa tekstin mukaan?",
+        "options": [
+          "Se on vähentynyt",
+          "Se on kasvanut",
+          "Se on pysynyt samana",
+          "Se on loppunut kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä järjestöt tarvitsevat vapaaehtoisilta?",
+        "options": [
+          "Rahaa",
+          "Aikaa ja apua",
+          "Asiantuntemusta lakiasioissa",
+          "Yrityskumppanuuksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

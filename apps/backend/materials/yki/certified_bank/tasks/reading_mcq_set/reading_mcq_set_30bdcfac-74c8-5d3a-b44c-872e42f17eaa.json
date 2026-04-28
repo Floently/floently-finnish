@@ -1,0 +1,77 @@
+{
+  "id": "30bdcfac-74c8-5d3a-b44c-872e42f17eaa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.789,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Alueellinen eriarvoisuus on noussut yhdeksi keskeisimmistä yhteiskunnallisista kysymyksistä Suomessa. Kaupungistumisen myötä väestö ja taloudellinen toiminta ovat keskittyneet yhä voimakkaammin harvoille suurille kaupunkiseuduille, samalla kun monet maaseutualueet ja pienet kaupungit ovat kuihtuneet. Tämä kehitys on johtanut palvelujen heikkenemiseen, työpaikkojen vähenemiseen ja väestön ikääntymiseen syrjäseuduilla, mikä puolestaan vahvistaa muuttoliikettä kohti kasvukeskuksia. Alueellinen eriarvoisuus ei ole pelkästään taloudellinen kysymys, vaan sillä on syvällisiä sosiaalisia ja kulttuurisia ulottuvuuksia. Se vaikuttaa ihmisten mahdollisuuksiin saada koulutusta, terveyspalveluja ja kulttuuripalveluja sekä ylipäätään kokemukseen siitä, että oma kotiseutu on elinvoimainen ja tulevaisuuteen katsova. Tämä voi synnyttää turhautumista ja kokemusta siitä, että oma asuinpaikka ja sen asukkaat on unohdettu. Alueellisen eriarvoisuuden taustalla on monia tekijöitä. Yksi keskeinen on globaali talouden rakennemuutos, joka on vähentänyt perinteisten teollisuudenalojen, kuten metsä- ja paperiteollisuuden, työpaikkoja ja samalla lisännyt korkean osaamisen palvelualojen merkitystä. Nämä uudet työpaikat ovat keskittyneet suuriin kaupunkeihin, joissa on korkeakouluja, tutkimuslaitoksia ja kehittyneet yritysekosysteemit. Toinen tekijä on julkisen sektorin palvelurakenteiden muutos. Sähköiset palvelut ja palvelujen keskittäminen ovat vähentäneet paikallisten palvelupisteiden määrää ja heikentäneet palvelujen saatavuutta harvaan asutuilla alueilla. Tämä on erityisen ongelmallista ikääntyvälle väestölle, jolla ei välttämättä ole mahdollisuuksia tai kykyjä käyttää digitaalisia palveluja. Kolmas tekijä on aluepolitiikan muutos. EU-jäsenyyden myötä aluepolitiikan painopiste on siirtynyt kansallisesta EU:n rakennerahastojen kautta tapahtuvaan ohjaukseen, mikä on osaltaan heikentänyt kansallisen aluepolitiikan vaikuttavuutta. Samalla aluepolitiikkaa on alettu pitää ensisijaisesti talouspolitiikan välineenä, jolla pyritään vahvistamaan kasvukeskuksia ja niiden kilpailukykyä, eikä niinkään tasaamaan alueiden välisiä eroja. Alueellisen eriarvoisuuden vähentäminen on monitahoinen haaste, joka vaatii toimia monilla eri rintamilla. Tarvitaan investointeja liikenneinfrastruktuuriin, koulutukseen ja digitaalisiin yhteyksiin syrjäseuduilla. Tarvitaan uudenlaisia palveluratkaisuja, jotka yhdistävät digitaaliset ja paikalliset palvelut. Tarvitaan myös aluepolitiikkaa, joka tunnistaa eri alueiden erityispiirteet ja vahvuudet ja tukee niiden omaleimaista kehitystä. Keskeistä on, että alueellinen eriarvoisuus nähdään koko yhteiskuntaa koskettavana ongelmana, ei vain syrjäseutujen asiana.",
+      "word_count": 286
+    },
+    "questions": [
+      {
+        "id": "750ae279-d394-5fdf-8e31-32f65c81c18f",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Kaupungistumisen vaikutukset suurten kaupunkien talouteen",
+          "Alueellisen eriarvoisuuden syyt, seuraukset ja siihen vastaamisen haasteet",
+          "EU:n aluepolitiikan vaikutukset Suomeen",
+          "Julkisten palvelujen digitalisoinnin ongelmat syrjäseuduilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "38b6f1f8-eb3a-5166-95d4-4bcb381b1325",
+        "prompt": "Tekstin mukaan mitä seurauksia alueellisella eriarvoisuudella on ihmisten arkeen?",
+        "options": [
+          "Se vaikuttaa ainoastaan ihmisten mahdollisuuksiin saada työpaikkoja",
+          "Se vaikuttaa mahdollisuuksiin saada koulutusta, terveyspalveluja ja kulttuuripalveluja sekä kokemukseen kotiseudun tulevaisuudesta",
+          "Sillä ei ole merkittäviä vaikutuksia ihmisten arkeen, koska palvelut ovat nykyään pääosin digitaalisia",
+          "Se vaikuttaa vain ikääntyvään väestöön, joka ei pysty muuttamaan kasvukeskuksiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "16a1ef04-fcc6-5d94-9893-dbc4978d2d6e",
+        "prompt": "Mitä taloudellisia tekijöitä tekstissä mainitaan alueellisen eriarvoisuuden taustalla?",
+        "options": [
+          "Globaali talouden rakennemuutos, joka on vähentänyt perinteisen teollisuuden työpaikkoja ja lisännyt korkean osaamisen palvelualojen keskittymistä kaupunkeihin",
+          "Vain metsä- ja paperiteollisuuden rakennemuutokset",
+          "Suuryritysten päätökset siirtää toimintojaan ulkomaille",
+          "Julkisen sektorin työpaikkojen väheneminen kaikilla alueilla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "8305a796-6c69-52c1-9497-d0b27d4f4234",
+        "prompt": "Mitä keinoja tekstissä ehdotetaan alueellisen eriarvoisuuden vähentämiseksi?",
+        "options": [
+          "Muuttoliikkeen rajoittamista ja ihmisten pakottamista jäämään syrjäseuduille",
+          "Investointeja liikenneinfrastruktuuriin, koulutukseen, digitaalisiin yhteyksiin, uudenlaisia palveluratkaisuja ja aluepolitiikkaa, joka tukee eri alueiden omaleimaista kehitystä",
+          "Kaiken toiminnan keskittämistä kasvukeskuksiin ja syrjäseutujen hylkäämistä",
+          "EU:n aluepolitiikasta irtautumista ja paluuta kansalliseen säätelyyn"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

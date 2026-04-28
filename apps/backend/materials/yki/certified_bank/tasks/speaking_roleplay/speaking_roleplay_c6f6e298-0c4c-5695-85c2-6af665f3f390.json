@@ -1,0 +1,40 @@
+{
+  "id": "c6f6e298-0c4c-5695-85c2-6af665f3f390",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele ravintolan tarjoilijan kanssa. Kerro ruokarajoitteistasi ja kysy sopivia annoksia.",
+    "materials": {
+      "roles": {
+        "user": "lounasravintolassa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "977bd028-8418-5637-8812-fecff13e4c3d",
+        "ai_first_turn_fi": "Hei, oletteko jo katsoneet ruokalistaa? Saanko auttaa?"
+      }
+    ],
+    "rubric": "Keskustele ravintolan tarjoilijan kanssa. Kerro ruokarajoitteistasi ja kysy sopivia annoksia.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

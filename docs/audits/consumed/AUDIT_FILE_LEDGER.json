@@ -1,0 +1,218 @@
+[
+  {
+    "path": "/home/vitus/floently-finnish/node_modules",
+    "domain": "ops",
+    "status": "artifact",
+    "severity_if_problematic": "Critical",
+    "notes": "Committed local dependency artifact at repo root.",
+    "recommended_action": "Remove from version control and rely on lockfile-based install."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/runtime/state.json",
+    "domain": "backend",
+    "status": "artifact",
+    "severity_if_problematic": "Critical",
+    "notes": "Committed runtime/auth state with access-token and session data.",
+    "recommended_action": "Remove from VCS, classify runtime persistence, rotate affected secrets if real."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/runtime/materials/material_inventory.json",
+    "domain": "backend",
+    "status": "artifact",
+    "severity_if_problematic": "High",
+    "notes": "Generated material inventory references external local paths and mixed authority assumptions.",
+    "recommended_action": "Reclassify as generated artifact or controlled seed, then move or regenerate accordingly."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/app/cards/output/accepted/accepted_cards.json",
+    "domain": "backend",
+    "status": "unknown",
+    "severity_if_problematic": "High",
+    "notes": "Appears to be validated publication output used by tests, but runtime/publication ownership is not formally separated.",
+    "recommended_action": "Classify explicitly as seed fixture or generated publication artifact and store in the correct location."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/main.py",
+    "domain": "backend",
+    "status": "active",
+    "severity_if_problematic": "High",
+    "notes": "Current Docker entrypoint boot path; exposes mock/dev endpoints and permissive CORS.",
+    "recommended_action": "Either harden as the sole production app or replace with an authoritative app assembly."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/api/router.py",
+    "domain": "backend",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Dynamic aggregator swallows import failures and assumes missing router symbols.",
+    "recommended_action": "Replace with explicit imports or archive if not authoritative."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/api/routes",
+    "domain": "backend",
+    "status": "unknown",
+    "severity_if_problematic": "High",
+    "notes": "Modern-looking route tree exists but is not clearly mounted by the active backend app.",
+    "recommended_action": "Mount explicitly from one chosen app or demote."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/api",
+    "domain": "backend",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Contains overlapping legacy route-builder modules and a second route tree.",
+    "recommended_action": "Converge on one route model and archive unused layers."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/app",
+    "domain": "backend",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Imported donor-style backend stack includes cards/audio/auth router surfaces not clearly mounted in the production app.",
+    "recommended_action": "Keep only modules proven authoritative; archive or isolate donor layers."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/reference",
+    "domain": "backend",
+    "status": "reference",
+    "severity_if_problematic": "Medium",
+    "notes": "Reference donor tree should not compete with live code.",
+    "recommended_action": "Keep isolated and explicitly non-executable, or remove."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/core/config.py",
+    "domain": "ops",
+    "status": "active",
+    "severity_if_problematic": "High",
+    "notes": "Environment variable names do not match the example env file; contains unsafe default secret.",
+    "recommended_action": "Align env contract and require secure production secrets."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/.env.example",
+    "domain": "ops",
+    "status": "active",
+    "severity_if_problematic": "High",
+    "notes": "Documented env names drift from the code.",
+    "recommended_action": "Synchronize with actual config loader and deployment files."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/engine",
+    "domain": "engine",
+    "status": "active",
+    "severity_if_problematic": "Medium",
+    "notes": "Cleanest source-of-truth candidate for YKI runtime behavior.",
+    "recommended_action": "Preserve authority and make backend delegation explicit."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/yki",
+    "domain": "engine",
+    "status": "duplicate",
+    "severity_if_problematic": "Medium",
+    "notes": "Backend-local YKI orchestration risks competing with root engine authority.",
+    "recommended_action": "Demote to adapter-only behavior or remove competing orchestration."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/engine/README.stub.txt",
+    "domain": "engine",
+    "status": "reference",
+    "severity_if_problematic": "Low",
+    "notes": "Stub leftover near the real engine tree.",
+    "recommended_action": "Remove or convert into explicit pointer documentation."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/packages/core/apiClient.ts",
+    "domain": "shared",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "One of multiple API client implementations with its own base URL strategy.",
+    "recommended_action": "Converge into one client layer."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/packages/core/api/apiClient.ts",
+    "domain": "shared",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Second advanced API client depends on unresolved alias targets.",
+    "recommended_action": "Either make it authoritative and wire dependencies correctly, or remove."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/packages/core/api/client.ts",
+    "domain": "shared",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Third client wrapper with hard-coded localhost base path.",
+    "recommended_action": "Retire in favor of the chosen client layer."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/packages/core/apiConfig.ts",
+    "domain": "shared",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Standalone base URL config conflicts with nested API config module.",
+    "recommended_action": "Collapse into one authoritative config source."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/packages/core/api/apiConfig.ts",
+    "domain": "shared",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Depends on unresolved `@core/config/env` alias/module.",
+    "recommended_action": "Make functional or remove during convergence."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/client/features/shared/serviceClient.ts",
+    "domain": "shared",
+    "status": "duplicate",
+    "severity_if_problematic": "High",
+    "notes": "Additional network layer with different env variable semantics and fallback behavior.",
+    "recommended_action": "Retire or reduce to thin wrapper around the authoritative client."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/client/tsconfig.json",
+    "domain": "client",
+    "status": "active",
+    "severity_if_problematic": "High",
+    "notes": "Alias config does not support `@core/*` or `@ui/*` imports used across the app.",
+    "recommended_action": "Align compiler path aliases with actual imports and workspace layout."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/client/state/AppShell.tsx",
+    "domain": "client",
+    "status": "active",
+    "severity_if_problematic": "High",
+    "notes": "Imports many non-existent modules and appears to be an incomplete shell.",
+    "recommended_action": "Either complete this shell or remove it in favor of a smaller authoritative app composition."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/.github/workflows/ci.yml",
+    "domain": "ops",
+    "status": "active",
+    "severity_if_problematic": "High",
+    "notes": "Suppresses backend and client failures with `|| true`.",
+    "recommended_action": "Make CI fail on build/test errors and align commands to real repo boundaries."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/apps/backend/Dockerfile",
+    "domain": "ops",
+    "status": "active",
+    "severity_if_problematic": "Medium",
+    "notes": "Boots `apps.backend.main:app`, which is not yet a production-safe authoritative app path.",
+    "recommended_action": "Update once backend authority is fixed."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/docker-compose.yml",
+    "domain": "ops",
+    "status": "active",
+    "severity_if_problematic": "Medium",
+    "notes": "Depends on `.env.example` and performs ad hoc client install at runtime.",
+    "recommended_action": "Align env contract and use deterministic install/build behavior."
+  },
+  {
+    "path": "/home/vitus/floently-finnish/render.yaml",
+    "domain": "ops",
+    "status": "active",
+    "severity_if_problematic": "Medium",
+    "notes": "Minimal deployment descriptor with no explicit env contract or smoke-gate evidence.",
+    "recommended_action": "Expand once platform path and authoritative backend entrypoint are finalized."
+  }
+]

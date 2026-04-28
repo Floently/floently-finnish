@@ -1,0 +1,66 @@
+{
+  "id": "31dcf8c1-f66f-5fa9-8386-5c2d9b1adbce",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "ASUKASPYSÄKÖINTI\n\nTämä pysäköintialue on tarkoitettu vain asukkaille, joilla on voimassa oleva asukaspysäköintitunnus.\n\nVieraspaikat:\nVieraat voivat pysäköidä merkityille vieraspaikoille enintään 4 tunniksi. Vieraspaikoilla pitää käyttää vieraskiekkoa.\n\nPysäköintialueella nopeusrajoitus 20 km/h.\n\nHUOM! Älä pysäköi paloautotien eteen.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "4d3deabe-d364-50bf-bddf-a784b20112e7",
+        "prompt": "Kuka saa pysäköidä asukaspaikoille?",
+        "options": [
+          "Kaikki",
+          "Vain asukkaat",
+          "Vain vieraat",
+          "Kaikki, joilla on auto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a613b0e7-ad7f-5ba2-ae80-512b19612298",
+        "prompt": "Kuinka pitkäksi aikaa vieras voi pysäköidä?",
+        "options": [
+          "2 tuntia",
+          "3 tuntia",
+          "4 tuntia",
+          "5 tuntia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9dfa0503-6b24-55a7-8e3c-2d4b6052969b",
+        "prompt": "Mikä on nopeusrajoitus pysäköintialueella?",
+        "options": [
+          "10 km/h",
+          "20 km/h",
+          "30 km/h",
+          "40 km/h"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

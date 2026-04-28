@@ -1,0 +1,37 @@
+{
+  "id": "bfc9c5bf-7e15-53c9-a259-4f6f61166db6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti pizzeriaan. Arvioi ruuan makua, toimitusnopeutta ja hinta-laatusuhdetta. Ehdota yhtä uutta ruokalajia.",
+    "materials": {
+      "scenario": "Palaute pizzeriaan"
+    },
+    "items": [
+      {
+        "id": "17105719-8848-5e34-b94b-60a12c056748",
+        "prompt": "Kirjoita palauteteksti pizzeriaan. Arvioi ruuan makua, toimitusnopeutta ja hinta-laatusuhdetta. Ehdota yhtä uutta ruokalajia."
+      }
+    ],
+    "rubric": "Ruuan maku\nToimitusnopeus\nHinta-laatusuhde\nUusi ruokalaji",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

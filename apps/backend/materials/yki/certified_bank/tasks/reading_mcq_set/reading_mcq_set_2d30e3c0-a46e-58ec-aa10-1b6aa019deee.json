@@ -1,0 +1,99 @@
+{
+  "id": "2d30e3c0-a46e-58ec-aa10-1b6aa019deee",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Keskustelu työperäisestä maahanmuutosta on vilkastunut Suomessa. Monilla aloilla, kuten hoiva-alalla ja rakentamisessa, on työvoimapulaa, jota maahanmuutto voisi helpottaa. Toisaalta esiin nousee huoli kotimaisen työvoiman työllisyydestä ja siitä, miten maahanmuuttajat integroituvat yhteiskuntaan. Asiantuntijat korostavat, että toimiva kotoutuminen vaatii kielikoulutusta ja työpaikkojen tukea. Yritykset taas toivovat sujuvampaa lupabyrokratiaa osaajien palkkaamiseksi.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä keskustelu on vilkastunut Suomessa?",
+        "options": [
+          "Turismista",
+          "Työperäisestä maahanmuutosta",
+          "Opiskelijavaihdosta",
+          "Eläkkeelle jäämisestä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millä aloilla on työvoimapulaa?",
+        "options": [
+          "Toimistotyössä ja myynnissä",
+          "Hoiva-alalla ja rakentamisessa",
+          "IT-alalla ja markkinoinnissa",
+          "Koulutuksessa ja tutkimuksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä maahanmuutosta voisi olla työmarkkinoille?",
+        "options": [
+          "Se lisäisi kilpailua",
+          "Se helpottaisi työvoimapulaa",
+          "Se vähentäisi palkkoja",
+          "Se lisäisi byrokratiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä huolia maahanmuuttoon liittyy?",
+        "options": [
+          "Kotimaisen työvoiman työllisyys ja kotoutuminen",
+          "Liian korkeat palkat",
+          "Liian vähän koulutusta",
+          "Kielitaidon paraneminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä toimiva kotoutuminen vaatii asiantuntijoiden mukaan?",
+        "options": [
+          "Vain työpaikan löytymistä",
+          "Kielikoulutusta ja työpaikkojen tukea",
+          "Oman kulttuurin säilyttämistä",
+          "Nopeaa kansalaisuuden saamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä yritykset toivovat lupabyrokratialta?",
+        "options": [
+          "Tiukempia sääntöjä",
+          "Sujuvuutta osaajien palkkaamiseksi",
+          "Korkeampia maksuja",
+          "Pidempiä käsittelyaikoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

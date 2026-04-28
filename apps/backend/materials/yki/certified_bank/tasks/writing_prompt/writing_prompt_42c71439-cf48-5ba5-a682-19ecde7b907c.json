@@ -1,0 +1,37 @@
+{
+  "id": "42c71439-cf48-5ba5-a682-19ecde7b907c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkärikeskukseen. Haluat varata ajan ihotautilääkärille. Sinulla on ihottumaa käsivarressa. Kerro, että se on kutiava ja punainen. Kerro nimesi ja puhelinnumerosi ja kysy vapaita aikoja.",
+    "materials": {
+      "scenario": "Viesti lääkärikeskukseen ihottuman takia"
+    },
+    "items": [
+      {
+        "id": "7e77983e-a750-5855-8490-391dbca22886",
+        "prompt": "Kirjoita lyhyt viesti lääkärikeskukseen. Haluat varata ajan ihotautilääkärille. Sinulla on ihottumaa käsivarressa. Kerro, että se on kutiava ja punainen. Kerro nimesi ja puhelinnumerosi ja kysy vapaita aikoja."
+      }
+    ],
+    "rubric": "Kerro, että haluat ihotautilääkärille\nKerro oireet (ihottuma, kutiava, punainen)\nKerro nimesi ja puhelinnumerosi\nKysy vapaita aikoja",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

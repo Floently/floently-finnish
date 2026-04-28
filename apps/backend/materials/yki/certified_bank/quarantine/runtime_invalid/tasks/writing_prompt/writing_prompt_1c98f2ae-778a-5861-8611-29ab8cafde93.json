@@ -1,0 +1,37 @@
+{
+  "id": "1c98f2ae-778a-5861-8611-29ab8cafde93",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.66,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: community_center. Purpose: agree_on_a_change. Constraint: address_the_receiver.",
+    "materials": {
+      "scenario": "city_services in community_center"
+    },
+    "items": [
+      {
+        "id": "685d662d-ab6b-5a28-989f-cc49687242db",
+        "prompt": "Write for the receiver in this scenario: community_center. Purpose: agree_on_a_change. Constraint: address_the_receiver."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

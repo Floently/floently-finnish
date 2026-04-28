@@ -1,0 +1,37 @@
+{
+  "id": "2b9ec642-e50a-5436-b42f-d636a8dc7d8f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti parturi-kampaamoon. Olet tyytymätön edelliseen hiustenleikkuuseen. Kerro, että haluat varata ajan korjausta varten. Kerro, mikä hiuksissa on vialla (liian lyhyet tai eripariset). Kysy, onko korjaus ilmainen.",
+    "materials": {
+      "scenario": "Viesti parturiin tyytymättömyydestä"
+    },
+    "items": [
+      {
+        "id": "2c90d749-f0ff-59cf-a87a-d7872470f1e9",
+        "prompt": "Kirjoita lyhyt viesti parturi-kampaamoon. Olet tyytymätön edelliseen hiustenleikkuuseen. Kerro, että haluat varata ajan korjausta varten. Kerro, mikä hiuksissa on vialla (liian lyhyet tai eripariset). Kysy, onko korjaus ilmainen."
+      }
+    ],
+    "rubric": "Kerro, että olet tyytymätön\nKerro, mikä on vialla\nKysy korjausaikaa\nKysy, onko korjaus ilmainen",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

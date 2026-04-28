@@ -1,0 +1,37 @@
+{
+  "id": "8f404640-90a5-5622-a4a0-ba8c4c5afd00",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.495,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt lääkärissä. Kirjoita palaute terveysasemalle.",
+    "materials": {
+      "scenario": "Palaute lääkärikäynnistä"
+    },
+    "items": [
+      {
+        "id": "e7d47a5c-372c-5c0f-891e-dd916aecf3e6",
+        "prompt": "Olet käynyt lääkärissä. Kirjoita palaute terveysasemalle."
+      }
+    ],
+    "rubric": "Olet käynyt lääkärissä. Kirjoita palaute terveysasemalle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

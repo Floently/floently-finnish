@@ -1,0 +1,77 @@
+{
+  "id": "65fa8e08-013b-549f-a6de-5270a7029d06",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue terveysaseman tiedote ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Länsikadun terveysasemalla on hammastarkastuspäivä perjantaina 24.5. Vastaanotto on auki kello 8.30-15.30. Aamun ensimmäiset ajat on varattu koululaisille. Aikuiset voivat varata ajan puhelimessa kello 10 jälkeen. Tarkastukseen tulee ottaa mukaan Kela-kortti ja lista käytössä olevista lääkkeistä. Jos asiakkaalla on kuumetta tai voimakas yskä, aika siirretään uuteen päivään. Terveysasema toivoo, että asiakkaat saapuvat viisi minuuttia ennen omaa aikaa. Pysäköinti pihalla on maksuton yhden tunnin ajan, ja sisäänkäynti on talon takaovesta remontin vuoksi.",
+      "word_count": 70
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin asti vastaanotto on auki?",
+        "options": [
+          "kello 14.30",
+          "kello 15.00",
+          "kello 15.30",
+          "kello 16.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Kenelle aamun ensimmäiset ajat ovat?",
+        "options": [
+          "eläkeläisille",
+          "koululaisille",
+          "raskaana oleville",
+          "työssäkäyville"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "henkilökuva ja passi",
+          "ruokapäiväkirja",
+          "Kela-kortti ja lääkityslista",
+          "hammasharja ja pyyhe"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi sisäänkäynti on takaovesta?",
+        "options": [
+          "talossa on remontti",
+          "pääovi on varattu henkilökunnalle",
+          "parkkipaikka on täynnä",
+          "takaovella on kahvila"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

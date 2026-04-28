@@ -1,0 +1,77 @@
+{
+  "id": "a9bd76e7-a392-5c6f-9da8-027e1a79c6ad",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.771,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Koulutusjärjestelmän kyky vastata yhteiskunnan muuttuviin tarpeisiin on ollut vilkkaan keskustelun kohteena niin Suomessa kuin kansainvälisestikin. Perinteinen malli, jossa oppilas kulkee luokka-asteelta toiselle ja lopulta siirtyy työelämään, on saanut rinnalleen vaatimuksen elinikäisestä oppimisesta ja koulutuspolkujen joustavoittamisesta. Tämä kehitys heijastaa laajempaa yhteiskunnallista muutosta, jossa työurat pirstaloituvat ja ammattitaidon ylläpitäminen vaatii jatkuvaa uuden oppimista. Yksi keskeinen kysymys koskee koulutuksen ja työelämän välistä yhteistyötä. Perinteisesti nämä kaksi sektoria ovat toimineet melko erillään toisistaan, mutta nykyään nähdään yhä tärkeämpänä, että ne tekevät tiivistä yhteistyötä. Työelämä tarvitsee osaajia, ja koulutus tarvitsee tietoa siitä, millaista osaamista työelämä tarvitsee. Tämä edellyttää jatkuvaa vuoropuhelua ja yhteisiä kehittämishankkeita. Toinen keskeinen kysymys koskee yksilön vastuuta omasta osaamisestaan. Jatkuva oppiminen ei ole enää vain koulutusjärjestelmän tehtävä, vaan myös yksilön omalla vastuulla. Tämä edellyttää yksilöltä motivaatiota, itseohjautuvuutta ja kykyä tunnistaa omia osaamisvajeitaan. Kolmas kysymys koskee koulutuksen rahoitusta. Elinikäinen oppiminen vaatii resursseja, ja on epäselvää, kenen vastuulla näiden resurssien hankkiminen on. Onko se valtion, työnantajien vai yksilöiden vastuulla? Todennäköisesti vastuu jakautuu jatkossa yhä moninaisemmin eri toimijoiden kesken. Koulutusjärjestelmän uudistaminen on monitahoinen haaste, joka vaatii pitkäjänteistä työtä ja laajaa yhteiskunnallista keskustelua. On selvää, että tulevaisuuden koulutusjärjestelmän on oltava nykyistä joustavampi, yksilöllisempi ja tiiviimmässä vuorovaikutuksessa ympäröivän yhteiskunnan kanssa.",
+      "word_count": 192
+    },
+    "questions": [
+      {
+        "id": "b6a80ad7-a9d0-5117-b44b-e9c5b9010d02",
+        "prompt": "Mikä on tekstin keskeinen väite koulutusjärjestelmän tulevaisuudesta?",
+        "options": [
+          "Perinteinen koulutusmalli on edelleen toimiva eikä kaipaa uudistuksia",
+          "Koulutusjärjestelmän on oltava nykyistä joustavampi, yksilöllisempi ja tiiviimmässä yhteistyössä työelämän kanssa",
+          "Koulutusjärjestelmän tulisi keskittyä vain työelämän välittömiin tarpeisiin",
+          "Yksilön vastuu omasta oppimisestaan on vähentynyt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "afa2ba88-1441-5189-8c24-26718367ca93",
+        "prompt": "Tekstin mukaan miksi koulutuksen ja työelämän välinen yhteistyö on tärkeää?",
+        "options": [
+          "Jotta koulutus voi tuottaa työelämän tarvitsemia osaajia ja työelämä voi kertoa, millaista osaamista tarvitaan",
+          "Jotta työelämä voi määrätä, mitä koulutuksessa opetetaan",
+          "Jotta koulutuslaitokset voivat saada lisärahoitusta yrityksiltä",
+          "Jotta oppilaat voivat siirtyä suoraan koulusta työelämään ilman viivettä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a29b147d-8cbd-55b8-89d7-dfab83d87969",
+        "prompt": "Mitä yksilöltä vaaditaan, jotta hän pysyy työelämän muutoksissa mukana?",
+        "options": [
+          "Vain peruskoulutuksen suorittamista",
+          "Motivaatiota, itseohjautuvuutta ja kykyä tunnistaa omia osaamisvajeitaan",
+          "Työnantajan jatkuvaa tukea ja koulutusta",
+          "Valtion tarjoamia ilmaisia koulutusmahdollisuuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "541b0273-d9d4-5b87-afeb-ee9d12a71b4c",
+        "prompt": "Mitä tekstissä sanotaan elinikäisen oppimisen rahoituksesta?",
+        "options": [
+          "Se on yksinomaan valtion vastuulla",
+          "Se on yksinomaan työnantajien vastuulla",
+          "Se on yksinomaan yksilöiden vastuulla",
+          "Vastuu jakautuu todennäköisesti yhä moninaisemmin valtion, työnantajien ja yksilöiden kesken"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

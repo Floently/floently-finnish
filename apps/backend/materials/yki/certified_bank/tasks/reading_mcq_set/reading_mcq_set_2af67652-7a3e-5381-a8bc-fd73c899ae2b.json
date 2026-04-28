@@ -1,0 +1,77 @@
+{
+  "id": "2af67652-7a3e-5381-a8bc-fd73c899ae2b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KAUPUNGISTUMINEN – MAHDOLLISUUS VAI UHKA YHTEISKUNNALLE?\n\nKaupungistuminen on yksi merkittävimmistä yhteiskunnallisista muutoksista. Se tuo mukanaan sekä mahdollisuuksia että haasteita. Kaupungit ovat innovaation ja talouskasvun moottoreita, mutta samalla ne voivat olla eriarvoisuuden kasvualustoja.\n\nKaupungit tarjoavat monipuolisia palveluita, työpaikkoja ja koulutusmahdollisuuksia. Ne ovat myös ekologisia, koska tiivis kaupunkirakenne mahdollistaa joukkoliikenteen ja energiatehokkuuden. Ihmisten ei tarvitse kulkea pitkiä matkoja, ja palvelut ovat lähellä.\n\nMutta kaupungistumisella on myös kääntöpuolensa. Asumisen hinnat nousevat, ja kaupungit jakautuvat hyvä- ja huono-osaisiin alueisiin. Tämä segregaatio on vakava ongelma. Kun hyvätuloiset asuvat keskustoissa ja pienituloiset laitamilla, erot kasvavat. Tämä näkyy kouluissa, palveluissa ja turvallisuudessa.\n\nSyntyy noidankehä, jota on vaikea katkaista. Huono-osaisilla alueilla on vähemmän resursseja, mikä heikentää palveluita ja lisää ongelmia. Hyväosaiset vetäytyvät omille alueilleen, eivätkä eri väestöryhmät kohtaa toisiaan. Tämä heikentää yhteiskunnallista koheesiota ja lisää ennakkoluuloja.\n\nRatkaisuna on panostettava kohtuuhintaiseen asumiseen ja hyviin julkisiin palveluihin kaikilla alueilla. Myös kaupunkisuunnittelulla voidaan vaikuttaa. Seka-asuminen, jossa eri tuloryhmät asuvat samoilla alueilla, voi vähentää segregaatiota. Tämä edellyttää, että uusille asuinalueille rakennetaan monipuolisesti erilaisia asuntoja.\n\nTarvitaan myös alueellista tasapainoa. Kaupungistuminen ei saa tarkoittaa, että maaseutu unohdetaan. Myös maaseudulla on oltava elinvoimaa ja palveluita. Muuten kaupungit ruuhkautuvat ja maaseutu autioituu. Tämä on kestämätöntä sekä inhimillisesti että taloudellisesti.\n\nLopuksi: kaupungistuminen on väistämätöntä, mutta sen suuntaa voidaan ohjata. Tarvitaan pitkäjänteistä politiikkaa ja rohkeita päätöksiä. Tulevaisuuden kaupunki on tiivis, vihreä, oikeudenmukainen ja inhimillinen – paikka, jossa on hyvä elää kaikille.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 256
+    },
+    "questions": [
+      {
+        "id": "9124b205-fabc-5abd-8683-551aa155325f",
+        "prompt": "Mitä hyviä puolia kaupungistumisella on?",
+        "options": [
+          "halvat asunnot",
+          "monipuolisia palveluita, työpaikkoja, koulutusmahdollisuuksia ja ekologisuutta",
+          "vähän liikennettä",
+          "paljon luontoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "864be8f0-2b78-5651-b215-7967f2ff934b",
+        "prompt": "Mitä ongelmia kaupungistumiseen liittyy?",
+        "options": [
+          "liian halvat asunnot",
+          "asumisen hintojen nousu ja segregaatio",
+          "liian vähän ihmisiä",
+          "liian paljon viheralueita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "98317e22-89db-5ec6-a496-336da0536434",
+        "prompt": "Mitä tarkoitetaan segregaatiolla?",
+        "options": [
+          "ihmiset asuvat sekaisin",
+          "hyvätuloiset asuvat keskustoissa ja pienituloiset laitamilla",
+          "kaikki asuvat samalla alueella",
+          "ihmiset muuttavat maalle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dd68fc5f-364e-5a22-8913-63dc967d4323",
+        "prompt": "Mitä ratkaisuja tekstissä ehdotetaan?",
+        "options": [
+          "kaupungistumisen pysäyttämistä",
+          "kohtuuhintaista asumista, hyviä palveluita, seka-asumista ja alueellista tasapainoa",
+          "vain lisää rakentamista",
+          "maaseudun hylkäämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

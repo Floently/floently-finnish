@@ -1,0 +1,99 @@
+{
+  "id": "9b3c9992-ad81-57b5-93fc-89d13d9121bc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Keskustelu eläkeiän nostamisesta käy kuumana. Toiset katsovat, että pidempi työura on välttämätön eläkejärjestelmän rahoituksen turvaamiseksi. Toiset taas korostavat, että kaikki eivät jaksa työskennellä vanhuuteen asti, varsinkaan raskaissa ammateissa. Ratkaisuksi on ehdotettu joustavampaa eläkeikää, jossa voisi itse vaikuttaa eläkkeelle siirtymiseen ammatin ja jaksamisen mukaan. Tämä herättää paljon tunteita.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä käydään kuumaa keskustelua?",
+        "options": [
+          "Eläkkeiden suuruudesta",
+          "Eläkeiän nostamisesta",
+          "Eläkejärjestelmän lakkauttamisesta",
+          "Yksityisten eläkkeiden verotuksesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi toiset kannattavat pidempää työuraa?",
+        "options": [
+          "Koska se on hauskaa",
+          "Eläkejärjestelmän rahoituksen turvaamiseksi",
+          "Koska nuoret eivät halua töitä",
+          "Koska eläkkeet ovat liian suuria"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä toiset taas korostavat?",
+        "options": [
+          "Kaikki haluavat tehdä pidempään töitä",
+          "Kaikki eivät jaksa työskennellä vanhuuteen asti",
+          "Työnteko on terveellistä",
+          "Raskaat ammatit pitäisi kieltää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuksi on ehdotettu?",
+        "options": [
+          "Eläkeiän laskemista",
+          "Joustavampaa eläkeikää",
+          "Kaikkien eläkkeiden leikkaamista",
+          "Työssäkäynnin pakollisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin joustavassa eläkeiässä voisi vaikuttaa?",
+        "options": [
+          "Eläkkeen suuruuteen",
+          "Eläkkeelle siirtymiseen ammatin ja jaksamisen mukaan",
+          "Vain eläkeikään",
+          "Vain verotukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä keskustelu eläkeiästä herättää?",
+        "options": [
+          "Välinpitämättömyyttä",
+          "Paljon tunteita",
+          "Iloa",
+          "Yksimielisyyttä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

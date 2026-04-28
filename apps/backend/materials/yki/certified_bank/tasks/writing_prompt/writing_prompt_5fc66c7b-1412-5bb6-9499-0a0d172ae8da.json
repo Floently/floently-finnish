@@ -1,0 +1,37 @@
+{
+  "id": "5fc66c7b-1412-5bb6-9499-0a0d172ae8da",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti autokorjaamoon. Haluat varata ajan auton huoltoon. Kerro auton merkki ja malli. Kerro, että haluat öljynvaihdon ja jarrujen tarkastuksen. Kysy, milloin heillä on aikaa ja paljonko se maksaa.",
+    "materials": {
+      "scenario": "Viesti autokorjaamoon huoltoajasta"
+    },
+    "items": [
+      {
+        "id": "76fb8080-aa6a-5994-b7b4-ebc81be0ef51",
+        "prompt": "Kirjoita lyhyt viesti autokorjaamoon. Haluat varata ajan auton huoltoon. Kerro auton merkki ja malli. Kerro, että haluat öljynvaihdon ja jarrujen tarkastuksen. Kysy, milloin heillä on aikaa ja paljonko se maksaa."
+      }
+    ],
+    "rubric": "Kerro, että haluat huoltoajan\nKerro auton tiedot\nKerro, mitä huoltoa tarvitaan\nKysy ajan saatavuutta\nKysy hintaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

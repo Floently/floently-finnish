@@ -1,0 +1,37 @@
+{
+  "id": "44b5c32a-1c79-5147-b9ca-ce68085b7716",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: verkkosivustolla. Tarkoitus: ratkaise ongelma. Rajoite: osoita vastaanottajalle.",
+    "materials": {
+      "scenario": "aikataulutuksesta online portal"
+    },
+    "items": [
+      {
+        "id": "cd8d5ea1-8282-5041-a75a-624119f61d6f",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: verkkosivustolla. Tarkoitus: ratkaise ongelma. Rajoite: osoita vastaanottajalle."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

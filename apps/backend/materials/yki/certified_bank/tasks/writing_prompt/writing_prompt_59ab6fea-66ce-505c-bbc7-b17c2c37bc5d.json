@@ -1,0 +1,37 @@
+{
+  "id": "59ab6fea-66ce-505c-bbc7-b17c2c37bc5d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin työllisyyspalveluihin. Olet maahanmuuttaja ja tarvitset apua työnhaussa. Kerro koulutuksestasi ja työkokemuksestasi. Kysy, onko tarjolla työnhakuvalmennusta tai uraohjausta.",
+    "materials": {
+      "scenario": "Tiedustelu työnhakuvalmennuksesta"
+    },
+    "items": [
+      {
+        "id": "26ae3413-ee8a-5e62-abf7-82b4b2c05e55",
+        "prompt": "Kirjoita sähköposti kaupungin työllisyyspalveluihin. Olet maahanmuuttaja ja tarvitset apua työnhaussa. Kerro koulutuksestasi ja työkokemuksestasi. Kysy, onko tarjolla työnhakuvalmennusta tai uraohjausta."
+      }
+    ],
+    "rubric": "Oma tausta\nTarve\nPalveluiden kysyminen",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

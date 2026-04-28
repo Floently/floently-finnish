@@ -1,0 +1,66 @@
+{
+  "id": "6755b798-a50a-502e-88bf-f71d787a0670",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.307,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele rautatieaseman kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat! InterCity-juna 71 Helsingistä Ouluun lähtee raiteelta 5 kello 14.35. Junassa on ravintolavaunu. Pyydämme matkustajia siirtymään laiturille. Seuraava juna Tampereelle lähtee raiteelta 2 kello 14.50.",
+      "audio_asset_id": "0156a57a-4381-4815-a1b7-7d82fa1ec69d"
+    },
+    "questions": [
+      {
+        "id": "4393970d-427f-51cd-b7f3-76774540212c",
+        "prompt": "Mille raiteelle Oulun juna lähtee?",
+        "options": [
+          "Raide 2",
+          "Raide 5",
+          "Raide 7",
+          "Raide 9"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3904265a-e703-581b-86c5-249d418237c7",
+        "prompt": "Mihin aikaan juna lähtee?",
+        "options": [
+          "klo 14.15",
+          "klo 14.35",
+          "klo 14.50",
+          "klo 15.05"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5f09b108-eea0-501b-80bd-9abc7332fc95",
+        "prompt": "Milloin seuraava juna Tampereelle lähtee?",
+        "options": [
+          "klo 14.35",
+          "klo 14.50",
+          "klo 15.10",
+          "klo 15.30"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

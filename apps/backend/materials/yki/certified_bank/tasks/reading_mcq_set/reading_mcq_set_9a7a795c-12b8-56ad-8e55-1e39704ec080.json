@@ -1,0 +1,73 @@
+{
+  "id": "9a7a795c-12b8-56ad-8e55-1e39704ec080",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin. Valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KAUPUNGINKIRJASTON KESÄAUKIOLO\n\nPääkirjasto: ma–pe 10–19, la 10–15\nLähikirjastot: ma–pe 12–18, la suljettu\n\nOmatoimikirjasto avoinna joka päivä 7–22.\n\nKirjasto on suljettu juhannusaattona 23.6.",
+      "word_count": 22
+    },
+    "questions": [
+      {
+        "id": "item_001_1",
+        "prompt": "Mihin aikaan pääkirjasto on auki lauantaisin?",
+        "options": [
+          "10–15",
+          "12–18",
+          "suljettu"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_001_2",
+        "prompt": "Ovatko lähikirjastot auki lauantaisin?",
+        "options": [
+          "kyllä",
+          "ei",
+          "vain aamupäivällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_001_3",
+        "prompt": "Mihin aikaan omatoimikirjasto suljetaan?",
+        "options": [
+          "klo 20",
+          "klo 21",
+          "klo 22"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_001_4",
+        "prompt": "Minä päivänä kirjasto on kiinni?",
+        "options": [
+          "juhannuspäivänä",
+          "juhannusaattona",
+          "juhannusviikolla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

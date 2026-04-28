@@ -1,0 +1,37 @@
+{
+  "id": "fd80d36f-9c05-529f-b8b7-f0b707967e23",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on lippuja konserttiin, mutta et pääse. Kirjoita viesti ystävällesi.",
+    "materials": {
+      "scenario": "Sinulla on lippuja konserttiin, mutta et pääse. Kirjoita viesti ystävällesi."
+    },
+    "items": [
+      {
+        "id": "f3290fa7-dd52-5a1a-bb8c-2bb32d8c1f20",
+        "prompt": "Kirjoita viesti, jossa:\n- kerrot, että sinulla on lippuja konserttiin\n- kerrot, ettet pääse itse\n- kysyt, haluaisiko ystäväsi liput\n- kerrot, mistä liput voi hakea"
+      }
+    ],
+    "rubric": "Kirjoita viesti, jossa:\n- kerrot, että sinulla on lippuja konserttiin\n- kerrot, ettet pääse itse\n- kysyt, haluaisiko ystäväsi liput\n- kerrot, mistä liput voi hakea",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

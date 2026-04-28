@@ -1,0 +1,66 @@
+{
+  "id": "961adaaf-d363-52b0-a76e-344a84f744d8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.483,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin palauttaa tämän paidan. Se on väärän kokoinen.\nMyyjä: Hei, onko sinulla kuitti?\nAsiakas: Kyllä, tässä on kuitti. Ostin sen viime viikolla.\nMyyjä: Kiitos. Haluatko vaihtaa toiseen kokoon vai saada rahat takaisin?\nAsiakas: Haluaisin vaihtaa kokoon M. Onko sitä saatavilla?\nMyyjä: Katsotaan. Kyllä, M-kokoa on varastossa. Tuon sen sinulle.\nAsiakas: Kiitos paljon!\nMyyjä: Ole hyvä. Tässä on uusi paita ja tässä uusi kuitti.",
+      "audio_asset_id": "9ec2c1a3-01fb-5b2f-b85a-52b9353e0d2b"
+    },
+    "questions": [
+      {
+        "id": "list_214",
+        "prompt": "Miksi asiakas palauttaa paidan?",
+        "options": [
+          "Se on rikki",
+          "Se on väärän värinen",
+          "Se on väärän kokoinen",
+          "Se on liian kallis"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_215",
+        "prompt": "Minkä koon asiakas haluaa vaihtoon?",
+        "options": [
+          "S",
+          "M",
+          "L",
+          "XL"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_216",
+        "prompt": "Milloin asiakas osti paidan?",
+        "options": [
+          "Eilen",
+          "Viime viikolla",
+          "Viime kuussa",
+          "Pari päivää sitten"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

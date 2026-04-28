@@ -1,0 +1,37 @@
+{
+  "id": "7dcc4045-2c16-518b-9757-70616ddeb93e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita viesti kunnan palveluun. Pituus noin 180–220 sanaa. Tekstissä pitää olla: kerro tausta lyhyesti, selitä mikä ongelma on, pyydä vastausta tai ratkaisua, ehdota yhtä käytännön muutosta.",
+    "materials": {
+      "scenario": "Kirjoita viesti kunnan palveluun. Pituus noin 180–220 sanaa. Tekstissä pitää olla: kerro tausta lyhyesti, selitä mikä ongelma on, pyydä vastausta tai ratkaisua, ehdota yhtä käytännön muutosta."
+    },
+    "items": [
+      {
+        "id": "219948a2-108a-5d22-99ab-4b43681a804c",
+        "prompt": "Kirjoita viesti kunnan palveluun. Pituus noin 180–220 sanaa. Tekstissä pitää olla: kerro tausta lyhyesti, selitä mikä ongelma on, pyydä vastausta tai ratkaisua, ehdota yhtä käytännön muutosta."
+      }
+    ],
+    "rubric": "Kirjoita viesti kunnan palveluun. Pituus noin 180–220 sanaa. Tekstissä pitää olla: kerro tausta lyhyesti, selitä mikä ongelma on, pyydä vastausta tai ratkaisua, ehdota yhtä käytännön muutosta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "b674c366-412f-5d26-a71b-a03910008a33",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Mielenterveysongelmat ovat lisääntyneet erityisesti nuorten keskuudessa. Psykologi selittää, että syitä on monia: suorituspaineet, sosiaalinen media, epävarma tulevaisuus. Myös koronapandemia on pahentanut tilannetta. Mielenterveysongelmien ehkäisyssä korostuvat varhainen tuki ja matalan kynnyksen palvelut. Kouluissa tarvitaan enemmän kuraattoreita ja psykologeja. Myös vertaistuki on tärkeää. Hoidossa painotetaan terapian lisäksi arjen hallintaa ja yhteisön tukea. Mielenterveys on yhtä tärkeä osa terveyttä kuin fyysinen terveys, ja sen tulisi olla tasa-arvoisesti kaikkien saatavilla.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "578cd43b-ffec-5ef0-98ac-88230b3c3311",
+        "prompt": "Mitä syitä mielenterveysongelmien lisääntymiseen mainitaan?",
+        "options": [
+          "Vain perinnölliset tekijät",
+          "Suorituspaineet, some, epävarma tulevaisuus",
+          "Liikunnan puute",
+          "Huono ravitsemus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "061dd63d-7973-55a5-b5f5-0d5faca00bd0",
+        "prompt": "Mitä tarvitaan mielenterveysongelmien ehkäisyssä?",
+        "options": [
+          "Vain lääkkeitä",
+          "Varhaista tukea ja matalan kynnyksen palveluita",
+          "Sairaalahoitoa",
+          "Pakollisia testeja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "78ddaaea-2c3c-581d-9b2b-7bfa6252a43d",
+        "prompt": "Mitä hoidossa painotetaan?",
+        "options": [
+          "Vain terapiaa",
+          "Terapiaa, arjen hallintaa ja yhteisön tukea",
+          "Laitoshoitoa",
+          "Lääkitystä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

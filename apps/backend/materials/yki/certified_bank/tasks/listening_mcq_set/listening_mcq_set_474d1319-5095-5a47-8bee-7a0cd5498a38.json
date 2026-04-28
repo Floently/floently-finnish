@@ -1,0 +1,66 @@
+{
+  "id": "474d1319-5095-5a47-8bee-7a0cd5498a38",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opettaja: Huomenta oppilaat! Tänään aloitamme uuden kappaleen, joka käsittelee Euroopan maita ja pääkaupunkeja. Ensi viikolla on pieni koe tästä aiheesta.\nOppilas: Onko koe vaikea? Pitääkö meidän osata kaikki maat?\nOpettaja: Ei kaikkia, mutta tärkeimmät maat ja niiden pääkaupungit pitää tietää. Esimerkiksi Ranska, Saksa, Italia, Espanja ja Iso-Britannia. Kokeessa on karttatehtäviä ja monivalintakysymyksiä.\nOppilas: Saako meillä olla apuvälineitä?\nOpettaja: Ei, koe tehdään ilman kirjoja tai puhelimia. Mutta saatte harjoitusmateriaalia, jonka jaan teille tänään.\nOppilas: Kiitos, opettaja!",
+      "audio_asset_id": "e72000f7-b286-5b28-a45e-b05ded4c8d5b"
+    },
+    "questions": [
+      {
+        "id": "list_010",
+        "prompt": "Mitä uusi kappale käsittelee?",
+        "options": [
+          "Euroopan historiaa",
+          "Euroopan maita ja pääkaupunkeja",
+          "Euroopan kieliä",
+          "Euroopan taloutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_011",
+        "prompt": "Millainen koe on tulossa?",
+        "options": [
+          "Ryhmäkoe",
+          "Suullinen koe",
+          "Karttatehtäviä ja monivalinta",
+          "Kuuntelukoe"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_012",
+        "prompt": "Saako kokeessa käyttää apuvälineitä?",
+        "options": [
+          "Kyllä, saa käyttää kirjoja",
+          "Kyllä, saa käyttää puhelinta",
+          "Ei, koe tehdään ilman apuvälineitä",
+          "Saa käyttää sanakirjaa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

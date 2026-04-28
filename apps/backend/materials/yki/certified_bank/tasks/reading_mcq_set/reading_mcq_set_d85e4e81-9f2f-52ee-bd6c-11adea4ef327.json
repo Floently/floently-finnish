@@ -1,0 +1,77 @@
+{
+  "id": "d85e4e81-9f2f-52ee-bd6c-11adea4ef327",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.797,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kansalaisaktivismin muodot ovat viime vuosina monipuolistuneet ja osittain radikaalistikin muuttuneet. Perinteinen puolue- ja järjestötoiminta on menettänyt asemaansa samalla kun uudet, usein verkossa organisoituvat liikkeet ovat nousseet merkittäviksi yhteiskunnallisiksi toimijoiksi. Tämä kehitys heijastaa laajempaa yhteiskunnallista murrosta, jossa kansalaisten luottamus perinteisiin instituutioihin on heikentynyt ja yksilöllisyyden merkitys korostunut. Erityisesti nuoret aikuiset hakevat vaikuttamisen kanavia, jotka ovat joustavia, matalan kynnyksen ja mahdollistavat nopean reagoinnin ajankohtaisiin kysymyksiin. Sosiaalinen media on tässä keskeisessä roolissa: se tarjoaa areenan, jossa yksittäisetkin kansalaiset voivat saada äänensä kuuluviin ja mobilisoida laajoja joukkoja lyhyessä ajassa. Samalla on kuitenkin herännyt kysymys siitä, millaista kansalaisvaikuttamisen tulisi olla, jotta se olisi sekä tehokasta että demokraattisia periaatteita kunnioittavaa. Verkkoliikkeiden ongelmaksi on usein osoittautunut niiden lyhytjänteisyys ja rakenteiden puute. Ne kykenevät synnyttämään nopeasti laajaa näkyvyyttä ja painetta, mutta harva niistä pystyy ylläpitämään toimintaansa pitkällä aikavälillä tai muuntamaan hetkellisen aktiivisuuden pysyviksi yhteiskunnallisiksi muutoksiksi. Tämä asettaa haasteita myös päätöksenteolle: miten suhtautua vaatimuksiin, jotka nousevat esiin ilman perinteistä järjestöjen tai puolueiden kaltaista edustuksellisuutta ja harkittua prosessia? Toisaalta voidaan kysyä, onko perinteinen edustuksellinen demokratia kyennyt vastaamaan kansalaisten muuttuviin tarpeisiin. Äänestysprosentit ovat laskeneet, ja monet kokevat, etteivät heidän näkemyksensä välity päätöksentekoon vaaleja lukuun ottamatta. Tämä on johtanut keskusteluun demokratian uudistamisesta ja osallistavampien menetelmien, kuten kansalaisraatien, osallistuvan budjetoinnin ja kansalaisaloitteiden, kehittämisestä. Tulevaisuuden kannalta keskeinen kysymys on, miten erilaiset vaikuttamisen muodot saadaan toimimaan rinnakkain ja tukemaan toisiaan.",
+      "word_count": 215
+    },
+    "questions": [
+      {
+        "id": "17ce49cc-7832-533e-b243-283e8ae84f8e",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Perinteisen puolue- ja järjestötoiminnan merkityksen kasvu",
+          "Kansalaisaktivismin muotojen monipuolistuminen ja siihen liittyvät jännitteet",
+          "Sosiaalisen median haitat nuorten keskuudessa",
+          "Kansalaisraatien ja osallistuvan budjetoinnin ongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "76a9c941-1b2b-5c17-a660-f779b4708853",
+        "prompt": "Tekstin mukaan mikä on keskeinen ongelma verkkoliikkeiden toiminnassa?",
+        "options": [
+          "Ne ovat liian sidoksissa perinteisiin puolueisiin",
+          "Ne ovat lyhytjänteisiä ja niiltä puuttuvat pysyvät rakenteet",
+          "Ne tavoittavat vain iäkkäämmän väestön",
+          "Ne ovat liian hitaita reagoimaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2297f451-ea76-573e-8545-4a7ea86fe75b",
+        "prompt": "Mitä kritiikkiä tekstissä esitetään perinteistä edustuksellista demokratiaa kohtaan?",
+        "options": [
+          "Se on liian osallistavaa ja hidasta",
+          "Se ei ole kyennyt vastaamaan kansalaisten muuttuviin tarpeisiin, mikä näkyy äänestysprosenttien laskuna",
+          "Se on täysin korvattu uusilla verkkoliikkeillä",
+          "Se on liian keskittynyt paikallisiin kysymyksiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e15deae3-af55-5b30-959e-52e67c9204cf",
+        "prompt": "Mitä tekstissä ehdotetaan ratkaisuksi demokratian kehittämiseksi?",
+        "options": [
+          "Perinteisen edustuksellisen demokratian lakkauttamista",
+          "Osallistavampien menetelmien kehittämistä täydentämään edustuksellista demokratiaa",
+          "Paluuta ainoastaan perinteiseen puolue- ja järjestötoimintaan",
+          "Päätösvallan siirtämistä asiantuntijoille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

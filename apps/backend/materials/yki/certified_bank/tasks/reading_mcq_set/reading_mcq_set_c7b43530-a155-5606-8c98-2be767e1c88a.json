@@ -1,0 +1,66 @@
+{
+  "id": "c7b43530-a155-5606-8c98-2be767e1c88a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pizzeria menu ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PIZZERIA ITALIA\n\nPIZZAT 10 €\n\nMargherita – tomaattikastike, juusto\nFunghi – tomaattikastike, juusto, herkkusieni\nKinkku – tomaattikastike, juusto, kinkku\nTonnikala – tomaattikastike, juusto, tonnikala, sipuli\nJalopeno – tomaattikastike, juusto, jalopeno, paprika\n\nLISÄTÄYTTEET 1,5 €/kpl\n\nSALAATIT 8 €\nKebab ranskalaisilla 12 €\n\nNouto 10 % halvempi.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "eed6e6db-b3c2-518f-be40-14eca4a274d9",
+        "prompt": "Paljonko pizzat maksavat?",
+        "options": [
+          "8 €",
+          "10 €",
+          "12 €",
+          "15 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b616576f-b7c8-58ce-b417-2d723c6d7d35",
+        "prompt": "Mitä täytteitä on Funghi-pizzassa?",
+        "options": [
+          "Kinkku",
+          "Tonnikala",
+          "Herkkusieni",
+          "Jalopeno"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d526e04c-9da6-5c60-be3d-bc8d8f2714a2",
+        "prompt": "Paljonko saa alennusta noudosta?",
+        "options": [
+          "5 %",
+          "10 %",
+          "15 %",
+          "20 %"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

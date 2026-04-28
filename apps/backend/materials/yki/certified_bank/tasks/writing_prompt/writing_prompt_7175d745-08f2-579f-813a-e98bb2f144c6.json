@@ -1,0 +1,37 @@
+{
+  "id": "7175d745-08f2-579f-813a-e98bb2f144c6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipidekirjoitus kasvisruoasta.",
+    "materials": {
+      "scenario": "Kirjoita mielipidekirjoitus kasvisruoasta."
+    },
+    "items": [
+      {
+        "id": "142d07d7-edde-57a9-ada7-5fd25ffa857e",
+        "prompt": "Paikallislehti pyytää lukijoilta mielipidekirjoituksia kasvisruoasta. Kirjoita noin 150–200 sanaa. Kerro, mitä mieltä olet kasvisruoan lisääntymisestä, mitä hyötyjä tai haittoja siinä on, ja miten koulujen ja työpaikkojen ruokaloiden pitäisi suhtautua asiaan."
+      }
+    ],
+    "rubric": "Paikallislehti pyytää lukijoilta mielipidekirjoituksia kasvisruoasta. Kirjoita noin 150–200 sanaa. Kerro, mitä mieltä olet kasvisruoan lisääntymisestä, mitä hyötyjä tai haittoja siinä on, ja miten koulujen ja työpaikkojen ruokaloiden pitäisi suhtautua asiaan.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

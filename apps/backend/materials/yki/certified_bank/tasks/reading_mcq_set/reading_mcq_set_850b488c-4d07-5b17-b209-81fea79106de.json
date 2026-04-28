@@ -1,0 +1,88 @@
+{
+  "id": "850b488c-4d07-5b17-b209-81fea79106de",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kotimaanmatkailun suosio on kasvanut viime vuosina, ja yhä useampi suomalainen viettää lomansa kotimaassa. Kotimaanmatkailu tarjoaa monia etuja ja elämyksiä. Yksi keskeisimmistä eduista on luonnon läheisyys ja monipuolisuus. Suomessa on upeita kansallispuistoja, tuhansia järviä, pitkä merenrannikko ja kauniita saaristoja. Luonnossa voi patikoida, meloa, kalastaa, marjastaa, sienestää, hiihtää ja retkeillä. Toinen etu on kulttuuri ja historia. Suomessa on viehättäviä puukaupunkeja, kartanoita, linnoja, museoita ja kulttuuritapahtumia. Jokaisella seudulla on oma historiansa. Kolmas etu on turvallisuus ja helppous. Kotimaassa matkustaminen on turvallista ja helppoa. Ei ole kielimuuria, ja kulttuuri on tuttua. Matkustaminen on vaivatonta, ja avun saaminen on tarvittaessa helppoa. Neljäs etu on vastuullisuus. Kotimaanmatkailu on usein ympäristöystävällisempää kuin ulkomaanmatkailu, erityisesti jos matkustaa junalla. Se myös tukee kotimaista taloutta ja työllisyyttä. Viides etu on sesonkien monipuolisuus. Suomessa on neljä vuodenaikaa, ja jokainen tarjoaa omat elämyksensä. Kesällä on valoa ja lämpöä, syksyllä ruskaa, talvella lunta ja talviurheilua, keväällä luonnon heräämistä.",
+      "word_count": 145
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yksi kotimaanmatkailun keskeisistä eduista?",
+        "options": [
+          "Kalliit hinnat",
+          "Luonnon läheisyys ja monipuolisuus",
+          "Vain kaupunkien nähtävyydet",
+          "Vain huvipuistot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kulttuuri- ja historiallisia kohteita Suomessa on?",
+        "options": [
+          "Vain museoita",
+          "Puukaupunkeja, kartanoita, linnoja, museoita ja kulttuuritapahtumia",
+          "Vain linnoja",
+          "Vain puukaupunkeja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi kotimaanmatkailu on turvallista ja helppoa?",
+        "options": [
+          "Koska se on halpaa",
+          "Koska ei ole kielimuuria ja kulttuuri on tuttua",
+          "Koska se on nopeaa",
+          "Koska siellä on paljon hotelleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kotimaanmatkailu on usein ympäristöystävällisempää?",
+        "options": [
+          "Koska matkustetaan autolla",
+          "Koska voidaan matkustaa junalla, mikä vähentää päästöjä",
+          "Koska se on halvempaa",
+          "Koska se on nopeampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä elämyksiä eri vuodenajat tarjoavat kotimaanmatkailussa?",
+        "options": [
+          "Vain kesällä on elämyksiä",
+          "Kesällä valoa ja lämpöä, syksyllä ruskaa, talvella lunta, keväällä luonnon heräämistä",
+          "Vain talvella on elämyksiä",
+          "Vain syksyllä on elämyksiä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

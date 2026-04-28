@@ -1,0 +1,37 @@
+{
+  "id": "aeb8ddb2-257a-5386-bb5e-9c4cb7b8778c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.68,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a warehouse worker position in a logistics company. Tell about your previous experience in warehouse work, physical fitness, and why you are a reliable employee. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus varastotyöntekijän tehtävään"
+    },
+    "items": [
+      {
+        "id": "44e5f1bf-860b-5c08-8600-4c65f768e2ae",
+        "prompt": "Write a job application. You are applying for a warehouse worker position in a logistics company. Tell about your previous experience in warehouse work, physical fitness, and why you are a reliable employee. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a warehouse worker position in a logistics company. Tell about your previous experience in warehouse work, physical fitness, and why you are a reliable employee. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "13183a0d-cf8d-5103-9980-e4f68d57af82",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Uimahalli on remontissa koko heinäkuun. Remontin aikana uimahalli on kiinni. Elokuussa uimahalli avataan uudelleen. Uusia palveluita ovat viereen rakennettu kahvio ja uusi kuntosali. Kesäkuussa on vielä normaalit aukioloajat. Tervetuloa uimaan ennen remonttia!",
+      "word_count": 32
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uimahalli on remontissa?",
+        "options": [
+          "Kesäkuun",
+          "Heinäkuun",
+          "Elokuun",
+          "Syyskuun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten remontti vaikuttaa uimahalliin?",
+        "options": [
+          "Se on auki vain viikonloppuisin",
+          "Se on kiinni",
+          "Se on auki vain aamuisin",
+          "Sillä on lyhyemmät aukioloajat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin uimahalli avataan uudelleen?",
+        "options": [
+          "Heinäkuussa",
+          "Elokuussa",
+          "Syyskuussa",
+          "Lokakuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on uusi palvelu remontin jälkeen?",
+        "options": [
+          "Uusi allas",
+          "Kahvio ja uusi kuntosali",
+          "Uusi sauna",
+          "Uusi liukumäki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin on vielä normaalit aukioloajat?",
+        "options": [
+          "Heinäkuussa",
+          "Kesäkuussa",
+          "Elokuussa",
+          "Remontin aikana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä toivotaan ennen remonttia?",
+        "options": [
+          "Ihmiset eivät ui",
+          "Ihmiset tulevat uimaan",
+          "Ihmiset eivät käy kahvilassa",
+          "Ihmiset odottavat elokuuhun"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

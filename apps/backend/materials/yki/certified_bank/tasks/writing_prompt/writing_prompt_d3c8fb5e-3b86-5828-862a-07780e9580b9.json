@@ -1,0 +1,37 @@
+{
+  "id": "d3c8fb5e-3b86-5828-862a-07780e9580b9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut liput teatteriin ensi lauantaina. Kerro, että esitys on klo 19 ja paikka on hyvä. Kysy, haluaako hän tulla mukaan ja voitteko mennä ensin syömään.",
+    "materials": {
+      "scenario": "Viesti ystävälle teatterilipuista"
+    },
+    "items": [
+      {
+        "id": "7eeae66f-5ce5-5bd5-aaf6-a49f8db45db3",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet saanut liput teatteriin ensi lauantaina. Kerro, että esitys on klo 19 ja paikka on hyvä. Kysy, haluaako hän tulla mukaan ja voitteko mennä ensin syömään."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on liput\nKerro esityksen aika ja paikka\nKysy, haluaako hän tulla\nEhdota yhteistä illallista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

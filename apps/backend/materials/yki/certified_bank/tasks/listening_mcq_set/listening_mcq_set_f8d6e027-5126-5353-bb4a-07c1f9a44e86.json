@@ -1,0 +1,88 @@
+{
+  "id": "f8d6e027-5126-5353-bb4a-07c1f9a44e86",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.663,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele juna-aseman kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat. IC 75 Ouluun lähtee raiteelta 4 kello 15.45. Junassa on ravintolavaunu ja lasten leikkivaunu. Seuraava juna Ouluun lähtee kello 17.30. Hyvää matkaa!",
+      "audio_asset_id": "c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f"
+    },
+    "questions": [
+      {
+        "id": "l234q1",
+        "prompt": "Mille raiteelle juna Ouluun lähtee?",
+        "options": [
+          "Raide 2.",
+          "Raide 3.",
+          "Raide 4.",
+          "Raide 5."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l234q2",
+        "prompt": "Mihin aikaan juna lähtee?",
+        "options": [
+          "Kello 15.15.",
+          "Kello 15.30.",
+          "Kello 15.45.",
+          "Kello 16.00."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l234q3",
+        "prompt": "Mikä on junan numero?",
+        "options": [
+          "IC 73.",
+          "IC 74.",
+          "IC 75.",
+          "IC 76."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l234q4",
+        "prompt": "Mitä erityisiä vaunuja junassa on?",
+        "options": [
+          "Ravintolavaunu ja hiljainen vaunu.",
+          "Ravintolavaunu ja lasten leikkivaunu.",
+          "Elokuvavaunu ja leikkivaunu.",
+          "Konferenssivaunu ja ravintolavaunu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l234q5",
+        "prompt": "Milloin seuraava juna Ouluun lähtee?",
+        "options": [
+          "Kello 17.00.",
+          "Kello 17.15.",
+          "Kello 17.30.",
+          "Kello 17.45."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

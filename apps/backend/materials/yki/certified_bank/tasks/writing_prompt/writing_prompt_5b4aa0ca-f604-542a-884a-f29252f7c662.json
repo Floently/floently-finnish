@@ -1,0 +1,37 @@
+{
+  "id": "5b4aa0ca-f604-542a-884a-f29252f7c662",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita viesti työpaikalle.",
+    "materials": {
+      "scenario": "Kirjoita viesti työpaikalle."
+    },
+    "items": [
+      {
+        "id": "6ba1e943-a8c0-5bdc-8a9d-cf16002e5e57",
+        "prompt": "Lapsesi on sairas, etkä voi tulla tänään töihin. Kirjoita lyhyt viesti esimiehellesi. Kerro:\n– ettet pääse tulemaan\n– miksi et pääse\n– milloin arviolta tulet takaisin\n\nKirjoita 4–6 lausetta."
+      }
+    ],
+    "rubric": "Lapsesi on sairas, etkä voi tulla tänään töihin. Kirjoita lyhyt viesti esimiehellesi. Kerro:\n– ettet pääse tulemaan\n– miksi et pääse\n– milloin arviolta tulet takaisin\n\nKirjoita 4–6 lausetta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

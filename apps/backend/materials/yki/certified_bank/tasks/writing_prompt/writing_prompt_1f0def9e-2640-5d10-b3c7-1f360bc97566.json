@@ -1,0 +1,37 @@
+{
+  "id": "1f0def9e-2640-5d10-b3c7-1f360bc97566",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute uimahallin pukuhuoneesta.",
+    "materials": {
+      "scenario": "Uimahallin pukuhuone"
+    },
+    "items": [
+      {
+        "id": "ecd83635-69b8-5730-86f9-c3e660e57bf5",
+        "prompt": "Kirjoita palaute uimahallin pukuhuoneesta."
+      }
+    ],
+    "rubric": "Kirjoita palaute uimahallin pukuhuoneesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

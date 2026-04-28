@@ -1,0 +1,77 @@
+{
+  "id": "954c5447-b08e-55ff-800d-1aaf36540017",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "HYVINVOINTIVALTION TULEVAISUUS – KESTÄÄKÖ SE?\n\nSuomalainen hyvinvointivaltio on rakennettu toisen maailmansodan jälkeen. Sen perustana on ajatus, että yhteiskunta huolehtii kansalaisistaan: koulutus, terveydenhuolto ja sosiaaliturva ovat kaikkien saatavilla. Mutta väestön ikääntyminen, talouden globalisaatio ja julkisen talouden paineet uhkaavat tätä mallia.\n\nYksi suurimmista haasteista on väestön ikääntyminen. Työikäisten määrä vähenee, samalla kun eläkemenot ja terveydenhuollon kustannukset kasvavat. Tämä asettaa julkisen talouden kestävyyden koetukselle. Miten turvaamme hyvinvointipalvelut, kun veronmaksajia on vähemmän?\n\nToinen haaste on työn murros. Automatisaatio ja tekoäly muuttavat työelämää. Osa työpaikoista katoaa, uusia syntyy. Keikkatyö ja yrittäjyys yleistyvät. Tämä haastaa perinteisen sosiaaliturvan, joka on rakennettu vakituisen työsuhteen varaan.\n\nKolmas haaste on eriarvoisuus. Tuloerot ovat kasvaneet, ja hyvinvointivaltion kyky tasata eroja on heikentynyt. Tämä heikentää yhteiskunnallista koheesiota ja luottamusta.\n\nMiten hyvinvointivaltiota pitäisi uudistaa? Asiantuntijat korostavat, että tarvitaan sekä uusia rahoitusmalleja että uudenlaista ajattelua. Työuria on pidennettävä, mutta samalla on huolehdittava työhyvinvoinnista. Sosiaaliturvaa on uudistettava niin, että se kannustaa työntekoon mutta turvaa toimeentulon.\n\nMyös teknologiaa voidaan hyödyntää. Digitaaliset palvelut voivat tehostaa julkisia palveluja ja parantaa saavutettavuutta. Mutta teknologia ei saa syrjäyttää ihmisiä – se on työkalu, ei itsetarkoitus.\n\nLopuksi on muistettava, että hyvinvointivaltio ei ole vain menoerä. Se on investointi, joka maksaa itsensä takaisin terveempänä ja koulutetumpana väestönä. Tulevaisuudessa tarvitaan rohkeita uudistuksia, jotta hyvinvointivaltio säilyy myös tuleville sukupolville.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 238
+    },
+    "questions": [
+      {
+        "id": "226485f3-1bc4-54fb-b24b-66d8651d2167",
+        "prompt": "Mitä haasteita hyvinvointivaltiolla on?",
+        "options": [
+          "liian suuret verotulot",
+          "väestön ikääntyminen, työn murros ja eriarvoisuus",
+          "liian vähän palveluita",
+          "liian hyvä taloustilanne"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b09806dc-2674-586f-824c-43bcc53e6d83",
+        "prompt": "Miten väestön ikääntyminen vaikuttaa hyvinvointivaltioon?",
+        "options": [
+          "verotulot kasvavat",
+          "työikäisten määrä vähenee ja menot kasvavat",
+          "työttömyys vähenee",
+          "kaikki saavat töitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c58e4bf4-ac63-5ca7-85c8-df8a9f047b69",
+        "prompt": "Miten työn murros haastaa sosiaaliturvaa?",
+        "options": [
+          "sosiaaliturva on liian antelias",
+          "sosiaaliturva on rakennettu vakituisen työsuhteen varaan, mutta työelämä on muuttumassa",
+          "sosiaaliturvaa ei tarvita",
+          "kaikki saavat vakituisen työpaikan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dd68fc5f-364e-5a22-8913-63dc967d4323",
+        "prompt": "Mitä ratkaisuja tekstissä ehdotetaan?",
+        "options": [
+          "leikataan kaikesta",
+          "työurien pidentäminen, sosiaaliturvan uudistus, teknologian hyödyntäminen",
+          "vähennetään palveluita",
+          "luovutaan hyvinvointivaltiosta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

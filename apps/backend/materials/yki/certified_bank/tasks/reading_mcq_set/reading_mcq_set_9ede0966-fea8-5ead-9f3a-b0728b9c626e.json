@@ -1,0 +1,110 @@
+{
+  "id": "9ede0966-fea8-5ead-9f3a-b0728b9c626e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen yhteiskunta on muuttunut monikulttuurisemmaksi viime vuosikymmeninä. Maahanmuutto on lisääntynyt, ja Suomessa asuu nykyään ihmisiä yli 150 eri maasta. Tämä näkyy arjessa: kaupoissa on monipuolisempi valikoima, työpaikoilla puhutaan useita kieliä ja kaduilla kuulee monia eri kieliä. Monikulttuurisuus on rikkaus, joka tuo uusia näkökulmia, osaamista ja kulttuurivaikutteita. Se voi myös vahvistaa taloutta, kun saadaan uutta työvoimaa ja osaamista. Monikulttuurisuus tuo mukanaan myös haasteita. Kotoutuminen suomalaiseen yhteiskuntaan voi olla vaikeaa. Kielen oppiminen, työllistyminen ja sosiaalisten verkostojen luominen vievät aikaa. Syrjintää ja ennakkoluuloja esiintyy. Osa suomalaisista kokee, että oma kulttuuri ja identiteetti ovat uhattuina. Tarvitaan avoimuutta, vuoropuhelua ja konkreettisia toimia kotoutumisen edistämiseksi. Koulutus, työ ja kielitaito ovat avainasemassa. Myös asenteilla on merkitystä. On tärkeää nähdä maahanmuuttajat yksilöinä, ei vain jonkin ryhmän edustajina. Onnistunut kotoutuminen hyödyttää sekä maahanmuuttajia että koko yhteiskuntaa. Se vähentää jännitteitä, lisää hyvinvointia ja vahvistaa yhteiskunnan yhteenkuuluvuutta.",
+      "word_count": 136
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten suomalainen yhteiskunta on muuttunut?",
+        "options": [
+          "Se on muuttunut yksikulttuurisemmaksi.",
+          "Se on muuttunut monikulttuurisemmaksi.",
+          "Se on pysynyt täysin samana.",
+          "Se on sulkeutunut."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä monikulttuurisuudesta on?",
+        "options": [
+          "Se köyhdyttää kulttuuria.",
+          "Se tuo uusia näkökulmia, osaamista ja kulttuurivaikutteita sekä vahvistaa taloutta.",
+          "Se lisää eriarvoisuutta.",
+          "Sillä ei ole hyötyjä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita monikulttuurisuuteen liittyy?",
+        "options": [
+          "Ei mitään haasteita.",
+          "Kotoutumisen vaikeudet, syrjintä ja ennakkoluulot.",
+          "Vain kielen oppiminen on vaikeaa.",
+          "Vain työllistyminen on vaikeaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on avainasemassa kotoutumisessa?",
+        "options": [
+          "Vain kielitaito.",
+          "Koulutus, työ ja kielitaito.",
+          "Vain työ.",
+          "Vain koulutus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi asenteet ovat tärkeitä kotoutumisessa?",
+        "options": [
+          "Asenteilla ei ole merkitystä.",
+          "On tärkeää nähdä maahanmuuttajat yksilöinä, ei vain ryhmän edustajina.",
+          "Vain maahanmuuttajien asenteet ovat tärkeitä.",
+          "Vain kantaväestön asenteet ovat tärkeitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Ketä onnistunut kotoutuminen hyödyttää?",
+        "options": [
+          "Vain maahanmuuttajia.",
+          "Vain kantaväestöä.",
+          "Sekä maahanmuuttajia että koko yhteiskuntaa.",
+          "Ei ketään."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä onnistunut kotoutuminen vähentää?",
+        "options": [
+          "Se lisää jännitteitä.",
+          "Se vähentää jännitteitä, lisää hyvinvointia ja vahvistaa yhteenkuuluvuutta.",
+          "Sillä ei ole vaikutusta.",
+          "Se lisää eriarvoisuutta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

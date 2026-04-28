@@ -1,0 +1,37 @@
+{
+  "id": "7a56990b-eec0-536f-883f-cdf625ee82a8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lentomatkustusta vähentää ilmastosyistä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lentomatkustuksen vähentäminen"
+    },
+    "items": [
+      {
+        "id": "5722fb57-c3c9-5132-8dc1-ed85a2ae0d34",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lentomatkustusta vähentää ilmastosyistä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

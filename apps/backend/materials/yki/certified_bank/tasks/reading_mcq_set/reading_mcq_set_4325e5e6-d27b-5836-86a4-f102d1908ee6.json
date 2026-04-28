@@ -1,0 +1,66 @@
+{
+  "id": "4325e5e6-d27b-5836-86a4-f102d1908ee6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.353,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JÄTEHUOLTO\n\nBiojäteastia tyhjennetään maanantaisin ja torstaisin. Sekajäteastia tyhjennetään perjantaisin. Muovipakkausten keräys on kerran kuukaudessa.",
+      "word_count": 14
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_008_q1",
+        "prompt": "Minä päivinä biojäteastia tyhjennetään?",
+        "options": [
+          "maanantaisin ja keskiviikkoisin",
+          "maanantaisin ja torstaisin",
+          "tiistaisin ja perjantaisin",
+          "keskiviikkoisin ja lauantaisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_008_q2",
+        "prompt": "Milloin sekajäteastia tyhjennetään?",
+        "options": [
+          "maanantaisin",
+          "keskiviikkoisin",
+          "perjantaisin",
+          "lauantaisin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_008_q3",
+        "prompt": "Kuinka usein muovipakkausten keräys on?",
+        "options": [
+          "joka viikko",
+          "kerran kuukaudessa",
+          "kerran vuodessa",
+          "ei koskaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

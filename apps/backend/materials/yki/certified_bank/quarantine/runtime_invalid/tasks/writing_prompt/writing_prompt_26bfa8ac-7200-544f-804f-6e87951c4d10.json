@@ -1,0 +1,37 @@
+{
+  "id": "26bfa8ac-7200-544f-804f-6e87951c4d10",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.354,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: train_station. Purpose: compare_options. Constraint: use_clear_structure.",
+    "materials": {
+      "scenario": "naapurustosta train station"
+    },
+    "items": [
+      {
+        "id": "72d6e2dd-2669-59b3-bfba-3cc086536814",
+        "prompt": "Write for the receiver in this scenario: train_station. Purpose: compare_options. Constraint: use_clear_structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

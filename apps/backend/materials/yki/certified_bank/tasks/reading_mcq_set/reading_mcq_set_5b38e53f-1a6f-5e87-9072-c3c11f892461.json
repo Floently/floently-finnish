@@ -1,0 +1,77 @@
+{
+  "id": "5b38e53f-1a6f-5e87-9072-c3c11f892461",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.778,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Teknologian ja demokratian suhde on yksi aikamme keskeisimmistä yhteiskunnallisista kysymyksistä. Digitalisaatio on tuonut mukanaan ennennäkemättömiä mahdollisuuksia kansalaisvaikuttamiseen, tiedonvälitykseen ja julkiseen keskusteluun. Samalla se on synnyttänyt uudenlaisia uhkia, kuten disinformation leviämisen, vaalivaikuttamisen ja digitaalisen valvonnan. Tämä kehitys on pakottanut pohtimaan, miten teknologiaa voidaan säädellä siten, että se palvelee demokratiaa eikä heikennä sitä. Optimistit korostavat teknologian demokratisoivaa voimaa. Sosiaalinen media on antanut äänen niille, jotka aiemmin olivat vailla julkista näkyvyyttä, ja mahdollistanut uudenlaisen kansalaisaktivismin. Verkkoalustat ovat myös helpottaneet tiedon saantia ja yhteiskunnallista keskustelua yli maantieteellisten rajojen. Pessimistit puolestaan varoittavat, että samat alustat ovat osoittautuneet hedelmälliseksi maaperäksi disinformaatiolle, vihapuheelle ja manipulaatiolle. Algoritmit suosivat sisältöjä, jotka herättävät voimakkaita tunnereaktioita, mikä usein tarkoittaa valheellista tai harhaanjohtavaa tietoa. Tämä on johtanut suodatinkupliin ja kaikukammioihin, joissa omat ennakkoluulot vahvistuvat ja yhteinen todellisuuskäsitys hämärtyy. Kolmas näkökulma korostaa, että teknologia itsessään ei ole hyvä tai paha, vaan sen vaikutukset riippuvat siitä, miten sitä käytetään ja kuka sitä hallitsee. Tästä näkökulmasta keskeistä on luoda sellaiset pelisäännöt ja instituutiot, jotka ohjaavat teknologian kehitystä demokratiaa vahvistavaan suuntaan.",
+      "word_count": 165
+    },
+    "questions": [
+      {
+        "id": "fd8c5a94-ff70-5b45-a80e-9aa331923589",
+        "prompt": "Mikä on tekstin keskeinen väite teknologian ja demokratian suhteesta?",
+        "options": [
+          "Teknologia on yksiselitteisen hyvä asia demokratialle",
+          "Teknologia on yksiselitteinen uhka demokratialle",
+          "Teknologian vaikutukset ovat ristiriitaisia, ja sen kehitystä on ohjattava demokratiaa vahvistavaan suuntaan",
+          "Teknologialla ja demokratialla ei ole mitään tekemistä toistensa kanssa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "3a1c78ba-d7a3-57bb-a0d8-8fa4b678c9ba",
+        "prompt": "Tekstin mukaan mitä optimistit korostavat teknologian vaikutuksista demokratiaan?",
+        "options": [
+          "Teknologia heikentää demokratiaa disinformation levitessä",
+          "Teknologia on antanut äänen marginaaleille ja mahdollistanut uudenlaisen kansalaisaktivismin",
+          "Teknologiaa käytetään ensisijaisesti kansalaisten valvontaan",
+          "Teknologia on johtanut suodatinkupliin ja kaikukammioihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2d57151a-4eaa-5311-a247-fa7737b368a9",
+        "prompt": "Mitä huolenaiheita pessimistit esittävät teknologian vaikutuksista?",
+        "options": [
+          "Teknologia on liian kallista eivätkä kaikki pääse siitä osallisiksi",
+          "Teknologia on lisännyt kansalaisten mahdollisuuksia osallistua päätöksentekoon",
+          "Algoritmit suosivat disinformaatiota ja vihapuhetta, mikä johtaa suodatinkupliin ja vaalivaikuttamiseen",
+          "Teknologia on vähentänyt kansalaisten välistä vuorovaikutusta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "5f570b9b-f2f2-5d1f-93ab-42db5cee2600",
+        "prompt": "Mitä kolmas, sääntelyä korostava näkökulma pitää tärkeänä demokratian turvaamiseksi digitaalisella aikakaudella?",
+        "options": [
+          "Teknologian kehityksen pysäyttämistä",
+          "Pelisääntöjä, instituutioita, lainsäädäntöä, jotka ohjaavat teknologiaa demokratiaa vahvistavaan suuntaan",
+          "Teknologian täydellistä vapautta ilman minkäänlaista sääntelyä",
+          "Vain kansainvälisiä sopimuksia, jotka kieltävät haitallisen teknologian"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "23a5e9ef-2cf0-5d23-97c2-2b614185be5c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue urheiluseuran tiedote talkoista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TULE MUKAAN TALKOISIIN!\n\nHyvät seuran jäsenet ja kannattajat,\n\njärjestämme syystalkoot lauantaina 5.10. kello 10–15 urheilukentällä. Talkoissa kunnostetaan kenttää ja huolletaan seuran tiloja talven varalle.\n\nMitä tehdään?\n- Haravoidaan ja siivotaan kenttäalue\n- Huolletaan varusteita (pesäpallomailat, suojat jne.)\n- Siivotaan seuran kerhohuone\n- Puhdistetaan katsomo\n\nTarjoilu:\nTalkoolaisille tarjotaan lounas ja kahvit. Lounaalla on keittoa, leipää ja jälkiruoka. Myös kasvisvaihtoehto on tarjolla.\n\nIlmoittautuminen:\nIlmoittaudu 1.10. mennessä seuran nettisivuilla tai sähköpostilla. Kerro samalla mahdollisista erityisruokavalioista.\n\nMiksi talkoisiin kannattaa tulla?\n- Pääset vaikuttamaan seuran tilojen siisteyteen\n- Tapaat mukavia ihmisiä\n- Saat hyvän mielen yhdessä tekemisestä\n\nJokainen talkoolainen saa palkinnoksi seuran pipon ja kahdet liput seuran kotipeleihin.\n\nTervetuloa talkoisiin!\n\nSeuran hallitus",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin talkoot pidetään?",
+        "options": [
+          "28.9.",
+          "5.10.",
+          "12.10."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mihin mennessä pitää ilmoittautua?",
+        "options": [
+          "28.9.",
+          "1.10.",
+          "5.10."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä tarjotaan talkoolaisille?",
+        "options": [
+          "vain kahvia",
+          "lounas ja kahvit",
+          "vain lounas"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä palkkioksi saa?",
+        "options": [
+          "rahaa",
+          "seuran pipon ja lippuja",
+          "ilmaisen jäsenyyden"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

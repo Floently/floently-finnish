@@ -1,0 +1,110 @@
+{
+  "id": "1df7e5d3-f261-5e4b-8d0b-1d7ea688627e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Julkinen liikenne on tärkeä osa kaupunkien toimivuutta. Hyvin toimivat bussit, raitiovaunut ja junat vähentävät yksityisautoilun tarvetta. Tämä vähentää liikenteen päästöjä ja ruuhkia. Joukkoliikennevälineet kuljettavat paljon ihmisiä pienellä tilalla. Suomessa julkista liikennettä kehitetään jatkuvasti. Uusia raitiovaunulinjoja rakennetaan. Junaliikennettä nopeutetaan. Lippujärjestelmiä uudistetaan. Monissa kaupungeissa on käytössä älykkäitä lippuja. Niillä voi matkustaa useilla eri liikennevälineillä. Haasteitakin on. Harvaan asutuilla alueilla joukkoliikenteen järjestäminen on vaikeaa. Matkustajia on vähän, joten se on kallista. Siksi monilla maaseutualueilla tarvitaan omaa autoa. Tulevaisuudessa uudet palvelut, kuten kimppakyydit, voivat auttaa.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä julkisesta liikenteestä on kaupungeissa?",
+        "options": [
+          "Se lisää yksityisautoilua.",
+          "Se vähentää päästöjä ja ruuhkia.",
+          "Se on aina hitaampaa.",
+          "Se on kalliimpaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten julkista liikennettä kehitetään Suomessa?",
+        "options": [
+          "Vähentämällä linjoja.",
+          "Rakentamalla uusia linjoja ja uudistamalla lippujärjestelmiä.",
+          "Lakkauttamalla busseja.",
+          "Nostamalla hintoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä älykkäät liput mahdollistavat?",
+        "options": [
+          "Vain yhden matkan.",
+          "Matkustamisen useilla eri liikennevälineillä.",
+          "Vain bussimatkat.",
+          "Vain junamatkat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi joukkoliikenteen järjestäminen on haastavaa harvaan asutuilla alueilla?",
+        "options": [
+          "Koska tiet ovat huonoja.",
+          "Koska matkustajia on vähän, joten se on kallista.",
+          "Koska bussikuskeja ei ole.",
+          "Koska ihmiset eivät halua käyttää sitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä harvaan asutuilla alueilla ollaan riippuvaisia?",
+        "options": [
+          "Junista.",
+          "Omasta autosta.",
+          "Busseista.",
+          "Kävelystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä uusia palveluja tulevaisuus voi tuoda?",
+        "options": [
+          "Lisää omia autoja.",
+          "Kimppakyytejä.",
+          "Vain yksityislentokoneita.",
+          "Liikenteen lopettamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on tärkeää liikkumisessa?",
+        "options": [
+          "Vain autoilu.",
+          "Mahdollisuus liikkua kohtuullisin kustannuksin.",
+          "Vain nopeus.",
+          "Vain halpuus."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

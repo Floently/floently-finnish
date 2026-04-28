@@ -1,0 +1,37 @@
+{
+  "id": "34a585d3-29ff-5165-9348-e9f119e11e62",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt sähköpotkulautaa eka kertaa. Kirjoita palaute. Oliko se helppoa? Oliko sovellus selkeä?",
+    "materials": {
+      "scenario": "Palaute ekan kerran sähköpotkulautailusta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt sähköpotkulautaa eka kertaa. Kirjoita palaute. Oliko se helppoa? Oliko sovellus selkeä?"
+      }
+    ],
+    "rubric": "Olet käyttänyt sähköpotkulautaa eka kertaa. Kirjoita palaute. Oliko se helppoa? Oliko sovellus selkeä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

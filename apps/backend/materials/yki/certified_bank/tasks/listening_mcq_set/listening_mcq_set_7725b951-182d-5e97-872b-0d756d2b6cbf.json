@@ -1,0 +1,66 @@
+{
+  "id": "7725b951-182d-5e97-872b-0d756d2b6cbf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisten matkailutottumuksista. Vieraana on matkailututkija Päivi Järvinen. Miten suomalaisten matkailu on muuttunut viime vuosina?\nJärvinen: Selvä trendi on kotimaanmatkailun lisääntyminen. Korona-aika sai ihmiset löytämään Suomen. Nyt monet jatkavat kotimaassa matkailua, vaikka ulkomaillekin taas pääsee. Erityisesti mökkeily, kansallispuistot ja kaupunkilomat kiinnostavat.\nToimittaja: Miksi kotimaanmatkailu on niin suosittua?\nJärvinen: Se on helppoa ja turvallista. Ei tarvitse matkustaa pitkiä matkoja, kieli on tuttu ja ruoka maistuu. Myös ekologisuus on monelle tärkeää.\nToimittaja: Entä ulkomaanmatkailu?\nJärvinen: Se on palautunut, mutta matkustetaan ehkä hieman vähemmän ja lyhyemmille matkoille. Euroopan kohteet, kuten Espanja, Italia ja Kreikka, ovat edelleen suosituimpia. Kaukokohteisiin matkustetaan vähemmän.",
+      "audio_asset_id": "444d8230-d285-5713-8cd6-c997742666f1"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten suomalaisten matkailu on muuttunut?",
+        "options": [
+          "Ulkomaanmatkailu on vähentynyt kokonaan",
+          "Kotimaanmatkailu on lisääntynyt",
+          "Kukaan ei matkusta enää",
+          "Vain nuoret matkustavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi kotimaanmatkailu on suosittua?",
+        "options": [
+          "Se on halvempaa",
+          "Se on helppoa, turvallista ja ekologista",
+          "Se on ainoa vaihtoehto",
+          "Koska ulkomaille ei pääse"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä ovat suosituimmat ulkomaanmatkakohteet?",
+        "options": [
+          "Aasia",
+          "Amerikka",
+          "Espanja, Italia ja Kreikka",
+          "Afrikka"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

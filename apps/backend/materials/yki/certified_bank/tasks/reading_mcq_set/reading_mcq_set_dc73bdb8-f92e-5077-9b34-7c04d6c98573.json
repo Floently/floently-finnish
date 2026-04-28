@@ -1,0 +1,66 @@
+{
+  "id": "dc73bdb8-f92e-5077-9b34-7c04d6c98573",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "5. VUOKRALAISEN VELVOLLISUUDET\n\nVuokralainen on velvollinen hoitamaan asuntoa huolellisesti. Vuokralainen vastaa aiheuttamistaan vahingoista. Pienet kunnostukset, kuten lamppujen vaihto ja palovaroittimen pariston vaihto, kuuluvat vuokralaiselle. Ilmanvaihtoventtiilit saa pestä, mutta niiden säätäminen on kielletty.\n\n6. VUOKRANANTAJAN VELVOLLISUUDET\n\nVuokranantaja vastaa kiinteistön kunnossapidosta ja suuremmista korjauksista, kuten putki- ja sähkötöistä. Vikailmoitukset tehdään isännöintitoimistoon puhelimitse tai sähköisellä lomakkeella.\n\n7. LEMMIKIT\n\nLemmikkien pito on sallittua vain vuokranantajan kirjallisella luvalla. Jos lupaa ei ole, lemmikin tuominen asuntoon on sopimusrikkomus.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 100
+    },
+    "questions": [
+      {
+        "id": "f352abb5-2b68-515e-82d6-4e7cd4f93b6c",
+        "prompt": "Kenen vastuulla on palovaroittimen pariston vaihto?",
+        "options": [
+          "Vuokranantajan",
+          "Isännöitsijän",
+          "Vuokralaisen",
+          "Taloyhtiön"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e258dce4-ea3a-52b5-8ccd-87f8f9644fae",
+        "prompt": "Miten pitää toimia, jos vessan pytty vuotaa?",
+        "options": [
+          "Korjata se itse",
+          "Soittaa isännöintiin",
+          "Ostaa uusi pytty",
+          "Odottaa seuraavaa tarkastusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cc3b67d7-0214-54db-a0af-5074ff219491",
+        "prompt": "Mitä ehtoja lemmikkien pidolle on?",
+        "options": [
+          "Se on aina sallittua",
+          "Se on aina kiellettyä",
+          "Tarvitaan kirjallinen lupa",
+          "Vain kissat sallitaan"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

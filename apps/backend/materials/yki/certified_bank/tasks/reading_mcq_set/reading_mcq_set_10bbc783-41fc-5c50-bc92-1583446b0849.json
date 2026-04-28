@@ -1,0 +1,77 @@
+{
+  "id": "10bbc783-41fc-5c50-bc92-1583446b0849",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kimppakyydeistä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIMPPAKYYDIT – HYVÄÄ KAUPUNKILAISELLE\n\nKimppakyydit ovat yleistyneet Suomessa. Idea on yksinkertainen: samaan suuntaan menevät ihmiset matkustavat yhdessä samalla autolla. Se säästää rahaa ja vähentää päästöjä.\n\nKimppakyytiä voi järjestää esimerkiksi työmatkoille. Työkaverit sopivat, että vuorotellen joku ajaa ja muut maksavat bensarahaa. Myös harrastuksiin voi sopia kimppakyytejä.\n\nNykyään on olemassa sovelluksia, jotka auttavat löytämään kimppakyytiläisiä. Tunnetuimpia ovat Kyydit.net ja Kimppakyyti-sovellus. Sovelluksessa voit ilmoittaa, milloin olet lähdössä ja minne, ja muut voivat liittyä matkaan.\n\nKimppakyyti ei ole täysin ongelmatonta. Aikataulujen yhteensovittaminen voi olla vaikeaa. Myös luottamus on tärkeää: matkustat vieraan ihmisen kanssa. Sovelluksissa on usein käyttäjäarvosteluja, jotka auttavat valinnassa.\n\nYmpäristön kannalta kimppakyydit ovat erinomainen asia. Yksi auto, jossa on neljä ihmistä, tuottaa vähemmän päästöjä kuin neljä autoa. Lisäksi se vähentää ruuhkia ja pysäköintiongelmia.",
+      "word_count": 120
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä kimppakyydeistä on?",
+        "options": [
+          "Vain rahan säästö",
+          "Rahan säästö ja päästöjen väheneminen",
+          "Vain päästöjen väheneminen",
+          "Vain uusien ihmisten tapaaminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä sovellus mainitaan tekstissä?",
+        "options": [
+          "Uber",
+          "Taksi Helsinki",
+          "Kyydit.net",
+          "Google Maps"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita kimppakyydeissä on?",
+        "options": [
+          "Ne ovat kalliita",
+          "Aikataulujen sovittaminen ja luottamus",
+          "Ne ovat hitaita",
+          "Niitä on vaikea löytää"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten sovellukset auttavat luottamuksessa?",
+        "options": [
+          "Ne tarkistavat henkilöllisyyden",
+          "Niissä on käyttäjäarvosteluja",
+          "Ne vaativat vakuutuksen",
+          "Ne välittävät vain työmatkoja"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

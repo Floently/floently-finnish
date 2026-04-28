@@ -1,0 +1,99 @@
+{
+  "id": "4fdb5f33-547f-5cce-b93f-a488659b6691",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta liikuntaneuvonnasta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin liikuntapalvelujen tiedote. Olemme avanneet uuden liikuntaneuvonnan palvelupisteen keskustaan. Liikuntaneuvonta antaa maksutonta neuvontaa kaikille, jotka haluavat aloittaa liikkumisen tai lisätä liikuntaa. Neuvontaa saa esimerkiksi sopivan liikuntalajin valintaan, liikuntaohjelman laatimiseen ja liikuntapaikoista. Liikuntaneuvonta sijaitsee osoitteessa Liikuntakatu 5, ja se on avoinna maanantaista perjantaihin kello 12–18. Neuvontaa saa myös puhelimitse ja sähköpostitse. Palvelu on maksutonta ja luottamuksellista. Tervetuloa, ota ensimmäinen askel kohti aktiivisempaa elämää!",
+      "audio_asset_id": "bf9c01d0-5205-4687-a687-23b3cc2b2df2"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin liikuntapalvelut tiedottavat?",
+        "options": [
+          "Uudesta kuntosalista.",
+          "Uudesta urheilutapahtumasta.",
+          "Uudesta liikuntaneuvonnan palvelupisteestä.",
+          "Uudesta liikuntaryhmästä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq2",
+        "prompt": "Kenelle liikuntaneuvonta on tarkoitettu?",
+        "options": [
+          "Vain urheilijoille.",
+          "Vain nuorille.",
+          "Vain ikäihmisille.",
+          "Kaikille, jotka haluavat aloittaa liikkumisen tai lisätä liikuntaa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mistä asioista saa neuvontaa?",
+        "options": [
+          "Sopivan lajin valintaan, liikuntaohjelmaan ja liikuntapaikoista.",
+          "Vain liikuntapaikoista.",
+          "Vain ravitsemuksesta.",
+          "Vain urheiluvälineistä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq4",
+        "prompt": "Missä liikuntaneuvonta sijaitsee?",
+        "options": [
+          "Keskustassa.",
+          "Urheilutie 3.",
+          "Kuntokuja 7.",
+          "Liikuntakatu 5."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mihin aikaan liikuntaneuvonta on auki?",
+        "options": [
+          "Kello 9–15.",
+          "Kello 10–16.",
+          "Kello 12–18.",
+          "Kello 13–19."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq6",
+        "prompt": "Paljonko liikuntaneuvonta maksaa?",
+        "options": [
+          "10 euroa käynniltä.",
+          "Se on maksutonta.",
+          "Hinta määräytyy tulojen mukaan.",
+          "20 euroa tunnilta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "825cea2e-2219-545d-97ca-2695d4a99ad1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kannanotto (noin 350-400 sanaa) otsikolla 'Pitäisikö luonnonsuojelualueita perustaa yksityisille maille maanomistajien suostumuksella?'. Pohdi yksityisomistuksessa olevien metsien ja soiden suojelua. Miten yhdistää luonnonsuojelu ja maanomistajien oikeudet? Olisivatko vapaaehtoiset suojelukeinot, kuten METSO-ohjelma, riittäviä? Vai tarvitaanko tiukempaa lainsäädäntöä? Perustele.",
+    "materials": {
+      "scenario": "Luonnonsuojelu yksityismailla"
+    },
+    "items": [
+      {
+        "id": "e1bffe3c-9de6-50a8-a229-696c57fe6efd",
+        "prompt": "Kirjoita kannanotto (noin 350-400 sanaa) otsikolla 'Pitäisikö luonnonsuojelualueita perustaa yksityisille maille maanomistajien suostumuksella?'. Pohdi yksityisomistuksessa olevien metsien ja soiden suojelua. Miten yhdistää luonnonsuojelu ja maanomistajien oikeudet? Olisivatko vapaaehtoiset suojelukeinot, kuten METSO-ohjelma, riittäviä? Vai tarvitaanko tiukempaa lainsäädäntöä? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita kannanotto (noin 350-400 sanaa) otsikolla 'Pitäisikö luonnonsuojelualueita perustaa yksityisille maille maanomistajien suostumuksella?'. Pohdi yksityisomistuksessa olevien metsien ja soiden suojelua. Miten yhdistää luonnonsuojelu ja maanomistajien oikeudet? Olisivatko vapaaehtoiset suojelukeinot, kuten METSO-ohjelma, riittäviä? Vai tarvitaanko tiukempaa lainsäädäntöä? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "04bbd6ef-bd94-5380-934f-da860e47f6b7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Etätyö on muuttanut suomalaisten työelämää pysyvästi. Ennen koronaa noin 10 prosenttia työntekijöistä teki etätöitä säännöllisesti. Nyt osuus on noin 40 prosenttia. Tutkimusten mukaan etätyö lisää tuottavuutta, koska työrauha on parempi ja työmatkoihin ei kulu aikaa. Toisaalta monet kokevat, että yhteisöllisyys kärsii. Haastatteluissa työntekijät kertovat, että työkavereiden tuki on vähentynyt ja yksinäisyys lisääntynyt.\n\nTyöterveyslaitoksen kyselyssä 65 prosenttia vastaajista haluaa jatkossa yhdistää etä- ja lähityötä. He toivovat, että voivat itse vaikuttaa työpäivien järjestelyyn. Työnantajat puolestaan pohtivat, miten säilyttää yhteishenki ja jakaa tietoa, kun kaikki eivät ole paikalla. Asiantuntijat suosittelevat säännöllisiä tapaamisia toimistolla ja yhteisiä kahvihetkiä etäyhteydellä.",
+      "word_count": 94
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on artikkelin mukaan etätyön hyöty?",
+        "options": [
+          "Työntekijät tuntevat vähemmän yksinäisyyttä",
+          "Työrauha on parempi ja aikaa säästyy",
+          "Yhteisöllisyys lisääntyy",
+          "Työkavereiden tuki kasvaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haittaa etätyöstä on työntekijöiden mielestä?",
+        "options": [
+          "Työmatkat pitenevät",
+          "Työaika pitenee",
+          "Yksinäisyys lisääntyy",
+          "Tuottavuus laskee"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työntekijät toivovat tulevaisuudelta?",
+        "options": [
+          "Pelkkää etätyötä",
+          "Pelkkää lähityötä",
+          "Mahdollisuutta vaikuttaa työjärjestelyihin",
+          "Lyhyempiä työpäiviä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

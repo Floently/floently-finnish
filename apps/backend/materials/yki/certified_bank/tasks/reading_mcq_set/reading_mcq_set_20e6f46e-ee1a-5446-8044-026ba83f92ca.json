@@ -1,0 +1,66 @@
+{
+  "id": "20e6f46e-ee1a-5446-8044-026ba83f92ca",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI VESIHELMI\n\nTiedote asiakkaille!\n\nUimahalli on suljettu 1.–5.6. huoltotöiden vuoksi.\n\nOlemme jälleen auki normaalisti 6.6. alkaen klo 6–21.\n\nHuoltotöiden aikana myös lastenallas ja kuntosali ovat kiinni.\n\nPahoittelemme häiriötä!",
+      "word_count": 28
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uimahalli on kiinni?",
+        "options": [
+          "1.–5. kesäkuuta",
+          "5.–10. kesäkuuta",
+          "1.–10. kesäkuuta",
+          "6.–12. kesäkuuta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi uimahalli on kiinni?",
+        "options": [
+          "Lomien vuoksi",
+          "Huoltotöiden vuoksi",
+          "Henkilökunnan koulutuksen vuoksi",
+          "Sähkökatkon vuoksi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Onko kuntosali auki sulun aikana?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain aamuisin",
+          "Vain viikonloppuisin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

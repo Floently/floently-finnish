@@ -1,0 +1,110 @@
+{
+  "id": "14a45f80-6718-5bf8-8540-817558a152b8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.773,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kiertotalous on yksi keskeisimmistä tavoista edistää kestävää kehitystä ja vastata ilmastonmuutoksen haasteisiin. Se haastaa perinteisen lineaarisen talousmallin, jossa luonnonvaroja otetaan, niistä valmistetaan tuotteita ja ne lopulta päätyvät jätteeksi. Kiertotaloudessa tuotteet suunnitellaan siten, että materiaalit pysyvät kierrossa mahdollisimman pitkään. Tämä tarkoittaa tuotteiden korjaamista, uudelleenkäyttöä, uudelleenvalmistusta ja lopulta materiaalien kierrätystä uusiksi tuotteiksi. Suomessa on poikkeuksellisen paljon potentiaalia kiertotaloudelle. Metsäteollisuudessa on pitkät perinteet sivuvirtojen hyödyntämisessä. Uudet innovaatiot, kuten biopolttoaineet, biomuovit ja tekstiilikuidut, avaavat uusia mahdollisuuksia. Myös rakennusala, tekstiiliteollisuus, elektroniikkateollisuus ja koko ruokajärjestelmä voivat siirtyä kiertotalouteen. Siirtymä kiertotalouteen vaatii kuitenkin syvällisiä ja laaja-alaisia muutoksia koko yhteiskunnassa. Yritysten on opittava suunnittelemaan tuotteita, jotka kestävät pitkään, ovat helposti korjattavissa ja kierrätettävissä, ja joiden valmistuksessa on käytetty mahdollisimman vähän neitseellisiä raaka-aineita. Kuluttajien on opittava arvostamaan kestävyyttä ja korjattavuutta halvan hinnan ja kertakäyttökulttuurin sijaan. On muutettava ostokäyttäytymistä ja opittava huoltamaan ja korjaamaan tavaroita. Myös julkisella vallalla on keskeinen rooli kiertotalouden edistämisessä. Tarvitaan lainsäädäntöä, joka kannustaa kiertotalouteen, esimerkiksi asettamalla vaatimuksia tuotteiden suunnittelulle ja kierrätettävyydelle. Tarvitaan myös taloudellisia ohjauskeinoja, kuten verohelpotuksia korjauspalveluille ja kierrätetyille materiaaleille. Julkiset hankinnat voivat toimia esimerkkinä ja suosia kestäviä ja korjattavia tuotteita. Kiertotalous on paitsi ympäristöteko, myös merkittävä taloudellinen mahdollisuus. Se voi luoda uusia työpaikkoja, vähentää riippuvuutta tuontiraaka-aineista ja parantaa huoltovarmuutta. Suomi on panostanut kiertotalouteen ja sillä on hyvät edellytykset olla edelläkävijä tällä alalla.",
+      "word_count": 208
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan lineaarisella talousmallilla?",
+        "options": [
+          "Mallia, jossa materiaalit pysyvät kierrossa.",
+          "Mallia, jossa luonnonvarat otetaan, käytetään ja päätyvät jätteeksi.",
+          "Mallia, jossa kaikki tuotteet korjataan.",
+          "Mallia, jossa jätettä ei synny ollenkaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on kiertotalouden keskeinen periaate?",
+        "options": [
+          "Tuotteiden nopea kiertonopeus.",
+          "Materiaalien pitäminen kierrossa mahdollisimman pitkään.",
+          "Tuotannon keskittäminen muutamiin tehtaisiin.",
+          "Jätteen määrän lisääminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millä aloilla Suomella on potentiaalia kiertotaloudessa?",
+        "options": [
+          "Vain metsäteollisuudessa.",
+          "Metsäteollisuudessa, rakennusalalla, tekstiiliteollisuudessa, elektroniikkateollisuudessa ja ruokajärjestelmässä.",
+          "Vain rakennusalalla ja tekstiiliteollisuudessa.",
+          "Vain elektroniikkateollisuudessa ja ruokajärjestelmässä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä muutoksia siirtymä kiertotalouteen vaatii yrityksiltä?",
+        "options": [
+          "Tuotannon lisäämistä ja markkinoinnin tehostamista.",
+          "Tuotteiden suunnittelua kestäviksi, korjattaviksi ja kierrätettäviksi.",
+          "Tuotannon siirtämistä ulkomaille.",
+          "Hintojen laskemista hinnalla millä hyvänsä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä muutoksia siirtymä vaatii kuluttajilta?",
+        "options": [
+          "Ostosten lisäämistä ja uusien tuotteiden suosimista.",
+          "Kestävyyden ja korjattavuuden arvostamista ja ostokäyttäytymisen muuttamista.",
+          "Vain kierrätyksen tehostamista.",
+          "Vain kalliimpien tuotteiden ostamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on julkisen vallan rooli kiertotaloudessa?",
+        "options": [
+          "Ei mitään roolia, asian on hoiduttava markkinaehtoisesti.",
+          "Lainsäädäntöä, taloudellisia ohjauskeinoja ja esimerkillisiä julkisia hankintoja.",
+          "Vain tiedottamalla ja valistamalla.",
+          "Vain kansainvälisillä sopimuksilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä taloudellisia hyötyjä kiertotaloudesta voi olla?",
+        "options": [
+          "Se lisää riippuvuutta tuontiraaka-aineista.",
+          "Se voi luoda uusia työpaikkoja, vähentää riippuvuutta tuontiraaka-aineista ja parantaa huoltovarmuutta.",
+          "Se vähentää työpaikkoja ja heikentää taloutta.",
+          "Sillä ei ole taloudellisia vaikutuksia."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

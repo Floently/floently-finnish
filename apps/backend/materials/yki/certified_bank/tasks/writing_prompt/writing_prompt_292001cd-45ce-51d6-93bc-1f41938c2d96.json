@@ -1,0 +1,37 @@
+{
+  "id": "292001cd-45ce-51d6-93bc-1f41938c2d96",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti aluehallintoviraston sosiaalihuollon valvontaan. Olet huolissasi iäkkään sukulaisesi hoidosta hoivakodissa. Kerro havaitsemistasi puutteista, kuten henkilökunnan vähäisyydestä ja hoidon laiminlyönnistä, ja pyydä, että asia tutkitaan. Kysy myös, miten voit tehdä kantelun.",
+    "materials": {
+      "scenario": "Kantelu hoivakodin hoidosta"
+    },
+    "items": [
+      {
+        "id": "412c7f0b-7063-5c57-a9d9-8651273616be",
+        "prompt": "Kirjoita virallinen sähköposti aluehallintoviraston sosiaalihuollon valvontaan. Olet huolissasi iäkkään sukulaisesi hoidosta hoivakodissa. Kerro havaitsemistasi puutteista, kuten henkilökunnan vähäisyydestä ja hoidon laiminlyönnistä, ja pyydä, että asia tutkitaan. Kysy myös, miten voit tehdä kantelun."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

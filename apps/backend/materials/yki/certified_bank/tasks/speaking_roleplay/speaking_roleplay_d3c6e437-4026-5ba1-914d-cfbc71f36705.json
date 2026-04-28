@@ -1,0 +1,64 @@
+{
+  "id": "d3c6e437-4026-5ba1-914d-cfbc71f36705",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella bussilippujen hintoja. Keskustele matkahuollon asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Matkahuollon asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp34_1",
+        "ai_first_turn_fi": "Hei, Matkahuolto."
+      },
+      {
+        "id": "srp34_2",
+        "ai_first_turn_fi": "Mistä ja mihin olet matkustamassa?"
+      },
+      {
+        "id": "srp34_3",
+        "ai_first_turn_fi": "Ja minä päivänä?"
+      },
+      {
+        "id": "srp34_4",
+        "ai_first_turn_fi": "Lauantaina on kolme lähtöä: kello 9.15, 12.30 ja 16.45. Matka kestää noin 2,5 tuntia. Yhdensuuntainen lippu maksaa 24,50 euroa."
+      },
+      {
+        "id": "srp34_5",
+        "ai_first_turn_fi": "Kyllä, opiskelijat saavat 15% alennuksen näyttämällä opiskelijakorttia. Edestakainen lippu on 42 euroa, opiskelijalle 35,70 euroa."
+      },
+      {
+        "id": "srp34_6",
+        "ai_first_turn_fi": "Haluatko varata lipun nyt puhelimitse?"
+      },
+      {
+        "id": "srp34_7",
+        "ai_first_turn_fi": "Selvä. Lippu on varattu ja odottaa sinua lähtöasemalla. Saat vahvistuksen tekstiviestillä. Hyvää matkaa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella bussilippujen hintoja. Keskustele matkahuollon asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

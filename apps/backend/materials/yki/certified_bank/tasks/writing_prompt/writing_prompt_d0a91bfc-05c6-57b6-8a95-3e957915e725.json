@@ -1,0 +1,37 @@
+{
+  "id": "d0a91bfc-05c6-57b6-8a95-3e957915e725",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit vaihtaa asuntoa toiseen saman talon asuntoon. Kerro, että tarvitset isomman asunnon, koska perheeseen tulee vauva. Kysy, onko mahdollista ja miten se toimii.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle asunnon vaihdosta"
+    },
+    "items": [
+      {
+        "id": "e5ccb7fe-b1cd-5437-b1cf-80961249133d",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit vaihtaa asuntoa toiseen saman talon asuntoon. Kerro, että tarvitset isomman asunnon, koska perheeseen tulee vauva. Kysy, onko mahdollista ja miten se toimii."
+      }
+    ],
+    "rubric": "Kerro, että haluat vaihtaa asuntoa\nKerro syy (vauva tulossa)\nKysy, onko mahdollista\nKysy, miten se toimii",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

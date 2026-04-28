@@ -1,0 +1,12 @@
+{
+  "_README": "Card IDs listed here will be excluded from all card sessions. To remove a card with wrong Finnish or other issues, add its id to the card_ids array. Optionally add a note explaining why. The list is read on every request, so changes take effect immediately without redeploy.",
+  "_format_example": {
+    "card_ids": ["vocab_doctor_001", "grammar_b1_b2_042"],
+    "notes": [
+      { "card_id": "vocab_doctor_001", "reason": "Wrong Finnish — 'lääkäri' was misspelled as 'lääkari'", "at": "2026-04-25T12:00:00+00:00" },
+      { "card_id": "grammar_b1_b2_042", "reason": "Outdated grammar rule example", "at": "2026-04-25T12:01:00+00:00" }
+    ]
+  },
+  "card_ids": [],
+  "notes": []
+}

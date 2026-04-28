@@ -1,0 +1,37 @@
+{
+  "id": "d731d689-8fb0-540f-be0b-32ec7086db00",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuvaile jotakin suomalaista ruokaa, jota opit tekemään.",
+    "materials": {
+      "scenario": "Suomalainen ruoka, jonka opin tekemään"
+    },
+    "items": [
+      {
+        "id": "6ddb6f26-b4fa-5084-994b-073d5ee43597",
+        "prompt": "Kuvaile jotakin suomalaista ruokaa, jota opit tekemään."
+      }
+    ],
+    "rubric": "Kuvaile jotakin suomalaista ruokaa, jota opit tekemään.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

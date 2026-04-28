@@ -1,0 +1,40 @@
+{
+  "id": "0d4dccd3-c2bc-55cf-9bb1-ba6dd39d08ab",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.283,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell where you went on your last holiday, who you were with, and what was the best part.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "7bb30e3c-85ff-5ddf-a402-1d6585c63813",
+        "ai_first_turn_fi": "Kerro, miten loma meni! Missä kävit ja mitä teit?"
+      }
+    ],
+    "rubric": "Tell where you went on your last holiday, who you were with, and what was the best part.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

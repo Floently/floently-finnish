@@ -1,0 +1,66 @@
+{
+  "id": "b9b2ae36-c2c1-5608-9272-81573fabbcbe",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele opintotuesta kertova tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kelan opintotuki-info. Opintotukea voi hakea, jos opiskelet päätoimisesti. Opintotuki koostuu opintorahasta, asumislisästä ja opintolainasta. Opintorahan suuruus riippuu iästä ja asumismuodosta. Asumislisää voit saada, jos asut vuokralla. Opintolainaa voit saada jokaiselta tukikuukaudelta. Lainan valtiontakaus on enintään 650 euroa kuukaudessa. Muistathan, että opintotuki vaikuttaa verotukseen. Hae opintotukea viimeistään kuukausi ennen opintojen alkua. Lisätietoa saat Kelan verkkosivuilta.",
+      "audio_asset_id": "6afc00ab-b5b2-57d7-b1c4-cb65ad9c4310"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä opintotuki koostuu?",
+        "options": [
+          "Vain opintorahasta",
+          "Opintorahasta, asumislisästä ja opintolainasta",
+          "Vain asumislisästä",
+          "Vain opintolainasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka paljon opintolainaa voi saada enintään kuukaudessa?",
+        "options": [
+          "500 euroa",
+          "550 euroa",
+          "600 euroa",
+          "650 euroa"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin opintotukea pitää hakea?",
+        "options": [
+          "Opintojen alettua",
+          "Viimeistään kuukausi ennen opintojen alkua",
+          "Vain keväällä",
+          "Milloin tahansa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

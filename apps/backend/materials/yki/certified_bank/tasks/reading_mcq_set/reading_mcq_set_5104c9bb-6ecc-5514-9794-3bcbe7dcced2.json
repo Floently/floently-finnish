@@ -1,0 +1,77 @@
+{
+  "id": "5104c9bb-6ecc-5514-9794-3bcbe7dcced2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue asukaslehdestä tuttu juttu ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Naapurisopu – pieniä tekoja, iso merkitys\n\nMonissa taloyhtiöissä mietitään, miten saadaan hyvä ilmapiiri. Usein ratkaisu on pienissä asioissa. Kun tervehdit hississä ja kysyt kuulumisia, se luo ystävällisyyttä.\n\nYksi asukas kertoo, että hänen talossaan on yhteiset pihabileet kerran kesässä. ”Alussa ihmiset eivät tunteneet toisiaan. Nyt monet tulevat juttusille ja auttavat toisiaan arjessa.”\n\nToisaalta aina ei tarvita juhlia. Riittää, että ei metelöi myöhään ja vie roskat oikein. Hiljaisuus on monelle tärkeää.\n\nTaloyhtiön hallitus muistuttaa: jokainen voi vaikuttaa. Jos jokin harmittaa, kannattaa sanoa siitä heti, mutta ystävällisesti. Pienet väärinkäsitykset selviävät nopeasti, jos puhuu.",
+      "word_count": 90
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja pitää tärkeänä naapurisuhteissa?",
+        "options": [
+          "Isoja remontteja",
+          "Pieniä arkisia tekoja",
+          "Kalliita lahjoja",
+          "Virallisia kokouksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten pihabileet ovat vaikuttaneet kirjoittajan talossa?",
+        "options": [
+          "Ihmiset tuntevat nyt toisensa paremmin",
+          "Kukaan ei tule enää juhliin",
+          "Ihmiset metelöivät enemmän",
+          "Kaikki muuttivat pois"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä taloyhtiön hallitus neuvoo, jos jokin asia harmittaa?",
+        "options": [
+          "Muuttaa pois",
+          "Valittaa heti kovaan ääneen",
+          "Kertoa asiasta ystävällisesti",
+          "Odottaa, että asia unohtuu"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä seuraavista on tekstin mukaan tärkeää naapuruudessa?",
+        "options": [
+          "Järjestää joka viikko isot juhlat",
+          "Metelöidä yöllä",
+          "Viedä roskat oikein",
+          "Antaa naapureille lahjoja"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

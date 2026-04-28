@@ -1,0 +1,77 @@
+{
+  "id": "865f0758-1220-5087-a6ed-15897e783c56",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.593,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti arviointiuudistuksesta ammatillisessa koulutuksessa ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Ammatillinen oppilaitos uudisti arviointikäytäntönsä siten, että opiskelijan osaamista arvioidaan aiempaa useammin työelämälähtöisissä näyttötilanteissa pelkkien luokkakohtaisten kokeiden sijaan. Uudistuksen tavoitteena oli tehdä arvioinnista läpinäkyvämpää työnantajille ja samalla vahvistaa opiskelijan kykyä soveltaa tietoa käytännössä. Opettajien mukaan vanha malli kannusti osaa opiskelijoista keskittymään yksittäisiin koepäiviin, mutta ei aina tukenut pitkäjänteistä taitojen kehittämistä. Uudessa mallissa näyttö arvioidaan ennalta julkaistuilla kriteereillä, ja opiskelija saa palautteen sekä opettajalta että työpaikkaohjaajalta.\n\nUudistus sai aluksi myönteisen vastaanoton, mutta ensimmäinen lukukausi paljasti myös epätasaisuuksia eri koulutusaloilla. Niillä aloilla, joilla työpaikkaohjaajat osallistuivat arviointikoulutukseen, palautteen laatu oli tarkempaa ja opiskelijat kokivat arvioinnin oikeudenmukaisemmaksi. Aloilla, joilla ohjaajavaihtuvuus oli suurta, kriteerien tulkinta vaihteli enemmän. Tämä herätti huolta vertailtavuudesta: voiko sama arvosana tarkoittaa eri asioita eri yksiköissä. Oppilaitos reagoi tilanteeseen lisäämällä yhteisiä kalibrointitilaisuuksia, joissa opettajat ja ohjaajat käyvät läpi esimerkkitapauksia.\n\nKeskustelussa nousi esiin myös opiskelijoiden kuormitus. Osa opiskelijoista piti jatkuvaa näyttöä motivoivana, koska se antoi useita mahdollisuuksia osoittaa osaamista. Toiset kokivat, että arviointitilanteiden määrä vaikeutti keskittymistä oppimiseen, kun jokainen työjakso tuntui samalla koetilanteelta. Opinto-ohjaajat ehdottivat, että näyttöjen aikataulua tasataan ja opiskelijalle annetaan selkeä ennakkokalenteri koko jaksolle.\n\nSeurannan toisen vaiheen perusteella oppimistulokset paranivat hieman erityisesti niillä ryhmillä, joissa palautteen hyödyntämistä harjoiteltiin systemaattisesti. Oppilaitoksen johto päätteli, että uudistus voi toimia, mutta vain jos arviointikriteerit pysyvät yhtenäisinä ja opiskelijalle jää riittävästi tilaa harjoitteluun ilman jatkuvaa arviointipainetta. Näin arviointi nähdään oppimista tukevana prosessina, ei pelkkänä valintamekanismina.",
+      "word_count": 218
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä oli arviointiuudistuksen päätavoite?",
+        "options": [
+          "vähentää työssäoppimista",
+          "tehdä osaaminen näkyväksi työelämälähtöisissä tilanteissa",
+          "poistaa palautekeskustelut",
+          "lyhentää opintojen kestoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä selitti arvioinnin tasalaatuisuutta parhaiten?",
+        "options": [
+          "ryhmän koko",
+          "ohjaajien osallistuminen arviointikoulutukseen",
+          "koulumatkan pituus",
+          "oppikirjojen määrä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä huolta vertailtavuudesta tekstissä kuvataan?",
+        "options": [
+          "arvosanat puuttuivat kokonaan",
+          "sama arvosana voi tarkoittaa eri asioita eri yksiköissä",
+          "vain teoriakokeet hyväksyttiin",
+          "arviointi tapahtui vain verkossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä oli johtopäätös uudistuksen toimivuudesta?",
+        "options": [
+          "uudistus toimii ilman lisätoimia",
+          "uudistus toimii, jos kriteerit yhtenäistyvät ja harjoittelulle jää tilaa",
+          "uudistus pitää perua heti",
+          "uudistus toimii vain pienissä ryhmissä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

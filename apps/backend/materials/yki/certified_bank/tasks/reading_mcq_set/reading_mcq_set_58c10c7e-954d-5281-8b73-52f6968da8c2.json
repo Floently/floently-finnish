@@ -1,0 +1,77 @@
+{
+  "id": "58c10c7e-954d-5281-8b73-52f6968da8c2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen 78-vuotias ja asun yksin omakotitalossa. Lapset kysyvät usein, milloin muutan palvelutaloon. He ovat huolissaan, kun asun yksin ja talo on iso. Mutta minä en halua muuttaa pois.\n\nTämä on minun kotini. Olen asunut täällä 50 vuotta. Täällä on kaikki muistot, ja naapurit ovat tuttuja. Pystyn vielä hyvin hoitamaan itseni ja talon. Käyn kaupassa pyörällä, ja lapset auttavat lumitöissä ja isommissa hommissa.\n\nYmmärrän, että vanhusten kotona asumisesta puhutaan paljon. Se on halvempaa yhteiskunnalle kuin laitoshoito. Ja monet vanhukset haluavat asua kotona mahdollisimman pitkään. Mutta se vaatii tukea: kotiin pitää saada apua siivoukseen, kauppapalveluita ja tarvittaessa hoitajia.\n\nToivon, että yhteiskunta panostaisi enemmän kotiin vietäviin palveluihin. Silloin me vanhukset voisimme asua kotona pidempään turvallisesti. Ja lapsetkin olisivat huolettomampia, kun tietävät, että apua on saatavilla.\n\nMinä aion asua täällä niin kauan kuin pystyn. Toivottavasti saan siihen tarvittavan tuen.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 163
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kirjoittaja ei halua muuttaa palvelutaloon?",
+        "options": [
+          "A) Se on liian kallis",
+          "B) Tämä on hänen kotinsa, täällä on muistot ja tutut naapurit",
+          "C) Hän ei pidä palvelutaloista",
+          "D) Lapset eivät halua hänen muuttavan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten kirjoittaja saa apua arjessa?",
+        "options": [
+          "A) Hänellä on kotiapu",
+          "B) Lapset auttavat lumitöissä ja isommissa hommissa",
+          "C) Naapurit auttavat",
+          "D) Hän pärjää kokonaan itse"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja toivoo yhteiskunnalta?",
+        "options": [
+          "A) Uuden asunnon",
+          "B) Enemmän kotiin vietäviä palveluja",
+          "C) Ilmaisia lääkkeitä",
+          "D) Alennusta verotukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä kotona asumisesta on kirjoittajan mukaan?",
+        "options": [
+          "A) Se on halvempaa yhteiskunnalle",
+          "B) Vanhukset voivat paremmin",
+          "C) Se on helpompaa omaisille",
+          "D) Se vähentää yksinäisyyttä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

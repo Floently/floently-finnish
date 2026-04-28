@@ -1,0 +1,110 @@
+{
+  "id": "11a17315-8c24-5ccc-a265-0dfa69c3cb3c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.769,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen metsät ovat maan tärkein luonnonvara ja kansallisomaisuus, jonka arvoa on vaikea yliarvioida. Ne kattavat noin 75 prosenttia maan pinta-alasta, mikä on enemmän kuin useimmissa muissa Euroopan maissa. Tämä ainutlaatuinen metsäpeite on sekä suomalaisen hyvinvoinnin taloudellinen perusta että keskeinen osa maan identiteettiä ja kulttuuriperintöä. Metsät ovat monikäyttöisiä: ne tuottavat puuta monipuoliselle metsäteollisuudelle, tarjoavat lähes rajattomat virkistysmahdollisuudet jokamiehenoikeuksien turvin, ja ennen kaikkea ne ylläpitävät arvokasta luonnon monimuotoisuutta. Lisäksi ne sitovat merkittäviä määriä hiiltä ja auttavat näin osaltaan hillitsemään ilmastonmuutosta. Metsätaloudella on Suomessa pitkät ja vahvat perinteet. Metsiä on hoidettu kestävän kehityksen periaatteiden mukaisesti, mikä tarkoittaa sitä, että uusia puita istutetaan ja kasvatetaan vähintään samaa tahtia kuin vanhoja kaadetaan. Tämä kestävä hoito turvaa metsien uusiutumisen ja niiden säilymisen myös tuleville sukupolville. Metsäteollisuus on edelleen merkittävä työllistäjä ja erittäin tärkeä vientiala, jonka tuotteilla on maailmanlaajuista kysyntää. Viime vuosina metsien käyttö on kuitenkin noussut yhdeksi kiistanalaisimmista yhteiskunnallisista kysymyksistä. Ympäristöjärjestöt vaativat yhä laajempaa metsien suojelua luonnon monimuotoisuuden turvaamiseksi. Ne katsovat, että tehostunut talousmetsien hoito on köyhdyttänyt metsäluontoa ja vähentänyt uhanalaisten lajien elinympäristöjä. Ne korostavat, että talousmetsien yksipuolistuminen, avohakkuut ja metsäpohjan muokkaus ovat johtaneet monien metsälajien taantumiseen ja jopa uhanalaistumiseen. Metsäteollisuus puolestaan korostaa metsien suurta taloudellista merkitystä ja niiden työllistävää vaikutusta erityisesti maaseutualueilla. Se haluaa hyödyntää metsiä entistä tehokkaammin esimerkiksi bioenergian tuotannossa ja uusien biomateriaalien valmistuksessa. Teollisuuden mukaan metsien kestävä käyttö ja suojelu eivät ole ristiriidassa, vaan ne voidaan sovittaa yhteen hyvällä suunnittelulla. Myös virkistyskäyttäjät, kuten marjastajat, sienestäjät ja retkeilijät, haluavat säilyttää metsät mahdollisimman luonnontilaisina. Eri intressien välillä on siis ilmeinen ja syvä ristiriita.",
+      "word_count": 248
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi metsiä pidetään Suomen tärkeimpänä luonnonvarana?",
+        "options": [
+          "Vain niiden taloudellisen arvon vuoksi.",
+          "Ne ovat talouden perusta, osa identiteettiä ja niillä on monia käyttötarkoituksia.",
+          "Vain niiden virkistyskäyttöarvon vuoksi.",
+          "Vain niiden hiilensidonnan vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä metsien kestävä hoito tarkoittaa käytännössä?",
+        "options": [
+          "Metsiä ei hakata lainkaan.",
+          "Uusia puita istutetaan vähintään samaa tahtia kuin vanhoja kaadetaan.",
+          "Kaikki vanhat metsät suojellaan.",
+          "Metsiä hakataan mahdollisimman paljon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ympäristöjärjestöt vaativat?",
+        "options": [
+          "Lisää metsien talouskäyttöä.",
+          "Laajempaa metsien suojelua.",
+          "Metsien avohakkuita.",
+          "Metsien muuttamista pelloiksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä metsäteollisuus korostaa?",
+        "options": [
+          "Vain metsien suojelua.",
+          "Metsien taloudellista merkitystä ja työllistävää vaikutusta.",
+          "Vain metsien virkistyskäyttöä.",
+          "Metsien muuttamista kansallispuistoiksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä seurauksia talousmetsien hoidolla on ympäristöjärjestöjen mukaan?",
+        "options": [
+          "Se on lisännyt luonnon monimuotoisuutta.",
+          "Se on köyhdyttänyt metsäluontoa ja vähentänyt uhanalaisten lajien elinympäristöjä.",
+          "Sillä ei ole ollut vaikutuksia.",
+          "Se on parantanut metsien tilaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä metsäteollisuus sanoo suojelun ja käytön suhteesta?",
+        "options": [
+          "Ne ovat täysin ristiriidassa eikä niitä voi sovittaa yhteen.",
+          "Kestävä käyttö ja suojelu voidaan sovittaa yhteen hyvällä suunnittelulla.",
+          "Suojelu on aina tärkeämpää kuin talouskäyttö.",
+          "Talouskäyttö on aina tärkeämpää kuin suojelu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millaisia intressejä metsien käytössä on ristiriidassa?",
+        "options": [
+          "Vain teollisuuden ja ympäristöjärjestöjen intressit.",
+          "Teollisuuden, ympäristöjärjestöjen ja virkistyskäyttäjien intressit.",
+          "Vain teollisuuden ja virkistyskäyttäjien intressit.",
+          "Vain ympäristöjärjestöjen ja virkistyskäyttäjien intressit."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

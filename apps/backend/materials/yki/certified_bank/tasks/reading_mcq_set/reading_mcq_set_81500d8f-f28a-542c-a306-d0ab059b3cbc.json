@@ -1,0 +1,88 @@
+{
+  "id": "81500d8f-f28a-542c-a306-d0ab059b3cbc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Mielenterveyden haasteet ovat yleistyneet työelämässä, ja ne aiheuttavat merkittävästi sairauspoissaoloja ja työkyvyttömyyttä. Työuupumus, masennus ja ahdistuneisuus ovat yleisimpiä mielenterveyden ongelmia työikäisillä. Niiden taustalla on usein monia tekijöitä, jotka liittyvät työn vaatimuksiin ja työolosuhteisiin. Yksi keskeinen tekijä on työn henkinen kuormittavuus. Jatkuva kiire, suuri työmäärä ja epäselvät tavoitteet voivat johtaa uupumukseen. Myös vähäiset vaikutusmahdollisuudet omaan työhön ja epävarmuus työn jatkuvuudesta lisäävät stressiä. Toinen tekijä on työyhteisön ongelmat. Huonot ihmissuhteet, kiusaaminen ja huono johtaminen ovat merkittäviä riskitekijöitä. Tukeva ja kannustava työyhteisö puolestaan suojaa mielenterveyden ongelmilta. Kolmas tekijä on työn ja vapaa-ajan epätasapaino. Kun työ vie liikaa aikaa ja energiaa, vapaa-ajalla ei ehdi palautua. Etätyö on hämärtänyt työn ja vapaa-ajan rajaa, mikä voi vaikeuttaa irrottautumista työstä. Neljäs tekijä on yksilölliset ominaisuudet ja elämäntilanne. Kaikki eivät reagoi samalla tavalla työn kuormitukseen. Persoonallisuus, selviytymiskeinot ja elämäntilanne vaikuttavat siihen, miten ihminen kestää paineita. Mielenterveyden ongelmien ehkäiseminen ja hoitaminen työpaikoilla vaatii monenlaisia toimia. Työnantajan on huolehdittava siitä, että työmäärä on kohtuullinen, tavoitteet selkeät ja vaikutusmahdollisuudet riittävät. Työyhteisön ilmapiiriä on kehitettävä ja esihenkilöille annettava koulutusta. Työterveyshuollon rooli on tärkeä ongelmien varhaisessa tunnistamisessa ja hoidossa. Myös työntekijän oma vastuu omasta hyvinvoinnista on tärkeää.",
+      "word_count": 184
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä ovat yleisimpiä mielenterveyden ongelmia työikäisillä?",
+        "options": [
+          "Skitsofrenia ja kaksisuuntainen mielialahäiriö",
+          "Työuupumus, masennus ja ahdistuneisuus",
+          "Persoonallisuushäiriöt",
+          "Syömishäiriöt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä työn piirre lisää henkistä kuormittavuutta?",
+        "options": [
+          "Liian vähän työtä",
+          "Jatkuva kiire, suuri työmäärä ja epäselvät tavoitteet",
+          "Työpaikan sijainti",
+          "Työkavereiden määrä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten työyhteisö vaikuttaa mielenterveyteen?",
+        "options": [
+          "Sillä ei ole vaikutusta",
+          "Huonot ihmissuhteet ja kiusaaminen ovat riskitekijöitä, tukeva yhteisö suojaa",
+          "Se vaikuttaa vain negatiivisesti",
+          "Se vaikuttaa vain positiivisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten etätyö on vaikuttanut työn ja vapaa-ajan tasapainoon?",
+        "options": [
+          "Se on selkeyttänyt rajaa",
+          "Se on hämärtänyt rajaa ja vaikeuttanut irrottautumista työstä",
+          "Sillä ei ole vaikutusta",
+          "Se on vähentänyt työn määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on työnantajan rooli mielenterveyden ongelmien ehkäisyssä?",
+        "options": [
+          "Pakottaa työntekijät liikkumaan",
+          "Huolehtia kohtuullisesta työmäärästä, selkeistä tavoitteista ja vaikutusmahdollisuuksista",
+          "Vähentää palkkoja",
+          "Lisätä työn määrää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "5295e983-165a-50a0-9626-b9a23aebd052",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuntosalin ohjeet uudelle jäsenelle ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa uudelle jäsenelle! Tässä tärkeimmät ohjeet: Kuntosali on auki joka päivä 6–22. Sisäänkäynti on takapihalta. Pukuhuoneissa on suihkut ja sauna. Muista aina käyttää pyyhettä laitteilla. Laitteiden jälkeen laita painot takaisin paikoilleen. Jos tarvitset apua, kysy henkilökunnalta. Mukavaa treeniä!",
+      "audio_asset_id": "69b02d9f-72af-4a3c-b49b-559660d9a3c0"
+    },
+    "questions": [
+      {
+        "id": "dcfe9cec-1207-5ebd-bd35-b4cc9670359b",
+        "prompt": "Milloin kuntosali sulkeutuu?",
+        "options": [
+          "klo 20",
+          "klo 21",
+          "klo 22",
+          "klo 23"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c3028d3a-6719-56c7-8c6b-ab8b7a5cee63",
+        "prompt": "Missä on sisäänkäynti?",
+        "options": [
+          "pääovesta",
+          "takapihalta",
+          "sivusta",
+          "katutasosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ea0111b1-b88b-5e4d-a0cb-4353ec26a007",
+        "prompt": "Mitä pitää tehdä laitteiden jälkeen?",
+        "options": [
+          "sammuttaa laite",
+          "ottaa kuva",
+          "pyyhkiä laite",
+          "laittaa painot takaisin"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "49bb2f53-fc1f-5c75-9247-eca91c4b956c",
+        "prompt": "Mistä saa apua?",
+        "options": [
+          "netistä",
+          "henkilökunnalta",
+          "kavereilta",
+          "puhelimesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "90de0c1a-cb81-55df-b449-a2abbccb8876",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita viesti.",
+    "materials": {
+      "scenario": "Kirjoita viesti."
+    },
+    "items": [
+      {
+        "id": "406f84a2-bfdb-5c46-9827-efca51861e18",
+        "prompt": "Olet sairas etkä pääse töihin. Kirjoita viesti esimiehellesi.\nKerro:\n- että olet sairas\n- mitä oireita sinulla on\n- milloin arviolta tulet takaisin."
+      }
+    ],
+    "rubric": "Olet sairas etkä pääse töihin. Kirjoita viesti esimiehellesi.\nKerro:\n- että olet sairas\n- mitä oireita sinulla on\n- milloin arviolta tulet takaisin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "8aaa15a5-8b46-5e8a-aa3c-149034a3d006",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen perhe on usein pieni. Perheessä on äiti, isä ja lapsia. Monilla perheillä on myös lemmikki, kuten koira tai kissa. Nykyään on myös paljon yksinhuoltajaperheitä ja uusperheitä. Isät ovat paljon lasten kanssa. He vievät lapsia harrastuksiin. Useimmissa perheissä molemmat vanhemmat käyvät töissä. Lapset ovat päiväkodissa tai koulussa. Illalla ja viikonloppuna ollaan yhdessä. Perhe on tärkeä osa elämää.",
+      "word_count": 57
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen suomalainen perhe usein on?",
+        "options": [
+          "Suuri",
+          "Pieni",
+          "Monipuolinen",
+          "Kansainvälinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lemmikkejä perheillä usein on?",
+        "options": [
+          "Hamstereita ja kaneja",
+          "Koira tai kissa",
+          "Lintuja ja kaloja",
+          "Hevosia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millaisia perheitä nykyään on paljon?",
+        "options": [
+          "Vain ydinperheitä",
+          "Yksinhuoltajaperheitä ja uusperheitä",
+          "Vain lapsiperheitä",
+          "Vain vanhuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä lapset ovat, kun vanhemmat ovat töissä?",
+        "options": [
+          "Yksin kotona",
+          "Päiväkodissa tai koulussa",
+          "Isovanhemmilla",
+          "Harrastuksissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin perhe on yhdessä?",
+        "options": [
+          "Vain aamuisin",
+          "Vain viikonloppuisin",
+          "Illalla ja viikonloppuna",
+          "Vain lomilla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

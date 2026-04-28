@@ -1,0 +1,77 @@
+{
+  "id": "754d365d-5493-50d0-8f02-24a707610ed5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Asukastilan keittiötä voi varata juhliin perjantaisin ja lauantaisin. Avaimet haetaan vahtimestarilta klo 15 jälkeen ja palautetaan seuraavana päivänä klo 12 mennessä. Astiat tulee pestä ja roskat viedä ulos. Siivousmaksu on 20 euroa, jos tila jätetään epäsiistiksi.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin keittiötä voi varata?",
+        "options": [
+          "arkiaamuisin",
+          "perjantaisin ja lauantaisin",
+          "vain sunnuntaisin",
+          "joka ilta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin avaimet haetaan?",
+        "options": [
+          "klo 12 jälkeen",
+          "klo 14 jälkeen",
+          "klo 15 jälkeen",
+          "klo 16 jälkeen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin mennessä avaimet palautetaan?",
+        "options": [
+          "klo 10",
+          "klo 11",
+          "klo 12",
+          "klo 13"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin siivousmaksu tulee?",
+        "options": [
+          "aina",
+          "jos tila on epäsiisti",
+          "jos varaus perutaan",
+          "jos avaimet palautetaan ajoissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

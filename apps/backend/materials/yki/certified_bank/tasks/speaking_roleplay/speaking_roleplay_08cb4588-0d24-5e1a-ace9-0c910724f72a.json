@@ -1,0 +1,40 @@
+{
+  "id": "08cb4588-0d24-5e1a-ace9-0c910724f72a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele työhaastattelussa. Esittele itsesi, kerro osaamisestasi ja vastaa kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "hakenut kesätyöpaikkaa kaupungin kirjastosta",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "20f925a9-e7b4-53ac-beaf-380df4763cf4",
+        "ai_first_turn_fi": "Tervetuloa haastatteluun. Olen Kirsi Mäkinen, kirjastonjohtaja. Kerro aluksi vähän itsestäsi ja siitä, miksi hait juuri tätä kesätyöpaikkaa."
+      }
+    ],
+    "rubric": "Keskustele työhaastattelussa. Esittele itsesi, kerro osaamisestasi ja vastaa kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

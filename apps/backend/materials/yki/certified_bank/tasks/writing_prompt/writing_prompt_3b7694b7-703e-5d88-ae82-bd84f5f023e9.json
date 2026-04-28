@@ -1,0 +1,37 @@
+{
+  "id": "3b7694b7-703e-5d88-ae82-bd84f5f023e9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisten saunojen määrää lisätä kaupungeissa?'. Arvioi kulttuuriperintöä, terveysvaikutuksia ja yhteisöllisyyttä.",
+    "materials": {
+      "scenario": "Julkiset saunat"
+    },
+    "items": [
+      {
+        "id": "2168626a-ea4d-5f36-87bc-7bb18996f491",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisten saunojen määrää lisätä kaupungeissa?'. Arvioi kulttuuriperintöä, terveysvaikutuksia ja yhteisöllisyyttä."
+      }
+    ],
+    "rubric": "Kulttuuriperintö\nTerveysvaikutukset\nYhteisöllisyys\nSaavutettavuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

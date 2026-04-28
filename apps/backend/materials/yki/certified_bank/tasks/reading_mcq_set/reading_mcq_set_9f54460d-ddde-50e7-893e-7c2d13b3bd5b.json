@@ -1,0 +1,66 @@
+{
+  "id": "9f54460d-ddde-50e7-893e-7c2d13b3bd5b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "DIGIPALVELUT ETENEVÄT – MUTTA KAIKKI EIVÄT PYSY MUKANA\n\nSuomi on digitalisaation kärkimaita, ja yhä useampi julkinen palvelu siirtyy verkkoon. Verovirasto, Kela ja monet kunnat tarjoavat jo suurimman osan palveluistaan sähköisinä. Tämä nopeuttaa asiointia ja säästää yhteiskunnan resursseja. Samalla on kuitenkin herännyt huoli niistä, jotka eivät käytä digipalveluita. Ikäihmiset, maahanmuuttajat ja vähävaraiset saattavat jäädä palvelujen ulkopuolelle, jos heillä ei ole laitteita, nettiyhteyttä tai osaamista. Digi- ja väestötietovirasto on käynnistänyt hankkeen, jossa vapaaehtoiset kouluttavat ikäihmisiä digitaitojen alkeissa. Kirjastoissa on tarjolla maksutonta digitukea. Asiantuntijat muistuttavat, että vaikka digi on tulevaisuutta, on aina säilytettävä myös mahdollisuus asioida kasvokkain.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 122
+    },
+    "questions": [
+      {
+        "id": "03370ac6-1ff5-5717-ab21-29683f319498",
+        "prompt": "Mitä hyötyä digitalisaatiosta on?",
+        "options": [
+          "Se hidastaa asiointia",
+          "Se nopeuttaa asiointia ja säästää resursseja",
+          "Se tekee palveluista kalliimpia",
+          "Se vähentää työpaikkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cb7a9a3c-2c8a-50d3-841c-9898e0a3fdf0",
+        "prompt": "Ketkä erityisesti saattavat jäädä digipalvelujen ulkopuolelle?",
+        "options": [
+          "Nuoret aikuiset",
+          "Ikäihmiset, maahanmuuttajat ja vähävaraiset",
+          "Korkeakoulutetut",
+          "Yrittäjät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "46db3ff8-8fef-53eb-b8ca-3776df074e71",
+        "prompt": "Mitä asiantuntijat muistuttavat?",
+        "options": [
+          "Kaikki palvelut pitää siirtää digiin",
+          "Paperiasiointi pitää lopettaa kokonaan",
+          "Aina on säilytettävä mahdollisuus asioida kasvokkain",
+          "Vain nuoret saavat käyttää digipalveluita"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

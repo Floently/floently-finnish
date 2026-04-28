@@ -1,0 +1,77 @@
+{
+  "id": "e1c75512-5c54-53e7-ac2f-3148647960a0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Terveyden edistäminen on monitahoista toimintaa, jonka tavoitteena on parantaa väestön terveyttä ja hyvinvointia. Se kattaa sekä sairauksien ehkäisyn että terveyttä tukevien olosuhteiden luomisen. Keskeisiä keinoja ovat terveellisten elämäntapojen edistäminen, terveyserojen kaventaminen, ympäristön terveellisyydestä huolehtiminen ja varhainen puuttuminen ongelmiin. Terveyden edistäminen vaatii yhteistyötä eri hallinnonalojen, kuten sosiaali- ja terveyspalveluiden, koulutuksen, liikunnan ja ympäristön, välillä. Myös kansalaisjärjestöillä ja yksilöillä on tärkeä rooli. Terveyden edistäminen on investointi, joka tuottaa säästöjä pitkällä aikavälillä, kun sairauksien hoitotarve vähenee.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "mcq_267",
+        "prompt": "Mitä terveyden edistäminen kattaa?",
+        "options": [
+          "Vain sairauksien ehkäisyn",
+          "Vain terveyttä tukevien olosuhteiden luomisen",
+          "Sairauksien ehkäisyn ja terveyttä tukevien olosuhteiden luomisen",
+          "Vain terveellisten elämäntapojen edistämisen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_268",
+        "prompt": "Mitä keinoja terveyden edistämiseen kuuluu?",
+        "options": [
+          "Vain terveyserojen kaventaminen",
+          "Terveellisten elämäntapojen edistäminen, terveyserojen kaventaminen, ympäristön terveellisyydestä huolehtiminen ja varhainen puuttuminen",
+          "Vain varhainen puuttuminen ongelmiin",
+          "Vain ympäristön terveellisyydestä huolehtiminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_269",
+        "prompt": "Mikä taho ei ole mainittu terveyden edistämisen toimijana?",
+        "options": [
+          "Eri hallinnonalat",
+          "Kansalaisjärjestöt",
+          "Yksityiset yritykset",
+          "Yksilöt"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_270",
+        "prompt": "Mitä hyötyä terveyden edistämisestä on pitkällä aikavälillä?",
+        "options": [
+          "Se lisää sairauksien hoitotarvetta",
+          "Se tuottaa säästöjä, kun sairauksien hoitotarve vähenee",
+          "Se lisää terveysmenoja",
+          "Se ei tuota mitään hyötyä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

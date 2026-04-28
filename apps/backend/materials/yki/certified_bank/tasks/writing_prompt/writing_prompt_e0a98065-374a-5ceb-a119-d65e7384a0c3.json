@@ -1,0 +1,37 @@
+{
+  "id": "e0a98065-374a-5ceb-a119-d65e7384a0c3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on hajuongelma, joka tulee viemäristä. Kerro, missä huoneessa haju on pahin ja mitä olet yrittänyt. Pyydä, että ongelma tutkitaan.",
+    "materials": {
+      "scenario": "Ilmoitus viemärin hajuongelmasta"
+    },
+    "items": [
+      {
+        "id": "f0f2996c-cee0-5298-b790-32672dfcf664",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on hajuongelma, joka tulee viemäristä. Kerro, missä huoneessa haju on pahin ja mitä olet yrittänyt. Pyydä, että ongelma tutkitaan."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nTehdyt toimet\nTutkimuspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

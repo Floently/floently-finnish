@@ -1,0 +1,66 @@
+{
+  "id": "94150be7-d70a-5821-bdb2-e658c8258e0d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin säännöt ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLIN SÄÄNNÖT\n\n1. Käy suihkussa ennen altaaseen menoa.\n2. Uimapuku on pakollinen.\n3. Allasosastolla ei saa juosta.\n4. Sukeltamin on kielletty matalassa altaassa.\n5. Lapset vain aikuisen kanssa.\n6. Lasipullot eivät ole sallittuja.\n\nKiitos, että noudatat sääntöjä!",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "725deb4a-e068-56b8-b081-078c1780f431",
+        "prompt": "Mitä pitää tehdä ennen altaaseen menoa?",
+        "options": [
+          "Syödä",
+          "Käydä suihkussa",
+          "Maksaa",
+          "Odottaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2554e280-687e-59d1-9a2e-7fd75e10d892",
+        "prompt": "Saako allasosastolla juosta?",
+        "options": [
+          "Saa",
+          "Ei saa",
+          "Vain aamulla",
+          "Vain lapsilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d4151d05-b7ab-5a5a-844c-4c9198a7a1d8",
+        "prompt": "Saako lasipulloja tuoda allasosastolle?",
+        "options": [
+          "Saa",
+          "Ei saa",
+          "Vain pieniä",
+          "Vain tyhjää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

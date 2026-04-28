@@ -1,0 +1,66 @@
+{
+  "id": "1cc0c115-8f50-5bd8-a520-ca67864eb6a0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.753,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kysymys oikeudenmukaisuudesta on polttava aikana, jolloin eriarvoisuus kasvaa. Filosofi John Rawlsin klassikkoteos 'Oikeudenmukaisuusteoria' tarjoaa edelleen hedelmällisen lähtökohdan keskustelulle. Rawlsin mukaan oikeudenmukainen yhteiskunta on sellainen, jonka periaatteista vapaat ja järjelliset ihmiset sopisivat, jos he eivät tietäisi omaa asemaansa yhteiskunnassa – niin sanotun tietämättömyyden verhon takana. Tästä seuraa kaksi periaatetta: ensinnäkin jokaisella on yhtäläinen oikeus laajoihin perusvapauksiin, ja toiseksi sosiaalinen ja taloudellinen eriarvoisuus on sallittua vain, jos se koituu vähäosaisimpien hyväksi. Rawlsin teoria on vaikuttanut syvästi länsimaiseen hyvinvointivaltioajatteluun. Sitä on kuitenkin myös kritisoitu. Kriitikoiden mukaan se olettaa liian rationaalisen ihmiskuvan eikä ota huomioon vallan todellisia rakenteita. Esimerkiksi feministiset filosofit ovat huomauttaneet, että perheensisäinen epätasa-arvo jää teorian ulkopuolelle. Rawlsin ansio on kuitenkin siinä, että hän tarjoaa systemaattisen tavan ajatella oikeudenmukaisuutta, ei vain tunteiden tai perinteiden pohjalta. Hänen teoriansa pakottaa meidät kysymään, millaisen yhteiskunnan haluamme rakentaa ja keiden ehdoilla.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 168
+    },
+    "questions": [
+      {
+        "id": "dd47d08d-43c9-55b4-87f6-82e86ca3f7c8",
+        "prompt": "Mikä on Rawlsin 'tietämättömyyden verho'?",
+        "options": [
+          "Tilanne, jossa ihmiset eivät tiedä tulevaisuutta",
+          "Ajatuskoe, jossa ihmiset eivät tiedä omaa asemaansa yhteiskunnassa",
+          "Salaisuus, joka pitää säilyttää",
+          "Vallanpitäjien salaliitto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "29a411f7-f333-5276-8823-3be24223a021",
+        "prompt": "Mitä Rawlsin toinen periaate sanoo eriarvoisuudesta?",
+        "options": [
+          "Kaikki eriarvoisuus on kiellettyä",
+          "Eriarvoisuus on sallittua vain, jos se hyödyttää vähäosaisimpia",
+          "Eriarvoisuus on aina oikeudenmukaista",
+          "Eriarvoisuus pitää poistaa kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8c5d7282-e66d-5da0-8331-cc9c049aa5de",
+        "prompt": "Mitä kritiikkiä Rawlsin teoria on saanut?",
+        "options": [
+          "Se on liian radikaali",
+          "Se olettaa liian rationaalisen ihmiskuvan ja jättää perheensisäisen epätasa-arvon huomiotta",
+          "Se suosii rikkaita",
+          "Se on vanhentunut"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

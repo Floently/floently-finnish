@@ -1,0 +1,37 @@
+{
+  "id": "47f04e91-c8a3-57ba-b171-a4feb1ed6f8d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota maksuton digineuvonta kaikenikäisille?'. Pohdi digitasa-arvoa, syrjäytymistä ja palveluiden saavutettavuutta.",
+    "materials": {
+      "scenario": "Maksuton digineuvonta"
+    },
+    "items": [
+      {
+        "id": "945cd14f-afae-5511-b861-9bb2fc4a96cf",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota maksuton digineuvonta kaikenikäisille?'. Pohdi digitasa-arvoa, syrjäytymistä ja palveluiden saavutettavuutta."
+      }
+    ],
+    "rubric": "Digitasa-arvo\nSyrjäytyminen\nPalveluiden saavutettavuus\nKustannukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

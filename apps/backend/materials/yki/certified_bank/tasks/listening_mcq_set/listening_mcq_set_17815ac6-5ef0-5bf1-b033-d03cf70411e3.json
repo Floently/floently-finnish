@@ -1,0 +1,88 @@
+{
+  "id": "17815ac6-5ef0-5bf1-b033-d03cf70411e3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.69,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu lääkäriajan varaamisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Vastaaja: Terveysasema, päivää. Asiakas: Päivää, haluaisin varata ajan lääkärille. Minulla on ollut muutaman päivän ajan kuumetta ja yskää. Vastaaja: Onko teillä muita oireita, kuten hengenahdistusta tai rintakipua? Asiakas: Ei ole. Vastaaja: Hyvä. Onko teillä perussairauksia, jotka voisivat vaikuttaa? Asiakas: Ei ole. Vastaaja: Selvä. Pääsette lääkärille ensi maanantaina kello 10.30. Sopiiko se? Asiakas: Kyllä, sopii. Vastaaja: Muistathan ottaa mukaan Kela-kortin. Jos vointi huononee ennen aikaa, voitte soittaa uudelleen, niin katsomme, tarvitaanko aikaa aikaistaa. Asiakas: Kiitos, teen niin. Vastaaja: Paranemista!",
+      "audio_asset_id": "d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a"
+    },
+    "questions": [
+      {
+        "id": "l171q1",
+        "prompt": "Miksi asiakas soittaa terveysasemalle?",
+        "options": [
+          "Hänellä on vatsakipua.",
+          "Hänellä on ollut kuumetta ja yskää.",
+          "Hän haluaa uusia reseptin.",
+          "Hän haluaa kysyä neuvoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l171q2",
+        "prompt": "Kysyykö vastaaja hengenahdistuksesta tai rintakivusta?",
+        "options": [
+          "Kyllä.",
+          "Ei.",
+          "Vain jos asiakas mainitsee.",
+          "Ei, se ei ole tarpeen."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l171q3",
+        "prompt": "Onko asiakkaalla perussairauksia?",
+        "options": [
+          "Kyllä, diabetesta.",
+          "Kyllä, verenpainetautia.",
+          "Ei ole.",
+          "Ei mainita."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l171q4",
+        "prompt": "Mille päivälle ja kellonajalle aika varataan?",
+        "options": [
+          "Ensi tiistai kello 9.",
+          "Ensi keskiviikko kello 11.",
+          "Ensi maanantai kello 10.30.",
+          "Ensi perjantai kello 13."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l171q5",
+        "prompt": "Mitä asiakkaan pitää muistaa ottaa mukaan?",
+        "options": [
+          "Henkilöllisyystodistus.",
+          "Kela-kortti.",
+          "Aiemmat reseptit.",
+          "Oma puhelin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

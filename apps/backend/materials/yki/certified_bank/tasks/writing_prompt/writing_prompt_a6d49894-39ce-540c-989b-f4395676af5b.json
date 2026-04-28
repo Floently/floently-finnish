@@ -1,0 +1,37 @@
+{
+  "id": "a6d49894-39ce-540c-989b-f4395676af5b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.346,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute lähikauppasi valmisruokavalikoimasta. Onko se monipuolinen? Onko hinta sopiva?",
+    "materials": {
+      "scenario": "Palaute kaupan valmisruoista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute lähikauppasi valmisruokavalikoimasta. Onko se monipuolinen? Onko hinta sopiva?"
+      }
+    ],
+    "rubric": "Kirjoita palaute lähikauppasi valmisruokavalikoimasta. Onko se monipuolinen? Onko hinta sopiva?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

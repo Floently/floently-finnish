@@ -1,0 +1,37 @@
+{
+  "id": "f2e57dde-d6d8-5fba-a778-ba22d6bb4a85",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö ammatillisen koulutuksen arvostusta lisätä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ammatillisen koulutuksen arvostus"
+    },
+    "items": [
+      {
+        "id": "3c6f2487-830c-59bf-a377-32603cf7b03e",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö ammatillisen koulutuksen arvostusta lisätä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

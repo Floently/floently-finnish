@@ -1,0 +1,99 @@
+{
+  "id": "76632e8b-0971-5786-883f-40c036d1eb2d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote bussiliikenteen poikkeuksista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on joukkoliikenteen tiedotus. Tiedotamme poikkeuksista bussiliikenteessä ensi viikonloppuna. Lauantaina 20.5. järjestettävän Kaupunkimaratonin vuoksi useat keskustan kadut ovat suljettuna kello 10–16. Tämä vaikuttaa seuraaviin linjoihin: linjat 15, 20 ja 30 ajavat poikkeusreittejä eivätkä pysähdy keskustan normaalipysäkeillä. Linjat 40 ja 45 ovat kokonaan pois liikenteestä kello 9–17. Matkustajia kehotetaan käyttämään korvaavia linjoja 41 ja 46. Lisäksi bussien aikatauluissa voi olla viivästyksiä. Kannattaa varata matkaan ylimääräistä aikaa. Tapahtuman aikana on käytössä myös väliaikainen pysäkki Rautatientorin laidalla. Tarkemmat tiedot poikkeusreiteistä löytyvät verkkosivuiltamme ja pysäkeillä olevista ilmoituksista. Pahoittelemme tästä aiheutuvaa haittaa. Suosittelemme käyttämään tapahtumapäivänä mieluiten julkista liikennettä tai kävelyä, jos mahdollista.",
+      "audio_asset_id": "4401f2bb-a4fe-48e4-b6b8-e3ac16dcba31"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Miksi bussiliikenteessä on poikkeuksia?",
+        "options": [
+          "Kaupunkimaratonin vuoksi.",
+          "Sään vuoksi.",
+          "Lakon vuoksi.",
+          "Remontin vuoksi."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minä päivänä poikkeukset ovat?",
+        "options": [
+          "Perjantaina 19.5.",
+          "Lauantaina 20.5.",
+          "Sunnuntaina 21.5.",
+          "Maanantaina 22.5."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mihin aikaan kadut ovat suljettuna?",
+        "options": [
+          "Kello 8–14.",
+          "Kello 10–16.",
+          "Kello 12–18.",
+          "Kello 14–20."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä linjoja poikkeukset koskevat?",
+        "options": [
+          "Linjoja 1, 2 ja 3.",
+          "Linjoja 15, 20, 30, 40 ja 45.",
+          "Linjoja 50, 55 ja 60.",
+          "Linjoja 70, 75 ja 80."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitkä linjat korvaavat pois olevat linjat 40 ja 45?",
+        "options": [
+          "Linjat 41 ja 46.",
+          "Linjat 42 ja 47.",
+          "Linjat 43 ja 48.",
+          "Linjat 44 ja 49."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä matkustajia kehotetaan tekemään?",
+        "options": [
+          "Pysymään kotona.",
+          "Käyttämään omaa autoa.",
+          "Matkustamaan vain aamulla.",
+          "Varaamaan ylimääräistä aikaa matkaan."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

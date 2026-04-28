@@ -1,0 +1,77 @@
+{
+  "id": "e1ecec62-62bc-5db8-aedd-c92ecf094146",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele opinto-ohjaajan puhe lukiolaisille ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät abiturientit! Nyt on se aika vuodesta, kun monet teistä miettivät, mitä tehdä ylioppilaskirjoitusten jälkeen.\n\nYliopisto on monen haaveena. Sinne haetaan yhteishaussa maaliskuussa. Muistakaa, että yliopistoissa on erilaisia pääsykoevaatimuksia. Jotkut alat painottavat yo-todistusta, toisissa on erillinen pääsykoe.\n\nAmmattikorkeakoulut ovat toinen hyvä vaihtoehto. Niissä koulutus on käytännönläheisempää ja kesto yleensä 3,5–4 vuotta. Ammattikorkeasta valmistuu insinööriksi, tradenomiksi tai sairaanhoitajaksi.\n\nMonet haluavat pitää välivuoden. Sekin on ok! Välivuoden voi käyttää työntekoon, matkusteluun tai kielikurssiin. Tärkeintä on, ettei jää toimettomaksi.\n\nMuistakaa myös, että aina voi hakea uudelleen. Tärkeintä on löytää oma juttu.",
+      "audio_asset_id": "6bc3732d-1c9f-43f6-a944-daa0c517fb71"
+    },
+    "questions": [
+      {
+        "id": "9e71f08f-248b-5a04-8896-376ca52d75a8",
+        "prompt": "Milloin yhteishaku yliopistoihin on?",
+        "options": [
+          "Tammikuussa",
+          "Maaliskuussa",
+          "Toukokuussa",
+          "Elokuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "96b9ad64-644a-53cb-812e-46179d95aed5",
+        "prompt": "Miten ammattikorkeakoulu eroaa yliopistosta?",
+        "options": [
+          "Pidempi kesto",
+          "Käytännönläheisempi",
+          "Vaikeampi päästä",
+          "Kalliimpi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "65b017d2-e0e2-5d9d-8f81-fb6d3efe4dcb",
+        "prompt": "Mitä ohjeita annetaan välivuodelle?",
+        "options": [
+          "Ei kannata pitää",
+          "Suunniteltava, ettei jää toimettomaksi",
+          "Pakko matkustaa",
+          "Pakko käydä armeija"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ebe2307d-7a45-5bf8-b2cc-77aff39330da",
+        "prompt": "Mikä on puheen pääviesti?",
+        "options": [
+          "Kaikkien yliopistoon",
+          "Vain ammattikoulu",
+          "Monet vaihtoehdot, tärkeintä löytää oma juttu",
+          "Välivuosi on huono"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

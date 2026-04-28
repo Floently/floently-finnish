@@ -1,0 +1,37 @@
+{
+  "id": "e7e52edc-25ac-5cf2-be8a-517aeccf2ad6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla mahdollisuus fysioterapiaan ilman lähetettä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Fysioterapia ilman lähetettä terveyskeskuksissa"
+    },
+    "items": [
+      {
+        "id": "11ace62a-7146-5dc4-ba2f-622818ad7aa2",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla mahdollisuus fysioterapiaan ilman lähetettä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

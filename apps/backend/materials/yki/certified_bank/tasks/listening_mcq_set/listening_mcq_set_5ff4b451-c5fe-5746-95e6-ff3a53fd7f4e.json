@@ -1,0 +1,77 @@
+{
+  "id": "5ff4b451-c5fe-5746-95e6-ff3a53fd7f4e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu taiteen rahoituksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Taiteilija: Taiteen rahoitusta leikataan jatkuvasti. Samaan aikaan odotetaan, että taide tuottaa hyvinvointia, vetää matkailijoita ja tekee kaupungista kiinnostavan. Tämä on ristiriitaista.\n\nPäättäjä: Ymmärrän, mutta budjetti on rajallinen. Terveydenhuolto ja koulutus menevät taiteen edelle. Taiteen on osoitettava hyötynsä.\n\nTaiteilija: Miten taide osoitetaan hyödylliseksi? Sen arvo ei ole mitattavissa samalla tavalla. Taide sivistää, herättää ajatuksia, luo identiteettiä. Se on investointi inhimillisyyteen.\n\nPäättäjä: Mutta jos rahat ovat vähissä, on priorisoitava. Taiteilijat voisivat hakea enemmän yksityistä rahoitusta, sponsorointia.\n\nTaiteilija: Se johtaisi siihen, että vain kaupallisesti kannattava taide saisi rahoitusta. Kokeileva, kriittinen taide kärsisi. Ja harva yritys haluaa tukea taidetta, joka kyseenalaistaa.\n\nKulttuurituottaja: Meillä on hyviä esimerkkejä julkisen ja yksityisen rahoituksen yhdistelmistä. Mutta julkisen rahoituksen pitää olla pohja, joka takaa taiteen vapauden.\n\nPäättäjä: Ehkä pitäisi miettiä uusia malleja. Taide voi tuottaa myös mitattavia hyötyjä: työpaikkoja, verotuloja, matkailua. Tätä pitäisi osata viestiä paremmin.\n\nTaiteilija: Viestintä on tärkeää, mutta taiteen perustehtävä on olla taidetta, ei työllisyyspolitiikkaa. Pelkään, että lyhytnäköiset leikkaukset köyhdyttävät kulttuuria pitkällä tähtäimellä.\n\nKulttuurituottaja: Tarvitaan pitkäjänteistä kulttuuripolitiikkaa, ei hätiköityjä päätöksiä. Taide on hidas prosessi, sen vaikutukset näkyvät vasta vuosien päästä.",
+      "audio_asset_id": "efed73bc-01a5-4852-b593-fa4d5f95f9e9"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä ongelmaa taiteilija kuvaa?",
+        "options": [
+          "Taiteesta on liikaa rahoitusta",
+          "Rahoitusta leikataan, mutta taiteelta odotetaan paljon",
+          "Taide on liian suosittua",
+          "Liian paljon taiteilijoita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi päättäjä priorisoi terveydenhuollon ja koulutuksen?",
+        "options": [
+          "Ne ovat tärkeämpiä",
+          "Budjetti on rajallinen, ne menevät edelle",
+          "Vihaa taidetta",
+          "Ei ymmärrä taidetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ongelmia yksityisessä rahoituksessa nähdään?",
+        "options": [
+          "Liikaa rahaa",
+          "Vain kaupallisesti kannattava taide saisi rahoitusta, kriittinen taide kärsisi",
+          "Helppoa",
+          "Yritykset haluavat tukea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja ehdotetaan?",
+        "options": [
+          "Vain yksityistä rahoitusta",
+          "Julkisen ja yksityisen yhdistelmiä, pitkäjänteistä kulttuuripolitiikkaa",
+          "Vain julkista rahoitusta",
+          "Ei rahoitusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

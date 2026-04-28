@@ -1,0 +1,110 @@
+{
+  "id": "74799d25-3edb-575e-8f87-cc51f2a9a8d3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen huoltovarmuus on noussut keskeiseksi kysymykseksi viime vuosina. Huoltovarmuudella tarkoitetaan yhteiskunnan kykyä turvata väestön toimeentulo ja talouden toiminta poikkeusoloissa, kuten kriisien tai häiriöiden aikana. Se kattaa muun muassa ruoan, energian, terveydenhuollon, tietoliikenteen ja logistiikan. Suomi on panostanut huoltovarmuuteen pitkään. Meillä on velvoitevarastointia esimerkiksi viljan ja polttoaineiden osalta. Myös infrastruktuuria on rakennettu kestäväksi ja varavoimaa on saatavilla. Huoltovarmuuskeskus koordinoi ja kehittää alaa yhteistyössä yritysten ja viranomaisten kanssa. Viime vuosien kriisit, kuten koronapandemia ja Venäjän hyökkäys Ukrainaan, ovat koetelleet huoltovarmuutta. Ne ovat osoittaneet, että häiriöt voivat olla monenlaisia ja vaikuttaa laajasti. Toimitusketjut ovat katkenneet, energian hinta on noussut ja kyberuhat ovat lisääntyneet. Tämä on pakottanut miettimään huoltovarmuutta uudella tavalla. On varauduttava entistä monimuotoisempiin uhkiin. Tarvitaan sekä julkisia että yksityisiä toimia. Yritysten on huolehdittava omasta varautumisestaan, ja kansalaisillakin on vastuu omasta varautumisestaan, esimerkiksi kriisivaraston avulla. Huoltovarmuus on yhteinen asia, joka vaatii jatkuvaa työtä ja yhteistyötä. Se on osa kokonaisturvallisuutta ja yhteiskunnan kestävyyttä.",
+      "word_count": 149
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan huoltovarmuudella?",
+        "options": [
+          "Armeijan varautumista sotaan.",
+          "Yhteiskunnan kykyä turvata väestön toimeentulo ja talouden toiminta poikkeusoloissa.",
+          "Vain ruoan riittävyyttä kriiseissä.",
+          "Vain energian saantia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä huoltovarmuus kattaa?",
+        "options": [
+          "Vain ruoan ja energian.",
+          "Ruoan, energian, terveydenhuollon, tietoliikenteen ja logistiikan.",
+          "Vain terveydenhuollon.",
+          "Vain tietoliikenteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä huoltovarmuustoimista Suomessa on?",
+        "options": [
+          "Ei mitään toimia.",
+          "Velvoitevarastointia viljan ja polttoaineiden osalta, kestävä infrastruktuuri ja varavoima.",
+          "Vain varavoimaa.",
+          "Vain viljavarastoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä taho koordinoi huoltovarmuutta Suomessa?",
+        "options": [
+          "Pääministerin kanslia.",
+          "Huoltovarmuuskeskus.",
+          "Puolustusvoimat.",
+          "Sisäministeriö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä viime vuosien kriisit ovat osoittaneet huoltovarmuudesta?",
+        "options": [
+          "Että se on tarpeetonta.",
+          "Että häiriöt voivat olla monenlaisia ja vaikuttaa laajasti, ja on varauduttava monimuotoisempiin uhkiin.",
+          "Että Suomi on täysin omavarainen.",
+          "Että mikään ei uhkaa huoltovarmuutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on kansalaisten vastuu huoltovarmuudessa?",
+        "options": [
+          "Ei mitään vastuuta.",
+          "Oma varautuminen, esimerkiksi kriisivaraston avulla.",
+          "Vain verojen maksaminen.",
+          "Vain äänestäminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on huoltovarmuuden asema yhteiskunnassa?",
+        "options": [
+          "Se on erillinen asia, joka ei koske muita.",
+          "Se on osa kokonaisturvallisuutta ja yhteiskunnan kestävyyttä.",
+          "Se on vain valtion asia.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

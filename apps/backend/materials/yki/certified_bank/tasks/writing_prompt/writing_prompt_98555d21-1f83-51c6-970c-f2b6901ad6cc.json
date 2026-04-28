@@ -1,0 +1,37 @@
+{
+  "id": "98555d21-1f83-51c6-970c-f2b6901ad6cc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Täytä lomake.",
+    "materials": {
+      "scenario": "Täytä lomake."
+    },
+    "items": [
+      {
+        "id": "bead86d5-f470-5345-a70c-9538c1e0d19c",
+        "prompt": "Olet ilmoittautumassa kielikurssille. Täytä lomake.\nKirjoita:\n- nimesi\n- osoitteesi\n- puhelinnumerosi\n- miksi haluat oppia suomea."
+      }
+    ],
+    "rubric": "Olet ilmoittautumassa kielikurssille. Täytä lomake.\nKirjoita:\n- nimesi\n- osoitteesi\n- puhelinnumerosi\n- miksi haluat oppia suomea.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

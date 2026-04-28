@@ -1,0 +1,37 @@
+{
+  "id": "e35e69e2-e4b6-5162-b2a6-c62266c9ad23",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lähikauppaan. Olit kaupassa tänään aamulla ja huomasit kassalla, että sinulla ei ollut tarpeeksi rahaa. Myyjä (nuori nainen, tummat hiukset) oli ystävällinen ja sanoi, että voit maksaa myöhemmin. Kerro, että tulet maksamaan iltapäivällä.",
+    "materials": {
+      "scenario": "Viesti kauppaan maksun hoitamisesta"
+    },
+    "items": [
+      {
+        "id": "afd4bc7d-480d-5e44-b95e-332936fc8153",
+        "prompt": "Kirjoita lyhyt viesti lähikauppaan. Olit kaupassa tänään aamulla ja huomasit kassalla, että sinulla ei ollut tarpeeksi rahaa. Myyjä (nuori nainen, tummat hiukset) oli ystävällinen ja sanoi, että voit maksaa myöhemmin. Kerro, että tulet maksamaan iltapäivällä."
+      }
+    ],
+    "rubric": "Kerro, että olit kaupassa aamulla\nKerro, että sinulla ei ollut tarpeeksi rahaa\nKuvaile myyjää\nKerro, että myyjä antoi maksaa myöhemmin\nKerro, että tulet maksamaan iltapäivällä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

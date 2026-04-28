@@ -1,0 +1,37 @@
+{
+  "id": "8a0b0a52-d8b0-5283-bdad-71ddf87cb79a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.344,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt lasten kanssa uimahallissa. Kirjoita palaute. Arvioi lastenaltaan turvallisuutta, perhepesutiloja ja kahvion palvelua.",
+    "materials": {
+      "scenario": "Palaute uimahallista perheille"
+    },
+    "items": [
+      {
+        "id": "b72564f8-1157-5a04-98d7-235c5c718b58",
+        "prompt": "Olet käynyt lasten kanssa uimahallissa. Kirjoita palaute. Arvioi lastenaltaan turvallisuutta, perhepesutiloja ja kahvion palvelua."
+      }
+    ],
+    "rubric": "Lastenaltaan turvallisuus\nPerhepesutilat\nKahvion palvelu",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

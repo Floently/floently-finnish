@@ -1,0 +1,66 @@
+{
+  "id": "b98e91c9-0da1-5f55-8459-7637430ec12c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "MONTA TYÖTÄ – UUSI NORMAALI?\n\nYhä useampi suomalainen tekee nykyään useaa työtä samanaikaisesti. Ilmiö koskee erityisesti nuoria aikuisia ja luovien alojen ammattilaisia, mutta myös monilla muilla aloilla tyypillistä on yhdistää palkkatyö ja yrittäjyys. Syitä ilmiöön on monia. Osa hakee lisäänsioita, koska yhden työn palkka ei riitä. Toiset haluavat varmuutta epävarmoilla aloilla: jos yksi työ loppuu, on toinen vielä jäljellä. Kolmannet etsivät vaihtelua ja mahdollisuutta tehdä monipuolisesti erilaisia asioita. Monella työllä on kuitenkin varjopuolensa. Työaika voi venyä, lomia ei ehdi pitää ja sosiaaliturva on monimutkaista. Työterveyshuolto voi olla puutteellinen, jos työnantajia on useita.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 120
+    },
+    "questions": [
+      {
+        "id": "7185372c-4a03-58a2-8cdc-a32c863c9991",
+        "prompt": "Ketkä erityisesti tekevät useaa työtä?",
+        "options": [
+          "Eläkeläiset ja opiskelijat",
+          "Nuoret aikuiset ja luovien alojen ammattilaiset",
+          "Teollisuuden työntekijät",
+          "Julkisen sektorin työntekijät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f7d4c261-c26d-5986-8089-d86d399d5154",
+        "prompt": "Mikä on yksi syy tehdä useaa työtä?",
+        "options": [
+          "Halu tehdä vähemmän töitä",
+          "Halu varmuutta epävarmoilla aloilla",
+          "Paremmat työterveyspalvelut",
+          "Enemmän lomaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0d7f82de-7c5f-5e38-80e2-9d903eeb0f00",
+        "prompt": "Mikä on usean työn varjopuoli?",
+        "options": [
+          "Liian paljon vapaa-aikaa",
+          "Työterveyshuolto voi olla puutteellista",
+          "Liian korkea palkka",
+          "Liian vähän työtunteja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "1c38ef12-0393-5ff9-8351-dd39f6c0388b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus etätyöstä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ETÄTYÖ MUUTTAA TYÖYHTEISÖÄ – HYVÄÄ VAI HUONOA?\n\nOlen työskennellyt etänä nyt kolme vuotta, ja mielipiteeni on muuttunut matkan varrella. Aluksi olin innoissani: säästin aikaa työmatkoista, sain rauhassa keskittyä ja pystyin yhdistämään työn ja perheen joustavammin. Nyt huomaan kuitenkin, että jotain on kadonnut.\n\nTyökavereiden kanssa ei synny samanlaista luottamusta, kun kaikki kommunikointi on suunniteltuja palavereja. Spontaanit keskustelut kahvihuoneessa ovat jääneet, ja uusien työntekijöiden perehdyttäminen on vaikeampaa. Myös työn ja vapaa-ajan raja on hämärtynyt – läppäri on aina mukana, ja työsähköposteja tulee illallakin.\n\nToisaalta ymmärrän, että monille etätyö on ainoa vaihtoehto perhetilanteen tai terveyden takia. Ja jotkut kukoistavat etätyössä – he ovat tuottavampia ja onnellisempia.\n\nParas ratkaisu olisi mielestäni hybridimalli, jossa tiimi kokoontuu säännöllisesti yhteisiin päiviin. Näin säilyisi sekä joustavuus että yhteisöllisyys. Työnantajan pitäisi myös panostaa etätyöntekijöiden hyvinvointiin ja yhteishengen ylläpitämiseen.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten kirjoittajan mielipide etätyöstä on muuttunut?",
+        "options": [
+          "Hän vastustaa nyt kaikkea etätyötä",
+          "Hän on huomannut etätyön haittoja, kuten yhteisöllisyyden vähenemisen",
+          "Hän haluaa tehdä vain etätöitä",
+          "Hänen mielipiteensä ei ole muuttunut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haittaa etätyöstä on kirjoittajan mukaan?",
+        "options": [
+          "Työteho laskee",
+          "Spontaanit keskustelut jäävät ja työn ja vapaa-ajan raja hämärtyy",
+          "Palkka pienenee",
+          "Työmatkat pitenevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on kirjoittajan mielestä paras ratkaisu?",
+        "options": [
+          "Palata kokonaan toimistolle",
+          "Jatkaa täysin etänä",
+          "Hybridimalli, jossa tavataan säännöllisesti",
+          "Vaihtaa työpaikkaa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

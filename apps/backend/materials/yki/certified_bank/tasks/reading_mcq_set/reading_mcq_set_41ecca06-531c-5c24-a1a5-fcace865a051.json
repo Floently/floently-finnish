@@ -1,0 +1,66 @@
+{
+  "id": "41ecca06-531c-5c24-a1a5-fcace865a051",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Työhyvinvointi on keskeinen tekijä sekä yksilön elämänlaadun että organisaation menestyksen kannalta. Se ei tarkoita pelkästään sairauksien puuttumista, vaan kokonaisvaltaista fyysistä, psyykkistä ja sosiaalista hyvinvointia työssä. Työhyvinvointiin vaikuttavat monet tekijät: työn sisältö ja vaatimukset, työympäristö, työyhteisön ilmapiiri, johtaminen sekä yksilön omat voimavarat ja elämäntilanne. Työkyvyn johtaminen on systemaattista toimintaa, jolla pyritään ylläpitämään ja edistämään henkilöstön työkykyä. Siihen kuuluu työkyvyn arviointi, varhainen tuki, työterveysyhteistyö ja työurien pidentäminen. Hyvä työkyvyn johtaminen näkyy esimerkiksi sairauspoissaolojen vähenemisenä, työtyytyväisyyden kasvuna ja tuottavuuden paranemisena. Erityisen tärkeää se on tilanteissa, joissa työntekijällä on terveydellisiä haasteita tai työkyky on alentunut. Silloin tarvitaan yksilöllisiä ratkaisuja, kuten työtehtävien muokkaamista, osa-aikatyötä tai kuntoutusta. Viime vuosina on alettu kiinnittää entistä enemmän huomiota psykososiaaliseen kuormitukseen, kuten työn epävarmuuteen, kiireeseen ja ihmissuhdeongelmiin. Ne voivat pitkittyessään johtaa uupumukseen ja mielenterveysongelmiin, jotka ovat yleistyvä syy työkyvyttömyyteen. Työhyvinvoinnin edistäminen on investointi, joka maksaa itsensä takaisin sekä inhimillisesti että taloudellisesti. Se vaatii pitkäjänteistä työtä ja sitoutumista kaikilta organisaation tasoilta.",
+      "word_count": 150
+    },
+    "questions": [
+      {
+        "id": "f5a6b7c8-d9e0-4f1a-9b2c-3d4e5f6a7b8c",
+        "prompt": "Mitä työhyvinvointi tarkoittaa kokonaisvaltaisesti?",
+        "options": [
+          "Vain sairauksien puuttumista",
+          "Fyysistä, psyykkistä ja sosiaalista hyvinvointia työssä",
+          "Vain työn mielekkyyttä",
+          "Vain hyvää palkkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a6b7c8d9-e0f1-4a2b-9c3d-4e5f6a7b8c9d",
+        "prompt": "Mitä työkyvyn johtamiseen kuuluu?",
+        "options": [
+          "Vain työkyvyn arviointia",
+          "Työkyvyn arviointia, varhaista tukea, työterveysyhteistyötä ja työurien pidentämistä",
+          "Vain sairauspoissaolojen seurantaa",
+          "Vain työpaikan vaihtoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Mihin psykososiaaliseen kuormitukseen on alettu kiinnittää huomiota?",
+        "options": [
+          "Vain fyysiseen kuormitukseen",
+          "Työn epävarmuuteen, kiireeseen ja ihmissuhdeongelmiin",
+          "Vain työmatkojen pituuteen",
+          "Vain työvälineiden toimivuuteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

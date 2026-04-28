@@ -1,0 +1,88 @@
+{
+  "id": "698f1354-84da-5655-a2dc-b890b809f7b8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu vapaa-ajan merkityksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Psykologi: Vapaa-aika ei ole vain 'ei-työtä', vaan se on tärkeä osa hyvinvointia. Laadukas vapaa-aika auttaa palautumaan työn rasituksista. Haastattelija: Mitä tarkoittaa laadukas vapaa-aika? Psykologi: Sellaista, jossa ihminen voi itse vaikuttaa tekemiseensä ja joka tuottaa mielihyvää. Se voi olla liikuntaa, lukemista, ystävien tapaamista tai vaikka sohvan nurkassa makoilua – kunhan se on oma valinta. Haastattelija: Mikä on yleisin ongelma vapaa-ajan suhteen? Psykologi: Se, että vapaa-aika täyttyy suorittamisesta. Ihmiset tuntevat painetta olla tehokkaita myös vapaa-ajalla, mikä estää palautumisen. Toinen ongelma on digilaitteet, jotka vievät helposti huomion ja pirstovat vapaa-ajan lyhyiksi hetkiksi. Tärkeintä olisi oppia olemaan tekemättä mitään ja nauttia siitä ilman huonoa omaatuntoa.",
+      "audio_asset_id": "23737be6-c20c-4f72-9678-4f5fa9b82b95"
+    },
+    "questions": [
+      {
+        "id": "cfb3b0c8-6658-5d94-bcf5-4a1e15f8d3b6",
+        "prompt": "Miten psykologi määrittelee vapaa-ajan?",
+        "options": [
+          "Ajaksi, jolloin ei tehdä mitään.",
+          "Ajaksi, joka pitää käyttää hyödyllisesti.",
+          "Tärkeäksi osaksi hyvinvointia, joka auttaa palautumaan työstä.",
+          "Ylellisyydeksi, jota kaikilla ei ole."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "faaec3e8-c2c1-554f-a81c-485771276531",
+        "prompt": "Mitä on laadukas vapaa-aika?",
+        "options": [
+          "Tekemistä, johon voi itse vaikuttaa ja joka tuottaa mielihyvää.",
+          "Sitä, että tekee aina jotain aktiivista.",
+          "Sitä, että on paljon kavereita.",
+          "Sitä, että on poissa kotoa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b0037d24-d70d-51ea-a949-d08d3235077f",
+        "prompt": "Mikä on psykologin mukaan yleisin ongelma vapaa-ajassa?",
+        "options": [
+          "Ihmisillä on liikaa vapaa-aikaa.",
+          "Vapaa-aika täyttyy suorittamisesta ja tehokkuuspaineesta.",
+          "Vapaa-aika on liian kallista.",
+          "Ihmiset eivät osaa rentoutua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dff3006d-9f1c-5584-895b-23cd6e009ef9",
+        "prompt": "Mikä toinen ongelma mainitaan?",
+        "options": [
+          "Liian vähän ystäviä.",
+          "Huono sää.",
+          "Digilaitteet pirstovat vapaa-ajan.",
+          "Työasiat seuraavat kotiin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0c6f0b46-c127-508c-9d9a-888301ce5b69",
+        "prompt": "Mitä psykologi pitää tärkeänä oppia?",
+        "options": [
+          "Tekemään aina jotain hyödyllistä.",
+          "Olemaan tekemättä mitään ja nauttimaan siitä ilman huonoa omaatuntoa.",
+          "Käyttämään vähemmän somea.",
+          "Harrastamaan enemmän liikuntaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

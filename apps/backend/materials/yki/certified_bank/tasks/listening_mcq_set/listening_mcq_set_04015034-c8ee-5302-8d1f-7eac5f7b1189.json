@@ -1,0 +1,99 @@
+{
+  "id": "04015034-c8ee-5302-8d1f-7eac5f7b1189",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu maahanmuuttajien kotoutumisesta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme maahanmuuttajien kotoutumisesta. Haastattelussa on kotoutumiskoordinaattori Leena Virtanen. Leena, mitä kotoutuminen tarkoittaa? Leena: Se on prosessi, jossa maahanmuuttaja oppii uuden kotimaan kieltä, kulttuuria ja yhteiskunnan tapoja ja tulee osaksi yhteiskuntaa. Se on kaksisuuntaista: myös vastaanottava yhteiskunta muuttuu. Toimittaja: Mitä palveluja maahanmuuttajille on tarjolla? Leena: Alkuvaiheessa on kotoutumiskoulutusta, johon kuuluu kielikursseja ja yhteiskuntatietoa. Myös työvoimapalvelut auttavat työnhaussa. Lisäksi on järjestöjen toimintaa ja vapaaehtoistyötä. Toimittaja: Mikä on tärkeintä kotoutumisessa? Leena: Kielen oppiminen on avain kaikkeen. Ilman kieltä on vaikea saada työtä ja ystäviä. Toiseksi tärkeää on työ. Työ tuo toimeentulon ja sosiaaliset kontaktit. Kolmanneksi tärkeää ovat sosiaaliset verkostot ja ystävät. Toimittaja: Mitä haasteita kotoutumisessa on? Leena: Työpaikan löytäminen on usein vaikeaa, vaikka olisi koulutus. Myös oman alan töitä on vaikea saada. Byrokratia voi olla hankalaa. Myös syrjintää esiintyy. Toimittaja: Miten kotoutumista voitaisiin parantaa? Leena: Tarvitaan enemmän työpaikkoja, myös matalan kynnyksen töitä. Myös asenteisiin pitää vaikuttaa. Tarvitaan kohtaamisia suomalaisten ja maahanmuuttajien välillä. Myös kielikoulutusta pitää olla riittävästi ja joustavasti. Toimittaja: Kiitos Leena.",
+      "audio_asset_id": "e6f7a8b9-c0d1-2e3f-4a5b-6c7d8e9f0a1b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Maahanmuuttajien työllisyys.",
+          "Maahanmuuttajien kotoutuminen.",
+          "Suomen maahanmuuttopolitiikka.",
+          "Maahanmuuttajien koulutus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä kotoutuminen Leenan mukaan tarkoittaa?",
+        "options": [
+          "Vain kielen oppimista.",
+          "Prosessia, jossa maahanmuuttaja oppii uuden kotimaan tapoja ja tulee osaksi yhteiskuntaa.",
+          "Vain työpaikan saamista.",
+          "Suomen kansalaisuuden saamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä palveluja maahanmuuttajille on tarjolla alkuvaiheessa?",
+        "options": [
+          "Vain asuntoapu.",
+          "Kotoutumiskoulutusta ja työvoimapalveluja.",
+          "Vain terveydenhuoltoa.",
+          "Vain toimeentulotukea."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on Leenan mukaan tärkeintä kotoutumisessa?",
+        "options": [
+          "Uusien vaatteiden hankkiminen.",
+          "Kielen oppiminen, työ ja sosiaaliset verkostot.",
+          "Suomen historian opiskelu.",
+          "Urheiluharrastus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on yksi kotoutumisen haaste?",
+        "options": [
+          "Liian paljon työtarjouksia.",
+          "Työpaikan löytäminen ja byrokratia.",
+          "Liian helppo kielikoulutus.",
+          "Liian paljon sosiaalisia kontakteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Miten kotoutumista voitaisiin parantaa?",
+        "options": [
+          "Vähentämällä kielikoulutusta.",
+          "Lisäämällä työpaikkoja ja kohtaamisia suomalaisten kanssa.",
+          "Lisäämällä byrokratiaa.",
+          "Erottamalla maahanmuuttajat omiin ryhmiinsä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

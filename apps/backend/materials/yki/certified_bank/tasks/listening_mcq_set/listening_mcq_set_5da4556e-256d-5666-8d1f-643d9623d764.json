@@ -1,0 +1,66 @@
+{
+  "id": "5da4556e-256d-5666-8d1f-643d9623d764",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan haastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme työhyvinvoinnista. Asiantuntijamme on psykologi Jukka Mäkelä. Jukka, mikä on tärkeintä työhyvinvoinnissa?\nAsiantuntija: Tärkeintä on työn ja vapaa-ajan tasapaino. Liian pitkät työpäivät ja jatkuva tavoitettavissa oleminen kuluttavat voimavaroja. Työn pitäisi olla mielekästä ja sopivan haastavaa.\nToimittaja: Miten esihenkilöt voivat vaikuttaa?\nAsiantuntija: Esihenkilön tuki on ratkaisevaa. Säännölliset keskustelut, palautteen antaminen ja työntekijän kuunteleminen lisäävät hyvinvointia. Myös työyhteisön ilmapiirillä on iso merkitys.\nToimittaja: Mitä työntekijä itse voi tehdä?\nAsiantuntija: Työntekijän kannattaa pitää huolta palautumisesta. Liikunta, riittävä uni ja harrastukset auttavat jaksamaan. Myös omista rajoista kiinni pitäminen on tärkeää.",
+      "audio_asset_id": "0ee331ae-3a69-563a-9948-d24c6c801e61"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on asiantuntijan mukaan tärkeintä työhyvinvoinnissa?",
+        "options": [
+          "Korkea palkka",
+          "Työn ja vapaa-ajan tasapaino",
+          "Nopea urakehitys",
+          "Ulkomaiset työmatkat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten esihenkilö voi edistää työhyvinvointia?",
+        "options": [
+          "Jakamalla bonuksia",
+          "Pitämällä säännöllisiä keskusteluja",
+          "Lyhentämällä työaikaa",
+          "Järjestämällä bileitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työntekijä voi itse tehdä jaksamisen eteen?",
+        "options": [
+          "Tehdä pidempiä päiviä",
+          "Pitää huolta palautumisesta",
+          "Vaihtaa työpaikkaa",
+          "Opiskella lisää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

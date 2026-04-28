@@ -1,0 +1,77 @@
+{
+  "id": "280bf32d-bbcf-599d-8b0d-734837e4439e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.772,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KAUPUNGISTUMINEN JA SEN VAIKUTUKSET\n\nKaupungistuminen on yksi aikamme voimakkaimmista yhteiskunnallisista muutoksista. Yhä suurempi osa maailman väestöstä asuu kaupungeissa, ja trendi näyttää jatkuvan. Kaupungistuminen tuo mukanaan sekä mahdollisuuksia että haasteita, jotka vaativat huolellista tarkastelua.\n\nTaloudellisesta näkökulmasta kaupungit ovat kasvun moottoreita. Ne houkuttelevat investointeja, osaavia työntekijöitä ja innovaatioita. Tiivis asutus mahdollistaa palveluiden tehokkaan järjestämisen ja lyhentää etäisyyksiä. Kaupungeissa syntyy uusia työpaikkoja ja taloudellista toimeliaisuutta, mikä hyödyttää koko maata.\n\nSosiaaliset vaikutukset ovat monitahoiset. Kaupungit tarjoavat monipuolisia palveluita, koulutusmahdollisuuksia ja kulttuuria. Ne ovat kohtaamispaikkoja, joissa erilaiset ihmiset voivat kohdata ja vaihtaa ajatuksia. Toisaalta kaupungistuminen voi johtaa eriytymiseen: hyväosaiset ja huono-osaiset keskittyvät eri alueille, mikä lisää eriarvoisuutta. Myös yksinäisyys on kaupungeissa yleistä, vaikka ihmisiä on paljon.\n\nYmpäristön kannalta kaupungistumisella on sekä hyviä että huonoja puolia. Tiivis kaupunkirakenne voi vähentää liikenteen päästöjä, kun etäisyydet ovat lyhyitä ja joukkoliikenne toimii. Kerrostaloasuminen on energiatehokkaampaa kuin haja-asutus. Toisaalta kaupungit kuluttavat valtavasti resursseja ja tuottavat paljon jätettä. Viheralueet saattavat vähetä, mikä heikentää luonnon monimuotoisuutta.\n\nAlueellinen eriarvoisuus on yksi kaupungistumisen keskeisistä haasteista. Kun kasvukeskukset vetävät puoleensa nuoria ja koulutettuja, maaseutualueet autioituvat ja vanhenevat. Tämä heikentää maaseudun palveluita ja elinvoimaa. Syntyy noidankehä, jossa palveluiden heikkeneminen ajaa lisää ihmisiä pois.\n\nTulevaisuudessa tarvitaan tasapainoista aluepolitiikkaa. Kaupunkien kehittämisen ohella on panostettava maaseudun elinvoimaan. Digitaaliset yhteydet ja etätyö voivat mahdollistaa asumisen myös syrjäseuduilla. Myös kaupunkien sisällä on huolehdittava siitä, etteivät erot kasva liian suuriksi. Kohtuuhintainen asuminen, hyvät joukkoliikenneyhteydet ja segregaation ehkäisy ovat avainasemassa.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 260
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä taloudellisia hyötyjä kaupungistumisesta on?",
+        "options": [
+          "Vain haittoja",
+          "Kaupungit ovat kasvun moottoreita, houkuttelevat investointeja ja osaavia työntekijöitä",
+          "Kaupungistuminen hidastaa talouskasvua",
+          "Vain maaseutu hyötyy taloudellisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä sosiaalisia haasteita kaupungistumiseen liittyy?",
+        "options": [
+          "Ei mitään haasteita",
+          "Alueellinen eriytyminen, eriarvoisuuden kasvu ja yksinäisyys",
+          "Kaikki ovat onnellisia kaupungeissa",
+          "Vain positiivisia vaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kaupungistuminen vaikuttaa ympäristöön?",
+        "options": [
+          "Vain kielteisesti",
+          "Sillä on sekä hyviä (tiivis rakenne, joukkoliikenne) että huonoja (resurssien kulutus, viheralueiden väheneminen) puolia",
+          "Vain myönteisesti",
+          "Ei mitenkään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan alueellisella eriarvoisuudella?",
+        "options": [
+          "Kaikki alueet ovat samanlaisia",
+          "Kasvukeskukset vetävät osaajia, maaseutu autioituu ja palvelut heikkenevät",
+          "Kaupungit ovat huonompia kuin maaseutu",
+          "Vain pääkaupunkiseutu menestyy"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

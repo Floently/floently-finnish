@@ -1,0 +1,37 @@
+{
+  "id": "d86dcefd-24dc-54a5-b21d-2b75e522e30f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin uimarannasta. Arvioi siisteyttä, pelastuslaitteita ja wc-tiloja. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin uimarannasta"
+    },
+    "items": [
+      {
+        "id": "c96df59a-7a96-5c2e-ab4a-81bb2b7cc21d",
+        "prompt": "Kirjoita palauteteksti kaupungin uimarannasta. Arvioi siisteyttä, pelastuslaitteita ja wc-tiloja. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Siisteys\nPelastuslaitteet\nWC-tilat\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

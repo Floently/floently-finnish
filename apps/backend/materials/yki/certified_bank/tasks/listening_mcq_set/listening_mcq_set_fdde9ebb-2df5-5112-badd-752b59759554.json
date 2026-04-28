@@ -1,0 +1,83 @@
+{
+  "id": "fdde9ebb-2df5-5112-badd-752b59759554",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.502,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu liikunnasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, mitä sä teet pysyäksesi kunnossa?\nB: Käyn salilla pari kertaa viikossa. Se on mulle tärkeä tapa irrottautua arjesta. Käytkö sä?\nA: Joo, mä tykkään enemmän juoksemisesta. Käyn lenkillä kolme kertaa viikossa, ja lisäksi teen kehonhuoltoa.\nB: Juokseminen on kyllä hyvä laji. Mutta mulla on polvet vähän huonot, niin en voi juosta paljon.\nA: Ymmärrän. Ootko kokeillut uintia? Se on helppoa nivelille.\nB: Joo, käyn uimassakin silloin tällöin. Mutta sali on se mun juttu.\nA: Entä ryhmäliikunta? Ootko kokeillut jotain tunteja?\nB: Olen käynyt pari kertaa spinningissä ja joogassa. Spinning oli tosi rankkaa, mutta jooga oli kivaa, se rentouttaa.\nA: Jooga on kyllä hyvää vastapainoa muulle treenille. Pitäis itsekin mennä joskus.",
+      "audio_asset_id": "5cb419aa-acb8-4761-a0e5-afd292b19f7d"
+    },
+    "questions": [
+      {
+        "id": "9a9754e8-4a8d-5d51-8809-c97c7015c712",
+        "prompt": "Missä B käy liikkumassa?",
+        "options": [
+          "juoksemassa",
+          "salilla",
+          "uimassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b3807b53-c512-5d38-ab79-a8e93b69424d",
+        "prompt": "Mitä A tekee liikunnaksi?",
+        "options": [
+          "käy salilla",
+          "juoksee ja tekee kehonhuoltoa",
+          "käy uimassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f87de981-02f5-5bb7-b774-7d03d31eec0c",
+        "prompt": "Miksi B ei juokse?",
+        "options": [
+          "ei tykkää",
+          "polvet ovat huonot",
+          "ei ehdi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f3b897a4-7ccc-5308-8630-f25e4736fd17",
+        "prompt": "Mitä ryhmäliikuntatunteja B on kokeillut?",
+        "options": [
+          "zumbaa ja pilatesta",
+          "spinningiä ja joogaa",
+          "crossfittiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1d779022-7852-5040-8ab2-e2209c2d5d4b",
+        "prompt": "Mitä mieltä B on joogasta?",
+        "options": [
+          "liian rankkaa",
+          "tylsää",
+          "rentouttavaa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

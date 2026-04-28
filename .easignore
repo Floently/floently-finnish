@@ -1,0 +1,54 @@
+# Never upload Git history to EAS
+.git
+
+# Backend and engine are not needed for mobile build
+apps/backend
+engine
+
+# Docs/reports are not needed for mobile build
+docs
+
+# Root logs and local files
+*.log
+dev.log
+dev-android-build.log
+
+# Dependencies/caches
+node_modules
+apps/client/node_modules
+.expo
+apps/client/.expo
+.expo-shared
+apps/client/.expo-shared
+
+# Build outputs
+dist
+build
+coverage
+apps/client/dist
+apps/client/build
+apps/client/coverage
+
+# Native local build outputs
+android/.gradle
+android/build
+android/app/build
+apps/client/android/.gradle
+apps/client/android/build
+apps/client/android/app/build
+ios/Pods
+ios/build
+apps/client/ios/Pods
+apps/client/ios/build
+
+# Python/backend local files
+__pycache__
+*.pyc
+venv
+.venv
+
+# Android C/C++ local build cache
+apps/client/android/app/.cxx
+apps/client/android/.cxx
+android/app/.cxx
+android/.cxx

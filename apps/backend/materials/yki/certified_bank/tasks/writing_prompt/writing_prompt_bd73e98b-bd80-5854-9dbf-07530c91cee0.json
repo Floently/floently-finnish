@@ -1,0 +1,37 @@
+{
+  "id": "bd73e98b-bd80-5854-9dbf-07530c91cee0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.347,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute työpaikan ilmoitustaulusta. Onko siellä hyödyllistä tietoa? Päivitetäänkö sitä usein?",
+    "materials": {
+      "scenario": "Palaute työpaikan ilmoitustaulusta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute työpaikan ilmoitustaulusta. Onko siellä hyödyllistä tietoa? Päivitetäänkö sitä usein?"
+      }
+    ],
+    "rubric": "Kirjoita palaute työpaikan ilmoitustaulusta. Onko siellä hyödyllistä tietoa? Päivitetäänkö sitä usein?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

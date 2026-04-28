@@ -1,0 +1,37 @@
+{
+  "id": "cf3b482c-9e45-52ed-8cd2-0425f1d51f21",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö liharuokien arvonlisäveroa nostaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Liharuokien arvonlisäveron nostaminen"
+    },
+    "items": [
+      {
+        "id": "4e7d90c5-f09d-59ac-9732-c54c256e2871",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö liharuokien arvonlisäveroa nostaa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

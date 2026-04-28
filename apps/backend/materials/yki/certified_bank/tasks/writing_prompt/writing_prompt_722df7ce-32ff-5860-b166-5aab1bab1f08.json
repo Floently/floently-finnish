@@ -1,0 +1,37 @@
+{
+  "id": "722df7ce-32ff-5860-b166-5aab1bab1f08",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kuntien panostaa enemmän katujen kunnossapitoon talvella. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Katujen kunnossapito talvella"
+    },
+    "items": [
+      {
+        "id": "29e5a4d9-9658-57e6-baf0-012d91dea45d",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kuntien panostaa enemmän katujen kunnossapitoon talvella. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

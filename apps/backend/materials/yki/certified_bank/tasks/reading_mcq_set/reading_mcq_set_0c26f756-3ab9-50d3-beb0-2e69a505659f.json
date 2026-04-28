@@ -1,0 +1,66 @@
+{
+  "id": "0c26f756-3ab9-50d3-beb0-2e69a505659f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "ILMOITUS\n\nTaloyhtiön pihalla on tiistaina 3.6. kello 8–16 kaivutyö. Silloin pihalle ei voi pysäköidä autoja. Myös leikkipiha on kiinni koko päivän. Pahoittelemme tilapäistä haittaa.\n\nTaloyhtiön hallitus  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "4669a35a-6caa-50c7-9538-a3f236c872eb",
+        "prompt": "Milloin pihalla on kaivutyö?",
+        "options": [
+          "maanantaina 2.6.",
+          "tiistaina 3.6.",
+          "keskiviikkona 4.6.",
+          "torstaina 5.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "36daa157-8a7e-59ad-be25-7313c6284955",
+        "prompt": "Mitä ei voi tehdä kaivutyön aikana?",
+        "options": [
+          "Käydä kaupassa",
+          "Mennä sisään ovesta",
+          "Pysäköidä autoa pihalle",
+          "Soittaa naapurille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7930a5ad-9492-5732-998b-331f15336240",
+        "prompt": "Onko leikkipiha auki tiistaina?",
+        "options": [
+          "Kyllä, koko päivän",
+          "Kyllä, vain aamulla",
+          "Ei, se on kiinni",
+          "Ei, se on purettu"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

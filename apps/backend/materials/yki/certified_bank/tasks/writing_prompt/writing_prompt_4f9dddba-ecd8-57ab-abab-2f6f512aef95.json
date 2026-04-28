@@ -1,0 +1,37 @@
+{
+  "id": "4f9dddba-ecd8-57ab-abab-2f6f512aef95",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työterveyshuollon palveluista. Kerro lääkärin vastaanotosta, ajanvarauksesta ja odotusajasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute työterveyshuollosta"
+    },
+    "items": [
+      {
+        "id": "a021dbe3-dd88-5854-be6b-15d6c0a7338d",
+        "prompt": "Kirjoita palauteteksti työterveyshuollon palveluista. Kerro lääkärin vastaanotosta, ajanvarauksesta ja odotusajasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Lääkärin vastaanotto\nAjanvaraus\nOdotusaika\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

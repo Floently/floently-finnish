@@ -1,0 +1,77 @@
+{
+  "id": "541fbc77-0dac-55bf-a8ec-4facaddb2ee1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Etätyö on yleistynyt Suomessa merkittävästi viime vuosina. Monet yritykset ovat siirtyneet hybridimalliin, jossa työntekijät voivat työskennellä osan viikosta kotona ja osan toimistolla. Tutkimusten mukaan etätyö lisää työtyytyväisyyttä ja tuottavuutta, mutta samalla se voi lisätä yksinäisyyden tunnetta ja hämärtää työn ja vapaa-ajan rajaa. Työterveyslaitos suosittelee, että työntekijät sopivat selkeistä pelisäännöistä työnantajan kanssa ja pitävät huolta riittävistä tauoista ja ergonomiasta. Etätyön uskotaan pysyvän yleisenä myös tulevaisuudessa, vaikka monet työnantajat toivovat työntekijöiden vierailevan toimistolla säännöllisesti.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_003",
+        "prompt": "Mikä on hybridimalli työssä?",
+        "options": [
+          "Työskentelyä vain toimistolla",
+          "Työskentelyä osan viikosta kotona ja osan toimistolla",
+          "Työskentelyä vain kotona",
+          "Työskentelyä ulkomailla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_003",
+        "prompt": "Mitä hyötyä etätyöstä on tutkimusten mukaan?",
+        "options": [
+          "Se vähentää työtyytyväisyyttä",
+          "Se lisää työtyytyväisyyttä ja tuottavuutta",
+          "Se vähentää tuottavuutta",
+          "Se lisää työmatkojen määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_003",
+        "prompt": "Mitä haittaa etätyöstä voi olla?",
+        "options": [
+          "Se lisää työmatkustusta",
+          "Se voi lisätä yksinäisyyden tunnetta ja hämärtää työn ja vapaa-ajan rajaa",
+          "Se vähentää tuottavuutta",
+          "Se lisää työtapaturmia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_003",
+        "prompt": "Mitä Työterveyslaitos suosittelee etätyöntekijöille?",
+        "options": [
+          "Työskentelyä ilman taukoja",
+          "Selkeitä pelisääntöjä, taukoja ja ergonomiasta huolehtimista",
+          "Työskentelyä aina toimistolla",
+          "Välttämään kaikkea kommunikointia työnantajan kanssa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

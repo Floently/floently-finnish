@@ -1,0 +1,37 @@
+{
+  "id": "ef2c1ad1-42fb-5c4e-a0a2-586dc16d6917",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.356,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ruokakaupan verkkotilauksen toimitusajasta. Tuliko ruoka sovittuna aikana? Oliko toimitusaika sopiva?",
+    "materials": {
+      "scenario": "Palaute verkkokaupan toimitusajasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute ruokakaupan verkkotilauksen toimitusajasta. Tuliko ruoka sovittuna aikana? Oliko toimitusaika sopiva?"
+      }
+    ],
+    "rubric": "Kirjoita palaute ruokakaupan verkkotilauksen toimitusajasta. Tuliko ruoka sovittuna aikana? Oliko toimitusaika sopiva?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

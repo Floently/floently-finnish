@@ -1,0 +1,37 @@
+{
+  "id": "f54cadda-97c6-5099-8014-d6841c2166d9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa opettaa enemmän käytännön taitoja kuten ruoanlaittoa ja siivousta?'. Pohdi arkielämän taitoja, opetussuunnitelmaa ja tasa-arvoa.",
+    "materials": {
+      "scenario": "Käytännön taidot koulussa"
+    },
+    "items": [
+      {
+        "id": "d7c75dcd-5ace-595b-a813-c90d845bc973",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa opettaa enemmän käytännön taitoja kuten ruoanlaittoa ja siivousta?'. Pohdi arkielämän taitoja, opetussuunnitelmaa ja tasa-arvoa."
+      }
+    ],
+    "rubric": "Arkielämän taidot\nOpetussuunnitelma\nTasa-arvo\nItsenäistyminen",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "6a3f611b-3928-5655-a84f-4fb2c55fd6f1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Turun kaupungissa on otettu käyttöön uusia koirapuistoja. Tavoitteena on vähentää ristiriitoja koiranomistajien ja muiden kaupunkilaisten välillä.\n\n\"Olemme saaneet paljon valituksia siitä, että koiria ulkoilutetaan lasten leikkipaikoilla. Uusilla koirapuistoilla halutaan ohjata koirat niille varatuille alueille\", kertoo kaupungin edustaja.\n\nKoiranomistajien mielipiteet jakautuvat. \"On hyvä, että on omia puistoja, mutta niitä on liian vähän\", sanoo koiraharrastaja.\n\nKaupunki lupaa seurata tilannetta ja tarvittaessa lisätä koirapuistoja.",
+      "word_count": 61
+    },
+    "questions": [
+      {
+        "id": "item_142_1",
+        "prompt": "Miksi uusia koirapuistoja on rakennettu?",
+        "options": [
+          "koirat ovat vaarallisia",
+          "vähentää ristiriitoja koiranomistajien ja muiden kaupunkilaisten välillä",
+          "koiria on liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_142_2",
+        "prompt": "Mistä on valitettu?",
+        "options": [
+          "koiria ulkoilutetaan lasten leikkipaikoilla",
+          "koiria on liian vähän",
+          "koirapuistot ovat liian kalliita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_142_3",
+        "prompt": "Mitä ongelmaa koiranomistajat näkevät?",
+        "options": [
+          "koirapuistoja on liian vähän",
+          "koirapuistot ovat huonossa kunnossa",
+          "koiria ei saa ulkoiluttaa missään"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

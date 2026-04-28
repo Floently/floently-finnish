@@ -1,0 +1,73 @@
+{
+  "id": "243b3bdc-6c08-567a-8e52-05efa829d989",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti työn tulevaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Työn tulevaisuus on yksi aikamme eniten keskustelua herättävistä aiheista. Teknologian kehitys, automaatio ja tekoäly muuttavat työmarkkinoita nopeammin kuin koskaan. Samalla pohditaan, mitä työ merkitsee ihmiselle ja yhteiskunnalle.\n\nYksi keskeinen kysymys on, mitkä työt katoavat ja mitkä uudet työt syntyvät. Rutiinitehtävät, kuten tehdastyö ja toimistotyöt, ovat uhatuimpia. Samalla syntyy uusia ammatteja, jotka vaativat luovuutta, ongelmanratkaisukykyä ja sosiaalisia taitoja. Tämä asettaa koulutusjärjestelmälle suuria haasteita.\n\nToinen tärkeä näkökulma on työn merkitys ihmisen elämässä. Työ ei ole vain toimeentulon lähde, vaan se antaa myös rakennetta, sosiaalisia suhteita ja identiteettiä. Jos työt vähenevät, miten ihmiset löytävät merkityksen elämälleen? Tarvitaan uusia ajatusmalleja ja mahdollisuuksia osallistua yhteiskuntaan muutenkin kuin palkkatyön kautta.\n\nKolmanneksi on kysymys toimeentulosta. Jos perinteiset työpaikat vähenevät, miten ihmiset elättävät itsensä? Kansalaispalkka on yksi ehdotus, mutta se herättää paljon kysymyksiä rahoituksesta ja kannustimista. Myös työajan lyhentäminen ja työn jakaminen ovat esillä.\n\nNeljänneksi on otettava huomioon eriarvoisuus. Teknologian kehitys hyödyttää usein niitä, joilla on jo valmiiksi osaamista ja varallisuutta. Jos koulutusjärjestelmä ei pysty vastaamaan muutokseen, erot kasvavat entisestään. Tarvitaan panostuksia koulutukseen ja uudelleenkoulutukseen.\n\nViidenneksi on kysymys työn ja vapaa-ajan rajasta. Etätyö ja joustavat työajat ovat lisääntyneet, mikä on monelle mahdollisuus mutta myös haaste. Työn ja vapaa-ajan raja hämärtyy, ja työuupumus on yhä yleisempää. Tarvitaan uudenlaisia sääntöjä ja rajanvetoja.\n\nKuudenneksi on otettava huomioon globaali näkökulma. Työn murros ei koske vain yhtä maata, vaan se on maailmanlaajuinen ilmiö. Kehitysmaissa teollistuminen voi vähentää köyhyyttä, mutta samalla se voi lisätä epävarmuutta ja ympäristöongelmia.\n\nLopuksi voidaan todeta, että työn tulevaisuus on monimutkainen ja monitahoinen kysymys. Se vaatii keskustelua, kokeiluja ja yhteiskunnallisia uudistuksia. Tärkeintä on, että ihminen pysyy keskiössä – ei teknologia tai talous.",
+      "word_count": 262
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Millaiset työt ovat uhatuimpia automaation myötä?",
+        "options": [
+          "luovat työt",
+          "rutiinitehtävät",
+          "johtotehtävät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä merkitystä työllä on ihmisen elämässä?",
+        "options": [
+          "vain toimeentulo",
+          "toimeentulo, rakenne, sosiaaliset suhteet ja identiteetti",
+          "vain sosiaaliset suhteet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä ehdotuksia toimeentulon turvaamiseksi on esitetty?",
+        "options": [
+          "vain kansalaispalkka",
+          "kansalaispalkka, työajan lyhentäminen ja työn jakaminen",
+          "vain työn jakaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Miten teknologian kehitys voi lisätä eriarvoisuutta?",
+        "options": [
+          "se ei vaikuta eriarvoisuuteen",
+          "se hyödyttää usein niitä, joilla on jo osaamista ja varallisuutta",
+          "se vähentää eriarvoisuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "988d9618-b4c0-5263-a743-d62b6ac36ae8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADUN PESU\n\nTiedoksi asukkaille!\n\nKeskuskatu pestään torstaina 15.6. kello 8–16. Tänä aikana kadulla ei saa pysäköidä. Autot, jotka ovat tiellä pesun aikana, siirretään toiseen paikkaan. Siirrosta tulee 50 euron maksu.\n\nPyydämme, että viette autot pois keskuskadulta keskiviikkoiltana 14.6. ennen kello 22. Voitte pysäköidä viereisille kaduille tai kaupungin pysäköintihalliin.\n\nKiitos yhteistyöstä!\n\nTekninen toimi  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin katu pestään?",
+        "options": [
+          "keskiviikkona 14.6.",
+          "torstaina 15.6.",
+          "perjantaina 16.6.",
+          "viikonloppuna"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu autoille, jotka ovat kadulla pesun aikana?",
+        "options": [
+          "ne sakotetaan",
+          "ne pestään myös",
+          "ne siirretään toiseen paikkaan",
+          "ne saa jättää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko auton siirto maksaa?",
+        "options": [
+          "20 euroa",
+          "30 euroa",
+          "40 euroa",
+          "50 euroa"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "e16dda87-25e0-5b65-8a34-f3ecbe816fb5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kodin tavaroiden korjaaminen on yleistynyt. Sen sijaan, että rikkinäinen laite heitettäisiin pois, monet yrittävät korjata sen itse tai vievät sen korjaamolle. Tämä säästää rahaa ja vähentää jätettä. Myös kirpputorit ja kierrätyskeskukset ovat suosittuja. Tavaroille etsitään uusi omistaja, jotta ne eivät päätyisi kaatopaikalle. Ilmiö on osa kiertotaloutta.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yleistynyt kotona?",
+        "options": [
+          "Uusien tavaroiden ostaminen",
+          "Tavaroiden korjaaminen",
+          "Tavaroiden pois heittäminen",
+          "Tavaroiden lainaaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä monet tekevät rikkinäiselle laitteelle?",
+        "options": [
+          "Heittävät sen pois",
+          "Yrittävät korjata sen itse tai vievät korjaamolle",
+          "Myyvät sen heti",
+          "Lainaavat sen naapurille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä korjaamisesta on?",
+        "options": [
+          "Se on nopeaa",
+          "Se säästää rahaa ja vähentää jätettä",
+          "Se lisää uusien laitteiden myyntiä",
+          "Se on hauskaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä paikat ovat suosittuja?",
+        "options": [
+          "Tavaratalot ja marketit",
+          "Kirpputorit ja kierrätyskeskukset",
+          "Verkkokaupat",
+          "Huutokaupat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tavaroille etsitään kirpputoreilla?",
+        "options": [
+          "Korjaajaa",
+          "Uusi omistaja",
+          "Alkuperäistä omistajaa",
+          "Kierrätyspistettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mihin ilmiöön tämä kaikki liittyy?",
+        "options": [
+          "Kertakäyttökulttuuriin",
+          "Kiertotalouteen",
+          "Tehokkaaseen tuotantoon",
+          "Globaaliin kauppaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "976d43cb-1822-564c-8f13-b9ce3269ea97",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kansalaisopiston kurssitarjonta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KANSALAISOPISTO – SYKSYN 2024 KURSSIT\n\nIlmoittautuminen alkaa 15.8. kello 9. Kursseille on rajoitettu määrä paikkoja.\n\nKIELIKURSSIT:\n- Espanjan jatkokurssi (maanantaisin kello 17–19, 10 kertaa, 115 €)\n- Italian alkeet (keskiviikkoisin kello 18–20, 12 kertaa, 125 €)\n- Suomen kielen keskustelukurssi (torstaisin kello 16–18, 8 kertaa, 95 €)\n\nLIIKUNTAKURSSIT:\n- Jooga (tiistaisin kello 18–19.30, 10 kertaa, 100 €)\n- Kehonhuolto (perjantaisin kello 15–16, 8 kertaa, 80 €)\n- Itsepuolustus naisille (keskiviikkoisin kello 19–20.30, 6 kertaa, 90 €)\n\nKÄSITYÖKURSSIT:\n- Villasukkakurssi (torstaisin kello 12–15, 4 kertaa, 60 €)\n- Huovutus (maanantaisin kello 10–13, 3 kertaa, 55 €, sisältää materiaalit)\n\nMUSIIKKIKURSSIT:\n- Kitaran jatkokurssi (tiistaisin kello 16–17, 10 kertaa, 120 €)\n- Kuoro (keskiviikkoisin kello 18–20, 12 kertaa, 65 €)\n\nOpistolla on myös ilmaisia tapahtumia. Tarkemmat tiedot nettisivuilla.\n\nKurssit alkavat viikolla 36. Tervetuloa!",
+      "word_count": 130
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin ilmoittautuminen kursseille alkaa?",
+        "options": [
+          "1.8.",
+          "15.8.",
+          "1.9."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko italian alkeet maksaa?",
+        "options": [
+          "115 €",
+          "125 €",
+          "135 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Minä päivänä joogakurssi kokoontuu?",
+        "options": [
+          "maanantaisin",
+          "tiistaisin",
+          "keskiviikkoisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä villasukkakurssin hintaan sisältyy?",
+        "options": [
+          "vain opetus",
+          "opetus ja materiaalit",
+          "vain materiaalit"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

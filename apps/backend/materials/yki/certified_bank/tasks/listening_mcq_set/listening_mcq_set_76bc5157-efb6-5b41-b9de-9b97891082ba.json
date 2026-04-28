@@ -1,0 +1,88 @@
+{
+  "id": "76bc5157-efb6-5b41-b9de-9b97891082ba",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan analyysi ikääntyvästä väestöstä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Väestötieteilijä: Suomen väestö ikääntyy nopeasti. Tämä johtuu sekä alhaisesta syntyvyydestä että eliniän pitenemisestä. Haastattelija: Mitä vaikutuksia tällä on yhteiskuntaan? Tutkija: Vaikutukset ovat valtavat. Ensinnäkin, työikäisen väestön määrä vähenee, mikä tarkoittaa, että työvoimapula pahenee monilla aloilla. Toiseksi, eläkemenot kasvavat, mikä painaa julkista taloutta. Terveydenhuolto- ja hoivapalveluiden tarve lisääntyy. Haastattelija: Miten tähän pitäisi varautua? Tutkija: Tarvitaan monia toimia. Työuria pitää pidentää ja maahanmuuttoa lisätä. Myös teknologiaa pitää hyödyntää enemmän hoivatyössä. Terveyden edistäminen ja ennaltaehkäisevä työ ovat avainasemassa, jotta ihmiset pysyvät toimintakykyisinä pidempään. Lisäksi tarvitaan uudenlaisia asumisratkaisuja, jotka mahdollistavat kotona asumisen mahdollisimman pitkään.",
+      "audio_asset_id": "be66e7c3-5554-496f-af86-d23517853315"
+    },
+    "questions": [
+      {
+        "id": "05ef01ea-214e-573d-bd5a-819d42d04007",
+        "prompt": "Mistä väestön ikääntyminen tutkijan mukaan johtuu?",
+        "options": [
+          "Korkeasta syntyvyydestä ja alhaisesta eliniästä.",
+          "Maahanmuutosta ja korkeasta syntyvyydestä.",
+          "Sairauksien vähenemisestä.",
+          "Alhaisesta syntyvyydestä ja eliniän pitenemisestä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "668e46d2-3071-5194-bd4d-ca1ba90609e9",
+        "prompt": "Mikä on yksi ikääntymisen vaikutus työmarkkinoihin?",
+        "options": [
+          "Työikäisten määrä kasvaa.",
+          "Työvoimapula vähenee.",
+          "Työikäisten määrä vähenee ja työvoimapula pahenee.",
+          "Palkat nousevat automaattisesti."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "407295d1-a23a-52a2-ba79-aa692a8ee526",
+        "prompt": "Mitä julkiselle taloudelle tapahtuu?",
+        "options": [
+          "Verotulot kasvavat.",
+          "Menot pienenevät.",
+          "Valtionvelka vähenee.",
+          "Eläkemenot kasvavat ja painavat julkista taloutta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "f88a9946-6cd7-595d-ba1c-3b68e46ea052",
+        "prompt": "Mitä tutkija ehdottaa yhdeksi ratkaisuksi työvoimapulaan?",
+        "options": [
+          "Maahanmuuton lisäämistä.",
+          "Työurien lyhentämistä.",
+          "Eläkeiän laskemista.",
+          "Ulkomaalaisten työntekijöiden karkottamista."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "c556298b-0df3-5a93-8a10-f0561c02887d",
+        "prompt": "Mitä uudenlaisia ratkaisuja tutkija mainitsee asumiseen?",
+        "options": [
+          "Palvelutaloja lisää.",
+          "Hoivakoteja kaikille.",
+          "Ratkaisuja, jotka mahdollistavat kotona asumisen mahdollisimman pitkään.",
+          "Asumisoikeusasuntoja."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

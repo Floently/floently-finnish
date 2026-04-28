@@ -1,0 +1,37 @@
+{
+  "id": "36acfc45-e805-580c-930f-71b4fb351977",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa siirtyä malliin, jossa kansalaisilla on oikeus viiteen viikkoon palkallista vuosilomaa?'. Analysoi työhyvinvointia, tuottavuutta ja kansainvälistä kilpailukykyä.",
+    "materials": {
+      "scenario": "Palkallisen vuosiloman pidentäminen"
+    },
+    "items": [
+      {
+        "id": "ed464194-ad46-52ff-8965-87fe953adb75",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa siirtyä malliin, jossa kansalaisilla on oikeus viiteen viikkoon palkallista vuosilomaa?'. Analysoi työhyvinvointia, tuottavuutta ja kansainvälistä kilpailukykyä."
+      }
+    ],
+    "rubric": "Työhyvinvointi\nTuottavuus\nKansainvälinen kilpailukyky\nTyönantajien näkökulma",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

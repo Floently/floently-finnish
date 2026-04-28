@@ -1,0 +1,66 @@
+{
+  "id": "f24e0581-cf01-55e7-9735-1f2975dd4c38",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "BUSSILINJAN 68 REITTIMUUTOS\n\nLinja 68 ei kulje 15.4.–30.4. välisenä aikana normaalireittiä. Katusulun takia bussi ajaa kiertoreittiä.\n\nVäliaikaiset pysäkit:\n- Kauppakeskus (väliaikainen pysäkki)\n- Rautatieasema (normaali pysäkki)\n- Sairaala (normaali pysäkki)\n\nKaksi pysäkkiä jää pois reitiltä: Puistokatu ja Kirkko. Lähimmät pysäkit ovat 300 metrin päässä.\n\nLisätietoa: www.hsl.fi  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 62
+    },
+    "questions": [
+      {
+        "id": "80760e48-e81e-5cff-8144-5eebc97bfef4",
+        "prompt": "Miksi bussireitti muuttuu?",
+        "options": [
+          "remontin takia",
+          "katusulun takia",
+          "bussien vähyyden takia",
+          "talven takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8c16783-50fe-5721-9c7a-459519c4b099",
+        "prompt": "Kuinka kauan muutos kestää?",
+        "options": [
+          "viikon",
+          "kaksi viikkoa",
+          "kolme viikkoa",
+          "kuukauden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "eb399b0e-595f-5b7a-ba83-605e4963e105",
+        "prompt": "Mitkä pysäkit jäävät pois reitiltä?",
+        "options": [
+          "Kauppakeskus ja Rautatieasema",
+          "Sairaala ja Kirkko",
+          "Puistokatu ja Kirkko",
+          "Rautatieasema ja Sairaala"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

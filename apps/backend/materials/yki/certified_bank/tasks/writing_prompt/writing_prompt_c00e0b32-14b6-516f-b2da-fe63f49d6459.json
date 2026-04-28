@@ -1,0 +1,37 @@
+{
+  "id": "c00e0b32-14b6-516f-b2da-fe63f49d6459",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin terveyskeskuksesta. Kerro lääkäriaikojen saatavuudesta, hoitajien ammattitaidosta ja jatkohoidon järjestämisestä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin terveyskeskuksesta"
+    },
+    "items": [
+      {
+        "id": "b4ad5b7c-a112-5268-8bac-d450fc0aca56",
+        "prompt": "Kirjoita palauteteksti kaupungin terveyskeskuksesta. Kerro lääkäriaikojen saatavuudesta, hoitajien ammattitaidosta ja jatkohoidon järjestämisestä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Lääkäriaikojen saatavuus\nHoitajien ammattitaito\nJatkohoidon järjestäminen\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

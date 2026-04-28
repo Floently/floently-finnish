@@ -1,0 +1,37 @@
+{
+  "id": "d4fecb0b-5189-5fb1-bbf6-44db2178e1ad",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin ilmastotyöstä. Arvioi tavoitteiden selkeyttä, toimenpiteiden vaikuttavuutta ja asukkaiden osallistamista. Ehdota yhtä uutta ilmastotekoa.",
+    "materials": {
+      "scenario": "Palaute kaupungin ilmastotyöstä"
+    },
+    "items": [
+      {
+        "id": "500d6d0e-0c98-50fe-b7a1-24963c99d6ea",
+        "prompt": "Kirjoita palauteteksti kaupungin ilmastotyöstä. Arvioi tavoitteiden selkeyttä, toimenpiteiden vaikuttavuutta ja asukkaiden osallistamista. Ehdota yhtä uutta ilmastotekoa."
+      }
+    ],
+    "rubric": "Tavoitteiden selkeys\nToimenpiteiden vaikuttavuus\nAsukkaiden osallistaminen\nUusi ilmastoteko",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

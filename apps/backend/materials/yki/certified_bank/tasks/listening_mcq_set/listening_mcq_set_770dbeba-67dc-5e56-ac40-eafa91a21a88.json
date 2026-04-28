@@ -1,0 +1,99 @@
+{
+  "id": "770dbeba-67dc-5e56-ac40-eafa91a21a88",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinviesti ja valitse oikea vastaus.",
+    "materials": {
+      "transcript": "Tämä on automaattinen viesti Oulun kaupungin hammashoidosta. Teille on varattu aika hammashoitajan tarkastukseen torstaina 15. päivä kello 13.30. Ajanvaraus on tehty Oulunsuun hammashoitolaan, osoite on Kaarlekatu 5. Jos et pääse tähän aikaan, peruuta aika viimeistään kahta päivää ennen, eli viimeistään tiistaina 13. päivä. Peruuttamatta jätetystä ajasta perimme 50 euron sakkomaksun. Muistathan täyttää etukäteen netissä oirekyselyn, joka lähetettiin teille tekstiviestillä. Kyselyn linkki löytyy myös meidän verkkosivuilta. Tervetuloa käynnille!",
+      "audio_asset_id": "c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Miksi aika on varattu?",
+        "options": [
+          "Hampaan paikkausta varten.",
+          "Hammashoitajan tarkastukseen.",
+          "Hampaiden valkaisuun.",
+          "Suun terveyden neuvontaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minne aika on varattu?",
+        "options": [
+          "Oulun keskustan hammashoitolaan.",
+          "Oulunsuun hammashoitolaan.",
+          "Yksityiselle hammaslääkäriasemalle.",
+          "Oulun yliopistolliseen sairaalaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on peruuttamisen viimeinen päivä ilman sakkoa?",
+        "options": [
+          "Torstai 15. päivä.",
+          "Tiistai 13. päivä.",
+          "Keskiviikko 14. päivä.",
+          "Maanantai 12. päivä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Kuinka suuri sakkomaksu peritään peruuttamatta jätetystä ajasta?",
+        "options": [
+          "25 euroa.",
+          "30 euroa.",
+          "50 euroa.",
+          "80 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä pitää tehdä ennen käyntiä?",
+        "options": [
+          "Täyttää oirekysely netissä.",
+          "Maksaa käynti etukäteen.",
+          "Toimittaa aiemmat hammasröntgenkuvat.",
+          "Ilmoittautua puhelimitse."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mistä oirekyselyn linkin voi saada?",
+        "options": [
+          "Vain postitse.",
+          "Tekstiviestillä tai verkkosivuilta.",
+          "Sähköpostilla tai faksilla.",
+          "Vastaamalla tähän puheluun."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

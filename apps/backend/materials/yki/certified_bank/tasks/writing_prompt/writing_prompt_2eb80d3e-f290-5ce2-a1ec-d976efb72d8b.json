@@ -1,0 +1,37 @@
+{
+  "id": "2eb80d3e-f290-5ce2-a1ec-d976efb72d8b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a director general position at the Finnish Meteorological Institute. Tell about your experience in leading a scientific institute, international cooperation, and climate research. Also describe how you have developed weather services and warning systems. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus Ilmatieteen laitoksen pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "a525e343-600c-5374-b9b2-7bc03abf0eee",
+        "prompt": "Write a job application. You are applying for a director general position at the Finnish Meteorological Institute. Tell about your experience in leading a scientific institute, international cooperation, and climate research. Also describe how you have developed weather services and warning systems. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a director general position at the Finnish Meteorological Institute. Tell about your experience in leading a scientific institute, international cooperation, and climate research. Also describe how you have developed weather services and warning systems. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

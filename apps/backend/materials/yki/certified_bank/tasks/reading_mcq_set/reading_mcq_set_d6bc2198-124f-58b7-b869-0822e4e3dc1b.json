@@ -1,0 +1,66 @@
+{
+  "id": "d6bc2198-124f-58b7-b869-0822e4e3dc1b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Haemme osa-aikaista myyjää keskustan vaatekauppa MuotiX:ään. Työsuhde on toistaiseksi voimassa oleva, ja työaika on noin 25 tuntia viikossa. Työvuorot ovat pääasiassa iltapäivisin ja lauantaisin. Tehtäviin kuuluu asiakaspalvelua, kassatyöskentelyä ja tuotteiden esillepanoa. Odotamme hyviä vuorovaikutustaitoja, oma-aloitteisuutta ja intohimoa muotiin. Kokemus alalta on eduksi, mutta ei välttämätön. Tarjoamme nuorekkaan työympäristön ja kattavan perehdytyksen. Lähetä hakemuksesi 15.5. mennessä osoitteeseen rekry@muotix.fi.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 85
+    },
+    "questions": [
+      {
+        "id": "386ad366-2263-503b-ad5a-4e17d9d390f2",
+        "prompt": "Millainen työsuhde on kyseessä?",
+        "options": [
+          "Määräaikainen kesätyö",
+          "Osa-aikainen vakituinen työ",
+          "Kokopäiväinen määräaikainen työ",
+          "Keikkatyö"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ae272088-22f3-5a82-9221-bf18677620e6",
+        "prompt": "Mitä työnantaja pitää tärkeänä?",
+        "options": [
+          "Aikaisempi työkokemus",
+          "Muotialan koulutus",
+          "Hyvät vuorovaikutustaidot",
+          "Auto ja ajokortti"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "16f7e8a9-05f2-5643-928f-848ccbebf2e6",
+        "prompt": "Mihin mennessä hakemus pitää lähettää?",
+        "options": [
+          "1.5.",
+          "15.5.",
+          "30.5.",
+          "15.6."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

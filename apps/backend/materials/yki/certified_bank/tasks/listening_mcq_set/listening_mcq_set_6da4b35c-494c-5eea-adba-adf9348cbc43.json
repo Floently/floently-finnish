@@ -1,0 +1,66 @@
+{
+  "id": "6da4b35c-494c-5eea-adba-adf9348cbc43",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuntoneuvojan ohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tässä muutama tärkeä vinkki aloittelevalle kuntoilijalle. Ensinnäkin, muista aloittaa rauhallisesti. Moni innostuu liikaa ja tekee liian kovia treenejä heti alussa, mikä johtaa helposti loukkaantumisiin tai motivaation laskuun. Lihasten tarvitsee aikaa tottua rasitukseen. Toiseksi, lämmittele aina ennen treeniä. Kevyt kävely tai pyöräily 5–10 minuuttia riittää. Kolmanneksi, venyttele treenin jälkeen. Se auttaa palautumisessa ja vähentää lihasjumeja. Neljänneksi, juo vettä ennen treeniä, sen aikana ja jälkeen. Viidenneksi, pidä lepopäiviä. Lihakset kasvavat levossa, ei treenatessa. Kaksi tai kolme kertaa viikossa on hyvä aloitus. Ja tärkein asia: kuuntele omaa kehoasi. Jos jokin tuntuu väärältä, lopeta tai vähennä tehoa.",
+      "audio_asset_id": "1151a164-e5f3-4206-9663-12e4985260b6"
+    },
+    "questions": [
+      {
+        "id": "8e29fe48-71a4-5c8b-92c9-23d882957dcf",
+        "prompt": "Mitä moni aloittelija tekee väärin?",
+        "options": [
+          "Liian kevyitä treenejä",
+          "Liian kovia treenejä heti alussa",
+          "Eivät syö tarpeeksi",
+          "Nukkuvat liian vähän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "49ac8541-5368-5979-9f44-ac72a9eebd84",
+        "prompt": "Miksi lepopäivät ovat tärkeitä?",
+        "options": [
+          "Koska lihakset kasvavat levossa",
+          "Koska treenaaminen on kallista",
+          "Koska on kiva olla tekemättä mitään",
+          "Koska sää voi olla huono"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "7c5ea612-ecde-5ebc-b633-1b2d22f71e4e",
+        "prompt": "Kuinka usein kannattaa aloittelijan treenata?",
+        "options": [
+          "Joka päivä",
+          "2–3 kertaa viikossa",
+          "Kerran viikossa",
+          "Vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

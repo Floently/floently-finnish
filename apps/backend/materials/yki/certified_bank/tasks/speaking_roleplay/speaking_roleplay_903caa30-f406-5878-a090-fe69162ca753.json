@@ -1,0 +1,40 @@
+{
+  "id": "903caa30-f406-5878-a090-fe69162ca753",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.291,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you go to the local library and what you can get there. Are there other services besides books?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "a50d4c46-8906-544c-94ae-6af4414f80af",
+        "ai_first_turn_fi": "Missä täällä on lähikirjasto? Kannattaako sinne mennä?"
+      }
+    ],
+    "rubric": "Tell if you go to the local library and what you can get there. Are there other services besides books?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

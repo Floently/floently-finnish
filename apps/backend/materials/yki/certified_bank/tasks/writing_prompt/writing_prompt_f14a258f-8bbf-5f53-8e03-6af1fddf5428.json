@@ -1,0 +1,37 @@
+{
+  "id": "f14a258f-8bbf-5f53-8e03-6af1fddf5428",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.685,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a web developer position in a digital agency. Tell about your education in information technology, the programming languages you master, and previous projects you have been involved in. Also describe your passion for the field. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus web-kehittäjän tehtävään"
+    },
+    "items": [
+      {
+        "id": "ae35223f-4908-5ee3-b157-bc0fe6e46b08",
+        "prompt": "Write a job application. You are applying for a web developer position in a digital agency. Tell about your education in information technology, the programming languages you master, and previous projects you have been involved in. Also describe your passion for the field. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a web developer position in a digital agency. Tell about your education in information technology, the programming languages you master, and previous projects you have been involved in. Also describe your passion for the field. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

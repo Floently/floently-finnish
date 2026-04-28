@@ -1,0 +1,66 @@
+{
+  "id": "aedbb12a-5a8d-54fd-b637-a2444b636dd9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti veroilmoituksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "VEROILMOITUKSEN TARKISTAMINEN\n\nVerohallinto muistuttaa, että esitäytetty veroilmoitus kannattaa tarkistaa huolellisesti. Tänä vuonna ilmoitukset lähetetään sähköisesti huhtikuun alussa, ja paperiversion saavat ne, jotka eivät ole ottaneet käyttöön sähköistä asiointia. Erityistä huomiota kannattaa kiinnittää tulotietoihin, vähennyksiin ja velkoihin. Jos huomaat virheitä, oikaisu on tehtävä toukokuun loppuun mennessä. Muista myös merkitä verotukseen vaikuttavat vähennykset, kuten kotitalousvähennys, työmatkakulut ja ammattiliiton jäsenmaksut. Vähennyksiä ei tehdä automaattisesti, vaan ne pitää itse ilmoittaa. Sähköisessä asioinnissa vähennysten tekeminen on helppoa ja nopeaa. Verohallinto neuvoo, että kannattaa hyödyntää valmiita laskureita ja ohjeita verkkosivuilla.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "1a15f683-6973-5ec1-85f6-316a9bb0f7bf",
+        "prompt": "Kuka saa veroilmoituksen paperiversiona?",
+        "options": [
+          "Kaikki veronmaksajat",
+          "Ne, jotka eivät käytä sähköistä asiointia",
+          "Vain eläkeläiset",
+          "Vain yrittäjät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c4d6c287-3a19-5e72-b0b8-3c0f7688365b",
+        "prompt": "Mihin mennessä virheet pitää oikaista?",
+        "options": [
+          "Huhtikuun loppuun",
+          "Toukokuun loppuun",
+          "Kesäkuun puoliväliin",
+          "Elokuun alkuun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e06ce2e5-dddc-5715-802e-071dd82bf814",
+        "prompt": "Mitä vähennyksiä pitää itse ilmoittaa?",
+        "options": [
+          "Kaikki vähennykset tehdään automaattisesti",
+          "Vain asuntolainan korot",
+          "Kotitalousvähennys, työmatkakulut ja ammattiliiton jäsenmaksut",
+          "Vain lapsivähennykset"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

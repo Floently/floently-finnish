@@ -1,0 +1,37 @@
+{
+  "id": "e1deaf88-2d42-5a66-a252-2221debbbd26",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kansalaisopistoon. Haluat ehdottaa uutta kurssia: digitaidot ikääntyville. Kerro, miksi tällainen kurssi olisi tarpeen ja millaisia aiheita siellä voisi käsitellä.",
+    "materials": {
+      "scenario": "Ehdotus digitaidot-ikääntyville-kurssista"
+    },
+    "items": [
+      {
+        "id": "bff12e6b-1b5b-5033-a567-7c706c5c0292",
+        "prompt": "Kirjoita sähköposti kansalaisopistoon. Haluat ehdottaa uutta kurssia: digitaidot ikääntyville. Kerro, miksi tällainen kurssi olisi tarpeen ja millaisia aiheita siellä voisi käsitellä."
+      }
+    ],
+    "rubric": "Kurssin kuvaus\nPerustelut\nSisältöehdotukset",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

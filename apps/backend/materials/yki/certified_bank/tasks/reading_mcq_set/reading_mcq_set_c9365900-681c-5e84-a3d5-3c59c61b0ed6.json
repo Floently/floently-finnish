@@ -1,0 +1,66 @@
+{
+  "id": "c9365900-681c-5e84-a3d5-3c59c61b0ed6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Digitaaliset palvelut ovat yleistyneet Suomessa nopeasti. Nykyään monet asiat hoituvat verkossa, kuten pankkiasiat, lääkäriaikojen varaus ja kirjastolainojen uusiminen. Tämä säästää aikaa ja on usein helpompaa. Kuitenkaan kaikilla ei ole tasavertaisia mahdollisuuksia käyttää digitaalisia palveluita. Ikääntyneet ja digitaidottomat saattavat jäädä jälkeen. Tämän vuoksi on tärkeää, että perinteisiä palveluita säilytetään. Myös digiopastusta tarvitaan, jotta kaikki oppivat käyttämään verkkopalveluita.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä etuja digitaalisilla palveluilla on?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne säästävät aikaa ja ovat helpompia",
+          "Ne ovat turvallisempia",
+          "Ne korvaavat kaikki muut palvelut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kenelle digitaalisten palveluiden käyttö voi olla vaikeaa?",
+        "options": [
+          "Lapsille",
+          "Nuorille aikuisille",
+          "Ikääntyneille ja digitaidottomille",
+          "Kaikille suomalaisille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tekstin mukaan tarvitaan?",
+        "options": [
+          "Vain digitaalisia palveluita",
+          "Perinteisten palveluiden lakkauttamista",
+          "Digiopastusta ja perinteisten palveluiden säilyttämistä",
+          "Uusia maksullisia palveluita"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

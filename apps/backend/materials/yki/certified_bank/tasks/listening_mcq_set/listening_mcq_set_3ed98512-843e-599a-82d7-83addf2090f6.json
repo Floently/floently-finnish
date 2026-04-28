@@ -1,0 +1,66 @@
+{
+  "id": "3ed98512-843e-599a-82d7-83addf2090f6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme työhyvinvoinnista. Vieraana on työterveyspsykologi Laura Nieminen. Laura, mikä on tärkeintä työhyvinvoinnissa?\nNieminen: Tärkeintä on työn ja vapaa-ajan tasapaino. Liian pitkät työpäivät ja jatkuva tavoitettavissa oleminen kuluttavat. Työn pitäisi olla mielekästä ja sopivan haastavaa. Myös hyvät välit työkavereihin ja esimieheen ovat tärkeitä.\nToimittaja: Miten työntekijä voi itse vaikuttaa hyvinvointiinsa?\nNieminen: Omista rajoista kiinni pitäminen on tärkeää. Ei kannata vastata työpuheluihin vapaa-ajalla. Myös palautuminen on tärkeää – liikunta, uni ja harrastukset auttavat jaksamaan. Työpaikalla kannattaa pitää taukoja ja syödä kunnolla.\nToimittaja: Entä mitä työnantajan pitäisi tehdä?\nNieminen: Työnantajan pitää huolehtia siitä, että työkuorma on kohtuullinen. Esimiesten pitää osata kuunnella ja antaa palautetta. Myös työympäristön ergonomiaan kannattaa panostaa.",
+      "audio_asset_id": "1ea9378e-6473-5320-8354-331e7bfeac3a"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on työterveyspsykologin mukaan tärkeintä työhyvinvoinnissa?",
+        "options": [
+          "Korkea palkka",
+          "Työn ja vapaa-ajan tasapaino",
+          "Nopea urakehitys",
+          "Ulkomaiset työmatkat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten työntekijä voi itse vaikuttaa työhyvinvointiinsa?",
+        "options": [
+          "Tekemällä enemmän töitä",
+          "Pitämällä kiinni omista rajoista ja huolehtimalla palautumisesta",
+          "Vaihtamalla työpaikkaa",
+          "Valittamalla kaikesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työnantajan pitäisi tehdä?",
+        "options": [
+          "Vaatia enemmän",
+          "Huolehtia kohtuullisesta työkuormasta ja kuunnella työntekijöitä",
+          "Lisätä työpaineita",
+          "Antaa bonuksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

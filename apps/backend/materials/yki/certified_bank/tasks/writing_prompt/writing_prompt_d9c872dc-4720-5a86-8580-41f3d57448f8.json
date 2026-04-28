@@ -1,0 +1,37 @@
+{
+  "id": "d9c872dc-4720-5a86-8580-41f3d57448f8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a deputy director-general position at UNESCO. Tell about your experience in international cooperation in education, science and culture, world heritage protection, and intercultural dialogue. Also describe how you have promoted sustainable development and cultural diversity. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus Unescon apulaispääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "78cd60d9-8540-5253-9f06-c2987cca2d20",
+        "prompt": "Write a job application. You are applying for a deputy director-general position at UNESCO. Tell about your experience in international cooperation in education, science and culture, world heritage protection, and intercultural dialogue. Also describe how you have promoted sustainable development and cultural diversity. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a deputy director-general position at UNESCO. Tell about your experience in international cooperation in education, science and culture, world heritage protection, and intercultural dialogue. Also describe how you have promoted sustainable development and cultural diversity. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

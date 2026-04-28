@@ -1,0 +1,64 @@
+{
+  "id": "56464d38-f54a-5b1f-be9c-4d701febf2fc",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä palautuksen verkkokauppaan. Keskustele asiakaspalvelijan kanssa chatissa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Verkkokaupan asiakaspalvelija (chat)"
+      }
+    },
+    "items": [
+      {
+        "id": "srp28_1",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp28_2",
+        "ai_first_turn_fi": "Ikävä kuulla. Mikä on tilausnumerosi?"
+      },
+      {
+        "id": "srp28_3",
+        "ai_first_turn_fi": "Kiitos. Mitä tuotetta tilasit ja mitä sait?"
+      },
+      {
+        "id": "srp28_4",
+        "ai_first_turn_fi": "Ymmärrän. Haluatko palauttaa tuotteen ja saada rahat takaisin vai vaihtaa sen oikeaan?"
+      },
+      {
+        "id": "srp28_5",
+        "ai_first_turn_fi": "Selvä. Lähetämme sinulle palautustarrat sähköpostitse. Saat uuden tuotteen heti, kun olemme saaneet väärän takaisin."
+      },
+      {
+        "id": "srp28_6",
+        "ai_first_turn_fi": "Pahoittelut vielä virheestä. Tarvitsetko muuta apua?"
+      },
+      {
+        "id": "srp28_7",
+        "ai_first_turn_fi": "Hyvä. Mukavaa päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä palautuksen verkkokauppaan. Keskustele asiakaspalvelijan kanssa chatissa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

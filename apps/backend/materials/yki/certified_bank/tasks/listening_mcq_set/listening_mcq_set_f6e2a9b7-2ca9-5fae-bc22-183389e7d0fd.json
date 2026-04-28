@@ -1,0 +1,88 @@
+{
+  "id": "f6e2a9b7-2ca9-5fae-bc22-183389e7d0fd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.699,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kirjaston tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tämä on tiedote pääkirjaston asiakkaille. Kirjasto on suljettu ensi maanantaina 15. tammikuuta henkilökunnan koulutuspäivän vuoksi. Maanantaina erääntyvät lainat siirtyvät automaattisesti tiistaille. Palautusluukku on käytössä normaalisti. Verkkokirjasto ja e-aineistot ovat käytettävissä normaalisti myös sulkupäivänä. Varauksia voi tehdä ja lainoja uusia verkon kautta. Omatoimikirjasto on avoinna normaalisti kirjastokortilla ja tunnusluvulla. Pahoittelemme tilapäisestä sulusta aiheutuvaa haittaa. Tervetuloa taas tiistaista alkaen!",
+      "audio_asset_id": "a5b6c7d8-e9f0-1a2b-3c4d-5e6f7a8b9c0d"
+    },
+    "questions": [
+      {
+        "id": "l180q1",
+        "prompt": "Miksi kirjasto on suljettu ensi maanantaina?",
+        "options": [
+          "Remontin vuoksi.",
+          "Henkilökunnan koulutuspäivän vuoksi.",
+          "Juhlapyhän vuoksi.",
+          "Sähkökatkon vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l180q2",
+        "prompt": "Mitä maanantaina erääntyville lainoille tapahtuu?",
+        "options": [
+          "Ne pitää palauttaa jo sunnuntaina.",
+          "Ne siirtyvät automaattisesti tiistaille.",
+          "Niistä tulee sakkomaksu.",
+          "Ne pitää uusia verkossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l180q3",
+        "prompt": "Mikä palvelu on käytössä normaalisti sulkupäivänä?",
+        "options": [
+          "Lastenosasto.",
+          "Palautusluukku.",
+          "Lukusali.",
+          "Kahvio."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l180q4",
+        "prompt": "Onko omatoimikirjasto auki sulkupäivänä?",
+        "options": [
+          "Kyllä, normaalisti.",
+          "Ei, se on myös kiinni.",
+          "Vain rajoitetusti.",
+          "Vain illalla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l180q5",
+        "prompt": "Minä päivänä kirjasto on taas auki?",
+        "options": [
+          "Tiistaina.",
+          "Keskiviikkona.",
+          "Torstaina.",
+          "Perjantaina."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

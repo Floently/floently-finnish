@@ -1,0 +1,40 @@
+{
+  "id": "d43f4bc4-5215-5160-8481-06ef9cfe81e8",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.297,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you know about Finnish school food. Is it good and what is usually eaten there?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "437cdaa3-2cda-574a-acaf-ee13515581f1",
+        "ai_first_turn_fi": "Ootko maistanut kouluruokaa Suomessa? Minkälaista se on?"
+      }
+    ],
+    "rubric": "Tell what you know about Finnish school food. Is it good and what is usually eaten there?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

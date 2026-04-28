@@ -1,0 +1,27 @@
+[
+  {
+    "symbol_or_path": "createVoiceTtsRequest",
+    "file": "packages/core/api/voiceTts.ts",
+    "type": "duplicate_wrapper_surface",
+    "live_for_roleplay_stt": false,
+    "risk": "low",
+    "why": "Wrapper over canonical requestVoiceTts can drift from core contract over time."
+  },
+  {
+    "symbol_or_path": "_classify_stt_failures",
+    "file": "apps/backend/app/services/voice_service.py",
+    "type": "coarse_failure_classification",
+    "live_for_roleplay_stt": true,
+    "risk": "high",
+    "why": "Unmatched provider failures become generic STT_PROVIDER_ERROR temporary-unavailable message."
+  },
+  {
+    "symbol_or_path": "dev.log filtering",
+    "file": "dev.log",
+    "type": "observability_gap",
+    "live_for_roleplay_stt": true,
+    "risk": "medium",
+    "why": "Actionable STT provider stack traces were not visible in default dev log output."
+  }
+]
+

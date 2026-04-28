@@ -1,0 +1,88 @@
+{
+  "id": "7cfdf985-92c9-5301-9c20-328c3b5f39e6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.293,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Mä olen nyt täällä stadionilla. Peli alkaa ihan just. Täällä on ihan hulluna porukkaa! Mä istun katsomossa, rivillä 5, paikalla 12. Nähdään pelin jälkeen!",
+      "audio_asset_id": "0ae9978f-bf7a-5e77-a126-8dd6ea480b39"
+    },
+    "questions": [
+      {
+        "id": "ad6726a2-cb5d-5491-979f-b0dc9b676ddc",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Stadionilla.",
+          "Elokuvissa.",
+          "Kirjastossa.",
+          "Ravintolassa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "60165daf-053a-549f-91ba-e09155b2919e",
+        "prompt": "Mitä on juuri alkamassa?",
+        "options": [
+          "Peli.",
+          "Konsertti.",
+          "Näyttely.",
+          "Kokous."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b7559cfb-bf63-516a-b60d-a5771c47eafd",
+        "prompt": "Millä rivillä puhuja istuu?",
+        "options": [
+          "Rivillä 3.",
+          "Rivillä 5.",
+          "Rivillä 4.",
+          "Rivillä 6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2e960310-dcff-5084-896c-83ee031a52d6",
+        "prompt": "Mikä on puhujan paikan numero?",
+        "options": [
+          "10.",
+          "12.",
+          "11.",
+          "13."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8dc76b64-5c8a-57fd-894f-41d1dedc8ae7",
+        "prompt": "Milloin puhuja ehdottaa tapaamista?",
+        "options": [
+          "Pelin jälkeen.",
+          "Ennen peliä.",
+          "Pelin aikana.",
+          "Huomenna."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

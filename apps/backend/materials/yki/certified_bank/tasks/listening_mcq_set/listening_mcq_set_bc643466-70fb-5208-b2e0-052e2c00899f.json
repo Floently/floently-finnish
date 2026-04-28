@@ -1,0 +1,88 @@
+{
+  "id": "bc643466-70fb-5208-b2e0-052e2c00899f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.644,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele juna-aseman kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat. IC 58 Tampereelle lähtee raiteelta 3 kello 12.10. Junassa on ravintolavaunu. Seuraava juna Tampereelle lähtee kello 13.40. Matkustajia pyydetään siirtymään junaan. Hyvää matkaa!",
+      "audio_asset_id": "7203ccf6-3f0d-422e-ad42-95e785548a14"
+    },
+    "questions": [
+      {
+        "id": "c9fa864a-3917-540f-8d5d-1b7d0dd579c8",
+        "prompt": "Mille raiteelle juna Tampereelle lähtee?",
+        "options": [
+          "Raide 1.",
+          "Raide 3.",
+          "Raide 2.",
+          "Raide 4."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "28a56b4a-2f23-5017-8e7c-973ec2c6e8bd",
+        "prompt": "Mihin aikaan juna lähtee?",
+        "options": [
+          "Kello 11.50.",
+          "Kello 12.00.",
+          "Kello 12.10.",
+          "Kello 12.20."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d826a165-0efc-541c-a98f-a2c06c6696bd",
+        "prompt": "Mikä on junan numero?",
+        "options": [
+          "IC 58.",
+          "IC 56.",
+          "IC 57.",
+          "IC 59."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "222bb9d5-e661-5f92-ba1e-6af97681fc2f",
+        "prompt": "Mitä erityistä junassa on?",
+        "options": [
+          "Elokuvavaunu.",
+          "Ravintolavaunu.",
+          "Leikkivaunu.",
+          "Hiljainen vaunu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a7e2242a-7341-5bd0-a88c-a36aaa1a1886",
+        "prompt": "Milloin seuraava juna Tampereelle lähtee?",
+        "options": [
+          "Kello 13.00.",
+          "Kello 13.40.",
+          "Kello 13.20.",
+          "Kello 14.00."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

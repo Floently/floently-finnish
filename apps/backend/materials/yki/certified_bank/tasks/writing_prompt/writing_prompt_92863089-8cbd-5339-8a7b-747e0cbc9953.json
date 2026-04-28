@@ -1,0 +1,37 @@
+{
+  "id": "92863089-8cbd-5339-8a7b-747e0cbc9953",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kustantajalle.",
+    "materials": {
+      "scenario": "Kysy mahdollisuudesta julkaista teksti"
+    },
+    "items": [
+      {
+        "id": "acde54cc-f4db-54b1-9e38-43f58d1121b2",
+        "prompt": "Olet kirjoittanut novellin, jonka haluaisit julkaista. Kirjoita sähköposti kustantajalle ja kysy, ovatko he kiinnostuneita lukemaan tekstisi. Kerro lyhyesti, mistä novelli kertoo ja miksi se sopisi heille."
+      }
+    ],
+    "rubric": "Olet kirjoittanut novellin, jonka haluaisit julkaista. Kirjoita sähköposti kustantajalle ja kysy, ovatko he kiinnostuneita lukemaan tekstisi. Kerro lyhyesti, mistä novelli kertoo ja miksi se sopisi heille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

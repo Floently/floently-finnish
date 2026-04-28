@@ -1,0 +1,40 @@
+{
+  "id": "7be2122c-2708-57cd-bb52-16a959a55847",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.284,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell where you have visited in Finland and which place was the best. What can you do there?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "ba51297b-b3b3-52c6-bf5a-802ca9a33eb8",
+        "ai_first_turn_fi": "Mikä on sun mielestä paras paikka lomailla Suomessa? Miksi?"
+      }
+    ],
+    "rubric": "Tell where you have visited in Finland and which place was the best. What can you do there?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

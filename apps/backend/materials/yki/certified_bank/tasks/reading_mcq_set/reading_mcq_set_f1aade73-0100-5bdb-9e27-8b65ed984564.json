@@ -1,0 +1,77 @@
+{
+  "id": "f1aade73-0100-5bdb-9e27-8b65ed984564",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalaiset juhlivat monia perinteisiä juhlapyhiä vuoden mittaan. Joulu on tärkein perhejuhla, jolloin kokoontumisen lisäksi syödään jouluruokia, kuten kinkkua, laatikkoja ja joulutorttuja. Vappu on opiskelijoiden ja työväen juhla, jolloin juodaan simaa, syödään munkkeja ja kokoontutaan ulos piknikille. Juhannusta vietetään keskikesällä mökeillä, saunotaan, syödään hyvin ja saatetaan sytyttää kokko. Itsenäisyyspäivänä 6.12. suomalaiset katsovat presidentin linnan juhlia televisiosta ja sytyttävät kynttilöitä ikkunoille. Monilla on tapana järjestää myös nimipäivä- ja syntymäpäiväjuhlia, joissa tarjotaan kahvia ja kakkua.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_009",
+        "prompt": "Mikä on tärkein perhejuhla Suomessa?",
+        "options": [
+          "Vappu",
+          "Juhannus",
+          "Joulu",
+          "Itsenäisyyspäivä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2_reading_b1_009",
+        "prompt": "Mitä vappuna syödään ja juodaan?",
+        "options": [
+          "Kinkkua ja laatikoita",
+          "Simaa ja munkkeja",
+          "Grilliruokaa",
+          "Kakkua ja kahvia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_009",
+        "prompt": "Missä juhannusta usein vietetään?",
+        "options": [
+          "Kaupungissa",
+          "Mökillä",
+          "Ulkomailla",
+          "Hotellissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_009",
+        "prompt": "Mitä itsenäisyyspäivänä tehdään?",
+        "options": [
+          "Mennään töihin",
+          "Katsotaan presidentin linnan juhlia ja sytytetään kynttilöitä",
+          "Mennään uimaan",
+          "Syödään jouluruokia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "39316583-aa5a-5ff5-8342-1bee38f63113",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet huolissasi ilmastonmuutoksesta. Kirjoita mielipidekirjoitus paikallislehteen.",
+    "materials": {
+      "scenario": "Olet huolissasi ilmastonmuutoksesta. Kirjoita mielipidekirjoitus paikallislehteen."
+    },
+    "items": [
+      {
+        "id": "8d85569a-530e-5dc8-bad0-afcc8257b515",
+        "prompt": "Kirjoita noin 170 sanan mielipidekirjoitus, jossa:\n- kerrot, että ilmastonmuutos on vakava ongelma\n- kerrot, mitä vaikutuksia ilmastonmuutoksella on jo nyt (säiden ääri-ilmiöt, luonnon monimuotoisuus)\n- kerrot, mitä itse teet ilmaston hyväksi (kierrätys, lähiruoka, julkisen liikenteen käyttö)\n- kehotat muita toimimaan ja vaadit päättäjiltä rohkeita päätöksiä"
+      }
+    ],
+    "rubric": "Kirjoita noin 170 sanan mielipidekirjoitus, jossa:\n- kerrot, että ilmastonmuutos on vakava ongelma\n- kerrot, mitä vaikutuksia ilmastonmuutoksella on jo nyt (säiden ääri-ilmiöt, luonnon monimuotoisuus)\n- kerrot, mitä itse teet ilmaston hyväksi (kierrätys, lähiruoka, julkisen liikenteen käyttö)\n- kehotat muita toimimaan ja vaadit päättäjiltä rohkeita päätöksiä",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

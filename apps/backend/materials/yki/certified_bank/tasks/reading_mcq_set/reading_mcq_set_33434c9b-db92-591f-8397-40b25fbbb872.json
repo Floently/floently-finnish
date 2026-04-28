@@ -1,0 +1,77 @@
+{
+  "id": "33434c9b-db92-591f-8397-40b25fbbb872",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Yläkoulu aloitti ruokahävikin vähentämishankkeen kolmella toimenpiteellä: annoskoon valinta pieneksi tai normaaliksi, jäännösruoan punnitus päivittäin ja luokkakohtainen palaute kerran viikossa. Ensimmäisen kuukauden aikana hävikki väheni 18 prosenttia. Opettajien mukaan eniten vaikutti annoskoon valinta, mutta oppilaat pitivät viikkopalautetta tärkeänä, koska se teki tulokset näkyviksi.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 70
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka monta toimenpidettä hankkeessa oli?",
+        "options": [
+          "kaksi",
+          "kolme",
+          "neljä",
+          "viisi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka paljon hävikki väheni?",
+        "options": [
+          "8 %",
+          "12 %",
+          "18 %",
+          "28 %"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä opettajien mukaan vaikutti eniten?",
+        "options": [
+          "punnitus",
+          "annoskoon valinta",
+          "viikkopalautteen poistaminen",
+          "ruokalistan muutos"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi oppilaat pitivät viikkopalautteesta?",
+        "options": [
+          "se lyhensi koulupäivää",
+          "se teki tulokset näkyviksi",
+          "se poisti kotitehtävät",
+          "se lisäsi jälkiruoat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

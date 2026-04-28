@@ -1,0 +1,66 @@
+{
+  "id": "7b54696d-e95b-532e-b43a-e61ed397c90a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.301,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Maija tykkää urheilusta. Hän pelaa jalkapalloa joka tiistai. Hänen veljensä Pete tykkää musiikista. Pete soittaa kitaraa. Heillä on koira, jonka nimi on Musti. Musti tykkää juosta puistossa. Lauantaisin koko perhe menee yhdessä uimaan.",
+      "word_count": 33
+    },
+    "questions": [
+      {
+        "id": "91b42613-8b72-5757-943a-1b748173410b",
+        "prompt": "Mitä Maija tekee tiistaisin?",
+        "options": [
+          "Soittaa kitaraa",
+          "Pelaa jalkapalloa",
+          "Käy uimassa",
+          "Juoksee puistossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d3b4a482-d851-503b-b661-3720e5b28ab1",
+        "prompt": "Mikä on koiran nimi?",
+        "options": [
+          "Rex",
+          "Musti",
+          "Bella",
+          "Rufus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "72f67f9d-52cc-5cbe-81e2-4b311b8f09bd",
+        "prompt": "Mitä perhe tekee yhdessä lauantaisin?",
+        "options": [
+          "Pelaa jalkapalloa",
+          "Käy uimassa",
+          "Soittaa kitaraa",
+          "Käy puistossa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

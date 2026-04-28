@@ -1,0 +1,37 @@
+{
+  "id": "c59ba1cb-e5bc-5646-b8c0-e485e5b26e8d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.677,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a cleaner position in a cleaning company. Tell about your previous experience in cleaning, your attention to detail, and why you are suitable for this job. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus siivoojan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a cleaner position in a cleaning company. Tell about your previous experience in cleaning, your attention to detail, and why you are suitable for this job. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a cleaner position in a cleaning company. Tell about your previous experience in cleaning, your attention to detail, and why you are suitable for this job. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

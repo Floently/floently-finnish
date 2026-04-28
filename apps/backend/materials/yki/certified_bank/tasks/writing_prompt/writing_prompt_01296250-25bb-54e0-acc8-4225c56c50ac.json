@@ -1,0 +1,37 @@
+{
+  "id": "01296250-25bb-54e0-acc8-4225c56c50ac",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa, että lapsesi tarvitsee erityisruokavaliota päiväkodissa. Kerro lapsen nimi, ryhmä ja ruokavalio. Kysy, miten asia järjestetään käytännössä.",
+    "materials": {
+      "scenario": "Ilmoitus lapsen erityisruokavaliosta"
+    },
+    "items": [
+      {
+        "id": "25f76c8d-fae1-5352-9f59-17b27c1e84a8",
+        "prompt": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa, että lapsesi tarvitsee erityisruokavaliota päiväkodissa. Kerro lapsen nimi, ryhmä ja ruokavalio. Kysy, miten asia järjestetään käytännössä."
+      }
+    ],
+    "rubric": "Lapsen tiedot\nRuokavalion kuvaus\nKäytännön järjestelyt",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

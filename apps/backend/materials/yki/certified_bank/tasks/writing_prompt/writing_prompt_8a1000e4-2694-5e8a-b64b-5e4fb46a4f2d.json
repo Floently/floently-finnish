@@ -1,0 +1,37 @@
+{
+  "id": "8a1000e4-2694-5e8a-b64b-5e4fb46a4f2d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ulosottovirastoon. Olet saanut ulosottomerkinnän, vaikka olet maksanut velan. Kerro tilanteesi, toimita maksukuitti ja pyydä merkinnän poistamista rekisteristä. Kysy myös, miten kauan poistossa kestää.",
+    "materials": {
+      "scenario": "Väärä ulosottomerkintä"
+    },
+    "items": [
+      {
+        "id": "01b0696f-4e93-5658-bb47-1130f60e1154",
+        "prompt": "Kirjoita virallinen sähköposti ulosottovirastoon. Olet saanut ulosottomerkinnän, vaikka olet maksanut velan. Kerro tilanteesi, toimita maksukuitti ja pyydä merkinnän poistamista rekisteristä. Kysy myös, miten kauan poistossa kestää."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

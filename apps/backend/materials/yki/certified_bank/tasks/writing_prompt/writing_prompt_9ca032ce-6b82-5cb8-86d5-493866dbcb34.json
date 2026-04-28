@@ -1,0 +1,37 @@
+{
+  "id": "9ca032ce-6b82-5cb8-86d5-493866dbcb34",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Somevaikuttajat eli influensserit ovat nykyään iso osa markkinointia. Kirjoita mielipidekirjoitus paikallislehteen otsikolla 'Somevaikuttajat – mahdollisuus vai ongelma?'.\n\nKäsittele tekstissäsi:\n- mitä hyötyä somevaikuttajista on\n- mitä haittoja tai riskejä niihin liittyy\n- oma kantasi ja perustelut\n- miten nuoret pitäisi suojata tai opastaa\n\nKirjoita 180–220 sanaa.",
+    "materials": {
+      "scenario": "Somevaikuttajat eli influensserit ovat nykyään iso osa markkinointia. Kirjoita mielipidekirjoitus paikallislehteen otsikolla 'Somevaikuttajat – mahdollisuus vai ongelma?'.\n\nKäsittele tekstissäsi:\n- mitä hyötyä somevaikuttajista on\n- mitä haittoja tai riskejä niihin liittyy\n- oma kantasi ja perustelut\n- miten nuoret pitäisi suojata tai opastaa\n\nKirjoita 180–220 sanaa."
+    },
+    "items": [
+      {
+        "id": "d1a88901-d5e0-5e91-af47-42b2a4dcac7d",
+        "prompt": "Somevaikuttajat eli influensserit ovat nykyään iso osa markkinointia. Kirjoita mielipidekirjoitus paikallislehteen otsikolla 'Somevaikuttajat – mahdollisuus vai ongelma?'.\n\nKäsittele tekstissäsi:\n- mitä hyötyä somevaikuttajista on\n- mitä haittoja tai riskejä niihin liittyy\n- oma kantasi ja perustelut\n- miten nuoret pitäisi suojata tai opastaa\n\nKirjoita 180–220 sanaa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 220, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

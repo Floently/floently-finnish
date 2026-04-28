@@ -1,0 +1,88 @@
+{
+  "id": "8c2b81ad-a8ba-56e9-93fa-d4328903e68f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.732,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele väittely kaupunkien joukkoliikenteen maksuttomuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tänään väittelemme siitä, pitäisikö joukkoliikenteen olla maksutonta kaupunkilaisille. Ensimmäisenä puheenvuoro kaupunginvaltuutettu Liisa Mäkelältä. Mäkelä: Maksuttomuus kannustaisi ihmisiä jättämään auton kotiin, vähentäisi päästöjä ja ruuhkia. Se olisi myös tasa-arvoinen toimi, koska se hyödyttäisi erityisesti pienituloisia. Puheenjohtaja: Kiitos. Vastapuheenvuoro taloustieteilijä Jussi Virralta. Virta: Maksuttomuus on kallista. Se maksaisi kaupungille kymmeniä miljoonia euroja. Rahat pitäisi ottaa jostain muualta, esimerkiksi koulutuksesta tai terveydenhuollosta. Lisäksi se voisi lisätä häiriökäyttäytymistä. Mäkelä: Raha ei saa olla ainoa peruste. Joukkoliikenteen maksuttomuus on investointi tulevaisuuteen. Se lisäisi liikkumista ja vähentäisi eriarvoisuutta. Virta: Parempi olisi kehittää joukkoliikennettä ja tehdä siitä houkuttelevampaa, vaikka maksullisena. Esimerkiksi tiheämmät vuorot ja uudet reitit houkuttelisivat käyttäjiä. Maksuttomuus voisi myös lisätä käyttöä niin paljon, että ruuhkat vain pahenisivat.",
+      "audio_asset_id": "4a53a267-d915-4dc6-b09a-737fe4a98fa7"
+    },
+    "questions": [
+      {
+        "id": "l150q1",
+        "prompt": "Mitä mieltä Liisa Mäkelä on joukkoliikenteen maksuttomuudesta?",
+        "options": [
+          "Se on huono idea.",
+          "Se kannustaisi ihmisiä jättämään auton kotiin, vähentäisi päästöjä ja olisi tasa-arvoinen.",
+          "Se on liian kallista.",
+          "Sillä ei ole vaikutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l150q2",
+        "prompt": "Miten Jussi Virta perustelee vastustavansa maksuttomuutta?",
+        "options": [
+          "Se ei vähennä päästöjä.",
+          "Se on epäsuosittua.",
+          "Se on kallista ja rahat pitäisi ottaa muualta, ja se voisi lisätä häiriökäyttäytymistä.",
+          "Se on vaikea toteuttaa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l150q3",
+        "prompt": "Mitä Mäkelä vastaa raha-argumenttiin?",
+        "options": [
+          "Hän on samaa mieltä.",
+          "Raha ei saa olla ainoa peruste, ja maksuttomuus on investointi tulevaisuuteen.",
+          "Rahat löytyvät helposti.",
+          "Hän ei ota kantaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l150q4",
+        "prompt": "Mitä Virta ehdottaa maksuttomuuden sijaan?",
+        "options": [
+          "Joukkoliikenteen kehittämistä houkuttelevammaksi, vaikka maksullisena.",
+          "Joukkoliikenteen lakkauttamista.",
+          "Autojen kieltämistä keskustassa.",
+          "Ilmaisia parkkipaikkoja."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l150q5",
+        "prompt": "Mikä riski maksuttomuudessa Virran mukaan on?",
+        "options": [
+          "Se lisää byrokratiaa.",
+          "Se vähentää joukkoliikenteen käyttöä.",
+          "Se on epäsuosittua.",
+          "Se voisi lisätä käyttöä niin paljon, että ruuhkat vain pahenisivat."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

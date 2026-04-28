@@ -1,0 +1,37 @@
+{
+  "id": "c975313d-0428-5326-8fa0-bfa5e23d000e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota maksuton tapahtumien järjestämiskoulutus asukkaille?'. Pohdi yhteisöllisyyttä, osallisuutta ja kulttuuria.",
+    "materials": {
+      "scenario": "Tapahtumien järjestämiskoulutus"
+    },
+    "items": [
+      {
+        "id": "f244a39f-a90b-57c4-b4c0-120f4a95a085",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota maksuton tapahtumien järjestämiskoulutus asukkaille?'. Pohdi yhteisöllisyyttä, osallisuutta ja kulttuuria."
+      }
+    ],
+    "rubric": "Yhteisöllisyys\nOsallisuus\nKulttuuri\nKustannukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

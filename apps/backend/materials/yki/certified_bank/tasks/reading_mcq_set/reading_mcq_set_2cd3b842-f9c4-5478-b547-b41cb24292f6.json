@@ -1,0 +1,77 @@
+{
+  "id": "2cd3b842-f9c4-5478-b547-b41cb24292f6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kierrätys on tärkeä osa kestävää kehitystä. Suomessa kotitaloudet lajittelevat biojätteen, paperin, kartongin, lasin, metallin ja muovin. Uusimpia kierrätysmuotoja on tekstiilien kierrätys, joka on alkanut yleistyä viime vuosina. Monet kunnat ovat perustaneet tekstiilinkeräyspisteitä, joihin voi viedä käytöstä poistetut vaatteet ja kodintekstiilit. Kierrätys vähentää luonnonvarojen käyttöä ja pienentää hiilijalanjälkeä. Kierrätetyistä materiaaleista valmistetaan uusia tuotteita, kuten eristysmateriaaleja, uusia vaatteita ja muovituotteita. Vaikka kierrätys on lisääntynyt, vielä on paljon tehtävää, jotta Suomi saavuttaisi EU:n asettamat kierrätystavoitteet.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_002",
+        "prompt": "Mitä kotitaloudet lajittelevat Suomessa?",
+        "options": [
+          "Vain biojätteen ja paperin",
+          "Biojätteen, paperin, kartongin, lasin, metallin ja muovin",
+          "Vain muovin ja metallin",
+          "Vain tekstiilit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_002",
+        "prompt": "Mikä on uusimpia kierrätysmuotoja Suomessa?",
+        "options": [
+          "Metallin kierrätys",
+          "Lasin kierrätys",
+          "Tekstiilien kierrätys",
+          "Paperin kierrätys"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3_reading_b1_002",
+        "prompt": "Mitä hyötyä kierrätyksestä on?",
+        "options": [
+          "Se lisää luonnonvarojen käyttöä",
+          "Se suurentaa hiilijalanjälkeä",
+          "Se vähentää luonnonvarojen käyttöä ja pienentää hiilijalanjälkeä",
+          "Se lisää jätteen määrää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4_reading_b1_002",
+        "prompt": "Mitä kierrätetyistä materiaaleista valmistetaan?",
+        "options": [
+          "Vain uusia vaatteita",
+          "Eristysmateriaaleja, uusia vaatteita ja muovituotteita",
+          "Vain muovituotteita",
+          "Vain paperia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

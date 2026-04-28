@@ -1,0 +1,88 @@
+{
+  "id": "2c609bb9-9f63-5121-b8e6-38419be104cc",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.678,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele turvallisuusohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa kylpylään. Muistutamme tärkeistä turvallisuusohjeista. Allasosastolla ei saa juosta. Syvässä päässä uiminen on sallittua vain vahvoille uimareille. Pukuhuoneissa ei saa säilyttää arvoesineitä. Ne kannattaa jättää kassakaappiin. Lapsia ei saa jättää ilman valvontaa. Palotilanteessa poistukaa lähimmästä uloskäynnistä. Löylyhuoneeseen ei saa viedä lasipulloja. Kiitos, että noudatat ohjeita ja viihtyisää kylpylähetkeä!",
+      "audio_asset_id": "f9e93248-e991-40ef-95e4-b081e7924170"
+    },
+    "questions": [
+      {
+        "id": "e2f58532-cdb6-54d2-b4b7-9ac0964312f3",
+        "prompt": "Mitä allasosastolla ei saa tehdä?",
+        "options": [
+          "Uida.",
+          "Puhua.",
+          "Syödä.",
+          "Juosta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "a84d19a1-f285-5c2e-845a-cfe3adda0b32",
+        "prompt": "Kenelle syvässä päässä uiminen on sallittua?",
+        "options": [
+          "Kaikille.",
+          "Lapsille.",
+          "Vahvoille uimareille.",
+          "Aikuisille."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9f2a3417-bc4f-5eaa-b558-3731b5a6de2e",
+        "prompt": "Mihin arvoesineet kannattaa jättää?",
+        "options": [
+          "Pukuhuoneen lokeroon.",
+          "Allasosaston reunalle.",
+          "Kotiin.",
+          "Kassakaappiin."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "a836ded9-4660-5020-b101-c3d8f3996262",
+        "prompt": "Mitä lapsista sanotaan ohjeissa?",
+        "options": [
+          "Heidän täytyy osata uida.",
+          "Heitä ei saa jättää ilman valvontaa.",
+          "He saavat uida vain matalassa.",
+          "Heille on oma vuoro."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a25b071b-e4ad-5354-b7ab-df1c1ca603f7",
+        "prompt": "Mitä löylyhuoneeseen ei saa viedä?",
+        "options": [
+          "Uimapukua.",
+          "Kännykkää.",
+          "Pyyhkeitä.",
+          "Lasipulloja."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

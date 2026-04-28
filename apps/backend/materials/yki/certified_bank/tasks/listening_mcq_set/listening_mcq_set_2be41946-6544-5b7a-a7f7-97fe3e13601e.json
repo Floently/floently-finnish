@@ -1,0 +1,66 @@
+{
+  "id": "2be41946-6544-5b7a-a7f7-97fe3e13601e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele apteekin asiakaspalvelutilanne ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Päivää. Onko teillä Buranaa 400 milligrammaa?\nFarmaseutti: On kyllä. Tarvitsetteko tavallista tabletteja vai poretabletteja?\nAsiakas: Ihan tavallisia tabletteja kiitos. Paljonko maksaa?\nFarmaseutti: 30 tabletin pakkaus on 8,90 euroa. Onko teillä reseptiä?\nAsiakas: Ei ole, tätä saa ilman reseptiä.\nFarmaseutti: Kyllä, ihan oikein. Tuliko muuta?\nAsiakas: Ei kiitos, tämä riittää.\nFarmaseutti: Olkaa hyvä, kassalle maksamaan.",
+      "audio_asset_id": "80e24f3a-0aa9-5720-ad8c-75fc5fe2331b"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä asiakas haluaa ostaa?",
+        "options": [
+          "särkylääkettä",
+          "yskänlääkettä",
+          "vitamiineja",
+          "laastareita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko lääke maksaa?",
+        "options": [
+          "6,90 euroa",
+          "7,90 euroa",
+          "8,90 euroa",
+          "9,90 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Tarvitseeko asiakas reseptiä?",
+        "options": [
+          "kyllä, aina tarvitaan",
+          "ei, saa ilman reseptiä",
+          "vain jos on ensimmäinen kerta",
+          "vain lapsille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

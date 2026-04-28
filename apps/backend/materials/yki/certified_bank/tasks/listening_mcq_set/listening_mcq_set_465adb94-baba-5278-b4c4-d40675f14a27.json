@@ -1,0 +1,66 @@
+{
+  "id": "465adb94-baba-5278-b4c4-d40675f14a27",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelma ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tässä Radio Suomen kulttuuriohjelma. Tänään keskustelemme lukemisesta. Vieraana on kirjailija Anna Lehtonen. Anna, mitä suomalaiset lukevat tänä päivänä?\n\"Kiitos kutsusta. Tutkimusten mukaan suomalaisten lukutottumukset ovat muuttuneet. Yhä useampi lukee äänikirjoja ja e-kirjoja. Fyysisten kirjojen myynti on hieman laskenut, mutta edelleen monet rakastavat perinteistä kirjaa.\"\nMiksi äänikirjat ovat niin suosittuja?\n\"Ne sopivat kiireiseen arkeen. Ihmiset kuuntelevat niitä automatkoilla, lenkillä ja siivotessaan. Myös nuoret aikuiset ovat innokkaita äänikirjojen käyttäjiä.\"\nEntä mitä mieltä olet lasten lukemisesta?\n\"Se on huolenaihe. Lapset viettävät paljon aikaa puhelimella, ja lukeminen on vähentynyt. Vanhempien kannattaisi lukea lapsille ääneen ja näyttää esimerkkiä.\"",
+      "audio_asset_id": "6364f0dd-18ce-5865-af5c-7be49b65590a"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä suomalaisten lukutottumuksista sanotaan?",
+        "options": [
+          "Kukaan ei lue enää kirjoja",
+          "Äänikirjojen suosio on kasvanut",
+          "Kaikki lukevat vain lehtiä",
+          "Lukeminen on kokonaan loppunut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi äänikirjat ovat suosittuja?",
+        "options": [
+          "Ne ovat halvempia",
+          "Ne sopivat kiireiseen arkeen",
+          "Niitä on helpompi lainata",
+          "Ne ovat lyhyempiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on lasten lukemisen tilanne?",
+        "options": [
+          "Lapset lukevat enemmän kuin ennen",
+          "Lukeminen on vähentynyt",
+          "Lapset lukevat vain sarjakuvia",
+          "Kaikki lapset lukevat e-kirjoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

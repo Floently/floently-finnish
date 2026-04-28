@@ -1,0 +1,37 @@
+{
+  "id": "6f9d388e-9738-5a2d-a504-950571ede8e8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö maahanmuuttajille tarjota enemmän suomen kielen kursseja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Suomen kielen kurssit maahanmuuttajille"
+    },
+    "items": [
+      {
+        "id": "4c6d4e86-35cb-583d-90f5-6195347f807a",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö maahanmuuttajille tarjota enemmän suomen kielen kursseja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

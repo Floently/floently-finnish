@@ -1,0 +1,66 @@
+{
+  "id": "672b5634-445a-5c4f-b027-70e9a4e7626c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PÄÄKIRJOITUS: Kaupungistuminen jakaa Suomea\n\nSuomen kaupungistuminen on jatkunut johdonmukaisesti jo vuosikymmeniä. Ilmiöllä on kauaskantoisia vaikutuksia, jotka ulottuvat paljon muuttotappioalueiden autioitumista pidemmälle. Yksi keskeisimmistä seurauksista on julkisten palvelujen uudelleenjärjestelyn pakko. Kun väestö keskittyy kasvukeskuksiin, palvelutarve ei suinkaan vähene maaseudulla samassa suhteessa. Ikääntyvä väestö jää usein paikoilleen, kun nuoret muuttavat. Tämä luo kestämättömän tilanteen, jossa harvaan asutulla seudulla on ylläpidettävä kalliita peruspalveluita pienelle ja ikääntyvälle väestölle. Samalla kaupungeissa paineet asuntotuotantoon, liikenteeseen ja kouluihin kasvavat. Tämä kehityskulku jakaa Suomea entistä jyrkemmin menestyjiin ja häviäjiin.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kirjoittajan mukaan keskeinen seuraus kaupungistumisesta?",
+        "options": [
+          "Maaseudulle muuttaa paljon uusia asukkaita",
+          "Julkiset palvelut on pakko järjestää uudelleen",
+          "Kaupunkien asuntotuotanto vähenee",
+          "Ikääntyvä väestö muuttaa kaupunkeihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ongelmaa kirjoittaja kuvaa?",
+        "options": [
+          "Kaupungit tyhjenevät",
+          "Harvaan asutulla seudulla on ylläpidettävä palveluita pienelle väestölle",
+          "Nuoret muuttavat maaseudulle",
+          "Julkisia palveluita on liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä seurauksia kaupungistumisella on kaupungeissa?",
+        "options": [
+          "Väestö vähenee",
+          "Paineet asuntotuotantoon ja liikenteeseen kasvavat",
+          "Palvelut vähenevät",
+          "Asuminen halpenee"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

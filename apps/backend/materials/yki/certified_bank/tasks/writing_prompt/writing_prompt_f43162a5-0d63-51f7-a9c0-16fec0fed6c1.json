@@ -1,0 +1,37 @@
+{
+  "id": "f43162a5-0d63-51f7-a9c0-16fec0fed6c1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt yksityisessä psykologin vastaanotolla. Kirjoita palaute psykologille.",
+    "materials": {
+      "scenario": "Palaute psykologille"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt yksityisessä psykologin vastaanotolla. Kirjoita palaute psykologille."
+      }
+    ],
+    "rubric": "Olet käynyt yksityisessä psykologin vastaanotolla. Kirjoita palaute psykologille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

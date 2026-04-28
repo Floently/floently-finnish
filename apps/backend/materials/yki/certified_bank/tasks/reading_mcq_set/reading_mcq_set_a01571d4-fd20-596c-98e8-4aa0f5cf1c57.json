@@ -1,0 +1,77 @@
+{
+  "id": "a01571d4-fd20-596c-98e8-4aa0f5cf1c57",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työsähköposti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Aihe: Kokous 20.4.\n\nHei kaikki,\n\nHuomisen kokous on siirretty klo 14.00 → klo 15.30. Kokous pidetään neuvotteluhuone Kokoustamossa (3. kerros).\n\nMuistathan lukea liitteenä olevan esityslistan ennen kokousta.\n\nTervetuloa!\n\nMarja\n\nLiite: esityslista_2004.pdf",
+      "word_count": 31
+    },
+    "questions": [
+      {
+        "id": "61c198b1-8a84-5da8-ab7c-2829ea3c0829",
+        "prompt": "Mitä kokoukselle tapahtuu?",
+        "options": [
+          "Se perutaan",
+          "Se siirretään myöhemmäksi",
+          "Se pidetään aikaisemmin",
+          "Se pidetään etänä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f19a089d-6e80-5f03-9bbe-29bbeb56c2b6",
+        "prompt": "Mikä on uusi kokousaika?",
+        "options": [
+          "klo 14.00",
+          "klo 15.00",
+          "klo 15.30",
+          "klo 16.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1e27c0b-69c3-5ab3-a95b-be72d28ec03f",
+        "prompt": "Missä kokous pidetään?",
+        "options": [
+          "Kahviossa",
+          "Kokoustamossa 3. kerros",
+          "Kokoustamossa 2. kerros",
+          "Etäyhteydellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3ac7d7f8-494f-5605-9c3c-2f5e21bfa5e0",
+        "prompt": "Mitä pitää lukea ennen kokousta?",
+        "options": [
+          "Edellisen kokouksen pöytäkirja",
+          "Esityslista",
+          "Budjetti",
+          "Henkilöstöraportti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

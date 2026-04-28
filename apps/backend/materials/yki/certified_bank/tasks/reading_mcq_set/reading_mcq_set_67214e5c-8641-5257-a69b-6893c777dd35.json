@@ -1,0 +1,77 @@
+{
+  "id": "67214e5c-8641-5257-a69b-6893c777dd35",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.752,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Digitaalisen median ja demokratian suhde on osoittautunut huomattavasti monimutkaisemmaksi kuin internetin alkuaikojen optimistit osasivat kuvitella. Alun perin somealustojen nähtiin demokratisoivan tiedonkulkua, antavan äänen vähemmistöille ja mahdollistavan uudenlaisen kansalaisvaikuttamisen. Näitä toiveita on osin toteutunut, mutta samalla on käynyt ilmi, että samat alustat voivat myös heikentää demokratiaa. Keskeinen ongelma liittyy algoritmien toimintaan. Ne suosivat sisältöjä, jotka herättävät voimakkaita tunnereaktioita, mikä usein tarkoittaa disinformaatiota ja vihapuhetta. Tämä johtaa suodatinkupliin ja kaikukammioihin, joissa omat ennakkoluulot vahvistuvat. Toinen ongelma on disinformaation leviäminen, mikä on johtanut jopa yrityksiin vaikuttaa vaalien tuloksiin. Kolmas huolenaihe on vihapuhe ja häirintä, jotka voivat hiljentää vähemmistöjä. Vastauksena vaaditaan alustojen sääntelyä ja mediakasvatusta.",
+      "word_count": 101
+    },
+    "questions": [
+      {
+        "id": "1e504e78-6c86-5e40-8167-c2216bc62d66",
+        "prompt": "Mikä on tekstin keskeinen väite digitaalisen median ja demokratian suhteesta?",
+        "options": [
+          "Some on yksiselitteisesti hyvä asia demokratialle",
+          "Some on yksiselitteisesti huono asia demokratialle",
+          "Somen vaikutukset ovat ristiriitaisia: se voi sekä vahvistaa että heikentää demokratiaa",
+          "Somella ei ole merkittävää vaikutusta demokratiaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "012a0d8d-dc6c-5cfe-8205-6913edf38890",
+        "prompt": "Tekstin mukaan miten algoritmit voivat heikentää demokratiaa?",
+        "options": [
+          "Ne suosivat asiantuntijatietoa ja vähentävät vihapuhetta",
+          "Ne suosivat sisältöjä, jotka herättävät voimakkaita tunnereaktioita, kuten disinformaatiota ja vihapuhetta, mikä johtaa suodatinkupliin",
+          "Ne vähentävät ihmisten aikaa viettää somessa",
+          "Ne lisäävät ihmisten altistumista monipuolisille näkökulmille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8cec1b73-41e2-5c03-ad7a-1f2279368c3c",
+        "prompt": "Mitä esimerkkejä tekstissä annetaan disinformaation vaikutuksista?",
+        "options": [
+          "Se lisää kansalaisten luottamusta mediaan",
+          "Se on johtanut yrityksiin vaikuttaa vaalien tuloksiin",
+          "Se vähentää tarvetta mediakasvatukselle",
+          "Se vahvistaa asiantuntijoiden asemaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1aa2f636-4bd7-5966-aa9a-e2369dd0c5b2",
+        "prompt": "Mitä keinoja tekstissä ehdotetaan ongelmien ratkaisemiseksi?",
+        "options": [
+          "Somealustojen täydellistä kieltämistä",
+          "Alustojen sääntelyä ja mediakasvatusta",
+          "Vain vapaaehtoisia toimia alustoilta",
+          "Kansainvälisten sopimusten solmimista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

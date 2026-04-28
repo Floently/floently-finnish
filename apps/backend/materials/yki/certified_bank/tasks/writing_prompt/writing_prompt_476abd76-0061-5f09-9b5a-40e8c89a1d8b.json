@@ -1,0 +1,37 @@
+{
+  "id": "476abd76-0061-5f09-9b5a-40e8c89a1d8b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a dean position in a university faculty. Tell about your academic career, research leadership, and experience in university administration. Also describe your vision for developing the faculty and its role in societal impact. Length about 340 words.",
+    "materials": {
+      "scenario": "Hakemus tiedekunnan dekaanin tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a dean position in a university faculty. Tell about your academic career, research leadership, and experience in university administration. Also describe your vision for developing the faculty and its role in societal impact. Length about 340 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a dean position in a university faculty. Tell about your academic career, research leadership, and experience in university administration. Also describe your vision for developing the faculty and its role in societal impact. Length about 340 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

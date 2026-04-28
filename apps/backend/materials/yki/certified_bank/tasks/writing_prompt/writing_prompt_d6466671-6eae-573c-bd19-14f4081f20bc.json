@@ -1,0 +1,37 @@
+{
+  "id": "d6466671-6eae-573c-bd19-14f4081f20bc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti opiskelijavaihdosta vastaavalle koordinaattorille. Olet hyväksytty vaihto-ohjelmaan, mutta haluat vaihtaa kohdeyliopistoa. Kerro, miksi alkuperäinen valinta ei enää sovi opintoihisi, mitä yliopistoa ehdotat tilalle ja miten tämä muutos vaikuttaisi opintosuunnitelmaasi.",
+    "materials": {
+      "scenario": "Vaihtokohteen muutos"
+    },
+    "items": [
+      {
+        "id": "76997ac3-877e-5da3-9fae-4bd942dd6dec",
+        "prompt": "Kirjoita virallinen sähköposti opiskelijavaihdosta vastaavalle koordinaattorille. Olet hyväksytty vaihto-ohjelmaan, mutta haluat vaihtaa kohdeyliopistoa. Kerro, miksi alkuperäinen valinta ei enää sovi opintoihisi, mitä yliopistoa ehdotat tilalle ja miten tämä muutos vaikuttaisi opintosuunnitelmaasi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

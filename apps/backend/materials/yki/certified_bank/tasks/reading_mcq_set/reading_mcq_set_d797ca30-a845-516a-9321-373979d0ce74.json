@@ -1,0 +1,77 @@
+{
+  "id": "d797ca30-a845-516a-9321-373979d0ce74",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.576,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti digitaalisista terveyspalveluista.",
+    "materials": {
+      "text": "DIGITAALISET TERVEYSPALVELUT YLEISTYVÄT – MUTTA SAAVUTTAVATKO NE KAIKKI?\n\nViime vuosina digitaaliset terveyspalvelut ovat lisääntyneet räjähdysmäisesti. Omat digitaaliset poliklinikat, etävastaanotot ja chat-palvelut ovat arkipäivää monille kaupunkilaisille. Osa palveluista on julkisia, osa yksityisiä. Terveydenhuollon ammattilaiset ovat kuitenkin huolissaan siitä, että digiloikka jättää osan väestöstä ulkopuolelle.\n\n\"Ikääntyneet, matalasti koulutetut ja ne, joilla on heikompi kielitaito, käyttävät digipalveluja selvästi vähemmän\", toteaa tutkija Laura Mäkelä. Hänen mukaansa digitaaliset palvelut voivat jopa lisätä terveyseroja, jos niistä tulee ainoa tapa saada hoitoa.\n\nToisaalta digitaalisuus tuo myös mahdollisuuksia. Harvaan asutuilla alueilla etävastaanotto voi olla ainoa keino saada erikoislääkärin apua. Myös nuoret aikuiset suosivat digitaalisia palveluja niiden nopeuden ja joustavuuden vuoksi.\n\nSosiaali- ja terveysministeriössä valmistellaan ohjeistusta, jonka mukaan jokaisella tulisi olla mahdollisuus myös perinteiseen vastaanottoon. \"Digitaalisuus on hyvä lisä, mutta se ei saa syrjäyttää muita palvelumuotoja\", muistuttaa ylilääkäri Pekka Virtanen.",
+      "word_count": 131
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä digitaalisia terveyspalveluja tekstissä mainitaan?",
+        "options": [
+          "Sairaalahoito",
+          "Digitaaliset poliklinikat ja etävastaanotot",
+          "Laboratoriopalvelut",
+          "Fysioterapia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä tutkija Laura Mäkelä on huolissaan?",
+        "options": [
+          "Digipalvelut ovat liian kalliita",
+          "Osa väestöstä jää digipalvelujen ulkopuolelle",
+          "Digipalvelut ovat liian hitaita",
+          "Nuoret eivät käytä digipalveluja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on digitaalisten palvelujen etu harvaan asutuilla alueilla?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne korvaavat kaikki muut palvelut",
+          "Ne voivat tuoda erikoislääkärin avun",
+          "Ne ovat nopeampia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ylilääkäri Pekka Virtanen painottaa?",
+        "options": [
+          "Kaikki palvelut pitää siirtää digitaalisiksi",
+          "Perinteinen vastaanotto on säilytettävä vaihtoehtona",
+          "Vain nuoret saavat käyttää digipalveluja",
+          "Digipalvelut ovat turhia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

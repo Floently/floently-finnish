@@ -1,0 +1,37 @@
+{
+  "id": "3bde9648-6293-536b-b640-9a1bd667b0a4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipidekirjoitus.",
+    "materials": {
+      "scenario": "Kirjoita mielipidekirjoitus."
+    },
+    "items": [
+      {
+        "id": "7d5b23f6-5059-5510-9bc5-05534f62094f",
+        "prompt": "Keskustelu sosiaalisen median vaikutuksista nuoriin on vilkasta. Osa näkee sen uhkana, osa mahdollisuutena.\n\nKirjoita mielipidekirjoitus, jossa:\n- kerrot, miten itse käytät somea\n- pohdit sen hyviä ja huonoja puolia nuorten näkökulmasta\n- otat kantaa siihen, pitäisikö somea säädellä enemmän"
+      }
+    ],
+    "rubric": "Keskustelu sosiaalisen median vaikutuksista nuoriin on vilkasta. Osa näkee sen uhkana, osa mahdollisuutena.\n\nKirjoita mielipidekirjoitus, jossa:\n- kerrot, miten itse käytät somea\n- pohdit sen hyviä ja huonoja puolia nuorten näkökulmasta\n- otat kantaa siihen, pitäisikö somea säädellä enemmän",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

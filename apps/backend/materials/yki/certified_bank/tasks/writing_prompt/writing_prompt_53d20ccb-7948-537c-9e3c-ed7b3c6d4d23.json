@@ -1,0 +1,37 @@
+{
+  "id": "53d20ccb-7948-537c-9e3c-ed7b3c6d4d23",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit junalla toisessa kaupungissa. Kirjoita palaute. Kerro, oliko juna aikataulussa, oliko vaunu siisti ja toimiko ilmastointi hyvin.",
+    "materials": {
+      "scenario": "Palaute junamatkasta"
+    },
+    "items": [
+      {
+        "id": "e3e672e8-7be5-5fb3-b826-070e43c4cf6e",
+        "prompt": "Kävit junalla toisessa kaupungissa. Kirjoita palaute. Kerro, oliko juna aikataulussa, oliko vaunu siisti ja toimiko ilmastointi hyvin."
+      }
+    ],
+    "rubric": "Aikataulussa pysyminen\nVaunun siisteys\nIlmastoinnin toimivuus",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

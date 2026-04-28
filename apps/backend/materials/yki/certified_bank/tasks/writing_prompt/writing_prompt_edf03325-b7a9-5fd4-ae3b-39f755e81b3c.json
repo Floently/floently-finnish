@@ -1,0 +1,37 @@
+{
+  "id": "edf03325-b7a9-5fd4-ae3b-39f755e81b3c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan nuorisopalveluihin. Olette nuorten ryhmä, joka haluaa perustaa oman bänditilan. Kysy, onko kunnalla vapaita tiloja, miten niitä voi hakea käyttöön ja voiko kunta tukea toimintaa taloudellisesti.",
+    "materials": {
+      "scenario": "Bänditilan perustaminen"
+    },
+    "items": [
+      {
+        "id": "43adc369-482d-586f-b5ec-a111e5e9dc01",
+        "prompt": "Kirjoita virallinen sähköposti kunnan nuorisopalveluihin. Olette nuorten ryhmä, joka haluaa perustaa oman bänditilan. Kysy, onko kunnalla vapaita tiloja, miten niitä voi hakea käyttöön ja voiko kunta tukea toimintaa taloudellisesti."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

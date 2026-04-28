@@ -1,0 +1,37 @@
+{
+  "id": "c1605ab8-f062-5ea3-be57-7ce778df0215",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen musiikinopetukseen panostaa enemmän resursseja?'. Arvioi kulttuuria, lasten kehitystä ja kustannuksia.",
+    "materials": {
+      "scenario": "Musiikinopetus kouluissa"
+    },
+    "items": [
+      {
+        "id": "db14f20b-9ccd-59ae-90c9-a83137ce52da",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen musiikinopetukseen panostaa enemmän resursseja?'. Arvioi kulttuuria, lasten kehitystä ja kustannuksia."
+      }
+    ],
+    "rubric": "Kulttuuri\nLasten kehitys\nKustannukset\nLuovuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

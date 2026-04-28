@@ -1,0 +1,88 @@
+{
+  "id": "be2c3337-3997-56db-840d-edc43d8aee96",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kirjaston tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Pääkirjasto järjestää lukupiirin syyskuussa. Lukupiiri kokoontuu tiistaisin kello 17-18.30. Ensimmäinen tapaaminen on 3. syyskuuta. Lukupiirissä keskustellaan kotimaisesta kirjallisuudesta. Mukaan mahtuu 15 osallistujaa. Ilmoittautuminen alkaa 15. elokuuta verkkosivuilla.",
+      "audio_asset_id": "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f"
+    },
+    "questions": [
+      {
+        "id": "l240q1",
+        "prompt": "Mitä kirjasto järjestää syyskuussa?",
+        "options": [
+          "Näyttelyn.",
+          "Lukupiirin.",
+          "Kirjamessut.",
+          "Lasten tapahtuman."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l240q2",
+        "prompt": "Minä viikonpäivänä lukupiiri kokoontuu?",
+        "options": [
+          "Maanantaisin.",
+          "Tiistaisin.",
+          "Keskiviikkoisin.",
+          "Torstaisin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l240q3",
+        "prompt": "Mihin aikaan kokoontumiset ovat?",
+        "options": [
+          "Kello 16-17.30.",
+          "Kello 17-18.30.",
+          "Kello 18-19.30.",
+          "Kello 19-20.30."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l240q4",
+        "prompt": "Mistä kirjallisuudesta keskustellaan?",
+        "options": [
+          "Ulkomaisesta.",
+          "Kotimaisesta.",
+          "Lastenkirjallisuudesta.",
+          "Tietokirjallisuudesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l240q5",
+        "prompt": "Kuinka monta osallistujaa mahtuu mukaan?",
+        "options": [
+          "10.",
+          "15.",
+          "20.",
+          "25."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

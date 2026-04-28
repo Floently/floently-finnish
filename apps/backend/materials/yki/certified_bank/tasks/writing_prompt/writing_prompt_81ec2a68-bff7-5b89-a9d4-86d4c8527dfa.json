@@ -1,0 +1,37 @@
+{
+  "id": "81ec2a68-bff7-5b89-a9d4-86d4c8527dfa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut kirjastosta uuden kirjan. Kirjoita palaute. Tuliko se nopeasti? Oliko se hyvässä kunnossa?",
+    "materials": {
+      "scenario": "Palaute kirjaston uutuuskirjasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet tilannut kirjastosta uuden kirjan. Kirjoita palaute. Tuliko se nopeasti? Oliko se hyvässä kunnossa?"
+      }
+    ],
+    "rubric": "Olet tilannut kirjastosta uuden kirjan. Kirjoita palaute. Tuliko se nopeasti? Oliko se hyvässä kunnossa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

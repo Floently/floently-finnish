@@ -1,0 +1,66 @@
+{
+  "id": "9e78a666-1d9d-55ee-b117-6b81cd96af0e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kaupunkiviljely on ollut viime vuosina kasvava ilmiö ympäri maailmaa. Ihmiset kasvattavat vihanneksia parvekkeillaan, pihoillaan ja yhteisillä viljelypalstoilla. Tämä ei ole vain harrastus, vaan se kertoo jotain syvempää suhteestamme ruokaan ja ympäristöön.\n\nYksi syy kaupunkiviljelyn suosioon on halu tietää, mistä ruoka tulee. Teollisen ruoantuotannon aikana monet ovat menettäneet yhteyden ruoan alkuperään. Kun kasvattaa itse tomaatin, tietää tarkalleen, mitä siihen on käytetty – ja mitä ei ole käytetty.\n\nToinen syy on yhteisöllisyys. Yhteisillä viljelypalstoilla naapurit tapaavat toisiaan, jakavat vinkkejä ja auttavat toisiaan. Kaupungeissa, joissa yksinäisyys on yleistä, tällaiset kohtaamispaikat ovat kullanarvoisia.\n\nKolmas syy on ilmastonmuutos. Lähiruoka vähentää kuljetusten päästöjä. Lisäksi viheralueet sitovat hiiltä ja viilentävät kaupunkeja helteillä. Kaupunkiviljely on pieni teko, jolla on iso merkitys.\n\nMutta kaupunkiviljelyllä on myös haasteensa. Saastunut maa, vesipula ja tilan puute voivat vaikeuttaa viljelyä. Kaupunkien pitäisikin varata enemmän alueita viljelykäyttöön ja tukea asukkaiden omavaraisuutta. Mitä useampi meistä kasvattaa edes osan ruoastaan, sitä kestävämpää elämä on.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 181
+    },
+    "questions": [
+      {
+        "id": "900d6e84-e3e0-545e-b189-77a10aafd409",
+        "prompt": "Mitä kaupunkiviljelyn suosio kertoo kirjoittajan mukaan?",
+        "options": [
+          "A) Ihmisillä on liikaa vapaa-aikaa",
+          "B) Se kertoo halusta tietää ruoan alkuperästä ja yhteisöllisyyden kaipuusta",
+          "C) Kaupungeissa on liikaa tilaa",
+          "D) Ihmiset haluavat säästää rahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "629b002f-b15e-585d-a5e2-514b0f0085e7",
+        "prompt": "Mitä hyötyä kaupunkiviljelystä on ilmaston kannalta?",
+        "options": [
+          "A) Se lisää päästöjä",
+          "B) Se vähentää kuljetusten päästöjä ja viilentää kaupunkeja",
+          "C) Sillä ei ole vaikutusta ilmastoon",
+          "D) Se lisää vedenkulutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e35caaca-6372-5e77-a9d7-9ddba3ce474d",
+        "prompt": "Mitä haasteita kaupunkiviljelyllä on?",
+        "options": [
+          "A) Liian kallista",
+          "B) Saastunut maa, vesipula ja tilan puute",
+          "C) Liian vähän valoa",
+          "D) Kasvit eivät kasva"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

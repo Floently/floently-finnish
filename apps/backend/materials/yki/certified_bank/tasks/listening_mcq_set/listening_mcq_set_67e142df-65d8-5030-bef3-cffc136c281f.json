@@ -1,0 +1,66 @@
+{
+  "id": "67e142df-65d8-5030-bef3-cffc136c281f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kotona ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Äiti: Hei, oletko jo lähtenyt kouluun?\nLapsi: Kohta lähden. En löydä pipoa.\nÄiti: Se on eteisen naulakossa.\nLapsi: Kiitos! Nähdään illalla.\nÄiti: Hei hei, ole varovainen!",
+      "audio_asset_id": "4c8dbd5a-063a-5f91-a282-8790d6c432ca"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_006_q1",
+        "prompt": "Mitä lapsi etsii?",
+        "options": [
+          "kengät",
+          "pipon",
+          "repun",
+          "avaimet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_006_q2",
+        "prompt": "Missä se on?",
+        "options": [
+          "huoneessa",
+          "keittiössä",
+          "eteisen naulakossa",
+          "koulussa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_listening_mcq_006_q3",
+        "prompt": "Mitä äiti sanoo lopuksi?",
+        "options": [
+          "tule ajoissa kotiin",
+          "ole varovainen",
+          "tee läksyt",
+          "siivoa huone"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

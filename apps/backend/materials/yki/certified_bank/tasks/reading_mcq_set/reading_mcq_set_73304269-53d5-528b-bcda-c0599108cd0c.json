@@ -1,0 +1,110 @@
+{
+  "id": "73304269-53d5-528b-bcda-c0599108cd0c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.726,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen hyvinvointiyhteiskunta perustuu ajatukseen, että jokaisella on oikeus turvalliseen elämään ja peruspalveluihin. Tämä tarkoittaa terveydenhuoltoa, koulutusta ja sosiaaliturvaa. Järjestelmä rahoitetaan verovaroin. Tavoitteena on vähentää eriarvoisuutta. Hyvinvointivaltio on ollut keskeinen tekijä Suomen kehityksessä. Se on luonut vakautta ja turvallisuutta. Viime vuosina hyvinvointivaltio on joutunut paineiden alle. Väestön ikääntyminen lisää palvelujen tarvetta. Julkiset menot kasvavat. Talouden globalisaatio asettaa haasteita veropohjalle. Kansalaisten odotukset palvelujen laadusta ovat korkealla. Tarvitaan uusia ratkaisuja, jotka turvaavat palvelut, mutta eivät kasvata julkista velkaa kestämättömästi. Teknologia ja ennaltaehkäisy voivat auttaa. Keskustelua käydään siitä, mikä on julkisen ja yksityisen vastuun sopiva suhde.",
+      "word_count": 92
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin ajatukseen suomalainen hyvinvointivaltio perustuu?",
+        "options": [
+          "Vain rikkailla on oikeus palveluihin.",
+          "Jokaisella on oikeus turvalliseen elämään ja peruspalveluihin.",
+          "Vain työssäkäyvillä on oikeus palveluihin.",
+          "Palvelut ovat vain kaupunkilaisille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä peruspalveluja hyvinvointivaltio tarjoaa?",
+        "options": [
+          "Vain terveydenhuoltoa.",
+          "Terveydenhuoltoa, koulutusta ja sosiaaliturvaa.",
+          "Vain koulutusta.",
+          "Vain sosiaaliturvaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten hyvinvointivaltio rahoitetaan?",
+        "options": [
+          "Yksityisillä lahjoituksilla.",
+          "Verovaroin.",
+          "Ulkomaisella avulla.",
+          "Lainarahalla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on hyvinvointivaltion tavoite?",
+        "options": [
+          "Lisätä eriarvoisuutta.",
+          "Vähentää eriarvoisuutta ja turvata ihmisarvoinen elämä.",
+          "Tuottaa voittoa.",
+          "Palvella vain rikkaita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä paineita hyvinvointivaltio kohtaa?",
+        "options": [
+          "Väestön nuorentuminen.",
+          "Väestön ikääntyminen ja julkisten menojen kasvu.",
+          "Liian vähäinen palvelujen tarve.",
+          "Liian suuri veropohja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten hyvinvointivaltiota voidaan uudistaa?",
+        "options": [
+          "Lisäämällä julkista velkaa.",
+          "Teknologialla ja ennaltaehkäisyllä.",
+          "Vähentämällä kaikkia palveluja.",
+          "Yksityistämällä kaikki."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mistä keskustelua käydään hyvinvointivaltion tulevaisuudessa?",
+        "options": [
+          "Siitä, pitäisikö hyvinvointivaltio lakkauttaa.",
+          "Julkisen ja yksityisen vastuun sopivasta suhteesta.",
+          "Siitä, pitäisikö verotusta laskea.",
+          "Siitä, pitäisikö kaikki palvelut siirtää verkkoon."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

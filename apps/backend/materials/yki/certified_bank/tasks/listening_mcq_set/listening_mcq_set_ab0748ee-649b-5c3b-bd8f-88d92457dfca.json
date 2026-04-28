@@ -1,0 +1,88 @@
+{
+  "id": "ab0748ee-649b-5c3b-bd8f-88d92457dfca",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uimahallin aukioloajoista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesiveijari tiedottaa aukioloaikojen muutoksista kesäkaudella. Kesäkuun alusta elokuun loppuun uimahalli on avoinna maanantaista perjantaihin kello 6-20 sekä lauantaisin ja sunnuntaisin kello 8-18. Heinäkuussa altaat ovat suljettuina huoltotöiden vuoksi viikolla 28, eli 8.-14. heinäkuuta. Tänä aikana sauna ja kuntosali ovat kuitenkin normaalisti auki. Lasten uimakoulut pidetään normaalisti kesäkuussa, ja niihin voi ilmoittautua verkkosivujen kautta. Pääsymaksut pysyvät ennallaan. Tervetuloa uimaan!",
+      "audio_asset_id": "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c"
+    },
+    "questions": [
+      {
+        "id": "l66q1",
+        "prompt": "Mihin asti uimahalli on arkisin auki kesäkaudella?",
+        "options": [
+          "Kello 18.",
+          "Kello 19.",
+          "Kello 20.",
+          "Kello 21."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l66q2",
+        "prompt": "Minä viikkona altaat ovat suljettuna heinäkuussa?",
+        "options": [
+          "Viikolla 27.",
+          "Viikolla 28.",
+          "Viikolla 29.",
+          "Viikolla 30."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l66q3",
+        "prompt": "Mitkä tilat ovat auki huoltotöiden aikana?",
+        "options": [
+          "Vain lastenallas.",
+          "Sauna ja kuntosali.",
+          "Vain kuntosali.",
+          "Kaikki tilat ovat kiinni."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l66q4",
+        "prompt": "Milloin lasten uimakoulut pidetään?",
+        "options": [
+          "Heinäkuussa.",
+          "Elokuussa.",
+          "Kesäkuussa.",
+          "Sekä kesä- että heinäkuussa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l66q5",
+        "prompt": "Miten uimakouluihin voi ilmoittautua?",
+        "options": [
+          "Puhelimitse.",
+          "Paikan päällä.",
+          "Verkkosivujen kautta.",
+          "Sähköpostilla."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

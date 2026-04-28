@@ -1,0 +1,110 @@
+{
+  "id": "07cf45ef-1b1d-5ecf-a643-56a7655a5a46",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen ulkopolitiikka on kokenut historiallisen muutoksen. Pitkään maa noudatti puolueettomuuspolitiikkaa. Venäjän hyökkäys Ukrainaan vuonna 2022 muutti tilanteen. Suomi haki Nato-jäsenyyttä ja liittyi puolustusliittoon vuonna 2023. Tämä päätti pitkän liittoutumattomuuden kauden. Nato-jäsenyys tuo Suomelle turvatakuut. Se myös velvoittaa osallistumaan liittokunnan yhteiseen puolustukseen. Jäsenyys vahvistaa Pohjoismaiden ja Baltian maiden turvallisuusyhteistyötä. Suhteet Venäjään ovat jäätyneet. Rajayhteistyö on keskeytetty. Suomen on varauduttava erilaisiin painostuskeinoihin, kuten kyberhyökkäyksiin ja disinformaatioon. Ulkopolitiikassa Suomi ajaa edelleen monenkeskistä yhteistyötä. YK ja EU ovat tärkeitä toimintaympäristöjä. Suomen ulkopolitiikka on sopeutunut uuteen tilanteeseen. Turvallisuusuhkat ovat moninaistuneet. Kansainvälinen järjestelmä on muuttunut epävakaammaksi. Tulevaisuudessa Suomen on tasapainoteltava oman turvallisuutensa varmistamisen ja kansainvälisen yhteistyön ylläpitämisen välillä.",
+      "word_count": 102
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millaista ulkopolitiikkaa Suomi noudatti pitkään?",
+        "options": [
+          "Aktiivista Nato-yhteistyötä.",
+          "Puolueettomuuspolitiikkaa.",
+          "Liittoutumista Venäjän kanssa.",
+          "Sotilaallista liittoutumista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä tapahtuma johti Suomen Nato-jäsenyyden hakemiseen?",
+        "options": [
+          "EU:n laajentuminen.",
+          "Venäjän hyökkäys Ukrainaan vuonna 2022.",
+          "Yhdysvaltain vaatimukset.",
+          "Ruotsin Nato-jäsenyys."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin Suomi liittyi Natoon?",
+        "options": [
+          "2022.",
+          "2023.",
+          "2024.",
+          "2025."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä Nato-jäsenyys tuo Suomelle?",
+        "options": [
+          "Vain kustannuksia.",
+          "Turvatakuut ja velvoitteita osallistua yhteiseen puolustukseen.",
+          "Vain byrokratiaa.",
+          "Vain sotilaallista koulutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten suhteet Venäjään ovat muuttuneet?",
+        "options": [
+          "Ne ovat tiivistyneet.",
+          "Ne ovat jäätyneet ja rajayhteistyö on keskeytetty.",
+          "Ne ovat pysyneet ennallaan.",
+          "Ne ovat parantuneet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä painostuskeinoja Venäjä voi käyttää Suomea vastaan?",
+        "options": [
+          "Vain sotilaallista hyökkäystä.",
+          "Kyberhyökkäyksiä ja disinformaatiota.",
+          "Vain taloudellisia pakotteita.",
+          "Vain diplomaattisia keinoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä arvoja Suomi ajaa ulkopolitiikassaan?",
+        "options": [
+          "Vain omia etujaan.",
+          "Monenkeskistä yhteistyötä.",
+          "Vain taloudellisia etuja.",
+          "Vain sotilaallista voimaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

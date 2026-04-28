@@ -1,0 +1,37 @@
+{
+  "id": "aaf60af5-52c4-52d0-bf70-3036516dfa6d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Matkatoimisto on perunut valmismatkan, mutta tarjonnut korvaukseksi vain osan matkan hinnasta. Kirjoita virallinen reklamaatio, jossa vaadit valmismatkalain mukaista täyttä korvausta, kuvaa alkuperäisen matkan sisältö ja hinta, perumisesta aiheutuneet muut kustannukset (lennot, majoitukset), viittaa lain pakottaviin säännöksiin ja vaadi erotuksen maksamista.",
+    "materials": {
+      "scenario": "Valmismatkan peruutus ja riittämätön korvaus"
+    },
+    "items": [
+      {
+        "id": "1988a69e-5d94-512e-b1ae-b16dd68889d6",
+        "prompt": "Matkatoimisto on perunut valmismatkan, mutta tarjonnut korvaukseksi vain osan matkan hinnasta. Kirjoita virallinen reklamaatio, jossa vaadit valmismatkalain mukaista täyttä korvausta, kuvaa alkuperäisen matkan sisältö ja hinta, perumisesta aiheutuneet muut kustannukset (lennot, majoitukset), viittaa lain pakottaviin säännöksiin ja vaadi erotuksen maksamista."
+      }
+    ],
+    "rubric": "Matkatoimisto on perunut valmismatkan, mutta tarjonnut korvaukseksi vain osan matkan hinnasta. Kirjoita virallinen reklamaatio, jossa vaadit valmismatkalain mukaista täyttä korvausta, kuvaa alkuperäisen matkan sisältö ja hinta, perumisesta aiheutuneet muut kustannukset (lennot, majoitukset), viittaa lain pakottaviin säännöksiin ja vaadi erotuksen maksamista.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

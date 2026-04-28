@@ -1,0 +1,99 @@
+{
+  "id": "0aa7992d-4747-572d-9c42-bb84744b4a5f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta terveysasemasta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin terveyspalvelujen tiedote. Hyvä uutinen: uusi terveysasema avaa ovensa maanantaina 6.11. Terveysasema sijaitsee osoitteessa Terveystie 3. Uudella terveysasemalla on nykyaikaiset tilat ja laitteet. Palveluihin kuuluvat lääkäri- ja hoitajavastaanotot, laboratorio, fysioterapia ja mielenterveyspalvelut. Ajanvaraus tapahtuu pääasiassa digitaalisen asioinnin kautta, mutta myös puhelinajanvaraus on mahdollista. Terveysasema on avoinna maanantaista perjantaihin kello 8–18. Iltaisin ja viikonloppuisin päivystys on keskussairaalassa. Tervetuloa uusiin tiloihin!",
+      "audio_asset_id": "5976a0f8-2ee2-4d4f-9de9-46f7796510e0"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä terveyspalvelut tiedottavat?",
+        "options": [
+          "Terveysaseman remontista.",
+          "Terveysaseman lakkauttamisesta.",
+          "Uuden terveysaseman avaamisesta.",
+          "Uusista aukioloajoista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minä päivänä uusi terveysasema avataan?",
+        "options": [
+          "Maanantaina 6.11.",
+          "Tiistaina 7.11.",
+          "Keskiviikkona 8.11.",
+          "Torstaina 9.11."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä palveluja uudella terveysasemalla on?",
+        "options": [
+          "Vain lääkäripalvelut.",
+          "Vain hammashoito.",
+          "Vain laboratorio.",
+          "Lääkäri-, hoitaja-, labra-, fysioterapia- ja mielenterveyspalvelut."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten ajanvaraus pääasiassa hoidetaan?",
+        "options": [
+          "Digitaalisen asioinnin kautta.",
+          "Vain käymällä paikan päällä.",
+          "Vain kirjeitse.",
+          "Vain tekstiviestillä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mihin aikaan terveysasema on auki arkisin?",
+        "options": [
+          "Kello 7–17.",
+          "Kello 8–18.",
+          "Kello 9–19.",
+          "Kello 10–20."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Missä on päivystys iltaisin ja viikonloppuisin?",
+        "options": [
+          "Samassa terveysasemassa.",
+          "Yksityisellä lääkäriasemalla.",
+          "Keskussairaalassa.",
+          "Ei missään."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

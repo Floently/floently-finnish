@@ -1,0 +1,99 @@
+{
+  "id": "f6555f7e-8cf0-5d44-9a0c-fa357187fcd5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu yritysvastuusta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme yritysten yhteiskuntavastuusta. Haastattelussa on vastuullisuusjohtaja Anna Lehtinen. Anna, mitä yritysvastuu tarkoittaa? Anna: Se tarkoittaa, että yritys ottaa toiminnassaan huomioon taloudellisten tavoitteiden lisäksi sosiaaliset ja ympäristövaikutukset. Se on vapaaehtoista toimintaa, joka ylittää lain vaatimukset. Toimittaja: Miten se näkyy käytännössä? Anna: Monin tavoin. Ympäristövastuu tarkoittaa päästöjen vähentämistä, energiatehokkuutta ja kierrätystä. Sosiaalinen vastuu tarkoittaa henkilöstön hyvinvoinnista huolehtimista, turvallisia työoloja ja ihmisoikeuksien kunnioittamista toimitusketjussa. Taloudellinen vastuu tarkoittaa pitkäjänteistä liiketoimintaa ja verojen maksua. Toimittaja: Miksi yritysten kannattaa panostaa vastuullisuuteen? Anna: Ensinnäkin, se on hyväksi maineelle. Kuluttajat suosivat vastuullisia yrityksiä. Toiseksi, se auttaa houkuttelemaan työntekijöitä. Monet haluavat tehdä työtä yrityksessä, jolla on hyvät arvot. Kolmanneksi, se voi vähentää riskejä, kuten mainehaittoja tai lainsäädännön muutoksia. Toimittaja: Entä haasteet? Anna: Välillä on vaikea tietää, mikä on oikea tapa toimia. Myös vastuullisuuden todentaminen on vaikeaa. Puhutaankin viherpesusta, jossa yritys viestii vastuullisuudesta, mutta teot eivät vastaa sanoja. Toimittaja: Miten kuluttaja voi tunnistaa vastuullisen yrityksen? Anna: Kannattaa katsoa sertifikaatteja, lukea vastuullisuusraportteja ja seurata keskustelua. Tärkeintä on olla kriittinen ja vaatia läpinäkyvyyttä.",
+      "audio_asset_id": "d3624891-27fe-4f84-8bcd-973dec7c6183"
+    },
+    "questions": [
+      {
+        "id": "08d5bfe6-8c6c-5b59-851a-a32b5b48c100",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Yritysten markkinointistrategiat.",
+          "Yritysten yhteiskuntavastuu.",
+          "Yritysten taloudellinen tulos.",
+          "Yritysten henkilöstöpolitiikka."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "58c07e75-4177-5f35-87e7-e9c6efef17e1",
+        "prompt": "Mitä yritysvastuu tarkoittaa?",
+        "options": [
+          "Vain voiton maksimointia.",
+          "Vain ympäristönsuojelua.",
+          "Vain työntekijöiden hyvinvointia.",
+          "Taloudellisten, sosiaalisten ja ympäristövaikutusten huomioimista."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "28fc97ff-eebd-568f-afc3-bfa9dcdb3d83",
+        "prompt": "Mitä ympäristövastuu tarkoittaa?",
+        "options": [
+          "Tuotannon lisäämistä.",
+          "Luonnonvarojen käytön maksimointia.",
+          "Uusien tehtaiden rakentamista.",
+          "Päästöjen vähentämistä ja energiatehokkuutta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "2f243ad3-ff1d-5abb-80bb-8095ac75b7bc",
+        "prompt": "Miksi yritysten kannattaa panostaa vastuullisuuteen?",
+        "options": [
+          "Se on pakollista lain mukaan.",
+          "Se on hyväksi maineelle ja auttaa houkuttelemaan työntekijöitä.",
+          "Se on halvempaa.",
+          "Se vähentää veroja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "63eeafcf-2a72-509f-99ec-32a55a6ff9ef",
+        "prompt": "Mitä tarkoittaa viherpesu?",
+        "options": [
+          "Yritys maalaa tehtaansa vihreäksi.",
+          "Yritys viljelee luomua.",
+          "Yritys kierrättää kaiken jätteen.",
+          "Yritys viestii vastuullisuudesta, mutta teot eivät vastaa sanoja."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "dcd247e2-32ed-5bba-85cb-2bc019854b0f",
+        "prompt": "Miten kuluttaja voi tunnistaa vastuullisen yrityksen?",
+        "options": [
+          "Katsomalla sertifikaatteja ja lukemalla vastuullisuusraportteja.",
+          "Luottamalla mainoksiin.",
+          "Valitsemalla halvimman tuotteen.",
+          "Katsomalla pakkauksen väriä."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

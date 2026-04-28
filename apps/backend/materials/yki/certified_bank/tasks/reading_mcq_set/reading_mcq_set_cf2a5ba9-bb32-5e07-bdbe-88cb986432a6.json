@@ -1,0 +1,99 @@
+{
+  "id": "cf2a5ba9-bb32-5e07-bdbe-88cb986432a6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalaiset lukevat paljon. Kirjastot ovatkin ahkerassa käytössä. Uusin trendi on äänikirjojen suosion kasvu. Niitä kuunnellaan esimerkiksi automatkoilla ja lenkillä. Äänikirjoja voi lainata kirjastosta tai käyttää maksullisia suoratoistopalveluja. Perinteiset painetut kirjat ovat kuitenkin edelleen monelle se tärkein lukemisen muoto.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä suomalaiset tekevät paljon?",
+        "options": [
+          "Katsovat televisiota",
+          "Lukevat",
+          "Urheilevat",
+          "Matkustavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on uusin trendi lukemisessa?",
+        "options": [
+          "Sarjakuvien suosio",
+          "Äänikirjojen suosion kasvu",
+          "E-kirjojen väheneminen",
+          "Sanomalehtien lukeminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä tilanteissa äänikirjoja kuunnellaan?",
+        "options": [
+          "Vain kotona",
+          "Automatkoilla ja lenkillä",
+          "Vain töissä",
+          "Vain koulussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mistä äänikirjoja voi saada?",
+        "options": [
+          "Vain kirjakaupoista",
+          "Kirjastosta tai maksullisista palveluista",
+          "Vain ilmaiseksi netistä",
+          "Vain kaverilta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on monelle se tärkein lukemisen muoto?",
+        "options": [
+          "Äänikirjat",
+          "E-kirjat",
+          "Perinteiset painetut kirjat",
+          "Verkkoartikkelit"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Missä kirjasto on käytössä?",
+        "options": [
+          "Vähän",
+          "Ahkerasti",
+          "Ei ollenkaan",
+          "Vain harvoin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

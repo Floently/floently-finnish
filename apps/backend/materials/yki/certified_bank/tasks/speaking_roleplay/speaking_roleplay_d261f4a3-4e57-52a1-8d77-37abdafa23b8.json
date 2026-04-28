@@ -1,0 +1,40 @@
+{
+  "id": "d261f4a3-4e57-52a1-8d77-37abdafa23b8",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Käy vaativa neuvottelu sosiaalitoimiston kanssa. Perustele toimeentulotukihakemuksesi hylkäämisen uudelleenkäsittelyä.",
+    "materials": {
+      "roles": {
+        "user": "pyytänyt uutta käsittelyä ja tapaamista virkailijan kanssa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "22b028ca-6604-5c16-a1ec-3ceb66a217a3",
+        "ai_first_turn_fi": "Olen katsonut hakemuksenne uudelleen. Päätös on tehty sääntöjen mukaan, koska pankkitilillänne on näillä näkymin yli sallitun rajan. Voitteko kertoa, miksi tilanne pitäisi arvioida toisin?"
+      }
+    ],
+    "rubric": "Käy vaativa neuvottelu sosiaalitoimiston kanssa. Perustele toimeentulotukihakemuksesi hylkäämisen uudelleenkäsittelyä.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

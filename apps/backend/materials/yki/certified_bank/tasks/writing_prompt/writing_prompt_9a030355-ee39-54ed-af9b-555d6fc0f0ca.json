@@ -1,0 +1,37 @@
+{
+  "id": "9a030355-ee39-54ed-af9b-555d6fc0f0ca",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kotitalousvähennystä laajentaa koskemaan myös digipalveluita. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Kotitalousvähennys digipalveluihin"
+    },
+    "items": [
+      {
+        "id": "83f10baa-46a0-522d-92b5-206458e87fda",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kotitalousvähennystä laajentaa koskemaan myös digipalveluita. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

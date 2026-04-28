@@ -1,0 +1,99 @@
+{
+  "id": "d90f95a4-15b7-50bc-bda4-1b7c512f0dff",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kirjaston käytöstä ja vastaa.",
+    "materials": {
+      "transcript": "Sanna: Hei Mikko, käytkö sä usein kirjastossa? Mikko: Joo, käyn aika usein. Lainaan kirjoja, mutta myös lehtiä ja elokuvia. Sanna: Mites se e-kirjojen lainaaminen? Ootko kokeillut? Mikko: Oon, se on tosi kätevää. Lataan puhelimeen kirjaston sovelluksen ja lainaan e-kirjoja ja äänikirjoja. Ei tartte käydä paikan päällä. Sanna: Pitääkö ne palauttaa jotenkin? Mikko: Ei, ne palautuu automaattisesti laina-ajan päätyttyä. Sanna: Kuinka pitkä laina-aika on? Mikko: Yleensä 14 päivää, mutta joissain aineistoissa se voi olla lyhyempi. Sanna: Entä maksut? Mikko: Lainaaminen on ilmaista, mutta jos palautat myöhässä, tulee pieni sakko. Sanna: Mitä muuta kirjastossa voi tehdä? Mikko: Siellä voi käyttää tietokoneita, tulostaa, skannata. Myös tapahtumia on paljon: lukupiirejä, satutunteja, näyttelyitä. Sanna: Kuulostaa hyvältä. Pitääpä käydä useammin.",
+      "audio_asset_id": "d5e6f7a8-b9c0-1d2e-3f4a-5b6c7d8e9f0a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä Sanna ja Mikko keskustelevat?",
+        "options": [
+          "Kirjojen ostamisesta.",
+          "Kirjaston käytöstä.",
+          "Elokuvista.",
+          "Lukupiiristä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä Mikko lainaa kirjastosta?",
+        "options": [
+          "Vain kirjoja.",
+          "Kirjoja, lehtiä ja elokuvia.",
+          "Vain äänikirjoja.",
+          "Vain e-kirjoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Miten e-kirjoja lainataan?",
+        "options": [
+          "Käymällä kirjastossa.",
+          "Lataamalla kirjaston sovelluksen puhelimeen.",
+          "Tilaamalla ne postissa.",
+          "Soittamalla kirjastoon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten e-kirjat palautetaan?",
+        "options": [
+          "Viemällä ne kirjastoon.",
+          "Ne palautuvat automaattisesti laina-ajan päätyttyä.",
+          "Lähettämällä ne sähköpostilla.",
+          "Ei tarvitse palauttaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Kuinka pitkä laina-aika yleensä on?",
+        "options": [
+          "7 päivää.",
+          "14 päivää.",
+          "21 päivää.",
+          "28 päivää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä muuta kirjastossa voi tehdä?",
+        "options": [
+          "Käydä kuntosalilla.",
+          "Käyttää tietokoneita, tulostaa ja käydä tapahtumissa.",
+          "Uida.",
+          "Pelata jalkapalloa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

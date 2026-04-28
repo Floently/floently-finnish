@@ -1,0 +1,37 @@
+{
+  "id": "5e6df1fa-2884-50af-96d3-3f2798cd0ca4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet lähdössä reissuun viikoksi. Kysy, voisiko hän käydä kastelemassa kukat kerran. Kerro, että kukat ovat olohuoneessa ja keittiössä. Kerro, missä kastelukannu on.",
+    "materials": {
+      "scenario": "Viesti ystävälle kukkien kastelusta"
+    },
+    "items": [
+      {
+        "id": "bd9eaecd-96aa-5d6f-a23c-c75a2a2156c3",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet lähdössä reissuun viikoksi. Kysy, voisiko hän käydä kastelemassa kukat kerran. Kerro, että kukat ovat olohuoneessa ja keittiössä. Kerro, missä kastelukannu on."
+      }
+    ],
+    "rubric": "Kerro, että lähdet reissuun\nKysy kukkien kasteluapua\nKerro, missä kukat ovat\nKerro, missä kastelukannu on",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

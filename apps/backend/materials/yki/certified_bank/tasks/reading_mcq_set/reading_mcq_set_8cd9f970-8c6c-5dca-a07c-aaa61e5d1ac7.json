@@ -1,0 +1,77 @@
+{
+  "id": "8cd9f970-8c6c-5dca-a07c-aaa61e5d1ac7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "MONIKULTTUURISUUS ON VOIMAVARA\n\nOlen työskennellyt yli kymmenen vuotta kansainvälisessä yrityksessä, jossa työntekijöitä on yli 30 maasta. Olen oppinut, että monikulttuurisuus on valtava rikkaus, mutta vain jos siihen osataan suhtautua oikein.\n\nLiian usein monikulttuurisuus nähdään ongelmana: kielimuuri, erilaiset tavat, väärinkäsitykset. Mutta erilaiset näkökulmat auttavat ratkaisemaan ongelmia, joihin homogeeninen tiimi ei koskaan päädy. Kollega Intiasta saattaa nähdä asiakaspalvelutilanteen täysin eri tavalla kuin suomalainen, ja juuri se voi olla ratkaiseva etu.\n\nSuomalaisessa työelämässä korostetaan usein tehokkuutta ja suoruutta. Monessa muussa kulttuurissa taas ihmissuhteet ja luottamus rakennetaan ensin – sitten tehdään kauppaa. Jos tätä ei ymmärrä, voi tulkita toisen osapuolen hitaaksi tai epäammattimaiseksi.\n\nTyöpaikoilla pitäisi panostaa kulttuurienväliseen koulutukseen. Ei siksi, että opetellaan ulkoa, mikä kulttuuri tekee mitäkin, vaan jotta opitaan tunnistamaan omia ennakkoluuloja.\n\nOmalla työpaikallani on otettu käyttöön \"kulttuurikummi\"-järjestelmä, jossa uusi työntekijä saa tuekseen toisen, joka auttaa paitsi työtehtävissä myös suomalaisen työkulttuurin ymmärtämisessä.\n\nMonikulttuurisuus ei ole uhka suomalaisuudelle. Päinvastoin, se voi rikastaa sitä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 177
+    },
+    "questions": [
+      {
+        "id": "65a6c330-e949-53c7-9918-97469503c9d9",
+        "prompt": "Miten kirjoittaja suhtautuu monikulttuurisuuteen?",
+        "options": [
+          "Se on pelkkä haaste",
+          "Se on rikkaus oikein suhtauduttuna",
+          "Se on ongelma",
+          "Ei vaikuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a963dfcf-30a8-5ffb-97c7-3b7f007e1cd3",
+        "prompt": "Mitä eroja kirjoittaja mainitsee kulttuurien välillä?",
+        "options": [
+          "Suomalaiset ovat laiskoja",
+          "Suomalaiset korostavat tehokkuutta, toiset ihmissuhteita",
+          "Suomalaiset puhuvat liikaa",
+          "Ulkomaalaiset eivät osaa työskennellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3870b080-68ce-5fa5-b579-b9e5bb200b67",
+        "prompt": "Mitä \"kulttuurikummi\"-järjestelmä tarkoittaa?",
+        "options": [
+          "Kummi maksaa palkan",
+          "Uusi työntekijä saa tuekseen toisen",
+          "Jokainen saa kummitädin",
+          "Kulttuuritapahtumia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "314d4fd0-8f36-5ba9-bb26-6386e9a3ba12",
+        "prompt": "Mitä työpaikoilla pitäisi tehdä?",
+        "options": [
+          "Palkata vain suomalaisia",
+          "Panostaa kulttuurienväliseen koulutukseen",
+          "Lopettaa kansainvälinen yhteistyö",
+          "Puhua vain englantia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

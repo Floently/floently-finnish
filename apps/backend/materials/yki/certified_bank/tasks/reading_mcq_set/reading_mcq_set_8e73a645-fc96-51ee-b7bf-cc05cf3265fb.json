@@ -1,0 +1,66 @@
+{
+  "id": "8e73a645-fc96-51ee-b7bf-cc05cf3265fb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SOSIAALINEN MEDIA JA MIELENTERVEYS\n\nSosiaalinen media on tärkeä osa monen nuoren arkea. Se tarjoaa mahdollisuuden pitää yhteyttä ystäviin, jakaa kokemuksia ja saada tietoa. Mutta sillä on myös varjopuolensa, erityisesti mielenterveyden kannalta.\n\nTutkimukset osoittavat, että runsas sosiaalisen median käyttö voi lisätä ahdistusta ja masennusta. Yksi syy on jatkuva vertailu. Some on täynnä muiden ihmisten päivitettyjä, usein idealisoituja elämiä – lomakuvia, onnistumisia, täydellisiä hetkiä. Oman arjen vertaaminen näihin kuviin voi aiheuttaa riittämättömyyden tunnetta.\n\nToinen ongelma on koukuttavuus. Sovellukset on suunniteltu niin, että niitä on vaikea lopettaa. Ilmoitukset, tykkäykset ja uudet päivitykset aktivoivat aivojen palkitsemisjärjestelmää. Tämä voi johtaa siihen, että puhelinta tulee katsottua jatkuvasti, jopa yöllä. Unen puute taas heikentää jaksamista ja mielialaa.\n\nKolmas ongelma on kiusaaminen. Some mahdollistaa anonymiteetin, ja kiusaaminen voi olla rajumpaa kuin kasvokkain. Kiusatuksi joutuminen somessa voi olla erityisen raskasta, koska se on julkista ja seuraa kotiin asti.\n\nMutta some voi myös tukea mielenterveyttä. Se tarjoaa vertaistukea ja yhteisöllisyyttä niille, jotka muuten olisivat yksin. Monelle some on tärkeä kanava saada tietoa mielenterveysongelmista ja hakea apua.\n\nAsiantuntijat neuvovat, että somea kannattaa käyttää harkiten. Oman käytön rajaaminen, sometauot ja oman mielen seuraaminen ovat tärkeitä. Jos some alkaa ahdistaa, kannattaa miettiä, mitä tilejä seuraa ja miksi. Tärkeintä on, että some palvelee omaa hyvinvointia, ei päinvastoin.",
+      "word_count": 203
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi sosiaalinen media voi aiheuttaa ahdistusta?",
+        "options": [
+          "Koska siellä on liian vähän kuvia",
+          "Koska jatkuva vertailu muiden idealisoituihin elämiin voi aiheuttaa riittämättömyyden tunnetta",
+          "Koska siellä on vain huonoja uutisia",
+          "Koska kaikki ovat siellä aina vihaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten some voi tukea mielenterveyttä?",
+        "options": [
+          "Se ei voi tukea millään tavalla",
+          "Se tarjoaa vertaistukea ja yhteisöllisyyttä",
+          "Se korvaa kaikki ihmissuhteet",
+          "Se on aina positiivista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä asiantuntijat neuvovat?",
+        "options": [
+          "Lopettaa some kokonaan",
+          "Käyttää somea harkiten, rajata käyttöä ja pitää sometaukoja",
+          "Käyttää somea mahdollisimman paljon",
+          "Seurata kaikkia tilejä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

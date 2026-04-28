@@ -1,0 +1,37 @@
+{
+  "id": "77c9c4bd-2893-58dd-8aac-525f619b3a03",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaavoituksessa painottaa enemmän tiivistä kaupunkirakennetta haja-asutuksen sijaan?'. Analysoi ympäristöä, asumisviihtyisyyttä ja liikennettä.",
+    "materials": {
+      "scenario": "Tiivis kaupunkirakenne"
+    },
+    "items": [
+      {
+        "id": "f1e7cc28-a037-5b37-9c30-a7e4d56eba1d",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaavoituksessa painottaa enemmän tiivistä kaupunkirakennetta haja-asutuksen sijaan?'. Analysoi ympäristöä, asumisviihtyisyyttä ja liikennettä."
+      }
+    ],
+    "rubric": "Ympäristö\nAsumisviihtyisyys\nLiikenne\nPalvelut",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

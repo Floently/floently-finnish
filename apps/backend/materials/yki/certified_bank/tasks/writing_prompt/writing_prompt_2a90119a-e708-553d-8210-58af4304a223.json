@@ -1,0 +1,37 @@
+{
+  "id": "2a90119a-e708-553d-8210-58af4304a223",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota ilmainen psykologipalvelu nuorille?'. Arvioi mielenterveyttä, ennaltaehkäisyä ja kustannuksia.",
+    "materials": {
+      "scenario": "Ilmainen psykologipalvelu nuorille"
+    },
+    "items": [
+      {
+        "id": "0b9f3a54-3724-56a2-a9e8-79d30f124264",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota ilmainen psykologipalvelu nuorille?'. Arvioi mielenterveyttä, ennaltaehkäisyä ja kustannuksia."
+      }
+    ],
+    "rubric": "Mielenterveys\nEnnaltaehkäisy\nKustannukset\nSaavutettavuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

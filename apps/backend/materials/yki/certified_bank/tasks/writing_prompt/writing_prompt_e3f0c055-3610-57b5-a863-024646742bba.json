@@ -1,0 +1,37 @@
+{
+  "id": "e3f0c055-3610-57b5-a863-024646742bba",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kunnan nuorisotoimeen. Haluat ehdottaa, että nuorille järjestettäisiin maksuttomia kesäleirejä. Kerro, miksi tämä olisi tärkeää ja millaisia leirejä toivoisit. Kysy myös, miten ehdotuksia käsitellään.",
+    "materials": {
+      "scenario": "Ehdotus maksuttomista kesäleireistä"
+    },
+    "items": [
+      {
+        "id": "cd573830-5783-5050-9aac-326dbd0ceb89",
+        "prompt": "Kirjoita sähköposti kunnan nuorisotoimeen. Haluat ehdottaa, että nuorille järjestettäisiin maksuttomia kesäleirejä. Kerro, miksi tämä olisi tärkeää ja millaisia leirejä toivoisit. Kysy myös, miten ehdotuksia käsitellään."
+      }
+    ],
+    "rubric": "Tarpeen kuvaus\nLeirien sisältö\nEhdotusten käsittely",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

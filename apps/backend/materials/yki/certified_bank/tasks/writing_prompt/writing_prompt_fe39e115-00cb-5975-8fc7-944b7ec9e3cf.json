@@ -1,0 +1,37 @@
+{
+  "id": "fe39e115-00cb-5975-8fc7-944b7ec9e3cf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti valtion taidemuseolle. Haluaisit lahjoittaa kokoelmassa olevan taideteoksen museolle. Kerro teoksesta, sen taustasta ja lahjoituksen ehdoista. Kysy, miten lahjoitusprosessi etenee ja ottaako museo teoksen vastaan.",
+    "materials": {
+      "scenario": "Taideteoksen lahjoittaminen museolle"
+    },
+    "items": [
+      {
+        "id": "c2762fa2-072b-5060-9033-8e4f5ccc5a9b",
+        "prompt": "Kirjoita virallinen sähköposti valtion taidemuseolle. Haluaisit lahjoittaa kokoelmassa olevan taideteoksen museolle. Kerro teoksesta, sen taustasta ja lahjoituksen ehdoista. Kysy, miten lahjoitusprosessi etenee ja ottaako museo teoksen vastaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

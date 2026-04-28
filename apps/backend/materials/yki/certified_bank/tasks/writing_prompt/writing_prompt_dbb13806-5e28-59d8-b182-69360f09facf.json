@@ -1,0 +1,37 @@
+{
+  "id": "dbb13806-5e28-59d8-b182-69360f09facf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt lääkärissä ja saanut reseptin. Kirjoita palaute. Toimiiko e-resepti hyvin?",
+    "materials": {
+      "scenario": "Palaute e-reseptistä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt lääkärissä ja saanut reseptin. Kirjoita palaute. Toimiiko e-resepti hyvin?"
+      }
+    ],
+    "rubric": "Olet käynyt lääkärissä ja saanut reseptin. Kirjoita palaute. Toimiiko e-resepti hyvin?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

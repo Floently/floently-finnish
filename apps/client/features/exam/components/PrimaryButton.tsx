@@ -1,0 +1,2 @@
+import React from 'react'; import { Pressable, Text } from 'react-native'; import { colors, radius, spacing, typography } from '@ui/theme';
+export default function PrimaryButton({ label, onPress }: { label: string; onPress: () => void }) { return <Pressable onPress={onPress} style={{ backgroundColor: colors.primary, padding: spacing.md, borderRadius: radius.md }}><Text style={{ color: '#081018', textAlign: 'center', ...typography.h3 }}>{label}</Text></Pressable>; }

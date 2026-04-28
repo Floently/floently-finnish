@@ -1,0 +1,40 @@
+{
+  "id": "b6f5ee10-8955-5a98-a02a-130373a3788a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.288,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you know about Finland's EU membership. Mention one good and one bad thing.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Tiedätkö, milloin Suomi liittyi EU"
+      }
+    },
+    "items": [
+      {
+        "id": "ab3874ac-8d87-5b61-bdac-cc8f554279b3",
+        "ai_first_turn_fi": "Tiedätkö, milloin Suomi liittyi EU:hun? Onko siitä ollut hyötyä?"
+      }
+    ],
+    "rubric": "Tell what you know about Finland's EU membership. Mention one good and one bad thing.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

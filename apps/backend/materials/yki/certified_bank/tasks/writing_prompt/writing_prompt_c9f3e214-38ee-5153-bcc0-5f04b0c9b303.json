@@ -1,0 +1,37 @@
+{
+  "id": "c9f3e214-38ee-5153-bcc0-5f04b0c9b303",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a CEO position in a small growth company. Tell about your previous management experience, business development, and strategic vision. Also describe how you have created growth and how you lead a company in a changing operating environment. Length about 320 words.",
+    "materials": {
+      "scenario": "Hakemus toimitusjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "f4f0696f-5e3a-5b87-ae89-ab23c7d777b0",
+        "prompt": "Write a job application. You are applying for a CEO position in a small growth company. Tell about your previous management experience, business development, and strategic vision. Also describe how you have created growth and how you lead a company in a changing operating environment. Length about 320 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a CEO position in a small growth company. Tell about your previous management experience, business development, and strategic vision. Also describe how you have created growth and how you lead a company in a changing operating environment. Length about 320 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

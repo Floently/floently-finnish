@@ -1,0 +1,77 @@
+{
+  "id": "795c669b-015d-514e-b01a-19cde252dece",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijapaneeli asuntopolitiikasta ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Moderaattori: Keskustelemme siitä, miten kohtuuhintaista asumista pitäisi lisätä kasvukaupungissa. Tutkija: Pelkkä rakentamisen määrä ei ratkaise ongelmaa, jos tuotanto kohdistuu yksipuolisesti samaan segmenttiin. Rakennuttaja: Tarvitaan ennakoitava kaavoitus, jotta investointiriski pysyy hallittavana. Kaupungin edustaja: Samalla meidän on varmistettava alueellinen sekoittuneisuus, ettei eriytyminen syvene. Moderaattori: Missä näkemykset eroavat eniten? Tutkija: Siinä, painotetaanko markkinaehtoista tarjontaa vai julkisia ohjauskeinoja. Rakennuttaja: Ohjaus toimii, jos se on pitkäjänteistä eikä muutu jokaisella valtuustokaudella. Kaupungin edustaja: Siksi tarvitsemme yhteisesti hyväksytyn tavoitepolun yli hallituskausien.",
+      "audio_asset_id": "efa5db6e-dc8b-56b4-90fc-547e502d6c95"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä tutkijan mukaan ei yksin riitä?",
+        "options": [
+          "rakentamisen määrä",
+          "alueellinen sekoittuneisuus",
+          "kaavoituksen ennakoitavuus",
+          "pitkäjänteinen ohjaus"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä rakennuttaja korostaa investointiriskin hallinnassa?",
+        "options": [
+          "lyhyitä lupia",
+          "ennakoitavaa kaavoitusta",
+          "satunnaista tonttijakoa",
+          "hankkeiden pienentämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä oli keskustelun keskeinen erimielisyys?",
+        "options": [
+          "rakennusmateriaalit",
+          "markkinaehtoisen tarjonnan ja julkisen ohjauksen painotus",
+          "asuntojen koko",
+          "liikennejärjestelyt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä kaupungin edustaja ehdotti jatkuvuuden varmistamiseksi?",
+        "options": [
+          "hankkeiden keskeyttämistä",
+          "tavoitepolkua yli hallituskausien",
+          "yksityistä rahoitusmallia",
+          "päätösten siirtoa virkamiehille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

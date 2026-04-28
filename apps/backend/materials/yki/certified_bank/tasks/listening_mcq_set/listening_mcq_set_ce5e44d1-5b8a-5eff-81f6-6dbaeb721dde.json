@@ -1,0 +1,76 @@
+{
+  "id": "ce5e44d1-5b8a-5eff-81f6-6dbaeb721dde",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele luento ilmastonmuutoksesta ja kaupungeista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät kuulijat. Tänään puhun ilmastonmuutoksesta ja kaupunkien roolista siinä.\n\nKaupungit tuottavat noin 70 prosenttia maailman hiilidioksidipäästöistä. Samalla ne ovat erityisen haavoittuvaisia ilmastonmuutoksen vaikutuksille: lämpösaarekeilmiö, tulvat, merenpinnan nousu.\n\nMitä kaupungit voivat tehdä? Ensinnäkin ne voivat vähentää päästöjä panostamalla joukkoliikenteeseen, pyöräilyyn ja kävelyyn. Toiseksi ne voivat lisätä viheralueita, jotka sitovat hiiltä ja viilentävät ilmaa.\n\nKolmanneksi rakentamisen on oltava energiatehokasta. Uudet rakennukset pitää suunnitella niin, että ne kuluttavat vähän energiaa. Vanhoja taloja pitää korjata.\n\nNeljänneksi kaupungit voivat edistää kiertotaloutta. Kierrätys, uudelleenkäyttö, jakamistalous – kaikki nämä vähentävät päästöjä.\n\nMutta yksin kaupungit eivät pärjää. Tarvitaan valtion tukea ja lainsäädäntöä. Myös kansalaisten asenteet ja valinnat vaikuttavat.\n\nSuomessa on hyviä esimerkkejä. Helsinki on sitoutunut olemaan hiilineutraali vuoteen 2030 mennessä. Myös Tampere ja Turku tekevät paljon.\n\nLopuksi: kaupungit ovat sekä ongelma että ratkaisu. Ne voivat olla edelläkävijöitä ilmastotyössä.",
+      "audio_asset_id": "a09ac03f-caba-4ea1-8562-25053e86ea74"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka paljon maailman päästöistä tulee kaupungeista?",
+        "options": [
+          "Noin 50 %",
+          "Noin 60 %",
+          "Noin 70 %",
+          "Noin 80 %"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi kaupungit ovat haavoittuvaisia?",
+        "options": [
+          "Liian paljon autoja",
+          "Lämpösaarekeilmiö, tulvat",
+          "Liian vähän asukkaita",
+          "Huono ilmanlaatu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kaupungit voivat vähentää päästöjä?",
+        "options": [
+          "Rakentamalla lisää teitä",
+          "Joukkoliikenne, viheralueet, energiatehokkuus",
+          "Lisäämällä teollisuutta",
+          "Kieltämällä autot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin Helsinki on sitoutunut?",
+        "options": [
+          "Lisäämään päästöjä",
+          "Olemaan hiilineutraali 2030 mennessä",
+          "Rakentamaan lisää Kieltämään autot"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

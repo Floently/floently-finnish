@@ -1,0 +1,37 @@
+{
+  "id": "95ec6428-8007-5329-85a2-a7b4405402be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ostanut lenkkarit verkkokaupasta. Kirjoita palaute. Kerro, sopivatko ne, tuliko ne nopeasti ja onko hinta hyvä.",
+    "materials": {
+      "scenario": "Palaute verkkokaupan lenkkareista"
+    },
+    "items": [
+      {
+        "id": "a41db4fc-b670-5b33-ba44-2a5049b4a8fa",
+        "prompt": "Olet ostanut lenkkarit verkkokaupasta. Kirjoita palaute. Kerro, sopivatko ne, tuliko ne nopeasti ja onko hinta hyvä."
+      }
+    ],
+    "rubric": "Olet ostanut lenkkarit verkkokaupasta. Kirjoita palaute. Kerro, sopivatko ne, tuliko ne nopeasti ja onko hinta hyvä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

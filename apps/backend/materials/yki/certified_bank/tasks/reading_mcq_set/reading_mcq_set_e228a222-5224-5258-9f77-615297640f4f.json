@@ -1,0 +1,88 @@
+{
+  "id": "e228a222-5224-5258-9f77-615297640f4f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi mielenterveyspalveluiden tilasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MIELENTERVEYSPALVELUT – KRIISISSÄ OLEVA JÄRJESTELMÄ\n\nMielenterveyspalvelut ovat olleet pitkään aliresurssoituja Suomessa. Samalla mielenterveysongelmat ovat lisääntyneet, erityisesti nuorten keskuudessa. Tämä on johtanut tilanteeseen, jossa palvelut eivät vastaa kysyntää.\n\nHoitoon pääsyssä on suuria ongelmia. Julkisen puolen terapiapalveluihin voi joutua odottamaan kuukausia, jopa vuosia. Tämä on kohtuutonta ihmisille, jotka tarvitsevat apua akuutisti. Pitkät jonot pahentavat ongelmia ja lisäävät inhimillistä kärsimystä.\n\nYksityiset palvelut ovat monille ainoa vaihtoehto, mutta ne ovat kalliita. Kela-korvaus terapialle on pieni, ja monilla ei ole varaa maksaa useita kymmeniä euroja viikossa. Tämä lisää eriarvoisuutta: ne, joilla on rahaa, saavat apua, muut jäävät odottamaan.\n\nPerusterveydenhuolto on usein ensimmäinen paikka, jonne hakeudutaan. Lääkäreillä ei kuitenkaan ole aikaa paneutua mielenterveysongelmiin. Usein potilas saa sairauslomaa ja lääkemääräyksen, mutta varsinaiseen hoitoon ohjaaminen kestää.\n\nEnnaltaehkäisyyn panostetaan liian vähän. Kouluissa ja työpaikoilla pitäisi olla enemmän matalan kynnyksen palveluja, joissa voi keskustella ammattilaisen kanssa. Ongelmiin puuttuminen varhaisessa vaiheessa vähentäisi pitkäaikaista kärsimystä ja kustannuksia.\n\nRatkaisuja on monia. Tarvitaan lisää resursseja, mutta myös rakenteellisia uudistuksia. Terapiatakuu, joka takaisi hoidon kohtuullisessa ajassa, on yksi ehdotus. Myös digitaaliset terapiapalvelut voivat auttaa, mutta ne eivät sovi kaikille.\n\nMielenterveys on ihmisoikeus. Jokaisella pitäisi olla oikeus saada apua ajoissa.",
+      "word_count": 184
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on suurin ongelma mielenterveyspalveluissa?",
+        "options": [
+          "Liian paljon hoitajia",
+          "Hoitoon pääsyssä on pitkiä jonoja",
+          "Potilaat eivät halua hoitoa",
+          "Lääkkeet ovat liian kalliita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi yksityiset palvelut eivät ole kaikkien saatavilla?",
+        "options": [
+          "Ne ovat huonolaatuisia",
+          "Ne ovat kalliita ja Kela-korvaus on pieni",
+          "Niissä on pitkät jonot",
+          "Niitä ei ole olemassa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten perusterveydenhuollossa tyypillisesti toimitaan?",
+        "options": [
+          "Potilas ohjataan heti terapiaan",
+          "Annetaan sairauslomaa ja lääkkeitä, mutta varsinainen hoito viivästyy",
+          "Potilas lähetetään ulkomaille",
+          "Ongelmaa ei oteta vakavasti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan terapiatakuulla?",
+        "options": [
+          "Terapia on ilmaista kaikille",
+          "Hoidon saaminen taataan kohtuullisessa ajassa",
+          "Vain tietyt terapiamuodot ovat sallittuja",
+          "Terapeutit saavat lisää koulutusta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kirjoittaja pitää tärkeänä?",
+        "options": [
+          "Vain lääkehoitoa",
+          "Sekä ennaltaehkäisyä että hoitoon pääsyn parantamista",
+          "Vain yksityisiä palveluja",
+          "Mielenterveysongelmien unohtamista"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

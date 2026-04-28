@@ -1,0 +1,37 @@
+{
+  "id": "fb643bbd-9945-599e-afe9-61a0a858751c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö yritysten yhteiskuntavastuuta säännellä lailla vai riittääkö vapaaehtoisuus?'. Analysoi sääntelyn tehokkuutta ja yritysten kilpailukykyä.",
+    "materials": {
+      "scenario": "Yritysten yhteiskuntavastuu"
+    },
+    "items": [
+      {
+        "id": "be40c6e0-8b44-590e-bfb7-34a5cdc0774c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö yritysten yhteiskuntavastuuta säännellä lailla vai riittääkö vapaaehtoisuus?'. Analysoi sääntelyn tehokkuutta ja yritysten kilpailukykyä."
+      }
+    ],
+    "rubric": "Sääntelyn tehokkuus\nYritysten kilpailukyky\nKuluttajien luottamus\nKansainväliset erot",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

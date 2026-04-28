@@ -1,0 +1,73 @@
+{
+  "id": "ef02cc05-4104-51c9-a982-fcb55b0de0bc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.488,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue vuokrausilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "VUOKRATAAN HUONE\n\nVuokrataan huone isosta asunnosta keskustasta. Huone on noin 14 m² ja siinä on iso ikkuna. Vuokra on 380 €/kk sisältäen veden ja sähkön.\n\nYhteiset tilat: keittiö, kylpyhuone ja sauna. Bussipysäkki on 200 metrin päässä.\n\nVapautuu 1.8.2025. Ota yhteyttä: Maija, puh. 040 123 4575.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Kuinka iso huone on?",
+        "options": [
+          "12 m²",
+          "14 m²",
+          "16 m²"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä vuokraan sisältyy?",
+        "options": [
+          "vesi ja sähkö",
+          "vesi, sähkö ja netti",
+          "vain vesi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_003",
+        "prompt": "Milloin huone vapautuu?",
+        "options": [
+          "1.7.2025",
+          "1.8.2025",
+          "1.9.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä yhteisiä tiloja asunnossa on?",
+        "options": [
+          "keittiö ja kylpyhuone",
+          "keittiö, kylpyhuone ja sauna",
+          "keittiö ja olohuone"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

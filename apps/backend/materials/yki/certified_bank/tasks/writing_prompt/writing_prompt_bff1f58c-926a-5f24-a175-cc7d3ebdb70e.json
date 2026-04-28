@@ -1,0 +1,37 @@
+{
+  "id": "bff1f58c-926a-5f24-a175-cc7d3ebdb70e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö somevaikuttajien mainoksia säännellä tiukemmin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Somevaikuttajien mainosten sääntely"
+    },
+    "items": [
+      {
+        "id": "ca1c4bf7-e2a3-5078-81e6-ac8590043c9b",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö somevaikuttajien mainoksia säännellä tiukemmin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

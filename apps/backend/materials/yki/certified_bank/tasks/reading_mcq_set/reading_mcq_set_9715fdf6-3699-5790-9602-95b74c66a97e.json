@@ -1,0 +1,66 @@
+{
+  "id": "9715fdf6-3699-5790-9602-95b74c66a97e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.742,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kestävä kehitys on laaja käsite, joka kattaa ekologisen, taloudellisen ja sosiaalisen kestävyyden. Ekologinen kestävyys tarkoittaa luonnon monimuotoisuuden turvaamista, ilmastonmuutoksen hillintää ja luonnonvarojen kestävää käyttöä. Taloudellinen kestävyys tarkoittaa talouskasvua, joka ei perustu velkaantumiseen tai luonnonvarojen ylikulutukseen. Sosiaalinen kestävyys tarkoittaa hyvinvoinnin oikeudenmukaista jakautumista, yhdenvertaisuutta ja osallisuutta. Nämä kolme ulottuvuutta ovat kytköksissä toisiinsa. Esimerkiksi ilmastonmuutoksen hillitseminen voi luoda uusia työpaikkoja ja parantaa sosiaalista hyvinvointia, jos se tehdään oikeudenmukaisesti. Kestävä kehitys on tulevaisuuspolitiikan keskeinen tavoite.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "mcq_135",
+        "prompt": "Mitä ulottuvuuksia kestävä kehitys kattaa?",
+        "options": [
+          "Ekologisen ja taloudellisen",
+          "Taloudellisen ja sosiaalisen",
+          "Ekologisen, taloudellisen ja sosiaalisen",
+          "Ekologisen ja sosiaalisen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_136",
+        "prompt": "Mitä ekologinen kestävyys tarkoittaa?",
+        "options": [
+          "Talouskasvua ja velkaantumista",
+          "Luonnon monimuotoisuuden turvaamista",
+          "Sosiaalista oikeudenmukaisuutta",
+          "Yhdenvertaisuutta ja osallisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_137",
+        "prompt": "Mitä sosiaalinen kestävyys tarkoittaa?",
+        "options": [
+          "Luonnonvarojen kestävää käyttöä",
+          "Talouskasvua",
+          "Hyvinvoinnin oikeudenmukaista jakautumista",
+          "Ilmastonmuutoksen hillintää"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "81eac87a-ec2f-5b93-8f43-1e8b2a4cefc7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÖYTYNYT LOMPAKKO\n\nRuskea nahkalompakko löytyi 20.7. linja-autoaseman odotushuoneesta.\n\nLompakossa on henkilökortti ja 50 euroa rahaa.\n\nNouto poliisiasemalta.\n\nMukaan tarvitaan henkilöllisyystodistus.",
+      "word_count": 20
+    },
+    "questions": [
+      {
+        "id": "item_007_1",
+        "prompt": "Minkä värinen löytynyt lompakko on?",
+        "options": [
+          "musta",
+          "ruskea",
+          "punainen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_007_2",
+        "prompt": "Mistä lompakko löytyi?",
+        "options": [
+          "bussista",
+          "linja-autoaseman odotushuoneesta",
+          "kadulta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_007_3",
+        "prompt": "Paljonko lompakossa on rahaa?",
+        "options": [
+          "20 €",
+          "50 €",
+          "100 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_007_4",
+        "prompt": "Mistä lompakon voi noutaa?",
+        "options": [
+          "linja-autoasemalta",
+          "poliisiasemalta",
+          "kaupungintalolta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

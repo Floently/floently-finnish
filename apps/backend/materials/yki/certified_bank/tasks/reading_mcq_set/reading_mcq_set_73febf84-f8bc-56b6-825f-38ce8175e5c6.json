@@ -1,0 +1,88 @@
+{
+  "id": "73febf84-f8bc-56b6-825f-38ce8175e5c6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.771,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Yksinäisyys on yksi aikamme suurimmista mutta vähiten näkyvistä ongelmista, ja se koskettaa kaikenikäisiä ihmisiä kaikissa yhteiskuntaluokissa. Yksinäisyys ei ole sama asia kuin yksin oleminen, vaan se on subjektiivinen kokemus siitä, että sosiaaliset suhteet ovat riittämättömät joko määrällisesti tai laadullisesti. Pitkittyessään yksinäisyys on vakava terveysriski, joka voi altistaa masennukselle, ahdistukselle ja jopa fyysisille sairauksille. Yksi keskeisimmistä yksinäisyyden syistä on yhteiskunnan rakenteellinen muutos. Perinteiset yhteisöt, kuten suurperheet ja tiiviit naapurustot, ovat hajonneet, ja ihmiset elävät yhä useammin yksin. Kaupungistuminen ja työelämän muutokset ovat lisänneet liikkuvuutta ja heikentäneet pysyviä sosiaalisia suhteita. Toinen keskeinen syy on digitalisaatio ja sosiaalinen media. Vaikka ne mahdollistavat yhteydenpidon, ne voivat myös korvata kasvokkain tapahtuvaa vuorovaikutusta. Pintapuoliset some-kontaktit eivät välttämättä lievitä yksinäisyyttä, ja jatkuva toisten ihmisten täydellisten elämien seuraaminen voi lisätä omaa riittämättömyyden tunnetta. Kolmas syy on elämänmuutokset, kuten eläkkeelle jääminen, leskeksi jääminen, avioero, työttömyys ja lasten muuttaminen pois kotoa. Nämä muutokset voivat katkaista tärkeitä sosiaalisia verkostoja ja jättää ihmisen yksin. Erityisen haavoittuvassa asemassa ovat ikääntyneet, jotka menettävät puolisonsa ja ystäviään ja joiden liikkumiskyky voi heikentyä. Yksinäisyyden ehkäisemiseksi tarvitaan monenlaisia toimia. Yhteiskunnan on luotava rakenteita, jotka mahdollistavat kohtaamisia ja yhteisöllisyyttä, kuten esteettömiä julkisia tiloja, kohtaamispaikkoja ja harrastusmahdollisuuksia. Myös teknologiaa voidaan hyödyntää, mutta sen on tuettava eikä korvattava inhimillistä vuorovaikutusta.",
+      "word_count": 200
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä yksinäisyys tarkoittaa?",
+        "options": [
+          "Samaa kuin yksin oleminen",
+          "Subjektiivista kokemusta siitä, että sosiaaliset suhteet ovat riittämättömät",
+          "Sosiaalisten suhteiden täydellistä puuttumista",
+          "Fyysistä eristäytymistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä terveysriskejä pitkittynyt yksinäisyys voi aiheuttaa?",
+        "options": [
+          "Vain lievää pahoinvointia",
+          "Masennusta, ahdistusta ja fyysisiä sairauksia",
+          "Vain unettomuutta",
+          "Vain ruokahaluttomuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten yhteiskunnan rakenteelliset muutokset ovat vaikuttaneet yksinäisyyteen?",
+        "options": [
+          "Ne ovat vahvistaneet yhteisöllisyyttä",
+          "Perinteiset yhteisöt ovat hajonneet ja ihmiset elävät useammin yksin",
+          "Ne ovat lisänneet sosiaalisia suhteita",
+          "Ne eivät ole vaikuttaneet yksinäisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten sosiaalinen media voi vaikuttaa yksinäisyyteen?",
+        "options": [
+          "Se aina vähentää yksinäisyyttä",
+          "Pintapuoliset some-kontaktit eivät välttämättä lievitä yksinäisyyttä, ja vertailu muihin voi lisätä riittämättömyyden tunnetta",
+          "Se korvaa kokonaan kasvokkain tapahtuvan vuorovaikutuksen",
+          "Sillä ei ole vaikutusta yksinäisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä toimia yksinäisyyden ehkäisemiseksi tarvitaan?",
+        "options": [
+          "Vain yksilön omaa aktiivisuutta",
+          "Yhteiskunnan rakenteita, jotka mahdollistavat kohtaamisia ja yhteisöllisyyttä",
+          "Vain teknologian kehittämistä",
+          "Vain lisää some-kontakteja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

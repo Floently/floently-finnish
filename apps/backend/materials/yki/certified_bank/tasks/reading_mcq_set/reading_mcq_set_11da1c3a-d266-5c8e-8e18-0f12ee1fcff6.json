@@ -1,0 +1,88 @@
+{
+  "id": "11da1c3a-d266-5c8e-8e18-0f12ee1fcff6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.757,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Lähiruuan suosio on kasvanut huomattavasti viime vuosina, ja tämä ilmiö kertoo laajemmista muutoksista kuluttajien arvostuksissa ja ruokajärjestelmiin kohdistuvissa odotuksissa. Lähiruoalla tarkoitetaan ruokaa, joka on tuotettu ja jalostettu lähellä kuluttajaa, ja sen suosiota selitetään useilla tekijöillä. Yksi keskeinen motiivi on halu tietää ruoan alkuperä ja tuotantotavat. Teollisen ruoantuotannon ongelmat, kuten eläinten huono kohtelu ja ympäristöhaitat, ovat saaneet monet kuluttajat etsimään vaihtoehtoja, joissa tuotanto on läpinäkyvämpää. Lähiruoka nähdään usein puhtaampana, terveellisempänä ja eettisempänä vaihtoehtona. Toinen tärkeä tekijä on ympäristötietoisuus. Lähiruoka vähentää kuljetusten tarvetta ja siten myös ruoan hiilijalanjälkeä. Kolmas tekijä on halu tukea paikallista taloutta ja pitää raha kotiseudulla. Lähiruuan ostaminen nähdään keinona turvata paikallisia työpaikkoja ja elinvoimaisia maaseutualueita. Lähiruuan yleistyminen on myös muuttanut kaupankäynnin rakenteita. Perinteisten kauppojen rinnalle on noussut uusia myyntikanavia, kuten ruokapiirejä, suoramyyntiä tiloilta ja verkkokauppoja. Tämä on lisännyt kilpailua ja monipuolistanut tarjontaa. Toisaalta lähiruuan suosio on herättänyt myös kritiikkiä. Jotkut asiantuntijat varoittavat, että lähiruoka ei automaattisesti ole ympäristöystävällisempää kuin kaukaa tuotu ruoka. Esimerkiksi kasvihuoneessa lämmitettynä tuotettu tomaatti voi kuluttaa paljon energiaa, vaikka se olisi tuotettu lähellä. Myös kuljetuksen osuus ruoan kokonaispäästöistä on usein pienempi kuin tuotantotavan.",
+      "word_count": 178
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä lähiruoalla tarkoitetaan?",
+        "options": [
+          "Luomuruokaa",
+          "Ruokaa, joka on tuotettu ja jalostettu lähellä kuluttajaa",
+          "Kasvisruokaa",
+          "Ulkomaista ruokaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi kuluttajat haluavat tietää ruoan alkuperän?",
+        "options": [
+          "Koska se on muotia",
+          "Koska teollisen ruoantuotannon ongelmat ovat saaneet heidät etsimään läpinäkyvämpiä vaihtoehtoja",
+          "Koska he haluavat matkustaa",
+          "Koska he eivät luota kauppoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten lähiruoka vaikuttaa ympäristöön?",
+        "options": [
+          "Se lisää kuljetuspäästöjä",
+          "Se vähentää kuljetusten tarvetta ja hiilijalanjälkeä",
+          "Se kuluttaa enemmän vettä",
+          "Sillä ei ole vaikutusta ympäristöön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia myyntikanavia lähiruoalle on syntynyt?",
+        "options": [
+          "Tavarataloja",
+          "Ruokapiirejä, suoramyyntiä tiloilta ja verkkokauppoja",
+          "Huoltoasemia",
+          "Torikauppaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kritiikkiä lähiruokaa kohtaan on esitetty?",
+        "options": [
+          "Se on liian kallista",
+          "Se ei automaattisesti ole ympäristöystävällisempää, koska tuotantotapa vaikuttaa enemmän",
+          "Se on huonolaatuista",
+          "Sitä on vaikea saada"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "0fd0b558-1d93-5737-a22d-6aafa7907aa0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.355,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tilasin kirjan ulkomaisesta verkkokaupasta. Kirjoita palaute. Kerro tyytyväisyydestäsi kirjan kuntoon, toimitusnopeuteen ja pakkauksen huolellisuuteen.",
+    "materials": {
+      "scenario": "Palaute ulkomaisesta kirjakaupasta"
+    },
+    "items": [
+      {
+        "id": "f16dac8d-76f5-5159-ba5b-2c57480f2cf0",
+        "prompt": "Tilasin kirjan ulkomaisesta verkkokaupasta. Kirjoita palaute. Kerro tyytyväisyydestäsi kirjan kuntoon, toimitusnopeuteen ja pakkauksen huolellisuuteen."
+      }
+    ],
+    "rubric": "Kirjan kunto\nToimitusnopeus\nPakkauksen huolellisuus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

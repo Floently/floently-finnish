@@ -1,0 +1,66 @@
+{
+  "id": "c16e041c-2d13-52c8-af8a-4104cde43feb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirjaston ilmoitus ja vastaa kysymyksiin. Valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KAUPUNGINKIRJASTO\n\nAukioloajat:\nma–to 10–19\npe 10–17\nla 11–15\nsu suljettu\n\nOmatoimikirjasto:\nma–su 6–22 (kirjastokortilla)\n\nLainausaika 4 viikkoa.\n\nTervetuloa!",
+      "word_count": 18
+    },
+    "questions": [
+      {
+        "id": "d7d2858e-9d90-5a1a-b785-54b6b0ada837",
+        "prompt": "Mihin aikaan kirjasto sulkeutuu torstaina?",
+        "options": [
+          "klo 17",
+          "klo 18",
+          "klo 19",
+          "klo 20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a3ff9e52-ae6b-5aa0-819b-a99dcf2fe6f4",
+        "prompt": "Onko kirjasto auki sunnuntaina?",
+        "options": [
+          "On klo 10–16",
+          "On klo 12–18",
+          "Vain omatoimikirjasto",
+          "Ei ole auki"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "e86dd825-0450-5d36-b6b4-34afe82bf368",
+        "prompt": "Kuinka pitkä lainausaika on?",
+        "options": [
+          "2 viikkoa",
+          "3 viikkoa",
+          "4 viikkoa",
+          "5 viikkoa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "35648460-6a23-5ad6-9619-f0ad77382d9e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Tervetuloa linja-autoon numero 56. Seuraava pysäkki on Prisma. Tämä bussi menee kaupungintalon kautta rautatieasemalle. Matkan hinta on 3,50 euroa. Voit maksaa matkan joko lähimaksulla tai kännykkälipulla. Seuraava pysäkki on Prisma. Matkustajat, olkaa hyvä ja pitäkää kiinni.",
+      "audio_asset_id": "52f1927b-c71b-52c5-bb5a-b75b1cd4b2b1"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on bussin numero?",
+        "options": [
+          "55.",
+          "57.",
+          "58.",
+          "56."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on bussin seuraava pysäkki?",
+        "options": [
+          "Kaupungintalo.",
+          "Prisma.",
+          "Rautatieasema.",
+          "Keskusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin bussi lopulta menee?",
+        "options": [
+          "Prismaan.",
+          "Lentokentälle.",
+          "Yliopistolle.",
+          "Rautatieasemalle."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q4",
+        "prompt": "Paljonko bussimatka maksaa?",
+        "options": [
+          "3,50 euroa.",
+          "2,50 euroa.",
+          "3,00 euroa.",
+          "4,00 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten matkan voi maksaa?",
+        "options": [
+          "Vain käteisellä.",
+          "Lähimaksulla tai kännykkälipulla.",
+          "Vain kortilla.",
+          "Matkakortilla."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "d32103f0-4597-5a09-912f-3f5a9f9a0daf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kirjaston tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Pääkirjasto on suljettu 24.-26. joulukuuta joulun ajan. Omatoimikirjasto on kuitenkin avoinna normaalisti kirjastokortilla ja tunnusluvulla. Jouluaattona ja joulupäivänä kirjasto on suljettu, tapaninpäivänä avoinna kello 12-16. Tammikuussa palaamme normaaleihin aukioloaikoihin. Hyvää joulua!",
+      "audio_asset_id": "d2e3f4a5-b6c7-8d9e-0f1a-2b3c4d5e6f7a"
+    },
+    "questions": [
+      {
+        "id": "l277q1",
+        "prompt": "Minä päivinä kirjasto on suljettu jouluna?",
+        "options": [
+          "23.-25. joulukuuta.",
+          "24.-26. joulukuuta.",
+          "25.-27. joulukuuta.",
+          "26.-28. joulukuuta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l277q2",
+        "prompt": "Onko omatoimikirjasto auki jouluna?",
+        "options": [
+          "Ei, se on myös kiinni.",
+          "Kyllä, normaalisti.",
+          "Vain rajoitetusti.",
+          "Vain joulupäivänä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l277q3",
+        "prompt": "Miten omatoimikirjastoon pääsee?",
+        "options": [
+          "Varaamalla ajan.",
+          "Kirjastokortilla ja tunnusluvulla.",
+          "Maksamalla pienen maksun.",
+          "Rekisteröitymällä verkkosivuilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l277q4",
+        "prompt": "Mihin aikaan kirjasto on auki tapaninpäivänä?",
+        "options": [
+          "Kello 10-14.",
+          "Kello 12-16.",
+          "Kello 14-18.",
+          "Kello 10-18."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l277q5",
+        "prompt": "Milloin kirjasto palaa normaaleihin aukioloaikoihin?",
+        "options": [
+          "Joulukuun lopussa.",
+          "Tammikuussa.",
+          "Helmikuussa.",
+          "Joulun jälkeen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

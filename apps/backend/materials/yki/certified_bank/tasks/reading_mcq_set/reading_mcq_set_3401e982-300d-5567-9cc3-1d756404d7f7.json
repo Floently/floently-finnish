@@ -1,0 +1,77 @@
+{
+  "id": "3401e982-300d-5567-9cc3-1d756404d7f7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.792,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Euroopan unionin tulevaisuudesta on käyty viime vuosina vilkasta keskustelua, jossa korostuvat sekä yhdentymisen syventämisen että kansallisen itsemääräämisoikeuden puolustajien näkemykset. Unioni on historiansa aikana kohdannut useita kriisejä – talouskriisin, velkakriisin, maahanmuuttokriisin ja brexitin – jotka ovat kaikki osaltaan haastaneet sen toimintakykyä ja legitimiteettiä. Kriisit ovat kuitenkin myös pakottaneet unionia kehittymään ja hakemaan uusia ratkaisuja. Kysymys siitä, millainen unioni tulevaisuudessa on, on kuitenkin edelleen avoin. Yhden näkemyksen mukaan unionin tulisi syventää yhdentymistä ja kehittyä kohti liittovaltiota, jolla olisi nykyistä vahvemmat toimivaltuudet erityisesti talous- ja finanssipolitiikassa. Tämän linjan kannattajat katsovat, että globaalit haasteet, kuten ilmastonmuutos, turvallisuusuhat ja suurvaltojen välinen kilpailu, edellyttävät nykyistä tiiviimpää yhteistyötä ja yhteisiä toimia. Heidän mukaansa vain vahva ja yhtenäinen unioni voi toimia uskottavana globaalina toimijana ja turvata jäsenmaidensa etuja kansainvälisessä kilpailussa. Liittovaltiokehityksen vastustajat puolestaan korostavat kansallisen itsemääräämisoikeuden ja jäsenmaiden moninaisuuden merkitystä. Heidän mukaansa unioni on jo nyt liian byrokraattinen ja etäinen kansalaisistaan, ja yhdentymisen syventäminen vain pahentaisi tätä ongelmaa. He kannattavat unionia, joka keskittyisi perustehtäviinsä, kuten sisämarkkinoiden toimivuuden varmistamiseen ja yhteiseen kauppapolitiikkaan, ja jättäisi muut asiat jäsenmaiden päätettäviksi. Tämä niin sanottu joustava yhdentyminen voisi tarkoittaa sitä, että eri maat etenisivät yhteistyössä eri tahtiin ja eri kokoonpanoissa. Kolmas näkemys korostaa unionin monitasoisuutta ja verkostomaista luonnetta. Sen mukaan unioni ei ole pelkästään jäsenmaiden välinen sopimus, vaan monimutkainen hallintajärjestelmä, jossa toimivat niin unionin toimielimet, jäsenmaiden hallitukset kuin alueet ja kansalaisyhteiskuntakin. Tulevaisuudessa unionin kehitystä ohjannee ennen kaikkea käytännön tarpeet ja ongelmanratkaisu ideologisten tavoitteiden sijaan. Unioni todennäköisesti jatkaa moninopeuksista kehitystä, jossa osa maista etenee tiiviimmässä yhteistyössä ja osa pysyttelee väljemmässä liitossa. Keskeistä on, miten unioni kykenee vastaamaan kansalaisten odotuksiin ja turvaamaan jäsenmaidensa vaurauden ja turvallisuuden muuttuvassa maailmassa.",
+      "word_count": 263
+    },
+    "questions": [
+      {
+        "id": "773ff1c9-31db-511a-b286-a8667262dc74",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Brexitin vaikutukset Euroopan unioniin",
+          "Euroopan unionin tulevaisuudesta käytävä keskustelu ja erilaiset näkemykset yhdentymisestä",
+          "Ilmastonmuutoksen torjunta EU:n politiikassa",
+          "EU:n toimielinten rakenneuudistus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6f3aae8f-4356-52dc-a400-02a422a15168",
+        "prompt": "Tekstin mukaan mikä on keskeinen perustelu liittovaltiokehityksen kannattajien näkemyksissä?",
+        "options": [
+          "Kansallisen itsemääräämisoikeuden vahvistaminen",
+          "Globaalit haasteet, kuten ilmastonmuutos ja turvallisuusuhat, edellyttävät tiiviimpää yhteistyötä",
+          "Byrokratian vähentäminen ja unionin etäisyyden kaventaminen kansalaisiin",
+          "Jäsenmaiden moninaisuuden säilyttäminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8144b1f2-dc39-54f1-90cb-779a67c89571",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'joustavalla yhdentymisellä'?",
+        "options": [
+          "Sitä, että kaikki jäsenmaat etenevät yhdentymisessä samaa tahtia",
+          "Sitä, että unioni hajoaa osiin ja palaa kansallisvaltioihin",
+          "Sitä, että eri maat voivat edetä yhteistyössä eri tahtiin ja eri kokoonpanoissa",
+          "Sitä, että unionin toimivaltaa vähennetään kaikilla osa-alueilla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6ba392e2-be7e-57be-ab30-ee30dba65c53",
+        "prompt": "Mikä näkemys unionin tulevaisuudesta korostaa sen monitasoisuutta ja verkostomaista luonnetta?",
+        "options": [
+          "Liittovaltion kannattajien näkemys",
+          "Kansallisen itsemääräämisoikeuden puolustajien näkemys",
+          "Näkemys, jonka mukaan unioni on monimutkainen hallintajärjestelmä, jossa toimii monenlaisia toimijoita",
+          "Brexitin kannattajien näkemys"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

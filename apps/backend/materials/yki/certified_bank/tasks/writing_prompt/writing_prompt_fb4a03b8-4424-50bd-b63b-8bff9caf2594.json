@@ -1,0 +1,37 @@
+{
+  "id": "fb4a03b8-4424-50bd-b63b-8bff9caf2594",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö työntekijöillä olla oikeus kieltäytyä sähköposteista työajan jälkeen. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Oikeus olla tavoittamattomissa työajan jälkeen"
+    },
+    "items": [
+      {
+        "id": "b21e8093-7f87-5944-8fa5-ae4f477f513c",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö työntekijöillä olla oikeus kieltäytyä sähköposteista työajan jälkeen. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "596e1c99-fd6f-5dc1-8c49-a32fe8c43bfe",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan haastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme kierrätyksestä ja ilmastonmuutoksesta. Vieraana on ympäristötutkija Mikko Rantanen. Mikko, miten tavallinen ihminen voi vaikuttaa ilmastonmuutokseen arjessaan?\nRantanen: Monin tavoin. Yksi tärkeimmistä on vähentää lihansyöntiä. Lihantuotanto aiheuttaa paljon päästöjä. Myös lentämistä kannattaa vähentää ja suosia junaa. Kotona voi säästää energiaa ja lajitella jätteet huolellisesti.\nToimittaja: Onko yksilön teoilla oikeasti merkitystä?\nRantanen: On ja ei. Yksittäisen ihmisen teot eivät yksin ratkaise ongelmaa, mutta yhdessä ne vaikuttavat. Lisäksi ne lähettävät viestin päättäjille ja yrityksille: me kuluttajat haluamme muutosta. Tärkeintä on, että teemme mitä voimme, mutta samalla vaadimme rakenteellisia muutoksia.\nToimittaja: Mikä on suurin ongelma kierrätyksessä?\nRantanen: Se, että kierrätys on vasta alkua. Vielä tärkeämpää olisi vähentää kulutusta ja suosia kestäviä tuotteita. Myös muovin kierrätys on ongelmallista – vain osa muovista saadaan oikeasti uusiokäyttöön.",
+      "audio_asset_id": "b6648364-987d-54de-b674-a0ae9d60b3fc"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten tavallinen ihminen voi vaikuttaa ilmastonmuutokseen?",
+        "options": [
+          "Vain kierrättämällä",
+          "Vähentämällä lihansyöntiä, lentämistä ja lajittelemalla jätteet",
+          "Vain ostamalla uutta",
+          "Ei mitenkään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä asiantuntija sanoo yksilön tekojen merkityksestä?",
+        "options": [
+          "Ne ovat täysin turhia",
+          "Ne eivät yksin ratkaise, mutta yhdessä vaikuttavat ja lähettävät viestin",
+          "Ne ratkaisevat kaiken",
+          "Ne ovat haitallisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on suurin ongelma kierrätyksessä?",
+        "options": [
+          "Ihmiset eivät kierrätä",
+          "Vain osa muovista saadaan uusiokäyttöön ja kulutusta pitäisi vähentää",
+          "Kierrätys on liian kallista",
+          "Kierrätys ei auta mitään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

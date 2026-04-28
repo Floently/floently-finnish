@@ -1,0 +1,40 @@
+{
+  "id": "60a10dfb-7062-5aa5-9a51-bfb65bdbd2f3",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele kaupungin ruokapalveluiden ravitsemussuunnittelijan kanssa kouluruuan laadun parantamisesta. Perustele lisärahoituksen tarvetta ja vastaa säästöpaineisiin.",
+    "materials": {
+      "roles": {
+        "user": "kouluruokalan emäntä ja olet huolissasi siitä",
+        "partner": "Meillä on laskelmat"
+      }
+    },
+    "items": [
+      {
+        "id": "30d0d30c-d398-580a-bbc3-9ee2cdd83f5a",
+        "ai_first_turn_fi": "Meillä on laskelmat: jokainen koululounas maksaa 2,80 euroa. Siitä menee 1,20 euroa raaka-aineisiin, loput työhön, energiaan, kuljetuksiin. Jos me haluamme parantaa laatua, meidän on käytettävä enemmän raaka-aineisiin. Se tarkoittaa, että meidän on joko nostettava budjettia tai vähennettävä jotain muuta. Mitä me vähennämme? Henkilökuntaa? Silloin ruoka on vielä huonompaa, koska ei ole aikaa valmistaa. Tai vähennämme lämpimiä aterioita ja tarjoamme leipiä? Sekään ei ole ratkaisu. Minä haluaisin kovasti, että lapset söisivät paremmin, mutta minulla on tarkka budjetti, enkä voi ylittää sitä."
+      }
+    ],
+    "rubric": "Keskustele kaupungin ruokapalveluiden ravitsemussuunnittelijan kanssa kouluruuan laadun parantamisesta. Perustele lisärahoituksen tarvetta ja vastaa säästöpaineisiin.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

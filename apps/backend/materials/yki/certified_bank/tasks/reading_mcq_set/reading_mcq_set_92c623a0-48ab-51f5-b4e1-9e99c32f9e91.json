@@ -1,0 +1,77 @@
+{
+  "id": "92c623a0-48ab-51f5-b4e1-9e99c32f9e91",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "OPINTOTUKI MUUTTUU – NÄIN UUDISTUS VAIKUTTAA OPISKELIJOIHIN\n\nHallitus on hyväksynyt esityksen opintotuen uudistuksesta, joka astuu voimaan ensi lukuvuoden alussa. Keskeisin muutos on, että opintolainan valtiontakaus nousee 850 eurosta 950 euroon kuukaudessa. Samalla asumislisä poistuu ja korvataan yleisellä asumistuella, mikä tarkoittaa monille opiskelijoille pienempää tukea.\n\nOpiskelijajärjestöt ovat arvostelleet uudistusta ankarasti. \"Tämä lisää opiskelijoiden velkaantumista ja heikentää erityisesti pienituloisten perheiden opiskelijoiden mahdollisuuksia\", sanoo SYL:n puheenjohtaja. Opetusministeri puolustaa uudistusta sillä, että se kannustaa nopeampaan valmistumiseen ja yksinkertaistaa tukijärjestelmää.\n\nKorkeakouluopiskelija Elias Kivelä on huolissaan: \"Joudun ottamaan enemmän lainaa, vaikka yritän valmistua ajallaan. Asumiskustannukset ovat nousseet, eikä yleinen asumistuki kata niitä kokonaan.\" Toisaalta osa opiskelijoista suhtautuu uudistukseen neutraalisti, koska he ovat jo tottuneet lainanottoon.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 137
+    },
+    "questions": [
+      {
+        "id": "d66ff7d3-c1f3-5012-bb57-5b7cbc6a062c",
+        "prompt": "Kuinka paljon opintolainan valtiontakaus nousee?",
+        "options": [
+          "750 eurosta 850 euroon",
+          "800 eurosta 900 euroon",
+          "850 eurosta 950 euroon",
+          "900 eurosta 1000 euroon"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ec6defc9-716d-5852-a481-00fdb9346d42",
+        "prompt": "Mitä asumislisälle tapahtuu?",
+        "options": [
+          "Se nousee",
+          "Se laskee",
+          "Se poistuu ja korvataan yleisellä asumistuella",
+          "Se pysyy ennallaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "38c0146a-b015-5ec4-8d4a-669afce3d4f8",
+        "prompt": "Mitä opiskelijajärjestöt arvostelevat uudistuksessa?",
+        "options": [
+          "Opiskelijat saavat liikaa rahaa",
+          "Uudistus lisää velkaantumista",
+          "Tukijärjestelmä on liian yksinkertainen",
+          "Opiskelijat valmistuvat liian nopeasti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2bb91123-ad2a-50e2-96f0-11411ebbf703",
+        "prompt": "Miten Elias Kivelä suhtautuu uudistukseen?",
+        "options": [
+          "On tyytyväinen",
+          "On huolissaan",
+          "Ei välitä",
+          "On innoissaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "6ba32353-f226-53de-a670-26f0c70bd492",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.757,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Energiapolitiikka on noussut keskeiseksi turvallisuuskysymykseksi viime vuosina, erityisesti Euroopan energiamarkkinoiden murroksen ja geopoliittisten jännitteiden seurauksena. Suomi on pyrkinyt vähentämään riippuvuuttaan tuontienergiasta ja monipuolistamaan energialähteitään. Kotimainen energia, kuten ydinvoima, vesivoima, tuulivoima ja bioenergia, ovat saaneet aiempaa suuremman roolin. Huoltovarmuus tarkoittaa yhteiskunnan kykyä turvata väestön toimeentulo, talouselämän toiminta ja maanpuolustus vakavissa häiriötilanteissa ja poikkeusoloissa. Energian osalta tämä tarkoittaa varautumista tuotantohäiriöihin, jakelukatkoksiin ja kansainvälisen kaupan häiriöihin. Suomen energiahuoltovarmuutta on pyritty vahvistamaan muun muassa varastoimalla polttoaineita, kehittämällä sähköverkkoa ja edistämällä hajautettua energiantuotantoa. Venäjän hyökkäys Ukrainaan vuonna 2022 ja siitä seuranneet energiapoliittiset pakotteet ovat nopeuttaneet Suomen irtautumista venäläisestä energiasta. Samalla se on nostanut esiin kysymyksiä energiaomavaraisuudesta ja kriisinsietokyvystä. Energiasiirtymä kohti uusiutuvia energialähteitä on myös huoltovarmuuskysymys: se vähentää riippuvuutta fossiilisten polttoaineiden tuonnista, mutta samalla se asettaa uusia haasteita, kuten sähköverkon tasapainottamisen säänvaihteluiden mukaan. Energiapolitiikan tulevaisuudessa korostuvat monipuolisuus, joustavuus ja kansainvälinen yhteistyö.",
+      "word_count": 135
+    },
+    "questions": [
+      {
+        "id": "f5a6b7c8-d9e0-4f1a-9b2c-3d4e5f6a7b8c",
+        "prompt": "Mitä tarkoitetaan huoltovarmuudella energian osalta?",
+        "options": [
+          "Vain energian tuotantoa",
+          "Varautumista tuotantohäiriöihin ja jakelukatkoksiin",
+          "Vain energian vientiä",
+          "Energian kulutuksen lisäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a6b7c8d9-e0f1-4a2b-9c3d-4e5f6a7b8c9d",
+        "prompt": "Miten Suomi on pyrkinyt vähentämään riippuvuutta tuontienergiasta?",
+        "options": [
+          "Lisäämällä öljyn käyttöä",
+          "Monipuolistamalla energialähteitä ja lisäämällä kotimaista energiaa",
+          "Rajoittamalla energiankulutusta",
+          "Tuomalla energiaa vain Venäjältä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Mitä haasteita energiasiirtymä tuo huoltovarmuudelle?",
+        "options": [
+          "Fossiilisten polttoaineiden lisääntymistä",
+          "Sähköverkon tasapainottamisen säänvaihteluiden mukaan",
+          "Energian hinnan laskua",
+          "Energian tuotannon keskittämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "cab99cc3-76ef-5357-b522-b8dce197a964",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: terveysasema. Purpose: justify an opinion. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "city_services in health_clinic"
+    },
+    "items": [
+      {
+        "id": "35e172f9-573e-50f2-bb46-8eeb09dbf78d",
+        "prompt": "Write for the receiver in this scenario: terveysasema. Purpose: justify an opinion. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

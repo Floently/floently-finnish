@@ -1,0 +1,66 @@
+{
+  "id": "b8deb595-44d0-5459-8f5f-a15872982950",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KIERRÄTYKSEN MERKITYS KASVAA\n\nSuomessa syntyy noin 80 miljoonaa kiloa muovijätettä vuodessa. Tästä vain noin neljännes kierrätetään. Loput menee poltettavaksi tai kaatopaikalle. Tämä on sekä ympäristön että talouden kannalta ongelmallista.\n\nUusi jätelaki velvoittaa kuntia järjestämään muovin keräyksen. Monissa kaupungeissa on jo alettu kerätä muovia erikseen. Kierrätys on kuitenkin vielä lapsenkengissä. Ihmiset eivät aina tiedä, mitä muovia saa laittaa keräykseen ja mitä ei. Myös lajittelu kotona koetaan hankalaksi.\n\nAsiantuntijat muistuttavat, että kierrätys ei yksin riitä. Tarvitaan myös muovin käytön vähentämistä. Monissa kaupoissa on jo alettu vähentää muovipussien käyttöä, ja uudelleenkäytettävät kassit ovat yleistyneet. Myös pakkauksia pyritään suunnittelemaan niin, että ne on helpompi kierrättää.\n\nTulevaisuudessa toivotaan, että muovi kiertää tehokkaammin. Kierrätetystä muovista voidaan valmistaa uusia tuotteita, mikä säästää luonnonvaroja ja vähentää päästöjä. Jokaisen panosta tarvitaan, jotta muovin kierrätys saadaan toimimaan.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 155
+    },
+    "questions": [
+      {
+        "id": "23667a94-e1b0-51ab-a60e-87bd2224c443",
+        "prompt": "Kuinka paljon muovijätettä Suomessa syntyy vuodessa?",
+        "options": [
+          "Noin 50 miljoonaa kiloa",
+          "Noin 80 miljoonaa kiloa",
+          "Noin 100 miljoonaa kiloa",
+          "Noin 120 miljoonaa kiloa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1c236d60-ca49-5be6-b6af-6ce3d0ae9480",
+        "prompt": "Mikä on ongelma muovin kierrätyksessä?",
+        "options": [
+          "Ihmiset eivät halua kierrättää",
+          "Vain neljännes muovista kierrätetään, ja lajittelu koetaan hankalaksi",
+          "Kierrätys on liian kallista",
+          "Muovia ei voi kierrättää ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6feee90a-6bd9-58a1-8474-9f20409ffbe5",
+        "prompt": "Mitä muuta tarvitaan kierrätyksen lisäksi?",
+        "options": [
+          "Lisää muovin tuotantoa",
+          "Muovin käytön vähentämistä ja parempia pakkauksia",
+          "Uusia kaatopaikkoja",
+          "Muovin polttamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

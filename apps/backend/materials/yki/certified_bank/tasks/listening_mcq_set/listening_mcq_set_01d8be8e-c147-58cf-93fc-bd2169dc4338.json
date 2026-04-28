@@ -1,0 +1,88 @@
+{
+  "id": "01d8be8e-c147-58cf-93fc-bd2169dc4338",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Hammaslääkäri Hymyyn! Tarjoamme uusille asiakkaille ilmaisen hammastarkastuksen. Ajan voi varata puhelimitse tai verkkosivuiltamme. Olemme avoinna arkisin kello 8-20. Tervetuloa!",
+      "audio_asset_id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a"
+    },
+    "questions": [
+      {
+        "id": "l229q1",
+        "prompt": "Mitä mainostetaan?",
+        "options": [
+          "Hammaslääkäriasema.",
+          "Optikko.",
+          "Fysioterapeutti.",
+          "Lääkäriasema."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l229q2",
+        "prompt": "Mikä on tarjous uusille asiakkaille?",
+        "options": [
+          "Ilmainen hammastarkastus.",
+          "Ilmainen hampaiden valkaisu.",
+          "-20% hoidoista.",
+          "Ilmainen jälkitarkastus."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l229q3",
+        "prompt": "Miten ajan voi varata?",
+        "options": [
+          "Vain puhelimitse.",
+          "Vain verkkosivuilla.",
+          "Puhelimitse tai verkkosivuilla.",
+          "Vain paikan päällä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l229q4",
+        "prompt": "Mihin aikaan vastaanotto on avoinna arkisin?",
+        "options": [
+          "Kello 7-19.",
+          "Kello 8-20.",
+          "Kello 9-21.",
+          "Kello 10-22."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l229q5",
+        "prompt": "Mikä on hammaslääkäriaseman nimi?",
+        "options": [
+          "Hammaslääkäri Oiva.",
+          "Hammaslääkäri Hymy.",
+          "Hammaslääkäri Pläkki.",
+          "Hammaslääkäri Laske."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

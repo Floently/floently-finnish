@@ -1,0 +1,37 @@
+{
+  "id": "1e51a2de-2fa7-5e4e-bce6-32a2ffa5287c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kerro, miten teet jotakin lempiruokaasi.",
+    "materials": {
+      "scenario": "Lempiruokani ohje"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kerro, miten teet jotakin lempiruokaasi."
+      }
+    ],
+    "rubric": "Kerro, miten teet jotakin lempiruokaasi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

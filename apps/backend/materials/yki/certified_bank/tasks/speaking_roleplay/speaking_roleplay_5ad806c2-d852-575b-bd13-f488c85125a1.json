@@ -1,0 +1,40 @@
+{
+  "id": "5ad806c2-d852-575b-bd13-f488c85125a1",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu 2-3 minuuttia aiheesta.",
+    "materials": {
+      "roles": {
+        "user": "mukana matkailualan keskustelussa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "0ef9e058-5622-5181-84fe-50ff12c44ded",
+        "ai_first_turn_fi": "Pohdi, miten matkailua voidaan kehittää kestävästi. Miten vähennetään matkailun ympäristöhaittoja, kuten lentämisen päästöjä ja roskaantumista? Miten varmistetaan, että matkailu hyödyttää paikallisia asukkaita eikä vain tuhoa kohteitaan?"
+      }
+    ],
+    "rubric": "Puhu 2-3 minuuttia aiheesta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

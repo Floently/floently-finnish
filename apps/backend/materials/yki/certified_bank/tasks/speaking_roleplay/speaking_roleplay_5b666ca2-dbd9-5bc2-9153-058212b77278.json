@@ -1,0 +1,40 @@
+{
+  "id": "5b666ca2-dbd9-5bc2-9153-058212b77278",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Käy neuvottelu taloyhtiön hallituksen puheenjohtajan kanssa. Ehdota piharemonttia ja perustele ehdotuksesi.",
+    "materials": {
+      "roles": {
+        "user": "saanut puheenvuoron taloyhtiön kokouksessa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "f4408cae-b4ee-52d5-b9c6-633b1b227d95",
+        "ai_first_turn_fi": "Kiitos ehdotuksesta. Kyllä me kaikki halutaan viihtyisä piha, mutta nämä remontit maksaa. Oletko miettinyt, miten tämä rahoitettaisiin ja mitä hyötyä siitä oikeasti on?"
+      }
+    ],
+    "rubric": "Käy neuvottelu taloyhtiön hallituksen puheenjohtajan kanssa. Ehdota piharemonttia ja perustele ehdotuksesi.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

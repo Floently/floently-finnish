@@ -1,0 +1,110 @@
+{
+  "id": "4052fd85-135c-5f1f-a8de-278b2257d05e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen energia- ja ilmastopolitiikka on keskellä historiallista murrosta. Pitkään vallinnut fossiilisiin polttoaineisiin nojannut energiajärjestelmä on purettava ja korvattava nopeasti uusiutuvilla, päästöttömillä energialähteillä. Tavoitteena on hiilineutraalius vuoteen 2035 mennessä, mikä on poikkeuksellisen kunnianhimoinen tavoite kansainvälisesti vertailtuna. Tämä edellyttää valtavia investointeja ja perusteellisia muutoksia koko yhteiskunnassa. Tuulivoiman rakentaminen on lisääntynyt räjähdysmäisesti, ja aurinkovoimakin yleistyy nopeasti. Myös bioenergialla, erityisesti metsäteollisuuden sivuvirroilla, on merkittävä rooli. Fossiilisista polttoaineista luovutaan, ja liikennettä sähköistetään vauhdilla. Energiamurros ei ole pelkästään tekninen hanke. Sillä on syvällisiä taloudellisia, sosiaalisia ja poliittisia ulottuvuuksia. Energian hinta nousee väistämättä, mikä koettelee erityisesti pienituloisia kotitalouksia. Tuulivoimaloiden rakentaminen herättää usein voimakasta vastustusta maisemahaittojen ja luontovaikutusten vuoksi. Ydinvoiman kannatus on vaihdellut, ja turpeen käytöstä luopuminen on herättänyt kiivasta keskustelua erityisesti niillä alueilla, joilla turve on ollut tärkeä työllistäjä. Myös energiaomavaraisuus ja huoltovarmuus ovat nousseet aivan uudenlaiseen keskiöön. Venäjän hyökkäys Ukrainaan on osoittanut dramaattisella tavalla, miten vaarallista liiallinen energiariippuvuus yhdestä maasta voi olla. Suomi on pyrkinyt nopeasti vähentämään riippuvuuttaan venäläisestä energiasta ja monipuolistamaan energian tuontilähteitä. Energiamurros on välttämätön, mutta se on toteutettava hallitusti, oikeudenmukaisesti ja pitkäjänteisesti. Tarvitaan avointa yhteiskunnallista keskustelua, reiluja kompromisseja ja investointeja, jotka kantavat pitkälle tulevaisuuteen.",
+      "word_count": 181
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on Suomen kunnianhimoinen tavoite energia- ja ilmastopolitiikassa?",
+        "options": [
+          "Fossiilisten polttoaineiden käytön lisääminen.",
+          "Hiilineutraalius vuoteen 2035 mennessä.",
+          "Ydinvoiman osuuden vähentäminen.",
+          "Energian tuonnin lisääminen Venäjältä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä energiamurros tarkoittaa käytännössä?",
+        "options": [
+          "Fossiilisiin polttoaineisiin nojaavan järjestelmän korvaamista uusiutuvilla energialähteillä.",
+          "Energian kulutuksen lisäämistä.",
+          "Uusien hiilivoimaloiden rakentamista.",
+          "Energian tuonnin vähentämistä kokonaan."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä taloudellisia ja sosiaalisia vaikutuksia energiamurroksella on?",
+        "options": [
+          "Energian hinta laskee kaikille.",
+          "Energian hinta nousee, mikä koettelee pienituloisia, ja tuulivoima herättää vastustusta.",
+          "Sillä ei ole mitään sosiaalisia vaikutuksia.",
+          "Kaikki ovat yksimielisiä tuulivoiman rakentamisesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi turpeen käytöstä luopuminen on herättänyt keskustelua?",
+        "options": [
+          "Koska turve on erittäin ympäristöystävällinen polttoaine.",
+          "Koska se on ollut tärkeä työllistäjä tietyillä alueilla.",
+          "Koska sitä on erittäin vaikea korvata millään muulla.",
+          "Koska Suomi on sitoutunut lisäämään turpeen käyttöä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä geopoliittinen tapahtuma on korostanut energiaomavaraisuuden merkitystä?",
+        "options": [
+          "EU:n laajentuminen.",
+          "Venäjän hyökkäys Ukrainaan.",
+          "Yhdysvaltojen presidentinvaalit.",
+          "Kiinan talouskasvun hidastuminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä Suomi on oppinut energiariippuvuudesta Venäjästä?",
+        "options": [
+          "Se on täysin turvallista ja suotavaa.",
+          "Se voi muodostaa vakavan turvallisuusriskin kriisitilanteissa.",
+          "Sillä ei ole mitään merkitystä turvallisuuspolitiikassa.",
+          "Se on ainoa mahdollinen tapa turvata energiansaanti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten energiamurros pitäisi toteuttaa?",
+        "options": [
+          "Mahdollisimman nopeasti ja suunnittelematta, välittämättä seurauksista.",
+          "Hallitusti, oikeudenmukaisesti, pitkäjänteisesti ja yhteiskunnallista keskustelua käyden.",
+          "Vain markkinavoimien ehdoilla ilman julkista ohjausta.",
+          "Siirtämällä päätökset kokonaan yritysten vastuulle."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

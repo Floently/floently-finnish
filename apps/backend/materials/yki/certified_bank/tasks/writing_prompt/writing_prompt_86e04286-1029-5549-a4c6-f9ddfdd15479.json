@@ -1,0 +1,37 @@
+{
+  "id": "86e04286-1029-5549-a4c6-f9ddfdd15479",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.69,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: juna-asemalla. Tarkoitus: kuvaa kokemus. Rajoite: osoita vastaanottajalle.",
+    "materials": {
+      "scenario": "kulttuurista train station"
+    },
+    "items": [
+      {
+        "id": "bd17ce6b-9226-5ba5-b595-ba6a41bccfcd",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: juna-asemalla. Tarkoitus: kuvaa kokemus. Rajoite: osoita vastaanottajalle."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

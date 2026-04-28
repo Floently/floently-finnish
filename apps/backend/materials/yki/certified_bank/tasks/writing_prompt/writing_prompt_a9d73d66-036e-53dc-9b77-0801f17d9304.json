@@ -1,0 +1,37 @@
+{
+  "id": "a9d73d66-036e-53dc-9b77-0801f17d9304",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin uutta kuntoportaita. Kirjoita palaute. Ovatko ne hyvässä kunnossa? Onko valaistus riittävä?",
+    "materials": {
+      "scenario": "Palaute uusista kuntoportaista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt kaupungin uutta kuntoportaita. Kirjoita palaute. Ovatko ne hyvässä kunnossa? Onko valaistus riittävä?"
+      }
+    ],
+    "rubric": "Olet käyttänyt kaupungin uutta kuntoportaita. Kirjoita palaute. Ovatko ne hyvässä kunnossa? Onko valaistus riittävä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

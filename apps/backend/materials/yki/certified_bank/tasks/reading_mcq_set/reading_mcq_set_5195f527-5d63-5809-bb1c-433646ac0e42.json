@@ -1,0 +1,66 @@
+{
+  "id": "5195f527-5d63-5809-bb1c-433646ac0e42",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue lyhyt uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TURKUUN UUSI PUISTO\n\nTurun kaupunki rakentaa uuden puiston keskustaan. Puisto tulee vanhan tehdasalueen paikalle. Puistoon tulee leikkipaikka, penkkejä ja nurmikenttä. Istutuksina on kotimaisia puita ja pensaita. Puisto valmistuu ensi kesänä. Rakennustyöt alkavat toukokuussa. Puiston nimi päätetään myöhemmin asukkaiden ehdotusten perusteella.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "4ed7523e-5bdd-5433-bf5d-6d442ed14fc8",
+        "prompt": "Mihin uusi puisto rakennetaan?",
+        "options": [
+          "Metsään",
+          "Vanhan tehdasalueen paikalle",
+          "Koulun viereen",
+          "Järven rantaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b63e30ce-bf8e-55e2-bd6b-ca2b5e273fe3",
+        "prompt": "Mitä puistoon tulee?",
+        "options": [
+          "Uimahalli",
+          "Leikkipaikka, penkkejä ja nurmikenttä",
+          "Kauppa",
+          "Pysäköintialue"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6d39b0db-db6b-5af1-a838-e0212ceae76f",
+        "prompt": "Milloin puisto valmistuu?",
+        "options": [
+          "Tänä syksynä",
+          "Ensi kesänä",
+          "Kahden vuoden päästä",
+          "Ei tiedossa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

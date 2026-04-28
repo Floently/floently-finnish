@@ -1,0 +1,77 @@
+{
+  "id": "a0cc24f4-4084-57d4-bc9a-3e6b7e161898",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti metsien merkityksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomen metsillä on tärkeä rooli ilmastonmuutoksen hillinnässä. Puut sitovat hiiltä kasvaessaan, ja metsäteollisuuden tuotteet varastoivat hiiltä vuosikymmeniä. Samalla metsät ovat merkittävä uusiutuvan energian lähde.\n\nMetsäteollisuus työllistää Suomessa suoraan noin 40 000 henkilöä ja välillisesti jopa 160 000 henkilöä. Ala onkin yksi Suomen tärkeimmistä vientiteollisuuden aloista. Viime vuosina ala on panostanut uusiin innovaatioihin, kuten biotuotteisiin ja tekstiilikuituihin.\n\nToisaalta metsien teollinen käyttö herättää myös huolta. Ympäristöjärjestöt muistuttavat, että avohakkuut vähentävät luonnon monimuotoisuutta ja että vanhojen metsien suojelu on tärkeää. Ne myös korostavat, että metsien hiilinielu pienenee, jos puita kaadetaan liikaa.\n\nMetsäteollisuus ja ympäristöjärjestöt ovat usein eri mieltä siitä, mikä on sopiva hakkuutaso. Viimeaikaiset tutkimukset osoittavat, että sekä taloudelliset että ekologiset tavoitteet voidaan saavuttaa, jos metsiä hoidetaan kestävästi ja monipuolisesti.",
+      "word_count": 117
+    },
+    "questions": [
+      {
+        "id": "cde6dc35-beca-51e4-89ff-0863e88777f5",
+        "prompt": "Miten metsät auttavat ilmastonmuutoksen hillinnässä?",
+        "options": [
+          "Ne tuottavat happea",
+          "Ne sitovat hiiltä",
+          "Ne viilentävät ilmaa",
+          "Ne vähentävät eroosiota"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "83b77351-ab9e-582b-be98-282a3848acd0",
+        "prompt": "Kuinka paljon metsäteollisuus työllistää suoraan?",
+        "options": [
+          "Noin 20 000 henkilöä",
+          "Noin 40 000 henkilöä",
+          "Noin 80 000 henkilöä",
+          "Noin 160 000 henkilöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "68dffa8f-5943-5a2c-846e-80e012f834a4",
+        "prompt": "Mitä huolta ympäristöjärjestöt ovat esittäneet?",
+        "options": [
+          "Metsäteollisuus käyttää liikaa vettä",
+          "Avohakkuut vähentävät luonnon monimuotoisuutta",
+          "Metsäteollisuuden tuotteet eivät kelpaa vientiin",
+          "Metsissä on liikaa suojelualueita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "70a3eff1-8081-58bb-9f6d-f8b3f472908d",
+        "prompt": "Mitä tutkimukset osoittavat kestävästä metsänhoidosta?",
+        "options": [
+          "Talous ja ekologia eivät voi yhdistyä",
+          "Metsiä pitää suojella kokonaan",
+          "Molemmat tavoitteet voidaan saavuttaa",
+          "Vain talous on tärkeää"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

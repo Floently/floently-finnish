@@ -1,0 +1,37 @@
+{
+  "id": "c0831719-6a52-5795-8bf4-295062f1d74b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.35,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti koiranhoitajalle. Kerro, että tarvitset koiranhoitoa ensi viikonloppuna lauantaista sunnuntaihin. Kerro, mitä koiralle pitää tehdä (ruoka, ulkoilu) ja kysy, paljonko hoito maksaa.",
+    "materials": {
+      "scenario": "Viesti koiranhoitajalle hoidon kysymisestä"
+    },
+    "items": [
+      {
+        "id": "165fbd7a-ebf5-5f7d-9042-5c1af510f9d6",
+        "prompt": "Kirjoita lyhyt viesti koiranhoitajalle. Kerro, että tarvitset koiranhoitoa ensi viikonloppuna lauantaista sunnuntaihin. Kerro, mitä koiralle pitää tehdä (ruoka, ulkoilu) ja kysy, paljonko hoito maksaa."
+      }
+    ],
+    "rubric": "Kerro, että tarvitset koiranhoitoa\nKerro, milloin tarvitset hoitoa\nKerro, mitä koiralle pitää tehdä\nKysy hintaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

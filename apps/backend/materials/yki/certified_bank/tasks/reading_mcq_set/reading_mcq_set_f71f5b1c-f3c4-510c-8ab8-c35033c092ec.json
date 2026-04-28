@@ -1,0 +1,77 @@
+{
+  "id": "f71f5b1c-f3c4-510c-8ab8-c35033c092ec",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Opetushallitus suunnittelee koulujen loma-aikojen yhtenäistämistä koko maassa. Tavoitteena on helpottaa perheiden arkea ja vähentää liikennöitsijöiden ongelmia. Tällä hetkellä eri kaupungeilla on erilaiset loma-ajat, mikä vaikeuttaa esimerkiksi lomien suunnittelua.\n\nUuden ehdotuksen mukaan kaikilla kouluilla olisi samat syys-, joulu- ja hiihtolomat. Kesäloma sen sijaan voisi vaihdella, koska eri puolilla maata on erilaiset sääolosuhteet. Pohjoisessa koulut aloittavat jo elokuussa, etelässä vasta syyskuussa.\n\nVanhemmat ovat ottaneet ehdotuksen ristiriitaisesti vastaan. Osa on tyytyväisiä, koska silloin sisarukset olisivat samaan aikaan lomalla. Toiset pelkäävät, että lomakohteet ruuhkautuvat, kun kaikki ovat lomalla samaan aikaan.\n\nOpettajien ammattijärjestö muistuttaa, että loma-aikojen suunnittelussa pitää ottaa huomioon myös opettajien jaksaminen. 'Jos kaikki lomat ovat samaan aikaan, se voi lisätä opettajien stressiä', järjestöstä sanotaan.\n\nPäätöstä asiasta odotetaan ensi keväänä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi loma-aikoja halutaan yhtenäistää?",
+        "options": [
+          "A) Helpottaa perheiden arkea ja liikennöitsijöitä",
+          "B) Säästää rahaa",
+          "C) Vähentää opettajien työtä",
+          "D) Koska EU vaatii sitä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä loma voisi silti vaihdella eri puolilla maata?",
+        "options": [
+          "A) syysloma",
+          "B) joululoma",
+          "C) hiihtoloma",
+          "D) kesäloma"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä jotkut vanhemmat pelkäävät?",
+        "options": [
+          "A) Lapset väsyvät",
+          "B) Lomakohteet ruuhkautuvat",
+          "C) Koulut eivät ehdi opettaa kaikkea",
+          "D) Lomat ovat liian pitkiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä opettajien järjestö muistuttaa?",
+        "options": [
+          "A) Opettajat tarvitsevat lisää palkkaa",
+          "B) Opettajien jaksaminen pitää ottaa huomioon",
+          "C) Opettajat haluavat pidemmät lomat",
+          "D) Opettajia on liian vähän"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

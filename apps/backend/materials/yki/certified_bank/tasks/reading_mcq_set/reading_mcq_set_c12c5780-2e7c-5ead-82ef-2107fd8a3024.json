@@ -1,0 +1,66 @@
+{
+  "id": "c12c5780-2e7c-5ead-82ef-2107fd8a3024",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kiertotalous tarkoittaa tavaroiden ja materiaalien käyttöä uudelleen sen sijaan, että ne heitettäisiin pois. Suomessa kiertotalous on kasvava ilmiö, ja monet yritykset ovat alkaneet kehittää uusia palveluita. Esimerkiksi vaatevuokraamot ovat yleistyneet. Niistä voi vuokrata juhlavaatteita edullisesti. Myös korjaamotoiminta on lisääntynyt: puhelimia, tietokoneita ja kodinkoneita voi korjauttaa entistä helpommin.\n\nKaupungit kannustavat asukkaita kierrätykseen. Kierrätyskeskuksiin voi viedä vanhoja tavaroita ja ostaa käytettyjä. Monissa kaupungeissa on myös lainauspisteitä, joista voi lainata esimerkiksi porakonetta tai lehtipuhallinta ilmaiseksi. Asiantuntijoiden mukaan tärkeintä on muuttaa asenteita: uuden ostamisen sijaan kannattaa miettiä, voisiko tavaran korjata tai lainata.\n\nKiertotalous vaatii kuluttajilta uudenlaista ajattelua. Se ei ole vain kierrätystä vaan myös tuotteiden elinkaaren pidentämistä. Kun tuotteet suunnitellaan helposti korjattaviksi ja osat vaihdettaviksi, ne voivat kestää vuosia pidempään.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "626f94b5-9394-5693-bc9c-675323383fbc",
+        "prompt": "Mitä kiertotalous tarkoittaa tekstin mukaan?",
+        "options": [
+          "Tavaroiden hävittämistä nopeammin",
+          "Materiaalien uudelleenkäyttöä",
+          "Uusien tuotteiden ostamista",
+          "Muovin käytön vähentämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "847293b5-9a20-5f6e-b225-7a3bab33675c",
+        "prompt": "Mikä on vaatevuokraamo?",
+        "options": [
+          "Kauppa, jossa myydään käytettyjä vaatteita",
+          "Paikka, jossa voi vuokrata juhlavaatteita",
+          "Liike, joka korjaa vanhoja vaatteita",
+          "Tehdas, joka valmistaa uusia vaatteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "199986cd-3d55-544a-879d-5d1e84245cff",
+        "prompt": "Mitä asiantuntijat pitävät tärkeimpänä kiertotaloudessa?",
+        "options": [
+          "Uusien tuotteiden ostamista",
+          "Asenteiden muuttamista",
+          "Kierrätyspisteiden lisäämistä",
+          "Muovin kieltämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

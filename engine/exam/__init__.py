@@ -1,0 +1,1 @@
+"""Scaffolded exam package."""

@@ -1,0 +1,37 @@
+{
+  "id": "68913640-bafa-5a5e-80e2-4203fb5c0338",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien keskustoista tehdä autottomia vyöhykkeitä?'. Arvioi elinvoimaisuutta, saavutettavuutta ja elinkeinoelämää.",
+    "materials": {
+      "scenario": "Autottomat keskustat"
+    },
+    "items": [
+      {
+        "id": "48f5ab6d-0f64-5034-b6b0-266469d71fe6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien keskustoista tehdä autottomia vyöhykkeitä?'. Arvioi elinvoimaisuutta, saavutettavuutta ja elinkeinoelämää."
+      }
+    ],
+    "rubric": "Elinvoimaisuus\nSaavutettavuus\nElinkeinoelämä\nAsukkaiden mielipiteet",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

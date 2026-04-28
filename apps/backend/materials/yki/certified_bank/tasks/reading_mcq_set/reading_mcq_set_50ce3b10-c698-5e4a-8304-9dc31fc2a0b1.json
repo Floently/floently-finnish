@@ -1,0 +1,88 @@
+{
+  "id": "50ce3b10-c698-5e4a-8304-9dc31fc2a0b1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.692,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Aamu alkaa heräämisellä. Keitetään kahvia tai teetä. Syödään aamupalaa. Puuroa tai voileipä. Lapset laittavat koulurepun valmiiksi. Aikuiset lukevat uutiset. Katsotaan ikkunasta, minkälainen sää on. Jos sataa, otetaan sateenvarjo. Sitten lähdetään töihin ja kouluun. Hyvä aamu antaa energiaa. Kiireinen aamu voi olla stressaava. Siksi herätys kannattaa laittaa ajoissa. Rauhallinen aamu on hyvä aloitus päivälle.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä aamulla keitetään?",
+        "options": [
+          "Mehua",
+          "Kahvia tai teetä",
+          "Kaakaota",
+          "Limua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä aamupalalla syödään?",
+        "options": [
+          "Puuroa tai voileipä",
+          "Pizzaa",
+          "Hampurilainen",
+          "Pastaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lapset laittavat valmiiksi?",
+        "options": [
+          "Urheiluvälineet",
+          "Koulurepun",
+          "Puhelimen",
+          "Pyörän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä aikuiset lukevat aamulla?",
+        "options": [
+          "Kirjoja",
+          "Uutiset",
+          "Sarjakuvia",
+          "Urheilutuloksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millainen aamu on hyvä aloitus päivälle?",
+        "options": [
+          "Kiireinen",
+          "Rauhallinen",
+          "Myöhässä",
+          "Stressaava"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

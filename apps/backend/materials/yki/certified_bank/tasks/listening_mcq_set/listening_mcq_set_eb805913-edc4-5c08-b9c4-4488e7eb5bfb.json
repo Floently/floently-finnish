@@ -1,0 +1,99 @@
+{
+  "id": "eb805913-edc4-5c08-b9c4-4488e7eb5bfb",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu lähiruuan suosiosta ja vastaa.",
+    "materials": {
+      "transcript": "Elina: Hei Mikko, ootko huomannut, että lähiruoka on nyt tosi suosittua? Mikko: Joo, oon huomannut. Monet haluaa tietää, mistä niiden ruoka tulee ja että se on tuotettu lähellä. Elina: Meillä on kotona alettu suosia lähiruokaa. Ostetaan lihaa ja vihanneksia suoraan tiloilta. Mikko: Miten se käytännössä toimii? Elina: Meillä on muutama tila, joilta tilataan. Ne toimittaa suoraan kotiin tai sitten haetaan noutopisteestä. Hinnat on vähän kalliimpia kuin kaupassa, mutta laatu on parempi. Mikko: Entä sesongit? Elina: Se on se juttu. Talvella syödään enemmän juureksia ja säilöttyä, kesällä tuoretta. Se on myös ekologista. Mikko: Kuulostaa hyvältä. Pitäisköhän itsekin kokeilla.",
+      "audio_asset_id": "7bf074fd-10fe-4cbc-9803-d12abdb5187c"
+    },
+    "questions": [
+      {
+        "id": "2c00f87c-af45-5311-a22b-191a5796cefb",
+        "prompt": "Mistä Elina ja Mikko keskustelevat?",
+        "options": [
+          "Ulkomaisesta ruuasta.",
+          "Ruoan hinnoista.",
+          "Lähiruuan suosiosta.",
+          "Dieeteistä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dd13b477-7870-5768-b5c9-25fcb9083fb5",
+        "prompt": "Miksi lähiruoka on suosittua Elinan mukaan?",
+        "options": [
+          "Se on halvempaa.",
+          "Ihmiset haluavat tietää ruoan alkuperän.",
+          "Se on nopeampaa.",
+          "Sitä saa vain kaupoista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "65ec8c50-f28c-5908-91d2-514d77074a64",
+        "prompt": "Mistä Elina ostaa lähiruokaa?",
+        "options": [
+          "Suoraan tiloilta.",
+          "Tavallisesta kaupasta.",
+          "Torilta.",
+          "Ulkomailta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a963c424-26cb-5a70-aabc-73d979568f69",
+        "prompt": "Miten lähiruuan hinta vertautuu kaupparuokaan?",
+        "options": [
+          "Se on halvempaa.",
+          "Samahintaista.",
+          "Se on vähän kalliimpaa.",
+          "Paljon kalliimpaa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b6303114-989c-57cb-89af-ea1a269bc674",
+        "prompt": "Mitä hyötyä sesonkien mukaan syömisestä on?",
+        "options": [
+          "Se on tylsää.",
+          "Se on ekologista.",
+          "Se on kalliimpaa.",
+          "Se on vaikeampaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f473fe2f-f958-507a-9e25-9379a97c11f6",
+        "prompt": "Mitä Elina sanoo lähiruuan laadusta?",
+        "options": [
+          "Laatu on parempi.",
+          "Laatu on huonompi.",
+          "Laatu on sama.",
+          "Laadusta ei voi tietää."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

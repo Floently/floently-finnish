@@ -1,0 +1,37 @@
+{
+  "id": "4663263d-1c9a-5572-b95d-f5bce15c1ee9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit kirjastossa. Kirjoita lyhyt palaute. Kerro, oliko henkilökunta avuliasta, löysitkö etsimäsi kirjan ja oliko kirjasto mielestäsi rauhallinen paikka.",
+    "materials": {
+      "scenario": "Palaute kirjastosta"
+    },
+    "items": [
+      {
+        "id": "fd775bd4-522d-591a-9d55-4fe33f09890c",
+        "prompt": "Kävit kirjastossa. Kirjoita lyhyt palaute. Kerro, oliko henkilökunta avuliasta, löysitkö etsimäsi kirjan ja oliko kirjasto mielestäsi rauhallinen paikka."
+      }
+    ],
+    "rubric": "Henkilökunnan avuliaisuus\nLöysitkö etsimäsi\nRauhallisuus",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

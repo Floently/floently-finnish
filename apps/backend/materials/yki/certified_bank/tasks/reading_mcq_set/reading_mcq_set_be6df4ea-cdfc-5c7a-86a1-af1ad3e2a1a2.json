@@ -1,0 +1,88 @@
+{
+  "id": "be6df4ea-cdfc-5c7a-86a1-af1ad3e2a1a2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedote ja valitse oikea vastaus jokaiseen kysymykseen.",
+    "materials": {
+      "text": "Kaupungin uimahalli on avoinna maanantaisin ja keskiviikkoisin kello 6–21. Tiistaisin ja torstaisin aukiolo on 7–20. Perjantaisin ja lauantaisin uimahalli avataan kello 8 ja suljetaan kello 18. Sunnuntaisin aukiolo on 9–17. Aikuisten lipun hinta on 6 euroa. Alle 18-vuotiaat pääsevät 3 eurolla. Perhelippu kahdelle aikuiselle ja lapsille maksaa 12 euroa. Kuntosali on samaan hintaan. Suihku on pakollinen ennen uimaa. Uimalasit ovat pakolliset.",
+      "word_count": 61
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uimahalli on auki maanantaisin?",
+        "options": [
+          "kello 6–21",
+          "kello 7–20",
+          "kello 8–18",
+          "kello 9–17"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko aikuisen lippu maksaa?",
+        "options": [
+          "6 euroa",
+          "3 euroa",
+          "12 euroa",
+          "8 euroa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä perhelippu sisältää?",
+        "options": [
+          "kaksi aikuista ja lapset",
+          "vain lapset",
+          "yksi aikuinen",
+          "vain aikuiset"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on pakollista ennen uimaa?",
+        "options": [
+          "suihku",
+          "lippu vain",
+          "uimalasit vain",
+          "ei mitään"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Sunnuntaisin milloin halli sulkeutuu?",
+        "options": [
+          "kello 17",
+          "kello 18",
+          "kello 20",
+          "kello 21"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

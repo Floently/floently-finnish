@@ -1,0 +1,99 @@
+{
+  "id": "45f49218-3768-5cae-b974-9958f9c02f74",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Rautatieasemalla on uusi kahvila. Se on avattu odotusalueen viereen. Kahvilasta saa kahvia, teetä, virvoitusjuomia ja pieniä välipaloja. Kahvila on avoinna joka päivä kello 6–21. Asemalla on myös uusia istumapaikkoja ja latureita matkustajille. Kahvila toivottaa kaikki tervetulleiksi odottamaan junaa.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on uutta rautatieasemalla?",
+        "options": [
+          "Uusi leikkipaikka",
+          "Uusi kahvila",
+          "Uusi kauppa",
+          "Uusi kioski"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä uusi kahvila sijaitsee?",
+        "options": [
+          "Laiturilla",
+          "Odotusalueen viereen",
+          "Aseman ulkopuolella",
+          "Toisessa kerroksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kahvilasta saa?",
+        "options": [
+          "Vain kahvia",
+          "Kahvia, teetä, virvoitusjuomia ja välipaloja",
+          "Vain leivonnaisia",
+          "Lounasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin kahvila on auki?",
+        "options": [
+          "Arkisin kello 7–20",
+          "Joka päivä kello 6–21",
+          "Vain aamuisin",
+          "Viikonloppuisin kello 9–18"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä muuta uutta asemalla on?",
+        "options": [
+          "Uusia lippuautomaatteja",
+          "Uusia istumapaikkoja ja latureita",
+          "Uusia junia",
+          "Uusia opasteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Ketä kahvila toivottaa tervetulleeksi?",
+        "options": [
+          "Vain junalla matkustavia",
+          "Kaikki",
+          "Vain kahvilan asiakkaita",
+          "Vain henkilökuntaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

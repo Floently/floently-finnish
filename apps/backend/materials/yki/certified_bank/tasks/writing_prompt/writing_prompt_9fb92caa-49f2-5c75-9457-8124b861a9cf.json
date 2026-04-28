@@ -1,0 +1,37 @@
+{
+  "id": "9fb92caa-49f2-5c75-9457-8124b861a9cf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kotimaan junaliikennettä. Kirjoita palaute VR:lle.",
+    "materials": {
+      "scenario": "Palaute junamatkasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt kotimaan junaliikennettä. Kirjoita palaute VR:lle."
+      }
+    ],
+    "rubric": "Olet käyttänyt kotimaan junaliikennettä. Kirjoita palaute VR:lle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "f5ae45ff-b3b3-5e9a-b3ed-de468b6c360d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen saunakulttuuri on ainutlaatuinen ja arvokas osa kulttuuriperintöämme. Se on Unescon aineettoman kulttuuriperinnön luettelossa. Sauna on ollut suomalaisille paljon muutakin kuin peseytymispaikka. Se on ollut pyhä paikka, jossa on synnytty, parannuttu ja vietetty aikaa perheen ja ystävien kanssa. Yksi keskeisimmistä saunomisen perinteistä on löylyn heittäminen. Löyly syntyy, kun vettä heitetään kuumille kiville. Se leviää saunaan ja tuntuu iholla miellyttävänä kuumuutena. Toinen keskeinen perinne on vastan käyttö. Vasta on koivunoksista sidottu vihda, jolla vihtotaan ihoa saunomisen aikana. Se lisää verenkiertoa, puhdistaa ihoa ja tuoksuu hyvälle. Kolmas perinne on saunominen yhdessä. Saunaan mennään usein perheen tai ystävien kanssa, ja saunomisen jälkeen istutaan yhdessä juttelemassa. Sauna on paikka, jossa ihmiset ovat tasavertaisia. Neljäs perinne on saunominen eri vuodenaikoina. Kesällä saunotaan mökillä järven rannalla, talvella saatetaan pulahtaa avantoon saunomisen jälkeen. Viides perinne on saunan terveysvaikutukset. Saunominen parantaa verenkiertoa, alentaa verenpainetta, rentouttaa lihaksia ja vähentää stressiä.",
+      "word_count": 141
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä osoittaa suomalaisen saunaperinteen kansainvälisen merkityksen?",
+        "options": [
+          "Se on monien maiden suosima",
+          "Se on Unescon aineettoman kulttuuriperinnön luettelossa",
+          "Sitä on tutkittu paljon",
+          "Siitä on tehty elokuvia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä sauna on ollut suomalaisille?",
+        "options": [
+          "Vain peseytymispaikka",
+          "Paljon muutakin: pyhä paikka, synnytyspaikka, parantamispaikka",
+          "Vain rentoutumispaikka",
+          "Vain seurustelupaikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan löylyn heittämisellä?",
+        "options": [
+          "Veden heittämistä kuumille kiville, jolloin syntyy höyryä",
+          "Vastan heiluttamista",
+          "Saunan lämmittämistä",
+          "Saunaan menoa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä vasta on ja mitä sillä tehdään?",
+        "options": [
+          "Se on pyyhe, jolla kuivataan",
+          "Se on koivunoksista sidottu vihda, jolla vihtotaan ihoa",
+          "Se on saunavihta, jolla lisätään löylyä",
+          "Se on istuin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä terveysvaikutuksia saunomisella on?",
+        "options": [
+          "Se heikentää terveyttä",
+          "Se parantaa verenkiertoa, alentaa verenpainetta, rentouttaa lihaksia ja vähentää stressiä",
+          "Se aiheuttaa flunssaa",
+          "Sillä ei ole terveysvaikutuksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

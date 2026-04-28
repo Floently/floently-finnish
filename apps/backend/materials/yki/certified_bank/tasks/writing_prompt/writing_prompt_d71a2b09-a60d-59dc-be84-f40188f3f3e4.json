@@ -1,0 +1,37 @@
+{
+  "id": "d71a2b09-a60d-59dc-be84-f40188f3f3e4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa uutta ulkokuntoilulaitetta lähipuistoon. Kerro, millainen laite olisi hyvä ja miksi se palvelisi alueen asukkaita. Kysy myös, miten ehdotuksia käsitellään.",
+    "materials": {
+      "scenario": "Ehdotus ulkokuntoilulaitteesta"
+    },
+    "items": [
+      {
+        "id": "16de6322-4b17-5633-899d-d5840645c8a3",
+        "prompt": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa uutta ulkokuntoilulaitetta lähipuistoon. Kerro, millainen laite olisi hyvä ja miksi se palvelisi alueen asukkaita. Kysy myös, miten ehdotuksia käsitellään."
+      }
+    ],
+    "rubric": "Laitteen kuvaus\nPerustelut\nKäsittelyprosessin kysyminen",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

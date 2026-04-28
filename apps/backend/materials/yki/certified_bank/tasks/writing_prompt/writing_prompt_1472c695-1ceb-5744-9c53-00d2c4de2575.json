@@ -1,0 +1,37 @@
+{
+  "id": "1472c695-1ceb-5744-9c53-00d2c4de2575",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a researcher position in a university research project. Tell about your academic background, previous research experience, and what makes you suitable for this particular project. Also describe your research interests. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus tutkijan tehtävään"
+    },
+    "items": [
+      {
+        "id": "c9a938f3-0a73-55cc-bad6-abb89c73c177",
+        "prompt": "Write a job application. You are applying for a researcher position in a university research project. Tell about your academic background, previous research experience, and what makes you suitable for this particular project. Also describe your research interests. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a researcher position in a university research project. Tell about your academic background, previous research experience, and what makes you suitable for this particular project. Also describe your research interests. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "e2ffdf98-90f8-5787-8cf2-db1684197347",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.302,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Terve! Mä oon nyt parkkipaikalla. Mistä sä löysit ton parkkipaikan? Täällä on ihan täyttä. Joudun varmaan kiertää vähän aikaa.",
+      "audio_asset_id": "f31949d2-b117-435c-85c7-985a5adfbee5"
+    },
+    "questions": [
+      {
+        "id": "09bdbf14-7160-596a-acda-e70b1f43a4a9",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Parkkipaikalla.",
+          "Kaupassa.",
+          "Bensa-asemalla.",
+          "Kadulla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e1d308a5-21e2-5306-b02f-bbafa8b5ca79",
+        "prompt": "Mikä on puhujan ongelma?",
+        "options": [
+          "Hänellä ei ole rahaa.",
+          "Hän on eksynyt.",
+          "Parkkipaikalla on ihan täyttä.",
+          "Hänen autonsa on rikki."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a0848b25-31d6-5fe0-9a69-65347beea971",
+        "prompt": "Mitä puhuja joutuu todennäköisesti tekemään?",
+        "options": [
+          "Kiertää vähän aikaa.",
+          "Maksaa enemmän.",
+          "Pysäköidä kauemmas.",
+          "Mennä kotiin."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "9d8f6c65-c9cb-50da-ab61-757f129ac7da",
+        "prompt": "Mitä puhuja kysyy toiselta?",
+        "options": [
+          "Onko hänellä autoa.",
+          "Mistä hän löysi parkkipaikan.",
+          "Mihin aikaan hän tulee.",
+          "Voiko hän auttaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "726ba74c-e3a7-58aa-ac21-058ca23129be",
+        "prompt": "Miten puhuja todennäköisesti suhtautuu tilanteeseen?",
+        "options": [
+          "Hän on vihainen.",
+          "Hän on hieman turhautunut.",
+          "Hän on onnellinen.",
+          "Hän ei välitä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

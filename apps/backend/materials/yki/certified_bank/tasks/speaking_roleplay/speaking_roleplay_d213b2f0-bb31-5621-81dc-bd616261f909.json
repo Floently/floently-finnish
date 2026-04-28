@@ -1,0 +1,40 @@
+{
+  "id": "d213b2f0-bb31-5621-81dc-bd616261f909",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.301,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you have siblings and who is in your family.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "619e8728-879b-59db-976f-8762c56a4e91",
+        "ai_first_turn_fi": "Onko sinulla perhettä? Kerro perheestäsi."
+      }
+    ],
+    "rubric": "Tell if you have siblings and who is in your family.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

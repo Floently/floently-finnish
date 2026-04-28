@@ -1,0 +1,37 @@
+{
+  "id": "94130dd4-5665-5617-8699-e1efe69172a3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kiinteistönhuoltoon. Ilmoita, että taloyhtiön porraskäytävässä on palanut lamppu. Kerro, missä kerroksessa ja mikä lamppu on palanut. Pyydä, että se vaihdetaan pian.",
+    "materials": {
+      "scenario": "Vikailmoitus palaneesta lampusta"
+    },
+    "items": [
+      {
+        "id": "36986530-30ac-507b-8b0d-89a8b710bfae",
+        "prompt": "Kirjoita sähköposti kiinteistönhuoltoon. Ilmoita, että taloyhtiön porraskäytävässä on palanut lamppu. Kerro, missä kerroksessa ja mikä lamppu on palanut. Pyydä, että se vaihdetaan pian."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

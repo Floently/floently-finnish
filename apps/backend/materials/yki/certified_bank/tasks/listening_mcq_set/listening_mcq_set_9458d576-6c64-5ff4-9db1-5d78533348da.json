@@ -1,0 +1,88 @@
+{
+  "id": "9458d576-6c64-5ff4-9db1-5d78533348da",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta asuntomessuista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Seuraavat asuntomessut järjestetään Turussa kesällä 2025. Messualue sijaitsee Linnanfältin uudella asuinalueella, jonne rakennetaan noin 500 uutta kotia. Messuilla esitellään uusinta asumista, arkkitehtuuria ja pihasuunnittelua. Teemoina ovat erityisesti kestävä kehitys, yhteisöllisyys ja älykäs koti. Messuilla on yli 40 kohdetta, joihin kuuluu omakotitaloja, rivitaloja ja kerrostaloasuntoja. Messut ovat avoinna 1.-31. heinäkuuta joka päivä kello 10-19. Lipun hinta on 20 euroa, ja alle 7-vuotiaat pääsevät ilmaiseksi. Messujen yhteydessä on myös laaja ohjelmateltta, jossa on asiantuntijaluentoja ja paneelikeskusteluita. Lisäksi on erikoisnäyttelyitä, kahviloita ja myyntikojuja. Tervetuloa tutustumaan tulevaisuuden koteihin!",
+      "audio_asset_id": "b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e"
+    },
+    "questions": [
+      {
+        "id": "l133q1",
+        "prompt": "Missä kaupungissa seuraavat asuntomessut järjestetään?",
+        "options": [
+          "Helsingissä.",
+          "Tampereella.",
+          "Turussa.",
+          "Oulussa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l133q2",
+        "prompt": "Millä uudella asuinalueella messut pidetään?",
+        "options": [
+          "Keskustassa.",
+          "Linnanfältissä.",
+          "Itäharjulla.",
+          "Runosmäessä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l133q3",
+        "prompt": "Mitkä ovat messujen teemoja?",
+        "options": [
+          "Tehokkuus ja nopeus.",
+          "Kestävä kehitys, yhteisöllisyys ja älykäs koti.",
+          "Perinteet ja historia.",
+          "Luksus ja ylellisyys."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l133q4",
+        "prompt": "Paljonko lippu maksaa aikuiselta?",
+        "options": [
+          "15 euroa.",
+          "18 euroa.",
+          "20 euroa.",
+          "25 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l133q5",
+        "prompt": "Mitä messujen ohjelmateltassa on?",
+        "options": [
+          "Elokuvanäytöksiä.",
+          "Asiantuntijaluentoja ja paneelikeskusteluita.",
+          "Konsertteja.",
+          "Urheilukilpailuja."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

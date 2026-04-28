@@ -1,0 +1,37 @@
+{
+  "id": "c82d0c38-9f45-53fe-9f59-41e0a6b3f4e0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.357,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: office break room. Purpose: react to a situation. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "health in office_break_room"
+    },
+    "items": [
+      {
+        "id": "61089364-4154-59d7-936a-e796d8c36cb5",
+        "prompt": "Write for the receiver in this scenario: office break room. Purpose: react to a situation. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

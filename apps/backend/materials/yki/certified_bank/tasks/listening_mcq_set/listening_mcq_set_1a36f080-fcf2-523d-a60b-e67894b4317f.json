@@ -1,0 +1,77 @@
+{
+  "id": "1a36f080-fcf2-523d-a60b-e67894b4317f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu demokratian tilasta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan demokratian tilasta. Meillä on täällä kaksi asiantuntijaa: valtiotieteilijä Tuomas Kivi ja toimittaja Sanna Lehtinen.\n\nTuomas Kivi: Suomalainen demokratia on perusrakenteiltaan vakaa. Meillä on vapaat vaalit, sananvapaus ja oikeusvaltio. Mutta pinnan alla on nähtävissä huolestuttavia merkkejä. Poliittinen luottamus on laskenut, erityisesti nuorten keskuudessa. Äänestysprosentti on laskenut, ja samalla äänet keskittyvät. Myös polarisaatio on lisääntynyt.\n\nSanna Lehtinen: Juuri näin. Ja tässä medialla on iso rooli. Somealgoritmit suosittelevat sisältöä, joka vahvistaa omia näkemyksiä. Ihmiset elävät yhä enemmän omissa kuplissaan ja saavat tietoa vain samanmielisiltä. Tämä vaikeuttaa yhteiskunnallista keskustelua ja kompromissien tekemistä.\n\nTuomas Kivi: Toinen huolenaihe on kansalaisten osallistumismahdollisuudet. Demokratia ei ole vain vaaleja, vaan myös arjen vaikuttamista. Monilla on tunne, ettei heidän äänellään ole väliä. Päätökset tuntuvat kaukaisilta, ja byrokratia vaikeuttaa osallistumista.\n\nSanna Lehtinen: Tässä olisi kehitettävää. Esimerkiksi osallistava budjetointi, jossa asukkaat saavat päättää osasta julkisia varoja, on ollut hyvä kokeilu. Myös kansalaisaloitteet ovat tuoneet uusia mahdollisuuksia. Mutta ne eivät yksin riitä.\n\nPuheenjohtaja: Miten populismi ja disinformaatio vaikuttavat demokratiaan?\n\nSanna Lehtinen: Ne ovat vakava uhka. Disinformaatio heikentää ihmisten kykyä tehdä tietoon perustuvia päätöksiä. Populistiset liikkeet usein yksinkertaistavat monimutkaisia asioita ja luovat vastakkainasettelua. Tämä nakertaa demokratian perustaa.\n\nTuomas Kivi: Ja tässä korostuu koulutuksen merkitys. Kriittinen medialukutaito on tärkeämpää kuin koskaan. Ihmisten pitää osata arvioida tiedon lähteitä ja tunnistaa disinformaatio. Tämä on demokratian tulevaisuuden kannalta keskeistä.\n\nPuheenjohtaja: Mitä pitäisi tehdä, jotta demokratia vahvistuisi?\n\nTuomas Kivi: Panostaa kansalaiskasvatukseen ja osallistumismahdollisuuksiin. Tehdä politiikasta läpinäkyvämpää ja ymmärrettävämpää.\n\nSanna Lehtinen: Ja vahvistaa laadukasta journalismia. Media tarvitsee resursseja ja tukea, jotta se pystyy tekemään työtään. Myös somealustoja pitää saada vastuuseen sisällöistä.\n\nTuomas Kivi: Lopuksi: demokratia ei ole itsestäänselvyys. Se vaatii jatkuvaa työtä ja meidän kaikkien panosta.",
+      "audio_asset_id": "19181d9d-470d-5913-ba9e-331311568ac4"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_005_q1",
+        "prompt": "Mitä ongelmia demokratiassa Tuomas Kiven mukaan on?",
+        "options": [
+          "vakavia rakenteellisia ongelmia",
+          "poliittinen luottamus laskenut, äänestysprosentti laskenut, polarisaatio lisääntynyt",
+          "kaikki on hyvin",
+          "vaalit eivät ole vapaat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_005_q2",
+        "prompt": "Miten some vaikuttaa demokratiaan Sanna Lehtisen mukaan?",
+        "options": [
+          "se parantaa keskustelua",
+          "algoritmit vahvistavat omia näkemyksiä ja luovat kuplia",
+          "sillä ei ole vaikutusta",
+          "se lisää moniäänisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_005_q3",
+        "prompt": "Mitä esimerkkejä osallistumisen kehittämisestä mainitaan?",
+        "options": [
+          "vain vaalit",
+          "osallistava budjetointi ja kansalaisaloitteet",
+          "kansanäänestykset",
+          "puolueiden jäsenmaksut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_005_q4",
+        "prompt": "Miten disinformaatioon pitäisi vastata?",
+        "options": [
+          "kieltämällä some",
+          "kriittisellä medialukutaidolla ja laadukkaalla journalismilla",
+          "sensuurilla",
+          "ei mitenkään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "350af8a7-a7b1-508e-9e7f-c62d5c23c792",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti koulutustilaisuudesta. Arvioi kouluttajan asiantuntemusta, koulutusmateriaaleja ja käytännön harjoituksia. Ehdota yhtä lisäaihetta.",
+    "materials": {
+      "scenario": "Palaute koulutustilaisuudesta"
+    },
+    "items": [
+      {
+        "id": "d8b153c3-67db-53a3-9711-d8c4b8987e48",
+        "prompt": "Kirjoita palauteteksti koulutustilaisuudesta. Arvioi kouluttajan asiantuntemusta, koulutusmateriaaleja ja käytännön harjoituksia. Ehdota yhtä lisäaihetta."
+      }
+    ],
+    "rubric": "Kouluttajan asiantuntemus\nKoulutusmateriaalit\nKäytännön harjoitukset\nLisäaihe",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "dce5719e-7470-55c3-9208-e0bcf6ddce16",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.562,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Joukkoliikenteen käyttö on lisääntynyt suurissa kaupungeissa, kun ihmiset haluavat vähentää yksityisautoilua ja pienentää hiilijalanjälkeään. Helsingin seudun liikenne (HSL) on kehittänyt reittejä ja lisännyt vuoroja vastatakseen kasvavaan kysyntään. Sähköbussit ja raitiovaunut ovat yleistyneet, ja tulevaisuudessa raideliikenteen merkitys kasvaa entisestään, kun uusia raitiolinjoja ja metropistoja rakennetaan. Joukkoliikenteen etuja ovat edullisuus, ympäristöystävällisyys ja se, että matka-ajan voi käyttää esimerkiksi lukemiseen tai työntekoon. Haasteita ovat ruuhka-aikojen tungos ja se, että kaikkiin paikkoihin ei ole hyviä yhteyksiä, erityisesti harvaan asutuilla alueilla.",
+      "word_count": 76
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_007",
+        "prompt": "Miksi joukkoliikenteen käyttö on lisääntynyt?",
+        "options": [
+          "Koska se on kallista",
+          "Koska ihmiset haluavat lisätä yksityisautoilua",
+          "Koska ihmiset haluavat vähentää yksityisautoilua ja pienentää hiilijalanjälkeään",
+          "Koska se on hidasta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2_reading_b1_007",
+        "prompt": "Mitä uutta HSL on tehnyt?",
+        "options": [
+          "Vähentänyt vuoroja",
+          "Kehittänyt reittejä ja lisännyt vuoroja",
+          "Lopettanut sähköbussit",
+          "Poistanut raitiovaunut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_007",
+        "prompt": "Mitkä ovat joukkoliikenteen etuja?",
+        "options": [
+          "Kalleus ja epämukavuus",
+          "Edullisuus, ympäristöystävällisyys ja matka-ajan hyödyntäminen",
+          "Vain nopeus",
+          "Vain se, että pääsee istumaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_007",
+        "prompt": "Mikä on joukkoliikenteen haaste?",
+        "options": [
+          "Liian paljon vuoroja",
+          "Ruuhka-aikojen tungos ja huonot yhteydet harvaan asutuilla alueilla",
+          "Liian edulliset hinnat",
+          "Liian vähän matkustajia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "744ad387-da60-5653-9c6a-89af6e0624e1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele väittely kaupunkien yhdyskuntarakenteesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Seuraavaksi väittelemme siitä, pitäisikö kaupunkeja tiivistää vai hajauttaa. Ensimmäisenä puheenvuoro kaupunkisuunnittelija Anna Kalliolta. Kallio: Tiivistäminen on välttämätöntä. Se säästää maata, vähentää liikenteen päästöjä ja mahdollistaa palveluiden säilymisen lähellä. Joukkoliikenne toimii vain, jos asukkaita on tarpeeksi. Puheenjohtaja: Kiitos. Vastapuheenvuoro arkkitehti Matti Virralta. Virta: Tiivistäminen lisää ruuhkia ja melua. Ihmiset tarvitsevat tilaa ja luontoa ympärilleen. Hajautettu rakenne, jossa on pientaloalueita ja viheralueita, on terveellisempi ja viihtyisämpi. Kallio: Mutta hajauttaminen lisää autoilua ja pidentää matkoja. Se on kestämätöntä ympäristön kannalta. Virta: Joukkoliikennettä voidaan kehittää myös hajautetussa rakenteessa. Ja uusi teknologia, kuten sähköautot, vähentävät päästöjä. Kallio: Sähköautotkaan eivät ratkaise ruuhkia ja tilankäyttöä. Tiivis kaupunki on inhimillisempi ja elävämpi.",
+      "audio_asset_id": "4b4ec7b6-8122-4e07-ac04-ee7c750b135e"
+    },
+    "questions": [
+      {
+        "id": "l116q1",
+        "prompt": "Mitä mieltä Anna Kallio on kaupunkien tiivistämisestä?",
+        "options": [
+          "Se on huono asia.",
+          "Se on välttämätöntä.",
+          "Sillä ei ole merkitystä.",
+          "Se pitäisi kieltää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l116q2",
+        "prompt": "Miten Kallio perustelee kantaansa?",
+        "options": [
+          "Tiivistäminen on halvempaa.",
+          "Tiivistäminen on suositumpaa.",
+          "Tiivistäminen on nopeampaa.",
+          "Tiivistäminen säästää maata, vähentää päästöjä ja mahdollistaa palveluiden säilymisen lähellä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l116q3",
+        "prompt": "Mitä Matti Virta ehdottaa hajautetun rakenteen puolesta?",
+        "options": [
+          "Se lisää tehokkuutta.",
+          "Ihmiset tarvitsevat tilaa ja luontoa, ja hajautettu rakenne on terveellisempi ja viihtyisämpi.",
+          "Se on halvempaa toteuttaa.",
+          "Se on turvallisempaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l116q4",
+        "prompt": "Mitä Kallio vastaa hajauttamisen ongelmista?",
+        "options": [
+          "Se lisää autoilua ja pidentää matkoja, mikä on ympäristölle kestämätöntä.",
+          "Se on liian kallista.",
+          "Se on epäsuosittua.",
+          "Se on tehotonta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l116q5",
+        "prompt": "Mitä Virta ehdottaa liikenteen päästöjen vähentämiseksi hajautetussa rakenteessa?",
+        "options": [
+          "Joukkoliikenteen kehittämistä ja uutta teknologiaa, kuten sähköautoja.",
+          "Autojen kieltämistä.",
+          "Lisää bussikaistoja.",
+          "Pyöräteitä."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

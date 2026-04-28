@@ -1,0 +1,83 @@
+{
+  "id": "f560edbd-86b9-5d96-854a-2e874586c521",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu suomalaisesta koulutusjärjestelmästä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Ootko miettinyt, mihin hakisit lukion jälkeen?\nB: Joo, mä haluan lääkäriksi. Se on pitkä tie, mutta se on mun unelma. Pitää mennä ylioppilaaksi ja sitten lääketieteelliseen.\nA: Se on kyllä kova homma. Mulla ei ole vielä selvää suunnitelmaa. Ehkä joku ammattikorkeakoulu, tradenomiksi tai insinööriksi.\nB: Molemmat on hyviä vaihtoehtoja. Suomessa on hyvä koulutus, ja kaikilla on mahdollisuus opiskella.\nA: Joo, se on hienoa. Ja opiskelu on ilmaista. Mun vanhemmat on kertonut, että ennen ei ollut samoja mahdollisuuksia.\nB: Niin, koulutus on tasa-arvoista. Mutta kyllä se vaatii myös omaa motivaatiota. Ilman sitä ei pärjää.\nA: Totta. Ja nykyään pitää opiskella koko ajan, ei riitä että käy yhden tutkinnon. Työelämä muuttuu.\nB: Juuri niin. Elinikäinen oppiminen on tärkeää.",
+      "audio_asset_id": "920f8e4e-900c-49d5-9d26-a8b70256866c"
+    },
+    "questions": [
+      {
+        "id": "8d61670f-1d89-5e04-8612-bdfc0c6daebc",
+        "prompt": "Mitä B haluaa opiskella?",
+        "options": [
+          "tradenomiksi",
+          "insinööriksi",
+          "lääkäriksi"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1e87da52-59a7-59bf-ab0e-d7281e25c7ff",
+        "prompt": "Mitä A harkitsee?",
+        "options": [
+          "lääkäriä",
+          "tradenomia tai insinööriä",
+          "opettajaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fe1b38df-d354-5eb6-94d4-5314c2610e09",
+        "prompt": "Mitä hyvää suomalaisessa koulutuksessa on heidän mielestään?",
+        "options": [
+          "se on kallista",
+          "se on tasa-arvoista ja ilmaista",
+          "se on helppoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c4cd89fc-8889-533e-b693-fe7d697a499d",
+        "prompt": "Mitä B sanoo opiskelun vaativan?",
+        "options": [
+          "vain rahaa",
+          "omaa motivaatiota",
+          "hyviä suhteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6f6772a3-8231-583f-ae06-16a63724524e",
+        "prompt": "Mitä elinikäinen oppiminen tarkoittaa?",
+        "options": [
+          "opiskellaan vain nuorena",
+          "opiskellaan koko elämän ajan",
+          "ei opiskella ollenkaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

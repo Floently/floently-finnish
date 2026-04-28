@@ -1,0 +1,77 @@
+{
+  "id": "f1c820aa-7286-5c35-b889-72258fc949f5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tuoreen tutkimuksen mukaan 65 prosenttia suomalaisista pitää tuotteen alkuperää ja valmistustapaa tärkeänä ostopäätöksessä. Erityisesti nuoret aikuiset ovat valmiita maksamaan enemmän kotimaisista ja eettisesti tuotetuista tuotteista. Toisaalta hinta ratkaisee edelleen monen kuluttajan valinnan. Tämä jakaa kuluttajia kahteen leiriin: laatutietoisiin ja hintatietoisiin.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "751e8abd-7fa6-5f75-8093-ee122686a9f7",
+        "prompt": "Kuinka moni pitää tuotteen alkuperää tärkeänä?",
+        "options": [
+          "45%",
+          "55%",
+          "65%",
+          "75%"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "13a70a1f-51e0-50aa-be6c-1d85587808eb",
+        "prompt": "Ketkä ovat valmiita maksamaan enemmän vastuullisista tuotteista?",
+        "options": [
+          "Eläkeläiset",
+          "Nuoret aikuiset",
+          "Lapsiperheet",
+          "Työttömät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "95e9dbe9-c225-5914-9eea-4e7d40270071",
+        "prompt": "Mihin kahteen ryhmään kuluttajat jakautuvat?",
+        "options": [
+          "Verkko-ostajiin ja kivijalkaostajiin",
+          "Laatutietoisiin ja hintatietoisiin",
+          "Kotimaisiin ja ulkomaisiin",
+          "Nuoriin ja vanhoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e11bd87c-eb61-57ef-8758-7ad42b817e8b",
+        "prompt": "Miten kaupat ovat vastanneet muutokseen?",
+        "options": [
+          "Laskemalla hintoja",
+          "Panostamalla verkkokauppaan ja vastuullisuuteen",
+          "Vähentämällä valikoimaa",
+          "Mainostamalla enemmän"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "18ac8a25-693d-5b32-bbfc-a4b3b5d466ee",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomen terveydenhuolto on murroksessa. Väestö ikääntyy, kustannukset nousevat ja hoitajapula pahenee. Samalla odotukset julkista terveydenhuoltoa kohtaan ovat korkeammat kuin koskaan. Miten vastata näihin haasteisiin?\n\nYksi ratkaisu on teknologian hyödyntäminen. Etävastaanotot, digitaaliset palvelut ja tekoäly voivat tehostaa toimintaa ja vapauttaa resursseja sinne, missä niitä eniten tarvitaan. Esimerkiksi monet rutiinitarkastukset ja seurannat voidaan hoitaa etänä, jolloin lääkärien aikaa jää vaativampiin tapauksiin.\n\nMutta teknologia ei ratkaise kaikkea. Tarvitaan myös uudenlaisia toimintamalleja. Hyvinvointialueiden on tehtävä tiiviimpää yhteistyötä keskenään ja kolmannen sektorin kanssa. Ennaltaehkäisyyn on panostettava enemmän, jotta sairauksia ei pääsisi syntymään. Tämä tarkoittaa panostuksia terveellisiin elämäntapoihin, liikuntaan ja mielenterveyteen.\n\nToinen tärkeä kysymys on rahoitus. Julkinen terveydenhuolto rahoitetaan verovaroin, mutta veropohja ei kasva samaa vauhtia kuin kustannukset. Onko meillä varaa nykyiseen järjestelmään? Vai pitäisikö hyväksyä, että jonkinlainen kaksikanavaisuus on väistämätön – että ne, joilla on varaa, voivat hakeutua yksityiselle, ja julkinen sektori keskittyy peruspalveluihin?\n\nKolmas näkökulma on henkilöstön hyvinvointi. Hoitajien jaksaminen on koetuksella, ja alalta poistutaan ennätystahtia. On välttämätöntä parantaa työoloja, palkkausta ja urakehitysmahdollisuuksia. Muuten emme saa houkuteltua uusia osaajia alalle emmekä pidätettyä vanhoja.\n\nTerveydenhuollon tulevaisuus ei ole mustavalkoinen. Se on kompromissien summa. Meidän on hyväksyttävä, että kaikkea ei voida tarjota kaikille samaan aikaan. On tehtävä priorisointeja ja päätettävä, mikä on tärkeintä. Tämä keskustelu on käytävä avoimesti ja rehellisesti, jotta voimme rakentaa kestävän terveydenhuollon tuleville sukupolville.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 244
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä haasteita terveydenhuollolla on kirjoittajan mukaan?",
+        "options": [
+          "A) Väestö ikääntyy, kustannukset nousevat ja hoitajapula pahenee",
+          "B) Liian paljon rahaa, liian vähän potilaita",
+          "C) Teknologia on liian kallista",
+          "D) Poliitikot eivät ymmärrä terveydenhuoltoa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä teknologia voi tuoda terveydenhuoltoon?",
+        "options": [
+          "A) Se korvaa kokonaan lääkärit",
+          "B) Se voi tehostaa toimintaa ja vapauttaa resursseja",
+          "C) Se lisää byrokratiaa",
+          "D) Se tekee hoidosta kalliimpaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kaksikanavaisuus tarkoittaa?",
+        "options": [
+          "A) Vain julkista terveydenhuoltoa",
+          "B) Julkisen ja yksityisen terveydenhuollon rinnakkaiseloa",
+          "C) Vain yksityistä terveydenhuoltoa",
+          "D) Terveydenhuoltoa kahdella eri kielellä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

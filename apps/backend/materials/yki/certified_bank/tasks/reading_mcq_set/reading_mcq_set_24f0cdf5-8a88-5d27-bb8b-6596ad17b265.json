@@ -1,0 +1,110 @@
+{
+  "id": "24f0cdf5-8a88-5d27-bb8b-6596ad17b265",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.728,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen julkinen talous on velkaantunut. Velkaantuminen on seurausta monista tekijöistä. Väestön ikääntyminen lisää eläkemenoja ja hoivapalvelujen tarvetta. Talouden laskusuhdanteet ovat vähentäneet verotuloja. Myös panostukset koulutukseen, terveydenhuoltoon ja sosiaaliturvaan ovat kasvattaneet menoja. Velkaantuminen on ongelma, koska se kasvattaa korkomenoja. Korkomenot vievät rahaa muilta tärkeiltä menoilta, kuten koulutukselta ja terveydenhuollolta. Velka voi myös heikentää luottamusta Suomen talouteen ja vaikeuttaa rahoituksen saantia. Velkaantumisen hillitsemiseksi tarvitaan toimia. Työllisyysastetta on nostettava, jotta verotuloja saadaan lisää. Julkisia menoja on sopeutettava. Tämä voi tarkoittaa menoleikkauksia tai veronkorotuksia. Leikkaukset ovat vaikeita, koska ne voivat kohdistua heikoimmassa asemassa oleviin. Veronkorotukset voivat vähentää työntekoa ja investointeja. Velkaantumisen hillitseminen vaatii vaikeita poliittisia päätöksiä. Tarvitaan pitkäjänteistä talouspolitiikkaa, joka turvaa hyvinvointiyhteiskunnan rahoituksen mutta ei kasvata velkaa kestämättömästi.",
+      "word_count": 114
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä tekijät ovat aiheuttaneet julkisen talouden velkaantumista?",
+        "options": [
+          "Väestön nuorentuminen.",
+          "Väestön ikääntyminen, talouden laskusuhdanteet ja panostukset palveluihin.",
+          "Liian alhaiset verot.",
+          "Liian vähäinen kulutus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi velkaantuminen on ongelma?",
+        "options": [
+          "Se vähentää korkomenoja.",
+          "Se kasvattaa korkomenoja ja vie rahaa muilta menoilta.",
+          "Se lisää luottamusta talouteen.",
+          "Se helpottaa rahoituksen saantia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä korkomenot tarkoittavat?",
+        "options": [
+          "Rahaa, joka saadaan koroista.",
+          "Rahaa, joka maksetaan velan koroista.",
+          "Rahaa, joka säästetään.",
+          "Rahaa, joka investoidaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä toimia tarvitaan velkaantumisen hillitsemiseksi?",
+        "options": [
+          "Vain työllisyysasteen nostamista.",
+          "Työllisyysasteen nostamista ja julkisten menojen sopeuttamista.",
+          "Vain menoleikkauksia.",
+          "Vain veronkorotuksia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi menoleikkaukset ovat vaikeita?",
+        "options": [
+          "Ne ovat helppoja toteuttaa.",
+          "Ne voivat kohdistua heikoimmassa asemassa oleviin.",
+          "Ne lisäävät talouskasvua.",
+          "Ne parantavat palveluja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä haittapuolia veronkorotuksilla voi olla?",
+        "options": [
+          "Ne lisäävät työntekoa.",
+          "Ne voivat vähentää työntekoa ja investointeja.",
+          "Ne lisäävät kulutusta.",
+          "Ne parantavat talouskasvua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä velkaantumisen hillitseminen vaatii?",
+        "options": [
+          "Nopeita ja helppoja päätöksiä.",
+          "Vaikeita poliittisia päätöksiä ja pitkäjänteistä talouspolitiikkaa.",
+          "Vain yhtä toimenpidettä.",
+          "Ei mitään."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "e2143a40-8645-53dc-a813-95dee7226d16",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "BUSSI 550\nReitti: Itäkeskus – Oulunkylä – Leppävaara\nLähtöajat pysäkiltä 'Keskusaukio':\nklo 7.10, 7.30, 7.50, 8.10\nHuom! Tiistaina 12.3. bussi ei kulje klo 7.30.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "aa2e825d-5769-541f-883b-bbca84b28e6d",
+        "prompt": "Mihin aikaan bussi lähtee ensimmäisen kerran?",
+        "options": [
+          "7.10",
+          "7.30",
+          "7.50",
+          "8.10"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "40fa99ba-101d-52b1-b30e-d406dd0a520f",
+        "prompt": "Milloin bussi ei kulje tiistaina 12.3.?",
+        "options": [
+          "7.10",
+          "7.30",
+          "7.50",
+          "8.10"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "080d8d9f-1e11-589d-8832-84fe7189bf26",
+        "prompt": "Mikä on reitin päätepysäkki?",
+        "options": [
+          "Oulunkylä",
+          "Itäkeskus",
+          "Leppävaara",
+          "Keskusaukio"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

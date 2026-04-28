@@ -1,0 +1,110 @@
+{
+  "id": "412e773e-711b-52dd-8bf8-9c9612f50350",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen työmarkkinat ovat muuttumassa nopeasti. Digitalisaatio ja automaatio muuttavat työn sisältöä. Monet rutiinitehtävät katoavat koneiden hoitaessa ne. Uusia ammatteja syntyy tilalle. Työntekijöiltä vaaditaan jatkuvaa oppimista ja sopeutumiskykyä. Työurat eivät ole enää lineaarisia. Ne koostuvat erilaisista jaksoista: opiskelua, työtä, yrittäjyyttä ja ehkä työttömyyttä. Työsuhteet ovat moninaistuneet. Vakituisen työn rinnalle ovat tulleet osa-aikatyö, määräaikaiset työt ja keikkatyö. Tämä tuo joustavuutta mutta myös epävarmuutta. Työn ja vapaa-ajan raja on hämärtynyt. Työasiat seuraavat kotiin sähköpostien ja puheluiden mukana. Työuupumus on lisääntynyt. Työelämän muutos haastaa myös työlainsäädännön ja sosiaaliturvan. Nykyinen järjestelmä on rakennettu vakituisen työn varaan. Uusissa työmuodoissa työntekijän asema on usein epäselvä. Tarvitaan uusia ratkaisuja, jotka turvaavat toimeentulon työnteon muodosta riippumatta. Keskustelua käydään perustulosta ja muista uudistuksista.",
+      "word_count": 113
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä muuttaa työn sisältöä?",
+        "options": [
+          "Poliittiset päätökset.",
+          "Digitalisaatio ja automaatio.",
+          "Väestön ikääntyminen.",
+          "Kansainvälinen kauppa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu rutiinitehtäville?",
+        "options": [
+          "Ne lisääntyvät.",
+          "Ne katoavat koneiden hoitaessa ne.",
+          "Ne pysyvät samoina.",
+          "Ne siirtyvät ulkomaille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työntekijöiltä vaaditaan tulevaisuudessa?",
+        "options": [
+          "Yhden ammatin hallintaa koko elämän ajan.",
+          "Jatkuvaa oppimista ja sopeutumiskykyä.",
+          "Fyysistä voimaa.",
+          "Kielten osaamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millaisia työsuhteita on yleistynyt?",
+        "options": [
+          "Vain vakituisia työsuhteita.",
+          "Osa-aikatyö, määräaikaiset työt ja keikkatyö.",
+          "Vain yrittäjyyttä.",
+          "Vain etätyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä haittapuolia uusiin työmuotoihin liittyy?",
+        "options": [
+          "Liikaa vakautta.",
+          "Epävarmuutta ja työn ja vapaa-ajan rajan hämärtymistä.",
+          "Liian korkeaa palkkaa.",
+          "Liian vähän työtä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi nykyinen työlainsäädäntö on haasteellinen uusille työmuodoille?",
+        "options": [
+          "Se on liian uusi.",
+          "Se on rakennettu vakituisen työn varaan.",
+          "Se on liian joustava.",
+          "Se ei koske ketään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä uusia ratkaisuja työelämän murrokseen on esitetty?",
+        "options": [
+          "Vain perustulo.",
+          "Perustulo ja muita uudistuksia.",
+          "Vain työajan lyhentäminen.",
+          "Vain uudenlaiset työehtosopimusmallit."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

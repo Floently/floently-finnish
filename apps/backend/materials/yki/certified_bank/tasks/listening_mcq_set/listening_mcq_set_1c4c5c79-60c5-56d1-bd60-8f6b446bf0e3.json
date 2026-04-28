@@ -1,0 +1,88 @@
+{
+  "id": "1c4c5c79-60c5-56d1-bd60-8f6b446bf0e3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan puheenvuoro koulutuksen tulevaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Koulutustutkija: Koulutuksen on muututtava vastaamaan työelämän tarpeita. Perinteinen tiedon ulkoa oppiminen ei enää riitä. Tärkeämpää on oppia oppimaan, ratkaisemaan ongelmia ja tekemään yhteistyötä. Haastattelija: Miten tämä näkyy opetuksessa? Tutkija: Oppiainerajat hämärtyvät. Opetetaan ilmiöitä ja kokonaisuuksia. Esimerkiksi ilmastonmuutosta voidaan tarkastella luonnontieteen, yhteiskuntaopin ja etiikan näkökulmista. Haastattelija: Entä teknologia? Tutkija: Teknologia on työkalu, ei itsetarkoitus. Digitaidot ovat tärkeitä, mutta ne eivät saa syrjäyttää perustaitoja, kuten lukemista, kirjoittamista ja laskemista. Tekoälyä voidaan hyödyntää oppimisen tukena, mutta opettajan rooli on edelleen keskeinen. Haastattelija: Millainen on tulevaisuuden koulu? Tutkija: Se on joustava. Oppiminen voi tapahtua eri paikoissa ja eri aikoina. Yksilölliset oppimispolut korostuvat. Myös yhteisöllisyys on tärkeää. Koulu on paikka, jossa kohdataan toisia ja opitaan sosiaalisia taitoja. Tulevaisuuden koulu on enemmän valmentaja ja mahdollistaja.",
+      "audio_asset_id": "2315adc0-2439-47c2-95e2-274a956f71ca"
+    },
+    "questions": [
+      {
+        "id": "96c56206-094e-587e-b4b6-4a39844b587c",
+        "prompt": "Mitä tutkija pitää tärkeämpänä kuin tiedon ulkoa oppimista?",
+        "options": [
+          "Oppia oppimaan, ongelmanratkaisua ja yhteistyötä.",
+          "Tiedon määrää.",
+          "Nopeaa lukemista.",
+          "Yksilösuorituksia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "46630f1c-bccc-5ac7-8d36-b36e584ed750",
+        "prompt": "Mitä tarkoitetaan ilmiöpohjaisella oppimisella?",
+        "options": [
+          "Ilmiöiden tarkastelua monesta näkökulmasta, kuten ilmastonmuutosta eri tieteenaloilta.",
+          "Yhden oppiaineen syvällistä opiskelua.",
+          "Oppimista ulkona.",
+          "Kokeellista oppimista."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "0227d7e1-91bc-545f-a9a5-43a259703492",
+        "prompt": "Mikä on teknologian rooli koulutuksessa?",
+        "options": [
+          "Se on tärkein asia.",
+          "Se korvaa opettajat.",
+          "Se on vain viihdettä.",
+          "Se on työkalu, ei itsetarkoitus."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "280833da-de68-5de7-9b92-b0cb583e0829",
+        "prompt": "Mitä perustaitoja digitaidot eivät saa syrjäyttää?",
+        "options": [
+          "Musiikki ja kuvataide.",
+          "Liikunta ja terveystieto.",
+          "Käsityöt ja kotitalous.",
+          "Lukeminen, kirjoittaminen ja laskeminen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "d363684c-401d-5fd7-adda-65031bb5e3ef",
+        "prompt": "Millainen on tulevaisuuden koulu?",
+        "options": [
+          "Samanlainen kuin ennen.",
+          "Joustava, yksilölliset oppimispolut, yhteisöllinen, valmentaja ja mahdollistaja.",
+          "Tiukat säännöt ja paljon läksyjä.",
+          "Vain verkossa toimiva."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

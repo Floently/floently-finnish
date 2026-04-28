@@ -1,0 +1,66 @@
+{
+  "id": "fd297178-4c93-53df-aad4-57ebbcf99c4a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.493,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MYYDÄÄN POLKUPYÖRÄ\n\nMyydään hyväkuntoinen, vähän käytetty naisten polkupyörä. Väri sininen, 7 vaihdetta. Hinta 150 €. Pyörä on ollut vain vähän käytössä ja on erinomaisessa kunnossa. Nouto Helsingistä. Soita 040 123 4567 tai lähetä sähköpostia: pyora@gmail.com  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä värinen pyörä on?",
+        "options": [
+          "A) punainen",
+          "B) sininen",
+          "C) vihreä",
+          "D) musta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko pyörä maksaa?",
+        "options": [
+          "A) 100 €",
+          "B) 120 €",
+          "C) 150 €",
+          "D) 180 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Montako vaihdetta pyörässä on?",
+        "options": [
+          "A) 3",
+          "B) 5",
+          "C) 7",
+          "D) 10"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

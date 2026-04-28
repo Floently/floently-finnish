@@ -1,0 +1,37 @@
+{
+  "id": "151e8309-3fbe-533f-91a0-22ed89c6dacc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti sairaalan osastolle. Omaisesi on potilaana osastolla, etkä ole tyytyväinen hänen saamaansa hoitoon. Kerro, mitä ongelmia olette havainneet, kuten riittämätön kivunhoito tai puutteellinen tiedotus. Pyydä, että asiaan kiinnitetään huomiota ja että saatte lisätietoja hoidon suunnitelmasta. Kysy myös, kenen puoleen voitte kääntyä, jos ongelmat jatkuvat.",
+    "materials": {
+      "scenario": "Tyytymättömyys omaisen hoitoon"
+    },
+    "items": [
+      {
+        "id": "e4c2c77a-2592-5074-b7c4-87c2809820e0",
+        "prompt": "Kirjoita virallinen sähköposti sairaalan osastolle. Omaisesi on potilaana osastolla, etkä ole tyytyväinen hänen saamaansa hoitoon. Kerro, mitä ongelmia olette havainneet, kuten riittämätön kivunhoito tai puutteellinen tiedotus. Pyydä, että asiaan kiinnitetään huomiota ja että saatte lisätietoja hoidon suunnitelmasta. Kysy myös, kenen puoleen voitte kääntyä, jos ongelmat jatkuvat."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

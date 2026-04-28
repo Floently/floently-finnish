@@ -1,0 +1,79 @@
+[
+  {
+    "stage": "frontend_entry",
+    "status": "healthy",
+    "evidence": [
+      "apps/client/state/SpeakingRoute.tsx",
+      "apps/client/state/ProfessionalRoute.tsx"
+    ]
+  },
+  {
+    "stage": "recorder",
+    "status": "healthy",
+    "evidence": [
+      "apps/client/features/speaking/hooks/useRoleplayRecorder.ts"
+    ]
+  },
+  {
+    "stage": "request_builder",
+    "status": "healthy",
+    "evidence": [
+      "packages/core/api/voice.ts"
+    ]
+  },
+  {
+    "stage": "transport",
+    "status": "healthy",
+    "evidence": [
+      "POST /api/v1/voice/stt/transcriptions"
+    ]
+  },
+  {
+    "stage": "backend_receive",
+    "status": "healthy",
+    "evidence": [
+      "apps/backend/app/routers/v1_voice.py"
+    ]
+  },
+  {
+    "stage": "save",
+    "status": "healthy",
+    "evidence": [
+      "apps/backend/app/runtime/voice.py",
+      "apps/backend/runtime/uploads/voice/roleplay-session/recording.m4a"
+    ]
+  },
+  {
+    "stage": "normalize",
+    "status": "healthy_or_uncertain",
+    "evidence": [
+      "apps/backend/app/services/voice_service.py::_guess_src_format",
+      "apps/backend/app/services/voice_service.py::_to_linear16"
+    ]
+  },
+  {
+    "stage": "transcribe",
+    "status": "broken",
+    "evidence": [
+      "OpenAI STT AuthenticationError 401 invalid_api_key",
+      "Google STT PermissionDenied 403 SERVICE_DISABLED"
+    ]
+  },
+  {
+    "stage": "return_payload",
+    "status": "masked",
+    "evidence": [
+      "error_code=STT_PROVIDER_ERROR",
+      "error_message=Voice transcription is temporarily unavailable. Please try again in a moment."
+    ]
+  },
+  {
+    "stage": "frontend_interpretation",
+    "status": "masked",
+    "evidence": [
+      "packages/core/api/voice.ts throws backend error_message",
+      "useRoleplayRecorder.normalizeRecorderError returns unmatched messages as-is"
+    ]
+  }
+]
+

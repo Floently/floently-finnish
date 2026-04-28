@@ -1,0 +1,66 @@
+{
+  "id": "2a6420f2-155a-5a75-8cc7-e5ff000956ae",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Huomenna on urheilupäivä. Olette koululla kello 9.30. Ottakaa mukaan säänmukaiset vaatteet ja juomapullo. Terveisin, opettaja Pekka  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "dda22944-0ed6-5d79-b03d-21d20a508593",
+        "prompt": "Mitä huomenna on?",
+        "options": [
+          "koepäivä",
+          "retki",
+          "urheilupäivä",
+          "teatteripäivä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e58290ce-b3e0-5695-9879-f528ccd8575b",
+        "prompt": "Mihin aikaan pitää olla koululla?",
+        "options": [
+          "kello 8.30",
+          "kello 9.00",
+          "kello 9.30",
+          "kello 10.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c79f98d8-976e-529a-bda9-eb430b4d8b45",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "kirjat ja vihkot",
+          "säänmukaiset vaatteet ja juomapullo",
+          "eväät",
+          "rahaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

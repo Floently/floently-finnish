@@ -1,0 +1,66 @@
+{
+  "id": "8f9a5aba-384d-5744-bfde-eb227f873745",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä soittaa Kaisa. Minulla on ystävä tulossa ulkomailta, ja haluaisin varata pöydän ravintolasta lauantai-illaksi. Meitä on neljä aikuista ja kaksi lasta. Onko teillä vapaata noin kello 19? Voitte soittaa takaisin numeroon 050 123 4567. Kiitos!",
+      "audio_asset_id": "29976da1-c1b0-5080-93a4-c7be7a110e69"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä Kaisa haluaa varata?",
+        "options": [
+          "hotellihuoneen",
+          "pöydän ravintolasta",
+          "junalippuja",
+          "elokuvalippuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka monta henkilöä on tulossa?",
+        "options": [
+          "kaksi aikuista",
+          "neljä aikuista",
+          "neljä aikuista ja kaksi lasta",
+          "kuusi aikuista"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaan he haluaisivat varauksen?",
+        "options": [
+          "kello 18",
+          "kello 19",
+          "kello 20",
+          "kello 21"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

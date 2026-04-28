@@ -1,0 +1,40 @@
+{
+  "id": "ea918ed4-65d5-56f6-bc68-235a5dc912d4",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.286,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you go to the forest and what you look for there. Do you use berries and mushrooms in cooking?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "6783f478-d7f7-57af-84a4-00c9f3bb8915",
+        "ai_first_turn_fi": "Ootko käynyt poimimassa marjoja tai sieniä? Mitä niille tehdään?"
+      }
+    ],
+    "rubric": "Tell if you go to the forest and what you look for there. Do you use berries and mushrooms in cooking?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

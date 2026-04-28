@@ -1,0 +1,66 @@
+{
+  "id": "46adae28-6dc8-5599-8845-643ce0dd841d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Oppisopimus on yksi tapa opiskella ammattiin. Siinä opiskelija on työsuhteessa ja oppii työpaikalla käytännön taitoja. Teoriaopintoja on noin 1–2 päivänä viikossa oppilaitoksessa. Oppisopimus sopii erityisesti aikuisille, joilla on jo työkokemusta. Sitä voivat kuitenkin tehdä myös nuoret, joilla on peruskoulu tai lukio suoritettuna.\n\nOppisopimusopiskelija saa työstä palkkaa. Palkan suuruus riippuu työehtosopimuksesta. Yleensä palkka on noin 80 prosenttia alan tavanomaisesta palkasta. Työnantaja saa myös taloudellista tukea kouluttamisesta.\n\nOppisopimus kestää yleensä 1–3 vuotta. Koulutuksen jälkeen opiskelija voi saada ammattitutkinnon tai erikoisammattitutkinnon. Monille oppisopimus on hyvä vaihtoehto, koska se yhdistää työn ja opiskelun. Samalla saa työkokemusta ja verkostoja alalta.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 123
+    },
+    "questions": [
+      {
+        "id": "21a2edf3-15e8-5ca3-8f36-e846d89ec0b2",
+        "prompt": "Kenelle oppisopimus sopii tekstin mukaan?",
+        "options": [
+          "Vain nuorille",
+          "Vain aikuisille, joilla on työkokemusta",
+          "Sekä aikuisille että nuorille",
+          "Vain työttömille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0617089e-76bf-5719-94b1-310c8a6fbfd5",
+        "prompt": "Paljonko oppisopimusopiskelija yleensä saa palkkaa?",
+        "options": [
+          "Saman verran kuin muut",
+          "Noin 60 prosenttia alan palkasta",
+          "Noin 80 prosenttia alan palkasta",
+          "Vain opintorahaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "29027f98-898e-54aa-90b4-4ae2895ed8f7",
+        "prompt": "Mitä etua oppisopimuksesta on työnantajalle?",
+        "options": [
+          "Ei tarvitse maksaa palkkaa",
+          "Saa taloudellista tukea kouluttamisesta",
+          "Opiskelija maksaa koulutuksesta",
+          "Työntekijä on ilmainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

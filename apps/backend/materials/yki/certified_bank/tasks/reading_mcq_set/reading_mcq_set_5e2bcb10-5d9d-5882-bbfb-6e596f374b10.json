@@ -1,0 +1,110 @@
+{
+  "id": "5e2bcb10-5d9d-5882-bbfb-6e596f374b10",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen metsät ovat tärkeä luonnonvara ja kansallisomaisuus. Ne kattavat noin 75 prosenttia maan pinta-alasta. Metsät ovat monikäyttöisiä: ne tuottavat puuta teollisuudelle, tarjoavat virkistysmahdollisuuksia ja ylläpitävät luonnon monimuotoisuutta. Ne myös sitovat hiiltä ja auttavat hillitsemään ilmastonmuutosta. Metsätaloudella on pitkät perinteet Suomessa. Metsiä on hoidettu kestävästi, eli uusia puita istutetaan ja kasvatetaan samaa tahtia kuin vanhoja kaadetaan. Tämä turvaa metsien uusiutumisen ja säilymisen myös tuleville sukupolville. Metsäteollisuus on merkittävä työllistäjä ja vientiala. Viime vuosina metsien käyttö on herättänyt keskustelua. Osa haluaa lisätä metsien suojelua luonnon monimuotoisuuden turvaamiseksi. Toiset korostavat metsien taloudellista merkitystä ja haluavat hyödyntää niitä tehokkaammin. Ristiriitaa on myös metsien virkistyskäytön ja talouskäytön välillä. Jokamiehenoikeudet takaavat jokaiselle oikeuden liikkua metsissä, mutta toisaalta metsätalous voi muuttaa maisemaa ja vähentää luonnonrauhaa. Keskeistä on löytää tasapaino eri käyttömuotojen välillä. Tarvitaan tutkittua tietoa, avointa keskustelua ja kompromisseja, jotta metsät voivat palvella sekä ihmisiä että luontoa monipuolisesti.",
+      "word_count": 141
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka suuren osan Suomen pinta-alasta metsät kattavat?",
+        "options": [
+          "Noin 50 prosenttia.",
+          "Noin 75 prosenttia.",
+          "Noin 90 prosenttia.",
+          "Noin 30 prosenttia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä metsistä on?",
+        "options": [
+          "Vain puuta teollisuudelle.",
+          "Puuta, virkistysmahdollisuuksia, luonnon monimuotoisuutta ja hiilensidontaa.",
+          "Vain virkistystä.",
+          "Vain hiilensidontaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan metsien kestävällä hoidolla?",
+        "options": [
+          "Metsiä ei hakata lainkaan.",
+          "Uusia puita istutetaan ja kasvatetaan samaa tahtia kuin vanhoja kaadetaan.",
+          "Kaikki vanhat metsät suojellaan.",
+          "Metsiä hakataan mahdollisimman paljon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi metsäteollisuus on merkittävä?",
+        "options": [
+          "Se on pieni ala.",
+          "Se on merkittävä työllistäjä ja vientiala.",
+          "Se työllistää vain vähän.",
+          "Sillä ei ole vientiä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ristiriitaa metsien käytössä on?",
+        "options": [
+          "Ei mitään ristiriitaa.",
+          "Suojelun ja talouskäytön välillä, sekä virkistyskäytön ja talouskäytön välillä.",
+          "Vain suojelun ja talouskäytön välillä.",
+          "Vain virkistyskäytön ja talouskäytön välillä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä jokamiehenoikeudet takaavat metsissä?",
+        "options": [
+          "Oikeuden kaataa puita.",
+          "Oikeuden liikkua metsissä.",
+          "Oikeuden rakentaa metsään.",
+          "Oikeuden metsästää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä tarvitaan metsien eri käyttömuotojen yhteensovittamiseen?",
+        "options": [
+          "Vain lisää suojelua.",
+          "Vain lisää talouskäyttöä.",
+          "Tutkittua tietoa, avointa keskustelua ja kompromisseja.",
+          "Vain virkistyskäyttöä."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

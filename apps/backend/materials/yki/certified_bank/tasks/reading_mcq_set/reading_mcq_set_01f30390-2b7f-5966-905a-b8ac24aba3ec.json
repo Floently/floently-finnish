@@ -1,0 +1,99 @@
+{
+  "id": "01f30390-2b7f-5966-905a-b8ac24aba3ec",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet suomalaiset haluavat vähentää lihan syöntiä. Syitä on monia: terveys, ympäristö tai eläinten oikeudet. Kasvisruokavalion suosio on kasvanut, ja kaupoista löytyy paljon kasvisproteiinin lähteitä, kuten papuja, linssejä, tofua ja nyhtökauraa. Myös koulut ja työpaikat tarjoavat nykyään kasvisvaihtoehtoja. Ravitsemusterapeutit muistuttavat, että kasvisruokavaliossakin on tärkeää syödä monipuolisesti.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä monet suomalaiset haluavat vähentää?",
+        "options": [
+          "Kasvisten syöntiä",
+          "Lihan syöntiä",
+          "Kalan syöntiä",
+          "Maitotuotteiden käyttöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä syitä lihan syönnin vähentämiselle mainitaan?",
+        "options": [
+          "Vain terveys",
+          "Terveys, ympäristö tai eläinten oikeudet",
+          "Vain hinta",
+          "Vain maku"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on kasvanut?",
+        "options": [
+          "Lihan syönti",
+          "Kasvisruokavalion suosio",
+          "Eineksien syönti",
+          "Ulkomaisten ruokien suosio"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kasvisproteiinin lähteitä kaupoista löytyy?",
+        "options": [
+          "Lihaa ja kalaa",
+          "Papuja, linssejä, tofua ja nyhtökauraa",
+          "Juustoa ja voita",
+          "Leipää ja pastaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä koulut ja työpaikat tarjoavat nykyään?",
+        "options": [
+          "Vain liharuokaa",
+          "Kasvisvaihtoehtoja",
+          "Vain eineksiä",
+          "Ilmaista ruokaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ravitsemusterapeutit muistuttavat kasvisruokavaliosta?",
+        "options": [
+          "Se on aina terveellistä",
+          "Siinä on tärkeää syödä monipuolisesti",
+          "Se ei sovi kaikille",
+          "Se on liian kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "7fd495f4-78da-515b-a95a-6bcec3934a20",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta kirjaston omatoimipalvelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Pääkirjasto laajentaa omatoimipalveluaan. Syyskuun alusta alkaen omatoimikirjasto on avoinna joka päivä kello 6-24. Sinne pääsee omalla kirjastokortilla ja tunnusluvulla. Omatoimiaikana voi lainata ja palauttaa aineistoa, käyttää tietokoneita ja tulostinta sekä työskennellä ryhmätiloissa. Henkilökuntaa on paikalla arkisin kello 10-20 ja lauantaisin kello 10-16. Omatoimiaikana asiakas on itse vastuussa tilojen käytöstä ja turvallisuudesta. Kirjastoon on asennettu uusi valvontajärjestelmä, joka parantaa turvallisuutta. Uudistus on tehty asiakkaiden toiveiden perusteella. Erityisesti iltaisin ja viikonloppuisin omatoimiaikaa on kaivattu lisää. Tervetuloa käyttämään kirjastoa entistä joustavammin!",
+      "audio_asset_id": "0395be37-acb6-4c75-8e35-e03845745a9a"
+    },
+    "questions": [
+      {
+        "id": "l143q1",
+        "prompt": "Mihin asti omatoimikirjasto on auki joka päivä syyskuun alusta?",
+        "options": [
+          "Kello 22.",
+          "Kello 23.",
+          "Kello 24.",
+          "Kello 01."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l143q2",
+        "prompt": "Miten omatoimikirjastoon pääsee?",
+        "options": [
+          "Varaamalla ajan.",
+          "Kirjastokortilla ja tunnusluvulla.",
+          "Maksamalla pienen maksun.",
+          "Rekisteröitymällä verkkosivuilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l143q3",
+        "prompt": "Mitä omatoimiaikana voi tehdä?",
+        "options": [
+          "Vain lainata kirjoja.",
+          "Lainata, palauttaa, käyttää tietokoneita, tulostinta ja työskennellä ryhmätiloissa.",
+          "Vain lukea lehtiä.",
+          "Vain varata kirjoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l143q4",
+        "prompt": "Milloin henkilökuntaa on paikalla lauantaisin?",
+        "options": [
+          "Kello 10-14.",
+          "Kello 12-18.",
+          "Kello 12-16.",
+          "Kello 10-16."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l143q5",
+        "prompt": "Miksi omatoimiaikaa on lisätty?",
+        "options": [
+          "Asiakkaiden toiveiden perusteella.",
+          "Säästösyistä.",
+          "Henkilökunnan vähyyden vuoksi.",
+          "Teknisten muutosten takia."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

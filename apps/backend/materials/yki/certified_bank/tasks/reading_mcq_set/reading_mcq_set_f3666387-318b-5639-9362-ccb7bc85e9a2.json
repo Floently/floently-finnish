@@ -1,0 +1,77 @@
+{
+  "id": "f3666387-318b-5639-9362-ccb7bc85e9a2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kestävästä kehityksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KESTÄVÄ ARKI – PIENISTÄ TEKOISTA SUURIA MUUTOKSIA\n\nKestävä kehitys ei vaadi suuria elämänmuutoksia. Pienillä teoilla on merkitystä, kun niitä tekee moni. Tässä muutama vinkki.\n\nLIIKKUMINEN: Suosi kävelyä, pyöräilyä ja joukkoliikennettä. Jos mahdollista, jätä auto kotiin lyhyillä matkoilla. Kimppakyydit ovat hyvä vaihtoehto.\n\nENERGIA: Sammuta valot ja laitteet, kun et käytä niitä. Pidä huonelämpötila sopivana, ei liian korkeana. Pese pyykkiä täysiä koneellisia.\n\nRUOKA: Vähennä lihansyöntiä ja suosi kasviksia. Osta sesongin mukaan ja vältä ruokahävikkiä. Pakasta ylijäämäruoka.\n\nKULUTTAMINEN: Mieti ennen ostamista, tarvitsetko todella. Osta käytettynä, lainaa tai vuokraa. Korjaa rikkinäinen, älä heitä pois.\n\nJÄTTEET: Kierrätä huolellisesti. Vie vaaralliset jätteet, kuten paristot ja sähkölaitteet, oikeaan keräykseen. Kompostoi biojäte.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 132
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä suositellaan liikkumisessa?",
+        "options": [
+          "Aina autoa",
+          "Kävelyä, pyöräilyä ja joukkoliikennettä",
+          "Vain lentämistä",
+          "Moottoripyörää"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten voi säästää energiaa?",
+        "options": [
+          "Pitää valot päällä yötä päivää",
+          "Sammuttaa laitteet, säätää lämpötilaa, pestä täysiä koneellisia",
+          "Käyttää paljon sähkölaitteita",
+          "Lämmittää saunaa joka päivä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ruoan suhteen kannattaa tehdä?",
+        "options": [
+          "Syödä paljon lihaa",
+          "Vähentää lihaa, suosia kasviksia ja välttää hävikkiä",
+          "Ostaa kaikki valmiina",
+          "Heittää ylijäämä roskiin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä pitää tehdä rikkinäiselle tavaralle?",
+        "options": [
+          "Heittää pois",
+          "Korjata, jos mahdollista",
+          "Ostaa uusi",
+          "Antaa pois"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

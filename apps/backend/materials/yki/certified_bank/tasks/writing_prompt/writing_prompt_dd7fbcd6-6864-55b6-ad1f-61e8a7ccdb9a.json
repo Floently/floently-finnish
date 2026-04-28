@@ -1,0 +1,37 @@
+{
+  "id": "dd7fbcd6-6864-55b6-ad1f-61e8a7ccdb9a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt kuntosalilla. Kirjoita palaute. Kerro sekä hyviä että huonoja asioita. Mainitse ainakin laitteiden kunto, siisteys ja henkilökunnan läsnäolo.",
+    "materials": {
+      "scenario": "Palaute kuntosalista"
+    },
+    "items": [
+      {
+        "id": "8a2bb56e-c8f6-53e5-90c7-dbf554c672c6",
+        "prompt": "Olet käynyt kuntosalilla. Kirjoita palaute. Kerro sekä hyviä että huonoja asioita. Mainitse ainakin laitteiden kunto, siisteys ja henkilökunnan läsnäolo."
+      }
+    ],
+    "rubric": "Laitteiden kunto\nSiisteys\nHenkilökunnan läsnäolo",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

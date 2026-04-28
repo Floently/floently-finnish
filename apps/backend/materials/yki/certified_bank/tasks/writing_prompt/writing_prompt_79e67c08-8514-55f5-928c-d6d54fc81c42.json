@@ -1,0 +1,37 @@
+{
+  "id": "79e67c08-8514-55f5-928c-d6d54fc81c42",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isovanhemmillesi.",
+    "materials": {
+      "scenario": "Kerro kesäsuunnitelmista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti isovanhemmillesi."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti isovanhemmillesi ja kerro, mitä aiot tehdä kesällä. Kerro esimerkiksi lomamatkoista, työpaikasta tai muista suunnitelmista. Kysy myös, mitä heille kuuluu.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

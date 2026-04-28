@@ -1,0 +1,66 @@
+{
+  "id": "90d7eeef-19d0-54f9-80a2-c7636df39e4a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.296,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "MIKROAALTOUUNIN KÄYTTÖOHJE\n\n1. Laita ruoka mikroastiaan.\n2. Peitä astia kannella tai kelmulla.\n3. Valitse teho (esim. 600 W).\n4. Valitse aika (katso paketin ohje).\n5. Paina käynnistysnappia.\n6. Kun aika loppuu, ota ruoka varovasti pois. Astia on kuuma!\n\nHUOM! Älä laita metallia mikroon.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 59
+    },
+    "questions": [
+      {
+        "id": "d2eb0fd2-16c8-5574-a8f1-a0ddf3294311",
+        "prompt": "Pitääkö ruoka peittää?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain illalla",
+          "Vain aamulla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "8a76e3a2-7366-5f16-9aa5-648310c180cb",
+        "prompt": "Voiko mikroon laittaa metallia?",
+        "options": [
+          "Kyllä aina",
+          "Voi, jos on kylmää",
+          "Ei koskaan",
+          "Vain pieniä paloja"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "4e89ac0b-fb2e-5227-a72c-a369a8d1a57b",
+        "prompt": "Mitä pitää tehdä ensin?",
+        "options": [
+          "Valita teho",
+          "Laita ruoka astiaan",
+          "Paina käynnistysnappia",
+          "Odota 5 minuuttia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

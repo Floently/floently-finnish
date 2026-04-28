@@ -1,0 +1,88 @@
+{
+  "id": "25325367-3a51-5f26-8cad-592c67fa8959",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni kesä- ja talviaikaan siirtymisestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KELLOJEN SIIRTÄMINEN – TURHAA VAI TARPEELLISTA?\n\nKeskustelu kesä- ja talviaikaan siirtymisen lopettamisesta nousee pinnalta säännöllisesti. EU:ssa on keskusteltu asiasta, mutta päätöstä ei ole syntynyt. Onko kellojen siirtäminen enää tarpeellista?\n\nKesäaika otettiin käyttöön energiansäästön vuoksi. Ajatus oli, että kun illat ovat pidempiä, valoja tarvitaan vähemmän. Tutkimukset ovat kuitenkin osoittaneet, että energiansäästö on nykyään vähäistä. Led-lamput ja muu energiatehokkuus ovat vähentäneet valaistuksen merkitystä.\n\nKellojen siirtämisellä on myös terveysvaikutuksia. Monien unirytmi häiriintyy, ja se voi vaikuttaa viikkotolkulla. Erityisesti lapset ja ikäihmiset kärsivät. Tutkimukset ovat yhdistäneet kellojen siirtämisen jopa sydänkohtausten lisääntymiseen.\n\nKauppa ja matkailu puolestaan hyötyvät kesäajasta. Ihmiset liikkuvat ja kuluttavat enemmän, kun illat ovat valoisia. Ravintolat ja kaupat saavat lisämyyntiä.\n\nJos siirtämisestä luovutaan, pitää päättää, kumpi aika jää pysyväksi. Talviaika on lähempänä luonnollista aikaa, mutta moni haluaa valoisia iltoja. Jos koko vuosi olisi kesäaikaa, aamut olisivat pimeitä erityisesti talvella.\n\nRatkaisu ei ole yksinkertainen. EU-maiden pitäisi sopia yhteisestä ajasta, jotta kauppa ja liikenne toimisivat. Toistaiseksi kelloja siirretään edelleen, ja keskustelu jatkuu.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 190
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kesäaika alun perin otettiin käyttöön?",
+        "options": [
+          "Terveysvaikutusten vuoksi",
+          "Energiansäästön vuoksi",
+          "Kauppojen takia",
+          "Matkailun takia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tutkimukset sanovat energiansäästöstä nykyään?",
+        "options": [
+          "Se on edelleen suurta",
+          "Se on vähäistä ledien takia",
+          "Se on lisääntynyt",
+          "Sitä ei ole tutkittu"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä terveysvaikutuksia kellojen siirtämisellä on?",
+        "options": [
+          "Se parantaa unta",
+          "Se häiritsee unirytmiä",
+          "Sillä ei ole vaikutusta",
+          "Se auttaa nukahtamaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka hyötyy kesäajasta?",
+        "options": [
+          "Lapset",
+          "Ikäihmiset",
+          "Kauppa ja matkailu",
+          "Teollisuus"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on ongelma, jos kesäaika jää pysyväksi?",
+        "options": [
+          "Illat olisivat pimeitä",
+          "Aamut olisivat pimeitä talvella",
+          "Se olisi liian kallista",
+          "Ihmiset eivät haluaisi"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "fcd70f6b-703c-5944-8980-7e6cea307236",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Pohdi tekoälyn käyttöä terveydenhuollossa. Arvioi mahdollisuuksia, riskejä ja eettisiä kysymyksiä, jotka liittyvät tekoälysovellusten kehittämiseen.",
+    "materials": {
+      "roles": {
+        "user": "työhaastattelussa yrityksessä",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "9af85305-6fd0-523f-a2e6-398ce60d29cf",
+        "ai_first_turn_fi": "Yrityksemme kehittää tekoälysovelluksia terveydenhuoltoon. Miten suhtaudut tekoälyn käyttöön terveydenhuollossa? Mitä mahdollisuuksia ja riskejä näet? Millaisia eettisiä periaatteita tekoälyn kehittämisessä pitäisi noudattaa?"
+      }
+    ],
+    "rubric": "Pohdi tekoälyn käyttöä terveydenhuollossa. Arvioi mahdollisuuksia, riskejä ja eettisiä kysymyksiä, jotka liittyvät tekoälysovellusten kehittämiseen.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

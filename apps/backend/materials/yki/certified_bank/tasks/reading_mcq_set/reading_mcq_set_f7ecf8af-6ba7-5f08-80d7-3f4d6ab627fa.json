@@ -1,0 +1,66 @@
+{
+  "id": "f7ecf8af-6ba7-5f08-80d7-3f4d6ab627fa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Muistathan, että juhlat ovat lauantaina kello 18. Tarvitsetko kyydin? Odotan innolla!",
+      "word_count": 12
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_012_q1",
+        "prompt": "Milloin juhlat ovat?",
+        "options": [
+          "perjantaina",
+          "lauantaina",
+          "sunnuntaina",
+          "maanantaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_012_q2",
+        "prompt": "Mihin aikaan juhlat alkavat?",
+        "options": [
+          "kello 16",
+          "kello 17",
+          "kello 18",
+          "kello 19"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_012_q3",
+        "prompt": "Mitä lähettäjä kysyy?",
+        "options": [
+          "tarvitseeko ruokaa",
+          "tarvitseeko kyydin",
+          "tarvitseeko lahjan",
+          "tarvitseeko apua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

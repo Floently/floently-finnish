@@ -1,0 +1,37 @@
+{
+  "id": "12c85b78-32d2-517b-91b1-869483598a7b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuvaile lyhyesti työpäivääsi.",
+    "materials": {
+      "scenario": "Minun työpäivä"
+    },
+    "items": [
+      {
+        "id": "c18f5091-4e79-5456-af21-9e53c5f65310",
+        "prompt": "Kuvaile lyhyesti työpäivääsi."
+      }
+    ],
+    "rubric": "Kuvaile lyhyesti työpäivääsi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

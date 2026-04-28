@@ -1,0 +1,37 @@
+{
+  "id": "b185e50b-e4dc-5d6b-9be6-fb90e4f615f8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti annetun tilanteen perusteella.",
+    "materials": {
+      "scenario": "Heräät aamulla ja tunnet olosi sairaaksi. Sinulla on työvuoro tänään, mutta et voi tulla töihin. Lähetät esimiehellesi viestin."
+    },
+    "items": [
+      {
+        "id": "b29c8445-e8a0-59b5-88e0-ddb919ac1e05",
+        "prompt": "Kirjoita lyhyt viesti annetun tilanteen perusteella."
+      }
+    ],
+    "rubric": "Kirjoita lyhyt viesti annetun tilanteen perusteella.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

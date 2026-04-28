@@ -1,0 +1,60 @@
+{
+  "id": "dcc0d014-3780-5e95-8215-646114b15478",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä varauksen parturiin. Keskustele parturin kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Parturi"
+      }
+    },
+    "items": [
+      {
+        "id": "srp36_1",
+        "ai_first_turn_fi": "Hei, Parturi Saksii."
+      },
+      {
+        "id": "srp36_2",
+        "ai_first_turn_fi": "Milloin haluaisit tulla?"
+      },
+      {
+        "id": "srp36_3",
+        "ai_first_turn_fi": "Katsotaan... vapaita aikoja on torstaina kello 13 ja perjantaina kello 10. Kumpi sopii paremmin?"
+      },
+      {
+        "id": "srp36_4",
+        "ai_first_turn_fi": "Selvä, varataan perjantai kello 10. Millainen leikkaus on kyseessä? Lyhennys, muotoilu vai jotain muuta?"
+      },
+      {
+        "id": "srp36_5",
+        "ai_first_turn_fi": "Kuulostaa hyvältä. Aikaa on varattu noin tunti. Hinta on 45 euroa. Nimesi vielä?"
+      },
+      {
+        "id": "srp36_6",
+        "ai_first_turn_fi": "Kiitos, varaus on tehty. Tervetuloa perjantaina!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä varauksen parturiin. Keskustele parturin kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

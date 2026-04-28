@@ -1,0 +1,26 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "apps/client/*"
+      ],
+      "@core/*": [
+        "packages/core/*"
+      ],
+      "@ui/*": [
+        "packages/ui/*"
+      ]
+    }
+  },
+  "include": [
+    "apps/client/**/*.ts",
+    "apps/client/**/*.tsx",
+    "packages/core/**/*.ts",
+    "packages/core/**/*.tsx",
+    "packages/ui/**/*.ts",
+    "packages/ui/**/*.tsx"
+  ]
+}

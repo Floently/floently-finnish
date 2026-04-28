@@ -1,0 +1,37 @@
+{
+  "id": "a60e4040-bd04-521a-9a21-4ac6d1374f0f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin nuorisovaltuustolle. Kerro nuorten kuulemisesta, vaikuttamismahdollisuuksista ja tiedotuksesta. Ehdota yhtä uutta toimintatapaa.",
+    "materials": {
+      "scenario": "Palaute kaupungin nuorisovaltuustolle"
+    },
+    "items": [
+      {
+        "id": "7e723686-966a-5818-a4de-5274afb50b2a",
+        "prompt": "Kirjoita palauteteksti kaupungin nuorisovaltuustolle. Kerro nuorten kuulemisesta, vaikuttamismahdollisuuksista ja tiedotuksesta. Ehdota yhtä uutta toimintatapaa."
+      }
+    ],
+    "rubric": "Nuorten kuuleminen\nVaikuttamismahdollisuudet\nTiedotus\nUusi toimintatapa",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "be2d6a61-32e7-596e-b68c-ecb7842458a3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmyyjän soitto ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Myyjä: Hei, soitan Teleyhtiö X:stä. Onko teillä hetki aikaa?\nAsiakas: No on, jos ei kestä kauan.\nMyyjä: Meillä on nyt uusi kampanja, jossa saatte puolet halvemmalla laajakaistan vuoden ajan. Normaalihinta on 40 euroa kuussa, nyt vain 20 euroa. Sopimus on määräaikainen, ja sen jälkeen hinta palautuu normaaliksi.\nAsiakas: Kuulostaa hyvältä, mutta mitä nopeutta se on?\nMyyjä: Se on 200 megabittiä, mikä riittää mainiosti perhekäyttöön ja striimaamiseen.\nAsiakas: Mulla on nyt 100 megabitin yhteys toisella toimittajalla. Miten tää vertautuu siihen?\nMyyjä: Tämä on kaksi kertaa nopeampi. Ja hintakin on sama kuin teidän nykyinen. Vaihto on helppoa, me hoidamme kaiken.\nAsiakas: Kiitos tarjouksesta, mutta mun pitää miettiä rauhassa. Voitteko soittaa uudestaan vaikka ensi viikolla?",
+      "audio_asset_id": "414b00be-3fa7-4fe8-8fe2-f2e755abfed0"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä myyjä tarjoaa?",
+        "options": [
+          "Matkapuhelinliittymää",
+          "Laajakaistaa puoleen hintaan vuodeksi",
+          "Televisiokanavia",
+          "Kotipuhelinta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on tarjottavan liittymän nopeus?",
+        "options": [
+          "50 megabittiä",
+          "100 megabittiä",
+          "200 megabittiä",
+          "500 megabittiä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä asiakas päättää tehdä?",
+        "options": [
+          "Hyväksyä tarjouksen heti",
+          "Kieltäytyä jyrkästi",
+          "Miettiä rauhassa ja sopia uuden soiton",
+          "Ostaa heti kaksi liittymää"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

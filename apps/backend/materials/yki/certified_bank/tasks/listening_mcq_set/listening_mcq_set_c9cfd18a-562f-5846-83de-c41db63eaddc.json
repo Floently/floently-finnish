@@ -1,0 +1,88 @@
+{
+  "id": "c9cfd18a-562f-5846-83de-c41db63eaddc",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.308,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Tässä on taloyhtiön isännöitsijä. Ilmoitan, että ensi maanantaina ikkunat pestään. Ikkunat pitää olla kiinni koko päivän. Pahoittelemme häiriötä.",
+      "audio_asset_id": "d2e3f4a5-b6c7-4d8e-9f0a-1b2c3d4e5f6a"
+    },
+    "questions": [
+      {
+        "id": "5eb69bd8-262f-5a8c-9829-6033741f8467",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Talonmies.",
+          "Isännöitsijä.",
+          "Siivooja.",
+          "Ikkunanpesijä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e3cf1c1d-0b13-52eb-985d-f5799d2e0e40",
+        "prompt": "Milloin ikkunat pestään?",
+        "options": [
+          "Ensi maanantaina.",
+          "Tänään.",
+          "Huomenna.",
+          "Ensi viikolla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "4e5c3d42-820b-557a-8773-9048da8d53e8",
+        "prompt": "Mitä asukkaiden pitää tehdä?",
+        "options": [
+          "Avata ikkunat.",
+          "Pestä ikkunat itse.",
+          "Pitää ikkunat kiinni.",
+          "Olla kotona."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b20c17f0-c10d-56ec-af50-0c3b001f5a48",
+        "prompt": "Kuinka kauan ikkunat pidetään kiinni?",
+        "options": [
+          "Aamupäivän.",
+          "Iltapäivän.",
+          "Koko päivän.",
+          "Koko viikon."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1eca6f8a-66e1-5b9f-a4c1-ee4f0d63c61b",
+        "prompt": "Mitä puhuja tekee lopuksi?",
+        "options": [
+          "Toivottaa hyvää päivää.",
+          "Kertoo lisätietoja.",
+          "Kiittää yhteistyöstä.",
+          "Pahoittelee häiriötä."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

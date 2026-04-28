@@ -1,0 +1,37 @@
+{
+  "id": "22b7c292-1d16-5d34-817e-9360717440a5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti terveyskeskuksen fysioterapiaan. Tarvitset fysioterapiaa selkävaivoihin, mutta et tiedä, tarvitaanko lähete. Kerro vaivoistasi ja kysy, voitko varata ajan suoraan vai tarvitsetko lääkärin lähetteen. Kysy myös, miten ajanvaraus toimii ja mitä maksuja käynneistä mahdollisesti aiheutuu.",
+    "materials": {
+      "scenario": "Fysioterapian tarve"
+    },
+    "items": [
+      {
+        "id": "cd1d592d-434c-5584-a97f-837a9bdb4a72",
+        "prompt": "Kirjoita virallinen sähköposti terveyskeskuksen fysioterapiaan. Tarvitset fysioterapiaa selkävaivoihin, mutta et tiedä, tarvitaanko lähete. Kerro vaivoistasi ja kysy, voitko varata ajan suoraan vai tarvitsetko lääkärin lähetteen. Kysy myös, miten ajanvaraus toimii ja mitä maksuja käynneistä mahdollisesti aiheutuu."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

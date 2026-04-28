@@ -1,0 +1,37 @@
+{
+  "id": "a3148cf7-9b6e-5c90-8886-0be88a1ec71b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.672,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa vartijana. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Vartija"
+    },
+    "items": [
+      {
+        "id": "2e16ebaa-5917-59b3-8750-e22a3939dfc1",
+        "prompt": "Haet työpaikkaa vartijana. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa vartijana. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

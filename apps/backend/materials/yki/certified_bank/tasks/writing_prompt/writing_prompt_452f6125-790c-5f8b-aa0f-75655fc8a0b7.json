@@ -1,0 +1,37 @@
+{
+  "id": "452f6125-790c-5f8b-aa0f-75655fc8a0b7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kuntien tarjota maksuton kerhotoiminta kaikille koululaisille?'. Arvioi lasten hyvinvointia, kustannuksia ja järjestöjen roolia.",
+    "materials": {
+      "scenario": "Maksuton kerhotoiminta"
+    },
+    "items": [
+      {
+        "id": "98a5df1b-5707-5c52-a620-409f88c9f0a7",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kuntien tarjota maksuton kerhotoiminta kaikille koululaisille?'. Arvioi lasten hyvinvointia, kustannuksia ja järjestöjen roolia."
+      }
+    ],
+    "rubric": "Lasten hyvinvointi\nKustannukset\nJärjestöjen rooli\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

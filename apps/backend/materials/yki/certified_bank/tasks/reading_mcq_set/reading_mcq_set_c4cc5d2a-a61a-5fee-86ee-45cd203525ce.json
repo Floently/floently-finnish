@@ -1,0 +1,66 @@
+{
+  "id": "c4cc5d2a-a61a-5fee-86ee-45cd203525ce",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Muistathan, että juhlat ovat lauantaina kello 18. Tarvitsetko kyydin? Odotan innolla!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "4159a0dc-21e7-538d-9848-24e86400207d",
+        "prompt": "Milloin juhlat ovat?",
+        "options": [
+          "perjantaina",
+          "lauantaina",
+          "sunnuntaina",
+          "maanantaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d996378c-d7ae-58cf-8b88-97af36f789ee",
+        "prompt": "Mihin aikaan juhlat alkavat?",
+        "options": [
+          "kello 16",
+          "kello 17",
+          "kello 18",
+          "kello 19"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "472706a6-26ff-5016-9214-8837841a0da8",
+        "prompt": "Mitä lähettäjä kysyy?",
+        "options": [
+          "tarvitseeko ruokaa",
+          "tarvitseeko kyydin",
+          "tarvitseeko lahjan",
+          "tarvitseeko apua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

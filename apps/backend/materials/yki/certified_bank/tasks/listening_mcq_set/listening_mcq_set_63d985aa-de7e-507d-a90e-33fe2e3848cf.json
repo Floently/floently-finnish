@@ -1,0 +1,77 @@
+{
+  "id": "63d985aa-de7e-507d-a90e-33fe2e3848cf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele päiväkodin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät vanhemmat! Päiväkoti on kiinni keskiviikkona 6.6. henkilökunnan koulutuspäivän vuoksi. Torstaina 7.6. päiväkoti on auki normaalisti. Muistathan ilmoittaa lapsen poissaoloista edellisenä päivänä kello 16 mennessä. Kesäkuussa päiväkoti on auki vain kello 7–17.",
+      "audio_asset_id": "b4d32c33-88af-4b05-86e9-2dea237b967b"
+    },
+    "questions": [
+      {
+        "id": "f52a77ae-b86c-5e96-9aa9-15f113ce9a2b",
+        "prompt": "Miksi päiväkoti on kiinni keskiviikkona?",
+        "options": [
+          "remontin takia",
+          "henkilökunnan koulutuksen takia",
+          "sähkökatkon takia",
+          "lomien takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "785ee54e-82cc-5655-9e61-8526586650af",
+        "prompt": "Mihin mennessä poissaolot pitää ilmoittaa?",
+        "options": [
+          "klo 14",
+          "klo 15",
+          "klo 16",
+          "klo 17"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8c6aa851-05a2-558d-bb72-cbe615f08d6c",
+        "prompt": "Milloin päiväkoti on auki kesäkuussa?",
+        "options": [
+          "klo 6–18",
+          "klo 7–17",
+          "klo 8–16",
+          "klo 9–15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5d2c4303-027d-5eb9-9f8f-14da2734aa0b",
+        "prompt": "Onko päiväkoti auki torstaina normaalisti?",
+        "options": [
+          "ei",
+          "kyllä",
+          "vain aamulla",
+          "vain iltapäivällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

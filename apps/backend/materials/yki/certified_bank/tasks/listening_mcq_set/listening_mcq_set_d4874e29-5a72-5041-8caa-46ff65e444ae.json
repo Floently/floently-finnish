@@ -1,0 +1,66 @@
+{
+  "id": "d4874e29-5a72-5041-8caa-46ff65e444ae",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa kaupunginvaltuuston kokouksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Seuraavana asiana on uuden koulun rakentaminen Itäkeskukseen. Esittelijä, olkaa hyvä.\n\nEsittelijä: Kiitos. Kaupunki on suunnitellut uuden yhtenäiskoulun rakentamista Itäkeskukseen, koska alueen väestö kasvaa ja nykyiset koulut ovat täynnä. Uuteen kouluun tulisi tilat noin 700 oppilaalle luokille 1–9.\n\nKustannusarvio on 28 miljoonaa euroa. Rakentaminen on tarkoitus aloittaa ensi vuonna ja koulun pitäisi olla valmis 2028. Hanketta on valmisteltu yhdessä alueen asukkaiden ja henkilökunnan kanssa.\n\nValtuutettu: Tämä on tärkeä hanke, mutta olen huolissani liikenteestä. Miten alueen liikennejärjestelyt on otettu huomioon? Lisääkö uusi koulu ruuhkia ja tuoko se turvallisuusriskejä lapsille?\n\nEsittelijä: Hyvä kysymys. Suunnitelmissa on uusi kevyen liikenteen väylä, suojateiden parantaminen ja bussipysäkkien siirto lähemmäs koulua. Myös saattoliikennettä on mietitty: koululle tulee erillinen saattoliikenteen pysäköintialue. Tavoitteena on, että koulu olisi helposti saavutettavissa kävellen, pyörällä ja bussilla.\n\nValtuutettu: Entä viheralueet? Häviääkö puistoja?\n\nEsittelijä: Rakentamisen takia joudutaan hieman pienentämään viereistä puistoa, mutta tilalle tulee uusia viheralueita koulun pihalle ja ympäristöön. Puisto säilyy edelleen käytössä.",
+      "audio_asset_id": "04e93b90-ce1b-4ee7-b4d9-67d359ee8ace"
+    },
+    "questions": [
+      {
+        "id": "5a196f76-218e-51b2-9ead-f88f9dddf033",
+        "prompt": "Miksi uusi koulu tarvitaan Itäkeskukseen?",
+        "options": [
+          "Vanha koulu on huonossa kunnossa",
+          "Alueen väestö kasvaa ja nykyiset koulut ovat täynnä",
+          "Koulu halutaan keskustaan",
+          "Valtio vaatii uuden koulun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8f00bf82-6373-5057-a351-340691fba864",
+        "prompt": "Paljonko uuden koulun rakentaminen maksaa?",
+        "options": [
+          "20 miljoonaa euroa",
+          "25 miljoonaa euroa",
+          "28 miljoonaa euroa",
+          "30 miljoonaa euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dcecef23-da53-5f94-987a-cbc46322cff7",
+        "prompt": "Mitä liikennejärjestelyjä suunnitellaan?",
+        "options": [
+          "Uusi tunneli",
+          "Uusi kevyen liikenteen väylä ja saattoliikenteen pysäköintialue",
+          "Parkkitalo",
+          "Lisää bussilinjoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

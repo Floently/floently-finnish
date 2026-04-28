@@ -1,0 +1,77 @@
+{
+  "id": "ea0c20d1-7e23-51b1-ad32-7506aaed01af",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Pohjoismainen hyvinvointivaltio on herättänyt kiinnostusta maailmalla. Sen peruspilareita ovat julkinen terveydenhuolto, koulutus, sosiaaliturva ja työeläkejärjestelmä. Hyvinvointivaltion rahoitus perustuu korkeaan verotukseen. Viime vuosina hyvinvointivaltio on kohdannut monia haasteita. Väestön ikääntyminen lisää hoivapalvelujen ja eläkkeiden kustannuksia. Samaan aikaan työikäisen väestön määrä vähenee, mikä heikentää veropohjaa. Globalisaatio ja verokilpailu vaikeuttavat yritysverotuksen ja varallisuusverotuksen ylläpitämistä. Julkisen talouden kestävyysvaje onkin yksi keskeisistä poliittisista kysymyksistä. Ratkaisuiksi on esitetty muun muassa työurien pidentämistä, yksityisten palveluiden lisäämistä ja digitalisaation tuomia tehokkuusetuja. Osa painottaa ennaltaehkäisevien palveluiden merkitystä: panostamalla lasten ja nuorten hyvinvointiin voidaan vähentää myöhempiä kustannuksia. Toiset korostavat, että hyvinvointivaltiota on uudistettava vastaamaan nyky-yhteiskunnan tarpeita, kuten pirstaleisia työuria ja monimuotoisia perhemalleja. Hyvinvointivaltion tulevaisuus on poliittisten valintojen tulos, ja siitä käydään jatkuvaa arvokeskustelua.",
+      "word_count": 113
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin hyvinvointivaltion rahoitus perustuu?",
+        "options": [
+          "Matalaan verotukseen",
+          "Korkeaan verotukseen",
+          "Yksityisiin sijoituksiin",
+          "Ulkomaiseen apuun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on keskeinen haaste hyvinvointivaltiolle?",
+        "options": [
+          "Väestön nuorentuminen",
+          "Väestön ikääntyminen",
+          "Syntyvyyden nousu",
+          "Maahanmuuton väheneminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ratkaisuiksi on esitetty?",
+        "options": [
+          "Työurien lyhentämistä",
+          "Työurien pidentämistä",
+          "Verotuksen alentamista",
+          "Palveluiden vähentämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ennaltaehkäisevillä palveluilla tarkoitetaan?",
+        "options": [
+          "Sairauksien hoitoa",
+          "Lasten ja nuorten hyvinvointiin panostamista",
+          "Vanhusten hoivaa",
+          "Työttömien tukemista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

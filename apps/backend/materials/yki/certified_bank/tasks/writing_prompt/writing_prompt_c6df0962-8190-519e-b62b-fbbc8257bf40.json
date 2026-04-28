@@ -1,0 +1,37 @@
+{
+  "id": "c6df0962-8190-519e-b62b-fbbc8257bf40",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työkykyjohtamisesta. Kerro varhaisen tuen toimivuudesta, esimiesten osaamisesta ja työterveysyhteistyöstä. Ehdota yhtä uutta toimenpidettä.",
+    "materials": {
+      "scenario": "Palaute työpaikan työkykyjohtamisesta"
+    },
+    "items": [
+      {
+        "id": "3234dd27-d7ea-51eb-bd36-c1b3269481a5",
+        "prompt": "Kirjoita palauteteksti työpaikan työkykyjohtamisesta. Kerro varhaisen tuen toimivuudesta, esimiesten osaamisesta ja työterveysyhteistyöstä. Ehdota yhtä uutta toimenpidettä."
+      }
+    ],
+    "rubric": "Varhaisen tuen toimivuus\nEsimiesten osaaminen\nTyöterveysyhteistyö\nUusi toimenpide",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

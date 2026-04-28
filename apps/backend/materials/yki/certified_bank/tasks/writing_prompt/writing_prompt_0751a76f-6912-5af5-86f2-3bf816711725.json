@@ -1,0 +1,37 @@
+{
+  "id": "0751a76f-6912-5af5-86f2-3bf816711725",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.503,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kirjastoon. Haluat varata kirjan, joka on tällä hetkellä lainassa. Kerro kirjan nimi ja tekijä. Kysy, milloin kirja palautuu ja miten saat tiedon, kun se on varattavissa.",
+    "materials": {
+      "scenario": "Varaus lainassa olevaan kirjaan"
+    },
+    "items": [
+      {
+        "id": "637dcb71-aeda-5024-84be-50c67c48b95c",
+        "prompt": "Kirjoita sähköposti kirjastoon. Haluat varata kirjan, joka on tällä hetkellä lainassa. Kerro kirjan nimi ja tekijä. Kysy, milloin kirja palautuu ja miten saat tiedon, kun se on varattavissa."
+      }
+    ],
+    "rubric": "Kirjan tiedot\nVarauspyyntö\nIlmoituskäytäntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

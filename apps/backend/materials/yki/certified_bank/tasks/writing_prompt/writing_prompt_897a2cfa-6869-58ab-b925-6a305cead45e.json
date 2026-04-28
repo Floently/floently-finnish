@@ -1,0 +1,37 @@
+{
+  "id": "897a2cfa-6869-58ab-b925-6a305cead45e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit pitää lemmikin. Kerro, että kyseessä on pieni, vanha kissa. Kerro, että se on sisäkissa ja erittäin siisti. Kysy, voiko sitä pitää ja tuleeko lisävuokraa.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle kissasta"
+    },
+    "items": [
+      {
+        "id": "5d874e59-3a41-56fa-bf2f-7eec567d0b84",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit pitää lemmikin. Kerro, että kyseessä on pieni, vanha kissa. Kerro, että se on sisäkissa ja erittäin siisti. Kysy, voiko sitä pitää ja tuleeko lisävuokraa."
+      }
+    ],
+    "rubric": "Kerro, että haluat lemmikin\nKerro, millainen kissa\nKerro, että se on sisäkissa\nKysy, saako pitää\nKysy lisävuokrasta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

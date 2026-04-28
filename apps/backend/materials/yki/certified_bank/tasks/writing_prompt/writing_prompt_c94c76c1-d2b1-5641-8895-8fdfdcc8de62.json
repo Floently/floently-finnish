@@ -1,0 +1,37 @@
+{
+  "id": "c94c76c1-d2b1-5641-8895-8fdfdcc8de62",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.685,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a laboratory analyst position in a hospital laboratory. Tell about your education, knowledge of laboratory equipment and methods, and your accuracy at work. Also describe how you ensure the reliability of results. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus laboratorioanalyytikon tehtävään"
+    },
+    "items": [
+      {
+        "id": "65545d6d-159e-50db-a3c4-0783828eddee",
+        "prompt": "Write a job application. You are applying for a laboratory analyst position in a hospital laboratory. Tell about your education, knowledge of laboratory equipment and methods, and your accuracy at work. Also describe how you ensure the reliability of results. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a laboratory analyst position in a hospital laboratory. Tell about your education, knowledge of laboratory equipment and methods, and your accuracy at work. Also describe how you ensure the reliability of results. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "c4f0274d-b7d4-54f6-bb2a-50b579ee4a81",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Julkinen liikenne on tärkeä osa kestävää kaupunkisuunnittelua. Hyvin toimivat bussi-, raitiovaunu- ja junayhteydet vähentävät yksityisautoilun tarvetta ja sitä kautta liikenteen päästöjä. Ne myös vähentävät ruuhkia ja säästävät tilaa, koska joukkoliikennevälineet kuljettavat paljon ihmisiä pienemmällä tilalla kuin henkilöautot. Suomessa julkista liikennettä kehitetään jatkuvasti. Uusia raitiovaunulinjoja rakennetaan, ja junaliikennettä nopeutetaan. Myös lippujärjestelmiä uudistetaan, jotta matkustaminen olisi helpompaa ja joustavampaa. Monissa kaupungeissa on käytössä älykkäitä lippuja, joilla voi matkustaa useilla eri liikennevälineillä. Haasteitakin on. Harvaan asutuilla alueilla joukkoliikenteen järjestäminen on vaikeaa ja kallista, koska matkustajia on vähän. Siksi monilla maaseutualueilla ollaan riippuvaisia omasta autosta. Tulevaisuudessa uudet palvelut, kuten kimppakyydit ja liikenteen yhdistely, voivat tuoda ratkaisuja myös harvaan asutuille alueille. Tärkeää on, että kaikilla olisi mahdollisuus liikkua kohtuullisin kustannuksin.",
+      "word_count": 115
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä julkisesta liikenteestä on kaupungeissa?",
+        "options": [
+          "Se lisää yksityisautoilun tarvetta.",
+          "Se vähentää päästöjä, ruuhkia ja säästää tilaa.",
+          "Se on aina hitaampaa kuin autoilu.",
+          "Se on kalliimpaa kuin autoilu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten julkista liikennettä kehitetään Suomessa?",
+        "options": [
+          "Vähentämällä linjoja.",
+          "Rakentamalla uusia raitiovaunulinjoja, nopeuttamalla junia ja uudistamalla lippujärjestelmiä.",
+          "Lakkauttamalla busseja.",
+          "Nostamalla lippujen hintoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan älykkäillä lipuilla?",
+        "options": [
+          "Lippuja, jotka voi ostaa vain verkosta.",
+          "Lippuja, joilla voi matkustaa useilla eri liikennevälineillä.",
+          "Lippuja, jotka ovat voimassa vain yhden päivän.",
+          "Lippuja, jotka ovat kalliimpia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi joukkoliikenteen järjestäminen on haastavaa harvaan asutuilla alueilla?",
+        "options": [
+          "Koska ihmiset eivät halua käyttää julkista liikennettä.",
+          "Koska matkustajia on vähän, joten se on kallista.",
+          "Koska tiet ovat huonossa kunnossa.",
+          "Koska bussikuskeja ei ole."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä harvaan asutuilla alueilla ollaan riippuvaisia?",
+        "options": [
+          "Junista.",
+          "Omasta autosta.",
+          "Busseista.",
+          "Kävelystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä uusia ratkaisuja tulevaisuus voi tuoda harvaan asutuille alueille?",
+        "options": [
+          "Lisää omia autoja.",
+          "Kimppakyytejä ja liikenteen yhdistelypalveluja.",
+          "Vain yksityislentokoneita.",
+          "Liikenteen lopettamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on tärkeää liikkumisessa tulevaisuudessa?",
+        "options": [
+          "Vain autoilun edistäminen.",
+          "Kaikilla on mahdollisuus liikkua kohtuullisin kustannuksin.",
+          "Vain nopeus.",
+          "Vain halpuus."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

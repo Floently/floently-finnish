@@ -1,0 +1,88 @@
+{
+  "id": "83777065-6cd1-5ae1-b9de-52f1d5ece4dc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Illalla perhe kokoontuu kotiin. Syödään päivällistä yhdessä. Päivällinen on usein lämmintä ruokaa. Sen jälkeen rentoudutaan. Katsotaan televisiota tai luetaan. Lapset tekevät läksyjä. Joskus pelataan pelejä. Saunotaan viikonloppuisin. Lasten kanssa leikitään ja luetaan iltasatuja. Myöhään illalla mennään nukkumaan. Hyvät yöunet ovat tärkeät. Illalla on hyvä rauhoittua ennen nukkumaanmenoa.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä illalla syödään?",
+        "options": [
+          "Aamupalaa",
+          "Päivällistä",
+          "Lounasta",
+          "Välipalaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista ruokaa päivällinen usein on?",
+        "options": [
+          "Kylmää ruokaa",
+          "Lämmintä ruokaa",
+          "Makeaa ruokaa",
+          "Nopeaa ruokaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä illalla katsotaan?",
+        "options": [
+          "Televisiota",
+          "Elokuvia teatterissa",
+          "Urheilua",
+          "Uutisia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä lapset tekevät illalla?",
+        "options": [
+          "Menevät aikaisin nukkumaan",
+          "Teke läksyjä ja leikkivät",
+          "Katsovat televisiota",
+          "Ovat tietokoneella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tehdään myöhään illalla?",
+        "options": [
+          "Mennään töihin",
+          "Mennään nukkumaan",
+          "Lähdetään ulos",
+          "Syödään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

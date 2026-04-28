@@ -1,0 +1,37 @@
+{
+  "id": "0e074485-57d4-54f7-ae43-390ba05f111b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: office break room. Tarkoitus: reagoi tilanteeseen. Rajoite: mainitse jatkotoimi.",
+    "materials": {
+      "scenario": "volunteering office break room"
+    },
+    "items": [
+      {
+        "id": "e4ce26d0-9fef-551b-90e3-1bb6db64893a",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: office break room. Tarkoitus: reagoi tilanteeseen. Rajoite: mainitse jatkotoimi."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "d15a7d29-8b19-5a22-bfab-cb2b446b4664",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KAHVILAN RUOKALISTA\n\nKeitto ja leipä 8,50 €\n- kasviskeitto tai lihakeitto\n\nPäivän salaatti 9,00 €\n- valitse kastike: yrtti, mustapippuri tai sweet chili\n\nLeivos ja kahvi 5,00 €\n- pulla, munkki tai korvapuusti\n\nLounasaika ma–pe 11–14  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "c475a5a6-dc32-55fd-931a-a5424b70e008",
+        "prompt": "Paljonko keitto ja leipä maksavat?",
+        "options": [
+          "5,00 €",
+          "8,50 €",
+          "9,00 €",
+          "11,00 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "091c351a-b54c-5199-b651-e9d18e5b7f06",
+        "prompt": "Milloin on lounasaika?",
+        "options": [
+          "maanantaisin 11–14",
+          "maanantaista perjantaihin 11–14",
+          "joka päivä 11–14",
+          "vain viikonloppuna"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "81d49e71-5495-5661-a0ad-d4fcd9b14469",
+        "prompt": "Mitä kastikkeita salaattiin saa?",
+        "options": [
+          "vain yrtti",
+          "yrtti, mustapippuri ja sweet chili",
+          "vain mustapippuri",
+          "ei kastikkeita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

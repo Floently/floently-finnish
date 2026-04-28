@@ -1,0 +1,37 @@
+{
+  "id": "6fba7b59-0cf6-5802-b93a-7b4fda9aeae6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.361,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ollut työkokeilussa tai työharjoittelussa. Kirjoita palaute työpaikalle. Arvioi perehdytyksen riittävyyttä, työilmapiiriä ja sitä, saiko työtehtävistä riittävästi ohjausta.",
+    "materials": {
+      "scenario": "Palaute työharjoittelupaikasta"
+    },
+    "items": [
+      {
+        "id": "622cebd6-4807-5211-81bd-aa758d21f433",
+        "prompt": "Olet ollut työkokeilussa tai työharjoittelussa. Kirjoita palaute työpaikalle. Arvioi perehdytyksen riittävyyttä, työilmapiiriä ja sitä, saiko työtehtävistä riittävästi ohjausta."
+      }
+    ],
+    "rubric": "Perehdytyksen riittävyys\nTyöilmapiiri\nOhjauksen määrä",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "1487ef50-cb55-52c9-a530-8fd64ed50a5d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.505,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "uusi asukas",
+        "partner": "paikallinen"
+      }
+    },
+    "items": [
+      {
+        "id": "srp79_01",
+        "ai_first_turn_fi": "Hei, oletko muuttanut juuri tänne?"
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

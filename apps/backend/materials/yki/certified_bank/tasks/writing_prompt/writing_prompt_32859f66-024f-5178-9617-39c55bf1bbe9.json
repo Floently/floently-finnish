@@ -1,0 +1,37 @@
+{
+  "id": "32859f66-024f-5178-9617-39c55bf1bbe9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö pitkäaikaistyöttömien työllistämiseen panostaa enemmän. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Pitkäaikaistyöttömien työllistäminen"
+    },
+    "items": [
+      {
+        "id": "8c749d89-134c-506b-b3a6-518289c03d78",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö pitkäaikaistyöttömien työllistämiseen panostaa enemmän. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

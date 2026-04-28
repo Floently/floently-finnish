@@ -1,0 +1,40 @@
+{
+  "id": "6ec48ff0-9775-5762-bf57-374884328eb6",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vastaa haastattelijan kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "910f6403-3bb8-5950-82b5-dca88208acc6",
+        "ai_first_turn_fi": "Mitä haluat tehdä tulevaisuudessa? Onko sinulla unelmia?"
+      }
+    ],
+    "rubric": "Vastaa haastattelijan kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

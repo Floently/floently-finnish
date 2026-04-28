@@ -1,0 +1,64 @@
+{
+  "id": "2762e48b-d895-5ccd-a434-c063ff5966b5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.506,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa palauttaa viallisen puhelimen kauppaan. Keskustele myyjän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Myyjä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp37_1",
+        "ai_first_turn_fi": "Hei, miten voin auttaa?"
+      },
+      {
+        "id": "srp37_2",
+        "ai_first_turn_fi": "Voi ei, mikä puhelimessa on vialla?"
+      },
+      {
+        "id": "srp37_3",
+        "ai_first_turn_fi": "Onko sinulla kuitti mukana?"
+      },
+      {
+        "id": "srp37_4",
+        "ai_first_turn_fi": "Kiitos. Koska puhelin on alle kuukauden vanha, voit saada uuden tilalle tai rahat takaisin. Kumman haluat?"
+      },
+      {
+        "id": "srp37_5",
+        "ai_first_turn_fi": "Selvä. Haen varastosta samanlaisen uuden puhelimen. Tarkistamme sen ennen kuin annan sen sinulle."
+      },
+      {
+        "id": "srp37_6",
+        "ai_first_turn_fi": "Tässä on uusi puhelin. Pahoittelut viallisesta. Tarvitsetko apua tietojen siirrossa?"
+      },
+      {
+        "id": "srp37_7",
+        "ai_first_turn_fi": "Autamme mielellämme. Istu odottamaan, niin autan sinut kohta."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa palauttaa viallisen puhelimen kauppaan. Keskustele myyjän kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

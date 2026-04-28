@@ -1,0 +1,37 @@
+{
+  "id": "801cdfd0-871a-5a82-aa9b-e8b96115efe3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ruokakaupan omista merkeistä. Ovatko ne hyviä? Ovatko ne halvempia?",
+    "materials": {
+      "scenario": "Palaute kaupan omista merkeistä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute ruokakaupan omista merkeistä. Ovatko ne hyviä? Ovatko ne halvempia?"
+      }
+    ],
+    "rubric": "Kirjoita palaute ruokakaupan omista merkeistä. Ovatko ne hyviä? Ovatko ne halvempia?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

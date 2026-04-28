@@ -1,0 +1,60 @@
+{
+  "id": "95f81cbe-37cd-59d9-8855-809463385969",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella jäsenyyden peruuttamista kuntosalilta. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kuntosalin asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp38_1",
+        "ai_first_turn_fi": "Hei, Kuntosali Fressi."
+      },
+      {
+        "id": "srp38_2",
+        "ai_first_turn_fi": "Voin auttaa. Mikä on nimesi ja jäsennumerosi?"
+      },
+      {
+        "id": "srp38_3",
+        "ai_first_turn_fi": "Kiitos. Näen että jäsenyytesi on määräaikainen ja se päättyy kahden kuukauden päästä. Jos peruutat nyt, joudut maksamaan jäljellä olevan ajan. Haluatko silti peruuttaa?"
+      },
+      {
+        "id": "srp38_4",
+        "ai_first_turn_fi": "Ymmärrän. Koska kyseessä on muutto toiselle paikkakunnalle, voimme hyväksyä peruutuksen ilman lisämaksua, jos toimitat muuttotodistuksen."
+      },
+      {
+        "id": "srp38_5",
+        "ai_first_turn_fi": "Voit lähettää sen sähköpostitse tai tuoda paikan päälle. Peruutus on voimassa, kun olemme saaneet todistuksen."
+      },
+      {
+        "id": "srp38_6",
+        "ai_first_turn_fi": "Hyvä. Jos sinulla on kysyttävää, ota yhteyttä. Kiitos soitosta!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella jäsenyyden peruuttamista kuntosalilta. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

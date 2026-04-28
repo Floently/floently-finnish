@@ -1,0 +1,64 @@
+{
+  "id": "d34591e3-d936-551d-9ab3-f4159a504e5c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella kurssipaikkaa kansalaisopistossa. Keskustele toimiston kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kansalaisopiston toimistosihteeri"
+      }
+    },
+    "items": [
+      {
+        "id": "srp23_1",
+        "ai_first_turn_fi": "Hei, kansalaisopisto."
+      },
+      {
+        "id": "srp23_2",
+        "ai_first_turn_fi": "Totta kai. Meillä on useita kielikursseja. Mistä kielestä olet kiinnostunut?"
+      },
+      {
+        "id": "srp23_3",
+        "ai_first_turn_fi": "Espanjan alkeiskurssi alkaa kahden viikon päästä. Kurssi kokoontuu kerran viikossa tiistaisin kello 17.30-19.30. Hinta on 120 euroa."
+      },
+      {
+        "id": "srp23_4",
+        "ai_first_turn_fi": "Kurssi kestää 10 viikkoa. Opettajana toimii äidinkielinen opettaja. Oppikirja hankitaan itse. Kiinnostaako tämä?"
+      },
+      {
+        "id": "srp23_5",
+        "ai_first_turn_fi": "Ilmoittautua voit verkkosivujemme kautta tai tulemalla paikan päälle toimistolle. Paikkoja on vielä jäljellä."
+      },
+      {
+        "id": "srp23_6",
+        "ai_first_turn_fi": "Ilmoittautuminen päättyy viikkoa ennen kurssin alkua. Haluatko että laitan sinulle linkin ilmoittautumiseen sähköpostitse?"
+      },
+      {
+        "id": "srp23_7",
+        "ai_first_turn_fi": "Laitan sen saman tien. Kiitos soittamisesta ja tervetuloa kurssille!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella kurssipaikkaa kansalaisopistossa. Keskustele toimiston kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

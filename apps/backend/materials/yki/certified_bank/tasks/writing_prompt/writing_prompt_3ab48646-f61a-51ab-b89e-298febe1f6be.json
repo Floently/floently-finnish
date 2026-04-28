@@ -1,0 +1,37 @@
+{
+  "id": "3ab48646-f61a-51ab-b89e-298febe1f6be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Kirjoita mielipideteksti."
+    },
+    "items": [
+      {
+        "id": "6ac74a67-5d48-5180-b301-dc1244d4f5e1",
+        "prompt": "Pitäisikö yrityksillä olla velvollisuus julkaista ympäristöraportteja?"
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

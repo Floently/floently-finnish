@@ -1,0 +1,37 @@
+{
+  "id": "fd3792d6-151f-5b71-8cf3-f16a3f543795",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt kuvaus.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt kuvaus."
+    },
+    "items": [
+      {
+        "id": "467fdbc8-16fe-5a02-ae82-75c027f3e516",
+        "prompt": "Kuvaile lempivuodenaikaasi.\nKerro:\n- mikä vuodenaika on paras\n- millainen sää silloin on\n- mitä tykkäät tehdä silloin."
+      }
+    ],
+    "rubric": "Kuvaile lempivuodenaikaasi.\nKerro:\n- mikä vuodenaika on paras\n- millainen sää silloin on\n- mitä tykkäät tehdä silloin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

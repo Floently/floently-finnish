@@ -1,0 +1,40 @@
+{
+  "id": "3cbfa31f-fdb3-5d64-b1bd-fbdc3cf855d3",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa diplomaattista ja hienovaraista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet tiiminvetäjä, joka haluaa ratkaista ongelman työntekijän arvokkuutta kunnioittaen.",
+        "partner": "Työntekijä - ei todennäköisesti tiedä ongelmasta, voi loukkaantua helposti."
+      }
+    },
+    "items": [
+      {
+        "id": "srp36",
+        "ai_first_turn_fi": "Hei, kiitos kun tulit keskustelemaan. Tämä on vähän arkaluonteinen asia, mutta haluan ottaa sen esiin, koska välitän siitä, että sinulla on hyvä olla täällä."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa diplomaattista ja hienovaraista kieltä.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

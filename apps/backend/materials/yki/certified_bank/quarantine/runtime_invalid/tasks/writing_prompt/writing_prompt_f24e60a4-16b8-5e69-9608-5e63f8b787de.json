@@ -1,0 +1,37 @@
+{
+  "id": "f24e60a4-16b8-5e69-9608-5e63f8b787de",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.294,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: community center. Purpose: make a choice. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "housing in community_center"
+    },
+    "items": [
+      {
+        "id": "b811e739-ba76-53d8-a67e-1b4bb9686d2b",
+        "prompt": "Write for the receiver in this scenario: community center. Purpose: make a choice. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

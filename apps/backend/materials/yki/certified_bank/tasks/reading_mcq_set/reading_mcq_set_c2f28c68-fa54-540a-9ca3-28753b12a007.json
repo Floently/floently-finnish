@@ -1,0 +1,77 @@
+{
+  "id": "c2f28c68-fa54-540a-9ca3-28753b12a007",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.785,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Työn murros on yksi aikamme puhutuimmista teemoista, ja sen vaikutukset ulottuvat laajalle yhteiskuntaan. Digitalisaatio, automaatio ja tekoäly muuttavat työn sisältöjä ja rakenteita vauhdilla, ja samalla perinteiset käsitykset työurista, toimeentulosta ja ammatti-identiteetistä joutuvat uudelleenarvioinnin kohteeksi. Keskustelussa korostuvat sekä uhkakuvat että mahdollisuudet. Toisaalta pelätään laajamittaista työttömyyttä ja eriarvoisuuden kasvua, kun rutiininomaiset työtehtävät katoavat. Toisaalta nähdään mahdollisuus vapautua ikävistä ja kuormittavista töistä ja keskittyä luovuutta, empatiaa ja monimutkaista ongelmanratkaisua vaativaan työhön. Keskeinen kysymys on, miten turvataan toimeentulo ja mielekäs elämä maailmassa, jossa perinteinen kokopäivätyö ei enää ole itsestäänselvyys. Yksi usein esitetty ratkaisu on perustulo, joka takaisi jokaiselle kansalaiselle riittävän toimeentulon ilman ehtoja ja byrokratiaa. Perustulon kannattajat katsovat, että se kannustaisi yrittäjyyteen, osa-aikatyöhön ja vapaaehtoistoimintaan ja vähentäisi köyhyyttä ja syrjäytymistä. Vastustajat puolestaan pelkäävät, että se vähentäisi työnteon kannustimia ja tulisi liian kalliiksi. Toinen ratkaisu on panostaa koulutukseen ja elinikäiseen oppimiseen. Jos työtehtävät muuttuvat nopeasti, ihmisten on kyettävä uudelleenkouluttautumaan ja päivittämään osaamistaan läpi työuransa. Tämä edellyttää joustavia koulutusmuotoja, riittävää taloudellista tukea aikuisopiskelijoille ja tiivistä yhteistyötä koulutuksen järjestäjien ja työelämän välillä. Kolmas keskeinen kysymys liittyy työajan lyhentämiseen. Jos tuottavuus kasvaa ja työtä on vähemmän tarjolla, työaikaa voitaisiin lyhentää ja jakaa työtä useammalle. Tämä voisi tapahtua esimerkiksi siirtymällä kuuden tunnin työpäivään tai nelipäiväiseen työviikkoon. Työajan lyhentämisellä voisi olla myönteisiä vaikutuksia niin työllisyyteen, hyvinvointiin kuin tasa-arvoonkin. Se herättää kuitenkin monia kysymyksiä palkkauksesta, kilpailukyvystä ja työn organisoinnista. Työn murros on väistämätön, mutta sen suuntaan voidaan vaikuttaa. Tarvitaan laajaa yhteiskunnallista keskustelua siitä, millaista työelämää ja yhteiskuntaa haluamme rakentaa, ja rohkeutta kokeilla uudenlaisia ratkaisuja. Samalla on huolehdittava siitä, että ketään ei jätetä jälkeen ja että siirtymä uuteen työn aikakauteen on oikeudenmukainen.",
+      "word_count": 260
+    },
+    "questions": [
+      {
+        "id": "2bf36686-eb60-5370-9760-f89f1ed82808",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Automaation vaikutukset teollisuustyöhön",
+          "Perustulon hyödyt ja haitat",
+          "Työn murrokseen liittyvät uhkakuvat ja mahdollisuudet sekä siihen esitetyt ratkaisut",
+          "Työajan lyhentämisen vaikutukset tuottavuuteen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0a9e262f-6ad2-5edd-b499-83eefbde08b8",
+        "prompt": "Tekstin mukaan mitä mahdollisuuksia työn murrokseen liittyy?",
+        "options": [
+          "Mahdollisuus tehdä vähemmän töitä ja saada samaa palkkaa",
+          "Mahdollisuus vapautua ikävistä ja kuormittavista töistä ja keskittyä luovuutta vaativaan työhön",
+          "Mahdollisuus siirtyä kokonaan pois työelämästä",
+          "Mahdollisuus lisätä rutiininomaisten työtehtävien määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "643a6c14-df45-5faa-ab95-6b146f8cf042",
+        "prompt": "Mitä perusteluja perustulon kannattajat esittävät tekstin mukaan?",
+        "options": [
+          "Se vähentäisi työnteon kannustimia",
+          "Se tulisi liian kalliiksi",
+          "Se kannustaisi yrittäjyyteen, osa-aikatyöhön ja vapaaehtoistoimintaan sekä vähentäisi köyhyyttä",
+          "Se lisäisi byrokratiaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "11d8f787-a61f-5fe7-a09f-bb31e5592752",
+        "prompt": "Mitä työajan lyhentämisellä voitaisiin tekstin mukaan saavuttaa?",
+        "options": [
+          "Se lisäisi tuottavuutta ja talouskasvua",
+          "Se voisi lisätä työllisyyttä, hyvinvointia ja tasa-arvoa",
+          "Se vähentäisi kilpailukykyä",
+          "Se helpottaisi työn organisointia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

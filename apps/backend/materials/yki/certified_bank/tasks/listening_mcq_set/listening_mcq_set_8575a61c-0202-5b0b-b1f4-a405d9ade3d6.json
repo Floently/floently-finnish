@@ -1,0 +1,88 @@
+{
+  "id": "8575a61c-0202-5b0b-b1f4-a405d9ade3d6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.683,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä on Oulun kaupungin terveyspalvelut. Soitamme muistuttaaksenne, että teillä on aika influenssarokotukseen ylihuomenna kello 13.30. Rokotuspaikka on terveysasema 2, huone 105. Muistathan ottaa mukaan Kela-kortin. Jos ette pääse, peruuttakaa aika viimeistään tänään.",
+      "audio_asset_id": "486137a0-c3a1-49c5-bbd2-cceb0bed0574"
+    },
+    "questions": [
+      {
+        "id": "15def8d3-9b4d-519e-9b54-027c45767beb",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Oulun kaupungin terveyspalvelut.",
+          "Yksityinen lääkäriasema.",
+          "Työterveyshuolto.",
+          "Hammaslääkäri."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "2cd9e870-f6db-505e-8b83-0f8b49e580a9",
+        "prompt": "Miksi he soittavat?",
+        "options": [
+          "Peruuttaakseen ajan.",
+          "Muistuttaakseen rokotusajasta.",
+          "Kertoakseen uusista palveluista.",
+          "Kysyäkseen terveydentilasta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3dce3111-56c7-5f18-8116-ecc6c2d2a5d8",
+        "prompt": "Mihin rokotus on?",
+        "options": [
+          "Koronarokotus.",
+          "Influenssarokotus.",
+          "Jäykkäkouristusrokotus.",
+          "Puutiaisaivotulehdusrokotus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1f33101b-682c-5302-ba1a-15d89df75291",
+        "prompt": "Milloin rokotus on?",
+        "options": [
+          "Huomenna.",
+          "Ylihuomenna.",
+          "Ensi viikolla.",
+          "Kahden päivän päästä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3c62e5db-6e34-5313-b0f5-870edb58a361",
+        "prompt": "Mitä pitää muistaa ottaa mukaan?",
+        "options": [
+          "Kela-kortti.",
+          "Henkilöllisyystodistus.",
+          "Aiemmat rokotustodistukset.",
+          "Oma puhelin."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

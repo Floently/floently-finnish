@@ -1,0 +1,37 @@
+{
+  "id": "4e2e77ef-a708-5544-96fa-218a7a830850",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti.",
+    "materials": {
+      "scenario": "Kirjoita sähköposti."
+    },
+    "items": [
+      {
+        "id": "5bc59119-dddc-5070-bdc7-879fb78e5afb",
+        "prompt": "Olet ollut tyytymätön hotelliyöpymiseesi. Kirjoita hotellille palautetta.\nKerro:\n- milloin olit hotellissa\n- mikä oli hyvää (esim. sijainti, henkilökunta)\n- mikä oli huonoa (esim. siisteys, melu, aamiainen)\n- miten toivoisit hotellin kehittävän toimintaansa"
+      }
+    ],
+    "rubric": "Olet ollut tyytymätön hotelliyöpymiseesi. Kirjoita hotellille palautetta.\nKerro:\n- milloin olit hotellissa\n- mikä oli hyvää (esim. sijainti, henkilökunta)\n- mikä oli huonoa (esim. siisteys, melu, aamiainen)\n- miten toivoisit hotellin kehittävän toimintaansa",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

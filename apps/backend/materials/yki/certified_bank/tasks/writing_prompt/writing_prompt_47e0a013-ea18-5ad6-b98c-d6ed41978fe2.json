@@ -1,0 +1,37 @@
+{
+  "id": "47e0a013-ea18-5ad6-b98c-d6ed41978fe2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö joukkoliikenteessä ottaa käyttöön porrastetut hinnat ruuhka-aikoina?'. Arvioi ruuhkien vähentämistä, kustannuksia ja tasa-arvoa.",
+    "materials": {
+      "scenario": "Porrastetut hinnat joukkoliikenteessä"
+    },
+    "items": [
+      {
+        "id": "c67865a6-4b66-5627-9d34-4c6188a98c03",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö joukkoliikenteessä ottaa käyttöön porrastetut hinnat ruuhka-aikoina?'. Arvioi ruuhkien vähentämistä, kustannuksia ja tasa-arvoa."
+      }
+    ],
+    "rubric": "Ruuhkien vähentäminen\nKustannukset\nTasa-arvo\nKäyttäytymisen ohjaus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "8b7f75ed-e255-5789-9533-5a85ec913ee7",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.684,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen uudesta puistosta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupunki on avannut uuden puiston Tammelaan. Puisto on rakennettu vanhalle teollisuusalueelle. Siellä on nurmialueita, istutuksia, lasten leikkipaikka ja kahvila. Puiston läpi kulkee pyörätie. Avajaisia vietetään lauantaina kello 12. Tervetuloa!",
+      "audio_asset_id": "d8eb0516-9132-4657-aa55-ed273fcdbbb2"
+    },
+    "questions": [
+      {
+        "id": "l232q1",
+        "prompt": "Minne uusi puisto on avattu?",
+        "options": [
+          "Tammelaan.",
+          "Keskustaan.",
+          "Hervantaan.",
+          "Tesomalle."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l232q2",
+        "prompt": "Mille alueelle puisto on rakennettu?",
+        "options": [
+          "Uudelle asuinalueelle.",
+          "Metsään.",
+          "Vanhalle teollisuusalueelle.",
+          "Koulun pihalle."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l232q3",
+        "prompt": "Mitä puistossa on?",
+        "options": [
+          "Vain nurmialueita.",
+          "Vain leikkipaikka.",
+          "Nurmialueita, istutuksia, leikkipaikka ja kahvila.",
+          "Vain kahvila."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l232q4",
+        "prompt": "Mitä puiston läpi kulkee?",
+        "options": [
+          "Autotie.",
+          "Jalankulkukatu.",
+          "Puro.",
+          "Pyörätie."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l232q5",
+        "prompt": "Minä päivänä avajaisia vietetään?",
+        "options": [
+          "Perjantaina.",
+          "Lauantaina.",
+          "Sunnuntaina.",
+          "Maanantaina."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

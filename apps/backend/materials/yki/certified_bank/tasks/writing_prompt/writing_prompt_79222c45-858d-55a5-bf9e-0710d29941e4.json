@@ -1,0 +1,37 @@
+{
+  "id": "79222c45-858d-55a5-bf9e-0710d29941e4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien viheralueita hoitaa luonnonmukaisemmin?'. Arvioi monimuotoisuutta, viihtyisyyttä ja kustannuksia.",
+    "materials": {
+      "scenario": "Viheralueiden luonnonmukainen hoito"
+    },
+    "items": [
+      {
+        "id": "d3036e2e-a05c-5b3a-b8ba-7389420677a2",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien viheralueita hoitaa luonnonmukaisemmin?'. Arvioi monimuotoisuutta, viihtyisyyttä ja kustannuksia."
+      }
+    ],
+    "rubric": "Monimuotoisuus\nViihtyisyys\nKustannukset\nAsukkaiden mielipiteet",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

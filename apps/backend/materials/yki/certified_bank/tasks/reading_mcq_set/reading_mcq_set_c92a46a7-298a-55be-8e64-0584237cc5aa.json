@@ -1,0 +1,77 @@
+{
+  "id": "c92a46a7-298a-55be-8e64-0584237cc5aa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen kahden koululaisen äiti, ja haluan kirjoittaa koulujen loma-ajoista. Tuntuu, että loma-ajat eivät sovi yhteen työelämän kanssa.\n\nSyysloma on aina eri viikolla eri kaupungeissa. Toisella lapsella on loma viikolla 42, toisella viikolla 43. Miten me vanhemmat järjestämme hoidon? Pitääkö ottaa lomaa kahtena eri viikkona? Entä jos ei ole lomapäiviä jäljellä?\n\nMyös hiihtolomat ovat eri aikoihin. Tänä vuonna toinen oli viikolla 8, toinen viikolla 9. Sama ongelma uudestaan. Kyllä tässä meinaa järki mennä.\n\nYmmärrän, että loma-aikoja hajautetaan, jotta matkailukohteet eivät ruuhkautuisi. Mutta eikö voitaisi ajatella myös perheitä? Meillä ei ole mahdollisuutta olla lomalla kahtena eri viikkona. Lapset joutuvat olemaan yksin kotona tai mummolassa.\n\nToivon, että koulujen loma-ajoissa otettaisiin paremmin huomioon perheiden arki. Ehkä voitaisiin sopia, että saman perheen lapset olisivat lomalla samaan aikaan. Tai että työssäkäyvät vanhemmat saisivat helpommin järjestettyä hoidon.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 158
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kirjoittaja on huolissaan?",
+        "options": [
+          "A) Lapset eivät pidä lomista",
+          "B) Loma-ajat ovat eri aikoihin eri kouluissa, mikä vaikeuttaa hoitojärjestelyjä",
+          "C) Lomat ovat liian lyhyitä",
+          "D) Lomat ovat liian pitkiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi loma-aikoja hajautetaan?",
+        "options": [
+          "A) Jotta lapset oppisivat enemmän",
+          "B) Jotta matkailukohteet eivät ruuhkautuisi",
+          "C) Jotta opettajat jaksaisivat paremmin",
+          "D) Jotta koulut säästäisivät rahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ongelmaa kirjoittaja kuvaa?",
+        "options": [
+          "A) Lapset ovat eri aikaan lomalla, eikä hoitoa voi järjestää",
+          "B) Lomat ovat liian kalliita",
+          "C) Lapset eivät halua olla lomalla",
+          "D) Koulut eivät anna tarpeeksi läksyjä lomalle"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kirjoittaja toivoo?",
+        "options": [
+          "A) Kaikille sama loma-aika",
+          "B) Perheiden arjen parempi huomioiminen loma-ajoissa",
+          "C) Pidemmät lomat",
+          "D) Enemmän lomia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

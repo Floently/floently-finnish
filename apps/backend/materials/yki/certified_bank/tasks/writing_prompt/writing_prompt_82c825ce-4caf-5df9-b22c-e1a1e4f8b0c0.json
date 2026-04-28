@@ -1,0 +1,37 @@
+{
+  "id": "82c825ce-4caf-5df9-b22c-e1a1e4f8b0c0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.349,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kahvilaan. Haluat kysyä, onko heillä gluteenittomia leivoksia. Kerro, että olet tulossa ystävän kanssa lauantaina ja ystävä tarvitsee gluteenitonta ruokavaliota. Kysy myös, voiko pöydän varata etukäteen.",
+    "materials": {
+      "scenario": "Viesti kahvilaan gluteenittomista leivoksista"
+    },
+    "items": [
+      {
+        "id": "83db3521-e916-5607-b1e3-6abf8126540b",
+        "prompt": "Kirjoita lyhyt viesti kahvilaan. Haluat kysyä, onko heillä gluteenittomia leivoksia. Kerro, että olet tulossa ystävän kanssa lauantaina ja ystävä tarvitsee gluteenitonta ruokavaliota. Kysy myös, voiko pöydän varata etukäteen."
+      }
+    ],
+    "rubric": "Kysy gluteenittomista leivoksista\nKerro, milloin olet tulossa\nKerro, että ystävä tarvitsee gluteenitonta\nKysy pöytävarausta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

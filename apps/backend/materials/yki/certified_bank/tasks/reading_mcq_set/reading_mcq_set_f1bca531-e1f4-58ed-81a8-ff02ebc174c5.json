@@ -1,0 +1,110 @@
+{
+  "id": "f1bca531-e1f4-58ed-81a8-ff02ebc174c5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.692,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen sauna on tunnettu ympäri maailmaa. Se on tärkeä osa suomalaista kulttuuria. Suomessa on yli kolme miljoonaa saunaa. Sauna löytyy lähes joka kodista. Saunominen on suomalaisille tärkeä tapa rentoutua. Se on myös sosiaalinen tapahtuma. Saunaan mennään usein viikonloppuisin ystävien tai perheen kanssa. Saunassa heitetään löylyä ja vilvoitellaan. Saunalla on ollut historiassa myös muita merkityksiä. Siellä on pesty vaatteita ja pidetty huolta sairaista. Nykyään sauna on rentoutumisen ja hyvinvoinnin paikka. Se on myös tärkeä osa suomalaista matkailua. Ulkomaiset turistit haluavat kokea aidon suomalaisen saunan.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka monta saunaa Suomessa on?",
+        "options": [
+          "Noin miljoona.",
+          "Yli kolme miljoonaa.",
+          "Noin satatuhatta.",
+          "Noin viisisataatuhatta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä saunominen on suomalaisille?",
+        "options": [
+          "Vain velvollisuus.",
+          "Tärkeä tapa rentoutua.",
+          "Vain urheilua.",
+          "Vain työasia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin saunaan mennään usein?",
+        "options": [
+          "Arkiaamuisin.",
+          "Viikonloppuisin.",
+          "Keskellä päivää.",
+          "Vain jouluna."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä saunassa tehdään?",
+        "options": [
+          "Syödään ja juodaan.",
+          "Heitetään löylyä ja vilvoitellaan.",
+          "Nukutaan.",
+          "Tehdään töitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä muuta saunalla on historiassa tehty?",
+        "options": [
+          "Vietetty juhlia.",
+          "Pesty vaatteita ja hoidettu sairaita.",
+          "Pidetty kokouksia.",
+          "Säilytetty ruokaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä sauna on nykyään?",
+        "options": [
+          "Työpaikka.",
+          "Rentoutumisen ja hyvinvoinnin paikka.",
+          "Tehdas.",
+          "Koulu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi sauna on tärkeä matkailulle?",
+        "options": [
+          "Se on halpa.",
+          "Turistit haluavat kokea aidon suomalaisen saunan.",
+          "Se on kaikkialla.",
+          "Se on uusi asia."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

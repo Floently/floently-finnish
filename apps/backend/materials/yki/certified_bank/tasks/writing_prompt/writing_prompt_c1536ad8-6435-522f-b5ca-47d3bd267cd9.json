@@ -1,0 +1,37 @@
+{
+  "id": "c1536ad8-6435-522f-b5ca-47d3bd267cd9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö julkisiin tiloihin lisätä ilmaisia wc-tiloja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ilmaiset wc-tilat julkisissa tiloissa"
+    },
+    "items": [
+      {
+        "id": "8bfc9297-57d6-56c5-b184-85c594c9c9a2",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö julkisiin tiloihin lisätä ilmaisia wc-tiloja. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "b1e5e631-e415-531f-bf17-abaa0e57c02b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen kirje alla olevan tilanteen mukaisesti. Käytä asiallista tyyliä ja sopivaa tervehdystä ja lopetusta.",
+    "materials": {
+      "scenario": "Kirjoitat kaupungille ja pyydät tietoa asunnon vuokrauksesta."
+    },
+    "items": [
+      {
+        "id": "2738c7d9-12df-5cc3-8d76-d6e6a652f2ab",
+        "prompt": "Kirjoita virallinen kirje alla olevan tilanteen mukaisesti. Käytä asiallista tyyliä ja sopivaa tervehdystä ja lopetusta."
+      }
+    ],
+    "rubric": "Selitä tilanne (miksi tarvitset asunnon)\nPyydä tarkempaa tietoa hakemusmenettelystä\nIlmoita yhteystietosi",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

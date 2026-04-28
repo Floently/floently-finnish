@@ -1,0 +1,37 @@
+{
+  "id": "11e7e1a3-51c4-5c13-991e-6b7ba3826327",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomen puolustusmenoja lisätä nykyisessä turvallisuustilanteessa?'. Arvioi turvallisuuspoliittisia ja taloudellisia näkökulmia.",
+    "materials": {
+      "scenario": "Puolustusmenojen lisääminen"
+    },
+    "items": [
+      {
+        "id": "a692d58d-0ad2-51de-93ba-8ab6ccc746dc",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomen puolustusmenoja lisätä nykyisessä turvallisuustilanteessa?'. Arvioi turvallisuuspoliittisia ja taloudellisia näkökulmia."
+      }
+    ],
+    "rubric": "Turvallisuuspoliittinen tilanne\nTaloudelliset vaikutukset\nKansainvälinen yhteistyö\nVarautuminen",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

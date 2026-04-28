@@ -1,0 +1,66 @@
+{
+  "id": "9bf2129b-5015-528f-92d4-9553b17e0b81",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuulutus rautatieasemalla ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Hyvät matkustajat. InterCity-juna Helsinkiin lähtee raiteelta 5 kello 14.30. Juna pysähtyy Tikkurilassa ja Riihimäellä. Seuraava juna lähtee kello 15.15.",
+      "audio_asset_id": "1d2fe3be-372c-5c05-8c04-e00420b1b7be"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_015_q1",
+        "prompt": "Mihin aikaan juna lähtee?",
+        "options": [
+          "kello 14.15",
+          "kello 14.30",
+          "kello 15.15",
+          "kello 15.30"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_015_q2",
+        "prompt": "Miltä raiteelta juna lähtee?",
+        "options": [
+          "raiteelta 3",
+          "raiteelta 4",
+          "raiteelta 5",
+          "raiteelta 6"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_listening_mcq_015_q3",
+        "prompt": "Mihin kaupunkiin juna menee?",
+        "options": [
+          "Turkuun",
+          "Tampereelle",
+          "Helsinkiin",
+          "Jyväskylään"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

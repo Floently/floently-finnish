@@ -1,0 +1,37 @@
+{
+  "id": "5b9aa14a-d777-54c6-95c3-89d5a17f0368",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ohjeen mukaan.",
+    "materials": {
+      "scenario": "Työpaikan perehdytys"
+    },
+    "items": [
+      {
+        "id": "5cbd2bc5-be72-52f1-ab02-202291d9c044",
+        "prompt": "Kirjoita palaute työpaikan perehdytyksestä."
+      }
+    ],
+    "rubric": "Kirjoita palaute työpaikan perehdytyksestä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

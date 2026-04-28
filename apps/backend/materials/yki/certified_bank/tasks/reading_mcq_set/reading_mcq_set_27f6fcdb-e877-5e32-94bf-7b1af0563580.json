@@ -1,0 +1,77 @@
+{
+  "id": "27f6fcdb-e877-5e32-94bf-7b1af0563580",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.801,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kulttuuriperinnön säilyttämisen ja hyödyntämisen kysymykset ovat nousseet viime vuosina keskeisiksi niin kansallisessa kuin kansainvälisessäkin kulttuuripolitiikassa. Unescon maailmanperintöluettelo on tunnetuin esimerkki pyrkimyksestä tunnistaa ja suojella merkittäviä kulttuuri- ja luontokohteita. Perinteinen suojeluajattelu on keskittynyt fyysisten rakenteiden ja esineiden säilyttämiseen, mutta viime aikoina on alettu yhä enemmän korostaa aineettoman kulttuuriperinnön, kuten perinteiden, kielen ja käsityötaitojen, merkitystä. Tämä laajentunut näkemys on tuonut mukanaan uudenlaisia haasteita. Miten säilyttää elävä perinne, joka on luonnostaan muuttuvaa ja sopeutuvaa? Kysymys on paitsi teknisistä ratkaisuista myös syvällisemmistä arvovalinnoista. Ketkä määrittelevät, mikä on säilyttämisen arvoista? Entä kenellä on oikeus tulkita ja käyttää kulttuuriperintöä? Nämä kysymykset kytkeytyvät laajempiin valta- ja identiteettipoliittisiin kamppailuihin. Alkuperäiskansojen ja vähemmistöjen oikeus omaan kulttuuriperintöönsä on noussut voimakkaasti esiin. He vaativat paitsi oikeutta säilyttää perinteitään myös oikeutta päättää siitä, miten heidän kulttuuriaan esitetään ja käytetään esimerkiksi museoissa ja matkailussa. Tämä haastaa perinteisen, usein länsimaalaisen ja kolonialistisen tavan omia ja luokitella kulttuuriperintöä. Toisaalta kulttuuriperinnön kaupallistaminen on herättänyt huolta. Matkailuelinkeino hyödyntää usein kulttuuriperintökohteita, mikä voi tuoda niille näkyvyyttä ja resursseja, mutta samalla se voi johtaa niiden alkuperäisen merkityksen hämärtymiseen ja autenttisuuden katoamiseen. Puhutaan jopa disneylandisaatiosta, jossa historialliset paikat muuttuvat teemapuistoiksi. Kulttuuriperinnön digitoiminen on avannut uudenlaisia mahdollisuuksia sen saatavuuden ja tutkimuksen kannalta. Arkistot, museot ja kirjastot digitoivat kokoelmiaan, mikä tekee niistä helpommin saavutettavia ympäri maailmaa. Samalla on noussut esiin uusia kysymyksiä tekijänoikeuksista, tietosuojasta ja digitaalisen aineiston pitkäaikaissäilytyksestä. Lisäksi on pohdittava, kuka omistaa digitoidun aineiston ja kenellä on oikeus hyötyä siitä taloudellisesti. Kulttuuriperinnön tulevaisuus näyttäytyy monitahoisena kenttänä, jossa perinteinen suojelu, uudet teknologiat, identiteettipolitiikka ja taloudelliset intressit kietoutuvat toisiinsa.",
+      "word_count": 246
+    },
+    "questions": [
+      {
+        "id": "edc5d19e-e34a-5070-8307-f516a1709d9a",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Unescon maailmanperintöluettelon kriteerit ja valintaprosessi",
+          "Kulttuuriperinnön säilyttämisen ja hyödyntämisen monitahoisuus sekä siihen liittyvät jännitteet",
+          "Aineettoman kulttuuriperinnön määrittely- ja suojeluongelmat",
+          "Kulttuuriperinnön digitoinnin tekniset haasteet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3c2e9a2e-8ede-5dde-911e-60c1c711154d",
+        "prompt": "Tekstin mukaan mikä on keskeinen haaste aineettoman kulttuuriperinnön säilyttämisessä?",
+        "options": [
+          "Se on teknisesti vaikea tallentaa digitaaliseen muotoon",
+          "Se on luonnostaan muuttuvaa ja sopeutuvaa, joten sen säilyttäminen muuttumattomana on ristiriitaista",
+          "Sitä ei pidetä yhtä arvokkaana kuin fyysistä kulttuuriperintöä",
+          "Sitä on vaikea erottaa kaupallisesta viihteestä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fe8a7b21-7133-5c71-9fa8-f849ab0a5dac",
+        "prompt": "Mitä alkuperäiskansat ja vähemmistöt vaativat tekstiin mukaan omaan kulttuuriperintöönsä liittyen?",
+        "options": [
+          "Oikeutta saada korvauksia kulttuuriperintönsä kaupallisesta hyödyntämisestä",
+          "Oikeutta säilyttää perinteensä ja päättää, miten niitä esitetään ja käytetään",
+          "Oikeutta kieltää muiden pääsy heidän kulttuuriperintöönsä kokonaan",
+          "Oikeutta saada kulttuuriperintönsä kokonaan pois museoista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cbce6384-b401-5673-9d73-0a4a685f8b27",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'disneylandisaatiolla'?",
+        "options": [
+          "Kulttuuriperintökohteiden kopioimista huvipuistoihin",
+          "Historiallisten paikkojen muuttumista kaupallisiksi teemapuistoiksi, jolloin niiden alkuperäinen merkitys hämärtyy",
+          "Lasten kulttuurikasvatusta osana perinnön säilyttämistä",
+          "Kulttuuriperinnön viihteellistämistä televisio-ohjelmissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

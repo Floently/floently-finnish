@@ -1,0 +1,73 @@
+{
+  "id": "e18d480c-2cbb-52e9-a9c1-2903867b09a2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirjaston tiedote uusista palveluista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIRJASTON UUDET PALVELUT\n\nHyvät asiakkaat,\n\nhaluamme tiedottaa, että kirjastomme on uudistanut palveluitaan. Tässä tärkeimmät uudistukset:\n\nPidemmät aukioloajat:\nPääkirjasto on nyt auki maanantaista perjantaihin kello 8–20 ja lauantaisin kello 10–16. Sunnuntaisin suljettu.\n\nOmatoimikirjasto:\nOmatoimikirjasto on avoinna joka päivä kello 7–22. Pääset sisään kirjastokortilla ja PIN-koodilla.\n\nLainattavia laitteita:\nNyt voit lainata ompelukoneita, porakoneita, sauvasekoittimia ja muita arjen työvälineitä. Laina-aika on 7 vuorokautta.\n\nDigituki:\nTarjoamme digitukea joka tiistai kello 14–16. Saat apua esimerkiksi verkkopankin käyttöön, tulostamiseen ja älypuhelimen ongelmiin.\n\nTapahtumia:\nSyksyn aikana järjestämme lukupiirejä, satutunteja ja kirjailijavierailuja. Tarkemmat tiedot löytyvät nettisivuiltamme.\n\nLainat voi uusia netissä tai puhelimitse. Myöhästymismaksut voi maksaa verkossa.\n\nTervetuloa kirjastoon!",
+      "word_count": 100
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin pääkirjasto on auki lauantaisin?",
+        "options": [
+          "kello 9–15",
+          "kello 10–16",
+          "kello 11–17"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä uusia lainattavia laitteita kirjastossa on?",
+        "options": [
+          "tietokoneita ja tabletteja",
+          "ompelukoneita ja porakoneita",
+          "kamerat ja videokamerat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Milloin digitukea on tarjolla?",
+        "options": [
+          "maanantaisin",
+          "tiistaisin",
+          "keskiviikkoisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Miten pitkä laina-aika työvälineillä on?",
+        "options": [
+          "3 päivää",
+          "7 päivää",
+          "14 päivää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

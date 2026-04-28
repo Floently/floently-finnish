@@ -1,0 +1,99 @@
+{
+  "id": "0a3037d8-c7ac-5eb2-addd-23f19c63645c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Opiskelijoiden keskuudessa on kasvava huoli mielenterveyspalvelujen riittävyydestä. Opiskeluterveydenhuollon jonot ovat pitkittyneet, ja moni kokee, ettei saa apua ajoissa. Yliopistot ovat lisänneet matalan kynnyksen ryhmiä ja vertaistukea, mutta ne eivät korvaa ammattiapua vaikeissa tilanteissa. Opiskelijajärjestöt vaativat lisää resursseja perusterveydenhuoltoon ja nopeampaa hoitoon pääsyä.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä huoli opiskelijoilla on?",
+        "options": [
+          "Opiskelupaikkojen riittävyys",
+          "Mielenterveyspalvelujen riittävyys",
+          "Opiskelumateriaalien kalleus",
+          "Ruokalan aukioloajat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on ongelmana opiskeluterveydenhuollossa?",
+        "options": [
+          "Liian vähän lääkäreitä",
+          "Jonot ovat pitkittyneet",
+          "Palvelut ovat liian kalliita",
+          "Aukioloajat ovat huonot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä yliopistot ovat lisänneet?",
+        "options": [
+          "Terapeuttien määrää",
+          "Lääkäriaikoja",
+          "Matalan kynnyksen ryhmiä ja vertaistukea",
+          "Lääkkeiden määräämistä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä mieltä ollaan yliopistojen lisäämistä palveluista?",
+        "options": [
+          "Ne korvaavat ammattiavun kokonaan",
+          "Ne ovat hyödyttömiä",
+          "Ne eivät korvaa ammattiapua vaikeissa tilanteissa",
+          "Ne ovat liian kalliita"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä opiskelijajärjestöt vaativat?",
+        "options": [
+          "Lisää yksityisiä palveluntarjoajia",
+          "Lisää resursseja perusterveydenhuoltoon",
+          "Matalampia opiskelijamaksuja",
+          "Pidempiä aukioloaikoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä nopeampaa hoitoon pääsyä vaaditaan?",
+        "options": [
+          "Hammashoitoon",
+          "Mielenterveyspalveluihin",
+          "Yleislääkärille",
+          "Opintopsykologille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

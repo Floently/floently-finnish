@@ -1,0 +1,37 @@
+{
+  "id": "ef03340e-b382-5f5b-a9d0-ed124fd2a986",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti työsuojelupiiriin. Työpaikallasi on puutteita työturvallisuudessa, eikä työnantaja ole korjannut niitä. Kuvaile puutteet, kerro mitä olette yrittäneet ja pyydä työsuojelutarkastusta.",
+    "materials": {
+      "scenario": "Työsuojelutarkastuksen pyytäminen"
+    },
+    "items": [
+      {
+        "id": "b65603ca-1b0f-576f-8f0a-159d1b2f5e42",
+        "prompt": "Kirjoita virallinen sähköposti työsuojelupiiriin. Työpaikallasi on puutteita työturvallisuudessa, eikä työnantaja ole korjannut niitä. Kuvaile puutteet, kerro mitä olette yrittäneet ja pyydä työsuojelutarkastusta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

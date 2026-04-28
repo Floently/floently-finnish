@@ -1,0 +1,77 @@
+{
+  "id": "9153950d-23a8-573c-8438-eff227781ad5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue museon tiedote ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Kaupunginmuseossa järjestetään perhepäivä sunnuntaina 26.5. Ovista pääsee sisään kello 9.30 alkaen, ja ohjelma päättyy kello 16.00. Lasten työpajat alkavat tasatunnein kello 10, 11 ja 12. Pajaan mahtuu kerrallaan 15 lasta, joten paikka varataan lipunoston yhteydessä. Museon kahvila tarjoaa päivän aikana keittolounasta kello 11-14. Alle 18-vuotiaat pääsevät sisään ilmaiseksi aikuisen seurassa. Vaatesäilytys on maksuton, mutta isot reput pyydetään jättämään lukollisiin kaappeihin.",
+      "word_count": 60
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin ohjelma päättyy?",
+        "options": [
+          "kello 14.00",
+          "kello 15.00",
+          "kello 16.00",
+          "kello 17.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka monta lasta yhteen pajaan mahtuu?",
+        "options": [
+          "10",
+          "12",
+          "15",
+          "20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin kahvila tarjoaa keittolounasta?",
+        "options": [
+          "9-11",
+          "10-12",
+          "11-14",
+          "12-15"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä isoille repuille tehdään?",
+        "options": [
+          "ne viedään kotiin",
+          "ne jätetään bussille",
+          "ne jätetään lukollisiin kaappeihin",
+          "ne saa ottaa pajaan"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

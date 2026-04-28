@@ -1,0 +1,88 @@
+{
+  "id": "3ba5389d-d745-5900-bcee-a22b419572ac",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.692,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu laskusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, soittelen koskien laskuani, jonka sain sähköpostilla. Mielestäni siinä on liian suuri summa. Asiakaspalvelija: Mikä laskun numero on? Asiakas: Laskun numero on 121314. Asiakaspalvelija: Hetki, tarkistan. Tämä lasku koskee sähkösopimustanne. Mikä summa siinä on? Asiakas: Lasku on 158 euroa, mutta minun piti maksaa vain 98 euroa kuukaudessa. Asiakaspalvelija: Katsotaan. Olette oikeassa, teillä on kiinteä hinta 98 euroa kuukaudessa. Tässä laskussa on mukana myös edelliseltä kuukaudelta jäänyt maksamaton erä. Asiakas: Ai, unohdin maksaa viime kuun laskun? Asiakaspalvelija: Kyllä, se näkyy täällä. Maksamaton erä on 60 euroa. Asiakas: Selvä, kiitos selvityksestä. Maksan laskun.",
+      "audio_asset_id": "18492b04-d4a8-407d-a24f-acb580829a8d"
+    },
+    "questions": [
+      {
+        "id": "l251q1",
+        "prompt": "Miksi asiakas soittaa asiakaspalveluun?",
+        "options": [
+          "Tilatakseen uuden sopimuksen.",
+          "Koska lasku on mielestä liian suuri.",
+          "Vaihtaakseen sähkösopimusta.",
+          "Kysyäkseen uudesta tarjouksesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l251q2",
+        "prompt": "Mikä on laskun numero?",
+        "options": [
+          "121314.",
+          "111213.",
+          "131415.",
+          "141516."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l251q3",
+        "prompt": "Mitä lasku koskee?",
+        "options": [
+          "Puhelinliittymää.",
+          "Vakuutusta.",
+          "Sähkösopimusta.",
+          "Nettiliittymää."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l251q4",
+        "prompt": "Paljonko asiakkaan pitäisi normaalisti maksaa kuukaudessa?",
+        "options": [
+          "98 euroa.",
+          "78 euroa.",
+          "88 euroa.",
+          "108 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l251q5",
+        "prompt": "Miksi lasku on normaalia suurempi?",
+        "options": [
+          "Hintoja on korotettu.",
+          "Asiakas on käyttänyt enemmän sähköä.",
+          "Laskussa on laskutuslisä.",
+          "Edellisen kuukauden lasku on jäänyt maksamatta."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

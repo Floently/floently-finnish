@@ -1,0 +1,37 @@
+{
+  "id": "3becffef-b774-5452-93da-016923d0ce9e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet yöpynyt hostellissa. Kirjoita palaute. Arvioi huoneen siisteyttä, keittiön varustelua ja ilmapiiriä.",
+    "materials": {
+      "scenario": "Palaute hostelliyöpymisestä"
+    },
+    "items": [
+      {
+        "id": "2e5c1031-b709-5b36-afea-58ba410c1027",
+        "prompt": "Olet yöpynyt hostellissa. Kirjoita palaute. Arvioi huoneen siisteyttä, keittiön varustelua ja ilmapiiriä."
+      }
+    ],
+    "rubric": "Huoneen siisteys\nKeittiön varustelu\nIlmapiiri",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

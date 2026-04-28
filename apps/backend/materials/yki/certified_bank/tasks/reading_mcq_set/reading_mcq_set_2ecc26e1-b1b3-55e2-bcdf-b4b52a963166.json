@@ -1,0 +1,110 @@
+{
+  "id": "2ecc26e1-b1b3-55e2-bcdf-b4b52a963166",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.738,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työelämässä tapahtuu parhaillaan murros, jonka vaikutukset ulottuvat syvälle yhteiskunnan rakenteisiin. Etätyön yleistyminen on muuttanut käsitystä siitä, missä ja milloin työtä tehdään. Tämä on johtanut keskusteluun työn ja vapaa-ajan rajan hämärtymisestä. Monet kokevat, että työasiat tunkeutuvat iltoihin ja viikonloppuihin, kun työsähköposteja tarkistetaan kotisohvalta. Toisaalta joustavuus antaa mahdollisuuden sovittaa työt paremmin omaan elämäntilanteeseen. Tutkimukset osoittavat, että pelkkä tekninen mahdollisuus etätyöhön ei kuitenkaan riitä, vaan tarvitaan myös uudenlaisia johtamisen käytäntöjä. Luottamus, tavoitteiden selkeys ja säännöllinen vuorovaikutus korostuvat, kun työntekijöitä ei nähdä päivittäin. Yritykset, jotka ovat onnistuneet luomaan toimivat etätyökäytännöt, raportoivat usein korkeammasta työtyytyväisyydestä ja tuottavuudesta. Haasteena on kuitenkin varmistaa, ettei kukaan jää täysin yksin ja että työyhteisön yhteisöllisyys säilyy.",
+      "word_count": 106
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tekstin pääteema?",
+        "options": [
+          "Teknologian kehitys työpaikoilla.",
+          "Etätyön vaikutukset työhön ja työyhteisöihin.",
+          "Työaikojen lyhentäminen.",
+          "Toimistotilojen väheneminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haittapuolta etätyöstä tekstissä mainitaan?",
+        "options": [
+          "Työmatkat pitenevät.",
+          "Työn ja vapaa-ajan raja hämärtyy.",
+          "Palkat laskevat.",
+          "Työtehtävät vähenevät."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä etätyöstä tekstin mukaan on?",
+        "options": [
+          "Se lisää työpaikan valvontaa.",
+          "Se mahdollistaa työn sovittamisen omaan elämäntilanteeseen.",
+          "Se vähentää työntekijöiden välistä kilpailua.",
+          "Se takaa korkeamman palkan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uudenlaisia johtamisen käytäntöjä etätyö vaatii?",
+        "options": [
+          "Tiukempaa valvontaa ja raportointia.",
+          "Luottamusta, selkeitä tavoitteita ja säännöllistä vuorovaikutusta.",
+          "Päivittäisiä palavereita ja läsnäolopakkoa.",
+          "Työaikojen kirjaamista tarkasti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tuloksia onnistuneilla etätyökäytännöillä on saavutettu?",
+        "options": [
+          "Alempaa tuottavuutta ja työtyytyväisyyttä.",
+          "Korkeampaa työtyytyväisyyttä ja tuottavuutta.",
+          "Lisääntynyttä työpaikan vaihtuvuutta.",
+          "Vähemmän vuorovaikutusta työntekijöiden kesken."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on keskeinen haaste etätyössä?",
+        "options": [
+          "Teknisten laitteiden hankinta.",
+          "Yhteisöllisyyden säilyttäminen ja yksin jäämisen estäminen.",
+          "Työtehtävien uudelleenjärjestely.",
+          "Työsopimusten päivittäminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten teksti suhtautuu etätyön yleistymiseen?",
+        "options": [
+          "Se on yksiselitteisen kielteinen.",
+          "Se on yksiselitteisen myönteinen.",
+          "Se on analyyttinen ja tuo esiin sekä hyötyjä että haasteita.",
+          "Se ei ota kantaa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

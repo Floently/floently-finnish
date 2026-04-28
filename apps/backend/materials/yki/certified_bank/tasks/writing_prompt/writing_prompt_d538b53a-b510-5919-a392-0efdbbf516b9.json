@@ -1,0 +1,37 @@
+{
+  "id": "d538b53a-b510-5919-a392-0efdbbf516b9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt hammaslääkärissä. Kirjoita palaute. Arvioi itse hoitotoimenpidettä (oliko kivulias, sujuiko nopeasti), hammaslääkärin ammattitaitoa ja hänen tapaansa kertoa, mitä tekee.",
+    "materials": {
+      "scenario": "Olet käynyt hammaslääkärissä. Kirjoita palaute. Arvioi itse hoitotoimenpidettä (oliko kivulias, sujuiko nopeasti), hammaslääkärin ammattitaitoa ja hänen tapaansa kertoa, mitä tekee."
+    },
+    "items": [
+      {
+        "id": "f4bd7e4d-06ab-537c-9cd7-9914a9984178",
+        "prompt": "Olet käynyt hammaslääkärissä. Kirjoita palaute. Arvioi itse hoitotoimenpidettä (oliko kivulias, sujuiko nopeasti), hammaslääkärin ammattitaitoa ja hänen tapaansa kertoa, mitä tekee."
+      }
+    ],
+    "rubric": "Olet käynyt hammaslääkärissä. Kirjoita palaute. Arvioi itse hoitotoimenpidettä (oliko kivulias, sujuiko nopeasti), hammaslääkärin ammattitaitoa ja hänen tapaansa kertoa, mitä tekee.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

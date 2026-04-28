@@ -1,0 +1,37 @@
+{
+  "id": "cf31d6a9-8e48-5572-a2d2-f2b229e9161c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkishallinnon avoimuutta lisätä avaamalla viranomaisten tietokantoja kansalaisille?'. Arvioi läpinäkyvyyttä ja tietosuojaa.",
+    "materials": {
+      "scenario": "Viranomaistietojen avoimuus"
+    },
+    "items": [
+      {
+        "id": "3de82c07-1a8e-54a5-a300-3493ac99f622",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkishallinnon avoimuutta lisätä avaamalla viranomaisten tietokantoja kansalaisille?'. Arvioi läpinäkyvyyttä ja tietosuojaa."
+      }
+    ],
+    "rubric": "Läpinäkyvyys\nTietosuoja\nHallinnon tehokkuus\nKansalaisten luottamus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

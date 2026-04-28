@@ -1,0 +1,37 @@
+{
+  "id": "c7a089a4-f245-56e2-a40a-28d6b7321491",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: online portal. Purpose: describe an experience. Constraint: offer a concrete solution.",
+    "materials": {
+      "scenario": "housing in online_portal"
+    },
+    "items": [
+      {
+        "id": "5a06a094-c31a-5a0c-b532-b5b300e246b0",
+        "prompt": "Write for the receiver in this scenario: online portal. Purpose: describe an experience. Constraint: offer a concrete solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "6309d32c-ffe4-5e17-976b-94778db5a8b5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet potilasta, joka soittaa terveysasemalle saadakseen ajan lääkärille. Keskustele hoitajan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Potilas",
+        "partner": "Terveysaseman hoitaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp6_1",
+        "ai_first_turn_fi": "Terveysasema, hyvää huomenta, Riikka hoitaja."
+      },
+      {
+        "id": "srp6_2",
+        "ai_first_turn_fi": "Voin auttaa. Kerro vähän, mikä sinulla on?"
+      },
+      {
+        "id": "srp6_3",
+        "ai_first_turn_fi": "Onko sinulla ollut yskää tai hengenahdistusta?"
+      },
+      {
+        "id": "srp6_4",
+        "ai_first_turn_fi": "Oletko mitannut kuumeen? Montako astetta?"
+      },
+      {
+        "id": "srp6_5",
+        "ai_first_turn_fi": "Kiitos. Lääkärille on aikoja tänään kello 14.30 ja huomenna kello 10.15. Haluaisitko toisen näistä?"
+      },
+      {
+        "id": "srp6_6",
+        "ai_first_turn_fi": "Selvä, varataan huominen kello 10.15. Saithan henkilötunnuksesi vahvistettua minulle?"
+      },
+      {
+        "id": "srp6_7",
+        "ai_first_turn_fi": "Kiitos. Saat tekstiviestillä vahvistuksen. Jos olo pahenee, soita uudelleen. Paranemisia!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet potilasta, joka soittaa terveysasemalle saadakseen ajan lääkärille. Keskustele hoitajan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

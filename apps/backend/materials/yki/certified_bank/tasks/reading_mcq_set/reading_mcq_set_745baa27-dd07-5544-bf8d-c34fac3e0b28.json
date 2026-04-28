@@ -1,0 +1,77 @@
+{
+  "id": "745baa27-dd07-5544-bf8d-c34fac3e0b28",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.784,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Digitaalinen vallankumous on muuttanut perusteellisesti tapaamme kommunikoida, hankkia tietoa ja osallistua yhteiskunnalliseen elämään. Samalla se on nostanut esiin uusia, monitahoisia eettisiä kysymyksiä, jotka koskevat yksityisyyttä, autonomiaa ja vallankäyttöä. Keskustelu digitaalisesta etiikasta onkin viime vuosina voimistunut, ja se ulottuu yksilön arjen valinnoista aina globaaleja digijättejä koskevaan sääntelyyn. Yksi keskeisimmistä eettisistä kysymyksistä liittyy yksityisyyden suojaan ja tietojen keräämiseen. Digitaaliset palvelut keräävät valtavia määriä tietoa käyttäjistään, usein ilman että käyttäjät täysin ymmärtävät, mihin tietoja käytetään. Tämä tiedon epäsymmetria antaa palveluntarjoajille huomattavaa valtaa, jota voidaan käyttää kaupallisiin tarkoituksiin, kuten kohdennettuun mainontaan, mutta myös poliittiseen vaikuttamiseen ja käyttäytymisen ohjailuun. Kysymys kuuluu: kenellä on oikeus tietoihimme ja kuka saa niistä hyötyä? Toinen keskeinen kysymys liittyy algoritmien läpinäkyvyyteen ja syrjimättömyyteen. Algoritmit ohjaavat yhä useampia elämänalueita aina uutisvirrasta luottokelpoisuuden arviointiin ja työhönottoon. Jos algoritmit oppivat historiallisesta datasta, ne voivat toisintaa ja jopa vahvistaa olemassa olevia ennakkoluuloja ja syrjiviä käytäntöjä. Tämä herättää kysymyksiä vastuusta ja oikeudenmukaisuudesta: kuka vastaa algoritmien tekemistä virheellisistä tai syrjivistä päätöksistä? Miten varmistetaan, että algoritmit toimivat läpinäkyvästi ja oikeudenmukaisesti? Kolmas keskeinen eettinen kysymys liittyy digitaaliseen kuiluun ja saavutettavuuteen. Kaikilla ihmisillä ei ole tasavertaisia mahdollisuuksia käyttää digitaalisia palveluja ja hyötyä niistä. Tämä johtuu paitsi teknologian ja digitaitojen puutteesta myös esimerkiksi kielestä, vammaisuudesta tai taloudellisesta tilanteesta. Digitaalinen kuilu voi pahentaa olemassa olevaa eriarvoisuutta ja luoda uusia syrjäytymisen muotoja. Neljäs kysymys koskee digitaalisten alustojen valtaa ja vastuuta. Suuret teknologiayritykset, kuten Google, Meta ja Amazon, ovat kasvaneet niin suuriksi, että niillä on huomattavaa taloudellista ja poliittista valtaa. Ne eivät ole enää pelkkiä teknologia-alustoja, vaan ne muokkaavat syvällisesti yhteiskunnallista keskustelua, taloutta ja jopa demokratiaa. Tämä herättää kysymyksiä siitä, miten näiden yritysten toimintaa tulisi säädellä ja miten niiden valtaa voitaisiin tasapainottaa. Digitaalinen etiikka ei ole vain akateeminen keskustelu, vaan se koskettaa jokaista digitaalisten palvelujen käyttäjää. Tarvitaan laajaa yhteiskunnallista keskustelua siitä, millaisia arvoja haluamme digitaaliseen yhteiskuntaan ja miten turvaamme yksilön oikeudet ja yhteiskunnallisen oikeudenmukaisuuden digitaalisella aikakaudella.",
+      "word_count": 303
+    },
+    "questions": [
+      {
+        "id": "8a653509-e146-521e-8957-5ee9f297db72",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Teknologiajättien taloudellinen valta ja sen vaikutukset",
+          "Yksityisyyden suojan merkitys digitaalisessa yhteiskunnassa",
+          "Digitaaliseen vallankumoukseen liittyvät monitahoiset eettiset kysymykset",
+          "Algoritmien syrjivät vaikutukset työhönotossa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f261e527-d498-548a-aa9b-7e14eb145459",
+        "prompt": "Tekstin mukaan mikä on keskeinen ongelma digitaalisten palvelujen tiedonkeruussa?",
+        "options": [
+          "Tietoja kerätään liian vähän, jotta palvelut toimisivat hyvin",
+          "Tietojen kerääminen on teknisesti mahdotonta",
+          "Tiedon epäsymmetria antaa palveluntarjoajille huomattavaa valtaa käyttäjiin nähden",
+          "Käyttäjät eivät halua antaa tietojaan vapaaehtoisesti"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "3de8b027-1531-5f9c-b1d5-bb724c226072",
+        "prompt": "Mitä riskejä algoritmien käyttöön liittyy tekstin mukaan?",
+        "options": [
+          "Algoritmit ovat liian hitaita ja tehottomia",
+          "Algoritmit voivat toisintaa ja vahvistaa olemassa olevia ennakkoluuloja ja syrjiviä käytäntöjä",
+          "Algoritmit ovat liian kalliita pienille yrityksille",
+          "Algoritmit eivät kykene käsittelemään monimutkaisia ongelmia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2dc14a55-5491-5574-870f-eada4c2b4555",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'digitaalisella kuilulla'?",
+        "options": [
+          "Eri maiden välistä eroa digitaalisten palvelujen saatavuudessa",
+          "Teknologian nopeaa kehitystä, jota lainsäädäntö ei pysty seuraamaan",
+          "Eri väestöryhmien välisiä eroja mahdollisuuksissa käyttää ja hyötyä digitaalisista palveluista",
+          "Digitaalisten alustojen välistä kilpailua"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

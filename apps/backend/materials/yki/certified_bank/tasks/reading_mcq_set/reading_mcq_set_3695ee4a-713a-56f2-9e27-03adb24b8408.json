@@ -1,0 +1,77 @@
+{
+  "id": "3695ee4a-713a-56f2-9e27-03adb24b8408",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kestävän kehityksen tavoitteiden saavuttaminen edellyttää systeemisiä muutoksia yhteiskunnan eri sektoreilla. Tämä tarkoittaa siirtymistä lineaarisesta taloudesta kiertotalouteen, fossiilisista polttoaineista uusiutuvaan energiaan ja kestämättömistä kulutustottumuksista kestävämpiin valintoihin. Muutokset vaativat investointeja, innovaatioita ja poliittista tahtoa. Ne myös edellyttävät yhteistyötä eri toimijoiden, kuten hallitusten, yritysten, kansalaisjärjestöjen ja yksilöiden, välillä. Systeemiset muutokset voivat kohdata vastustusta, koska ne uhkaavat vakiintuneita etuja ja toimintatapoja. Siksi muutosten viestiminen ja oikeudenmukaisuuden varmistaminen ovat tärkeitä. Onnistuneet systeemiset muutokset voivat luoda uusia mahdollisuuksia ja parantaa hyvinvointia pitkällä aikavälillä.",
+      "word_count": 77
+    },
+    "questions": [
+      {
+        "id": "mcq_572",
+        "prompt": "Mitä systeemiset muutokset tarkoittavat kestävän kehityksen kontekstissa?",
+        "options": [
+          "Pieniä, asteittaisia muutoksia",
+          "Siirtymistä lineaarisesta taloudesta kiertotalouteen ja fossiilisista polttoaineista uusiutuvaan energiaan",
+          "Vain teknologian kehittämistä",
+          "Vain lainsäädännön uudistamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_573",
+        "prompt": "Mitä systeemiset muutokset vaativat?",
+        "options": [
+          "Vain investointeja",
+          "Investointeja, innovaatioita ja poliittista tahtoa",
+          "Vain innovaatioita",
+          "Vain poliittista tahtoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_574",
+        "prompt": "Miksi systeemiset muutokset voivat kohdata vastustusta?",
+        "options": [
+          "Koska ne ovat liian nopeita",
+          "Koska ne uhkaavat vakiintuneita etuja ja toimintatapoja",
+          "Koska ne ovat liian hitaita",
+          "Koska ne ovat liian kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_575",
+        "prompt": "Mitä onnistuneet systeemiset muutokset voivat saada aikaan?",
+        "options": [
+          "Vain uusia ongelmia",
+          "Uusia mahdollisuuksia ja hyvinvoinnin paranemista pitkällä aikavälillä",
+          "Vain taloudellisia menetyksiä",
+          "Vain ympäristön pilaantumista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

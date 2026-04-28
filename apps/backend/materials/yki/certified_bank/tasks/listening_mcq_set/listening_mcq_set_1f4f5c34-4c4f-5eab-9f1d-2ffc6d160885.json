@@ -1,0 +1,99 @@
+{
+  "id": "1f4f5c34-4c4f-5eab-9f1d-2ffc6d160885",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote verkkopankin uudistuksesta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on pankin automaattinen tiedote. Kerromme tärkeistä muutoksista verkkopankissamme. Uudistamme verkkopankin 1.7. alkaen. Uusi verkkopankki on nykyaikaisempi ja helppokäyttöisempi, ja se toimii paremmin myös mobiililaitteilla. Uudistuksen yhteydessä vahva tunnistautuminen muuttuu. Jatkossa kirjautuminen onnistuu joko pankkitunnuksilla, mobiilivarmenteella tai tunnistussovelluksella. Vanhat turvalukulistat poistuvat käytöstä 30.6. Jos et ole vielä ottanut käyttöön mobiilisovellusta, suosittelemme lataamaan sen hyvissä ajoin. Uudistuksen aikana verkkopankki voi olla pois käytöstä 1.7. kello 8–12. Pahoittelemme tästä aiheutuvaa haittaa. Maksukortit ja automaatit toimivat normaalisti myös tänä aikana. Lisätietoa uudistuksesta löydät verkkosivuiltamme tai soittamalla asiakaspalveluumme. Kiitos, kun olet asiakkaamme.",
+      "audio_asset_id": "b95dcf3c-4c7e-4faf-8a2c-943d66499e97"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä pankki tiedottaa?",
+        "options": [
+          "Korkojen noususta.",
+          "Uusista lainatuotteista.",
+          "Verkkopankin uudistuksesta.",
+          "Konttorin muutosta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq2",
+        "prompt": "Milloin uudistus tapahtuu?",
+        "options": [
+          "1.6.",
+          "1.7.",
+          "1.8.",
+          "1.9."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Millä kaikilla tavoilla voi jatkossa kirjautua verkkopankkiin?",
+        "options": [
+          "Vain pankkitunnuksilla.",
+          "Vain turvalukulistalla.",
+          "Vain sormenjäljellä.",
+          "Pankkitunnuksilla, mobiilivarmenteella tai tunnistussovelluksella."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Milloin vanhat turvalukulistat poistuvat käytöstä?",
+        "options": [
+          "1.6.",
+          "30.6.",
+          "15.6.",
+          "31.7."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Milloin verkkopankki on pois käytöstä uudistuksen aikana?",
+        "options": [
+          "1.7. kello 0–24.",
+          "30.6. kello 12–16.",
+          "2.7. kello 10–14.",
+          "1.7. kello 8–12."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Toimivatko maksukortit uudistuksen aikana?",
+        "options": [
+          "Ei, ne ovat pois käytöstä.",
+          "Vain luottokortit toimivat.",
+          "Vain pankkikortit toimivat.",
+          "Kyllä, ne toimivat normaalisti."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

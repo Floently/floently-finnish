@@ -1,0 +1,66 @@
+{
+  "id": "1afbfc00-13b6-517a-b83c-618cf59f283f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, mitä mieltä olet tästä uudesta some-sovelluksesta, mikä on nyt nuorilla käytössä?\nB: Tiktokista vai? Mä en oikein ymmärrä sen suosiota. Pelkkää lyhyttä videota ja tanssia.\nA: Joo, mutta se on paljon muutakin. Siellä on paljon hyödyllistä sisältöä – ruokareseptejä, uutisia, opetusvideoita.\nB: Niin, mutta algoritmi tunkee koko ajan samanlaista sisältöä. Se on vähän pelottavaa, miten se oppii tuntemaan sut.\nA: Se on totta. Ja siihen voi jäädä koukkuun. Mä huomaan, että saatan selata tuntikausia.\nB: Sama täällä. Mä olen yrittänyt vähentää. Laitoin aikarajan puhelimeen.\nA: Hyvä idea. Mäkin voisin kokeilla.\nB: Ja kannattaa miettiä, ketä seuraa. Jos seuraa tilejä, jotka ahdistaa, kannattaa lopettaa.\nA: Joo, mä huomasin, että kun lopetin muotitilien seuraamisen, oloni parani.",
+      "audio_asset_id": "91518261-0100-5c93-893a-eab0a3fbfdcb"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä he näkevät Tiktokissa?",
+        "options": [
+          "Vain tanssivideoita",
+          "Ruokareseptejä, uutisia ja opetusvideoita",
+          "Vain viihdettä",
+          "Ei mitään hyötyä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on huolenaihe sovelluksessa?",
+        "options": [
+          "Se on liian kallis",
+          "Algoritmi oppii tuntemaan käyttäjän ja siihen voi jäädä koukkuun",
+          "Siellä on liian vähän sisältöä",
+          "Se on vaikea käyttää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten he yrittävät vähentää somea?",
+        "options": [
+          "Lopettamalla kokonaan",
+          "Laitamalla aikarajan ja miettimällä ketä seuraa",
+          "Käyttämällä enemmän",
+          "Vaihtamalla toiseen sovellukseen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

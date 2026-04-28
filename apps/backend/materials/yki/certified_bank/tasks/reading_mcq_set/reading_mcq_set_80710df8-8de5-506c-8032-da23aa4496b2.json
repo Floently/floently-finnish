@@ -1,0 +1,110 @@
+{
+  "id": "80710df8-8de5-506c-8032-da23aa4496b2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.738,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Yksityisyys on perusoikeus, joka on joutunut uudenlaisten haasteiden eteen digitalisaation myötä. Verkossa tapahtuva toiminta tuottaa jatkuvasti dataa, jota yritykset ja viranomaiset keräävät ja hyödyntävät. Tämä data voi sisältää arkaluonteista tietoa terveydestä, taloudesta ja mielipiteistä. Yhtäältä datan kerääminen mahdollistaa paremmat ja henkilökohtaisemmat palvelut. Verkkokaupat voivat suositella tuotteita, terveyssovellukset seurata vointia ja liikennesovellukset optimoida reittejä. Toisaalta datan kerääminen herättää kysymyksiä siitä, kuka dataa omistaa, miten sitä käytetään ja kuka sitä voi valvoa. Kohu some-jättien tietojenkalastelusta ja tietomurrot ovat osoittaneet, että yksityisyyden suoja ei ole itsestäänselvyys. Euroopan unioni on vastannut huoleen säätämällä tietosuoja-asetuksen, joka antaa kansalaisille enemmän valtaa omaan dataansa. Asetus velvoittaa yrityksiä kysymään lupaa datan keräämiseen ja kertomaan, miten dataa käytetään. Keskustelu yksityisyydestä jatkuu, kun teknologia kehittyy ja uusia sovelluksia syntyy. Keskeistä on löytää tasapaino yksityisyyden suojan ja datan hyödyntämisen välillä.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi yksityisyys on joutunut haasteiden eteen?",
+        "options": [
+          "Ihmiset eivät enää välitä yksityisyydestään.",
+          "Verkossa tapahtuva toiminta tuottaa dataa, jota kerätään ja hyödynnetään.",
+          "Lait eivät enää suojaa yksityisyyttä.",
+          "Teknologia on liian kallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä datan keräämisestä on?",
+        "options": [
+          "Se vähentää yksityisyyttä.",
+          "Se mahdollistaa paremmat ja henkilökohtaisemmat palvelut.",
+          "Se lisää byrokratiaa.",
+          "Se hidastaa verkon toimintaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kysymyksiä datan kerääminen herättää?",
+        "options": [
+          "Kuka dataa omistaa, miten sitä käytetään ja kuka sitä valvoo.",
+          "Miten dataa säilytetään teknisesti.",
+          "Kuinka paljon dataa voidaan kerätä.",
+          "Mikä on datan taloudellinen arvo."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tietomurrot ja tietojenkalastelu ovat osoittaneet?",
+        "options": [
+          "Yksityisyyden suoja on vahva.",
+          "Yksityisyyden suoja ei ole itsestäänselvyys.",
+          "Yritykset suojaavat datan hyvin.",
+          "Viranomaiset valvovat dataa tehokkaasti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten EU on vastannut yksityisyyden haasteisiin?",
+        "options": [
+          "Se on kieltänyt datan keräämisen kokonaan.",
+          "Se on säätänyt tietosuoja-asetuksen, joka antaa kansalaisille enemmän valtaa dataansa.",
+          "Se on lisännyt viranomaisten oikeuksia kerätä dataa.",
+          "Se ei ole tehnyt mitään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tietosuoja-asetus velvoittaa yrityksiä tekemään?",
+        "options": [
+          "Keräämään mahdollisimman paljon dataa.",
+          "Kysymään lupaa datan keräämiseen ja kertomaan, miten dataa käytetään.",
+          "Myymään dataa eteenpäin.",
+          "Säilyttämään dataa ikuisesti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on keskeistä yksityisyyskeskustelussa tulevaisuudessa?",
+        "options": [
+          "Yksityisyyden suoja on aina tärkeämpi kuin datan hyödyntäminen.",
+          "Datan hyödyntäminen on aina tärkeämpää kuin yksityisyys.",
+          "Tasapainon löytäminen yksityisyyden suojan ja datan hyödyntämisen välillä.",
+          "Yksityisyydestä pitää luopua kokonaan."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

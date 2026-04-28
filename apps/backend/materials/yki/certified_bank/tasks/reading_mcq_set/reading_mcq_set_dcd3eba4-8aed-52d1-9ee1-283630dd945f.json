@@ -1,0 +1,77 @@
+{
+  "id": "dcd3eba4-8aed-52d1-9ee1-283630dd945f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.786,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Julkisen talouden kestävyys on noussut yhdeksi keskeisimmistä poliittisista kysymyksistä niin Suomessa kuin muualla Euroopassa. Väestön ikääntyminen, julkisten menojen kasvu ja hidas talouskasvu asettavat paineita julkiselle taloudelle, ja ratkaisuja haetaan niin menoleikkauksista, verotuksen kiristyksestä kuin rakenteellisista uudistuksistakin. Keskustelussa korostuvat kuitenkin hyvin erilaiset arvot ja intressit, mikä tekee päätöksenteosta vaikeaa. Toiset korostavat julkisen talouden tasapainottamisen välttämättömyyttä ja pitävät menoleikkauksia ainoana keinona välttää velkakierteen syveneminen. Heidän mukaansa liiallinen velkaantuminen siirtää taakan tuleville sukupolville ja heikentää maan kykyä selviytyä tulevista kriiseistä. Siksi he vaativat nopeita ja kipeitäkin päätöksiä menojen sopeuttamiseksi. Toiset taas katsovat, että liian nopeat ja syvät leikkaukset voivat pahentaa taantumaa ja lisätä työttömyyttä, mikä puolestaan heikentää julkista taloutta entisestään. He korostavat, että julkisilla investoinneilla voidaan vauhdittaa talouskasvua ja luoda uusia työpaikkoja, mikä pitkällä aikavälillä vahvistaa julkista taloutta. He kannattavat maltillisempaa sopeuttamista ja painottavat verotuksen roolia erityisesti suurten omaisuuksien ja pääomatulojen verotuksen kiristämisessä. Kolmas ryhmä korostaa rakenteellisten uudistusten merkitystä. Heidän mukaansa sekä menoleikkaukset että veronkorotukset ovat väistämättä kivuliaita, jos ne tehdään ilman samanaikaisia uudistuksia, jotka parantavat talouden tuottavuutta ja työllisyyttä pitkällä aikavälillä. Tällaisia uudistuksia ovat esimerkiksi koulutusjärjestelmän kehittäminen, työmarkkinoiden joustavoittaminen ja innovaatioiden tukeminen. Julkisen talouden kestävyys on siis monitahoinen ongelma, johon ei ole olemassa yhtä oikeaa ratkaisua. Se edellyttää tasapainoilua erilaisten arvojen ja intressien välillä, ja se vaatii sekä rohkeutta tehdä vaikeita päätöksiä että kykyä katsoa pitkälle tulevaisuuteen.",
+      "word_count": 215
+    },
+    "questions": [
+      {
+        "id": "a41bdbbc-ba8a-5b05-b844-3767bfc11fc9",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Verotuksen kiristämisen vaikutukset talouskasvuun",
+          "Julkisen talouden kestävyyteen liittyvä keskustelu ja erilaiset näkökulmat ratkaisuiksi",
+          "Väestön ikääntymisen seuraukset työelämälle",
+          "Menoleikkausten hyödyt ja haitat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bf705daa-504c-593b-b1b9-2b68236a928e",
+        "prompt": "Mitä mieltä menoleikkauksia kannattavat ovat tekstin mukaan?",
+        "options": [
+          "He pitävät veronkorotuksia parempana keinona",
+          "He pitävät julkisia investointeja tärkeämpinä kuin talouden tasapainottamista",
+          "He pitävät menoleikkauksia välttämättöminä velkakierteen välttämiseksi ja tulevien sukupolvien taakan keventämiseksi",
+          "He kannattavat rakenteellisia uudistuksia menoleikkausten sijaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "484e138a-1267-5a68-91e7-e4f3cad2a342",
+        "prompt": "Mitä perusteita julkisia investointeja korostavat esittävät tekstin mukaan?",
+        "options": [
+          "Investoinnit heikentävät julkista taloutta lyhyellä aikavälillä, mutta vahvistavat sitä pitkällä",
+          "Investoinnit ovat ainoa keino vähentää työttömyyttä",
+          "Investoinnit voivat vauhdittaa talouskasvua ja luoda työpaikkoja, mikä vahvistaa julkista taloutta pitkällä aikavälillä",
+          "Investoinnit ovat tärkeämpiä kuin koulutusjärjestelmän kehittäminen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "47027397-d17d-59a0-a5a0-25195b6d8e22",
+        "prompt": "Mitä tekstissä sanotaan rakenteellisista uudistuksista?",
+        "options": [
+          "Ne ovat tarpeettomia, jos menoleikkaukset toteutetaan nopeasti",
+          "Ne ovat välttämättömiä, jotta menoleikkaukset ja veronkorotukset eivät olisi liian kivuliaita",
+          "Ne ovat tärkeitä talouden tuottavuuden ja työllisyyden parantamiseksi pitkällä aikavälillä",
+          "Ne ovat ainoa keino turvata julkisen talouden kestävyys"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

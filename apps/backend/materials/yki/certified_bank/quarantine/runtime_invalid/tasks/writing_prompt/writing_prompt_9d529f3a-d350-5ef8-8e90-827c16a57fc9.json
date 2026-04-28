@@ -1,0 +1,37 @@
+{
+  "id": "9d529f3a-d350-5ef8-8e90-827c16a57fc9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: classroom. Purpose: describe_an_experience. Constraint: address_the_receiver.",
+    "materials": {
+      "scenario": "food in classroom"
+    },
+    "items": [
+      {
+        "id": "255e42b3-3c7a-537f-a094-c787cc4a4f59",
+        "prompt": "Write for the receiver in this scenario: classroom. Purpose: describe_an_experience. Constraint: address_the_receiver."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

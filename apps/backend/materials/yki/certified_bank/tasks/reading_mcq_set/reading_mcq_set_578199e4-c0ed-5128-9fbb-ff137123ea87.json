@@ -1,0 +1,99 @@
+{
+  "id": "578199e4-c0ed-5128-9fbb-ff137123ea87",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Uimahallissa on nyt perheuintia sunnuntaisin. Perheuinti on kello 10–12. Silloin altaassa on paljon vempaimia ja leluja lapsille. Myös poreallas ja lastenallas ovat käytössä. Perheuinti on suunnattu erityisesti lapsiperheille. Lipun hinta on sama kuin normaalistikin. Tervetuloa koko perheen voimin uimaan ja leikkimään!",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uimahallissa on perheuintia?",
+        "options": [
+          "Lauantaisin",
+          "Sunnuntaisin",
+          "Maanantaisin",
+          "Keskiviikkoisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan perheuinti on?",
+        "options": [
+          "Kello 9–11",
+          "Kello 10–12",
+          "Kello 11–13",
+          "Kello 12–14"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä altaassa on perheuinnin aikana?",
+        "options": [
+          "Vesijuoksuvöitä",
+          "Vempaimia ja leluja lapsille",
+          "Kilpailuratoja",
+          "Opettajia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä muut tilat ovat käytössä?",
+        "options": [
+          "Sauna ja kylpylä",
+          "Poreallas ja lastenallas",
+          "Kuntosali ja kahvila",
+          "Pukuhuoneet ja suihkut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenelle perheuinti on suunnattu?",
+        "options": [
+          "Vain aikuisille",
+          "Erityisesti lapsiperheille",
+          "Vain uimareille",
+          "Vain kilpauimareille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä lipun hinnasta sanotaan?",
+        "options": [
+          "Se on halvempi",
+          "Se on sama kuin normaalistikin",
+          "Se on kalliimpi",
+          "Perheille se on ilmainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

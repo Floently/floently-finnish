@@ -1,0 +1,60 @@
+{
+  "id": "6baaecbc-aa73-567b-a68b-92b14eb01c9c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa tilatun lehden. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Lehden asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp13_1",
+        "ai_first_turn_fi": "Hei, Aamulehden asiakaspalvelu, Kaisa."
+      },
+      {
+        "id": "srp13_2",
+        "ai_first_turn_fi": "Voin auttaa. Mikä on nimesi ja osoitteesi?"
+      },
+      {
+        "id": "srp13_3",
+        "ai_first_turn_fi": "Kiitos. Näen että sinulla on määräaikainen tilaus, joka päättyy kahden kuukauden päästä. Jos peruutat nyt, joudumme perimään puolet jäljellä olevasta ajasta. Haluatko silti peruuttaa?"
+      },
+      {
+        "id": "srp13_4",
+        "ai_first_turn_fi": "Ymmärrän. Voimme myös keskeyttää tilauksen määräajaksi esimerkiksi loman ajaksi ilman kuluja. Haluaisitko käyttää tätä mahdollisuutta?"
+      },
+      {
+        "id": "srp13_5",
+        "ai_first_turn_fi": "Selvä, peruutetaan sitten tilaus. Lähetämme sinulle vahvistuksen sähköpostitse. Viimeinen lehti tulee ensi viikon perjantaina."
+      },
+      {
+        "id": "srp13_6",
+        "ai_first_turn_fi": "Kiitos yhteydenotosta ja mukavaa syksyä!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa tilatun lehden. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

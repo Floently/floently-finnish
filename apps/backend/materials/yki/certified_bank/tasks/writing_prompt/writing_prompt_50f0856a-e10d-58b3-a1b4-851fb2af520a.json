@@ -1,0 +1,37 @@
+{
+  "id": "50f0856a-e10d-58b3-a1b4-851fb2af520a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö maahanmuuttajille tarjota ilmainen kielikoulutus heti maahan saavuttua. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ilmainen kielikoulutus maahanmuuttajille"
+    },
+    "items": [
+      {
+        "id": "8618b58d-bfa8-52b5-836f-ba4e734cccd4",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö maahanmuuttajille tarjota ilmainen kielikoulutus heti maahan saavuttua. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

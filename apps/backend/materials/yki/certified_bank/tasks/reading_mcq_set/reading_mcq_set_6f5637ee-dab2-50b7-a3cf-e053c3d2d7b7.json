@@ -1,0 +1,99 @@
+{
+  "id": "6f5637ee-dab2-50b7-a3cf-e053c3d2d7b7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kuluttajaliitto on tutkinut ruokakaupan hintojen nousua. Tutkimuksen mukaan erityisesti luomutuotteiden hinnat ovat nousseet nopeasti. Monet kuluttajat ovat vähentäneet luomutuotteiden ostamista ja siirtyneet edullisempiin vaihtoehtoihin. Asiantuntijat uskovat, että trendi jatkuu, jos hintojen nousu ei taitu. Toisaalta osa kuluttajista pitää luomua tärkeänä ja on valmis maksamaan siitä enemmän.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä Kuluttajaliitto on tutkinut?",
+        "options": [
+          "Ruokakaupan valikoimaa",
+          "Ruokakaupan hintojen nousua",
+          "Kuluttajien tyytyväisyyttä",
+          "Luomutuotteiden laatua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä tuotteiden hinnat ovat nousseet erityisen nopeasti?",
+        "options": [
+          "Lihantuotteiden",
+          "Hedelmien ja vihannesten",
+          "Luomutuotteiden",
+          "Maitotuotteiden"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten monet kuluttajat ovat reagoineet hintojen nousuun?",
+        "options": [
+          "He ostavat enemmän luomua",
+          "He ovat siirtyneet edullisempiin vaihtoehtoihin",
+          "He eivät osta enää ruokaa kaupasta",
+          "He boikotoivat kauppoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä asiantuntijat uskovat hintojen nousun jatkumisesta?",
+        "options": [
+          "Trendi kääntyy pian",
+          "Trendi jatkuu, jos hinnat eivät laske",
+          "Hinnat laskevat pian",
+          "Kukaan ei osaa sanoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten osa kuluttajista suhtautuu luomutuotteisiin?",
+        "options": [
+          "He pitävät niitä turhina",
+          "He eivät osta niitä koskaan",
+          "He pitävät niitä tärkeinä ja maksavat mielellään",
+          "He ostavat niitä vain tarjouksesta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tutkimus paljasti luomutuotteiden kysynnästä?",
+        "options": [
+          "Kysyntä on kasvanut",
+          "Kysyntä on vähentynyt",
+          "Kysyntä on pysynyt samana",
+          "Kysyntää ei ole enää ollenkaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

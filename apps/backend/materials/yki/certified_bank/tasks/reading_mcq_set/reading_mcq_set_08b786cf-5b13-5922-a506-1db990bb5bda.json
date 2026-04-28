@@ -1,0 +1,66 @@
+{
+  "id": "08b786cf-5b13-5922-a506-1db990bb5bda",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.563,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T11:01:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti suomalaisista kirjastopalveluista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomen yleiset kirjastot ovat maailmanluokan palveluita, joita käyttää yli puolet väestöstä. Kirjastot ovat maksuttomia kaikille, ja niistä voi lainata kirjojen lisäksi lehtiä, elokuvia, musiikkia, pelejä ja jopa työkaluja. Monissa kirjastoissa on myös tietokoneita, tulostimia ja ompelukoneita asiakkaiden käytössä. Kirjastot toimivat tärkeinä kohtaamispaikkoina, joissa voi viettää aikaa, lukea, opiskella tai osallistua tapahtumiin. Useimmissa kaupungeissa on käytössä verkkokirjasto, josta voi varata aineistoa ja uusia lainoja netissä. Myös e-kirjojen ja äänikirjojen lainaaminen on yleistynyt. Kirjastot järjestävät monenlaista toimintaa: lukupiirejä, satutunteja lapsille, kielikursseja, näyttelyitä ja työpajoja. Maahanmuuttajille on usein suomen kielen keskusteluryhmiä ja opastusta digitaitojen kehittämiseen. Kirjastot tekevät yhteistyötä koulujen, päiväkotien ja muiden kulttuurilaitosten kanssa. Lukuinto-ohjelmilla pyritään innostamaan lapsia ja nuoria lukemaan. Suomessa kirjastot ovat myös tärkeä osa demokratiaa ja sananvapautta: ne tarjoavat monipuolisesti tietoa ja mahdollisuuden muodostaa oma mielipide.",
+      "word_count": 126
+    },
+    "questions": [
+      {
+        "id": "f7a8b9c0-d1e2-4f3a-9b4c-5d6e7f8a9b0c",
+        "prompt": "Mitä kaikkea kirjastoista voi lainata kirjojen lisäksi?",
+        "options": [
+          "Vain lehtiä",
+          "Lehtiä, elokuvia, musiikkia, pelejä ja työkaluja",
+          "Vain elokuvia ja musiikkia",
+          "Vain pelejä ja työkaluja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8b9c0d1-e2f3-4a4b-9c5d-6e7f8a9b0c1d",
+        "prompt": "Mitä palveluita kirjastot tarjoavat maahanmuuttajille?",
+        "options": [
+          "Vain kirjoja",
+          "Suomen kielen keskusteluryhmiä ja digitaitojen opastusta",
+          "Vain tietokoneita",
+          "Vain elokuvia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b9c0d1e2-f3a4-4b5c-9d6e-7f8a9b0c1d2e",
+        "prompt": "Miksi kirjastot ovat tärkeitä demokratialle?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne tarjoavat monipuolisesti tietoa ja mahdollisuuden muodostaa oma mielipide",
+          "Ne ovat hiljaisia paikkoja",
+          "Ne lainaavat kirjoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

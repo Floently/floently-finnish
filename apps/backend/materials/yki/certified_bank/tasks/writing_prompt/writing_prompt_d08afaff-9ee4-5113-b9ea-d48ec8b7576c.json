@@ -1,0 +1,37 @@
+{
+  "id": "d08afaff-9ee4-5113-b9ea-d48ec8b7576c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti Euroopan unionin edustustoon Suomessa. Haluat tietoa EU:n rahoitusohjelmista, jotka tukevat kansalaisyhteiskunnan hankkeita. Kerro organisaatiostanne ja hankkeenne tavoitteista, ja kysy hakumenettelystä.",
+    "materials": {
+      "scenario": "Tiedustelu EU-rahoituksesta"
+    },
+    "items": [
+      {
+        "id": "320d492e-caed-5f45-b177-d9e0281f4540",
+        "prompt": "Kirjoita virallinen sähköposti Euroopan unionin edustustoon Suomessa. Haluat tietoa EU:n rahoitusohjelmista, jotka tukevat kansalaisyhteiskunnan hankkeita. Kerro organisaatiostanne ja hankkeenne tavoitteista, ja kysy hakumenettelystä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

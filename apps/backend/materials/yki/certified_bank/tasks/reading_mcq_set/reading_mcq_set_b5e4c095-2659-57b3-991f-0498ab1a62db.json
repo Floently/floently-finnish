@@ -1,0 +1,66 @@
+{
+  "id": "b5e4c095-2659-57b3-991f-0498ab1a62db",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ruokalista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "RAVINTOLA PIZZERIA MAMMA\n\nPizzat:\nMargherita (tomaatti, mozzarella) 10,50 €\nFrutti di Mare (katkaravut, simpukat) 13,50 €\nQuattro Stagioni (kinkku, herkkusieni, paprika, oliivi) 12,50 €\n\nKebabit:\nKebab-ranska 11,50 €\nKebab-riisi 11,50 €\nKebab-salaatti 10,50 €\n\nLounas ma–pe 10.30–14: kaikki pizzat 9,50 €",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko Margherita-pizza maksaa normaalisti?",
+        "options": [
+          "9,50 €",
+          "10,50 €",
+          "11,50 €",
+          "12,50 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Quattro Stagioni -pizzassa on?",
+        "options": [
+          "vain kinkkua",
+          "kinkkua, herkkusientä, paprikaa ja oliivia",
+          "vain katkarapuja",
+          "juustoa ja tomaattia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin lounas on?",
+        "options": [
+          "ma–pe 10.30–14",
+          "ma–pe 11–15",
+          "la–su 12–16",
+          "joka päivä 10–14"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

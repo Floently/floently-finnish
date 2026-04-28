@@ -1,0 +1,37 @@
+{
+  "id": "f55bd625-2bc2-5abb-a5dc-7b5e2d8a7fae",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin maahanmuuttopalveluista. Arvioi kotoutumisohjausta, suomen kielen kurssitarjontaa ja tiedotusta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin maahanmuuttopalveluista"
+    },
+    "items": [
+      {
+        "id": "4e003fbe-fdaf-5659-a4e8-9778cd320511",
+        "prompt": "Kirjoita palauteteksti kaupungin maahanmuuttopalveluista. Arvioi kotoutumisohjausta, suomen kielen kurssitarjontaa ja tiedotusta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Kotoutumisohjaus\nSuomen kielen kurssitarjonta\nTiedotus\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

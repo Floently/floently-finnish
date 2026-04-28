@@ -1,0 +1,37 @@
+{
+  "id": "ae3f901c-658c-5d46-a1db-fb69d8bed8d5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton iltapäiväkerho kaikille koululaisille?'. Analysoi lasten turvallisuutta, vanhempien työssäkäyntiä ja kustannuksia.",
+    "materials": {
+      "scenario": "Maksuton iltapäiväkerho"
+    },
+    "items": [
+      {
+        "id": "07a671ff-a619-56f9-9e46-3802954be497",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton iltapäiväkerho kaikille koululaisille?'. Analysoi lasten turvallisuutta, vanhempien työssäkäyntiä ja kustannuksia."
+      }
+    ],
+    "rubric": "Lasten turvallisuus\nVanhempien työssäkäynti\nKustannukset\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

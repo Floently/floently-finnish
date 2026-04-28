@@ -1,0 +1,88 @@
+{
+  "id": "a073ede0-2ea9-51c9-b2aa-4effbb8c05a8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu etätyön tulevaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Työelämän tutkija, miten etätyö on muuttanut työpaikkoja? Tutkija: Se on mullistanut ne. Ennen etätyö oli poikkeus, nyt se on monilla aloilla arkipäivää. Työntekijät arvostavat joustavuutta, eivätkä enää halua palata vanhaan. Toimittaja: Onko tästä haittaa? Tutkija: On ja ei. Tuottavuus on monilla pysynyt hyvänä, mutta yhteisöllisyys on kärsinyt. Uudet työntekijät on vaikeampi perehdyttää, ja spontaanit kohtaamiset ovat vähentyneet. Toimittaja: Millainen on tulevaisuuden työpaikka? Tutkija: Se on todennäköisesti hybridi. Työntekijät käyvät toimistolla ehkä pari kertaa viikossa yhteistä tekemistä varten, ja loppuaikaa tehdään itsenäistä työtä etänä. Tämä vaatii uudenlaista johtamista, jossa luottamus on avainasemassa.",
+      "audio_asset_id": "41db752f-1baf-4bf6-b0ae-7896fff58369"
+    },
+    "questions": [
+      {
+        "id": "l33q1",
+        "prompt": "Miten tutkija kuvaa etätyön muutosta?",
+        "options": [
+          "Se on vähentynyt.",
+          "Se on pysynyt samanlaisena.",
+          "Se koskee vain harvoja aloja.",
+          "Se on mullistanut työpaikat ja on nyt arkipäivää."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l33q2",
+        "prompt": "Mitä työntekijät arvostavat etätyössä?",
+        "options": [
+          "Parempaa palkkaa.",
+          "Joustavuutta.",
+          "Lyhyempiä työpäiviä.",
+          "Enemmän kokouksia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l33q3",
+        "prompt": "Mikä on etätyön haittapuoli tutkijan mukaan?",
+        "options": [
+          "Yhteisöllisyys on kärsinyt ja uusien työntekijöiden perehdytys on vaikeampaa.",
+          "Tuottavuus on laskenut.",
+          "Työntekijät ovat vähemmän motivoituneita.",
+          "Teknologia on liian kallista."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l33q4",
+        "prompt": "Mikä on tutkijan visio tulevaisuuden työpaikasta?",
+        "options": [
+          "Kaikki tekevät työtä etänä.",
+          "Kaikki tekevät työtä toimistolla.",
+          "Hybridimalli, jossa yhdistyvät etä- ja lähityö.",
+          "Työpaikat siirtyvät ulkomaille."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l33q5",
+        "prompt": "Mikä on uudenlaisen johtamisen avainasemassa?",
+        "options": [
+          "Kontrolli.",
+          "Luottamus.",
+          "Teknologia.",
+          "Säännöt."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

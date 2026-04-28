@@ -1,0 +1,37 @@
+{
+  "id": "cd62240d-72d3-5df9-b9c0-5c26c788a89b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.506,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työterveyslääkärille.",
+    "materials": {
+      "scenario": "Pyydä lähetettä fysioterapiaan"
+    },
+    "items": [
+      {
+        "id": "bfccf65c-9086-5704-9f9a-46c75d151453",
+        "prompt": "Sinulla on ollut pitkään selkäkipua, ja uskot, että fysioterapiasta voisi olla apua. Kirjoita sähköposti ja pyydä lähetettä. Kerro, milloin kipu alkoi ja mitä olet jo kokeillut."
+      }
+    ],
+    "rubric": "Sinulla on ollut pitkään selkäkipua, ja uskot, että fysioterapiasta voisi olla apua. Kirjoita sähköposti ja pyydä lähetettä. Kerro, milloin kipu alkoi ja mitä olet jo kokeillut.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

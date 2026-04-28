@@ -1,0 +1,37 @@
+{
+  "id": "c97c5b05-3651-58a3-b842-ed942c7de9ec",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työterveyshuollon toimintasuunnitelmasta. Kerro suunnitelman selkeydestä, tavoitteista ja toimenpiteistä. Ehdota yhtä uutta painopistettä.",
+    "materials": {
+      "scenario": "Palaute työpaikan työterveyshuollon toimintasuunnitelmasta"
+    },
+    "items": [
+      {
+        "id": "0d6eedbb-9cbc-51bc-85cb-137908321c38",
+        "prompt": "Kirjoita palauteteksti työpaikan työterveyshuollon toimintasuunnitelmasta. Kerro suunnitelman selkeydestä, tavoitteista ja toimenpiteistä. Ehdota yhtä uutta painopistettä."
+      }
+    ],
+    "rubric": "Suunnitelman selkeys\nTavoitteet\nToimenpiteet\nUusi painopiste",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

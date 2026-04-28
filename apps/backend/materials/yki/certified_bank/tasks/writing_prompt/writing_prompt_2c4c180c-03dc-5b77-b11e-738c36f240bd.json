@@ -1,0 +1,37 @@
+{
+  "id": "2c4c180c-03dc-5b77-b11e-738c36f240bd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lähikirjastoon. Haluat kysyä, onko heillä äänikirjoja. Kerro, että et näe hyvin, joten äänikirjat olisivat hyviä. Kysy, miten niitä lainataan ja tarvitaanko erillinen laite.",
+    "materials": {
+      "scenario": "Viesti kirjastoon äänikirjoista"
+    },
+    "items": [
+      {
+        "id": "7eccd3d1-9d75-5d0b-9667-476a8e83e7cc",
+        "prompt": "Kirjoita lyhyt viesti lähikirjastoon. Haluat kysyä, onko heillä äänikirjoja. Kerro, että et näe hyvin, joten äänikirjat olisivat hyviä. Kysy, miten niitä lainataan ja tarvitaanko erillinen laite."
+      }
+    ],
+    "rubric": "Kysy äänikirjoja\nKerro, miksi tarvitset niitä\nKysy lainaamisesta\nKysy tarvittavista laitteista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

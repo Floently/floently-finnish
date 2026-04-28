@@ -1,0 +1,37 @@
+{
+  "id": "8d983438-49bd-596d-8a86-9196d5023984",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kunnan nuorisotoimeen. Haluaisit perustaa nuorille suunnatun lukupiirin kirjastoon. Kerro, mitä lukupiirissä tehtäisiin, miksi se olisi tärkeä ja mitä tukea tarvitsisitte kunnalta.",
+    "materials": {
+      "scenario": "Lukupiirin perustamishanke"
+    },
+    "items": [
+      {
+        "id": "39ff9d01-1c7d-53fe-9aef-960ffdee1664",
+        "prompt": "Kirjoita sähköposti kunnan nuorisotoimeen. Haluaisit perustaa nuorille suunnatun lukupiirin kirjastoon. Kerro, mitä lukupiirissä tehtäisiin, miksi se olisi tärkeä ja mitä tukea tarvitsisitte kunnalta."
+      }
+    ],
+    "rubric": "Idean kuvaus\nPerustelut\nTukipyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

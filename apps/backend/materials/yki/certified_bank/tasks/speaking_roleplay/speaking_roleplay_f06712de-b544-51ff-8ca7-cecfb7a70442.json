@@ -1,0 +1,40 @@
+{
+  "id": "f06712de-b544-51ff-8ca7-cecfb7a70442",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele ravintolan tarjoilijan kanssa. Kysy päivän erikoisuuksista ja anna erityistoiveita.",
+    "materials": {
+      "roles": {
+        "user": "ravintolassa ja haluaisit tietää",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "17391154-1f47-5891-b62c-e92ea845f939",
+        "ai_first_turn_fi": "Hyvää iltaa, tervetuloa! Saanko tarjota teille ensin jotain juotavaa?"
+      }
+    ],
+    "rubric": "Keskustele ravintolan tarjoilijan kanssa. Kysy päivän erikoisuuksista ja anna erityistoiveita.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

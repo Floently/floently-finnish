@@ -1,0 +1,37 @@
+{
+  "id": "d4e9aac1-6cb4-5ac7-995e-e2aecc3626c2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti paikallisesta bussiliikenteestä. Kerro aikataulujen toimivuudesta, bussien siisteydestä ja kuljettajien palvelualttiudesta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute paikallisesta bussiliikenteestä"
+    },
+    "items": [
+      {
+        "id": "aa7cdf0a-185a-58c4-9a82-4c1e4b1382f4",
+        "prompt": "Kirjoita palauteteksti paikallisesta bussiliikenteestä. Kerro aikataulujen toimivuudesta, bussien siisteydestä ja kuljettajien palvelualttiudesta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Aikataulujen toimivuus\nBussien siisteys\nKuljettajien palvelualttius\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

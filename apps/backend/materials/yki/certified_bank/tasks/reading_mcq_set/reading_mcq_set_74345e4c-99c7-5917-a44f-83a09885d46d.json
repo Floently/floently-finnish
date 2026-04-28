@@ -1,0 +1,99 @@
+{
+  "id": "74345e4c-99c7-5917-a44f-83a09885d46d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet haluavat nykyään syödä terveellisemmin. Kasvisten syönti on lisääntynyt, ja monet kokeilevat uusia kasvisreseptejä. Kaupoissa on enemmän kasvisvaihtoehtoja. Myös kouluissa ja työpaikoilla tarjotaan nykyään kasvisruokaa päivittäin. Terveellinen ruokavalio sisältää runsaasti kasviksia, täysjyväviljaa ja hyviä rasvoja. Sokerin ja suolan käyttöä kannattaa vähentää.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä monet haluavat nykyään tehdä?",
+        "options": [
+          "Syödä enemmän lihaa",
+          "Syödä terveellisemmin",
+          "Syödä enemmän eineksiä",
+          "Syödä vähemmän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä syönti on lisääntynyt?",
+        "options": [
+          "Lihan",
+          "Kasvisten",
+          "Kalan",
+          "Leivän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä monet kokeilevat?",
+        "options": [
+          "Uusia lihoja",
+          "Uusia kasvisreseptejä",
+          "Uusia eineksiä",
+          "Uusia makeisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä tarjotaan nykyään kasvisruokaa päivittäin?",
+        "options": [
+          "Vaan kotona",
+          "Kouluissa ja työpaikoilla",
+          "Vain ravintoloissa",
+          "Vaan juhlissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä terveellinen ruokavalio sisältää?",
+        "options": [
+          "Paljon lihaa ja rasvaa",
+          "Runsaasti kasviksia, täysjyväviljaa ja hyviä rasvoja",
+          "Paljon sokeria ja suolaa",
+          "Vain eineksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä kannattaa vähentää?",
+        "options": [
+          "Kasvisten syöntiä",
+          "Sokerin ja suolan käyttöä",
+          "Täysjyväviljan syöntiä",
+          "Veden juontia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

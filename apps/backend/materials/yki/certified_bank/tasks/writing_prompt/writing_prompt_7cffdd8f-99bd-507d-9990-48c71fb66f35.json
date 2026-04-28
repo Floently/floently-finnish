@@ -1,0 +1,37 @@
+{
+  "id": "7cffdd8f-99bd-507d-9990-48c71fb66f35",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.305,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Kerro, että sinulla on avaimet hukassa etkä pääse kotiin. Kysy, voisitko odottaa hänen luonaan, kunnes puoliso tulee kotiin. Kerro, että puoliso tulee noin tunnin päästä.",
+    "materials": {
+      "scenario": "Viesti naapurille apua hukassa olevien avainten takia"
+    },
+    "items": [
+      {
+        "id": "7d175098-f54b-5bf4-b3b9-28efa1ba6fcc",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Kerro, että sinulla on avaimet hukassa etkä pääse kotiin. Kysy, voisitko odottaa hänen luonaan, kunnes puoliso tulee kotiin. Kerro, että puoliso tulee noin tunnin päästä."
+      }
+    ],
+    "rubric": "Kerro, että avaimet ovat hukassa\nKerro, että et pääse kotiin\nKysy, voiko odottaa hänen luonaan\nKerro, milloin puoliso tulee",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

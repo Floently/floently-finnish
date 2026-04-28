@@ -1,0 +1,77 @@
+{
+  "id": "d54e1e32-e971-5304-a868-054734901685",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Podcastissa unitutkija kertoo, että lyhyetkin yöunet voivat heikentää uuden tiedon muistamista, vaikka ihminen itse kokisi olevansa virkeä. Hän korostaa, että toistuvat myöhäiset nukkumaanmenoajat ovat ongelmallisempia kuin yksittäinen huono yö. Juontaja kysyy, auttaako viikonlopun pitkä nukkuminen. Tutkijan mukaan siitä on hyötyä, mutta se ei täysin korjaa arjen vajetta. Siksi hän suosittelee tasaisempaa rytmiä ja iltaisin vähäisempää näyttöjen käyttöä.",
+      "audio_asset_id": "076a6ef0-9da0-5653-8b4f-3156ea154f2e"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä heikentyy lyhyillä yöunilla?",
+        "options": [
+          "ruokahalu",
+          "uuden tiedon muistaminen",
+          "näkökyky",
+          "kuulo"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mikä on tutkijan mukaan erityisen ongelmallista?",
+        "options": [
+          "yksi huono yö",
+          "toistuva myöhäinen nukkumaanmeno",
+          "aamukahvi",
+          "aikainen herätys viikonloppuna"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Korjaako viikonlopun uni kaiken?",
+        "options": [
+          "kyllä täysin",
+          "ei, vain osittain",
+          "ei lainkaan",
+          "vain nuorilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä tutkija suosittelee?",
+        "options": [
+          "enemmän energiajuomia",
+          "pidempiä päiväunia",
+          "tasaisempaa rytmiä",
+          "myöhäisiä treenejä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

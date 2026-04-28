@@ -1,0 +1,88 @@
+{
+  "id": "5fc3595d-8371-5828-bc5c-ac4c02aca243",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Luova talous on noussut yhä tärkeämmäksi osaksi kehittyneiden maiden taloutta, ja sen merkitys työllistäjänä ja hyvinvoinnin tuottajana on kasvanut. Luovalla taloudella tarkoitetaan toimialoja, jotka perustuvat yksilölliseen luovuuteen, osaamiseen ja lahjakkuuteen. Näitä aloja ovat esimerkiksi muotoilu, arkkitehtuuri, mainonta, elokuva, musiikki, peliteollisuus ja kuvataide. Yksi luovan talouden keskeisistä piirteistä on sen kyky tuottaa aineetonta arvoa. Luovat tuotteet ja palvelut eivät ole pelkkiä hyödykkeitä, vaan ne tuottavat elämyksiä, merkityksiä ja identiteettiä. Tämä tekee niistä vaikeasti kopioitavia ja antaa niille kilpailuetua globaaleilla markkinoilla. Toinen keskeinen piirre on luovan talouden kytkeytyminen muihin toimialoihin. Luovat alat eivät toimi tyhjiössä, vaan ne tuottavat sisältöjä ja ratkaisuja muille aloille, kuten matkailulle, teollisuudelle ja julkiselle sektorille. Hyvä muotoilu voi parantaa teollisuustuotteiden kilpailukykyä, ja elokuvat ja musiikki voivat houkutella matkailijoita. Kolmas keskeinen piirre on luovan työn luonne. Luova työ on usein projektiluontoista ja epäsäännöllistä, ja se edellyttää jatkuvaa verkostoitumista ja oman osaamisen kehittämistä. Luovat työntekijät ovat usein yrittäjiä tai freelancereita, mikä tuo vapautta mutta myös taloudellista epävarmuutta. Neljäs keskeinen piirre on luovan talouden tukeminen. Luovat alat tarvitsevat toimiakseen monenlaista tukea, kuten koulutusta, tiloja, rahoitusta ja vientiapua. Monet maat ovatkin kehittäneet erityisiä luovan talouden strategioita ja tukiohjelmia. Keskeistä on myös tekijänoikeuksien suojaaminen, joka mahdollistaa luovan työn tekijöille heidän työnsä hedelmien keräämisen.",
+      "word_count": 200
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin luova talous perustuu?",
+        "options": [
+          "Massatuotantoon ja teollisuuteen",
+          "Yksilölliseen luovuuteen, osaamiseen ja lahjakkuuteen",
+          "Luonnonvarojen hyödyntämiseen",
+          "Halpatyövoimaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä aineeton arvo tarkoittaa luovassa taloudessa?",
+        "options": [
+          "Tuotteiden fyysistä arvoa",
+          "Elämyksiä, merkityksiä ja identiteettiä",
+          "Raaka-aineiden arvoa",
+          "Kuljetuskustannuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten luovat alat kytkeytyvät muihin toimialoihin?",
+        "options": [
+          "Ne ovat täysin erillisiä",
+          "Ne tuottavat sisältöjä ja ratkaisuja muille aloille",
+          "Ne kilpailevat muiden alojen kanssa",
+          "Ne ovat riippuvaisia muista aloista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millainen on luovan työn luonne?",
+        "options": [
+          "Vakituinen ja säännöllinen",
+          "Usein projektiluontoinen ja epäsäännöllinen",
+          "Aina kokoaikainen",
+          "Aina palkkatyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tukea luovat alat tarvitsevat?",
+        "options": [
+          "Vain rahoitusta",
+          "Koulutusta, tiloja, rahoitusta ja vientiapua",
+          "Vain tiloja",
+          "Vain vientiapua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

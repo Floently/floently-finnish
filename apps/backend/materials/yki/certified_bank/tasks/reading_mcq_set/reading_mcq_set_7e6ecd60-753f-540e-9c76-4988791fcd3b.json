@@ -1,0 +1,77 @@
+{
+  "id": "7e6ecd60-753f-540e-9c76-4988791fcd3b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.783,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Digitalisaation ja koulutuksen suhde on yksi aikamme keskeisimmistä yhteiskunnallisista kysymyksistä. Teknologian nopea kehitys on tuonut mukanaan ennennäkemättömiä mahdollisuuksia oppimisen yksilöllistämiseen, tiedon saavutettavuuteen ja uudenlaisten pedagogisten ratkaisujen kehittämiseen. Samalla se on herättänyt huolta siitä, että digitalisaatio saattaa syventää koulutuksellista eriarvoisuutta ja heikentää perinteisiä oppimisen muotoja. Optimistit korostavat teknologian demokratisoivaa voimaa. Verkko-oppimisalustat, avoimet verkkokurssit ja digitaaliset oppimateriaalit ovat tehneet koulutuksesta entistä saavutettavampaa ajasta ja paikasta riippumatta. Ne tarjoavat mahdollisuuksia erityisesti niille, jotka eivät syystä tai toisesta pääse osalliseksi perinteisestä koulutuksesta. Lisäksi teknologia mahdollistaa oppimisen yksilöllistämisen ja oppilaiden oman tahdin mukaisen etenemisen. Pessimistit puolestaan varoittavat digitaalisesta kuilusta. Kaikilla oppilailla ei ole tasavertaisia mahdollisuuksia käyttää digitaalisia oppimisvälineitä ja -ympäristöjä. Tämä johtuu paitsi teknologian ja digitaitojen puutteesta myös perheiden taloudellisesta tilanteesta ja vanhempien koulutustaustasta. Tämä voi entisestään syventää koulutuksellista eriarvoisuutta ja luoda uudenlaisia syrjäytymisen muotoja. Kolmas näkökulma korostaa, että digitalisaatio ei ole itsessään hyvä tai paha, vaan sen vaikutukset riippuvat siitä, miten sitä käytetään ja millaisia pedagogisia ratkaisuja sen ympärille rakennetaan. Teknologia voi olla arvokas työkalu, mutta se ei korvaa inhimillistä vuorovaikutusta ja opettajan roolia oppimisprosessissa. Tarvitaan tasapainoa digitaalisten ja perinteisten oppimismuotojen välillä. Tulevaisuuden koulutusjärjestelmän tulisi kyetä hyödyntämään teknologian tarjoamat mahdollisuudet samalla kun se varmistaa, että kaikilla on tasavertaiset mahdollisuudet oppia ja kehittyä.",
+      "word_count": 198
+    },
+    "questions": [
+      {
+        "id": "44db81e1-6e0b-5d96-bc87-906d81abd1db",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Verkko-oppimisalustojen tekniset ominaisuudet",
+          "Digitalisaation ja koulutuksen suhde ja siihen liittyvät erilaiset näkökulmat",
+          "Opettajan roolin muutos digitalisoituvassa koulussa",
+          "Koulutuksellisen eriarvoisuuden syyt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1a0a0bb2-b7df-50e6-be31-d80714f952e8",
+        "prompt": "Tekstin mukaan mitä mahdollisuuksia digitalisaatio tarjoaa koulutukselle?",
+        "options": [
+          "Se tekee koulutuksesta yhdenmukaisempaa ja helpommin hallittavaa",
+          "Se mahdollistaa oppimisen yksilöllistämisen, tiedon saavutettavuuden ja uudenlaiset pedagogiset ratkaisut",
+          "Se vähentää tarvetta opettajille ja inhimilliselle vuorovaikutukselle",
+          "Se tekee oppimisesta nopeampaa ja tehokkaampaa kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bfff2e10-833b-506f-95d9-738751abf5ca",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'digitaalisella kuilulla' koulutuksen yhteydessä?",
+        "options": [
+          "Eri kouluasteiden välistä eroa digitaalisten laitteiden määrässä",
+          "Oppilaiden välisiä eroja mahdollisuuksissa käyttää digitaalisia oppimisvälineitä ja -ympäristöjä",
+          "Teknologian nopeaa kehitystä, jota koulutusjärjestelmä ei pysty seuraamaan",
+          "Opettajien ja oppilaiden välistä eroa digitaitojen hallinnassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "992ee925-23d4-5a4e-8f6c-09a3d007222c",
+        "prompt": "Mitä kolmas, tasapainoa korostava näkemys pitää tärkeänä digitalisaation ja koulutuksen suhteessa?",
+        "options": [
+          "Teknologian käyttöä oppimisen ainoana välineenä",
+          "Paluuta perinteisiin opetusmenetelmiin ilman teknologiaa",
+          "Tasapainoa digitaalisten ja perinteisten oppimismuotojen välillä sekä inhimillisen vuorovaikutuksen ja opettajan roolin säilyttämistä",
+          "Teknologian täydellistä hylkäämistä koulutuksessa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

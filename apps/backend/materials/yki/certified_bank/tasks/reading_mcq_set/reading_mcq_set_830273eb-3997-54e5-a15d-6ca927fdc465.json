@@ -1,0 +1,110 @@
+{
+  "id": "830273eb-3997-54e5-a15d-6ca927fdc465",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen ruokakulttuuri on saanut vaikutteita ympäri maailmaa. Perinteiset ruoat, kuten karjalanpiirakat ja ruisleipä, ovat edelleen suosittuja. Nykyään ruokavalikoima on monipuolistunut. Pizzat, kebabit ja hampurilaiset ovat arkiruokaa monille. Aasialaiset ja Lähi-idän maut ovat tulleet jäädäkseen. Suomalaiset ovat innokkaita kokeilemaan uusia makuja. Ruoan alkuperä ja laatu kiinnostavat. Luomu- ja lähiruoka ovat kasvattaneet suosiotaan. Ihmiset haluavat tietää, mistä heidän ruokansa tulee. Tämä on lisännyt kysyntää lähellä tuotetulle ruoalle. Suomalaiset arvostavat myös ruoan terveellisyyttä. Kasvisruoan suosio on kasvanut. Moni on vähentänyt lihan syöntiä. Erityisruokavaliot, kuten gluteeniton ja laktoositon, ovat yleisiä. Suomalainen ruokakulttuuri elää ja muuttuu, mutta perinteet säilyvät.",
+      "word_count": 94
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä suomalainen ruokakulttuuri on saanut vaikutteita?",
+        "options": [
+          "Vain lännestä.",
+          "Ympäri maailmaa.",
+          "Vain idästä.",
+          "Vain pohjoisesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä perinteisiä suomalaisia ruokia tekstissä mainitaan?",
+        "options": [
+          "Pizza ja pasta.",
+          "Karjalanpiirakat ja ruisleipä.",
+          "Sushi ja curry.",
+          "Kebab ja falafel."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ruokia on tullut uusina vaikutteina?",
+        "options": [
+          "Vain pizza.",
+          "Pizza, kebab, hampurilaiset, aasialaiset ja Lähi-idän maut.",
+          "Vain aasialaiset maut.",
+          "Vain Lähi-idän maut."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on lisännyt luomu- ja lähiruoan suosiota?",
+        "options": [
+          "Halvat hinnat.",
+          "Ihmisten kiinnostus ruoan alkuperään ja laatuun.",
+          "Helppo saatavuus.",
+          "Pitkät säilyvyysajat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten suomalaisten ruokailutottumukset ovat muuttuneet terveellisyyden osalta?",
+        "options": [
+          "Lihan syönti on lisääntynyt.",
+          "Kasvisruoan suosio on kasvanut ja lihan syöntiä vähennetty.",
+          "Erityisruokavaliot ovat vähentyneet.",
+          "Ruoan terveellisyys ei kiinnosta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä erityisruokavalioita tekstissä mainitaan?",
+        "options": [
+          "Vain gluteeniton.",
+          "Gluteeniton ja laktoositon.",
+          "Vain laktoositon.",
+          "Vain vegaani."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millainen suomalainen ruokakulttuuri on?",
+        "options": [
+          "Paikallaan pysyvä ja muuttumaton.",
+          "Elävä, muuttuva, mutta perinteet säilyttävä.",
+          "Vain perinteitä vaaliva.",
+          "Vain uutuuksia tavoitteleva."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "9422bf1b-55cf-5475-ae55-7914ab2cf18f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opiskelija: Hei, haluaisin varata ohjausajan opinto-ohjaajalle.\nToimistosihteeri: Hei, milloin sinulle sopisi?\nOpiskelija: Ensi viikolla, mielellään tiistaina tai keskiviikkona.\nToimistosihteeri: Tiistaina on vapaa aika kello 10 ja 14. Keskiviikkona on kello 13.\nOpiskelija: Tiistai kello 14 sopisi parhaiten.\nToimistosihteeri: Selvä, varataan se. Mikä on nimesi?\nOpiskelija: Minna Mäkelä.\nToimistosihteeri: Kiitos, Minna. Saat vahvistuksen sähköpostiin. Muistathan perua ajan, jos et pääse tulemaan.",
+      "audio_asset_id": "a91bc556-67b0-5e2f-8d87-3864700be60a"
+    },
+    "questions": [
+      {
+        "id": "list_094",
+        "prompt": "Mitä opiskelija haluaa varata?",
+        "options": [
+          "Luentoajan",
+          "Ohjausajan",
+          "Tenttiajan",
+          "Ryhmätyöajan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_095",
+        "prompt": "Mille päivälle ja kellonajalle opiskelija varaa ajan?",
+        "options": [
+          "Tiistai kello 10",
+          "Tiistai kello 14",
+          "Keskiviikko kello 13",
+          "Keskiviikko kello 14"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_096",
+        "prompt": "Mitä opiskelijan täytyy tehdä, jos ei pääse tulemaan?",
+        "options": [
+          "Soittaa opinto-ohjaajalle",
+          "Perua aika",
+          "Lähettää sähköpostia",
+          "Tulla myöhemmin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

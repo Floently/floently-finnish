@@ -1,0 +1,88 @@
+{
+  "id": "20bcfc4b-62a5-5329-8c3e-8837de39766d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.74,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kädentaitojen harrastaminen on viime vuosina kokenut renessanssin, ja yhä useampi nuori ja aikuinen on innostunut käsitöistä. Neulominen, virkkaus, ompelu, puutyöt, keramiikka ja muut kädentaidot ovat nousseet suosioon. Käsillä tekeminen tarjoaa vastapainoa digitaaliselle arjelle ja mahdollisuuden toteuttaa itseään luovasti. Yksi keskeisimmistä syistä kädentaitojen suosioon on niiden rentouttava vaikutus. Käsillä tekeminen vaatii keskittymistä ja toistuvia liikkeitä, jotka rauhoittavat mieltä ja vähentävät stressiä. Se on meditatiivista ja auttaa irrottautumaan arjen kiireistä. Toinen syy on onnistumisen ilo ja itsetunnon vahvistuminen. Kun saa valmiiksi jonkin työn, syntyy onnistumisen kokemus, joka vahvistaa uskoa itseensä ja omiin kykyihin. Kolmas syy on luovuuden vapautuminen. Käsitöissä voi toteuttaa itseään ja kokeilla uusia ideoita ja tekniikoita. Se antaa mahdollisuuden ilmaista itseään ja kehittää omaa tyyliä. Neljäs syy on ekologisuus ja kestävä kehitys. Itse tekemällä voi vähentää kulutusta ja jätettä. Vanhoja vaatteita voi korjata ja uudistaa, ja materiaaleja voi kierrättää. Käsityöt myös lisäävät arvostusta tavaroita kohtaan: kun on itse tehnyt jotakin, sitä ei heitä niin helposti pois. Viides syy on yhteisöllisyys. Käsityökerhot, kurssit ja tapahtumat tuovat ihmisiä yhteen ja luovat mahdollisuuksia jakaa kokemuksia, tietoja ja taitoja. Ne voivat olla tärkeitä kohtaamispaikkoja, joissa syntyy uusia ystävyyssuhteita.",
+      "word_count": 184
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä vastapainoa käsityöt tarjoavat?",
+        "options": [
+          "Ne ovat nopeita",
+          "Ne tarjoavat vastapainoa digitaaliselle arjelle",
+          "Ne ovat virtuaalisia",
+          "Ne ovat tehokkaita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi käsitöiden tekeminen on rentouttavaa?",
+        "options": [
+          "Koska se on helppoa",
+          "Koska se vaatii keskittymistä ja toistuvia liikkeitä, jotka rauhoittavat mieltä",
+          "Koska sitä tehdään yksin",
+          "Koska se on nopeaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten käsityöt vaikuttavat itsetuntoon?",
+        "options": [
+          "Ne heikentävät itsetuntoa",
+          "Onnistumisen kokemukset vahvistavat itsetuntoa",
+          "Ne eivät vaikuta itsetuntoon",
+          "Ne saavat tuntemaan itsensä huonoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten ekologisuus liittyy käsitöihin?",
+        "options": [
+          "Ne kuluttavat paljon materiaaleja",
+          "Itse tekemällä voi vähentää kulutusta ja jätettä, ja vanhoja vaatteita voi korjata",
+          "Ne tuottavat paljon jätettä",
+          "Ne eivät liity ekologisuuteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten käsityöt lisäävät yhteisöllisyyttä?",
+        "options": [
+          "Ne eristävät ihmisiä",
+          "Kerhot, kurssit ja tapahtumat tuovat ihmisiä yhteen jakamaan kokemuksia",
+          "Ne lisäävät kilpailua",
+          "Niillä ei ole vaikutusta yhteisöllisyyteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

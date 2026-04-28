@@ -1,0 +1,40 @@
+{
+  "id": "f8d17320-7f05-51d6-ba05-5090e777708c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella akateemisesta aiheesta asiantuntevasti.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet nuorempi tutkija, joka on imarreltu mutta myös hieman jännittynyt keskustelusta tunnetun professorin kanssa.",
+        "partner": "Arvostettu professori - kiinnostunut tutkimuksestasi, esittää älykkäitä kysymyksiä ja saattaa haastaa näkemyksiäsi."
+      }
+    },
+    "items": [
+      {
+        "id": "srp21",
+        "ai_first_turn_fi": "Esityksenne oli erittäin mielenkiintoinen. Olen itsekin tutkinut samankaltaisia ilmiöitä. Miten suhtaudutte kritiikkiin, jonka mukaan menetelmänne ei ota huomioon kontekstuaalisia tekijöitä?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella akateemisesta aiheesta asiantuntevasti.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "cde3a037-39ce-503c-a8d4-01a42b6a693b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PYSÄKÖINTIKIELTO KESKUSTASSA\n\nPysäköinti on kielletty kauppatorilla 1.6.–31.8. välisenä aikana toritapahtumien vuoksi.\n\nTorin viereisillä kaduilla on voimassa rajoitettu pysäköinti arkisin klo 8–18. Rajoitusalueella saa pysäköidä enintään 2 tuntia. Pysäköintimaksu on 2 €/tunti.\n\nHuom! Torin alle tehdään putkiremonttia syyskuusta alkaen. Tällöin toriparkki on suljettu.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin pysäköinti on kielletty kauppatorilla?",
+        "options": [
+          "1.5.–31.7.",
+          "1.6.–31.8.",
+          "1.7.–30.9.",
+          "1.8.–31.10."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan torin viereisillä kaduilla saa pysäköidä?",
+        "options": [
+          "1 tunti",
+          "2 tuntia",
+          "3 tuntia",
+          "koko päivän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi toriparkki suljetaan syyskuussa?",
+        "options": [
+          "toritapahtumien vuoksi",
+          "putkiremontin vuoksi",
+          "puhdistuksen vuoksi",
+          "myynnin vuoksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "a4cde307-fc33-5cb8-9f7d-4087fa989499",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikkailmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KESÄTYÖT SIWIILISSÄ\n\nHaemme nuoria myyjiä Siwii-kauppoihin ympäri Suomea. Työ sopii opiskelijoille ja muille, jotka haluavat kesätyötä.\n\nTyötehtävät:\n- kassatyöskentely\n- hyllytys\n- siisteys\n- asiakaspalvelu\n\nTarjoamme:\n- perehdytyksen\n- hyvän työyhteisön\n- palkan työehtosopimuksen mukaan\n\nVaatimukset:\n- olet täyttänyt 18 vuotta\n- suomen kielen taito\n- asiakaspalveluhenkisyys\n\nTyöaika: kesä–heinäkuu, osa-aikainen tai kokoaikainen.\n\nHae 28.2. mennessä osoitteessa www.siwii.fi/tyopaikat  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 85
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä työtehtäviä ilmoituksessa mainitaan?",
+        "options": [
+          "Vain kassatyö",
+          "Kassatyö, hyllytys, siisteys ja asiakaspalvelu",
+          "Vain siivous",
+          "Vain varastonhoito"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on ikävaatimus?",
+        "options": [
+          "16 vuotta",
+          "17 vuotta",
+          "18 vuotta",
+          "20 vuotta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin hakemus pitää lähettää?",
+        "options": [
+          "31. tammikuuta",
+          "28. helmikuuta",
+          "31. maaliskuuta",
+          "30. huhtikuuta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mistä haetaan?",
+        "options": [
+          "Sähköpostilla",
+          "Verkkosivulla",
+          "Paikan päällä",
+          "Kirjeellä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

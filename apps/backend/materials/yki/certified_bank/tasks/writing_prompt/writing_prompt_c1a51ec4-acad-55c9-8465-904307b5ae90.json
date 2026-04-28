@@ -1,0 +1,37 @@
+{
+  "id": "c1a51ec4-acad-55c9-8465-904307b5ae90",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.495,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Äänestysikä"
+    },
+    "items": [
+      {
+        "id": "a26c4d51-c1b3-5b92-9a9a-11f5ef15389e",
+        "prompt": "Pitäisikö nuorten äänestysikää laskea 16 vuoteen?"
+      }
+    ],
+    "rubric": "Pitäisikö nuorten äänestysikää laskea 16 vuoteen?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

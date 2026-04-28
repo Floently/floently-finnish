@@ -1,0 +1,99 @@
+{
+  "id": "66b7da78-76af-5f77-8d37-044671c6f76a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta vesihuoltosuunnitelmasta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin teknisen toimen tiedote. Olemme laatineet uuden vesihuoltosuunnitelman vuosille 2026–2040. Suunnitelman tavoitteena on turvata kaupunkilaisten puhdas vesi ja toimiva viemäröinti myös tulevaisuudessa. Suunnitelma sisältää useita hankkeita. Ensimmäinen on uuden vedenpuhdistamon rakentaminen. Nykyinen puhdistamo on vanhentunut, eikä vastaa tulevaisuuden vaatimuksia. Uusi puhdistamo valmistuu vuonna 2028. Toinen on vesijohtoverkoston saneeraus. Vanhoja, vuotavia putkia uusitaan noin 10 kilometriä vuodessa. Kolmas on hulevesien hallinnan parantaminen. Lisäämme viheralueita ja rakennamme uusia hulevesialtaita, jotka vähentävät tulvariskiä. Neljäs on vesihuollon varautuminen ilmastonmuutokseen. Varmistamme, että vettä riittää myös kuivina kausina. Suunnitelman toteuttamiseen on varattu 80 miljoonaa euroa. Tervetuloa tutustumaan suunnitelmaan verkkosivuillamme.",
+      "audio_asset_id": "a8b9c0d1-e2f3-4a5b-6c7d-8e9f0a1b2c3d"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin tekninen toimi tiedottaa?",
+        "options": [
+          "Uudesta jätehuoltosuunnitelmasta.",
+          "Uudesta vesihuoltosuunnitelmasta.",
+          "Uudesta energiasuunnitelmasta.",
+          "Uudesta liikennesuunnitelmasta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mikä on suunnitelman tavoite?",
+        "options": [
+          "Lisätä vedenkulutusta.",
+          "Turvata puhdas vesi ja toimiva viemäröinti.",
+          "Lopettaa vesihuolto.",
+          "Yksityistää vesihuolto."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Milloin uusi vedenpuhdistamo valmistuu?",
+        "options": [
+          "2026.",
+          "2027.",
+          "2028.",
+          "2029."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Kuinka paljon vesijohtoverkostoa uusitaan vuodessa?",
+        "options": [
+          "Noin 5 kilometriä.",
+          "Noin 10 kilometriä.",
+          "Noin 15 kilometriä.",
+          "Noin 20 kilometriä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä tehdään hulevesien hallinnan parantamiseksi?",
+        "options": [
+          "Lisätään asfalttia.",
+          "Lisätään viheralueita ja rakennetaan hulevesialtaita.",
+          "Rakennetaan lisää viemäreitä.",
+          "Ohjataan hulevedet suoraan mereen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Paljonko suunnitelman toteuttamiseen on varattu rahaa?",
+        "options": [
+          "60 miljoonaa euroa.",
+          "70 miljoonaa euroa.",
+          "80 miljoonaa euroa.",
+          "90 miljoonaa euroa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

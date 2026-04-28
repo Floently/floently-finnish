@@ -1,0 +1,37 @@
+{
+  "id": "f94f90ba-f1c5-5a62-8e5c-340605298ad6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.313,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: service desk. Purpose: make a choice. Constraint: keep it concise.",
+    "materials": {
+      "scenario": "travel in service_desk"
+    },
+    "items": [
+      {
+        "id": "e99b2748-c672-5fea-b912-2102f005eee5",
+        "prompt": "Write for the receiver in this scenario: service desk. Purpose: make a choice. Constraint: keep it concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

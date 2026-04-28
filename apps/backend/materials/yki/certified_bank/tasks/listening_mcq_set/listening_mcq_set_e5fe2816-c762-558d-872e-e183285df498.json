@@ -1,0 +1,99 @@
+{
+  "id": "e5fe2816-c762-558d-872e-e183285df498",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työpaikkakokous ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Projektipäällikkö: No niin, kiitos kun tulitte tähän palaveriin. Aiheena on uuden asiakkuudenhallintajärjestelmän käyttöönotto. Tiia, miten koulutukset ovat sujuneet? Tiia: Koulutuksiin on osallistuttu hyvin, mutta porukka kaipaa vielä käytännön harjoittelua. Teoriassa asiat ovat hallussa, mutta kun pitäisi itse tehdä, tulee kysymyksiä. Ehdotan, että järjestämme pari viikkoa käyttöönoton jälkeen 'klinikkapäiviä', jolloin voi tulla kysymään apua. Projektipäällikkö: Kuulostaa hyvältä. Marko, miten teillä on sujunut testaus? Marko: Testaus on edennyt hyvin, mutta huomasimme yhden ongelman raportoinnissa. Järjestelmä ei osaa yhdistää asiakastietoja oikein, jos samalla asiakkaalla on useampi yhteyshenkilö. Tämä pitää korjata ennen kuin voidaan ottaa järjestelmä tuotantokäyttöön. Projektipäällikkö: Selvä. Onko tästä tehty virheilmoitus? Marko: On, eilen. Prioriteetti on asetettu korkeaksi. Projektipäällikkö: Hyvä. Sitten Sanna, mitä kuuluu markkinoinnin valmisteluihin? Sanna: Meillä on kaikki valmiina. Esite on painettu, ja olemme sopineet somekampanjasta. Kampanja alkaa samana päivänä, kun järjestelmä otetaan käyttöön. Meidän täytyy vain varmistaa, että verkkosivujen uudet lomakkeet toimivat oikein. Niitä testataan vielä tällä viikolla. Projektipäällikkö: Hyvä. Muistakaahan kaikki, että käyttöönotto on kahden viikon päästä, maanantaina 12. päivä. Silloin vanhaan järjestelmään ei enää pääse. Varmistakaa, että teillä on kaikki tarvittava data siirrettynä uuteen järjestelmään jo edellisen viikon perjantaihin mennessä.",
+      "audio_asset_id": "b75746a4-2f1f-4ab7-be80-d44cb80f8385"
+    },
+    "questions": [
+      {
+        "id": "e711a665-cba6-5f5c-b4f8-47bc4e58b574",
+        "prompt": "Mikä on palaverin pääaihe?",
+        "options": [
+          "Markkinointikampanjan suunnittelu.",
+          "Tulevan vuoden budjetin hyväksyntä.",
+          "Työhyvinvointikyselyn tulokset.",
+          "Uuden järjestelmän käyttöönotto."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "9d992bac-9b94-588b-bc59-4443b06c754b",
+        "prompt": "Mitä Tiia ehdottaa koulutuksen tueksi?",
+        "options": [
+          "Uusien koulutusvideoiden tekemistä.",
+          "Klinikkapäiviä käytännön harjoitteluun.",
+          "Ulkopuolisen kouluttajan palkkaamista.",
+          "Koko koulutusmateriaalin uusimista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "eaae9a1c-dce7-5d6f-b7fc-023514949a79",
+        "prompt": "Minkä ongelman Markon tiimi löysi testauksessa?",
+        "options": [
+          "Järjestelmä on liian hidas.",
+          "Järjestelmä kaatuu usein.",
+          "Käyttöliittymä on sekava.",
+          "Raportointi ei toimi oikein monella yhteyshenkilöllä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "2f08f1fd-5c51-52e5-9a22-227d6bbaf20f",
+        "prompt": "Mikä on Sannan vastuualue?",
+        "options": [
+          "Tekninen testaus.",
+          "Koulutusten järjestäminen.",
+          "Asiakastuen organisointi.",
+          "Markkinoinnin valmistelut."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "e692f980-555c-5409-92ca-6919183e5586",
+        "prompt": "Milloin vanhaan järjestelmään ei enää pääse?",
+        "options": [
+          "Välittömästi tämän palaverin jälkeen.",
+          "Kahden viikon päästä maanantaina.",
+          "Ensi kuun alusta.",
+          "Vasta vuoden päästä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2c54a93d-5664-5119-80f5-a411a3a1c392",
+        "prompt": "Mihin mennessä datan on oltava siirrettynä uuteen järjestelmään?",
+        "options": [
+          "Käyttöönottopäivänä.",
+          "Edellisen viikon perjantaihin mennessä.",
+          "Viikkoa ennen käyttöönottoa.",
+          "Sillä ei ole kiirettä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

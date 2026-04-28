@@ -1,0 +1,37 @@
+{
+  "id": "0435db5c-e6df-52cf-9f53-55d8816b68d5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a director general position in a ministry department. Tell about your experience in legislative preparation, implementation of policy programs, and steering of the administrative branch. Also describe how you have led demanding legislative projects and promoted government program goals. Length about 360 words.",
+    "materials": {
+      "scenario": "Hakemus ylijohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "16ddb36d-8868-541a-b4ce-33758ed88d4c",
+        "prompt": "Write a job application. You are applying for a director general position in a ministry department. Tell about your experience in legislative preparation, implementation of policy programs, and steering of the administrative branch. Also describe how you have led demanding legislative projects and promoted government program goals. Length about 360 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a director general position in a ministry department. Tell about your experience in legislative preparation, implementation of policy programs, and steering of the administrative branch. Also describe how you have led demanding legislative projects and promoted government program goals. Length about 360 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

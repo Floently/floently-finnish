@@ -1,0 +1,77 @@
+{
+  "id": "9522116e-5201-5c3d-bfaf-cef3a5d2d9aa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomi on tunnettu kauniista luonnostaan. Maassa on tuhansia järviä, laajoja metsiä ja saaristoja. Jokaisella on jokamiehenoikeus, mikä tarkoittaa, että luonnossa saa liikkua vapaasti, poimia marjoja ja sieniä ja yöpyä tilapäisesti, kunhan ei häiritse luontoa tai asukkaita. Luonnossa liikkuminen on suosittu harrastus, ja monet suomalaiset viettävät vapaa-aikaa patikoiden, hiihtäen, kalastaen tai meloen. Suomessa on 41 kansallispuistoa, jotka tarjoavat hyvin merkittyjä reittejä ja retkeilymahdollisuuksia. Luonnon monimuotoisuuden säilyttäminen on tärkeää, ja metsien suojelusta keskustellaan paljon. Luonto on monelle suomalaiselle tärkeä henkireikä ja paikka rentoutua.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_011",
+        "prompt": "Mitä jokamiehenoikeus tarkoittaa?",
+        "options": [
+          "Saa mennä toisten pihoille",
+          "Luonnossa saa liikkua vapaasti, poimia marjoja ja sieniä ja yöpyä tilapäisesti",
+          "Saa kaataa puita",
+          "Saa metsästää vapaasti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_011",
+        "prompt": "Mitä harrastuksia suomalaiset tekevät luonnossa?",
+        "options": [
+          "Vain hiihtävät",
+          "Vain kalastavat",
+          "Patikointi, hiihto, kalastus ja melonta",
+          "Vain marjastus"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3_reading_b1_011",
+        "prompt": "Kuinka monta kansallispuistoa Suomessa on?",
+        "options": [
+          "20",
+          "31",
+          "41",
+          "51"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4_reading_b1_011",
+        "prompt": "Mitä luonto merkitsee suomalaisille?",
+        "options": [
+          "Se on vain työpaikka",
+          "Se on tärkeä henkireikä ja paikka rentoutua",
+          "Se on pelottava paikka",
+          "Se on vain marjojen poimintapaikka"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

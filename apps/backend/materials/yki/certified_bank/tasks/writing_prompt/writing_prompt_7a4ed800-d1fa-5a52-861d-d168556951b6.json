@@ -1,0 +1,37 @@
+{
+  "id": "7a4ed800-d1fa-5a52-861d-d168556951b6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kuntosalille. Haluat lopettaa jäsenyytesi, koska muutat toiselle paikkakunnalle. Kerro nimesi ja jäsennumerosi (voit keksiä). Kerro, milloin haluat jäsenyyden päättyvän. Kysy, mitä sinun pitää tehdä.",
+    "materials": {
+      "scenario": "Viesti kuntosalille jäsenyyden lopettamisesta"
+    },
+    "items": [
+      {
+        "id": "c86611eb-a5a2-5011-85d3-6603e1963123",
+        "prompt": "Kirjoita lyhyt viesti kuntosalille. Haluat lopettaa jäsenyytesi, koska muutat toiselle paikkakunnalle. Kerro nimesi ja jäsennumerosi (voit keksiä). Kerro, milloin haluat jäsenyyden päättyvän. Kysy, mitä sinun pitää tehdä."
+      }
+    ],
+    "rubric": "Kerro, että haluat lopettaa jäsenyyden\nKerro syy (muutto)\nKerro nimesi ja jäsennumerosi\nKerro, milloin haluat jäsenyyden päättyvän\nKysy, mitä pitää tehdä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

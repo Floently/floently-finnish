@@ -1,0 +1,40 @@
+{
+  "id": "36d68c59-9468-5a28-966a-5cdbd49159e9",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi neuvotella ja tehdä kompromisseja.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet esimies, joka haluaa olla joustava mutta noudattaa myös yrityksen linjauksia.",
+        "partner": "Alainen - motivoitunut työntekijä, joka tarvitsee joustoa perhetilanteensa vuoksi."
+      }
+    },
+    "items": [
+      {
+        "id": "srp9",
+        "ai_first_turn_fi": "Hei, kiitos että järjestit aikaa. Haluaisin keskustella etätyömahdollisuuksista. Tiedän että linjaus on kaksi päivää, mutta toivoisin voivani tehdä neljä päivää etänä perhetilanteeni vuoksi."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi neuvotella ja tehdä kompromisseja.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

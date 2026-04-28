@@ -1,0 +1,37 @@
+{
+  "id": "3de6a765-40ec-53e5-9781-b3de0852c0ca",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat pitää pienen koiran asunnossasi, vaikka sopimuksessa lukee, ettei lemmikkejä saa pitää. Perustele, miksi haluaisit koiran ja kysy, voisiko sopimusta muuttaa.",
+    "materials": {
+      "scenario": "Lemmikin pitäminen asunnossa"
+    },
+    "items": [
+      {
+        "id": "51500f37-7dc7-524b-bd73-42349e8890ae",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat pitää pienen koiran asunnossasi, vaikka sopimuksessa lukee, ettei lemmikkejä saa pitää. Perustele, miksi haluaisit koiran ja kysy, voisiko sopimusta muuttaa."
+      }
+    ],
+    "rubric": "Toive lemmikistä\nPerustelut\nKysymys sopimuksen muuttamisesta",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2d427cc4-9dbf-5a57-901b-163c3e389e1b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a logistics manager position in an international company. Tell about your experience in logistics management, supply chain management, and inventory optimization. Also describe how you have developed cost efficiency and sustainability. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus logistiikkapäällikön tehtävään"
+    },
+    "items": [
+      {
+        "id": "054f2ff3-7a08-5a27-ac9c-1e3501c66f1c",
+        "prompt": "Write a job application. You are applying for a logistics manager position in an international company. Tell about your experience in logistics management, supply chain management, and inventory optimization. Also describe how you have developed cost efficiency and sustainability. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a logistics manager position in an international company. Tell about your experience in logistics management, supply chain management, and inventory optimization. Also describe how you have developed cost efficiency and sustainability. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

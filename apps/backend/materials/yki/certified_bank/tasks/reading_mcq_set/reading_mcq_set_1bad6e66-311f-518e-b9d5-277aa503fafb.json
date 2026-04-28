@@ -1,0 +1,88 @@
+{
+  "id": "1bad6e66-311f-518e-b9d5-277aa503fafb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.766,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kiertotalouden periaatteet ovat laajalti hyväksyttyjä, mutta niiden toteuttaminen käytännössä vaatii muutoksia sekä yritysten toimintatavoissa että kuluttajien asenteissa ja käyttäytymisessä. Kuluttajilla on keskeinen rooli kiertotalouden edistämisessä, sillä heidän valintansa ohjaavat markkinoita ja vaikuttavat siihen, millaisia tuotteita yritykset valmistavat. Kuluttajat voivat omilla valinnoillaan tukea kiertotaloutta monin tavoin. Yksi tärkeimmistä on tuotteiden käyttöiän pidentäminen. Tämä tarkoittaa, että kuluttajat korjaavat rikki menneitä tuotteita uuden ostamisen sijaan, ostavat käytettyjä tuotteita ja pitävät tuotteista hyvää huolta. Korjaaminen on taito, joka on monelta unohtunut, mutta sen arvostus on nousemassa. Korjauskahvilat ja -palvelut ovat yleistyneet, ja monet oppivat korjaamaan itse. Toinen tärkeä tapa on suosia vuokraus- ja jakamispalveluita. Sen sijaan, että jokainen omistaisi itse kaiken, voidaan tavaroita jakaa naapurustossa tai käyttää vuokrauspalveluita. Esimerkkejä ovat kirjastot, työkirjastot, yhteiskäyttöautot ja tavaroiden lainauspalvelut. Tämä vähentää tarvetta valmistaa uusia tavaroita ja säästää luonnonvaroja. Kolmas tapa on kierrättää ja lajitella jätteet huolellisesti. Jätteet lajitellaan, jotta ne voidaan käyttää uusien tuotteiden raaka-aineina. Kierrätyksen tehostaminen vaatii sekä kuluttajien aktiivisuutta että toimivia kierrätysjärjestelmiä. Neljäs tapa on suosia tuotteita, jotka on suunniteltu kiertotalouden periaatteiden mukaisesti: ne ovat korjattavia, kestäviä ja valmistettu kierrätetyistä materiaaleista. Kuluttajat voivat myös vaikuttaa yrityksiin kysymällä kestävästi tuotettuja tuotteita ja boikotoimalla yrityksiä, jotka toimivat kestämättömästi. Kuluttajan valinnat eivät kuitenkaan yksin riitä. Tarvitaan myös lainsäädäntöä, joka kannustaa kiertotalouteen, ja yritysten vastuunottoa tuotteidensa koko elinkaaresta. Yhteiskunnan on luotava puitteet, joissa kiertotalouden mukaiset valinnat ovat helppoja ja edullisia.",
+      "word_count": 221
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kuluttajien keskeinen rooli kiertotaloudessa?",
+        "options": [
+          "He valmistavat tuotteita",
+          "Heidän valintansa ohjaavat markkinoita",
+          "He kierrättävät teollisuuden jätteitä",
+          "He suunnittelevat uusia tuotteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan tuotteiden käyttöiän pidentämisellä?",
+        "options": [
+          "Tuotteiden valmistaminen kestämään pidempään",
+          "Tuotteiden korjaamista, käytettynä ostamista ja hyvää huolenpitoa",
+          "Tuotteiden säilyttämistä varastossa",
+          "Tuotteiden myymistä eteenpäin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä vuokraus- ja jakamispalveluista mainitaan?",
+        "options": [
+          "Tavaratalot ja marketit",
+          "Kirjastot, työkirjastot ja yhteiskäyttöautot",
+          "Huoltamot ja korjaamot",
+          "Ravintolat ja kahvilat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millaisia tuotteita kuluttajien kannattaa suosia?",
+        "options": [
+          "Halpoja ja kertakäyttöisiä",
+          "Korjattavia, kestäviä ja kierrätetyistä materiaaleista valmistettuja",
+          "Ulkomailta tuotuja",
+          "Uusimpia muotituotteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä muuta kiertotalouden edistäminen vaatii kuluttajien valintojen lisäksi?",
+        "options": [
+          "Vain teknologian kehitystä",
+          "Lainsäädäntöä ja yritysten vastuunottoa",
+          "Kuluttajien lisäämistä",
+          "Uusien tuotteiden kehittämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

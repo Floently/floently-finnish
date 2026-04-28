@@ -1,0 +1,37 @@
+{
+  "id": "90ebfd14-1992-5041-ae8b-16b1921fdb3a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: cafeteria. Tarkoitus: pyydä tietoa. Rajoite: mainitse kaksi syytä.",
+    "materials": {
+      "scenario": "neighborhood in cafeteria"
+    },
+    "items": [
+      {
+        "id": "c4969e90-fabd-5542-adc3-9992ca1eedda",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: cafeteria. Tarkoitus: pyydä tietoa. Rajoite: mainitse kaksi syytä."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "3a9d2dfa-5ba9-5c58-82c1-194c50d08d2c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa ylilääkärinä sairaalaan. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Ylilääkäri"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Haet työpaikkaa ylilääkärinä sairaalaan. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa ylilääkärinä sairaalaan. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

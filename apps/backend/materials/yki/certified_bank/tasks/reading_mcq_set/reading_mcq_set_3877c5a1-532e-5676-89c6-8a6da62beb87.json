@@ -1,0 +1,99 @@
+{
+  "id": "3877c5a1-532e-5676-89c6-8a6da62beb87",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Vapaaehtoistyön tekeminen on monelle tapa osallistua ja vaikuttaa. Vapaaehtoiset toimivat esimerkiksi urheiluseurojen valmentajina, tapahtumien järjestäjinä tai vanhusten ystävinä. Vapaaehtoistyö ei vaadi erityisosaamista, vaan tärkeintä on halu auttaa. Monet kokevat saavansa vapaaehtoistyöstä enemmän kuin antavansa: uusia kokemuksia, ystäviä ja merkityksellisyyttä. Vapaaehtoistyö on tärkeä osa suomalaista yhteiskuntaa.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on monelle tapa osallistua ja vaikuttaa?",
+        "options": [
+          "Palkkatyö",
+          "Vapaaehtoistyön tekeminen",
+          "Opiskelu",
+          "Harrastaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä tehtävissä vapaaehtoiset toimivat?",
+        "options": [
+          "Vain urheiluseuroissa",
+          "Urheiluseurojen valmentajina, tapahtumien järjestäjinä tai vanhusten ystävinä",
+          "Vain tapahtumien järjestäjinä",
+          "Vain vanhusten auttajina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vapaaehtoistyö ei vaadi?",
+        "options": [
+          "Aikaa",
+          "Erityisosaamista",
+          "Motivaatiota",
+          "Sitoutumista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on tärkeintä vapaaehtoistyössä?",
+        "options": [
+          "Raha",
+          "Halu auttaa",
+          "Koulutus",
+          "Kokemus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä monet kokevat saavansa vapaaehtoistyöstä?",
+        "options": [
+          "Rahaa ja mainetta",
+          "Uusia kokemuksia, ystäviä ja merkityksellisyyttä",
+          "Työkokemusta ja palkkaa",
+          "Valtaa ja vaikutusvaltaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä vapaaehtoistyö on suomalaisessa yhteiskunnassa?",
+        "options": [
+          "Vähäpätöinen asia",
+          "Tärkeä osa",
+          "Uusi ilmiö",
+          "Vain nuorten hommaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "6ab0c475-0450-5d64-9673-ee7f1be80eda",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti harrastuskaverille. Kerro, että et pääse tämän viikon treeneihin, koska jalkasi on kipeä. Kerro, että toivut kotona. Kysy, mitä treeneissä tehtiin ja voiko jotain harjoitella kotona.",
+    "materials": {
+      "scenario": "Viesti harrastuskaverille poissaolosta"
+    },
+    "items": [
+      {
+        "id": "02b7ec1e-1054-5429-b6ce-1b29aeda42cf",
+        "prompt": "Kirjoita lyhyt viesti harrastuskaverille. Kerro, että et pääse tämän viikon treeneihin, koska jalkasi on kipeä. Kerro, että toivut kotona. Kysy, mitä treeneissä tehtiin ja voiko jotain harjoitella kotona."
+      }
+    ],
+    "rubric": "Kerro, että et pääse treeneihin\nKerro syy (jalka kipeä)\nKysy, mitä treeneissä tehtiin\nKysy kotiharjoittelusta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

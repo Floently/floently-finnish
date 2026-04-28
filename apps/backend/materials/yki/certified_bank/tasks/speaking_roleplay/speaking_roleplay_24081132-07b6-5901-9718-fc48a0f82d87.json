@@ -1,0 +1,40 @@
+{
+  "id": "24081132-07b6-5901-9718-fc48a0f82d87",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.298,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell how you book an appointment at the health center or doctor. What do you need to do?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "905af471-8070-5c17-a340-a4ccdfc17781",
+        "ai_first_turn_fi": "Ootko käyttänyt terveyspalveluja Suomessa? Miten se toimii?"
+      }
+    ],
+    "rubric": "Tell how you book an appointment at the health center or doctor. What do you need to do?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

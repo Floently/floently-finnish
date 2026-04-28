@@ -1,0 +1,99 @@
+{
+  "id": "175d2cf6-09fb-5ca5-8952-57f81d00b2ea",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan puheenvuoro ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvää iltaa, olen tutkija Lauri Mäkelä Helsingin yliopistosta. Tänään puhun digitaalisesta hyvinvoinnista. Meillä on nykyään valtavasti sovelluksia, jotka mittaavat unta, askelia ja sykettä. Ne voivat auttaa meitä ymmärtämään omaa terveyttämme paremmin. Tutkimukset osoittavat, että ihmiset, jotka käyttävät näitä sovelluksia, liikkuvat keskimäärin enemmän kuin muut. He ovat myös tietoisempia omista elämäntavoistaan. Mutta on tässä kääntöpuolensa. Osa käyttäjistä kokee, että jatkuva mittaaminen aiheuttaa stressiä. Jos tavoitteita ei saavuteta, se voi tuntua epäonnistumiselta. Erityisesti unen mittaaminen on osoittautunut ongelmalliseksi. Moni herää yöllä katsomaan, miten on nukkunut, ja se häiritsee unta entisestään. Toinen iso kysymys on tietoturva. Mihin kaikki tämä data päätyy? Olemme huomanneet, että moni käyttäjä ei lue sovellusten tietosuojaselosteita, vaan hyväksyy ehdot lukematta. Kolmas näkökulma on se, että sovellukset voivat luoda liian yksinkertaistetun kuvan terveydestä. Ihmisen hyvinvointi on paljon muutakin kuin 10 000 askelta päivässä. Se on mielen hyvinvointia, sosiaalisia suhteita ja lepoa. Suosittelenkin, että käytätte sovelluksia apuna, mutta älkää antako niiden määrittää, milloin olette onnistuneet tai epäonnistuneet.",
+      "audio_asset_id": "e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on Lauri Mäkelän puheen aihe?",
+        "options": [
+          "Uusimmat urheiluvälineet.",
+          "Digitaalinen hyvinvointi ja mittaaminen.",
+          "Ravitsemussuositusten muutokset.",
+          "Mielenterveysongelmat työelämässä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä hyötyä hyvinvointisovelluksista on tutkimusten mukaan?",
+        "options": [
+          "Ne parantavat unen laatua merkittävästi.",
+          "Ne saavat ihmiset liikkumaan enemmän.",
+          "Ne korvaavat lääkärikäynnit.",
+          "Ne vähentävät stressiä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on mittaamisen kääntöpuoli?",
+        "options": [
+          "Sovellukset ovat liian kalliita.",
+          "Mittaaminen voi aiheuttaa stressiä.",
+          "Puhelimen akku loppuu nopeasti.",
+          "Sovellukset eivät toimi kunnolla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miksi unen mittaaminen on erityisen ongelmallista?",
+        "options": [
+          "Koska unta ei voi mitata tarkasti.",
+          "Koska se voi häiritä nukkumista entisestään.",
+          "Koska se vaatii kalliit lisälaitteet.",
+          "Koska unesta ei ole mitään hyötyä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mihin toiseen ongelmaan Lauri kiinnittää huomiota?",
+        "options": [
+          "Sovellusten kielivalintoihin.",
+          "Käyttäjien tietoturvaan ja dataan.",
+          "Sovellusten huonoon ulkoasuun.",
+          "Asiakaspalvelun hitauteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on Laurin loppusuositus?",
+        "options": [
+          "Lopettakaa sovellusten käyttö kokonaan.",
+          "Käyttäkää sovelluksia apuna, mutta älkää antako niiden määrittää onnistumista.",
+          "Hankkikaa kalliimmat ja tarkemmat mittarit.",
+          "Luottakaa vain lääkärin antamiin mittauksiin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

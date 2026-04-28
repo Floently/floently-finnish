@@ -1,0 +1,77 @@
+{
+  "id": "17d9dab9-8489-5ce8-a267-2063e5bafdbb",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu talouspolitiikan tulevaisuudesta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan talouspolitiikan tulevaisuudesta. Meillä on täällä kaksi ekonomistia: Marko Virtanen ja Liisa Niemi.\n\nMarko Virtanen: Talouspolitiikan keskeisin tavoite on turvata julkisen talouden kestävyys. Väestö ikääntyy, ja menot kasvavat. Jos emme saa velkaantumista kuriin, joudumme tekemään kivuliaita leikkauksia myöhemmin. Siksi on toimittava nyt.\n\nLiisa Niemi: Olen eri mieltä painotuksista. Velkaantuminen on ongelma, mutta investointivaje on yhtä vakava. Jos leikkaamme koulutuksesta, tutkimuksesta ja infraan liittyvistä investoinneista, heikennämme tulevaisuuden kasvumahdollisuuksia. Se on lyhytnäköistä.\n\nMarko Virtanen: Mutta emme voi velkaantua loputtomiin. Velan hoitomenot kasvavat, ja ne ovat pois hyvinvointipalveluista. Meidän on tehtävä valintoja.\n\nLiisa Niemi: Valintoja kyllä, mutta valintojen pitää olla fiksuja. Jos velalla rahoitetaan investointeja, jotka tuottavat tulevaisuudessa, se on eri asia kuin kulutusvelka. Vihreä siirtymä, osaaminen ja digitaaliset palvelut ovat investointeja, jotka maksavat itsensä takaisin.\n\nPuheenjohtaja: Entä verotus? Pitäisikö veroja kiristää?\n\nMarko Virtanen: Työn verotusta voisi keventää, mutta se on vaikeaa, koska rahaa ei ole. Ennemmin pitäisi laajentaa veropohjaa ja puuttua harmaaseen talouteen. Myös kulutusverotusta voisi tarkastella.\n\nLiisa Niemi: Harmaaseen talouteen pitää ehdottomasti puuttua. Mutta myös varallisuusveroa ja pääomaverotusta voisi harkita. Suomessa varallisuus on keskittynyt, ja varakkaimmat voisivat maksaa enemmän. Se vähentäisi eriarvoisuutta ja toisi tuloja.\n\nMarko Virtanen: Pääomaverotus on vaikeaa, koska pääoma liikkuu. Jos verotetaan liikaa, se pakenee ulkomaille. Tarvitaan kansainvälistä yhteistyötä ja veropohjan laajentamista.\n\nLiisa Niemi: Olen samaa mieltä kansainvälisen yhteistyön tarpeesta. Mutta emme voi jäädä odottamaan. Meidän on tehtävä päätöksiä nyt.\n\nPuheenjohtaja: Lopuksi, millainen on hyvä talouspolitiikka?\n\nMarko Virtanen: Se on pitkäjänteistä, ennustettavaa ja kestävää. Se turvaa hyvinvointivaltion myös tuleville sukupolville.\n\nLiisa Niemi: Se on rohkeaa, investoivaa ja oikeudenmukaista. Se luo tulevaisuutta, ei pelkästään sopeudu.",
+      "audio_asset_id": "26b39aa8-263c-5c85-9506-356fd602dd94"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_016_q1",
+        "prompt": "Mitä Marko Virtanen pitää tärkeimpänä talouspolitiikassa?",
+        "options": [
+          "investointeja",
+          "julkisen talouden kestävyyttä ja velkaantumisen hillitsemistä",
+          "verojen kiristämistä",
+          "tulonsiirtojen lisäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_016_q2",
+        "prompt": "Mitä Liisa Niemi pitää yhtä vakavana ongelmana kuin velkaantumista?",
+        "options": [
+          "liian korkeat verot",
+          "investointivajetta",
+          "liian alhaista kulutusta",
+          "liian suuria vientituloja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_016_q3",
+        "prompt": "Mitä veroja Liisa Niemi ehdottaa tarkasteltavaksi?",
+        "options": [
+          "vain työn verotusta",
+          "varallisuusveroa ja pääomaverotusta",
+          "vain kulutusveroja",
+          "ei mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_016_q4",
+        "prompt": "Mitä ongelmia pääomaverotuksessa on Marko Virtasen mukaan?",
+        "options": [
+          "se on helppoa",
+          "pääoma pakenee helposti ulkomaille, jos verotus on liian korkea",
+          "se ei tuota mitään",
+          "sitä ei voi kerätä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

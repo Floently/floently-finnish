@@ -1,0 +1,66 @@
+{
+  "id": "d7e4fd1d-4794-5224-9c40-63fb4002bbb8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T10:20:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti Suomen väestöstä ja ikärakenteesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomen väkiluku on noin 5,6 miljoonaa. Väestö keskittyy voimakkaasti eteläiseen Suomeen, erityisesti pääkaupunkiseudulle, jossa asuu noin 1,2 miljoonaa ihmistä. Muut suuret kaupungit ovat Tampere, Turku ja Oulu. Ikärakenteen kannalta Suomi on vanheneva yhteiskunta. Syntyvyys on laskenut viime vuosina, ja samalla elinajanodote on noussut. Tämä tarkoittaa, että työikäisen väestön määrä vähenee ja eläkeläisten osuus kasvaa. Vuonna 2023 yli 65-vuotiaita oli noin 23 prosenttia väestöstä. Tämä asettaa haasteita julkiselle taloudelle, koska sosiaali- ja terveyspalveluiden tarve kasvaa samalla kun verotulot voivat pienentyä. Maahanmuutto on yksi keino lieventää ikärakenteen muutoksia, ja työperäisen maahanmuuton merkitys on kasvanut. Suomi tarvitsee työntekijöitä monille aloille, ja maahanmuuttajat auttavat täyttämään työvoimapulaa.",
+      "word_count": 102
+    },
+    "questions": [
+      {
+        "id": "b3c4d5e6-f7a8-4b9c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Kuinka suuri on Suomen väkiluku noin?",
+        "options": [
+          "4,6 miljoonaa",
+          "5,6 miljoonaa",
+          "6,6 miljoonaa",
+          "7,6 miljoonaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+        "prompt": "Kuinka suuri osuus väestöstä oli yli 65-vuotiaita vuonna 2023?",
+        "options": [
+          "Noin 13 prosenttia",
+          "Noin 18 prosenttia",
+          "Noin 23 prosenttia",
+          "Noin 33 prosenttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d5e6f7a8-b9c0-4d1e-9f2a-3b4c5d6e7f8a",
+        "prompt": "Mikä on yksi keino lieventää ikärakenteen muutoksia?",
+        "options": [
+          "Syntyvyyden lasku",
+          "Maahanmuutto",
+          "Eliniän lyheneminen",
+          "Kaupungistuminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "b044aa43-3371-5ba5-b213-c7bf5d330271",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.486,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADONNUT KISSA\n\nValkoinen pitkäkarvainen kissa, jolla on siniset silmät.\n\nNimi: Luna. Erittäin kesy.\n\nKadonnut 8.8. Keskustan alueella.\n\nJos näet kissan, soita puh. 040 123 4567.\n\nPalkkio 50 €.",
+      "word_count": 28
+    },
+    "questions": [
+      {
+        "id": "item_113_1",
+        "prompt": "Minkä värinen kadonnut kissa on?",
+        "options": [
+          "musta",
+          "valkoinen",
+          "harmaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_113_2",
+        "prompt": "Mikä on kissan nimi?",
+        "options": [
+          "Mirri",
+          "Luna",
+          "Vilma"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_113_3",
+        "prompt": "Paljonko palkkio on?",
+        "options": [
+          "30 €",
+          "50 €",
+          "100 €"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

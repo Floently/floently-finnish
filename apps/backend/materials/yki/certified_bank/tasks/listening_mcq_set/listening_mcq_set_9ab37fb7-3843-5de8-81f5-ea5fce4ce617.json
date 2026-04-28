@@ -1,0 +1,63 @@
+{
+  "id": "9ab37fb7-3843-5de8-81f5-ea5fce4ce617",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.347,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tavaratalon mainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Huomio kaikki asiakkaat! Tavaratalo Säästökuukausi on alkanut. Tällä viikolla kaikki kodintekstiilit -30 %. Viikonlopun tarjouksena: kahvinkeittimet -40 % ja imurit -25 %. Uutuutena meillä on nyt lastenvaateosasto toisessa kerroksessa. Avajaisviikonloppuna kaikista lastenvaatteista -20 %. Myymälä on avoinna joka päivä kello 9–21. Tervetuloa!",
+      "audio_asset_id": "bf2b136f-a9fe-43a9-a7dd-a89a62d2aa4c"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko alennusta kodintekstiileistä?",
+        "options": [
+          "20 %",
+          "30 %",
+          "40 %"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä on uusi lastenvaateosasto?",
+        "options": [
+          "ensimmäisessä kerroksessa",
+          "toisessa kerroksessa",
+          "kolmannessa kerroksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaan myymälä suljetaan?",
+        "options": [
+          "klo 20",
+          "klo 21",
+          "klo 22"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

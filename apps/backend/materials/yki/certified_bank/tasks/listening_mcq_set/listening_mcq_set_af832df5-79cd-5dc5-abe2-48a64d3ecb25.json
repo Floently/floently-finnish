@@ -1,0 +1,66 @@
+{
+  "id": "af832df5-79cd-5dc5-abe2-48a64d3ecb25",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele urheilukeskuksen tervehdys ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa urheilukeskus Areenaan! Täällä voit harrastaa monia lajeja. Meillä on uimahalli, kuntosali, ryhmäliikuntatunteja ja palloiluhalli. Uimahalli on auki joka päivä klo 6–21. Kuntosali on avoinna 24 tuntia vuorokaudessa. Ryhmäliikuntatunnit löydät nettisivuiltamme. Pukuhuoneissa on suihkut ja sauna. Mukavaa treeniä!",
+      "audio_asset_id": "9969de4c-0fa1-4576-baf2-3ae29f92afa8"
+    },
+    "questions": [
+      {
+        "id": "ba6cb16b-7aab-5757-9d8e-a6ad69c5a162",
+        "prompt": "Mihin asti uimahalli on auki?",
+        "options": [
+          "klo 20",
+          "klo 21",
+          "klo 22",
+          "klo 23"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "903a45e5-0331-54ec-8cd0-18cdee73a2d2",
+        "prompt": "Milloin kuntosali on auki?",
+        "options": [
+          "klo 6–22",
+          "klo 8–20",
+          "24 tuntia",
+          "klo 10–18"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "515d32bc-d041-5675-9438-244822c89b11",
+        "prompt": "Mistä löytää ryhmäliikuntatunnit?",
+        "options": [
+          "Ilmoitustaululta",
+          "Nettisivuilta",
+          "Puhelimella",
+          "Vastaanotosta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

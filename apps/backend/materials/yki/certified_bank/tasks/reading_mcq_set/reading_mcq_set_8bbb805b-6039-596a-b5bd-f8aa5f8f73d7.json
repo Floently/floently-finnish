@@ -1,0 +1,66 @@
+{
+  "id": "8bbb805b-6039-596a-b5bd-f8aa5f8f73d7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomessa on viime vuosina panostettu voimakkaasti julkisten palveluiden digitalisointiin. Periaatteessa tämä on kannatettavaa: sähköiset palvelut ovat usein nopeampia, halvempia ja ympäristöystävällisempiä. Ne säästävät kansalaisten aikaa ja vähentävät byrokratiaa.\n\nMutta kehityksessä on myös kääntöpuolensa. Kaikilla ei ole mahdollisuutta käyttää digitaalisia palveluita. Vanhukset, maahanmuuttajat ja vammaiset voivat jäädä palveluiden ulkopuolelle, jos vaihtoehtoja ei ole. Lisäksi tietoturvaongelmat ja tietosuoja huolettavat monia. Onko meidän henkilötietomme turvassa?\n\nJulkisessa keskustelussa korostetaan usein tehokkuutta ja säästöjä. Harvemmin puhutaan siitä, mitä menetämme, kun palvelut siirtyvät verkkoon. Kadotammeko jotain olennaista, kun asiointi ei enää vaadi kasvokkaista kontaktia? Yhteisöllisyys ja luottamus rakentuvat usein arjen kohtaamisissa.\n\nToinen huolenaihe on digitaalinen syrjäytyminen. Ne, jotka eivät osaa käyttää tietokonetta tai joilla ei ole varaa hankkia laitteita, joutuvat helposti yhteiskunnan marginaaliin. Tämä koskee erityisesti ikäihmisiä ja matalasti koulutettuja. Meillä on vastuu varmistaa, että ketään ei jätetä jälkeen.\n\nRatkaisu ei liene digipalveluista luopuminen, vaan monikanavaisuuden säilyttäminen. On pidettävä huoli siitä, että perinteiset palvelut säilyvät niille, jotka eivät digimaailmassa pärjää. Samalla digipalveluita on kehitettävä helppokäyttöisemmiksi ja turvallisemmiksi. Vain näin voimme varmistaa, että kukaan ei putoa kyydistä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 203
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kirjoittajan pääväite?",
+        "options": [
+          "A) Digitaaliset palvelut pitää lakkauttaa",
+          "B) Digitalisaatiossa on hyvät ja huonot puolensa, ja monikanavaisuus on tärkeää",
+          "C) Vain vanhukset vastustavat digipalveluita",
+          "D) Suomi on digitalisaatiossa jäljessä muita maita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Keitä digipalveluiden ulkopuolelle jääminen erityisesti koskettaa?",
+        "options": [
+          "A) Nuoria ja opiskelijoita",
+          "B) Yrittäjiä ja työntekijöitä",
+          "C) Vanhuksia, maahanmuuttajia ja vammaisia",
+          "D) Keskiluokkaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja tarkoittaa 'monikanavaisuudella'?",
+        "options": [
+          "A) Eri kielivaihtoehtoja verkkopalveluissa",
+          "B) Perinteisten ja digitaalisten palveluiden rinnakkaiseloa",
+          "C) Useita verkkosivuja samalle palvelulle",
+          "D) Mahdollisuutta asioida eri päätelaitteilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

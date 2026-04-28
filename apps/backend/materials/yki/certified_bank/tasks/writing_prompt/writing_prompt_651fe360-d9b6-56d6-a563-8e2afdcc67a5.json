@@ -1,0 +1,37 @@
+{
+  "id": "651fe360-d9b6-56d6-a563-8e2afdcc67a5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän vähäpäästöisiin autoihin?'. Pohdi ilmastotavoitteita, sosiaalista oikeudenmukaisuutta ja autoteollisuutta.",
+    "materials": {
+      "scenario": "Vähäpäästöisten autojen verotus"
+    },
+    "items": [
+      {
+        "id": "789d19e3-a104-5b4c-a0d6-48555e08fbfa",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän vähäpäästöisiin autoihin?'. Pohdi ilmastotavoitteita, sosiaalista oikeudenmukaisuutta ja autoteollisuutta."
+      }
+    ],
+    "rubric": "Ilmastotavoitteet\nSosiaalinen oikeudenmukaisuus\nAutoteollisuus\nKuluttajien valinnanvapaus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

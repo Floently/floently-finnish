@@ -1,0 +1,37 @@
+{
+  "id": "9843938c-3455-593c-a21c-bd5c03556032",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän kiertotalouteen ja korjaamiseen?'. Pohdi kulutuskäyttäytymistä, ympäristöä ja työllisyyttä.",
+    "materials": {
+      "scenario": "Verotus ja kiertotalous"
+    },
+    "items": [
+      {
+        "id": "2efa8327-9f65-56ca-a950-ee2370d7c333",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö verotuksella ohjata enemmän kiertotalouteen ja korjaamiseen?'. Pohdi kulutuskäyttäytymistä, ympäristöä ja työllisyyttä."
+      }
+    ],
+    "rubric": "Kulutuskäyttäytyminen\nYmpäristö\nTyöllisyys\nKorjaustoiminta",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

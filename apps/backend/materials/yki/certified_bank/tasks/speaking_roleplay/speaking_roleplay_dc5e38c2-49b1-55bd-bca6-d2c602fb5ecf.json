@@ -1,0 +1,40 @@
+{
+  "id": "dc5e38c2-49b1-55bd-bca6-d2c602fb5ecf",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa kannustavaa ja tukevaa kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet ystävä, joka haluaa olla läsnä ja tukea.",
+        "partner": "Ystävä - surullinen, epätoivoinen, tarvitsee kuuntelijaa ja lohtua."
+      }
+    },
+    "items": [
+      {
+        "id": "srp42",
+        "ai_first_turn_fi": "Kiitos, että halusit tavata. Miten sinulla on oikeasti mennyt? Saat kertoa ihan kaiken."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa kannustavaa ja tukevaa kieltä.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

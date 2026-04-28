@@ -1,0 +1,88 @@
+{
+  "id": "e6208c79-a1e0-5b5e-9142-1344a49ebfad",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ympäristöteoista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Oon miettinyt, että pitäis tehdä enemmän ympäristön hyväksi. Mutta tuntuu, ettei yksilön teoilla ole väliä. Henkilö B: Kyllä niillä on! Jos kaikki ajattelisivat noin, mikään ei muuttuisi. Kannattaa aloittaa pienistä asioista. Henkilö A: Niinkuin mistä? Henkilö B: No esimerkiksi lajittelu, ruokahävikin vähentäminen ja lihan syönnin vähentäminen. Ja julkisilla kulkeminen autolla ajamisen sijaan. Henkilö A: Niin, nuohan on helppoja. Mutta entä ne isot asiat, kuten lentäminen? Henkilö B: Sitäkin voi vähentää, mutta kaikki ei voi lopettaa kokonaan. Tärkeintä on, että jokainen tekee edes jotain. Se summautuu.",
+      "audio_asset_id": "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c"
+    },
+    "questions": [
+      {
+        "id": "l42q1",
+        "prompt": "Mitä henkilö A on miettinyt?",
+        "options": [
+          "Hän on jo tehnyt kaiken.",
+          "Hänen pitäisi tehdä enemmän ympäristön hyväksi.",
+          "Ympäristöasiat eivät kiinnosta häntä.",
+          "Hän haluaa ostaa uuden auton."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l42q2",
+        "prompt": "Mitä henkilö B vastaa henkilön A epäilyyn?",
+        "options": [
+          "Hän on samaa mieltä.",
+          "Yksilön teoilla on väliä, ja kannattaa aloittaa pienistä asioista.",
+          "Vain hallitus voi vaikuttaa.",
+          "Asiat ovat liian monimutkaisia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l42q3",
+        "prompt": "Mitä esimerkkejä pienistä ympäristöteoista henkilö B mainitsee?",
+        "options": [
+          "Lajittelu, ruokahävikin vähentäminen ja lihan syönnin vähentäminen.",
+          "Roskaaminen ja auton käyttö.",
+          "Veden tuhlaaminen.",
+          "Sähkön käytön lisääminen."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l42q4",
+        "prompt": "Mitä mieltä henkilö B on lentämisen vähentämisestä?",
+        "options": [
+          "Kaikkien pitää lopettaa lentäminen heti.",
+          "Sitäkin voi vähentää, vaikka kaikki eivät voi lopettaa kokonaan.",
+          "Sillä ei ole mitään väliä.",
+          "Se on ainoa tärkeä asia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l42q5",
+        "prompt": "Mikä on henkilön B mukaan tärkeintä?",
+        "options": [
+          "Tehdä kaikki täydellisesti.",
+          "Jokainen tekee edes jotain, se summautuu.",
+          "Keskittää huomio vain yhteen asiaan.",
+          "Ostaa hyvityksiä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

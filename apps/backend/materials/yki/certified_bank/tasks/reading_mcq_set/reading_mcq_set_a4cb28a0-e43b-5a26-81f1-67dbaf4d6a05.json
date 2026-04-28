@@ -1,0 +1,77 @@
+{
+  "id": "a4cb28a0-e43b-5a26-81f1-67dbaf4d6a05",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei!\n\nMeillä on juhlat lauantaina 15.5. klo 18 alkaen. Tule sinäkin! Otathan mukaan jotain pientä syötävää tai juotavaa. Ilmoita perjantaihin mennessä, tuletko. Meillä on pihagrilli ja paljon istumapaikkoja.\n\nOsoite: Mäntytie 12 B 5, Helsinki\n\nTerveisin,\nMikko ja Sari\n\nPS. Lapset ovat tervetulleita. Pihalla on trampoliini.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 61
+    },
+    "questions": [
+      {
+        "id": "ab2007ad-0f08-5ebc-af6b-787f0cd9eebf",
+        "prompt": "Milloin juhlat alkavat?",
+        "options": [
+          "perjantaina klo 18",
+          "lauantaina klo 18",
+          "sunnuntaina klo 15",
+          "maanantaina klo 19"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "452dba68-253b-5f9d-af66-a0588c418ab9",
+        "prompt": "Mihin mennessä pitää ilmoittaa?",
+        "options": [
+          "maanantaihin",
+          "keskiviikkoon",
+          "perjantaihin",
+          "lauantaihin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8d8fd874-2fcc-5a77-b62e-dda5a526fded",
+        "prompt": "Mitä vieraiden pitää tuoda?",
+        "options": [
+          "omat tuolit",
+          "jotain syötävää tai juotavaa",
+          "uimapuku",
+          "lahja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "78dc05a0-03e7-5e87-948f-072723566fc3",
+        "prompt": "Onko lapsille tekemistä?",
+        "options": [
+          "Ei, lapset eivät ole tervetulleita",
+          "Kyllä, pihalla on trampoliini",
+          "Vain aikuiset",
+          "Ei, vain sisällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

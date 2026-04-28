@@ -1,0 +1,88 @@
+{
+  "id": "62dba7a6-916b-510e-a4df-ff9c2ae41ddd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen energiansäästöstä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hallitus on esittänyt uusia toimia energian säästämiseksi tulevana talvena. Toimet koskevat erityisesti julkisia tiloja. Koulujen ja päiväkotien sisälämpötilaa lasketaan asteella 20 asteeseen. Myös katujen ja julkisten rakennusten valaistusta vähennetään. Teollisuudelle suunnataan kannustimia energiatehokkuuden parantamiseen. Yksityisille kotitalouksille annetaan neuvoja sähkön kulutusseurantaan ja lämmityksen optimointiin. Tavoitteena on vähentää sähkön kulutusta 10 prosenttia ja vähentää riippuvuutta tuontienergiasta. Opposition mielestä toimet ovat riittämättömiä, ja ne vaativat nopeampia toimia uusiutuvan energian lisäämiseksi.",
+      "audio_asset_id": "b0c1d2e3-f4a5-6b7c-8d9e-0f1a2b3c4d5e"
+    },
+    "questions": [
+      {
+        "id": "l50q1",
+        "prompt": "Mitä toimia hallitus esittää julkisiin tiloihin?",
+        "options": [
+          "Lämpötilan nostamista.",
+          "Lämpötilan laskemista ja valaistuksen vähentämistä.",
+          "Ilmanvaihdon lisäämistä.",
+          "Ikkunoiden uusimista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l50q2",
+        "prompt": "Mihin lämpötilaan koulujen sisälämpötila lasketaan?",
+        "options": [
+          "18 asteeseen.",
+          "19 asteeseen.",
+          "20 asteeseen.",
+          "21 asteeseen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l50q3",
+        "prompt": "Mikä on tavoite sähkönkulutuksen vähentämisessä?",
+        "options": [
+          "5 prosenttia.",
+          "10 prosenttia.",
+          "15 prosenttia.",
+          "20 prosenttia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l50q4",
+        "prompt": "Mitä teollisuudelle suunnataan?",
+        "options": [
+          "Rangaistuksia.",
+          "Kannustimia energiatehokkuuden parantamiseen.",
+          "Ilmaista energiaa.",
+          "Pakollisia säästötoimia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l50q5",
+        "prompt": "Mitä mieltä oppositio on esitetyistä keinoista?",
+        "options": [
+          "Ne ovat liian rajuja.",
+          "Ne ovat riittämättömiä ja vaativat nopeampia toimia uusiutuvaan energiaan.",
+          "Ne ovat täydellisiä.",
+          "Ne ovat liian kalliita."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

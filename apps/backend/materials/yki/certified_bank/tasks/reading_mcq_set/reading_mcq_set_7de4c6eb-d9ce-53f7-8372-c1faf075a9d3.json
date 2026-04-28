@@ -1,0 +1,88 @@
+{
+  "id": "7de4c6eb-d9ce-53f7-8372-c1faf075a9d3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.77,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Julkinen liikenne on keskeinen osa kestävää kaupunkisuunnittelua, ja sen kehittäminen on välttämätöntä ilmastotavoitteiden saavuttamiseksi. Julkisen liikenteen edistäminen kohtaa kuitenkin monia haasteita, jotka vaativat ratkaisuja. Yksi keskeisimmistä haasteista on sen houkuttelevuus suhteessa henkilöautoon. Auto tarjoaa joustavuutta, nopeutta ja mukavuutta, erityisesti haja-asutusalueilla ja ruuhka-aikoina. Julkisen liikenteen on kyettävä tarjoamaan kilpailukykyinen vaihtoehto, mikä tarkoittaa tiheitä vuorovälejä, nopeita yhteyksiä ja hyvää saavutettavuutta. Tämä vaatii investointeja infrastruktuuriin ja kalustoon. Toinen haaste on rahoitus. Julkinen liikenne on harvoin kannattavaa pelkästään lipputuloilla, ja se tarvitsee tukea julkisista varoista. Julkisen talouden kiristyessä tämä rahoitus on usein vaakalaudalla, vaikka julkisen liikenteen yhteiskunnalliset hyödyt, kuten päästövähennykset, ruuhkien purkaminen ja liikkumismahdollisuuksien tasa-arvo, ovat kiistattomat. Kolmas haaste on julkisen liikenteen suunnittelu niin, että se palvelee eri väestöryhmiä tasapuolisesti. Perinteisesti julkinen liikenne on suunniteltu palvelemaan työssäkävijöitä ruuhka-aikoina, mutta nykyään tarvitaan monipuolisempaa tarjontaa, joka huomioi myös esimerkiksi ikääntyneet, lapset ja vähävaraiset. Tämä tarkoittaa esteettömyyttä, kohtuullisia hintoja ja palveluita myös iltaisin ja viikonloppuisin. Neljäs haaste on eri liikennemuotojen yhteensovittaminen. Kaupungeissa on monia eri liikennemuotoja: bussit, raitiovaunut, metrot, junat, pyörät ja kävely. Jotta julkinen liikenne olisi sujuvaa, eri muotojen on toimittava saumattomasti yhteen. Tämä vaatii yhteistä lippujärjestelmää, aikataulujen yhteensovittamista ja toimivia vaihtoyhteyksiä. Viides haaste on uusien liikkumispalveluiden integrointi. Yhteiskäyttöautot, -pyörät, potkulaudat ja muut uudet palvelut täydentävät julkista liikennettä, mutta niiden käyttöönotto vaatii sääntelyä ja yhteistyötä kaupunkien ja palveluntarjoajien välillä.",
+      "word_count": 213
+    },
+    "questions": [
+      {
+        "id": "f08747d5-f3dc-542e-b96b-4bd5c16f16b4",
+        "prompt": "Mikä on julkisen liikenteen keskeisin haaste suhteessa henkilöautoon?",
+        "options": [
+          "Se on kalliimpaa",
+          "Sen houkuttelevuus ja kilpailukyky",
+          "Se on epäluotettavaa",
+          "Se on hitaampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "57fe806b-b33e-5deb-863b-1550dc72d3e7",
+        "prompt": "Miksi julkisen liikenteen rahoitus on usein vaakalaudalla?",
+        "options": [
+          "Koska se on kannattavaa",
+          "Koska se tarvitsee tukea julkisista varoista ja talous voi kiristyä",
+          "Koska kukaan ei käytä sitä",
+          "Koska se on liian halpaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b2732e59-0003-5d62-a2a5-d7a667f04164",
+        "prompt": "Mitä tarkoittaa julkisen liikenteen tasapuolinen suunnittelu?",
+        "options": [
+          "Suunnittelu vain työssäkävijöille ruuhka-aikoina",
+          "Eri väestöryhmien huomioiminen, kuten esteettömyys ja hinnat",
+          "Vain keskustan palveleminen",
+          "Vain viikonloppuliikenne"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cb530bd1-86a1-5abf-a9a1-2d90e85797f3",
+        "prompt": "Mitä eri liikennemuotojen yhteensovittaminen vaatii?",
+        "options": [
+          "Vain lisää busseja",
+          "Yhteistä lippujärjestelmää, aikataulujen yhteensovittamista ja vaihtoyhteyksiä",
+          "Vain metron laajentamista",
+          "Autoliikenteen vähentämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "13d7f05d-7788-563e-9afe-9d318cfe208e",
+        "prompt": "Mitä uusia liikkumispalveluita tekstissä mainitaan?",
+        "options": [
+          "Taksit ja lentokoneet",
+          "Yhteiskäyttöautot, -pyörät ja potkulaudat",
+          "Yksityisautot ja moottoripyörät",
+          "Raitiovaunut ja metrot"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

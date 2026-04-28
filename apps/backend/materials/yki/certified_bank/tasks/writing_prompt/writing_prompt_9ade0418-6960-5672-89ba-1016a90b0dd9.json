@@ -1,0 +1,37 @@
+{
+  "id": "9ade0418-6960-5672-89ba-1016a90b0dd9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet syönyt ravintolassa. Kirjoita palaute, jossa arvioit ruokaa, palvelua ja ravintolan ilmapiiriä. Kerro myös, menisitkö uudelleen.",
+    "materials": {
+      "scenario": "Palaute ravintolasta"
+    },
+    "items": [
+      {
+        "id": "7a46f2b5-cc7c-5761-b8a9-975df08c700d",
+        "prompt": "Olet syönyt ravintolassa. Kirjoita palaute, jossa arvioit ruokaa, palvelua ja ravintolan ilmapiiriä. Kerro myös, menisitkö uudelleen."
+      }
+    ],
+    "rubric": "Ruoka\nPalvelu\nIlmapiiri\nUudelleen meneminen",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

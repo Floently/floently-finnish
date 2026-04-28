@@ -1,0 +1,37 @@
+{
+  "id": "0143b155-f94e-5f81-8c05-32a395f8b3e5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.346,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uudella kuntosalilla. Kirjoita palaute. Arvioi laitteiden kuntoa, ryhmäliikuntatuntien ohjaajia ja pukuhuoneiden siisteyttä.",
+    "materials": {
+      "scenario": "Palaute uudesta kuntosalista"
+    },
+    "items": [
+      {
+        "id": "ad94645e-f191-5a1c-862a-0ee3e6caf106",
+        "prompt": "Olet käynyt uudella kuntosalilla. Kirjoita palaute. Arvioi laitteiden kuntoa, ryhmäliikuntatuntien ohjaajia ja pukuhuoneiden siisteyttä."
+      }
+    ],
+    "rubric": "Laitteiden kunto\nRyhmäliikunnan ohjaajat\nPukuhuoneiden siisteys",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

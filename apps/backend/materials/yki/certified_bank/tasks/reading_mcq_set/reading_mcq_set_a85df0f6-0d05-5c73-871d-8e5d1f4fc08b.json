@@ -1,0 +1,77 @@
+{
+  "id": "a85df0f6-0d05-5c73-871d-8e5d1f4fc08b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.779,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Globalisaation ja kansallisvaltion suhde on ollut viime vuosikymmeninä yksi yhteiskuntatieteiden keskeisimmistä tutkimuskohteista. Toisaalta globalisaatio on heikentänyt kansallisvaltioiden kykyä säädellä omaa talouttaan ja yhteiskuntaansa. Pääoma, tavarat ja ihmiset liikkuvat yli rajojen entistä vapaammin, mikä vähentää kansallisvaltioiden perinteistä valtaa. Tämä näkyy esimerkiksi siinä, että kansalliset hallitukset eivät voi yksinään määrätä yritysverotusta, koska yritykset voivat siirtää toimintojaan maihin, joissa veroaste on matalampi. Toisaalta kansallisvaltiot ovat edelleen keskeisiä toimijoita kansainvälisessä politiikassa, ja ne pyrkivät sopeutumaan globalisaatioon ja hyötymään siitä. Ne solmivat kauppasopimuksia, neuvottelevat kansainvälisistä ilmastotavoitteista ja pyrkivät houkuttelemaan kansainvälisiä investointeja. Globalisaation vastavoimana on noussut nationalismi ja protektionismi, jotka korostavat kansallisen itsemääräämisoikeuden palauttamista ja kotimaisen tuotannon suojaamista. Tämä kehitys on johtanut jännitteisiin niin kansainvälisessä kaupassa kuin politiikassakin, ja se on näkynyt esimerkiksi Yhdysvaltojen ja Kiinan välisinä kauppakonflikteina sekä Ison-Britannian erona EU:sta. Tulevaisuuden kannalta keskeistä on, miten globalisaation ja kansallisvaltion välinen suhde kehittyy. Kykenevätkö kansallisvaltiot yhdessä luomaan uudenlaisia kansainvälisiä instituutioita ja sääntöjä, jotka hillitsevät globalisaation kielteisiä vaikutuksia mutta säilyttävät sen myönteiset puolet? Vai johtaako nationalismin nousu globalisaation taantumiseen ja paluuseen kohti suljetumpia kansallisia talouksia? Todennäköisesti kehitys kulkee jossakin näiden ääripäiden välillä, ja globalisaation muodot muuttuvat ajan myötä.",
+      "word_count": 181
+    },
+    "questions": [
+      {
+        "id": "a8d11196-5012-5ac7-8e9e-c30038a030ba",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Kansainvälisen kaupan esteet ja vapauttaminen",
+          "Globalisaation ja kansallisvaltion välinen jännite ja tulevaisuudennäkymät",
+          "Nationalismin nousu Euroopassa",
+          "Kansallisvaltioiden heikkeneminen globalisaation myötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "68cf5fb9-47b0-50af-aed9-598ef4b23e41",
+        "prompt": "Tekstin mukaan miten globalisaatio on heikentänyt kansallisvaltioita?",
+        "options": [
+          "Se on lisännyt valtioiden mahdollisuuksia säädellä talouttaan",
+          "Pääoma, tavarat ja ihmiset liikkuvat yli rajojen entistä vapaammin, mikä vähentää kansallisvaltioiden perinteistä valtaa",
+          "Se on vahvistanut kansallista itsemääräämisoikeutta",
+          "Sillä ei ole ollut vaikutusta kansallisvaltioiden asemaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3bfd23bb-38d3-5fed-a401-be1510a65f7d",
+        "prompt": "Mitä globalisaation vastavoimia tekstissä mainitaan?",
+        "options": [
+          "Kansainväliset instituutiot ja sopimukset",
+          "Nationalismi ja protektionismi",
+          "Vapaa kauppa ja taloudellinen integraatio",
+          "Monikansalliset yhtiöt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a66d37fa-9a76-5eb2-9e7b-49c84c7319f9",
+        "prompt": "Mitä esimerkkejä tekstissä annetaan globalisaation ja kansallisvaltion välisistä jännitteistä?",
+        "options": [
+          "EU:n perustaminen ja euroalueen laajentuminen",
+          "Yhdysvaltojen ja Kiinan väliset kauppakonfliktit sekä Ison-Britannian ero EU:sta",
+          "YK:n ilmastokokoukset ja Pariisin sopimus",
+          "Kansainvälisten valuuttarahaston lainaohjelmat kehitysmaille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

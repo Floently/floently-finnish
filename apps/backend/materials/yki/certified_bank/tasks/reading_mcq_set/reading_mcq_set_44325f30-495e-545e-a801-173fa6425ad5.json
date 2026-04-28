@@ -1,0 +1,66 @@
+{
+  "id": "44325f30-495e-545e-a801-173fa6425ad5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.481,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MYYDÄÄN SOHVA\n\nMyydään harmaa kulmasohva, jossa on säilytystila. Sohva on kolme vuotta vanha ja hyväkuntoinen. Mukana kaksi irtotyynyä. Hinta 250 €. Nouto Helsingistä. Soita 040 987 6543 tai lähetä sähköpostia: myynti@gmail.com  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä värinen sohva on?",
+        "options": [
+          "A) musta",
+          "B) harmaa",
+          "C) beige",
+          "D) ruskea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko sohva maksaa?",
+        "options": [
+          "A) 150 €",
+          "B) 200 €",
+          "C) 250 €",
+          "D) 300 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuinka vanha sohva on?",
+        "options": [
+          "A) yksi vuosi",
+          "B) kaksi vuotta",
+          "C) kolme vuotta",
+          "D) neljä vuotta"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

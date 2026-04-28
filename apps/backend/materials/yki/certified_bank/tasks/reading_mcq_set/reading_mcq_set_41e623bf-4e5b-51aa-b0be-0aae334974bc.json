@@ -1,0 +1,66 @@
+{
+  "id": "41e623bf-4e5b-51aa-b0be-0aae334974bc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni työelämän muutoksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KEIKKATYÖ – VAPAUTTA VAI UUSI RIIPPUVUUDEN MUOTO?\n\nTyömarkkinoiden rakennemuutos on viime vuosina ollut nopeaa. Perinteisen vakituisen kokoaikatyön rinnalle ovat nousseet erilaiset keikkatyön, alustatyön ja freelanceruuden muodot. Ilmiötä on tulkittu kahdesta vastakkaisesta näkökulmasta: toisille se edustaa vapautta ja itsensä toteuttamisen mahdollisuutta, toisille epävarmuutta ja turvaverkkojen purkautumista.\n\nOptimistit korostavat, että keikkatyö mahdollistaa joustavan työajan, itsenäisen päätösvallan ja mahdollisuuden yhdistellä erilaisia töitä. Erityisesti luovilla aloilla ja asiantuntijatehtävissä tämä nähdään luonnollisena kehityksenä. Pessimistit puolestaan osoittavat, että keikkatyöntekijät jäävät usein sosiaaliturvan ja työehtosopimusten ulkopuolelle. Heillä ei ole oikeutta esimerkiksi palkalliseen lomaan, sairausajan palkkaan tai työterveyshuoltoon samassa laajuudessa kuin vakituisilla työntekijöillä.\n\nTodellisuus on monimutkaisempi kuin kumpikaan ääripää antaa ymmärtää. Keikkatyö ei ole yhtenäinen ilmiö, vaan se pitää sisällään hyvin erilaisia työn tekemisen muotoja ja työntekijöiden asemia. Osa keikkatyöntekijöistä on valinnut tilanteensa tietoisesti ja voi hyvin, osa on ajautunut siihen pakon edessä ja kokee tilanteensa ahdistavana.\n\nYhteiskunnan kannalta keskeinen kysymys kuuluu: miten turvataan kaikkien työntekijöiden sosiaaliturva ja oikeudet työnteon muodosta riippumatta? Nykyinen sosiaaliturvajärjestelmämme on rakennettu vakituisen kokoaikatyön varaan, eikä se tunnista riittävästi pirstaloituneen työuran todellisuutta. Tarvitaan rohkeita uudistuksia, jotka irrottavat sosiaaliturvan työsuhteen laadusta ja takaavat perusturvan jokaiselle.",
+      "word_count": 180
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten optimistit suhtautuvat keikkatyöhön?",
+        "options": [
+          "He pitävät sitä uhkana työntekijöiden oikeuksille",
+          "He näkevät sen vapautena ja itsensä toteuttamisen mahdollisuutena",
+          "He katsovat sen johtavan väistämättä työntekijöiden hyväksikäyttöön",
+          "He suhtautuvat siihen varauksellisesti ja kriittisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on pessimistien päähuoli keikkatyöstä?",
+        "options": [
+          "Keikkatyö on liian hyvin palkattua",
+          "Keikkatyöntekijät jäävät sosiaaliturvan ja työehtosopimusten ulkopuolelle",
+          "Keikkatyö on liian joustavaa",
+          "Keikkatyöntekijät tekevät liian vähän töitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä uudistuksia kirjoittaja pitää tarpeellisina?",
+        "options": [
+          "Paluuta vain vakituisiin työsuhteisiin",
+          "Sosiaaliturvan kiinnittämistä tiukemmin työsuhteen laatuun",
+          "Sosiaaliturvan irrottamista työsuhteen laadusta",
+          "Keikkatyön kieltämistä kokonaan"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

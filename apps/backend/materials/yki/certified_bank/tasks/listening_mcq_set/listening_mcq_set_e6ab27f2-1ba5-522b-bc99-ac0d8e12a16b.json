@@ -1,0 +1,66 @@
+{
+  "id": "e6ab27f2-1ba5-522b-bc99-ac0d8e12a16b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kirjaston kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät asiakkaat! Kirjasto suljetaan 15 minuutin kuluttua kello 19. Palauttakaa kirjat ja dvd:t palautusautomaattiin. Laina-aikaa voi jatkaa verkkosivuillamme. Kirjasto on auki huomenna normaalisti kello 10–19. Kiitos ja näkemiin!",
+      "audio_asset_id": "54c3d1da-e674-4ee4-8697-29b8b688768a"
+    },
+    "questions": [
+      {
+        "id": "622b692e-5e3e-57c9-97ca-6493dd213a11",
+        "prompt": "Milloin kirjasto suljetaan?",
+        "options": [
+          "klo 18",
+          "klo 18.45",
+          "klo 19",
+          "klo 19.15"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0a6be6df-c58d-50e6-9042-6284ea271c2c",
+        "prompt": "Minne kirjat pitää palauttaa?",
+        "options": [
+          "Tiskille",
+          "Palautusautomaattiin",
+          "Hyllyyn",
+          "Kirjaston eteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6364ffe3-01bc-507a-a9f5-5a22d7b70450",
+        "prompt": "Milloin kirjasto on auki huomenna?",
+        "options": [
+          "klo 9–18",
+          "klo 10–19",
+          "klo 10–20",
+          "klo 11–19"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

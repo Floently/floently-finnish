@@ -1,0 +1,66 @@
+{
+  "id": "d4142f51-7fd9-5916-90d4-1ac7f80f2430",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue hotellin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hyvä hotellivieras!\n\nAamiainen on klo 7–10 ravintolassa 1. kerroksessa.\n\nHuone siivotaan joka päivä klo 10–15.\n\nJos haluatte uudet pyyhkeet, laittakaa ne lattialle.\n\nWifi: verkon nimi HotelGuest, salasana welcome2026\n\nUimahalli ja kuntosali ovat 3. kerroksessa. Avoinna klo 8–22.\n\nUloskirjautuminen on klo 12 mennessä.\n\nMukavaa oleskelua!",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "6961a4d7-c049-5cef-8b33-df4c89b45ca7",
+        "prompt": "Mihin asti aamiainen on?",
+        "options": [
+          "klo 9",
+          "klo 10",
+          "klo 11",
+          "klo 12"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c06567bb-e11a-5c9b-a5c1-0416a3a40eb6",
+        "prompt": "Mitä pitää tehdä, jos haluaa uudet pyyhkeet?",
+        "options": [
+          "Soittaa vastaanottoon",
+          "Laitettava pyyhkeet lattialle",
+          "Mennä itse hakemaan",
+          "Tilata netissä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f090b484-8480-59e1-8ab1-6e4dafc836ec",
+        "prompt": "Mihin mennessä pitää poistua huoneesta?",
+        "options": [
+          "klo 11",
+          "klo 12",
+          "klo 13",
+          "klo 14"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e9469856-1c70-5854-8121-de8f67a53252",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sinulla on aika hammaslääkärille huomenna, mutta et pääse. Kirjoita lyhyt viesti tai sähköposti ja peruuta aika. Kerro nimesi, ajankohta ja pyydä uutta aikaa.",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "8cae0111-4931-56ec-85d1-f18b476a5543",
+        "prompt": "Kirjoita 4–6 lausetta. Muista kohtelias aloitus ja lopetus."
+      }
+    ],
+    "rubric": "Kirjoita 4–6 lausetta. Muista kohtelias aloitus ja lopetus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

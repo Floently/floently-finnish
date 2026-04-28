@@ -1,0 +1,66 @@
+{
+  "id": "2ddb059e-ab21-5002-909e-c1e2ff9ecb25",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.575,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yksinäisyys on yksi aikamme suurimmista mutta vähiten huomioiduista ongelmista. Se ei näy tilastoissa samalla tavalla kuin työttömyys tai köyhyys, mutta sen vaikutukset hyvinvointiin ovat vähintään yhtä vakavia. Tutkimukset osoittavat, että pitkäaikainen yksinäisyys lisää riskiä sairastua masennukseen, sydän- ja verisuonitauteihin ja jopa ennenaikaiseen kuolemaan.\n\nYksinäisyys koskettaa kaikkia ikäryhmiä. Vanhukset jäävät helposti yksin, kun puoliso kuolee ja lapset asuvat kaukana. Nuoret kokevat yksinäisyyttä sosiaalisessa mediassa, missä muiden elämä näyttää täydelliseltä mutta oma ei. Työikäiset voivat olla yksinäisiä, vaikka olisivatkin paljon ihmisten ympäröiminä – työpaikan pinnalliset suhteet eivät korvaa aitoa yhteyttä.\n\nYksinäisyyden syyt ovat moninaiset. Yhteiskunnan rakenteet ovat muuttuneet: perheet ovat pienempiä, naapurustot eivät enää ole samoja yhteisöjä kuin ennen, ja kaupungistuminen on lisännyt anonymiteettiä. Teknologia on tuonut mukanaan uusia mahdollisuuksia olla yhteydessä, mutta se on myös vähentänyt kasvokkaisia kohtaamisia. Moni istuu mieluummin kotona somessa kuin lähtee ulos tapaamaan ihmisiä.\n\nMitä asialle voidaan tehdä? Ensinnäkin yksinäisyys on otettava vakavasti yhteiskunnallisena ongelmana. Tarvitaan matalan kynnyksen kohtaamispaikkoja, kuten kahviloita, kirjastoja ja harrastusmahdollisuuksia, joissa ihmiset voivat tavata toisiaan ilman suorituspaineita. Toiseksi on panostettava ennaltaehkäisyyn: opetettava lapsia ja nuoria solmimaan ja ylläpitämään ihmissuhteita. Kolmanneksi on kehitettävä uusia toimintamalleja, kuten ystäväpalveluita ja vertaistukiryhmiä.\n\nMutta ennen kaikkea tarvitaan asennemuutosta. Yksinäisyydestä puhuminen ei saa olla tabu. Jokainen meistä voi kysyä naapurilta, kaverilta tai työkaverilta, mitä hänelle kuuluu – ja todella kuunnella vastausta. Pienillä teoilla voi olla suuri merkitys.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 251
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi yksinäisyys on vaikea ongelma?",
+        "options": [
+          "A) Sitä ei voi mitata",
+          "B) Se ei näy tilastoissa samalla tavalla kuin muut ongelmat, mutta vaikutukset ovat vakavia",
+          "C) Se koskettaa vain vanhuksia",
+          "D) Siihen ei ole olemassa ratkaisuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä terveysvaikutuksia yksinäisyydellä on?",
+        "options": [
+          "A) Se parantaa terveyttä",
+          "B) Se lisää riskiä masennukseen, sydänsairauksiin ja ennenaikaiseen kuolemaan",
+          "C) Sillä ei ole terveysvaikutuksia",
+          "D) Se vain vähentää unta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja ehdottaa ratkaisuksi?",
+        "options": [
+          "A) Lisää somea",
+          "B) Matalan kynnyksen kohtaamispaikkoja, ennaltaehkäisyä ja asennemuutosta",
+          "C) Ihmisten pakottamista tapaamaan toisiaan",
+          "D) Yksinäisyyden hyväksymistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "3decdfc4-c06f-558d-9586-1465546b8d65",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.494,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kuvaus.",
+    "materials": {
+      "scenario": "Kirjoita kuvaus."
+    },
+    "items": [
+      {
+        "id": "a255697f-9143-5c5a-9942-0c539f41b2ba",
+        "prompt": "Kuvaile lempipaikkaasi kotikaupungissasi.\n\nKerro:\n- mikä paikka on ja missä se sijaitsee\n- miltä siellä näyttää ja tuntuu\n- mitä siellä voi tehdä\n- miksi se on sinulle tärkeä"
+      }
+    ],
+    "rubric": "Kuvaile lempipaikkaasi kotikaupungissasi.\n\nKerro:\n- mikä paikka on ja missä se sijaitsee\n- miltä siellä näyttää ja tuntuu\n- mitä siellä voi tehdä\n- miksi se on sinulle tärkeä",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "56fd7478-43dd-522e-8813-6783f2b1ac99",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa terveysaiheisesta radio-ohjelmasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Terveyshetkeen. Tänään puhumme unesta ja sen tärkeydestä. Vieraana uniasiantuntija Katriina Korhonen. Tervetuloa, Katriina.\nAsiantuntija: Kiitos.\nToimittaja: Miksi uni on niin tärkeää?\nAsiantuntija: Uni on elintärkeää sekä fyysiselle että psyykkiselle terveydelle. Unen aikana aivot käsittelevät päivän tapahtumia ja palautuvat. Myös keho korjaa itseään ja vahvistaa immuunijärjestelmää. Pitkäaikainen univaje lisää riskiä moniin sairauksiin, kuten sydän- ja verisuonitauteihin, diabetekseen ja masennukseen.\nToimittaja: Paljonko unta aikuinen tarvitsee?\nAsiantuntija: Yksilöllistä, mutta yleensä 7–9 tuntia. Tärkeintä on unen laatu. Jos heräät väsyneenä, jotain on pielessä.\nToimittaja: Mitä vinkkejä annat parempaan uneen?\nAsiantuntija: Säännöllisyys on tärkeää – samaan aikaan nukkumaan ja samaan aikaan ylös. Vältä ruutuja tuntia ennen nukkumaanmenoa. Myös liikunta päivällä auttaa, mutta ei liian myöhään. Pimeä ja viileä makuuhuone myös edistää unta.",
+      "audio_asset_id": "e5826b63-5641-45bb-b298-356fb303b06e"
+    },
+    "questions": [
+      {
+        "id": "7ef5f6a4-1291-5867-ad2c-f04c7c742e6c",
+        "prompt": "Mitä keho tekee unen aikana?",
+        "options": [
+          "Lepää täysin",
+          "Korjaa itseään ja vahvistaa immuunijärjestelmää",
+          "Työskentelee kovemmin",
+          "Tuottaa hormoneja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3d6f32b5-1ebc-5017-bc69-b9e699fa763d",
+        "prompt": "Paljonko unta aikuinen yleensä tarvitsee?",
+        "options": [
+          "5–6 tuntia",
+          "7–9 tuntia",
+          "8–10 tuntia",
+          "9–11 tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "09a4c684-31f9-511e-8d77-ba120804e886",
+        "prompt": "Mitä vinkkiä asiantuntija antaa parempaan uneen?",
+        "options": [
+          "Katso televisiota ennen nukkumaanmenoa",
+          "Säännöllisyys ja ruutujen välttäminen ennen nukkumaanmenoa",
+          "Syö raskas ateria illalla",
+          "Nuku päiväunet"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

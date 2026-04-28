@@ -1,0 +1,37 @@
+{
+  "id": "17023ea9-49bc-5fa7-abe1-c8e6222cc722",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan päivähoitoon. Tarvitset päivähoitopaikan lapsellesi, mutta hakuaika on jo mennyt umpeen. Selitä tilanteesi, miksi et hakenut ajoissa, ja kysy, onko vielä mahdollista hakea tai onko vapaita paikkoja.",
+    "materials": {
+      "scenario": "Päivähoitopaikan hakeminen myöhässä"
+    },
+    "items": [
+      {
+        "id": "a8f302b8-812a-533c-b111-d3512b9836a2",
+        "prompt": "Kirjoita virallinen sähköposti kunnan päivähoitoon. Tarvitset päivähoitopaikan lapsellesi, mutta hakuaika on jo mennyt umpeen. Selitä tilanteesi, miksi et hakenut ajoissa, ja kysy, onko vielä mahdollista hakea tai onko vapaita paikkoja."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

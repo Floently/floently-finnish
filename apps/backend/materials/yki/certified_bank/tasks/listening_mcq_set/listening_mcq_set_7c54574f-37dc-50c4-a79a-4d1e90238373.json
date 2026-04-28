@@ -1,0 +1,66 @@
+{
+  "id": "7c54574f-37dc-50c4-a79a-4d1e90238373",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opiskelija 1: Hei, mitä mieltä olet tämän kurssin vaativuudesta?\nOpiskelija 2: Minusta se on aika vaativa, mutta myös mielenkiintoinen. Luennot ovat hyviä ja materiaalit selkeitä.\nOpiskelija 1: Oletko ehtinyt aloittaa ryhmätyön?\nOpiskelija 2: Joo, meidän ryhmä on tavannut kerran. Sovimme, että jokainen tekee ensin oman osuutensa ja sitten kokoamme ne yhteen.\nOpiskelija 1: Meidän ryhmä ei ole vielä aloittanut. Pitäisi varmaan sopia ensimmäinen tapaaminen.\nOpiskelija 2: Kannattaa aloittaa ajoissa, ettei tule kiire. Palautus on kolmen viikon päästä.",
+      "audio_asset_id": "09d562dc-da25-51e1-beb3-87c9e29ca1e3"
+    },
+    "questions": [
+      {
+        "id": "list_479",
+        "prompt": "Mitä mieltä toinen opiskelija on kurssista?",
+        "options": [
+          "Helppo ja tylsä",
+          "Vaativa mutta mielenkiintoinen",
+          "Liian vaikea",
+          "Turha"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_480",
+        "prompt": "Mitä toisen opiskelijan ryhmä on sopinut?",
+        "options": [
+          "Tapaavansa joka viikko",
+          "Jokainen tekee ensin oman osuutensa",
+          "Tehdään kaikki yhdessä",
+          "Ei tehdä ryhmätyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_481",
+        "prompt": "Milloin ryhmätyö pitää palauttaa?",
+        "options": [
+          "Yhden viikon päästä",
+          "Kahden viikon päästä",
+          "Kolmen viikon päästä",
+          "Kuukauden päästä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

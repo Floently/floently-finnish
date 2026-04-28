@@ -1,0 +1,37 @@
+{
+  "id": "09234362-7b1a-59cb-8860-8176fc1220fd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: office_break_room. Purpose: justify_an_opinion. Constraint: keep_it_concise.",
+    "materials": {
+      "scenario": "julkishallinnosta office break room"
+    },
+    "items": [
+      {
+        "id": "560f201d-abe1-52d0-beb3-213685d55e84",
+        "prompt": "Write for the receiver in this scenario: office_break_room. Purpose: justify_an_opinion. Constraint: keep_it_concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

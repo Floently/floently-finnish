@@ -1,0 +1,37 @@
+{
+  "id": "77ef2539-72f6-568b-9f9e-99567a096271",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö torikauppiaiden vuokria alentaa torien elävöittämiseksi?'. Analysoi elinkeinonharjoittamista, kaupunkikulttuuria ja kilpailua.",
+    "materials": {
+      "scenario": "Torikauppiaiden vuokrat"
+    },
+    "items": [
+      {
+        "id": "c6854af1-c1df-514d-8257-6e3459719e4b",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö torikauppiaiden vuokria alentaa torien elävöittämiseksi?'. Analysoi elinkeinonharjoittamista, kaupunkikulttuuria ja kilpailua."
+      }
+    ],
+    "rubric": "Elinkeinonharjoittaminen\nKaupunkikulttuuri\nKilpailu\nTorien elinvoima",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "5725796a-29ad-576a-8ebb-9fbee6a884af",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka tiedustelee vuokra-asuntoa. Keskustele vuokranantajan kanssa näytöllä.",
+    "materials": {
+      "roles": {
+        "user": "Asunnonhakija",
+        "partner": "Vuokranantaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp5_1",
+        "ai_first_turn_fi": "Hei, Matti Virtanen."
+      },
+      {
+        "id": "srp5_2",
+        "ai_first_turn_fi": "Jep, asunto on vielä vapaana. Millainen asuntoa etsit?"
+      },
+      {
+        "id": "srp5_3",
+        "ai_first_turn_fi": "Kuulostaa hyvältä. Asunnossa on kaksi makuuhuonetta, avokeittiö ja parveke. Vuokra on 950 euroa kuussa sisältäen veden."
+      },
+      {
+        "id": "srp5_4",
+        "ai_first_turn_fi": "Lemmikkejä ei valitettavasti saa pitää. Sopiiko se sinulle?"
+      },
+      {
+        "id": "srp5_5",
+        "ai_first_turn_fi": "Haluaisitko tulla katsomaan asuntoa? Vapaita aikoja on huomenna kello 17 tai torstaina kello 18."
+      },
+      {
+        "id": "srp5_6",
+        "ai_first_turn_fi": "Loistavaa. Tavataan sitten torstaina kello 18 osoitteessa Esimerkkikatu 5 B 22. Saatko osoitteen ylös?"
+      },
+      {
+        "id": "srp5_7",
+        "ai_first_turn_fi": "Hyvä. Nähdään torstaina!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka tiedustelee vuokra-asuntoa. Keskustele vuokranantajan kanssa näytöllä.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

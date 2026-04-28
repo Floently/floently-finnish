@@ -1,0 +1,40 @@
+{
+  "id": "bfd301b2-cae9-55d2-88d3-308e953e21df",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa ystävällistä ja tuttavallista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet vanha asukas, ystävällinen ja auttavainen.",
+        "partner": "Uusi naapuri - vähän ujo, uudessa tilanteessa, arvostaa ystävällistä vastaanottoa."
+      }
+    },
+    "items": [
+      {
+        "id": "srp48",
+        "ai_first_turn_fi": "Hei, sinä olet varmaan se uusi naapuri? Tervetuloa taloon! Olen [nimi] ja asun tuossa vieressä."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa ystävällistä ja tuttavallista kieltä.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

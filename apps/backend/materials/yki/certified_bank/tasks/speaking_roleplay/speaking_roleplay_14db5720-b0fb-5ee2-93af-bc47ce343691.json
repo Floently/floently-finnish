@@ -1,0 +1,40 @@
+{
+  "id": "14db5720-b0fb-5ee2-93af-bc47ce343691",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Toimit tilanteessa roolisi mukaan. Puhu suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "asiakas",
+        "partner": "kirjaston työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp01_01",
+        "ai_first_turn_fi": "Hei, mitä saisi olla?"
+      }
+    ],
+    "rubric": "Toimit tilanteessa roolisi mukaan. Puhu suomeksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

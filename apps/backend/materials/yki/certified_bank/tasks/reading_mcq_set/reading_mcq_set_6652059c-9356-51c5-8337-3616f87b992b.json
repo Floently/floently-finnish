@@ -1,0 +1,66 @@
+{
+  "id": "6652059c-9356-51c5-8337-3616f87b992b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Työmarkkinoiden murros on yksi aikamme suurimmista haasteista. Globalisaatio, teknologinen kehitys ja väestön ikääntyminen muuttavat työn kysyntää ja tarjontaa. Osaamisvaatimukset kasvavat, ja työurat muuttuvat pirstaleisemmiksi. Yhä useampi työskentelee keikkatyössä, vuokratyössä tai yrittäjänä. Perinteinen palkkatyön malli on murroksessa, mikä asettaa paineita sosiaaliturvan ja työlainsäädännön uudistamiselle. Myös työehtosopimusjärjestelmä on keskustelun kohteena. Työmarkkinaosapuolten, eli työntekijä- ja työnantajajärjestöjen, rooli on muuttumassa, ja uusia neuvottelumalleja etsitään.",
+      "word_count": 60
+    },
+    "questions": [
+      {
+        "id": "mcq_099",
+        "prompt": "Mitkä tekijät muuttavat työn kysyntää ja tarjontaa?",
+        "options": [
+          "Globalisaatio ja teknologinen kehitys",
+          "Työehtosopimukset",
+          "Ammattiliittojen toiminta",
+          "Perinteinen palkkatyö"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_100",
+        "prompt": "Millainen työ on yleistymässä työmarkkinoiden murroksessa?",
+        "options": [
+          "Pysyvä kokoaikatyö",
+          "Keikkatyö ja vuokratyö",
+          "Virka- ja julkinen työ",
+          "Vakituinen palkkatyö"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_101",
+        "prompt": "Mitä perinteinen palkkatyön murros edellyttää?",
+        "options": [
+          "Työehtosopimusten vahvistamista",
+          "Sosiaaliturvan uudistamista",
+          "Palkkojen nostamista",
+          "Työaikojen pidentämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

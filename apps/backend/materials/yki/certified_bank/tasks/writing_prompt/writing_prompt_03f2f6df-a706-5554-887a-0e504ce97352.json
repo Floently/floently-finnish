@@ -1,0 +1,37 @@
+{
+  "id": "03f2f6df-a706-5554-887a-0e504ce97352",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt yksityisessä silmälasiliikkeessä. Kirjoita palaute liikkeelle.",
+    "materials": {
+      "scenario": "Palaute silmälasiliikkeestä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt yksityisessä silmälasiliikkeessä. Kirjoita palaute liikkeelle."
+      }
+    ],
+    "rubric": "Olet käynyt yksityisessä silmälasiliikkeessä. Kirjoita palaute liikkeelle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

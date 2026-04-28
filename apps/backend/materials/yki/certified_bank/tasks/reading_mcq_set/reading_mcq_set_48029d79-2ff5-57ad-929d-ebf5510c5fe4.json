@@ -1,0 +1,66 @@
+{
+  "id": "48029d79-2ff5-57ad-929d-ebf5510c5fe4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Olen sairas enkä pääse töihin tänään. Minulla on kuumetta ja kurkku kipeä. Menen lääkäriin tänään kello 14. Toivottavasti huomenna olen jo parempi. Voin sitten tehdä töitä kotoa käsin. Minulla on tärkeitä papereita, jotka pitää saada valmiiksi perjantaihin mennessä. Voisitko lähettää ne minulle sähköpostilla? Kiitos! – Anna  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 63
+    },
+    "questions": [
+      {
+        "id": "f9822d34-0ed0-50fb-a772-c2b476f7389b",
+        "prompt": "Miksi Anna ei mene töihin?",
+        "options": [
+          "Hänellä on vapaapäivä",
+          "Hän on sairas",
+          "Hän matkustaa",
+          "Hänellä on menoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8e46349e-9ba8-5638-b939-e12d702c727a",
+        "prompt": "Milloin Anna menee lääkäriin?",
+        "options": [
+          "kello 10",
+          "kello 12",
+          "kello 14",
+          "kello 16"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e54d48ab-335e-59af-9b71-6b6199a2f70e",
+        "prompt": "Mitä Anna pyytää työkaveriltaan?",
+        "options": [
+          "soittamaan hänelle",
+          "lähettämään paperit sähköpostilla",
+          "tulemaan kylään",
+          "tekemään hänen työnsä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

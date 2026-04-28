@@ -1,0 +1,37 @@
+{
+  "id": "f8e522a3-23f8-5632-9d44-aa16f3ad29d5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uimahallin asiakaspalveluun. Haluat tiedustella, onko uimahallissa mahdollista pitää lasten syntymäpäiväjuhlia. Kerro, montako lasta juhliin tulisi ja minkä ikäisiä he ovat. Kysy myös hintaa ja varauskäytäntöä.",
+    "materials": {
+      "scenario": "Tiedustelu lasten syntymäpäiväjuhlista uimahallissa"
+    },
+    "items": [
+      {
+        "id": "90e78506-61ca-5b8d-842e-ed0665948d9e",
+        "prompt": "Kirjoita sähköposti uimahallin asiakaspalveluun. Haluat tiedustella, onko uimahallissa mahdollista pitää lasten syntymäpäiväjuhlia. Kerro, montako lasta juhliin tulisi ja minkä ikäisiä he ovat. Kysy myös hintaa ja varauskäytäntöä."
+      }
+    ],
+    "rubric": "Lasten määrä ja ikä\nHinta\nVarauskäytäntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

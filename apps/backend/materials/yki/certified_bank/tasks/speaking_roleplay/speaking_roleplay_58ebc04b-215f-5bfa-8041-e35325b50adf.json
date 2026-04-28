@@ -1,0 +1,64 @@
+{
+  "id": "58ebc04b-215f-5bfa-8041-e35325b50adf",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet työnhakijaa, joka soittaa työpaikasta lisätietojen saamiseksi ennen hakemuksen lähettämistä. Keskustele rekrytoijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Työnhakija",
+        "partner": "Myymäläpäällikkö"
+      }
+    },
+    "items": [
+      {
+        "id": "srp7_1",
+        "ai_first_turn_fi": "Hei, Marjaana Keskosesta."
+      },
+      {
+        "id": "srp7_2",
+        "ai_first_turn_fi": "Hienoa, haemme kassalle ja hyllytykseen. Millainen työkokemus sinulla on?"
+      },
+      {
+        "id": "srp7_3",
+        "ai_first_turn_fi": "Kuulostaa hyvältä. Työaika olisi 20–30 tuntia viikossa, ja työvuorot olisivat aamuista iltaan. Sopisiko tämä sinulle?"
+      },
+      {
+        "id": "srp7_4",
+        "ai_first_turn_fi": "Entä onko sinulla kysyttävää työtehtävistä?"
+      },
+      {
+        "id": "srp7_5",
+        "ai_first_turn_fi": "Palkkaus on kaupan alan työehtosopimuksen mukainen. Työvaatteet saadaan työpaikalta. Lähetäthän hakemuksesi ensi viikon maanantaihin mennessä."
+      },
+      {
+        "id": "srp7_6",
+        "ai_first_turn_fi": "Hyvä. Jos hakemuksesi kiinnostaa meitä, kutsumme sinut haastatteluun. Kysyttävää vielä?"
+      },
+      {
+        "id": "srp7_7",
+        "ai_first_turn_fi": "Oikein hyvä. Kiitos soitostasi ja hakemusta odotellessa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet työnhakijaa, joka soittaa työpaikasta lisätietojen saamiseksi ennen hakemuksen lähettämistä. Keskustele rekrytoijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

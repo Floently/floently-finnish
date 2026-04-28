@@ -1,0 +1,37 @@
+{
+  "id": "7e8c6271-b37f-54eb-bc8f-fffb8352c9f2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ohjeen mukaan.",
+    "materials": {
+      "scenario": "Kirjastopalvelut"
+    },
+    "items": [
+      {
+        "id": "b3138b00-8a4e-5c87-ad8d-ca2c9fc902cb",
+        "prompt": "Kirjoita palaute kirjaston palveluista."
+      }
+    ],
+    "rubric": "Kirjoita palaute kirjaston palveluista.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

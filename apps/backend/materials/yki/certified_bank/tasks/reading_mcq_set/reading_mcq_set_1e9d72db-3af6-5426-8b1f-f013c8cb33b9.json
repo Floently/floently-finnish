@@ -1,0 +1,110 @@
+{
+  "id": "1e9d72db-3af6-5426-8b1f-f013c8cb33b9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen kielen asema on vahva, mutta se kohtaa haasteita. Englannin kielen asema on vahvistunut erityisesti tieteessä ja yritysmaailmassa. Monet kansainväliset yritykset käyttävät työkielenään englantia. Yhä useampi korkeakoulututkinto suoritetaan englanniksi. Tämä on herättänyt keskustelua suomen kielen tulevaisuudesta. Osa pelkää, että suomen kielen asema heikkenee. Se voi jäädä vain arjen kieleksi, kun vaativa asiantuntijatyö siirtyy englantiin. Toiset taas katsovat, että suomen kielen asema on turvattu. Vahvat instituutiot ja lainsäädäntö tukevat sitä. Kieli elää ja muuttuu koko ajan. Uudet sanat ja vaikutteet rikastuttavat sitä. Keskeistä on löytää tasapaino kansainvälisyyden ja oman kielen vaalimisen välillä. Tarvitaan tietoista kielipolitiikkaa, joka tukee suomen käyttöä kaikilla aloilla. Myös kielitaito on tärkeää: suomalaisten on osattava sekä suomea että muita kieliä.",
+      "word_count": 112
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millä aloilla englannin kielen asema on vahvistunut erityisesti?",
+        "options": [
+          "Peruskoulutuksessa ja päivähoidossa.",
+          "Tieteessä ja yritysmaailmassa.",
+          "Julkisessa hallinnossa.",
+          "Viihteessä ja kulttuurissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uhkakuvia suomen kielen asemasta esitetään?",
+        "options": [
+          "Suomi voi kokonaan kadota.",
+          "Suomi voi jäädä vain arjen kieleksi.",
+          "Suomeen tulee liikaa uusia sanoja.",
+          "Suomen kielioppi muuttuu liian nopeasti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi suomen kielen aseman uskotaan olevan turvattu?",
+        "options": [
+          "Koska kaikki suomalaiset puhuvat vain suomea.",
+          "Vahvojen instituutioiden ja lainsäädännön ansiosta.",
+          "Koska englannin kielen käyttö on kielletty.",
+          "Koska suomi on helppo kieli."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kielen muutokseen tulisi suhtautua?",
+        "options": [
+          "Kaikki muutokset pitäisi kieltää.",
+          "Muutokset ovat luonnollisia ja uudet vaikutteet rikastuttavat kieltä.",
+          "Vain vanhaa suomea saa käyttää.",
+          "Kielen pitäisi pysyä täysin muuttumattomana."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millaista kielipolitiikkaa tarvitaan?",
+        "options": [
+          "Kielipolitiikkaa, joka kieltää englannin käytön.",
+          "Kielipolitiikkaa, joka tukee suomen käyttöä kaikilla aloilla.",
+          "Kielipolitiikkaa, joka pakottaa kaikki puhumaan englantia.",
+          "Kielipolitiikkaa, joka ei puutu kielikysymyksiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan täyden palvelun kielellä?",
+        "options": [
+          "Kieltä, jota voi käyttää kaikilla yhteiskunnan aloilla.",
+          "Kieltä, jota puhutaan useissa maissa.",
+          "Kieltä, jolla on paljon puhujia.",
+          "Kieltä, joka on helppo oppia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä kielitaitoa suomalaiset tarvitsevat?",
+        "options": [
+          "Vain suomen kielen taitoa.",
+          "Sekä suomen että muiden kielten taitoa.",
+          "Vain englannin kielen taitoa.",
+          "Ei minkäänlaista kielitaitoa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

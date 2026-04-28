@@ -1,0 +1,77 @@
+{
+  "id": "de66e0ed-893b-5387-97e0-be15694da1ba",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.742,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TEKOÄLYN EETTISYYS – KUKA KANTAA VASTUUN?\n\nTekoäly on tullut jäädäkseen. Se tekee päätöksiä puolestamme: kenelle myönnetään luotto, kuka kutsutaan työhaastatteluun, mikä on sopiva hoito potilaalle. Tämä herättää vakavia eettisiä kysymyksiä. Kuka on vastuussa, kun tekoäly tekee virheen?\n\nYksi keskeisimmistä ongelmista on tekoälyn läpinäkymättömyys. Monimutkaiset neuroverkot toimivat mustina laatikoina – emme tiedä, miksi ne päätyvät tiettyyn ratkaisuun. Tämä on ongelma, jos tekoäly syrjii jotain ryhmää tai tekee vääriä päätöksiä. Jos emme ymmärrä päätöksen perusteita, emme voi myöskään puuttua siihen.\n\nToinen ongelma on vinoumat. Tekoäly oppii ihmisten tuottamasta datasta. Jos data sisältää vinoumia, tekoäly oppii ne ja jopa vahvistaa niitä. Tämä on nähty esimerkiksi rekrytointijärjestelmissä, jotka ovat suosineet miehiä naisten kustannuksella, koska ne on opetettu historiallisella datalla, jossa miehiä on valittu useammin.\n\nKolmas kysymys on vastuu. Jos tekoäly tekee virheen – vaikka diagnosoi väärin tai hylkää luottohakemuksen perusteetta – kuka on vastuussa? Ohjelmoija? Yritys, joka käyttää tekoälyä? Vai tekoäly itse, mikä on tietysti mahdotonta?\n\nTutkijat vaativatkin tekoälyn sääntelyä ja valvontaa. Tarvitaan läpinäkyvyyttä: on pystyttävä selvittämään, miten tekoäly päätyy päätöksiinsä. Tarvitaan vastuullisuutta: jonkun on kannettava vastuu virheistä. Ja tarvitaan monimuotoisuutta: tekoälyn kehittäjien on edustettava erilaisia taustoja, jotta vinoumat voidaan tunnistaa.\n\nEU on ottanut askelia tekoälyasetuksella, joka luokittelee tekoälysovellukset riskiluokkiin. Korkean riskin sovelluksille asetetaan tiukkoja vaatimuksia. Se on hyvä alku, mutta ei riitä.\n\nLopuksi on muistettava, että tekoäly on työkalu. Se voi tehdä valtavasti hyvää, mutta vain jos sitä kehitetään vastuullisesti. Emme voi ulkoistaa moraalia koneille.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 265
+    },
+    "questions": [
+      {
+        "id": "4a567b5f-c20e-5f44-98df-136bd598f649",
+        "prompt": "Mitä eettisiä ongelmia tekoälyyn liittyy?",
+        "options": [
+          "se on liian kallista",
+          "läpinäkymättömyys, vinoumat ja vastuukysymykset",
+          "se on liian hidasta",
+          "se vie työpaikkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7162ee4-76c0-5f45-a76c-62b6750d8698",
+        "prompt": "Mitä tarkoitetaan tekoälyn läpinäkymättömyydellä?",
+        "options": [
+          "se on näkyvää kaikille",
+          "emme tiedä, miksi tekoäly päätyy tiettyyn ratkaisuun",
+          "se on liian yksinkertaista",
+          "se toimii aina oikein"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "478a9bf1-6f14-597c-b3d6-eb9012457b18",
+        "prompt": "Miten vinoumat syntyvät tekoälyssä?",
+        "options": [
+          "ne on ohjelmoitu tarkoituksella",
+          "tekoäly oppii ne datasta, joka sisältää ihmisten vinoumia",
+          "ne syntyvät itsestään",
+          "niitä ei ole olemassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3502f56b-f168-5244-aa9f-9094a916e72f",
+        "prompt": "Mitä ratkaisuja tutkijat ehdottavat?",
+        "options": [
+          "tekoälyn kieltämistä",
+          "läpinäkyvyyttä, vastuullisuutta ja monimuotoisuutta kehittäjissä",
+          "vain lisää rahaa",
+          "tekoälyn nopeampaa kehitystä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

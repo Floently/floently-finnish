@@ -1,0 +1,40 @@
+{
+  "id": "b919f4db-b776-5c06-92a2-8f5e476a8145",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele kiinteistönvälittäjän kanssa. Kerro, millaista asuntoa etsit ja mikä on budjettisi.",
+    "materials": {
+      "roles": {
+        "user": "etsimässä omistusasuntoa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "a8121b04-0098-5f86-a379-44735b944474",
+        "ai_first_turn_fi": "Päivää, ole hyvä. Kerro nyt, millaista kotia oikein etsit, niin aletaan katsoa, mitä meillä olisi tarjolla."
+      }
+    ],
+    "rubric": "Keskustele kiinteistönvälittäjän kanssa. Kerro, millaista asuntoa etsit ja mikä on budjettisi.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

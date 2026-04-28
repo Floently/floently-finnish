@@ -1,0 +1,40 @@
+{
+  "id": "3214aa86-1242-5a18-89d7-bc0c3ed9bdf5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you bake yourself or buy pastries from the store. What is your favorite pastry?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "9d9bb537-4625-5df1-94e9-9adccc593cd8",
+        "ai_first_turn_fi": "Tykkäätkö sä leipoa? Mikä on sun lempiherkku kahvin kanssa?"
+      }
+    ],
+    "rubric": "Tell if you bake yourself or buy pastries from the store. What is your favorite pastry?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

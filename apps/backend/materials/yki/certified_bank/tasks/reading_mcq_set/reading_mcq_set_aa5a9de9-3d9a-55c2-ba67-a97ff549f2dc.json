@@ -1,0 +1,66 @@
+{
+  "id": "aa5a9de9-3d9a-55c2-ba67-a97ff549f2dc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "DIGITAALISET PALVELUT MUUTTAVAT ARKEA\n\nSuomi on digitalisaation kärkimaita. Yhä useampi asioi verkossa: pankkiasiat, veroilmoitukset, kirjastolainat ja jopa lääkäriajan varaukset hoituvat nykyään digitaalisesti. Tämä säästää aikaa ja vaivaa, mutta tuo myös haasteita.\n\nHyviä puolia on paljon. Palvelut ovat auki 24/7, eikä jonottamaan tarvitse mennä. Asiointi on usein nopeampaa ja paperitonta. Monet kokevat, että digitaaliset palvelut ovat helpottaneet arkea huomattavasti.\n\nHuonoja puolia on kuitenkin myös. Kaikilla ei ole mahdollisuutta käyttää digitaalisia palveluita. Vanhukset, vammaiset ja ne, joilla ei ole nettiyhteyttä tai laitteita, voivat jäädä paitsi. Myös digitaitoja tarvitaan yhä enemmän, ja kaikilla niitä ei ole.\n\nTietoturva on toinen huolenaihe. Verkossa tapahtuvat huijaukset ja tietomurrot ovat lisääntyneet. Ihmiset saavat huijausviestejä, joissa yritetään kalastella pankkitunnuksia. Moni on menettänyt rahaa tai henkilötietoja.\n\nAsiantuntijat korostavat, että digitaalisia palveluita pitää kehittää niin, että ne ovat kaikkien saavutettavissa. Tarvitaan myös opastusta ja tukea niille, jotka eivät osaa käyttää digipalveluita. Samalla pitää panostaa tietoturvaan ja varoittaa ihmisiä huijauksista.\n\nTulevaisuudessa digitaaliset palvelut lisääntyvät entisestään. On tärkeää, että kukaan ei jää kehityksen jalkoihin.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 190
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä digitaalisista palveluista on?",
+        "options": [
+          "Ne ovat aina auki ja asiointi on nopeampaa",
+          "Ne ovat aina ilmaisia",
+          "Ne korvaavat kaikki ihmiskontaktit",
+          "Ne ovat turvallisempia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on digitaalisten palveluiden huono puoli?",
+        "options": [
+          "Ne ovat liian hitaita",
+          "Kaikilla ei ole mahdollisuutta käyttää niitä, ja tietoturva on huolenaihe",
+          "Ne maksavat liikaa",
+          "Ne ovat vaikeita käyttää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä asiantuntijat ehdottavat?",
+        "options": [
+          "Palveluista pitää tehdä maksullisia",
+          "Palveluita pitää kehittää kaikille saavutettaviksi ja panostaa tietoturvaan",
+          "Digitaaliset palvelut pitää lakkauttaa",
+          "Vain nuoret saavat käyttää palveluita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

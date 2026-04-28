@@ -1,0 +1,37 @@
+{
+  "id": "f408b7d3-0544-5ae1-9ccb-138e4a12d4a3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: asiakaspalvelukeskuksessa. Tarkoitus: kuvaa kokemus. Rajoite: noudata aikataulua.",
+    "materials": {
+      "scenario": "teknologiasta asiakaspalvelusta"
+    },
+    "items": [
+      {
+        "id": "9605b9ba-8098-5ed5-bdc2-c40c3ab6648e",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: asiakaspalvelukeskuksessa. Tarkoitus: kuvaa kokemus. Rajoite: noudata aikataulua."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

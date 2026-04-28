@@ -1,0 +1,37 @@
+{
+  "id": "c5a3ef32-23e9-58a4-86ae-5ac71e0d8448",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute.",
+    "materials": {
+      "scenario": "Kirjoita palaute."
+    },
+    "items": [
+      {
+        "id": "fad037b1-18ec-516b-8fb3-ddc6714a0375",
+        "prompt": "Olet osallistunut suomen kielen kurssille. Kurssi on päättynyt, ja sinua pyydetään antamaan palautetta.\n\nKirjoita palaute, jossa:\n- kerrot, mikä kurssilla oli hyvää (opetus, materiaalit, ryhmähenki)\n- kerrot, mitä voisi parantaa\n- arvioit omaa oppimistasi ja kurssin hyötyä"
+      }
+    ],
+    "rubric": "Olet osallistunut suomen kielen kurssille. Kurssi on päättynyt, ja sinua pyydetään antamaan palautetta.\n\nKirjoita palaute, jossa:\n- kerrot, mikä kurssilla oli hyvää (opetus, materiaalit, ryhmähenki)\n- kerrot, mitä voisi parantaa\n- arvioit omaa oppimistasi ja kurssin hyötyä",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

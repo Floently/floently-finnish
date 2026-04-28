@@ -1,0 +1,37 @@
+{
+  "id": "8f689b36-e5a5-5a2f-8e51-7706a8147fed",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti patentti- ja rekisterihallituksen patenttiosastoon. Olet keksinyt uuden tuotteen ja haluat hakea sille patenttia. Kerro keksinnöstäsi yleisesti ja kysy, mitä vaiheita patentin hakemiseen kuuluu, kuinka kauan se kestää ja mitä se maksaa. Kysy myös, tarvitsetko apua patenttiasiamieheltä.",
+    "materials": {
+      "scenario": "Patentin hakeminen"
+    },
+    "items": [
+      {
+        "id": "6c5eda1f-36e4-59a7-956b-c474f99e01e3",
+        "prompt": "Kirjoita virallinen sähköposti patentti- ja rekisterihallituksen patenttiosastoon. Olet keksinyt uuden tuotteen ja haluat hakea sille patenttia. Kerro keksinnöstäsi yleisesti ja kysy, mitä vaiheita patentin hakemiseen kuuluu, kuinka kauan se kestää ja mitä se maksaa. Kysy myös, tarvitsetko apua patenttiasiamieheltä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

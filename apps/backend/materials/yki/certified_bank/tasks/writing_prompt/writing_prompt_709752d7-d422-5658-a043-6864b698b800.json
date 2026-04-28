@@ -1,0 +1,37 @@
+{
+  "id": "709752d7-d422-5658-a043-6864b698b800",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin kaavoitusosastolle. Olet huolissasi lähelle suunnitellusta uudesta rakennushankkeesta, joka voisi vähentää viheralueita. Kerro huolesi ja kysy, miten asukkaat voivat vaikuttaa suunnitelmiin.",
+    "materials": {
+      "scenario": "Mielipide kaavoitushankkeesta"
+    },
+    "items": [
+      {
+        "id": "bd57fb29-d0e5-5adb-85e7-f399f97c1725",
+        "prompt": "Kirjoita sähköposti kaupungin kaavoitusosastolle. Olet huolissasi lähelle suunnitellusta uudesta rakennushankkeesta, joka voisi vähentää viheralueita. Kerro huolesi ja kysy, miten asukkaat voivat vaikuttaa suunnitelmiin."
+      }
+    ],
+    "rubric": "Hankkeen kuvaus\nHuolenaiheet\nVaikuttamismahdollisuudet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

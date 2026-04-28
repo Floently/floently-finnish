@@ -1,0 +1,37 @@
+{
+  "id": "30dbd645-5d91-5052-87e9-597435d5b3e4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kunnan maahanmuuttopalveluihin. Olet saanut oleskeluluvan ja haluat tietää, miten kotoutumissuunnitelma tehdään. Kysy, mitä palveluita on tarjolla ja milloin voit aloittaa suomen kielen kurssin.",
+    "materials": {
+      "scenario": "Tiedustelu kotoutumispalveluista"
+    },
+    "items": [
+      {
+        "id": "8f16c65c-aaf2-52b6-a458-3b74cce8a3f1",
+        "prompt": "Kirjoita sähköposti kunnan maahanmuuttopalveluihin. Olet saanut oleskeluluvan ja haluat tietää, miten kotoutumissuunnitelma tehdään. Kysy, mitä palveluita on tarjolla ja milloin voit aloittaa suomen kielen kurssin."
+      }
+    ],
+    "rubric": "Oleskelulupa\nKotoutumissuunnitelma\nKielikurssit",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

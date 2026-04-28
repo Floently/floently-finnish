@@ -1,0 +1,99 @@
+{
+  "id": "00fbe4bf-dcea-51b4-a9a0-5ef519f208c2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta liikuntapalvelusta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin liikuntapalvelujen tiedote. Olemme uudistaneet liikuntapalvelujamme. Uusi verkkosivustomme on avattu, josta löytyvät kaikki liikuntapaikat, kurssit ja tapahtumat. Sivuilta voi myös varata vuoroja liikuntapaikkoihin. Olemme myös lisänneet maksuttomia liikuntamahdollisuuksia. Esimerkiksi ulkokuntosaleja on nyt viisi eri puolilla kaupunkia. Lisäksi järjestämme maksuttomia ohjattuja liikuntatuokioita puistoissa kesäkuukausina. Uusi uimahalli Kivikossa avataan elokuussa. Uimahallissa on 50 metrin allas, hyppyallas ja palju. Lisäksi laajennamme ikäihmisille suunnattuja liikuntaryhmiä. Tavoitteenamme on, että jokainen löytäisi itselleen sopivan tavan liikkua. Tervetuloa mukaan!",
+      "audio_asset_id": "b3c4d5e6-f7a8-9b0c-1d2e-3f4a5b6c7d8e"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin liikuntapalvelut tiedottavat?",
+        "options": [
+          "Uuden jäähallin avajaisista.",
+          "Liikuntapalvelujen uudistuksesta.",
+          "Liikuntapaikkojen sulkemisesta.",
+          "Liikuntamaksujen korotuksesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä uudella verkkosivulla voi tehdä?",
+        "options": [
+          "Vain katsoa tietoja.",
+          "Löytää liikuntapaikat, kurssit ja varata vuoroja.",
+          "Vain varata uimahalliaikoja.",
+          "Vain ilmoittautua kursseille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Kuinka monta uutta ulkokuntosalia on rakennettu?",
+        "options": [
+          "Kaksi.",
+          "Kolme.",
+          "Viisi.",
+          "Kahdeksan."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Milloin uusi uimahalli Kivikossa avataan?",
+        "options": [
+          "Kesäkuussa.",
+          "Heinäkuussa.",
+          "Elokuussa.",
+          "Syyskuussa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä uudessa uimahallissa on?",
+        "options": [
+          "Vain 25 metrin allas.",
+          "50 metrin allas, hyppyallas ja palju.",
+          "Vain palju ja hyppyallas.",
+          "Vain lastenallas."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Ketä varten liikuntaryhmiä laajennetaan?",
+        "options": [
+          "Lapsia.",
+          "Nuoria.",
+          "Ikäihmisiä.",
+          "Työikäisiä."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

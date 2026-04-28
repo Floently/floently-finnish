@@ -1,0 +1,73 @@
+{
+  "id": "e74a7e97-d592-5e35-a848-0078ec3e5f40",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan ilmoitus uusista työtiloista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIEDOTE: MUUTTO UUSIIN TOIMITILOIHIN\n\nHyvät työntekijät,\n\nolemme iloisia voidessamme ilmoittaa, että yritys muuttaa uusiin toimitiloihin maaliskuun alussa. Uusi osoite on Teknologiakatu 8.\n\nUudet tilat ovat modernit ja toimivat. Tärkeimmät muutokset:\n\n- Avoimet työskentelytilat: Osa työpisteistä on avoimessa maisemassa, mutta käytössä on myös hiljaisia työhuoneita ja puhelinkoppeja.\n- Neuvotteluhuoneet: Varausjärjestelmä on käytössä, ja huoneet on varustettu uusilla videoneuvottelulaitteilla.\n- Taukotilat: Uusi kahvila- ja oleskelualue, jossa on myös biljardipöytä ja lehtienlukumahdollisuus.\n- Pukuhuoneet ja suihkut: Käytössä pyöräilijöille ja lenkkeilijöille.\n- Parkkipaikat: Rajoitettu määrä parkkipaikkoja, suosittelemme kimppakyytejä tai julkista liikennettä.\n\nMuuttokäytännöt:\n- Jokainen työntekijä pakkaa omat työpisteensä. Pakkausmateriaalit saa HR:stä.\n- Merkitse laatikot selvästi: nimi ja uusi työpiste.\n- Muuttopäivänä (pe 7.3.) etätyö on sallittu.\n- Uusissa tiloissa on opastus ja kahvitarjoilu muuttopäivänä.\n\nLisätietoja antaa HR.\n\nTerveisin,\nJohtoryhmä",
+      "word_count": 125
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mihin yritys muuttaa?",
+        "options": [
+          "Teknologiakatu 5",
+          "Teknologiakatu 8",
+          "Teknologiakatu 10"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Milloin muuttopäivä on?",
+        "options": [
+          "pe 29.2.",
+          "pe 7.3.",
+          "pe 14.3."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä uusissa tiloissa on?",
+        "options": [
+          "vain avoimia työpisteitä",
+          "avoimia työpisteitä, hiljaisia huoneita, neuvotteluhuoneita ja uudet taukotilat",
+          "vain neuvotteluhuoneita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä suositellaan parkkipaikkojen vähyyden vuoksi?",
+        "options": [
+          "tulemaan aikaisemmin",
+          "kimppakyytejä tai julkista liikennettä",
+          "pysäköimään kauemmas"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "5a4fd38b-393f-5687-9307-16003d521633",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.765,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Työn ja toimeentulon suhde on murroksessa, ja yksi keskeisimpiä keskustelunaiheita on perustulo. Perustulolla tarkoitetaan järjestelmää, jossa jokaiselle kansalaiselle maksetaan riittävä toimeentulo ilman ehtoja ja byrokratiaa. Se on herättänyt laajaa kiinnostusta niin vasemmalla kuin oikeallakin, mutta eri syistä. Perustulon kannattajat vasemmistossa näkevät sen keinona vähentää köyhyyttä ja lisätä tasa-arvoa. Se turvaisi jokaisen toimeentulon työmarkkina-asemasta riippumatta ja vähentäisi byrokratiaa. Se myös tunnustaisi yhteiskunnalle arvokkaan työn, kuten hoiva- ja vapaaehtoistyön, joka jää palkkatyön ulkopuolelle. Perustulon kannattajat oikealla puolestaan näkevät sen keinona vähentää byrokratiaa ja lisätä yksilön vapautta. Se kannustaisi yrittäjyyteen ja osa-aikatyöhön, koska se poistaisi kannustinloukkuja. Se myös siirtäisi valtaa valtiolta yksilöille, kun ihmiset voisivat itse päättää, miten ansaitsevat lisätuloja. Perustulon vastustajat puolestaan varoittavat, että se heikentäisi työnteon kannustimia ja tulisi liian kalliiksi. Heidän mukaansa se voisi johtaa työvoimapulaan ja heikentää julkista taloutta. Lisäksi he pelkäävät, että se heikentäisi yhteiskunnan moraalia, kun työtä ei enää arvostettaisi samalla tavalla. Kolmas näkökulma korostaa, että perustulo ei ole mustavalkoinen kysymys, vaan sen vaikutukset riippuvat siitä, miten se on suunniteltu ja mitä muita järjestelmiä se korvaa. Erilaisia perustulomalleja on lukuisia, ja niiden vaikutukset työllisyyteen, talouteen ja eriarvoisuuteen vaihtelevat. Tarvitaan lisää tutkimusta ja kokeiluja, jotta saadaan tietoa siitä, millainen malli toimisi parhaiten.",
+      "word_count": 194
+    },
+    "questions": [
+      {
+        "id": "6864b929-93ec-53bd-a937-add3d216838d",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Perustulon kannattajat ja vastustajat vasemmistossa ja oikealla",
+          "Perustuloon liittyvä monitahoinen keskustelu ja erilaiset näkökulmat",
+          "Perustulon tekniset toteutusvaihtoehdot",
+          "Perustulon vaikutukset työllisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f53fb4e1-95bd-5e3e-98d7-374d4e8f6e03",
+        "prompt": "Tekstin mukaan mitä hyötyjä vasemmiston kannattajat näkevät perustulossa?",
+        "options": [
+          "Se vähentää byrokratiaa ja lisää yksilön vapautta",
+          "Se vähentää köyhyyttä, lisää tasa-arvoa ja tunnustaa palkattoman työn arvon",
+          "Se kannustaa yrittäjyyteen ja poistaa kannustinloukkuja",
+          "Se siirtää valtaa valtiolta yksilöille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "319d1e75-af5a-5ca4-8031-1c1edf649270",
+        "prompt": "Mitä hyötyjä oikeiston kannattajat näkevät perustulossa?",
+        "options": [
+          "Se vähentää köyhyyttä ja lisää tasa-arvoa",
+          "Se vähentää byrokratiaa, lisää yksilön vapautta, kannustaa yrittäjyyteen ja poistaa kannustinloukkuja",
+          "Se turvaa toimeentulon työmarkkina-asemasta riippumatta",
+          "Se tunnustaa palkattoman työn arvon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9a56a786-844c-5d5c-bdae-95f52333d505",
+        "prompt": "Mitä kritiikkiä perustuloa kohtaan tekstissä esitetään?",
+        "options": [
+          "Se on liian vaikea toteuttaa teknisesti",
+          "Se heikentäisi työnteon kannustimia, tulisi liian kalliiksi ja voisi heikentää yhteiskunnan moraalia",
+          "Se on ristiriidassa EU-lainsäädännön kanssa",
+          "Se hyödyttäisi vain rikkaita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

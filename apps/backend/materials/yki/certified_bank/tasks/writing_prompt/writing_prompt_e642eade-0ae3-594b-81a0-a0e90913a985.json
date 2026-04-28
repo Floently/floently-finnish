@@ -1,0 +1,37 @@
+{
+  "id": "e642eade-0ae3-594b-81a0-a0e90913a985",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että löysit hänen hanskat eteisestä. Ne ovat mustat nahkahanskat. Kysy, haluaako hän, että tuot ne huomenna kahvilaan.",
+    "materials": {
+      "scenario": "Viesti ystävälle löytyneistä hanskoista"
+    },
+    "items": [
+      {
+        "id": "9aa6dbf9-dfa0-5a9d-a67d-9a272a706940",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että löysit hänen hanskat eteisestä. Ne ovat mustat nahkahanskat. Kysy, haluaako hän, että tuot ne huomenna kahvilaan."
+      }
+    ],
+    "rubric": "Kerro, että löysit hanskat\nKerro, mistä löysit\nKuvaile hanskoja\nKysy, miten toimitat ne",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

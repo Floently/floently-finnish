@@ -1,0 +1,37 @@
+{
+  "id": "8e95ab18-6817-5ef5-8454-30c15ceb6d52",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon lieden liesituuletin ei toimi. Se ei ime höyryjä. Kerro ongelmasta ja pyydä, että liesituuletin korjataan tai vaihdetaan.",
+    "materials": {
+      "scenario": "Vikailmoitus liesituulettimesta"
+    },
+    "items": [
+      {
+        "id": "a07b4ebd-81fd-5cc5-9725-38644e1f14f7",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon lieden liesituuletin ei toimi. Se ei ime höyryjä. Kerro ongelmasta ja pyydä, että liesituuletin korjataan tai vaihdetaan."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nVaikutukset\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "b009d7d0-672e-5f64-8347-b1e1aea9b8a5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.789,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Julkisen tilan käsite on viime vuosina noussut keskeiseksi yhteiskunnallisen keskustelun kohteeksi. Perinteisesti julkisella tilalla on tarkoitettu paikkoja, jotka ovat periaatteessa kaikkien kansalaisten saavutettavissa ja käytettävissä: kadut, torit, puistot ja aukiot. Näiden tilojen on nähty olevan demokratian ja kansalaisyhteiskunnan keskeisiä areenoita, joissa erilaiset ihmiset voivat kohdata, keskustella ja toimia yhdessä. Viime vuosikymmeninä julkisen tilan luonne on kuitenkin muuttunut merkittävästi. Kaupalliset intressit ovat vahvistuneet, ja yhä useammat aiemmin julkisina pidetyt tilat ovat siirtyneet yksityiseen omistukseen tai hallintaan. Tämä kehitys näkyy selvimmin kauppakeskusten ja muiden yksityisten kauppapaikkojen lisääntymisenä. Ne ovat yksityisomistuksessa olevia tiloja, jotka on suunniteltu ensisijaisesti kuluttamista varten, ja niissä liikkumista säädellään yksityisten turvallisuuspalveluiden toimesta. Tämä herättää kysymyksiä siitä, kuka todella saa käyttää näitä tiloja ja millä ehdoilla. Nuoret, näkyvät vähemmistöt ja muut 'epäilyttävinä' pidetyt ryhmät joutuvat helposti valvonnan kohteiksi, mikä voi johtaa heidän syrjäytymiseensä julkisesta tilasta. Toinen merkittävä muutos liittyy valvonnan lisääntymiseen. Turvallisuuspuhe on voimistunut, ja julkisiin tiloihin on asennettu runsaasti valvontakameroita ja muita kontrollin muotoja. Näitä perustellaan usein turvallisuudella ja rikollisuuden ehkäisyllä, mutta samalla ne muuttavat tilan luonnetta. Valvotussa tilassa käyttäytyminen on erilaista kuin vapaassa tilassa, ja jatkuva tarkkailun kohteena oleminen voi heikentää luottamusta ja yhteisöllisyyden kokemusta. Kolmas muutos liittyy digitaalisen ja fyysisen tilan yhteenkietoutumiseen. Älypuhelimet ja muut mobiililaitteet ovat tuoneet digitaalisen ulottuvuuden osaksi fyysistä julkista tilaa. Ihmiset ovat fyysisesti läsnä, mutta samalla he ovat uppoutuneita omiin digitaalisiin maailmoihinsa. Tämä voi vähentää kasvokkaista vuorovaikutusta ja heikentää yhteisöllisyyden kokemusta. Toisaalta digitaaliset työkalut voivat myös tarjota uusia mahdollisuuksia osallistua ja vaikuttaa oman elinympäristön kehittämiseen. Julkisen tilan muutos herättää perustavanlaatuisia kysymyksiä demokratiasta, yhdenvertaisuudesta ja yhteisöllisyydestä. Kuka omistaa julkisen tilan? Kenellä on oikeus määritellä sen käyttötarkoitukset ja säännöt? Miten turvataan, että julkinen tila säilyy aidosti kaikkien saavutettavana ja käytettävänä paikkana kaupallisten ja turvallisuusintressien paineessa? Näihin kysymyksiin ei ole yksinkertaisia vastauksia, mutta ne vaativat jatkuvaa yhteiskunnallista keskustelua ja arviointia.",
+      "word_count": 294
+    },
+    "questions": [
+      {
+        "id": "140fab31-b79d-5b2a-8f66-27abecd4ac39",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Kauppakeskusten turvallisuusjärjestelyt ja niiden vaikutukset asiakaskokemukseen",
+          "Julkisen tilan muutos ja siihen liittyvät jännitteet kaupallistumisen, valvonnan ja demokratian välillä",
+          "Digitaalisten laitteiden vaikutus ihmisten väliseen vuorovaikutukseen julkisissa tiloissa",
+          "Vähemmistöjen kokema syrjintä julkisissa tiloissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c601fa33-c4b8-59d7-9b94-356b025681c1",
+        "prompt": "Tekstin mukaan millä tavoin kauppakeskukset edustavat julkisen tilan muutosta?",
+        "options": [
+          "Ne ovat valtion ylläpitämiä tiloja, jotka on suunniteltu palvelemaan kaikkia kansalaisia",
+          "Ne ovat yksityisomistuksessa olevia tiloja, joissa liikkumista säädellään yksityisten toimesta ja jotka on suunniteltu ensisijaisesti kuluttamista varten",
+          "Ne ovat täysin julkisia tiloja, joissa ei ole minkäänlaista valvontaa tai sääntelyä",
+          "Ne ovat ainoita julkisia tiloja, jotka ovat avoinna myös iltaisin ja öisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0763ac65-2223-5d53-800c-66d780910eb4",
+        "prompt": "Mitä seurauksia valvonnan lisääntymisellä julkisissa tiloissa voi tekstin mukaan olla?",
+        "options": [
+          "Se lisää kansalaisten turvallisuuden tunnetta ja parantaa yhteisöllisyyttä",
+          "Se vähentää rikollisuutta ja tekee tiloista viihtyisämpiä kaikille",
+          "Se voi muuttaa tilan luonnetta, heikentää luottamusta ja kohdistua epäoikeudenmukaisesti tiettyihin ryhmiin",
+          "Sillä ei ole merkittäviä vaikutuksia, koska ihmiset tottuvat valvontaan nopeasti"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "dd3c6282-71a9-5396-a959-25ef25c21c8b",
+        "prompt": "Mitä haasteita digitaalisen ja fyysisen tilan yhteenkietoutuminen asettaa tekstin mukaan?",
+        "options": [
+          "Se tekee julkisista tiloista vaarallisempia, koska ihmiset eivät enää seuraa ympäristöään",
+          "Se vähentää tarvetta fyysisille kohtaamisille ja voi heikentää yhteisöllisyyden kokemusta, mutta voi myös tarjota uusia osallistumisen mahdollisuuksia",
+          "Se lisää merkittävästi digitaalista kuilua eri väestöryhmien välillä",
+          "Se on teknisesti mahdotonta toteuttaa nykyisellä infrastruktuurilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

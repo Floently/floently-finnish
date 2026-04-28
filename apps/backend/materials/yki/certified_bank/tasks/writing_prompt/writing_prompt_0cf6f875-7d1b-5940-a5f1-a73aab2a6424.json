@@ -1,0 +1,37 @@
+{
+  "id": "0cf6f875-7d1b-5940-a5f1-a73aab2a6424",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kirjastoon. Haluat kysyä, voiko kirjastossa tulostaa asiakirjoja. Kerro, mitä haluat tulostaa ja kuinka monta sivua. Kysy, paljonko tulostus maksaa ja tarvitaanko oma paperi.",
+    "materials": {
+      "scenario": "Tiedustelu tulostusmahdollisuuksista"
+    },
+    "items": [
+      {
+        "id": "e633493e-f31e-5c0d-9705-ed0feb1701e6",
+        "prompt": "Kirjoita sähköposti kirjastoon. Haluat kysyä, voiko kirjastossa tulostaa asiakirjoja. Kerro, mitä haluat tulostaa ja kuinka monta sivua. Kysy, paljonko tulostus maksaa ja tarvitaanko oma paperi."
+      }
+    ],
+    "rubric": "Tulostustarve\nHinta\nKäytännön ohjeet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

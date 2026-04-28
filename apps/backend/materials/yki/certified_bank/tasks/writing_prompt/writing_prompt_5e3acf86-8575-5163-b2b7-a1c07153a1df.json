@@ -1,0 +1,37 @@
+{
+  "id": "5e3acf86-8575-5163-b2b7-a1c07153a1df",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti valtioneuvoston kanslian omistajaohjausyksikön johtajalle. Olette kansalaisjärjestö, ja haluatte tehdä esityksen valtionyhtiön yhtiökokouksen asialistalle. Kerro, mikä asia on kyseessä, miksi se on tärkeä ja mitä päätöstä ehdotatte. Kysy, miten esitys voidaan toimittaa ja miten se käsitellään. Tarjoa myös mahdollisuutta keskustella asiasta tarkemmin.",
+    "materials": {
+      "scenario": "Esitys valtionyhtiön yhtiökokoukselle"
+    },
+    "items": [
+      {
+        "id": "32209172-0fe1-526e-9684-859ae2009fd3",
+        "prompt": "Kirjoita virallinen sähköposti valtioneuvoston kanslian omistajaohjausyksikön johtajalle. Olette kansalaisjärjestö, ja haluatte tehdä esityksen valtionyhtiön yhtiökokouksen asialistalle. Kerro, mikä asia on kyseessä, miksi se on tärkeä ja mitä päätöstä ehdotatte. Kysy, miten esitys voidaan toimittaa ja miten se käsitellään. Tarjoa myös mahdollisuutta keskustella asiasta tarkemmin."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

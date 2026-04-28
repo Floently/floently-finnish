@@ -1,0 +1,77 @@
+{
+  "id": "9a4a0334-577b-56db-89f7-1942106fcdc3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Yrittäjyys on tärkeä osa Suomen taloutta ja työllisyyttä. Pienet ja keskisuuret yritykset (pk-yritykset) työllistävät suuren osan yksityisen sektorin työntekijöistä. Yrittäjyys tarjoaa mahdollisuuden toteuttaa omia ideoita, luoda työtä itselle ja muille, ja menestyä omalla osaamisellaan. Yrittäjyyteen liittyy myös riskejä: epävarmat tulot, työn raskaus ja byrokratia. Suomessa on pyritty helpottamaan yrittäjyyttä esimerkiksi keventämällä sääntelyä, tarjoamalla neuvontapalveluita ja kehittämällä rahoitusmahdollisuuksia. Yrittäjyyskasvatus on tärkeää, jotta nuoret oppivat ymmärtämään yrittäjyyttä ja rohkaistuvat kokeilemaan sitä. Tulevaisuudessa yrittäjyys todennäköisesti monimuotoistuu, kun esimerkiksi keikkatyö ja alustatalous lisääntyvät.",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "mcq_580",
+        "prompt": "Mikä on pk-yritysten merkitys Suomen taloudessa?",
+        "options": [
+          "Ne työllistävät pienen osan työntekijöistä",
+          "Ne työllistävät suuren osan yksityisen sektorin työntekijöistä",
+          "Ne ovat taloudelle merkityksettömiä",
+          "Ne työllistävät vain julkisella sektorilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_581",
+        "prompt": "Mitä riskejä yrittäjyyteen liittyy?",
+        "options": [
+          "Varmat tulot ja kevyt työ",
+          "Epävarmat tulot ja byrokratia",
+          "Vähäinen vastuu ja helppous",
+          "Tuettu toimeentulo"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_582",
+        "prompt": "Miten Suomessa on pyritty helpottamaan yrittäjyyttä?",
+        "options": [
+          "Lisäämällä sääntelyä",
+          "Keventämällä sääntelyä ja tarjoamalla neuvontaa",
+          "Vähentämällä rahoitusmahdollisuuksia",
+          "Vaikeuttamalla yrityksen perustamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_583",
+        "prompt": "Miksi yrittäjyyskasvatus on tärkeää?",
+        "options": [
+          "Jotta nuoret oppivat välttämään yrittäjyyttä",
+          "Jotta nuoret oppivat ymmärtämään yrittäjyyttä ja rohkaistuvat kokeilemaan sitä",
+          "Jotta nuoret oppivat olemaan työntekijöitä",
+          "Jotta nuoret oppivat olemaan yrittämättä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

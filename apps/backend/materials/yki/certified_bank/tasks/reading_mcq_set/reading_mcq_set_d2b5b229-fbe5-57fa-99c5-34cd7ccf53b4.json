@@ -1,0 +1,110 @@
+{
+  "id": "d2b5b229-fbe5-57fa-99c5-34cd7ccf53b4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.726,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kansainvälinen kauppa on tärkeä osa Suomen taloutta. Suomen kaltainen pieni ja avoin talous on riippuvainen viennistä ja tuonnista. Vienti tuo maahan tuloja ja työpaikkoja, tuonti puolestaan tarjoaa kuluttajille monipuolisemman valikoiman tuotteita ja laskee hintoja. Suomen tärkeimpiä vientituotteita ovat koneet ja laitteet, paperi ja sellu, sekä kemian teollisuuden tuotteet. Palveluiden vienti, kuten ohjelmistot ja konsultointi, on myös kasvanut. Viime vuosina kansainvälinen kauppa on kohdannut haasteita. Kaupan esteet, kuten tullit ja kiintiöt, ovat lisääntyneet. Myös geopoliittiset jännitteet ja kriisit, kuten sota Ukrainassa, ovat vaikuttaneet kauppaan. Toimitusketjut ovat häiriintyneet, ja energian hinta on noussut. Tämä on lisännyt epävarmuutta ja nostanut kustannuksia. Suomelle on tärkeää, että kansainvälinen kauppa toimii ja että markkinat ovat avoimet. EU:n jäsenyys on turvannut pääsyn tärkeille markkinoille. Kauppapolitiikassa Suomi ajaa avoimuutta ja sääntöperusteista kauppajärjestelmää. Tulevaisuudessa kaupan rakenteet todennäköisesti muuttuvat, kun digitalisaatio ja vihreä siirtymä etenevät. Uusia mahdollisuuksia avautuu, mutta myös riskejä on hallittava.",
+      "word_count": 143
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kansainvälinen kauppa on tärkeää Suomen kaltaiselle pienelle taloudelle?",
+        "options": [
+          "Se ei ole tärkeää.",
+          "Suomi on riippuvainen viennistä ja tuonnista, jotka tuovat tuloja ja työpaikkoja.",
+          "Vain vienti on tärkeää.",
+          "Vain tuonti on tärkeää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä tuonnista on kuluttajille?",
+        "options": [
+          "Se vähentää valikoimaa.",
+          "Se tarjoaa monipuolisemman valikoiman tuotteita ja laskee hintoja.",
+          "Se nostaa hintoja.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä ovat Suomen tärkeimpiä vientituotteita?",
+        "options": [
+          "Elintarvikkeet ja tekstiilit.",
+          "Koneet ja laitteet, paperi ja sellu, sekä kemian teollisuuden tuotteet.",
+          "Vain paperi ja sellu.",
+          "Vain koneet ja laitteet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haasteita kansainvälinen kauppa on kohdannut?",
+        "options": [
+          "Kaupan esteiden väheneminen.",
+          "Kaupan esteiden lisääntyminen, geopoliittiset jännitteet ja toimitusketjujen häiriöt.",
+          "Vakaat markkinat.",
+          "Laskevat kustannukset."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten sota Ukrainassa on vaikuttanut kauppaan?",
+        "options": [
+          "Se on helpottanut kauppaa.",
+          "Se on häirinnyt toimitusketjuja ja nostanut energian hintaa.",
+          "Sillä ei ole ollut vaikutusta.",
+          "Se on lisännyt kauppaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä EU:n jäsenyys on tuonut Suomelle?",
+        "options": [
+          "Se on sulkenut markkinoita.",
+          "Se on turvannut pääsyn tärkeille markkinoille.",
+          "Sillä ei ole merkitystä.",
+          "Se on lisännyt kaupan esteitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä muutoksia kaupan rakenteissa odotetaan tulevaisuudessa?",
+        "options": [
+          "Ei mitään muutoksia.",
+          "Digitalisaatio ja vihreä siirtymä muuttavat rakenteita, avaten uusia mahdollisuuksia.",
+          "Vain digitalisaatio vaikuttaa.",
+          "Vain vihreä siirtymä vaikuttaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

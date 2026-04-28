@@ -1,0 +1,37 @@
+{
+  "id": "c915bc8d-4dab-565b-8a4f-4d9d447bf1eb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin kiertotalousohjelmasta. Arvioi tavoitteita, toimenpiteitä ja yritysyhteistyötä. Ehdota yhtä uutta kiertotaloushanketta.",
+    "materials": {
+      "scenario": "Palaute kaupungin kiertotalousohjelmasta"
+    },
+    "items": [
+      {
+        "id": "8b005852-c205-5378-9680-2462eefcea48",
+        "prompt": "Kirjoita palauteteksti kaupungin kiertotalousohjelmasta. Arvioi tavoitteita, toimenpiteitä ja yritysyhteistyötä. Ehdota yhtä uutta kiertotaloushanketta."
+      }
+    ],
+    "rubric": "Tavoitteet\nToimenpiteet\nYritysyhteistyö\nUusi kiertotaloushanke",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

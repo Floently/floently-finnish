@@ -1,0 +1,99 @@
+{
+  "id": "1cce9669-991a-55de-8b4e-794d5e0aa32b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Naapuriapu on monelle tärkeää. Naapurit voivat auttaa toisiaan esimerkiksi kaupassa käynnissä, lumen luonnissa tai kukkien kastelussa loman aikana. Hyvät naapurisuhteet lisäävät turvallisuuden tunnetta ja viihtyisyyttä. Taloyhtiöissä voidaan järjestää yhteisiä tapahtumia, kuten pihapiknikkejä, joissa naapurit tutustuvat toisiinsa. Pienetkin avunosoitukset merkitsevät paljon.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on monelle tärkeää?",
+        "options": [
+          "Matkustelu",
+          "Naapuriapu",
+          "Omatoimisuus",
+          "Yksinolo"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä asioissa naapurit voivat auttaa toisiaan?",
+        "options": [
+          "Vain lumen luonnissa",
+          "Kaupassa käynnissä, lumen luonnissa tai kukkien kastelussa",
+          "Vain lastenhoidossa",
+          "Vain remontoinnissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyvät naapurisuhteet lisäävät?",
+        "options": [
+          "Yksinäisyyttä",
+          "Turvallisuuden tunnetta ja viihtyisyyttä",
+          "Kiirettä",
+          "Melua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä taloyhtiöissä voidaan järjestää?",
+        "options": [
+          "Asukaskokouksia",
+          "Yhteisiä tapahtumia, kuten pihapiknikkejä",
+          "Siivoustalkoita",
+          "Remontteja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on tapahtumien tarkoitus?",
+        "options": [
+          "Keskustella talon asioista",
+          "Naapurit tutustuvat toisiinsa",
+          "Kerätä rahaa",
+          "Päättää yhteisistä asioista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä merkitystä pienilläkin avunosoituksilla on?",
+        "options": [
+          "Ei mitään",
+          "Ne merkitsevät paljon",
+          "Ne ovat turhia",
+          "Ne aiheuttavat vaivaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

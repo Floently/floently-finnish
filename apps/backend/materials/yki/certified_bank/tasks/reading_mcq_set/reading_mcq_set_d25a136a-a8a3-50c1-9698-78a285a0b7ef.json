@@ -1,0 +1,66 @@
+{
+  "id": "d25a136a-a8a3-50c1-9698-78a285a0b7ef",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.579,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunkien tiivistämisestä on tullut viime vuosina itsestäänselvyys, jota kyseenalaistetaan harvoin. Ajatus on sinänsä järkevä: rakentamalla nykyisten kaupunkirakenteiden sisään säästetään maaseutua ja vähennetään liikenteen päästöjä. Tutkimukset osoittavat kuitenkin, että tiivistämisen sosiaaliset kustannukset saattavat olla odotettua suuremmat.\n\nKun kaupunkiin rakennetaan yhä enemmän ja korkeammalle, viheralueet vähenevät. Tämä vaikuttaa suoraan asukkaiden hyvinvointiin. Tuore selvitys osoittaa, että jo 15 minuutin oleskelu puistossa alentaa stressihormonitasoja merkittävästi. Samalla kun puistoja puretaan talojen tieltä, kaupunkilaiset menettävät paitsi virkistysalueita myös yhteisöllisyyden tiloja.\n\nToinen ongelma on segregaatio. Tiivistäminen nostaa usein maan hintaa keskustoissa, mikä johtaa väistämättä siihen, että pienituloiset joutuvat muuttamaan kauemmaksi. Näin kaupunki jakautuu yhä selvemmin hyvä- ja huono-osaisiin alueisiin. Tämä kehitys on nähtävissä jo monissa suurkaupungeissa, eikä Suomi tee tässä poikkeusta.\n\nKolmas näkökulma koskee demokratiaa. Kaupunkisuunnittelu on perinteisesti ollut asiantuntijoiden ja virkamiesten hallussa, mutta viime aikoina on alettu puhua osallistavasta suunnittelusta. Käytännössä asukkaiden vaikutusmahdollisuudet ovat kuitenkin usein näennäisiä. Kun päätökset on jo tehty virastojen kabineteissa, yleisötilaisuuksissa voidaan keskustella vain yksityiskohdista.\n\nTarvitaanko siis uutta suuntaa? Ehkä emme voi jatkaa samalla tiellä, jossa taloudellinen tehokkuus ajaa kaiken muun ohi. Kaupunkien pitäisi olla ennen kaikkea hyviä paikkoja elää, ei vain tehokkaita koneita. Tämä tarkoittaa viheralueiden säilyttämistä, segregaation ehkäisyä ja aitoa osallisuutta.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 224
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä sosiaalisia kustannuksia tiivistämisellä voi kirjoittajan mukaan olla?",
+        "options": [
+          "A) Liikenteen päästöt kasvavat",
+          "B) Viheralueet vähenevät ja segregaatio lisääntyy",
+          "C) Rakennuskustannukset nousevat",
+          "D) Työpaikat vähenevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten kirjoittaja suhtautuu osallistavaan suunnitteluun?",
+        "options": [
+          "A) Se toimii hyvin nykyisellään",
+          "B) Se on turhaa, koska asukkaat eivät ymmärrä suunnittelua",
+          "C) Se on usein näennäistä ja todellinen valta on virkamiehillä",
+          "D) Sitä pitäisi vähentää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on kirjoittajan pääväite?",
+        "options": [
+          "A) Tiivistäminen pitää kieltää kokonaan",
+          "B) Kaupunkisuunnittelussa pitää huomioida myös sosiaaliset vaikutukset",
+          "C) Asiantuntijoiden valtaa pitää lisätä",
+          "D) Viheralueet ovat tärkeämpiä kuin asuminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

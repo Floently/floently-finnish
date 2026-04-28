@@ -1,0 +1,77 @@
+{
+  "id": "47207412-9e66-5175-826b-a7f75fcbf094",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Helsingin kaupunki suunnittelee muuttavansa keskustan pääkadun kävelykaduksi. Tavoitteena on vähentää autoliikennettä ja parantaa ilmanlaatua. Kävelykadulle tulisi lisää penkkejä, puita ja kahviloita.\n\nOsa kauppiaista on huolissaan. He pelkäävät, että asiakkaat eivät pääse liikkeisiin autolla. Kaupunki vastaa, että lähelle tulee uusi parkkihalli. Lisäksi joukkoliikennettä parannetaan.\n\nAsukkaiden mielipiteet jakautuvat. Vanhukset pelkäävät, että bussipysäkit siirtyvät kauemmas. Nuoret kannattavat suunnitelmaa. He toivovat, että keskustasta tulee viihtyisämpi.\n\nKaupunki järjestää yleisötilaisuuden ensi viikolla. Siellä voi keskustella suunnitelmasta ja kysyä lisää.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 101
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kaupunki haluaa kävelykadun?",
+        "options": [
+          "A) Lisätä parkkipaikkoja",
+          "B) Vähentää autoliikennettä ja parantaa ilmanlaatua",
+          "C) Rakentaa lisää kauppoja",
+          "D) Saada lisää turisteja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kauppiaat pelkäävät?",
+        "options": [
+          "A) Kauppojen vuokrat nousevat",
+          "B) Asiakkaat eivät pääse liikkeisiin autolla",
+          "C) Heidän täytyy muuttaa pois",
+          "D) Liikkeet menevät konkurssiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kaupunki lupaa tehdä?",
+        "options": [
+          "A) Rakentaa uuden kauppakeskuksen",
+          "B) Lisätä parkkipaikkoja ja parantaa joukkoliikennettä",
+          "C) Alentaa veroja",
+          "D) Palkata lisää työntekijöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten vanhukset suhtautuvat suunnitelmaan?",
+        "options": [
+          "A) He kannattavat sitä",
+          "B) He pelkäävät bussipysäkkien siirtyvän",
+          "C) He eivät välitä",
+          "D) He haluavat lisää parkkipaikkoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "5312a891-1576-53ed-b670-b0157f4436cd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Moikka! Mä soitin just sun kännykkään, mutta sä et vastannu. Mä oon nyt matkalla kotiin. Voidaanko me tavata vaikka puistossa vähän ennen kuutta? Mä voin tuoda sitä leffaa, josta puhuttiin.",
+      "audio_asset_id": "a6cf12a6-61e4-59c9-92f2-8379e0c0a38a"
+    },
+    "questions": [
+      {
+        "id": "10fa71e7-86d3-5041-9708-729041c7ca36",
+        "prompt": "Miksi puhuja soitti aiemmin?",
+        "options": [
+          "Kysyäkseen neuvoa.",
+          "Tavoittaakseen toisen, mutta tämä ei vastannut.",
+          "Kertoakseen tärkeän uutisen.",
+          "Pyytääkseen apua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cd63d25b-bbbc-519a-aee4-afd4e371562a",
+        "prompt": "Missä puhuja on nyt?",
+        "options": [
+          "Puistossa.",
+          "Matkalla kotiin.",
+          "Töissä.",
+          "Kaupassa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7ae7e8e3-2b82-574a-abf7-19f323f298ee",
+        "prompt": "Missä puhuja ehdottaa tapaamista?",
+        "options": [
+          "Kahvilassa.",
+          "Kotona.",
+          "Kirjastossa.",
+          "Puistossa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "3c08e710-acd9-593c-8d3f-0f738015e828",
+        "prompt": "Milloin puhuja ehdottaa tapaamista?",
+        "options": [
+          "Vähän ennen kuutta.",
+          "Tasan kuudelta.",
+          "Vähän kuuden jälkeen.",
+          "Seitsemältä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e392424d-4fd2-583a-85d2-6b367949a90f",
+        "prompt": "Mitä puhuja lupaa tuoda tullessaan?",
+        "options": [
+          "Leffan.",
+          "Ruokaa.",
+          "Kirjan.",
+          "Lahjan."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

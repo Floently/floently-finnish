@@ -1,0 +1,5474 @@
+{
+  "manifest": {
+    "content_type": "grammar_card",
+    "language": "fi",
+    "path": "professional/nurse/grammar",
+    "domain": "medical_work_finnish",
+    "profession": "nurse",
+    "level_band": "B1_B2",
+    "source_id": "source.generated.professional.nurse.grammar",
+    "authoring_note": null,
+    "manifest_origin": "explicit",
+    "manifest_confidence": 0.95,
+    "source_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json"
+  },
+  "items": [
+    {
+      "id": "card.grammar.nurse.concessive-clause-vaikka-conditional.9332c6",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "concessive clause vaikka + conditional",
+          "usage": "even if (hypothetical concession)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'concessive clause vaikka + conditional'?",
+          "gloss": "Even if the patient took the medicine, the pain wouldn't ease.",
+          "example_sentence": "Vaikka potilas söisi lääkkeen, kipu ei helpottaisi."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Vaikka potilas söisi lääkkeen, kipu ei helpottaisi.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "While lifting the patient, my back hurt.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Even if the patient took the medicine, the pain wouldn't ease.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "even if (hypothetical concession)",
+          "example": "Vaikka potilas söisi lääkkeen, kipu ei helpottaisi."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.concessive-clause-kin-with-verb.84e1a2",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "concessive clause -kin (with verb)",
+          "usage": "even though (colloquial)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'concessive clause -kin (with verb)'?",
+          "gloss": "I came to work even though I was tired.",
+          "example_sentence": "Tulinkin töihin, vaikka olin väsynyt."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tulinkin töihin, vaikka olin väsynyt.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "While lifting the patient, my back hurt.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I came to work even though I was tired.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "even though (colloquial)",
+          "example": "Tulinkin töihin, vaikka olin väsynyt."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.simultaneous-action-kun-imperfect.6bfe38",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "simultaneous action kun + imperfect",
+          "usage": "when (past continuous)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'simultaneous action kun + imperfect'?",
+          "gloss": "When I was treating the wound, the patient was sleeping.",
+          "example_sentence": "Kun hoidin haavaa, potilas nukkui."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kun hoidin haavaa, potilas nukkui.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "While lifting the patient, my back hurt.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "When I was treating the wound, the patient was sleeping.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "when (past continuous)",
+          "example": "Kun hoidin haavaa, potilas nukkui."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.simultaneous-action-essa-essa-2nd-infinitive-inessive.500076",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "simultaneous action -essa/-essä (2nd infinitive inessive)",
+          "usage": "while (same subject)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'simultaneous action -essa/-essä (2nd infinitive inessive)'?",
+          "gloss": "While lifting the patient, my back hurt.",
+          "example_sentence": "Nostaessani potilasta selkäni särkyi."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Nostaessani potilasta selkäni särkyi.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "While lifting the patient, my back hurt.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "While lifting the patient, my back hurt.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "while (same subject)",
+          "example": "Nostaessani potilasta selkäni särkyi."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.anteriorty-ennen-kuin-past-perfect.ebfb93",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "anteriorty ennen kuin + past perfect",
+          "usage": "before (past perfect for earlier action)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'anteriorty ennen kuin + past perfect'?",
+          "gloss": "The patient had slept before the doctor came.",
+          "example_sentence": "Potilas oli nukkunut ennen kuin lääkäri tuli."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas oli nukkunut ennen kuin lääkäri tuli.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient had slept before the doctor came.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient had slept before the doctor came.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "before (past perfect for earlier action)",
+          "example": "Potilas oli nukkunut ennen kuin lääkäri tuli."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.posteriority-jalkeen-kun-past-perfect.f41876",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "posteriority jälkeen kun + past perfect",
+          "usage": "after (past perfect for earlier action)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'posteriority jälkeen kun + past perfect'?",
+          "gloss": "After I had given the medicine, the patient calmed down.",
+          "example_sentence": "Kun olin antanut lääkkeen, potilas rauhoittui."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kun olin antanut lääkkeen, potilas rauhoittui.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "After I had given the medicine, the patient calmed down.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "After I had given the medicine, the patient calmed down.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "after (past perfect for earlier action)",
+          "example": "Kun olin antanut lääkkeen, potilas rauhoittui."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.causal-clause-siksi-etta.a04eba",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "causal clause siksi että",
+          "usage": "because (explicit reason)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'causal clause siksi että'?",
+          "gloss": "The patient cries because he is in pain.",
+          "example_sentence": "Potilas itkee siksi, että hänellä on kipua."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas itkee siksi, että hänellä on kipua.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient cries because he is in pain.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient cries because he is in pain.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "because (explicit reason)",
+          "example": "Potilas itkee siksi, että hänellä on kipua."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.causal-clause-sen-takia-etta.a59067",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "causal clause sen takia että",
+          "usage": "for the reason that"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'causal clause sen takia että'?",
+          "gloss": "I give oxygen for the reason that the patient gets enough oxygen.",
+          "example_sentence": "Sen takia annan happea, että potilas saa tarpeeksi happea."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Sen takia annan happea, että potilas saa tarpeeksi happea.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I give oxygen for the reason that the patient gets enough oxygen.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I give oxygen for the reason that the patient gets enough oxygen.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "for the reason that",
+          "example": "Sen takia annan happea, että potilas saa tarpeeksi happea."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.final-clause-jotta-conditional-revisited.981903",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "final clause jotta + conditional (revisited)",
+          "usage": "so that (polite/uncertain outcome)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'final clause jotta + conditional (revisited)'?",
+          "gloss": "I cleaned the wound well so that it would heal quickly.",
+          "example_sentence": "Puhdistin haavan hyvin, jotta se paranisi nopeasti."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Puhdistin haavan hyvin, jotta se paranisi nopeasti.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I cleaned the wound well so that it would heal quickly.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I cleaned the wound well so that it would heal quickly.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "so that (polite/uncertain outcome)",
+          "example": "Puhdistin haavan hyvin, jotta se paranisi nopeasti."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.conditional-clause-jos-present.561e63",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "conditional clause jos + present",
+          "usage": "if (present, general truth)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'conditional clause jos + present'?",
+          "gloss": "If the patient feels bad, I call the doctor.",
+          "example_sentence": "Jos potilas voi huonosti, soitan lääkärille."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jos potilas voi huonosti, soitan lääkärille.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "If the patient feels bad, I call the doctor.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "If the patient feels bad, I call the doctor.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "if (present, general truth)",
+          "example": "Jos potilas voi huonosti, soitan lääkärille."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.conditional-clause-jos-past.6c75e8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "conditional clause jos + past",
+          "usage": "if (past, real condition)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'conditional clause jos + past'?",
+          "gloss": "If the patient complained yesterday, I gave the medicine.",
+          "example_sentence": "Jos potilas valitti eilen, annoin lääkkeen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jos potilas valitti eilen, annoin lääkkeen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "If the patient complained yesterday, I gave the medicine.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "If the patient complained yesterday, I gave the medicine.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "if (past, real condition)",
+          "example": "Jos potilas valitti eilen, annoin lääkkeen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.conditional-clause-jos-conditional.add076",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "conditional clause jos + conditional",
+          "usage": "if (hypothetical)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'conditional clause jos + conditional'?",
+          "gloss": "If the patient were awake, I would talk to him.",
+          "example_sentence": "Jos potilas olisi hereillä, puhuisin hänelle."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jos potilas olisi hereillä, puhuisin hänelle.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "If the patient were awake, I would talk to him.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "If the patient were awake, I would talk to him.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "if (hypothetical)",
+          "example": "Jos potilas olisi hereillä, puhuisin hänelle."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.conditional-clause-ellen-if-i-not.6436b4",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "conditional clause ellen (if I not)",
+          "usage": "if I don't"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'conditional clause ellen (if I not)'?",
+          "gloss": "If I don't give the medicine, the pain continues.",
+          "example_sentence": "Ellen anna lääkettä, kipu jatkuu."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Ellen anna lääkettä, kipu jatkuu.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "If I don't give the medicine, the pain continues.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "If I don't give the medicine, the pain continues.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "if I don't",
+          "example": "Ellen anna lääkettä, kipu jatkuu."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.temporal-clause-ennen-1st-infinitive.d00785",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "temporal clause ennen + 1st infinitive",
+          "usage": "before doing (same subject)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'temporal clause ennen + 1st infinitive'?",
+          "gloss": "Wash your hands before eating.",
+          "example_sentence": "Pese kädet ennen ruokailua."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Pese kädet ennen ruokailua.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Wash your hands before eating.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Wash your hands before eating.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "before doing (same subject)",
+          "example": "Pese kädet ennen ruokailua."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.temporal-clause-jalkeen-1st-infinitive.a2ea6c",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "temporal clause jälkeen + 1st infinitive",
+          "usage": "after doing (same subject)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'temporal clause jälkeen + 1st infinitive'?",
+          "gloss": "After eating, measure the blood sugar.",
+          "example_sentence": "Ruokailun jälkeen mittaa verensokeri."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Ruokailun jälkeen mittaa verensokeri.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "After eating, measure the blood sugar.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "After eating, measure the blood sugar.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "after doing (same subject)",
+          "example": "Ruokailun jälkeen mittaa verensokeri."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-particle-han-han-in-requests.7fe0b0",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal particle -han/-hän in requests",
+          "usage": "makes request polite or insistent"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal particle -han/-hän in requests'?",
+          "gloss": "Do be careful (I ask nicely).",
+          "example_sentence": "Olethan varovainen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Olethan varovainen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Do be careful (I ask nicely).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Do be careful (I ask nicely).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "makes request polite or insistent",
+          "example": "Olethan varovainen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-particle-pa-pa-in-emphasis.cfd671",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal particle -pa/-pä in emphasis",
+          "usage": "emphasizes the word"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal particle -pa/-pä in emphasis'?",
+          "gloss": "That is good (indeed)!",
+          "example_sentence": "Sepä on hyvä!"
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Sepä on hyvä!",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "That is good (indeed)!",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "That is good (indeed)!",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "emphasizes the word",
+          "example": "Sepä on hyvä!"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.modal-particle-ko-ko-in-questions.45643a",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "modal particle -ko/-kö in questions",
+          "usage": "yes/no question marker"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'modal particle -ko/-kö in questions'?",
+          "gloss": "Is the doctor coming?",
+          "example_sentence": "Tuleeko lääkäri?"
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tuleeko lääkäri?",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Is the doctor coming?",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Is the doctor coming?",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "yes/no question marker",
+          "example": "Tuleeko lääkäri?"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.clitic-kin-also-too.7085f3",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "clitic -kin (also/too)",
+          "usage": "adds 'also' to the word"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'clitic -kin (also/too)'?",
+          "gloss": "I help too.",
+          "example_sentence": "Minäkin autan."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Minäkin autan.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I help too.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I help too.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "adds 'also' to the word",
+          "example": "Minäkin autan."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.clitic-kaan-kaan-not-either.58c7ae",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "clitic -kaan/-kään (not either)",
+          "usage": "negative 'either'"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'clitic -kaan/-kään (not either)'?",
+          "gloss": "I don't know either.",
+          "example_sentence": "En minäkään tiedä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? En minäkään tiedä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I don't know either.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I don't know either.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "negative 'either'",
+          "example": "En minäkään tiedä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.clitic-han-han-in-reminders.5c347b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "clitic -han/-hän in reminders",
+          "usage": "you know/after all"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'clitic -han/-hän in reminders'?",
+          "gloss": "The patient is allergic, you know.",
+          "example_sentence": "Potilashan on allerginen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilashan on allerginen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient is allergic, you know.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient is allergic, you know.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "you know/after all",
+          "example": "Potilashan on allerginen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.clitic-pa-pa-in-wishes.3e3333",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "clitic -pa/-pä in wishes",
+          "usage": "I wish"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'clitic -pa/-pä in wishes'?",
+          "gloss": "I hope the patient gets well soon (wish).",
+          "example_sentence": "Toivottavasti potilas paranee pian."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Toivottavasti potilas paranee pian.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I hope the patient gets well soon (wish).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I hope the patient gets well soon (wish).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "I wish",
+          "example": "Toivottavasti potilas paranee pian."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.clitic-s-softening.6efd92",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "clitic -s (softening)",
+          "usage": "softens command"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'clitic -s (softening)'?",
+          "gloss": "What's wrong with the patient? Come here (softly).",
+          "example_sentence": "Mitä potilaalle kuuluu? Tulepas tänne."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Mitä potilaalle kuuluu? Tulepas tänne.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "What's wrong with the patient? Come here (softly).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "What's wrong with the patient? Come here (softly).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "softens command",
+          "example": "Mitä potilaalle kuuluu? Tulepas tänne."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-sentaan-still-anyway.78c56d",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb sentään (still/anyway)",
+          "usage": "concession"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb sentään (still/anyway)'?",
+          "gloss": "The patient is tired but friendly anyway.",
+          "example_sentence": "Potilas on väsynyt, mutta ystävällinen sentään."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas on väsynyt, mutta ystävällinen sentään.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient is tired but friendly anyway.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient is tired but friendly anyway.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "concession",
+          "example": "Potilas on väsynyt, mutta ystävällinen sentään."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-kuitenkin-however.f918fb",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb kuitenkin (however)",
+          "usage": "contrast"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb kuitenkin (however)'?",
+          "gloss": "I gave the medicine; however the patient still complained of pain.",
+          "example_sentence": "Annoin lääkkeen; potilas valitti kuitenkin kipua."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Annoin lääkkeen; potilas valitti kuitenkin kipua.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I gave the medicine; however the patient still complained of pain.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I gave the medicine; however the patient still complained of pain.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "contrast",
+          "example": "Annoin lääkkeen; potilas valitti kuitenkin kipua."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-siis-so-therefore.d93982",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb siis (so/therefore)",
+          "usage": "conclusion"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb siis (so/therefore)'?",
+          "gloss": "The patient is calm, so the medicine is working.",
+          "example_sentence": "Potilas on rauhallinen, siis lääke tehoaa."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas on rauhallinen, siis lääke tehoaa.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient is calm, so the medicine is working.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient is calm, so the medicine is working.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "conclusion",
+          "example": "Potilas on rauhallinen, siis lääke tehoaa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-nimittain-namely-because.486031",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb nimittäin (namely/because)",
+          "usage": "explanatory"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb nimittäin (namely/because)'?",
+          "gloss": "I call the doctor. Because the patient has a fever.",
+          "example_sentence": "Soitan lääkärille. Potilaalla on nimittäin kuumetta."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Soitan lääkärille. Potilaalla on nimittäin kuumetta.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I call the doctor. Because the patient has a fever.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I call the doctor. Because the patient has a fever.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "explanatory",
+          "example": "Soitan lääkärille. Potilaalla on nimittäin kuumetta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-melkein-almost.455aba",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb melkein (almost)",
+          "usage": "nearly"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb melkein (almost)'?",
+          "gloss": "The patient almost fell asleep during the exam.",
+          "example_sentence": "Potilas melkein nukahti tutkimuksen aikana."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas melkein nukahti tutkimuksen aikana.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient almost fell asleep during the exam.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient almost fell asleep during the exam.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "nearly",
+          "example": "Potilas melkein nukahti tutkimuksen aikana."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-lahes-nearly.dbc310",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb lähes (nearly)",
+          "usage": "almost (more formal)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb lähes (nearly)'?",
+          "gloss": "Nearly all patients recover.",
+          "example_sentence": "Lähes kaikki potilaat toipuvat."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lähes kaikki potilaat toipuvat.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Nearly all patients recover.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Nearly all patients recover.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "almost (more formal)",
+          "example": "Lähes kaikki potilaat toipuvat."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-varsinkin-especially.8d912b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb varsinkin (especially)",
+          "usage": "emphasizing one thing"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb varsinkin (especially)'?",
+          "gloss": "Especially elderly patients need help.",
+          "example_sentence": "Varsinkin iäkkäät potilaat tarvitsevat apua."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Varsinkin iäkkäät potilaat tarvitsevat apua.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Especially elderly patients need help.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Especially elderly patients need help.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "emphasizing one thing",
+          "example": "Varsinkin iäkkäät potilaat tarvitsevat apua."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-erityisesti-particularly.c87c44",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb erityisesti (particularly)",
+          "usage": "particularly"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb erityisesti (particularly)'?",
+          "gloss": "Particularly diabetics check their sugar.",
+          "example_sentence": "Erityisesti diabeetikot tarkistavat sokerin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Erityisesti diabeetikot tarkistavat sokerin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Particularly diabetics check their sugar.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Particularly diabetics check their sugar.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "particularly",
+          "example": "Erityisesti diabeetikot tarkistavat sokerin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-ainakin-at-least.ae3afd",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb ainakin (at least)",
+          "usage": "minimum"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb ainakin (at least)'?",
+          "gloss": "The patient slept at least six hours.",
+          "example_sentence": "Potilas nukkui ainakin kuusi tuntia."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas nukkui ainakin kuusi tuntia.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient slept at least six hours.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient slept at least six hours.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "minimum",
+          "example": "Potilas nukkui ainakin kuusi tuntia."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-tosin-though-admittedly.19a90f",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb tosin (though/admittedly)",
+          "usage": "concession in speech"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb tosin (though/admittedly)'?",
+          "gloss": "The result is good, though the patient is still tired.",
+          "example_sentence": "Tulos on hyvä, tosin potilas on vielä väsynyt."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tulos on hyvä, tosin potilas on vielä väsynyt.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The result is good, though the patient is still tired.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The result is good, though the patient is still tired.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "concession in speech",
+          "example": "Tulos on hyvä, tosin potilas on vielä väsynyt."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-oikeastaan-actually.631a5c",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb oikeastaan (actually)",
+          "usage": "correcting oneself"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb oikeastaan (actually)'?",
+          "gloss": "The patient didn't actually complain of pain.",
+          "example_sentence": "Potilas ei oikeastaan valittanut kipua."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas ei oikeastaan valittanut kipua.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient didn't actually complain of pain.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient didn't actually complain of pain.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "correcting oneself",
+          "example": "Potilas ei oikeastaan valittanut kipua."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.adverb-itse-asiassa-as-a-matter-of-fact.8b62b2",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "adverb itse asiassa (as a matter of fact)",
+          "usage": "introducing new fact"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'adverb itse asiassa (as a matter of fact)'?",
+          "gloss": "As a matter of fact, the blood test was normal.",
+          "example_sentence": "Itse asiassa verikoe oli normaali."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Itse asiassa verikoe oli normaali.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "As a matter of fact, the blood test was normal.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "As a matter of fact, the blood test was normal.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "introducing new fact",
+          "example": "Itse asiassa verikoe oli normaali."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-sto-collection.a63313",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -sto (collection)",
+          "usage": "collection of things"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -sto (collection)'?",
+          "gloss": "Medicines → medication stock.",
+          "example_sentence": "Lääkkeet → lääkkeistö."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lääkkeet → lääkkeistö.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Medicines → medication stock.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Medicines → medication stock.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "collection of things",
+          "example": "Lääkkeet → lääkkeistö."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-la-place.8ba835",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -la (place)",
+          "usage": "place for something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -la (place)'?",
+          "gloss": "Sick → place for sick → hospital.",
+          "example_sentence": "Sairas → sairala → sairaala."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Sairas → sairala → sairaala.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Sick → place for sick → hospital.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Sick → place for sick → hospital.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "place for something",
+          "example": "Sairas → sairala → sairaala."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-uri-person-device.3b6c92",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -uri (person/device)",
+          "usage": "agent or tool"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -uri (person/device)'?",
+          "gloss": "Measures → meter/device.",
+          "example_sentence": "Mittaa → mittari."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Mittaa → mittari.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Measures → meter/device.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Measures → meter/device.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "agent or tool",
+          "example": "Mittaa → mittari."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-in-instrument.c7c2b2",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -in (instrument)",
+          "usage": "tool for doing"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -in (instrument)'?",
+          "gloss": "Cleans → cleaner.",
+          "example_sentence": "Puhdistaa → puhdistin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Puhdistaa → puhdistin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Cleans → cleaner.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Cleans → cleaner.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "tool for doing",
+          "example": "Puhdistaa → puhdistin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-us-ys-abstract-noun.ecef2d",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -us/-ys (abstract noun)",
+          "usage": "action or state"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -us/-ys (abstract noun)'?",
+          "gloss": "Treat → treatment → level of care needed.",
+          "example_sentence": "Hoitaa → hoito → hoitoisuus."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Hoitaa → hoito → hoitoisuus.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Treat → treatment → level of care needed.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Treat → treatment → level of care needed.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "action or state",
+          "example": "Hoitaa → hoito → hoitoisuus."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-nti-action-noun.008af8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -nti (action noun)",
+          "usage": "process of doing"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -nti (action noun)'?",
+          "gloss": "Measures → measurement.",
+          "example_sentence": "Mittaa → mittaus."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Mittaa → mittaus.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Measures → measurement.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Measures → measurement.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "process of doing",
+          "example": "Mittaa → mittaus."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-ja-ja-agent-noun.6db452",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -ja/-jä (agent noun)",
+          "usage": "person who does"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -ja/-jä (agent noun)'?",
+          "gloss": "Treats → nurse.",
+          "example_sentence": "Hoitaa → hoitaja."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Hoitaa → hoitaja.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Treats → nurse.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Treats → nurse.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "person who does",
+          "example": "Hoitaa → hoitaja."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-tar-tar-female-agent.76d4cf",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -tar/-tär (female agent)",
+          "usage": "female doer (historical)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -tar/-tär (female agent)'?",
+          "gloss": "Sings → female singer (rare, but vuokraemäntä).",
+          "example_sentence": "Laulaa → laulajatar."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Laulaa → laulajatar.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Sings → female singer (rare, but vuokraemäntä).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Sings → female singer (rare, but vuokraemäntä).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "female doer (historical)",
+          "example": "Laulaa → laulajatar."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-kko-group-tree.adb99b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -kko (group/tree)",
+          "usage": "group or tree"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -kko (group/tree)'?",
+          "gloss": "Group of patients (rare).",
+          "example_sentence": "Potilas → potilasko (not common)."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas → potilasko (not common).",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Group of patients (rare).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Group of patients (rare).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "group or tree",
+          "example": "Potilas → potilasko (not common)."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-ke-small-thing.65b497",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -ke (small thing)",
+          "usage": "diminutive"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -ke (small thing)'?",
+          "gloss": "Hand → small hand/paw (not common in nursing).",
+          "example_sentence": "Käsi → käpälä → käpälikkö."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Käsi → käpälä → käpälikkö.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Hand → small hand/paw (not common in nursing).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Hand → small hand/paw (not common in nursing).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "diminutive",
+          "example": "Käsi → käpälä → käpälikkö."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-nna-adverb-of-manner.150eaf",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -nna (adverb of manner)",
+          "usage": "in the way of"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -nna (adverb of manner)'?",
+          "gloss": "Thin → thinly (rare in nursing).",
+          "example_sentence": "Ohut → ohuenna (rare, but vakavissaan)."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Ohut → ohuenna (rare, but vakavissaan).",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Thin → thinly (rare in nursing).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Thin → thinly (rare in nursing).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "in the way of",
+          "example": "Ohut → ohuenna (rare, but vakavissaan)."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-lti-adverb-of-manner.f6f470",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -lti (adverb of manner)",
+          "usage": "-ly"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -lti (adverb of manner)'?",
+          "gloss": "Hard → hard/strongly.",
+          "example_sentence": "Kova → kovasti."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kova → kovasti.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Hard → hard/strongly.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Hard → hard/strongly.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "-ly",
+          "example": "Kova → kovasti."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-sti-adverb-from-adjective.ea350a",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -sti (adverb from adjective)",
+          "usage": "most common -ly"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -sti (adverb from adjective)'?",
+          "gloss": "Fast → quickly.",
+          "example_sentence": "Nopea → nopeasti."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Nopea → nopeasti.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Fast → quickly.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Fast → quickly.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "most common -ly",
+          "example": "Nopea → nopeasti."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-tse-by-way-of.01353b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -tse (by way of)",
+          "usage": "via"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -tse (by way of)'?",
+          "gloss": "By phone.",
+          "example_sentence": "Puhelimitse."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Puhelimitse.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "By phone.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "By phone.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "via",
+          "example": "Puhelimitse."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-ksi-translative-adverb.b7c22e",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -ksi (translative adverb)",
+          "usage": "as"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -ksi (translative adverb)'?",
+          "gloss": "Finally (as a last thing).",
+          "example_sentence": "Lopuksi."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lopuksi.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Finally (as a last thing).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Finally (as a last thing).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "as",
+          "example": "Lopuksi."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.derivation-ttain-distributive.740a0b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "derivation -ttain (distributive)",
+          "usage": "one by one"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'derivation -ttain (distributive)'?",
+          "gloss": "Daily (day by day).",
+          "example_sentence": "Päivittäin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Päivittäin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Even if the patient took the medicine, the pain wouldn't ease.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "I came to work even though I was tired.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "When I was treating the wound, the patient was sleeping.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Daily (day by day).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Daily (day by day).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "one by one",
+          "example": "Päivittäin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    }
+  ]
+}

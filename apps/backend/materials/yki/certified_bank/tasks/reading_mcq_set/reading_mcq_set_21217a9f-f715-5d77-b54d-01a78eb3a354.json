@@ -1,0 +1,99 @@
+{
+  "id": "21217a9f-f715-5d77-b54d-01a78eb3a354",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähikirjastossa on lasten satutunti joka tiistai kello 10. Satutunnilla luetaan satuja ja lauletaan. Tunti kestää noin 30 minuuttia. Satutunti on tarkoitettu alle kouluikäisille lapsille. Mukaan voi tulla oman aikuisen kanssa. Satutunti on maksuton. Tervetuloa kaikki lapset ja vanhemmat!",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin lähikirjastossa on lasten satutunti?",
+        "options": [
+          "Joka maanantai",
+          "Joka tiistai",
+          "Joka torstai",
+          "Joka lauantai"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan satutunti alkaa?",
+        "options": [
+          "Kello 9",
+          "Kello 10",
+          "Kello 11",
+          "Kello 12"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä satutunnilla tehdään?",
+        "options": [
+          "Tehdään käsitöitä",
+          "Luetaan satuja ja lauletaan",
+          "Katsotaan elokuvaa",
+          "Pelataan pelejä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuinka kauan satutunti kestää?",
+        "options": [
+          "15 minuuttia",
+          "30 minuuttia",
+          "45 minuuttia",
+          "60 minuuttia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenelle satutunti on tarkoitettu?",
+        "options": [
+          "Kaikille koululaisille",
+          "Alle kouluikäisille lapsille",
+          "Vaan aikuisille",
+          "Vaan nuorille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Paljonko satutunti maksaa?",
+        "options": [
+          "5 euroa",
+          "Se on maksuton",
+          "10 euroa",
+          "Hinta riippuu osallistujamäärästä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

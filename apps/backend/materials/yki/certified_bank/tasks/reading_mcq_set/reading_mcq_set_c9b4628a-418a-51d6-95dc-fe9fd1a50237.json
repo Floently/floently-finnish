@@ -1,0 +1,99 @@
+{
+  "id": "c9b4628a-418a-51d6-95dc-fe9fd1a50237",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Helsingin kaupunki testaa uutta kokeilua: asukkaat voivat äänestää, mihin pieniä kaupunkibudjetin rahoja käytetään. Äänestys tapahtuu verkossa. Tänä vuonna vaihtoehtoina on uusia penkkejä puistoihin tai lisää istutuksia. Kaupunki toivoo, että asukkaat osallistuvat aktiivisesti ja kertovat mielipiteensä. Äänestysaikaa on kaksi viikkoa.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä Helsinki testaa?",
+        "options": [
+          "Uutta bussireittiä",
+          "Kokeilua, jossa asukkaat äänestävät budjetin käytöstä",
+          "Uutta puistoa",
+          "Kielikurssia maahanmuuttajille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä äänestys tapahtuu?",
+        "options": [
+          "Kirjastossa",
+          "Verkossa",
+          "Kaupungintalolla",
+          "Puhelimitse"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä ovat tämän vuoden vaihtoehdot?",
+        "options": [
+          "Uusia leikkipaikkoja tai koirapuisto",
+          "Uusia penkkejä puistoihin tai lisää istutuksia",
+          "Lisää roskiksia tai uusia teitä",
+          "Uusia pyöräteitä tai bussipysäkkejä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kaupunki toivoo asukkailta?",
+        "options": [
+          "Rahaa lisää projektiin",
+          "Aktiivista osallistumista ja mielipiteen kertomista",
+          "Vapaaehtoistyötä",
+          "Palautetta verkkosivuista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kuinka kauan äänestysaikaa on?",
+        "options": [
+          "Yksi viikko",
+          "Kaksi viikkoa",
+          "Kolme viikkoa",
+          "Yksi kuukausi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mistä rahoista tässä kokeilussa on kyse?",
+        "options": [
+          "Valtion rahoista",
+          "Yritysten lahjoituksista",
+          "Pienistä kaupunkibudjetin rahoista",
+          "EU:n tukirahoista"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

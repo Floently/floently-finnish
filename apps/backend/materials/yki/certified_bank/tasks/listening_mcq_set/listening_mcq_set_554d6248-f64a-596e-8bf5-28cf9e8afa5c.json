@@ -1,0 +1,88 @@
+{
+  "id": "554d6248-f64a-596e-8bf5-28cf9e8afa5c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele väittely eläinkokeista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tänään väittelemme eläinkokeiden käytöstä tieteellisessä tutkimuksessa. Ensimmäisenä eläinsuojelujärjestön edustaja Laura Niemi. Niemi: Eläinkokeet ovat epäeettisiä ja tarpeettomia. Tiede on kehittynyt niin pitkälle, että meillä on käytettävissä soluviljelmiä ja tietokonemalleja, jotka korvaavat eläimet. Eläimille aiheutetaan valtavaa kärsimystä usein turhaan. Puheenjohtaja: Kiitos. Vastaan lääketieteen tutkija Timo Virtanen. Virtanen: Ymmärrän huolen, mutta täysin ilman eläinkokeita emme voi vielä toimia. Monet sairaudet, kuten syöpä ja Alzheimer, ovat niin monimutkaisia, että niitä voidaan tutkia luotettavasti vain elävässä organismissa. Tavoite on kuitenkin vähentää ja korvata niitä aina kun mahdollista. Niemi: Vähennys ei riitä. Kyse on periaatteesta: eläimillä on itseisarvo, eikä niitä saa käyttää välineinä ihmisen hyväksi. Virtanen: On myös kysymys siitä, haluammeko kehittää uusia hoitoja vakaviin sairauksiin. Tässä joudumme tekemään eettisiä valintoja.",
+      "audio_asset_id": "6be2b694-2eb8-4818-ab06-5b1043f81bdd"
+    },
+    "questions": [
+      {
+        "id": "l25q1",
+        "prompt": "Mikä on Laura Niemen pääargumentti eläinkokeita vastaan?",
+        "options": [
+          "Ne ovat epäeettisiä ja tarpeettomia, ja niille on korvaavia menetelmiä.",
+          "Ne ovat liian kalliita.",
+          "Ne eivät tuota tuloksia.",
+          "Ne ovat laittomia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l25q2",
+        "prompt": "Mitä korvaavia menetelmiä Niemi mainitsee?",
+        "options": [
+          "Soluviljelmät ja tietokonemallit.",
+          "Ihmiskokeet.",
+          "Tilastolliset analyysit.",
+          "Laboratoriokemikaalit."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l25q3",
+        "prompt": "Miten Timo Virtanen perustelee eläinkokeiden tarpeellisuutta?",
+        "options": [
+          "Monimutkaisia sairauksia voidaan tutkia luotettavasti vain elävässä organismissa.",
+          "Ne ovat halpoja.",
+          "Ne ovat nopeita.",
+          "Laki vaatii ne."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l25q4",
+        "prompt": "Mikä on Virtasen mukaan pitkän aikavälin tavoite eläinkokeiden suhteen?",
+        "options": [
+          "Vähentää ja korvata niitä aina kun mahdollista.",
+          "Lisätä niitä.",
+          "Kieltää ne kokonaan heti.",
+          "Siirtää ne ulkomaille."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l25q5",
+        "prompt": "Mikä on Niemen mukaan keskeinen periaatekysymys?",
+        "options": [
+          "Tutkimuksen rahoitus.",
+          "Eläinten itseisarvo ja ettei niitä saa käyttää välineinä.",
+          "Tutkimuksen kansainvälisyys.",
+          "Uusien lääkkeiden hinta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "e80b58e8-5069-5198-89c2-a80d8b321cf1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu työelämän muutoksista ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme työelämän muutoksista. Minulla on täällä Jukka, joka on toiminut esihenkilönä 20 vuotta. Jukka, miten työelämä on muuttunut?\n\nJukka: Valtavasti. Kun aloitin, kaikki istuivat toimistolla kahdeksasta neljään. Nyt on etätyötä, joustavia työaikoja ja erilaisia työsuhteita. Työntekijät odottavat enemmän joustavuutta ja merkityksellisyyttä.\n\nToimittaja: Mitä haasteita tämä tuo esihenkilöille?\n\nJukka: Luottamuksen rakentaminen on tärkeämpää kuin koskaan. Kun et näe työntekijöitä päivittäin, pitää luottaa siihen, että työt tulevat tehdyiksi. Myös yhteishengen ylläpito on vaikeampaa.\n\nToimittaja: Entä mitä hyvää muutoksessa on?\n\nJukka: Työntekijät ovat motivoituneempia, kun he voivat vaikuttaa työhönsä. Etätyö säästää aikaa ja rahaa. Moni voi yhdistää työn ja perhe-elämän paremmin.\n\nToimittaja: Mitä taitoja tulevaisuuden esihenkilö tarvitsee?\n\nJukka: Empatiaa, kuuntelutaitoa ja kykyä johtaa ilman läsnäoloa. Pitää osata antaa palautetta ja tukea, vaikka ei olisi samassa tilassa.\n\nToimittaja: Mitä neuvoja antaisit nuorille esihenkilöille?\n\nJukka: Ole ihminen, älä pelkkä pomo. Kuuntele, kysy ja välitä. Pienillä teoilla on iso merkitys.",
+      "audio_asset_id": "bbcddbe9-ab20-5f47-9fb1-29c8103a6e9b"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_011_q1",
+        "prompt": "Miten työelämä on muuttunut Jukan mukaan?",
+        "options": [
+          "ei mitenkään",
+          "etätyö, joustavat työajat ja erilaiset työsuhteet ovat yleistyneet",
+          "kaikki työskentelevät toimistolla",
+          "työajat ovat pidentyneet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_011_q2",
+        "prompt": "Mitä haasteita muutos tuo esihenkilöille?",
+        "options": [
+          "vähemmän työtä",
+          "luottamuksen rakentaminen ja yhteishengen ylläpito etänä",
+          "liian paljon työntekijöitä",
+          "liian vähän kokouksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_011_q3",
+        "prompt": "Mitä hyvää muutoksessa on?",
+        "options": [
+          "työntekijät ovat vähemmän motivoituneita",
+          "työntekijät voivat vaikuttaa työhönsä, säästävät aikaa ja voivat yhdistää työn ja perhe-elämän paremmin",
+          "työpäivät ovat pidempiä",
+          "palkat ovat nousseet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_011_q4",
+        "prompt": "Mitä taitoja tulevaisuuden esihenkilö tarvitsee?",
+        "options": [
+          "vain teknisiä taitoja",
+          "empatiaa, kuuntelutaitoa ja kykyä johtaa ilman läsnäoloa",
+          "vain kielitaitoa",
+          "vain matemaattisia taitoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

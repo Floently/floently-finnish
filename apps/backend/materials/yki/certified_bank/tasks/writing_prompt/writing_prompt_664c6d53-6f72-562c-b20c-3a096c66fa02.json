@@ -1,0 +1,37 @@
+{
+  "id": "664c6d53-6f72-562c-b20c-3a096c66fa02",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö poliitikkojen olla nykyistä enemmän kansalaisten tavoitettavissa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Poliitikkojen tavoitettavuus"
+    },
+    "items": [
+      {
+        "id": "bef0aa88-48c0-5383-a9b3-2b456fca3a29",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö poliitikkojen olla nykyistä enemmän kansalaisten tavoitettavissa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

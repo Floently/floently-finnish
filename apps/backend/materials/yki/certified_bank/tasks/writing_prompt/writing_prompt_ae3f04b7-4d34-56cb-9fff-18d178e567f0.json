@@ -1,0 +1,37 @@
+{
+  "id": "ae3f04b7-4d34-56cb-9fff-18d178e567f0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti sairaalan sosiaalityöntekijälle. Omaisesi on pitkäaikaisessa sairaalahoidossa, ja tarvitsette apua kuntoutuksen ja jatkohoidon järjestämisessä. Kerro tilanteesta, omaisesi tarpeista ja kysy, miten sosiaalityöntekijä voi auttaa. Pyydä myös tietoa tuista ja avustuksista.",
+    "materials": {
+      "scenario": "Jatkohoidon järjestäminen omaiselle"
+    },
+    "items": [
+      {
+        "id": "47b65f86-2498-5754-bc50-de92df2cc2a5",
+        "prompt": "Kirjoita virallinen sähköposti sairaalan sosiaalityöntekijälle. Omaisesi on pitkäaikaisessa sairaalahoidossa, ja tarvitsette apua kuntoutuksen ja jatkohoidon järjestämisessä. Kerro tilanteesta, omaisesi tarpeista ja kysy, miten sosiaalityöntekijä voi auttaa. Pyydä myös tietoa tuista ja avustuksista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

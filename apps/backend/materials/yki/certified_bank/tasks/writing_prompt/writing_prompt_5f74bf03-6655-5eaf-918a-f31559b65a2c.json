@@ -1,0 +1,37 @@
+{
+  "id": "5f74bf03-6655-5eaf-918a-f31559b65a2c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kuntosalille. Haluat tietää, onko heillä ryhmäliikuntatunteja aloittelijoille. Kerro, että et ole käynyt salilla aiemmin. Kysy, mitä tunteja suosittelette. Kysy myös hintaa.",
+    "materials": {
+      "scenario": "Viesti kuntosalille aloittelijan tunnit"
+    },
+    "items": [
+      {
+        "id": "a88b946d-077f-52e2-bc4a-6f741441edb2",
+        "prompt": "Kirjoita lyhyt viesti kuntosalille. Haluat tietää, onko heillä ryhmäliikuntatunteja aloittelijoille. Kerro, että et ole käynyt salilla aiemmin. Kysy, mitä tunteja suosittelette. Kysy myös hintaa."
+      }
+    ],
+    "rubric": "Kysy ryhmäliikunnasta\nKerro, että olet aloittelija\nKysy suosituksia\nKysy hintaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "43f64ac6-80f7-5b8c-84c5-9b0e3d1e76ef",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uimahallin asiakaspalveluun. Olit perheesi kanssa uimahallissa viikonloppuna ja teille luvattiin perhealennus, mutta kassalla veloitettiin täysi hinta. Kuvaa tilanne ja pyydä hyvitystä.",
+    "materials": {
+      "scenario": "Asiakaspalautetta väärästä laskutuksesta"
+    },
+    "items": [
+      {
+        "id": "7f9ccc90-21ca-5060-ab10-06d70817e32c",
+        "prompt": "Kirjoita sähköposti uimahallin asiakaspalveluun. Olit perheesi kanssa uimahallissa viikonloppuna ja teille luvattiin perhealennus, mutta kassalla veloitettiin täysi hinta. Kuvaa tilanne ja pyydä hyvitystä."
+      }
+    ],
+    "rubric": "Tapahtuman kuvaus\nMitä luvattiin ja mitä veloitettiin\nPyyntö hyvityksestä",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

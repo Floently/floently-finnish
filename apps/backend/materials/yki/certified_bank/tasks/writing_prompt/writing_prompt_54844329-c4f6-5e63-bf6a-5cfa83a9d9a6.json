@@ -1,0 +1,37 @@
+{
+  "id": "54844329-c4f6-5e63-bf6a-5cfa83a9d9a6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti pankkiin. Olet saanut puhelinmyyjältä tarjouksen uudesta sijoitusrahastosta, mutta et ole varma, sopiiko se sinulle. Pyydä pankkia lähettämään sinulle kirjalliset tiedot rahastosta, kuten kulut, riskit ja tuotto-odotukset. Kerro myös omasta sijoitustavastasi ja tavoitteistasi.",
+    "materials": {
+      "scenario": "Sijoitusrahaston tietojen pyytäminen"
+    },
+    "items": [
+      {
+        "id": "3eae5f2c-2ea5-5d54-b57b-08023aeb98c0",
+        "prompt": "Kirjoita virallinen sähköposti pankkiin. Olet saanut puhelinmyyjältä tarjouksen uudesta sijoitusrahastosta, mutta et ole varma, sopiiko se sinulle. Pyydä pankkia lähettämään sinulle kirjalliset tiedot rahastosta, kuten kulut, riskit ja tuotto-odotukset. Kerro myös omasta sijoitustavastasi ja tavoitteistasi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

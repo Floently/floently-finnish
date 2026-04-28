@@ -1,0 +1,99 @@
+{
+  "id": "d0cd246a-c574-599e-bed3-7ba9ad79a19e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Uusi opiskelijaravintola avataan ensi viikolla. Se sijaitsee yliopiston päärakennuksen vieressä. Ravintolassa on lounas buffetina ja lisäksi myydään kahvia ja leivonnaisia. Opiskelijat saavat ateriat edullisemmin opiskelijakortilla. Ravintola on auki arkisin kello 8–17. Tervetuloa syömään!",
+      "word_count": 33
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uusi opiskelijaravintola avataan?",
+        "options": [
+          "Tänään",
+          "Ensi viikolla",
+          "Ensi kuussa",
+          "Vuoden päästä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä ravintola sijaitsee?",
+        "options": [
+          "Kauppakeskuksessa",
+          "Yliopiston päärakennuksen vieressä",
+          "Kirjastossa",
+          "Asuntolassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen lounas ravintolassa on?",
+        "options": [
+          "À la carte -lista",
+          "Buffet",
+          "Noutopöytä vain viikonloppuisin",
+          "Valmisaterioita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä muuta ravintolassa myydään?",
+        "options": [
+          "Alkoholia ja virvoitusjuomia",
+          "Kahvia ja leivonnaisia",
+          "Jäätelöä ja karkkia",
+          "Leipiä ja sämpylöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten opiskelijat saavat ateriat edullisemmin?",
+        "options": [
+          "Kuponkien avulla",
+          "Opiskelijakortilla",
+          "Olemalla ajoissa paikalla",
+          "Tilaamalla etukäteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Milloin ravintola on auki?",
+        "options": [
+          "Arkisin kello 8–17",
+          "Viikonloppuisin kello 10–16",
+          "Joka päivä kello 9–20",
+          "Vain lounasaikaan"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

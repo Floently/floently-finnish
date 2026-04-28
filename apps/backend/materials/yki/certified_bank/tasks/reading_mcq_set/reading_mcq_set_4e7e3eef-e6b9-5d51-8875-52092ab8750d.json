@@ -1,0 +1,66 @@
+{
+  "id": "4e7e3eef-e6b9-5d51-8875-52092ab8750d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.756,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kulttuuriperinnön digitalisointi on maailmanlaajuinen ilmiö, joka muuttaa tapaamme säilyttää, tutkia ja kokea kulttuuria. Digitalisoinnilla tarkoitetaan kulttuuriperintöaineistojen, kuten kirjojen, valokuvien, äänitteiden, elokuvien, esineiden ja asiakirjojen muuttamista digitaaliseen muotoon. Tämä mahdollistaa aineistojen säilyttämisen pitkällä aikavälillä ja niiden saatavuuden kaikkialla maailmassa. Suomessa Kansalliskirjasto, Kansallisarkisto ja Museovirasto ovat keskeisiä toimijoita kulttuuriperinnön digitalisoinnissa. Ne digitoivat mittavia määriä aineistoa, kuten sanomalehtiä, kirkonkirjoja, karttoja, valokuvia ja taideteoksia. Digitoidut aineistot ovat vapaasti saatavilla verkossa, mikä palvelee tutkijoita, opiskelijoita, sukututkijoita ja kaikkia kulttuurista kiinnostuneita. Digitalisoinnilla on monia etuja. Se suojaa alkuperäisiä, usein hauraita aineistoja kulumiselta ja vahingoilta. Kun aineistot ovat digitaalisessa muodossa, niitä voidaan käyttää ilman, että alkuperäisiin tarvitsee koskea. Se myös helpottaa aineistojen hakua ja analysointia. Tekstintunnistus (OCR) mahdollistaa vanhojen tekstien hakukelpoisuuden, ja kuvantunnistus auttaa tunnistamaan esineitä ja kuvia. Digitalisointi lisää kulttuuriperinnön saavutettavuutta ja demokratisoi sitä. Kuka tahansa, missä tahansa, voi tutustua suomalaiseen kulttuuriperintöön verkon välityksellä. Tämä on tärkeää erityisesti suomen kielen ja kulttuurin säilymisen kannalta. Haasteitakin on. Digitalisointi on kallista ja aikaa vievää, ja resurssit ovat rajalliset. Teknologian kehittyessä myös digitaalisten aineistojen säilyttäminen pitkällä aikavälillä on ongelmallista. Tiedostomuodot vanhenevat, ja tallennusvälineet hajoavat. Tarvitaan jatkuvaa huoltoa ja siirtämistä uusille alustoille. Tekijänoikeudet ja tietosuoja asettavat rajoituksia sille, mitä aineistoja voidaan digitoida ja asettaa julkisesti saataville. Erityisesti 1900-luvun aineistot voivat olla tekijänoikeuksien suojaamia. Tulevaisuudessa tekoäly ja koneoppiminen voivat nopeuttaa digitalisointia ja parantaa aineistojen hyödyntämistä. Kulttuuriperinnön digitalisointi on investointi tulevaisuuteen: se varmistaa, että tulevat sukupolvet voivat oppia ja nauttia menneisyyden kulttuurista.",
+      "word_count": 230
+    },
+    "questions": [
+      {
+        "id": "f5a6b7c8-d9e0-4f1a-9b2c-3d4e5f6a7b8c",
+        "prompt": "Mitä tarkoitetaan kulttuuriperinnön digitalisoinnilla?",
+        "options": [
+          "Kulttuuriperinnön tuhoamista",
+          "Kulttuuriperintöaineistojen muuttamista digitaaliseen muotoon",
+          "Vain uusien kulttuuriaineistojen luomista",
+          "Kulttuuriperinnön myymistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a6b7c8d9-e0f1-4a2b-9c3d-4e5f6a7b8c9d",
+        "prompt": "Mitkä ovat keskeisiä toimijoita kulttuuriperinnön digitalisoinnissa Suomessa?",
+        "options": [
+          "Yksityiset yritykset",
+          "Kansalliskirjasto, Kansallisarkisto ja Museovirasto",
+          "Yliopistot",
+          "Kunnat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Mitä haasteita kulttuuriperinnön digitalisoinnissa on?",
+        "options": [
+          "Aineistot ovat liian uusia",
+          "Digitalisointi on kallista, tekijänoikeudet ja digitaalisten aineistojen pitkäaikaissäilytys",
+          "Kaikki aineistot on jo digitoitu",
+          "Aineistoja ei haluta jakaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

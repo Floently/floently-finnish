@@ -1,0 +1,66 @@
+{
+  "id": "740b2cff-bc14-576b-aaae-5d75ac2f2fb0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.756,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele luento kulttuuri-identiteetistä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät kuulijat, tänään käsittelemme kulttuuri-identiteettiä globalisoituvassa maailmassa. Kulttuuri-identiteetillä tarkoitetaan yksilön tai ryhmän kokemusta kuulumisesta tiettyyn kulttuuriin. Perinteisesti identiteetti on ymmärretty melko pysyvänä ja selvärajaisena, mutta nykytutkimus korostaa sen monikerroksisuutta ja tilannesidonnaisuutta.\n\nGlobalisaatio on tuonut uusia ulottuvuuksia identiteetin rakentumiseen. Ihmiset liikkuvat, kohtaavat erilaisia kulttuureja ja omaksuvat vaikutteita monista suunnista. Tämä voi johtaa niin sanottuun hybridi-identiteettiin, jossa yhdistellään aineksia eri kulttuureista. Toisaalta se voi myös vahvistaa tarvetta korostaa omaa kulttuurista erityisyyttä.\n\nErityisen mielenkiintoinen ilmiö on diaspora-identiteetti. Sillä tarkoitetaan identiteettiä, joka muodostuu, kun ihminen elää toisessa maassa mutta ylläpitää siteitä lähtömaansa kulttuuriin. Tällöin identiteetti ei ole sidottu tiettyyn paikkaan, vaan se rakentuu muistojen, kertomusten ja kulttuuristen käytäntöjen varaan.\n\nNuorten identiteetin kehityksessä sosiaalisella medialla on merkittävä rooli. Se tarjoaa areenoja identiteetin esittämiselle ja neuvottelulle, mutta samalla se voi luoda paineita tietynlaisten identiteettien omaksumiseen. Vertaispaine ja somevaikuttajat muovaavat käsityksiä siitä, mikä on tavoiteltavaa.\n\nOn tärkeää ymmärtää, ettei identiteetti ole staattinen vaan jatkuvasti uudelleen neuvoteltavissa oleva prosessi. Se on kuin kudelma, johon tulee koko ajan uusia lankoja, mutta jossa myös vanhat langat säilyvät ja saavat uusia merkityksiä.",
+      "audio_asset_id": "ae2a45db-3b74-5f17-8971-7b3e9539b3b8"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten nykytutkimus ymmärtää kulttuuri-identiteetin verrattuna perinteiseen näkemykseen?",
+        "options": [
+          "Pysyvänä ja muuttumattomana",
+          "Monikerroksisena ja tilannesidonnaisena",
+          "Vain yhden kulttuurin määrittelemänä",
+          "Täysin satunnaisena ilmiönä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan diaspora-identiteetillä?",
+        "options": [
+          "Identiteettiä, joka muodostuu vain kotimaassa",
+          "Identiteettiä, joka rakentuu muistojen ja kulttuuristen käytäntöjen varaan toisessa maassa asuttaessa",
+          "Täysin uuden identiteetin omaksumista",
+          "Identiteetin täydellistä hylkäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä rooli sosiaalisella medialla on nuorten identiteetin kehityksessä?",
+        "options": [
+          "Se ei vaikuta mitenkään",
+          "Se tarjoaa areenoja identiteetin esittämiselle mutta voi myös luoda paineita",
+          "Se määrittää täysin nuorten identiteetin",
+          "Se on ainoa identiteetin muodostumisen kanava"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

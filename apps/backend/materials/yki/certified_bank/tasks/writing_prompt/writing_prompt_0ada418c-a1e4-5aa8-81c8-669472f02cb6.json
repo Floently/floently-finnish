@@ -1,0 +1,37 @@
+{
+  "id": "0ada418c-a1e4-5aa8-81c8-669472f02cb6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kouluissa olla enemmän tietotekniikan opetusta. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Tietotekniikan opetus kouluissa"
+    },
+    "items": [
+      {
+        "id": "04704ba4-35b2-54af-ae30-09c4b188b4f1",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kouluissa olla enemmän tietotekniikan opetusta. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

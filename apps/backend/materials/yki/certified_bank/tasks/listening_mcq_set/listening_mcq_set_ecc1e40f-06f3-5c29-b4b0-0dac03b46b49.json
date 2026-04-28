@@ -1,0 +1,66 @@
+{
+  "id": "ecc1e40f-06f3-5c29-b4b0-0dac03b46b49",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Timo: Hei Sanna, olenko myöhässä?\nSanna: Hei Timo, et ollenkaan. Minäkin juuri saavuin. Oletko jo ehtinyt katsoa menua?\nTimo: Kyllä, melkein. Täällä on paljon hyvän näköisiä ruokia. Mitä aiot tilata?\nSanna: Ajattelin ottaa päivän erikoista, joka on poronkäristystä perunamuusilla ja puolukkahillolla. Se kuulostaa ihanalta.\nTimo: Se kuulostaa hyvältä! Minä taidan ottaa saman. Tykkään poronkäristyksestä.\nSanna: Sopiiko sinulle, jos jaetaan lisäksi alkupaloja?\nTimo: Totta kai! Otetaan vaikka porotartaria.",
+      "audio_asset_id": "6b9ab214-ea99-531e-a1ac-38e84a6df128"
+    },
+    "questions": [
+      {
+        "id": "list_037",
+        "prompt": "Mikä on päivän erikoisruoka?",
+        "options": [
+          "Lohikeitto",
+          "Poronkäristys",
+          "Pihvi",
+          "Kalakeitto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_038",
+        "prompt": "Mitä lisuketta poronkäristyksen kanssa on?",
+        "options": [
+          "Keitetyt perunat ja karpalokastike",
+          "Perunamuusi ja puolukkahillo",
+          "Riisi ja kermakastike",
+          "Ranskalaiset ja majoneesi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_039",
+        "prompt": "Mitä alkupalaa he aikovat tilata?",
+        "options": [
+          "Salaattia",
+          "Porotartaria",
+          "Leipää",
+          "Keittoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

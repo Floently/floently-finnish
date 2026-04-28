@@ -1,0 +1,37 @@
+{
+  "id": "9a18f9e5-fd35-5e9c-8fca-aebc56cb3c1a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute lähikaupan jonotuksesta.",
+    "materials": {
+      "scenario": "Kaupan kassajonot"
+    },
+    "items": [
+      {
+        "id": "1e871ef2-c980-5799-ab2a-dbb6a92c5a9c",
+        "prompt": "Kirjoita palaute lähikaupan jonotuksesta."
+      }
+    ],
+    "rubric": "Kirjoita palaute lähikaupan jonotuksesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

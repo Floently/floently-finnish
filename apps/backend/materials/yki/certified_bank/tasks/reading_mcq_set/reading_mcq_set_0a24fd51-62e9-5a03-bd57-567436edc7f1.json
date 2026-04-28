@@ -1,0 +1,66 @@
+{
+  "id": "0a24fd51-62e9-5a03-bd57-567436edc7f1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Politiikan tutkija analysoi populismin nousua. Populismi on ohut ideologia, joka jakaa yhteiskunnan kahteen homogeeniseen ryhmään: 'kansaan' ja 'eliittiin'. Populistit väittävät edustavansa 'kansan tahtoa' ja pitävät eliittiä korruptoituneena ja kansasta vieraantuneena. Populismi voi esiintyä sekä vasemmistolla että oikeistolla. Oikeistopopulismi yhdistää usein maahanmuuttovastaisuuden ja kansallismielisyyden. Vasemmistopopulismi painottaa taloudellista eriarvoisuutta ja vastustaa suuryrityksiä. Populismin haaste on, että se tarjoaa yksinkertaisia ratkaisuja monimutkaisiin ongelmiin. Se voi myös heikentää demokraattisia instituutioita, jos se pyrkii heikentämään oikeuslaitosta, mediaa tai asiantuntijoiden asemaa.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten populismi jakaa yhteiskunnan?",
+        "options": [
+          "Vasemmistoon ja oikeistoon",
+          "Kansaan ja eliittiin",
+          "Nuoriin ja vanhoihin",
+          "Kaupunkilaisiin ja maaseutulaisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä oikeistopopulismi usein yhdistää?",
+        "options": [
+          "Taloudellisen eriarvoisuuden vastustamisen",
+          "Maahanmuuttovastaisuuden ja kansallismielisyyden",
+          "Suuryritysten tukemisen",
+          "Kansainvälisyyden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on populismin haaste?",
+        "options": [
+          "Se on liian monimutkaista",
+          "Se tarjoaa yksinkertaisia ratkaisuja monimutkaisiin ongelmiin",
+          "Se ei kiinnosta ketään",
+          "Se on liian kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

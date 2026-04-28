@@ -1,0 +1,60 @@
+{
+  "frontend_to_shared": [
+    {
+      "from": "apps/client/features/speaking/hooks/useRoleplayRecorder.ts",
+      "import": "transcribeVoiceAudio",
+      "target": "packages/core/api/voice.ts"
+    },
+    {
+      "from": "apps/client/features/speaking/services/roleplayAudio.ts",
+      "import": "requestVoiceTts",
+      "target": "packages/core/api/voice.ts"
+    },
+    {
+      "from": "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx",
+      "import": "startRoleplaySession/submitRoleplayTurn/finishRoleplaySession",
+      "target": "packages/core/api/roleplay.ts"
+    }
+  ],
+  "shared_to_backend_routes": [
+    {
+      "caller": "packages/core/api/voice.ts::transcribeVoiceAudio",
+      "method": "POST",
+      "url": "/api/v1/voice/stt/transcriptions",
+      "backend": "apps/backend/app/routers/v1_voice.py::transcribe_audio_route"
+    },
+    {
+      "caller": "packages/core/api/voice.ts::requestVoiceTts",
+      "method": "POST",
+      "url": "/api/v1/voice/tts/requests",
+      "backend": "apps/backend/app/routers/v1_voice.py::create_tts_request_route"
+    },
+    {
+      "caller": "packages/core/api/roleplay.ts::startRoleplaySession",
+      "method": "POST",
+      "url": "/api/v1/roleplay/session/start",
+      "backend": "apps/backend/app/routers/v1_roleplay.py::start_roleplay_session_route"
+    },
+    {
+      "caller": "packages/core/api/roleplay.ts::submitRoleplayTurn",
+      "method": "POST",
+      "url": "/api/v1/roleplay/session/{session_id}/turn",
+      "backend": "apps/backend/app/routers/v1_roleplay.py::submit_roleplay_turn_route"
+    },
+    {
+      "caller": "packages/core/api/roleplay.ts::finishRoleplaySession",
+      "method": "POST",
+      "url": "/api/v1/roleplay/session/{session_id}/finish",
+      "backend": "apps/backend/app/routers/v1_roleplay.py::finish_roleplay_session_route"
+    }
+  ],
+  "backend_service_path": [
+    "apps/backend/app/router.py -> build_voice_router()",
+    "apps/backend/app/routers/v1_voice.py::transcribe_audio_route",
+    "apps/backend/app/services/voice_service.py::transcribe_audio",
+    "apps/backend/app/runtime/voice.py::save_voice_file",
+    "apps/backend/app/services/voice_service.py::_transcribe_with_openai/_transcribe_with_google",
+    "apps/backend/app/services/voice_service.py::_classify_stt_failures"
+  ]
+}
+

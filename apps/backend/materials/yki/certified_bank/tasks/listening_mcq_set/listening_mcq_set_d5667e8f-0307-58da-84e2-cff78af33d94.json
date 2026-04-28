@@ -1,0 +1,99 @@
+{
+  "id": "d5667e8f-0307-58da-84e2-cff78af33d94",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kaupungin tiedote uudesta kirjastosta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin tiedotus. Meillä on ilo ilmoittaa, että uuden keskustakirjaston rakentaminen alkaa ensi keväänä. Uusi kirjasto rakennetaan vanhan linja-autoaseman tontille. Kirjastosta tulee moderni ja monipuolinen. Siellä on perinteisten kirjojen lisäksi muun muassa digitaalinen mediapaja, jossa voi kokeilla 3D-tulostusta ja videotuotantoa. Lisäksi kirjastoon tulee kahvila, tapahtumatila ja lasten oma kerroksensa. Kirjasto on avoinna myös iltaisin ja viikonloppuisin. Rakentaminen kestää noin kaksi vuotta, ja kirjasto avataan yleisölle syksyllä 2027. Rakentamisen aikana väistötilat ovat väliaikaisessa kirjastossa kauppakeskus Kolmion toisessa kerroksessa. Väistökirjasto palvelee normaalisti koko rakentamisen ajan. Lainat voi uusia ja varauksia voi tehdä normaalisti verkkosivujen kautta. Haluamme kiittää kaikkia asukkaita, jotka osallistuivat kirjaston suunnitteluun. Toiveenne on otettu huomioon, ja uudesta kirjastosta tulee kaikkien olohuone. Tervetuloa seuraamaan rakentamisen etenemistä verkkosivuiltamme.",
+      "audio_asset_id": "e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupunki tiedottaa?",
+        "options": [
+          "Vanhan kirjaston purkamisesta.",
+          "Uuden kirjaston rakentamisen aloittamisesta.",
+          "Kirjaston aukioloaikojen muutoksesta.",
+          "Kirjaston lakkauttamisesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minne uusi kirjasto rakennetaan?",
+        "options": [
+          "Puiston keskelle.",
+          "Vanhan linja-autoaseman tontille.",
+          "Koulun viereen.",
+          "Uimahallin paikalle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä uutta kirjastossa on perinteisten kirjojen lisäksi?",
+        "options": [
+          "Leikkipuisto ja uimaranta.",
+          "Digitaalinen mediapaja, kahvila, tapahtumatila ja lasten kerros.",
+          "Urheilukenttä ja kuntosali.",
+          "Elokuvateatteri ja pelihalli."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Kuinka kauan rakentaminen kestää?",
+        "options": [
+          "Noin vuoden.",
+          "Noin kaksi vuotta.",
+          "Noin kolme vuotta.",
+          "Noin neljä vuotta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Missä on väistökirjasto rakentamisen aikana?",
+        "options": [
+          "Koulun liikuntasalissa.",
+          "Kauppakeskus Kolmion toisessa kerroksessa.",
+          "Kaupungintalon alakerrassa.",
+          "Entisessä tehtaassa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Kuka osallistui kirjaston suunnitteluun?",
+        "options": [
+          "Vain arkkitehdit.",
+          "Kaupungin asukkaat.",
+          "Vain kirjaston työntekijät.",
+          "Vain poliitikot."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

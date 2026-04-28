@@ -1,0 +1,66 @@
+{
+  "id": "f7b95b6a-46cd-5e73-936d-c4e05f010324",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, mitä sä teet viikonloppuna?\nB: Meen mökille. Siellä on varmaan vielä lunta.\nA: Kiva. Mä jään kaupunkiin. Ajattelin mennä syömään ystävän kanssa.\nB: Mihin te meette?\nA: Uuteen italialaiseen ravintolaan. Se on saanut hyviä arvosteluja.\nB: Kuulostaa hyvältä. No, hyvää viikonloppua!\nA: Kiitos samoin!",
+      "audio_asset_id": "8a9fdf05-8fc2-5f92-900b-386d3f3ec845"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä B tekee viikonloppuna?",
+        "options": [
+          "menee elokuviin",
+          "menee mökille",
+          "menee syömään",
+          "jää kotiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä A aikoo tehdä?",
+        "options": [
+          "mennä mökille",
+          "mennä elokuviin",
+          "mennä syömään ystävän kanssa",
+          "matkustaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen ravintola on kyseessä?",
+        "options": [
+          "kiinalainen",
+          "italialainen",
+          "thaimaalainen",
+          "intialainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

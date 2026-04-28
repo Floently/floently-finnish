@@ -1,0 +1,37 @@
+{
+  "id": "0948efe1-3ac0-536d-b198-1fea365ba5e7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin asukasbudjetoinnin toteutusvaiheesta. Arvioi toteutuksen onnistumista, tiedotusta ja vaikutuksia. Ehdota yhtä uutta toteutustapaa.",
+    "materials": {
+      "scenario": "Palaute kaupungin asukasbudjetoinnin toteutusvaiheesta"
+    },
+    "items": [
+      {
+        "id": "b01c12dc-dd32-58d7-b778-1ecd65b05d9d",
+        "prompt": "Kirjoita palauteteksti kaupungin asukasbudjetoinnin toteutusvaiheesta. Arvioi toteutuksen onnistumista, tiedotusta ja vaikutuksia. Ehdota yhtä uutta toteutustapaa."
+      }
+    ],
+    "rubric": "Toteutuksen onnistuminen\nTiedotus\nVaikutukset\nUusi toteutustapa",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

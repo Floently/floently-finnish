@@ -1,0 +1,40 @@
+{
+  "id": "4aa1fc08-d5af-5d7a-842b-45f84e7ddfa9",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi selittää monimutkaista asiaa maallikolle.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet lääkäri, joka haluaa potilaan ymmärtävän tilanteensa vakavuuden.",
+        "partner": "Potilas - epäilevä, ei halua lääkitystä, vähättelee oireettomuutta."
+      }
+    },
+    "items": [
+      {
+        "id": "srp45",
+        "ai_first_turn_fi": "Tutkimustulokset ovat valmistuneet. Verenpaineesi on korkea ja kolesteroliarvot ovat liian korkeat. Ymmärrän, että tämä voi tulla yllätyksenä, koska sinulla ei ole oireita."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi selittää monimutkaista asiaa maallikolle.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

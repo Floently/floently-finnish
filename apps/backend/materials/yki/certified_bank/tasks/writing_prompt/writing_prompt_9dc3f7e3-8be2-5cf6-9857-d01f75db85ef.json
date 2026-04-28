@@ -1,0 +1,37 @@
+{
+  "id": "9dc3f7e3-8be2-5cf6-9857-d01f75db85ef",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a chief information officer position in a medium-sized city. Tell about your experience in IT management, promoting digitalization, and implementing large information system projects. Also describe how you take users' needs into account. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus tietohallintojohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a chief information officer position in a medium-sized city. Tell about your experience in IT management, promoting digitalization, and implementing large information system projects. Also describe how you take users' needs into account. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a chief information officer position in a medium-sized city. Tell about your experience in IT management, promoting digitalization, and implementing large information system projects. Also describe how you take users' needs into account. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

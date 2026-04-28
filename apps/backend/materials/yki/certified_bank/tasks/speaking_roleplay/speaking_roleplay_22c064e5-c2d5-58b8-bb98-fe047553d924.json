@@ -1,0 +1,60 @@
+{
+  "id": "22c064e5-c2d5-58b8-bb98-fe047553d924",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa hotellivarauksen. Keskustele hotellin vastaanoton kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Hotellin vastaanottovirkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp33_1",
+        "ai_first_turn_fi": "Hei, Hotelli Aulanko."
+      },
+      {
+        "id": "srp33_2",
+        "ai_first_turn_fi": "Voin auttaa. Mikä on varausnumerosi?"
+      },
+      {
+        "id": "srp33_3",
+        "ai_first_turn_fi": "Kiitos. Varaus on tälle viikonlopulle kahdeksi yöksi. Peruutus on mahdollinen, mutta majoitus on maksettu etukäteen. Saat rahat takaisin, koska peruutat yli 24 tuntia ennen saapumista."
+      },
+      {
+        "id": "srp33_4",
+        "ai_first_turn_fi": "Haluatko, että yritämme siirtää varauksen toiseen ajankohtaan?"
+      },
+      {
+        "id": "srp33_5",
+        "ai_first_turn_fi": "Selvä. Peruutan varauksen. Rahat palautuvat tilillesi 3-5 arkipäivän kuluessa. Lähetän vahvistuksen sähköpostiisi."
+      },
+      {
+        "id": "srp33_6",
+        "ai_first_turn_fi": "Toivottavasti voimme palvella sinua toisella kertaa. Hyvää jatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa hotellivarauksen. Keskustele hotellin vastaanoton kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

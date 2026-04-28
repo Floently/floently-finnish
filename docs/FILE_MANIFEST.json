@@ -1,0 +1,502 @@
+[
+  {
+    "path": "apps/backend/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/analytics/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/analytics/event_logger.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/router.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/analytics.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/auth.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/billing.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/health.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/learning.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/professional.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/speaking_lab.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/yki_exam.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api/routes/yki_practice.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/api_contract.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/audit/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/audit/audit_logger.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/core/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/core/config.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/core/errors.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/core/responses.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/core/security.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/adapter.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/confidence_tracker_service.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/learning/content.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/diagnostic_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/models.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/personal_phrase_bank_service.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/learning/practice_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/progress_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/repository.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/review_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/revision_vault_service.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/learning/scheduler.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/study_plan_service.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/learning/system_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/learning/work_track_service.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/learning/workplace_incident_service.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/main.py",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/backend/practice/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/practice/adapter.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/professional/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/professional/path_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/professional/scenario_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/speaking/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/speaking/adapter.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/speaking/engine.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/speaking/feedback_service.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/speaking/prompt_catalog.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/tests/test_api_contract.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/tests/test_learning_scheduler.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/tests/test_yki_state_machine.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/tts/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/tts/audio_registry.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki/adapter.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki/contracts.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki/engine_client.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki/orchestrator.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki/state_machine.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki_practice/__init__.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/backend/yki_practice/adapter.py",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/_layout.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/learn/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/professional/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/progress/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/settings/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/speaking/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/yki-exam/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/app/yki-practice/index.tsx",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/src/design_system/tokens/colors.ts",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/src/design_system/tokens/radius.ts",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/src/design_system/tokens/spacing.ts",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/src/design_system/tokens/typography.ts",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/src/navigation/routes.ts",
+    "action": "new"
+  },
+  {
+    "path": "apps/client/state/AppShell.tsx",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/client/state/authStore.ts",
+    "action": "refactor_or_replace"
+  },
+  {
+    "path": "apps/client/state/uiStore.ts",
+    "action": "new"
+  },
+  {
+    "path": "docs/ADOPTION_GUIDE.md",
+    "action": "new"
+  },
+  {
+    "path": "docs/PRODUCTION_MANIFEST.md",
+    "action": "new"
+  },
+  {
+    "path": "docs/PRODUCTION_TREE.md",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/analytics/events.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/analytics.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/auth.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/billing.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/client.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/governedResponseValidation.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/index.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/learning.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/professional.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/speakingLab.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/types.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/ykiExam.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/api/ykiPractice.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/modes.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/schemas/learning.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/schemas/session.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/core/state/session.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/AppScaffold.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/EmptyState.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/FeedbackCard.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/LearningLoopStepper.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/ModeCard.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/PageHeader.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/PhraseChip.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/ProgressRing.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/ReviewQueueCard.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/SectionCard.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/StatChip.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/TaskCard.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/components/index.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/index.ts",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/HomeScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/LearnScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/LearningSessionScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/ProfessionalFinnishScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/ProgressScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/SettingsScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/SpeakingLabScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/YkiExamScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/YkiPracticeScreen.tsx",
+    "action": "new"
+  },
+  {
+    "path": "packages/ui/screens/index.ts",
+    "action": "new"
+  }
+]

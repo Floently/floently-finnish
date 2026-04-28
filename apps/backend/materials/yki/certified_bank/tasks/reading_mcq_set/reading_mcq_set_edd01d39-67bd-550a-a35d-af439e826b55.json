@@ -1,0 +1,88 @@
+{
+  "id": "edd01d39-67bd-550a-a35d-af439e826b55",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.767,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Tekoälyn nopea kehitys on tuonut mukanaan paitsi valtavia mahdollisuuksia myös vakavia eettisiä ongelmia. Yksi keskeisimmistä huolenaiheista on tekoälyn läpinäkymättömyys: monimutkaiset neuroverkot toimivat niin sanotusti mustina laatikoina, joiden päätöksentekoa on vaikea jälkikäteen tulkita. Tämä on ongelmallista erityisesti silloin, kun tekoälyä käytetään merkittävien päätösten tekemiseen esimerkiksi luotonannossa, rikosseuraamuksissa tai työnhaussa. Jos päätöksen perusteita ei voida selvittää, on mahdotonta arvioida, onko päätös ollut oikeudenmukainen tai syrjivä. Toinen merkittävä ongelma on tekoälyn vahvistamat ennakkoluulot. Koska tekoälyä opetetaan historiallisella datalla, joka saattaa sisältää syrjiviä rakenteita, oppii tekoäly helposti toistamaan ja jopa vahvistamaan näitä vinoumia. On esimerkiksi osoitettu, että jotkut rekrytointijärjestelmät ovat oppineet suosimaan miehiä naisten kustannuksella, koska niitä on opetettu aineistolla, jossa miehiä on valittu useammin johtotehtäviin. Kolmas keskeinen huolenaihe on tekoälyn vaikutus työllisyyteen ja työn luonteeseen. Asiantuntijat ovat erimielisiä siitä, kuinka paljon tekoäly korvaa ihmisten tekemää työtä ja millaisia uusia työpaikkoja se synnyttää. Epävarmaa on myös se, miten tekoälyn tuottama arvonnousu jaetaan oikeudenmukaisesti. Eettisten ongelmien ratkaisemiseksi on esitetty erilaisia keinoja, kuten tekoälyn kehittämistä koskevia eettisiä periaatteita, läpinäkyvyyden lisäämistä ja viranomaisvalvontaa.",
+      "word_count": 166
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan tekoälyn läpinäkymättömyydellä?",
+        "options": [
+          "Tekoäly toimii hitaasti ja tehottomasti",
+          "Tekoälyn päätöksentekoa on vaikea jälkikäteen tulkita",
+          "Tekoäly ei pysty oppimaan uutta",
+          "Tekoäly vaatii jatkuvaa ihmisen valvontaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi tekoälyn läpinäkymättömyys on ongelmallista päätöksenteossa?",
+        "options": [
+          "Se hidastaa päätöksentekoprosessia",
+          "Se tekee päätöksenteosta kalliimpaa",
+          "Sen vuoksi on vaikea arvioida päätöksen oikeudenmukaisuutta",
+          "Se vaatii enemmän ihmistyövoimaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten tekoäly voi vahvistaa ennakkoluuloja?",
+        "options": [
+          "Se keksii uusia ennakkoluuloja itse",
+          "Se oppii toistamaan historiallisessa datassa olevia vinoumia",
+          "Se suosii aina vähemmistöjä",
+          "Se ei kykene tunnistamaan ennakkoluuloja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä esimerkkiä tekstissä käytetään tekoälyn vahvistamista ennakkoluuloista?",
+        "options": [
+          "Tekoäly suosii nuoria vanhojen kustannuksella",
+          "Rekrytointijärjestelmät ovat oppineet suosimaan miehiä",
+          "Tekoäly syrjii korkeakoulutettuja",
+          "Luotonantojärjestelmät suosivat tiettyjä ammattiryhmiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ratkaisuja tekoälyn eettisiin ongelmiin on esitetty?",
+        "options": [
+          "Tekoälyn käytön kieltäminen kokonaan",
+          "Tekoälyn kehittämistä koskevat eettiset periaatteet",
+          "Tekoälyn korvaaminen ihmistyöllä",
+          "Tekoälyn käytön rajoittaminen vain viihdekäyttöön"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

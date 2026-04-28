@@ -1,0 +1,37 @@
+{
+  "id": "d49a9359-84f5-56ea-8db6-dd9172f41ea3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla mahdollisuus puheterapiaan ilman lähetettä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Puheterapiaan ilman lähetettä terveyskeskuksissa"
+    },
+    "items": [
+      {
+        "id": "97e7d867-72b9-5568-85f7-bed8ae3208b2",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö terveyskeskuksissa olla mahdollisuus puheterapiaan ilman lähetettä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

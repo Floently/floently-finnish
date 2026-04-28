@@ -1,0 +1,66 @@
+{
+  "id": "f441c877-5559-5120-bae3-fe3e198fb69e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunkien viheralueista on tullut viime vuosina yhä tärkeämpi puheenaihe. Samalla kun kaupunkeja tiivistetään ja rakennetaan lisää asuntoja, viheralueet joutuvat usein väistymään. Tämä herättää kysymyksen: mitä menetämme, kun puistot ja metsät katoavat?\n\nTutkimukset osoittavat, että viheralueilla on merkittävä vaikutus kaupunkilaisten hyvinvointiin. Jo lyhyt oleskelu puistossa laskee stressitasoja ja parantaa mielialaa. Lapset tarvitsevat luontoa liikkumiseen ja leikkimiseen. Vanhuksille puistot ovat tärkeitä kohtaamispaikkoja.\n\nViheralueet ovat myös tärkeitä kaupungin ilmastolle. Ne sitovat hiiltä, vähentävät melua ja puhdistavat ilmaa. Kuumina kesäpäivinä puistot viilentävät ympäristöä. Ilman viheralueita kaupungit muuttuisivat tukalan kuumiksi ja epäterveellisiksi.\n\nMiksi sitten viheralueita uhrataan rakentamisen tieltä? Syynä on usein maan kallis hinta. Rakentamalla tiiviimmin saadaan enemmän asuntoja ja enemmän rahaa. Mutta mitä maksaa se, että kaupungista tulee epämiellyttävä asua? Mitä maksaa lasten terveys tai vanhusten yksinäisyys?\n\nToivon, että kaupunkisuunnittelussa muistettaisiin, ettei kaikkea voi mitata rahassa. Viheralueet eivät ole ylellisyyttä, vaan välttämättömyys. Ne tekevät kaupungista elävän ja viihtyisän.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta. Lisäesimerkkejä voidaan käyttää",
+      "word_count": 180
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä viheralueista on tutkimusten mukaan?",
+        "options": [
+          "A) Ne lisäävät kiinteistöjen arvoa",
+          "B) Ne vähentävät stressiä, parantavat mielialaa ja viilentävät kaupunkeja",
+          "C) Ne houkuttelevat turisteja",
+          "D) Ne lisäävät liikennettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi viheralueita uhrataan rakentamisen tieltä?",
+        "options": [
+          "A) Ihmiset eivät halua niitä",
+          "B) Maan hinta on kallis ja tiivistämällä saadaan enemmän asuntoja",
+          "C) Viheralueet ovat vaarallisia",
+          "D) Ne vievät liikaa tilaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja toivoo?",
+        "options": [
+          "A) Lisää rakentamista",
+          "B) Että viheralueita arvostettaisiin enemmän",
+          "C) Että kaikki puistot muutetaan puistoiksi",
+          "D) Että ihmiset muuttaisivat maalle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

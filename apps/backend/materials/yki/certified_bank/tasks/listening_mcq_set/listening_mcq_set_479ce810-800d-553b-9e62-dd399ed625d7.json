@@ -1,0 +1,66 @@
+{
+  "id": "479ce810-800d-553b-9e62-dd399ed625d7",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kahden työntekijän keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, ootko kuullut, että meillä alkaa ensi viikolla uusi työaikakokeilu?\nB: Joo, luin siitä intranetistä. Liukuvan työajan laajennus, eikö niin?\nA: Nimenomaan. Nyt voi aloittaa jo kuudelta ja lopettaa vaikka kolmelta, jos haluaa. Ja iltalisä alkaa vasta kahdeksalta, kun ennen se alkoi kuudelta.\nB: Kuulostaa hyvältä, varsinkin jos on pieniä lapsia. Pääsee aikaisemmin kotiin.\nA: Mutta on siinä huonotkin puolensa. Jos tiimissä on eri aikoihin töissä, niin yhteiset palaverit voi olla vaikea sopia.\nB: Totta. Toivottavasti esihenkilöt muistaa sen. Pitäisiköhän meidän ehdottaa, että pidetään yksi yhteinen ydinajat, jolloin kaikki on tavoitettavissa?\nA: Hyvä idea. Voisin ottaa sen esiin huomisessa tiimipalaverissa.",
+      "audio_asset_id": "6c1d8376-fcec-4018-9f89-fda42fc3a7e1"
+    },
+    "questions": [
+      {
+        "id": "01542e9d-471a-5b10-94f6-22ddf58cd174",
+        "prompt": "Mikä työaikaan muuttuu?",
+        "options": [
+          "Työaika lyhenee",
+          "Liukuva työaika laajenee",
+          "Kaikki tekevät samaa työaikaa",
+          "Ylitöitä ei enää ole"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "94ee93d0-714b-544c-a4cf-724c8a5a4209",
+        "prompt": "Mikä on muutoksen hyvä puoli?",
+        "options": [
+          "Enemmän palkkaa",
+          "Voi aloittaa aikaisin ja lopettaa ajoissa",
+          "Vähemmän työtehtäviä",
+          "Enemmän lomaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d78c3692-e46b-58a6-8f4b-aad6d0be0843",
+        "prompt": "Mitä haittaa muutoksesta voi olla?",
+        "options": [
+          "Palkka pienenee",
+          "Työmatkat pitenevät",
+          "Yhteisten palaverien sopiminen voi vaikeutua",
+          "Työpaikalla on tylsempää"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

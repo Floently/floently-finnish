@@ -1,0 +1,37 @@
+{
+  "id": "52deb7df-51bb-588a-8235-d6307d8a7da0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita analyyttinen mielipideteksti.",
+    "materials": {
+      "scenario": "Median keskittyminen"
+    },
+    "items": [
+      {
+        "id": "87797e1b-de9a-5fb1-9943-fe002067fe41",
+        "prompt": "Onko median keskittyminen uhka sananvapaudelle?"
+      }
+    ],
+    "rubric": "Onko median keskittyminen uhka sananvapaudelle?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

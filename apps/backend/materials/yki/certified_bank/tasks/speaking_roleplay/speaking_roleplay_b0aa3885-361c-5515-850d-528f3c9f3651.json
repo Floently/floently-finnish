@@ -1,0 +1,56 @@
+{
+  "id": "b0aa3885-361c-5515-850d-528f3c9f3651",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen naapurin lemmikin aiheuttamasta häiriöstä. Keskustele isännöitsijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asukas",
+        "partner": "Isännöitsijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp54_1",
+        "ai_first_turn_fi": "Hei, isännöinti."
+      },
+      {
+        "id": "srp54_2",
+        "ai_first_turn_fi": "Voi ei. Missä osoitteessa ja mikä ongelma?"
+      },
+      {
+        "id": "srp54_3",
+        "ai_first_turn_fi": "Onko sinusta tullut puhuttua naapurille asiasta?"
+      },
+      {
+        "id": "srp54_4",
+        "ai_first_turn_fi": "Ymmärrän. Otan yhteyttä naapuriin ja muistutan taloyhtiön järjestyssäännöistä. Jos ongelma jatkuu, voimme tehdä virallisen huomautuksen."
+      },
+      {
+        "id": "srp54_5",
+        "ai_first_turn_fi": "Toivottavasti tilanne rauhoittuu. Kiitos ilmoituksesta."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen naapurin lemmikin aiheuttamasta häiriöstä. Keskustele isännöitsijän kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

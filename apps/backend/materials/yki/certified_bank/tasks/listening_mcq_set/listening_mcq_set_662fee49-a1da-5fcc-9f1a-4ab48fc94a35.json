@@ -1,0 +1,99 @@
+{
+  "id": "662fee49-a1da-5fcc-9f1a-4ab48fc94a35",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta kierrätyspisteestä ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin jätehuollon tiedote. Olemme avanneet uuden kierrätyspisteen Prisman pysäköintialueelle. Uudella kierrätyspisteellä voi lajitella lasin, metallin, kartongin, muovin ja pienmetallin. Piste on avoinna joka päivä kello 7–22. Pisteellä on myös vaatteiden keräysastia. Muistathan, että ongelmajätteet, kuten paristot ja akut, viedään edelleen vaarallisen jätteen keräyspisteisiin. Tervetuloa kierrättämään!",
+      "audio_asset_id": "4448dc75-19f4-4ca8-bf3e-398112b3ea04"
+    },
+    "questions": [
+      {
+        "id": "12949da0-94f0-584a-9c8a-a3cff82a2f05",
+        "prompt": "Mistä kaupungin jätehuolto tiedottaa?",
+        "options": [
+          "Jätemaksujen korotuksesta.",
+          "Uuden kierrätyspisteen avaamisesta.",
+          "Roskien keräysajoista.",
+          "Kompostointiohjeista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "93fb2f61-f941-585b-b019-201dafac4244",
+        "prompt": "Missä uusi kierrätyspiste sijaitsee?",
+        "options": [
+          "Kirjaston pihalla.",
+          "Uimahallin vieressä.",
+          "Prisman pysäköintialueella.",
+          "Koulun takana."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d7e51206-135a-5d5e-b581-bee3e0aecf3b",
+        "prompt": "Mitä jakeita uudella pisteellä voi lajitella?",
+        "options": [
+          "Lasin, metallin, kartongin, muovin ja pienmetallin.",
+          "Vain lasia ja metallia.",
+          "Vain paperia ja pahvia.",
+          "Vain biojätettä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "afd94a0f-dd8c-58a6-b72a-2cc6457ff7c6",
+        "prompt": "Mihin aikaan kierrätyspiste on auki?",
+        "options": [
+          "Kello 6–20.",
+          "Kello 8–20.",
+          "Kello 7–22.",
+          "Kello 9–21."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "89cd5382-66b4-51b5-bffd-5d225b2a43c2",
+        "prompt": "Mitä muuta keräystä pisteellä on?",
+        "options": [
+          "Huonekalujen keräys.",
+          "Vaatteiden keräys.",
+          "Kirjojen keräys.",
+          "Lelujen keräys."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6bc9bd02-e973-5eee-8538-4b13596a1b5a",
+        "prompt": "Minne paristot ja akut pitää viedä?",
+        "options": [
+          "Samalle kierrätyspisteelle.",
+          "Sekajätteeseen.",
+          "Vaarallisen jätteen keräyspisteisiin.",
+          "Kauppaan."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

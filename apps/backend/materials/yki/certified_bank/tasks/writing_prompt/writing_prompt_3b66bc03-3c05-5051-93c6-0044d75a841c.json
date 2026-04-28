@@ -1,0 +1,37 @@
+{
+  "id": "3b66bc03-3c05-5051-93c6-0044d75a841c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa, että uimahallissa olisi naisille omia uintivuoroja. Kerro, miksi tämä olisi tärkeää ja milloin vuorot voisivat olla. Kysy, onko tällaisia suunnitteilla.",
+    "materials": {
+      "scenario": "Ehdotus naisten uintivuoroista"
+    },
+    "items": [
+      {
+        "id": "0309638b-0616-5010-87e0-09b02d16cf35",
+        "prompt": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa, että uimahallissa olisi naisille omia uintivuoroja. Kerro, miksi tämä olisi tärkeää ja milloin vuorot voisivat olla. Kysy, onko tällaisia suunnitteilla."
+      }
+    ],
+    "rubric": "Tarpeen kuvaus\nEhdotus ajankohdasta\nTiedustelu suunnitelmista",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

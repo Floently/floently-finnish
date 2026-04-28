@@ -1,0 +1,40 @@
+{
+  "id": "35bb16bf-27e3-506b-82a6-c9c3281b930a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vastaa haastattelijan kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "dc514de6-f416-5f0a-8ac6-c1ec28354561",
+        "ai_first_turn_fi": "Katsotko televisiota? Mitä ohjelmia katsot?"
+      }
+    ],
+    "rubric": "Vastaa haastattelijan kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

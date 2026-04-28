@@ -1,0 +1,37 @@
+{
+  "id": "d59b9a67-58cb-5b21-8f6e-1a428e81bbff",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö liikuntapaikkojen olla ilmaisia nuorille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Ilmaiset liikuntapaikat nuorille"
+    },
+    "items": [
+      {
+        "id": "e1a1b172-590d-5de7-ab47-6d8e71e5dd17",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö liikuntapaikkojen olla ilmaisia nuorille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

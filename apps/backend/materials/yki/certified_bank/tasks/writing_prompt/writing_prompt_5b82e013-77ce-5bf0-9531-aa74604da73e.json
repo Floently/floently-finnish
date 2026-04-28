@@ -1,0 +1,37 @@
+{
+  "id": "5b82e013-77ce-5bf0-9531-aa74604da73e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnalliseen rakennusvalvontaan. Aiot rakentaa tontillesi pihasaunan ja haluat tietää, tarvitaanko siihen rakennuslupa vai riittääkö toimenpidelupa. Kerro saunan suunnitellusta koosta ja sijainnista.",
+    "materials": {
+      "scenario": "Rakennusluvan tarpeen selvittäminen"
+    },
+    "items": [
+      {
+        "id": "812bb1ce-f223-563a-9297-61a13c6b7ce3",
+        "prompt": "Kirjoita virallinen sähköposti kunnalliseen rakennusvalvontaan. Aiot rakentaa tontillesi pihasaunan ja haluat tietää, tarvitaanko siihen rakennuslupa vai riittääkö toimenpidelupa. Kerro saunan suunnitellusta koosta ja sijainnista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

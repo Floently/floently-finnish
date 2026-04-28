@@ -1,0 +1,37 @@
+{
+  "id": "8ef5d609-8829-5de7-a19e-a9d3756ecfad",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kansalaisille tarjota enemmän mahdollisuuksia osallistua päätöksentekoon. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Kansalaisten osallistuminen päätöksentekoon"
+    },
+    "items": [
+      {
+        "id": "aaf49b40-fafc-526d-866a-11eb315a7f4d",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kansalaisille tarjota enemmän mahdollisuuksia osallistua päätöksentekoon. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

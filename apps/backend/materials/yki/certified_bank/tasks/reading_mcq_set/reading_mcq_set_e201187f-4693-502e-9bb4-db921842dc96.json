@@ -1,0 +1,66 @@
+{
+  "id": "e201187f-4693-502e-9bb4-db921842dc96",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen käsityöperinne on rikas ja monipuolinen. Perinteisiä käsityötekniikoita ovat esimerkiksi kutominen, neulominen, kirjonta, puutyöt ja keramiikka. Erityisesti tekstiilityöt, kuten ryijyt, raanut ja perinteiset kansallispuvut, ovat säilyttäneet asemansa suomalaisessa kulttuurissa. Monet suomalaiset harrastavat käsitöitä vapaa-ajallaan, ja käsityökurssit ovat suosittuja kansalaisopistoissa. Taito-järjestö ja Martat tarjoavat koulutusta ja neuvontaa eri käsityötekniikoissa. Kädentaidot ovat arvostettuja, ja omatekoiset lahjat ja kodin tekstiilit ovat monelle tärkeitä. Villasukat ja lapaset ovat klassikkoesimerkkejä suomalaisesta käsityöstä. Joka talvi suomalaiset neulovat tuhansia pareja villasukkia, ja monet pitävät niitä kotona ja mökillä. Käsityöperinteeseen kuuluu myös korjauskulttuuri: rikkinäiset vaatteet ja esineet korjataan eikä heitetä heti pois. Tämä on nykyään myös ekologinen teko. Taitaja-kilpailut ja kädentaitomessut keräävät vuosittain yhteen alan harrastajia ja ammattilaisia. Suomalainen käsityö on saanut vaikutteita muista kulttuureista, mutta se on säilyttänyt oman tunnistettavan tyylinsä, jossa korostuvat yksinkertaisuus ja luonnonmateriaalit.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "f9a0b1c2-d3e4-4f5a-9b6c-7d8e9f0a1b2c",
+        "prompt": "Mitkä ovat perinteisiä suomalaisia käsityötekniikoita?",
+        "options": [
+          "Vain neulominen",
+          "Kutominen, neulominen, kirjonta, puutyöt ja keramiikka",
+          "Vain puutyöt",
+          "Vain keramiikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a0b1c2d3-e4f5-4a6b-9c7d-8e9f0a1b2c3d",
+        "prompt": "Mikä on klassikkoesimerkki suomalaisesta käsityöstä?",
+        "options": [
+          "Silkkihuivit",
+          "Villasukat ja lapaset",
+          "Kashmirneuleet",
+          "Nahkalaukut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1c2d3e4-f5a6-4b7c-9d8e-9f0a1b2c3d4e",
+        "prompt": "Mitä korjauskulttuuri tarkoittaa?",
+        "options": [
+          "Uusien tavaroiden ostamista",
+          "Rikkinäisten vaatteiden ja esineiden korjaamista",
+          "Tavaroiden heittämistä pois",
+          "Vain vaatteiden pesua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

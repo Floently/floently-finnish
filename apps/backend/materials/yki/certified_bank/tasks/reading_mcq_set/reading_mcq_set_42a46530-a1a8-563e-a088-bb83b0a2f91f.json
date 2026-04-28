@@ -1,0 +1,66 @@
+{
+  "id": "42a46530-a1a8-563e-a088-bb83b0a2f91f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ohjelmisto ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "BIO REXIN OHJELMISTO VIIKOLLA 15\n\nSali 1: Kapteeni Kalsari (animaatio) – 14.00, 16.00, 18.00\nSali 2: Rakkauden jälkeen (draama) – 15.30, 18.30, 21.00\nSali 3: Mestarietsivä (seikkailu) – 14.30, 17.00, 19.30\nSali 4: Lastenelokuvapäivä – Pieni merenneito (S) – 13.00\n\nLiput: aikuiset 14 €, lapset (3–12 v) 9 €, eläkeläiset 11 €\nPerhelippu (2 aikuista + 2 lasta) 40 €\n\nS = suomenkielinen teksti",
+      "word_count": 64
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Moneltako alkaa ensimmäinen näytös elokuvasta Mestarietsivä?",
+        "options": [
+          "klo 14.00",
+          "klo 14.30",
+          "klo 15.30",
+          "klo 17.00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko perhelippu maksaa?",
+        "options": [
+          "35 €",
+          "40 €",
+          "45 €",
+          "50 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä salissa näytetään lastenelokuva?",
+        "options": [
+          "Sali 1",
+          "Sali 2",
+          "Sali 3",
+          "Sali 4"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

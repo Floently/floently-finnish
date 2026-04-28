@@ -1,0 +1,37 @@
+{
+  "id": "5bc83da4-629d-5220-bb62-8be59c18196a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ympäristöministeriön ilmastoasioiden osastolle. Olette kansalaisjärjestö, ja haluatte tehdä aloitteen uuden ilmastolain valmistelemiseksi. Kerro, mitä asioita lain tulisi sisältää, miksi se on tarpeen ja mitä vaikutuksia sillä olisi. Kysy, miten aloite käsitellään ja voitteko osallistua lain valmisteluun.",
+    "materials": {
+      "scenario": "Aloite uudeksi ilmastolaiksi"
+    },
+    "items": [
+      {
+        "id": "aaa739de-2588-5379-a995-fb887bc56b9c",
+        "prompt": "Kirjoita virallinen sähköposti ympäristöministeriön ilmastoasioiden osastolle. Olette kansalaisjärjestö, ja haluatte tehdä aloitteen uuden ilmastolain valmistelemiseksi. Kerro, mitä asioita lain tulisi sisältää, miksi se on tarpeen ja mitä vaikutuksia sillä olisi. Kysy, miten aloite käsitellään ja voitteko osallistua lain valmisteluun."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

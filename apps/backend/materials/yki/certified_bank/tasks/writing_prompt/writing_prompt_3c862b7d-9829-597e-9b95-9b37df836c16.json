@@ -1,0 +1,37 @@
+{
+  "id": "3c862b7d-9829-597e-9b95-9b37df836c16",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö yläkouluissa olla enemmän valinnaisia aineita. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Valinnaiset aineet yläkouluissa"
+    },
+    "items": [
+      {
+        "id": "f191f570-e726-59d7-aba5-7262ef09d73b",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö yläkouluissa olla enemmän valinnaisia aineita. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

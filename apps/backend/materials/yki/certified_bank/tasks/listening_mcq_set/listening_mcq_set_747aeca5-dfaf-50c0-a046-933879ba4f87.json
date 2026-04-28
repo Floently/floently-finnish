@@ -1,0 +1,73 @@
+{
+  "id": "747aeca5-dfaf-50c0-a046-933879ba4f87",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu työpaikan pikkujouluista.",
+    "materials": {
+      "transcript": "A: Hei, ootko kuullu, että pikkujoulut on tänä vuonna 30. marraskuuta?\nB: Joo, luin siitä sähköpostista. Paikkana on ravintola Kasarmi, eikö?\nA: Niin just. Mutta mua vähän arveluttaa, että se on perjantai-iltana. Ajattelin mennä mökille.\nB: Ai, sinne kannattaa mennä! Pikkujoulut on aina hauskat. Viime vuonna oli tosi hyvä ruoka ja bändi soitti.\nA: Joo, mutta mä en oikein tykkää noista isoista juhlista. Olen vähän ujo.\nB: Älä huoli, siellä on kaikki. Jutellaan yhdessä, ja voit lähteä aikaisemmin, jos väsyttää.\nA: No, ehkä mä tuon. Täytyy miettiä. Onko sinne pakko mennä?\nB: Ei ole pakko, mutta kiva olis, jos tulisit. Esimieskin tulee ja se on luvannut pitää puheen. Ne on aika rentoja, ei mitään liian virallista.\nA: Selvä. Ilmoittaudun sitten, jos saan vielä lapsenvahdin järjestettyä.\nB: Kannattaa ilmoittautua pian, paikkoja on rajoitetusti.",
+      "audio_asset_id": "88901bd7-a82f-4ac1-b4e7-a72b5f4b0b3b"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin pikkujoulut ovat?",
+        "options": [
+          "30. lokakuuta",
+          "30. marraskuuta",
+          "30. joulukuuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä A:ta arveluttaa pikkujouluissa?",
+        "options": [
+          "hinta",
+          "ajankohta ja isot juhlat",
+          "ruoka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä B kertoo viime vuoden pikkujouluista?",
+        "options": [
+          "ne olivat tylsät",
+          "siellä oli hyvä ruoka ja bändi",
+          "kukaan ei tullut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä voi vielä estää A:n osallistumisen?",
+        "options": [
+          "hänellä on töitä",
+          "hän ei saa lapsenvahtia",
+          "hän on kipeä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

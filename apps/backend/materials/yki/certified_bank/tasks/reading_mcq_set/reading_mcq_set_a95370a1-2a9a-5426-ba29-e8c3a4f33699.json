@@ -1,0 +1,77 @@
+{
+  "id": "a95370a1-2a9a-5426-ba29-e8c3a4f33699",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikkailmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Haemme myyjää pieneen vaatekauppaan Helsinkiin. Työ on osa-aikaista, noin 25 tuntia viikossa. Työaika on pääasiassa iltapäivisin ja lauantaisin. Toivomme, että sinulla on kokemusta asiakaspalvelusta ja myyntityöstä. Arvostamme myös kielitaitoa: suomen kielen lisäksi englanti on tarpeen.\n\nTarjoamme mukavan työyhteisön ja perehdytyksen. Palkka on TES:n mukaan. Lähetä hakemuksesi 15.5. mennessä osoitteella: vaate@firma.fi. Kerro hakemuksessasi, miksi haluat meille töihin ja millaista kokemusta sinulla on.\n\nTyö alkaa elokuun alussa. Haastattelemme hakijoita kesäkuun aikana.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 97
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen työ on kyseessä?",
+        "options": [
+          "A) kokoaikainen myyjä",
+          "B) osa-aikainen myyjä",
+          "C) varaston työntekijä",
+          "D) toimistosihteeri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin työaika on?",
+        "options": [
+          "A) aamuisin",
+          "B) iltapäivisin ja lauantaisin",
+          "C) öisin",
+          "D) vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kieliä työssä tarvitaan?",
+        "options": [
+          "A) vain suomea",
+          "B) suomea ja ruotsia",
+          "C) suomea ja englantia",
+          "D) suomea ja venäjää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin hakemus pitää lähettää?",
+        "options": [
+          "A) toukokuun alussa",
+          "B) toukokuun puoliväliin mennessä",
+          "C) kesäkuussa",
+          "D) elokuussa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

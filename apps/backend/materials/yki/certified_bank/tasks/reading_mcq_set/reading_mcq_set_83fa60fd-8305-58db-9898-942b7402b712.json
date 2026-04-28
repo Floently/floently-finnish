@@ -1,0 +1,66 @@
+{
+  "id": "83fa60fd-8305-58db-9898-942b7402b712",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.306,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KADONNUT KISSA\n\nRuskea tabby-kissa nimeltä Tassu on kadonnut 5.5. Helsingin Kalliosta. Tassu on 2-vuotias ja sillä on vihreät silmät. Kissalla on punainen kaulapanta ja nimilaatta. Jos näet Tassun, soita 040 123 4567. Palkkio löytäjälle.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "546fdb32-6795-5cc6-936a-f701bba76b3b",
+        "prompt": "Minkä värinen kissa on kadonnut?",
+        "options": [
+          "A) musta",
+          "B) valkoinen",
+          "C) ruskea tabby",
+          "D) harmaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "db289a17-a768-5c3a-ab62-92de13bc977e",
+        "prompt": "Mikä on kissan nimi?",
+        "options": [
+          "A) Musti",
+          "B) Tassu",
+          "C) Mikko",
+          "D) Viiru"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5e27b780-f90c-5997-b2b5-534fa624da6e",
+        "prompt": "Minkä värinen kaulapanta kissalla on?",
+        "options": [
+          "A) sininen",
+          "B) vihreä",
+          "C) punainen",
+          "D) keltainen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

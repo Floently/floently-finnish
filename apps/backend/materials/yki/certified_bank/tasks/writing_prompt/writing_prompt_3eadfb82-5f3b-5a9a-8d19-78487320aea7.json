@@ -1,0 +1,37 @@
+{
+  "id": "3eadfb82-5f3b-5a9a-8d19-78487320aea7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet lähdössä ulkomaille töihin puoleksi vuodeksi. Kerro, mihin maahan. Kysy, haluaako hän tulla käymään. Kerro, että sinulla on sohva, jolla voi nukkua.",
+    "materials": {
+      "scenario": "Viesti ystävälle ulkomaan työmatkasta"
+    },
+    "items": [
+      {
+        "id": "4199f7c8-d026-5383-865a-a0110c7f081d",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet lähdössä ulkomaille töihin puoleksi vuodeksi. Kerro, mihin maahan. Kysy, haluaako hän tulla käymään. Kerro, että sinulla on sohva, jolla voi nukkua."
+      }
+    ],
+    "rubric": "Kerro, että lähdet ulkomaille\nKerro, mihin maahan\nKerro, kuinka pitkäksi aikaa\nKysy, haluaako hän käydä\nKerro majoituksesta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "9bb35b5b-70cf-52ac-9d7b-688711b648bb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö tekoälyn käyttöä julkisissa palveluissa lisätä vai rajoittaa?'. Arvioi tehokkuutta, läpinäkyvyyttä ja yksityisyyden suojaa.",
+    "materials": {
+      "scenario": "Tekoäly julkisissa palveluissa"
+    },
+    "items": [
+      {
+        "id": "983b5ed8-e09a-5276-ab88-b7e2099605ec",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö tekoälyn käyttöä julkisissa palveluissa lisätä vai rajoittaa?'. Arvioi tehokkuutta, läpinäkyvyyttä ja yksityisyyden suojaa."
+      }
+    ],
+    "rubric": "Tehokkuus\nLäpinäkyvyys\nYksityisyyden suoja\nPäätöksenteon oikeudenmukaisuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

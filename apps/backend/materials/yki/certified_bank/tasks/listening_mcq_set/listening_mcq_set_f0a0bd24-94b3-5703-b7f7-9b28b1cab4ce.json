@@ -1,0 +1,66 @@
+{
+  "id": "f0a0bd24-94b3-5703-b7f7-9b28b1cab4ce",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Mies: Hei, olen kiinnostunut teidän mainoksessanne olleesta sohvasta. Onko se vielä myynnissä?\nMyyjä: Kyllä, se on vielä myynnissä. Se on kulmasohva, väri tummanharmaa. Hinta on 899 euroa.\nMies: Onko se uusi vai käytetty?\nMyyjä: Se on uusi, myymälänäyttelykappale. Siksi hieman alennettu hinta. Alkuperäinen hinta oli 1299 euroa.\nMies: Millainen sen kunto on?\nMyyjä: Se on hyvässä kunnossa, pieniä käytön jälkiä saattaa olla, mutta ei mitään rikki.\nMies: Haluaisin tulla katsomaan sitä. Milloin teillä on auki?\nMyyjä: Olemme auki tänään kello 20 asti. Tervetuloa!",
+      "audio_asset_id": "56ff4c2d-8064-5832-a446-2890c861e748"
+    },
+    "questions": [
+      {
+        "id": "list_277",
+        "prompt": "Mitä asiakas on kiinnostunut ostamaan?",
+        "options": [
+          "Pöytää",
+          "Sohvaa",
+          "Sänkyä",
+          "Tuolia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_278",
+        "prompt": "Paljonko sohva maksaa?",
+        "options": [
+          "799 euroa",
+          "899 euroa",
+          "999 euroa",
+          "1299 euroa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_279",
+        "prompt": "Miksi sohva on alennettu?",
+        "options": [
+          "Se on käytetty",
+          "Se on myymälänäyttelykappale",
+          "Siinä on vikaa",
+          "Se on vanha malli"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

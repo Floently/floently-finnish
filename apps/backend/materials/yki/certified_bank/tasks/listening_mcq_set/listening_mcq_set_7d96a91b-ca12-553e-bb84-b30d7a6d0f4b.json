@@ -1,0 +1,77 @@
+{
+  "id": "7d96a91b-ca12-553e-bb84-b30d7a6d0f4b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei huoltajat. Päiväkodin retki eläinpuistoon on perjantaina. Lähtö pihasta on kello 8.45 ja paluu noin kello 14. Ottakaa lapselle mukaan juomapullo ja säänmukainen takki.",
+      "audio_asset_id": "1287038c-ef82-5041-b399-80874fe4c787"
+    },
+    "questions": [
+      {
+        "id": "l1",
+        "prompt": "Milloin retki on?",
+        "options": [
+          "torstaina",
+          "perjantaina",
+          "lauantaina",
+          "sunnuntaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l2",
+        "prompt": "Mihin aikaan lähtö on?",
+        "options": [
+          "8.15",
+          "8.30",
+          "8.45",
+          "9.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l3",
+        "prompt": "Milloin paluu on noin?",
+        "options": [
+          "12",
+          "13",
+          "14",
+          "15"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l4",
+        "prompt": "Mitä lapselle pitää ottaa mukaan?",
+        "options": [
+          "kypärä",
+          "juomapullo ja takki",
+          "uimapuku",
+          "kirja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

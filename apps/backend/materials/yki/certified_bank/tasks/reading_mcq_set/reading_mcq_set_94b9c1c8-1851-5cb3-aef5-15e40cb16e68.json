@@ -1,0 +1,66 @@
+{
+  "id": "94b9c1c8-1851-5cb3-aef5-15e40cb16e68",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KAUPUNGINKIRJASTO\n\nAukioloajat:\nma–to 10–19\npe 10–17\nla 11–15\nsu suljettu\n\nLainausaika:\ntavalliset kirjat 4 viikkoa\nuutuudet ja dvd:t 2 viikkoa\n\nMyöhästymismaksu:\naikuiset 0,20 €/pv\nlapset 0,10 €/pv\n\nOmatoimikirjasto:\nma–su 7–22 (kirjastokortilla)",
+      "word_count": 31
+    },
+    "questions": [
+      {
+        "id": "683ba17b-b7a4-579d-9531-1012aabd35e3",
+        "prompt": "Mihin aikaan kirjasto sulkeutuu tiistaina?",
+        "options": [
+          "klo 17",
+          "klo 18",
+          "klo 19",
+          "klo 20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6f799b5a-ad33-50ae-b0e3-ab04d0a6bfee",
+        "prompt": "Kuinka pitkäksi aikaa voi lainata uutuuskirjan?",
+        "options": [
+          "1 viikko",
+          "2 viikkoa",
+          "3 viikkoa",
+          "4 viikkoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ab0c0437-0f2f-5a3b-a794-05a2777a5701",
+        "prompt": "Paljonko aikuisen myöhästymismaksu on päivässä?",
+        "options": [
+          "0,10 euroa",
+          "0,20 euroa",
+          "0,30 euroa",
+          "0,50 euroa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

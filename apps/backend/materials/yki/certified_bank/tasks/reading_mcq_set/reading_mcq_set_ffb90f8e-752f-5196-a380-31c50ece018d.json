@@ -1,0 +1,66 @@
+{
+  "id": "ffb90f8e-752f-5196-a380-31c50ece018d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PIZZERIA OLIVIA\n\nAvoinna:\nma–to 11–21\npe–la 11–23\nsu suljettu\n\nOsoite: Ratakatu 12, 00120 Helsinki\n\nLounas ma–pe 11–14: lounasbuffet 12,50 € (sisältää salaatin, pääruoan, juoman ja kahvin).\n\nPizzat ja kebabit myös noutona. Tilaukset: puh. 050 123 4567 tai nouto.fi.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "5d532014-922c-5b73-9257-cbb613095b71",
+        "prompt": "Milloin pizzeria on auki sunnuntaisin?",
+        "options": [
+          "11–21",
+          "12–22",
+          "suljettu",
+          "14–23"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "483ffdff-c164-5ea5-97d8-dece0663bdec",
+        "prompt": "Paljonko lounasbuffet maksaa?",
+        "options": [
+          "10,50 €",
+          "11,50 €",
+          "12,50 €",
+          "13,50 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c45eb00c-b576-5142-a117-96d1ec1020ee",
+        "prompt": "Miten voi tilata ruokaa noutoon?",
+        "options": [
+          "vain sähköpostilla",
+          "puhelimella tai nouto.fi-sivustolla",
+          "vain tekstiviestillä",
+          "vain paikan päällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

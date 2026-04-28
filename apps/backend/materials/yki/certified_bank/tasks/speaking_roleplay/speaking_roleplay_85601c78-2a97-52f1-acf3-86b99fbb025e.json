@@ -1,0 +1,40 @@
+{
+  "id": "85601c78-2a97-52f1-acf3-86b99fbb025e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Käy neuvottelu kiinteistönvälittäjän kanssa asunnon myynnistä. Perustele hintapyyntösi.",
+    "materials": {
+      "roles": {
+        "user": "myymässä asuntoasi",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "12788660-eb04-5760-8cc3-9d894152aab3",
+        "ai_first_turn_fi": "Kiitos, että annoit minun esitellä asuntosi. Tein nyt markkina-arvion, ja ehdottaisin, että laitetaan se myyntiin tällä hinnalla. Mitä mieltä olet?"
+      }
+    ],
+    "rubric": "Käy neuvottelu kiinteistönvälittäjän kanssa asunnon myynnistä. Perustele hintapyyntösi.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

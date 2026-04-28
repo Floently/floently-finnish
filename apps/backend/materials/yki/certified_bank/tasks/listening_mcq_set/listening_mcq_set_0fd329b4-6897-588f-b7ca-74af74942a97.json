@@ -1,0 +1,88 @@
+{
+  "id": "0fd329b4-6897-588f-b7ca-74af74942a97",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen uudesta sairaalasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Oulun yliopistolliseen sairaalaan rakennetaan uusi lasten ja nuorten sairaala. Sairaala valmistuu vuonna 2028 ja se tulee palvelemaan koko Pohjois-Suomea. Uudessa sairaalassa on 120 vuodepaikkaa ja se on erikoistunut vaativiin lasten sairauksiin. Sairaalaan tulee myös lasten teho-osasto, päivystys ja tutkimustiloja. Arkkitehtuurissa on huomioitu perheiden tarpeet. Jokaisella lapsella on oma huone, ja vanhemmat voivat yöpyä siellä. Sairaalassa on myös leikkihuoneita, koulutiloja ja perheiden oleskelutiloja. Rakennuksen katolle tulee helikopterikenttä. Hankkeen kustannukset ovat noin 150 miljoonaa euroa.",
+      "audio_asset_id": "4a9f54c7-36a4-4ddc-92b6-f2c5c49ed85b"
+    },
+    "questions": [
+      {
+        "id": "l262q1",
+        "prompt": "Minne rakennetaan uusi lasten ja nuorten sairaala?",
+        "options": [
+          "Helsinkiin.",
+          "Tampereelle.",
+          "Ouluun.",
+          "Turkuun."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l262q2",
+        "prompt": "Milloin sairaala valmistuu?",
+        "options": [
+          "2026.",
+          "2027.",
+          "2028.",
+          "2029."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l262q3",
+        "prompt": "Kuinka monta vuodepaikkaa uudessa sairaalassa on?",
+        "options": [
+          "120.",
+          "100.",
+          "150.",
+          "180."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l262q4",
+        "prompt": "Miten perheet on huomioitu sairaalan suunnittelussa?",
+        "options": [
+          "Jokaisella lapsella on oma huone ja vanhemmat voivat yöpyä siellä.",
+          "On erillinen hotelli.",
+          "On iso kahvila.",
+          "On leikkikenttä pihalla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l262q5",
+        "prompt": "Paljonko hankkeen kustannukset ovat?",
+        "options": [
+          "Noin 150 miljoonaa euroa.",
+          "Noin 100 miljoonaa euroa.",
+          "Noin 120 miljoonaa euroa.",
+          "Noin 180 miljoonaa euroa."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

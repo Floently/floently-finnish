@@ -1,0 +1,99 @@
+{
+  "id": "fc8a43a9-31f1-5fdf-839d-4857e76e8617",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työpaikoilla on yleistynyt mahdollisuus tehdä etätöitä muutamana päivänä viikossa. Työntekijät arvostavat joustavuutta ja säästävät aikaa työmatkoista. Jotkut kuitenkin kaipaavat työkavereiden tapaamista. Työnantajat pohtivat, miten yhteishenki säilyy, kun osa porukasta on etänä. Moni yritys järjestääkin yhteisiä tapahtumia toimistolla.",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yleistynyt työpaikoilla?",
+        "options": [
+          "Työmatkojen pidentyminen",
+          "Mahdollisuus tehdä etätöitä",
+          "Työkavereiden tapaaminen",
+          "Yhteisten tapahtumien väheneminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä etätöistä on työntekijöille?",
+        "options": [
+          "He saavat lisää työtehtäviä",
+          "He säästävät aikaa työmatkoista",
+          "He tapaavat enemmän työkavereita",
+          "He saavat enemmän palkkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä jotkut työntekijät kaipaavat?",
+        "options": [
+          "Enemmän etätyöpäiviä",
+          "Parempia etätyövälineitä",
+          "Työkavereiden tapaamista",
+          "Pidempiä työpäiviä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä työnantajat pohtivat?",
+        "options": [
+          "Miten vähentää etätyöpäiviä",
+          "Miten lisätä työntekijöiden palkkaa",
+          "Miten yhteishenki säilyy",
+          "Miten työmatkoja voidaan nopeuttaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä yritykset järjestävät yhteishengen ylläpitämiseksi?",
+        "options": [
+          "Etätyöpajoja",
+          "Yhteisiä tapahtumia toimistolla",
+          "Pidempiä työmatkoja",
+          "Vähemmän kokouksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä mieltä työntekijät ovat etätyömahdollisuudesta?",
+        "options": [
+          "He eivät pidä siitä",
+          "He arvostavat joustavuutta",
+          "He haluavat lopettaa sen kokonaan",
+          "Heille se on yhdentekevää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

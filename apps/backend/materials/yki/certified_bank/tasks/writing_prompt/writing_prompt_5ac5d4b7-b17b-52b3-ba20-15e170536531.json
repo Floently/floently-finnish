@@ -1,0 +1,37 @@
+{
+  "id": "5ac5d4b7-b17b-52b3-ba20-15e170536531",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan kirjastoon. Haluaisit ehdottaa, että kirjasto järjestäisi tietokoneen käytön opastusta ikäihmisille. Perustele ehdotustasi ja kysy, onko kirjastolla kiinnostusta järjestää tällaista toimintaa ja voisitko itse toimia vapaaehtoisena opastajana. Kerro myös, milloin olisit käytettävissä.",
+    "materials": {
+      "scenario": "Tietokoneopastus ikäihmisille"
+    },
+    "items": [
+      {
+        "id": "bbee1691-4064-5147-9fc2-0489ca3fadd2",
+        "prompt": "Kirjoita virallinen sähköposti kunnan kirjastoon. Haluaisit ehdottaa, että kirjasto järjestäisi tietokoneen käytön opastusta ikäihmisille. Perustele ehdotustasi ja kysy, onko kirjastolla kiinnostusta järjestää tällaista toimintaa ja voisitko itse toimia vapaaehtoisena opastajana. Kerro myös, milloin olisit käytettävissä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

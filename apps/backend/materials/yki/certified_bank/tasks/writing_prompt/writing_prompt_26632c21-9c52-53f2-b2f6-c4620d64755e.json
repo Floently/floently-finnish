@@ -1,0 +1,37 @@
+{
+  "id": "26632c21-9c52-53f2-b2f6-c4620d64755e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö päiväkotien ulkoleikkeihin panostaa enemmän säällä kuin säällä?'. Analysoi lasten terveyttä, turvallisuutta ja henkilökunnan työtä.",
+    "materials": {
+      "scenario": "Päiväkotien ulkoleikit"
+    },
+    "items": [
+      {
+        "id": "36d47c6c-3b0b-51a4-94ce-68499f566215",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö päiväkotien ulkoleikkeihin panostaa enemmän säällä kuin säällä?'. Analysoi lasten terveyttä, turvallisuutta ja henkilökunnan työtä."
+      }
+    ],
+    "rubric": "Lasten terveys\nTurvallisuus\nHenkilökunnan työ\nOppiminen",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

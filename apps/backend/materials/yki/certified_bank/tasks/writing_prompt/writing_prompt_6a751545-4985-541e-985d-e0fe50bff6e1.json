@@ -1,0 +1,37 @@
+{
+  "id": "6a751545-4985-541e-985d-e0fe50bff6e1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.455,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write your opinion. Justify your view. Give three reasons and tell how you act yourself.",
+    "materials": {
+      "scenario": "Pitäisikö lähiruokaa suosia enemmän?"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write your opinion. Justify your view. Give three reasons and tell how you act yourself."
+      }
+    ],
+    "rubric": "Write your opinion. Justify your view. Give three reasons and tell how you act yourself.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

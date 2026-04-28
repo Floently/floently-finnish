@@ -1,0 +1,77 @@
+{
+  "id": "ed3bc81c-c9bf-5528-aa2e-8399e3a0b54a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.742,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni sananvapaudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SANANVAPAUS ON UHANALAISTA\n\nSananvapautta pidetään usein itsestäänselvyytenä. Meillä on oikeus sanoa mitä ajattelemme, kirjoittaa ja julkaista. Mutta onko sananvapaus todella niin vahva kuin luulemme? Yhä useammat merkit viittaavat siihen, että se on uhattuna – ei välttämättä valtion taholta, vaan muista suunnista.\n\nYksi uhka on some-alustojen valta. Ne päättävät, mikä sisältö näkyy ja mikä ei. Algoritmit suosivat tunteita herättävää sisältöä, ja äärimmäiset mielipiteet leviävät tehokkaasti. Samalla ne voivat sensuroida sisältöä, joka ei sovi niiden linjaan. Tämä tapahtuu ilman demokraattista valvontaa.\n\nToinen uhka on vihapuhe ja somekohut. Ihmisiä pelotellaan hiljaisiksi. Jos sanot jotain, mikä ei miellytä kaikkia, saatat joutua rajun somekohun kohteeksi. Tämä koskee erityisesti julkisuuden henkilöitä, mutta yhä useammin myös tavallisia ihmisiä. Pelko estää sanomasta, mitä ajattelee.\n\nKolmas uhka on disinformaatio ja valeuutiset. Kun totuus on vaikea erottaa valheesta, ihmiset menettävät luottamuksensa mediaan ja asiantuntijoihin. Tämä heikentää koko yhteiskunnallista keskustelua. Populistit hyödyntävät tätä ja väittävät, että vain he kertovat totuuden.\n\nTarvitaan uudenlaista ajattelua sananvapaudesta. Se ei ole absoluuttinen oikeus, vaan siihen liittyy vastuu. Vastuu siitä, että ei levitä valheita, ei vihaa eikä vahingoita. Mutta vastuu on myös yhteiskunnalla: meidän on suojeltava sananvapautta niiltä, jotka haluavat tuhota sen.\n\nSananvapaus on demokratian peruspilareita. Ilman sitä ei ole avointa keskustelua, ei kriittistä journalismia, ei vähemmistöjen ääntä. Sitä on puolustettava, vaikka se olisi vaikeaa. Hiljaisuus on aina suurempi uhka kuin epämiellyttävä puhe.",
+      "word_count": 217
+    },
+    "questions": [
+      {
+        "id": "c1c2_reading_mcq_001_q1",
+        "prompt": "Mikä on kirjoittajan pääväite?",
+        "options": [
+          "sananvapaus on vahva",
+          "sananvapaus on uhattuna monesta suunnasta",
+          "sananvapaus on turha",
+          "kaikki saavat sanoa mitä haluavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_001_q2",
+        "prompt": "Mitä uhkia sananvapaudelle mainitaan?",
+        "options": [
+          "vain valtion sensuuri",
+          "some-alustojen valta, vihapuhe ja disinformaatio",
+          "liian paljon keskustelua",
+          "liian vähän mielipiteitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_001_q3",
+        "prompt": "Miten somekohut vaikuttavat sananvapauteen?",
+        "options": [
+          "ne rohkaisevat puhumaan",
+          "ne pelottelevat ihmisiä hiljaisiksi",
+          "niillä ei ole vaikutusta",
+          "ne lisäävät sananvapautta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_001_q4",
+        "prompt": "Mitä kirjoittaja sanoo sananvapauden vastuusta?",
+        "options": [
+          "siihen ei liity vastuuta",
+          "siihen liittyy vastuu olla levittämättä valheita ja vihaa",
+          "vastuu on vain valtiolla",
+          "vastuuta ei tarvita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

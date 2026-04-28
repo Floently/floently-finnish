@@ -1,0 +1,88 @@
+{
+  "id": "9d103e0a-d6f3-5079-91b2-ba98afeda43c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.681,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmyyjän tarjous ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvää päivää, soitan Teleoperaattori X:stä. Tarjoamme teille uutta nopeaa laajakaistaa kotiin. Nopeus on 200 megabittiä sekunnissa. Hinta on 29,90 euroa kuukaudessa. Asennus on ilmainen. Olisitteko kiinnostunut?",
+      "audio_asset_id": "f8a9b0c1-d2e3-4f5a-6b7c-8d9e0f1a2b3c"
+    },
+    "questions": [
+      {
+        "id": "l213q1",
+        "prompt": "Mitä tuotetta puhelinmyyjä tarjoaa?",
+        "options": [
+          "Puhelinliittymää.",
+          "Laajakaistaa.",
+          "Televisiopalvelua.",
+          "Nettitikku."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l213q2",
+        "prompt": "Mikä on tarjottavan yhteyden nopeus?",
+        "options": [
+          "100 megabittiä sekunnissa.",
+          "150 megabittiä sekunnissa.",
+          "200 megabittiä sekunnissa.",
+          "300 megabittiä sekunnissa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l213q3",
+        "prompt": "Paljonko se maksaa kuukaudessa?",
+        "options": [
+          "19,90 euroa.",
+          "24,90 euroa.",
+          "29,90 euroa.",
+          "34,90 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l213q4",
+        "prompt": "Mitä asennus maksaa?",
+        "options": [
+          "50 euroa.",
+          "30 euroa.",
+          "Ilmainen.",
+          "99 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l213q5",
+        "prompt": "Mikä on operaattorin nimi?",
+        "options": [
+          "Teleoperaattori Y.",
+          "Teleoperaattori X.",
+          "Teleoperaattori Z.",
+          "Teleoperaattori W."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

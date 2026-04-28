@@ -1,0 +1,99 @@
+{
+  "id": "27d71fe1-5dd1-5dcb-b572-5a1603ff1a26",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta yrityspalvelusta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin elinkeinopalvelujen tiedote. Olemme avanneet uuden yritysneuvonnan palvelupisteen. Yritysneuvonta antaa maksutonta neuvontaa yrittäjille ja yritystä perustaville. Neuvontaa saa esimerkiksi liiketoimintasuunnitelman laatimiseen, rahoitukseen, markkinointiin ja lupa-asioihin. Yritysneuvonta sijaitsee osoitteessa Yrityskatu 7, ja se on avoinna maanantaista perjantaihin kello 9–16. Neuvontaa saa myös puhelimitse ja sähköpostitse. Palvelu on luottamuksellista ja maksutonta. Tervetuloa, jos sinulla on yritysasiaa!",
+      "audio_asset_id": "311f5edc-c668-4de5-8ae3-faec00b256ca"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin elinkeinopalvelut tiedottavat?",
+        "options": [
+          "Uudesta yritysneuvonnan palvelupisteestä.",
+          "Uudesta yritysverosta.",
+          "Uudesta yritystuesta.",
+          "Uudesta yritystapahtumasta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Kenelle yritysneuvonta on tarkoitettu?",
+        "options": [
+          "Yrittäjille ja yritystä perustaville.",
+          "Kaikille kaupunkilaisille.",
+          "Vain suuryrityksille.",
+          "Vain opiskelijoille."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mistä asioista saa neuvontaa?",
+        "options": [
+          "Liiketoimintasuunnitelmasta, rahoituksesta, markkinoinnista ja lupa-asioista.",
+          "Vain rahoituksesta.",
+          "Vain markkinoinnista.",
+          "Vain lupa-asioista."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq4",
+        "prompt": "Missä yritysneuvonta sijaitsee?",
+        "options": [
+          "Keskustassa.",
+          "Yrityskatu 7.",
+          "Kauppakatu 5.",
+          "Neuvontatie 3."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mihin aikaan yritysneuvonta on auki?",
+        "options": [
+          "Kello 9–16.",
+          "Kello 8–15.",
+          "Kello 10–17.",
+          "Kello 11–18."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Paljonko yritysneuvonta maksaa?",
+        "options": [
+          "Se on maksutonta.",
+          "50 euroa käynniltä.",
+          "Hinta määräytyy yrityksen koon mukaan.",
+          "100 euroa tunnilta."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

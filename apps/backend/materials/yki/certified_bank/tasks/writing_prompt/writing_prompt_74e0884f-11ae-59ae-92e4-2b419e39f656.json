@@ -1,0 +1,37 @@
+{
+  "id": "74e0884f-11ae-59ae-92e4-2b419e39f656",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute lähikauppasi kalaosastosta. Onko kala tuoretta? Onko valikoima hyvä?",
+    "materials": {
+      "scenario": "Palaute kaupan kalaosastosta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute lähikauppasi kalaosastosta. Onko kala tuoretta? Onko valikoima hyvä?"
+      }
+    ],
+    "rubric": "Kirjoita palaute lähikauppasi kalaosastosta. Onko kala tuoretta? Onko valikoima hyvä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

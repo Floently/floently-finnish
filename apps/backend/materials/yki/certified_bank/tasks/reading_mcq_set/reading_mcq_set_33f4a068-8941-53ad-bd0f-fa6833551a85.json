@@ -1,0 +1,66 @@
+{
+  "id": "33f4a068-8941-53ad-bd0f-fa6833551a85",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.732,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tieteen ja teknologian suhde on monimutkainen. Tiede tuottaa uutta tietoa, teknologia soveltaa sitä käytäntöön. Toisaalta teknologinen kehitys mahdollistaa uuden tieteellisen tutkimuksen. Esimerkiksi hiukkaskiihdyttimet ja avaruusteleskoopit ovat teknologisia innovaatioita, jotka vievät tiedettä eteenpäin. Tutkijat korostavat, että perustutkimus on tärkeää, vaikka sen sovellukset eivät olisikaan heti näkyvissä. Monet merkittävät keksinnöt, kuten internet ja GPS, perustuvat vuosikymmeniä aiemmin tehtyyn perustutkimukseen. Tulevaisuudessa tieteen ja teknologian yhteistyö on entistä tärkeämpää esimerkiksi ilmastonmuutoksen ja terveysongelmien ratkaisemisessa.",
+      "word_count": 70
+    },
+    "questions": [
+      {
+        "id": "c755385c-6903-531c-84b9-b3246988ed25",
+        "prompt": "Miten tiede ja teknologia suhtautuvat toisiinsa?",
+        "options": [
+          "Ne ovat täysin erillisiä",
+          "Tiede tuottaa tietoa, teknologia soveltaa sitä",
+          "Teknologia on tärkeämpää",
+          "Tiede on teknologiaa tärkeämpää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5784cf4e-86cb-5245-b7de-cecbf54759f8",
+        "prompt": "Miksi perustutkimus on tärkeää?",
+        "options": [
+          "Sillä on aina välittömiä sovelluksia",
+          "Se on halvempaa kuin soveltava tutkimus",
+          "Merkittävät keksinnöt perustuvat usein siihen",
+          "Se on helpompaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c2a62070-beb5-5242-a6b3-5aa15a832fec",
+        "prompt": "Mitä esimerkkejä perustutkimukseen perustuvista keksinnöistä annetaan?",
+        "options": [
+          "Älypuhelimet ja tabletit",
+          "Internet ja GPS",
+          "Sosiaalinen media",
+          "Tekoäly ja robotiikka"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "165083a9-75e1-5d3d-b030-dcc907fb1024",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Pyöräily on yhä suositumpaa kaupungeissa. Moni käyttää pyörää työmatkoihin ja asiointiin. Kaupungit ovat rakentaneet uusia pyöräteitä ja pyöräparkkeja. Sähköpyörien suosio on kasvanut erityisesti, koska ne helpottavat ylämäkiä ja pidempiä matkoja. Pyöräily on edullista, ympäristöystävällistä ja hyväksi terveydelle. Pyöräilijöitä kannustetaan käyttämään kypärää.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yhä suositumpaa kaupungeissa?",
+        "options": [
+          "Kävely",
+          "Pyöräily",
+          "Autoilu",
+          "Rullaluistelu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin monet käyttävät pyörää?",
+        "options": [
+          "Vain vapaa-ajalla",
+          "Työmatkoihin ja asiointiin",
+          "Vain urheiluun",
+          "Vain retkeilyyn"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kaupungit ovat rakentaneet pyöräilijöille?",
+        "options": [
+          "Uusia autoteitä",
+          "Uusia pyöräteitä ja pyöräparkkeja",
+          "Uusia huoltoasemia",
+          "Uusia siltoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Minkä pyörien suosio on kasvanut?",
+        "options": [
+          "Maastopyörien",
+          "Sähköpyörien",
+          "Kilpapyörien",
+          "Lastenpyörien"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi sähköpyörien suosio on kasvanut?",
+        "options": [
+          "Ne ovat halvempia",
+          "Ne helpottavat ylämäkiä ja pidempiä matkoja",
+          "Ne ovat kevyempiä",
+          "Ne ovat nopeampia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mihin pyöräilijöitä kannustetaan?",
+        "options": [
+          "Ajamaan ilman valoja",
+          "Käyttämään kypärää",
+          "Ajamaan jalkakäytävällä",
+          "Ajamaan mahdollisimman nopeasti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

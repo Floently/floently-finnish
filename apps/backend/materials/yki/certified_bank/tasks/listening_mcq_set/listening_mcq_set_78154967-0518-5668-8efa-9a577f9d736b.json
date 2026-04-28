@@ -1,0 +1,88 @@
+{
+  "id": "78154967-0518-5668-8efa-9a577f9d736b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Täällä on kaupan kassa. Teiltä jäi kassi kassalle. Se on valkoinen muovikassi. Voitte tulla hakemaan sen vaikka huomenna.",
+      "audio_asset_id": "a9b0c1d2-e3f4-4a5b-6c7d-8e9f0a1b2c3d"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Myyjä.",
+          "Kaupan kassa.",
+          "Asiakas.",
+          "Turvamies."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä asiakkaalle on jäänyt?",
+        "options": [
+          "Lompakko.",
+          "Kassi.",
+          "Avaimet.",
+          "Puhelin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Minkä värinen se on?",
+        "options": [
+          "Musta.",
+          "Valkoinen.",
+          "Punainen.",
+          "Sininen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mistä se löytyi?",
+        "options": [
+          "Hyllystä.",
+          "Kassalta.",
+          "Ovesta.",
+          "Pihalta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin sen voi hakea?",
+        "options": [
+          "Tänään.",
+          "Huomenna.",
+          "Vasta viikonloppuna.",
+          "Ei koskaan."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

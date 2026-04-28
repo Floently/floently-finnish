@@ -1,0 +1,37 @@
+{
+  "id": "1a4ecbf1-4483-5136-a39b-bd616738d594",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö ansiosidonnaisen työttömyysturvan kestoa lyhentää työllisyyden parantamiseksi?'. Analysoi kannustimia ja sosiaaliturvan tasoa.",
+    "materials": {
+      "scenario": "Ansiosidonnaisen keston lyhentäminen"
+    },
+    "items": [
+      {
+        "id": "54e810b7-527e-5372-b195-138491efc532",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö ansiosidonnaisen työttömyysturvan kestoa lyhentää työllisyyden parantamiseksi?'. Analysoi kannustimia ja sosiaaliturvan tasoa."
+      }
+    ],
+    "rubric": "Työllisyysvaikutukset\nKannustinvaikutukset\nSosiaaliturvan taso\nTyömarkkinoiden joustavuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

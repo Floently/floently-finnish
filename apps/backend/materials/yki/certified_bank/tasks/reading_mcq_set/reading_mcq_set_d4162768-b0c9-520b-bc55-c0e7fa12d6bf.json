@@ -1,0 +1,77 @@
+{
+  "id": "d4162768-b0c9-520b-bc55-c0e7fa12d6bf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kestävän kehityksen tavoitteet (SDG) ovat YK:n jäsenmaiden vuonna 2015 hyväksymät 17 tavoitetta, jotka tähtäävät äärimmäisen köyhyyden poistamiseen, eriarvoisuuden vähentämiseen ja ympäristön suojelemiseen vuoteen 2030 mennessä. Tavoitteet kattavat laajasti eri yhteiskunnan osa-alueita, kuten terveyden, koulutuksen, sukupuolten tasa-arvon, puhtaan veden, kestävän energian, ihmisarvoisen työn ja ilmastoteot. Tavoitteet ovat toisiinsa kytköksissä: esimerkiksi koulutuksen parantaminen edistää terveyttä ja talouskasvua. SDG-tavoitteet ovat ohjanneet kansallista ja kansainvälistä politiikkaa, ja monet maat ovat sisällyttäneet ne strategioihinsa. Tavoitteiden saavuttaminen edellyttää laaja-alaista yhteistyötä hallitusten, yritysten, kansalaisjärjestöjen ja yksilöiden välillä.",
+      "word_count": 80
+    },
+    "questions": [
+      {
+        "id": "mcq_460",
+        "prompt": "Mitä YK:n kestävän kehityksen tavoitteet (SDG) tähtäävät?",
+        "options": [
+          "Vain talouskasvuun",
+          "Äärimmäisen köyhyyden poistamiseen, eriarvoisuuden vähentämiseen ja ympäristön suojelemiseen",
+          "Vain ilmastonmuutoksen torjuntaan",
+          "Vain koulutuksen parantamiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_461",
+        "prompt": "Milloin SDG-tavoitteet hyväksyttiin?",
+        "options": [
+          "2000",
+          "2010",
+          "2015",
+          "2020"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_462",
+        "prompt": "Mitä tavoitteet kattavat?",
+        "options": [
+          "Vain ympäristöasioita",
+          "Laajasti eri yhteiskunnan osa-alueita",
+          "Vain taloudellisia tavoitteita",
+          "Vain sosiaalisia tavoitteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_463",
+        "prompt": "Mitä tavoitteiden saavuttaminen edellyttää?",
+        "options": [
+          "Vain hallitusten toimia",
+          "Vain yritysten toimia",
+          "Laaja-alaista yhteistyötä eri toimijoiden välillä",
+          "Vain kansainvälistä yhteistyötä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "e7f7fe90-a181-5215-95ad-9a2ccbc60b2f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen energiajärjestelmä on keskellä suurta murrosta. Fossiilisista polttoaineista luovutaan ja uusiutuvien energialähteiden osuus kasvaa nopeasti. Tuulivoiman rakentaminen on lisääntynyt voimakkaasti. Myös aurinkovoima yleistyy pientaloissa ja yrityksissä. Bioenergialla on merkittävä rooli, erityisesti metsäteollisuuden sivuvirtoja hyödyntämällä. Tavoitteena on hiilineutraalius vuoteen 2035 mennessä. Tämä on kunnianhimoinen tavoite, joka vaatii paljon työtä. Fossiiliset polttoaineet on korvattava ja energiatehokkuutta parannettava. Sähkön siirtoverkkoa on vahvistettava, jotta uusiutuva energia saadaan siirrettyä kulutuskohteisiin. Energiamurroksella on myös taloudellisia ja sosiaalisia vaikutuksia. Energian hinta nousee, mikä voi olla vaikeaa pienituloisille. Tuulivoimalat herättävät vastustusta maisemahaittojen vuoksi. Myös energiaomavaraisuus on tärkeä turvallisuuskysymys. Venäjän hyökkäys Ukrainaan on korostanut tätä. Suomi on pyrkinyt vähentämään riippuvuuttaan venäläisestä energiasta. Tulevaisuudessa energiamurros tulee muokkaamaan koko yhteiskuntaa.",
+      "word_count": 109
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on Suomen tavoite energiapolitiikassa?",
+        "options": [
+          "Lisätä fossiilisten polttoaineiden käyttöä.",
+          "Hiilineutraalius vuoteen 2035 mennessä.",
+          "Vähentää uusiutuvan energian käyttöä.",
+          "Lisätä energian tuontia Venäjältä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä uusiutuvat energialähteet ovat kasvussa?",
+        "options": [
+          "Vain vesivoima.",
+          "Tuulivoima, aurinkovoima ja bioenergia.",
+          "Vain ydinvoima.",
+          "Vain turve."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä energiamurros vaatii?",
+        "options": [
+          "Vain fossiilisten polttoaineiden korvaamista.",
+          "Fossiilisten polttoaineiden korvaamista, energiatehokkuuden parantamista ja sähköverkon vahvistamista.",
+          "Vain energiatehokkuuden parantamista.",
+          "Vain sähköverkon vahvistamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä taloudellisia vaikutuksia energiamurroksella on?",
+        "options": [
+          "Energian hinta laskee.",
+          "Energian hinta nousee.",
+          "Sillä ei ole taloudellisia vaikutuksia.",
+          "Energian kulutus vähenee automaattisesti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi tuulivoima herättää vastustusta?",
+        "options": [
+          "Se on kallista.",
+          "Maisemahaittojen vuoksi.",
+          "Se on tehotonta.",
+          "Se on vaarallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi energiaomavaraisuus on tärkeää?",
+        "options": [
+          "Se vähentää energian käyttöä.",
+          "Se on tärkeä turvallisuuskysymys.",
+          "Se lisää energian tuontia.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä geopoliittinen tapahtuma on korostanut energiaomavaraisuuden merkitystä?",
+        "options": [
+          "EU:n laajentuminen.",
+          "Venäjän hyökkäys Ukrainaan.",
+          "Yhdysvaltojen presidentinvaalit.",
+          "Kiinan talouskasvu."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

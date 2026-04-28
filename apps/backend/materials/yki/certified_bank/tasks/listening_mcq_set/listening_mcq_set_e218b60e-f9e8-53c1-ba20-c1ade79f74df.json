@@ -1,0 +1,88 @@
+{
+  "id": "e218b60e-f9e8-53c1-ba20-c1ade79f74df",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Tässä on talonmies. Ilmoitan, että huomenna keskiviikkona vettä ei tule kello 9-12. Putkia korjataan. Pahoittelemme häiriötä.",
+      "audio_asset_id": "5bb21c13-cf08-46dd-a9a8-c50416273cee"
+    },
+    "questions": [
+      {
+        "id": "650fc2fc-df0d-5e71-a2bf-ce105cf22679",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Isännöitsijä.",
+          "Talonmies.",
+          "Naapuri.",
+          "Huoltomies."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "292cb2b2-9198-532e-ae6f-74a12a971f06",
+        "prompt": "Minä viikonpäivänä vettä ei tule?",
+        "options": [
+          "Tiistaina.",
+          "Torstaina.",
+          "Perjantaina.",
+          "Keskiviikkona."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "f6035045-8d3e-5133-a7e1-5215809f229b",
+        "prompt": "Mihin aikaan vesi on pois päältä?",
+        "options": [
+          "Kello 8-11.",
+          "Kello 10-13.",
+          "Kello 11-14.",
+          "Kello 9-12."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "0561578e-bbbe-5b41-a660-57abec53d1f5",
+        "prompt": "Miksi vesi ei tule?",
+        "options": [
+          "Vesilaitos korjaa putkia.",
+          "Putkia korjataan.",
+          "Maksu on myöhässä.",
+          "Sähköt on poikki."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f237c548-3b22-5d5d-b864-f7d56102b19c",
+        "prompt": "Mitä puhuja tekee lopuksi?",
+        "options": [
+          "Toivottaa hyvää päivää.",
+          "Toivottaa tervetulleeksi.",
+          "Kertoo lisätietoja.",
+          "Pahoittelee häiriötä."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

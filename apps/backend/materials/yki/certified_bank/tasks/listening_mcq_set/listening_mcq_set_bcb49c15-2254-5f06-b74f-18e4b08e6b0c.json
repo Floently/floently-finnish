@@ -1,0 +1,66 @@
+{
+  "id": "bcb49c15-2254-5f06-b74f-18e4b08e6b0c",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin tilata pitsan. Voinko tilata puhelimitse?\nPitseria: Kyllä, tietysti. Otatteko noutona vai kuljetuksena?\nAsiakas: Noutona. Tulen itse hakemaan.\nPitseria: Selvä. Mitä saisi olla?\nAsiakas: Yksi Americano ja yksi Frutti di Mare. Molemmat normaalikokoisina.\nPitseria: Haluatteko täytteisiin jotain muutoksia?\nAsiakas: Americanoon ei lisätä ananasta, vaikka se kuuluu normaalisti. Frutti di Mare saa olla normaali.\nPitseria: Selvä. Nouto on noin 20 minuutin päästä. Yhteensä 32 euroa.",
+      "audio_asset_id": "3b07c606-28a0-511c-9989-a70cd389924d"
+    },
+    "questions": [
+      {
+        "id": "list_332",
+        "prompt": "Miten asiakas tilaa pitsat?",
+        "options": [
+          "Kuljetuksena",
+          "Noutona",
+          "Nettisivujen kautta",
+          "Sovelluksella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_333",
+        "prompt": "Mitä erikoistoivetta asiakkaalla on Americanoon?",
+        "options": [
+          "Lisätään ananas",
+          "Ei lisätä ananasta",
+          "Tuplajuusto",
+          "Extra kinkkua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_334",
+        "prompt": "Paljonko tilaus maksaa yhteensä?",
+        "options": [
+          "28 euroa",
+          "30 euroa",
+          "32 euroa",
+          "34 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "a66f7156-35d1-5a6c-8773-e2fee42cd328",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Median rooli yhteiskunnassa on monitahoinen ja merkittävä. Sen tehtävä on tuottaa luotettavaa tietoa, valvoa vallankäyttöä ja tarjota foorumi julkiselle keskustelulle. Toimiva media on demokratian kulmakivi, sillä se auttaa kansalaisia muodostamaan perusteltuja mielipiteitä ja osallistumaan yhteiskunnalliseen pä beslutksentekoon. Viime vuosina median asema on kuitenkin muuttunut. Digitalisaatio on mullistanut tavan, jolla uutisia tuotetaan ja kulutetaan. Sosiaalinen media on tuonut uusia toimijoita ja nopeuttanut tiedonkulkua, mutta samalla se on lisännyt disinformaation ja valeuutisten leviämistä. Perinteinen media on menettänyt asemaansa portinvartijana, joka seuloo ja varmistaa tiedon luotettavuuden. Tämä on herättänyt huolta siitä, miten kansalaiset saavat luotettavaa tietoa ja miten voidaan erottaa tosi ja taru toisistaan. Medialukutaidon merkitys on korostunut. Kansalaisilla pitää olla valmiuksia arvioida kriittisesti median sisältöjä ja tunnistaa disinformaatio. Myös medialla itsellään on vastuu: sen on panostettava laadukkaaseen journalismiin ja tehtävä työnsä läpinäkyvästi. Yhteiskunnan on tuettava moniäänistä ja riippumatonta mediaa, jotta demokratia toimii.",
+      "word_count": 140
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä ovat median tehtävät yhteiskunnassa?",
+        "options": [
+          "Vain viihteen tuottaminen.",
+          "Luotettavan tiedon tuottaminen, vallankäytön valvonta ja foorumin tarjoaminen julkiselle keskustelulle.",
+          "Vain mainostilan myyminen.",
+          "Poliittisen propagandan levittäminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi toimiva media on demokratian kulmakivi?",
+        "options": [
+          "Se korvaa vaalit.",
+          "Se auttaa kansalaisia muodostamaan perusteltuja mielipiteitä ja osallistumaan päätöksentekoon.",
+          "Se päättää, ketkä voivat äänestää.",
+          "Se hallitsee maata."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten digitalisaatio on muuttanut median asemaa?",
+        "options": [
+          "Se on vahvistanut perinteisen median asemaa.",
+          "Se on mullistanut tavan, jolla uutisia tuotetaan ja kulutetaan.",
+          "Sillä ei ole ollut vaikutusta.",
+          "Se on vähentänyt uutisten määrää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haittapuolia sosiaalinen media on tuonut?",
+        "options": [
+          "Se on hidastanut tiedonkulkua.",
+          "Se on lisännyt disinformaation ja valeuutisten leviämistä.",
+          "Se on vähentänyt uutisten määrää.",
+          "Se on parantanut uutisten laatua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan portinvartijan roolilla?",
+        "options": [
+          "Median tehtävää estää pääsy uutissivustoille.",
+          "Median tehtävää seuloa ja varmistaa tiedon luotettavuus.",
+          "Median tehtävää julkaista kaikki tieto sellaisenaan.",
+          "Median tehtävää suosia tiettyjä poliitikkoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi medialukutaidon merkitys on korostunut?",
+        "options": [
+          "Koska uutisia on nykyään vähemmän.",
+          "Koska kansalaisten on osattava arvioida kriittisesti median sisältöjä ja tunnistaa disinformaatio.",
+          "Koska media on luotettavampaa kuin ennen.",
+          "Koska kaikki tieto on nykyään totta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on median oma vastuu?",
+        "options": [
+          "Tuottaa mahdollisimman paljon sisältöä nopeasti.",
+          "Panostaa laadukkaaseen journalismiin ja tehdä työnsä läpinäkyvästi.",
+          "Julkaista vain viihteellistä sisältöä.",
+          "Välttää kaikkea kritiikkiä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

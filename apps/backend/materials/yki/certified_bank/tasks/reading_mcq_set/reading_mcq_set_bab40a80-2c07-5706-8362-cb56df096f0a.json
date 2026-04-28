@@ -1,0 +1,66 @@
+{
+  "id": "bab40a80-2c07-5706-8362-cb56df096f0a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Nykytaiteen tehtävä on ollut jatkuvan uudelleenmäärittelyn kohteena. Kriitikko Riikka Suominen väittää tuoreessa kirjoituksessaan, että taiteen pitäisi ennen kaikkea häiritä ja kyseenalaistaa, ei miellyttää. Hänen mukaansa suuri osa nykytaiteesta on kuitenkin vaipunut koristeeksi ja viihteeksi, joka ei haasta katsojaa millään tavalla. 'Taiteesta on tullut osa elämäntapamainontaa, jotain joka näyttää hyvältä Instagramissa ja sopii sohvan väriin.' Suominen kaipaa takaisin taiteen yhteiskuntakriittistä tehtävää, sellaista, joka pakottaa pysähtymään ja ajattelemaan. Hän viittaa historiallisiin esimerkkeihin dadaismista ja situationisteista, joiden tarkoitus oli ravistella porvarillisia arvoja. 'Tietenkään taiteen ei tarvitse olla pelkästään vakavaa, mutta jos se ei enää kykene provosoimaan, se on menettänyt merkityksensä.' Suominen ei kuitenkaan esitä, että taiteen pitäisi olla yksiselitteisesti poliittista, vaan että sen tulisi avata uusia näkökulmia ja kyseenalaistaa itsestäänselvyyksiä. Hänen mukaansa tämä on erityisen tärkeää aikana, jolloin informaatiotulva ja mielipiteiden ääriytyminen tekevät harkitsevasta ajattelusta vaikeaa.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 166
+    },
+    "questions": [
+      {
+        "id": "aeeb8778-577a-5f2f-ba9a-d38fcf1a0f57",
+        "prompt": "Mitä Riikka Suominen pitää nykytaiteen ongelmana?",
+        "options": [
+          "Se on liian kallista",
+          "Se on vaipunut koristeeksi ja viihteeksi",
+          "Se on liian poliittista",
+          "Kukaan ei ymmärrä sitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1c60421c-26d2-58d6-be3e-acacb60b19fb",
+        "prompt": "Mihin historiallisiin esimerkkeihin Suominen viittaa?",
+        "options": [
+          "Renessanssiin ja barokkiin",
+          "Dadaismiin ja situationisteihin",
+          "Klassismiin ja romantiikkaan",
+          "Keskiajan taiteeseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9d4e5704-0d50-53da-ae74-e7480a2c301c",
+        "prompt": "Mitä Suominen taiteelta toivoo?",
+        "options": [
+          "Että se on kaunista",
+          "Että se avaa uusia näkökulmia ja kyseenalaistaa",
+          "Että se on helppoa ymmärtää",
+          "Että se myy hyvin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

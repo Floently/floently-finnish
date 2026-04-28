@@ -1,0 +1,99 @@
+{
+  "id": "a5da5a92-7152-59a7-9676-7ef87073f008",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.565,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Taloyhtiöt ovat alkaneet kiinnittää enemmän huomiota energiansäästöön. Monissa taloissa on vaihdettu vanhoja ikkunoita ja parannettu eristyksiä. Myös lämmitysjärjestelmiä uusitaan energiatehokkaammiksi. Asukkaat voivat itse vaikuttaa säästämällä vettä ja sähköä. Nämä toimet vähentävät sekä ympäristökuormitusta että asumiskustannuksia pitkällä tähtäimellä.",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin taloyhtiöt ovat alkaneet kiinnittää enemmän huomiota?",
+        "options": [
+          "Pihasuunnitteluun",
+          "Energiansäästöön",
+          "Parkkipaikkojen määrään",
+          "Taloyhtiön viestintään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä monissa taloissa on vaihdettu?",
+        "options": [
+          "Huonekaluja",
+          "Vanhoja ikkunoita",
+          "Keittiökalusteita",
+          "Kylpyhuoneen laattoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lämmitysjärjestelmille tehdään?",
+        "options": [
+          "Ne poistetaan kokonaan",
+          "Niitä uusitaan energiatehokkaammiksi",
+          "Ne vaihdetaan takkoihin",
+          "Niitä korjataan vanhanaikaisiksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten asukkaat voivat itse vaikuttaa energiansäästöön?",
+        "options": [
+          "Pitämällä ikkunoita auki talvella",
+          "Säästämällä vettä ja sähköä",
+          "Lämmittämällä saunaa joka päivä",
+          "Käyttämällä paljon valoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä energiansäästötoimista on pitkällä tähtäimellä?",
+        "options": [
+          "Vain ympäristökuormitus vähenee",
+          "Vain asumiskustannukset laskevat",
+          "Sekä ympäristökuormitus että asumiskustannukset vähenevät",
+          "Asumismukavuus heikkenee"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'eristyksillä' tässä tekstissä?",
+        "options": [
+          "Melu suojausta",
+          "Lämpöeristystä seinissä ja katossa",
+          "Sähköjohtojen eristystä",
+          "Ikkunoiden tiivistystä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

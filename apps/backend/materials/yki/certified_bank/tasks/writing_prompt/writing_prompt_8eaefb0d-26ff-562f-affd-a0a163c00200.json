@@ -1,0 +1,37 @@
+{
+  "id": "8eaefb0d-26ff-562f-affd-a0a163c00200",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ohjeen mukaan.",
+    "materials": {
+      "scenario": "Liikuntapäivä"
+    },
+    "items": [
+      {
+        "id": "c996cd36-d9a0-5312-aabb-0a332660cf2b",
+        "prompt": "Kirjoita palaute liikuntapäivästä."
+      }
+    ],
+    "rubric": "Kirjoita palaute liikuntapäivästä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "b186091e-85f6-5be0-9002-8f7fedbee6be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin uimahallista. Arvioi allasosaston puhtautta, pukuhuoneiden toimivuutta ja saunojen lämpötiloja. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin uimahallista"
+    },
+    "items": [
+      {
+        "id": "6db8acb6-8938-5550-bc33-9c2170b5468a",
+        "prompt": "Kirjoita palauteteksti kaupungin uimahallista. Arvioi allasosaston puhtautta, pukuhuoneiden toimivuutta ja saunojen lämpötiloja. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Allasosaston puhtaus\nPukuhuoneiden toimivuus\nSaunojen lämpötilat\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "f74e1aa1-a531-55ce-beaa-8c6d5e0929d4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kukkakauppaan. Kerro kukkien tuoreudesta, valikoimasta ja palvelusta. Ehdota yhtä uutta tuotetta.",
+    "materials": {
+      "scenario": "Palaute kukkakauppaan"
+    },
+    "items": [
+      {
+        "id": "d8e885ce-e564-5b97-a435-de3f46cb7b84",
+        "prompt": "Kirjoita palauteteksti kukkakauppaan. Kerro kukkien tuoreudesta, valikoimasta ja palvelusta. Ehdota yhtä uutta tuotetta."
+      }
+    ],
+    "rubric": "Kukkien tuoreus\nValikoima\nPalvelu\nUusi tuote",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

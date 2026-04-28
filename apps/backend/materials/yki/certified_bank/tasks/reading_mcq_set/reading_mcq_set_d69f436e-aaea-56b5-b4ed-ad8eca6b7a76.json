@@ -1,0 +1,77 @@
+{
+  "id": "d69f436e-aaea-56b5-b4ed-ad8eca6b7a76",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Koulutuksen ja työelämän välinen yhteistyö on keskeistä osaavan työvoiman turvaamiseksi. Työelämän tarpeet muuttuvat nopeasti, ja koulutuksen on pystyttävä vastaamaan näihin muutoksiin. Oppilaitosten ja työnantajien välinen vuoropuhelu on tärkeää, jotta opetussuunnitelmat vastaavat työelämän osaamistarpeita. Työssäoppiminen, harjoittelut ja oppisopimuskoulutus ovat keinoja, joilla opiskelijat saavat käytännön kokemusta ja työnantajat voivat vaikuttaa koulutukseen. Elinikäinen oppiminen korostuu, kun työntekijät joutuvat päivittämään osaamistaan työuransa aikana. Koulutus- ja työvoimapolitiikan on tuettava tätä kehitystä esimerkiksi tarjoamalla aikuiskoulutusta ja uudelleenkoulutusmahdollisuuksia.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "mcq_312",
+        "prompt": "Miksi koulutuksen ja työelämän välinen yhteistyö on tärkeää?",
+        "options": [
+          "Jotta koulutus pysyy erillään työelämästä",
+          "Jotta opetussuunnitelmat vastaavat työelämän osaamistarpeita",
+          "Jotta opiskelijat eivät saa käytännön kokemusta",
+          "Jotta työnantajat eivät vaikuta koulutukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_313",
+        "prompt": "Mitä keinoja on mainittu käytännön kokemuksen saamiseksi?",
+        "options": [
+          "Vain luennot",
+          "Työssäoppiminen, harjoittelut ja oppisopimuskoulutus",
+          "Vain kirjalliset tehtävät",
+          "Vain verkko-opiskelu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_314",
+        "prompt": "Mitä elinikäinen oppiminen tarkoittaa?",
+        "options": [
+          "Oppimista vain nuoruudessa",
+          "Osaamisen päivittämistä työuran aikana",
+          "Opiskelua vain työajan ulkopuolella",
+          "Koulutuksen lopettamista työuran alussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_315",
+        "prompt": "Miten koulutus- ja työvoimapolitiikan on tuettava elinikäistä oppimista?",
+        "options": [
+          "Vähentämällä aikuiskoulutusta",
+          "Tarjoamalla aikuiskoulutusta ja uudelleenkoulutusmahdollisuuksia",
+          "Vähentämällä uudelleenkoulutusmahdollisuuksia",
+          "Lisäämällä koulutuksen kustannuksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

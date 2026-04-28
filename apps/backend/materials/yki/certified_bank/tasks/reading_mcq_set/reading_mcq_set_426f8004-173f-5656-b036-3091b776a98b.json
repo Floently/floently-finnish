@@ -1,0 +1,99 @@
+{
+  "id": "426f8004-173f-5656-b036-3091b776a98b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Julkinen liikenne on tärkeä osa kaupunkilaisten arkea. Bussit, raitiovaunut ja metrot kuljettavat ihmisiä töihin, kouluun ja harrastuksiin. Kaupungit pyrkivät kehittämään joukkoliikennettä vähentääkseen yksityisautoilua ja päästöjä. Uusia linjoja rakennetaan ja vuoroja lisätään ruuhka-aikoina. Myös lippujärjestelmiä pyritään yksinkertaistamaan, jotta matkustaminen olisi sujuvaa. Moni toivoo joukkoliikenteen olevan edullista ja luotettavaa.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tärkeä osa kaupunkilaisten arkea?",
+        "options": [
+          "Yksityisautoilu",
+          "Julkinen liikenne",
+          "Kävely",
+          "Pyöräily"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minne julkiset kulkuneuvot kuljettavat ihmisiä?",
+        "options": [
+          "Vaan lomalle",
+          "Töihin, kouluun ja harrastuksiin",
+          "Vaan kauppaan",
+          "Vaan vierailuille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi kaupungit pyrkivät kehittämään joukkoliikennettä?",
+        "options": [
+          "Lisätäkseen yksityisautoilua",
+          "Vähentääkseen yksityisautoilua ja päästöjä",
+          "Nostaakseen lippujen hintoja",
+          "Lisätäkseen ruuhkia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia asioita joukkoliikenteessä tehdään?",
+        "options": [
+          "Lakkautetaan linjoja",
+          "Rakennetaan uusia linjoja ja lisätään vuoroja ruuhka-aikoina",
+          "Harvennetaan vuoroja",
+          "Korotetaan hintoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä lippujärjestelmille pyritään tekemään?",
+        "options": [
+          "Monimutkaistamaan niitä",
+          "Yksinkertaistamaan niitä",
+          "Tekemään niistä kalliimpia",
+          "Poistamaan ne kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Millaista joukkoliikenteen moni toivoo olevan?",
+        "options": [
+          "Kallista ja epäluotettavaa",
+          "Edullista ja luotettavaa",
+          "Hidasta ja monimutkaista",
+          "Vain ruuhka-aikoina toimivaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

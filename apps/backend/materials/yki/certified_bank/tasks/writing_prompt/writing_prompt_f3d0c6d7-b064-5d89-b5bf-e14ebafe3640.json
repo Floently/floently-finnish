@@ -1,0 +1,37 @@
+{
+  "id": "f3d0c6d7-b064-5d89-b5bf-e14ebafe3640",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti verohallintoon. Olet saanut ennakkoveron muutospäätöksen, mutta et ymmärrä, miksi veroasi on korotettu. Kerro, mitä tuloja olet ilmoittanut ja pyydä selvitystä päätöksen perusteista. Kysy myös, voitko tehdä oikaisuvaatimuksen ja miten se tehdään.",
+    "materials": {
+      "scenario": "Ennakkoveron korotuksen selvitys"
+    },
+    "items": [
+      {
+        "id": "655c88dd-3698-5c97-a0bb-aa4d2760f84a",
+        "prompt": "Kirjoita virallinen sähköposti verohallintoon. Olet saanut ennakkoveron muutospäätöksen, mutta et ymmärrä, miksi veroasi on korotettu. Kerro, mitä tuloja olet ilmoittanut ja pyydä selvitystä päätöksen perusteista. Kysy myös, voitko tehdä oikaisuvaatimuksen ja miten se tehdään."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

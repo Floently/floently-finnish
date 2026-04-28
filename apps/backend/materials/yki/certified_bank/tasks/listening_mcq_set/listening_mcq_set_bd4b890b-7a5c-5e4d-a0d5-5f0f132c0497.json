@@ -1,0 +1,99 @@
+{
+  "id": "bd4b890b-7a5c-5e4d-a0d5-5f0f132c0497",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yliopiston luento ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tänään käsittelemme sosiaalipsykologian kurssilla ilmiötä nimeltä 'sosiaalinen kupla'. Termi tarkoittaa tilannetta, jossa ihminen altistuu pääasiassa sellaisille mielipiteille ja tiedolle, jotka vahvistavat hänen omia näkemyksiään. Tämä tapahtuu usein sosiaalisessa mediassa, missä algoritmit suosittelevat sisältöä, joka on samankaltaista kuin mitä olemme jo katsoneet. Tällä on monia seurauksia. Ensinnäkin, se voi johtaa polarisaatioon. Kun kuulemme vain oman ryhmämme mielipiteitä, toisen osapuolen näkökulma alkaa tuntua vieraalta ja jopa uhkaavalta. Toiseksi, se voi heikentää kykyämme ymmärtää monimutkaisia asioita, koska meille tarjotaan yksinkertaistettuja, tunteisiin vetoavia viestejä. Kolmanneksi, se voi lisätä epäluottamusta yhteiskunnallisia instituutioita kohtaan, jos oma kupla toistaa jatkuvasti negatiivisia uutisia. Miten tästä pääsee pois? Ensinnäkin, on hyvä tietoisesti seurata eri lähteitä, myös niitä, joiden kanssa on eri mieltä. Toiseksi, kannattaa keskustella ihmisten kanssa, joilla on erilainen tausta. Kolmanneksi, medialukutaidon opettelu on tärkeää: kuka viestin on luonut ja miksi? Onko tämä faktaa vai mielipide? On hyvä muistaa, että kuplasta poistuminen voi aluksi tuntua epämukavalta, mutta se on välttämätöntä, jos haluamme ymmärtää maailmaa monipuolisesti.",
+      "audio_asset_id": "1b46b81a-2b2c-494e-8760-239dba181c1b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mitä tarkoittaa 'sosiaalinen kupla' luennon mukaan?",
+        "options": [
+          "Ihmisten fyysistä eristäytymistä koteihinsa.",
+          "Altistumista vain omia näkemyksiä vahvistavalle tiedolle.",
+          "Ryhmää, joka matkustaa yhdessä.",
+          "Uutta sosiaalisen median alustaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mikä sosiaalisessa mediassa edistää kuplien syntymistä?",
+        "options": [
+          "Algoritmit, jotka suosittelevat samankaltaista sisältöä.",
+          "Käyttäjien oma laiskuus.",
+          "Mainostajien vaatimukset.",
+          "Sovellusten huono käytettävyys."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on yksi sosiaalisen kuplan seuraus?",
+        "options": [
+          "Se voi johtaa yhteiskunnan polarisaatioon.",
+          "Ihmiset tulevat paremmin toimeen keskenään.",
+          "Kaikista tulee asiantuntijoita.",
+          "Väärä tieto katoaa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten kupla voi vaikuttaa kykyymme ymmärtää monimutkaisia asioita?",
+        "options": [
+          "Se parantaa sitä, koska saamme tarkempaa tietoa.",
+          "Sillä ei ole mitään vaikutusta.",
+          "Se tekee meistä kaikista neroja.",
+          "Se heikentää sitä, koska meille tarjotaan yksinkertaistettuja viestejä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mitä luennoitsija suosittelee kuplasta poistumiseen?",
+        "options": [
+          "Lopettaa sosiaalisen median käyttö kokonaan.",
+          "Seurata eri lähteitä ja keskustella erilaisten ihmisten kanssa.",
+          "Luottaa vain yhteen uutislähteeseen.",
+          "Välttää kaikkia uutisia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Miltä kuplasta poistuminen voi aluksi tuntua?",
+        "options": [
+          "Helpottavalta.",
+          "Tylsältä.",
+          "Turhalta.",
+          "Epämukavalta."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

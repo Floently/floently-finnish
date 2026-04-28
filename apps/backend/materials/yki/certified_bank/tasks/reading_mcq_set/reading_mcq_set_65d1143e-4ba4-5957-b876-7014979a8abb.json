@@ -1,0 +1,99 @@
+{
+  "id": "65d1143e-4ba4-5957-b876-7014979a8abb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Keskustelu nelipäiväisestä työviikosta on lisääntynyt. Kokeiluissa on havaittu, että työntekijöiden hyvinvointi paranee ja tuottavuus säilyy, kun työaikaa lyhennetään mutta palkka pysyy samana. Kriitikot kuitenkin epäilevät, ettei malli sovi kaikille aloille. Esimerkiksi hoiva- ja palvelualoilla työtä on vaikea tiivistää. Työmarkkinajärjestöt seuraavat kokeiluja kiinnostuneina.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä keskustelu on lisääntynyt?",
+        "options": [
+          "Palkankorotuksista",
+          "Nelipäiväisestä työviikosta",
+          "Eläkeiän nostamisesta",
+          "Työttömyyden vähentämisestä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kokeiluissa on havaittu?",
+        "options": [
+          "Työntekijöiden hyvinvointi heikkenee",
+          "Tuottavuus laskee",
+          "Hyvinvointi paranee ja tuottavuus säilyy",
+          "Palkkaa joudutaan laskemaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä mieltä kriitikot ovat nelipäiväisestä työviikosta?",
+        "options": [
+          "He kannattavat sitä lämpimästi",
+          "He epäilevät, ettei malli sovi kaikille aloille",
+          "He ovat sitä mieltä, että se sopii kaikille",
+          "He eivät ole kiinnostuneita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi malli ei kriitikoiden mukaan sovi esimerkiksi hoiva-alalle?",
+        "options": [
+          "Koska siellä on liikaa työntekijöitä",
+          "Koska työtä on vaikea tiivistää",
+          "Koska palkat ovat liian pienet",
+          "Koska työntekijät eivät halua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä työmarkkinajärjestöt tekevät?",
+        "options": [
+          "Vastustavat kokeiluja",
+          "Seuraavat kokeiluja kiinnostuneina",
+          "Järjestävät omia kokeiluja",
+          "Vaativat paluuta vanhaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä nelipäiväisessä työviikkomallissa pysyy samana?",
+        "options": [
+          "Työtunnit",
+          "Palkka",
+          "Työn määrä",
+          "Lomapäivät"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

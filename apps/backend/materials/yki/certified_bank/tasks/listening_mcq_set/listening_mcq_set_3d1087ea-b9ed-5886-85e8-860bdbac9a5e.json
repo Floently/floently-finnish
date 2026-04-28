@@ -1,0 +1,88 @@
+{
+  "id": "3d1087ea-b9ed-5886-85e8-860bdbac9a5e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei, mä olen nyt kaupassa. Täällä on ihan hullun halpaa mansikkaa! Kaksi kiloa kymmenellä eurolla. Ostetaanko? Ostetaan varmaan yks tai kaks. Mitä muuta tarvitaan? Maito ja leipä ainakin.",
+      "audio_asset_id": "d21bbf55-8426-5628-bcbb-0f10e88883d6"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Torilla.",
+          "Kaupassa.",
+          "Puistossa.",
+          "Kotona."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on hänen mielestään halpaa?",
+        "options": [
+          "Maito.",
+          "Leipä.",
+          "Mansikka.",
+          "Banaani."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko mansikka maksaa?",
+        "options": [
+          "Kaksi kiloa viidellä eurolla.",
+          "Yksi kilo viidellä eurolla.",
+          "Kaksi kiloa kymmenellä eurolla.",
+          "Yksi kilo kymmenellä eurolla."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä muuta puhuja aikoo ostaa?",
+        "options": [
+          "Jauhelihaa ja pastaa.",
+          "Maitoa ja leipää.",
+          "Mehua ja keksejä.",
+          "Kanaa ja riisiä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenelle puhuja todennäköisesti puhuu?",
+        "options": [
+          "Myyjälle.",
+          "Perheenjäsenelle tai kämppikselle.",
+          "Bussikuskille.",
+          "Naapurille."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

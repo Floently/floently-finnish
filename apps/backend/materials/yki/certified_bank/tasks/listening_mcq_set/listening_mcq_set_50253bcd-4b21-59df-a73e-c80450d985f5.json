@@ -1,0 +1,66 @@
+{
+  "id": "50253bcd-4b21-59df-a73e-c80450d985f5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu hotellin vastaanotossa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, olen varannut huoneen nimellä Virtanen.\nVirkailija: Hetkinen, katsotaan. Kyllä, varaus löytyy. Yhden hengen huone kahdeksi yöksi.\nAsiakas: Kyllä.\nVirkailija: Huone numero 305 on kolmannessa kerroksessa. Tässä on avain.\nAsiakas: Mihin aikaan aamiainen on?\nVirkailija: Aamiainen on klo 7–10 ravintolassa ensimmäisessä kerroksessa.\nAsiakas: Entä wifi?\nVirkailija: Wifi toimii, salasana on 'hotelli123'.\nAsiakas: Kiitos!",
+      "audio_asset_id": "332dc5cc-ef99-4311-a838-411e5575d31f"
+    },
+    "questions": [
+      {
+        "id": "886d339b-21bc-507a-b999-c5aa8aa2c7fb",
+        "prompt": "Mikä on asiakkaan huoneen numero?",
+        "options": [
+          "203",
+          "305",
+          "401",
+          "502"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ef2ed16f-4840-5a7a-b2ce-17df026c0dba",
+        "prompt": "Milloin aamiainen on?",
+        "options": [
+          "klo 6–9",
+          "klo 7–10",
+          "klo 8–11",
+          "klo 9–12"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5a0f395c-2e49-5db1-8dc3-135555b4f812",
+        "prompt": "Missä ravintola on?",
+        "options": [
+          "Kellarissa",
+          "Ensimmäisessä kerroksessa",
+          "Toisessa kerroksessa",
+          "Kolmannessa kerroksessa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

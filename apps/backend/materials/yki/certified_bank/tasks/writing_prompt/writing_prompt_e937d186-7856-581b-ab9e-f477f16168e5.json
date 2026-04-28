@@ -1,0 +1,37 @@
+{
+  "id": "e937d186-7856-581b-ab9e-f477f16168e5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.506,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti uimahalliin. Haluat tiedustella, onko uimahallissa lasten uimaopetusta. Kerro lapsesi ikä ja uimataito. Kysy, milloin kursseja on ja paljonko ne maksavat.",
+    "materials": {
+      "scenario": "Tiedustelu lasten uimaopetuksesta"
+    },
+    "items": [
+      {
+        "id": "70e757e9-1e88-597f-9af5-f752f5786240",
+        "prompt": "Kirjoita sähköposti uimahalliin. Haluat tiedustella, onko uimahallissa lasten uimaopetusta. Kerro lapsesi ikä ja uimataito. Kysy, milloin kursseja on ja paljonko ne maksavat."
+      }
+    ],
+    "rubric": "Lapsen ikä ja taso\nKurssiaikataulut\nHinta",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

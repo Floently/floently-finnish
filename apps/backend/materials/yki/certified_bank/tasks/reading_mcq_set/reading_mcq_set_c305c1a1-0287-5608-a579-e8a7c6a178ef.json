@@ -1,0 +1,73 @@
+{
+  "id": "c305c1a1-0287-5608-a579-e8a7c6a178ef",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÄHIKIRJASTON KESÄSULKU\n\nTammelan lähikirjasto on suljettu 22.7.–5.8.\n\nLähikirjaston asioita voi hoitaa pääkirjastossa.\n\nKirjoja voi palauttaa kirjaston palautusluukkuun.\n\nOmatoimikirjasto on auki normaalisti klo 7–22.",
+      "word_count": 23
+    },
+    "questions": [
+      {
+        "id": "item_006_1",
+        "prompt": "Kauanko Tammelan lähikirjasto on suljettu?",
+        "options": [
+          "viikon",
+          "kaksi viikkoa",
+          "kolme viikkoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_006_2",
+        "prompt": "Missä voi hoitaa lähikirjaston asioita sulun aikana?",
+        "options": [
+          "pääkirjastossa",
+          "muussa lähikirjastossa",
+          "verkkokirjastossa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_006_3",
+        "prompt": "Mihin kirjoja voi palauttaa?",
+        "options": [
+          "postilaatikkoon",
+          "palautusluukkuun",
+          "naapuriin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_006_4",
+        "prompt": "Onko omatoimikirjasto auki sulun aikana?",
+        "options": [
+          "ei",
+          "kyllä, normaalisti",
+          "vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

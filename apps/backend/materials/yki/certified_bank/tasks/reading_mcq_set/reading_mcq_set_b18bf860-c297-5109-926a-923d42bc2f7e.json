@@ -1,0 +1,77 @@
+{
+  "id": "b18bf860-c297-5109-926a-923d42bc2f7e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiivistelmä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kunta päivitti taajamametsien hoitosuunnitelman. Aiemmin painopiste oli maiseman siistimisessä, mutta nyt tavoitteeksi asetettiin myös luonnon monimuotoisuus. Harvennuksia vähennettiin kahdella alueella, jotta lahopuuta jäisi hyönteisille ja linnuille. Samalla reittien varrella lisättiin turvallisuustarkastuksia, koska kaatuvat rungot voivat aiheuttaa riskejä ulkoilijoille.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uusi tavoite lisättiin?",
+        "options": [
+          "halvemmat liput",
+          "monimuotoisuus",
+          "enemmän parkkipaikkoja",
+          "uusi kahvila"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kahdella alueella tehtiin?",
+        "options": [
+          "harvennuksia lisättiin",
+          "harvennuksia vähennettiin",
+          "metsä poistettiin",
+          "alue aidattiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi lahopuuta jätettiin?",
+        "options": [
+          "lämmitykseen",
+          "hyönteisille ja linnuille",
+          "rakentamiseen",
+          "myyntiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä reittien varrella lisättiin?",
+        "options": [
+          "valaistus",
+          "turvallisuustarkastuksia",
+          "pyöräteitä",
+          "myyntikojuja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

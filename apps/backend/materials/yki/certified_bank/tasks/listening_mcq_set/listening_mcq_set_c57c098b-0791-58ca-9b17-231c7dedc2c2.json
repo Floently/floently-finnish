@@ -1,0 +1,88 @@
+{
+  "id": "c57c098b-0791-58ca-9b17-231c7dedc2c2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen uudesta sairaalasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tampereen yliopistolliseen sairaalaan rakennetaan uusi lastensairaala. Sairaala valmistuu vuonna 2027 ja se tulee palvelemaan koko Pirkanmaan aluetta. Uudessa sairaalassa on 150 vuodepaikkaa ja se on erikoistunut vaativiin lasten sairauksiin. Sairaalaan tulee myös lasten teho-osasto ja päivystys. Arkkitehtuurissa on panostettu perheiden huomioimiseen. Jokaisella lapsella on oma huone, ja vanhemmat voivat yöpyä siellä. Sairaalassa on myös leikkihuoneita, koulutiloja ja perheiden oleskelutiloja. Rakennuksen katolle tulee helikopterikenttä ja aurinkopaneeleja. Hankkeen kokonaiskustannukset ovat noin 120 miljoonaa euroa. Sairaalaa on rahoitettu myös lahjoitusvaroin.",
+      "audio_asset_id": "70fa8551-2fbd-4b7d-a325-ac4ec387dca3"
+    },
+    "questions": [
+      {
+        "id": "2b8b008e-5c16-5291-a846-e377cc3c75a2",
+        "prompt": "Millainen sairaala Tampereelle rakennetaan?",
+        "options": [
+          "Uusi yleissairaala.",
+          "Uusi naistensairaala.",
+          "Uusi lastensairaala.",
+          "Uusi psykiatrinen sairaala."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "18ae362e-91d9-57cb-8f61-293b6e026dd0",
+        "prompt": "Milloin uusi sairaala valmistuu?",
+        "options": [
+          "Vuonna 2026.",
+          "Vuonna 2028.",
+          "Vuonna 2029.",
+          "Vuonna 2027."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "2a9f07a0-d33c-5ac1-bd4d-b11331b511b6",
+        "prompt": "Kuinka monta vuodepaikkaa uudessa sairaalassa on?",
+        "options": [
+          "150.",
+          "100.",
+          "120.",
+          "180."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "bf334f93-3345-5b21-8cc1-9324a6a273f6",
+        "prompt": "Miten perheet on huomioitu sairaalan arkkitehtuurissa?",
+        "options": [
+          "On erillinen hotelli.",
+          "Jokaisella lapsella on oma huone ja vanhemmat voivat yöpyä siellä.",
+          "On iso kahvila.",
+          "On leikkikenttä pihalla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "edd92ea7-1a7b-5da1-89c8-55db45044bf5",
+        "prompt": "Paljonko hankkeen kokonaiskustannukset ovat?",
+        "options": [
+          "Noin 80 miljoonaa euroa.",
+          "Noin 100 miljoonaa euroa.",
+          "Noin 120 miljoonaa euroa.",
+          "Noin 150 miljoonaa euroa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

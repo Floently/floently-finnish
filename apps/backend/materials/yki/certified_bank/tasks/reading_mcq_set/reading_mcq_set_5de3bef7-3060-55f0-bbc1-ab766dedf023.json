@@ -1,0 +1,99 @@
+{
+  "id": "5de3bef7-3060-55f0-bbc1-ab766dedf023",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähikirjastossa on uusia palveluita. Nyt voi lainata myös urheiluvälineitä ja lautapelejä. Kirjasto on auki myös lauantaisin. Asiakkaat ovat iloisia uusista aukioloajoista. Kirjastossa järjestetään myös satutunteja lapsille joka tiistai. Tapahtumiin on vapaa pääsy.",
+      "word_count": 32
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä uusia asioita kirjastosta voi lainata?",
+        "options": [
+          "Kirjoja ja lehtiä",
+          "Urheiluvälineitä ja lautapelejä",
+          "Elokuvia ja musiikkia",
+          "Tietokoneita ja tabletteja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minä päivänä kirjasto on nyt auki?",
+        "options": [
+          "Vain maanantaisin",
+          "Lauantaisin",
+          "Vain arkisin",
+          "Sunnuntaisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten asiakkaat suhtautuvat uusiin aukioloaikoihin?",
+        "options": [
+          "He ovat pettyneitä",
+          "He ovat iloisia",
+          "He eivät välitä",
+          "He toivovat lisää muutoksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tapahtumia kirjastossa järjestetään?",
+        "options": [
+          "Elokuvanäytöksiä",
+          "Satutunteja lapsille",
+          "Luentoja aikuisille",
+          "Musiikkiesityksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin satutunnit järjestetään?",
+        "options": [
+          "Joka maanantai",
+          "Joka tiistai",
+          "Joka perjantai",
+          "Joka kuukauden ensimmäinen päivä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä maksaa pääsy tapahtumiin?",
+        "options": [
+          "Pääsy maksaa 5 euroa",
+          "Pääsy on ilmainen",
+          "Pääsy maksaa kirjastokortin hinnan",
+          "Vain lapsilta peritään maksu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

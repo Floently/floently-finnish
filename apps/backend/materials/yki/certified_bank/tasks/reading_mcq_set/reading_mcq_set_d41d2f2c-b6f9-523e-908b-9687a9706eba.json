@@ -1,0 +1,66 @@
+{
+  "id": "d41d2f2c-b6f9-523e-908b-9687a9706eba",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue lääkärin antama resepti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÄÄKEMÄÄRÄYS\n\nLääke: Panadol 500 mg tabletti\nKäyttö: kipu, kuume\n\nAnnostus:\nAikuiset ja yli 12-vuotiaat: 1–2 tablettia 3–4 kertaa päivässä.\nEnintään 8 tablettia vuorokaudessa.\n\nAlle 12-vuotiaille annos painon mukaan.\n\nOta lääke ruoan jälkeen.\n\nSäilytä huoneenlämmössä.\n\nEi saa käyttää, jos on allergia vaikuttavalle aineelle.\n\nPäiväys: 1.3.2026\nLääkäri: Leena Laakso",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "7627522e-7de0-5b03-ab97-7b19975ec24e",
+        "prompt": "Mihin vaivaan tämä lääke on?",
+        "options": [
+          "Allergiaan",
+          "Kipuun ja kuumeeseen",
+          "Vatsavaivoihin",
+          "Unettomuuteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "22e86f77-6ed5-588c-beeb-e5b23e35f40e",
+        "prompt": "Montako tablettia voi ottaa päivässä enintään?",
+        "options": [
+          "6 tablettia",
+          "8 tablettia",
+          "10 tablettia",
+          "12 tablettia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9634fc1e-5f50-598f-af01-a74a9eebe272",
+        "prompt": "Milloin lääke pitää ottaa?",
+        "options": [
+          "Tyhjään vatsaan",
+          "Ruoan jälkeen",
+          "Ennen nukkumaanmenoa",
+          "Aamulla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

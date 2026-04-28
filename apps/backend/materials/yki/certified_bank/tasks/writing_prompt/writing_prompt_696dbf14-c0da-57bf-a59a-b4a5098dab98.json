@@ -1,0 +1,37 @@
+{
+  "id": "696dbf14-c0da-57bf-a59a-b4a5098dab98",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit lähikaupassa. Kirjoita palaute, jossa kerrot sekä hyvää että huonoa. Mainitse ainakin myyjän palvelu, tuotteiden saatavuus ja kaupan siisteys.",
+    "materials": {
+      "scenario": "Palaute lähikaupasta"
+    },
+    "items": [
+      {
+        "id": "620a72f2-04bb-5b54-a6e5-10fa08a29147",
+        "prompt": "Kävit lähikaupassa. Kirjoita palaute, jossa kerrot sekä hyvää että huonoa. Mainitse ainakin myyjän palvelu, tuotteiden saatavuus ja kaupan siisteys."
+      }
+    ],
+    "rubric": "Myyjän palvelu\nTuotteiden saatavuus\nKaupan siisteys",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

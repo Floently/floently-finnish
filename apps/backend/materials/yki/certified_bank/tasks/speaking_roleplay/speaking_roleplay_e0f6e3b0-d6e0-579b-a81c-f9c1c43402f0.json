@@ -1,0 +1,40 @@
+{
+  "id": "e0f6e3b0-d6e0-579b-a81c-f9c1c43402f0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet kirjastossa ja haluat lainata kirjan.",
+    "materials": {
+      "roles": {
+        "user": "kirjastossa ja olet löytänyt kirjan",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "50518199-c041-5134-96be-94218642695f",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      }
+    ],
+    "rubric": "Olet kirjastossa ja haluat lainata kirjan.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

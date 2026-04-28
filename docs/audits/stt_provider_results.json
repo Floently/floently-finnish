@@ -1,0 +1,22 @@
+{
+  "captured_at": "2026-04-23",
+  "input_audio": "apps/backend/runtime/uploads/voice/roleplay-session/recording.m4a",
+  "result": {
+    "transcript_returned": true,
+    "provider_used": "google",
+    "transcript_preview": "En vielä ymmärrä mitä minun pitää tehdä."
+  },
+  "providers": [
+    {
+      "provider": "openai",
+      "status": "failed",
+      "reason_class": "AuthenticationError",
+      "reason_hint": "401 invalid_api_key"
+    },
+    {
+      "provider": "google",
+      "status": "success"
+    }
+  ]
+}
+

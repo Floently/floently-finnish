@@ -1,0 +1,37 @@
+{
+  "id": "b345dd38-a4e3-5536-bb5f-d923ed188a1c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.444,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write your opinion. Tell what you think and give two reasons.",
+    "materials": {
+      "scenario": "Pitäisikö työviikon olla nelipäiväinen?"
+    },
+    "items": [
+      {
+        "id": "3779519b-2bba-5eba-acd9-c1ac5ecd235c",
+        "prompt": "Write your opinion. Tell what you think and give two reasons."
+      }
+    ],
+    "rubric": "Write your opinion. Tell what you think and give two reasons.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "c58cbb95-7a3e-59d2-8002-7b0ba3228523",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue yhteiskuntapoliittinen analyysi ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "POHJOISMAINEN HYVINVOINTIVALTIO MURROKSESSA\n\nPohjoismainen hyvinvointivaltio on noussut kansainväliseen keskusteluun mallina, joka yhdistää taloudellisen kilpailukyvyn ja sosiaalisen oikeudenmukaisuuden. Tutkija Heikki Hiilamo kuitenkin varoittaa itsetyytyväisyydestä. Hyvinvointivaltio on jatkuvan uudistamisen tarpeessa. Väestön ikääntyminen, julkisen talouden paineet ja globaali kilpailu asettavat haasteita. Hiilamo korostaa, ettei kyse ole vain rahasta, vaan myös siitä, miten palvelut järjestetään. 'Meidän on uskallettava uudistaa rakenteita, mutta samalla pidettävä kiinni periaatteesta, että kaikilla on yhdenvertainen pääsy palveluihin.'",
+      "word_count": 67
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä Heikki Hiilamo varoittaa?",
+        "options": [
+          "Hyvinvointivaltio on liian kallis",
+          "Liiallisesta itsetyytyväisyydestä",
+          "Pohjoismainen malli ei toimi",
+          "Eriarvoisuus kasvaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on Hiilamon mukaan keskeinen haaste hyvinvointivaltiolle?",
+        "options": [
+          "Maahanmuutto",
+          "Väestön ikääntyminen ja julkisen talouden paineet",
+          "Nuorten syrjäytyminen",
+          "Kansainvälinen kilpailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä periaatetta Hiilamo pitää tärkeänä?",
+        "options": [
+          "Yksityistäminen",
+          "Yhdenvertainen pääsy palveluihin",
+          "Markkinaehtoisuus",
+          "Asiakasmaksut"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

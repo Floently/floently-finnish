@@ -1,0 +1,37 @@
+{
+  "id": "7a79f6c3-dced-58b0-adf9-a69d90d3325b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lähikauppojen olla auki pidempään iltaisin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lähikauppojen aukiolo iltaisin"
+    },
+    "items": [
+      {
+        "id": "1c35748d-0366-53db-8702-55ed2c142a2c",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lähikauppojen olla auki pidempään iltaisin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

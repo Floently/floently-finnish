@@ -1,0 +1,66 @@
+{
+  "id": "e7214baf-4a6a-59a4-94f7-b7a09f6e14a9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupungin liikuntapalvelut tiedottavat: Uimahalli on suljettu huoltotöiden vuoksi 10.7.–25.7. välisen ajan. Tänä aikana uimahallissa tehdään laattojen uusimista ja ilmanvaihdon korjausta. Uimahalli avataan uudelleen 26.7. Poikkeusaikana uimahallin asiakkaat voivat käydä viereisessä uimahallissa alennettuun hintaan. Näytä vain oman uimahallisi jäsenkorttia. Pahoittelemme häiriötä.",
+      "audio_asset_id": "0f28faf2-47bd-5ec6-9038-463399c38b2d"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi uimahalli on suljettu?",
+        "options": [
+          "Henkilökunnan loman vuoksi",
+          "Huoltotöiden vuoksi",
+          "Vähäisen kävijämäärän vuoksi",
+          "Koronan vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan sulku kestää?",
+        "options": [
+          "5 päivää",
+          "10 päivää",
+          "15 päivää",
+          "20 päivää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä asiakkaille tarjotaan sulun aikana?",
+        "options": [
+          "Ei mitään",
+          "Alennettu hinta viereiseen uimahalliin",
+          "Ilmaiset bussikortit",
+          "Kuntosalioikeus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

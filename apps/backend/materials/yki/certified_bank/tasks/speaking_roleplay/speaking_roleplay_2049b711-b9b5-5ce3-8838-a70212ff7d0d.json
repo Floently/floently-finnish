@@ -1,0 +1,64 @@
+{
+  "id": "2049b711-b9b5-5ce3-8838-a70212ff7d0d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vuokrata veneen kesäksi. Keskustele venevuokraamon kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Venevälittäjä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp32_1",
+        "ai_first_turn_fi": "Hei, Venepalvelu Helle."
+      },
+      {
+        "id": "srp32_2",
+        "ai_first_turn_fi": "Millaista venettä etsit ja mille ajalle?"
+      },
+      {
+        "id": "srp32_3",
+        "ai_first_turn_fi": "Meillä on muutama vene vapaana. Onko sinulla veneilykokemusta?"
+      },
+      {
+        "id": "srp32_4",
+        "ai_first_turn_fi": "Hyvä. Suosittelisin 4,5-metristä teräsvenettä 15 hevosvoiman moottorilla. Viikon vuokra on 450 euroa."
+      },
+      {
+        "id": "srp32_5",
+        "ai_first_turn_fi": "Hintaan sisältyy pelastusliivit ja polttoaine. Haluaisitko vakuutuksen? Se maksaa 50 euroa lisää."
+      },
+      {
+        "id": "srp32_6",
+        "ai_first_turn_fi": "Selvä. Nouto onnistuu lauantaina kello 10. Tarvitsen nimesi ja puhelinnumerosi."
+      },
+      {
+        "id": "srp32_7",
+        "ai_first_turn_fi": "Kiitos. Vene odottaa sinua lauantaina. Hyvää kesää ja turvallisia venereissuja!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vuokrata veneen kesäksi. Keskustele venevuokraamon kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "bc747817-420d-5c9a-bf2e-a7c8a454e937",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa ammatillista ja vastuullista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet esimies, joka haluaa tukea alaista mutta myös varmistaa työn laadun.",
+        "partner": "Alainen - saattaa olla puolustuskannalla, mutta toivoo myös ymmärrystä ja tukea."
+      }
+    },
+    "items": [
+      {
+        "id": "srp26",
+        "ai_first_turn_fi": "Kiitos kun tulit. Tarkoitus on keskustella avoimesti siitä, miten työsi sujuu ja miten voimme yhdessä tukea sinua onnistumaan paremmin."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa ammatillista ja vastuullista kieltä.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

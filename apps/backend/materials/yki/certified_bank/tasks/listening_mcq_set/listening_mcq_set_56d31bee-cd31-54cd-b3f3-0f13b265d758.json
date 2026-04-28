@@ -1,0 +1,76 @@
+{
+  "id": "56d31bee-cd31-54cd-b3f3-0f13b265d758",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu asunnon ostamisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Matti: Hei, kuulin että olette ostamassa asuntoa. Miten homma etenee?\nLiisa: Joo, katseltu on. Ollaan käyty muutamassa näytössä. Mutta kyllä tässä on miettimistä.\nMatti: Mikä on suurin haaste?\nLiisa: Hinnat on kovat, varsinkin hyvillä paikoilla. Ja sitten kun löytää kivan asunnon, siitä on heti monta tarjousta.\nMatti: Oletteko miettineet uutta vai vanhaa?\nLiisa: Uusi olisi kiva, mutta ne on kalliimpia. Vanhassa saa enemmän neliöitä samalla rahalla, mutta sitten voi olla remonttia edessä.\nMatti: Oletteko jo kysyneet lainalupauksia?\nLiisa: On kysytty parista pankista. Korkotilanne on nyt vähän epävarma, mutta toisaalta hinnat on laskeneet vähän.\nMatti: Kannattaa muistaa, että asunnon ostossa ei ole kiire. Hyvä kohde löytyy kyllä.\nLiisa: Niin toivotaan. Haluaisiin löytää kodin, ei vaan sijoituskohdetta.",
+      "audio_asset_id": "4e9a9cca-111c-44c0-bbdb-e2584c490536"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on suurin haaste asunnon ostossa Liisan mukaan?",
+        "options": [
+          "Pankit eivät myönnä lainaa",
+          "Hinnat ovat kovat ja kilpailua on",
+          "Ei ole sopivia asuntoja",
+          "Remontit ovat kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä eroa uudella ja vanhalla asunnolla on?",
+        "options": [
+          "Uusi on aina halvempi",
+          "Vanhassa on enemmän neliöitä samalla rahalla",
+          "Uutta ei voi ostaa",
+          "Vanha on aina huonokuntoinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Ovatko he kysyneet lainalupauksia?",
+        "options": [
+          "Ei",
+          "Kyllä, parista pankista",
+          "Vain yhdestä pankista",
+          "Eivät uskalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä Liisa toivoo löytävänsä?",
+        "options": [
+          "Sijoituskohteen",
+          "Kodin",
+          "Halvan asunnon Uuden asunnon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

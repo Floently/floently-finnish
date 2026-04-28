@@ -1,0 +1,66 @@
+{
+  "id": "273ec649-9238-5222-84fd-a01812b3f7f9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.498,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue leipomon ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LEIPOMO PULLA & KORPPU\n\nAvoinna: ma–pe 7–18, la 8–15, su suljettu\n\nTarjolla tuoreet leivät, sämpylät ja pullat joka päivä. Myös gluteenittomia tuotteita.\n\nKahvi ja tee 2 €, pulla 2,50 €.\n\nOsoite: Leipurinkatu 5.\n\nTervetuloa!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan leipomo aukeaa lauantaina?",
+        "options": [
+          "klo 7",
+          "klo 8",
+          "klo 9",
+          "klo 10"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko pulla maksaa?",
+        "options": [
+          "2 €",
+          "2,50 €",
+          "3 €",
+          "3,50 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Onko leipomo auki sunnuntaisin?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain juhlapyhinä",
+          "Vain kesällä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

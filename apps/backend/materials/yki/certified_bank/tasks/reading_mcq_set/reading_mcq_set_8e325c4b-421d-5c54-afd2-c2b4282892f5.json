@@ -1,0 +1,88 @@
+{
+  "id": "8e325c4b-421d-5c54-afd2-c2b4282892f5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.591,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti. Valitse jokaiseen kysymykseen yksi vaihtoehto.",
+    "materials": {
+      "text": "Moni arvioi uudistuksia sen perusteella, miltä ne tuntuvat arjessa, ei sen perusteella, mitä taulukot kertovat. Siksi myös Vantaallassä valmisteltu uusi palvelumalli on herättänyt sekä toiveita että epäluuloa. Mallin idea on yksinkertainen: samaan asiointiin liitetään useampi palvelu, jotta asiakkaan ei tarvitse kertoa tilannettaan alusta jokaisessa toimipisteessä. Käytännössä muutos osuu kuitenkin eri tavoin eri ryhmiin.\n\nKannattajien mukaan palveluketju nopeutuu. Kun taustatiedot ovat valmiina, ammattilainen voi keskittyä olennaiseen, ja turhat käynnit vähenevät. Lisäksi yhteinen kokonaiskuva auttaa tunnistamaan tilanteita, joissa ongelma ei ole vain yksi yksittäinen asia. Tässä mielessä muutos näyttää inhimilliseltä, vaikka se kuulostaa hallinnolliselta.\n\nKriitikot nostavat esiin kaksi huolta. Ensimmäinen koskee valtaa: jos sama järjestelmä kokoaa paljon tietoa, kuka päättää, mitä sillä tehdään ja kuka näkee sen? Toinen liittyy arviointiin. Uudistusta perustellaan usein tehokkuudella, mutta tehokkuus ei aina tarkoita parempaa palvelua. Jos aikaa säästyy, mutta ihminen kokee tulleensa ohitetuksi, kokemus jää silti huonoksi.\n\nMielenkiintoista on, että keskustelussa puhutaan harvoin koulutuksesta. Uuden mallin onnistuminen riippuu siitä, osaavatko työntekijät tulkita tietoa, käyttää yhteisiä käytäntöjä ja myös selittää ne asiakkaalle ymmärrettävästi. Ilman tätä syntyy helposti vaikutelma, että järjestelmä hallitsee ihmistä, eikä toisin päin. Tällöin muutos saa symbolisen merkityksen: se ei ole vain tapa tehdä työtä, vaan myös viesti siitä, mitä pidetään tärkeänä.\n\nKun muutosta arvioidaan, pelkkä yksi mittari ei riitä. Tarvitaan sekä numeroita että kertomuksia. Numerot näyttävät suunnan, mutta kertomukset paljastavat, miksi suunta tuntuu oikealta tai väärältä. Jos nämä kaksi jätetään erilleen, keskustelu jakautuu niihin, jotka vaativat “todisteita”, ja niihin, jotka vaativat “kokemusten kunnioittamista”. Todellisessa päätöksenteossa molemmat ovat välttämättömiä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 277
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on uuden palvelumallin perusidea?",
+        "options": [
+          "Useampi palvelu yhdistetään samaan asiointiin",
+          "Asiakas valitsee aina uuden työntekijän",
+          "Kaikki siirretään vain paperille",
+          "Palvelut lopetetaan kokonaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kannattajat painottavat?",
+        "options": [
+          "Palveluketju nopeutuu ja turhat käynnit vähenevät",
+          "Asiakkaat eivät huomaa muutosta",
+          "Tietoa ei tarvita",
+          "Kustannukset nousevat väistämättä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on kriitikoiden ensimmäinen huoli?",
+        "options": [
+          "Sää muuttuu",
+          "Mainonta lisääntyy",
+          "Rakennukset ovat vanhoja",
+          "Valta ja se, kuka näkee ja käyttää tietoa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi koulutus on tekstin mukaan tärkeää?",
+        "options": [
+          "Koska se poistaa kaikki mittarit",
+          "Koska se tekee keskustelusta helpompaa",
+          "Ilman sitä syntyy vaikutelma, että järjestelmä hallitsee ihmistä",
+          "Koska se lyhentää lomia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tekstissä ehdotetaan arviointiin?",
+        "options": [
+          "Vain yksi mittari",
+          "Vain kokemukset ilman dataa",
+          "Vain data ilman kokemuksia",
+          "Sekä numeroita että kertomuksia"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

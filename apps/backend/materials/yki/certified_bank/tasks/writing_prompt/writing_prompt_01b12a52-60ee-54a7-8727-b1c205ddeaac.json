@@ -1,0 +1,37 @@
+{
+  "id": "01b12a52-60ee-54a7-8727-b1c205ddeaac",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lähikauppaan. Haluat kysyä, onko heillä kesätyöpaikkoja nuorille. Kerro, että olet 17-vuotias ja asut lähellä. Kerro, että voit tehdä kassatyötä tai hyllytystä. Kysy, miten ja milloin voi hakea.",
+    "materials": {
+      "scenario": "Viesti kauppaan kesätyökysely"
+    },
+    "items": [
+      {
+        "id": "8bead5d3-e4e8-54a2-81bd-5acbd71439ea",
+        "prompt": "Kirjoita lyhyt viesti lähikauppaan. Haluat kysyä, onko heillä kesätyöpaikkoja nuorille. Kerro, että olet 17-vuotias ja asut lähellä. Kerro, että voit tehdä kassatyötä tai hyllytystä. Kysy, miten ja milloin voi hakea."
+      }
+    ],
+    "rubric": "Kysy kesätyöpaikkoja\nKerro ikäsi\nKerro, mitä osaat tehdä\nKysy hakemista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

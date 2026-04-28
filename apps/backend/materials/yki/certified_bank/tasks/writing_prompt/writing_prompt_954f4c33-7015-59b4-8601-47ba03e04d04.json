@@ -1,0 +1,37 @@
+{
+  "id": "954f4c33-7015-59b4-8601-47ba03e04d04",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö sähköautojen latauspisteitä lisätä kaupungeissa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Sähköautojen latauspisteiden lisääminen"
+    },
+    "items": [
+      {
+        "id": "0a76acb6-30bc-5693-9522-c2e0b6769c07",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö sähköautojen latauspisteitä lisätä kaupungeissa. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

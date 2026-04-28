@@ -1,0 +1,88 @@
+{
+  "id": "2098d9fd-0595-505f-9838-3b0c843c0a0f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.669,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, täällä on Autokorjaamo Vakio. Ilmoitamme, että autonne on valmis noudettavaksi. Olemme avoinna arkisin kello 8-17. Tervetuloa!",
+      "audio_asset_id": "6a3667eb-433c-478c-a945-d3d13de8ca01"
+    },
+    "questions": [
+      {
+        "id": "2de1b1f5-6878-5ba3-aaf5-8272a013eada",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Autokorjaamo.",
+          "Autokoulu.",
+          "Autokauppa.",
+          "Autovuokraamo."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "6281871a-f04a-565f-b1ed-2d96ac1cff9f",
+        "prompt": "Miksi he soittavat?",
+        "options": [
+          "Kertoakseen hinnasta.",
+          "Ilmoittaakseen, että auto on valmis noudettavaksi.",
+          "Kysyäkseen, tarvitaanko huoltoa.",
+          "Muistuttaakseen katsastuksesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "049fb4a5-a318-57af-9868-ca9e2b3b9211",
+        "prompt": "Mihin aikaan korjaamo on auki arkisin?",
+        "options": [
+          "Kello 7-16.",
+          "Kello 9-18.",
+          "Kello 10-19.",
+          "Kello 8-17."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "fd267864-9681-53df-8e63-53eca25d7281",
+        "prompt": "Mikä on korjaamon nimi?",
+        "options": [
+          "Autokorjaamo vakio.",
+          "Autokorjaamo Vakio.",
+          "Autokorjaamo Nopea.",
+          "Autokorjaamo Varma."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "73a8acfc-eee0-5931-833d-4b69c2b8decc",
+        "prompt": "Onko korjaamo auki viikonloppuisin?",
+        "options": [
+          "Kyllä.",
+          "Vain lauantaisin.",
+          "Ei.",
+          "Vain sunnuntaisin."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

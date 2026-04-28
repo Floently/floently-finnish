@@ -1,0 +1,40 @@
+{
+  "id": "dd10b500-dcf0-53f8-9429-362c1d352fe0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Pohdi asumisen hintakehityksen vaikutuksia erityisesti nuorten ja opiskelijoiden näkökulmasta. Ehdota keinoja kohtuuhintaisen asumisen turvaamiseksi.",
+    "materials": {
+      "roles": {
+        "user": "keskustelemassa ystäväsi kanssa asumisen hinnasta ja kohtuuhintaisesta asumisesta",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "92aa5f61-6fa7-56c6-ad62-9b008e002dbc",
+        "ai_first_turn_fi": "Asumisen hinnat ovat nousseet erityisesti suurissa kaupungeissa. Miten tämä vaikuttaa nuorten ja opiskelijoiden mahdollisuuksiin asua keskustassa? Millaisia ratkaisuja näet kohtuuhintaisen asumisen turvaamiseksi?"
+      }
+    ],
+    "rubric": "Pohdi asumisen hintakehityksen vaikutuksia erityisesti nuorten ja opiskelijoiden näkökulmasta. Ehdota keinoja kohtuuhintaisen asumisen turvaamiseksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

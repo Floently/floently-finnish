@@ -1,0 +1,40 @@
+{
+  "id": "b0fedac9-6857-545b-8587-107f542dd8c4",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia sovittelijana konfliktitilanteessa.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet HR-asiantuntija, puolueeton sovittelija, joka haluaa auttaa osapuolia löytämään yhteisymmärryksen.",
+        "partner": "Kaksi työntekijää - molemmat kokevat olevansa oikeassa ja syyttävät toista osapuolta ongelmista."
+      }
+    },
+    "items": [
+      {
+        "id": "srp11",
+        "ai_first_turn_fi": "Kiitos kun tulitte. Tavoitteena on löytää ratkaisu, joka toimii kaikille. Haluaisin, että kumpikin kertoo omin sanoin, mikä tilanteessa on ongelmallista."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia sovittelijana konfliktitilanteessa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

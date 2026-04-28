@@ -1,0 +1,37 @@
+{
+  "id": "9d0ade06-1d88-532a-9ba8-2454c0d4d412",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a CTO position in a software company. Tell about your experience in technology management, directing product development, and creating technology strategy. Also describe how you have built effective development teams and promoted innovation culture. Length about 320 words.",
+    "materials": {
+      "scenario": "Hakemus teknologiatoimitusjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "a4f83e8c-96bb-5582-862a-f3beacf22a81",
+        "prompt": "Write a job application. You are applying for a CTO position in a software company. Tell about your experience in technology management, directing product development, and creating technology strategy. Also describe how you have built effective development teams and promoted innovation culture. Length about 320 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a CTO position in a software company. Tell about your experience in technology management, directing product development, and creating technology strategy. Also describe how you have built effective development teams and promoted innovation culture. Length about 320 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

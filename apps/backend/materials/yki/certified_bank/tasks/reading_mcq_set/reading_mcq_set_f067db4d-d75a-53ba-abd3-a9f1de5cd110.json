@@ -1,0 +1,77 @@
+{
+  "id": "f067db4d-d75a-53ba-abd3-a9f1de5cd110",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.761,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli taloudellisesta eriarvoisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TALOUDELLINEN ERIARVOISUUS KASVAA – ONKO RATKAISUA?\n\nTuloerot ovat kasvaneet Suomessa ja useimmissa muissa kehittyneissä maissa viime vuosikymmeninä. Tämä kehitys on herättänyt laajaa keskustelua ja huolta yhteiskunnan koheesiosta. Miksi eriarvoisuus kasvaa, ja voidaanko sille tehdä jotain?\n\nYksi keskeinen syy on globalisaatio ja teknologinen kehitys. Ne ovat lisänneet korkeasti koulutettujen kysyntää ja samalla vähentäneet matalasti koulutettujen työpaikkoja. Tämä on johtanut palkkaerojen kasvuun. Toisaalta pääomatulot ovat kasvaneet nopeammin kuin palkkatulot, mikä on hyödyttänyt varakkaimpia.\n\nToinen syy on veropolitiikka. Pääomaverotusta on kevennetty monissa maissa, ja progressiivinen tuloverotus on lieventynyt. Tämä on vähentänyt tulojen uudelleenjakoa ja lisännyt eroja. Samalla julkisia palveluja on leikattu, mikä on kohdistunut erityisesti pienituloisiin.\n\nKolmas syy on koulutuksen periytyvyys. Hyväosaisten lapset saavat usein parempaa koulutusta ja menestyvät paremmin. Tämä luo noidankehän, jossa eriarvoisuus periytyy sukupolvelta toiselle.\n\nMiten eriarvoisuutta voitaisiin vähentää? Yksi keino on panostaa koulutukseen ja osaamiseen. Tarjoamalla laadukasta koulutusta kaikille voidaan parantaa heikoimmassa asemassa olevien mahdollisuuksia. Toinen keino on verotus: progressiivisella verotuksella ja pääomaverotuksella voidaan tasata tuloeroja. Kolmas keino on vahvat julkiset palvelut, jotka turvaavat hyvinvoinnin kaikille.\n\nAsiantuntijat korostavat, että eriarvoisuus ei ole vain taloudellinen kysymys. Se on myös sosiaalinen ja poliittinen kysymys. Suuret tuloerot heikentävät luottamusta yhteiskuntaan ja voivat johtaa poliittiseen polarisaatioon. Siksi eriarvoisuuden vähentäminen on tärkeää koko yhteiskunnan vakauden kannalta.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 235
+    },
+    "questions": [
+      {
+        "id": "c1c2_reading_mcq_003_q1",
+        "prompt": "Mitä syitä taloudelliselle eriarvoisuudelle mainitaan?",
+        "options": [
+          "vain globalisaatio",
+          "globalisaatio, teknologinen kehitys, veropolitiikka ja koulutuksen periytyvyys",
+          "vain veropolitiikka",
+          "vain koulutus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_003_q2",
+        "prompt": "Miten globalisaatio on vaikuttanut työmarkkinoihin?",
+        "options": [
+          "se on lisännyt kaikkien työpaikkoja",
+          "se on lisännyt korkeasti koulutettujen kysyntää ja vähentänyt matalasti koulutettujen työpaikkoja",
+          "se ei ole vaikuttanut",
+          "se on vähentänyt kaikkien työpaikkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_003_q3",
+        "prompt": "Mitä keinoja eriarvoisuuden vähentämiseksi ehdotetaan?",
+        "options": [
+          "vain verojen lasku",
+          "panostukset koulutukseen, progressiivinen verotus ja vahvat julkiset palvelut",
+          "vain markkinoiden vapauttaminen",
+          "vain sosiaaliturvan leikkaukset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_003_q4",
+        "prompt": "Miksi eriarvoisuus on tärkeä yhteiskunnallinen kysymys?",
+        "options": [
+          "vain siksi että se on epäreilua",
+          "se heikentää luottamusta ja voi johtaa poliittiseen polarisaatioon",
+          "sillä ei ole väliä",
+          "se on hyväksi taloudelle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

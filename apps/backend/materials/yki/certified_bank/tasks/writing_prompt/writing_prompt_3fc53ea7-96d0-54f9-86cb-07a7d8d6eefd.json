@@ -1,0 +1,37 @@
+{
+  "id": "3fc53ea7-96d0-54f9-86cb-07a7d8d6eefd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö sairaanhoitajien palkkoja nostaa merkittävästi hoitoalan vetovoiman lisäämiseksi?'. Analysoi kustannuksia, julkista taloutta ja hoidon laatua.",
+    "materials": {
+      "scenario": "Sairaanhoitajien palkat"
+    },
+    "items": [
+      {
+        "id": "ab14870b-e758-59f1-8d33-366612baaf28",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö sairaanhoitajien palkkoja nostaa merkittävästi hoitoalan vetovoiman lisäämiseksi?'. Analysoi kustannuksia, julkista taloutta ja hoidon laatua."
+      }
+    ],
+    "rubric": "Hoitoalan vetovoima\nKustannukset\nJulkinen talous\nHoidon laatu",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

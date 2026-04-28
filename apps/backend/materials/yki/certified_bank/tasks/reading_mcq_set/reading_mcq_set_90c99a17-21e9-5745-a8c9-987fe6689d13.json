@@ -1,0 +1,66 @@
+{
+  "id": "90c99a17-21e9-5745-a8c9-987fe6689d13",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Jos et pääse, ilmoita siitä etukäteen. Oppilaitos lähettää viestin aiheesta: matkapuhelinliittymän laskun selitys. Ohjeet ovat lyhyet ja selkeät. Ota mukaan henkilöllisyystodistus, jos sitä pyydetään. Lopussa kerrotaan yhteystiedot ja aukiolo. Viesti on tarkoitettu arjen asiointiin. Asia alkaa tiistaina 19. päivä. Tarkista aika ja paikka ennen kuin lähdet. Jos tarvitset apua, voit kysyä palvelutiskiltä. Tämä koskee monia ihmisiä Tampereella. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä tiistaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä tiistaina asti.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "a1_a2r14-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Matkustaminen ja sää",
+          "Pääse ja siihen liittyvä muutos",
+          "Ruoanlaitto kotona",
+          "Urheilutapahtuma"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r14-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Lentojen peruuntuminen",
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Uusi elokuva",
+          "Sairaalan remontti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r14-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Jätä asia kesken",
+          "Odota viikko",
+          "Älä kerro kenellekään",
+          "Kysy neuvoa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

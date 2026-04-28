@@ -1,0 +1,88 @@
+{
+  "id": "56f00699-5a95-57c6-b641-e4fb2b1bbb22",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti. Valitse jokaiseen kysymykseen yksi vaihtoehto.",
+    "materials": {
+      "text": "ILMOITUS\n\nIlmoitus rappukäytävässä kertoo siivouksesta Sipoossa. Yhteisessä tilassa tehdään siivous heinäkuussa. Siivous alkaa 27.9. klo 9.00 ja kestää noin kaksi tuntia. Tänä aikana tilaan ei voi viedä tai hakea tavaroita.\n\nJos sinulla on pyörä tai lastenvaunut varastossa, tarkista että ne ovat selvästi merkitty omalla nimellä. Älä jätä tavaroita käytävään, koska siivouskone tarvitsee tilaa. Jos löydät irtotavaraa, laita se pahvilaatikkoon oven viereen.\n\nSiivouksen jälkeen lattia kuivuu hetken, joten ovet pidetään auki klo 14.30 asti. Jos et pääse paikalle, voit soittaa isännöinnille numeroon 0423966966 arkipäivänä.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä ilmoituksessa kerrotaan?",
+        "options": [
+          "Sähkön hinnasta",
+          "Uudesta asukkaasta",
+          "Pihajuhlasta",
+          "Siivouksesta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin siivous alkaa?",
+        "options": [
+          "27.9. klo 9.00",
+          "27.9. klo 14.30",
+          "27.9. klo 20.00",
+          "19.5. klo 9.00"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää tehdä pyörän tai vaunujen kanssa?",
+        "options": [
+          "Myydä ne pois",
+          "Merkitä ne omalla nimellä",
+          "Viedä ne parvekkeelle",
+          "Pestä ne ulkona"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ei saa jättää käytävään?",
+        "options": [
+          "Kukkia",
+          "Tavaroita",
+          "Mainoksia",
+          "Terveisiä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin irtotavara laitetaan?",
+        "options": [
+          "Kadulle",
+          "Roska-autoon",
+          "Pahvilaatikkoon oven viereen",
+          "Hissiin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

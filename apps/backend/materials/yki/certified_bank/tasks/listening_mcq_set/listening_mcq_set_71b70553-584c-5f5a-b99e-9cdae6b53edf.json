@@ -1,0 +1,83 @@
+{
+  "id": "71b70553-584c-5f5a-b99e-9cdae6b53edf",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.742,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijahaastattelu ilmastopolitiikasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään keskustelussa on ilmastopolitiikka. Vieraana on ilmastotutkija Emma Laitinen. Emma, oletko huolissasi siitä, että ilmastotoimet etenevät liian hitaasti?\n\nEmma Laitinen: Kyllä, olen huolissani. Tieteelliset raportit osoittavat, että meillä on vain muutama vuosi aikaa kääntää päästökehitys, jos haluamme pysyä 1,5 asteen tavoitteessa. Tällä hetkellä monien maiden toimet ovat riittämättömiä. Mutta haluan myös sanoa, että positiivisiakin signaaleja on. Esimerkiksi uusiutuvan energian hinta on laskenut dramaattisesti, ja se tekee vihreästä siirtymästä taloudellisesti kannattavaa.\n\nToimittaja: Suomessa on herättänyt keskustelua turpeen käytön vähentäminen. Miten tämä vaikuttaa alueisiin, joissa turve on tärkeä elinkeino?\n\nEmma: Tämä on juuri se oikeudenmukaisuuden kysymys, josta pitää keskustella. Ilmastotoimilla on aina voittajia ja häviäjiä. Turvetuotannosta riippuvaisilla alueilla tarvitaan oikeudenmukainen siirtymä, jossa luodaan uusia työpaikkoja ja tuetaan ihmisiä koulutuksella. Pelkkä turpeen kieltäminen ilman vaihtoehtoja ei ole kestävää.\n\nToimittaja: Mitä mieltä olet kansalaisten roolista ilmastotoimissa?\n\nEmma: Kansalaisten rooli on keskeinen, mutta vastuuta ei saa siirtää liikaa yksilöille. Me tarvitsemme rakenteellisia muutoksia, jotka tekevät kestävistä valinnoista helppoja ja edullisia. Jos joukkoliikenne ei toimi, on kohtuutonta vaatia ihmisiä luopumaan autosta. Samoin jos terveellinen ja kestävä ruoka on kallista, valinnat ohjautuvat helposti väärään suuntaan.\n\nToimittaja: Miten suhtaudut nuorten ilmastoliikkeisiin?\n\nEmma: Erittäin myönteisesti. Nuoret ovat herätelleet meidät näkemään, että kyse on heidän tulevaisuudestaan. On hienoa, että he vaativat vastuuta päättäjiltä. Samalla toivon, että sukupolvien välinen kuilu saataisiin kaventumaan. Meidän pitää tehdä töitä yhdessä, eikä syytellä toisiamme.",
+      "audio_asset_id": "ee2e0df2-a69b-4014-9dff-017c770ff77a"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä Emma Laitinen on huolissaan?",
+        "options": [
+          "uusiutuvan energian hinnasta",
+          "ilmastotoimien hitaudesta",
+          "turpeen hinnasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä positiivista kehitystä Emma mainitsee?",
+        "options": [
+          "fossiilisten polttoaineiden käyttö on lisääntynyt",
+          "uusiutuvan energian hinta on laskenut",
+          "turpeen käyttö on vähentynyt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan oikeudenmukaisella siirtymällä?",
+        "options": [
+          "turpeen käytön lopettamista heti",
+          "uusia työpaikkoja ja koulutusta turvealueilla",
+          "korvauksia turvetuottajille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä Emma sanoo yksilöiden vastuusta ilmastotoimissa?",
+        "options": [
+          "kaikki vastuu on yksilöillä",
+          "yksilöillä ei ole vastuuta",
+          "vastuuta ei saa siirtää liikaa yksilöille, tarvitaan rakenteellisia muutoksia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten Emma suhtautuu nuorten ilmastoliikkeisiin?",
+        "options": [
+          "kielteisesti",
+          "myönteisesti, koska he vaativat vastuuta",
+          "ei ota kantaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

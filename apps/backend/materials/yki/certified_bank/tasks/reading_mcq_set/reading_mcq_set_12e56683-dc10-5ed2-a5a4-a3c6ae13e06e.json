@@ -1,0 +1,66 @@
+{
+  "id": "12e56683-dc10-5ed2-a5a4-a3c6ae13e06e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mainos ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KESÄTAPAHTUMA PUISTOSSA\n\nTervetuloa koko perheen kesätapahtumaan Kaivopuistoon lauantaina 22.7. kello 12–18!\n\nOhjelmassa:\n- Pomppulinna ja kasvomaalausta lapsille\n- Musiikkia bändiltä Perjantai\n- Arpajaiset – pääpalkintona lahjakortti 200 €\n- Ruokakojuja (hampurilaiset, makkara, jäätelö)\n- Kahvila Myyriäinen myy kahvia ja pullaa\n\nVapaa pääsy! Tervetuloa kaikki!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 60
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin tapahtuma järjestetään?",
+        "options": [
+          "perjantaina 21.7.",
+          "lauantaina 22.7.",
+          "sunnuntaina 23.7.",
+          "maanantaina 24.7."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko tapahtumaan maksaa?",
+        "options": [
+          "5 €",
+          "10 €",
+          "15 €",
+          "ilmainen"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lapsille on tarjolla?",
+        "options": [
+          "elokuvia",
+          "pomppulinna ja kasvomaalausta",
+          "urheilukilpailuja",
+          "tietokonepelejä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

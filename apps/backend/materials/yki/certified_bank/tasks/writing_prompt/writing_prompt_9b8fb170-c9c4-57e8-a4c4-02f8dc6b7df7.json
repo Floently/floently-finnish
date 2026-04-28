@@ -1,0 +1,37 @@
+{
+  "id": "9b8fb170-c9c4-57e8-a4c4-02f8dc6b7df7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.68,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an interior designer position in a design firm. Tell about your education, previous projects, and how you take into account clients' wishes and budget. Also describe your design philosophy. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus sisustussuunnittelijan tehtävään"
+    },
+    "items": [
+      {
+        "id": "4cddd00c-6715-57b4-a056-5944d67e595e",
+        "prompt": "Write a job application. You are applying for an interior designer position in a design firm. Tell about your education, previous projects, and how you take into account clients' wishes and budget. Also describe your design philosophy. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an interior designer position in a design firm. Tell about your education, previous projects, and how you take into account clients' wishes and budget. Also describe your design philosophy. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

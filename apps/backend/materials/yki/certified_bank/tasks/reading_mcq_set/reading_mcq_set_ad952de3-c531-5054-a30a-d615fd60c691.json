@@ -1,0 +1,110 @@
+{
+  "id": "ad952de3-c531-5054-a30a-d615fd60c691",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen taide on monipuolista ja kansainvälisesti tunnettua. Klassikoita ovat esimerkiksi säveltäjä Jean Sibelius, kirjailija Väinö Linna ja taidemaalari Akseli Gallen-Kallela. Heidän töitään arvostetaan ympäri maailmaa. Nykytaide Suomessa on vilkasta ja uudistuvaa. Nuoret taiteilijat tekevät rohkeita kokeiluja ja yhdistävät eri taiteenlajeja. Taidetta on kaikkialla: museoissa, gallerioissa, katukuvassa ja verkossa. Julkiset taideteokset, kuten patsaat ja muraalit, ovat osa kaupunkikuvaa. Ne herättävät keskustelua ja tuovat iloa arkeen. Taiteella on tärkeä rooli yhteiskunnassa. Se haastaa ajattelemaan, herättää tunteita ja tarjoaa elämyksiä. Taide myös lisää hyvinvointia ja yhteisöllisyyttä. Taidetta käytetään esimerkiksi hoitolaitoksissa ja kouluissa tuomaan iloa ja virkistystä. Taiteen rahoitus on kuitenkin usein niukkaa. Taiteilijat elävät usein epävarmoissa oloissa, ja apurahoista on kova kilpailu. Keskustelua käydään siitä, pitäisikö taiteen tukea lisätä ja miten taiteen asemaa voitaisiin vahvistaa. Taide on kuitenkin tärkeä osa inhimillistä elämää ja kulttuuria, ja sitä on vaalittava.",
+      "word_count": 135
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Ketä suomalaisia taiteilijoita tekstissä mainitaan klassikoina?",
+        "options": [
+          "Tove Jansson ja Mauri Kunnas.",
+          "Jean Sibelius, Väinö Linna ja Akseli Gallen-Kallela.",
+          "Alvar Aalto ja Eliel Saarinen.",
+          "Eino Leino ja Aleksis Kivi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista nykytaide Suomessa on?",
+        "options": [
+          "Pysähtynyttä ja vanhanaikaista.",
+          "Vilkasta, uudistuvaa ja rohkeita kokeiluja tekevää.",
+          "Vain perinteistä.",
+          "Vain ulkomaalaista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä taidetta on?",
+        "options": [
+          "Vain museoissa.",
+          "Museoissa, gallerioissa, katukuvassa ja verkossa.",
+          "Vain yksityiskodeissa.",
+          "Vain kirkoissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä julkiset taideteokset tekevät?",
+        "options": [
+          "Ne eivät kiinnosta ketään.",
+          "Ne herättävät keskustelua ja tuovat iloa arkeen.",
+          "Ne ovat vain koristeita.",
+          "Ne ovat rumia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä rooli taiteella on yhteiskunnassa?",
+        "options": [
+          "Vain viihdyttävä.",
+          "Se haastaa ajattelemaan, herättää tunteita ja tarjoaa elämyksiä.",
+          "Vain kaupallinen.",
+          "Vain poliittinen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Missä taidetta käytetään hyvinvoinnin lisäämiseksi?",
+        "options": [
+          "Vain teattereissa.",
+          "Hoitolaitoksissa ja kouluissa.",
+          "Vain konserttisaleissa.",
+          "Vain kirkoissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on taiteen rahoituksen ongelma?",
+        "options": [
+          "Sitä on liikaa.",
+          "Se on usein niukkaa, ja taiteilijat elävät epävarmoissa oloissa.",
+          "Sitä saa kuka tahansa.",
+          "Se on liian helppoa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

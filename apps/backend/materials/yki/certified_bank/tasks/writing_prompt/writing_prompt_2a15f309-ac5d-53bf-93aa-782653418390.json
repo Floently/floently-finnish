@@ -1,0 +1,37 @@
+{
+  "id": "2a15f309-ac5d-53bf-93aa-782653418390",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.347,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kiinteistönvälittäjälle. Olet kiinnostunut asunnosta, jonka näit netissä. Kerro, mikä asunto (osoite) ja kysy, milloin voit päästä katsomaan sitä. Kerro myös, että tarvitset asunnon kolmen kuukauden päästä ja kysy, onko se mahdollista.",
+    "materials": {
+      "scenario": "Viesti kiinteistönvälittäjälle asuntonäytöstä"
+    },
+    "items": [
+      {
+        "id": "af0ca9d2-065d-5c3b-9135-e4693c7bb5dd",
+        "prompt": "Kirjoita lyhyt viesti kiinteistönvälittäjälle. Olet kiinnostunut asunnosta, jonka näit netissä. Kerro, mikä asunto (osoite) ja kysy, milloin voit päästä katsomaan sitä. Kerro myös, että tarvitset asunnon kolmen kuukauden päästä ja kysy, onko se mahdollista."
+      }
+    ],
+    "rubric": "Kerro, mistä asunnosta olet kiinnostunut\nKysy näyttöaikaa\nKerro, milloin tarvitset asunnon\nKysy, onko se mahdollista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

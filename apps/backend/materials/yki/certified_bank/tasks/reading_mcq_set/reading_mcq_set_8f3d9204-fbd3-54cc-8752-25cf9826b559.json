@@ -1,0 +1,66 @@
+{
+  "id": "8f3d9204-fbd3-54cc-8752-25cf9826b559",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kansainvälinen kauppa on ollut keskeinen tekijä globaalissa talouskasvussa. Se on mahdollistanut maiden erikoistumisen omiin vahvuuksiinsa ja tuonut kuluttajien saataville laajan valikoiman tuotteita. Viime vuosina kansainvälinen kauppa on kuitenkin kohdannut haasteita: kauppasodat, protektionismi ja pandemian aiheuttamat toimitusketjujen häiriöt ovat lisääntyneet. Tämä on herättänyt keskustelua huoltovarmuudesta ja omavaraisuudesta. Suomi on pieni, avoin talous, joka on vahvasti riippuvainen kansainvälisestä kaupasta. Noin 40 prosenttia Suomen bruttokansantuotteesta tulee viennistä. Siksi toimivat ja ennakoitavat kansainväliset kauppasuhteet ovat Suomelle elintärkeitä.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "mcq_153",
+        "prompt": "Mitä hyötyä kansainvälisestä kaupasta on?",
+        "options": [
+          "Se vähentää tuotteiden saatavuutta",
+          "Se mahdollistaa maiden erikoistumisen",
+          "Se lisää protektionismia",
+          "Se vähentää kauppasotia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_154",
+        "prompt": "Mitä haasteita kansainvälinen kauppa on kohdannut viime vuosina?",
+        "options": [
+          "Kauppasodat ja toimitusketjujen häiriöt",
+          "Vapaa kauppa",
+          "Markkinoiden avautuminen",
+          "Kaupan esteiden väheneminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_155",
+        "prompt": "Kuinka suuri osa Suomen bruttokansantuotteesta tulee viennistä?",
+        "options": [
+          "Noin 20 prosenttia",
+          "Noin 30 prosenttia",
+          "Noin 40 prosenttia",
+          "Noin 50 prosenttia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

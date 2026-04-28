@@ -1,0 +1,66 @@
+{
+  "id": "5bb89906-c9eb-597a-b3c0-5d26f86adcd1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Työnantaja: Hei, kiitos että tulit haastatteluun. Kerroit hakemuksessasi, että olet kiinnostunut myyntitehtävistä. Miksi juuri meidän yrityksemme?\nTyönhakija: Olen seurannut yrityksenne toimintaa ja pidän erityisesti asiakaslähtöisestä palveluasenteestanne. Uskon, että voisin tuoda oman panokseni myyntitiimiin.\nTyönantaja: Hyvä. Minkälaista myyntikokemusta sinulla on?\nTyönhakija: Olen työskennellyt kolme vuotta vaatekaupassa myyjänä, ja hoidin myös asiakaspalvelua puhelimitse. Lisäksi olen ollut mukana myyntiprojekteissa opiskeluaikana.\nTyönantaja: Kuulostaa hyvältä. Palkka on 2500 euroa kuukaudessa. Se sopiiko?\nTyönhakija: Kyllä, se on ihan sopiva.",
+      "audio_asset_id": "2780bea4-b700-5534-bd93-369d85af8f04"
+    },
+    "questions": [
+      {
+        "id": "list_025",
+        "prompt": "Mihin tehtävään työnhakija hakee?",
+        "options": [
+          "Markkinointitehtäviin",
+          "Myyntitehtäviin",
+          "Asiakaspalvelutehtäviin",
+          "Toimistotehtäviin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_026",
+        "prompt": "Kuinka paljon työkokemusta työnhakijalla on myyjänä?",
+        "options": [
+          "Yksi vuosi",
+          "Kaksi vuotta",
+          "Kolme vuotta",
+          "Neljä vuotta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_027",
+        "prompt": "Paljonko palkka on?",
+        "options": [
+          "2300 euroa",
+          "2400 euroa",
+          "2500 euroa",
+          "2600 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

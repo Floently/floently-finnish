@@ -1,0 +1,37 @@
+{
+  "id": "9abeec3b-e97f-5328-8186-3f6bb4ba5d8c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt yksityisellä lääkäriasemalla. Kirjoita palaute asemalle.",
+    "materials": {
+      "scenario": "Palaute yksityiseltä lääkäriasemalta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt yksityisellä lääkäriasemalla. Kirjoita palaute asemalle."
+      }
+    ],
+    "rubric": "Olet käynyt yksityisellä lääkäriasemalla. Kirjoita palaute asemalle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

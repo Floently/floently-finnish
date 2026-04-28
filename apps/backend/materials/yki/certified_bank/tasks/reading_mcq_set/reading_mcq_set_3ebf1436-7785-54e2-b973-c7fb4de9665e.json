@@ -1,0 +1,66 @@
+{
+  "id": "3ebf1436-7785-54e2-b973-c7fb4de9665e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KULTTUURITAPAHTUMAT ELÄVÖITTÄVÄT KAUPUNKIA\n\nKulttuuritapahtumat ovat tärkeä osa kaupunkielämää. Ne tuovat ihmisiä yhteen, elävöittävät kaupunkikuvaa ja tarjoavat elämyksiä. Suomessa järjestetään satoja tapahtumia vuosittain – musiikkifestivaaleja, teatteriesityksiä, taidenäyttelyitä, kirjamessuja ja paljon muuta.\n\nTapahtumilla on suuri taloudellinen merkitys. Ne tuovat matkailijoita, työllistävät paikallisia ja tuovat rahaa kaupunkiin. Hotellit, ravintolat ja kaupat hyötyvät tapahtumista. Esimerkiksi Helsingin juhlaviikot tuovat kaupunkiin miljoonia euroja.\n\nMutta tapahtumat ovat myös henkistä pääomaa. Ne lisäävät kaupungin vetovoimaa ja tekevät siitä kiinnostavan paikan asua ja vierailla. Ne tarjoavat mahdollisuuden kokea taidetta ja kulttuuria, mikä lisää hyvinvointia. Monelle tapahtumat ovat tärkeä osa kesää ja arjen piristys.\n\nHaasteitakin on. Tapahtumien järjestäminen on kallista ja vaatii paljon vapaaehtoisia. Melu, roskaantuminen ja liikennehäiriöt voivat ärsyttää asukkaita. Myös turvallisuus on iso kysymys – suurissa tapahtumissa pitää huolehtia, ettei kukaan joudu vaaraan.\n\nTulevaisuudessa tapahtumat todennäköisesti monipuolistuvat ja kansainvälistyvät. Teknologia mahdollistaa uudenlaisia elämyksiä, kuten virtuaalitodellisuutta ja striimattuja tapahtumia. Samalla pitää muistaa, että tapahtumat ovat ennen kaikkea ihmisiä varten – ne luovat yhteisöllisyyttä ja iloa.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 184
+    },
+    "questions": [
+      {
+        "id": "c1729c8f-48c1-5667-ab4f-ad8d4b2839be",
+        "prompt": "Mitä hyötyä kulttuuritapahtumista on kaupungille?",
+        "options": [
+          "Vain viihteellistä arvoa",
+          "Taloudellista hyötyä, vetovoimaa ja hyvinvointia",
+          "Vain matkailijoille",
+          "Vain taiteilijoille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3b892ff8-cf0b-51b2-be24-93d01bc7638f",
+        "prompt": "Mitä haasteita tapahtumiin liittyy?",
+        "options": [
+          "Ne ovat tylsiä",
+          "Järjestäminen on kallista, melua, roskaantumista ja turvallisuus huolettaa",
+          "Kukaan ei käy niissä",
+          "Ne ovat liian kalliita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c39c784a-43d9-5ee9-a2f8-d3202fc73488",
+        "prompt": "Mikä on tapahtumien tärkein merkitys?",
+        "options": [
+          "Rahan tuominen kaupunkiin",
+          "Yhteisöllisyyden ja ilon luominen",
+          "Taiteen esittely",
+          "Matkailijoiden houkuttelu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

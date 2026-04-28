@@ -1,0 +1,40 @@
+{
+  "id": "cb121bac-12b6-594c-9095-a0ccee1154d3",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "opiskelija",
+        "partner": "ruokalan työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp09_01",
+        "ai_first_turn_fi": "Päivää, mitä saisi olla?"
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

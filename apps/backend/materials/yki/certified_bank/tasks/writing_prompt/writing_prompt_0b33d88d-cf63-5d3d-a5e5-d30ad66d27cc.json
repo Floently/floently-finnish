@@ -1,0 +1,37 @@
+{
+  "id": "0b33d88d-cf63-5d3d-a5e5-d30ad66d27cc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit terveyskeskuksessa lääkärillä. Kirjoita palaute. Kerro, pääsitkö nopeasti vastaanotolle, oliko lääkäri ystävällinen ja auttoiko hän vaivaasi.",
+    "materials": {
+      "scenario": "Palaute terveyskeskuksesta"
+    },
+    "items": [
+      {
+        "id": "224d25be-759a-5daa-9195-5d230212b336",
+        "prompt": "Kävit terveyskeskuksessa lääkärillä. Kirjoita palaute. Kerro, pääsitkö nopeasti vastaanotolle, oliko lääkäri ystävällinen ja auttoiko hän vaivaasi."
+      }
+    ],
+    "rubric": "Vastaanotolle pääsyn nopeus\nLääkärin ystävällisyys\nAuttaminen vaivaan",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

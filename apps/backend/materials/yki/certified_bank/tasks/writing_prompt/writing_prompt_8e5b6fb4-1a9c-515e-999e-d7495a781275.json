@@ -1,0 +1,37 @@
+{
+  "id": "8e5b6fb4-1a9c-515e-999e-d7495a781275",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Kerro, että kuulit hänen soittavan pianoa ja se kuulosti hienolta. Kysy, kuinka kauan hän on soittanut. Kerro, että itsekin haluaisit aloittaa jonkun instrumentin.",
+    "materials": {
+      "scenario": "Viesti naapurille pianonsoitosta"
+    },
+    "items": [
+      {
+        "id": "5e0624f6-d3de-5045-a81c-3a027a934a39",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Kerro, että kuulit hänen soittavan pianoa ja se kuulosti hienolta. Kysy, kuinka kauan hän on soittanut. Kerro, että itsekin haluaisit aloittaa jonkun instrumentin."
+      }
+    ],
+    "rubric": "Kerro, että kuulit soiton\nKerro, että se kuulosti hienolta\nKysy, kuinka kauan hän on soittanut\nKerro omasta kiinnostuksesta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "fd41bf94-be01-5057-bb7b-c3b8272134cc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.765,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Tulevaisuuden työn ja toimeentulon suhde on yksi aikamme suurimmista yhteiskunnallisista kysymyksistä. Perinteinen malli, jossa ihminen käy kokopäivätyössä noin 40 vuoden ajan ja ansaitsee siten elantonsa ja eläkkeensä, on murtumassa. Teknologinen kehitys, työurien pirstaloituminen ja uudet työn tekemisen muodot haastavat tämän mallin perusteellisesti. Yksi ehdotetuista ratkaisuista on perustulo. Sen kannattajat näkevät perustulon keinona turvata jokaisen toimeentulo työmarkkina-asemasta riippumatta. Perustulo vähentäisi byrokratiaa, kannustaisi yrittäjyyteen ja osa-aikatyöhön ja tekisi työstä vapaaehtoista eikä pakon sanelemaa. Se myös tunnustaisi yhteiskunnalle arvokkaan työn, kuten hoiva- ja vapaaehtoistyön, joka jää palkkatyön ulkopuolelle. Kriitikot puolestaan varoittavat, että perustulo heikentäisi työnteon kannustimia ja tulisi liian kalliiksi. Toinen ehdotus on laajentaa sosiaaliturvaa kattamaan uudenlaiset työn muodot. Tämä tarkoittaisi esimerkiksi työttömyysturvan, sairausvakuutuksen ja eläkkeen kertymistä myös keikkatyöstä ja alustatyöstä. Kolmas näkemys korostaa koulutuksen ja osaamisen kehittämisen merkitystä. Sen mukaan paras tapa turvata toimeentulo tulevaisuudessa on panostaa elinikäiseen oppimiseen ja ihmisten kykyyn sopeutua työmarkkinoiden muutoksiin. Neljäs näkökulma kyseenalaistaa koko työn ja toimeentulon tiiviin kytköksen. Sen mukaan tulevaisuudessa tulisi siirtyä kohti yhteiskuntaa, jossa toimeentulo ei ole riippuvainen palkkatyöstä, vaan jokaiselle taataan riittävä toimeentulo kansalaisuuden perusteella.",
+      "word_count": 172
+    },
+    "questions": [
+      {
+        "id": "2d7b283c-097a-5450-813a-1ba2264efb01",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Perustulon hyödyt ja haitat",
+          "Teknologian kehityksen vaikutukset työelämään",
+          "Tulevaisuuden työn ja toimeentulon suhdetta koskevat erilaiset näkemykset ja ratkaisuehdotukset",
+          "Koulutuksen merkitys työllistymisessä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6b7184bc-0ba2-51ce-9fe8-589c29184888",
+        "prompt": "Tekstin mukaan mitä hyötyjä perustulon kannattajat korostavat?",
+        "options": [
+          "Se lisää byrokratiaa ja kannustaa ihmisiä jäämään pois työelämästä",
+          "Se turvaa toimeentulon työmarkkina-asemasta riippumatta, vähentää byrokratiaa, kannustaa yrittäjyyteen ja tunnustaa palkattoman työn arvon",
+          "Se on halvin mahdollinen tapa järjestää sosiaaliturva",
+          "Se vähentää tarvetta koulutukselle ja osaamisen kehittämiselle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "42f3ff28-6e6a-5bae-a91d-a5e534344aa2",
+        "prompt": "Mitä kritiikkiä perustuloa kohtaan tekstissä esitetään?",
+        "options": [
+          "Se on liian vaikea toteuttaa teknisesti",
+          "Se heikentäisi työnteon kannustimia ja tulisi liian kalliiksi",
+          "Se suosii vain niitä, jotka eivät halua tehdä töitä",
+          "Se on ristiriidassa EU-lainsäädännön kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6056cfc5-1efa-5b5b-ac50-94b50ec96322",
+        "prompt": "Mitä radikaali, työn ja toimeentulon kytköksen kyseenalaistava näkemys tekstin mukaan ehdottaa?",
+        "options": [
+          "Palkkatyön täydellistä lakkauttamista",
+          "Siirtymistä kohti yhteiskuntaa, jossa toimeentulo ei ole riippuvainen palkkatyöstä, vaan se taataan kansalaisuuden perusteella",
+          "Kaiken työn pakollista jakamista kaikkien kesken",
+          "Työn ja toimeentulon kytköksen vahvistamista entisestään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

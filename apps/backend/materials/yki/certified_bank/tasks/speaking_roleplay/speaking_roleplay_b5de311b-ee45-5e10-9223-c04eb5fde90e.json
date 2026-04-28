@@ -1,0 +1,68 @@
+{
+  "id": "b5de311b-ee45-5e10-9223-c04eb5fde90e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata ruokaa ravintolasta kotiinkuljetuksella. Keskustele ravintolan työntekijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Ravintolan työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp41_1",
+        "ai_first_turn_fi": "Hei, Ravintola Pizzeria Bella."
+      },
+      {
+        "id": "srp41_2",
+        "ai_first_turn_fi": "Totta kai. Saatko listan sivuiltamme vai haluatko että kerron päivän erikoisuudet?"
+      },
+      {
+        "id": "srp41_3",
+        "ai_first_turn_fi": "Hyvä. Mitä saisi olla?"
+      },
+      {
+        "id": "srp41_4",
+        "ai_first_turn_fi": "Haluatko juomaksi jotain?"
+      },
+      {
+        "id": "srp41_5",
+        "ai_first_turn_fi": "Selvä. Toimitusosoite?"
+      },
+      {
+        "id": "srp41_6",
+        "ai_first_turn_fi": "Puhelinnumerosi?"
+      },
+      {
+        "id": "srp41_7",
+        "ai_first_turn_fi": "Kiitos. Toimitusaika on noin 45 minuuttia. Hinta on 28 euroa ja maksu käteisellä tai kortilla. Kummin haluat maksaa?"
+      },
+      {
+        "id": "srp41_8",
+        "ai_first_turn_fi": "Selvä. Ruoka tulee pian. Hyvää ruokahalua!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata ruokaa ravintolasta kotiinkuljetuksella. Keskustele ravintolan työntekijän kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

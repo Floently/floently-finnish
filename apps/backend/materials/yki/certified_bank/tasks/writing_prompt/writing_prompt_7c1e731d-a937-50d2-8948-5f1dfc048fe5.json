@@ -1,0 +1,37 @@
+{
+  "id": "7c1e731d-a937-50d2-8948-5f1dfc048fe5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.346,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ostanut sohvan huonekaluliikkeestä. Kirjoita palaute. Arvioi myyjän asiantuntemusta, toimitusaikaa ja tuotteen laatua. Kerro myös, oliko kokemus mielestäsi hyvä.",
+    "materials": {
+      "scenario": "Palaute huonekaluostoksesta"
+    },
+    "items": [
+      {
+        "id": "29458366-a12a-5577-bbfd-9af8140ffb59",
+        "prompt": "Olet ostanut sohvan huonekaluliikkeestä. Kirjoita palaute. Arvioi myyjän asiantuntemusta, toimitusaikaa ja tuotteen laatua. Kerro myös, oliko kokemus mielestäsi hyvä."
+      }
+    ],
+    "rubric": "Myyjän asiantuntemus\nToimitusaika\nTuotteen laatu\nKokemuksen yleisarvosana",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

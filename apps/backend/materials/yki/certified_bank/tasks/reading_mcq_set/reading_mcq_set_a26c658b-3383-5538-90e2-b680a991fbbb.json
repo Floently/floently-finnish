@@ -1,0 +1,66 @@
+{
+  "id": "a26c658b-3383-5538-90e2-b680a991fbbb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI\n\nHuomio! Uimahalli on remontin vuoksi kiinni 1.7.–15.7. Tänä aikana voit käydä Mäntylän uimahallissa osoitteessa Uimarintie 2. Pahoittelemme häiriötä.\n\nUimahalli avautuu taas 16.7. normaalisti klo 6–20.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi uimahalli on kiinni?",
+        "options": [
+          "A) Henkilökunta on lomalla",
+          "B) Siellä on remontti",
+          "C) Siellä on kilpailut",
+          "D) Se on aina kiinni heinäkuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan uimahalli on kiinni?",
+        "options": [
+          "A) yhden viikon",
+          "B) kaksi viikkoa",
+          "C) kolme viikkoa",
+          "D) kuukauden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä voi uida remontin aikana?",
+        "options": [
+          "A) keskustan uimahallissa",
+          "B) Mäntylän uimahallissa",
+          "C) järvessä",
+          "D) ei missään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

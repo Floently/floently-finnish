@@ -1,0 +1,37 @@
+{
+  "id": "c6f341af-8175-5cb0-9e33-5e67971a6efa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Ostit kalliin älypuhelimen, joka hajosi kolmen kuukauden jälkeen. Myyjäliike ei suostu korjaamaan sitä takuun alaisena, koska väittää vian johtuvan väärästä käytöstä. Kirjoita virallinen reklamaatio, jossa vaadit hyvitystä. Perustele kantasi huolellisesti ja viittaa tarvittaessa kuluttajansuojaan.",
+    "materials": {
+      "scenario": "Ostit kalliin älypuhelimen, joka hajosi kolmen kuukauden jälkeen. Myyjäliike ei suostu korjaamaan sitä takuun alaisena, koska väittää vian johtuvan väärästä käytöstä. Kirjoita virallinen reklamaatio, jossa vaadit hyvitystä. Perustele kantasi huolellisesti ja viittaa tarvittaessa kuluttajansuojaan."
+    },
+    "items": [
+      {
+        "id": "22da0143-956f-52fd-b9de-1f0855c63127",
+        "prompt": "Kirjoita noin 300–350 sanaa. Käytä asiallista ja vakuuttavaa kieltä. Kuvaa tapahtumat tarkasti ja perustele, miksi vika kuuluu takuun piiriin."
+      }
+    ],
+    "rubric": "Kirjoita noin 300–350 sanaa. Käytä asiallista ja vakuuttavaa kieltä. Kuvaa tapahtumat tarkasti ja perustele, miksi vika kuuluu takuun piiriin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "04f5eb8c-8245-5159-84ad-39dea7d423b0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kaverille. Kerro, että huomenna on hyvä sää. Kysy, haluaako hän lähteä kävelylle tai kahville. Ehdota aikaa klo 14.",
+    "materials": {
+      "scenario": "Viesti kaverille kävelylenkistä"
+    },
+    "items": [
+      {
+        "id": "13317b55-ebcc-5af4-879d-7eaf6421a445",
+        "prompt": "Kirjoita lyhyt viesti kaverille. Kerro, että huomenna on hyvä sää. Kysy, haluaako hän lähteä kävelylle tai kahville. Ehdota aikaa klo 14."
+      }
+    ],
+    "rubric": "Kerro, että huomenna on hyvä sää\nKysy, haluaako hän lähteä\nEhdota tekemistä (kävely, kahvi)\nEhdota aikaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "faee4e0e-18ba-5dd2-8e5e-4d3a1028bedd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.565,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kestävästä kehityksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kampanja kannustaa kaupunkilaisia kestävämpään arkeen\n\nKaupunki on käynnistänyt uuden kampanjan, jonka tavoitteena on vähentää ilmastopäästöjä arjen valinnoilla. Kampanja keskittyy kolmeen osa-alueeseen: ruoka, liikkuminen ja energia.\n\nRuokaosiossa korostetaan lähiruuan ja kasvisten merkitystä. Kampanjassa kerrotaan, että suomalainen ruoka on usein ilmastoystävällisempää kuin ulkomailla tuotettu, koska kuljetusmatkat ovat lyhyempiä. Lisäksi muistutetaan, että ruokahävikkiä kannattaa välttää suunnittelemalla ostokset hyvin.\n\nLiikkumisessa suositellaan pyöräilyä, kävelyä ja joukkoliikennettä. Kampanja tarjoaa kaupunkilaisille kesäksi pyöräilyhaasteen, jossa kerätään kilometrejä ja saa palkintoja. Myös kimppakyydit mainitaan hyvänä tapana vähentää päästöjä.\n\nKampanjan energiaosio muistuttaa, että pieniä säästöjä syntyy, kun sammuttaa valot turhasta ja laskee huonelämpötilaa asteella. Tällaiset toimet eivät maksa mitään, mutta vähentävät sekä päästöjä että sähkölaskua.\n\nKaupungin edustaja kertoo, että kampanja jatkuu koko vuoden, ja syksyllä on luvassa tapahtumia, joissa kerrotaan lisää vinkkejä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 150
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin kampanja keskittyy?",
+        "options": [
+          "Vain joukkoliikenteeseen",
+          "Vain ruokaan ja energiaan",
+          "Ruokaan, liikkumiseen ja energiaan",
+          "Vain pyöräilyyn"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi lähiruoka on tekstin mukaan hyvä valinta?",
+        "options": [
+          "Se on aina halvempaa",
+          "Kuljetusmatkat ovat lyhyempiä",
+          "Se maistuu paremmalta",
+          "Sitä on helppo pakastaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pyöräilyhaasteessa tehdään?",
+        "options": [
+          "Korjataan pyöriä",
+          "Kerätään kilometrejä",
+          "Myydään käytettyjä pyöriä",
+          "Opiskellaan pyörän huoltoa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä seuraavista on esimerkki energiaa säästävästä toimesta?",
+        "options": [
+          "Lämmittää saunaa joka päivä",
+          "Pitää kaikki valot päällä yöllä",
+          "Laskea huonelämpötilaa asteella",
+          "Käyttää aina kuivausrumpua"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

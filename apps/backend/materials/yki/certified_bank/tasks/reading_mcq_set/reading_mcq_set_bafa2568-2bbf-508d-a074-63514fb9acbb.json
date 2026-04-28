@@ -1,0 +1,66 @@
+{
+  "id": "bafa2568-2bbf-508d-a074-63514fb9acbb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Liikuntakulttuuri on muuttunut Suomessa merkittävästi viime vuosikymmeninä. Urheiluseurojen rinnalle on noussut monipuolinen kaupallinen liikuntatarjonta, kuten kuntosalit, ryhmäliikuntatunnit ja erilaiset liikuntapalvelut. Myös omaehtoinen liikunta, kuten lenkkeily, pyöräily ja laturetket, on suosittua. Liikunnan harrastaminen on yhteydessä sosioekonomiseen asemaan: korkeammin koulutetut ja parempituloiset liikkuvat enemmän. Tämä asettaa haasteita terveyserojen kaventamiselle. Liikuntapolitiikassa pyritään edistämään kaikkien väestöryhmien liikkumista esimerkiksi rakentamalla liikuntapaikkoja ja tukemalla matalan kynnyksen liikuntaa. Liikunnalla on tärkeä rooli myös lasten ja nuorten kehityksessä ja hyvinvoinnissa.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "mcq_147",
+        "prompt": "Mitä on noussut urheiluseurojen rinnalle liikuntakulttuurissa?",
+        "options": [
+          "Vain kilpaurheilu",
+          "Kaupallinen liikuntatarjonta",
+          "Vain ulkoliikunta",
+          "Passiivinen elämäntapa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_148",
+        "prompt": "Miten liikunnan harrastaminen on yhteydessä sosioekonomiseen asemaan?",
+        "options": [
+          "Korkeammin koulutetut liikkuvat vähemmän",
+          "Pienituloiset liikkuvat enemmän",
+          "Korkeammin koulutetut liikkuvat enemmän",
+          "Sosioekonomisella asemalla ei ole yhteyttä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_149",
+        "prompt": "Miten liikuntapolitiikassa pyritään edistämään liikkumista?",
+        "options": [
+          "Rakentamalla liikuntapaikkoja ja tukemalla matalan kynnyksen liikuntaa",
+          "Kieltämällä passiivinen elämäntapa",
+          "Lisäämällä kilpaurheilua",
+          "Rajoittamalla kaupallisia palveluita"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

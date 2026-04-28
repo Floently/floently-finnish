@@ -1,0 +1,66 @@
+{
+  "id": "2e6aa8d3-0e88-5744-8e2f-3370d20fe425",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Matkailuautot ja -vaunut ovat kasvattaneet suosiotaan Suomessa viime vuosina. Yhä useampi suomalainen viettää lomansa matkailuautolla tai -vaunulla, kiertäen kotimaan kohteita tai matkustaen ulkomaille. Suomessa on noin 150 000 matkailuajoneuvoa, ja määrä kasvaa jatkuvasti. Matkailuautolla liikkuminen antaa vapauden pysähtyä missä tahansa ja yöpyä luonnon keskellä. Se on joustava tapa matkustaa, koska oma majoitus ja ruoka kulkevat mukana. Monet käyttävät matkailuautoa myös talvilomilla, suunnaten Lappiin hiihtämään tai ihailemaan revontulia. Suomessa on noin 400 matkailuvaunualuetta ja leirintäaluetta, jotka tarjoavat palveluita kuten sähköä, vettä ja huoltorakennuksia. Osa alueista on auki ympäri vuoden. Myös luonnossa yöpyminen on sallittua jokamiehenoikeuksilla, mutta matkailuautolla tämä vaatii usein leirintäalueen palveluita. Matkailuautokulttuuriin kuuluu yhteisöllisyys. Leirintäalueilla tavataan muita matkailijoita, vaihdetaan kokemuksia ja vietetään aikaa yhdessä. Monille matkailuautoilu on elämäntapa. Eläkeläiset matkustavat pitkiä aikoja, ja jotkut jopa asuvat matkailuautossa ympäri vuoden. Matkailuautot ja -vaunut ovat myös suosittuja vuokrauskohteita, ja niitä voi vuokrata päiväksi, viikoksi tai pidemmäksi aikaa. Vuokraus on lisännyt matkailuautoilun suosiota erityisesti nuorten perheiden keskuudessa.",
+      "word_count": 154
+    },
+    "questions": [
+      {
+        "id": "f7a8b9c0-d1e2-4f3a-9b4c-5d6e7f8a9b0c",
+        "prompt": "Kuinka monta matkailuajoneuvoa Suomessa on noin?",
+        "options": [
+          "50 000",
+          "100 000",
+          "150 000",
+          "200 000"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a8b9c0d1-e2f3-4a4b-9c5d-6e7f8a9b0c1d",
+        "prompt": "Mitä palveluita leirintäalueet tarjoavat matkailuautoilijoille?",
+        "options": [
+          "Vain parkkipaikan",
+          "Sähköä, vettä ja huoltorakennuksia",
+          "Vain saunan",
+          "Vain ravintolapalveluita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b9c0d1e2-f3a4-4b5c-9d6e-7f8a9b0c1d2e",
+        "prompt": "Miksi matkailuautoilu on kasvattanut suosiota nuorten perheiden keskuudessa?",
+        "options": [
+          "Se on halvempaa kuin hotellit",
+          "Matkailuautojen vuokraus on lisännyt mahdollisuuksia kokeilla sitä",
+          "Se on muodikkaampaa",
+          "Se on nopeampaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

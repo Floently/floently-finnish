@@ -1,0 +1,37 @@
+{
+  "id": "8b962fb9-cb9f-5df4-be53-51ef1d6200e1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.569,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet huolissasi nuorten liikkumattomuudesta. Kirjoita mielipidekirjoitus paikallislehteen.",
+    "materials": {
+      "scenario": "Olet huolissasi nuorten liikkumattomuudesta. Kirjoita mielipidekirjoitus paikallislehteen."
+    },
+    "items": [
+      {
+        "id": "2f347bbc-8d52-5194-b669-959623b7d9d0",
+        "prompt": "Kirjoita noin 140 sanan mielipidekirjoitus, jossa:\n- kerrot, että nuorten liikkumattomuus on vakava ongelma\n- kerrot, mitä seurauksia liikkumattomuudella on (terveys, hyvinvointi, keskittyminen)\n- kerrot, mistä luulet ongelman johtuvan (ruutuaika, harrastusten puute, kalliit harrastukset)\n- ehdotat, miten nuoria saataisiin liikkumaan enemmän (koululiikunta, edulliset harrastukset, vanhempien esimerkki)"
+      }
+    ],
+    "rubric": "Kirjoita noin 140 sanan mielipidekirjoitus, jossa:\n- kerrot, että nuorten liikkumattomuus on vakava ongelma\n- kerrot, mitä seurauksia liikkumattomuudella on (terveys, hyvinvointi, keskittyminen)\n- kerrot, mistä luulet ongelman johtuvan (ruutuaika, harrastusten puute, kalliit harrastukset)\n- ehdotat, miten nuoria saataisiin liikkumaan enemmän (koululiikunta, edulliset harrastukset, vanhempien esimerkki)",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

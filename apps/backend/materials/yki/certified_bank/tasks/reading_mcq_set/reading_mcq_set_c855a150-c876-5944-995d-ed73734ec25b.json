@@ -1,0 +1,77 @@
+{
+  "id": "c855a150-c876-5944-995d-ed73734ec25b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue essee ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Esseessä tarkastellaan pyhän käsitteen muuttumista kaupungistuneessa yhteiskunnassa. Kirjoittaja huomauttaa, että pyhyyttä tuotetaan myös maallisissa rituaaleissa, kuten muistotilaisuuksissa ja kansallisissa seremonioissa. Tulkinnan mukaan kiistat syntyvät usein siitä, että eri ryhmät ymmärtävät pyhyyden rajat eri tavoin, vaikka käyttävät samoja sanoja.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä essee tarkastelee?",
+        "options": [
+          "vain kirkkorakennuksia",
+          "pyhan kasitteen muuttumista",
+          "verotusta",
+          "koulukirjoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missa pyhyytta esseen mukaan tuotetaan?",
+        "options": [
+          "vain temppeleissa",
+          "myos maallisissa rituaaleissa",
+          "vain netissa",
+          "ei missaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi kiistoja syntyy?",
+        "options": [
+          "sanoja ei kayteta",
+          "ryhmat ymmartavat pyhyyden rajat eri tavoin",
+          "seremonioita ei jarjesteta",
+          "historia puuttuu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Tekstin keskeinen havainto on",
+        "options": [
+          "pyhyys katoaa kokonaan",
+          "sama sanasto voi peittaa erilaiset merkitykset",
+          "rituaalit loppuvat",
+          "uskonto yksityistyy aina"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

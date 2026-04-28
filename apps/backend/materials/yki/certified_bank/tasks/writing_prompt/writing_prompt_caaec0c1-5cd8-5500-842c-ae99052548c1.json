@@ -1,0 +1,37 @@
+{
+  "id": "caaec0c1-5cd8-5500-842c-ae99052548c1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a general director position at the Finnish National Opera. Tell about your experience in leading an art institution, artistic work, and financial management. Also describe your artistic vision and how you have developed the opera's repertoire and audience work. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus Kansallisoopperan pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "a55b7a4b-95a0-554c-ac6e-5ebf942b4f9b",
+        "prompt": "Write a job application. You are applying for a general director position at the Finnish National Opera. Tell about your experience in leading an art institution, artistic work, and financial management. Also describe your artistic vision and how you have developed the opera's repertoire and audience work. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a general director position at the Finnish National Opera. Tell about your experience in leading an art institution, artistic work, and financial management. Also describe your artistic vision and how you have developed the opera's repertoire and audience work. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

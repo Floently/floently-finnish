@@ -1,0 +1,66 @@
+{
+  "id": "6231a2bf-dc66-5e99-a77c-ecaa30e381be",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opiskelija 1: Hei, mitä mieltä olit eilisestä vierailusta yritykseen?\nOpiskelija 2: Se oli tosi mielenkiintoista! En ollut ennen käynyt tehtaassa. Oli hienoa nähdä, miten tuotteita valmistetaan.\nOpiskelija 1: Joo, sama täällä. Tykkäsin erityisesti siitä, kun pääsimme keskustelemaan työntekijöiden kanssa.\nOpiskelija 2: Minusta parasta oli nähdä robotit käytännössä. En tajunnut, että ne ovat niin yleisiä nykyään.\nOpiskelija 1: Toivottavasti päästään jatkossakin tällaisille vierailuille.\nOpiskelija 2: Samaa mieltä. Se auttaa ymmärtämään, mitä työelämä oikeasti on.",
+      "audio_asset_id": "8c7546e6-82a0-55e6-a02a-39076a3610fb"
+    },
+    "questions": [
+      {
+        "id": "list_247",
+        "prompt": "Mistä opiskelijat ovat juuri palanneet?",
+        "options": [
+          "Lounaalta",
+          "Yritysvierailulta",
+          "Luennolta",
+          "Kirjastosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_248",
+        "prompt": "Mitä opiskelija 2 piti parhaana?",
+        "options": [
+          "Keskustelun työntekijöiden kanssa",
+          "Robottien näkemisen käytännössä",
+          "Tehtaan esittelyn",
+          "Kahvitarjoilun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_249",
+        "prompt": "Mitä opiskelijat toivovat tulevaisuudelta?",
+        "options": [
+          "Lisää teoriaopintoja",
+          "Lisää yritysvierailuja",
+          "Vähemmän tehtäviä",
+          "Enemmän vapaa-aikaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

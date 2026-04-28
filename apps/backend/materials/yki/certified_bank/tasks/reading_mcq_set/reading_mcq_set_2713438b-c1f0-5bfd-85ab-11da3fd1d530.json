@@ -1,0 +1,73 @@
+{
+  "id": "2713438b-c1f0-5bfd-85ab-11da3fd1d530",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KADONNUT REPPU\n\nOlen hukannut repun 7.7.2025 juna-asemalla. Reppu on tummanvihreä ja siinä on harmaa pohja.\n\nRepussa on kannettava tietokone, muistilehtiö ja laturi. Tietokoneella on tärkeitä työtiedostoja.\n\nJos löydät repun, soita numeroon 050 123 4577. Voit myös viedä sen juna-aseman toimistoon.\n\nLöytäjälle palkkio.\n\n-- Sari",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä reppu katosi?",
+        "options": [
+          "6.7.2025",
+          "7.7.2025",
+          "8.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mistä reppu katosi?",
+        "options": [
+          "bussiasemalta",
+          "juna-asemalta",
+          "kauppakeskuksesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä repussa on?",
+        "options": [
+          "tietokone ja muistilehtiö",
+          "tietokone, muistilehtiö ja laturi",
+          "tietokone ja lompakko"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Miksi reppu on tärkeä?",
+        "options": [
+          "se on uusi",
+          "tietokoneella on tärkeitä työtiedostoja",
+          "se on kallis"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

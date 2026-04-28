@@ -1,0 +1,77 @@
+{
+  "id": "bb29d1b6-e29c-58df-9865-0dae59b9a95f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.791,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Hyvinvointivaltion tulevaisuus on yksi aikamme keskeisimmistä poliittisista kysymyksistä. Pohjoismainen hyvinvointimalli, joka perustuu korkeaan verotukseen ja laajoihin julkisiin palveluihin, on joutunut uudenlaisten paineiden alle. Väestön ikääntyminen, julkisen talouden kestävyysvaje ja työelämän murros ovat synnyttäneet keskustelua siitä, voidaanko nykyistä hyvinvointivaltion mallia ylläpitää ja millaisia uudistuksia se vaatii. Toisaalta hyvinvointivaltion puolustajat korostavat sen merkitystä sosiaalisen yhteenkuuluvuuden ja tasa-arvon ylläpitäjänä. Heidän mukaansa hyvinvointivaltio on keskeinen tekijä, joka on mahdollistanut Suomen menestyksen ja yhteiskuntarauhan. Leikkaukset ja heikennykset voivat heidän mukaansa johtaa eriarvoisuuden kasvuun, syrjäytymisen lisääntymiseen ja yhteiskunnallisten jännitteiden kärjistymiseen. Toisaalta hyvinvointivaltion kriitikot katsovat, että nykyinen malli on kestämätön ja vaatii perusteellisia uudistuksia. He korostavat, että julkisia menoja on leikattava ja palvelurakenteita uudistettava, jotta hyvinvointivaltio voidaan turvata myös tuleville sukupolville. He kannattavat yksityisen palvelutuotannon lisäämistä ja valinnanvapauden laajentamista julkisissa palveluissa. Kolmas näkemys korostaa uudenlaisten hyvinvointia tuottavien mekanismien kehittämistä. Sen mukaan perinteinen hyvinvointivaltio ei kykene vastaamaan tulevaisuuden haasteisiin, vaan tarvitaan uudenlaisia ratkaisuja, jotka yhdistävät julkisen, yksityisen ja kolmannen sektorin toimijoita. Puhutaan esimerkiksi hyvinvointitaloudesta, joka korostaa hyvinvoinnin ja talouden välistä yhteyttä, ja yhteiskunnallisista innovaatioista, jotka tuottavat uudenlaisia ratkaisuja sosiaalisiin ongelmiin. Hyvinvointivaltion tulevaisuutta koskevassa keskustelussa on kyse pohjimmiltaan siitä, millaisessa yhteiskunnassa haluamme elää. Se on arvokeskustelu, johon ei ole olemassa yhtä oikeaa vastausta. Ratkaisut syntyvät poliittisen päätöksenteon kautta, ja niihin vaikuttavat sekä taloudelliset realiteetit että arvovalinnat.",
+      "word_count": 207
+    },
+    "questions": [
+      {
+        "id": "1aa1a38a-7afe-55d3-a3c4-cfcc871b79d0",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Väestön ikääntymisen vaikutukset julkiseen talouteen",
+          "Hyvinvointivaltion tulevaisuudesta käytävä keskustelu ja erilaiset näkökulmat sen uudistamiseen",
+          "Yksityisen palvelutuotannon edut julkisiin palveluihin verrattuna",
+          "Eriarvoisuuden kasvu ja syrjäytyminen Suomessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2d205995-a8cd-5903-8eab-8b6754b13ccc",
+        "prompt": "Tekstin mukaan mitä hyvinvointivaltion puolustajat korostavat?",
+        "options": [
+          "Julkisten menojen leikkausten välttämättömyyttä",
+          "Yksityisen palvelutuotannon lisäämisen tärkeyttä",
+          "Hyvinvointivaltion merkitystä sosiaalisen yhteenkuuluvuuden ja tasa-arvon ylläpitäjänä",
+          "Valinnanvapauden laajentamista julkisissa palveluissa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "21bd6d68-a5d1-54e4-9f4c-6ffd8fabe276",
+        "prompt": "Mitä uudenlaisia ratkaisuja kolmas, uudistuksia korostava näkemys esittää?",
+        "options": [
+          "Perinteisen hyvinvointivaltion purkamista ja kaiken vastuun siirtämistä yksilöille",
+          "Julkisen, yksityisen ja kolmannen sektorin toimijoiden yhdistämistä, hyvinvointitaloutta ja yhteiskunnallisia innovaatioita",
+          "Verotuksen kiristämistä ja julkisten menojen lisäämistä",
+          "Hyvinvointivaltion täydellistä lakkauttamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f11a25da-5399-5461-a27e-4a5a3e1ba160",
+        "prompt": "Mitä tekstissä sanotaan hyvinvointivaltion tulevaisuutta koskevan keskustelun luonteesta?",
+        "options": [
+          "Se on puhtaasti tekninen ja taloudellinen kysymys, johon on olemassa yksi oikea ratkaisu",
+          "Se on arvokeskustelu, johon vaikuttavat sekä taloudelliset realiteetit että arvovalinnat",
+          "Se on täysin merkityksetöntä, koska hyvinvointivaltion tulevaisuus on jo ennalta määrätty",
+          "Se on vain asiantuntijoiden välistä keskustelua, johon kansalaisilla ei ole sananvaltaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "3a0c3f0e-ef1e-54a8-9774-62eb04db6e1f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.763,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Työn ja perheen yhteensovittaminen on yksi nyky-yhteiskunnan keskeisistä haasteista, ja se koskettaa erityisesti pienten lasten vanhempia. Työelämän vaatimukset ovat kasvaneet, työajat ovat joustavoituet ja työn ja vapaa-ajan raja on hämärtynyt. Samanaikaisesti perhe-elämältä odotetaan paljon: läsnäoloa, laatuaikaa ja lasten harrastusten tukemista. Näiden kahden maailman yhteensovittaminen on monille vanhemmille jatkuvaa tasapainoilua. Yksi keskeisimmistä ratkaisuista työn ja perheen yhteensovittamiseen on joustavat työajat ja etätyömahdollisuudet. Monilla aloilla työntekijät voivat jossain määrin vaikuttaa työaikoihinsa ja työskennellä osan ajasta kotona. Tämä helpottaa arjen aikataulujen yhteensovittamista, kuten lasten viemistä päiväkotiin ja hakemista sieltä. Toinen tärkeä ratkaisu on perhevapaajärjestelmä. Suomessa vanhemmilla on oikeus äitiys-, isyys- ja vanhempainvapaisiin, joiden aikana he voivat jäädä kotiin hoitamaan pientä lasta. Perhevapaiden uudistuksessa on pyritty kannustamaan molempia vanhempia käyttämään vapaita ja jakamaan hoitovastuuta tasaisemmin. Kolmas ratkaisu on laadukkaiden ja joustavien päivähoitopalveluiden tarjonta. Päiväkodit ja perhepäivähoito mahdollistavat sen, että molemmat vanhemmat voivat käydä töissä lasten ollessa pieniä. Aukioloaikojen joustavuus on tärkeää, jotta ne palvelevat myös eri aikoina työskenteleviä vanhempia. Neljäs ratkaisu on työnantajien asenne ja tuki. Työpaikoilla, joissa suhtaudutaan myönteisesti perheellisten työntekijöiden tarpeisiin ja tarjotaan joustavia ratkaisuja, työntekijät voivat paremmin ja ovat sitoutuneempia. Työhyvinvointi ja työssä jaksaminen paranevat, kun työn ja perheen yhteensovittaminen onnistuu. Työn ja perheen yhteensovittaminen ei ole vain yksilön ongelma, vaan se on koko yhteiskunnan etu. Onnistunut yhteensovittaminen edistää syntyvyyttä, lasten hyvinvointia, työllisyyttä ja tasa-arvoa.",
+      "word_count": 214
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Ketä työn ja perheen yhteensovittaminen koskettaa erityisesti?",
+        "options": [
+          "Yksinasuvia",
+          "Pienten lasten vanhempia",
+          "Eläkeläisiä",
+          "Lapsiperheitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on yksi keskeisimmistä ratkaisuista työn ja perheen yhteensovittamiseen?",
+        "options": [
+          "Pidemmät työpäivät",
+          "Joustavat työajat ja etätyömahdollisuudet",
+          "Lasten laittaminen sisäoppilaitoksiin",
+          "Toisen vanhemman jääminen pois työelämästä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on perhevapaajärjestelmän tavoite uudistusten myötä?",
+        "options": [
+          "Kannustaa äitejä jäämään kotiin pidemmäksi aikaa",
+          "Kannustaa molempia vanhempia käyttämään vapaita ja jakamaan hoitovastuuta",
+          "Vähentää perhevapaiden määrää",
+          "Siirtää hoitovastuu isovanhemmille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi päivähoitopalveluiden aukioloaikojen joustavuus on tärkeää?",
+        "options": [
+          "Jotta lapset voivat olla päiväkodissa pidempään",
+          "Jotta ne palvelevat myös eri aikoina työskenteleviä vanhempia",
+          "Jotta päiväkodit voivat vähentää henkilökuntaa",
+          "Jotta vanhemmat voivat viettää enemmän aikaa töissä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä onnistuneesta työn ja perheen yhteensovittamisesta on yhteiskunnalle?",
+        "options": [
+          "Se vähentää verotuloja",
+          "Se edistää syntyvyyttä, lasten hyvinvointia, työllisyyttä ja tasa-arvoa",
+          "Se lisää työttömyyttä",
+          "Se heikentää perheiden taloudellista tilannetta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

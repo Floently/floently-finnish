@@ -1,0 +1,77 @@
+{
+  "id": "a5c4fcba-0c1b-5acc-bc19-8d7c06e49387",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.742,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "MUISTIN MONET KASVOT\n\nIhmisen muisti on yksi monimutkaisimmista kognitiivisista toiminnoista. Ilman sitä emme kykenisi oppimaan uutta, tunnistamaan läheisiämme tai edes suoriutumaan päivittäisistä rutiineista. Kuitenkin muisti on myös altis virheille, harhoille ja unohtamiselle.\n\nLyhytkestoinen muisti, jota kutsutaan myös työmuistiksi, on kuin tietokoneen keskusmuisti: se käsittelee parhaillaan käytössä olevaa tietoa. Sen kapasiteetti on rajallinen – keskimäärin ihminen pystyy pitämään mielessään noin seitsemän asiaa kerrallaan.\n\nPitkäkestoinen muisti puolestaan on periaatteessa rajaton. Sinne tallentuu kaikki, mitä olemme oppineet ja kokeneet. Tiedon siirtyminen lyhytkestoisesta pitkäkestoiseen muistiin vaatii toistoa ja mielekästä oppimista. Pelkkä mekaaninen ulkoa opettelu ei riitä.\n\nUnella on yllättävän suuri merkitys muistin kannalta. Unen aikana aivot käyvät läpi päivän tapahtumia, vahvistavat tärkeitä yhteyksiä ja karsivat tarpeettomia. Tämä selittää, miksi hyvin nukutun yön jälkeen opittu asia tuntuu jäävän paremmin mieleen.\n\nMielenkiintoista on, että muisti ei ole tallenne vaan rekonstruktio. Joka kerta kun muistamme jotain, aivot rakentavat muiston uudelleen – ja samalla ne voivat muokata sitä. Tämä tekee muistoista alttiita jälkikäteisille vaikutteille.\n\nOppimisen kannalta on tärkeää ymmärtää, että tehokkainta ei ole jatkuva pänttääminen vaan vaihtelu ja lepo. Opiskelu useassa lyhyessä jaksossa on tehokkaampaa kuin yksi pitkä urakka.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 214
+    },
+    "questions": [
+      {
+        "id": "0befb5a1-e2a3-51f1-9056-5121fb826e9f",
+        "prompt": "Mitä eroa on lyhyt- ja pitkäkestoisella muistilla?",
+        "options": [
+          "Lyhytkestoinen on rajaton, pitkäkestoinen rajallinen",
+          "Lyhytkestoinen on rajallinen, pitkäkestoinen periaatteessa rajaton",
+          "Molemmat rajallisia",
+          "Molemmat rajattomia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d22ba79e-9f39-5570-b012-d096581b02ca",
+        "prompt": "Mikä on unen merkitys muistille?",
+        "options": [
+          "Uni heikentää muistia",
+          "Uni vahvistaa muistiyhteyksiä ja karsii tarpeettomia",
+          "Unella ei merkitystä",
+          "Uni tyhjentää muistin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9048db3c-775f-5146-b245-4872ed62508e",
+        "prompt": "Mitä tarkoitetaan, että muisti on 'rekonstruktio'?",
+        "options": [
+          "Muistot ovat täsmällisiä tallenteita",
+          "Muistot rakennetaan uudelleen joka kerta ja voivat muuttua",
+          "Muistot ovat ikuisia",
+          "Muistot ovat vain unia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1aca0430-6d2c-5f3b-85de-57b0092880f7",
+        "prompt": "Mikä on tehokkain tapa oppia?",
+        "options": [
+          "Yksi pitkä opiskelujakso",
+          "Useat lyhyet jaksot ja vaihtelu",
+          "Pelkkä toisto",
+          "Opiskelu ilman taukoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

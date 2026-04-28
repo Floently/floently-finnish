@@ -1,0 +1,88 @@
+{
+  "id": "1ae80ecb-0bc1-5199-ae04-5b51712a0adb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomen luonto on monipuolinen. Maassa on tuhansia järviä, laajoja metsiä ja kauniita saaristoja. Jokaiseen vuodenaikaan liittyy omia erityispiirteitä. Keväällä linnut palaavat ja luonto herää eloon. Kesällä on valoisaa ja lämmintä, ja marjat ja sienet kypsyvät metsissä. Syksyllä ruska värittää maiseman. Talvella maa on usein lumen peitossa ja voi hiihtää tai luistella. Suomalaiset liikkuvat paljon luonnossa ympäri vuoden.",
+      "word_count": 57
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen on Suomen luonto?",
+        "options": [
+          "yksipuolinen",
+          "monipuolinen",
+          "karu",
+          "vaihteleva"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Suomessa on paljon?",
+        "options": [
+          "aavikoita",
+          "järviä ja metsiä",
+          "vuoria",
+          "viidakoita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tapahtuu keväällä?",
+        "options": [
+          "linnut lähtevät pois",
+          "linnut palaavat ja luonto herää",
+          "sataa lunta",
+          "lehdet putoavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin marjat ja sienet kypsyvät?",
+        "options": [
+          "keväällä",
+          "kesällä",
+          "syksyllä",
+          "talvella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä talvella voi tehdä?",
+        "options": [
+          "uida järvessä",
+          "poimia marjoja",
+          "hiihtää tai luistella",
+          "mennä sieneen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

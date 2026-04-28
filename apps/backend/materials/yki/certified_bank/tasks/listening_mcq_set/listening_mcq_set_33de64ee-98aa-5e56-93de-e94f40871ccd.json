@@ -1,0 +1,88 @@
+{
+  "id": "33de64ee-98aa-5e56-93de-e94f40871ccd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesiveijari tiedottaa, että lasten uimakouluihin on vielä tilaa. Uimakoulut alkavat 10. syyskuuta ja kestävät 8 viikkoa. Ryhmiä on eri tasoilla aloittelijoista edistyneisiin. Ilmoittautuminen päättyy 5. syyskuuta. Tervetuloa mukaan!",
+      "audio_asset_id": "a5b6c7d8-e9f0-1a2b-3c4d-5e6f7a8b9c0d"
+    },
+    "questions": [
+      {
+        "id": "l250q1",
+        "prompt": "Mitä uimahalli tiedottaa?",
+        "options": [
+          "Remontista.",
+          "Lasten uimakouluista.",
+          "Aukioloaikojen muutoksista.",
+          "Hinnankorotuksista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l250q2",
+        "prompt": "Milloin uimakoulut alkavat?",
+        "options": [
+          "1. syyskuuta.",
+          "5. syyskuuta.",
+          "10. syyskuuta.",
+          "15. syyskuuta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l250q3",
+        "prompt": "Kuinka monta viikkoa uimakoulut kestävät?",
+        "options": [
+          "6 viikkoa.",
+          "8 viikkoa.",
+          "10 viikkoa.",
+          "12 viikkoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l250q4",
+        "prompt": "Minkä tasoisia ryhmiä on?",
+        "options": [
+          "Vain aloittelijoita.",
+          "Vain edistyneitä.",
+          "Aloittelijoista edistyneisiin.",
+          "Vain aikuisia."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l250q5",
+        "prompt": "Milloin ilmoittautuminen päättyy?",
+        "options": [
+          "1. syyskuuta.",
+          "3. syyskuuta.",
+          "5. syyskuuta.",
+          "8. syyskuuta."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

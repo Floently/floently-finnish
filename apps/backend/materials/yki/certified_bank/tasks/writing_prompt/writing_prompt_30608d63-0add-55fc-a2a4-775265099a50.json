@@ -1,0 +1,37 @@
+{
+  "id": "30608d63-0add-55fc-a2a4-775265099a50",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossa on torakoita tai muita tuholaisia. Kerro, missä huoneessa olet nähnyt niitä. Pyydä, että asia hoidetaan nopeasti ja tilataan tuholaistorjuja.",
+    "materials": {
+      "scenario": "Ilmoitus tuholaisista asunnossa"
+    },
+    "items": [
+      {
+        "id": "30d28a1e-18a6-57ce-b5bf-a911e340096c",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossa on torakoita tai muita tuholaisia. Kerro, missä huoneessa olet nähnyt niitä. Pyydä, että asia hoidetaan nopeasti ja tilataan tuholaistorjuja."
+      }
+    ],
+    "rubric": "Havainnon kuvaus\nSijainti\nTorjuntapyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

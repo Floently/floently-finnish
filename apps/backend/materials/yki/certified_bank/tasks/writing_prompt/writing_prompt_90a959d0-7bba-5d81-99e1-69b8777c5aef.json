@@ -1,0 +1,37 @@
+{
+  "id": "90a959d0-7bba-5d81-99e1-69b8777c5aef",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kerro, millainen on hyvä lääkärikäynti.",
+    "materials": {
+      "scenario": "Hyvä lääkärikäynti"
+    },
+    "items": [
+      {
+        "id": "079e16b0-710e-59a2-b74b-742bf90a70c1",
+        "prompt": "Kerro, millainen on hyvä lääkärikäynti."
+      }
+    ],
+    "rubric": "Kerro, millainen on hyvä lääkärikäynti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

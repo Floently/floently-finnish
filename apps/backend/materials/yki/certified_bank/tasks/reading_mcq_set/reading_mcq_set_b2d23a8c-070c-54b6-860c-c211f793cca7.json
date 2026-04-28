@@ -1,0 +1,77 @@
+{
+  "id": "b2d23a8c-070c-54b6-860c-c211f793cca7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen 16-vuotias lukiolainen, ja haluan kirjoittaa kouluruoasta. Moni aikuinen varmaan muistaa, millaista kouluruoka oli heidän nuoruudessaan. Mutta asiat ovat muuttuneet – valitettavasti huonompaan suuntaan.\n\nMeille tarjotaan joka päivä samanlaista perusruokaa: makaronilaatikkoa, lihapullia ja perunamuussia. Salaatti on usein vain kurkkua ja tomaattia, ja leipä on kuivaa. Kasvisvaihtoehto on usein huonosti suunniteltu, eikä se maistu kenellekään.\n\nYmmärrän, että budjetti on pieni. Mutta eikö pienelläkin rahalla saisi tehtyä monipuolisempaa ruokaa? Me nuoret tarvitsemme energiaa koko päiväksi. Jos ruoka on huonoa, moni jättää syömättä tai ostaa välipalaa kaupasta. Se ei ole terveellistä eikä taloudellista.\n\nToivon, että kouluruokaan panostettaisiin enemmän. Ei tarvita mitään fine diningia, mutta vaihtelua ja makua kiitos. Ja hyvää salaattia! Me opiskelijat jaksamme paremmin, kun saamme kunnolla ruokaa.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "85ba777c-c8ca-5718-8883-9303b0d06b78",
+        "prompt": "Mitä kirjoittaja sanoo kouluruoasta?",
+        "options": [
+          "A) Se on parempaa kuin ennen",
+          "B) Se on huonontunut ja on yksipuolista",
+          "C) Se on maailman parasta",
+          "D) Se on kallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "acf3f3e1-545e-5d40-883c-4a6517669d4d",
+        "prompt": "Mitä ongelmia kirjoittaja mainitsee kasvisruoassa?",
+        "options": [
+          "A) Sitä on liian vähän",
+          "B) Se on huonosti suunniteltua eikä maistu",
+          "C) Se on liian kallista",
+          "D) Sitä tarjotaan liian usein"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "92e7b510-3335-53a0-9654-c19d64699329",
+        "prompt": "Mitä kirjoittaja toivoo?",
+        "options": [
+          "A) Kalliimpaa ruokaa",
+          "B) Vaihtelua, makua ja hyvää salaattia",
+          "C) Ulkomaalaista ruokaa",
+          "D) Enemmän liharuokia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2696f2d1-f16f-5609-baba-9fef2d0ed06a",
+        "prompt": "Mitä tapahtuu, jos ruoka on huonoa?",
+        "options": [
+          "A) Opiskelijat syövät enemmän",
+          "B) Opiskelijat jättävät syömättä tai ostavat välipalaa",
+          "C) Opiskelijat tekevät valituksia",
+          "D) Koulu saa lisää rahaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

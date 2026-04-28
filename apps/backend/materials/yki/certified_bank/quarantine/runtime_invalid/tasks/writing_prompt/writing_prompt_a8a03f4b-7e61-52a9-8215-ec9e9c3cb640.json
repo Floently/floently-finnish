@@ -1,0 +1,37 @@
+{
+  "id": "a8a03f4b-7e61-52a9-8215-ec9e9c3cb640",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cultural center. Purpose: react to a situation. Constraint: use clear structure.",
+    "materials": {
+      "scenario": "travel in cultural_center"
+    },
+    "items": [
+      {
+        "id": "f6c4d5ef-ece9-5f70-8f2e-cceaee042435",
+        "prompt": "Write for the receiver in this scenario: cultural center. Purpose: react to a situation. Constraint: use clear structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

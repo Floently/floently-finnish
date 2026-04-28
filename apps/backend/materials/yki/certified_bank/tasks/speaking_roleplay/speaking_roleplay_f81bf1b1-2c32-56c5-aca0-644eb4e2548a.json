@@ -1,0 +1,40 @@
+{
+  "id": "f81bf1b1-2c32-56c5-aca0-644eb4e2548a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykyäsi neuvotella ja argumentoida monimutkaisessa tilanteessa.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet vuokralainen, joka tuntee oikeutesi ja haluaa neuvotella kohtuullisesta ratkaisusta.",
+        "partner": "Vuokranantaja - liikemiesmäinen, haluaa maksimoida tuoton mutta on valmis neuvottelemaan välttääkseen vuokralaisen menettämisen."
+      }
+    },
+    "items": [
+      {
+        "id": "srp3",
+        "ai_first_turn_fi": "Hei, sain ilmoituksesi vuokrankorotuksesta. Haluaisin keskustella siitä ja myös asunnon kunnosta."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykyäsi neuvotella ja argumentoida monimutkaisessa tilanteessa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

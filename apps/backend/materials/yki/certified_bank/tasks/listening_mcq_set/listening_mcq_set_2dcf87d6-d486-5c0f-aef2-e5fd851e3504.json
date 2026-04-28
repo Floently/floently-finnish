@@ -1,0 +1,66 @@
+{
+  "id": "2dcf87d6-d486-5c0f-aef2-e5fd851e3504",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.311,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei Sanna, täällä Maija. Mitä kuuluu?\nB: Hei! Ihan hyvää. Ollaan menossa huomenna teatteriin. Haluaisitko tulla mukaan?\nA: Joo, mielelläni! Mikä näytelmä?\nB: Se uusi komedia. Alkaa kello 19. Mennään ensin syömään kello 17.\nA: Sopii hyvin! Missä tavataan?\nB: Teatterin aulassa.\nA: Selvä. Nähdään huomenna! Hei hei.",
+      "audio_asset_id": "6067ee4e-eadc-45c9-be8e-5c84d986cacf"
+    },
+    "questions": [
+      {
+        "id": "9716095f-7402-59b6-b5be-ab58621e7aa8",
+        "prompt": "Mitä he tekevät huomenna?",
+        "options": [
+          "Käyvät elokuvissa",
+          "Menevät teatteriin",
+          "Käyvät konsertissa",
+          "Menevät ravintolaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bf4584f2-a345-5479-a15c-03da5e3abbdd",
+        "prompt": "Mihin aikaan näytelmä alkaa?",
+        "options": [
+          "klo 17",
+          "klo 18",
+          "klo 19",
+          "klo 20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6902826e-d9c2-5a32-962d-f03ff9c0cc0b",
+        "prompt": "Missä he tapaavat ensin?",
+        "options": [
+          "Ravintolassa",
+          "Teatterin aulassa",
+          "Asemalla",
+          "Kauppakeskuksessa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

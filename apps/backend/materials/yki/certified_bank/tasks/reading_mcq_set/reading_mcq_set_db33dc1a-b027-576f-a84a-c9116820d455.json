@@ -1,0 +1,77 @@
+{
+  "id": "db33dc1a-b027-576f-a84a-c9116820d455",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue markkinoita koskeva viesti ja valitse jokaiseen kysymykseen paras vaihtoehto.",
+    "materials": {
+      "text": "Lauantaiaamuna torin laidalla järjestetään pienet ruokamarkkinat. Tapahtuma alkaa kello yhdeksän ja päättyy kello kaksi iltapäivällä. Järjestäjät pyytävät kävijöitä ottamaan oman kassin mukaan, koska paikalla ei jaeta muovipusseja. Kahviteltta on avoinna koko ajan, ja siellä myydään kahvia, teetä sekä sämpylöitä. Lasten pöydässä voi värittää kuvia, mutta aikuinen pitää olla mukana koko ajan. Myyjät ottavat vastaan korttimaksun, ja useimmat ottavat myös käteistä. Jos sataa paljon, markkinat siirretään viereiseen nuorisotaloon. Siirrosta ilmoitetaan torin ilmoitustaululla ja kaupungin verkkosivulla aamulla kello kahdeksan. Pysäköinti torin reunalla on sallittu vain puoli tuntia. Pitkää asiointia varten suositellaan kirjaston takana olevaa pysäköintialuetta.",
+      "word_count": 93
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan markkinat alkavat?",
+        "options": [
+          "kello 8",
+          "kello 9",
+          "kello 12",
+          "kello 14"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kävijöiden pyydetään ottamaan mukaan?",
+        "options": [
+          "oma kassi",
+          "oma tuoli",
+          "oma sateenvarjo",
+          "oma kuppi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä markkinat pidetään, jos sataa paljon?",
+        "options": [
+          "kirjastossa",
+          "kaupungintalossa",
+          "nuorisotalossa",
+          "urheiluhallissa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä suositellaan pysäköimään pidemmän asioinnin aikana?",
+        "options": [
+          "torin reunalla",
+          "kirjaston takana",
+          "kahviteltan vieressä",
+          "nuorisotalon pihassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

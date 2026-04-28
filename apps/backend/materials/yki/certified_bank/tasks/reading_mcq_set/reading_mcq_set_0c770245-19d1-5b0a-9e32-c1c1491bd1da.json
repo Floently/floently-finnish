@@ -1,0 +1,77 @@
+{
+  "id": "0c770245-19d1-5b0a-9e32-c1c1491bd1da",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Keskustan koirapuisto on auki joka päivä kello 7-22. Portti suljetaan automaattisesti illalla. Pienet ja isot koirat ulkoilevat eri alueilla. Omistaja kerää jätökset heti pussiin ja vie roskikseen. Vettä saa hanasta kesäkaudella. Lauantaina kello 10-12 aidattu alue on varattu koirakoululle.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin asti puisto on auki?",
+        "options": [
+          "kello 20",
+          "kello 21",
+          "kello 22",
+          "kello 23"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä pienet ja isot koirat ovat?",
+        "options": [
+          "samassa aitauksessa",
+          "eri alueilla",
+          "kadulla",
+          "sisällä hallissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä omistajan pitää tehdä?",
+        "options": [
+          "jättää pussi penkille",
+          "antaa koiran kaivaa kuoppia",
+          "kerätä jätökset",
+          "soittaa valvojalle"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tapahtuu lauantaina klo 10-12?",
+        "options": [
+          "alue on suljettu kokonaan",
+          "alue on varattu koirakoululle",
+          "on kilpailu",
+          "vesi on poikki"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

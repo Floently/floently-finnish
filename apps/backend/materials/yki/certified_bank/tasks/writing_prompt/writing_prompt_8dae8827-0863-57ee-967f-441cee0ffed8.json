@@ -1,0 +1,37 @@
+{
+  "id": "8dae8827-0863-57ee-967f-441cee0ffed8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kuntosalin ilmastoinnista. Onko siellä tarpeeksi viileä? Tuntuuko ilma tunkkaiselta?",
+    "materials": {
+      "scenario": "Palaute kuntosalin ilmastoinnista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute kuntosalin ilmastoinnista. Onko siellä tarpeeksi viileä? Tuntuuko ilma tunkkaiselta?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kuntosalin ilmastoinnista. Onko siellä tarpeeksi viileä? Tuntuuko ilma tunkkaiselta?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

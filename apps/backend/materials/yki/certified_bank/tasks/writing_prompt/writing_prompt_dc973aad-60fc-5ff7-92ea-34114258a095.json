@@ -1,0 +1,37 @@
+{
+  "id": "dc973aad-60fc-5ff7-92ea-34114258a095",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Ravintola on aiheuttanut sinulle ruokamyrkytyksen eikä ole ottanut vastuuta tapahtuneesta. Kirjoita virallinen reklamaatio, jossa kuvaat tapahtumat, oireesi ja lääkärissäkäynnit, viittaa elintarvikelakiin ja tuotevastuuseen, vaadi korvausta sairauskuluista ja ansionmenetyksestä, vaadi selvitystä ravintolan hygieniakäytännöistä ja ilmoita vieväsi asian tarvittaessa elintarvikeviranomaiselle.",
+    "materials": {
+      "scenario": "Ruokamyrkytys ravintolassa"
+    },
+    "items": [
+      {
+        "id": "e46b1d6a-ac34-5ede-9d8f-305d2534be17",
+        "prompt": "Ravintola on aiheuttanut sinulle ruokamyrkytyksen eikä ole ottanut vastuuta tapahtuneesta. Kirjoita virallinen reklamaatio, jossa kuvaat tapahtumat, oireesi ja lääkärissäkäynnit, viittaa elintarvikelakiin ja tuotevastuuseen, vaadi korvausta sairauskuluista ja ansionmenetyksestä, vaadi selvitystä ravintolan hygieniakäytännöistä ja ilmoita vieväsi asian tarvittaessa elintarvikeviranomaiselle."
+      }
+    ],
+    "rubric": "Ravintola on aiheuttanut sinulle ruokamyrkytyksen eikä ole ottanut vastuuta tapahtuneesta. Kirjoita virallinen reklamaatio, jossa kuvaat tapahtumat, oireesi ja lääkärissäkäynnit, viittaa elintarvikelakiin ja tuotevastuuseen, vaadi korvausta sairauskuluista ja ansionmenetyksestä, vaadi selvitystä ravintolan hygieniakäytännöistä ja ilmoita vieväsi asian tarvittaessa elintarvikeviranomaiselle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

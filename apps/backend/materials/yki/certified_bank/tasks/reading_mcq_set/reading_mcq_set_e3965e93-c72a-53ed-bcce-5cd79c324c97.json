@@ -1,0 +1,110 @@
+{
+  "id": "e3965e93-c72a-53ed-bcce-5cd79c324c97",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen ulkopolitiikka on muuttunut merkittävästi viime vuosina. Pitkään maa noudatti puolueettomuuspolitiikkaa kylmän sodan aikana. Neuvostoliiton hajoamisen jälkeen Suomi liittyi Euroopan unioniin vuonna 1995, mikä merkitsi siirtymistä kohti läntistä integraatiota. Venäjän hyökättyä Ukrainaan vuonna 2022 Suomen turvallisuuspoliittinen ajattelu muuttui nopeasti. Maa haki Nato-jäsenyyttä ja liittyi puolustusliittoon vuonna 2023. Tämä oli historiallinen käänne, joka päätti pitkän puolueettomuuden kauden. Nato-jäsenyys vahvistaa Suomen turvallisuutta ja integroi maata entistä tiiviimmin läntiseen puolustusyhteistyöhön. Se myös velvoittaa Suomea osallistumaan liittokunnan yhteiseen puolustukseen ja kriisinhallintaan. Ulkopolitiikassa Suomi ajaa edelleen monenkeskistä yhteistyötä, kansainvälistä oikeutta ja ihmisoikeuksia. YK ja EU ovat tärkeitä toimintaympäristöjä. Samalla suhteet Venäjään ovat jäätyneet, ja rajayhteistyö on keskeytetty. Suomen ulkopolitiikka on sopeutunut uuteen tilanteeseen, jossa turvallisuusuhkat ovat moninaistuneet ja kansainvälinen järjestelmä on muuttunut epävakaammaksi. Tulevaisuudessa Suomen on tasapainoteltava oman turvallisuutensa varmistamisen ja kansainvälisen yhteistyön ylläpitämisen välillä.",
+      "word_count": 130
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millaista ulkopolitiikkaa Suomi harjoitti kylmän sodan aikana?",
+        "options": [
+          "Aktiivista Nato-yhteistyötä.",
+          "Puolueettomuuspolitiikkaa.",
+          "Liittoutumista Venäjän kanssa.",
+          "Sotilaallista liittoutumista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin Suomi liittyi Euroopan unioniin?",
+        "options": [
+          "1985.",
+          "1995.",
+          "2005.",
+          "2015."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä tapahtuma johti Suomen Nato-jäsenyyden hakemiseen?",
+        "options": [
+          "EU:n laajentuminen.",
+          "Venäjän hyökkäys Ukrainaan vuonna 2022.",
+          "Yhdysvaltain vaatimukset.",
+          "YK:n päätöslauselma."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin Suomi liittyi Natoon?",
+        "options": [
+          "2022.",
+          "2023.",
+          "2024.",
+          "2025."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä Nato-jäsenyys merkitsee Suomelle?",
+        "options": [
+          "Vain symbolista merkitystä.",
+          "Turvallisuuden vahvistumista ja velvoitteita osallistua liittokunnan yhteiseen puolustukseen.",
+          "Vain kustannusten lisääntymistä.",
+          "Vain byrokratian lisääntymistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten suhteet Venäjään ovat muuttuneet?",
+        "options": [
+          "Ne ovat tiivistyneet.",
+          "Ne ovat jäätyneet ja rajayhteistyö on keskeytetty.",
+          "Ne ovat pysyneet ennallaan.",
+          "Ne ovat parantuneet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä arvoja Suomi ajaa ulkopolitiikassaan?",
+        "options": [
+          "Vain omia etujaan.",
+          "Monenkeskistä yhteistyötä, kansainvälistä oikeutta ja ihmisoikeuksia.",
+          "Vain taloudellisia etuja.",
+          "Vain sotilaallista voimaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

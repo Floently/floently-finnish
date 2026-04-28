@@ -1,0 +1,37 @@
+{
+  "id": "f22f64d1-4fc0-5d75-9396-771555e08459",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupunginvaltuutetulle. Olet huolissasi alueesi kirjaston aukioloaikojen supistamisesta. Kerro, miksi kirjasto on tärkeä sinulle ja muille asukkaille. Pyydä, että valtuutettu vastustaa supistuksia.",
+    "materials": {
+      "scenario": "Huoli kirjaston aukioloajoista"
+    },
+    "items": [
+      {
+        "id": "68fae6dd-6a02-5c04-9f11-34c924bbb88d",
+        "prompt": "Kirjoita sähköposti kaupunginvaltuutetulle. Olet huolissasi alueesi kirjaston aukioloaikojen supistamisesta. Kerro, miksi kirjasto on tärkeä sinulle ja muille asukkaille. Pyydä, että valtuutettu vastustaa supistuksia."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nKirjaston merkitys\nPyyntö vastustaa supistuksia",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

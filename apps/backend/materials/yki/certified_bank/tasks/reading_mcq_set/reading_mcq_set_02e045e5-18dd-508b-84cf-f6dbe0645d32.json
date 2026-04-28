@@ -1,0 +1,77 @@
+{
+  "id": "02e045e5-18dd-508b-84cf-f6dbe0645d32",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.751,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kestävä kaupunkisuunnittelu pyrkii yhdistämään ekologiset, taloudelliset ja sosiaaliset tavoitteet. Tavoitteena on luoda kaupunkeja, jotka ovat resurssitehokkaita, vähäpäästöisiä, ilmastokestäviä ja sosiaalisesti oikeudenmukaisia. Keskeisiä periaatteita ovat tiivis ja monipuolinen kaupunkirakenne, joka vähentää liikenteen tarvetta, sekä viheralueiden ja ekosysteemipalveluiden turvaaminen. Joukkoliikenteen, kävelyn ja pyöräilyn edistäminen on tärkeää. Myös kiertotalouden periaatteiden soveltaminen rakentamisessa ja energiassa on keskeistä. Kestävä kaupunkisuunnittelu edellyttää pitkäjänteisyyttä, osallistavaa suunnittelua ja yhteistyötä eri toimijoiden välillä. Se on investointi tulevaisuuteen ja kaupunkilaisten hyvinvointiin.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "mcq_263",
+        "prompt": "Mitä tavoitteita kestävä kaupunkisuunnittelu pyrkii yhdistämään?",
+        "options": [
+          "Vain ekologisia tavoitteita",
+          "Ekologisia, taloudellisia ja sosiaalisia tavoitteita",
+          "Vain taloudellisia ja sosiaalisia tavoitteita",
+          "Vain ekologisia ja taloudellisia tavoitteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_264",
+        "prompt": "Mikä on keskeinen periaate kestävässä kaupunkisuunnittelussa?",
+        "options": [
+          "Hajautettu kaupunkirakenne",
+          "Tiivis ja monipuolinen kaupunkirakenne",
+          "Autoliikenteen suosiminen",
+          "Viheralueiden vähentäminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_265",
+        "prompt": "Mitä liikkumismuotoja pyritään edistämään?",
+        "options": [
+          "Yksityisautoliikennettä",
+          "Joukkoliikennettä, kävelyä ja pyöräilyä",
+          "Vain joukkoliikennettä",
+          "Vain kävelyä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_266",
+        "prompt": "Mitä kestävä kaupunkisuunnittelu edellyttää?",
+        "options": [
+          "Lyhytjänteisyyttä ja nopeita päätöksiä",
+          "Pitkäjänteisyyttä, osallistavaa suunnittelua ja yhteistyötä",
+          "Vain teknisiä ratkaisuja",
+          "Vain viranomaispäätöksiä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

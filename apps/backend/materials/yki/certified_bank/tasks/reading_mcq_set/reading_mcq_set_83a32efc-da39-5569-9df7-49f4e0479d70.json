@@ -1,0 +1,99 @@
+{
+  "id": "83a32efc-da39-5569-9df7-49f4e0479d70",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.57,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Päättäjät pohtivat keinoja nuorten syrjäytymisen ehkäisemiseksi. Syrjäytyminen tarkoittaa, että nuori jää koulutuksen, työelämän tai harrastusten ulkopuolelle. Riskiä lisäävät esimerkiksi mielenterveysongelmat ja perheen taloudelliset vaikeudet. Ratkaisuina nähdään matalan kynnyksen palvelut, oppilaitosten ja työelämän yhteistyö sekä varhainen puuttuminen ongelmiin. Tärkeää on myös vahvistaa nuorten osallisuutta ja yhteisöllisyyttä.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä päättäjät pohtivat?",
+        "options": [
+          "Nuorten työllistymistä kesätöihin",
+          "Nuorten syrjäytymisen ehkäisyä",
+          "Nuorten koulumenestystä",
+          "Nuorten harrastusmahdollisuuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä syrjäytyminen tarkoittaa?",
+        "options": [
+          "Nuori muuttaa pois kotoa",
+          "Nuori jää koulutuksen, työelämän tai harrastusten ulkopuolelle",
+          "Nuori vaihtaa koulua",
+          "Nuori aloittaa työelämässä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä riskitekijöitä syrjäytymiselle mainitaan?",
+        "options": [
+          "Liiallinen itseluottamus",
+          "Mielenterveysongelmat ja perheen taloudelliset vaikeudet",
+          "Hyvä koulumenestys",
+          "Aktiivinen harrastaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuiksi nähdään?",
+        "options": [
+          "Kalliit erityispalvelut",
+          "Matalan kynnyksen palvelut ja oppilaitosten ja työelämän yhteistyö",
+          "Nuorten eristäminen",
+          "Ongelmien kieltäminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan 'varhaisella puuttumisella'?",
+        "options": [
+          "Ongelmien käsittelyä vasta kun ne ovat vakavia",
+          "Puuttumista ongelmiin mahdollisimman aikaisessa vaiheessa",
+          "Rangaistusten antamista",
+          "Syrjäytyneiden nuorten eristämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä muuta on tärkeää syrjäytymisen ehkäisyssä?",
+        "options": [
+          "Vahvistaa nuorten osallisuutta ja yhteisöllisyyttä",
+          "Lisätä nuorten yksinäisyyttä",
+          "Vähentää nuorten vapaa-aikaa",
+          "Keskittää nuoret samoihin paikkoihin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "7d31b99d-8e39-5df9-9f1c-71f1829fd89b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Ohjeet ovat lyhyet ja selkeät. Jos et pääse, ilmoita siitä etukäteen. Työpaikka lähettää viestin aiheesta: kirjaston muistutus myöhästyneestä lainasta. Jos tarvitset apua, voit kysyä palvelutiskiltä. Tarkista aika ja paikka ennen kuin lähdet. Tämä koskee monia ihmisiä Lahdessa. Asia alkaa perjantaina 10. päivä. Lopussa kerrotaan yhteystiedot ja aukiolo. Ota mukaan henkilöllisyystodistus, jos sitä pyydetään. Viesti on tarkoitettu arjen asiointiin. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä perjantaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä perjantaina asti.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "a1_a2r05-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Matkustaminen ja sää",
+          "Urheilutapahtuma",
+          "Ruoanlaitto kotona",
+          "Ohjeet ja siihen liittyvä muutos"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r05-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Sairaalan remontti",
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Lentojen peruuntuminen",
+          "Uusi elokuva"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r05-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Kysy neuvoa",
+          "Älä kerro kenellekään",
+          "Jätä asia kesken",
+          "Odota viikko"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

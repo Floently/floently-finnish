@@ -1,0 +1,37 @@
+{
+  "id": "a364060e-241c-525d-84f8-16b376f03fea",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin museolle. Arvioi näyttelyiden mielenkiintoisuutta, opastusta ja pääsymaksua. Ehdota yhtä uutta näyttelyaihetta.",
+    "materials": {
+      "scenario": "Palaute kaupungin museolle"
+    },
+    "items": [
+      {
+        "id": "b48a7da3-b059-5aaf-b74c-9d556eba65a7",
+        "prompt": "Kirjoita palauteteksti kaupungin museolle. Arvioi näyttelyiden mielenkiintoisuutta, opastusta ja pääsymaksua. Ehdota yhtä uutta näyttelyaihetta."
+      }
+    ],
+    "rubric": "Näyttelyiden mielenkiintoisuus\nOpastus\nPääsymaksu\nUusi näyttelyaihe",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

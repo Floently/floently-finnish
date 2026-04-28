@@ -1,0 +1,88 @@
+{
+  "id": "0b3de24a-cf1c-502c-9235-43d226281444",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.313,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Mä sain just yhen hyvän idean. Mitä jos mentäis yhdessä huomenna syömään ja sen jälkeen vaikka elokuviin? Mä tiedän yhden uuden ravintolan, siellä on tosi hyvää pizzaa. Mitä sä tykkäät?",
+      "audio_asset_id": "059bebf9-a81f-5313-b3e6-a15b0ad83529"
+    },
+    "questions": [
+      {
+        "id": "281cd2c4-7f60-5ad9-9404-3008211b6563",
+        "prompt": "Mikä puhujan idea on?",
+        "options": [
+          "Mennä yksin huomenna ulos.",
+          "Käydä tänään kaupassa.",
+          "Mennä yhdessä huomenna syömään ja elokuviin.",
+          "Katsoa elokuvaa kotona."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a3433b79-d93a-5605-b470-1ee4bab1190d",
+        "prompt": "Mitä puhuja tietää ravintolasta?",
+        "options": [
+          "Se on kallis.",
+          "Se on kiinni huomenna.",
+          "Siellä on huonoa palvelua.",
+          "Se on uusi ja siellä on hyvää pizzaa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "03095c77-1962-564a-a748-c05bfd53ba50",
+        "prompt": "Mitä puhuja kysyy lopuksi?",
+        "options": [
+          "Haluaako toinen maksaa.",
+          "Milloin toinen on vapaa.",
+          "Mitä toinen tykkää ehdotuksesta.",
+          "Onko toisella autoa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b0ff8eec-f84b-570c-a42a-05efe2dc39d4",
+        "prompt": "Milloin puhuja ehdottaa tapaamista?",
+        "options": [
+          "Huomenna.",
+          "Tänään.",
+          "Viikonloppuna.",
+          "Ensi viikolla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "1f256c74-11e5-56f2-b025-4531d8177862",
+        "prompt": "Mikä on puhujan mieliala?",
+        "options": [
+          "Innostunut ja iloinen.",
+          "Surullinen.",
+          "Vihainen.",
+          "Väsynyt."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

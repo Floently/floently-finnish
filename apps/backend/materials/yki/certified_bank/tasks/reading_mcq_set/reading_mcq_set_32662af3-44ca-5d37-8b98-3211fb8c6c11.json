@@ -1,0 +1,110 @@
+{
+  "id": "32662af3-44ca-5d37-8b98-3211fb8c6c11",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen huoltovarmuus on noussut keskeiseksi turvallisuuspoliittiseksi kysymykseksi. Huoltovarmuudella tarkoitetaan yhteiskunnan kykyä turvata väestön toimeentulo ja talouden toiminta poikkeusoloissa. Se kattaa muun muassa energian, ruoan, terveydenhuollon, tietoliikenteen ja logistiikan. Suomi on panostanut huoltovarmuuteen pitkäjänteisesti. Meillä on velvoitevarastointia esimerkiksi viljan ja polttoaineiden osalta. Kriittistä infrastruktuuria on rakennettu kestäväksi ja varavoimaa on saatavilla. Huoltovarmuuskeskus koordinoi alan toimintaa yhteistyössä yritysten ja viranomaisten kanssa. Viime vuosien kriisit, kuten koronapandemia ja Venäjän hyökkäys Ukrainaan, ovat koetelleet huoltovarmuutta. Ne ovat osoittaneet, että häiriöt voivat olla monenlaisia ja vaikuttaa laajasti. Toimitusketjut ovat katkenneet, energian hinta on noussut ja kyberuhat ovat lisääntyneet. Tämä on pakottanut miettimään huoltovarmuutta uudella tavalla. On varauduttava entistä monimuotoisempiin uhkiin, kuten hybridivaikuttamiseen ja kyberhyökkäyksiin. Tarvitaan sekä julkisia että yksityisiä toimia. Yritysten on huolehdittava omasta varautumisestaan, ja kansalaisillakin on vastuu omasta varautumisestaan.",
+      "word_count": 126
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan huoltovarmuudella?",
+        "options": [
+          "Armeijan varautumista sotaan.",
+          "Yhteiskunnan kykyä turvata väestön toimeentulo ja talouden toiminta poikkeusoloissa.",
+          "Vain ruoan riittävyyttä.",
+          "Vain energian saantia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä huoltovarmuus kattaa?",
+        "options": [
+          "Vain energian ja ruoan.",
+          "Energian, ruoan, terveydenhuollon, tietoliikenteen ja logistiikan.",
+          "Vain terveydenhuollon.",
+          "Vain tietoliikenteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä huoltovarmuustoimista Suomessa on?",
+        "options": [
+          "Ei mitään toimia.",
+          "Velvoitevarastointia, kestävä infrastruktuuri ja varavoima.",
+          "Vain varavoimaa.",
+          "Vain viljavarastoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä taho koordinoi huoltovarmuutta Suomessa?",
+        "options": [
+          "Pääministerin kanslia.",
+          "Huoltovarmuuskeskus.",
+          "Puolustusvoimat.",
+          "Sisäministeriö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä viime vuosien kriisit ovat osoittaneet huoltovarmuudesta?",
+        "options": [
+          "Että se on tarpeetonta.",
+          "Että häiriöt voivat olla monenlaisia ja vaikuttaa laajasti.",
+          "Että Suomi on täysin omavarainen.",
+          "Että mikään ei uhkaa huoltovarmuutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä uusia uhkia on noussut esiin?",
+        "options": [
+          "Vain perinteisiä sotilaallisia uhkia.",
+          "Hybridivaikuttamista ja kyberhyökkäyksiä.",
+          "Vain taloudellisia uhkia.",
+          "Vain luonnonkatastrofeja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on kansalaisten vastuu huoltovarmuudessa?",
+        "options": [
+          "Ei mitään vastuuta.",
+          "Oma varautuminen.",
+          "Vain verojen maksaminen.",
+          "Vain äänestäminen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

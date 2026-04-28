@@ -1,0 +1,77 @@
+{
+  "id": "b3308424-bfed-5ab9-853d-2ba90eb8f74e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiantuntijakeskustelussa todetaan, että rokotteita koskeva viestintä epäonnistuu usein silloin, kun yleisölle tarjotaan vain lopputulos ilman tutkimusprosessin epävarmuuksia. Viestijä korostaa, ettei epävarmuuden esiin tuominen heikennä luottamusta, jos samalla selitetään, miten epävarmuutta hallitaan tutkimuksessa. Vastapuheenvuorossa muistutetaan, että liian tekninen kieli voi etäännyttää kuulijaa.",
+      "audio_asset_id": "f64ea86e-d8fc-52c6-b3ad-c03a4c610302"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Milloin viestintä keskustelun mukaan usein epäonnistuu?",
+        "options": [
+          "kun tuloksia ei julkaista",
+          "kun tarjotaan vain lopputulos ilman prosessia",
+          "kun käytetään kuvia",
+          "kun viesti on lyhyt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä epävarmuuden näkyväksi tekemisestä sanotaan?",
+        "options": [
+          "se heikentää aina luottamusta",
+          "se voi tukea luottamusta oikein selitettynä",
+          "sitä pitää välttää",
+          "se on laitonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä riski teknisessä kielessä on?",
+        "options": [
+          "liiallinen yksinkertaisuus",
+          "kuulijan etääntyminen",
+          "liian suuri tarkkuus",
+          "liian vähän dataa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Keskustelun ydin on",
+        "options": [
+          "markkinointi",
+          "viestinnän tasapaino selkeyden ja täsmällisyyden välillä",
+          "budjettileikkaukset",
+          "sosiaalinen media"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

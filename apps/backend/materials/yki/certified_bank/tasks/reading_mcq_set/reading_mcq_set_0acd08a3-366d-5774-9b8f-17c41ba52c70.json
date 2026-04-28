@@ -1,0 +1,77 @@
+{
+  "id": "0acd08a3-366d-5774-9b8f-17c41ba52c70",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.765,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Alueellinen eriarvoisuus on yksi aikamme keskeisimmistä yhteiskunnallisista ongelmista Suomessa. Kaupungistumisen myötä väestö ja taloudellinen toiminta ovat keskittyneet yhä voimakkaammin harvoille suurille kaupunkiseuduille, samalla kun monet maaseutualueet ja pienet kaupungit ovat kuihtuneet. Tämä kehitys on johtanut palvelujen heikkenemiseen, työpaikkojen vähenemiseen ja väestön ikääntymiseen syrjäseuduilla. Alueellinen eriarvoisuus ei ole pelkästään taloudellinen kysymys, vaan sillä on syvällisiä sosiaalisia ja kulttuurisia ulottuvuuksia. Se vaikuttaa ihmisten mahdollisuuksiin saada koulutusta, terveyspalveluja ja kulttuuripalveluja sekä ylipäätään kokemukseen siitä, että oma kotiseutu on elinvoimainen. Tämä voi synnyttää turhautumista ja kokemusta siitä, että oma asuinpaikka ja sen asukkaat on unohdettu. Alueellisen eriarvoisuuden taustalla on globaali talouden rakennemuutos, joka on vähentänyt perinteisten teollisuudenalojen työpaikkoja ja lisännyt korkean osaamisen palvelualojen keskittymistä kaupunkeihin. Toinen tekijä on julkisen sektorin palvelurakenteiden muutos. Sähköiset palvelut ja palvelujen keskittäminen ovat vähentäneet paikallisten palvelupisteiden määrää. Kolmas tekijä on aluepolitiikan muutos, jossa painopiste on siirtynyt kasvukeskusten kilpailukyvyn vahvistamiseen alueiden välisten erojen tasaamisen sijaan.",
+      "word_count": 145
+    },
+    "questions": [
+      {
+        "id": "95a45525-af4d-572b-93f5-cf3f17b7b00d",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Kaupungistumisen vaikutukset suurten kaupunkien talouteen",
+          "Alueellisen eriarvoisuuden syyt, seuraukset ja siihen vastaamisen keinot",
+          "Julkisten palvelujen digitalisoinnin ongelmat syrjäseuduilla",
+          "Perinteisten teollisuudenalojen rakennemuutos"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2ed5600f-8f28-5708-9e21-8e6b452bf680",
+        "prompt": "Tekstin mukaan mitä seurauksia alueellisella eriarvoisuudella on ihmisten arkeen?",
+        "options": [
+          "Se vaikuttaa vain työpaikkojen saatavuuteen",
+          "Se vaikuttaa mahdollisuuksiin saada koulutusta, terveyspalveluja ja kulttuuripalveluja sekä kokemukseen kotiseudun tulevaisuudesta",
+          "Sillä ei ole merkittäviä vaikutuksia, koska palvelut ovat siirtyneet verkkoon",
+          "Se vaikuttaa vain ikääntyvään väestöön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d5936f82-4b2d-53d0-89e4-0d306361437e",
+        "prompt": "Mitä tekijöitä tekstissä mainitaan alueellisen eriarvoisuuden taustalla?",
+        "options": [
+          "Vain globalisaatio ja kansainvälinen kilpailu",
+          "Globaali talouden rakennemuutos, julkisen sektorin palvelurakenteiden muutos ja aluepolitiikan muutos",
+          "Vain maahanmuutto ja väestön ikääntyminen",
+          "Vain ilmastonmuutos ja luonnonvarojen ehtyminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "140bef62-74b7-5aca-a8b6-9fdb26d1ae8f",
+        "prompt": "Miten aluepolitiikan muutos on tekstin mukaan vaikuttanut alueelliseen eriarvoisuuteen?",
+        "options": [
+          "Se on vahvistanut syrjäseutujen asemaa ja vähentänyt eroja",
+          "Painopiste on siirtynyt kasvukeskusten kilpailukyvyn vahvistamiseen alueiden välisten erojen tasaamisen sijaan",
+          "Sillä ei ole ollut vaikutusta",
+          "Se on lisännyt julkisia palveluja syrjäseuduilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

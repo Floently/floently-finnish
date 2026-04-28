@@ -1,0 +1,37 @@
+{
+  "id": "dcd8d99b-8d7c-55fb-a1e5-2202a8478d5b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kannanotto kaupungin suunnitelmaan rakentaa uusi asuinalue.",
+    "materials": {
+      "scenario": "Kirjoita kannanotto kaupungin suunnitelmaan rakentaa uusi asuinalue."
+    },
+    "items": [
+      {
+        "id": "af7a8397-927e-570c-b4b1-61a264492be5",
+        "prompt": "Kaupunkisi suunnittelee uuden asuinalueen rakentamista viheralueen tilalle. Asukkaat ovat jakautuneet: toiset kannattavat hanketta asuntopulan vuoksi, toiset vastustavat viheralueiden katoamista. Kirjoita noin 350 sanan kannanotto paikallislehteen. Ota kantaa hankkeeseen ja perustele näkemyksesi. Käsittele sekä asuntotarvetta että viheralueiden merkitystä. Ehdota mahdollisia kompromisseja."
+      }
+    ],
+    "rubric": "Kaupunkisi suunnittelee uuden asuinalueen rakentamista viheralueen tilalle. Asukkaat ovat jakautuneet: toiset kannattavat hanketta asuntopulan vuoksi, toiset vastustavat viheralueiden katoamista. Kirjoita noin 350 sanan kannanotto paikallislehteen. Ota kantaa hankkeeseen ja perustele näkemyksesi. Käsittele sekä asuntotarvetta että viheralueiden merkitystä. Ehdota mahdollisia kompromisseja.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

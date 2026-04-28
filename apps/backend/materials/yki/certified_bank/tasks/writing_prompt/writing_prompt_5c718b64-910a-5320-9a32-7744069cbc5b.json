@@ -1,0 +1,37 @@
+{
+  "id": "5c718b64-910a-5320-9a32-7744069cbc5b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen liikuntasalien olla iltaisin maksuttomasti harrastajien käytössä?'. Arvioi harrastusmahdollisuuksia, kustannuksia ja tilojen käyttöä.",
+    "materials": {
+      "scenario": "Koulujen liikuntasalien iltakäyttö"
+    },
+    "items": [
+      {
+        "id": "e776f905-6914-58a2-89a9-4c421b4f25ac",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen liikuntasalien olla iltaisin maksuttomasti harrastajien käytössä?'. Arvioi harrastusmahdollisuuksia, kustannuksia ja tilojen käyttöä."
+      }
+    ],
+    "rubric": "Harrastusmahdollisuudet\nKustannukset\nTilojen käyttöaste\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

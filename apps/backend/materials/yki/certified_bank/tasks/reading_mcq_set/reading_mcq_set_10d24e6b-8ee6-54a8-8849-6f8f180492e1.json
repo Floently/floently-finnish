@@ -1,0 +1,88 @@
+{
+  "id": "10d24e6b-8ee6-54a8-8849-6f8f180492e1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.769,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kestävä kehitys on noussut yhdeksi aikamme keskeisimmistä tavoitteista, mutta sen toteuttaminen käytännössä on osoittautunut odotettua vaikeammaksi. Kestävällä kehityksellä tarkoitetaan kehitystä, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta mahdollisuutta tyydyttää omia tarpeitaan. Se jakaantuu usein kolmeen ulottuvuuteen: ekologiseen, taloudelliseen ja sosiaaliseen kestävyyteen. Yksi keskeisimmistä haasteista on näiden ulottuvuuksien yhteensovittaminen. Usein taloudelliset tavoitteet, kuten talouskasvu ja kilpailukyky, ovat ristiriidassa ekologisten tavoitteiden, kuten päästöjen vähentämisen ja luonnonvarojen säästämisen, kanssa. Yritykset ja valtiot joutuvat tekemään vaikeita valintoja, joissa on punnittava eri intressejä. Toinen keskeinen haaste on lyhytnäköisyys. Poliittiset päättäjät ja yritysjohtajat toimivat usein lyhyillä aikaväleillä, kun taas kestävän kehityksen toimet vaativat pitkäjänteisyyttä. Vaalikausien ja osavuosikatsausten logiikka ei tue päätöksiä, joiden hyödyt näkyvät vasta vuosien tai vuosikymmenten päästä. Kolmas haaste on globaalin yhteistyön vaikeus. Monet kestävän kehityksen ongelmat, kuten ilmastonmuutos ja luonnon monimuotoisuuden köyhtyminen, ovat luonteeltaan globaaleja ja vaativat kaikkien maiden yhteistyötä. Kansainväliset sopimukset, kuten Pariisin ilmastosopimus, ovat askel oikeaan suuntaan, mutta niiden toimeenpano on hidasta ja vaikeaa. Eri maiden intressit ovat usein ristiriidassa, ja sitoumuksista on helppo livetä. Neljäs haaste on kulutustottumusten muuttamisen vaikeus. Kestävä kehitys edellyttää muutoksia jokapäiväisissä tavoissa, kuten liikkumisessa, asumisessa ja ruokailussa. Ihmisten on vaikea luopua totutuista mukavuuksista, ja muutokset koetaan usein uhkana elämänlaadulle.",
+      "word_count": 193
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan kestävällä kehityksellä?",
+        "options": [
+          "Kehitystä, joka maksimoi talouskasvun",
+          "Kehitystä, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta mahdollisuutta tyydyttää omia tarpeitaan",
+          "Kehitystä, joka keskittyy vain ympäristöön",
+          "Kehitystä, joka on mahdollisimman nopeaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä ovat kestävän kehityksen kolme ulottuvuutta?",
+        "options": [
+          "Poliittinen, kulttuurinen ja teknologinen",
+          "Ekologinen, taloudellinen ja sosiaalinen",
+          "Kansallinen, kansainvälinen ja globaali",
+          "Yksilöllinen, yhteisöllinen ja yhteiskunnallinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi taloudellisten ja ekologisten tavoitteiden yhteensovittaminen on vaikeaa?",
+        "options": [
+          "Koska ne ovat aina samansuuntaisia",
+          "Koska talouskasvu ja päästöjen vähentäminen ovat usein ristiriidassa",
+          "Koska ekologiset tavoitteet ovat aina tärkeämpiä",
+          "Koska taloudelliset tavoitteet ovat aina tärkeämpiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi lyhytnäköisyys on haaste kestävälle kehitykselle?",
+        "options": [
+          "Koska päättäjät toimivat pitkillä aikaväleillä",
+          "Koska päättäjät toimivat lyhyillä aikaväleillä, kun kestävä kehitys vaatisi pitkäjänteisyyttä",
+          "Koska kestävä kehitys on nopeaa",
+          "Koska lyhytnäköisyys ei vaikuta päätöksentekoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi globaali yhteistyö kestävän kehityksen kysymyksissä on vaikeaa?",
+        "options": [
+          "Koska kaikki maat ovat samaa mieltä",
+          "Koska eri maiden intressit ovat usein ristiriidassa ja sitoumuksista on helppo livetä",
+          "Koska ongelmat ovat paikallisia",
+          "Koska kansainvälisiä sopimuksia ei ole"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

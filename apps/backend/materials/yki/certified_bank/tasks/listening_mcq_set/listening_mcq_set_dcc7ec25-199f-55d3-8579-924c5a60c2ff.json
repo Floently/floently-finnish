@@ -1,0 +1,66 @@
+{
+  "id": "dcc7ec25-199f-55d3-8579-924c5a60c2ff",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kahvilan asiakkaan tilaus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Päivää. Ottaisin yhden kahvin ja omenapiirakan kanssa.\nMyyjä: Otatteko kahvin kanssa maitoa?\nAsiakas: Kyllä, kiitos. Ja lasillinen vettä myös.\nMyyjä: Selvä. Haluatteko piirakan kanssa kermavaahtoa?\nAsiakas: Ei kiitos, ihan pelkkä piirakka riittää.\nMyyjä: Okei. Kahvi, omenapiirakka ja vesi. Yhteensä 8,50 euroa.",
+      "audio_asset_id": "0a592d1a-d329-5962-9883-cf986d69f452"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä asiakas tilaa?",
+        "options": [
+          "teetä ja pulla",
+          "kahvia ja omenapiirakka",
+          "kaakaota ja muffinsi",
+          "mehua ja sämpylä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Haluaako asiakas kermavaahtoa?",
+        "options": [
+          "kyllä, paljon",
+          "kyllä, vähän",
+          "ei, ei halua",
+          "ei osaa sanoa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko tilaus maksaa yhteensä?",
+        "options": [
+          "6,50 euroa",
+          "7,50 euroa",
+          "8,50 euroa",
+          "9,50 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

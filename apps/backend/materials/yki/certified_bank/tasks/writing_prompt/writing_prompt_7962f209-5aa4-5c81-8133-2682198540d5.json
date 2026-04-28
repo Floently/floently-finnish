@@ -1,0 +1,37 @@
+{
+  "id": "7962f209-5aa4-5c81-8133-2682198540d5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen käsityönopetusta uudistaa enemmän nykyaikaan sopivaksi?'. Analysoi perinteitä, teknologiaa ja oppilaiden motivaatiota.",
+    "materials": {
+      "scenario": "Käsityönopetuksen uudistaminen"
+    },
+    "items": [
+      {
+        "id": "fd0dcb94-6148-5f58-99e9-5e8aef53f0c9",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen käsityönopetusta uudistaa enemmän nykyaikaan sopivaksi?'. Analysoi perinteitä, teknologiaa ja oppilaiden motivaatiota."
+      }
+    ],
+    "rubric": "Perinteet\nTeknologia\nOppilaiden motivaatio\nTaidot",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

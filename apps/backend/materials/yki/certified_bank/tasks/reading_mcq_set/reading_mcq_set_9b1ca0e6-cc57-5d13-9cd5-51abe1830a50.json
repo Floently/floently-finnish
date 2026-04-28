@@ -1,0 +1,77 @@
+{
+  "id": "9b1ca0e6-cc57-5d13-9cd5-51abe1830a50",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Populismi on noussut merkittäväksi poliittiseksi voimaksi monissa länsimaissa. Sille on tyypillistä jako 'kansaan' ja 'eliittiin'. Populistit väittävät edustavansa tavallista kansaa, jonka etuja korruptoitunut ja etääntynyt eliitti polkee. Populismi voi esiintyä sekä vasemmistossa että oikeistossa, ja se yhdistyy usein nationalismiin, maahanmuuttovastaisuuteen tai EU-kriittisyyteen. Populismin nousulle on monia syitä. Globalisaatio ja talouden rakennemuutokset ovat synnyttäneet häviäjiä, jotka kokevat jääneensä vaille huomiota. Maahanmuutto ja kulttuurinen monimuotoistuminen herättävät pelkoa identiteetin menetyksestä. Luottamus perinteisiin puolueisiin ja instituutioihin on heikentynyt. Some mahdollistaa populististen viestien nopean leviämisen ja vahvistaa kuplautumista. Populismi asettaa haasteita demokratialle. Se yksinkertaistaa monimutkaisia asioita, polarisoi yhteiskuntaa ja heikentää kompromissihakuisuutta. Se voi myös horjuttaa oikeusvaltion periaatteita, jos valtaa käytetään vastustajien hiljentämiseen. Toisaalta populismi nostaa esiin aitoja ongelmia ja pakottaa valtavirran politiikan vastaamaan niihin. Terve demokratia tarvitsee kansalaisten luottamusta, avointa keskustelua ja kykyä ratkaista ongelmia yli puoluerajojen.",
+      "word_count": 132
+    },
+    "questions": [
+      {
+        "id": "781c9d52-b0b2-5549-b7c0-2594e6e86143",
+        "prompt": "Mikä on tyypillistä populismille?",
+        "options": [
+          "Kansainvälisyyden korostaminen",
+          "Jako kansaan ja eliittiin",
+          "Monimutkaisten asioiden korostaminen",
+          "Yhteistyön tekeminen kaikkien kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5161e1dd-9201-5ee6-8eff-ead4355d2904",
+        "prompt": "Mikä on yksi syy populismin nousulle?",
+        "options": [
+          "Lisääntynyt luottamus instituutioihin",
+          "Globalisaation häviäjät",
+          "Vähentynyt maahanmuutto",
+          "Perinteisen median vahvistuminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6e578efa-71bd-5880-9833-17298b3dfb8c",
+        "prompt": "Miten populismi haastaa demokratiaa?",
+        "options": [
+          "Se lisää kompromisseja",
+          "Se yksinkertaistaa asioita ja polarisoi",
+          "Se vahvistaa oikeusvaltiota",
+          "Se vähentää somekäyttöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8b4d37b3-e450-5247-8344-ffde7728ee8e",
+        "prompt": "Mitä terve demokratia tarvitsee?",
+        "options": [
+          "Yksinkertaisia ratkaisuja",
+          "Kansalaisten luottamusta ja avointa keskustelua",
+          "Vahvaa johtajaa",
+          "Yhden puolueen valtaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

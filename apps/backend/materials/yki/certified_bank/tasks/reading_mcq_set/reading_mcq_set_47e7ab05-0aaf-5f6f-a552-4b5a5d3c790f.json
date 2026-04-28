@@ -1,0 +1,110 @@
+{
+  "id": "47e7ab05-0aaf-5f6f-a552-4b5a5d3c790f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.762,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Globalisaatio on yksi viime vuosikymmenten määrittävimpiä ilmiöitä, joka on muuttanut maailmaa perusteellisesti ja peruuttamattomasti. Se tarkoittaa talouksien, kulttuurien, politiikan ja yhteiskuntien kietoutumista toisiinsa yli kansallisten rajojen. Globalisaatio on mahdollistanut tavaroiden, palvelujen, pääoman, tiedon ja ihmisten aiempaa vapaamman ja nopeamman liikkuvuuden. Tämä on tuonut mukanaan valtavia etuja. Kuluttajille se on merkinnyt halvempia hintoja ja lähes rajattoman laajaa valikoimaa tuotteita ympäri maailmaa. Yritykset ovat voineet laajentaa markkinoitaan, tehostaa tuotantoaan ja hyödyntää globaaleja arvoketjuja. Kehitysmaat ovat nousseet köyhyydestä, kun ne ovat päässeet mukaan maailmankauppaan ja saaneet ulkomaisia investointeja. Globalisaatiolla on kuitenkin myös selviä varjopuolia, jotka ovat tulleet yhä näkyvämmiksi viime vuosina. Teollisuusmaissa työpaikat ovat vähentyneet, kun tuotantoa on siirretty halvemman kustannustason maihin. Tämä on lisännyt eriarvoisuutta ja synnyttänyt tyytymättömyyttä, mikä on osaltaan ruokkinut populismia ja nationalismia. Globalisaation voittajat ja häviäjät ovat jakautuneet jyrkästi. Korkeasti koulutetut ja globaalisti liikkuvat ovat hyötyneet, kun taas matalasti koulutetut ja perinteisillä aloilla työskentelevät ovat kokeneet työpaikkojensa häviävän ja toimeentulonsa heikkenevän. Ympäristö on kärsinyt valtavasti, kun kuljetusten määrä on kasvanut räjähdysmäisesti ja luonnonvaroja on kulutettu yhä enemmän. Ilmastonmuutos, luonnon monimuotoisuuden köyhtyminen ja saastuminen ovat globalisaation kääntöpuolia. Globalisaatio on myös tehnyt maailmasta haavoittuvamman. Rahoituskriisit leviävät nopeasti maasta toiseen, kuten vuoden 2008 finanssikriisi osoitti. Pandemiat, kuten korona, leviävät kansainvälisen matkustuksen myötä. Ilmastonmuutos on globaali ongelma, joka vaatii kaikkien maiden yhteistyötä, mutta samalla se on seurausta globalisaation aiheuttamasta teollistumisesta ja kulutuksen kasvusta. Viime vuosina globalisaatio on kohdannut kasvavia vastavoimia. Protektionismi on lisääntynyt, ja kauppasodat ovat kiihtyneet. Monissa maissa nationalismi ja populismi ovat nousseet, ja ihmiset haluavat suojella omaa maataan, kulttuuriaan ja työpaikkojaan globalisaation vaikutuksilta.",
+      "word_count": 252
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä globalisaatio tarkoittaa?",
+        "options": [
+          "Maan sulkeutumista kansainväliseltä kaupalta.",
+          "Talouksien, kulttuurien ja yhteiskuntien kietoutumista toisiinsa yli rajojen.",
+          "Vain tavaroiden liikkumista.",
+          "Vain ihmisten liikkumista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten globalisaation hyödyt ovat jakautuneet?",
+        "options": [
+          "Tasaisesti kaikkien väestöryhmien kesken.",
+          "Epätasaisesti: korkeasti koulutetut ovat hyötyneet, matalasti koulutetut hävinneet.",
+          "Vain kehitysmaat ovat hyötyneet.",
+          "Vain teollisuusmaat ovat hyötyneet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ympäristövaikutuksia globalisaatiolla on?",
+        "options": [
+          "Se on vähentänyt kuljetuksia ja päästöjä.",
+          "Se on lisännyt kuljetuksia, luonnonvarojen kulutusta, ilmastonmuutosta ja saastumista.",
+          "Sillä ei ole ollut ympäristövaikutuksia.",
+          "Se on parantanut ympäristön tilaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi globalisaatio on tehnyt maailmasta haavoittuvamman?",
+        "options": [
+          "Kriisit eivät leviä maiden välillä.",
+          "Rahoituskriisit ja pandemiat leviävät nopeasti.",
+          "Maista on tullut omavaraisempia.",
+          "Yhteistyö on vähentynyt."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä vastavoimia globalisaatio on kohdannut?",
+        "options": [
+          "Kansainvälisen yhteistyön lisääntymistä.",
+          "Protektionismia, nationalismia ja populismia.",
+          "Vapaakaupan lisääntymistä.",
+          "Avoimuuden kasvua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on ollut populismin ja nationalismin taustalla?",
+        "options": [
+          "Globalisaation tuoma vauraus.",
+          "Tyytymättömyys globalisaation vaikutuksiin, kuten työpaikkojen vähenemiseen.",
+          "Kansainvälisen yhteistyön lisääntyminen.",
+          "Maahanmuuton väheneminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten kehitysmaat ovat hyötyneet globalisaatiosta?",
+        "options": [
+          "Ne ovat jääneet köyhemmiksi.",
+          "Ne ovat nousseet köyhyydestä päästessään mukaan maailmankauppaan.",
+          "Ne eivät ole hyötyneet.",
+          "Ne ovat menettäneet työpaikkoja."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

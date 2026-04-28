@@ -1,0 +1,37 @@
+{
+  "id": "adb5efc6-f2a2-5a29-bf62-d822204fe614",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin kulttuuritoimeen. Haluat ehdottaa, että kaupunki järjestäisi maksuttomia konsertteja palvelutaloissa ikääntyville. Kerro, miksi tämä olisi tärkeää ja millaista musiikkia toivoisit.",
+    "materials": {
+      "scenario": "Ehdotus konserteista ikääntyville"
+    },
+    "items": [
+      {
+        "id": "d1e90df5-8ee6-563a-9662-dd27964b5122",
+        "prompt": "Kirjoita sähköposti kaupungin kulttuuritoimeen. Haluat ehdottaa, että kaupunki järjestäisi maksuttomia konsertteja palvelutaloissa ikääntyville. Kerro, miksi tämä olisi tärkeää ja millaista musiikkia toivoisit."
+      }
+    ],
+    "rubric": "Idean kuvaus\nPerustelut\nSisältöehdotukset",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

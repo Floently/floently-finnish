@@ -1,0 +1,37 @@
+{
+  "id": "1e79b84e-b06e-584b-a67c-45e3de1ed96d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Täytä lomake.",
+    "materials": {
+      "scenario": "Täytä lomake."
+    },
+    "items": [
+      {
+        "id": "1d925b53-d463-55e0-8f15-361faae7456c",
+        "prompt": "Olet uusi asiakas kuntosalilla. Täytä lomake.\nKirjoita:\n- nimesi\n- osoitteesi\n- puhelinnumerosi\n- miksi haluat aloittaa kuntosalilla"
+      }
+    ],
+    "rubric": "Olet uusi asiakas kuntosalilla. Täytä lomake.\nKirjoita:\n- nimesi\n- osoitteesi\n- puhelinnumerosi\n- miksi haluat aloittaa kuntosalilla",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

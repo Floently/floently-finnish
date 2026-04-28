@@ -1,0 +1,37 @@
+{
+  "id": "c6fd3c08-0417-5c02-adb9-45ad28d1d251",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a financial manager position in a non-governmental organization. Tell about your education in financial management, experience in budgeting and financial reporting. Also describe how you have developed financial management processes and ensured proper use of grants. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus talouspäällikön tehtävään"
+    },
+    "items": [
+      {
+        "id": "2ca32d29-fe6a-51b7-8807-389c53a4db58",
+        "prompt": "Write a job application. You are applying for a financial manager position in a non-governmental organization. Tell about your education in financial management, experience in budgeting and financial reporting. Also describe how you have developed financial management processes and ensured proper use of grants. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a financial manager position in a non-governmental organization. Tell about your education in financial management, experience in budgeting and financial reporting. Also describe how you have developed financial management processes and ensured proper use of grants. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

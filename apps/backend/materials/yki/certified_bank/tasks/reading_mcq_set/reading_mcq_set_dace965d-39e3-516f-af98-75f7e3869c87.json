@@ -1,0 +1,66 @@
+{
+  "id": "dace965d-39e3-516f-af98-75f7e3869c87",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.769,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "YKSITYISYYS DIGIAIKANA – VANHENNUTKO KÄSITE?\n\nYksityisyys on ollut pitkään itsestäänselvä osa länsimaista yhteiskuntaa. Oikeus omaan rauhaan, mahdollisuus hallita itseään koskevaa tietoa – nämä on nähty keskeisinä vapauden ulottuvuuksina. Digitaalinen vallankumous on kuitenkin asettanut tämän itsestäänselvyyden kyseenalaiseksi.\n\nVerkossa toimiminen tuottaa jatkuvasti dataa: ostokset, hakusanat, sijaintitiedot, some-päivitykset. Tätä dataa keräävät ja hyödyntävät niin kaupalliset toimijat kuin viranomaiset. Samalla yksityisyyden raja on hämärtynyt: mikä on julkista, mikä yksityistä? Entä kuka omistaa datan?\n\nOikeustieteilijä Laura Mäenpää näkee kehityksessä paradoksin. ”Ihmiset sanovat kyselyissä pitävänsä yksityisyyttä tärkeänä, mutta toimivat verkossa usein päinvastoin. He jakavat arkaluonteisia tietoja, hyväksyvät käyttöehtoja lukematta niitä ja käyttävät palveluita, joiden liiketoimintamalli perustuu datan keräämiseen.”\n\nTämä ristiriita on selitettävissä osittain sillä, että yksityisyyden suojaaminen vaatii jatkuvaa vaivannäköä ja teknistä osaamista. Se on helpompi unohtaa, kun palvelut ovat ilmaisia ja käteviä. Mäenpää puhuu ”yksityisyyden loukusta”: mitä enemmän jaamme dataa, sitä vaikeampi sitä on hallita jälkikäteen.\n\nYksityisyyden suojaan on kuitenkin alettu kiinnittää enemmän huomiota. EU:n tietosuoja-asetus GDPR on yksi osoitus tästä. Myös teknologiateollisuus on joutunut vastaamaan kritiikkiin esimerkiksi parantamalla läpinäkyvyyttä ja antamalla käyttäjille enemmän valtaa omaan dataansa.\n\nMäenpään mukaan kyse on kuitenkin syvemmästä kulttuurisesta muutoksesta. ”Tarvitaan uudenlaista ymmärrystä yksityisyydestä. Se ei ole vain yksilön oikeus, vaan myös yhteiskunnallinen kysymys. Kun dataa kerätään ja analysoidaan ennennäkemättömässä määrin, se vaikuttaa vallan jakautumiseen ja mahdollisuuksiin vaikuttaa. Siksi yksityisyys on myös demokratian kysymys.”  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 247
+    },
+    "questions": [
+      {
+        "id": "5548a368-8275-5d80-b781-dacc034c3bd2",
+        "prompt": "Mikä paradoksi liittyy ihmisten suhtautumiseen yksityisyyteen digiaikana?",
+        "options": [
+          "Ihmiset eivät välitä yksityisyydestään ollenkaan",
+          "Ihmiset pitävät yksityisyyttä tärkeänä, mutta toimivat verkossa usein sen vastaisesti",
+          "Ihmiset eivät ymmärrä, mitä yksityisyys tarkoittaa",
+          "Ihmiset ovat valmiita maksamaan yksityisyydestään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ae76f5da-3ef8-5615-a2e1-5a68be27117d",
+        "prompt": "Mitä tarkoitetaan ”yksityisyyden loukulla”?",
+        "options": [
+          "Teknologian kehittäjien ansaa",
+          "Sitä, että mitä enemmän jaamme dataa, sitä vaikeampi sitä on hallita jälkikäteen",
+          "Viranomaisten salaa keräämää dataa",
+          "Sosiaalisen median algoritmeja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dff258af-f67e-5bf2-b81e-fd3d6d6a9291",
+        "prompt": "Miksi yksityisyys on Laura Mäenpään mukaan myös demokratian kysymys?",
+        "options": [
+          "Koska demokratia vaatii avoimuutta",
+          "Koska datan kerääminen vaikuttaa vallan jakautumiseen ja mahdollisuuksiin vaikuttaa",
+          "Koska vain harvoilla on pääsy dataan",
+          "Koska demokratia on vanhentunut käsite"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

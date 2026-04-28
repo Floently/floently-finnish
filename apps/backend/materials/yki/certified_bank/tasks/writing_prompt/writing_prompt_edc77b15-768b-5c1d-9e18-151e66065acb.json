@@ -1,0 +1,37 @@
+{
+  "id": "edc77b15-768b-5c1d-9e18-151e66065acb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kertakäyttömuovin käyttö kieltää kokonaan. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Kertakäyttömuovin kielto"
+    },
+    "items": [
+      {
+        "id": "3e98f00a-ee6e-5780-bad8-1121db48081a",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kertakäyttömuovin käyttö kieltää kokonaan. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

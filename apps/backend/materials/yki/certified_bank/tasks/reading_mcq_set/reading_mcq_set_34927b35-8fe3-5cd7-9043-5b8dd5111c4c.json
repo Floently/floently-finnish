@@ -1,0 +1,66 @@
+{
+  "id": "34927b35-8fe3-5cd7-9043-5b8dd5111c4c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PANNUKAKKU\n\nAinekset:\n4 dl vehnäjauhoja\n1 tl suolaa\n8 dl maitoa\n3 munaa\n50 g voita sulatettuna\n\nValmistus:\n1. Sekoita jauhot ja suola kulhossa.\n2. Lisää puolet maidosta ja sekoita tasaiseksi.\n3. Lisää loput maidosta, munat ja sulatettu voi.\n4. Sekoita hyvin. Anna taikinan turvota 30 min.\n5. Kaada taikina uunipellille (leivinpaperin päälle).\n6. Paista 225 asteessa noin 30 minuuttia.\n\nTarjoa hillon ja kerman kanssa.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "74b93d7f-d18a-5285-88d7-0ff245f27971",
+        "prompt": "Kuinka paljon maitoa pannukakkuun tulee?",
+        "options": [
+          "4 dl",
+          "6 dl",
+          "8 dl",
+          "1 litra"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0efd7e9d-b1e1-5550-8f88-f2ca2bb5df08",
+        "prompt": "Kuinka kauan taikinan annetaan turvota?",
+        "options": [
+          "15 min",
+          "30 min",
+          "45 min",
+          "60 min"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fed99bc7-d3be-5094-971b-6ff54ae39cc3",
+        "prompt": "Missä lämpötilassa pannukakku paistetaan?",
+        "options": [
+          "200°C",
+          "225°C",
+          "250°C",
+          "275°C"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

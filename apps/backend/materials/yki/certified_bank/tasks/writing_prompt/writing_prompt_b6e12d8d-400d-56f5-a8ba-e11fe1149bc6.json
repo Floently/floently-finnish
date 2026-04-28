@@ -1,0 +1,37 @@
+{
+  "id": "b6e12d8d-400d-56f5-a8ba-e11fe1149bc6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö luonnonsuojelualueita laajentaa metsätalouden kustannuksella?'. Pohdi monimuotoisuutta, ilmastotavoitteita ja metsäteollisuutta.",
+    "materials": {
+      "scenario": "Luonnonsuojelualueiden laajentaminen"
+    },
+    "items": [
+      {
+        "id": "f7d12b47-752c-5143-9baa-1d9912468b3f",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö luonnonsuojelualueita laajentaa metsätalouden kustannuksella?'. Pohdi monimuotoisuutta, ilmastotavoitteita ja metsäteollisuutta."
+      }
+    ],
+    "rubric": "Monimuotoisuus\nIlmastotavoitteet\nMetsäteollisuus\nTyöllisyys",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "0acabc3e-8dfe-52a8-9379-6487f052ff14",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelma ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tässä Radio Suomen kulttuuriohjelma. Tänään puhumme lukemisesta. Vieraana on kirjastonjohtaja Anna Mäkelä. Anna, mitä suomalaiset lukevat tänä päivänä? \"Kiitos kysymästä. Suomalaisten lukutottumukset ovat monipuolistuneet. Äänikirjat ovat kasvattaneet suosiotaan valtavasti. Myös e-kirjoja luetaan yhä enemmän. Perinteisiä kirjoja luetaan edelleen, mutta niiden myynti on hieman laskenut.\" Miksi äänikirjat ovat niin suosittuja? \"Ne sopivat hyvin kiireiseen arkeen. Ihmiset kuuntelevat niitä työmatkoilla, lenkkeillessä ja kotitöitä tehdessä. Äänikirjat ovat tuoneet lukemisen ilon takaisin monille, jotka eivät ehdi lukea perinteisiä kirjoja.\"",
+      "audio_asset_id": "d35b09c4-5fff-5115-bc01-f970e77d92d1"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjastonjohtaja kertoo suomalaisten lukutottumuksista?",
+        "options": [
+          "Vain perinteisiä kirjoja luetaan",
+          "Äänikirjat ja e-kirjat ovat lisänneet suosiotaan",
+          "Kukaan ei lue enää",
+          "Vain nuoret lukevat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi äänikirjat ovat suosittuja?",
+        "options": [
+          "Koska ne ovat halpoja",
+          "Koska ne sopivat hyvin kiireiseen arkeen",
+          "Koska niitä on helppo lainata",
+          "Koska ne ovat lyhyempiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä tilanteissa ihmiset kuuntelevat äänikirjoja?",
+        "options": [
+          "Vain kotona",
+          "Työmatkoilla, lenkkeillessä ja kotitöitä tehdessä",
+          "Vain työpaikalla",
+          "Vain lomalla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "33ae77b8-ae98-5209-80f3-c4d2c5bc1250",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.709,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen oppilashuoltoon panostaa enemmän resursseja?'. Arvioi mielenterveyttä, oppimisen tukea ja ennaltaehkäisyä.",
+    "materials": {
+      "scenario": "Oppilashuollon resurssit"
+    },
+    "items": [
+      {
+        "id": "8703d21b-7818-5e19-8812-e30d8ae54f45",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen oppilashuoltoon panostaa enemmän resursseja?'. Arvioi mielenterveyttä, oppimisen tukea ja ennaltaehkäisyä."
+      }
+    ],
+    "rubric": "Mielenterveys\nOppimisen tuki\nEnnaltaehkäisy\nHyvinvointi",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

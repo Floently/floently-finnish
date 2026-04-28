@@ -1,0 +1,99 @@
+{
+  "id": "875a53c6-e772-5ffb-abfa-27ec11da7b11",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta kiertotaloudesta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta kiertotaloudesta. Haastattelussa on kiertotalousasiantuntija Liisa Mäkelä. Liisa, mitä kiertotalous tarkoittaa? Liisa: Se on talousmalli, jossa jätettä ei synny, vaan materiaalit pysyvät käytössä mahdollisimman pitkään. Tuotteet suunnitellaan niin, että ne voidaan korjata, uudelleenkäyttää ja lopuksi kierrättää. Se on vastakohta kertakäyttökulttuurille. Toimittaja: Miten Suomi pärjää kiertotaloudessa? Liisa: Suomi on monilla alueilla edelläkävijä. Meillä on paljon osaamista esimerkiksi bio- ja kiertotaloudessa. Myös yritykset ovat kiinnostuneita. Mutta paljon on vielä tehtävää. Kotitalouksien jätemäärät ovat edelleen suuria. Toimittaja: Mitkä ovat suurimmat haasteet? Liisa: Yksi on asenteet. Ihmiset ovat tottuneet ostamaan uutta ja heittämään vanhan pois. Toinen on tuotesuunnittelu. Monet tuotteet on suunniteltu niin, että niitä on vaikea korjata. Kolmas on infrastruktuuri. Kierrätysjärjestelmiä pitää kehittää. Toimittaja: Miten kiertotaloutta voidaan edistää? Liisa: Tarvitaan lainsäädäntöä, joka kannustaa kiertotalouteen. Myös taloudelliset ohjauskeinot, kuten jätemaksut ja tuotesuunnittelun vaatimukset, ovat tärkeitä. Kansalaiset voivat vaikuttaa ostamalla vähemmän, korjaamalla ja kierrättämällä. Toimittaja: Mikä on tulevaisuuden visio? Liisa: Toivon, että Suomi on kiertotalouden mallimaa. Jossa kaikki materiaalit kiertävät ja jätettä ei synny. Se on mahdollista, mutta se vaatii yhteistyötä. Toimittaja: Kiitos Liisa.",
+      "audio_asset_id": "0b5bacba-ca2b-4d35-aa89-00cd29dcec97"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen teollisuus.",
+          "Suomalainen kiertotalous.",
+          "Suomalainen jätehuolto.",
+          "Suomalainen energia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä kiertotalous tarkoittaa?",
+        "options": [
+          "Materiaalit käytetään kerran ja heitetään pois.",
+          "Vain luonnonmateriaaleja käytetään.",
+          "Materiaalit pysyvät käytössä mahdollisimman pitkään.",
+          "Kaikki tuotteet ovat kalliita."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq3",
+        "prompt": "Millä alalla Suomi on edelläkävijä?",
+        "options": [
+          "Kivihiilen käytössä.",
+          "Kertakäyttötuotteissa.",
+          "Muovin tuotannossa.",
+          "Bio- ja kiertotaloudessa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on yksi suurimmista haasteista?",
+        "options": [
+          "Liian vähän jätettä.",
+          "Liian paljon kierrätystä.",
+          "Asenteet ja tuotesuunnittelu.",
+          "Liian vähän tehtaita."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miten kansalaiset voivat edistää kiertotaloutta?",
+        "options": [
+          "Ostamalla vähemmän, korjaamalla ja kierrättämällä.",
+          "Ostamalla mahdollisimman paljon uutta.",
+          "Heittämällä kaiken pois.",
+          "Vain lahjoittamalla rahaa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on Liisan tulevaisuuden visio Suomelle?",
+        "options": [
+          "Jäte lisääntyy.",
+          "Kiertotalous loppuu.",
+          "Materiaaleja ei enää käytetä.",
+          "Suomi on kiertotalouden mallimaa."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

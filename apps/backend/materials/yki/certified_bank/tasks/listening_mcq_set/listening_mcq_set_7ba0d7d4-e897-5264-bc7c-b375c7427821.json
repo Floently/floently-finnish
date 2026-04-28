@@ -1,0 +1,66 @@
+{
+  "id": "7ba0d7d4-e897-5264-bc7c-b375c7427821",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu työpaikalla ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, mitä mieltä olet tästä uudesta työaikajärjestelystä? Nyt voi aloittaa työpäivän vaikka jo seitsemältä.\nB: Mä tykkään kyllä. Mä olen aamuihminen, joten saan enemmän aikaan ennen kuin muut tulevat. Sitten voi lähteä aikaisemmin kotiin.\nA: Joo, se on hyvä puoli. Mutta mietin, että entä ne, joilla on pieniä lapsia? Heille myöhäisempi aloitus voisi olla parempi.\nB: Se on totta. Onneksi tässä on se jousto, että voi valita. Jotkut aloittaa yhdeksältä ja tekee myöhempään.\nA: Niin, se on hyvä. Tykkään myös siitä, että voi tehdä välillä etänä. Säästyy matka-ajassa.\nB: Joo, etätyö on toiminu mulle hyvin. Mutta tykkään myös nähdä työkavereita.\nA: Sama täällä. On se hyvä, että on sekä että.",
+      "audio_asset_id": "a8c217ce-a0dd-5529-bbf4-9ace49773479"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä uutta työaikajärjestelyä he keskustelevat?",
+        "options": [
+          "Kaikki aloittavat samaan aikaan",
+          "Työntekijät voivat valita joustavasti työajan alkamisen",
+          "Vain etätyötä",
+          "Lyhyempiä työpäiviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi B tykkää uudesta järjestelystä?",
+        "options": [
+          "Koska hän on iltaihminen",
+          "Koska hän on aamuihminen ja saa enemmän aikaan",
+          "Koska hän vihaa työtä",
+          "Koska hän saa enemmän palkkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä etätyöstä on heidän mielestään?",
+        "options": [
+          "Saa nukkua pidempään",
+          "Säästyy matka-ajassa",
+          "Voi katsoa televisiota",
+          "Ei tarvitse puhua kenellekään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

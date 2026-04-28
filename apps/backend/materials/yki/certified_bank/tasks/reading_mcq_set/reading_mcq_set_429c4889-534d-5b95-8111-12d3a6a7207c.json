@@ -1,0 +1,88 @@
+{
+  "id": "429c4889-534d-5b95-8111-12d3a6a7207c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.69,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Koti on tärkeä paikka. Siellä asuu perhe. Kotona on eri huoneita. Olohuone, keittiö ja makuuhuone. Monilla on myös sauna. Kotona rentoudutaan työn jälkeen. Siellä luetaan, katsotaan televisiota ja kuunnellaan musiikkia. Lapset tekevät läksyjä keittiön pöydässä. Viikonloppuisin saatetaan leipoa pullaa. Kotona on hyvä olla. Se on turvallinen paikka. Koti on jokaiselle tärkeä.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä huoneita kotona on?",
+        "options": [
+          "Vain makuuhuone ja keittiö",
+          "Olohuone, keittiö ja makuuhuone",
+          "Vain olohuone ja keittiö",
+          "Vain sauna ja makuuhuone"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä monella suomalaisella on kotona?",
+        "options": [
+          "Uima-allas",
+          "Sauna",
+          "Kuntosali",
+          "Kirjasto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kotona tehdään?",
+        "options": [
+          "Vain syödään",
+          "Rentoudutaan, luetaan, katsotaan televisiota ja kuunnellaan musiikkia",
+          "Vain nukutaan",
+          "Vain tehdään töitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä lapset tekevät läksyjä?",
+        "options": [
+          "Makuuhuoneessa",
+          "Keittiön pöydässä",
+          "Olohuoneessa",
+          "Saunassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millainen koti on?",
+        "options": [
+          "Epäsiisti",
+          "Turvallinen paikka",
+          "Tyhjä",
+          "Vanhanaikainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

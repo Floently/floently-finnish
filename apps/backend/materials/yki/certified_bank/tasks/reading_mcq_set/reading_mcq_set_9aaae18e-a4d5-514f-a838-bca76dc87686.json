@@ -1,0 +1,99 @@
+{
+  "id": "9aaae18e-a4d5-514f-a838-bca76dc87686",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet harrastavat valokuvaamista. Kännykkäkamerat ovat nykyään niin hyviä, että kuvia voi ottaa helposti ja nopeasti. Valokuvia jaetaan paljon somessa. Osa harrastajista ostaa järjestelmäkameran ja opiskelee kuvausta. Valokuvauskerhoja on monilla paikkakunnilla. Niissä voi oppia uutta ja tavata muita kuvaajia.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä monet harrastavat?",
+        "options": [
+          "Piirtämistä",
+          "Valokuvaamista",
+          "Maalaamista",
+          "Kirjoittamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi kännykkäkamerat ovat hyviä?",
+        "options": [
+          "Ne ovat kalliita",
+          "Kuvia voi ottaa helposti ja nopeasti",
+          "Ne ovat ainoita kameroita",
+          "Ne ovat vanhoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä valokuvia jaetaan paljon?",
+        "options": [
+          "Lehdissä",
+          "Somessa",
+          "Kirjoissa",
+          "Näyttelyissä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä osa harrastajista ostaa?",
+        "options": [
+          "Uuden kännykän",
+          "Järjestelmäkameran",
+          "Kuvanmuokkausohjelman",
+          "Kuvakirjan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä valokuvauskerhoissa voi tehdä?",
+        "options": [
+          "Myydä kuvia",
+          "Oppia uutta ja tavata muita kuvaajia",
+          "Osallistua kilpailuihin",
+          "Saada palkintoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Missä valokuvauskerhoja on?",
+        "options": [
+          "Vain suurissa kaupungeissa",
+          "Monilla paikkakunnilla",
+          "Vain pääkaupunkiseudulla",
+          "Vain netissä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

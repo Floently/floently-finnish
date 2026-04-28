@@ -1,0 +1,66 @@
+{
+  "id": "ebee56a2-6a83-59dd-a078-aa518ce9bf34",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa on neljä vuodenaikaa. Keväällä lumi sulaa ja linnut palaavat. Kesällä on lämmintä ja aurinko paistaa paljon. Syksyllä lehdet putoavat ja ilma viilenee. Talvella on lunta ja pakkasta. Monet harrastavat hiihtoa talvella.",
+      "word_count": 32
+    },
+    "questions": [
+      {
+        "id": "49fa4da2-2b57-5441-b1d1-59fbed76a353",
+        "prompt": "Montako vuodenaikaa Suomessa on?",
+        "options": [
+          "Kaksi",
+          "Kolme",
+          "Neljä",
+          "Viisi"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "5128098d-7fd6-5ec4-957d-325a89b1ebc4",
+        "prompt": "Mitä tapahtuu keväällä?",
+        "options": [
+          "Lumi sulaa",
+          "Lehdet putoavat",
+          "On pakkasta",
+          "Aurinko paistaa vähän"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "477b54f5-4479-5b9b-b7cb-69df395a9e1e",
+        "prompt": "Mitä monet harrastavat talvella?",
+        "options": [
+          "Uintia",
+          "Hiihtoa",
+          "Pyöräilyä",
+          "Grillausta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

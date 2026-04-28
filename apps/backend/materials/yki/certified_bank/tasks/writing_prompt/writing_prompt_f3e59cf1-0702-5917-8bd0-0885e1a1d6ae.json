@@ -1,0 +1,37 @@
+{
+  "id": "f3e59cf1-0702-5917-8bd0-0885e1a1d6ae",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien keskustoissa rajoittaa yksityisautoilua päästöjen vähentämiseksi?'. Vertaa eri kaupunkien ratkaisuja ja arvioi vaikutuksia elinkeinoelämään.",
+    "materials": {
+      "scenario": "Yksityisautoilun rajoittaminen"
+    },
+    "items": [
+      {
+        "id": "cd74f5a7-c749-5b2c-b11f-9f46e6402d65",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien keskustoissa rajoittaa yksityisautoilua päästöjen vähentämiseksi?'. Vertaa eri kaupunkien ratkaisuja ja arvioi vaikutuksia elinkeinoelämään."
+      }
+    ],
+    "rubric": "Päästövähennykset\nElinkeinoelämän tarpeet\nVaihtoehtoiset kulkumuodot\nKansainväliset esimerkit",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

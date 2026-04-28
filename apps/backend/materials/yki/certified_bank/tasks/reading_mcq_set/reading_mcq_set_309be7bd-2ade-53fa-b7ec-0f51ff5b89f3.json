@@ -1,0 +1,77 @@
+{
+  "id": "309be7bd-2ade-53fa-b7ec-0f51ff5b89f3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Etätyö on muuttanut suomalaisten työelämää pysyvästi. Monet kokevat, että se on parantanut työn ja vapaa-ajan tasapainoa, kun työmatkoihin kuluva aika on vähentynyt. Toisaalta osa työntekijöistä raportoi, että työpäivät venyvät helposti pidemmiksi ja tauot jäävät pitämättä.\n\nTyöterveyslaitoksen tutkimuksen mukaan noin 60 prosenttia etätyöntekijöistä haluaisi jatkaa etätöissä vähintään osa-aikaisesti myös tulevaisuudessa. Työnantajat ovat huomanneet, että etätyö voi lisätä tuottavuutta, mutta samalla se asettaa haasteita työyhteisön yhteishengen ylläpitämiselle.\n\nErityisesti nuoret työntekijät kaipaavat työpaikan sosiaalisia kontakteja ja epävirallista oppimista, joka tapahtuu kahvipöytäkeskusteluissa. Monet yritykset ovatkin siirtyneet hybridimalliin, jossa työntekijät ovat toimistolla muutamina päivinä viikossa ja loput etänä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 121
+    },
+    "questions": [
+      {
+        "id": "5fd57040-efb3-5c42-b600-038a9b2630e3",
+        "prompt": "Mikä on etätyön positiivinen vaikutus tekstin mukaan?",
+        "options": [
+          "Työntekijät saavat enemmän palkkaa",
+          "Työmatkoihin ei kulu aikaa",
+          "Työpäivät ovat lyhyempiä",
+          "Taukoja on enemmän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "67b0cb65-8280-5f3e-a142-5368d6348f9e",
+        "prompt": "Kuinka moni haluaisi jatkaa etätöissä tulevaisuudessa?",
+        "options": [
+          "Noin 40 prosenttia",
+          "Noin 50 prosenttia",
+          "Noin 60 prosenttia",
+          "Noin 70 prosenttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "fdd1152c-ff67-5da2-9f8f-cb43387766ae",
+        "prompt": "Mitä haasteita etätyö aiheuttaa työnantajille?",
+        "options": [
+          "Työntekijät ovat vähemmän tuottavia",
+          "Työyhteisön yhteishenki kärsii",
+          "Toimistotilat jäävät tyhjiksi",
+          "Työntekijät vaihtavat useammin työpaikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "373d3d80-0a02-5c75-ba70-24cdf27dc573",
+        "prompt": "Mitä nuoret työntekijät erityisesti kaipaavat?",
+        "options": [
+          "Lisää etätyöpäiviä",
+          "Parempia etätyövälineitä",
+          "Sosiaalisia kontakteja työpaikalla",
+          "Lyhyempiä työpäiviä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "004ea3d9-bf04-57a9-ab04-14c4357efcb0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin hinnasto ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "UIMAHALLI AALTO – HINNASTO 2025\n\nLiput:\nAikuiset (yli 18 v.): 11 €\nLapset (4–17 v.): 6 €\nAlle 4-vuotiaat: ilmaiseksi\nPerhelippu (2 aikuista + 2 lasta): 26 €\n\nKausikortit:\n10 kerran kortti aikuiset: 90 €\n10 kerran kortti lapset: 50 €\nKuukausikortti aikuiset: 55 €\n\nVuorot:\nAikuisten uintivuoro ma–pe klo 20–22: 13 €\nVauvauinti ti ja to klo 9–10: 8 €\n\nOhjattu vesijumppa ma, ke, pe klo 18–19: 14 €\n\nPukukaapit: 0,50 € (palautetaan)",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Paljonko aikuisten lippu maksaa?",
+        "options": [
+          "10 €",
+          "11 €",
+          "12 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko perhelippu maksaa?",
+        "options": [
+          "24 €",
+          "26 €",
+          "28 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Milloin on vauvauinti?",
+        "options": [
+          "maanantaisin ja keskiviikkoisin",
+          "tiistaisin ja torstaisin",
+          "keskiviikkoisin ja perjantaisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Paljonko pukukaapit maksavat?",
+        "options": [
+          "ilmaiseksi",
+          "0,50 €",
+          "1 €"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

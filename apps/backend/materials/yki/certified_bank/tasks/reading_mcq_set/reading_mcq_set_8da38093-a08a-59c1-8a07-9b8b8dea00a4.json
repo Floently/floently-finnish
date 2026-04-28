@@ -1,0 +1,77 @@
+{
+  "id": "8da38093-a08a-59c1-8a07-9b8b8dea00a4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.801,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Digitalisaation ja demokratian suhde on noussut yhdeksi aikamme polttavimmista yhteiskunnallisista kysymyksistä. Alun perin internetin ja sosiaalisen median nähtiin demokratisoivan tiedonkulkua ja antavan äänen niille, jotka aiemmin olivat vailla julkista näkyvyyttä. Tämä optimistinen näkemys on kuitenkin saanut rinnalleen synkempiä tulkintoja, joissa korostuvat digitaalisten alustojen kielteiset vaikutukset demokraattisiin prosesseihin. Keskeinen ongelma liittyy siihen, miten algoritmit ohjaavat ihmisten tiedonhankintaa ja mielipiteenmuodostusta. Sosiaalisen median alustat on suunniteltu maksimoimaan käyttäjien sitoutumista, mikä usein tarkoittaa sisältöjen personointia siten, että ne vahvistavat käyttäjän olemassa olevia käsityksiä ja altistavat hänet yhä äärimmäisemmille näkemyksille. Puhutaan niin sanotuista suodatinkuplista ja kaikukammioista, joissa omat ennakkoluulot vahvistuvat ilman altistumista vastakkaisille näkökulmille. Tämä kehitys nakertaa demokratian perustaa, joka edellyttää kansalaisilta kykyä muodostaa harkittuja mielipiteitä eri vaihtoehdoista ja käydä rakentavaa julkista keskustelua. Toinen merkittävä huolenaihe on disinformaation ja valeuutisten leviäminen. Digitaaliset alustat mahdollistavat harhaanjohtavan tiedon nopean ja laajan levittämisen, ja algoritmit usein suosivat sensaationhakuisia ja tunnepitoisia sisältöjä, mikä vahvistaa disinformaation vaikuttavuutta. Tämä on johtanut jopa yrityksiin vaikuttaa vaalien tuloksiin ja heikentää luottamusta demokraattisiin instituutioihin. Esimerkkejä on lukuisia ympäri maailmaa, ja ne ovat herättäneet kysymyksiä siitä, kykenevätkö nykyiset sääntelymekanismit ja lainsäädäntö vastaamaan digitaalisen ajan haasteisiin. Toisaalta digitalisaatio tarjoaa myös uusia välineitä demokratian vahvistamiseen. Kansalaisaloitteet, osallistuva budjetointi ja verkkokeskustelufoorumit ovat esimerkkejä siitä, miten teknologiaa voidaan käyttää kansalaisten osallisuuden lisäämiseen. Lisäksi avoimen datan ja läpinäkyvyyden periaatteet voivat auttaa kansalaisia seuraamaan päätöksentekoa ja vaatimaan vastuuta. Tulevaisuuden kannalta ratkaisevaa on, kykeneekö yhteiskunta säätelemään digitaalisia alustoja siten, että niiden demokratiaa heikentävät vaikutukset saadaan kuriin samalla kun niiden tarjoamat mahdollisuudet säilyvät. Tämä edellyttää paitsi lainsäädännön uudistamista myös mediakasvatuksen vahvistamista ja kansalaisten digitaalisten taitojen kehittämistä. Pelkkä teknologinen kehitys ei ratkaise ongelmia, vaan tarvitaan syvällistä yhteiskunnallista keskustelua siitä, millaista demokratiaa haluamme ja millaisia keinoja olemme valmiita käyttämään sen turvaamiseksi digitaalisella aikakaudella.",
+      "word_count": 278
+    },
+    "questions": [
+      {
+        "id": "5c2d31dd-5e05-5cc9-bd9e-b8fca3d910a2",
+        "prompt": "Mikä on tekstin keskeinen väite digitalisaation ja demokratian suhteesta?",
+        "options": [
+          "Digitalisaatio on yksiselitteisen hyvä asia demokratialle",
+          "Digitalisaatio on yksiselitteinen uhka demokratialle",
+          "Digitalisaation vaikutukset ovat ristiriitaisia: se sekä uhkaa että tarjoaa mahdollisuuksia demokratialle",
+          "Digitalisaatiolla ei ole merkittävää vaikutusta demokratiaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d6f7e9d3-5d03-5a86-af0b-2c90d9435e2b",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemilla 'suodatinkuplilla' ja 'kaikukammioilla'?",
+        "options": [
+          "Teknisiä ratkaisuja, jotka estävät disinformaation leviämisen",
+          "Ilmiöitä, joissa algoritmit vahvistavat käyttäjän omia käsityksiä ja vähentävät altistumista eriäville näkemyksille",
+          "Verkkokeskustelufoorumeita, joissa kansalaiset voivat osallistua päätöksentekoon",
+          "Sosiaalisen median ryhmiä, jotka keskittyvät tiettyihin aiheisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8e8061c4-2c71-5c3a-8e91-d7e5cbd44a24",
+        "prompt": "Tekstin mukaan mikä on keskeinen syy sille, että algoritmit voivat vahvistaa disinformaation vaikuttavuutta?",
+        "options": [
+          "Algoritmit on ohjelmoitu levittämään tahallaan väärää tietoa",
+          "Algoritmit suosivat sensaationhakuisia ja tunnepitoisia sisältöjä",
+          "Käyttäjät eivät osaa käyttää algoritmeja oikein",
+          "Algoritmit eivät kykene erottamaan totta ja tarua toisistaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f0f59316-c88a-5524-a24a-6605d9fe3bfc",
+        "prompt": "Mitä ratkaisuja teksti ehdottaa digitalisaation demokratialle aiheuttamiin ongelmiin?",
+        "options": [
+          "Digitalisaation täydellistä kieltämistä ja paluuta vanhoihin viestintämuotoihin",
+          "Alustojen sääntelyä, mediakasvatusta ja kansalaisten digitaalisten taitojen kehittämistä",
+          "Algoritmien kehittämistä siten, että ne levittävät vain virallista tietoa",
+          "Sosiaalisen median alustojen sulkemista vaalien ajaksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

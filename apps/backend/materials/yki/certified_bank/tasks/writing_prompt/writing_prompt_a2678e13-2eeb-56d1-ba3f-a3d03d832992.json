@@ -1,0 +1,37 @@
+{
+  "id": "a2678e13-2eeb-56d1-ba3f-a3d03d832992",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.686,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a store manager position in a small specialty store. Tell about your previous supervisory tasks, experience in personnel management, and how you have developed sales. Justify why you in particular would suit this position. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus myymäläpäällikön tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a store manager position in a small specialty store. Tell about your previous supervisory tasks, experience in personnel management, and how you have developed sales. Justify why you in particular would suit this position. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a store manager position in a small specialty store. Tell about your previous supervisory tasks, experience in personnel management, and how you have developed sales. Justify why you in particular would suit this position. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

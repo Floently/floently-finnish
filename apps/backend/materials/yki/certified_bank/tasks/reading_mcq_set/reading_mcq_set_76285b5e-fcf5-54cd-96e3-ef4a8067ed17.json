@@ -1,0 +1,66 @@
+{
+  "id": "76285b5e-fcf5-54cd-96e3-ef4a8067ed17",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kirjasto lähettää viestin aiheesta: urheiluhallin sisäänpääsyohje ja aukiolo. Tämä koskee monia ihmisiä Porissa. Jos et pääse, ilmoita siitä etukäteen. Ota mukaan henkilöllisyystodistus, jos sitä pyydetään. Asia alkaa torstaina 7. päivä. Tarkista aika ja paikka ennen kuin lähdet. Viesti on tarkoitettu arjen asiointiin. Ohjeet ovat lyhyet ja selkeät. Jos tarvitset apua, voit kysyä palvelutiskiltä. Lopussa kerrotaan yhteystiedot ja aukiolo. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä torstaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä torstaina asti.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "a1_a2r08-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Matkustaminen ja sää",
+          "Urheilutapahtuma",
+          "Ruoanlaitto kotona",
+          "Kirjasto ja siihen liittyvä muutos"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r08-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Lentojen peruuntuminen",
+          "Uusi elokuva",
+          "Sairaalan remontti",
+          "Ohjeet tai toimintatapa kerrotaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r08-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Odota viikko",
+          "Kysy neuvoa",
+          "Älä kerro kenellekään",
+          "Jätä asia kesken"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

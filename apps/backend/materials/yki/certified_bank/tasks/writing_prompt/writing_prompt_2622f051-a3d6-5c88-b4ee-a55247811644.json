@@ -1,0 +1,37 @@
+{
+  "id": "2622f051-a3d6-5c88-b4ee-a55247811644",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon patterit eivät lämpene tasaisesti. Osa pattereista on kylmiä. Kerro ongelmasta ja pyydä, että lämmitysjärjestelmä tarkistetaan ja korjataan ennen talvea.",
+    "materials": {
+      "scenario": "Vikailmoitus lämmitysjärjestelmästä"
+    },
+    "items": [
+      {
+        "id": "a5c0aefc-7b55-56d7-b42b-bb85ebc0ddd1",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon patterit eivät lämpene tasaisesti. Osa pattereista on kylmiä. Kerro ongelmasta ja pyydä, että lämmitysjärjestelmä tarkistetaan ja korjataan ennen talvea."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nVaikutukset\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

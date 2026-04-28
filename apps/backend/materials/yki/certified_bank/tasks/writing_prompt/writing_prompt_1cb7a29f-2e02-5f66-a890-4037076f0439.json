@@ -1,0 +1,37 @@
+{
+  "id": "1cb7a29f-2e02-5f66-a890-4037076f0439",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt katsomassa kaupungin ilotulituksen. Kirjoita palaute. Oliko järjestelyt hyvät? Oliko paikalla turvallista?",
+    "materials": {
+      "scenario": "Palaute kaupungin tapahtumasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt katsomassa kaupungin ilotulituksen. Kirjoita palaute. Oliko järjestelyt hyvät? Oliko paikalla turvallista?"
+      }
+    ],
+    "rubric": "Olet käynyt katsomassa kaupungin ilotulituksen. Kirjoita palaute. Oliko järjestelyt hyvät? Oliko paikalla turvallista?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

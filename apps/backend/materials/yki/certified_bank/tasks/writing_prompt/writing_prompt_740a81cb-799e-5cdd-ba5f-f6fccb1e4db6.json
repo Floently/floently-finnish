@@ -1,0 +1,37 @@
+{
+  "id": "740a81cb-799e-5cdd-ba5f-f6fccb1e4db6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita yksinkertainen ohje.",
+    "materials": {
+      "scenario": "Kirjoita yksinkertainen ohje."
+    },
+    "items": [
+      {
+        "id": "b67f9f1e-03fa-5ec6-b20b-1fa5d7d91b43",
+        "prompt": "Sinulla on vieraita tulossa. Kirjoita heille ohjeet, miten löytävät kotiisi.\nKerro:\n- mistä bussilla pääsee\n- millä pysäkillä pitää jäädä pois\n- miltä talo näyttää."
+      }
+    ],
+    "rubric": "Sinulla on vieraita tulossa. Kirjoita heille ohjeet, miten löytävät kotiisi.\nKerro:\n- mistä bussilla pääsee\n- millä pysäkillä pitää jäädä pois\n- miltä talo näyttää.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

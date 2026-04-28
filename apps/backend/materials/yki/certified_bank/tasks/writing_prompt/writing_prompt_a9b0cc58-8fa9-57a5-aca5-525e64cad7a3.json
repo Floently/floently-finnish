@@ -1,0 +1,37 @@
+{
+  "id": "a9b0cc58-8fa9-57a5-aca5-525e64cad7a3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan kirjastoon. Haluat ehdottaa, että kirjasto hankkisi kokoelmiinsa lisää äänikirjoja heikkonäköisille asiakkaille. Perustele ehdotustasi ja kysy, miten hankintaehdotuksia käsitellään ja voiko ehdotuksen tehdä verkkosivujen kautta.",
+    "materials": {
+      "scenario": "Äänikirjojen hankintaehdotus"
+    },
+    "items": [
+      {
+        "id": "47d9d677-e7c4-5d79-b7bf-45993fddf5d1",
+        "prompt": "Kirjoita virallinen sähköposti kunnan kirjastoon. Haluat ehdottaa, että kirjasto hankkisi kokoelmiinsa lisää äänikirjoja heikkonäköisille asiakkaille. Perustele ehdotustasi ja kysy, miten hankintaehdotuksia käsitellään ja voiko ehdotuksen tehdä verkkosivujen kautta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

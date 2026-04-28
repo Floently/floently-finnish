@@ -1,0 +1,40 @@
+{
+  "id": "f677fc22-7ed6-5a4d-aa33-35b4b69905c1",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistut työpaikan palaveriin, jossa keskustellaan työhyvinvoinnista.",
+    "materials": {
+      "roles": {
+        "user": "työntekijöiden edustaja ja sinua on pyydetty kertomaan näkemyksesi siitä",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "fd594f97-c5e4-5fb5-bfe2-f25836685ce6",
+        "ai_first_turn_fi": "Tervetuloa tähän palaveriin. Kyselyn tulokset ovat huolestuttavia. Työntekijöiden näkökulmasta, mitkä ovat mielestäsi tärkeimmät kehittämiskohteet?"
+      }
+    ],
+    "rubric": "Osallistut työpaikan palaveriin, jossa keskustellaan työhyvinvoinnista.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "97b84a3a-9116-5953-9e40-1f701acfd38d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue talouspoliittinen analyysi ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TALOUSKASVUN RAJAT\n\nKeskustelu talouskasvun rajoista on noussut esiin ilmastokriisin myötä. Ekologisen taloustieteen professori Jukka Hoffrén väittää, että jatkuva talouskasvu on mahdotonta äärellisellä planeetalla. Hänen mukaansa ongelma ei ole kasvussa sinänsä, vaan siinä, miten kasvu määritellään. Perinteinen bruttokansantuote mittaa vain taloudellista aktiviteettia, ei sen laatua. 'Voi olla kasvua, joka tuhoaa luontoa ja lisää eriarvoisuutta.' Hoffrén kannattaa siirtymistä kohti hyvinvointitaloutta, jossa menestystä mitataan muillakin mittareilla, kuten terveydellä ja ympäristön tilalla.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä Jukka Hoffrén pitää ongelmallisena talouskasvussa?",
+        "options": [
+          "Kasvu on liian hidasta",
+          "Kasvua mitataan väärin, vain määränä",
+          "Kasvu hyödyttää vain rikkaita",
+          "Kasvu on mahdotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Hoffrén tarkoittaa 'hyvinvointitaloudella'?",
+        "options": [
+          "Talous kasvaa hitaammin",
+          "Menestystä mitataan muillakin mittareilla",
+          "Kaikki saavat perustulon",
+          "Vain julkinen talous on tärkeä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ongelmaa BKT:n mittaamisessa on?",
+        "options": [
+          "Se on liian tarkka",
+          "Se mittaa vain määrää, ei laatua",
+          "Se on liian kallista",
+          "Sitä ei voi laskea"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

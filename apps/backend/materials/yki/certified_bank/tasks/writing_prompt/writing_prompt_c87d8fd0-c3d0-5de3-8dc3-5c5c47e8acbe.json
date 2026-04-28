@@ -1,0 +1,37 @@
+{
+  "id": "c87d8fd0-c3d0-5de3-8dc3-5c5c47e8acbe",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö jätehuoltoa kehittää lisäämällä lajittelupisteitä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lajittelupisteiden lisääminen"
+    },
+    "items": [
+      {
+        "id": "229f9ea1-288f-5ba3-b708-846d1aeb5c27",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö jätehuoltoa kehittää lisäämällä lajittelupisteitä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

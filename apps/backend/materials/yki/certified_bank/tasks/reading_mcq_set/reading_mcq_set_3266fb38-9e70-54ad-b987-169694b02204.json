@@ -1,0 +1,88 @@
+{
+  "id": "3266fb38-9e70-54ad-b987-169694b02204",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kotimainen kirjallisuus on tärkeä osa suomalaista kulttuuria. Suomalaiset lukevat paljon, ja kotimainen kirjallisuus on suosittua. Yksi keskeisimmistä klassikoista on Väinö Linnan Tuntematon sotilas, joka kuvaa suomalaisten miesten kokemuksia jatkosodassa. Se on yksi luetuimmista suomalaisista kirjoista. Toinen keskeinen klassikko on Mika Waltarin Sinuhe egyptiläinen, historiallinen romaani, joka on käännetty kymmenille kielille. Kolmas klassikko on Tove Janssonin muumikirjat, jotka ovat lumonneet niin lapset kuin aikuisetkin. Muumit ovat maailmanlaajuisesti tunnettuja. Neljäs tärkeä osa ovat nykykirjailijat, kuten Sofi Oksanen ja Jari Tervo. He käsittelevät ajankohtaisia aiheita. Viides tärkeä osa on lasten- ja nuortenkirjallisuus. Kotimaiset lastenkirjailijat, kuten Mauri Kunnas, ovat rakastettuja.",
+      "word_count": 96
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä Väinö Linnan Tuntematon sotilas kuvaa?",
+        "options": [
+          "Suomalaisten miesten kokemuksia jatkosodassa",
+          "Elämää 1800-luvun Suomessa",
+          "Rakkautta ja ihmissuhteita",
+          "Kaupungistumista"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä Mika Waltarin Sinuhe egyptiläinen on esimerkki?",
+        "options": [
+          "Suomalaisen kirjallisuuden kansainvälisestä potentiaalista",
+          "Suomalaisen historian tärkeydestä",
+          "Egyptiläisen kulttuurin vaikutuksesta",
+          "Historiallisten romaanien suosiosta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Ketkä ovat lumoutuneet Tove Janssonin muumikirjoista?",
+        "options": [
+          "Vain lapset",
+          "Sekä lapset että aikuiset",
+          "Vain aikuiset",
+          "Vain nuoret"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Keitä ovat esimerkkejä suomalaisista nykykirjailijoista?",
+        "options": [
+          "Väinö Linna ja Mika Waltari",
+          "Sofi Oksanen ja Jari Tervo",
+          "Tove Jansson ja Mauri Kunnas",
+          "Aleksis Kivi ja Eino Leino"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kuka on tunnettu suomalainen lastenkirjailija?",
+        "options": [
+          "Väinö Linna",
+          "Mauri Kunnas",
+          "Mika Waltari",
+          "Sofi Oksanen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

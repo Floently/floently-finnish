@@ -1,0 +1,37 @@
+{
+  "id": "8cb99fdb-43f0-5998-9090-38fd12b08e98",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö peruskoulussa palata enemmän luokanopettajajohtoiseen malliin aineenopettajien sijaan?'. Arvioi oppimisen jatkuvuutta ja erityisosaamista.",
+    "materials": {
+      "scenario": "Luokanopettaja vs. aineenopettaja"
+    },
+    "items": [
+      {
+        "id": "f44204dd-71ba-525c-8665-0d90574529c7",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö peruskoulussa palata enemmän luokanopettajajohtoiseen malliin aineenopettajien sijaan?'. Arvioi oppimisen jatkuvuutta ja erityisosaamista."
+      }
+    ],
+    "rubric": "Oppimisen jatkuvuus\nErityisosaaminen\nOppilaiden turvallisuus\nResurssit",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

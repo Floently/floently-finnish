@@ -1,0 +1,37 @@
+{
+  "id": "511eb525-517b-5a3d-a231-b73f6360aace",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt pankin verkkopalvelua. Kirjoita palaute pankille kehittämisehdotuksineen.",
+    "materials": {
+      "scenario": "Palaute verkkopankista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt pankin verkkopalvelua. Kirjoita palaute pankille kehittämisehdotuksineen."
+      }
+    ],
+    "rubric": "Olet käyttänyt pankin verkkopalvelua. Kirjoita palaute pankille kehittämisehdotuksineen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

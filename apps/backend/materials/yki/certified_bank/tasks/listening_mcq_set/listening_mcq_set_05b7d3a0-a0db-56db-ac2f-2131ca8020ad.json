@@ -1,0 +1,66 @@
+{
+  "id": "05b7d3a0-a0db-56db-ac2f-2131ca8020ad",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Vakuutusneuvoja: Hei, oletteko Teija Virtanen?\nAsiakas: Kyllä, minä se olen.\nVakuutusneuvoja: Hyvä. Tulin keskustelemaan kanssanne kotivakuutuksen uusimisesta. Nykyinen vakuutuksenne on voimassa vielä kaksi kuukautta.\nAsiakas: Selvä. Onko vakuutuksen hintaan tulossa muutoksia?\nVakuutusneuvoja: Itse asiassa hinta nousee hieman, noin 5 euroa kuukaudessa. Mutta samalla laajennamme vakuutusturvaa. Esimerkiksi matkatavaravakuutus tulee automaattisesti mukaan.\nAsiakas: Kuulostaa ihan hyvältä. Hyväksyn uuden sopimuksen.\nVakuutusneuvoja: Kiitos! Lähetän teille sähköpostilla vahvistuksen ja uudet ehdot.",
+      "audio_asset_id": "794da575-2f8e-5c92-867d-b2962db0b0b4"
+    },
+    "questions": [
+      {
+        "id": "list_040",
+        "prompt": "Mistä vakuutuksesta on kyse?",
+        "options": [
+          "Auto vakuutus",
+          "Kotivakuutus",
+          "Matkavakuutus",
+          "Henkivakuutus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_041",
+        "prompt": "Kuinka paljon hinta nousee?",
+        "options": [
+          "2 euroa",
+          "5 euroa",
+          "10 euroa",
+          "15 euroa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_042",
+        "prompt": "Mitä uutta vakuutukseen tulee automaattisesti mukaan?",
+        "options": [
+          "Lasivakuutus",
+          "Matkatavaravakuutus",
+          "Oikeusturvavakuutus",
+          "Sairaskuluvakuutus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

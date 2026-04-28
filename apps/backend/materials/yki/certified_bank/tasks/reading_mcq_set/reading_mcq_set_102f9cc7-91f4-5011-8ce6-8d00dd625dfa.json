@@ -1,0 +1,77 @@
+{
+  "id": "102f9cc7-91f4-5011-8ce6-8d00dd625dfa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.789,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kaupunkien viheralueiden merkitys on noussut keskeiseksi kaupunkisuunnittelun ja -politiikan kysymykseksi. Samalla kun kaupunkeja tiivistetään ilmastosyistä ja asuntopulan helpottamiseksi, viheralueet joutuvat usein väistymään rakentamisen tieltä. Tämä herättää kysymyksiä siitä, mikä on viheralueiden arvo ja kenellä on oikeus päättää niiden käytöstä. Viheralueiden puolustajat korostavat niiden moninaisia hyötyjä. Ekologisesta näkökulmasta ne ovat tärkeitä luonnon monimuotoisuuden kannalta. Ne toimivat elinympäristöinä lukuisille lajeille ja ekologisina käytävinä, jotka yhdistävät eri alueita toisiinsa. Ne myös sitovat hiiltä, puhdistavat ilmaa ja tasaavat hulevesiä, mikä on erityisen tärkeää ilmastonmuutoksen aikakaudella. Sosiaalisesta näkökulmasta viheralueet ovat tärkeitä asukkaiden hyvinvoinnille ja virkistykselle. Ne tarjoavat paikkoja ulkoiluun, leikkiin ja rentoutumiseen, ja niillä on osoitettu olevan myönteisiä vaikutuksia sekä fyysiseen että psyykkiseen terveyteen. Ne myös lisäävät asuinalueiden viihtyisyyttä ja voivat jopa nostaa asuntojen hintoja. Taloudellisesta näkökulmasta viheralueet tuovat siis myös välillisiä hyötyjä, vaikka ne eivät suoraan tuota verotuloja. Toisaalta kaupunkien tiivistämisen kannattajat katsovat, että viheralueita ei voida pitää koskemattomina, kun kaupungeilla on paineita rakentaa lisää asuntoja ja työpaikkoja. Heidän mukaansa tiivis kaupunkirakenne on ilmaston kannalta kestävämpi, ja viheralueiden menetyksen hyvittämiseksi voidaan kehittää uudenlaisia viherratkaisuja, kuten viherkattoja ja puistomaisia pihoja. Kolmas näkökulma korostaa, että viheralueiden suunnittelussa tulisi ottaa huomioon sekä ekologiset, sosiaaliset että taloudelliset näkökulmat. Tämä edellyttää kokonaisvaltaista suunnittelua, jossa viheralueet nähdään osana kaupungin infrastruktuuria, ei vain rakentamisen esteenä. Viheralueiden verkosto tulisi suunnitella siten, että se palvelee mahdollisimman hyvin sekä luonnon monimuotoisuutta että asukkaiden tarpeita. Samalla on hyväksyttävä, että joissain tapauksissa kompromisseja joudutaan tekemään ja viheralueita voidaan joutua korvaamaan uudenlaisilla ratkaisuilla.",
+      "word_count": 236
+    },
+    "questions": [
+      {
+        "id": "27c8441f-6e42-5584-bc70-b98d0c637da9",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Viheralueiden ekologinen merkitys kaupungeissa",
+          "Viheralueiden ja kaupunkien tiivistämisen välinen jännite ja siihen liittyvät erilaiset näkökulmat",
+          "Viherkattojen ja puistomaisten pihojen tekniset ratkaisut",
+          "Asuntojen hintojen nousu viheralueiden läheisyydessä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f9ed6f72-e411-567a-a0d7-9ba5ea6aa3b0",
+        "prompt": "Tekstin mukaan mitä ekologisia hyötyjä viheralueilla on?",
+        "options": [
+          "Ne lisäävät asuntojen hintoja ja viihtyisyyttä",
+          "Ne tarjoavat elinympäristöjä lajeille, toimivat ekologisina käytävinä, sitovat hiiltä, puhdistavat ilmaa ja tasaavat hulevesiä",
+          "Ne vähentävät tarvetta joukkoliikenteelle",
+          "Ne lisäävät kaupunkien tiiviyttä ja vähentävät rakentamispaineita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8b1a668a-0a69-5374-9ed8-81bc24f5b31b",
+        "prompt": "Mitä sosiaalisia hyötyjä viheralueilla tekstin mukaan on?",
+        "options": [
+          "Ne tuottavat verotuloja ja lisäävät kaupungin kilpailukykyä",
+          "Ne tarjoavat paikkoja ulkoiluun, leikkiin ja rentoutumiseen sekä vaikuttavat myönteisesti terveyteen ja viihtyisyyteen",
+          "Ne vähentävät asumiskustannuksia",
+          "Ne lisäävät työpaikkoja rakennusalalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "def79640-f93f-54b1-9fcf-5b533d66fc92",
+        "prompt": "Mitä kolmas, kokonaisvaltainen näkökulma edellyttää viheralueiden suunnittelulta?",
+        "options": [
+          "Viheralueiden säilyttämistä koskemattomina ja rakentamisen kieltämistä kokonaan",
+          "Viheralueiden uhraamista rakentamiselle ilman kompensaatioita",
+          "Viheralueiden näkemistä osana kaupungin infrastruktuuria, kokonaisvaltaista suunnittelua ja kompromissien tekemistä tarvittaessa",
+          "Viheralueiden korvaamista kokonaan uudenlaisilla viherratkaisuilla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

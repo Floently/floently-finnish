@@ -1,0 +1,37 @@
+{
+  "id": "9c426d7a-a544-5fa7-a132-f9acb6ed533b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.667,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: classroom. Purpose: justify_an_opinion. Constraint: address_the_receiver.",
+    "materials": {
+      "scenario": "environment in classroom"
+    },
+    "items": [
+      {
+        "id": "e0006fba-ba92-5c6e-8bf9-7094120ee140",
+        "prompt": "Write for the receiver in this scenario: classroom. Purpose: justify_an_opinion. Constraint: address_the_receiver."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

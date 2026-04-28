@@ -1,0 +1,77 @@
+{
+  "id": "51e62495-c83e-54be-8676-11782de48861",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Helsingin pyöräteiden kunto on herättänyt keskustelua kaupunkilaisten keskuudessa. Monien mielestä pyöräteitä ei hoideta talvella riittävästi, mikä tekee pyöräilystä vaarallista.\n\nKaupunki on saanut runsaasti palautetta liukkaista ja huonosti auratuista pyöräteistä. Erityisesti aamuisin, kun ihmiset ovat menossa töihin, pyörätiet ovat usein jäässä ja hiekoittamattomia. Tämä on johtanut useisiin kaatumisiin ja vaaratilanteisiin.\n\nKaupungin liikenneinsinööri Timo Virtanen myöntää, että ongelmia on. 'Olemme tietoisia tilanteesta ja teemme parhaamme. Resurssit ovat kuitenkin rajalliset. Pyöräteitä on paljon ja aurauskalustoa on rajallisesti', Virtanen sanoo.\n\nPyöräilyaktiivit vaativat, että pyöräteiden kunnossapitoon pitäisi panostaa enemmän. 'Talvipyöräily lisääntyy koko ajan. Kaupungin pitäisi varata enemmän rahaa pyöräteiden hoitoon, jotta pyöräily olisi turvallista ympäri vuoden', sanoo Helsingin Pyöräilijät ry:n puheenjohtaja.\n\nKaupunki lupaa selvittää tilannetta ja miettiä, miten pyöräteiden kunnossapitoa voitaisiin parantaa ensi talveksi.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "0824ff76-3ecc-59be-b998-d56219047cef",
+        "prompt": "Mistä kaupunkilaiset ovat huolissaan?",
+        "options": [
+          "A) Pyöräteitä on liian vähän",
+          "B) Pyöräteitä ei hoideta talvella riittävästi",
+          "C) Pyöräily on kielletty keskustassa",
+          "D) Pyöräteillä on liikaa autoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ea8b0deb-e245-5d23-ac94-b3e2517b90fa",
+        "prompt": "Mitä on tapahtunut huonosti hoidetuilla pyöräteillä?",
+        "options": [
+          "A) Pyöräilijöitä on sakotettu",
+          "B) On sattunut kaatumisia ja vaaratilanteita",
+          "C) Pyöräily on kielletty",
+          "D) Pyöräteitä on suljettu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5e5eea2a-b0aa-5d26-be9a-434a7d1d7ddf",
+        "prompt": "Mitä Timo Virtanen sanoo ongelmasta?",
+        "options": [
+          "A) Hän ei usko, että ongelmaa on",
+          "B) Resurssit ovat rajalliset ja pyöräteitä on paljon",
+          "C) Pyöräilijät ovat itse syyllisiä",
+          "D) Kaupunki ei voi tehdä asialle mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f08b9a4e-5da1-5a43-8217-8ad7f4e15720",
+        "prompt": "Mitä pyöräilyaktiivit vaativat?",
+        "options": [
+          "A) Pyöräily kielletään talvella",
+          "B) Enemmän rahaa pyöräteiden hoitoon",
+          "C) Uusia pyöräteitä",
+          "D) Pyöräilijöille lisää koulutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

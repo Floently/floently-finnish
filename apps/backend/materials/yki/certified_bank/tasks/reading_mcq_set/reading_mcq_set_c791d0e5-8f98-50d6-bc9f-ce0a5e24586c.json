@@ -1,0 +1,73 @@
+{
+  "id": "c791d0e5-8f98-50d6-bc9f-ce0a5e24586c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomen metsistä käydään jatkuvaa kamppailua. Toisaalta ne ovat kansallisvarallisuutta ja teollisuuden raaka-aine. Toisaalta ne ovat hiilinieluja ja monimuotoisuuden turvaajia. Näiden välillä tasapainoilu on vaikeaa.\n\nMetsäteollisuus korostaa metsien taloudellista merkitystä. Se työllistää tuhansia ihmisiä ja tuo verotuloja. Suomalainen puu on uusiutuvaa ja ekologista, ja sitä tarvitaan korvaamaan fossiilisia materiaaleja.\n\nYmpäristöjärjestöt muistuttavat, että talous ei ole ainoa arvo. Suomessa on uhanalaisia lajeja, jotka tarvitsevat vanhoja metsiä. Avohakkuut tuhoavat elinympäristöjä ja pirstovat metsiä. Hiilinielut pienenevät, kun metsiä hakataan liikaa.\n\nMetsänomistajat ovat ristiriitaisessa asemassa. He haluavat saada toimeentuloa metsistään, mutta myös säilyttää ne tuleville sukupolville. Moni kaipaisi selkeämpiä ohjeita ja taloudellista tukea suojeluun.\n\nMikä on ratkaisu? Tuskin täyskielto hakkuille eikä myöskään teollisuuden rajoittamaton toiminta. Tarvitaan pitkäjänteistä suunnittelua, jossa otetaan huomioon sekä talous että luonto. Sertifikaatit, kuten PEFC ja FSC, auttavat, mutta ne eivät yksin riitä. Tarvitaan poliittisia päätöksiä ja yhteistä tahtoa.",
+      "word_count": 137
+    },
+    "questions": [
+      {
+        "id": "item_069_1",
+        "prompt": "Mitä ristiriitaa metsien käytössä kirjoittaja kuvaa?",
+        "options": [
+          "metsiä on liian vähän",
+          "taloudellinen hyöty vs. luonnon monimuotoisuus ja hiilinielut",
+          "metsät ovat vain teollisuuden käytössä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_069_2",
+        "prompt": "Mitä metsäteollisuus korostaa?",
+        "options": [
+          "metsien suojelemista",
+          "metsien taloudellista merkitystä ja työllisyyttä",
+          "hakkuiden lopettamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_069_3",
+        "prompt": "Mitä ympäristöjärjestöt pitävät tärkeänä?",
+        "options": [
+          "vain taloutta",
+          "vanhojen metsien suojelua ja uhanalaisten lajien elinympäristöjä",
+          "hakkuiden lisäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_069_4",
+        "prompt": "Mitä ratkaisua kirjoittaja ehdottaa?",
+        "options": [
+          "hakkuiden täyskieltoa",
+          "teollisuuden vapaata toimintaa",
+          "pitkäjänteistä suunnittelua, sertifikaatteja ja poliittisia päätöksiä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

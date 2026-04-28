@@ -1,0 +1,37 @@
+{
+  "id": "ad6071cb-d3b8-5720-9650-a189206f12c0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a Director-General position at the World Intellectual Property Organization. Tell about your experience in copyrights, patent systems, and global governance of intellectual property. Describe your vision for WIPO's role in protecting innovation and addressing digital age challenges. Length about 450 words.",
+    "materials": {
+      "scenario": "Hakemus WIPO:n pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a Director-General position at the World Intellectual Property Organization. Tell about your experience in copyrights, patent systems, and global governance of intellectual property. Describe your vision for WIPO's role in protecting innovation and addressing digital age challenges. Length about 450 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a Director-General position at the World Intellectual Property Organization. Tell about your experience in copyrights, patent systems, and global governance of intellectual property. Describe your vision for WIPO's role in protecting innovation and addressing digital age challenges. Length about 450 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

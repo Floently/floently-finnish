@@ -1,0 +1,37 @@
+{
+  "id": "e791849a-f2ed-5557-8a85-80163d07e786",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt fysioterapeutilla. Kirjoita palaute. Kerro, auttoiko hoito ja oliko terapeutti ammattitaitoinen.",
+    "materials": {
+      "scenario": "Palaute fysioterapiasta"
+    },
+    "items": [
+      {
+        "id": "2c399ade-a24c-5299-8b81-945d878c8c6e",
+        "prompt": "Olet käynyt fysioterapeutilla. Kirjoita palaute. Kerro, auttoiko hoito ja oliko terapeutti ammattitaitoinen."
+      }
+    ],
+    "rubric": "Olet käynyt fysioterapeutilla. Kirjoita palaute. Kerro, auttoiko hoito ja oliko terapeutti ammattitaitoinen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "82c21336-556c-54a3-92ad-1ef0807e1e58",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö Netflixin kaltaisten suoratoistopalvelujen maksaa enemmän veroja Suomeen. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Suoratoistopalvelujen verotus"
+    },
+    "items": [
+      {
+        "id": "c8e7b5e3-4593-5ede-95b8-91a950122f1e",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö Netflixin kaltaisten suoratoistopalvelujen maksaa enemmän veroja Suomeen. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

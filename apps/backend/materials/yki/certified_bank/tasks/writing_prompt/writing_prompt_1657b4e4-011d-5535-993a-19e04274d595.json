@@ -1,0 +1,37 @@
+{
+  "id": "1657b4e4-011d-5535-993a-19e04274d595",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö aseiden hallussapitoa tiukentaa Suomessa?'. Arvioi turvallisuutta, metsästyskulttuuria ja kansainvälisiä esimerkkejä.",
+    "materials": {
+      "scenario": "Aseiden hallussapidon tiukentaminen"
+    },
+    "items": [
+      {
+        "id": "2596e9c6-eeff-549a-8707-86b38655011e",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö aseiden hallussapitoa tiukentaa Suomessa?'. Arvioi turvallisuutta, metsästyskulttuuria ja kansainvälisiä esimerkkejä."
+      }
+    ],
+    "rubric": "Turvallisuus\nMetsästyskulttuuri\nKansainväliset esimerkit\nYksilön vapaus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

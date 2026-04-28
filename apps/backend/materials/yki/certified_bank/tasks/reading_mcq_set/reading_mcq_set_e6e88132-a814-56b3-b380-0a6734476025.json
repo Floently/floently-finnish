@@ -1,0 +1,66 @@
+{
+  "id": "e6e88132-a814-56b3-b380-0a6734476025",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Digitalisaatio on tuonut uusia mahdollisuuksia demokratian ja kansalaisosallistumisen vahvistamiseen. Sähköinen äänestäminen, verkkokeskustelut, kansalaisaloitteet ja osallistuva budjetointi ovat esimerkkejä työkaluista, jotka voivat madaltaa kynnystä vaikuttamiseen ja tavoittaa uusia kansalaisryhmiä. Erityisesti nuoret, jotka ovat tottuneet digitaalisiin ympäristöihin, voivat kokea verkkovaikuttamisen luontevampana kuin perinteiset osallistumismuodot. Kansalaisaloite.fi-palvelu on konkreettinen esimerkki onnistuneesta digitaalisesta demokratiasta Suomessa: se on mahdollistanut sen, että kansalaiset voivat tehdä lakialoitteita suoraan eduskunnalle. Useat aloitteet ovat keränneet vaadittavat 50 000 nimeä ja johtaneet eduskuntakäsittelyyn. Osallistuva budjetointi, jossa kaupunkilaiset saavat päättää osan julkisista varoista, on yleistynyt ja toteutetaan usein digitaalisia alustoja hyödyntäen. Samalla digitaalinen demokratia tuo mukanaan haasteita. Digitaalinen kuilu tarkoittaa, että kaikilla ei ole yhtäläisiä mahdollisuuksia käyttää digitaalisia palveluita, mikä voi syventää osallistumisen eriarvoisuutta. Iäkkäät, matalasti koulutetut ja heikossa taloudellisessa asemassa olevat saattavat jäädä digitaalisen demokratian ulkopuolelle. Toinen merkittävä haaste on disinformaatio ja some-algoritmien luomat kaikukammiot, jotka voivat vääristää julkista keskustelua ja vaikeuttaa yhteisymmärryksen saavuttamista. Myös tietoturva ja yksityisyyden suoja ovat keskeisiä kysymyksiä: miten varmistetaan, että digitaalinen äänestäminen on luotettavaa eikä henkilötietoja väärinkäytetä? Digitaalisen demokratian kehittäminen vaatii tasapainoilua uusien mahdollisuuksien ja perinteisten demokraattisten arvojen, kuten yhdenvertaisuuden ja luottamuksen, välillä. Tarvitaan jatkuvaa arviointia ja kehittämistä, jotta digitaaliset työkalut todella palvelevat demokratiaa.",
+      "word_count": 188
+    },
+    "questions": [
+      {
+        "id": "f1a2b3c4-d5e6-4f7a-9b8c-9d0e1f2a3b4c",
+        "prompt": "Mikä on esimerkki onnistuneesta digitaalisesta demokratiasta Suomessa?",
+        "options": [
+          "Verkkokaupat",
+          "Kansalaisaloite.fi-palvelu",
+          "Sosiaalinen media",
+          "Sähköposti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a2b3c4d5-e6f7-4a8b-9c9d-0e1f2a3b4c5d",
+        "prompt": "Mitä tarkoitetaan digitaalisella kuilulla?",
+        "options": [
+          "Eroja internetin nopeudessa",
+          "Eroja ihmisten mahdollisuuksissa käyttää digitaalisia palveluita",
+          "Puhelinverkkojen katkoksia",
+          "Tietokoneiden rikkoutumisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b3c4d5e6-f7a8-4b9c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Mitä haasteita digitaaliseen demokratiaan liittyy?",
+        "options": [
+          "Liikaa osallistujia",
+          "Disinformaatio, kaikukammiot ja tietoturva",
+          "Liian nopea päätöksenteko",
+          "Liian vähän keskustelua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "8b32a196-2e5b-541f-b61f-84712c9827e0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.281,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell which store you go to and what you buy there.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "734a9c19-5959-54f9-b5c6-89f6c1d7df30",
+        "ai_first_turn_fi": "Missä sä käyt usein kaupassa? Mitä ostat?"
+      }
+    ],
+    "rubric": "Tell which store you go to and what you buy there.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

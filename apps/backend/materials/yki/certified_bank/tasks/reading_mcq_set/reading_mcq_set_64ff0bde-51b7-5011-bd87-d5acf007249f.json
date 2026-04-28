@@ -1,0 +1,110 @@
+{
+  "id": "64ff0bde-51b7-5011-bd87-d5acf007249f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen huoltovarmuus on noussut uudella tavalla esille viime vuosien kriisien myötä. Koronapandemia osoitti, miten haavoittuvaisia globaalit toimitusketjut ovat. Kun rajat sulkeutuivat ja kuljetukset häiriintyivät, monien tuotteiden saatavuus vaikeutui. Venäjän hyökkäys Ukrainaan puolestaan osoitti, miten energiariippuvuus voi muodostaa turvallisuusriskin. Suomi on reagoinut näihin haasteisiin monin tavoin. Energiaomavaraisuutta on lisätty panostamalla uusiutuvaan energiaan ja monipuolistamalla energian tuontilähteitä. Kaasuputki ja sähköyhteydet Viroon ja muihin Pohjoismaihin ovat vähentäneet riippuvuutta Venäjästä. Myös ruokahuollossa on varauduttu. Velvoitevarastoissa on viljaa, öljyä ja muita tärkeitä tuotteita. Terveydenhuollon varautumista on parannettu, ja lääkkeiden saatavuutta on pyritty turvaamaan. Huoltovarmuus ei ole vain valtion asia. Yrityksillä on oma vastuunsa varmistaa toimintansa jatkuvuus häiriötilanteissa. Myös kansalaiset voivat varautua esimerkiksi pitämällä kotona varastossa ruokaa, vettä ja muita tarpeita muutamaksi päiväksi. Huoltovarmuuskeskus koordinoi ja kehittää alaa yhteistyössä eri toimijoiden kanssa. Tavoitteena on, että Suomi pystyy selviytymään häiriöistä ja kriiseistä mahdollisimman hyvin. Tämä vaatii jatkuvaa työtä, ennakointia ja investointeja.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä koronapandemia osoitti huoltovarmuudesta?",
+        "options": [
+          "Globaalit toimitusketjut ovat toimivia.",
+          "Globaalit toimitusketjut ovat haavoittuvaisia.",
+          "Suomi on täysin omavarainen.",
+          "Mikään ei uhkaa huoltovarmuutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Venäjän hyökkäys Ukrainaan osoitti?",
+        "options": [
+          "Energiariippuvuus ei ole riski.",
+          "Energiariippuvuus voi muodostaa turvallisuusriskin.",
+          "Venäjä on luotettava kumppani.",
+          "Energian hinta ei nouse."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten energiaomavaraisuutta on lisätty?",
+        "options": [
+          "Lisäämällä tuontia Venäjältä.",
+          "Panostamalla uusiutuvaan energiaan ja monipuolistamalla tuontilähteitä.",
+          "Vain säästämällä energiaa.",
+          "Vain rakentamalla uusia ydinvoimaloita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä velvoitevarastoissa on?",
+        "options": [
+          "Vain viljaa.",
+          "Viljaa, öljyä ja muita tärkeitä tuotteita.",
+          "Vain lääkkeitä.",
+          "Vain polttoaineita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on yritysten vastuu huoltovarmuudessa?",
+        "options": [
+          "Ei mitään vastuuta.",
+          "Varmistaa toimintansa jatkuvuus häiriötilanteissa.",
+          "Vain maksaa veroja.",
+          "Vain noudattaa lakeja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten kansalaiset voivat varautua?",
+        "options": [
+          "Ei mitenkään.",
+          "Pitämällä kotona varastossa ruokaa, vettä ja muita tarpeita.",
+          "Vain ostamalla aseen.",
+          "Vain muuttamalla maaseudulle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä taho koordinoi huoltovarmuutta Suomessa?",
+        "options": [
+          "Puolustusvoimat.",
+          "Huoltovarmuuskeskus.",
+          "Sisäministeriö.",
+          "Ulkoministeriö."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

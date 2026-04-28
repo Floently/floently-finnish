@@ -1,0 +1,77 @@
+{
+  "id": "0fc7e3da-e31b-5e26-a103-bb8e1271fd44",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.753,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Pohjoismainen hyvinvointimalli perustuu korkeaan verotukseen, laajoihin julkisiin palveluihin ja pieniin tuloeroihin. Mallia on pidetty menestyksekkäänä, sillä Pohjoismaat menestyvät useissa kansainvälisissä vertailuissa, kuten onnellisuus- ja kilpailukykymittauksissa. Malli on kuitenkin kohdannut haasteita viime vuosina. Väestön ikääntyminen lisää julkisia menoja, ja globalisaatio kiristää verokilpailua. Myös maahanmuutto asettaa uusia vaatimuksia hyvinvointipalveluille. Pohjoismaat ovat joutuneet sopeuttamaan mallejaan esimerkiksi uudistamalla eläkejärjestelmiä ja lisäämällä työmarkkinoiden joustavuutta. Keskustelua käydään siitä, voidaanko hyvinvointivaltio säilyttää nykymuodossaan.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "mcq_604",
+        "prompt": "Mihin Pohjoismainen hyvinvointimalli perustuu?",
+        "options": [
+          "Matalaan verotukseen ja yksityisiin palveluihin",
+          "Korkeaan verotukseen ja laajoihin julkisiin palveluihin",
+          "Keskitasoiseen verotukseen ja sekoitettuihin palveluihin",
+          "Matalaan verotukseen ja laajoihin yksityisiin palveluihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_605",
+        "prompt": "Millä mittareilla Pohjoismaat menestyvät?",
+        "options": [
+          "Onnellisuus- ja kilpailukykymittauksissa",
+          "BKT-mittauksissa",
+          "Väestönkasvumittauksissa",
+          "Teollisuustuotannon mittauksissa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_606",
+        "prompt": "Mitä haasteita hyvinvointimalli on kohdannut?",
+        "options": [
+          "Väestön nuorentumista",
+          "Väestön ikääntymistä ja verokilpailua",
+          "Julkisten menojen vähenemistä",
+          "Työllisyyden kasvua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_607",
+        "prompt": "Miten Pohjoismaat ovat sopeuttaneet mallejaan?",
+        "options": [
+          "Lisäämällä veroja",
+          "Uudistamalla eläkejärjestelmiä",
+          "Vähentämällä julkisia palveluita",
+          "Lisäämällä maahanmuuttoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

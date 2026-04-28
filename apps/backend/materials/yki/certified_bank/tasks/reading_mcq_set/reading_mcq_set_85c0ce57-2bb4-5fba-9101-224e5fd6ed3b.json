@@ -1,0 +1,66 @@
+{
+  "id": "85c0ce57-2bb4-5fba-9101-224e5fd6ed3b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Ilmastonmuutoksen hillintä on aikamme suurimpia haasteita. Tavoitteena on rajoittaa maapallon lämpeneminen 1,5 asteeseen esiteolliseen aikaan verrattuna. Tämä vaatii päästöjen nopeaa vähentämistä kaikilla sektoreilla. Keskeisiä keinoja ovat uusiutuvan energian lisääminen, energiatehokkuus ja liikenteen päästöjen vähentäminen. Myös maankäytöllä on merkitystä: metsien suojelu ja ennallistaminen sitovat hiiltä. Kansainvälinen yhteistyö on välttämätöntä, sillä ilmastonmuutos ei tunne rajoja. Pariisin ilmastosopimus on tärkeä askel, mutta nykyiset toimet eivät riitä tavoitteiden saavuttamiseen. Tarvitaan sekä teknologisia ratkaisuja että elämäntapojen muutoksia.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on ilmastonmuutoksen hillinnän tavoite?",
+        "options": [
+          "Pysäyttää ilmastonmuutos kokonaan",
+          "Rajoittaa lämpeneminen 1,5 asteeseen",
+          "Vähentää päästöjä puoleen",
+          "Lisätä uusiutuvaa energiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten maankäyttö vaikuttaa ilmastonmuutokseen?",
+        "options": [
+          "Sillä ei ole merkitystä",
+          "Metsien suojelu ja ennallistaminen sitovat hiiltä",
+          "Metsien hakkuut vähentävät päästöjä",
+          "Maatalous ei vaikuta ilmastoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä Pariisin ilmastosopimuksesta sanotaan?",
+        "options": [
+          "Se on riittävä ratkaisu",
+          "Se on tärkeä askel, mutta nykyiset toimet eivät riitä",
+          "Se on epäonnistunut",
+          "Se koskee vain teollisuusmaita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

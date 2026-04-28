@@ -1,0 +1,66 @@
+{
+  "id": "942b6b3d-8d46-5b66-8b9b-915c22702a78",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomi on erämaiden ja luonnonystävien paratiisi. Maan pinta-alasta noin 75 prosenttia on metsää, ja tuhannet järvet ja saaret tarjoavat upeita retkeilymahdollisuuksia. Erämaiset alueet, kuten Lapin tunturit ja Itä-Suomen kansallispuistot, houkuttelevat vuosittain tuhansia vaeltajia. Suosituimmat vaelluskohteet ovat Urho Kekkosen kansallispuisto, Karhunkierros ja Kolin kansallispuisto. Retkeilyyn voi tutustua helposti lyhyillä päiväretkillä, tai lähteä pidemmälle vaellukselle useaksi päiväksi. Erämaissa liikkumista varten on olemassa hyvät opasteet, laavut ja autiotuvat, joissa voi yöpyä maksutta. Jokamiehenoikeudet mahdollistavat liikkumisen luonnossa vapaasti, mutta niihin liittyy myös velvollisuuksia: luontoa ei saa roskata, eikä eläimiä saa häiritä. Retkeilijät keräävät usein marjoja ja sieniä evääkseen, ja onginta on sallittua. Talvella hiihtovaellukset ovat suosittuja, ja monet harrastavat myös pilkkimistä jäällä. Erämaat tarjoavat rauhaa ja hiljaisuutta, jota moni kaipaa kiireisessä arjessa. Luonnossa liikkuminen parantaa hyvinvointia ja antaa voimia. Suomen Ladulla ja muilla järjestöillä on tärkeä rooli retkeilyreittien ylläpidossa ja retkeilytaidon opastuksessa.",
+      "word_count": 138
+    },
+    "questions": [
+      {
+        "id": "c6d7e8f9-a0b1-4c2d-9e3f-4a5b6c7d8e9f",
+        "prompt": "Kuinka suuri osa Suomen pinta-alasta on metsää?",
+        "options": [
+          "Noin 50 prosenttia",
+          "Noin 65 prosenttia",
+          "Noin 75 prosenttia",
+          "Noin 85 prosenttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d7e8f9a0-b1c2-4d3e-9f4a-5b6c7d8e9f0a",
+        "prompt": "Missä voi yöpyä maksutta erämaissa?",
+        "options": [
+          "Hotelleissa",
+          "Laavuissa ja autiotuvissa",
+          "Vuokramökeissä",
+          "Leirintäalueilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8f9a0b1-c2d3-4e4f-9a5b-6c7d8e9f0a1b",
+        "prompt": "Mitä jokamiehenoikeudet eivät salli?",
+        "options": [
+          "Marjastusta",
+          "Sienestystä",
+          "Roskaamista",
+          "Onkimista"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

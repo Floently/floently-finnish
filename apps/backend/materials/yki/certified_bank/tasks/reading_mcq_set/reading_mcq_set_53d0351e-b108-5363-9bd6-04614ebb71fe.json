@@ -1,0 +1,110 @@
+{
+  "id": "53d0351e-b108-5363-9bd6-04614ebb71fe",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen väestön ikääntyminen on yksi merkittävimmistä yhteiskunnallisista muutoksista. Se vaikuttaa työmarkkinoihin, julkiseen talouteen ja palveluihin. Työikäisten määrä vähenee, kun suuret ikäluokat jäävät eläkkeelle. Samaan aikaan eläkkeellä olevien määrä kasvaa. Tämä lisää eläkemenoja ja hoivapalvelujen tarvetta. Julkinen talous joutuu paineiden alle. Ratkaisuja etsitään monelta suunnalta. Työuria halutaan pidentää. Ihmisten pitäisi olla pidempään työelämässä. Tämä tarkoittaa sekä eläkeiän nostamista että työkyvyn ylläpitämistä. Myös työperäistä maahanmuuttoa halutaan lisätä. Uudet työntekijät voisivat paikata työvoimapulaa. Teknologia voi auttaa, jotta vähemmällä työvoimalla saadaan enemmän aikaan. Ikääntyminen on myös mahdollisuus. Ikääntyneillä on paljon osaamista ja kokemusta. Monet haluavat jatkaa työelämässä pidempään, jos se on mahdollista. Ikääntyneille suunnatut palvelut ja tuotteet ovat kasvava markkina. Teknologia voi auttaa ikääntyneitä asumaan kotona pidempään.",
+      "word_count": 113
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin kaikkeen väestön ikääntyminen vaikuttaa?",
+        "options": [
+          "Vain eläkkeisiin.",
+          "Työmarkkinoihin, julkiseen talouteen ja palveluihin.",
+          "Vain työmarkkinoihin.",
+          "Vain julkiseen talouteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu työikäisten määrälle?",
+        "options": [
+          "Se kasvaa.",
+          "Se vähenee.",
+          "Se pysyy samana.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tapahtuu eläkkeellä olevien määrälle?",
+        "options": [
+          "Se vähenee.",
+          "Se kasvaa.",
+          "Se pysyy samana.",
+          "Se ei vaikuta mihinkään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja ikääntymisen haasteisiin esitetään?",
+        "options": [
+          "Vain työurien pidentäminen.",
+          "Työurien pidentäminen, työperäinen maahanmuutto ja teknologia.",
+          "Vain työperäinen maahanmuutto.",
+          "Vain teknologian käyttö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan työurien pidentämisellä?",
+        "options": [
+          "Ihmiset jäävät aiemmin eläkkeelle.",
+          "Ihmiset ovat pidempään työelämässä.",
+          "Työpäiviä pidennetään.",
+          "Työviikkoja pidennetään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen tarjoaa?",
+        "options": [
+          "Ei mitään mahdollisuuksia.",
+          "Ikääntyneiden osaamisen hyödyntäminen ja uudet markkinat.",
+          "Vain uusia markkinoita.",
+          "Vain vapaaehtoistyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten teknologia voi auttaa ikääntyneitä?",
+        "options": [
+          "Se vaikeuttaa elämää.",
+          "Se auttaa asumaan kotona pidempään.",
+          "Sillä ei ole merkitystä.",
+          "Se korvaa ihmiskontaktit."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

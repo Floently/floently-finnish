@@ -1,0 +1,37 @@
+{
+  "id": "7cffb8d4-0fc0-5a8c-b6ad-ff2e22e4d2d4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton oikeusapu pienituloisille?'. Analysoi oikeusturvaa, kustannuksia ja yhdenvertaisuutta.",
+    "materials": {
+      "scenario": "Maksuton oikeusapu"
+    },
+    "items": [
+      {
+        "id": "b2ee0261-a02c-51e6-90ce-7b2d3d19622d",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton oikeusapu pienituloisille?'. Analysoi oikeusturvaa, kustannuksia ja yhdenvertaisuutta."
+      }
+    ],
+    "rubric": "Oikeusturva\nKustannukset\nYhdenvertaisuus\nByrokratia",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

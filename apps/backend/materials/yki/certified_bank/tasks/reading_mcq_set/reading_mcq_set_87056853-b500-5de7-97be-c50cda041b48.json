@@ -1,0 +1,77 @@
+{
+  "id": "87056853-b500-5de7-97be-c50cda041b48",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.784,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ILMASTOPOLITIIKAN RISTIRIIDAT\n\nIlmastopolitiikka on noussut yhdeksi aikamme keskeisimmistä yhteiskunnallisista kysymyksistä. Samalla kun tieto ilmastonmuutoksen vakavuudesta lisääntyy, poliittinen päätöksenteko junnaa paikallaan. Tämä ristiriita herättää kysymyksen: miksi emme toimi, vaikka tiedämme, että toimia tarvitaan?\n\nYksi keskeinen syy on aikajänteen ongelma. Ilmastotoimien hyödyt realisoituvat vasta vuosikymmenten päästä, mutta niiden kustannukset maksetaan tässä ja nyt. Poliittisille päättäjille, joiden toimikausi on neljä vuotta, tämä on vaikea yhtälö. Lyhyen tähtäimen taloudelliset intressit ja äänestäjien välittömät tarpeet menevät usein pitkäjänteisen ilmastopolitiikan edelle.\n\nToinen keskeinen ristiriita liittyy globaaliin oikeudenmukaisuuteen. Ilmastonmuutoksen vaikutukset kohdistuvat pahiten kehittyviin maihin, jotka ovat historiallisesti tuottaneet vähiten päästöjä. Samalla teollisuusmaat, jotka ovat suurimpia päästölähteitä, odottavat kehittyvien maiden sitoutuvan samoihin päästövähennyksiin. Tämä asetelma herättää kysymyksen siitä, mikä on oikeudenmukaista ilmastopolitiikkaa.\n\nKolmas ristiriita koskee yksilön ja yhteiskunnan vastuuta. Kansalaisia kehotetaan tekemään ilmastoystävällisiä valintoja – vähentämään lihansyöntiä, suosimaan julkista liikennettä, vähentämään kulutusta. Todellisuudessa suurin osa päästöistä syntyy rakenteellisista tekijöistä, kuten energiantuotannosta, teollisuudesta ja liikennejärjestelmistä, joihin yksittäinen kansalainen voi vaikuttaa vain rajallisesti. Tämä luo helposti syyllisyyttä ja turhautumista.\n\nNeljäs ristiriita liittyy teknologiauskoon. Monet uskovat, että teknologia ratkaisee ilmastonmuutoksen – kehitetäänpä vaikka hiilidioksidin talteenottoa tai ydinvoimaa. Teknologialla on epäilemättä merkittävä rooli, mutta pelkkä teknologiausko voi johtaa siihen, että unohdamme tarvittavat käyttäytymisen ja rakenteiden muutokset.\n\nAsiantuntijat korostavat, että tarvitaan monitasoista lähestymistapaa. Ilmastopolitiikan on oltava pitkäjänteistä ja johdonmukaista. Sen on otettava huomioon globaali oikeudenmukaisuus ja tuettava sekä yksilöiden että yritysten muutosta. Ilmastonmuutoksen torjunta ei ole vain tekninen tai taloudellinen kysymys, vaan syvällinen yhteiskunnallinen ja eettinen haaste, joka vaatii uudenlaista ajattelua.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 271
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan 'aikajänteen ongelmalla' ilmastopolitiikassa?",
+        "options": [
+          "Ilmastonmuutos etenee hitaammin kuin ennusteet kertovat",
+          "Ilmastotoimien hyödyt tulevat vasta vuosien päästä, mutta kustannukset maksetaan nyt",
+          "Poliitikoilla ei ole aikaa perehtyä ilmastoasioihin",
+          "Ilmastotoimet ovat aina myöhässä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä oikeudenmukaisuusongelmaa teksti nostaa esiin?",
+        "options": [
+          "Teollisuusmaat kärsivät eniten ilmastonmuutoksesta",
+          "Kehittyvät maat eivät halua vähentää päästöjään",
+          "Kehittyvät maat kärsivät seurauksista, vaikka eivät ole suurimpia päästäjiä",
+          "Ilmastopolitiikka on liian kallista kehittyville maille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi yksilön vastuun korostaminen voi olla ongelmallista?",
+        "options": [
+          "Koska yksilöt eivät halua tehdä mitään",
+          "Koska suurin osa päästöistä syntyy rakenteellisista tekijöistä, joihin yksilö ei voi vaikuttaa",
+          "Koska yksilöt eivät ymmärrä ilmastonmuutosta",
+          "Koska yksilöiden teot ovat aina turhia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä vaaraa tekstin mukaan liittyy teknologiauskoon?",
+        "options": [
+          "Teknologia on liian kallista",
+          "Teknologia ei toimi",
+          "Se voi johtaa siihen, että unohdamme tarvittavat käyttäytymisen ja rakenteiden muutokset",
+          "Teknologia lisää päästöjä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

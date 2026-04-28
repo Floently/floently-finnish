@@ -1,0 +1,77 @@
+{
+  "id": "fb31fed5-e6a2-5279-b240-9dffe482936a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomen luonto on monimuotoinen ja kaunis. Maamme on Euroopan metsäisin maa, ja meillä on tuhansia järviä. Neljä vuodenaikaa tarjoavat vaihtelua: keväällä luonto herää eloon, kesällä on lämmin ja valoisaa, syksyllä ruska värittää maisemat ja talvella lumi peittää maan. Suomalaiset nauttivat luonnosta monin tavoin. Monet harrastavat marjastusta ja sienestystä. Myös retkeily ja vaeltaminen ovat suosittuja. Jokaisenoikeudet takaavat, että jokainen saa liikkua luonnossa vapaasti, kunhan ei häiritse tai vahingoita. Luonnonsuojelualueita on perustettu säilyttämään arvokkaita luontokohteita. Ilmastonmuutos uhkaa kuitenkin myös Suomen luontoa, ja sen vaikutukset näkyvät jo nyt esimerkiksi leutojen talvien lisääntymisenä.",
+      "word_count": 89
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä jokaisenoikeudet tarkoittavat?",
+        "options": [
+          "Saa metsästää vapaasti",
+          "Saa liikkua luonnossa vapaasti",
+          "Saa kaataa puita",
+          "Saa poimia kaikki kasvit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä suomalaiset harrastavat luonnossa?",
+        "options": [
+          "Golfia ja tennistä",
+          "Marjastusta ja sienestystä",
+          "Purjehdusta ja melontaa",
+          "Laskettelua ja lumilautailua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi luonnonsuojelualueita on perustettu?",
+        "options": [
+          "Metsästyksen helpottamiseksi",
+          "Matkailun edistämiseksi",
+          "Arvokkaiden luontokohteiden säilyttämiseksi",
+          "Rakentamisen estämiseksi"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä uhkaa Suomen luontoa?",
+        "options": [
+          "Liiallinen matkailu",
+          "Ilmastonmuutos",
+          "Metsästys",
+          "Kaupungistuminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

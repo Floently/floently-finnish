@@ -1,0 +1,110 @@
+{
+  "id": "49bbb391-fab3-5bbc-bd5a-bcf38914bdd1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.735,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Digitaalisaatio on mullistanut tavan, jolla ihmiset käyttävät julkisia palveluja. Verkossa voi nykyään hoitaa monia asioita, jotka ennen vaativat käyntiä virastossa. Veroilmoituksen voi täyttää sähköisesti, lääkäriajan voi varata netissä ja lapselle voi hakea päiväkotipaikkaa verkossa. Tämä säästää aikaa ja vaivaa sekä kansalaisilta että viranomaisilta. Palvelut ovat auki ympäri vuorokauden, eikä niihin tarvitse jonottaa. Digitaalisaatio on myös mahdollistanut uudenlaisia palveluja, kuten etävastaanotot ja sähköiset reseptit. Kaikilla ei kuitenkaan ole tasavertaisia mahdollisuuksia käyttää digitaalisia palveluja. Osa ikääntyneistä ei osaa käyttää tietokonetta tai älypuhelinta. Myös heikko kielitaito tai lukivaikeudet voivat vaikeuttaa palvelujen käyttöä. Tämä voi johtaa digitaaliseen syrjäytymiseen, jossa osa väestöstä jää palvelujen ulkopuolelle. Siksi on tärkeää, että digitaalisten palvelujen rinnalla säilytetään myös perinteisiä palveluja. On oltava mahdollisuus asioida puhelimitse tai käymällä virastossa. Palvelujen pitää olla helppokäyttöisiä ja saavutettavia kaikille. Digitaalisaatio on mahdollisuus, mutta se ei saa jättää ketään ulkopuolelle.",
+      "word_count": 136
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten digitaalisaatio on muuttanut julkisten palvelujen käyttöä?",
+        "options": [
+          "Se on vaikeuttanut asiointia.",
+          "Verkossa voi hoitaa monia asioita, jotka ennen vaativat käyntiä virastossa.",
+          "Se on vähentänyt palvelujen saatavuutta.",
+          "Se on lisännyt jonotusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä esimerkkejä digitaalisista palveluista tekstissä mainitaan?",
+        "options": [
+          "Vain veroilmoitus.",
+          "Veroilmoitus, lääkäriajan varaus ja päiväkotihaun sähköinen asiointi.",
+          "Vain lääkäriajan varaus.",
+          "Vain päiväkotihaku."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä digitaalisista palveluista on?",
+        "options": [
+          "Ne ovat hitaampia.",
+          "Ne säästävät aikaa ja vaivaa, ovat auki ympäri vuorokauden, eikä niihin tarvitse jonottaa.",
+          "Ne ovat kalliimpia.",
+          "Ne ovat vaikeampia käyttää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia palveluja digitaalisaatio on mahdollistanut?",
+        "options": [
+          "Vain chat-palvelut.",
+          "Etävastaanotot ja sähköiset reseptit.",
+          "Vain tekstiviestipalvelut.",
+          "Vain sähköpostit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kenellä voi olla vaikeuksia käyttää digitaalisia palveluja?",
+        "options": [
+          "Kaikilla nuorilla.",
+          "Ikääntyneillä, heikosti kieltä taitavilla ja lukivaikeuksista kärsivillä.",
+          "Vain työttömillä.",
+          "Vain korkeakoulutetuilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan digitaalisella syrjäytymisellä?",
+        "options": [
+          "Kaikki käyttävät digitaalisia palveluja.",
+          "Osa väestöstä jää palvelujen ulkopuolelle, koska he eivät osaa käyttää digitaalisia palveluja.",
+          "Digitaaliset palvelut ovat kaikille helppoja.",
+          "Kukaan ei käytä digitaalisia palveluja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä pitäisi säilyttää digitaalisten palvelujen rinnalla?",
+        "options": [
+          "Vain maksullisia palveluja.",
+          "Perinteisiä palveluja, kuten puhelin- ja virastoasiointi.",
+          "Vain postipalveluja.",
+          "Ei mitään."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

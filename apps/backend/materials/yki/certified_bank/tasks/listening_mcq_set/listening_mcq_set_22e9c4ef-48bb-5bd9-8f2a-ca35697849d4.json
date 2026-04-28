@@ -1,0 +1,88 @@
+{
+  "id": "22e9c4ef-48bb-5bd9-8f2a-ca35697849d4",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan puheenvuoro yhteiskunnan eriarvoisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Yhteiskuntatieteilijä: Eriarvoisuus on kasvanut Suomessa 1990-luvun laman jälkeen. Tuloerot ovat suurentuneet ja varallisuus keskittyy yhä harvemmille. Haastattelija: Miten tämä näkyy arjessa? Tutkija: Se näkyy asuinalueiden eriytymisenä. Toisilla alueilla on hyvät palvelut, hyvä koulu ja turvallinen ympäristö, toisilla taas huonommat. Myös terveyserot ovat kasvaneet. Hyväosaiset elävät pidempään ja ovat terveempiä. Haastattelija: Mitä seurauksia tällä on? Tutkija: Yhteiskunnan koheesio heikkenee. Ihmiset eivät enää kohtaavia eri ryhmistä. Luottamus toisiin ihmisiin ja yhteiskuntaan voi heikentyä. Tämä voi johtaa poliittiseen polarisaatioon ja jopa levottomuuksiin. Haastattelija: Miten eriarvoisuutta voitaisiin vähentää? Tutkija: Tarvitaan monia keinoja. Verotuksella voidaan tasata tuloeroja. Panostukset koulutukseen ja terveydenhuoltoon ovat tärkeitä, erityisesti niillä alueilla, joilla on eniten ongelmia. Myös sosiaaliturvan ja asuntopolitiikan avulla voidaan vaikuttaa. Tarvitaan poliittista tahtoa ja pitkäjänteistä työtä.",
+      "audio_asset_id": "f4a5b6c7-d8e9-0f1a-2b3c-4d5e6f7a8b9c"
+    },
+    "questions": [
+      {
+        "id": "l149q1",
+        "prompt": "Mitä tutkija sanoo eriarvoisuudesta Suomessa?",
+        "options": [
+          "Se on vähentynyt.",
+          "Se on kasvanut 1990-luvun laman jälkeen.",
+          "Se on pysynyt samana.",
+          "Se on hävinnyt kokonaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l149q2",
+        "prompt": "Miten eriarvoisuus näkyy asuinalueilla?",
+        "options": [
+          "Kaikki alueet ovat samanlaisia.",
+          "Alueet eriytyvät: toisilla hyvät palvelut ja koulut, toisilla huonommat.",
+          "Alueet ovat turvallisia kaikkialla.",
+          "Alueilla on samanlaiset palvelut."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l149q3",
+        "prompt": "Mitkä terveyserot mainitaan?",
+        "options": [
+          "Sairastavuus on samanlaista kaikilla.",
+          "Hyväosaiset elävät pidempään ja ovat terveempiä.",
+          "Huono-osaiset ovat terveempiä.",
+          "Terveyserot ovat pieniä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l149q4",
+        "prompt": "Mitä seurauksia eriarvoisuudella voi olla?",
+        "options": [
+          "Yhteiskunta vahvistuu.",
+          "Yhteiskunnan koheesio heikkenee, luottamus vähenee ja voi johtaa polarisaatioon.",
+          "Kaikki ovat tyytyväisiä.",
+          "Talous kasvaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l149q5",
+        "prompt": "Mitä keinoja tutkija ehdottaa eriarvoisuuden vähentämiseksi?",
+        "options": [
+          "Verotuksen, koulutuksen, terveydenhuollon, sosiaaliturvan ja asuntopolitiikan keinoja.",
+          "Vain veronkorotuksia.",
+          "Vain koulutuksen lisäämistä.",
+          "Vain talouskasvua."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

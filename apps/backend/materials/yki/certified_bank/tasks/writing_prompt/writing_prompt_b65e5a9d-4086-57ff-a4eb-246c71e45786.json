@@ -1,0 +1,37 @@
+{
+  "id": "b65e5a9d-4086-57ff-a4eb-246c71e45786",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö opiskelijoiden saada enemmän alennuksia kulttuuritapahtumiin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Opiskelija-alennukset kulttuuritapahtumiin"
+    },
+    "items": [
+      {
+        "id": "8fdde227-7e82-519b-aaf5-e91a22252d6f",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö opiskelijoiden saada enemmän alennuksia kulttuuritapahtumiin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

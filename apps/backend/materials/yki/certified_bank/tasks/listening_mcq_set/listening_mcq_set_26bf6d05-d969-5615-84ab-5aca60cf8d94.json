@@ -1,0 +1,77 @@
+{
+  "id": "26bf6d05-d969-5615-84ab-5aca60cf8d94",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu koulutuksen ja työelämän suhteesta ja vastaa kysymyksiin. Kuulet keskustelun kerran.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa paneeliin, jossa keskustelemme siitä, vastaako nykyinen koulutusjärjestelmä työelämän tarpeisiin. Meillä on täällä koulutuspolitiikan professori Anna Kivelä, elinkeinoelämän edustaja Juhani Mäkelä ja opiskelijajärjestön puheenjohtaja Sanna Nieminen. Aloitetaan Annasta.\nAnna Kivelä: Kiitos. Haluan aluksi korostaa, että koulutuksen tehtävä ei ole pelkästään palvella työelämää. Koulutus sivistää, antaa valmiuksia kansalaisuuteen ja auttaa ymmärtämään maailmaa. Jos koulutuksesta tehdään pelkkää työelämän tarpeisiin vastaamista, menetämme jotain olennaista.\nJuhani Mäkelä: Ymmärrän kyllä tuon näkökulman, mutta työelämä odottaa, että koulutus tuottaa osaajia. Meillä on jatkuvasti pulaa tietyistä osaajista, esimerkiksi ohjelmistokehittäjistä ja sairaanhoitajista. Samaan aikaan nuoret valmistuvat aloilta, joilla työllisyysnäkymät ovat heikot. Eikö olisi järkevää ohjata koulutuspolitiikkaa enemmän työmarkkinoiden tarpeiden mukaan?\nSanna Nieminen: Mä ymmärrän kyllä työnantajien huolen, mutta se on vähän ongelmallista ajatella, että nuoren pitäisi valita ammatti 18-vuotiaana ja pysyä siinä loppuelämän. Työelämä muuttuu, ja me tarvitaan ennen kaikkea kykyä oppia uutta. Ehkä pitäisi puhua enemmän yleistaidoista – kuten kriittisestä ajattelusta, ongelmanratkaisukyvystä ja yhteistyötaidoista – kuin siitä, osaako joku tietyn ohjelmointikielen.\nAnna Kivelä: Sanna osuu asian ytimeen. Tutkimukset osoittavat, että ne, joilla on vahva yleissivistys ja oppimaan oppimisen taidot, pärjäävät työelämän muutoksissa parhaiten. Liian kapea-alainen ammattikoulutus vanhenee nopeasti.\nJuhani Mäkelä: Mutta eihän se ole joko–tai. Tarvitaan sekä vahvaa perusosaamista että työelämäyhteyksiä. Meillä on esimerkkejä hyvistä oppisopimusmalleista Keski-Euroopassa, joissa teoria ja käytäntö yhdistyvät. Ehkä Suomessa pitäisi katsoa enemmän sinne suuntaan.\nSanna Nieminen: Joo, oppisopimus on hyvä, mutta se ei sovi kaikille. Ja huoli on myös siitä, että jos koulutus muuttuu liian työelämälähtöiseksi, korkeakoulutus menettää kriittisen tehtävänsä. Meidän pitäisi kouluttaa ihmisiä, jotka eivät vain sopeudu maailmaan vaan myös kykenevät muuttamaan sitä.\nPuheenjohtaja: Paljon kiinnostavia näkökulmia. Kysymys kuuluukin, miten tämä kaikki pitäisi käytännössä järjestää?\nAnna Kivelä: Tarvitaan joustavia opintopolkuja, mahdollisuus yhdistää eri alojen opintoja ja vahvaa ohjausta. Ei yhtä oikeaa mallia, vaan monia erilaisia väyliä.\nJuhani Mäkelä: Ja tiiviimpää yhteistyötä oppilaitosten ja työelämän välillä. Harjoitteluja, projekteja, yhteisiä tutkimushankkeita. Sekä työnantajien että opiskelijoiden pitäisi nähdä toisensa kumppaneina.\nSanna Nieminen: Ja ennen kaikkea: opiskelijoiden ääntä pitää kuulla. Me tiedetään parhaiten, mikä toimii ja mikä ei. Tätä keskustelua pitää käydä yhdessä, ei puhumalla opiskelijoista vaan heidän kanssaan.\nPuheenjohtaja: Kiitos kaikille tästä keskustelusta.",
+      "audio_asset_id": "cf92252f-3048-4244-bd50-891cefadc717"
+    },
+    "questions": [
+      {
+        "id": "74f5cda4-4afd-53ff-8e72-6634fd07ce03",
+        "prompt": "Mitä mieltä Anna Kivelä on koulutuksen tehtävästä?",
+        "options": [
+          "Sen pitää palvella vain työelämää",
+          "Sillä on sivistävä tehtävä, joka on muutakin kuin työelämän tarpeet",
+          "Koulutuksella ei ole merkitystä työelämän kannalta",
+          "Koulutus pitää lakkauttaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1d342cb8-44f3-5bfe-bb5d-6bf79e3200f8",
+        "prompt": "Mitä Sanna Nieminen pitää tärkeämpänä kuin tiettyjä ammattitaitoja?",
+        "options": [
+          "Teknisiä taitoja",
+          "Yleistaitoja kuten kriittistä ajattelua ja oppimiskykyä",
+          "Kielitaitoa",
+          "Matematiikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8f895be7-8457-5b53-a379-1800be191f03",
+        "prompt": "Mitä esimerkkiä Juhani Mäkelä nostaa esiin Keski-Euroopasta?",
+        "options": [
+          "Yliopistojen rahoitusmallia",
+          "Oppisopimusmalleja, joissa teoria ja käytäntö yhdistyvät",
+          "Ammattikoulujen lakkauttamista",
+          "Maksullista koulutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e76e8e9c-11b8-51d7-aa72-8726391c3112",
+        "prompt": "Mitä yhteistä ehdotusta kaikki panelistit kannattavat?",
+        "options": [
+          "Yhtä ainoaa koulutusmallia",
+          "Joustavia opintopolkuja ja yhteistyötä työelämän kanssa",
+          "Koulutuksen yksityistämistä",
+          "Opintojen lyhentämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

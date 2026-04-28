@@ -1,0 +1,37 @@
+{
+  "id": "ae5b5c7e-5f1c-5508-8ef2-134df1c582af",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti sukulaiseen.",
+    "materials": {
+      "scenario": "Kutsu sukujuhliin"
+    },
+    "items": [
+      {
+        "id": "4f7da2d9-3881-58e2-8ea4-7bc0bfa8e111",
+        "prompt": "Perheesi järjestää sukujuhlat. Kirjoita sähköposti sukulaisellesi ja kutsu hänet mukaan. Kerro, milloin ja missä juhlat ovat. Kerro myös, mitä ohjelmaa on suunniteltu."
+      }
+    ],
+    "rubric": "Perheesi järjestää sukujuhlat. Kirjoita sähköposti sukulaisellesi ja kutsu hänet mukaan. Kerro, milloin ja missä juhlat ovat. Kerro myös, mitä ohjelmaa on suunniteltu.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "76d3658f-cde9-5904-8689-80247c7e6a02",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähiruokapiirit ovat nousseet suosioon. Niissä kuluttajat tilaavat ruokaa suoraan tuottajilta. Toiminta perustuu vapaaehtoisuuteen ja yhteistyöhön.\n\n\"Meillä on noin 100 perhettä mukana. Tilaamme vihanneksia, kananmunia ja lähileipää. Ruoka jaetaan kerran viikossa koulun pihalla. Hinnat ovat usein halvempia kuin kaupassa\", kertoo turkulaisen ruokapiirin vetäjä.\n\nTuottaja saa paremman hinnan kuin tukussa. Asiakas tietää, mistä ruoka tulee.\n\n\"Tykkään siitä, että tiedän, kuka ruoan on kasvattanut. Samalla tapaa naapureita\", sanoo asiakas.\n\nRuokapiirit ovat herättäneet myös kritiikkiä. Osa kauppiaista kokee, että ne vievät asiakkaita. Jotkut epäilevät hygieniaa ja valvontaa.\n\nRuokapiirin vetäjä muistuttaa, että toiminta on pientä eikä uhka kaupoille. \"Me emme kilpaile kaupan kanssa, vaan tarjoamme vaihtoehdon.\"",
+      "word_count": 101
+    },
+    "questions": [
+      {
+        "id": "item_039_1",
+        "prompt": "Miten lähiruokapiiri toimii?",
+        "options": [
+          "se on kauppa, joka myy lähiruokaa",
+          "kuluttajat tilaavat ruokaa suoraan tuottajilta",
+          "se on ravintola, joka käyttää lähiruokaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_039_2",
+        "prompt": "Mitä hyötyä ruokapiiristä on asiakkaille?",
+        "options": [
+          "kalliimmat hinnat",
+          "halvemmat hinnat ja tieto ruoan alkuperästä",
+          "ruoka tuodaan kotiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_039_3",
+        "prompt": "Mitä kritiikkiä ruokapiirejä kohtaan on esitetty?",
+        "options": [
+          "ne vievät asiakkaita kaupoilta ja hygieniasta on epäilyjä",
+          "ne ovat liian kalliita",
+          "ne tuottavat huonoa ruokaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_039_4",
+        "prompt": "Miten ruokapiirin vetäjä vastaa kritiikkiin?",
+        "options": [
+          "toiminta on pientä eikä uhka kaupoille",
+          "he aikovat lopettaa",
+          "kauppojen pitäisi myydä myös lähiruokaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

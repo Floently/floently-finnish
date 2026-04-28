@@ -1,0 +1,110 @@
+{
+  "id": "8f0aea79-4dcf-57da-beb3-ddc8aa057a85",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen metsäteollisuus on kokenut rakennemuutoksen, joka on muuttanut alaa perusteellisesti. Perinteinen paperiteollisuus on supistunut merkittävästi digitaalisen median vallatessa alaa. Monet paperitehtaat on jouduttu sulkemaan, mikä on aiheuttanut työpaikkojen menetyksiä erityisesti Itä- ja Pohjois-Suomessa. Samalla metsäteollisuus on kuitenkin onnistunut uudistumaan ja löytämään uusia mahdollisuuksia. Puusta valmistetaan nykyään monipuolisesti erilaisia biotuotteita, kuten biopolttoaineita, biomuoveja, tekstiilikuituja ja kemikaaleja. Nämä uudet tuotteet avaavat vientimarkkinoita ja luovat uusia työpaikkoja. Myös puurakentaminen on voimakkaassa kasvussa. Puu on uusiutuva ja ympäristöystävällinen materiaali, joka sopii hyvin kestävään rakentamiseen. Puukerrostaloja rakennetaan yhä enemmän, ja puuta käytetään myös julkisissa rakennuksissa. Metsäteollisuus panostaa voimakkaasti kiertotalouteen, jossa kaikki materiaalit pyritään käyttämään tehokkaasti ja jätettä syntyy mahdollisimman vähän. Tulevaisuudessa metsillä on yhä tärkeämpi rooli ilmastonmuutoksen torjunnassa, sillä ne sitovat hiiltä ja tarjoavat uusiutuvia raaka-aineita, jotka korvaavat fossiilisia polttoaineita. Metsäteollisuus on edelleen merkittävä työllistäjä ja vientiala, ja sen merkitys Suomen kansantaloudelle on suuri.",
+      "word_count": 139
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on aiheuttanut perinteisen paperiteollisuuden supistumisen?",
+        "options": [
+          "Puun hinnan nousu.",
+          "Digitaalisen median yleistyminen.",
+          "Työvoimapula.",
+          "Kansainvälinen kilpailu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä seurauksia paperitehtaiden sulkemisilla on ollut?",
+        "options": [
+          "Uusien työpaikkojen syntymistä kaupunkeihin.",
+          "Työpaikkojen menetyksiä erityisesti Itä- ja Pohjois-Suomessa.",
+          "Metsäteollisuuden täydellistä loppumista.",
+          "Paperin tuonnin lisääntymistä ulkomailta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä uusia biotuotteita puusta voidaan valmistaa?",
+        "options": [
+          "Vain paperia ja sellua.",
+          "Biopolttoaineita, biomuoveja, tekstiilikuituja ja kemikaaleja.",
+          "Vain sahapuuta ja vaneria.",
+          "Vain huonekaluja ja paperia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi puurakentaminen on kasvussa?",
+        "options": [
+          "Puu on halvempaa kuin betoni.",
+          "Puu on uusiutuva ja ympäristöystävällinen materiaali.",
+          "Puu on kestävämpää kuin teräs.",
+          "Puu on paloturvallisempaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan kiertotaloudella metsäteollisuudessa?",
+        "options": [
+          "Puun polttamista energiaksi.",
+          "Materiaalien tehokasta käyttöä ja jätteen vähentämistä.",
+          "Vain uusien metsien istuttamista.",
+          "Vain vanhojen metsien suojelua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä rooli metsillä on ilmastonmuutoksen torjunnassa?",
+        "options": [
+          "Ne lisäävät hiilidioksidipäästöjä.",
+          "Ne sitovat hiiltä ja tarjoavat uusiutuvia raaka-aineita.",
+          "Ne vähentävät happea.",
+          "Ne eivät vaikuta ilmastoon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on metsäteollisuuden merkitys Suomen kansantaloudelle?",
+        "options": [
+          "Vähäinen, se työllistää vain harvoja.",
+          "Merkittävä työllistäjä ja vientiala.",
+          "Se on menettänyt kokonaan merkityksensä.",
+          "Se on vain kotimaan markkinoille suuntautunut ala."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

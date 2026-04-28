@@ -1,0 +1,37 @@
+{
+  "id": "c0dc28eb-19dd-5131-9ee3-fd05365b5d9e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.68,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa puutarhurina. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Puutarhuri"
+    },
+    "items": [
+      {
+        "id": "7faafdcf-7785-5ca3-9a94-f948b677786d",
+        "prompt": "Haet työpaikkaa puutarhurina. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa puutarhurina. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

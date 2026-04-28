@@ -1,0 +1,77 @@
+{
+  "id": "65ffc5c6-e906-5077-8ba0-c4638dc323f3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue jäähallin säännöt ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JÄÄHALLIN YLEISÖSÄÄNNÖT\n\nYleisövuorot:\nma, ke, pe klo 14-16 (koululaiset)\nti, to klo 14-16 (aikuiset)\nla-su klo 10-14 (kaikille)\n\nSäännöt:\n- Kypärä pakollinen alle 18-vuotiaille.\n- Luistimet pakolliset kaikille.\n- Kiekon pelaaminen kielletty yleisövuoroilla.\n- Kioski palvelee la–su klo 10-14.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "3d5620ea-6209-5116-9c5c-6f1307a5adeb",
+        "prompt": "Milloin on aikuisten vuoro?",
+        "options": [
+          "ma, ke, pe",
+          "ti, to",
+          "la-su",
+          "joka päivä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f95d3055-f492-5ba2-8ff1-5fc27ae6e37f",
+        "prompt": "Kenellä on kypäräpakko?",
+        "options": [
+          "kaikilla",
+          "alle 18-vuotiailla",
+          "vain naisilla",
+          "vain miehillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7f0db053-689f-55aa-9a3d-c0a3e560c762",
+        "prompt": "Mitä on kielletty yleisövuoroilla?",
+        "options": [
+          "luistelu",
+          "kiekon pelaaminen",
+          "kävely",
+          "valokuvaaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0bcdec67-fe3e-5045-9be8-21d47ad4eccf",
+        "prompt": "Milloin kioski on auki?",
+        "options": [
+          "arkisin",
+          "la-su klo 10-14",
+          "joka päivä",
+          "vain iltaisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

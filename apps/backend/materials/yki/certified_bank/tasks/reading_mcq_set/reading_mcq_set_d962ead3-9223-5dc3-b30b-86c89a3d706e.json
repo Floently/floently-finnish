@@ -1,0 +1,77 @@
+{
+  "id": "d962ead3-9223-5dc3-b30b-86c89a3d706e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.273,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Olen töissä tänään pitkään. Voitko viedä roskat ulos ja laittaa ruoan jääkaappiin? Tulen kotiin noin klo 19. Kiitos! – Sari",
+      "word_count": 21
+    },
+    "questions": [
+      {
+        "id": "5e2737a7-db0a-57b5-a066-1e59ba567922",
+        "prompt": "Kuka lähetti viestin?",
+        "options": [
+          "Pekka",
+          "Sari",
+          "Maija",
+          "Jussi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "296128e9-1f75-5bca-ae35-2a0ae0d1bece",
+        "prompt": "Mitä pitää tehdä?",
+        "options": [
+          "Mennä kauppaan",
+          "Viedä roskat ulos",
+          "Hakea lapset",
+          "Siivota keittiö"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "17bc2212-9349-56b7-aa99-4b1ec9dda57e",
+        "prompt": "Mitä ruoalle pitää tehdä?",
+        "options": [
+          "Lämmittää",
+          "Heittää pois",
+          "Laittaa jääkaappiin",
+          "Syödä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a968caaf-f103-5547-8e1d-fa063a2620c7",
+        "prompt": "Milloin Sari tulee kotiin?",
+        "options": [
+          "klo 17",
+          "klo 18",
+          "klo 19",
+          "klo 20"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

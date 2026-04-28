@@ -1,0 +1,88 @@
+{
+  "id": "7dcd3c47-1041-52af-b017-420bcc59dd49",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.281,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei isä! Mä olen nyt jo koulun pihalla. Meen bussilla kotiin. Mä tuon kaverin mukaan. Saako se jäädä meille syömään?",
+      "audio_asset_id": "70c6c5b8-2f2c-462c-965f-2379de7d5f6d"
+    },
+    "questions": [
+      {
+        "id": "bda98ddb-1133-5dab-9e44-5b07c55dc1a8",
+        "prompt": "Missä puhuja on nyt?",
+        "options": [
+          "Kotona.",
+          "Koulun pihalla.",
+          "Bussissa.",
+          "Kaupassa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "781aa77f-9b26-575a-b0d9-407c0a6f3714",
+        "prompt": "Millä puhuja menee kotiin?",
+        "options": [
+          "Pyörällä.",
+          "Kävellen.",
+          "Autolla.",
+          "Bussilla."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "1e2ee3d6-a4e7-5130-a6e9-a8aa76ca7181",
+        "prompt": "Kuka tulee mukaan?",
+        "options": [
+          "Opettaja.",
+          "Sisko.",
+          "Kaveri.",
+          "Valmentaja."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "2ca6342e-50f8-5ae2-a0f8-b9905fca68e7",
+        "prompt": "Mitä puhuja kysyy isältä?",
+        "options": [
+          "Voiko isä hakea heidät.",
+          "Onko kotona ruokaa.",
+          "Voiko kaveri jäädä syömään.",
+          "Mitä he syövät."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "adb80faa-28cc-5934-a95d-2c7fad24ea47",
+        "prompt": "Kenelle puhuja puhuu?",
+        "options": [
+          "Äidille.",
+          "Siskolle.",
+          "Kaverille.",
+          "Isälle."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

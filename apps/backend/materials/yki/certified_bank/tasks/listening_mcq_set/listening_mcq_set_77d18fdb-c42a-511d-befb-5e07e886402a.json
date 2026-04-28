@@ -1,0 +1,77 @@
+{
+  "id": "77d18fdb-c42a-511d-befb-5e07e886402a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu maahanmuuton vaikutuksista ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan maahanmuuton vaikutuksista. Meillä on täällä kaksi asiantuntijaa: taloustieteilijä Markku Salo ja sosiologi Elina Mäkelä.\n\nMarkku Salo: Maahanmuutolla on merkittäviä taloudellisia vaikutuksia. Se lisää työvoiman tarjontaa ja voi paikata osaajapulaa. Monet maahanmuuttajat ovat työikäisiä ja maksavat veroja. Pitkällä aikavälillä maahanmuutto vahvistaa julkista taloutta, erityisesti kun väestö ikääntyy.\n\nElina Mäkelä: Talous on tärkeä näkökulma, mutta ei ainoa. Maahanmuutto on myös sosiaalinen ja kulttuurinen kysymys. Se lisää yhteiskunnan monimuotoisuutta, mikä on rikkaus. Se tuo uusia näkökulmia, ruokakulttuuria, kieliä ja tapoja. Mutta se tuo myös haasteita.\n\nMarkku Salo: Mitä haasteita tarkoitat?\n\nElina Mäkelä: Kotoutuminen on avainasemassa. Jos kotoutuminen epäonnistuu, seurauksena voi olla syrjäytymistä, työttömyyttä ja jännitteitä. Tarvitaan panostuksia kielikoulutukseen, työllistymispalveluihin ja asumiseen. Myös asenteet vaikuttavat. Jos vastaanottava yhteiskunta on kielteinen, kotoutuminen vaikeutuu.\n\nMarkku Salo: Totta. Mutta on hyvä muistaa, että maahanmuuttajat eivät ole yhtenäinen ryhmä. Osa tulee työn perässä, osa perhesyistä, osa humanitaarisista syistä. Heidän koulutustasonsa ja työllistymismahdollisuutensa vaihtelevat.\n\nElina Mäkelä: Ja juuri siksi tarvitaan yksilöllisiä ratkaisuja. Turvapaikanhakijoiden kotoutuminen on vaativampaa. Heillä voi olla traumoja, kielitaito puuttuu, ja tutkintojen tunnustaminen on hidasta.\n\nPuheenjohtaja: Miten maahanmuuttoon pitäisi suhtautua tulevaisuudessa?\n\nMarkku Salo: Realistisesti. Suomi tarvitsee työperäistä maahanmuuttoa, koska väestö ikääntyy.\n\nElina Mäkelä: Ja inhimillisesti. Jokainen maahanmuuttaja on yksilö, jolla on oma tarinansa. Tarvitaan kohtaamisia ja vuoropuhelua.",
+      "audio_asset_id": "7e107ae7-2597-5422-83f7-6ddf221d680e"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_007_q1",
+        "prompt": "Mitä taloudellisia vaikutuksia maahanmuutolla on Markku Salon mukaan?",
+        "options": [
+          "se heikentää taloutta",
+          "se lisää työvoimaa, paikkaa osaajapulaa ja vahvistaa julkista taloutta",
+          "sillä ei ole taloudellisia vaikutuksia",
+          "se vie työpaikat suomalaisilta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_007_q2",
+        "prompt": "Mitä sosiaalisia haasteita Elina Mäkelä nostaa esiin?",
+        "options": [
+          "liian vähän maahanmuuttajia",
+          "kotoutumisen epäonnistuminen, syrjäytyminen ja jännitteet",
+          "kulttuurin köyhtyminen",
+          "liian korkea koulutus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_007_q3",
+        "prompt": "Miten työperäinen ja humanitaarinen maahanmuutto eroavat?",
+        "options": [
+          "ne eivät eroa mitenkään",
+          "työperäinen on helpompaa, koska työpaikka on odottamassa, humanitaarinen vaativampaa",
+          "humanitaarinen on helpompaa",
+          "työperäinen on vaativampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_007_q4",
+        "prompt": "Mitä ratkaisuja keskustelussa ehdotetaan?",
+        "options": [
+          "maahanmuuton lopettamista",
+          "työperäisen maahanmuuton helpottamista, kotouttamiseen panostamista ja inhimillistä suhtautumista",
+          "vain kielikursseja",
+          "maahanmuuttajien kotiin lähettämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

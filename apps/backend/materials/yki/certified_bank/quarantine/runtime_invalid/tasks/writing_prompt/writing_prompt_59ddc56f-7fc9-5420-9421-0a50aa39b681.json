@@ -1,0 +1,37 @@
+{
+  "id": "59ddc56f-7fc9-5420-9421-0a50aa39b681",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: adult education center. Purpose: ask for information. Constraint: mention a follow up step.",
+    "materials": {
+      "scenario": "language_learning in adult_education_center"
+    },
+    "items": [
+      {
+        "id": "a4b46b63-e66d-56de-a8ee-82f3b0b38421",
+        "prompt": "Write for the receiver in this scenario: adult education center. Purpose: ask for information. Constraint: mention a follow up step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

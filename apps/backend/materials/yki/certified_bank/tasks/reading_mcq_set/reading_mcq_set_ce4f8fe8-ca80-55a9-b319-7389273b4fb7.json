@@ -1,0 +1,66 @@
+{
+  "id": "ce4f8fe8-ca80-55a9-b319-7389273b4fb7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Vapaaehtoistyö on tärkeä osa suomalaista yhteiskuntaa. Sitä tehdään monilla eri aloilla, kuten sosiaali- ja terveysjärjestöissä, urheiluseuroissa, kulttuuritapahtumissa ja ympäristönsuojelussa. Vapaaehtoiset auttavat esimerkiksi vanhuksia, maahanmuuttajia tai vähävaraisia perheitä. Monet tekevät vapaaehtoistyötä saadakseen uusia kokemuksia, tavarakseen ihmisiä ja tunteakseen tekevänsä hyvää. Työ voi olla kertaluonteista, kuten tapahtumassa avustamista, tai säännöllistä, kuten ystävätoimintaa. Suomessa on satoja järjestöjä, jotka etsivät vapaaehtoisia. Esimerkiksi Suomen Punainen Risti, Mannerheimin Lastensuojeluliitto ja Martat ovat tunnettuja vapaaehtoistyön tekijöitä. Vapaaehtoistyö ei ole palkallista, mutta se voi tarjota arvokasta työkokemusta ja auttaa työllistymisessä. Monelle se on myös tapa vaikuttaa yhteiskunnassa ja edistää itselle tärkeitä asioita.",
+      "word_count": 94
+    },
+    "questions": [
+      {
+        "id": "b5c6d7e8-f9a0-4b1c-9d2e-3f4a5b6c7d8e",
+        "prompt": "Millä aloilla vapaaehtoistyötä tehdään?",
+        "options": [
+          "Vain terveydenhuollossa",
+          "Sosiaali- ja terveysjärjestöissä, urheiluseuroissa, kulttuuritapahtumissa ja ympäristönsuojelussa",
+          "Vain yrityksissä",
+          "Vain kouluissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c6d7e8f9-a0b1-4c2d-9e3f-4a5b6c7d8e9f",
+        "prompt": "Miksi monet tekevät vapaaehtoistyötä?",
+        "options": [
+          "Rahan takia",
+          "Saadakseen uusia kokemuksia ja tavatakseen ihmisiä",
+          "Koska se on pakollista",
+          "Saadakseen eläkkeen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d7e8f9a0-b1c2-4d3e-9f4a-5b6c7d8e9f0a",
+        "prompt": "Mitä hyötyä vapaaehtoistyöstä voi olla työllistymisen kannalta?",
+        "options": [
+          "Se takaa työpaikan",
+          "Se antaa palkankorotuksen",
+          "Se voi tarjota arvokasta työkokemusta",
+          "Se vähentää työtunteja"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "3d60dd29-3712-5430-8688-aa77fb9c5574",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T11:12:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti suomalaisesta kalastuskulttuurista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kalastus on perinteikäs harrastus Suomessa. Maan tuhannet järvet ja pitkä merenrannikko tarjoavat erinomaiset mahdollisuudet kalastukseen. Suosituimpia saaliskaloja ovat ahven, kuha, hauki, lohi ja siika. Kalastusmuotoja on monia: onkiminen, pilkkiminen, heittokalastus, verkkokalastus ja uistelu. Onkiminen ja pilkkiminen ovat kaikille sallittuja jokamiehenoikeuksilla, mutta muihin kalastusmuotoihin tarvitaan lupa. Kalastonhoitomaksu eli kalastuskortti on maksettava, jos kalastaa vieheellä tai pyydyksillä. Maksu on kohtuullinen, ja se oikeuttaa kalastamaan yhtä tai kahta vapaa käyttäen. Kalastuslupia voi ostaa myös yksityisiltä vesialueilta, kuten kalastuskunnilta ja osakaskunnilta. Monet harrastavat kalastusta mökeillä, ja kalastus on tärkeä osa mökkielämää. Talvella suosittua on pilkkiminen jäällä. Myös avantouinti ja pilkkiminen yhdistetään usein. Kalastus on paitsi harrastus, myös elinkeino. Ammattikalastus on tärkeää erityisesti Saaristomerellä ja Itä-Suomen suurilla järvillä. Kalastukseen liittyy myös vahva perinnekulttuuri: savustus ja graavaus ovat perinteisiä tapoja valmistaa kalaa. Kalastuskerhot ja -seurat järjestävät kilpailuja ja tapahtumia, ja kalastusopastusta on saatavilla. Kalastus on rentouttavaa ja opettaa kärsivällisyyttä ja luonnon kunnioittamista.",
+      "word_count": 146
+    },
+    "questions": [
+      {
+        "id": "c0d1e2f3-a4b5-4c6d-9e7f-8a9b0c1d2e3f",
+        "prompt": "Mitkä kalastusmuodot ovat sallittuja ilman erillistä lupaa?",
+        "options": [
+          "Verkkokalastus ja uistelu",
+          "Onkiminen ja pilkkiminen",
+          "Heittokalastus ja vetouistelu",
+          "Kaikki kalastusmuodot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d1e2f3a4-b5c6-4d7e-9f8a-9b0c1d2e3f4a",
+        "prompt": "Mikä on kalastonhoitomaksu?",
+        "options": [
+          "Kalastusvälineiden hinta",
+          "Maksu, joka oikeuttaa kalastamaan vieheellä tai pyydyksillä",
+          "Kalan hinta kaupassa",
+          "Veneen vuokra"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e2f3a4b5-c6d7-4e8f-9a9b-0c1d2e3f4a5b",
+        "prompt": "Mitä perinteisiä tapoja valmistaa kalaa mainitaan tekstissä?",
+        "options": [
+          "Keittäminen ja paistaminen",
+          "Savustus ja graavaus",
+          "Grillaus ja friteeraus",
+          "Kuivaus ja suolaus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

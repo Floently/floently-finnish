@@ -1,0 +1,40 @@
+{
+  "id": "75c5e776-fa09-5c5d-ac5b-7d5262b91833",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.287,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell which room or place in your home is the best and what you like to do there.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "5f09f1c1-ef96-5a17-b5b4-dab81657fe54",
+        "ai_first_turn_fi": "Mikä on sun lempipaikka sun kodissa? Miksi tykkäät siellä olla?"
+      }
+    ],
+    "rubric": "Tell which room or place in your home is the best and what you like to do there.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

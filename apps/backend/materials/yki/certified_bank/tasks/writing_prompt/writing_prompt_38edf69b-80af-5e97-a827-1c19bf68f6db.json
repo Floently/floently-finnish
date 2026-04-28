@@ -1,0 +1,37 @@
+{
+  "id": "38edf69b-80af-5e97-a827-1c19bf68f6db",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin asuntotoimeen.",
+    "materials": {
+      "scenario": "Tiedustele asunnon hakemisesta"
+    },
+    "items": [
+      {
+        "id": "bf13db92-366a-5186-89f3-43acf74b04f1",
+        "prompt": "Kirjoita sähköposti kaupungin asuntotoimeen."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti kaupungin asuntotoimeen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "7248c4f8-54c5-57dc-b5ca-f24f2cebddc1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kävin hammaslääkärissä viime torstaina. Minulla oli varaus kello 10. Hammaslääkäri tutki hampaat ja otti röntgenkuvan. Yhdessä hampaassa oli pieni reikä. Hammaslääkäri paikkasi hampaan. Se vähän sattui, mutta meni nopeasti ohi. Hammaslääkäri sanoi, että minun pitää pestä hampaat huolellisemmin ja käyttää hammaslankaa. Seuraava tarkastus on puolen vuoden päästä. Lasku oli 90 euroa. Kelasta sain osan takaisin.",
+      "word_count": 55
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minä päivänä henkilö kävi hammaslääkärissä?",
+        "options": [
+          "Maanantaina",
+          "Tiistaina",
+          "Keskiviikkona",
+          "Torstaina"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hammaslääkäri teki?",
+        "options": [
+          "Poisti hampaan",
+          "Paikkasi hampaan",
+          "Valkaisi hampaat",
+          "Puhdisti hampaat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hammaslääkäri neuvoi?",
+        "options": [
+          "Syömään vähemmän makeaa",
+          "Pesemään hampaat huolellisemmin",
+          "Käymään useammin hammaslääkärissä",
+          "Ostamaan sähköhammasharjan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Paljonko käynti maksoi?",
+        "options": [
+          "60 euroa",
+          "75 euroa",
+          "90 euroa",
+          "105 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

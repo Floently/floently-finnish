@@ -1,0 +1,99 @@
+{
+  "id": "89178ff7-d24b-5d30-a356-fbc488a1962a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kotitaloudet ovat alkaneet kiinnittää huomiota energiankulutukseensa. Sähkön hinnan nousu on saanut monet miettimään, miten voivat säästää. Yksinkertaisia keinoja ovat valojen sammuttaminen tyhjistä huoneista ja pyykinpesukoneen täysien koneellisten käyttö. Myös sähkölaitteiden valmiustilojen käyttöä kannattaa vähentää. Energiansäästö on paitsi taloudellisesti järkevää myös ympäristöteko.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin kotitaloudet ovat alkaneet kiinnittää huomiota?",
+        "options": [
+          "Vedenkulutukseen",
+          "Energiankulutukseen",
+          "Ruokamenoihin",
+          "Asumiskustannuksiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on saanut monet miettimään säästökeinoja?",
+        "options": [
+          "Sähkön hinnan lasku",
+          "Sähkön hinnan nousu",
+          "Verotuksen kiristyminen",
+          "Palkkojen nousu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on yksinkertainen keino säästää energiaa?",
+        "options": [
+          "Pitää kaikki valot päällä",
+          "Sammuttaa valot tyhjistä huoneista",
+          "Käyttää pyykinpesukonetta vajailla koneellisilla",
+          "Lisätä valmiustilojen käyttöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä muuta kannattaa vähentää?",
+        "options": [
+          "Pyykin pesua",
+          "Sähkölaitteiden valmiustilojen käyttöä",
+          "Astianpesukoneen käyttöä",
+          "Jääkaapin käyttöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä energiansäästöstä on?",
+        "options": [
+          "Vain taloudellista hyötyä",
+          "Vain ympäristöhyötyä",
+          "Sekä taloudellista että ympäristöhyötyä",
+          "Ei mitään hyötyä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'valmiustilalla'?",
+        "options": [
+          "Laitteen sammuttamista kokonaan",
+          "Laitteen päällä oloa, vaikka sitä ei käytetä",
+          "Laitteen lataamista",
+          "Laitteen käyttöä täydellä teholla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

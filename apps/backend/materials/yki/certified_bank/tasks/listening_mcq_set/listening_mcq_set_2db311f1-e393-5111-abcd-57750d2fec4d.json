@@ -1,0 +1,88 @@
+{
+  "id": "2db311f1-e393-5111-abcd-57750d2fec4d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Tässä on Aleksi. Mä olen nyt kaupassa ja täällä on kaikki hedelmät tarjouksessa. Banaanit, omenat ja appelsiinit puoleen hintaan. Ostetaanko?",
+      "audio_asset_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d"
+    },
+    "questions": [
+      {
+        "id": "6b770dfd-cc6b-5e4a-a8f2-1ed65653f6a6",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Mikko.",
+          "Aleksi.",
+          "Jaakko.",
+          "Teemu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "81033f7d-0efb-522a-9049-c539ffe41d5f",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Kaupassa.",
+          "Torilla.",
+          "Puutarhassa.",
+          "Kotona."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "ce023880-adde-536d-849e-f2c5751164e6",
+        "prompt": "Mikä on tarjouksessa?",
+        "options": [
+          "Kaikki vihannekset.",
+          "Kaikki hedelmät.",
+          "Kaikki leivonnaiset.",
+          "Kaikki maitotuotteet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6f46579d-a382-500c-b5aa-bac175bfe797",
+        "prompt": "Mitä kolmea hedelmää mainitaan?",
+        "options": [
+          "Banaanit, päärynät, appelsiinit.",
+          "Omenat, appelsiinit, viinirypäleet.",
+          "Banaanit, omenat, appelsiinit.",
+          "Banaanit, omenat, mansikat."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a686d20e-b6b1-5291-9cfa-eda071c82967",
+        "prompt": "Mikä on tarjoushinta?",
+        "options": [
+          "Ilmaisia.",
+          "Kolmekymmentä prosenttia halvempi.",
+          "Puoleen hintaan.",
+          "Kaksi kiloa yhden hinnalla."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

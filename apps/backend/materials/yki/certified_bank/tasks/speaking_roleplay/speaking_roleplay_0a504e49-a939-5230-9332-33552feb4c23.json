@@ -1,0 +1,40 @@
+{
+  "id": "0a504e49-a939-5230-9332-33552feb4c23",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.288,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell where you live and what your apartment is like.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "5b1ced11-91ce-577b-b8f5-86b1b81bb3c8",
+        "ai_first_turn_fi": "Moi! Asutko sinä tässä talossa? Millainen sun koti on?"
+      }
+    ],
+    "rubric": "Tell where you live and what your apartment is like.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

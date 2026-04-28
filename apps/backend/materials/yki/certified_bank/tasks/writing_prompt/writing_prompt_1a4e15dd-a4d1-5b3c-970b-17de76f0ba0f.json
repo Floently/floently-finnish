@@ -1,0 +1,37 @@
+{
+  "id": "1a4e15dd-a4d1-5b3c-970b-17de76f0ba0f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti päiväkodin johtajalle. Haluat muuttaa lapsesi hoitoaikoja ensi kuusta alkaen. Kerro lapsen nimi ja nykyiset hoitoajat. Kerro toivotut uudet hoitoajat ja miksi muutos on tarpeen.",
+    "materials": {
+      "scenario": "Hoitoaikojen muutos päiväkodissa"
+    },
+    "items": [
+      {
+        "id": "7122e863-e703-5af9-9614-d3d23ce58ed9",
+        "prompt": "Kirjoita sähköposti päiväkodin johtajalle. Haluat muuttaa lapsesi hoitoaikoja ensi kuusta alkaen. Kerro lapsen nimi ja nykyiset hoitoajat. Kerro toivotut uudet hoitoajat ja miksi muutos on tarpeen."
+      }
+    ],
+    "rubric": "Lapsen tiedot\nNykyiset hoitoajat\nUudet hoitoajat ja perustelu",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

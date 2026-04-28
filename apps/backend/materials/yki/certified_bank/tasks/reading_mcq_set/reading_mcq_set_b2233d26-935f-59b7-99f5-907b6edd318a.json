@@ -1,0 +1,88 @@
+{
+  "id": "b2233d26-935f-59b7-99f5-907b6edd318a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Päivällä ollaan töissä tai koulussa. Lapset opiskelevat ja leikkivät välitunneilla. Aikuiset tekevät töitä. Lounastauko on tärkeä hetki. Silloin syödään ja jutellaan. Iltapäivällä tullaan kotiin. Lapset tekevät läksyjä. He käyvät harrastuksissa. Aikuiset tekevät kotitöitä. He käyvät kaupassa. Päivällä ehtii tehdä paljon asioita. Joskus päivä on kiireinen, joskus rauhallisempi. Päivän aikana tapahtuu paljon pieniä asioita.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä ollaan päivällä?",
+        "options": [
+          "Kotona",
+          "Töissä tai koulussa",
+          "Mökillä",
+          "Lomalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lapset tekevät koulussa?",
+        "options": [
+          "Nukkuvat",
+          "Opiskelevat ja leikkivät välitunneilla",
+          "Syövät koko ajan",
+          "Katsovat televisiota"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on tärkeä hetki päivällä?",
+        "options": [
+          "Aamupala",
+          "Lounastauko",
+          "Iltapäiväkahvi",
+          "Päivällinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä lapset tekevät iltapäivällä?",
+        "options": [
+          "Nukkuvat",
+          "Teke läksyjä ja käyvät harrastuksissa",
+          "Katsovat televisiota",
+          "Ovat tietokoneella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä aikuiset tekevät iltapäivällä?",
+        "options": [
+          "Nukkuvat",
+          "Teke kotitöitä ja käyvät kaupassa",
+          "Ovat harrastuksissa",
+          "Katsovat televisiota"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

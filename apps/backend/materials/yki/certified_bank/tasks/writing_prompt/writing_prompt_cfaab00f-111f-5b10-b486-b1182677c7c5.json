@@ -1,0 +1,37 @@
+{
+  "id": "cfaab00f-111f-5b10-b486-b1182677c7c5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita työtodistus työntekijälle.",
+    "materials": {
+      "scenario": "Kirjoita työtodistus työntekijälle."
+    },
+    "items": [
+      {
+        "id": "w_b1_010_008_item",
+        "prompt": "Kirjoita työtodistus."
+      }
+    ],
+    "rubric": "Kirjoita työtodistus työntekijälle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

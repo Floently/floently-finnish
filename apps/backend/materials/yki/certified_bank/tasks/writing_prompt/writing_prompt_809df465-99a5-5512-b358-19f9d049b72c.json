@@ -1,0 +1,37 @@
+{
+  "id": "809df465-99a5-5512-b358-19f9d049b72c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt essee etätyön hyvistä ja huonoista puolista.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt essee etätyön hyvistä ja huonoista puolista."
+    },
+    "items": [
+      {
+        "id": "817160c5-8ad4-5851-8d0e-d6ff047236ea",
+        "prompt": "Etätyö on yleistynyt monilla aloilla. Kirjoita noin 200 sanan essee, jossa pohdit etätyön etuja ja haittoja. Miten se vaikuttaa työntekijän hyvinvointiin, työyhteisöön ja tuottavuuteen? Onko etätyö mielestäsi tullut jäädäkseen?"
+      }
+    ],
+    "rubric": "Etätyö on yleistynyt monilla aloilla. Kirjoita noin 200 sanan essee, jossa pohdit etätyön etuja ja haittoja. Miten se vaikuttaa työntekijän hyvinvointiin, työyhteisöön ja tuottavuuteen? Onko etätyö mielestäsi tullut jäädäkseen?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

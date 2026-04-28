@@ -1,0 +1,64 @@
+{
+  "id": "fff08366-cd26-583d-a4df-37b4fc923deb",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa muuttaa matkalippujaan. Keskustele lentoyhtiön asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Lentoyhtiön asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp18_1",
+        "ai_first_turn_fi": "Hei, Finnairin asiakaspalvelu, Joonas."
+      },
+      {
+        "id": "srp18_2",
+        "ai_first_turn_fi": "Voin auttaa. Mikä on varausnumerosi?"
+      },
+      {
+        "id": "srp18_3",
+        "ai_first_turn_fi": "Kiitos. Kyseessä on siis lento Tukholmaan ensi tiistaina. Mihin päivään haluaisit muuttaa lennon?"
+      },
+      {
+        "id": "srp18_4",
+        "ai_first_turn_fi": "Tarkistan saatavuuden... Kyllä, sinä päivänä on tilaa samalla lennolla. Lippusi on vaihtokelpoinen, mutta muutosmaksu on 50 euroa. Hyväksytkö tämän?"
+      },
+      {
+        "id": "srp18_5",
+        "ai_first_turn_fi": "Hyvä. Miten haluat maksaa muutosmaksun?"
+      },
+      {
+        "id": "srp18_6",
+        "ai_first_turn_fi": "Kiitos. Uusi lentosi on nyt vahvistettu. Saat uuden lipun sähköpostitse. Tarvitsetko muuta apua?"
+      },
+      {
+        "id": "srp18_7",
+        "ai_first_turn_fi": "Selvä. Hyvää matkaa Tukholmaan!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa muuttaa matkalippujaan. Keskustele lentoyhtiön asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "cf103581-e3d1-5274-9bba-60c46ee5e81a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työhyvinvoinnin vuosikellosta. Kerro vuosikellon selkeydestä, kattavuudesta ja toteutumisesta. Ehdota yhtä uutta teemaa.",
+    "materials": {
+      "scenario": "Palaute työpaikan työhyvinvoinnin vuosikellosta"
+    },
+    "items": [
+      {
+        "id": "acba1ee7-e014-53ea-af7c-109181670788",
+        "prompt": "Kirjoita palauteteksti työpaikan työhyvinvoinnin vuosikellosta. Kerro vuosikellon selkeydestä, kattavuudesta ja toteutumisesta. Ehdota yhtä uutta teemaa."
+      }
+    ],
+    "rubric": "Vuosikellon selkeys\nKattavuus\nToteutuminen\nUusi teema",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

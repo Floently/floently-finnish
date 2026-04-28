@@ -1,0 +1,66 @@
+{
+  "id": "c7957950-a32e-56f4-9dbe-fed5b1ab7e86",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuulutus koulussa ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Hyvät oppilaat. Koulun liikuntasali on remontissa koko viikon. Liikuntatunnit pidetään ulkona tai luokassa.",
+      "audio_asset_id": "6c1d8e02-cb78-5271-9464-a28c46fef0e2"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_001_q1",
+        "prompt": "Mikä on remontissa?",
+        "options": [
+          "luokkahuone",
+          "liikuntasali",
+          "ruokala",
+          "kirjasto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_001_q2",
+        "prompt": "Kuinka kauan remontti kestää?",
+        "options": [
+          "yhden päivän",
+          "koko viikon",
+          "kaksi viikkoa",
+          "kuukauden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_001_q3",
+        "prompt": "Missä liikuntatunnit pidetään?",
+        "options": [
+          "liikuntasalissa",
+          "ulkona tai luokassa",
+          "uimahallissa",
+          "urheilukentällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "8ed27c50-038a-5206-b944-30bd3033e280",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja valitse jokaiseen kysymykseen paras vaihtoehto.",
+    "materials": {
+      "text": "Kirjaston varauspalvelu on käytettävissä maanantaista perjantaihin kello 8–20. Voit varata teoksen verkossa tai tulla paikan päälle. Varaus pysyy voimassa seitsemän päivää. Nouda teos varaushyllystä tai pyydä apua infopisteeltä. Jos et nouda ajoissa, varaus peruuntuu ja seuraava jonossa saa teoksen. Varattuja teoksia ei voi uusia verkossa; tule kirjastoon uusimaan. Lainauskortti on pakollinen. Muista palautusaika, jotta vältät viivästysmaksut.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan varauspalvelu on auki?",
+        "options": [
+          "kello 8–20 arkena",
+          "kello 9–18 arkena",
+          "vain aamuisin",
+          "viikonloppuisin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan varaus pysyy voimassa?",
+        "options": [
+          "seitsemän päivää",
+          "kolme päivää",
+          "kaksi viikkoa",
+          "yksi kuukausi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä noudat varatun teoksen?",
+        "options": [
+          "varaushyllystä tai infopisteeltä",
+          "vain kassalta",
+          "postitse",
+          "ulko-ovella"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tapahtuu jos et nouda ajoissa?",
+        "options": [
+          "varaus peruuntuu",
+          "saat muistutuksen",
+          "lainaa pidennetään",
+          "maksat sakon heti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Missä voit uusia lainaa?",
+        "options": [
+          "kirjastossa paikan päällä",
+          "verkossa",
+          "puhelimella",
+          "sähköpostilla"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

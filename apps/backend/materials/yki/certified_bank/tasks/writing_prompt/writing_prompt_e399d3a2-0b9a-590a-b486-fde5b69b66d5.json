@@ -1,0 +1,37 @@
+{
+  "id": "e399d3a2-0b9a-590a-b486-fde5b69b66d5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kaupungin asuntotoimistoon. Olet muuttamassa uuteen vuokra-asuntoon ja haluat tiedustella, miten saat muuttoluvan ja tarvitseeko sinun ilmoittaa muutosta johonkin muuhun viranomaiseen. Kerro nykyinen ja uusi osoitteesi.",
+    "materials": {
+      "scenario": "Muuttolupa ja osoitteenmuutos"
+    },
+    "items": [
+      {
+        "id": "36e69fc2-863a-50df-9f9f-724f8c2612e3",
+        "prompt": "Kirjoita virallinen sähköposti kaupungin asuntotoimistoon. Olet muuttamassa uuteen vuokra-asuntoon ja haluat tiedustella, miten saat muuttoluvan ja tarvitseeko sinun ilmoittaa muutosta johonkin muuhun viranomaiseen. Kerro nykyinen ja uusi osoitteesi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

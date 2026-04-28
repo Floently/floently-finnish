@@ -1,0 +1,110 @@
+{
+  "id": "bbeb8d3c-4325-5dc4-b028-d580e38c1db3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.738,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen hyvinvointiyhteiskunta on rakennettu vahvan julkisen sektorin varaan. Julkiset palvelut, kuten koulutus, terveydenhuolto ja sosiaaliturva, on rahoitettu verovaroin ja ne on tarkoitettu kaikille kansalaisille asuinpaikasta tai varallisuudesta riippumatta. Tämä malli on pitkään taannut yhteiskunnallista vakautta ja vähentänyt eriarvoisuutta. Viime vuosina malli on kuitenkin joutunut paineiden alle. Globalisaatio, väestön ikääntyminen ja talouden suhdannevaihtelut ovat heikentäneet julkista taloutta. Samaan aikaan kansalaisten odotukset palvelujen laadusta ovat kasvaneet. Tämä on synnyttänyt keskustelua siitä, miten hyvinvointiyhteiskuntaa tulisi uudistaa. Osa korostaa julkisen sektorin tehokkuuden parantamista ja palvelurakenteiden uudistamista. Toiset puhuvat yksityisten palvelujen lisäämisen puolesta, jotta kilpailu parantaisi laatua ja tehokkuutta. Kolmannet varoittavat, että liiallinen yksityistäminen voi heikentää tasa-arvoa, koska kaikilla ei ole varaa ostaa palveluja markkinoilta. Keskustelu heijastelee syvempää arvovalintaa siitä, mikä on julkisen ja yksityisen vastuun sopiva suhde yhteiskunnassa.",
+      "word_count": 124
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin suomalainen hyvinvointiyhteiskunta on rakennettu?",
+        "options": [
+          "Yksityisen sektorin varaan.",
+          "Kansalaisjärjestöjen varaan.",
+          "Vahvan julkisen sektorin varaan.",
+          "Kansainvälisen avun varaan."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten julkiset palvelut on rahoitettu?",
+        "options": [
+          "Asiakasmaksuilla.",
+          "Verovaroin.",
+          "Yritysten lahjoituksilla.",
+          "EU:n tuella."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä hyvinvointiyhteiskunnan mallilla on ollut?",
+        "options": [
+          "Se on lisännyt kilpailua.",
+          "Se on taannut yhteiskunnallista vakautta ja vähentänyt eriarvoisuutta.",
+          "Se on vähentänyt verotusta.",
+          "Se on lisännyt yksityisiä palveluja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä paineita hyvinvointiyhteiskunta kohtaa?",
+        "options": [
+          "Väestön nuorentuminen ja syntyvyyden kasvu.",
+          "Globalisaatio, väestön ikääntyminen ja talouden vaihtelut.",
+          "Yksityisten palvelujen väheneminen.",
+          "Kansalaisten verotuksen keventäminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä uudistusehdotuksia hyvinvointiyhteiskunnalle esitetään?",
+        "options": [
+          "Vain julkisen sektorin tehokkuuden parantamista.",
+          "Vain yksityisten palvelujen lisäämistä.",
+          "Sekä julkisen sektorin uudistamista että yksityisten palvelujen lisäämistä harkiten.",
+          "Koko järjestelmän purkamista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on yksityistämisen riski?",
+        "options": [
+          "Se lisää byrokratiaa.",
+          "Se voi heikentää tasa-arvoa, koska kaikilla ei ole varaa palveluihin.",
+          "Se heikentää palvelujen laatua.",
+          "Se vähentää työpaikkoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä syvempää kysymystä keskustelu hyvinvointiyhteiskunnasta heijastelee?",
+        "options": [
+          "Teknologian kehitystä.",
+          "Arvovalintaa julkisen ja yksityisen vastuun suhteesta.",
+          "Kansainvälistä kilpailukykyä.",
+          "Luonnonvarojen riittävyyttä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "e03b3c9a-7d2d-5ca1-9590-09daa66e9eba",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelu ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Hei, tässä Salonki Lumo. Aikasi keskiviikkona kello 11 siirretään torstaille kello 13 stylistin koulutuksen vuoksi. Jos uusi aika ei sovi, soita meille ennen huomista kello 16.",
+      "audio_asset_id": "5ed0809a-8932-5417-b74e-a08505c2ddd8"
+    },
+    "questions": [
+      {
+        "id": "l1",
+        "prompt": "Mikä alkuperäinen aika oli?",
+        "options": [
+          "ti klo 11",
+          "ke klo 11",
+          "to klo 11",
+          "ke klo 13"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l2",
+        "prompt": "Miksi aika siirtyy?",
+        "options": [
+          "sairaus",
+          "koulutus",
+          "loma",
+          "sähkökatko"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l3",
+        "prompt": "Mikä uusi aika on?",
+        "options": [
+          "to klo 12",
+          "to klo 13",
+          "to klo 14",
+          "pe klo 13"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l4",
+        "prompt": "Mihin mennessä pitää soittaa, jos aika ei sovi?",
+        "options": [
+          "tanaan klo 16",
+          "huomenna klo 16",
+          "huomenna klo 18",
+          "perjantaina klo 16"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

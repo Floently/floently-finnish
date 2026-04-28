@@ -1,0 +1,66 @@
+{
+  "id": "f0ae5958-a47d-5899-8952-774ff6a16337",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työterveyshoitajan puhelinneuvonta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Työterveyshoitaja: Työterveyshuolto, Sari Heikkinen, päivää.\nSoittaja: Hei, tässä on Matti Virtanen. Olisin kysynyt, miten saan ajan työterveyslääkärille. Minulla on ollut nyt pari viikkoa olkapääkipua, eikä se tunnu menevän ohi.\nTyöterveyshoitaja: Onko teillä käytössä työterveyssopimus, johon kuuluu lääkäripalvelut?\nSoittaja: Kyllä, kuuluu.\nTyöterveyshoitaja: Hyvä. Teidän kannattaa ensin täyttää oirekysely verkkopalvelussamme. Sen jälkeen voitte varata ajan suoraan sieltä tai soittaa ajanvaraukseen. Lääkärille pääsee yleensä muutamassa päivässä.\nSoittaja: Entä jos tarvitsen fysioterapeutin?\nTyöterveyshoitaja: Lääkäri kirjoittaa tarvittaessa lähetteen fysioterapiaan. Myös työfysioterapeutille voi päästä suoraan, riippuen työnantajan sopimuksesta.",
+      "audio_asset_id": "705a68e8-4ef0-44bf-b7f7-b2a2761ebe4e"
+    },
+    "questions": [
+      {
+        "id": "85110726-5acb-5492-ae48-62778a71cc17",
+        "prompt": "Miksi soittaja haluaa ajan lääkärille?",
+        "options": [
+          "Flunssan takia",
+          "Olkapääkivun takia",
+          "Työuupumuksen takia",
+          "Allergian takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6368b87a-b0a0-58f8-a98d-3a8460aa3c8d",
+        "prompt": "Mitä soittajan pitää tehdä ennen ajanvarausta?",
+        "options": [
+          "Mennä laboratorioon",
+          "Täyttää oirekysely verkkopalvelussa",
+          "Ottaa yhteyttä esihenkilöön",
+          "Toimittaa työterveyssopimus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "156fdd25-250d-56e7-a526-0c0b8dc6bde6",
+        "prompt": "Kuka päättää fysioterapiaan pääsystä?",
+        "options": [
+          "Soittaja itse",
+          "Työnantaja",
+          "Lääkäri ja työnantajan sopimus",
+          "Fysioterapeutti"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

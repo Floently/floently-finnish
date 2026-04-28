@@ -1,0 +1,77 @@
+{
+  "id": "b1e38267-7b55-5d6e-8372-af1eb989a1ff",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Tulevaisuuden työelämässä korostuvat entistä enemmän yksilölliset työurat ja joustavuus. Perinteinen malli, jossa työntekijä on samassa organisaatiossa koko työuransa ajan, on harvinaistumassa. Sen sijaan työntekijät vaihtavat työpaikkaa useammin, työskentelevät projekteissa ja yhdistävät useita rooleja. Tämä asettaa vaatimuksia sekä työntekijöiden omalle aktiivisuudelle ja verkostoitumiselle että työnantajien kyvylle houkutella ja sitouttaa osaajia. Myös työhyvinvointi ja työn merkityksellisyys ovat keskeisiä tekijöitä, jotka vaikuttavat työntekijöiden sitoutumiseen. Työnantajien on panostettava hyvään johtamiseen, työn joustavuuteen ja työntekijöiden kehittymismahdollisuuksiin pysyäkseen kilpailukykyisinä työmarkkinoilla.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "mcq_416",
+        "prompt": "Mikä on harvinaistumassa tulevaisuuden työelämässä?",
+        "options": [
+          "Työpaikan vaihtaminen",
+          "Perinteinen malli, jossa työntekijä on samassa organisaatiossa koko työuransa",
+          "Projektityöskentely",
+          "Useiden roolien yhdistäminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_417",
+        "prompt": "Mitä työntekijöiltä vaaditaan uudenlaisessa työelämässä?",
+        "options": [
+          "Passiivisuutta ja odottelua",
+          "Omaa aktiivisuutta ja verkostoitumista",
+          "Sitoutumista yhteen organisaatioon",
+          "Joustamattomuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_418",
+        "prompt": "Mitkä tekijät vaikuttavat työntekijöiden sitoutumiseen?",
+        "options": [
+          "Vain palkka",
+          "Työhyvinvointi ja työn merkityksellisyys",
+          "Vain työn joustavuus",
+          "Vain kehittymismahdollisuudet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_419",
+        "prompt": "Mihin työnantajien on panostettava pysyäkseen kilpailukykyisinä?",
+        "options": [
+          "Hyvään johtamiseen, työn joustavuuteen ja työntekijöiden kehittymismahdollisuuksiin",
+          "Vain hyvään johtamiseen",
+          "Vain työn joustavuuteen",
+          "Vain työntekijöiden kehittymismahdollisuuksiin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "9c58e41b-3103-50c9-8e4f-e0c3a135eebc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit elokuvissa. Kirjoita palaute elokuvateatterille. Kerro, oliko elokuva hyvä, oliko teatterin penkki mukava ja oliko äänet sopivalla voimakkuudella.",
+    "materials": {
+      "scenario": "Palaute elokuvateatterista"
+    },
+    "items": [
+      {
+        "id": "a7fef411-c0ec-54ac-97a6-c9a2def672dc",
+        "prompt": "Kävit elokuvissa. Kirjoita palaute elokuvateatterille. Kerro, oliko elokuva hyvä, oliko teatterin penkki mukava ja oliko äänet sopivalla voimakkuudella."
+      }
+    ],
+    "rubric": "Elokuvan laatu\nPenkin mukavuus\nÄänien voimakkuus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

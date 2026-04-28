@@ -1,0 +1,66 @@
+{
+  "id": "87d83507-b823-5a90-b255-1d5248ef1cc7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen peruskoulu kestää yhdeksän vuotta, ja se on jaettu ala-asteeseen (luokat 1–6) ja yläasteeseen (luokat 7–9). Peruskoulun jälkeen nuoret voivat hakea joko lukioon tai ammatilliseen oppilaitokseen. Lukio valmistaa ylioppilastutkintoon ja korkeakouluopintoihin, kun taas ammatillinen koulutus antaa valmiudet työelämään. Noin puolet ikäluokasta valitsee lukion ja puolet ammatillisen koulutuksen. Viime vuosina on yleistynyt kaksoistutkinto, jossa opiskelija suorittaa sekä lukion oppimäärän että ammatillisen tutkinnon. Tämä vaatii paljon työtä, mutta antaa laajemmat jatko-opintomahdollisuudet. Korkeakoulutukseen hakeutuu nykyään yhä useampi nuori, ja kilpailu suosituimmille aloille on kovaa.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "d4e5f6a7-b8c9-4d0e-9f1a-2b3c4d5e6f7a",
+        "prompt": "Kuinka monta vuotta suomalainen peruskoulu kestää?",
+        "options": [
+          "6 vuotta",
+          "7 vuotta",
+          "8 vuotta",
+          "9 vuotta"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "e5f6a7b8-c9d0-4e1f-9a2b-3c4d5e6f7a8b",
+        "prompt": "Mihin lukio valmistaa?",
+        "options": [
+          "Vain työelämään",
+          "Ylioppilastutkintoon ja korkeakouluopintoihin",
+          "Vain ammattikouluun",
+          "Peruskoulun jatkoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f6a7b8c9-d0e1-4f2a-9b3c-4d5e6f7a8b9c",
+        "prompt": "Mitä kaksoistutkinto tarkoittaa?",
+        "options": [
+          "Kahta eri lukiota",
+          "Lukion ja ammatillisen tutkinnon suorittamista samanaikaisesti",
+          "Kahta yliopistotutkintoa",
+          "Peruskoulun ja lukion suorittamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

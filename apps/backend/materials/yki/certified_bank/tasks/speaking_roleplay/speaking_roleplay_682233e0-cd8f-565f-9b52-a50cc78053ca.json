@@ -1,0 +1,40 @@
+{
+  "id": "682233e0-cd8f-565f-9b52-a50cc78053ca",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia asiantuntijana ja neuvoa vaikeassa tilanteessa.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet lakimies, joka haluaa auttaa ystävää mutta myös antaa realistisen kuvan tilanteesta.",
+        "partner": "Ystävä - ahdistunut ja epätietoinen, tarvitsee selkeitä ohjeita ja tukea."
+      }
+    },
+    "items": [
+      {
+        "id": "srp31",
+        "ai_first_turn_fi": "Kiitos kun kerroit. Kuulostaa todella ikävältä tilanteelta. Kerro tarkemmin, millaisia vikoja on paljastunut ja mitä olet jo tehnyt asian suhteen?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia asiantuntijana ja neuvoa vaikeassa tilanteessa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

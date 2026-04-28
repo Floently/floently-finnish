@@ -1,0 +1,37 @@
+{
+  "id": "1561c78e-9e3e-531b-9afd-7e6566d63e25",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kaverille. Kerro, että olet sairas etkä pääse huomiselle suunnitellulle elokuvareissulle. Pahoittele ja ehdota uutta aikaa ensi viikolle.",
+    "materials": {
+      "scenario": "Viesti kaverille sairastumisesta"
+    },
+    "items": [
+      {
+        "id": "d240fe47-39c6-51ff-8003-ba1ccceea7fe",
+        "prompt": "Kirjoita lyhyt viesti kaverille. Kerro, että olet sairas etkä pääse huomiselle suunnitellulle elokuvareissulle. Pahoittele ja ehdota uutta aikaa ensi viikolle."
+      }
+    ],
+    "rubric": "Kerro, että olet sairas\nPeru elokuvareissu\nEhdota uutta aikaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "8aa82aad-0c80-57a9-8e44-03d81131b8c0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uimahallissa usein. Kirjoita palaute, jossa kerrot sekä hyviä että huonoja asioita. Mainitse ainakin altaiden kunto, saunan siisteys ja henkilökunnan tavoitettavuus.",
+    "materials": {
+      "scenario": "Yksityiskohtainen palaute uimahallista"
+    },
+    "items": [
+      {
+        "id": "fe482bbd-c761-5b80-aae5-916e05cf3cb0",
+        "prompt": "Olet käynyt uimahallissa usein. Kirjoita palaute, jossa kerrot sekä hyviä että huonoja asioita. Mainitse ainakin altaiden kunto, saunan siisteys ja henkilökunnan tavoitettavuus."
+      }
+    ],
+    "rubric": "Altaiden kunto\nSaunan siisteys\nHenkilökunnan tavoitettavuus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

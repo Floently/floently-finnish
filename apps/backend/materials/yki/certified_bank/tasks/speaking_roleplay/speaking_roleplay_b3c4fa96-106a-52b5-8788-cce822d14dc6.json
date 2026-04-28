@@ -1,0 +1,40 @@
+{
+  "id": "b3c4fa96-106a-52b5-8788-cce822d14dc6",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.501,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele hierojan kanssa. Kerro vaivoistasi ja kysy sopivaa hoitoa.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan hierojalle",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "adac9aca-7959-5dcb-80eb-54541f11be8c",
+        "ai_first_turn_fi": "Tervetuloa! Kerro nyt, mikä sinua vaivaa ja mihin toivoisit minun keskittyvän."
+      }
+    ],
+    "rubric": "Keskustele hierojan kanssa. Kerro vaivoistasi ja kysy sopivaa hoitoa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

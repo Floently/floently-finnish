@@ -1,0 +1,102 @@
+# CARD_BANK_DUPLICATE_REPORT
+
+- `grammar_card` `professional` `doctor` `A1_A2` `healthcare`: 23 ids
+- `grammar_card` `professional` `doctor` `B1_B2` `healthcare`: 35 ids
+- `grammar_card` `professional` `doctor` `C1_C2` `healthcare`: 2 ids
+- `grammar_card` `professional` `nurse` `A1_A2` `healthcare`: 45 ids
+- `grammar_card` `professional` `nurse` `B1_B2` `healthcare`: 131 ids
+- `grammar_card` `professional` `nurse` `C1_C2` `healthcare`: 8 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `1700-luvulla kirurgian ja lääketieteen oppialat alkoivat yhdistyä, kun kirurgian harjoittaminen siirtyi välskäreiltä lääkäreiden hoitoon`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `aikaisemmin leikkaus oli äärimmäisen kivulias kokemus ja leikkaajia kehotettiin hoitamaan leikkaukset mahdollisimman nopeasti, ettei potilas kärsisi niin paljoa`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `aina on ollut ihmisiä, jotka ovat joutuneet erikoistumaan sairaiden ja heidän kipujensa kohtaamiseen`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `airo arvioi, että todellinen määrä on kuitenkin moninkertainen, sillä sairaudet ovat alitunnistettuja.`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `aivokalvontulehdusta voivat aiheuttaa muutkin bakteerit, meningokokin ohella etenkin pneumokokki, mutta myös muun muassa listeriabakteeri`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `aivotoiminnan häriintyminen johtuu ainakin osaksi taudinaiheuttajien ja tulehdusvasteen aiheuttamista aivovaikutuksista.[36]`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `alla olevalla videolla lääkäri atte kertoo kolme vinkkiä nikotiinipussien käytön lopettamiseen.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ammatinharjoittajalääkärit ovat yrittäjiä, jotka vuokraavat lääkäriasemilta vastaanottotiloja ja vastaanottoon tarvittavaa tekniikkaa`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `arviolta 5-8 prosenttia maapallon väestöstä sairastaa jotain yhden geenimuunnoksen aiheuttamaa sairautta, jollaisia tunnetaan 2020-luvulla jo yli 7 000`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `asetuksen mukaan lääkärin pitää tutkia potilas tai muutoin varmistua lääkehoidon tarpeesta`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `asiantarkastajina sarjassa ovat toimineet lihastautiliitto, luustoliitto, sydänliitto, aivoliitto, lääkäriliitto, ibd ja muut suolistosairaudet ry sekä astma- ja allergia-asiantuntija`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `asiantuntijat suosittelevat varhaista seulontaa ja tukea oireista kärsiville.`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `avokirurgiassa myös kudosten palpaatio on oleellinen menetelmä`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `bakteerin aiheuttaman aivokalvontulehduksen tyypillisiä oireita ovat korkea kuume, kova päänsärky, niskajäykkyys, tajunnan häiriöt ja sekavuus`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `bakteeriperäinen tulehdus oli yleinen kuolinsyy länsimaissa ennen antibioottien keksimistä[22]`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `bernin ja minnesotan yliopistojen yhteisessä tutkimuksessa löydettiin perinnöllinen yhteys sairauteen, jossa koirille kehittyy hermostollisia häiriöitä`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `bipolaarista häiriötä sairastavien aivoista löytyy myös merkkejä kroonisesta tulehduksesta`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `britannian tartunnat ovat b-tyyppiä.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diabeteksille yhteiset oireet johtuvat hyperglykemiasta ja siihen liittyviä välittömiä oireita ovat esimerkiksi janoisuus ja runsas virtsaamistarve`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diabetes lisää esimerkiksi infektioalttiutta[2] ja verisuonivaurioita, mikä johtaa esimerkiksi valtimokovettumataudin ja muiden sydän- ja verisuonisairauksien sekä impotenssin riskin lisääntymiseen.[2] diabetes saattaa aiheuttaa myös alzheimerin tautia ja muita dementiasairauksia[9].`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diabetes mellituksesta käytetään usein lyhyttä muotoa diabetes, kuten myös tässä artikkelissa, vaikka pelkkä ”diabetes” voi viitata myös diabetes insipidukseen.[2] diabetes mellitus -sairauksia on aikaisemmin myös kutsuttu nimellä sokeritauti[3].`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diabetes mellitus (dm) on yleisnimi ryhmälle sokeriaineenvaihdunnan sairauksia, jotka aiheuttavat hyperglykemiaa eli veren glukoosipitoisuuden eli verensokerin liiallista nousua`: 8 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diabetesdiagnoosin varmentaminen ja niiden eri muotojen erottaminen toisistaan vaatii lisäksi oireiden tulkitsemista, potilaan sukulaisten sairauksien selvittämistä tai mahdollisesti geenitestejä.[2]`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diagnooseja tehdään lääkärin vastaanotolla terveyskeskuksissa ja sairaaloissa`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diagnoosi merkitään potilasta koskeviin asiakirjoihin who:n icd-10-tautiluokituksen mukaan, josta stakes on laatinut suomalaisen version.`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diagnoosi tarkoittaa oireiden perusteella tehtyä päätelmää niitä aiheuttavasta sairaudesta`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `diagnoosin perusteella lääkäri määrää tarvittavat mahdolliset hoitotoimenpiteet.`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `egyptissä elänyt apollonius memfisiläinen käytti sanaa ensi kerran kuvaamaan näitä sairauksia noin vuonna 230 eaa`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ei siis ole ihme, että nettiklinikoiden määrä kasvaa nopeasti`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `elektiivisiin leikkauksiin kuuluu muun muassa erilaisten ei-henkeä vaarantavien terveysongelmien korjaaminen.[5]`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `elektiivisten leikausten vastakohta on päivystyskirurgia, jossa leikkauksen viivästyminen voi olla potilaalle hengenvaarallista.[6]`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `elina hanhivaaran äidin tilanne kulminoituukin pitkälti siihen, onko hänellä oikeus kieltäytyä turhina pitämistään lääkkeistä`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `endotoksemia on yleistä esimerkiksi lihavuuden yhteydessä ja se lisää riskiä sairastua diabetekseen ja sydän- ja verisuonisairauksiin`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `endotoksemian katsotaan yleisesti johtuvan suoliston lisääntyneestä läpäisevyydestä`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ennen hoitoa täytyy määrittää tarkasti syöpätyyppi ja syövän levinneisyys`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ennen nykyisiä hoitokeinoja oli hyvin suuri vaara että potilas vuosi kuiviin ennen hoitoa tai leikkauksen aikana`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ennen vastaanottoa mika täytti esitietolomakkeen, jossa kysytään muun muassa, onko potilas käynyt vastikään verikokeissa tai onko suvussa ollut kilpirauhasen syöpää.`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `eri maissa on kuitenkin vaihtelevia käytäntöjä esimerkiksi siinä kuinka paljon potilastyötä tehdään opiskeluaikana.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `erityisesti elektiivisessä kirurgiassa on tärkeää, että lääkäri kertoo potilalle toimenpiteeseen liittyvistä riskeistä`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `erityisesti lääketieteessä keskitytään ihmisen anatomiaan, fysiologiaan ja biokemiaan sekä patologiaan ja mikrobiologiaan.`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `erityistä tyytymättömyyttä ammatinharjoittajien keskuudessa on herättänyt ainakin mehiläisessä, terveystalossa ja pihlajalinnassa viime vuosina käyttöön otetut palkkiomallit, joilla määritellään vakuutusyhtiöiden ja työterveyden potilaiden vastaanotoille vähimmäis- ja enimmäispalkkiot.`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `erotetaan jyvät akanoista ja terveet sairaista.”`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `erotusdiagnoosi on käsite, jota käytetään tiettyä tautia haettaessa sisältäen ne vaihtoehdot, jotka voisivat myös samantapaisella oireistolla tulla kyseeseen`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `eräs ylen haastattelema yksityisellä sektorilla työskentelevä ammatinharjoittajalääkäri pitää huonoa palkkiota syynä sille, että valinnanvapauskokeilun aikoja on huonosti saatavilla`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `esimerkiksi homoseksuaalisuutta, masturbointia ja naisten seksuaalista aktiivisuutta pidettiin ennen lääketieteellisinä sairauksina.[1]`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `esimerkki terveystalosta: jos vastaanoton hinta on alle lääkäriaseman määrittelemän vähimmäishinnan, ammatinharjoittajalääkäri saa palkkioksi vähimmäishinnan eli lääkäriasema kompensoi halvimpien sopimusten hintoja lääkäreille`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `esimerkkinä eräitä nivelreuman erotusdiagnooseja ovat nivelrikko ja reaktiivinen niveltulehdus.`: 7 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `etupenkillä istuvalle pojalle aiheutui kolarista muun muassa aivovamma`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `eu:n ammattipätevyysdirektiivi asettaa ehtoja lääkärikoulutuksen laajuudelle ja sisällölle`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `geenivirhe-diagnoosin mukana yli-sissalan elämästä tuli kertarysäyksellä epävarmaa`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hallituksen tuorein, yli 65 vuotta täyttäneitä koskeva kela-kokeilu on johtanut erikoiseen tilanteeseen yksityisellä terveysmarkkinalla`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `haluttujen laihdutuslääkkeiden ympärillä pyörivä bisnes on klinikoille houkutteleva.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hammasperäinen tulehdus lisää valtimokovettumataudin riskiä ja saattaa johtaa märkäpesäkkeeseen eli paiseeseen ja yleisinfektioon bakteereiden levitessä verenkiertoon[32].`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `heidän mukaansa lääkkeitä määrätään liian paljon, ja he haluaisivat turvautua lääkkeettömään hoitoon.`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `heille kehitetään parhaillaan testimenetelmää, joka tunnistaa yli-sissalan geenivirheen 98 prosentin varmuudella.`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `heistaro korostaa, että kokeneiden lääkärikollegojen neuvot ja tuki opiskelijalle ovat silloin tärkeitä.`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hoidon riskejä ovat myös hoitovirheet, esimerkiksi leikkausvälineiden jääminen potilaan sisään`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hoitojakson syynä oli sairaus, jonka ilmaantuminen saattaa johtua siitä, että äiti ei ollut ottanut kaikkia hänelle määrättyjä lääkkeitä.`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hoitolinjaa valittaessa tulee pohtia ovatko kirurgisella toimenpiteellä saavutetut tulokset suuremmat kuin toimenpiteeseen liittyvät riskit`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hormonihoitoja käytetään yleensä rintasyövän, eturauhasen syövän, kilpirauhassyövän ja kohdun runko-osan syövän hoidossa`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hämeenlinnan kaupungin varhaiskasvatusjohtajan erja hirvosen mukaan tapaus on vakava`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hämeenlinnan terveysvalvonnan terveystarkastaja sanna tuomi kertoo sähköpostitse, että raa’assa lihassa voi esiintyä ruokamyrkytyksiä aiheuttavaa salmonellaa ja kampylobakteereita.`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hän esiintyy tässä jutussa pelkällä etunimellään, koska aihe käsittelee arkaluontoisia terveystietoja`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hän kuvailee taudin alkaneen kahvinjuonnista ja ”tavaraa tuli molemmista päistä”.`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hän kuvailee tautia ”ihan kamalaksi” ja arvioi, ettei koskaan aiemmin ole sairastanut yhtä pahaa oksennustautia ja ripulia.`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hän on koulutukseltaan sairaanhoitaja, mutta laphan lääkärin kirjoittaman arvion mukaan hänellä voi olla muistisairaus.`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hän on selvittänyt väitöskirjassaan, paljonko naiset saavat raskauden aikana kofeiinia ja miten se vaikuttaa äidin ja lapsen terveyteen.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hänen auktoriteettinsa ohjasi länsimaista lääketiedettä aina 1700-luvun alkupuolelle saakka`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `hänen mukaansa medilux tarjoaa maksutonta lääkärin etäkonsultaatiota koko hoitojakson ajan.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ientulehdus ja siitä mahdollisesti aiheutuva hampaiden kiinnityskudossairaus parodontiitti voivat aiheuttaa koko kehoon vaikuttavan kroonisen eli sitkeän[11] matala-asteisen[48] tulehdustilan,[49] jota ymmärretään vasta osittain.[11]`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ihmisen verenkiertoon päätyvät bakteerit tai lipopolysakkaridin kaltaiset bakteeritoksiinit eli bakteerien tuottamat haitta-aineet aiheuttavat pieninä pitoisuuksina matala-asteisen tulehduksen ja suurina pitoisuuksina verenmyrkytyksen.[50]`: 9 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ihmisten lisäksi diabeteksen eri muotoja voi ilmetä muilla selkärankaisilla`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `immuunihoitoja käytetään useiden erilaisten syöpien hoidossa, joiden joukossa ovat muun muassa keuhkosyöpä, virtsarakon syöpä, rintasyöpä, melanooma, gynekologiset syövät ja munuaissyöpä.lähde?`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `immuunivasteen muuntajien teho säilyy osalla potilaista kuukausia ja jopa vuosia`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `infektio eli tartunta tarkoittaa tautia aiheuttavan bakteerin, viruksen, sienen, loisen tai muun patogeenin[1] tunkeutumista isäntälajin elimistöön ulkoa käsin tai siirtymistä isännän elimistön osasta toiseen niin runsain mitoin, että se kykenee vaurioittamaan isännän tervettä kudosta`: 10 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `isossa-britanniassa hoitosuositukset laaditaan puolestaan terveydenhuoltoviranomaisen asettamissa riippumattomissa komiteoissa, joiden jäseninä on sekä ammattilaisten että potilaiden edustajia`: 7 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `ja eihän se nyt terveydellekään hyväksi ole, silvola sanoo.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `japanin terveysministeriö näytti vihreää valoa myös uudelle sydänsairauksien hoitomenetelmälle.`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jarullin kertoo käyvänsä ennen vastaanottoa läpi potilaan kanta-merkinnät ja mahdolliset lääkkeet, joita hän vertaa tämän kertomukseen`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jarullin vastaa professorin kritiikkiin sanomalla, että jos mediluxin kaltaisia suhteellisen edullisia matalan kynnyksen palveluja ei olisi, monet lihavuudesta kärsivät jäisivät kokonaan hoitamatta.`: 6 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jatkuvan matala-asteisen eli niin sanotun ”hiljaisen” tulehduksen arvioidaan olevan melkein kaikkien länsimaiden kroonisten tautien osatekijä (muun muassa syöpä, diabetes, lihavuus, alzheimerin tauti, sepelvaltimotauti ja aivoinfarktit)[27]`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `joidenkin mielestä alkiodiagnostiikka on jumalan leikkimistä.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `joissain tapauksissa leikkausta voidaan viivyttää, mutta se muuttuu ajan myötä lopulta välttämättömäksi.[22]`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jos hinta on yli enimmäispalkkion, pitää lääkäriasema ylimenevän summan itsellään.`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jos lääkäri käyttää näyttöön perustumatonta hoitoa, jolla ei ole vakiintuneen lääketieteellisen hoidon asemaa, kyseessä on kokeellinen hoito`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jos niitä käytetään ja saasteita on, voi ilmetä esimerkiksi erilaisille sairauksille ja syövälle altistumista pidemmällä aikavälillä, emma hakala sanoo.`: 3 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jos potilas ei voi syödä, hänen on hyvä saada hieman suolaa nesteen mukana.`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jos sairastaja on vaikka poromies, uskon hänen haluavan kuulla poroelämästä`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jos tälle koko potille laitetaan yläraja, joka on sata euroa, ja josta yksityinen terveydenhuollon tarjoaja haluaa saada sen oman pottinsa… laboratoriokokeista saa tietyn summan, mutta miten loppusumma jyvitetään, niin ymmärrän huolen tietyllä tavalla.`: 12 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jos tätä tapahtuu häiritsevän paljon, kannattaa hakeutua lääkäriin.[8]`: 4 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jotta tutkimukseen saataisiin vertailukelpoinen verrokkiryhmä, pitäisi siihen kuuluvillekin tehdä jonkinlainen "lumeleikkaus"`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `julkinen keskustelu, mielipiteet, kulttuuriset normit ja taloudelliset intressit vaikuttavat siihen, mitä kulloinkin pidetään sairautena`: 5 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jutussa kerrotaan uutta tietoa siitä, millaisin keinoin yksityiset lääkäriasemat yrittävät tehdä voittoa.`: 2 ids
+- `sentence_card` `professional` `doctor` `B1_B2` `jutussa lehtonen muun muassa kertoo, että hänellä todettiin joulukuussa vakava sairaus.`: 2 ids

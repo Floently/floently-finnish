@@ -1,0 +1,37 @@
+{
+  "id": "045ffe08-6851-501b-96fd-22005b2ad81e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.502,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti entiselle työkaverille.",
+    "materials": {
+      "scenario": "Ehdota yhteistä lounasta"
+    },
+    "items": [
+      {
+        "id": "786a4174-64b2-5f62-a8de-d1638d7dfa83",
+        "prompt": "Et ole nähnyt entistä työkaveriasi pitkään aikaan. Kirjoita sähköposti ja ehdota, että tapaatte lounaalla. Ehdota muutamaa mahdollista päivää ja paikkaa. Kysy, mitä hänelle kuuluu."
+      }
+    ],
+    "rubric": "Et ole nähnyt entistä työkaveriasi pitkään aikaan. Kirjoita sähköposti ja ehdota, että tapaatte lounaalla. Ehdota muutamaa mahdollista päivää ja paikkaa. Kysy, mitä hänelle kuuluu.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

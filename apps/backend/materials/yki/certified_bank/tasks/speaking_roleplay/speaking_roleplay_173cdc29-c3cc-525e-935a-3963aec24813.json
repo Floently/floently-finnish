@@ -1,0 +1,40 @@
+{
+  "id": "173cdc29-c3cc-525e-935a-3963aec24813",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.503,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi roolisi mukaan.",
+    "materials": {
+      "roles": {
+        "user": "asukas",
+        "partner": "naapuri"
+      }
+    },
+    "items": [
+      {
+        "id": "srp101_01",
+        "ai_first_turn_fi": "Hei, mitä kuuluu?"
+      }
+    ],
+    "rubric": "Keskustele suomeksi roolisi mukaan.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "9e9523fa-9b5d-5c99-a88c-0a69d176693a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.785,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kaupungistuminen on yksi merkittävimmistä yhteiskunnallisista muutoksista, ja sen vaikutukset ovat monitahoisia. Perinteisessä sosiologisessa ajattelussa kaupungistumisen on usein nähty heikentävän yhteisöllisyyttä, kun ihmiset muuttavat maaseudun tiiviistä yhteisöistä kaupunkien anonyymeihin ympäristöihin. Kaupungeissa naapurit eivät välttämättä tunne toisiaan, ja sosiaaliset suhteet voivat jäädä pinnallisemmiksi. Uudempi tutkimus on kuitenkin osoittanut, että kaupungit eivät automaattisesti tuota yksinäisyyttä ja eristäytyneisyyttä, vaan ne synnyttävät uudenlaisia yhteisöllisyyden muotoja. Kaupungeissa ihmiset voivat löytää toisensa paitsi maantieteellisen läheisyyden myös yhteisten kiinnostuksen kohteiden, harrastusten ja arvojen perusteella. Tämä näkyy esimerkiksi kaupunkilaisten aktiivisena järjestäytymisenä asukasyhdistyksiin, kaupunkiviljely-yhteisöihin ja erilaisiin kulttuuriryhmiin. Myös digitaaliset alustat ovat mahdollistaneet uudenlaista yhteisöllisyyttä: naapuruston Facebook-ryhmissä jaetaan tietoa ja autetaan toisia, ja erilaiset some-yhteisöt voivat yhdistää ihmisiä yli kaupunginosarajojen. Toisaalta kaupungistuminen on johtanut myös alueelliseen eriytymiseen, jossa eri sosioekonomiset ryhmät asuvat eri kaupunginosissa. Tämä segregaatio voi heikentää yhteisöllisyyttä laajemmassa mittakaavassa ja vähentää eri väestöryhmien välistä vuorovaikutusta. Kaupunkisuunnittelussa onkin alettu kiinnittää huomiota siihen, miten rakennetulla ympäristöllä voidaan tukea sosiaalista vuorovaikutusta ja ehkäistä segregaatiota.",
+      "word_count": 152
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten perinteinen sosiologinen ajattelu suhtautuu kaupungistumisen vaikutuksiin yhteisöllisyyteen?",
+        "options": [
+          "Se vahvistaa yhteisöllisyyttä",
+          "Se heikentää yhteisöllisyyttä",
+          "Sillä ei ole vaikutusta yhteisöllisyyteen",
+          "Se luo uudenlaisia yhteisöllisyyden muotoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uudempi tutkimus on osoittanut kaupunkien yhteisöllisyydestä?",
+        "options": [
+          "Kaupungit tuottavat aina yksinäisyyttä",
+          "Kaupungeissa ei ole lainkaan yhteisöllisyyttä",
+          "Kaupungit synnyttävät uudenlaisia yhteisöllisyyden muotoja",
+          "Yhteisöllisyys on kaupungeissa heikompaa kuin maaseudulla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Minkä perusteella ihmiset voivat löytää toisensa kaupungeissa uudemman tutkimuksen mukaan?",
+        "options": [
+          "Vain maantieteellisen läheisyyden perusteella",
+          "Saman ikäisyyden perusteella",
+          "Yhteisten kiinnostuksen kohteiden perusteella",
+          "Saman ammatin perusteella"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on esimerkki digitaalisten alustojen mahdollistamasta yhteisöllisyydestä?",
+        "options": [
+          "Asukkaiden kokoontuminen torille",
+          "Naapuruston Facebook-ryhmät",
+          "Perinteiset kyläjuhlat",
+          "Urheiluseurojen toiminta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan alueellisella eriytymisellä kaupungeissa?",
+        "options": [
+          "Eri ikäryhmät asuvat eri alueilla",
+          "Eri sosioekonomiset ryhmät asuvat eri kaupunginosissa",
+          "Kaupunginosat erikoistuvat eri toimintoihin",
+          "Alueet eroavat toisistaan rakennuskannaltaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

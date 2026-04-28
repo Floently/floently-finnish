@@ -1,0 +1,37 @@
+{
+  "id": "7b57f447-f11f-5e2c-9646-04c054846764",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.484,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: service_desk. Purpose: justify_an_opinion. Constraint: offer_a_concrete_solution.",
+    "materials": {
+      "scenario": "consumer_rights in service_desk"
+    },
+    "items": [
+      {
+        "id": "863a689d-ae0a-516f-8d6d-556e5964c0dc",
+        "prompt": "Write for the receiver in this scenario: service_desk. Purpose: justify_an_opinion. Constraint: offer_a_concrete_solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

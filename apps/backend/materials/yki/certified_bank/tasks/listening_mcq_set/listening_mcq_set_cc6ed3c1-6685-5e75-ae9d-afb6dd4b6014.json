@@ -1,0 +1,88 @@
+{
+  "id": "cc6ed3c1-6685-5e75-ae9d-afb6dd4b6014",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kaupungin budjetista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Oletko lukenut uudesta budjetista? He aikovat leikata koulutuksesta. Henkilö B: Tosi huono juttu. Koulutus on kuitenkin tulevaisuuden kannalta tärkeintä. Henkilö A: He perustelevat sillä, että oppilasmäärät ovat laskussa. Henkilö B: Mutta laatu kärsii, jos leikataan. Pienemmät luokkakoot ja erityisopetus ovat tärkeitä. Henkilö A: Samaa mieltä. Ja samalla he lisäävät rahaa turvallisuuteen. Henkilö B: Turvallisuuskin on tärkeää, mutta koulutus on ennaltaehkäisevää turvallisuutta. Jos nuoret eivät saa kunnon koulutusta, se voi johtaa ongelmiin myöhemmin. Henkilö A: Totta. Pitäisiköhän meidän tehdä jotain? Henkilö B: Voisimme osallistua kaupungin asukaskyselyyn tai kirjoittaa mielipidekirjoituksen. Henkilö A: Hyvä idea. Katsotaan, mitä muutkin ovat mieltä.",
+      "audio_asset_id": "b23887bc-f29d-4bd8-bae6-7420dfdaaf90"
+    },
+    "questions": [
+      {
+        "id": "l98q1",
+        "prompt": "Mistä kaupunki aikoo leikata uuden budjetin mukaan?",
+        "options": [
+          "Koulutuksesta.",
+          "Liikuntapalveluista.",
+          "Kulttuurista.",
+          "Terveydenhuollosta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l98q2",
+        "prompt": "Miten kaupunki perustelee leikkauksia?",
+        "options": [
+          "Koulutus on liian kallista.",
+          "Oppilasmäärät ovat laskussa.",
+          "Koulutusta on liikaa.",
+          "Opettajat ovat huonoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l98q3",
+        "prompt": "Mitä henkilö B pitää tärkeänä koulutuksessa?",
+        "options": [
+          "Pienempiä luokkakokoja ja erityisopetusta.",
+          "Suuria luokkakokoja.",
+          "Enemmän läksyjä.",
+          "Pidempiä koulupäiviä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l98q4",
+        "prompt": "Mihin kaupunki aikoo lisätä rahaa samalla?",
+        "options": [
+          "Terveydenhuoltoon.",
+          "Turvallisuuteen.",
+          "Liikenteeseen.",
+          "Asumiseen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l98q5",
+        "prompt": "Mitä henkilöt harkitsevat tekevänsä asian tiimoilta?",
+        "options": [
+          "Järjestävät mielenosoituksen.",
+          "Osallistuvat asukaskyselyyn tai kirjoittavat mielipidekirjoituksen.",
+          "Keräävät nimiä adressiin.",
+          "Tapaavat kaupunginjohtajaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

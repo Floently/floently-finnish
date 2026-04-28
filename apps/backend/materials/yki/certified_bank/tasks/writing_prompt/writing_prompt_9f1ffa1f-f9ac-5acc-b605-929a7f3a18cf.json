@@ -1,0 +1,37 @@
+{
+  "id": "9f1ffa1f-f9ac-5acc-b605-929a7f3a18cf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön mallia, jossa jokaisella on oikeus kolmeen vuoteen palkallista hoitovapaata lastenhoitoon?'. Analysoi perhepolitiikkaa, työelämää ja taloudellisia vaikutuksia.",
+    "materials": {
+      "scenario": "Palkallisen hoitovapaan pidentäminen"
+    },
+    "items": [
+      {
+        "id": "01cfb497-a454-580f-afb0-e16b84b245af",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön mallia, jossa jokaisella on oikeus kolmeen vuoteen palkallista hoitovapaata lastenhoitoon?'. Analysoi perhepolitiikkaa, työelämää ja taloudellisia vaikutuksia."
+      }
+    ],
+    "rubric": "Perhepolitiikka\nTyöelämä\nTaloudelliset vaikutukset\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

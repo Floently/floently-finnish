@@ -1,0 +1,66 @@
+{
+  "id": "66a9a45c-5647-5dd1-a0ce-7e910e603096",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin. Valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "UIMAHALLI\n\nAvoinna:\nmaanantai–perjantai 8–20\nlauantai 9–18\nsunnuntai 10–16\n\nUimahalli on kiinni juhannusaattona 23.6.\n\nLiput:\naikuiset 6 €\nlapset (4–12 v) 3 €\nalle 4-vuotiaat ilmaiseksi\n\nTervetuloa!",
+      "word_count": 26
+    },
+    "questions": [
+      {
+        "id": "55ac4345-862c-5ef4-bde7-9687cc04fdc5",
+        "prompt": "Milloin uimahalli on auki maanantaina?",
+        "options": [
+          "klo 8–18",
+          "klo 8–20",
+          "klo 9–20",
+          "klo 10–18"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "026a7f87-3f2e-5d8d-b6eb-63b94e3be76b",
+        "prompt": "Paljonko 10-vuotiaan lapsen lippu maksaa?",
+        "options": [
+          "ilmainen",
+          "3 euroa",
+          "6 euroa",
+          "4 euroa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9789101f-4c73-5907-889f-44afaa44eeff",
+        "prompt": "Onko uimahalli auki juhannusaattona?",
+        "options": [
+          "On",
+          "Ei ole",
+          "Vain aamulla",
+          "Vain illalla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

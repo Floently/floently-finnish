@@ -1,0 +1,77 @@
+{
+  "id": "18a65415-6980-5500-adbd-fa2f817735c3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kommentaari ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kielipolitiikasta keskusteltaessa huomio kiinnittyy usein symboleihin, vaikka käytännön tasolla ratkaisevaa on palvelujen saavutettavuus. Kirjoittajan mukaan monikielisyys toteutuu arjessa vasta silloin, kun viranomaisviestintä, digipalvelut ja neuvonta muodostavat johdonmukaisen kokonaisuuden. Yksittäinen käännös ei riitä, jos lomake ohjaa eri termistöön kuin asiakaspalvelijan puhe. Kommentaari kritisoi hankkeita, joissa mitataan vain julkaistujen käännösten määrää, koska tällainen mittari voi peittää sen, ettei käyttäjä ymmärrä toimintapolkua. Kirjoittaja ehdottaa, että vaikuttavuutta arvioitaisiin käyttäjätesteillä, joissa selvitetään, pääseekö asiakas tehtävässä loppuun ilman ulkopuolista apua.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja pitää ratkaisevana?",
+        "options": [
+          "symbolisia julistuksia",
+          "palvelujen saavutettavuutta",
+          "yksikielisiä lomakkeita",
+          "mainoskampanjoita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi yksittäinen käännös ei riitä?",
+        "options": [
+          "se on liian kallis",
+          "termit eivät välttämättä vastaa muuta palveluketjua",
+          "käännöksiä ei saa julkaista",
+          "käyttäjät eivät lue"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kommentaari kritisoi?",
+        "options": [
+          "henkilöstökoulutusta",
+          "käännösten määrän yksipuolista mittaamista",
+          "digipalveluja yleensä",
+          "asiakaspalvelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä arviointitapaa ehdotetaan?",
+        "options": [
+          "pelkkää kyselyä",
+          "käyttäjätestejä tehtävän loppuunsaattamisesta",
+          "satunnaista tarkastusta",
+          "sosiaalisen median analyysiä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

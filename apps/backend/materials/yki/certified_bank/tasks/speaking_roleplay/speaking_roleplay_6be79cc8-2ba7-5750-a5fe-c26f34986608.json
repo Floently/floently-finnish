@@ -1,0 +1,40 @@
+{
+  "id": "6be79cc8-2ba7-5750-a5fe-c26f34986608",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele fysioterapeutin kanssa. Kerro vaivoistasi ja kysy harjoituksia.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan fysioterapeutille",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "8ac84a5d-54be-5f67-ad04-a48f9df83f8d",
+        "ai_first_turn_fi": "Hei, ole hyvä ja istu. Kerro nyt, mikä sinua vaivaa ja millaista apua toivoisit."
+      }
+    ],
+    "rubric": "Keskustele fysioterapeutin kanssa. Kerro vaivoistasi ja kysy harjoituksia.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "38e62c92-3e5c-5b81-aad7-3567d7d5789d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa työttömällä on oikeus työttömyysturvaan, jos hän on työmarkkinoiden käytettävissä ja hakee aktiivisesti työtä. Työttömyysturvaa maksetaan joko ansiopäivärahana tai peruspäivärahana. Ansiopäivärahaa saavat työttömyyskassaan kuuluvat, ja se perustuu aiempiin palkkatuloihin. Peruspäiväraha on pienempi ja sitä maksaa Kela. Lisäksi voi saada työmarkkinatukea, jos päivärahan edellytykset eivät täyty. Aktiivimalli tarkoitti aiemmin sitä, että työttömän piti osoittaa aktiivisuutta, kuten osallistumalla työllistymistä edistävään palveluun tai ansaitsemalla palkkaa, jotta päivärahaa ei alennettu. Nykyään on voimassa velvoite hakea riittävästi työpaikkoja ja olla TE-toimiston kanssa yhteistyössä. Työttömyysturvaa voidaan alentaa tai lakkauttaa, jos työtön kieltäytyy työstä tai koulutuksesta ilman pätevää syytä. Työttömyysturva on tärkeä sosiaaliturvan muoto, joka auttaa toimeentulossa työttömyyden aikana.",
+      "word_count": 102
+    },
+    "questions": [
+      {
+        "id": "b5c6d7e8-f9a0-4b1c-9d2e-3f4a5b6c7d8e",
+        "prompt": "Mitä eroa on ansiopäivärahalla ja peruspäivärahalla?",
+        "options": [
+          "Ansiopäiväraha on suurempi ja perustuu aiempiin tuloihin, peruspäiväraha on pienempi",
+          "Ne ovat samansuuruisia",
+          "Ansiopäivärahaa maksetaan vain naisille",
+          "Peruspäivärahaa maksetaan vain nuorille"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "c6d7e8f9-a0b1-4c2d-9e3f-4a5b6c7d8e9f",
+        "prompt": "Kuka maksaa peruspäivärahan?",
+        "options": [
+          "Työttömyyskassa",
+          "Kela",
+          "TE-toimisto",
+          "Työnantaja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d7e8f9a0-b1c2-4d3e-9f4a-5b6c7d8e9f0a",
+        "prompt": "Milloin työttömyysturvaa voidaan alentaa?",
+        "options": [
+          "Jos työtön matkustaa",
+          "Jos työtön kieltäytyy työstä ilman pätevää syytä",
+          "Jos työtön opiskelee",
+          "Jos työtön asuu ulkomailla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

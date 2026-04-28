@@ -1,0 +1,66 @@
+{
+  "id": "84c62cb1-c540-5a51-8192-2459fac5cca5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin aukioloajat ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI VESIPIRTA\n\nAvoinna:\nMaanantai–perjantai: 10–20\nLauantai: 10–16\nSunnuntai: 12–18\n\nUimahalli on suljettu juhlapyhinä. Kuntosali on avoinna samoin aukioloajoin.",
+      "word_count": 18
+    },
+    "questions": [
+      {
+        "id": "03336c55-0b86-5fe8-8bcc-1779ff647b58",
+        "prompt": "Milloin uimahalli on auki maanantaina?",
+        "options": [
+          "klo 8–18",
+          "klo 10–20",
+          "klo 9–19",
+          "klo 11–21"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bca6ad26-e419-5844-96ec-7247cf71165a",
+        "prompt": "Onko uimahalli auki sunnuntaina?",
+        "options": [
+          "Ei",
+          "Kyllä, klo 12–18",
+          "Vain aamulla",
+          "Vain iltapäivällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "430ce288-8e66-5536-aa76-0539dfcc1748",
+        "prompt": "Onko uimahalli auki juhlapyhinä?",
+        "options": [
+          "Kyllä, normaalisti",
+          "Ei",
+          "Vain aamulla",
+          "Vain kuntosali on auki"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

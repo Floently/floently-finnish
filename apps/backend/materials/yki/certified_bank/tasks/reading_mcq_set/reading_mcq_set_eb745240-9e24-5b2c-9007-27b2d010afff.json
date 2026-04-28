@@ -1,0 +1,99 @@
+{
+  "id": "eb745240-9e24-5b2c-9007-27b2d010afff",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kuntosalilla on uusi laite: soutulaite. Se on helppokäyttöinen ja sopii kaikille. Soutulaite vahvistaa erityisesti selän ja jalkojen lihaksia. Ohjaaja neuvoo mielellään, miten laitetta käytetään oikein. Kuntosalilla on myös uusia käsipainoja ja jumppamattoja. Salille toivotaan lisää kävijöitä iltaisin.",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uusi laite kuntosalilla on?",
+        "options": [
+          "Juoksumatto",
+          "Soutulaite",
+          "Kuntopyörä",
+          "Penkkipunnerruspenkki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen soutulaite on?",
+        "options": [
+          "Vaikeakäyttöinen",
+          "Helppokäyttöinen ja sopii kaikille",
+          "Vain edistyneille",
+          "Vain nuorille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lihaksia soutulaite vahvistaa?",
+        "options": [
+          "Käsien lihaksia",
+          "Selän ja jalkojen lihaksia",
+          "Vatsalihaksia",
+          "Pakaralihaksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka neuvoo laitteen käytössä?",
+        "options": [
+          "Toinen asiakas",
+          "Ohjaaja",
+          "Kukaan",
+          "Kuntosalin omistaja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä muuta uutta kuntosalilla on?",
+        "options": [
+          "Uusi sauna",
+          "Uusia käsipainoja ja jumppamattoja",
+          "Uusi kahvio",
+          "Uusi pukuhuone"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Milloin salille toivotaan lisää kävijöitä?",
+        "options": [
+          "Aamuisin",
+          "Päivisin",
+          "Iltaisin",
+          "Viikonloppuisin"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

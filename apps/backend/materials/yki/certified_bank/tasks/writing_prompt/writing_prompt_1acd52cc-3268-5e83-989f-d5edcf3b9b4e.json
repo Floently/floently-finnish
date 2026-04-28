@@ -1,0 +1,37 @@
+{
+  "id": "1acd52cc-3268-5e83-989f-d5edcf3b9b4e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a secretary-general position at the International Red Cross. Tell about your experience in humanitarian work, crisis management, and international relief operations. Also describe how you have led aid operations and promoted humanitarian law. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus Punaisen ristin pääsihteerin tehtävään"
+    },
+    "items": [
+      {
+        "id": "9bb05592-61b6-5ccc-aaed-79003c8ad8ad",
+        "prompt": "Write a job application. You are applying for a secretary-general position at the International Red Cross. Tell about your experience in humanitarian work, crisis management, and international relief operations. Also describe how you have led aid operations and promoted humanitarian law. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a secretary-general position at the International Red Cross. Tell about your experience in humanitarian work, crisis management, and international relief operations. Also describe how you have led aid operations and promoted humanitarian law. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

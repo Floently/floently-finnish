@@ -1,0 +1,73 @@
+{
+  "id": "a239973b-182b-5192-81bd-adfc879561b2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Käsityön arvostus on ollut laskussa vuosikymmeniä. Teollisesti valmistetut tuotteet ovat halpoja ja helposti saatavilla. Samalla monet perinteiset kädentaidot ovat vaarassa kadota.\n\nViime aikoina on kuitenkin nähtävissä pientä nousua. Nuoret aikuiset ovat kiinnostuneita neulomisesta, ompelusta ja puutöistä. Sosiaalinen media on täynnä käsityötilejä, joissa jaetaan ohjeita ja valmiita töitä.\n\n\"Neulominen on minulle tapa rentoutua. Se on vastapainoa ruudun tuijottamiselle\", kertoo 28-vuotias Aino, joka on opetellut neulomaan youtubesta.\n\nKäsityön harrastamiseen liittyy myös ekologisia arvoja. Itse tekemällä voi korjata rikkinäisiä vaatteita ja vähentää kulutusta. Myös materiaalien alkuperään kiinnitetään huomiota.\n\nKäsityöyrittäjä Laura Mäkelä uskoo, että käsityön arvostus tulee kasvamaan. \"Ihmiset kaipaavat jotain käsin kosketeltavaa ja ainutlaatuista. Massatuotannon keskellä käsityö on tapa erottua.\"",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "item_034_1",
+        "prompt": "Miksi käsityön arvostus on ollut laskussa?",
+        "options": [
+          "käsityö on liian vaikeaa",
+          "teolliset tuotteet ovat halpoja ja helposti saatavilla",
+          "kukaan ei opeta käsitöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_034_2",
+        "prompt": "Mitä nuorten käsityöharrastuksesta kerrotaan?",
+        "options": [
+          "se on vähentynyt",
+          "neulominen ja ompelu kiinnostavat, ja some on täynnä käsityötilejä",
+          "vain vanhukset harrastavat käsitöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_034_3",
+        "prompt": "Miten käsityö liittyy ekologisuuteen?",
+        "options": [
+          "se kuluttaa paljon energiaa",
+          "sillä voi korjata rikkinäisiä vaatteita ja vähentää kulutusta",
+          "se tuottaa paljon jätettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_034_4",
+        "prompt": "Mitä Laura Mäkelä uskoo tulevaisuudesta?",
+        "options": [
+          "käsityön arvostus vähenee entisestään",
+          "käsityön arvostus kasvaa, koska ihmiset kaipaavat ainutlaatuisuutta",
+          "käsityö katoaa kokonaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

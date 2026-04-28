@@ -1,0 +1,77 @@
+{
+  "id": "8f439a59-ca8f-5236-9949-4d59bc95338d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.742,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "MEDIAN VASTUU KASVAA\n\nMedia on yksi demokratian peruspilareita. Sen tehtävä on välittää luotettavaa tietoa, valvoa vallankäyttäjiä ja tarjota foorumi keskustelulle. Mutta median rooli on muuttunut, ja samalla sen vastuu on kasvanut.\n\nPerinteinen media, kuten sanomalehdet ja Yle, ovat edelleen tärkeitä tiedonlähteitä. Ne noudattavat journalistisia periaatteita ja pyrkivät objektiivisuuteen. Mutta niiden rinnalle on tullut some, somevaikuttajat ja verkkomediat, joilla ei ole samoja velvoitteita.\n\nTämä on lisännyt disinformaation määrää. Some-algoritmit levittävät tehokkaasti sisältöä, joka herättää tunteita – olipa se totta tai ei. Valeuutiset leviävät nopeammin kuin oikea tieto. Tämä heikentää ihmisten kykyä tehdä tietoon perustuvia päätöksiä.\n\nMedialla on vastuu taistella disinformaatiota vastaan. Sen on tehtävä työtä luottamuksen palauttamiseksi ja oltava läpinäkyvää. Virheistä on kerrottava avoimesti, ja lähteitä on käytettävä huolellisesti.\n\nMyös some-alustoilla on vastuu. Ne eivät voi olla vain alustoja, vaan niiden on puututtava vihapuheeseen ja disinformaatioon. Tämä on vaikeaa, mutta välttämätöntä demokratian kannalta.\n\nTulevaisuudessa tarvitaan uudenlaista mediakasvatusta. Ihmisten on osattava arvioida lähteitä ja tunnistaa disinformaatio. Kouluilla ja kirjastoilla on tässä tärkeä rooli.\n\nLopuksi on muistettava, että vastuu on myös meillä jokaisella. Meidän on oltava kriittisiä ja jaettava vain luotettavaa tietoa. Media on liian tärkeä asia jätettäväksi vain median itsensä vastuulle.\n\nDemokratia tarvitsee toimivaa mediaa. Ilman sitä emme voi tehdä tietoon perustuvia päätöksiä emmekä valvoa vallankäyttäjiä. Siksi median vastuu on yhteinen asia.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 243
+    },
+    "questions": [
+      {
+        "id": "1c050149-b5f7-5bc0-9135-981070d1a3fc",
+        "prompt": "Mikä on median perinteinen tehtävä?",
+        "options": [
+          "viihdyttää",
+          "välittää luotettavaa tietoa, valvoa vallankäyttäjiä ja tarjota foorumi keskustelulle",
+          "tuottaa voittoa",
+          "mainostaa tuotteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e7e1a6fd-affd-5b3c-9f57-89f79fe2805f",
+        "prompt": "Mitä ongelmia somen ja verkkomedioiden yleistyminen on tuonut?",
+        "options": [
+          "ne ovat liian kalliita",
+          "ne lisäävät disinformaation määrää, koska niillä ei ole samoja velvoitteita kuin perinteisellä medialla",
+          "ne ovat liian hitaita",
+          "ne ovat liian vähän käytössä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4a05e883-6da5-5856-9b4a-b58f2a8bf3c8",
+        "prompt": "Mitä vastuuta some-alustoilla on?",
+        "options": [
+          "ei mitään",
+          "niiden on puututtava vihapuheeseen ja disinformaatioon",
+          "ne saavat levittää mitä tahansa",
+          "ne ovat vain alustoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "43cb4105-89a8-510b-a5a0-adbb018f5893",
+        "prompt": "Mitä tarvitaan tulevaisuudessa?",
+        "options": [
+          "vähemmän mediaa",
+          "mediakasvatusta, jotta ihmiset osaavat arvioida lähteitä ja tunnistaa disinformaation",
+          "some-kieltoa",
+          "vain perinteistä mediaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

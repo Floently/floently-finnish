@@ -1,0 +1,37 @@
+{
+  "id": "c85ce025-090e-5ef8-b1d1-26de13ee0a62",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.37,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: health_clinic. Purpose: describe_an_experience. Constraint: offer_a_concrete_solution.",
+    "materials": {
+      "scenario": "service_encounter in health_clinic"
+    },
+    "items": [
+      {
+        "id": "de8e57c2-83d1-5a16-87db-aae7c423a48b",
+        "prompt": "Write for the receiver in this scenario: health_clinic. Purpose: describe_an_experience. Constraint: offer_a_concrete_solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

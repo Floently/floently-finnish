@@ -1,0 +1,37 @@
+{
+  "id": "3886c355-2e9e-5cd9-8f2e-1c988051099b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.432,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write your opinion. Justify why you think this way. Give two reasons.",
+    "materials": {
+      "scenario": "Onko hyvä, että Suomessa on neljä vuodenaikaa?"
+    },
+    "items": [
+      {
+        "id": "d571f99c-4145-5ffe-bfb5-01cee84d7f32",
+        "prompt": "Write your opinion. Justify why you think this way. Give two reasons."
+      }
+    ],
+    "rubric": "Write your opinion. Justify why you think this way. Give two reasons.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "5db89b0e-5bf8-528a-8f02-82149d163465",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella kuntosalin henkilökohtaisen valmennuksen hintoja. Keskustele kuntosalin ohjaajan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kuntosalin ohjaaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp57_1",
+        "ai_first_turn_fi": "Hei, Kuntosali Max."
+      },
+      {
+        "id": "srp57_2",
+        "ai_first_turn_fi": "Hienoa! Personal trainer -palvelumme ovat suosittuja. Onko sinulla aiempaa kokemusta saliharjoittelusta?"
+      },
+      {
+        "id": "srp57_3",
+        "ai_first_turn_fi": "Meillä on eritasoisia valmentajia. Yhden tunnin hinta on 60 euroa, 5 kerran kortti 280 euroa ja 10 kerran kortti 520 euroa."
+      },
+      {
+        "id": "srp57_4",
+        "ai_first_turn_fi": "Tunti sisältää alkukartoituksen, ohjatun treenin ja ruokavalioneuvonnan. Haluaisitko varata ajan?"
+      },
+      {
+        "id": "srp57_5",
+        "ai_first_turn_fi": "Loistavaa. Milloin haluaisit aloittaa?"
+      },
+      {
+        "id": "srp57_6",
+        "ai_first_turn_fi": "Selvä, varataan ensi maanantai kello 17. Nimesi ja numerosi?"
+      },
+      {
+        "id": "srp57_7",
+        "ai_first_turn_fi": "Kiitos. Odotamme sinua maanantaina!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella kuntosalin henkilökohtaisen valmennuksen hintoja. Keskustele kuntosalin ohjaajan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

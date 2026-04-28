@@ -1,0 +1,99 @@
+{
+  "id": "260fbf1d-e943-5b78-a7aa-b5e249c89c68",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen ruokakulttuuri on monipuolistunut viime vuosikymmeninä. Perinteisten ruokien, kuten karjalanpiirakoiden ja lanttulaatikon, rinnalle on tullut vaikutteita ympäri maailmaa. Kaupoista saa nykyään helposti aineksia eri maiden keittiöistä, kuten thaimaalaisesta, meksikolaisesta ja italialaisesta ruoasta. Kotona kokkaillaan rohkeasti ja kokeillaan uusia reseptejä. Ravintolatarjonta on myös kansainvälistynyt. Suomalaiset arvostavat edelleen puhtaita raaka-aineita.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten suomalainen ruokakulttuuri on muuttunut?",
+        "options": [
+          "Se on yksipuolistunut",
+          "Se on monipuolistunut",
+          "Se on pysynyt samana",
+          "Se on kadonnut kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä perinteisiä suomalaisia ruokia tekstissä mainitaan?",
+        "options": [
+          "Pizza ja pasta",
+          "Karjalanpiirakat ja lanttulaatikko",
+          "Sushi ja curry",
+          "Tortillat ja burgerit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä maista on tullut vaikutteita ruokakulttuuriin?",
+        "options": [
+          "Vain naapurimaista",
+          "Thaimaasta, Meksikosta ja Italiasta",
+          "Vain Aasiasta",
+          "Vain Euroopasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kaupoista saa nykyään helposti?",
+        "options": [
+          "Vain suomalaisia peruselintarvikkeita",
+          "Aineksia eri maiden keittiöistä",
+          "Vain valmisruokia",
+          "Vain luomutuotteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä suomalaiset tekevät kotona ruoan suhteen?",
+        "options": [
+          "Syövät vain eineksiä",
+          "Kokkailevat rohkeasti ja kokeilevat uusia reseptejä",
+          "Tilaavat vain kotiinkuljetusta",
+          "Eivät kokkaa ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä suomalaiset edelleen arvostavat ruoassa?",
+        "options": [
+          "Halpaa hintaa",
+          "Puhtaita raaka-aineita",
+          "Nopeaa valmistusta",
+          "Värikkäitä pakkauksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

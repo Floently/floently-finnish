@@ -1,0 +1,77 @@
+{
+  "id": "cbeadcd0-d431-59f3-a060-4eb86df1fcff",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.779,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kestävä kulutus on noussut keskeiseksi teemaksi ympäristökeskustelussa. Ajatus siitä, että jokainen voi omilla valinnoillaan vaikuttaa ympäristöön, on levinnyt laajalle. Samalla on kuitenkin alettu ymmärtää, että yksilön valinnat eivät yksin riitä – tarvitaan rakenteellisia muutoksia, jotka tekevät kestävästä kulutuksesta helpompaa ja edullisempaa.\n\nYksilön vastuun korostaminen on ollut kaksiteräinen miekka. Toisaalta se on lisännyt tietoisuutta ja saanut ihmiset muuttamaan käyttäytymistään. Toisaalta se on siirtänyt vastuuta pois yrityksiltä ja päättäjiltä. Kun kuluttajaa kehotetaan tekemään kestäviä valintoja, samalla unohdetaan, että valintoja ohjaavat hinta, saatavuus ja markkinointi. Vastuullisesti tuotetut tuotteet ovat usein kalliimpia, eikä kaikilla ole varaa valita niitä.\n\nToinen keskeinen kysymys on kulutuksen määrä. Vaikka yksittäiset tuotteet olisivat kuinka kestäviä tahansa, ongelma on siinä, että kulutamme liikaa. Kiertotalouden periaatteet – korjaaminen, uudelleenkäyttö, kierrätys – ovat tärkeitä, mutta ne eivät yksin ratkaise ongelmaa, jos kokonaiskulutus kasvaa. Tarvitaan siirtymää omistamisesta käyttöoikeuteen, jakamistalouteen ja palveluihin, jotka vähentävät materiaalin tarvetta.\n\nKolmas ulottuvuus on kulutuksen näkymättömyys. Suuri osa kulutuksen ympäristövaikutuksista syntyy tuotantoketjussa, joka on kuluttajalta piilossa. Vaatteiden, elektroniikan ja ruoan tuotannolla on valtavat ympäristövaikutukset, mutta ne tapahtuvat kaukana ja ovat vaikeasti hahmotettavia. Tämän vuoksi tarvitaan läpinäkyvyyttä ja sertifiointia, joka auttaa kuluttajia tekemään tietoisia valintoja.\n\nRatkaisut edellyttävät monitasoista toimintaa. Tarvitaan sekä yksilöiden tietoisuuden lisäämistä että rakenteellisia muutoksia: vero-ohjausta, sääntelyä ja yritysvastuun vahvistamista. Kestävä kulutus ei saa olla vain varakkaiden etuoikeus, vaan sen on oltava mahdollista kaikille. Tämä on yksi aikamme suurimmista oikeudenmukaisuuskysymyksistä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 255
+    },
+    "questions": [
+      {
+        "id": "eca88cec-faaf-5dd8-8752-b7560315c345",
+        "prompt": "Miksi yksilön vastuun korostaminen kestävässä kulutuksessa on ongelmallista?",
+        "options": [
+          "Koska yksilöt eivät välitä ympäristöstä",
+          "Koska se siirtää vastuuta pois yrityksiltä ja päättäjiltä",
+          "Koska kestävät tuotteet ovat aina huonompia",
+          "Koska yksilöt eivät voi vaikuttaa mihinkään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "018d4ac7-1455-5ef7-ac96-a545d0c9a43b",
+        "prompt": "Mikä on kulutuksen määrään liittyvä ongelma?",
+        "options": [
+          "Kulutamme liian vähän",
+          "Kulutamme liikaa, vaikka yksittäiset tuotteet olisivat kestäviä",
+          "Kulutus vähenee automaattisesti",
+          "Vain rikkaat kuluttavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "172d69e7-759d-5c53-9df0-ddd64b2a1d68",
+        "prompt": "Mitä tarkoitetaan 'kulutuksen näkymättömyydellä'?",
+        "options": [
+          "Kuluttajat eivät näe mitä ostavat",
+          "Ympäristövaikutukset syntyvät tuotantoketjussa, joka on kuluttajalta piilossa",
+          "Kulutus ei näy tilastoissa",
+          "Mainonta on kiellettyä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c15ec445-b30e-558d-96ca-5eea13bab6b5",
+        "prompt": "Mitä ratkaisuja kestävän kulutuksen edistämiseksi tarvitaan?",
+        "options": [
+          "Vain yksilöiden valistamista",
+          "Monitasoista toimintaa: yksilöiden tietoisuutta ja rakenteellisia muutoksia",
+          "Kulutuksen kieltämistä",
+          "Vain yritysten vapaaehtoisia toimia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

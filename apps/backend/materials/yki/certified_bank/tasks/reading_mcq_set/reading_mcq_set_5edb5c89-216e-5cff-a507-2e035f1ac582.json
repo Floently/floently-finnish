@@ -1,0 +1,77 @@
+{
+  "id": "5edb5c89-216e-5cff-a507-2e035f1ac582",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli työelämän muutoksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhteiskuntatieteilijät puhuvat työn merkityksellisyyden kriisistä. Kun työ irtoaa fyysisestä paikasta, myös sen yhteisöllinen ulottuvuus heikkenee. Toinen ulottuvuus on työn ja vapaa-ajan rajan hämärtyminen. Kun työ on aina saatavilla, on yhä vaikeampi irtautua. Kolmas keskeinen teema on työn merkityksellisyyden muuttuminen. Nykyään yhä useampi haluaa työn, joka vastaa omia arvoja. Ratkaisuksi on esitetty uudenlaista työkulttuuria, jossa korostuvat luottamus ja itseohjautuvuus.",
+      "word_count": 58
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan 'työn merkityksellisyyden kriisillä'?",
+        "options": [
+          "Palkkaus ei riitä",
+          "Yhteisöllisyys heikkenee ja yksinäisyys lisääntyy",
+          "Työpaikkoja katoaa",
+          "Ihmiset eivät halua tehdä työtä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä paradoksia työn ja vapaa-ajan suhteessa havaitaan?",
+        "options": [
+          "Työaikaa lyhennetään mutta työpäivät pitenevät",
+          "Ihmiset tekevät vähemmän töitä",
+          "Työaikaa lyhennetään vain korkeakoulutetuilla",
+          "Vapaa-aikaa ei osata käyttää"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten käsitys työn merkityksellisyydestä on muuttunut?",
+        "options": [
+          "Perustuu enää palkkaan",
+          "Siirtynyt yhteiskunnallisesta arvostuksesta henkilökohtaisiin arvoihin",
+          "Menettänyt merkityksensä",
+          "Sama kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja esitetään?",
+        "options": [
+          "Paluu toimistolle",
+          "Luottamusta, itseohjautuvuutta ja yhteisöllisyyden rakentamista",
+          "Työajan lyhentämistä",
+          "Teknologian käytön rajoittamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

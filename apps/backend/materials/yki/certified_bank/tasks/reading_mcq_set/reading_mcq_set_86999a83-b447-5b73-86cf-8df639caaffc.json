@@ -1,0 +1,77 @@
+{
+  "id": "86999a83-b447-5b73-86cf-8df639caaffc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.796,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Ilmastonmuutoksen torjunta ja siihen liittyvä oikeudenmukaisuus ovat nousseet keskeisiksi yhteiskunnallisiksi kysymyksiksi. Keskustelua käydään siitä, miten vastuu päästövähennyksistä jakautuu eri maiden ja väestöryhmien välillä, ja miten varmistetaan, että siirtymä vähähiiliseen yhteiskuntaan on oikeudenmukainen. Yksi keskeinen jännite liittyy kehittyneiden ja kehitysmaiden väliseen vastuunjakoon. Teollisuusmaat ovat historiallisesti vastuussa suurimmasta osasta ilmakehään kertyneistä kasvihuonekaasuista, ja niillä on myös paremmat taloudelliset resurssit toteuttaa päästövähennyksiä. Tästä näkökulmasta niillä on velvollisuus toimia edelläkävijöinä ja tukea kehitysmaita niiden siirtymässä vähähiiliseen talouteen. Toisaalta kehitysmailla on oikeus kohentaa elintasoaan, mikä väistämättä lisää päästöjä, ainakin väliaikaisesti. Toinen jännite koskee eri väestöryhmien asemaa. Ilmastotoimien vaikutukset eivät jakaudu tasaisesti. Esimerkiksi hiilidioksidivero voi kohdistua ankarimmin pienituloisiin, jotka käyttävät suhteessa suuremman osan tuloistaan energiaan. Toisaalta ilmastonmuutoksen seuraukset, kuten äärimmäiset sääilmiöt, koettelevat usein eniten heikommassa asemassa olevia. Kolmas jännite liittyy siihen, miten nopeasti toimia tulisi toteuttaa. Nopeat ja radikaalit toimet voivat aiheuttaa taloudellisia ja sosiaalisia häiriöitä, mutta hitaus taas lisää riskiä siitä, että ilmastonmuutoksen seuraukset karkaavat käsistä. Tämä on erityisen ongelmallista nuorempien sukupolvien kannalta, jotka joutuvat kantamaan nykyisten päätösten seuraukset. Oikeudenmukainen siirtymä edellyttää, että ilmastotoimien suunnittelussa otetaan huomioon eri ryhmien asema ja että haittoja pyritään kompensoimaan. Se edellyttää myös avointa keskustelua ja päätöksentekoa, jossa eri näkökulmat tulevat kuulluiksi. Ilmastonmuutos on globaali ongelma, mutta sen ratkaisut ovat aina paikallisia ja vaikuttavat eri tavoin eri ihmisiin.",
+      "word_count": 208
+    },
+    "questions": [
+      {
+        "id": "07681b58-1c81-562f-85b4-ba19215e450b",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Ilmastonmuutoksen tekniset ratkaisut",
+          "Ilmastonmuutoksen torjuntaan liittyvät oikeudenmukaisuus- ja vastuukysymykset",
+          "Kehitysmaiden oikeus taloudelliseen kasvuun",
+          "Hiilidioksidiveron vaikutukset eri väestöryhmiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4cbd4ca1-eb72-5aad-81dd-4001817bd10a",
+        "prompt": "Tekstin mukaan miten vastuu päästövähennyksistä jakautuu kehittyneiden ja kehitysmaiden välillä?",
+        "options": [
+          "Vastuu on jaettava tasan kaikkien maiden kesken",
+          "Teollisuusmailla on historiallinen vastuu ja paremmat resurssit, joten niiden tulee toimia edelläkävijöinä ja tukea kehitysmaita",
+          "Kehitysmailla ei ole mitään vastuuta päästövähennyksistä",
+          "Vastuu on yksinomaan kehitysmailla, koska niiden päästöt kasvavat nopeimmin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d74a1783-d427-50c5-9013-fc7dd6757308",
+        "prompt": "Mitä jännitettä ilmastotoimien nopeus aiheuttaa?",
+        "options": [
+          "Nopeat toimet ovat aina parempia kuin hitaat",
+          "Hitaat toimet ovat aina parempia kuin nopeat",
+          "Nopeat toimet voivat aiheuttaa taloudellisia häiriöitä, mutta hitaus lisää riskiä siitä, että ilmastonmuutoksen seuraukset karkaavat käsistä",
+          "Toimien nopeudella ei ole merkitystä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0f6c2851-2254-5186-9261-3ec315d0fb99",
+        "prompt": "Miten ilmastotoimien vaikutukset jakautuvat eri väestöryhmien kesken?",
+        "options": [
+          "Ne jakautuvat täysin tasaisesti kaikkien kesken",
+          "Pienituloisiin voi kohdistua suurempi taakka esimerkiksi hiilidioksidiveron vuoksi, ja ilmastonmuutoksen seuraukset koettelevat usein eniten heikompiosaisia",
+          "Vain varakkaat kärsivät ilmastotoimista",
+          "Ilmastotoimilla ei ole vaikutusta eri väestöryhmiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

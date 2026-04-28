@@ -1,0 +1,77 @@
+{
+  "id": "91b47fdf-acd1-57d7-8c29-722a040a98cf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Ruoka-apu on tärkeä tukimuoto Suomessa niille, joilla on taloudellisia vaikeuksia. Leipäjonot ja ruoka-avustukset ovat yleistyneet erityisesti 2000-luvulla. Ruoka-apua järjestävät monet tahot, kuten seurakunnat, Punainen Risti, Pelastusarmeija ja muut järjestöt. Ne jakavat ruokakasseja tai tarjoavat lämmintä ateriaa vähävaraisille. Ruoka saadaan usein lahjoituksina kaupoista ja yrityksistä, ja se on usein päiväysmenossa olevaa ruokaa. Ruoka-avun tarve kasvaa erityisesti taloudellisten taantumien aikana. Ruoka-avun lisäksi monet järjestöt tarjoavat myös neuvontaa ja tukea arjenhallintaan. Ruoka-avun saajia on monenlaisia: työttömiä, opiskelijoita, eläkeläisiä ja pienituloisia perheitä.",
+      "word_count": 78
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_034",
+        "prompt": "Mikä on ruoka-apu?",
+        "options": [
+          "Ilmainen ruokakauppa",
+          "Tukimuoto, jossa jaetaan ruokaa vähävaraisille",
+          "Ravintolapalvelu",
+          "Ruokakurssi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_034",
+        "prompt": "Ketkä järjestävät ruoka-apua?",
+        "options": [
+          "Vain valtio",
+          "Seurakunnat, Punainen Risti, Pelastusarmeija ja muut järjestöt",
+          "Vain kunnat",
+          "Vain yritykset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_034",
+        "prompt": "Mistä ruoka-apuun tuleva ruoka saadaan?",
+        "options": [
+          "Valtion varastoista",
+          "Lahjoituksina kaupoista ja yrityksistä",
+          "Tuontina ulkomailta",
+          "Omasta tuotannosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_034",
+        "prompt": "Ketkä saavat ruoka-apua?",
+        "options": [
+          "Vain työttömät",
+          "Työttömät, opiskelijat, eläkeläiset ja pienituloiset perheet",
+          "Vain eläkeläiset",
+          "Vain opiskelijat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

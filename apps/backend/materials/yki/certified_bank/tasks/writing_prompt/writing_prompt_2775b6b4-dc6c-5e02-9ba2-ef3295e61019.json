@@ -1,0 +1,37 @@
+{
+  "id": "2775b6b4-dc6c-5e02-9ba2-ef3295e61019",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Kirjoita työhakemus."
+    },
+    "items": [
+      {
+        "id": "17c6bcf8-2ee4-51d0-81f7-ab465371a383",
+        "prompt": "Näet työpaikkailmoituksen: \"Haemme kesätyöntekijää kahvilaamme. Tehtäviin kuuluu asiakaspalvelu, kahvilan siisteys ja pienten tarjoilujen valmistus.\"\nKirjoita hakemus, jossa:\n- kerrot itsestäsi ja taustastasi\n- kuvaat, miksi olet sopiva tehtävään\n- kerrot, milloin voit aloittaa\n- mainitset yhteystietosi"
+      }
+    ],
+    "rubric": "Näet työpaikkailmoituksen: \"Haemme kesätyöntekijää kahvilaamme. Tehtäviin kuuluu asiakaspalvelu, kahvilan siisteys ja pienten tarjoilujen valmistus.\"\nKirjoita hakemus, jossa:\n- kerrot itsestäsi ja taustastasi\n- kuvaat, miksi olet sopiva tehtävään\n- kerrot, milloin voit aloittaa\n- mainitset yhteystietosi",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

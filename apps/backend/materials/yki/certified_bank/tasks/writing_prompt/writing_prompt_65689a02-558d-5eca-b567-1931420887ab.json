@@ -1,0 +1,37 @@
+{
+  "id": "65689a02-558d-5eca-b567-1931420887ab",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.496,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Kirjoita mielipideteksti."
+    },
+    "items": [
+      {
+        "id": "10a9ec2b-6dba-525a-a32e-397d54762b9c",
+        "prompt": "Pitäisikö koulupäivää lyhentää peruskoulussa?"
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

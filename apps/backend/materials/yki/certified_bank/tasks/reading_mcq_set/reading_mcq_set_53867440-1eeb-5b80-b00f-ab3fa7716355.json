@@ -1,0 +1,77 @@
+{
+  "id": "53867440-1eeb-5b80-b00f-ab3fa7716355",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Digitalisaatio on muuttanut perusteellisesti tapaa, jolla yritykset toimivat ja kilpailevat. Se on mahdollistanut uusien liiketoimintamallien, kuten alustatalouden, datatalouden ja palveluistumisen, syntymisen. Yritykset voivat kerätä ja hyödyntää valtavia määriä dataa asiakkaistaan, mikä mahdollistaa yksilöllisemmät tuotteet ja palvelut. Digitalisaatio on myös madaltanut markkinoille pääsyn kynnystä, mikä on lisännyt kilpailua ja tuonut uusia toimijoita perinteisten toimialojen rinnalle. Samalla se on asettanut haasteita, kuten kyberturvallisuuden varmistamisen, tietosuojan hallinnan ja työntekijöiden osaamisen kehittämisen. Menestyäkseen yritysten on kyettävä sopeutumaan nopeasti muuttuvaan digitaaliseen ympäristöön.",
+      "word_count": 77
+    },
+    "questions": [
+      {
+        "id": "mcq_259",
+        "prompt": "Mitä uusia liiketoimintamalleja digitalisaatio on mahdollistanut?",
+        "options": [
+          "Perinteisiä malleja",
+          "Alustataloutta, datataloutta ja palveluistumista",
+          "Vain teollisia malleja",
+          "Vain paikallisia malleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_260",
+        "prompt": "Mitä hyötyä datan keräämisestä asiakkaille on yrityksille?",
+        "options": [
+          "Se vähentää kilpailua",
+          "Se mahdollistaa yksilöllisemmät tuotteet ja palvelut",
+          "Se lisää kustannuksia",
+          "Se heikentää asiakaspalvelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_261",
+        "prompt": "Miten digitalisaatio on vaikuttanut markkinoille pääsyyn?",
+        "options": [
+          "Se on nostanut kynnystä",
+          "Se on madaltanut kynnystä",
+          "Se ei ole vaikuttanut",
+          "Se on poistanut markkinat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_262",
+        "prompt": "Mitä haasteita digitalisaatio on asettanut?",
+        "options": [
+          "Vain kyberturvallisuuden varmistamisen",
+          "Kyberturvallisuuden, tietosuojan hallinnan ja työntekijöiden osaamisen kehittämisen",
+          "Vain tietosuojan hallinnan",
+          "Vain työntekijöiden osaamisen kehittämisen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

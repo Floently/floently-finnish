@@ -1,0 +1,37 @@
+{
+  "id": "3411f694-a28a-5573-9bc0-1c71b3b0fe95",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin kulttuuritoimeen. Haluat ehdottaa, että kaupunki järjestäisi maksuttomia konsertteja puistoissa kesällä. Kerro, miksi tämä olisi hyvä idea ja millaista musiikkia toivoisit. Kysy myös, voiko ehdotuksen toteutua.",
+    "materials": {
+      "scenario": "Ehdotus puistokonserteista"
+    },
+    "items": [
+      {
+        "id": "94fabc65-3a6c-51cc-a8f6-c340cfbeb6f4",
+        "prompt": "Kirjoita sähköposti kaupungin kulttuuritoimeen. Haluat ehdottaa, että kaupunki järjestäisi maksuttomia konsertteja puistoissa kesällä. Kerro, miksi tämä olisi hyvä idea ja millaista musiikkia toivoisit. Kysy myös, voiko ehdotuksen toteutua."
+      }
+    ],
+    "rubric": "Idean kuvaus\nPerustelut\nToteutusmahdollisuudet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

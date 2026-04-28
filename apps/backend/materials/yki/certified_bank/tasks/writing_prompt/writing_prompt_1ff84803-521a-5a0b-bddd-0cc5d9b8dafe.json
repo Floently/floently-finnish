@@ -1,0 +1,37 @@
+{
+  "id": "1ff84803-521a-5a0b-bddd-0cc5d9b8dafe",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a director general position at the Finnish Institute for Health and Welfare. Tell about your experience in health policy, research management, and authority cooperation. Also describe how you have responded to health crises and promoted population well-being. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus THL:n pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a director general position at the Finnish Institute for Health and Welfare. Tell about your experience in health policy, research management, and authority cooperation. Also describe how you have responded to health crises and promoted population well-being. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a director general position at the Finnish Institute for Health and Welfare. Tell about your experience in health policy, research management, and authority cooperation. Also describe how you have responded to health crises and promoted population well-being. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

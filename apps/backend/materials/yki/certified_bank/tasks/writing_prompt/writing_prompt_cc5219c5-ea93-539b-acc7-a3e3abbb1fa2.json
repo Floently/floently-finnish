@@ -1,0 +1,37 @@
+{
+  "id": "cc5219c5-ea93-539b-acc7-a3e3abbb1fa2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kansalliselle audiovisuaaliselle instituutille. Olet tekemässä dokumenttielokuvaa ja tarvitset arkistomateriaalia 1970-luvun Suomesta. Kerro projektistasi, mitä materiaalia etsit ja kysy käyttöoikeuksista ja hinnoittelusta.",
+    "materials": {
+      "scenario": "Arkistomateriaalin käyttö dokumenttielokuvassa"
+    },
+    "items": [
+      {
+        "id": "4dfaceec-0d9b-5afa-aedb-cd2675244ff5",
+        "prompt": "Kirjoita virallinen sähköposti kansalliselle audiovisuaaliselle instituutille. Olet tekemässä dokumenttielokuvaa ja tarvitset arkistomateriaalia 1970-luvun Suomesta. Kerro projektistasi, mitä materiaalia etsit ja kysy käyttöoikeuksista ja hinnoittelusta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

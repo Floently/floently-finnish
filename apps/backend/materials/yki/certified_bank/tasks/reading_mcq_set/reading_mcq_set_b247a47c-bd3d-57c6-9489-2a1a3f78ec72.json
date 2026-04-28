@@ -1,0 +1,66 @@
+{
+  "id": "b247a47c-bd3d-57c6-9489-2a1a3f78ec72",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Liikunnan yhteys mielenterveyteen on kiistaton. Tuore suomalaistutkimus osoittaa, että jo kevyt liikunta, kuten kävely kolmesti viikossa, vähentää masennusoireita merkittävästi. Tutkijat seurasivat 3000 työikäistä viiden vuoden ajan. Ne, jotka liikkuivat säännöllisesti, sairastuivat harvemmin masennukseen. Tutkimuksen johtaja, professori Liisa Mäki, korostaa, että kyse on kausaliteetista: 'Liikunta lisää endorfiinien tuotantoa ja vähentää stressihormonien määrää. Se myös parantaa itsetuntoa ja antaa onnistumisen kokemuksia.' Kuitenkin monet kokevat liikunnan aloittamisen vaikeaksi juuri masennuksen takia. 'Kun on masentunut, ei jaksa edes ajatella lenkille lähtöä', Mäki sanoo. Ratkaisuksi hän ehdottaa matalan kynnyksen ryhmiä, joissa lähdetään liikkeelle pienin askelin. 'Tärkeintä on saada liikkeelle, ei suorittaa.'  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 124
+    },
+    "questions": [
+      {
+        "id": "5785192e-d30f-5c9f-a91c-ed6d7ef02b2c",
+        "prompt": "Mitä tutkimuksessa selvisi liikunnan ja masennuksen yhteydestä?",
+        "options": [
+          "Liikunta lisää masennusta",
+          "Kevyt liikunta vähentää masennusoireita",
+          "Vain rankka liikunta auttaa",
+          "Liikunnalla ei ole vaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "67469257-f0ff-5ac1-a756-aaa2ad1a4cb4",
+        "prompt": "Miksi masentuneiden on vaikea aloittaa liikunta?",
+        "options": [
+          "He eivät pidä liikunnasta",
+          "He eivät jaksa edes ajatella sitä",
+          "Heillä ei ole aikaa",
+          "Se on liian kallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "46e0c684-5f65-59a1-9023-e25b33a31a77",
+        "prompt": "Mitä professori Mäki ehdottaa ratkaisuksi?",
+        "options": [
+          "Pakollisia liikuntatunteja",
+          "Matalan kynnyksen ryhmiä",
+          "Liikuntavälineiden jakamista",
+          "Kilpailuja ja palkintoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

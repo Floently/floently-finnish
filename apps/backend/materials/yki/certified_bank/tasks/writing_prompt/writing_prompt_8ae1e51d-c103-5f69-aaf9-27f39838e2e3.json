@@ -1,0 +1,37 @@
+{
+  "id": "8ae1e51d-c103-5f69-aaf9-27f39838e2e3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt katsomassa lasten konserttia. Kirjoita palaute. Kerro, sopiko se lapsille ja oliko musiikki hyvää.",
+    "materials": {
+      "scenario": "Palaute lastenkonsertista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt katsomassa lasten konserttia. Kirjoita palaute. Kerro, sopiko se lapsille ja oliko musiikki hyvää."
+      }
+    ],
+    "rubric": "Olet käynyt katsomassa lasten konserttia. Kirjoita palaute. Kerro, sopiko se lapsille ja oliko musiikki hyvää.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

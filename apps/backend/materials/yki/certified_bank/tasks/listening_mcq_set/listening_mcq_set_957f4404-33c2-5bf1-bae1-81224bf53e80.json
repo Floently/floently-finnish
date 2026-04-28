@@ -1,0 +1,88 @@
+{
+  "id": "957f4404-33c2-5bf1-bae1-81224bf53e80",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta verkkopalvelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupunki on lanseerannut uuden verkkopalvelun, jonka kautta voi asioida kaupungin kanssa helposti. Palvelussa voi muun muassa hakea rakennuslupia, ilmoittaa muuttoilmoituksia ja varata aikoja neuvolaan. Palvelu on käytettävissä ympäri vuorokauden. Kirjautuminen tapahtuu suomalaisilla pankkitunnuksilla tai mobiilivarmenteella. Palvelu on maksuton kaikille kaupunkilaisille. Uudistuksen tavoitteena on vähentää puhelin- ja käyntiasioinnin tarvetta ja nopeuttaa asioiden käsittelyä. Kaupunki järjestää myös opastusta palvelun käyttöön kirjastoissa ja asukaspuistoissa. Opastusta on tarjolla sekä suomeksi että ruotsiksi. Tervetuloa tutustumaan uuteen palveluun!",
+      "audio_asset_id": "3acb759c-772f-4703-aeec-a46f34a80246"
+    },
+    "questions": [
+      {
+        "id": "ecdb924b-4fb4-55f0-abc7-c7dbf99912f9",
+        "prompt": "Mitä uudessa verkkopalvelussa voi tehdä?",
+        "options": [
+          "Vain hakea rakennuslupia.",
+          "Vain varata aikoja neuvolaan.",
+          "Vain maksaa laskuja.",
+          "Hakea rakennuslupia, ilmoittaa muuttoilmoituksia ja varata aikoja neuvolaan."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "f08a50f5-7665-595b-ade5-c5a100d88178",
+        "prompt": "Miten palveluun kirjaudutaan?",
+        "options": [
+          "Sähköpostilla ja salasanalla.",
+          "Suomalaisilla pankkitunnuksilla tai mobiilivarmenteella.",
+          "Kaupungin omalla tunnuksella.",
+          "Henkilötunnuksella."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7a9d32c7-5b38-523e-be76-530ef3ad0132",
+        "prompt": "Mitä palvelun käyttö maksaa?",
+        "options": [
+          "5 euroa vuodessa.",
+          "10 euroa vuodessa.",
+          "2 euroa kerta.",
+          "Se on maksuton kaikille kaupunkilaisille."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "af05aa97-d8c3-5cb1-ad4e-02031d050889",
+        "prompt": "Mikä on uudistuksen tavoite?",
+        "options": [
+          "Lisätä käyntiasiointia.",
+          "Kerätä enemmän tietoa asukkaista.",
+          "Vähentää puhelin- ja käyntiasioinnin tarvetta ja nopeuttaa asioiden käsittelyä.",
+          "Säästää henkilöstökuluissa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "809806f5-a996-5e02-8a5e-5d888982f226",
+        "prompt": "Missä järjestetään opastusta palvelun käyttöön?",
+        "options": [
+          "Kaupungintalolla.",
+          "Kirjastoissa ja asukaspuistoissa.",
+          "Kouluissa.",
+          "Verkossa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

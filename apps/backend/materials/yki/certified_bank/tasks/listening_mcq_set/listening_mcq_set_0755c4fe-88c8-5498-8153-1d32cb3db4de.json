@@ -1,0 +1,99 @@
+{
+  "id": "0755c4fe-88c8-5498-8153-1d32cb3db4de",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta innovaatiorahastosta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin elinkeinopalvelujen tiedote. Olemme perustaneet uuden innovaatiorahaston, jonka tarkoituksena on tukea kaupungissa toimivia startup-yrityksiä ja innovatiivisia hankkeita. Rahaston koko on 2 miljoonaa euroa. Rahastosta voi hakea avustuksia ja lainoja. Avustuksia myönnetään enintään 50 000 euroa hanketta kohden. Lainoja voidaan myöntää enintään 200 000 euroa. Rahasto on tarkoitettu yrityksille, jotka ovat toimineet alle viisi vuotta ja joilla on merkittävää kasvupotentiaalia. Rahoituksen saamisen edellytyksenä on, että hanke on uutta luova, sillä on kaupallisia mahdollisuuksia ja se edistää kestävää kehitystä. Rahoitusta haetaan sähköisellä lomakkeella. Hakemuksia käsitellään neljä kertaa vuodessa. Seuraava hakuaika päättyy 30.4. Lisätietoa rahastosta ja hakemisesta löytyy verkkosivuiltamme. Tervetuloa hakemaan tukea innovaatioillesi!",
+      "audio_asset_id": "5f84453a-fc6d-40ee-9203-c10ad31f993d"
+    },
+    "questions": [
+      {
+        "id": "98867234-cce3-518f-b62a-9f56429c32eb",
+        "prompt": "Mistä kaupungin elinkeinopalvelut tiedottavat?",
+        "options": [
+          "Uudesta innovaatiorahastosta.",
+          "Uudesta yritysverosta.",
+          "Uudesta yrityskiihdyttämöstä.",
+          "Uudesta yrityspalvelusta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "f5a6dd27-00cc-57e4-b45d-bad8bfeebf46",
+        "prompt": "Mikä on rahaston koko?",
+        "options": [
+          "1 miljoona euroa.",
+          "2 miljoonaa euroa.",
+          "3 miljoonaa euroa.",
+          "4 miljoonaa euroa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a0ca962d-9b8d-5ab4-b25e-86b5d8d35b0c",
+        "prompt": "Kuinka paljon avustusta voi saada enintään?",
+        "options": [
+          "25 000 euroa.",
+          "50 000 euroa.",
+          "75 000 euroa.",
+          "100 000 euroa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6a43666c-381f-554a-bc2f-231e894853d0",
+        "prompt": "Kuinka paljon lainaa voi saada enintään?",
+        "options": [
+          "100 000 euroa.",
+          "150 000 euroa.",
+          "200 000 euroa.",
+          "250 000 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7ed25abf-5db0-5d08-909d-35e043da3166",
+        "prompt": "Kenelle rahasto on tarkoitettu?",
+        "options": [
+          "Kaikille yrityksille.",
+          "Alle viisi vuotta toimineille startup-yrityksille.",
+          "Suurille kansainvälisille yrityksille.",
+          "Yksinyrittäjille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "24241d8b-dfb6-59f4-8aa3-99dd63454c9c",
+        "prompt": "Kuinka usein hakemuksia käsitellään?",
+        "options": [
+          "Kerran vuodessa.",
+          "Kaksi kertaa vuodessa.",
+          "Kuusi kertaa vuodessa.",
+          "Neljä kertaa vuodessa."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

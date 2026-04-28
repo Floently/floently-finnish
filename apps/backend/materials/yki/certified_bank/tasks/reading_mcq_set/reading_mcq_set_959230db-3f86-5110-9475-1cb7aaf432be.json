@@ -1,0 +1,66 @@
+{
+  "id": "959230db-3f86-5110-9475-1cb7aaf432be",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.491,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pesulan ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "PESULA\n\nAvoinna ma–pe klo 8–18, la klo 10–14. Suljettu sunnuntaisin.\n\nPesu 40 °C ja 60 °C: 8 €/kone.\nKuivausrumpu: 4 €/kerta.\n\nSilitysrauta ja -lauta löytyy pesulasta. Voit käyttää niitä ilmaiseksi.\n\nTervetuloa!",
+      "word_count": 31
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan pesula aukeaa lauantaina?",
+        "options": [
+          "klo 8",
+          "klo 10",
+          "klo 12",
+          "klo 14"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko pesu maksaa?",
+        "options": [
+          "4 euroa",
+          "6 euroa",
+          "8 euroa",
+          "10 euroa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Voiko pesulassa silittää vaatteita?",
+        "options": [
+          "Ei, silitystä ei ole",
+          "Kyllä, mutta se maksaa 2 euroa",
+          "Kyllä, ja se on ilmaista",
+          "Vain lauantaisin"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

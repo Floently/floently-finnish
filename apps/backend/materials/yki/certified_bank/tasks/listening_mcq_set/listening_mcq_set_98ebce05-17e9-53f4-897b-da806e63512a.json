@@ -1,0 +1,66 @@
+{
+  "id": "98ebce05-17e9-53f4-897b-da806e63512a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu apteekissa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Päivää! Onko teillä Buranaa?\nFarmaseutti: On kyllä. Minkä vahvuista?\nAsiakas: 400 milligrammaa.\nFarmaseutti: Tässä on 30 tabletin pakkaus. Hinta on 9,20 euroa.\nAsiakas: Kiitos. Onko teillä myös kurkkupastilleja?\nFarmaseutti: Kyllä, ne ovat tuossa hyllyssä.\nAsiakas: Otetaan myös ne. Paljonko maksaa yhteensä?\nFarmaseutti: Burana 9,20 ja pastillit 4,50, yhteensä 13,70 euroa.",
+      "audio_asset_id": "f141cd1f-143b-4be6-8d48-0a615595a399"
+    },
+    "questions": [
+      {
+        "id": "0204ac0e-f0e1-5997-9200-9ea451aeac86",
+        "prompt": "Mitä asiakas ostaa ensin?",
+        "options": [
+          "Vitamiineja",
+          "Särkylääkettä",
+          "Laastareita",
+          "Kurkkupastilleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e451cdda-c78f-59c1-b4f8-c7ef9d597658",
+        "prompt": "Paljonko Burana maksaa?",
+        "options": [
+          "7,50 €",
+          "8,20 €",
+          "9,20 €",
+          "10,50 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b6d8de7e-ada3-53c3-b5a3-c5a6a2f00947",
+        "prompt": "Paljonko asiakas maksaa yhteensä?",
+        "options": [
+          "11,70 €",
+          "12,70 €",
+          "13,70 €",
+          "14,70 €"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

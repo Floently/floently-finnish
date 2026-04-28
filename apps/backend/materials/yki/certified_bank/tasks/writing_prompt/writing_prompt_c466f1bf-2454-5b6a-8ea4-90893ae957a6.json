@@ -1,0 +1,37 @@
+{
+  "id": "c466f1bf-2454-5b6a-8ea4-90893ae957a6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ollut sairaana etkä päässyt kurssille. Kirjoita sähköposti opettajalle.\n\nKerro:\n- Kuka olet ja mille kurssille osallistut\n- Että olit sairaana etkä päässyt tunnille\n- Kysy, mitä asioita tunnilla käsiteltiin\n- Kysy, onko kotitehtäviä ja miten voit saada ne",
+    "materials": {
+      "scenario": "Olet ollut sairaana etkä päässyt kurssille. Kirjoita sähköposti opettajalle.\n\nKerro:\n- Kuka olet ja mille kurssille osallistut\n- Että olit sairaana etkä päässyt tunnille\n- Kysy, mitä asioita tunnilla käsiteltiin\n- Kysy, onko kotitehtäviä ja miten voit saada ne"
+    },
+    "items": [
+      {
+        "id": "1d886c81-0b60-534d-84c7-be9b3beefa17",
+        "prompt": "Olet ollut sairaana etkä päässyt kurssille. Kirjoita sähköposti opettajalle.\n\nKerro:\n- Kuka olet ja mille kurssille osallistut\n- Että olit sairaana etkä päässyt tunnille\n- Kysy, mitä asioita tunnilla käsiteltiin\n- Kysy, onko kotitehtäviä ja miten voit saada ne"
+      }
+    ],
+    "rubric": "Olet ollut sairaana etkä päässyt kurssille. Kirjoita sähköposti opettajalle.\n\nKerro:\n- Kuka olet ja mille kurssille osallistut\n- Että olit sairaana etkä päässyt tunnille\n- Kysy, mitä asioita tunnilla käsiteltiin\n- Kysy, onko kotitehtäviä ja miten voit saada ne",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

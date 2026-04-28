@@ -1,0 +1,37 @@
+{
+  "id": "d4b40597-30ef-506b-a23a-374aada2f6e7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.657,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: sports hall. Purpose: ask for information. Constraint: mention a follow up step.",
+    "materials": {
+      "scenario": "travel in sports_hall"
+    },
+    "items": [
+      {
+        "id": "a5da79c8-67d1-56b2-86c6-98bfe7ebff63",
+        "prompt": "Write for the receiver in this scenario: sports hall. Purpose: ask for information. Constraint: mention a follow up step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

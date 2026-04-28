@@ -1,0 +1,66 @@
+{
+  "id": "c3cbdce2-a421-564f-944b-59661ab22f4f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.305,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei!\n\nOlen yläkerran naapuri Matti. Olen viikon lomalla 10.–17.6. Voisitko kastella kukat pari kertaa? Avain on oven alla olevan kiven alla. Kastelukannu löytyy parvekkeelta. Kiitos avusta!\n\nT. Matti\nPS. Jos tulee ongelmia, soita 040 123 4567.",
+      "word_count": 36
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka on Matti?",
+        "options": [
+          "postinkantaja",
+          "naapuri",
+          "kaveri",
+          "työkaveri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Matti pyytää tekemään?",
+        "options": [
+          "noutaa postin",
+          "kastella kukat",
+          "ruokkia kissa",
+          "tuoda maitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä avain on?",
+        "options": [
+          "postilaatikossa",
+          "kiven alla",
+          "oven päällä",
+          "parvekkeella"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "cb094c8c-3eca-5c59-918c-41ef23acbce2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.573,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kansainvälisten opiskelijoiden määrä suomalaisissa korkeakouluissa on kasvanut. He tuovat kansainvälisyyttä ja uusia näkökulmia oppimisympäristöön. Haasteena on kuitenkin se, että osa opiskelijoista jää Suomeen valmistumisen jälkeen, mutta osa palaa kotimaahansa. Suomella on tavoitteena saada kansainväliset osaajat jäämään työelämään. Tämä vaatii työperäisen maahanmuuton sujuvoittamista ja kotoutumisen tukea.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kasvanut suomalaisissa korkeakouluissa?",
+        "options": [
+          "Suomalaisten opiskelijoiden määrä",
+          "Kansainvälisten opiskelijoiden määrä",
+          "Opiskelijoiden vaihto-ohjelmat",
+          "Korkeakoulujen määrä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä kansainvälisistä opiskelijoista on?",
+        "options": [
+          "He vievät työpaikkoja",
+          "He tuovat kansainvälisyyttä ja uusia näkökulmia",
+          "He lisäävät kilpailua",
+          "He tuovat rahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on haaste kansainvälisten opiskelijoiden suhteen?",
+        "options": [
+          "He eivät viihdy Suomessa",
+          "Osa palaa kotimaahansa valmistumisen jälkeen",
+          "He eivät opiskele tarpeeksi",
+          "Heille ei ole asuntoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on Suomen tavoite kansainvälisten opiskelijoiden suhteen?",
+        "options": [
+          "Saada heidät palaamaan kotimaahansa",
+          "Saada heidät jäämään työelämään Suomeen",
+          "Vähentää heidän määräänsä",
+          "Saada heidät maksamaan enemmän veroja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tavoitteen saavuttaminen vaatii?",
+        "options": [
+          "Tiukempaa maahanmuuttopolitiikkaa",
+          "Työperäisen maahanmuuton sujuvoittamista ja kotoutumisen tukea",
+          "Kansainvälisten opiskelijoiden kielitaidon parantamista",
+          "Lisää rahaa korkeakouluille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'kotoutumisen tuella'?",
+        "options": [
+          "Tukea ulkomaalaisten sopeutumiseen suomalaiseen yhteiskuntaan",
+          "Tukea ulkomaalaisten paluuseen kotimaahan",
+          "Rahallista tukea opiskeluun",
+          "Tukea asunnon hankintaan"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

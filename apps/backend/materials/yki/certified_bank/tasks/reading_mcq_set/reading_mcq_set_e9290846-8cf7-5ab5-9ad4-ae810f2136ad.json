@@ -1,0 +1,88 @@
+{
+  "id": "e9290846-8cf7-5ab5-9ad4-ae810f2136ad",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Maito on tärkeä osa suomalaista ruokavaliota. Lapset juovat maitoa koulussa. Aikuisetkin juovat maitoa. Sitä käytetään puuron keittämiseen ja kahvissa. Piimä on hapanta maitoa. Sitä juodaan ruoan kanssa. Jogurtti ja viili ovat maitotuotteita. Ne ovat suosittuja välipaloja. Juustoa syödään leivän päällä. Maito on terveellistä. Se sisältää kalsiumia, joka on hyväksi luille. Monet suomalaiset juovat maitoa päivittäin. Laktoosittomat ja kasvipohjaiset maidot ovat myös yleistyneet.",
+      "word_count": 62
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä maito on suomalaisille?",
+        "options": [
+          "Harvinainen juoma",
+          "Tärkeä osa ruokavaliota",
+          "Vain lasten juoma",
+          "Ulkomainen tuote"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin maitoa käytetään?",
+        "options": [
+          "Vain juomiseen",
+          "Puuron keittämiseen ja kahviin",
+          "Vain leivontaan",
+          "Vain ruoanlaittoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä on piimä?",
+        "options": [
+          "Makeaa maitoa",
+          "Hapanta maitoa",
+          "Kasvipohjaista maitoa",
+          "Laktoositonta maitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä maidosta on?",
+        "options": [
+          "Se sisältää paljon rasvaa",
+          "Se sisältää kalsiumia, joka on hyväksi luille",
+          "Se on halpaa",
+          "Se on makeaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitkä maitotuotteet ovat suosittuja välipaloja?",
+        "options": [
+          "Jogurtti ja viili",
+          "Kerma ja voi",
+          "Juusto ja voi",
+          "Piimä ja kerma"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

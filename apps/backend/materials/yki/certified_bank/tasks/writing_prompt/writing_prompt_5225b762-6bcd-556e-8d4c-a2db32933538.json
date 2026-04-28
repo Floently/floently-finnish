@@ -1,0 +1,37 @@
+{
+  "id": "5225b762-6bcd-556e-8d4c-a2db32933538",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin uimahallin lasten altaasta. Kerro veden lämpötilasta, turvallisuudesta ja leluista. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin uimahallin lasten altaasta"
+    },
+    "items": [
+      {
+        "id": "e18c5434-b7d2-577e-81a5-5c4042793b2a",
+        "prompt": "Kirjoita palauteteksti kaupungin uimahallin lasten altaasta. Kerro veden lämpötilasta, turvallisuudesta ja leluista. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Veden lämpötila\nTurvallisuus\nLelut\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

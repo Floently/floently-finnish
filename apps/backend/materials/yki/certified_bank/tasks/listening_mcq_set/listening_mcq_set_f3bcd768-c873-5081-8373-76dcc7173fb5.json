@@ -1,0 +1,66 @@
+{
+  "id": "f3bcd768-c873-5081-8373-76dcc7173fb5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu terveyskeskuksessa ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Hoitaja: Päivää, kuinka voin auttaa?\nPotilas: Minulla on aika lääkärille kello 10. Onko hän paikalla?\nHoitaja: Lääkäri on vähän myöhässä. Voitte odottaa tuolla. Hän kutsuu teidät pian.\nPotilas: Selvä, kiitos.",
+      "audio_asset_id": "a9a46939-35e5-5cfe-a6c4-104daaa92733"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_013_q1",
+        "prompt": "Mihin aikaan potilaalla on aika?",
+        "options": [
+          "kello 9",
+          "kello 10",
+          "kello 11",
+          "kello 12"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_013_q2",
+        "prompt": "Miksi lääkäri on myöhässä?",
+        "options": [
+          "hän on sairas",
+          "hän on vähän myöhässä",
+          "hänellä on paljon potilaita",
+          "hän on lounaalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_013_q3",
+        "prompt": "Mitä potilaan pitää tehdä?",
+        "options": [
+          "mennä kotiin",
+          "soittaa myöhemmin",
+          "odottaa",
+          "tulla uudelleen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "e56e725e-baae-5b5a-9263-b6b4151992d3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Koulupihalla pidetään kevätmarkkinat lauantaina 18.5. Tapahtuma alkaa kello 10.00 ja loppuu kello 13.00. Pihalle tulee kahdeksan myyntipöytää, joissa myydään leivonnaisia, taimia ja käsitöitä. Lasten musiikkiesitys alkaa kello 11.15 ulkolavalla. Järjestäjät pyytävät käteismaksua, koska korttilaite toimii vain opettajanhuoneessa. Jos sataa kovasti, myyntipöydät siirretään liikuntasaliin. Tapahtuman tuotolla ostetaan uusia pelejä välitunneille.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin markkinat loppuvat?",
+        "options": [
+          "kello 12.00",
+          "kello 13.00",
+          "kello 14.00",
+          "kello 15.00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä pihalla myydään?",
+        "options": [
+          "vain kirjoja",
+          "vain urheiluvälineitä",
+          "leivonnaisia, taimia ja käsitöitä",
+          "vain kahvia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi käteismaksua suositellaan?",
+        "options": [
+          "pankki on kiinni",
+          "korttilaite toimii vain yhdessä paikassa",
+          "hinnat ovat halpoja",
+          "järjestäjillä ei ole vaihtorahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin tuotot käytetään?",
+        "options": [
+          "uusiin peleihin välitunneille",
+          "luokkaretkeen ulkomaille",
+          "opettajien kahviin",
+          "parkkipaikkaan"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

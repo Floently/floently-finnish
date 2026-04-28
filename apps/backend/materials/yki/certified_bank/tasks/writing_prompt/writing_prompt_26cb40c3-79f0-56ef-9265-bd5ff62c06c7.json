@@ -1,0 +1,37 @@
+{
+  "id": "26cb40c3-79f0-56ef-9265-bd5ff62c06c7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työterveyshuoltoon. Haluat varata ajan työterveyslääkärille, koska sinulla on toistuvia niska-hartiaseudun kipuja. Kerro oireistasi ja kysy, saatko ajan nopeasti.",
+    "materials": {
+      "scenario": "Ajanvaraus työterveyslääkärille"
+    },
+    "items": [
+      {
+        "id": "8f3d95fc-ecae-58ab-836c-fdcab856298e",
+        "prompt": "Kirjoita sähköposti työterveyshuoltoon. Haluat varata ajan työterveyslääkärille, koska sinulla on toistuvia niska-hartiaseudun kipuja. Kerro oireistasi ja kysy, saatko ajan nopeasti."
+      }
+    ],
+    "rubric": "Oireiden kuvaus\nVarauspyyntö\nKiireellisyys",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

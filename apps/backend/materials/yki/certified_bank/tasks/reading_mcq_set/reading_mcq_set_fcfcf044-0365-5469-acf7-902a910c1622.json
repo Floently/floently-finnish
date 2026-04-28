@@ -1,0 +1,77 @@
+{
+  "id": "fcfcf044-0365-5469-acf7-902a910c1622",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue joukkoliikenteen tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "JOUKKOLIIKENNE TURUSSA\n\nTiedote 15.3.2026\n\nRatikkatyömaan vuoksi linjan 1 bussit kulkevat poikkeusreittiä 20.3.–30.4. välisenä aikana. Seuraavat pysäkit ovat pois käytöstä: Kauppatori, Puutori, Linjakatu. Väliaikaiset pysäkit sijaitsevat Koulukadulla ja Ratapihankadulla.\n\nLinjan 2 ja 3 reitit eivät muutu.\n\nLisätietoja: www.foli.fi tai puhelin 02 123 456",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "4d765938-5374-5803-b99d-8c37bef90bdf",
+        "prompt": "Miksi bussien reitit muuttuvat?",
+        "options": [
+          "Lumen vuoksi",
+          "Ratikkatyömaan vuoksi",
+          "Onnettomuuden vuoksi",
+          "Kadun remontin vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "708ad0b0-0352-5929-b8e8-31cc2748976b",
+        "prompt": "Mikä linja kulkee poikkeusreittiä?",
+        "options": [
+          "Linja 1",
+          "Linja 2",
+          "Linja 3",
+          "Kaikki linjat"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b04aacea-a765-5727-94ef-d1d63b375c3a",
+        "prompt": "Mistä löytää lisätietoa?",
+        "options": [
+          "Vain puhelimitse",
+          "www.foli.fi tai puhelin",
+          "Vain verkkosivuilta",
+          "Infopisteestä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "06e15d83-fe4f-57d5-8f41-b7b1630d6b69",
+        "prompt": "Kuinka kauan poikkeusreitit ovat voimassa?",
+        "options": [
+          "Viikon",
+          "20.3.–30.4.",
+          "Koko kevään",
+          "Toistaiseksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

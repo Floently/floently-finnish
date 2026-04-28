@@ -1,0 +1,99 @@
+{
+  "id": "8d538a8c-effd-5267-8159-5fd646d2983c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Leipomossa on leivottu pullaa ja sämpylöitä aamusta asti. Tuoreita leivonnaisia on myynnissä koko päivän. Erityisesti kanelipullat ovat olleet suosittuja. Leipomo sijaitsee torin laidalla, ja sinne on helppo tulla kävellen tai pyörällä. Leipomo on auki maanantaista perjantaihin kello 7–18 ja lauantaisin kello 9–15.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä leipomossa on leivottu?",
+        "options": [
+          "Kakkuja ja leivoksia",
+          "Pipareita ja keksejä",
+          "Pullaa ja sämpylöitä",
+          "Leipää ja patonkia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin leivonnaisia on myynnissä?",
+        "options": [
+          "Vain aamuisin",
+          "Vain iltapäivisin",
+          "Koko päivän",
+          "Vain viikonloppuisin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä leivonnaiset ovat olleet erityisen suosittuja?",
+        "options": [
+          "Sämpylät",
+          "Kanelipullat",
+          "Patongit",
+          "Piirakat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä leipomo sijaitsee?",
+        "options": [
+          "Kauppakeskuksessa",
+          "Torin laidalla",
+          "Aseman vieressä",
+          "Koulun lähellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten leipomoon on helppo tulla?",
+        "options": [
+          "Autolla",
+          "Bussilla",
+          "Kävellen tai pyörällä",
+          "Junalla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Milloin leipomo on auki lauantaisin?",
+        "options": [
+          "Kello 8–16",
+          "Kello 9–15",
+          "Kello 10–18",
+          "Kello 7–14"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

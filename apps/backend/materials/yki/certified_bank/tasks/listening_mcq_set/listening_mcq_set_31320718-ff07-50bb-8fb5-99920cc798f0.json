@@ -1,0 +1,88 @@
+{
+  "id": "31320718-ff07-50bb-8fb5-99920cc798f0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.668,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Pizza Hut! Nyt saat kaksi pizzaa 20 eurolla. Tarjous on voimassa koko viikonlopun. Tilaa netistä tai puhelimitse!",
+      "audio_asset_id": "b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e"
+    },
+    "questions": [
+      {
+        "id": "l299q1",
+        "prompt": "Mikä on ravintolan nimi?",
+        "options": [
+          "Pizza Hut.",
+          "Pizza Napoli.",
+          "Pizza Roma.",
+          "Pizza Market."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l299q2",
+        "prompt": "Mikä on tarjous?",
+        "options": [
+          "Yksi pizza 10 eurolla.",
+          "Kaksi pizzaa 20 eurolla.",
+          "Kaksi pizzaa yhden hinnalla.",
+          "Ilmainen juoma."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l299q3",
+        "prompt": "Minä päivinä tarjous on voimassa?",
+        "options": [
+          "Arkisin.",
+          "Viikonloppuna.",
+          "Maanantaisin.",
+          "Koko viikon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l299q4",
+        "prompt": "Miten tilauksen voi tehdä?",
+        "options": [
+          "Vain netissä.",
+          "Vain puhelimitse.",
+          "Netissä tai puhelimitse.",
+          "Vain paikan päällä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l299q5",
+        "prompt": "Mitä mainoksessa toivotetaan?",
+        "options": [
+          "Tervetuloa.",
+          "Hyvää ruokahalua.",
+          "Näkemiin.",
+          "Hyvää päivänjatkoa."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

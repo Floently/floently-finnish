@@ -1,0 +1,77 @@
+{
+  "id": "c405a68c-c6ba-5080-aecb-81281fca7ea3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.729,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirja-arvostelu tulevaisuuden työstä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TYÖN TULEVAISUUS – UTOPIA VAI DYSTOPIA?\n\nRichard Baldwinin teos 'The Globotics Upheaval' on yksi monista yrityksistä hahmottaa, mitä teknologinen kehitys tekee työlle. Baldwinin teesi on, että olemme siirtymässä uuteen aikakauteen, jossa sekä robotiikka että etätyön mahdollistama globaali palvelujen kauppa mullistavat työmarkkinat.\n\nBaldwinin mukaan aiempi globalisaatio koski lähinnä tavaroita. Nyt digitalisaatio on murtamassa tätä rajaa. Yhä useampi palvelu voidaan tuottaa missä tahansa ja toimittaa minne tahansa. Tämä tarkoittaa, että korkeasti koulutetutkin joutuvat kilpailemaan halvemman työvoiman kanssa.\n\nSamanaikaisesti tekoäly ja robotiikka korvaavat rutiininomaisia tehtäviä. Ihmisille jäävät tehtävät, joissa tarvitaan luovuutta, empatiaa ja monimutkaista ongelmanratkaisua.\n\nKirja ei kuitenkaan ole pelkkää synkistelyä. Baldwin näkee myös mahdollisuuksia. Teknologia voi vapauttaa ihmiset ikävistä töistä. Ongelmana on, että hyödyt jakautuvat epätasaisesti.\n\nTarvitaan politiikkaa, joka ohjaa kehitystä. Koulutusjärjestelmää on uudistettava. Sosiaaliturvaa on kehitettävä niin, että se tukee liikkuvuutta ja uudelleenkouluttautumista.\n\nBaldwin välttää sekä teknohypen että teknoangstin ääripäät. Hän ei usko, että koneet tekevät meistä tarpeettomia. Mutta hän ei myöskään usko, että kaikki järjestyy itsestään.\n\nTeos on tärkeä puheenvuoro keskustelussa, jota käydään liian usein otsikkotasolla.",
+      "word_count": 166
+    },
+    "questions": [
+      {
+        "id": "c761c732-97d8-50a8-9c29-173c4789e60e",
+        "prompt": "Mikä on Baldwinin kirjan pääteesi?",
+        "options": [
+          "Robotiikka tuhoaa kaikki työpaikat",
+          "Sekä robotiikka että globaali palvelujen kauppa mullistavat työmarkkinat",
+          "Työpaikat säilyvät ennallaan",
+          "Vain teollisuus muuttuu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "eb94f05d-5a32-5d64-b96c-9f3dc628c3e4",
+        "prompt": "Miten aiempi globalisaatio erosi nykyisestä?",
+        "options": [
+          "Se koski vain tavaroita, nyt myös palvelut ovat globaaleja",
+          "Se oli nopeampaa",
+          "Se koski vain rahaa",
+          "Se oli hallitumpaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "03fe92f5-88b2-5ea0-b5b2-782a638414df",
+        "prompt": "Millaiset työt jäävät ihmisille?",
+        "options": [
+          "Rutiinityöt",
+          "Luovuutta, empatiaa ja monimutkaista ongelmanratkaisua vaativat työt",
+          "Fyysiset työt",
+          "Kaikki työt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0ae3cab0-d29f-5f77-99b4-aaf5597313a5",
+        "prompt": "Mitä kirjoittaja arvostaa Baldwinin kirjassa?",
+        "options": [
+          "Sen teknouskovaisuutta",
+          "Sen kykyä välttää ääripäitä",
+          "Sen synkkyyttä",
+          "Sen yksinkertaisuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

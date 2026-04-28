@@ -1,0 +1,37 @@
+{
+  "id": "829664df-6fe0-5b8a-84eb-2c3006bd77e6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a director-general position at CERN. Tell about your experience in leading cutting-edge research, international scientific cooperation, and managing large research infrastructures. Also describe your scientific vision and how you have advanced physics research. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus CERNin pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "33a1facd-8567-57e4-86f4-de3571f677dd",
+        "prompt": "Write a job application. You are applying for a director-general position at CERN. Tell about your experience in leading cutting-edge research, international scientific cooperation, and managing large research infrastructures. Also describe your scientific vision and how you have advanced physics research. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a director-general position at CERN. Tell about your experience in leading cutting-edge research, international scientific cooperation, and managing large research infrastructures. Also describe your scientific vision and how you have advanced physics research. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

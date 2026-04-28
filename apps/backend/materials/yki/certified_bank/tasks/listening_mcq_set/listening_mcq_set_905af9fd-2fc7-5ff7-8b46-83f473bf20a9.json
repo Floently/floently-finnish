@@ -1,0 +1,77 @@
+{
+  "id": "905af9fd-2fc7-5ff7-8b46-83f473bf20a9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.313,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Huomio oppilaat. Koulubussi 12 lähtee tiistaina poikkeuksellisesti kello 7.20 pysäkiltä A, koska tie B on suljettu. Paluukuljetus lähtee koululta normaalisti kello 15.05.",
+      "audio_asset_id": "fdaf8819-ca67-5003-a7fd-73a67a9a41ac"
+    },
+    "questions": [
+      {
+        "id": "l1",
+        "prompt": "Milloin bussi lähtee aamulla?",
+        "options": [
+          "7.10",
+          "7.20",
+          "7.30",
+          "7.40"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l2",
+        "prompt": "Miltä pysäkiltä bussi lähtee?",
+        "options": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l3",
+        "prompt": "Miksi aikataulu muuttuu?",
+        "options": [
+          "sää",
+          "tie B on suljettu",
+          "kuljettaja myöhästyy",
+          "koulu alkaa myöhemmin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l4",
+        "prompt": "Milloin paluukuljetus lähtee?",
+        "options": [
+          "14.55",
+          "15.00",
+          "15.05",
+          "15.15"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "36409e88-29c7-5006-b967-f633f226abcc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti maahanmuuttoviraston oleskelulupayksikköön. Olet hakenut oleskeluluvan jatkoa, etkä ole saanut päätöstä luvatussa ajassa. Kerro, milloin hait jatkoa, milloin luvan olisi pitänyt olla valmis ja miten tilanteesi vaikuttaa esimerkiksi työntekoon tai opiskeluun. Pyydä tietoa käsittelyn tilasta ja arviota siitä, milloin päätös on odotettavissa.",
+    "materials": {
+      "scenario": "Oleskeluluvan jatkon käsittelyn viivästyminen"
+    },
+    "items": [
+      {
+        "id": "fc28520a-ecd2-55bc-90d9-356a0a3e2130",
+        "prompt": "Kirjoita virallinen sähköposti maahanmuuttoviraston oleskelulupayksikköön. Olet hakenut oleskeluluvan jatkoa, etkä ole saanut päätöstä luvatussa ajassa. Kerro, milloin hait jatkoa, milloin luvan olisi pitänyt olla valmis ja miten tilanteesi vaikuttaa esimerkiksi työntekoon tai opiskeluun. Pyydä tietoa käsittelyn tilasta ja arviota siitä, milloin päätös on odotettavissa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "a24b70da-84bc-550c-b711-bd8666142dc9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.579,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti avoimesta datasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Avoin data on yksi 2000-luvun merkittävimmistä ilmiöistä. Sillä tarkoitetaan dataa, joka on vapaasti kaikkien käytettävissä, hyödynnettävissä ja jaettavissa. Julkishallinto, tutkimuslaitokset ja yritykset ovat alkaneet avata datavarantojaan, ja tämä kehitys on luonut uusia mahdollisuuksia mutta myös haasteita.\n\nAvoimen datan kannattajat korostavat sen läpinäkyvyyttä lisäävää vaikutusta. Kun kansalaiset ja media voivat tarkastella vaikkapa julkisia menoja tai päätöksentekoa, demokratia vahvistuu. Korruptio vähenee, kun toiminta on avointa. Tämä on erityisen tärkeää maissa, joissa luottamus hallintoon on heikko.\n\nToiseksi avoin data voi olla taloudellinen voimavara. Yritykset voivat hyödyntää avointa dataa luodakseen uusia palveluita ja tuotteita. Esimerkiksi liikennedata on mahdollistanut reittioppaat ja liikkumissovellukset, jotka helpottavat arkea. Avoin data voi synnyttää kokonaan uusia liiketoiminta-alueita ja työpaikkoja.\n\nKolmanneksi avoin data edistää tutkimusta ja innovaatioita. Tutkijat voivat yhdistellä eri lähteistä saatavaa dataa ja löytää uusia yhteyksiä, jotka muuten jäisivät huomaamatta. Tämä on nopeuttanut esimerkiksi ilmastotutkimusta ja terveystieteitä. Mitä enemmän dataa on avoimesti saatavilla, sitä nopeammin tiede voi edistyä.\n\nKriitikot muistuttavat, että avoin data ei ole ongelmatonta. Tietosuoja on keskeinen huolenaihe. Vaikka data olisi anonymisoitua, yksittäisiä henkilöitä voi joskus olla mahdollista tunnistaa yhdistämällä eri tietolähteitä. Tämä on erityisen arkaluonteista terveysdatan kohdalla.\n\nToinen kritiikki koskee datan laatua. Pelkkä datan avaaminen ei riitä, jos se on huonosti dokumentoitua tai epäluotettavaa. Huonolaatuinen data voi johtaa vääriin johtopäätöksiin ja huonoihin päätöksiin. Tarvitaan panostuksia datan hallintaan ja laadunvarmistukseen.\n\nKolmas haaste on digitaalinen kuilu. Kaikilla ei ole yhtäläisiä mahdollisuuksia hyödyntää avointa dataa. Pienillä yrityksillä ja kansalaisjärjestöillä voi olla vähemmän resursseja analysoida suuria datamassoja kuin suurilla teknologiayrityksillä. Tämä voi lisätä eriarvoisuutta.\n\nLopuksi voidaan todeta, että avoin data on työkalu, ei itsetarkoitus. Sen arvo riippuu siitä, miten sitä käytetään. Tarvitaan sekä teknisiä ratkaisuja että yhteiskunnallista keskustelua siitä, millainen data on avattavaa ja millaisin ehdoin.",
+      "word_count": 276
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä tarkoitetaan avoimella datalla?",
+        "options": [
+          "dataa, joka on vain tutkijoiden käytössä",
+          "dataa, joka on vapaasti kaikkien käytettävissä",
+          "dataa, joka on salattua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Miten avoin data voi edistää taloutta?",
+        "options": [
+          "se on kallista",
+          "yritykset voivat luoda uusia palveluita avoimen datan pohjalta",
+          "se vähentää työpaikkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mikä on keskeinen tietosuojaan liittyvä huoli avoimessa datassa?",
+        "options": [
+          "dataa on liian vähän",
+          "yksittäisiä henkilöitä voidaan tunnistaa yhdistämällä tietolähteitä",
+          "dataa ei voi anonymisoida"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä tarkoitetaan digitaalisella kuilulla avoimen datan yhteydessä?",
+        "options": [
+          "kaikilla ei ole internetiä",
+          "kaikilla ei ole yhtäläisiä mahdollisuuksia hyödyntää avointa dataa",
+          "data on vain nuorten käytössä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

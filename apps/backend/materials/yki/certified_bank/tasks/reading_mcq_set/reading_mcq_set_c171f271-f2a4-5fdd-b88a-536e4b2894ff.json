@@ -1,0 +1,77 @@
+{
+  "id": "c171f271-f2a4-5fdd-b88a-536e4b2894ff",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MEDIAN MUUTOS JA DEMOKRATIAN TULEVAISUUS\n\nMediakenttä on murroksessa. Perinteinen media – sanomalehdet, televisio, radio – on menettänyt asemaansa sosiaaliselle medialle ja alustatalouden jäteille. Tämä kehitys herättää syvällisiä kysymyksiä demokratian toimivuuden kannalta.\n\nPerinteisen median rooli on ollut tuottaa luotettavaa, faktapohjaista tietoa ja toimia julkisen keskustelun areenana. Toimittajat ovat koulutettuja ammattilaisia, jotka noudattavat eettisiä periaatteita. Sosiaalisessa mediassa kuka tahansa voi tuottaa sisältöä ilman toimituksellista kontrollia. Tämä on demokratisoinnut viestintää, mutta myös mahdollistanut disinformaation ja valeuutisten leviämisen.\n\nAlgoritmit ohjaavat sitä, mitä näemme somessa. Ne suosivat sisältöä, joka herättää tunteita ja sitouttaa käyttäjiä – usein tämä tarkoittaa kärjistävää, polarisoivaa sisältöä. Ihmiset joutuvat helposti kupliin, joissa he näkevät vain omaa maailmankuvaansa vahvistavaa sisältöä. Tämä heikentää kykyä ymmärtää erilaisia näkökulmia ja vaikeuttaa yhteiskunnallista keskustelua.\n\nPerinteisen median taloudellinen tilanne on vaikea. Mainostulot ovat siirtyneet somealustoille, ja monet mediat ovat joutuneet vähentämään toimittajia. Tämä heikentää journalistisen sisällön määrää ja laatua. Samalla jotkut mediat ovat alkaneet tuottaa yhä kärjistävämpää sisältöä houkutellakseen lukijoita.\n\nToisaalta uudet digitaaliset mediat ovat tuoneet mahdollisuuksia. Riippumattomat verkkomediat, tutkiva journalismi ja kansalaisjournalismi ovat lisääntyneet. Some mahdollistaa nopean tiedonvälityksen ja kansalaisten aktivoitumisen.\n\nTulevaisuudessa tarvitaan monenlaisia ratkaisuja. Mediataitojen opetus on tärkeää – kansalaisten on osattava arvioida tiedon luotettavuutta. Tarvitaan myös sääntelyä, joka lisää somealustojen vastuuta. Laadukkaan journalismin rahoitusta on turvattava. Ja mikä tärkeintä: tarvitaan yhteiskunnallista keskustelua siitä, millaista mediaa haluamme ja miten turvaamme demokratian edellytykset muuttuvassa mediaympäristössä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 252
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyvää sosiaalisen median yleistymisessä on?",
+        "options": [
+          "Se on vähentänyt disinformaatiota",
+          "Se on demokratisoinut viestintää ja mahdollistanut kansalaisten aktivoitumisen",
+          "Se on lisännyt journalistisen sisällön määrää",
+          "Se on tehnyt mediasta luotettavampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten algoritmit vaikuttavat somen sisältöihin?",
+        "options": [
+          "Ne suosivat neutraalia sisältöä",
+          "Ne suosivat tunteita herättävää ja polarisoivaa sisältöä",
+          "Ne suosivat pitkiä tekstejä",
+          "Ne eivät vaikuta sisältöihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on perinteisen median taloudellinen tilanne?",
+        "options": [
+          "Se on erinomainen",
+          "Se on vaikea, koska mainostulot ovat siirtyneet someen",
+          "Se on parantunut",
+          "Sillä ei ole taloudellisia ongelmia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja teksti ehdottaa?",
+        "options": [
+          "Sosiaalisen median kieltämistä",
+          "Mediataitojen opetusta, sääntelyä ja laadukkaan journalismin rahoituksen turvaamista",
+          "Paluuta perinteiseen mediaan",
+          "Vain somealustojen vastuun lisäämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

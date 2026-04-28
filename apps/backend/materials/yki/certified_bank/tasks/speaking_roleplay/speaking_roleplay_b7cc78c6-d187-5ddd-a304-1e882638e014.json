@@ -1,0 +1,64 @@
+{
+  "id": "b7cc78c6-d187-5ddd-a304-1e882638e014",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa avata kirjastokortin. Keskustele kirjastonhoitajan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kirjastonhoitaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp19_1",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp19_2",
+        "ai_first_turn_fi": "Totta kai. Onko sinulla henkilöllisyystodistus mukana?"
+      },
+      {
+        "id": "srp19_3",
+        "ai_first_turn_fi": "Hyvä. Täytäthän tämän lomakkeen. Tarvitsemme nimesi, osoitteesi ja puhelinnumerosi."
+      },
+      {
+        "id": "srp19_4",
+        "ai_first_turn_fi": "Kiitos. Kirjastokortti on maksuton ja sillä voit lainata enintään 40 kirjaa kerrallaan. Laina-aika on 4 viikkoa."
+      },
+      {
+        "id": "srp19_5",
+        "ai_first_turn_fi": "Myöhästymismaksut ovat 20 senttiä per kirja per päivä. Haluatko että kerron vielä jotain muuta?"
+      },
+      {
+        "id": "srp19_6",
+        "ai_first_turn_fi": "Tässä on uusi kirjastokorttisi. Voit myös ladata meidän sovelluksen puhelimeesi, siellä näet lainasi ja voit uusia niitä."
+      },
+      {
+        "id": "srp19_7",
+        "ai_first_turn_fi": "Ole hyvä. Mukavia lukuhetkiä!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa avata kirjastokortin. Keskustele kirjastonhoitajan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

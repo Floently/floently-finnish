@@ -1,0 +1,66 @@
+{
+  "id": "9d2c0f33-5101-5fee-9c60-c099eb4a4cac",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi sosiaalisen median vaikutuksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SOSIAALINEN MEDIA JA DEMOKRATIA\n\nSosiaalisen median alustat ovat muuttaneet tapaa, jolla keskustelemme julkisista asioista. Viestinnän tutkija Anu Koivunen tarkastelee ilmiötä kriittisesti. Alun perin some nähtiin demokratiaa vahvistavana voimana. Tämä lupaus on vain osittain toteutunut. Samalla some on luonut kaikukammioita, joissa mielipiteet ääriytyvät. Algoritmit suosivat voimakkaita tunteita ja yksinkertaistuksia, mikä vaikeuttaa monimutkaisten asioiden käsittelyä. 'Some ei ole neutraali alusta, vaan se on suunniteltu maksimoimaan käyttäjien aika ja huomio.'",
+      "word_count": 67
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten Anu Koivunen suhtautuu alkuperäiseen some-optimismiin?",
+        "options": [
+          "Se on toteutunut täysin",
+          "Se on toteutunut vain osittain",
+          "Se on osoittautunut täysin vääräksi",
+          "Se oli liian pessimistinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ongelmia some on Koivusen mukaan luonut?",
+        "options": [
+          "Liian vähän keskustelua",
+          "Kaikukammioita ja vastakkainasettelua",
+          "Liian paljon asiallista keskustelua",
+          "Väärää tietoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten some-alustat on suunniteltu?",
+        "options": [
+          "Edistämään keskustelua",
+          "Maksimoimaan käyttäjien aika ja huomio",
+          "Tarjoamaan monipuolisia näkökulmia",
+          "Vähentämään polarisaatiota"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

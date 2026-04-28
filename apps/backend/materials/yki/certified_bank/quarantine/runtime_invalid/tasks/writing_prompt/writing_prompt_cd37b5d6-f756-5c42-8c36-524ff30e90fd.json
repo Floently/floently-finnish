@@ -1,0 +1,37 @@
+{
+  "id": "cd37b5d6-f756-5c42-8c36-524ff30e90fd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: sports_hall. Purpose: compare_options. Constraint: use_clear_structure.",
+    "materials": {
+      "scenario": "budjetoinnista sports hall"
+    },
+    "items": [
+      {
+        "id": "c13c5f17-203c-5d8d-bda0-fb968b969049",
+        "prompt": "Write for the receiver in this scenario: sports_hall. Purpose: compare_options. Constraint: use_clear_structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

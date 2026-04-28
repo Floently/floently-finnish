@@ -1,0 +1,99 @@
+{
+  "id": "33d0d2bd-b803-5d6a-8c09-3397b82660c3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Tekoäly (AI) on yhä enemmän läsnä arjessa. Se toimii taustalla esimerkiksi hakukoneissa, somealgoritmeissa ja asiakaspalvelun chattiboteissa. Tekoäly tekee elämästä helpompaa, mutta herättää myös kysymyksiä. Miten käy yksityisyyden ja työpaikkojen? Kuka on vastuussa, jos tekoäly tekee virheen? Tarvitaan eettisiä periaatteita ja lakeja, jotka ohjaavat tekoälyn kehitystä ja käyttöä.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yhä enemmän läsnä arjessa?",
+        "options": [
+          "Robotiikka",
+          "Tekoäly",
+          "Virtuaalitodellisuus",
+          "3D-tulostus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä tekoäly toimii taustalla?",
+        "options": [
+          "Vain teollisuudessa",
+          "Hakukoneissa, somealgoritmeissa ja chattiboteissa",
+          "Vain terveydenhuollossa",
+          "Vain liikenteessä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä tekoälystä on?",
+        "options": [
+          "Se tekee elämästä vaikeampaa",
+          "Se tekee elämästä helpompaa",
+          "Se lisää työpaikkoja",
+          "Se parantaa yksityisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kysymyksiä tekoäly herättää?",
+        "options": [
+          "Miten se toimii",
+          "Miten käy yksityisyyden ja työpaikkojen",
+          "Miten se keksittiin",
+          "Paljonko se maksaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarvitaan tekoälyn kehityksen ohjaamiseksi?",
+        "options": [
+          "Lisää tekoälyä",
+          "Eettisiä periaatteita ja lakeja",
+          "Vapaata markkinataloutta",
+          "Teknistä kehitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Kuka on vastuussa, jos tekoäly tekee virheen?",
+        "options": [
+          "Tekoäly itse",
+          "Ei kukaan",
+          "Tätä pohditaan",
+          "Aina käyttäjä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

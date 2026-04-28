@@ -1,0 +1,110 @@
+{
+  "id": "e3e444b7-8559-5e02-a511-bb582ec4ae37",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.734,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Maahanmuutto on monimuotoinen ilmiö, joka vaikuttaa yhteiskuntaan monilla tasoilla. Taloudellisesti työperäinen maahanmuutto voi paikata työvoimapulaa ja tuoda osaamista. Se lisää kulutuskysyntää ja voi luoda uusia työpaikkoja. Toisaalta maahanmuutto asettaa paineita julkisille palveluille, kuten koulutukselle ja terveydenhuollolle. Sosiaalisesti ja kulttuurisesti maahanmuutto lisää yhteiskunnan moninaisuutta. Se tuo uusia kieliä, tapoja ja näkökulmia, mikä voi rikastuttaa kulttuuria. Samalla se voi herättää jännitteitä, jos eri ryhmät eivät kohtaa arjessa. Kotoutumisen onnistuminen on keskeistä. Se vaatii sekä maahanmuuttajilta aktiivisuutta että vastaanottavalta yhteiskunnalta rakenteita, jotka mahdollistavat osallisuuden. Koulutus, työ ja kielitaito ovat avainasemassa. Asenteilla ja kohtaamisilla on suuri merkitys. Onnistunut kotoutuminen hyödyttää sekä maahanmuuttajia että koko yhteiskuntaa. Se vähentää jännitteitä, lisää hyvinvointia ja vahvistaa yhteiskunnan yhteenkuuluvuutta.",
+      "word_count": 110
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä taloudellisia hyötyjä maahanmuutosta voi olla?",
+        "options": [
+          "Se vähentää julkisia menoja.",
+          "Se voi paikata työvoimapulaa ja tuoda osaamista.",
+          "Se lisää työttömyyttä.",
+          "Se vähentää kulutuskysyntää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä taloudellisia haasteita maahanmuutto voi aiheuttaa?",
+        "options": [
+          "Inflaation kiihtymistä.",
+          "Paineita julkisille palveluille.",
+          "Viennin vähenemistä.",
+          "Yritysten verotuksen kiristymistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kulttuurisia vaikutuksia maahanmuutolla voi olla?",
+        "options": [
+          "Se vähentää kulttuurista moninaisuutta.",
+          "Se lisää kulttuurista moninaisuutta ja voi rikastuttaa kulttuuria.",
+          "Se johtaa aina kulttuurien välisiin konflikteihin.",
+          "Se heikentää paikallisia perinteitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan kotoutumisella?",
+        "options": [
+          "Maahanmuuttajien sulauttamista valtakulttuuriin.",
+          "Maahanmuuttajien aktiivisuutta ja yhteiskunnan rakenteita, jotka mahdollistavat osallisuuden.",
+          "Maahanmuuttajien paluuta kotimaahansa.",
+          "Maahanmuuttajien eristämistä omiin yhteisöihinsä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitkä ovat avainasemassa kotoutumisessa?",
+        "options": [
+          "Vain kielitaito.",
+          "Koulutus, työ ja kielitaito.",
+          "Vain asenteet.",
+          "Vain työllistyminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä voi herättää jännitteitä maahanmuuton yhteydessä?",
+        "options": [
+          "Jos maahanmuuttajia on liian vähän.",
+          "Jos eri ryhmät eivät kohtaa arjessa.",
+          "Jos maahanmuuttajat oppivat nopeasti kielen.",
+          "Jos maahanmuuttajat työllistyvät hyvin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä hyötyä onnistuneesta kotoutumisesta on?",
+        "options": [
+          "Se lisää jännitteitä.",
+          "Se vähentää jännitteitä, lisää hyvinvointia ja vahvistaa yhteenkuuluvuutta.",
+          "Sillä ei ole vaikutusta.",
+          "Se lisää eriarvoisuutta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

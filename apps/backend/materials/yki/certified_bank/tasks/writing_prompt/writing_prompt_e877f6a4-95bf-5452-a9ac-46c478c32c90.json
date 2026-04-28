@@ -1,0 +1,37 @@
+{
+  "id": "e877f6a4-95bf-5452-a9ac-46c478c32c90",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.354,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Ystäväsi auttoi sinua muutossa. Kirjoita lyhyt kiitosviesti.",
+    "materials": {
+      "scenario": "Ystäväsi auttoi sinua muutossa. Kirjoita lyhyt kiitosviesti."
+    },
+    "items": [
+      {
+        "id": "ed38f725-88d8-5e8f-8c97-ff8482886b69",
+        "prompt": "Kirjoita viesti, jossa:\n- kiität avusta muutossa\n- kerrot, että olit iloinen avusta\n- kerrot, että tarjoat mielelläsi lounaan kiitokseksi\n- kysyt, sopiiko lounas ensi viikolla"
+      }
+    ],
+    "rubric": "Kirjoita viesti, jossa:\n- kiität avusta muutossa\n- kerrot, että olit iloinen avusta\n- kerrot, että tarjoat mielelläsi lounaan kiitokseksi\n- kysyt, sopiiko lounas ensi viikolla",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

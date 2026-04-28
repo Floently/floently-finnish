@@ -1,0 +1,66 @@
+{
+  "id": "07a45e9f-4eb8-52e8-a5de-f314e6cefa0f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TYÖTERVEYSHUOLTO – MITÄ SE KATTA A?\n\nTyöterveyshuolto on työnantajan järjestämä lakisääteinen palvelu, jonka tarkoituksena on ehkäistä työhön liittyviä sairauksia ja tapaturmia sekä ylläpitää työntekijöiden työ- ja toimintakykyä.\n\nTyöterveyshuollon palvelut jaetaan yleensä kahteen osaan: ennaltaehkäisevään työterveyshuoltoon ja sairaanhoitoon. Ennaltaehkäisevä työterveyshuolto on työnantajalle pakollista, ja se sisältää muun muassa työpaikkaselvitykset, terveystarkastukset ja työkykyä ylläpitävän toiminnan.\n\nSairaanhoito sen sijaan on vapaaehtoista, ja sen laajuus riippuu työnantajan valitsemasta sopimuksesta. Osa työnantajista tarjoaa laajan sairaanhoidon, johon kuuluu yleislääkäritasoinen hoito, osa vain ennaltaehkäisevät palvelut.\n\nTyöterveyshuollossa käynnit ovat työntekijälle maksuttomia. Myös työterveyslääkärin määräämät tutkimukset ja hoidot tietyissä rajoissa ovat maksuttomia. Lääkkeet sen sijaan pitää yleensä maksaa itse.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "299773b4-9e59-5c06-a259-5801a56ceff7",
+        "prompt": "Mikä työterveyshuollon osa on työnantajalle pakollinen?",
+        "options": [
+          "Sairaanhoito",
+          "Ennaltaehkäisevä työterveyshuolto",
+          "Hammashoito",
+          "Fysioterapia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "12a46ec0-114b-56c0-92f3-5b4bbece7716",
+        "prompt": "Mitä ennaltaehkäisevä työterveyshuolto sisältää?",
+        "options": [
+          "Lääkärikäynnit",
+          "Työpaikkaselvitykset ja terveystarkastukset",
+          "Lääkkeet",
+          "Sairaalahoito"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "28778f24-75d5-5b05-ae4a-eab9ad08626d",
+        "prompt": "Mitä työntekijä joutuu yleensä maksamaan itse?",
+        "options": [
+          "Työterveyslääkärin",
+          "Lääkkeet",
+          "Terveystarkastukset",
+          "Työpaikkaselvitykset"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

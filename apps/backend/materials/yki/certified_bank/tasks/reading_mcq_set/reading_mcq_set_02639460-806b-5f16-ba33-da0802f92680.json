@@ -1,0 +1,66 @@
+{
+  "id": "02639460-806b-5f16-ba33-da0802f92680",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Asuntomarkkinoiden toiminta vaikuttaa monien suomalaisten elämään. Omistusasuminen on ollut perinteisesti suosittua. Se on monelle tapa säästää ja kartuttaa varallisuutta. Viime vuosina asuntojen hinnat ovat nousseet erityisesti suurissa kaupungeissa. Tämä on vaikeuttanut nuorten ja pienituloisten asunnonhankintaa. Vuokra-asuminen on yleistynyt. Myös asuntosijoittaminen on kasvanut. Sijoittajat ostavat asuntoja vuokratakseen niitä. Tämä on lisännyt vuokra-asuntojen tarjontaa, mutta myös nostanut vuokria. Asuntomarkkinoilla on paljon jännitteitä. Tarvitaan toimia, jotka edistävät kohtuuhintaista asumista ja estävät asumisen eriarvoisuuden kasvua.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi omistusasuminen on ollut suosittua Suomessa?",
+        "options": [
+          "Koska se on halvempaa",
+          "Koska se on tapa säästää ja kartuttaa varallisuutta",
+          "Koska se on ainoa asumismuoto",
+          "Koska vuokra-asuminen on vaikeaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on vaikeuttanut nuorten ja pienituloisten asunnonhankintaa?",
+        "options": [
+          "Asuntojen hintojen lasku",
+          "Asuntojen hintojen nousu suurissa kaupungeissa",
+          "Vuokra-asuntojen puute",
+          "Asuntosijoittajien väheneminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä asuntosijoittajien toiminta on aiheuttanut?",
+        "options": [
+          "Vuokrien laskua",
+          "Vuokra-asuntojen tarjonnan lisääntymistä ja vuokrien nousua",
+          "Asuntojen hintojen laskua",
+          "Omistusasumisen vähenemistä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

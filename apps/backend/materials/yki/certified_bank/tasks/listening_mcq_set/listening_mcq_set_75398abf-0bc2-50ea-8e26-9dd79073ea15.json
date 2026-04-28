@@ -1,0 +1,88 @@
+{
+  "id": "75398abf-0bc2-50ea-8e26-9dd79073ea15",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uimahallin remontista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesileijona tiedottaa, että allasosasto on suljettu peruskorjauksen vuoksi 1. kesäkuuta - 31. elokuuta välisenä aikana. Remontissa uusitaan altaiden pintamateriaalit, laatoitus ja allastekniikka. Tänä aikana kuntosali ja ryhmäliikuntatilat ovat normaalisti auki. Myös saunaosasto on käytettävissä. Uimahallin asiakkaat voivat käydä uimassa sopimushintaan naapurikaupungin uimahallissa. Sopimushinta on 5 euroa kerta. Tarkemmat ohjeet saa uimahallin infopisteestä ja verkkosivuilta. Pahoittelemme remontista aiheutuvaa haittaa. Uudistunut uimahalli avataan yleisölle syyskuun alussa.",
+      "audio_asset_id": "f4a5b6c7-d8e9-0f1a-2b3c-4d5e6f7a8b9c"
+    },
+    "questions": [
+      {
+        "id": "l84q1",
+        "prompt": "Miksi uimahallin allasosasto suljetaan?",
+        "options": [
+          "Henkilökunnan lomien vuoksi.",
+          "Peruskorjauksen vuoksi.",
+          "Vähäisen kävijämäärän vuoksi.",
+          "Uimakoulujen takia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l84q2",
+        "prompt": "Kuinka kauan allasosasto on suljettuna?",
+        "options": [
+          "Kaksi kuukautta.",
+          "Kolme kuukautta.",
+          "Neljä kuukautta.",
+          "Kuusi kuukautta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l84q3",
+        "prompt": "Mitkä tilat ovat auki remontin aikana?",
+        "options": [
+          "Vain kuntosali.",
+          "Kuntosali, ryhmäliikuntatilat ja saunaosasto.",
+          "Vain saunaosasto.",
+          "Vain lastenallas."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l84q4",
+        "prompt": "Paljonko naapurikaupungin uimahallissa käynti maksaa sopimushintana?",
+        "options": [
+          "3 euroa.",
+          "4 euroa.",
+          "5 euroa.",
+          "6 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l84q5",
+        "prompt": "Milloin uimahalli avataan uudelleen?",
+        "options": [
+          "Elokuun alussa.",
+          "Syyskuun alussa.",
+          "Lokakuun alussa.",
+          "Marraskuun alussa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

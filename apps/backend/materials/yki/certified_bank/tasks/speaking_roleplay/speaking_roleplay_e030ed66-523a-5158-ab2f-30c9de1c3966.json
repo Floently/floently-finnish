@@ -1,0 +1,40 @@
+{
+  "id": "e030ed66-523a-5158-ab2f-30c9de1c3966",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Neuvottele taloyhtiön isännöitsijän kanssa saunaremontista. Kerro toiveesi ja kysy aikataulusta.",
+    "materials": {
+      "roles": {
+        "user": "saanut puheenvuoron taloyhtiön kokouksessa ja haluat ehdottaa saunan remontointia",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "0fc5c05e-06bf-5114-9638-eb3566449ed1",
+        "ai_first_turn_fi": "Kiitos ehdotuksesta. Kyllä me ymmärretään, että sauna kaipaa uudistusta, mutta nämä remontit maksaa. Oletko miettinyt, miten tämä rahoitettaisiin?"
+      }
+    ],
+    "rubric": "Neuvottele taloyhtiön isännöitsijän kanssa saunaremontista. Kerro toiveesi ja kysy aikataulusta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

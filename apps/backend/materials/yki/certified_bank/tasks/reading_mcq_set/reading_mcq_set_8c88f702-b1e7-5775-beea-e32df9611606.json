@@ -1,0 +1,66 @@
+{
+  "id": "8c88f702-b1e7-5775-beea-e32df9611606",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue sosiologinen artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "YKSINÄISYYS – AIKAMME SOSIAALINEN ONGELMA\n\nYksinäisyys on noussut yhdeksi aikamme merkittävimmistä sosiaalisista ongelmista. Sosiologi Antti Karisto on tutkinut ilmiötä pitkään. Hän erottaa toisistaan emotionaalisen yksinäisyyden ja sosiaalisen yksinäisyyden. Emotionaalinen yksinäisyys tarkoittaa läheisen ihmissuhteen puutetta, sosiaalinen yksinäisyys taas laajemman yhteisön puutetta. Molemmat ovat lisääntyneet, mutta eri syistä. Emotionaalinen yksinäisyys liittyy usein perherakenteiden muutoksiin ja yksinasumisen yleistymiseen. Sosiaalinen yksinäisyys taas kytkeytyy yhteisöllisyyden heikkenemiseen ja kaupungistumiseen.",
+      "word_count": 63
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten Antti Karisto erottelee yksinäisyyden tyypit?",
+        "options": [
+          "Nuorten ja vanhusten yksinäisyyteen",
+          "Emotionaaliseen ja sosiaaliseen yksinäisyyteen",
+          "Vapaaehtoiseen ja pakotettuun yksinäisyyteen",
+          "Maaseudun ja kaupungin yksinäisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on Kariston mukaan sosiaalisen yksinäisyyden taustalla?",
+        "options": [
+          "Perheiden pirstoutuminen",
+          "Yhteisöllisyyden heikkeneminen ja kaupungistuminen",
+          "Liiallinen somekäyttö",
+          "Työttömyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin emotionaalinen yksinäisyys liittyy?",
+        "options": [
+          "Yhteisöllisyyden puutteeseen",
+          "Perherakenteiden muutoksiin",
+          "Kaupungistumiseen",
+          "Someen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

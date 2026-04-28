@@ -1,0 +1,110 @@
+{
+  "id": "e2072791-6be1-53c5-827b-1e7313bd164e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Elinkeinorakenne on muuttunut Suomessa voimakkaasti viimeisten vuosikymmenten aikana. Perinteinen maa- ja metsätalous sekä teollisuus ovat menettäneet merkitystään, kun taas palvelualat ja tietotyö ovat kasvaneet. Tämä kehitys on osa laajempaa globaalia muutosta, jossa teknologia ja kansainvälinen kilpailu ovat keskeisiä tekijöitä. Muutos on tuonut mukanaan uusia mahdollisuuksia, mutta myös haasteita. Uudet työpaikat syntyvät usein kaupunkiseuduille ja vaativat yhä korkeampaa koulutusta. Tämä on lisännyt alueellista eriarvoisuutta, kun teollisuuden ja maaseudun työpaikat ovat vähentyneet. Ihmiset joutuvat muuttamaan työn perässä tai kouluttautumaan uudelleen. Jatkuva oppiminen onkin välttämättömyys, jotta pysyy työelämässä mukana. Samalla on syntynyt keskustelua siitä, miten yhteiskunta voi tukea rakennemuutoksessa kärsiviä alueita ja ihmisiä. Tarvitaan investointeja koulutukseen, infrastruktuuriin ja uusien elinkeinojen luomiseen. Myös sosiaaliturvalla on tärkeä rooli turvaverkkona muutosten keskellä. Tulevaisuudessa Suomen menestys riippuu kyvystä sopeutua jatkuvaan muutokseen ja hyödyntää uusia mahdollisuuksia.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten elinkeinorakenne on muuttunut Suomessa?",
+        "options": [
+          "Maa- ja metsätalous on kasvanut.",
+          "Teollisuus on korvannut palvelualat.",
+          "Perinteiset alat ovat vähentyneet ja palvelualat sekä tietotyö kasvaneet.",
+          "Mikään ei ole muuttunut."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä tekijät ovat keskeisiä globaalissa muutoksessa?",
+        "options": [
+          "Sääolosuhteet ja maantiede.",
+          "Teknologia ja kansainvälinen kilpailu.",
+          "Väestön ikääntyminen ja syntyvyys.",
+          "Poliittiset päätökset yksinomaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Minne uudet työpaikat usein syntyvät?",
+        "options": [
+          "Maaseudulle.",
+          "Kaupunkiseuduille.",
+          "Lapin kuntiin.",
+          "Tasaisesti koko maahan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uudet työpaikat usein vaativat?",
+        "options": [
+          "Matalaa koulutusta.",
+          "Fyysistä voimaa.",
+          "Yhä korkeampaa koulutusta.",
+          "Kielitaitoa vain."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä seurauksia elinkeinorakenteen muutoksella on ollut?",
+        "options": [
+          "Alueellinen eriarvoisuus on vähentynyt.",
+          "Alueellinen eriarvoisuus on lisääntynyt.",
+          "Kaikki alueet ovat hyötyneet tasaisesti.",
+          "Maaseudun työpaikat ovat lisääntyneet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten yhteiskunta voi tukea rakennemuutoksessa kärsiviä?",
+        "options": [
+          "Investoinneilla koulutukseen, infrastruktuuriin ja uusiin elinkeinoihin.",
+          "Vähentämällä sosiaaliturvaa.",
+          "Rajoittamalla muuttoliikettä.",
+          "Lopettamalla teollisuuden kokonaan."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q7",
+        "prompt": "Mistä Suomen menestys riippuu tulevaisuudessa?",
+        "options": [
+          "Perinteisten alojen säilyttämisestä.",
+          "Kyvystä sopeutua muutokseen ja hyödyntää uusia mahdollisuuksia.",
+          "Muuttoliikkeen pysäyttämisestä.",
+          "Teollisuuden alasajosta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

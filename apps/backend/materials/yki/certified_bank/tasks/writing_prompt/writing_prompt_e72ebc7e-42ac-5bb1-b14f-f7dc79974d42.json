@@ -1,0 +1,37 @@
+{
+  "id": "e72ebc7e-42ac-5bb1-b14f-f7dc79974d42",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kauppojen aukioloaikoja vapauttaa nykyisestään?'. Analysoi kilpailua, työntekijöiden oloja ja kuluttajien tarpeita.",
+    "materials": {
+      "scenario": "Kauppojen aukioloajat"
+    },
+    "items": [
+      {
+        "id": "a1f1eb10-a1e1-5872-8599-2ccf25eb9178",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kauppojen aukioloaikoja vapauttaa nykyisestään?'. Analysoi kilpailua, työntekijöiden oloja ja kuluttajien tarpeita."
+      }
+    ],
+    "rubric": "Kilpailu\nTyöntekijöiden olot\nKuluttajien tarpeet\nSääntely",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

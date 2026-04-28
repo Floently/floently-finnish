@@ -1,0 +1,66 @@
+{
+  "id": "5cbb5ba9-45a8-522e-88c3-4a1103628855",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Perinteinen suomalainen ruoka on hyödyntänyt lähellä tuotettuja raaka-aineita kuten kalaa, riistaa, marjoja ja sieniä. Ruokavalio on muuttunut vuosikymmenten aikana, ja nykyään suomalaiset syövät monipuolisemmin kuin ennen. Leipä on edelleen tärkeä osa ruokavaliota, ja ruisleipä on säilyttänyt asemansa kansallisruokana. Myös peruna kuuluu perinneruokiin, mutta nykyään sen rinnalle ovat tulleet pasta ja riisi. Suomalaiset juovat paljon kahvia, ja Suomi onkin yksi maailman johtavista kahvin kuluttajamaista asukasta kohden. Lähiruoka ja luomutuotteet ovat kasvattaneet suosiotaan, ja monet haluavat tietää, mistä heidän ruokansa on peräisin. Arjen kiireessä valmisruoat ja einekset ovat kuitenkin yleisiä, vaikka kotona kokkaaminen on edelleen suosittua.",
+      "word_count": 94
+    },
+    "questions": [
+      {
+        "id": "e8f9a0b1-c2d3-4e4f-8a5b-6c7d8e9f0a1b",
+        "prompt": "Mitä perinteisiä suomalaisia raaka-aineita mainitaan tekstissä?",
+        "options": [
+          "Riisi ja pasta",
+          "Kala, riista, marjat ja sienet",
+          "Banaani ja appelsiini",
+          "Soija ja tofu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f9a0b1c2-d3e4-4f5a-8b6c-7d8e9f0a1b2c",
+        "prompt": "Mikä leipä on säilyttänyt asemansa kansallisruokana?",
+        "options": [
+          "Vaalea leipä",
+          "Ruisleipä",
+          "Patonki",
+          "Näkkileipä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a0b1c2d3-e4f5-4a6b-8c7d-8e9f0a1b2c3d",
+        "prompt": "Mitä suomalaiset juovat paljon?",
+        "options": [
+          "Tee",
+          "Mehu",
+          "Kahvi",
+          "Maito"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

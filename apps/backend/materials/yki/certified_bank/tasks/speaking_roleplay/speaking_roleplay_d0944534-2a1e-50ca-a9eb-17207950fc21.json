@@ -1,0 +1,40 @@
+{
+  "id": "d0944534-2a1e-50ca-a9eb-17207950fc21",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.299,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell about some important day in your life. What made it important?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "881ff036-eca2-5ea4-9be3-dd301e56ea7e",
+        "ai_first_turn_fi": "Mikä on ollut sun elämässä tärkeä päivä? Kerro siitä."
+      }
+    ],
+    "rubric": "Tell about some important day in your life. What made it important?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

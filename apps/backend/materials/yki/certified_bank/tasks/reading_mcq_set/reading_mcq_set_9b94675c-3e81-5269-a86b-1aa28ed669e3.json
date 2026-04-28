@@ -1,0 +1,77 @@
+{
+  "id": "9b94675c-3e81-5269-a86b-1aa28ed669e3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.752,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "GEENITESTIT YLEISTYVÄT – MUTTA KUKA OMISTAA TIETOSI?\n\nKuluttajille suunnatut geenitestit ovat viime vuosina yleistyneet räjähdysmäisesti. Muutamalla sadalla eurolla kuka tahansa voi saada tietoa omasta terveydestään, alkuperästään ja sukujuurestaan. Testit lupaavat paljastaa riskin sairastua Alzheimerin tautiin, paljastaa kaukaiset sukulaiset ja kertoa, mistä päin maailmaa esi-isät ovat tulleet.\n\nMutta testien suosio on herättänyt myös vakavia kysymyksiä yksityisyydestä. Kun kuluttaja lähettää DNA-näytteen testausyritykselle, hän ei useinkaan tiedä, mitä yritys tiedoilla tekee. Tietoja voidaan myydä eteenpäin lääkeyhtiöille, vakuutusyhtiöille tai jopa poliisille. Monissa maissa geenitietoja ei suojaa sama lainsäädäntö kuin potilastietoja.\n\nTietosuoja-asiantuntijat ovat huolissaan. \"Geenitieto on kaikkein henkilökohtaisinta tietoa, mitä on. Se ei koske vain sinua, vaan myös biologisia sukulaisiasi. Jos tieto vuotaa, sillä on vaikutuksia koko sukuusi\", sanoo tutkija Elina Rantanen.\n\nLääketieteen etiikan professori Matti Virtanen muistuttaa, että geenitestien tulokset voivat olla myös psyykkisesti raskaita. \"Tieto siitä, että sinulla on suurentunut riski sairastua parantumattomaan tautiin, voi aiheuttaa ahdistusta. Testejä tekevien yritysten pitäisi tarjota myös neuvontaa.\"\n\nEU on valmistelemassa uutta lainsäädäntöä, joka toisi geenitiedot saman suojan piiriin kuin muutkin arkaluonteiset henkilötiedot. Toistaiseksi vastuu on kuitenkin kuluttajalla. Asiantuntijat neuvovatkin lukemaan ehdot tarkkaan ja harkitsemaan, haluaako todella luovuttaa DNA:nsa kaupallisen yrityksen käyttöön.\n\nKysymys omistajuudesta on monimutkainen. Kuuluuko geenitieto yksilölle, hänen perheelleen vai koko ihmiskunnalle? Onko oikein, että yritykset voivat patentoida geenejä ja tehdä voittoa tiedolla, jonka jokainen kantaa mukanaan? Nämä kysymykset ovat vasta alkua keskustelulle, joka tulee jatkumaan vuosikymmeniä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 255
+    },
+    "questions": [
+      {
+        "id": "02fedad8-19d6-5c3f-85ac-54731e75fec8",
+        "prompt": "Miksi geenitestien suosio on herättänyt huolta tietosuoja-asiantuntijoissa?",
+        "options": [
+          "Testit ovat liian kalliita",
+          "Testit eivät ole luotettavia",
+          "Kuluttajat eivät tiedä, mitä yritykset tiedoilla tekevät",
+          "Testit kestävät liian kauan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "32907e06-bde2-5e9d-be38-01fe716e505d",
+        "prompt": "Mitä erityistä geenitiedossa on Elina Rantasen mukaan?",
+        "options": [
+          "Se on helppo muuttaa",
+          "Se koskee vain yksilöä",
+          "Se koskee myös biologisia sukulaisia",
+          "Se on aina julkista"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "2a9cbe6e-63c8-5dc1-bd45-79ff92b43bf0",
+        "prompt": "Mitä Matti Virtanen vaatii testejä tekeviltä yrityksiltä?",
+        "options": [
+          "Halvempia hintoja",
+          "Neuvontaa testien käyttäjille",
+          "Enemmän markkinointia",
+          "Varmempia tuloksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "48340e87-eb3d-5d0f-a35e-9b5f93ad55a7",
+        "prompt": "Mitä asiantuntijat neuvovat geenitestejä harkitsevia?",
+        "options": [
+          "Älä koskaan tee testiä",
+          "Lue ehdot tarkkaan ja harkitse tarkkaan",
+          "Tee testi heti",
+          "Kysy lääkäriltä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

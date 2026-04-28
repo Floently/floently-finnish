@@ -1,0 +1,37 @@
+{
+  "id": "da656515-20c9-5898-bad8-559382a0ce1c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti maistraatin holhousasioihin. Olet huolissasi iäkkäästä sukulaisesta, joka ei enää selviydy yksin taloudellisista asioistaan. Kysy, miten voitte hakea edunvalvojan määräämistä ja mitä selvityksiä siihen tarvitaan.",
+    "materials": {
+      "scenario": "Edunvalvojan hakeminen sukulaiselle"
+    },
+    "items": [
+      {
+        "id": "f84d3273-cf3f-5967-bd26-60000e3f6dec",
+        "prompt": "Kirjoita virallinen sähköposti maistraatin holhousasioihin. Olet huolissasi iäkkäästä sukulaisesta, joka ei enää selviydy yksin taloudellisista asioistaan. Kysy, miten voitte hakea edunvalvojan määräämistä ja mitä selvityksiä siihen tarvitaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

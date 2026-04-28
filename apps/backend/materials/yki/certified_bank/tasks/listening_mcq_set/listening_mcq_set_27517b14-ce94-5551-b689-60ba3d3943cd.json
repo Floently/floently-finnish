@@ -1,0 +1,88 @@
+{
+  "id": "27517b14-ce94-5551-b689-60ba3d3943cd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmyyjän tarjous ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Myyjä: Hyvää päivää, soitan Teleyhtiö X:stä. Tarjoamme teille uutta nopeaa valokuituyhteyttä kotiinne. Asiakas: Kiitos, mutta meillä on jo ihan hyvä netti. Myyjä: Ymmärrän, mutta tämä on huomattavasti nopeampi, jopa 1000 megabittiä sekunnissa. Lisäksi se on symmetrinen, eli lähetysnopeus on yhtä suuri kuin latausnopeus. Asiakas: Kuinka paljon se maksaa? Myyjä: Ensimmäiset kuusi kuukautta vain 19,90 euroa, jonka jälkeen 39,90 euroa kuussa. Myös asennus on ilmainen tässä kampanjassa. Asiakas: Kuulostaa aika kalliilta. Meillä on tällä hetkellä 29,90 euroa kuussa. Myyjä: Tämä on kuitenkin tulevaisuuden tekniikkaa. Haluaisitteko, että lähetän teille lisätietoa sähköpostilla? Asiakas: Voit lähettää, mutta en lupaa mitään. Myyjä: Selvä, kiitos ja kuulemiin!",
+      "audio_asset_id": "b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e"
+    },
+    "questions": [
+      {
+        "id": "l74q1",
+        "prompt": "Mitä tuotetta puhelinmyyjä tarjoaa?",
+        "options": [
+          "Uutta puhelinliittymää.",
+          "Uutta valokuituyhteyttä.",
+          "Uutta televisiopalvelua.",
+          "Uutta tietokonetta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l74q2",
+        "prompt": "Kuinka nopea yhteys on?",
+        "options": [
+          "500 megabittiä sekunnissa.",
+          "1000 megabittiä sekunnissa.",
+          "2000 megabittiä sekunnissa.",
+          "5000 megabittiä sekunnissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l74q3",
+        "prompt": "Paljonko yhteys maksaa kuudennen kuukauden jälkeen?",
+        "options": [
+          "19,90 euroa.",
+          "29,90 euroa.",
+          "39,90 euroa.",
+          "49,90 euroa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l74q4",
+        "prompt": "Mitä asiakas sanoo nykyisestä nettiyhteydestään?",
+        "options": [
+          "Se on ilmainen.",
+          "Se maksaa 29,90 euroa kuussa.",
+          "Se on hidas.",
+          "Se on sama kuin tarjottu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l74q5",
+        "prompt": "Mitä asiakas lopulta suostuu tekemään?",
+        "options": [
+          "Tilaamaan yhteyden heti.",
+          "Vastaamaan puhelimeen myöhemmin.",
+          "Ottamaan vastaan lisätietoa sähköpostilla.",
+          "Tapaamaan myyjän kotona."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

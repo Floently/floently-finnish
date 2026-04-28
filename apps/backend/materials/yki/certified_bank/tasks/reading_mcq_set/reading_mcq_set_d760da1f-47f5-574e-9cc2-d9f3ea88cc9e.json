@@ -1,0 +1,66 @@
+{
+  "id": "d760da1f-47f5-574e-9cc2-d9f3ea88cc9e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kulttuurin rahoitus on jatkuvan väittelyn aihe. Taiteilijat ja kulttuurialan toimijat kokevat, että julkinen rahoitus on liian pientä ja epävarmaa. Heidän mukaansa kulttuuri on yhtä tärkeää kuin koulutus tai terveydenhuolto, mutta se ei saa samanlaista arvostusta päätöksenteossa.\n\nToisaalta monet taloustieteilijät kyseenalaistavat julkisen tuen määrän. He kysyvät, miksi veronmaksajien pitäisi rahoittaa taidetta, jota vain harvat kuluttavat. Heidän mielestään kulttuurin pitäisi elää markkinaehtoisesti: jos yleisöä ei kiinnosta, taidemuoto kuolee pois.\n\nTutkijat ovat havainneet, että kulttuurilla on kuitenkin välillisiä vaikutuksia, joita on vaikea mitata rahassa. Kulttuuri lisää hyvinvointia, luo yhteisöllisyyttä ja vetää matkailijoita. Se myös työllistää monia aloja välillisesti. Esimerkiksi festivaalit tuovat tuloja majoitus- ja ravintola-alalle.\n\nPolitiikassa ratkaisuksi on usein ehdotettu monikanavaista rahoitusta. Osa rahoituksesta tulisi julkisista lähteistä, osa yritysyhteistyöstä ja osa lipputuloista. Haasteena on löytää tasapaino, jossa taiteellinen vapaus säilyy, mutta toiminta on taloudellisesti kestävää.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 165
+    },
+    "questions": [
+      {
+        "id": "42f70a1e-6d25-523c-a3fc-3042f85630a8",
+        "prompt": "Mitä taiteilijat väittävät kulttuurirahoituksesta?",
+        "options": [
+          "Sitä on liikaa",
+          "Se on liian pientä ja epävarmaa",
+          "Se on hyvin organisoitu",
+          "Se on tarpeetonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dce86484-45c3-503c-8b64-a18e9e08a308",
+        "prompt": "Mitä mieltä taloustieteilijät ovat?",
+        "options": [
+          "Kulttuuria pitäisi rahoittaa enemmän",
+          "Kulttuurin pitäisi elää markkinaehtoisesti",
+          "Kulttuuri on turhaa",
+          "Vain suosittu taide ansaitsee tukea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "990c3893-fa90-5c53-a873-5339e6aad784",
+        "prompt": "Mitä välillisiä vaikutuksia kulttuurilla on?",
+        "options": [
+          "Se vähentää matkailua",
+          "Se lisää hyvinvointia ja työllistää",
+          "Se kuluttaa julkisia varoja",
+          "Se on kallista ylläpitää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e6cc6bbc-2864-554d-9def-35fa1b35a65b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin kulttuurikeskuksen ohjelmistosta. Arvioi esitysten monipuolisuutta, hintatasoa ja markkinointia. Ehdota yhtä uutta esitystyyppiä.",
+    "materials": {
+      "scenario": "Palaute kaupungin kulttuurikeskuksen ohjelmistosta"
+    },
+    "items": [
+      {
+        "id": "b5da4106-fc90-5fcc-8fce-14204380176b",
+        "prompt": "Kirjoita palauteteksti kaupungin kulttuurikeskuksen ohjelmistosta. Arvioi esitysten monipuolisuutta, hintatasoa ja markkinointia. Ehdota yhtä uutta esitystyyppiä."
+      }
+    ],
+    "rubric": "Esitysten monipuolisuus\nHintataso\nMarkkinointi\nUusi esitystyyppi",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

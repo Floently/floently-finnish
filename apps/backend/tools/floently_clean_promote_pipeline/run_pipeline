@@ -1,0 +1,213 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+RUNSPEC_PATH="${1:-}"
+
+if [[ -z "$RUNSPEC_PATH" ]]; then
+  echo "Usage: ./run_pipeline path/to/runspec.env|json"
+  exit 1
+fi
+
+if [[ ! -f "$RUNSPEC_PATH" ]]; then
+  echo "Runspec file not found: $RUNSPEC_PATH"
+  exit 1
+fi
+
+RUNSPEC_ABS="$(cd "$(dirname "$RUNSPEC_PATH")" && pwd)/$(basename "$RUNSPEC_PATH")"
+
+PARSED="$(
+python3 - "$RUNSPEC_ABS" "$SCRIPT_DIR" <<'PY'
+import json, sys, shlex, re
+from pathlib import Path
+
+p = Path(sys.argv[1]).resolve()
+pipeline_root = Path(sys.argv[2]).resolve()
+ext = p.suffix.lower()
+base = p.parent
+
+def parse_env_style(path):
+    result = {}
+    with open(path, 'r', encoding='utf-8') as f:
+        for raw in f:
+            line = raw.strip()
+            if not line or line.startswith('#'):
+                continue
+            if '=' not in line:
+                continue
+            k, v = line.split('=', 1)
+            result[k.strip()] = v.strip()
+    return result
+
+def parse_json(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def resolve_general_path(value):
+    if value in (None, ''):
+        return ''
+    path = Path(str(value))
+    if path.is_absolute():
+        return str(path)
+    return str((base / path).resolve())
+
+def resolve_config_path(value):
+    if value in (None, ''):
+        return ''
+    path = Path(str(value))
+    if path.is_absolute():
+        return str(path)
+    candidate_root = (pipeline_root / path).resolve()
+    if candidate_root.exists():
+        return str(candidate_root)
+    return str((base / path).resolve())
+
+def truthy(value, default=False):
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() in {'1', 'true', 'yes', 'on'}
+
+data = parse_json(p) if ext == '.json' else parse_env_style(p)
+
+source = resolve_general_path(data.get('source') or data.get('input'))
+output = resolve_general_path(data.get('output'))
+config = resolve_config_path(data.get('config', ''))
+ai_mode = data.get('ai_mode', 'off')
+model = data.get('model', '')
+python_bin = data.get('python_bin', 'python3')
+venv_activate = resolve_general_path(data.get('venv_activate', ''))
+openai_api_key = data.get('OPENAI_API_KEY', '') or data.get('openai_api_key', '')
+openai_api_key_file = resolve_general_path(data.get('OPENAI_API_KEY_FILE', '') or data.get('openai_api_key_file', '') or data.get('key_file', ''))
+extra_args = data.get('extra_args', '')
+
+preflight_enabled = truthy(data.get('preflight_enabled'), True)
+preflight_out = resolve_general_path(data.get('preflight_out', ''))
+preflight_report = resolve_general_path(data.get('preflight_report', ''))
+preflight_only_json = truthy(data.get('preflight_only_json'), True)
+
+if not preflight_out and source:
+    preflight_out = source.rstrip('/').rstrip('\\') + '_preflight'
+
+if not preflight_report and output:
+    preflight_report = str((Path(output) / 'preflight_report.json').resolve())
+
+global_bank_paths = data.get('global_bank_paths', data.get('global_bank_path', []))
+if isinstance(global_bank_paths, str):
+    if global_bank_paths.strip():
+        parts = re.split(r'[,\n;]+', global_bank_paths)
+        global_bank_paths = [part.strip() for part in parts if part.strip()]
+    else:
+        global_bank_paths = []
+resolved_global_bank_paths = [resolve_general_path(v) for v in global_bank_paths]
+
+if not source:
+    print('ERROR: missing source/input', file=sys.stderr)
+    sys.exit(2)
+if not output:
+    print('ERROR: missing output', file=sys.stderr)
+    sys.exit(2)
+
+def emit(name, value):
+    safe = '' if value is None else str(value)
+    print(f"{name}={shlex.quote(safe)}")
+
+emit('SOURCE', source)
+emit('OUTPUT', output)
+emit('CONFIG', config)
+emit('AI_MODE', ai_mode)
+emit('MODEL', model)
+emit('PYTHON_BIN', python_bin)
+emit('VENV_ACTIVATE', venv_activate)
+emit('OPENAI_API_KEY', openai_api_key)
+emit('OPENAI_API_KEY_FILE', openai_api_key_file)
+emit('EXTRA_ARGS', extra_args)
+emit('GLOBAL_BANK_PATHS_JSON', json.dumps(resolved_global_bank_paths, ensure_ascii=False))
+emit('PREFLIGHT_ENABLED', '1' if preflight_enabled else '0')
+emit('PREFLIGHT_OUT', preflight_out)
+emit('PREFLIGHT_REPORT', preflight_report)
+emit('PREFLIGHT_ONLY_JSON', '1' if preflight_only_json else '0')
+PY
+)"
+eval "$PARSED"
+
+cd "$SCRIPT_DIR"
+
+if [[ -n "$VENV_ACTIVATE" ]]; then
+  source "$VENV_ACTIVATE"
+elif [[ -f ".venv/bin/activate" ]]; then
+  source ".venv/bin/activate"
+fi
+
+if [[ -n "${OPENAI_API_KEY_FILE:-}" ]]; then
+  if [[ ! -f "$OPENAI_API_KEY_FILE" ]]; then
+    echo "OPENAI_API_KEY_FILE not found: $OPENAI_API_KEY_FILE"
+    exit 1
+  fi
+  KEY_CONTENT="$(tr -d '\r' < "$OPENAI_API_KEY_FILE")"
+  if grep -q '=' <<< "$KEY_CONTENT"; then
+    KEY_CONTENT="$(printf '%s\n' "$KEY_CONTENT" | sed -n 's/^OPENAI_API_KEY=//p' | head -n 1 | tr -d '\n')"
+  else
+    KEY_CONTENT="$(printf '%s' "$KEY_CONTENT" | tr -d '\n')"
+  fi
+  export OPENAI_API_KEY="$KEY_CONTENT"
+elif [[ -n "${OPENAI_API_KEY:-}" ]]; then
+  export OPENAI_API_KEY
+fi
+
+FINAL_SOURCE="$SOURCE"
+if [[ "$PREFLIGHT_ENABLED" == "1" ]]; then
+  PREFLIGHT_CMD=("$PYTHON_BIN" "$SCRIPT_DIR/floently_pipeline/preflight_normalize_sources.py" --source "$SOURCE" --out "$PREFLIGHT_OUT")
+  if [[ -n "${PREFLIGHT_REPORT:-}" ]]; then
+    PREFLIGHT_CMD+=(--report "$PREFLIGHT_REPORT")
+  fi
+  if [[ "$PREFLIGHT_ONLY_JSON" == "1" ]]; then
+    PREFLIGHT_CMD+=(--only-json)
+  fi
+
+  echo "Pipeline root: $SCRIPT_DIR"
+  echo "Source:        $SOURCE"
+  echo "Preflight:     enabled"
+  echo "Preflight out: $PREFLIGHT_OUT"
+  if [[ -n "${PREFLIGHT_REPORT:-}" ]]; then
+    echo "Preflight rpt: $PREFLIGHT_REPORT"
+  fi
+  "${PREFLIGHT_CMD[@]}"
+  FINAL_SOURCE="$PREFLIGHT_OUT"
+fi
+
+CMD=("$PYTHON_BIN" -m floently_pipeline.cli run --input "$FINAL_SOURCE" --output "$OUTPUT")
+if [[ -n "${CONFIG:-}" ]]; then
+  CMD+=(--config "$CONFIG")
+fi
+if [[ -n "${AI_MODE:-}" ]]; then
+  CMD+=(--ai-mode "$AI_MODE")
+fi
+if [[ -n "${MODEL:-}" ]]; then
+  CMD+=(--model "$MODEL")
+fi
+if [[ -n "${GLOBAL_BANK_PATHS_JSON:-}" && "$GLOBAL_BANK_PATHS_JSON" != "[]" ]]; then
+  CMD+=(--global-bank-paths-json "$GLOBAL_BANK_PATHS_JSON")
+fi
+if [[ -n "${EXTRA_ARGS:-}" ]]; then
+  read -r -a EXTRA_ARR <<< "$EXTRA_ARGS"
+  CMD+=("${EXTRA_ARR[@]}")
+fi
+
+echo "Final source:  $FINAL_SOURCE"
+echo "Output:        $OUTPUT"
+if [[ -n "${AI_MODE:-}" ]]; then
+  echo "AI mode:       $AI_MODE"
+fi
+if [[ -n "${CONFIG:-}" ]]; then
+  echo "Config:        $CONFIG"
+fi
+if [[ -n "${OPENAI_API_KEY_FILE:-}" ]]; then
+  echo "Key file:      $OPENAI_API_KEY_FILE"
+fi
+if [[ -n "${GLOBAL_BANK_PATHS_JSON:-}" && "$GLOBAL_BANK_PATHS_JSON" != "[]" ]]; then
+  echo "Global bank:   $GLOBAL_BANK_PATHS_JSON"
+fi
+
+exec "${CMD[@]}"

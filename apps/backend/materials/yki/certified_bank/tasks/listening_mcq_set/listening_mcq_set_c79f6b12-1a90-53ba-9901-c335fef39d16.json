@@ -1,0 +1,88 @@
+{
+  "id": "c79f6b12-1a90-53ba-9901-c335fef39d16",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.678,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele juna-aseman kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat. Tiedotamme poikkeuksista iltapäivän junaliikenteessä. IC 59 Helsinkiin lähtee raiteelta 5 kello 15.30. Junassa on ravintolavaunu. Pendolino 82 Ouluun lähtee raiteelta 2 kello 15.45. Tämä juna on täyteen varattu, ja uusia paikkoja ei ole enää myynnissä. Seuraava juna Ouluun lähtee kello 16.30. Lähijuna H tiedottaa, että sen lähtö Pasilasta on myöhässä noin 10 minuuttia teknisten ongelmien vuoksi. Pahoittelemme viivästyksistä aiheutuvaa haittaa.",
+      "audio_asset_id": "2c6a1722-6bc6-45db-8d57-cb4a089245e1"
+    },
+    "questions": [
+      {
+        "id": "l30q1",
+        "prompt": "Mille raiteelta IC 59 Helsinkiin lähtee?",
+        "options": [
+          "Raiteelta 5.",
+          "Raiteelta 2.",
+          "Raiteelta 7.",
+          "Raiteelta 9."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l30q2",
+        "prompt": "Mitä erityistä Pendolino 82 junassa on?",
+        "options": [
+          "Se on myöhässä.",
+          "Siinä on lastenvaunu.",
+          "Se on täyteen varattu, eikä uusia paikkoja ole myynnissä.",
+          "Se on peruttu."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l30q3",
+        "prompt": "Mihin aikaan seuraava juna Ouluun lähtee?",
+        "options": [
+          "Klo 15.45.",
+          "Klo 16.00.",
+          "Klo 16.30.",
+          "Klo 17.00."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l30q4",
+        "prompt": "Mikä on ongelmana lähijuna H:n kanssa?",
+        "options": [
+          "Se on peruttu.",
+          "Se on vaihtanut raidetta.",
+          "Sen lähtö on myöhässä teknisten ongelmien vuoksi.",
+          "Siinä ei ole enää istumapaikkoja."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l30q5",
+        "prompt": "Kuinka paljon lähijuna H on myöhässä?",
+        "options": [
+          "Noin 5 minuuttia.",
+          "Noin 15 minuuttia.",
+          "Noin 10 minuuttia.",
+          "Noin 20 minuuttia."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

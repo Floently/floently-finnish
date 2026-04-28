@@ -1,0 +1,40 @@
+{
+  "id": "f8abdfa8-4fcb-5f17-9a86-7d9320c790d9",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "asiakas",
+        "partner": "kampaaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp103_01",
+        "ai_first_turn_fi": "Kampaamo, päivää."
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

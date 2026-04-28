@@ -1,0 +1,88 @@
+{
+  "id": "56b3634a-b689-527f-a3a0-511539d49de0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Päivää, minun nimeni on Maija Virtanen. Mulla on aika kello 14.15 hammaslääkärille. Sain tänään tekstiviestillä muistutuksen, että aika on tänään. Olen vähän myöhässä, kun en löytänyt parkkipaikkaa. Onko se vielä ok, jos tulen vartin yli kaksi?",
+      "audio_asset_id": "44541976-a978-5c1d-a2d7-7ed344f2eb47"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Hammaslääkäri.",
+          "Potilas Maija Virtanen.",
+          "Vastaanoton hoitaja.",
+          "Parkkivartija."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan Maijalla on aika?",
+        "options": [
+          "Kello 13.15.",
+          "Kello 14.15.",
+          "Kello 15.15.",
+          "Kello 14.00."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten Maija sai muistutuksen ajasta?",
+        "options": [
+          "Sähköpostilla.",
+          "Puhelimitse.",
+          "Tekstiviestillä.",
+          "Kirjeellä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi Maija on myöhässä?",
+        "options": [
+          "Bussi myöhästyi.",
+          "Hän nukkui pommiin.",
+          "Hän ei löytänyt parkkipaikkaa.",
+          "Hän meni väärään paikkaan."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä Maija kysyy?",
+        "options": [
+          "Voiko hän tulla vähän myöhemmin.",
+          "Paljonko hoito maksaa.",
+          "Mistä löytyy parkkipaikka.",
+          "Voiko ajan siirtää."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

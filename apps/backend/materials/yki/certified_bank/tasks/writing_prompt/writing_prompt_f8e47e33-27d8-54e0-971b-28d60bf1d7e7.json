@@ -1,0 +1,37 @@
+{
+  "id": "f8e47e33-27d8-54e0-971b-28d60bf1d7e7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on ollut vesivahinko. Kerro, missä huoneessa ja mitä tapahtui. Kerro, mitä olet jo tehnyt. Pyydä ohjeita ja korjausta.",
+    "materials": {
+      "scenario": "Ilmoitus vesivahingosta"
+    },
+    "items": [
+      {
+        "id": "643ddddf-9d6f-5991-a7ee-456f5ef62edf",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on ollut vesivahinko. Kerro, missä huoneessa ja mitä tapahtui. Kerro, mitä olet jo tehnyt. Pyydä ohjeita ja korjausta."
+      }
+    ],
+    "rubric": "Vahingon kuvaus\nTehdyt toimet\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

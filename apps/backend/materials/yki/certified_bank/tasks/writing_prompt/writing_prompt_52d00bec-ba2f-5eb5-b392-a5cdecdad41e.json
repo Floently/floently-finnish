@@ -1,0 +1,37 @@
+{
+  "id": "52d00bec-ba2f-5eb5-b392-a5cdecdad41e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kansanedustajalle. Olet huolissasi siitä, että opiskelijoiden asumistukea leikataan. Kerro, miksi tämä vaikeuttaa opiskelijoiden arkea ja voi johtaa opintojen keskeytymiseen. Pyydä, että edustaja vastustaa leikkauksia.",
+    "materials": {
+      "scenario": "Huoli opiskelijoiden asumistuen leikkauksista"
+    },
+    "items": [
+      {
+        "id": "e24333ce-d3da-5f49-a396-b19c1674ea1c",
+        "prompt": "Kirjoita sähköposti kansanedustajalle. Olet huolissasi siitä, että opiskelijoiden asumistukea leikataan. Kerro, miksi tämä vaikeuttaa opiskelijoiden arkea ja voi johtaa opintojen keskeytymiseen. Pyydä, että edustaja vastustaa leikkauksia."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nVaikutukset opiskelijoille\nPyyntö toimia",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

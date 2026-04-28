@@ -1,0 +1,99 @@
+{
+  "id": "5a306a01-cd80-53c7-9585-6097c2c89249",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta puistosta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin viheralueiden tiedotus. Olemme iloisia voidessamme ilmoittaa, että uusi Keskuspuisto on valmistunut ja avataan yleisölle lauantaina 20.5. kello 12. Puisto sijaitsee rautatieaseman ja kirjaston välisellä alueella. Uudesta puistosta löytyy monipuolisia istutuksia, suihkulähde, leikkipaikka lapsille ja skeittipuisto nuorille. Puistossa on myös kahvila, joka on auki toukokuusta syyskuuhun. Istutuksissa on käytetty monipuolisesti kotimaisia kasveja ja perennoja. Avajaispäivänä on ohjelmassa musiikkiesityksiä ja opastettuja kierroksia. Tervetuloa tutustumaan uuteen viherkeitaaseen!",
+      "audio_asset_id": "9367e955-678d-42d9-b8fb-24d31511659b"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä kaupungin viheralueet tiedottavat?",
+        "options": [
+          "Puiston remontista.",
+          "Puiden istutuksesta.",
+          "Uuden puiston valmistumisesta ja avajaisista.",
+          "Puiston talvihoidosta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minä päivänä ja mihin aikaan puisto avataan?",
+        "options": [
+          "Perjantaina 19.5. kello 14.",
+          "Sunnuntaina 21.5. kello 10.",
+          "Maanantaina 22.5. kello 16.",
+          "Lauantaina 20.5. kello 12."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq3",
+        "prompt": "Missä uusi puisto sijaitsee?",
+        "options": [
+          "Kauppakeskuksen ja koulun välissä.",
+          "Uimahallin ja teatterin välissä.",
+          "Rautatieaseman ja kirjaston välissä.",
+          "Sairaalan ja päiväkodin välissä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä puistosta löytyy?",
+        "options": [
+          "Kuntosali ja urheilukenttä.",
+          "Istutuksia, suihkulähde, leikkipaikka ja skeittipuisto.",
+          "Koirapuisto ja kesäteatteri.",
+          "Kasvimaa ja mehiläispesät."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mihin aikaan kahvila on auki?",
+        "options": [
+          "Ympäri vuoden.",
+          "Vain kesäkuukausina.",
+          "Vain viikonloppuisin.",
+          "Toukokuusta syyskuuhun."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä avajaispäivänä on ohjelmassa?",
+        "options": [
+          "Urheilukilpailuja.",
+          "Elokuvanäytös.",
+          "Musiikkiesityksiä ja opastettuja kierroksia.",
+          "Myyjäiset."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e091a82a-39e6-57f0-a75e-c1d3b77eb478",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti korjaamolle. Kerro korjauksen laadusta, nopeudesta ja hinnasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute korjaamolle"
+    },
+    "items": [
+      {
+        "id": "df79f7ec-7d75-5523-a442-967a8176e34e",
+        "prompt": "Kirjoita palauteteksti korjaamolle. Kerro korjauksen laadusta, nopeudesta ja hinnasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Korjauksen laatu\nNopeus\nHinta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

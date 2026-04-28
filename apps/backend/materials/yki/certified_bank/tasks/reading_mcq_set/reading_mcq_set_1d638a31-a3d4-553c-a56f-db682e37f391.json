@@ -1,0 +1,77 @@
+{
+  "id": "1d638a31-a3d4-553c-a56f-db682e37f391",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen ruokakulttuuri on vuosien saatossa muuttunut ja monipuolistunut. Perinteisesti ruokavalioon kuuluivat kala, riista, marjat ja ohra. Nykyään suomalaiset syövät paljon vaikutteita muista maista. Pizzerioita ja thaimaalaisia ravintoloita löytyy lähes joka kaupungista. Samalla perinneruoat, kuten karjalanpiirakat, lihapullat ja ruisleipä, ovat edelleen suosittuja. Kotimaisuus ja puhtaus ovat tärkeitä arvoja suomalaisille. Luomu- ja lähiruuan suosio on kasvanut. Myös kasvisruokavalio yleistyy koko ajan. Suomalaiset syövät paljon kauraa, josta tehdään puuroja ja leivonnaisia. Ruokakulttuuriin kuuluu olennaisesti myös kahvin juonti. Suomi onkin yksi maailman suurimmista kahvin kuluttajamaista asukasta kohden.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "48ce6c1a-7cf3-525e-86a6-b57dc37f6923",
+        "prompt": "Mitä perinteisesti kuului suomalaiseen ruokavalioon?",
+        "options": [
+          "Riisiä, kanaa ja banaaneja",
+          "Kalaa, riistaa ja marjoja",
+          "Pastaa, tomaattia ja juustoa",
+          "Perunaa, naudanlihaa ja omenoita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "627e0d5e-8960-5989-8c70-bc5888cf0ad6",
+        "prompt": "Mikä on edelleen suosittua suomalaista perinneruokaa?",
+        "options": [
+          "Sushi",
+          "Taco",
+          "Karjalanpiirakka",
+          "Pad Thai"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1b3616e4-db65-5a3e-9a39-6744d859f422",
+        "prompt": "Mikä on kasvussa suomalaisessa ruokakulttuurissa?",
+        "options": [
+          "Pikaruokaketjut",
+          "Luomu- ja lähiruoka",
+          "Einekset",
+          "Ulkomaalaiset herkut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d66f6558-1e54-50bf-9715-2ab7b3411e17",
+        "prompt": "Mitä suomalaiset juovat paljon?",
+        "options": [
+          "Teetä",
+          "Mehua",
+          "Kahvia",
+          "Olutta"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

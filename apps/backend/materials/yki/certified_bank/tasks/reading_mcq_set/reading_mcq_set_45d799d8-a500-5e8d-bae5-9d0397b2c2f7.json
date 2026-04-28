@@ -1,0 +1,110 @@
+{
+  "id": "45d799d8-a500-5e8d-bae5-9d0397b2c2f7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Koulutuksella on keskeinen rooli yhteiskunnallisen tasa-arvon edistämisessä. Suomessa on pyritty siihen, että jokaisella lapsella on mahdollisuus koulutukseen varallisuudesta tai taustasta riippumatta. Peruskoulu on kaikille yhteinen, ja se antaa samat lähtökohdat kaikille oppilaille. Tämän jälkeen on mahdollisuus jatkaa joko lukioon tai ammatilliseen koulutukseen. Korkeakoulutus on maksutonta, ja opiskelijat saavat opintotukea toimeentuloon. Tämä järjestelmä on mahdollistanut sen, että myös heikommista lähtökohdista tulevat lapset ovat voineet kouluttautua ja edetä elämässä. Koulutus on ollut tärkeä väline sosiaalisen liikkuvuuden kannalta. Viime vuosina on kuitenkin herännyt huoli siitä, että koulutuksen tasa-arvo on heikentynyt. Vanhempien koulutustausta vaikuttaa yhä enemmän lasten koulumenestykseen. Koulujen välillä on eroja, ja osa nuorista jää ilman toisen asteen tutkintoa. Myös korkeakoulutukseen hakeutuminen on yhä voimakkaammin yhteydessä perheen taustaan. Tämä kehitys on huolestuttavaa, koska se voi lisätä eriarvoisuutta ja heikentää yhteiskunnallista yhteenkuuluvuutta. Siksi tarvitaan toimia, jotka turvaavat jokaiselle lapselle ja nuorelle tasaveroiset mahdollisuudet koulutukseen.",
+      "word_count": 140
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä rooli koulutuksella on tasa-arvon edistämisessä?",
+        "options": [
+          "Se lisää eriarvoisuutta.",
+          "Keskeinen rooli, koska se antaa kaikille mahdollisuuden koulutukseen.",
+          "Sillä ei ole merkitystä.",
+          "Se on vain rikkaille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen peruskoulu Suomessa on?",
+        "options": [
+          "Vain rikkaille tarkoitettu.",
+          "Kaikille yhteinen, antaa samat lähtökohdat kaikille.",
+          "Vain lahjakkaille.",
+          "Vain kaupunkilaisille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä koulutusmahdollisuuksia peruskoulun jälkeen on?",
+        "options": [
+          "Vain lukio.",
+          "Lukio tai ammatillinen koulutus.",
+          "Vain työelämä.",
+          "Vain ulkomailla opiskelu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten korkeakoulutus on järjestetty Suomessa?",
+        "options": [
+          "Se on maksullista ja vain varakkaille.",
+          "Se on maksutonta ja opiskelijat saavat opintotukea.",
+          "Se on vain ulkomaalaisille.",
+          "Se on vain aikuisopiskelijoille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä koulutusjärjestelmästä on ollut?",
+        "options": [
+          "Se on lisännyt eriarvoisuutta.",
+          "Se on mahdollistanut heikommista lähtökohdista tulevien lasten kouluttautumisen ja sosiaalisen liikkuvuuden.",
+          "Se on vähentänyt koulutustasoa.",
+          "Sillä ei ole ollut vaikutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä huolta koulutuksen tasa-arvosta on herännyt?",
+        "options": [
+          "Kaikki menestyvät yhtä hyvin.",
+          "Vanhempien tausta vaikuttaa yhä enemmän lasten menestykseen, ja osa nuorista jää ilman tutkintoa.",
+          "Koulutus on liian helppoa.",
+          "Koulutus on liian halpaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi kehitys on huolestuttavaa?",
+        "options": [
+          "Koska se lisää tasa-arvoa.",
+          "Koska se voi lisätä eriarvoisuutta ja heikentää yhteiskunnallista yhteenkuuluvuutta.",
+          "Koska se vähentää kilpailua.",
+          "Koska se parantaa kaikkien mahdollisuuksia."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

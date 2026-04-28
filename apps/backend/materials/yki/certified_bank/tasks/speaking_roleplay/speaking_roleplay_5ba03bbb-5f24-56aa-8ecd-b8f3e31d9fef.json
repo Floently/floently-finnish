@@ -1,0 +1,40 @@
+{
+  "id": "5ba03bbb-5f24-56aa-8ecd-b8f3e31d9fef",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.297,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you buy clothes often, where you buy them, and what colors you like.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "2429a2f6-e99f-50cb-a36e-771a244aa805",
+        "ai_first_turn_fi": "Käytkö sä usein ostamassa vaatteita? Mistä kaupoista tykkäät?"
+      }
+    ],
+    "rubric": "Tell if you buy clothes often, where you buy them, and what colors you like.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

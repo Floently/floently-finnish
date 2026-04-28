@@ -1,0 +1,77 @@
+{
+  "id": "9f5e2445-3554-50af-be95-001ced39a7f6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli luonnonsuojelualueiden laajentamisesta.",
+    "materials": {
+      "text": "SUOMI LAAJENTAA LUONNONSUOJELUALUEITA\n\nHallitus on esittänyt uusien luonnonsuojelualueiden perustamista Etelä-Suomeen ja Lappiin. Tavoitteena on suojella uhanalaisia metsätyyppejä. Suojeltavaksi esitetään yhteensä 150 000 hehtaaria valtion maita.\n\nLuonnonsuojelujärjestöt pitävät esitystä hyvänä mutta riittämättömänä. \"Suomen pitäisi suojella vähintään 30 prosenttia metsistään\", sanoo Suomen luonnonsuojeluliiton asiantuntija.\n\nMetsänhoitoyhdistys vastustaa laajennuksia. \"Metsätalous työllistää tuhansia ihmisiä. Jos metsiä suojellaan liikaa, se vaikuttaa työllisyyteen\", muistuttaa toiminnanjohtaja Timo Nieminen.\n\nYmpäristöministeriössä korostetaan, että esitys on kompromissi, jossa on otettu huomioon sekä suojelutarpeet että metsätalous.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka paljon uusia suojelualueita esitetään?",
+        "options": [
+          "50 000 hehtaaria",
+          "100 000 hehtaaria",
+          "150 000 hehtaaria",
+          "200 000 hehtaaria"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi järjestöt pitävät esitystä riittämättömänä?",
+        "options": [
+          "Se suojelee liikaa",
+          "Se ei täytä kansainvälisiä tavoitteita",
+          "Se koskee vain Lappia",
+          "Se on liian kallis"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on metsänhoitoyhdistyksen huoli?",
+        "options": [
+          "Metsät tuhoutuvat",
+          "Suojelu vaikuttaa työllisyyteen",
+          "Metsätalous loppuu",
+          "Ulkomaalaiset ostavat metsät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten ministeriö kuvaa esitystä?",
+        "options": [
+          "Puhtaana suojeluna",
+          "Kompromissina",
+          "Metsäteollisuuden voittona",
+          "Täysin riittämättömänä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

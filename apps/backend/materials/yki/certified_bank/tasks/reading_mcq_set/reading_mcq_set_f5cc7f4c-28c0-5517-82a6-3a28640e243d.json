@@ -1,0 +1,77 @@
+{
+  "id": "f5cc7f4c-28c0-5517-82a6-3a28640e243d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Sain uuden työpaikan viime kuussa. Työ alkoi maanantaina 2. päivä. Työpaikka on toimistossa keskustassa. Työkaverit ovat mukavia ja auttavat uusia. Työtehtäviini kuuluu asiakaspalvelu ja puheluihin vastaaminen. Työpäivä alkaa kello 8 ja päättyy kello 16. Lounastauko on tunnin. Olen tyytyväinen uuteen työpaikkaan. Toivon, että viihdyn täällä pitkään.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uusi työ alkoi?",
+        "options": [
+          "Viime viikolla",
+          "Viime kuussa",
+          "Kaksi kuukautta sitten",
+          "Vuosi sitten"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä työpaikka sijaitsee?",
+        "options": [
+          "Lähiössä",
+          "Keskustassa",
+          "Teollisuusalueella",
+          "Toisessa kaupungissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työtehtäviin kuuluu?",
+        "options": [
+          "Siivousta ja ruuanlaittoa",
+          "Asiakaspalvelua ja puheluita",
+          "Kirjanpitoa ja laskutusta",
+          "Kuljetusta ja pakkaamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuinka pitkä lounastauko on?",
+        "options": [
+          "Puoli tuntia",
+          "Tunnin",
+          "Puolitoista tuntia",
+          "Kaksi tuntia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

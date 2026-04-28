@@ -1,0 +1,37 @@
+{
+  "id": "c350ed65-4b09-5927-9d58-54aa3efe531e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin kierrätyskeskuksesta. Kerro tavaravalikoimasta, hinnoista ja henkilökunnan neuvonnasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin kierrätyskeskuksesta"
+    },
+    "items": [
+      {
+        "id": "89f7e5c0-eb5d-5f00-99b0-d41ead309753",
+        "prompt": "Kirjoita palauteteksti kaupungin kierrätyskeskuksesta. Kerro tavaravalikoimasta, hinnoista ja henkilökunnan neuvonnasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Tavaravalikoima\nHinnat\nHenkilökunnan neuvonta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "831e4ee9-a2d0-5f77-9aa9-3aee33748216",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei työkaverit!\n\nPerjantaina 16.6. meillä on tiimin kesäpäivä. Ohjelma:\n\nKello 12: Lounas ravintola Päivänvarjossa (Mannerheimintie 30)\nKello 13.30: Pääsy ulkoilmaelokuvaan Kaisaniemen puistoon\nKello 16: Vapaata – voi jäädä grillaamaan puistoon tai lähteä kotiin\n\nSää näyttää hyvältä, joten varatkaa mukaan aurinkorasvaa ja hyttyskarkotetta. Jos sataa, elokuva siirtyy sisätiloihin (samasta paikasta saa tarkemman tiedon).\n\nIlmoittakaa maanantaihin mennessä, tuletteko lounaalle ja elokuvaan. Vastatkaa tähän viestiin.\n\nMukavaa kesää!\nTiina  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin tiimin kesäpäivä on?",
+        "options": [
+          "perjantaina 16.6.",
+          "lauantaina 17.6.",
+          "maanantaina 12.6.",
+          "keskiviikkona 14.6."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tehdään kello 13.30?",
+        "options": [
+          "mennään lounaalle",
+          "mennään elokuvaan",
+          "lähdetään kotiin",
+          "grillaillaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää ilmoittaa maanantaihin mennessä?",
+        "options": [
+          "tuleeko sade",
+          "tuleeko lounaalle ja elokuvaan",
+          "mitä syö",
+          "mistä tykkää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

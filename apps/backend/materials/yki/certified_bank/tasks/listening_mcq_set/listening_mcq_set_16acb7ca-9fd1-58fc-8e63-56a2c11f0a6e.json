@@ -1,0 +1,88 @@
+{
+  "id": "16acb7ca-9fd1-58fc-8e63-56a2c11f0a6e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta ruoan verkkokaupasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa tutustumaan uuteen ruoan verkkokauppaamme RuokaNetiin! Tarjoamme laajan valikoiman päivittäistavaroita, tuoretuotteita ja leivonnaisia. Tilaukset toimitetaan suoraan kotiovellesi seuraavana arkipäivänä, kun tilaat ennen kello 14. Toimitusmaksu on 5,90 euroa, ja yli 80 euron tilauksille toimitus on ilmainen. Maksutapoina toimivat verkkopankki, luottokortti ja lasku. Uusille asiakkaille on 10 euron alennus ensimmäisestä tilauksesta. Lisäksi joka viikko on uusia tarjoustuotteita. Asiakaspalvelumme tavoittaa puhelimitse arkisin kello 8-20 ja viikonloppuisin kello 10-18. Lataa myös ilmainen mobiilisovelluksemme, niin saat push-ilmoitukset tarjouksista.",
+      "audio_asset_id": "8663c82d-874d-40a0-b40e-a330db304b5f"
+    },
+    "questions": [
+      {
+        "id": "l77q1",
+        "prompt": "Mikä on uuden ruoan verkkokaupan nimi?",
+        "options": [
+          "RuokaNet.",
+          "KauppaNet.",
+          "RuokaKori.",
+          "KotiinKantoon."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l77q2",
+        "prompt": "Mihin mennessä pitää tilata, jotta tilaus saapuu seuraavana arkipäivänä?",
+        "options": [
+          "Kello 12.",
+          "Kello 16.",
+          "Kello 14.",
+          "Kello 18."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l77q3",
+        "prompt": "Paljonko on toimitusmaksu normaalisti?",
+        "options": [
+          "5,90 euroa.",
+          "3,90 euroa.",
+          "4,90 euroa.",
+          "6,90 euroa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l77q4",
+        "prompt": "Minkä suuruisille tilauksille toimitus on ilmainen?",
+        "options": [
+          "Yli 80 euron.",
+          "Yli 50 euron.",
+          "Yli 60 euron.",
+          "Yli 70 euron."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l77q5",
+        "prompt": "Mistä kanavasta saa push-ilmoitukset tarjouksista?",
+        "options": [
+          "Sähköpostilla.",
+          "Tekstiviestillä.",
+          "Mobiilisovelluksesta.",
+          "Facebook-sivulta."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

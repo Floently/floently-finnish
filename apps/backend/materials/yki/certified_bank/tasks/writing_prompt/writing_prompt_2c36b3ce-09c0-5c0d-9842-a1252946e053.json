@@ -1,0 +1,37 @@
+{
+  "id": "2c36b3ce-09c0-5c0d-9842-a1252946e053",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin pyöräilyviikosta. Arvioi tapahtumia, tiedotusta ja osallistujamääriä. Ehdota yhtä uutta tapahtumaa.",
+    "materials": {
+      "scenario": "Palaute kaupungin pyöräilyviikosta"
+    },
+    "items": [
+      {
+        "id": "49c6cdc9-f49c-5e89-bbe8-9d18f62b5de1",
+        "prompt": "Kirjoita palauteteksti kaupungin pyöräilyviikosta. Arvioi tapahtumia, tiedotusta ja osallistujamääriä. Ehdota yhtä uutta tapahtumaa."
+      }
+    ],
+    "rubric": "Tapahtumat\nTiedotus\nOsallistujamäärät\nUusi tapahtuma",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

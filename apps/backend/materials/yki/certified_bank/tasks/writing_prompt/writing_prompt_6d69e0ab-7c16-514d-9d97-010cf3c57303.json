@@ -1,0 +1,37 @@
+{
+  "id": "6d69e0ab-7c16-514d-9d97-010cf3c57303",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin ympäristökeskukseen. Arvioi ympäristöneuvontaa, luvitusprosessia ja valvontatoimintaa. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin ympäristökeskukseen"
+    },
+    "items": [
+      {
+        "id": "c62385b3-9f6b-5da8-bcfe-ad204c933ced",
+        "prompt": "Kirjoita palauteteksti kaupungin ympäristökeskukseen. Arvioi ympäristöneuvontaa, luvitusprosessia ja valvontatoimintaa. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Ympäristöneuvonta\nLuvitusprosessi\nValvontatoiminta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "f909f482-b1ce-52a4-ab73-3fdddd93849f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.674,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a childcare position in a private family. Tell about your experience with children, your education, and what you are like with children. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus lastenhoitajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "513f45e0-e5f9-5207-ae1b-4d195f390e43",
+        "prompt": "Write a job application. You are applying for a childcare position in a private family. Tell about your experience with children, your education, and what you are like with children. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a childcare position in a private family. Tell about your experience with children, your education, and what you are like with children. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

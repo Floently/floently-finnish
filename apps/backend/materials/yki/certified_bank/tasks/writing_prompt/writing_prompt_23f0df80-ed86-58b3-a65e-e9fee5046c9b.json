@@ -1,0 +1,37 @@
+{
+  "id": "23f0df80-ed86-58b3-a65e-e9fee5046c9b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kirjastojen aukioloaikoja pidentää iltaisin ja viikonloppuisin?'. Arvioi saavutettavuutta, kustannuksia ja henkilökunnan työoloja.",
+    "materials": {
+      "scenario": "Kirjastojen aukioloajat"
+    },
+    "items": [
+      {
+        "id": "1b19da95-4787-52ec-a4c5-e8629dd61bd8",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kirjastojen aukioloaikoja pidentää iltaisin ja viikonloppuisin?'. Arvioi saavutettavuutta, kustannuksia ja henkilökunnan työoloja."
+      }
+    ],
+    "rubric": "Saavutettavuus\nKustannukset\nHenkilökunnan työolot\nOmatoimikirjastot",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

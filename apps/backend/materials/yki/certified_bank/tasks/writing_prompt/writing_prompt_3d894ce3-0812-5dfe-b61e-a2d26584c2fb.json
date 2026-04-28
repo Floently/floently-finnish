@@ -1,0 +1,37 @@
+{
+  "id": "3d894ce3-0812-5dfe-b61e-a2d26584c2fb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kioskin kahvitarjoilusta. Kerro kahvin mausta, valikoimasta ja hintatasosta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kioskin kahvitarjoilusta"
+    },
+    "items": [
+      {
+        "id": "f6697dee-4f90-5f41-a62e-ad9c768d70f3",
+        "prompt": "Kirjoita palauteteksti kioskin kahvitarjoilusta. Kerro kahvin mausta, valikoimasta ja hintatasosta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Kahvin maku\nValikoima\nHintataso\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

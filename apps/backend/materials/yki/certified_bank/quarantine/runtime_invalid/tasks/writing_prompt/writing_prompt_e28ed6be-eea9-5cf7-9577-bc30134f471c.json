@@ -1,0 +1,37 @@
+{
+  "id": "e28ed6be-eea9-5cf7-9577-bc30134f471c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: call center. Purpose: ask for information. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "hobbies in call_center"
+    },
+    "items": [
+      {
+        "id": "8352c3d8-f9d9-574c-99b9-109e1b059498",
+        "prompt": "Write for the receiver in this scenario: call center. Purpose: ask for information. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

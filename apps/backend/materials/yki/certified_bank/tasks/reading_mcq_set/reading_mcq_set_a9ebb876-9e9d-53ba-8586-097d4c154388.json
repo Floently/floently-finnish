@@ -1,0 +1,66 @@
+{
+  "id": "a9ebb876-9e9d-53ba-8586-097d4c154388",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TULOKSIA KEVÄÄN 2025 ASUKASKYSELYSTÄ (vastanneita 850)\n\nKysyimme, mitä palveluita asukkaat toivovat uuteen keskustan kauppakeskukseen. Eniten ääniä saivat:\n1. Kohtuuhintainen ruokakauppa (74 %)\n2. Kirjasto ja oleskelutiloja (68 %)\n3. Edullisia ravintoloita ja kahviloita (61 %)\n4. Pyöräparkki ja huoltopiste (55 %)\n5. Lasten leikkipaikka (42 %)\n\nAvoimissa kommenteissa toivottiin myös, ettei kauppakeskuksesta tule pelkkää liiketilaa, vaan sinne jätetään tilaa yhteisöllisyydelle. 'Tänne tarvitaan paikka, jossa tavata ilman pakkoa ostaa', eräs vastaaja kirjoitti. Kaupunki suunnittelee nyt, miten tulokset otetaan huomioon hankesuunnittelussa.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "3d63cf74-18d0-5589-934f-ff3aeb848e98",
+        "prompt": "Mitä palvelua toivottiin eniten?",
+        "options": [
+          "Kirjastoa",
+          "Edullista ruokakauppaa",
+          "Pyöräparkkia",
+          "Lasten leikkipaikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c54bf5a7-3939-5839-bee6-e056583575a1",
+        "prompt": "Kuinka monta prosenttia vastaajista toivoi pyöräparkkia?",
+        "options": [
+          "42 %",
+          "55 %",
+          "61 %",
+          "68 %"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "577ec5f7-6c2e-5523-95fd-9d999c5bf52a",
+        "prompt": "Mitä eräs vastaaja toivoi avoimessa kommentissa?",
+        "options": [
+          "Enemmän parkkipaikkoja",
+          "Paikkaa tavata ilman ostopakkoa",
+          "Kalliimpia erikoisliikkeitä",
+          "Enemmän mainoksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

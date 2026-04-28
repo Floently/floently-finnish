@@ -1,0 +1,88 @@
+{
+  "id": "aa680d50-f303-5ed5-ab9e-40ffab7a5d72",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen kaupungin ilmastotoimista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupunki on julkaissut uuden ilmasto-ohjelman, jonka tavoitteena on vähentää kasvihuonekaasupäästöjä 80 prosenttia vuoteen 2035 mennessä. Ohjelma sisältää toimia liikenteessä, energiantuotannossa ja rakentamisessa. Joukkoliikenteen sähköistämistä vauhditetaan ja uusia bussilinjoja avataan. Kaupunki tukee myös aurinkopaneelien hankintaa omakotitaloihin ja taloyhtiöihin. Uudisrakentamisessa vaaditaan entistä energiatehokkaampia ratkaisuja. Lisäksi kaupunki lisää viheralueita ja istuttaa uusia puita sitomaan hiiltä. Ohjelman toteuttaminen maksaa arviolta 50 miljoonaa euroa vuodessa, mutta pitkällä aikavälillä säästöt ovat suuremmat. Kaupunki toivoo, että asukkaat ja yritykset osallistuvat aktiivisesti ilmastotyöhön.",
+      "audio_asset_id": "c086bfc6-3feb-4227-aed4-c8a0e435c307"
+    },
+    "questions": [
+      {
+        "id": "l131q1",
+        "prompt": "Mikä on kaupungin uuden ilmasto-ohjelman tavoite?",
+        "options": [
+          "Vähentää päästöjä 50 prosenttia vuoteen 2030 mennessä.",
+          "Vähentää päästöjä 60 prosenttia vuoteen 2040 mennessä.",
+          "Vähentää päästöjä 80 prosenttia vuoteen 2035 mennessä.",
+          "Vähentää päästöjä 70 prosenttia vuoteen 2025 mennessä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l131q2",
+        "prompt": "Mitä toimia ohjelma sisältää liikenteessä?",
+        "options": [
+          "Autojen kieltämistä keskustassa.",
+          "Joukkoliikenteen sähköistämistä ja uusia bussilinjoja.",
+          "Pyöräteiden vähentämistä.",
+          "Pysäköintimaksujen nostamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l131q3",
+        "prompt": "Mitä kaupunki tukee energiantuotannossa?",
+        "options": [
+          "Öljylämmitystä.",
+          "Aurinkopaneelien hankintaa omakotitaloihin ja taloyhtiöihin.",
+          "Tuulivoimaa.",
+          "Ydinvoimaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l131q4",
+        "prompt": "Paljonko ohjelman toteuttaminen maksaa vuodessa?",
+        "options": [
+          "20 miljoonaa euroa.",
+          "50 miljoonaa euroa.",
+          "30 miljoonaa euroa.",
+          "40 miljoonaa euroa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l131q5",
+        "prompt": "Mitä kaupunki lisää sitomaan hiiltä?",
+        "options": [
+          "Puistoja ja istutuksia.",
+          "Metsiä.",
+          "Niittyjä.",
+          "Viheralueita ja uusia puita."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

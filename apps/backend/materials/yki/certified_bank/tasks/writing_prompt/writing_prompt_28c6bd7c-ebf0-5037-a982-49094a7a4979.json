@@ -1,0 +1,37 @@
+{
+  "id": "28c6bd7c-ebf0-5037-a982-49094a7a4979",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.657,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an office worker position in a small company. Tell about your education, IT skills, and what kind of employee you are. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus toimistotyöntekijän tehtävään"
+    },
+    "items": [
+      {
+        "id": "9ebb3006-062b-5ec0-babc-67d063850871",
+        "prompt": "Write a job application. You are applying for an office worker position in a small company. Tell about your education, IT skills, and what kind of employee you are. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an office worker position in a small company. Tell about your education, IT skills, and what kind of employee you are. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

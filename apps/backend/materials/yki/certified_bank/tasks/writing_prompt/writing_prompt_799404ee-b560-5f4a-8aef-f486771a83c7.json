@@ -1,0 +1,37 @@
+{
+  "id": "799404ee-b560-5f4a-8aef-f486771a83c7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lastenhoitajalle. Kerro, että tarvitset lastenhoitoa yllättäen tänään klo 16–19. Kerro, montako lasta on (kaksi lasta, 4 ja 7 vuotta) ja mitä heille pitää antaa välipalaksi. Kysy, voiko hän tulla.",
+    "materials": {
+      "scenario": "Viesti lastenhoitajalle yllättävästä hoitoavusta"
+    },
+    "items": [
+      {
+        "id": "82b79954-c5f0-5c64-91e3-5a6ebf2547c6",
+        "prompt": "Kirjoita lyhyt viesti lastenhoitajalle. Kerro, että tarvitset lastenhoitoa yllättäen tänään klo 16–19. Kerro, montako lasta on (kaksi lasta, 4 ja 7 vuotta) ja mitä heille pitää antaa välipalaksi. Kysy, voiko hän tulla."
+      }
+    ],
+    "rubric": "Kerro, että tarvitset hoitoa tänään\nKerro kellonajat\nKerro lasten iät\nKerro välipalasta\nKysy, voiko hän tulla",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

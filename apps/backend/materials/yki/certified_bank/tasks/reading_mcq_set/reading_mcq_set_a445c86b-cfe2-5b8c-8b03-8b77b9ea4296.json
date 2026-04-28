@@ -1,0 +1,66 @@
+{
+  "id": "a445c86b-cfe2-5b8c-8b03-8b77b9ea4296",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "JOUKKOLIIKENTEEN TULEVAISUUS\n\nSuurten kaupunkien joukkoliikenne on murroksessa. Samalla kun kaupungit kasvavat, liikenteen päästöjä pitäisi vähentää. Ratkaisuja etsitään monesta suunnasta.\n\nYksi trendi on sähköbussit. Monissa kaupungeissa vanhoja dieselbusseja vaihdetaan sähköbusseihin. Ne ovat hiljaisempia ja puhtaampia. Helsingissä on tavoite, että vuonna 2030 kaikki bussit kulkevat sähköllä.\n\nToinen trendi on raideliikenteen lisääminen. Raitiovaunuja ja metroja rakennetaan lisää, koska ne kuljettavat paljon ihmisiä vähällä energialla. Myös lähijunaliikennettä halutaan kehittää, jotta yhä useampi jättäisi auton kotiin.\n\nKolmas trendi on liikenteen yhdistäminen. Samalla lipulla voi matkustaa bussilla, junalla ja kaupunkipyörällä. Tämä tekee joukkoliikenteestä joustavampaa ja houkuttelevampaa.\n\nHaasteitakin on. Joukkoliikenne on kallista, ja sitä pitää tukea verorahoilla. Harvaan asutuilla alueilla joukkoliikenne ei ole kannattavaa, ja palvelut voivat olla heikkoja. Myös aikataulujen yhteensovittaminen on vaikeaa.\n\nTulevaisuudessa joukkoliikenne todennäköisesti monipuolistuu. Käyttäjät haluavat yhä enemmän joustavuutta ja valinnanvaraa. On tärkeää, että joukkoliikenne on sujuvaa, edullista ja ympäristöystävällistä, jotta yhä useampi valitsee sen yksityisauton sijaan.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 172
+    },
+    "questions": [
+      {
+        "id": "9bd55b47-ac00-571e-b7b7-ee399c49d701",
+        "prompt": "Mitä trendejä joukkoliikenteessä on?",
+        "options": [
+          "Lisää dieselbusseja ja vähemmän junia",
+          "Sähköbussit, raideliikenteen lisääminen ja liikenteen yhdistäminen",
+          "Autojen lisääminen",
+          "Joukkoliikenteen lakkauttaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5989d06c-a2a5-5578-9207-8f8f7ef204ce",
+        "prompt": "Mikä on Helsingin tavoite vuodelle 2030?",
+        "options": [
+          "Kaikki bussit ovat dieselbusseja",
+          "Kaikki bussit kulkevat sähköllä",
+          "Bussit lakkaavat kulkemasta",
+          "Kaikki bussit ovat ilmaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "11bcfd08-567f-5f07-a878-f0a973466573",
+        "prompt": "Mikä on joukkoliikenteen haaste?",
+        "options": [
+          "Se on liian halpaa",
+          "Se on kallista ja harvaan asutuilla alueilla palvelut ovat heikkoja",
+          "Sitä käyttää liian moni",
+          "Se on liian nopeaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

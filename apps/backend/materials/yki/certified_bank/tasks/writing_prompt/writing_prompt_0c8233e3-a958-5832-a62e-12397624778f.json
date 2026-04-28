@@ -1,0 +1,37 @@
+{
+  "id": "0c8233e3-a958-5832-a62e-12397624778f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kahvilasta. Arvioi kahvin laatua, leivonnaisia ja asiakaspalvelua. Ehdota yhtä uutta tuotetta.",
+    "materials": {
+      "scenario": "Palaute kahvilasta"
+    },
+    "items": [
+      {
+        "id": "ec5dc294-6f5d-55db-9949-c212308da4ac",
+        "prompt": "Kirjoita palauteteksti kahvilasta. Arvioi kahvin laatua, leivonnaisia ja asiakaspalvelua. Ehdota yhtä uutta tuotetta."
+      }
+    ],
+    "rubric": "Kahvin laatu\nLeivonnaiset\nAsiakaspalvelu\nUusi tuote",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

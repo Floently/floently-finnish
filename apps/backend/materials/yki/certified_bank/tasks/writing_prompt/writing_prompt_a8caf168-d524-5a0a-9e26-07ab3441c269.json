@@ -1,0 +1,37 @@
+{
+  "id": "a8caf168-d524-5a0a-9e26-07ab3441c269",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan ihotautilääkärille epäilyttävän luomen takia. Kerro, missä luomi on (selässä). Kerro, että se on muuttunut viime aikoina. Kysy, saatko ajan pian.",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle luomen tarkastuksesta"
+    },
+    "items": [
+      {
+        "id": "a4c72cb2-d88f-57cb-a7f1-bb74c69bd6de",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan ihotautilääkärille epäilyttävän luomen takia. Kerro, missä luomi on (selässä). Kerro, että se on muuttunut viime aikoina. Kysy, saatko ajan pian."
+      }
+    ],
+    "rubric": "Kerro, että haluat ihotautilääkärille\nKerro syy (epäilyttävä luomi)\nKerro, missä luomi on\nKerro, että se on muuttunut\nKysy aikaa pian",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

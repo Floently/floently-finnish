@@ -1,0 +1,110 @@
+{
+  "id": "7d7f86d3-0b2c-563e-817e-20b06f98ad64",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.732,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Nuorten syrjäytyminen on vakava yhteiskunnallinen ongelma. Sillä tarkoitetaan tilannetta, jossa nuori jää koulutuksen ja työelämän ulkopuolelle ja syrjäytyy myös sosiaalisista suhteista. Syitä syrjäytymiseen on monia. Usein taustalla on koulunkäynnin vaikeuksia, mielenterveysongelmia, päihteiden käyttöä tai perheeseen liittyviä ongelmia. Myös rakenteelliset tekijät, kuten työpaikkojen puute ja alueellinen eriarvoisuus, voivat vaikuttaa. Syrjäytymisen ehkäisy on tärkeää, koska se aiheuttaa inhimillistä kärsimystä ja tulee yhteiskunnalle kalliiksi. Ehkäisy vaatii varhaista puuttumista ja monialaista yhteistyötä. Kouluilla, nuorisotoimella, terveydenhuollolla ja sosiaalitoimella on tärkeä rooli ongelmien tunnistamisessa ja tuen tarjoamisessa. Myös matalan kynnyksen palvelut, kuten nuorisotilat ja etsivä nuorisotyö, ovat tärkeitä. Niissä nuori voi saada apua ilman byrokratiaa ja leimaantumisen pelkoa. Kolmannen sektorin järjestöt täydentävät julkisia palveluja. Keskeistä on saada nuori kiinni mahdollisimman pian, ennen kuin ongelmat kasvavat liian suuriksi. Jokainen syrjäytynyt nuori on liikaa.",
+      "word_count": 126
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan nuorten syrjäytymisellä?",
+        "options": [
+          "Nuoren muuttamista toiselle paikkakunnalle.",
+          "Nuoren jäämistä koulutuksen ja työelämän ulkopuolelle ja syrjäytymistä sosiaalisista suhteista.",
+          "Nuoren osallistumista yhteiskunnalliseen toimintaan.",
+          "Nuoren menestymistä opinnoissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä yksilöllisiä syitä syrjäytymiselle voi olla?",
+        "options": [
+          "Vain työpaikkojen puute.",
+          "Koulunkäynnin vaikeudet, mielenterveysongelmat ja perheongelmat.",
+          "Vain alueellinen eriarvoisuus.",
+          "Liian hyvä koulumenestys."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä rakenteellisia tekijöitä syrjäytymiseen liittyy?",
+        "options": [
+          "Yksilön omat valinnat.",
+          "Työpaikkojen puute ja alueellinen eriarvoisuus.",
+          "Koulujen liian tiukka kurinpito.",
+          "Nuorten liiallinen vapaa-aika."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi syrjäytymisen ehkäisy on tärkeää?",
+        "options": [
+          "Se on halpaa yhteiskunnalle.",
+          "Se aiheuttaa inhimillistä kärsimystä ja tulee yhteiskunnalle kalliiksi.",
+          "Se on helppoa toteuttaa.",
+          "Se koskee vain pientä joukkoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ehkäisy vaatii?",
+        "options": [
+          "Vain yhden viranomaisen toimia.",
+          "Varhaista puuttumista ja monialaista yhteistyötä.",
+          "Nuorten rankaisemista.",
+          "Ongelmiin puuttumatta jättämistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ovat matalan kynnyksen palvelut?",
+        "options": [
+          "Palveluita, joihin on vaikea päästä.",
+          "Palveluita, joissa nuori voi saada apua ilman byrokratiaa ja leimaantumisen pelkoa.",
+          "Vain maksullisia palveluita.",
+          "Palveluita, jotka vaativat lähetteen lääkäriltä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on keskeistä syrjäytymisen ehkäisyssä?",
+        "options": [
+          "Odotetaan, että ongelmat ratkeavat itsestään.",
+          "Saada nuori kiinni mahdollisimman pian, ennen kuin ongelmat kasvavat.",
+          "Keskitytään vain yhteen syyhyn.",
+          "Jätetään vastuu kokonaan nuorelle."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

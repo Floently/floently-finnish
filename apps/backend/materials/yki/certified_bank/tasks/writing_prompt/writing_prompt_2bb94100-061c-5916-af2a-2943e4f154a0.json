@@ -1,0 +1,37 @@
+{
+  "id": "2bb94100-061c-5916-af2a-2943e4f154a0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa keittäjänä lounasravintolaan. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Keittäjä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Haet työpaikkaa keittäjänä lounasravintolaan. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa keittäjänä lounasravintolaan. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "c2189c40-5b02-57cb-8eda-63171d9caa35",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Puhelimeni meni rikki maanantaina. Näyttö oli särkynyt, eikä puhelin toiminut kunnolla. Menin torstaina puhelinliikkeeseen. Myyjä sanoi, että korjaus maksaa 120 euroa ja kestää noin viikon. Päätin korjauttaa puhelimen, koska se on melko uusi. Sain lainapuhelimen korjauksen ajaksi. Nyt puhelin on taas toimintakunnossa ja olen tyytyväinen. Seuraavalla kerralla ostan ehkä suojakuoren, ettei näyttö hajoa niin helposti.",
+      "word_count": 55
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minä päivänä puhelin meni rikki?",
+        "options": [
+          "Maanantaina",
+          "Tiistaina",
+          "Keskiviikkona",
+          "Torstaina"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä puhelimessa oli rikki?",
+        "options": [
+          "Akku",
+          "Näyttö",
+          "Kamera",
+          "Kaiutin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko korjaus maksoi?",
+        "options": [
+          "80 euroa",
+          "100 euroa",
+          "120 euroa",
+          "140 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä henkilö aikoo ostaa seuraavalla kerralla?",
+        "options": [
+          "Uuden puhelimen",
+          "Suojakuoren",
+          "Näytönsuojan",
+          "Varalaturin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

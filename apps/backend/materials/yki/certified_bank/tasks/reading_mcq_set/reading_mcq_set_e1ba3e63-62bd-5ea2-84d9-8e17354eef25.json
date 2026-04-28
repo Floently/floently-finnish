@@ -1,0 +1,66 @@
+{
+  "id": "e1ba3e63-62bd-5ea2-84d9-8e17354eef25",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "JYVÄSKYLÄN SEUDUN JÄTEHUOLTO UUDISTUU\n\nJyväskylän seudun jätehuolto uudistuu 1.6. alkaen. Uudistuksen myötä biojätteen keräys laajenee kaikkiin vähintään viiden asunnon taloyhtiöihin. Pienemmät taloyhtiöt ja omakotitalot voivat liittyä vapaaehtoiseen keräykseen. Samalla muovipakkausten keräys aloitetaan uusilla ekopisteillä. Jätehuoltoyhtiö muistuttaa, että muovipakkaukset pitää olla tyhjiä ja puhtaita. 'Roskiin heitetty muovi on hukkaan heitettyä energiaa', sanoo kehityspäällikkö Jukka Rantanen. Uudistuksen tavoitteena on nostaa kunnan kierrätysaste 50 prosenttiin vuoteen 2030 mennessä. Asukkaille järjestetään tiedotustilaisuuksia toukokuun aikana.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 98
+    },
+    "questions": [
+      {
+        "id": "bc1c7ce1-428f-5bf2-9a73-c5b0b69f8646",
+        "prompt": "Ketä biojätteen keräys koskee pakollisena?",
+        "options": [
+          "Kaikkia talouksia",
+          "Vain omakotitaloja",
+          "Vähintään viiden asunnon taloyhtiöitä",
+          "Vain keskustan alueella asuvia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "31c2fe1a-d163-5c1b-9c65-6254c895f743",
+        "prompt": "Mitä mieltä Jukka Rantanen on muovin heittämisestä sekajätteeseen?",
+        "options": [
+          "Se on ihan ok",
+          "Se on hukkaan heitettyä energiaa",
+          "Se on halvempaa",
+          "Se on kierrätyksen kannalta parempi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b13b9b83-f82f-595b-8502-6106e4114de7",
+        "prompt": "Mikä on uudistuksen tavoite vuoteen 2030 mennessä?",
+        "options": [
+          "Kerätä kaikki muovi",
+          "50 prosentin kierrätysaste",
+          "Lopettaa sekajätteen keräys",
+          "Rakentaa uusi jätelaitos"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

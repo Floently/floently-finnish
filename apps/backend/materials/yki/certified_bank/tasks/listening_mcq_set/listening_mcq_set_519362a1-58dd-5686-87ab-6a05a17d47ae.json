@@ -1,0 +1,88 @@
+{
+  "id": "519362a1-58dd-5686-87ab-6a05a17d47ae",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu vakuutusyhtiöön ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, soitan koskien vakuutusasiaani. Minulla on kotivakuutus, ja minulle tuli vesivahinko. Asiakaspalvelija: Voin auttaa. Mitä on tapahtunut? Asiakas: Pesukoneeni hajosi ja vettä valui lattialle. Asiakaspalvelija: Milloin tämä tapahtui? Asiakas: Eilen illalla. Asiakaspalvelija: Oletteko tehneet korjaustoimenpiteitä? Asiakas: Kyllä, kuivasimme lattian ja sammutimme veden. Asiakaspalvelija: Hyvä. Teidän kannattaa tehdä vahinkoilmoitus verkkosivuillamme. Liittäkää mukaan kuvia vahingosta. Asiakas: Kuinka nopeasti saan korvausta? Asiakaspalvelija: Kun ilmoitus on käsitelty, saatte päätöksen noin viikon kuluessa. Asiakas: Selvä, kiitos avusta!",
+      "audio_asset_id": "f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c"
+    },
+    "questions": [
+      {
+        "id": "l261q1",
+        "prompt": "Miksi asiakas soittaa vakuutusyhtiöön?",
+        "options": [
+          "Ottaakseen uuden vakuutuksen.",
+          "Ilmoittaakseen vesivahingosta.",
+          "Kysyäkseen vakuutuksen hintaa.",
+          "Peruuttaakseen vakuutuksensa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l261q2",
+        "prompt": "Mikä vahinko on tapahtunut?",
+        "options": [
+          "Tulipalo.",
+          "Vesivahinko.",
+          "Murto.",
+          "Myrskyvaurio."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l261q3",
+        "prompt": "Milloin vahinko tapahtui?",
+        "options": [
+          "Tänään aamulla.",
+          "Eilen illalla.",
+          "Kaksi päivää sitten.",
+          "Viikko sitten."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l261q4",
+        "prompt": "Mitä asiakas on tehnyt vahingon jälkeen?",
+        "options": [
+          "Odottanut korjaajaa.",
+          "Kuivannut lattian ja sammuttanut veden.",
+          "Soittanut putkimiehelle.",
+          "Lähtenyt pois kotoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l261q5",
+        "prompt": "Miten vahinkoilmoitus tehdään?",
+        "options": [
+          "Puhelimitse.",
+          "Verkkosivuilla.",
+          "Sähköpostilla.",
+          "Kirjeellä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

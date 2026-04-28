@@ -1,0 +1,37 @@
+{
+  "id": "c475fb81-4632-5935-ad7c-3f2acddf2e2b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa kestävän rahoituksen asiantuntijana. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Kestävän rahoituksen asiantuntija"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Haet työpaikkaa kestävän rahoituksen asiantuntijana. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa kestävän rahoituksen asiantuntijana. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

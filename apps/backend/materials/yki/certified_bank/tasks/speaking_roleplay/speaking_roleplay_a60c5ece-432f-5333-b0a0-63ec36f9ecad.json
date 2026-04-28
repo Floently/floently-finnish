@@ -1,0 +1,40 @@
+{
+  "id": "a60c5ece-432f-5333-b0a0-63ec36f9ecad",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "asiakas",
+        "partner": "hotellin työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp43_01",
+        "ai_first_turn_fi": "Hotelli, päivää."
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "edcd0f19-dba5-5c2e-bc8c-2cf8f96b87d3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Olen tulossa käymään kaupungissa ensi viikolla. Olisi kiva nähdä! Onko sinulla aikaa tavata keskiviikkona tai torstaina? Voitaisiin mennä syömään.",
+      "word_count": 20
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_002_q1",
+        "prompt": "Milloin lähettäjä on tulossa kaupunkiin?",
+        "options": [
+          "tänään",
+          "huomenna",
+          "ensi viikolla",
+          "kuukauden päästä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_002_q2",
+        "prompt": "Mitä hän ehdottaa tekemistä?",
+        "options": [
+          "mennä kahville",
+          "mennä kävelylle",
+          "mennä syömään",
+          "mennä elokuviin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_reading_mcq_002_q3",
+        "prompt": "Minä päivinä tapaaminen voisi olla?",
+        "options": [
+          "maanantaina tai tiistaina",
+          "keskiviikkona tai torstaina",
+          "torstaina tai perjantaina",
+          "lauantaina tai sunnuntaina"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

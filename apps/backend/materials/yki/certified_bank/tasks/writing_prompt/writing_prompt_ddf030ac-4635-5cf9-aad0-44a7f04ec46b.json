@@ -1,0 +1,37 @@
+{
+  "id": "ddf030ac-4635-5cf9-aad0-44a7f04ec46b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ostanut käytetyn auton autoliikkeestä. Kirjoita palaute. Arvioi myyjän rehellisyyttä, auton kuntoa ja takuuehtoja. Kerro myös, suosittelisitko liikettä.",
+    "materials": {
+      "scenario": "Palaute autokaupasta"
+    },
+    "items": [
+      {
+        "id": "47125ce8-0193-525d-a69b-46de2b180471",
+        "prompt": "Olet ostanut käytetyn auton autoliikkeestä. Kirjoita palaute. Arvioi myyjän rehellisyyttä, auton kuntoa ja takuuehtoja. Kerro myös, suosittelisitko liikettä."
+      }
+    ],
+    "rubric": "Myyjän rehellisyys\nAuton kunto\nTakuuehdot\nSuosittelu",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

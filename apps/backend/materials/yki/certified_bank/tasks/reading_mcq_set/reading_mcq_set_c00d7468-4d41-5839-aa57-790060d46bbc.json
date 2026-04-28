@@ -1,0 +1,66 @@
+{
+  "id": "c00d7468-4d41-5839-aa57-790060d46bbc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei Maija!\n\nTulen huomenna Helsinkiin junalla. Juna saapuu kello 14.35. Voidaanko tavata asemalla? Sen jälkeen voimme menä syömään yhdessä. Onko sinulla ehdotusta hyvästä ravintolasta?\n\nSoita minulle, kun olet saanut tämän viestin. Numeroni on 050 123 4567.\n\nTerveisin,\nAnna",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin Anna saapuu Helsinkiin?",
+        "options": [
+          "huomenna kello 14.35",
+          "tänään kello 14.35",
+          "huomenna aamulla",
+          "ensi viikolla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä Anna haluaa tavata Maijan?",
+        "options": [
+          "ravintolassa",
+          "asemalla",
+          "kotona",
+          "kahvilassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä Anna pyytää Maijaa tekemään?",
+        "options": [
+          "lähettämään sähköpostia",
+          "tulemaan asemalle",
+          "soittamaan",
+          "varaamaan pöydän"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

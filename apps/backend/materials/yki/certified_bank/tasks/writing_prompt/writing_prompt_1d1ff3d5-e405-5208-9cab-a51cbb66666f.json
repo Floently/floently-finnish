@@ -1,0 +1,37 @@
+{
+  "id": "1d1ff3d5-e405-5208-9cab-a51cbb66666f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan liikuntapalveluihin. Olette perustamassa uutta liikuntakerhoa ja tarvitsette tilan kokoontumisille. Kysy vapaita tiloja, vuokria ja varauskäytäntöjä. Kerro myös kerhon toiminnasta.",
+    "materials": {
+      "scenario": "Liikuntakerhon tilan tarve"
+    },
+    "items": [
+      {
+        "id": "880ad2ef-6c01-5218-85f3-35a9820e751c",
+        "prompt": "Kirjoita virallinen sähköposti kunnan liikuntapalveluihin. Olette perustamassa uutta liikuntakerhoa ja tarvitsette tilan kokoontumisille. Kysy vapaita tiloja, vuokria ja varauskäytäntöjä. Kerro myös kerhon toiminnasta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

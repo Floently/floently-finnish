@@ -1,0 +1,37 @@
+{
+  "id": "6a0b6fb1-8afa-5d6c-8a07-a38c01edb7d7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuvaile jotakin perhejuhlaa, jossa olet ollut.",
+    "materials": {
+      "scenario": "Perhejuhla"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kuvaile jotakin perhejuhlaa, jossa olet ollut."
+      }
+    ],
+    "rubric": "Kuvaile jotakin perhejuhlaa, jossa olet ollut.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "dc78754c-19bc-571b-866b-5334ba699fe7",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele poliisin edustajan kanssa hälytysajoneuvojen prioriteettiliikenteestä. Perustele hälytysajoneuvojen oikeutta ohittaa liikennesäännöt ja vastaa muiden autoilijoiden turvallisuushuoliin.",
+    "materials": {
+      "roles": {
+        "user": "poliisin liikenneturvallisuusasiantuntija ja olet huolissasi siitä",
+        "partner": "Meillä on tilastoja"
+      }
+    },
+    "items": [
+      {
+        "id": "7f0d6a6d-b4fa-5fe8-8bdd-5a261ea0c254",
+        "ai_first_turn_fi": "Meillä on tilastoja: joka vuosi tapahtuu kymmeniä kolareita, joissa hälytysajoneuvo on osallisena. Joskus ne aiheuttavat vakavia vammoja. Kuljettajat eivät yksinkertaisesti ehdi reagoida, kun hälytysajoneuvo tulee risteykseen punaisia päin. Meidän on mietittävä, onko se riskin arvoista. Jos hälytysajoneuvo noudattaisi liikennesääntöjä, se olisi turvallisempaa kaikille. Kyllä, se hidastaisi hälytystä minuutilla tai kahdella, mutta se voisi estää kolareita. Ja mitä jos se kolari tapahtuu juuri hälytysajoneuvon kanssa, ja se viivästyttää apua vielä enemmän? Eikö turvallisuus ole tärkeämpää kuin muutama minuutti?"
+      }
+    ],
+    "rubric": "Keskustele poliisin edustajan kanssa hälytysajoneuvojen prioriteettiliikenteestä. Perustele hälytysajoneuvojen oikeutta ohittaa liikennesäännöt ja vastaa muiden autoilijoiden turvallisuushuoliin.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

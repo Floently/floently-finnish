@@ -1,0 +1,37 @@
+{
+  "id": "9d7a16a9-461b-5708-a2b4-415dfb2d9c14",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Kirjoita mielipideteksti."
+    },
+    "items": [
+      {
+        "id": "bed3295a-4b54-5df6-98e9-9d424e47f42a",
+        "prompt": "Onko julkinen keskustelu muuttunut rakentavammaksi viime vuosina?"
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

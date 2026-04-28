@@ -1,0 +1,77 @@
+{
+  "id": "38139b36-f798-5f40-b2f5-07efba94ad41",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.787,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KANSALAISVAIKUTTAMISEN UUDET MUODOT\n\nDemokratian kriisistä on puhuttu paljon viime vuosina. Äänestysprosentit laskevat, puoluejäsenyydet vähenevät ja luottamus poliittisiin instituutioihin heikkenee erityisesti nuorten keskuudessa. Samaan aikaan uudet vaikuttamisen muodot ovat nousseet täydentämään ja paikoin jopa haastamaan perinteistä edustuksellista demokratiaa.\n\nKansalaisaloite on yksi merkittävimmistä uusista vaikuttamisen välineistä. Suomessa kansalaisaloite otettiin käyttöön vuonna 2012, ja sen avulla vähintään 50 000 kansalaista voi vaatia eduskuntaa käsittelemään tiettyä lakia koskevaa aloitetta. Aloitejärjestelmä on aktivoinut kansalaisia ja tuonut keskusteluun aiheita, jotka eivät välttämättä muuten olisi nousseet esiin. Toisaalta kriitikot huomauttavat, että aloitteet ovat usein yksittäisiin kysymyksiin keskittyviä eivätkä ne rakenna pitkäjänteistä yhteiskuntapolitiikkaa.\n\nLähidemokratian uudet muodot, kuten asukasbudjetointi ja osallistuva suunnittelu, ovat yleistyneet kunnissa. Asukasbudjetoinnissa asukkaat saavat itse päättää, miten tietty osa kunnan budjetista käytetään oman asuinalueensa kehittämiseen. Tämä on lisännyt asukkaiden vaikuttamismahdollisuuksia ja vahvistanut yhteisöllisyyttä. Samalla se on opettanut konkreettisesti budjetin ja resurssien rajallisuutta.\n\nVerkkovaikuttaminen ja sosiaalinen media ovat muuttaneet keskustelukulttuuria. Kampanjat ja adressit leviävät nopeasti, ja yksittäinen kansalainen voi saada äänensä kuuluviin ilman perinteistä mediaa tai puoluekoneistoja. Kuitenkin samat alustat ovat mahdollistaneet myös disinformaation leviämisen ja keskustelun polarisoitumisen. Keskustelu saattaa muuttua nopeasti asiattomaksi, ja rakentava dialogi jää usein huutamisen jalkoihin.\n\nAsiantuntijat korostavat, että tarvitaan monimuotoista demokratiaa, jossa eri vaikuttamisen muodot täydentävät toisiaan. Edustuksellinen demokratia tarvitsee rinnalleen osallistavia elementtejä, jotka aktivoivat kansalaisia vaalien välillä. Toisaalta osallistuminen ei saa olla vain niiden etuoikeus, joilla on aikaa ja resursseja. Tasa-arvoinen osallistuminen vaatii rakenteita, jotka mahdollistavat erilaisten ihmisten ja ryhmien äänen kuulumisen.\n\nTulevaisuudessa todennäköisesti nähdään entistä enemmän hybridimalleja, joissa yhdistyvät edustuksellisuus, osallistavuus ja digitaaliset työkalut. Haasteena on luoda järjestelmiä, jotka ovat sekä tehokkaita että inklusiivisia, ja jotka kykenevät vastaamaan monimutkaisen yhteiskunnan ongelmiin ilman, että ne yksinkertaistavat niitä liikaa.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 301
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kritiikkiä kansalaisaloitejärjestelmää kohtaan tekstissä esitetään?",
+        "options": [
+          "Se on liian byrokraattinen ja hidas",
+          "Aloitteet keskittyvät yksittäisiin kysymyksiin eivätkä rakenna pitkäjänteistä politiikkaa",
+          "Sitä käyttävät vain tietyt eturyhmät",
+          "Se on kallis järjestelmä ylläpitää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä asukasbudjetoinnista on tekstin mukaan?",
+        "options": [
+          "Se säästää kunnan rahoja",
+          "Se lisää asukkaiden vaikuttamismahdollisuuksia ja vahvistaa yhteisöllisyyttä",
+          "Se korvaa kokonaan kunnan päätöksenteon",
+          "Se vähentää poliitikkojen tarvetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita verkkovaikuttamiseen liittyy?",
+        "options": [
+          "Vain nuoret käyttävät sitä",
+          "Se on liian hidasta",
+          "Disinformaatio ja keskustelun polarisoituminen",
+          "Se ei tavoita tarpeeksi ihmisiä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä asiantuntijat tarkoittavat monimuotoisella demokratialla?",
+        "options": [
+          "Vain edustuksellista demokratiaa",
+          "Vain suoraa demokratiaa",
+          "Eri vaikuttamisen muotojen yhdistelmää, joka täydentää toisiaan",
+          "Demokratiaa, jossa kaikki päätökset tehdään kansanäänestyksillä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

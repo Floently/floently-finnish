@@ -1,0 +1,99 @@
+{
+  "id": "ae402935-73c3-5dbe-bc95-3765155c563f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu terveellisistä elämäntavoista ja vastaa.",
+    "materials": {
+      "transcript": "Terveysvalmentaja: Tervetuloa terveyswebinaariin. Tänään puhumme kokonaisvaltaisesta hyvinvoinnista. Usein ajatellaan, että terveys on pelkkää liikuntaa ja ruokavaliota, mutta se on paljon muutakin. Asiakas 1: Miten uni vaikuttaa painonhallintaan? Terveysvalmentaja: Todella paljon. Huonosti nukutut yöt lisäävät näläntunnetta ja himoa makeaan. Elimistö myös palautuu huonommin, joten liikunnasta ei saa samaa hyötyä. Suosittelen, että nukkumisesta tehdään prioriteetti. Asiakas 2: Mitä mieltä olet dieeteistä? Terveysvalmentaja: Nopeat dieetit eivät yleensä toimi pitkällä tähtäimellä. Ne aiheuttavat helposti ketjureaktion: laihdutus, repsahdus, painon nousu ja taas uusi laihdutus. On parempi tehdä pieniä, kestäviä muutoksia, joita jaksaa noudattaa loppuelämän. Esimerkiksi yksi lisäkasvis annos päivässä tai yksi vähemmän herkkuhetki viikossa. Asiakas 3: Entä stressi? Miten se vaikuttaa? Terveysvalmentaja: Stressi on yksi suurimmista terveysriskeistä. Se nostaa verenpainetta, heikentää vastustuskykyä ja aiheuttaa mielialan vaihteluita. Stressin hallintaan on monia keinoja: tietoinen läsnäolo, hengitysharjoitukset ja luonnossa liikkuminen. Tärkeintä on löytää itselle sopiva tapa. Asiakas 4: Onko sosiaalisilla suhteilla merkitystä? Terveysvalmentaja: Ehdottomasti. Yksinäisyys on osoitettu terveysriskiksi, joka voi olla jopa haitallisempaa kuin tupakointi. Ihmissuhteet tuovat merkitystä elämään ja auttavat jaksamaan vaikeina aikoina. Kannustan kaikkia pitämään yhteyttä ystäviin ja perheeseen. Yhteenvetona: hyvinvointi on monen asian summa. Ei kannata keskittyä vain yhteen osa-alueeseen, vaan etsiä tasapainoa.",
+      "audio_asset_id": "81e01b99-d7d3-4ebe-b413-837cfa9b9e06"
+    },
+    "questions": [
+      {
+        "id": "6313d73e-ff2b-5bb2-9cdf-337b492f1ded",
+        "prompt": "Mikä on webinaarin aihe?",
+        "options": [
+          "Tehokas kuntosaliharjoittelu.",
+          "Vegaaniruokavalion perusteet.",
+          "Kokonaisvaltainen hyvinvointi.",
+          "Nuorten mielenterveys."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "55a59753-db3a-5a53-868a-5788c1c57966",
+        "prompt": "Miten uni vaikuttaa painonhallintaan?",
+        "options": [
+          "Huono uni lisää näläntunnetta ja himoa makeaan.",
+          "Se ei vaikuta mitenkään.",
+          "Hyvä uni yksinään riittää laihtumiseen.",
+          "Uni vähentää liikunnan tehoa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "173d6934-0eed-5602-b93f-97625c96bde1",
+        "prompt": "Mitä mieltä valmentaja on nopeista dieeteistä?",
+        "options": [
+          "Ne ovat paras tapa laihtua.",
+          "Ne eivät yleensä toimi pitkällä tähtäimellä.",
+          "Ne sopivat kaikille.",
+          "Ne ovat ainoa oikea tapa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "744cad70-3f2c-5ada-b62c-c20362995ca8",
+        "prompt": "Mitä valmentaja suosittelee dieettien sijaan?",
+        "options": [
+          "Paastota muutaman kerran viikossa.",
+          "Syödä vain proteiinipitoista ruokaa.",
+          "Tehdä pieniä, kestäviä muutoksia.",
+          "Käyttää dieettivalmisteita."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "fd9bf1c5-74d4-5cb7-a210-b8475e1c22ee",
+        "prompt": "Mitä keinoja valmentaja mainitsee stressin hallintaan?",
+        "options": [
+          "Kahvin juonti ja tv:n katselu.",
+          "Enemmän töitä ja vähemmän lepoa.",
+          "Tietoinen läsnäolo ja luonnossa liikkuminen.",
+          "Enemmän aikaa somessa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "12d89bd7-6c6a-5fc4-8c43-de72aa046716",
+        "prompt": "Mitä valmentaja sanoo sosiaalisista suhteista?",
+        "options": [
+          "Ne eivät ole tärkeitä terveyden kannalta.",
+          "On parempi olla yksin kuin huonossa seurassa.",
+          "Yksinäisyys on merkittävä terveysriski.",
+          "Some korvaa ihmissuhteet."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

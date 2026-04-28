@@ -1,0 +1,66 @@
+{
+  "id": "ac4316a0-78cc-5b3a-9bcc-da078f37342b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.734,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue poliittinen analyysi ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SUOMEN POLITIIKAN UUSI AIKAKAUSI\n\nSuomalainen poliittinen kenttä on kokenut merkittävän muutoksen viimeisen vuosikymmenen aikana. Perinteiset ideologiset rajat ovat hämärtyneet, ja uudet teemat, kuten ilmastonmuutos ja maahanmuutto, ovat nousseet keskiöön. Politiikan tutkija Hanna Wass kuvaa ilmiötä 'uuden aikakauden politiikaksi'. Hänen mukaansa äänestäjät eivät enää sitoudu puolueisiin samalla tavalla kuin ennen, vaan äänestyspäätökset tehdään yhä useammin yksittäisten kysymysten perusteella. Tämä on johtanut puoluekentän pirstaloitumiseen ja hallitusten muodostamisen vaikeutumiseen.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten äänestyskäyttäytyminen on muuttunut Hanna Wassin mukaan?",
+        "options": [
+          "Ihmiset äänestävät aina samaa puoluetta",
+          "Äänestyspäätökset tehdään yksittäisten kysymysten perusteella",
+          "Äänestysprosentti on laskenut",
+          "Nuoret eivät äänestä ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uusia teemoja on noussut keskiöön?",
+        "options": [
+          "Talous ja työllisyys",
+          "Ilmastonmuutos ja maahanmuutto",
+          "Koulutus ja terveydenhuolto",
+          "Verotus ja eläkkeet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä seurauksia muutoksella on ollut?",
+        "options": [
+          "Puoluekenttä on vahvistunut",
+          "Hallitusten muodostaminen on vaikeutunut",
+          "Politiikka on yksinkertaistunut",
+          "Äänestäjät ovat sitoutuneempia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

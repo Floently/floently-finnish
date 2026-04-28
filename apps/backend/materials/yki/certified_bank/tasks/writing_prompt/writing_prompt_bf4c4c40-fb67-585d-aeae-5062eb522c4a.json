@@ -1,0 +1,37 @@
+{
+  "id": "bf4c4c40-fb67-585d-aeae-5062eb522c4a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on paljon roskia ja lasinsiruja. Ne ovat vaarallisia lapsille ja lemmikeille. Kerro, missä kohdassa roskat ovat. Pyydä siivousta.",
+    "materials": {
+      "scenario": "Ilmoitus roskista pihalla"
+    },
+    "items": [
+      {
+        "id": "2155e29d-d5ba-5a17-a284-79fd22cad341",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on paljon roskia ja lasinsiruja. Ne ovat vaarallisia lapsille ja lemmikeille. Kerro, missä kohdassa roskat ovat. Pyydä siivousta."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nSiivouspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "e63bddc7-aff5-5010-900c-0a892c401fed",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Työvuorot ensi viikolle: ma 8–16, ti vapaa, ke 10–18, to 8–16, pe 12–20. Ilmoita, jos jokin vuoro ei sovi. Terveisin, Marjo  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_010_q1",
+        "prompt": "Kuka lähetti viestin?",
+        "options": [
+          "esimies",
+          "Marjo",
+          "työkaveri",
+          "asiakas"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_010_q2",
+        "prompt": "Minä päivänä on vapaapäivä?",
+        "options": [
+          "maanantaina",
+          "tiistaina",
+          "keskiviikkona",
+          "torstaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_010_q3",
+        "prompt": "Mitä pitää tehdä, jos jokin vuoro ei sovi?",
+        "options": [
+          "tulla silti töihin",
+          "ilmoittaa Marjolle",
+          "vaihtaa vuoroa itse",
+          "soittaa asiakkaalle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

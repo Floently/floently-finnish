@@ -1,0 +1,66 @@
+{
+  "id": "67f98e3b-7894-56e6-ab9d-56470191c291",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele sääennuste ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Ja sitten säätiedotus. Huomenna on aurinkoista ja poutaa. Lämpötila on päivällä 22 astetta. Illalla voi tulla vähän sadetta. Tuuli on heikkoa. Viikonloppuna sää viilenee, lämpötila on noin 15 astetta ja sataa enemmän. Yöllä lämpötila laskee 10 asteeseen. Mukavaa päivänjatkoa!",
+      "audio_asset_id": "98616121-ea42-4e9c-99c4-2a77138d4f3a"
+    },
+    "questions": [
+      {
+        "id": "e85b300c-22ce-506e-a2a6-0ebfa66cb50a",
+        "prompt": "Millainen sää huomenna on päivällä?",
+        "options": [
+          "Sateinen",
+          "Aurinkoinen",
+          "Pilvinen",
+          "Myrskyinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e353c89b-179b-56eb-b3a9-f8d1d6d95eec",
+        "prompt": "Paljonko on lämpötila huomenna?",
+        "options": [
+          "15 astetta",
+          "18 astetta",
+          "20 astetta",
+          "22 astetta"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "7bf6eae5-2ad6-524b-bf41-bd552c87235d",
+        "prompt": "Millainen sää on viikonloppuna?",
+        "options": [
+          "Lämpimämpi",
+          "Viileämpi ja sateisempi",
+          "Tuulisempi",
+          "Sama"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

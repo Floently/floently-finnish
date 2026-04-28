@@ -1,0 +1,66 @@
+{
+  "id": "979460f3-c4a5-56a4-bdbd-21488b303401",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TYÖELÄMÄN MUUTOKSET – MIHIN OLEMME MENOSSA?\n\nTyöelämä on muuttunut viime vuosikymmeninä enemmän kuin koskaan. Teollisuustyö on vähentynyt, ja palveluala on kasvanut. Teknologia on muuttanut työn tekemisen tapoja. Etätyö on yleistynyt, ja yhä useampi tekee työtä itsenäisesti, ilman kiinteää työpaikkaa.\n\nYksi suurimmista muutoksista on työn pirstaloituminen. Vakituiset, kokoaikaiset työsuhteet vähenevät, ja tilalle tulee osa-aikatyötä, keikkatyötä ja nollasopimuksia. Tämä tuo joustavuutta mutta myös epävarmuutta. Työntekijän on vaikea suunnitella talouttaan ja elämäänsä, jos työtunnit vaihtelevat.\n\nToinen muutos on jatkuvan oppimisen vaatimus. Työtehtävät muuttuvat, ja uusia taitoja tarvitaan koko ajan. Se, mitä opiskeltiin nuorena, ei välttämättä riitä koko työuraksi. Jatkuva kouluttautuminen on välttämätöntä, mikä voi olla raskasta ja kallista.\n\nKolmas muutos on työn ja vapaa-ajan rajan hämärtyminen. Kun työtä tehdään etänä ja puhelin on aina mukana, työasiat voivat seurata kotiin. Työntekijän on vaikea irrottautua, mikä lisää stressiä ja heikentää palautumista.\n\nMyönteistä on, että työelämä on monimuotoistunut. Erilaisille työntekijöille on tilaa, ja työn voi usein räätälöidä omaan elämäntilanteeseen sopivaksi. Myös työhyvinvointiin panostetaan enemmän kuin ennen.\n\nAsiantuntijat uskovat, että muutos jatkuu. Tekoäly ja automaatio muuttavat monia ammatteja, ja uusia ammatteja syntyy. Työelämä vaatii tulevaisuudessa joustavuutta, oppimiskykyä ja sosiaalisia taitoja. On tärkeää, että yhteiskunta tukee ihmisiä muutoksessa – koulutuksella, sosiaaliturvalla ja työvoimapalveluilla.",
+      "word_count": 195
+    },
+    "questions": [
+      {
+        "id": "58c620fd-a909-5f43-b2aa-fe660c6c3b5a",
+        "prompt": "Mitä tarkoittaa työn pirstaloituminen?",
+        "options": [
+          "Työtä tehdään vain yhdessä paikassa",
+          "Vakituiset työsuhteet vähenevät ja tilalle tulee osa-aika- ja keikkatyötä",
+          "Kaikki työskentelevät etänä",
+          "Työaika on aina sama"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "82b9c794-d5bd-5bb0-beb6-e46fa41a7e16",
+        "prompt": "Mitä haasteita työn ja vapaa-ajan rajan hämärtyminen aiheuttaa?",
+        "options": [
+          "Työntekijät ovat onnellisempia",
+          "Työntekijän on vaikea irrottautua, mikä lisää stressiä",
+          "Työntekijät saavat enemmän vapaa-aikaa",
+          "Työntekijät eivät halua vapaata"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8336a467-68fd-5ad5-ba4e-b87dab990943",
+        "prompt": "Mitä taitoja työelämä tulevaisuudessa vaatii?",
+        "options": [
+          "Vain teknisiä taitoja",
+          "Joustavuutta, oppimiskykyä ja sosiaalisia taitoja",
+          "Vain kielitaitoa",
+          "Vain fyysistä kuntoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

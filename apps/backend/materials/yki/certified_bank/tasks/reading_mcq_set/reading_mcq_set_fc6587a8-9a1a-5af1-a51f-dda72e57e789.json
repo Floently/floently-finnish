@@ -1,0 +1,77 @@
+{
+  "id": "fc6587a8-9a1a-5af1-a51f-dda72e57e789",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.769,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TERVEYSPALVELUJEN TULEVAISUUS – TEKNOLOGIA, TALOUS JA TASA-ARVO\n\nTerveydenhuolto on murroksessa. Väestön ikääntyminen, uusien hoitojen kalleus ja samanaikainen tarve hillitä kustannuksia luovat paineita järjestelmälle. Suomessa tilanne on erityisen haastava, sillä julkinen terveydenhuolto on perinteisesti ollut vahvaa, mutta samalla se kärsii resurssipulasta ja alueellisista eroista.\n\nTeknologian kehitys tarjoaa uusia ratkaisuja. Digitaaliset palvelut, etävastaanotot ja hyvinvointisovellukset yleistyvät nopeasti. Ne voivat parantaa palvelujen saatavuutta harvaan asutuilla alueilla ja vähentää turhia käyntejä terveysasemilla. Tekoäly voi auttaa diagnostiikassa, seuloa kuvausmateriaalista poikkeamia ja tukea lääkäreiden päätöksentekoa.\n\nTerveysteknologia herättää myös eettisiä kysymyksiä. Jos kaikilla ei ole tasavertaista mahdollisuutta käyttää digitaalisia palveluita – joko digitaitojen puutteen tai laitteiden puuttumisen vuoksi – syntyy uudenlainen digitaalinen kuilu. Vanhukset, vähävaraiset ja syrjäseuduilla asuvat voivat jäädä paitsi palveluista.\n\nToinen merkittävä kysymys koskee tiedon omistajuutta ja yksityisyyttä. Terveystieto on äärimmäisen arkaluonteista. Kenellä on oikeus käyttää potilastietoja ja mihin tarkoituksiin? Jos terveystietoja voidaan hyödyntää kaupallisesti tai vakuutuspäätöksissä, se voi johtaa epätasa-arvon kasvuun ja syrjintään.\n\nTaloudellisesta näkökulmasta terveydenhuollon rahoitus on jatkuvan paineen alla. Yksityisten palveluiden rooli on kasvanut, mikä herättää kysymyksiä siitä, säilyykö julkinen terveydenhuolto jatkossakin kaikkien saatavilla. Jos vain hyvätuloiset voivat ostaa itselleen nopean ja laadukkaan hoidon, eriarvoisuus lisääntyy.\n\nTulevaisuudessa tarvitaan todennäköisesti monikanavainen malli, jossa julkinen, yksityinen ja kolmas sektori täydentävät toisiaan. Tärkeintä on kuitenkin varmistaa, että perusperiaate – kaikille saatavilla oleva, tarpeenmukainen hoito – ei vaarannu. Teknologian tulee olla väline, joka palvelee tätä tavoitetta, ei itsetarkoitus.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 255
+    },
+    "questions": [
+      {
+        "id": "340123b3-5cfe-5020-aa29-8ec8afa295c1",
+        "prompt": "Mitä mahdollisuuksia teknologia tarjoaa terveydenhuollolle?",
+        "options": [
+          "Se korvaa kokonaan ihmistyöntekijät",
+          "Se voi parantaa palvelujen saatavuutta ja vähentää turhia käyntejä",
+          "Se tekee terveydenhuollosta täysin ilmaista",
+          "Se poistaa kaikki terveysongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1493336b-5862-5702-9ba3-1cd23c3b3411",
+        "prompt": "Mitä tarkoitetaan digitaalisella kuilulla terveydenhuollossa?",
+        "options": [
+          "Eroa kaupunkien ja maaseudun verkkoyhteyksissä",
+          "Sitä, että osa ihmisistä jää paitsi digitaalisista palveluista taitojen tai laitteiden puutteen vuoksi",
+          "Teknologian ja lääkäreiden välistä yhteistyön puutetta",
+          "Sitä, että terveystietoja ei voida siirtää järjestelmästä toiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "74e680e2-d40c-58e6-8ae7-1f0347059a07",
+        "prompt": "Mitä eettisiä huolia terveystietojen käyttöön liittyy?",
+        "options": [
+          "Tietoja voidaan käyttää kaupallisesti tai syrjivästi",
+          "Tietoja on liian vaikea suojata",
+          "Potilaat eivät halua jakaa tietojaan",
+          "Tietoja ei voida käyttää tutkimukseen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "da4711eb-623d-54bc-9bce-14b193a62518",
+        "prompt": "Mikä on tekstin mukaan tärkein periaate, joka pitää säilyttää terveydenhuollon murroksessa?",
+        "options": [
+          "Teknologian maksimaalinen käyttö",
+          "Yksityisten palveluiden lisääminen",
+          "Kaikille saatavilla oleva, tarpeenmukainen hoito",
+          "Kustannusten minimointi"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

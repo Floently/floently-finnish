@@ -1,0 +1,66 @@
+{
+  "id": "cefed995-a276-5932-bb22-541a594fe4a6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen mediakenttä on monipuolinen ja luottamus mediaan on kansainvälisesti korkealla tasolla. Yleisradio eli Yle on valtion omistama julkinen palveluyhtiö, joka tarjoaa maksuttomia televisio- ja radiokanavia sekä verkkosisältöjä. Ylen toimintaa rahoitetaan Yle-verolla. Kaupallisia kanavia ovat esimerkiksi MTV ja Nelonen, jotka rahoittavat toimintansa mainoksilla. Sanomalehdistä suurimpia ovat Helsingin Sanomat, Ilta-Sanomat ja Iltalehti. Nykyään yhä useammat lukevat uutiset verkosta, ja monet mediat ovat siirtyneet maksullisiin verkkosisältöihin. Suomalaiset seuraavat uutisia aktiivisesti, ja sosiaalinen media on kasvattanut merkitystään uutislähteenä erityisesti nuorten keskuudessa. Mediataidot ovat tärkeitä, jotta osaa arvioida tiedon luotettavuutta ja tunnistaa mahdollisen disinformaation. Kouluissa opetetaan mediakasvatusta, ja esimerkiksi Yle tarjoaa oppimateriaaleja koulujen käyttöön.",
+      "word_count": 99
+    },
+    "questions": [
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Miten Ylen toiminta rahoitetaan?",
+        "options": [
+          "Mainoksilla",
+          "Yle-verolla",
+          "Lahjoituksilla",
+          "Valtion budjetista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c8d9e0f1-a2b3-4c4d-9e5f-6a7b8c9d0e1f",
+        "prompt": "Mikä on esimerkki kaupallisesta televisiokanavasta?",
+        "options": [
+          "Yle TV1",
+          "Yle Radio Suomi",
+          "MTV",
+          "Yle Areena"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d9e0f1a2-b3c4-4d5e-9f6a-7b8c9d0e1f2a",
+        "prompt": "Miksi mediataidot ovat tärkeitä?",
+        "options": [
+          "Jotta osaa kirjoittaa uutisia",
+          "Jotta osaa arvioida tiedon luotettavuutta ja tunnistaa disinformaation",
+          "Jotta pääsee töihin mediaan",
+          "Jotta voi tehdä somevideoita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

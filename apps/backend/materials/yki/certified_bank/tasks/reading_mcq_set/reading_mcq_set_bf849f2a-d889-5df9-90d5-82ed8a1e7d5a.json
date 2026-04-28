@@ -1,0 +1,77 @@
+{
+  "id": "bf849f2a-d889-5df9-90d5-82ed8a1e7d5a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.608,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue raportti nuorten iltakahvilasta ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Kaupungin nuorisopalvelut pilotoi uuden iltakahvilamallin, jossa nuorille tarjotaan avoin kohtaamispaikka kolmena arki-iltana viikossa. Pilotti syntyi, koska aiemmissa kyselyissä nousi esiin tarve turvalliselle paikalle, jossa voi viettää aikaa ilman osallistumispakkoa. Toiminnan alkuvaiheessa kävijöitä oli vaihtelevasti, mutta kolmen kuukauden jälkeen osallistujamäärä vakiintui ja erityisesti yksin tulevien nuorten osuus kasvoi. Ohjaajat arvioivat, että matala kynnys on ollut toiminnan vahvuus: kaikki ohjelma on vapaaehtoista, eikä kävijöiltä edellytetä ilmoittautumista. Samalla tämä on aiheuttanut haasteita resurssisuunnittelussa, koska kävijämäärä vaihtelee nopeasti. Arviointiraportissa todetaan, että toiminnan vaikuttavuus näkyy ennen kaikkea siinä, että nuoret viettävät enemmän aikaa valvotussa ympäristössä. Lisäksi yhteistyö koulun opiskeluhuollon kanssa on helpottunut, kun ohjaajat voivat ohjata tarvittaessa nuoria eteenpäin palveluihin. Raportti kuitenkin varoittaa, että toiminnan laajentaminen muihin kaupunginosiin vaatii pysyvän rahoitusmallin ja selkeän työnjaon eri viranomaisten välillä. Muuten riskinä on, että pilotti jää yksittäiseksi hankkeeksi ilman jatkuvuutta. Raportissa todetaan myös, että toiminnan vaikutuksia on vaikea verrata muihin palveluihin, ellei arviointikriteerejä täsmennetä etukäteen. Siksi seuraavaan vaiheeseen ehdotetaan yhteistä mittarikehikkoa, jossa seurataan kävijämäärän lisäksi palveluohjauksia, toistuvia käyntejä ja nuorten omaa kokemusta toiminnan merkityksestä. Lisäksi henkilöstö painottaa, että iltakahvilan ympärille tarvitaan selkeä yhteistyörakenne koulun, nuorisotyön ja sosiaalipalvelujen välille, jotta havaittuihin tarpeisiin voidaan reagoida nopeasti. Muuten ohjaajat joutuvat kantamaan vastuuta asioista, jotka kuuluvat muiden palvelujen toimivaltaan. Raportin mukaan pitkäjänteisyys edellyttää myös sitä, että toiminnan tavoitteet kirjataan osaksi kaupungin pysyvää palveluverkkoa eikä vain määräaikaista hankesuunnitelmaa.",
+      "word_count": 215
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä tarve pilotille syntyi?",
+        "options": [
+          "uuden koulun valmistumisesta",
+          "tarpeesta turvalliseen kohtaamispaikkaan",
+          "urheiluseuran aloitteesta",
+          "kirjaston sulkemisesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä nähtiin toiminnan vahvuutena?",
+        "options": [
+          "pakollinen ilmoittautuminen",
+          "matala kynnys ja vapaaehtoinen ohjelma",
+          "suljettu jäsenyys",
+          "lyhyt aukioloaika"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten vaikuttavuus raportin mukaan näkyi?",
+        "options": [
+          "nuorten kilpailumenestyksenä",
+          "nuorten ajan lisääntymisenä valvotussa ympäristössä",
+          "kustannusten puolittumisena",
+          "kävijämäärän nopeana laskuna"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä laajentaminen raportin mukaan edellyttää?",
+        "options": [
+          "vain vapaaehtoistyötä",
+          "pysyvää rahoitusta ja selkeää työnjakoa",
+          "toiminnan siirtoa yksityiselle toimijalle",
+          "kävijämäärän rajaamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

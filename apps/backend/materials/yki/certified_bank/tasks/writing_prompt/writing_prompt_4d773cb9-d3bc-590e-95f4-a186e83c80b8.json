@@ -1,0 +1,37 @@
+{
+  "id": "4d773cb9-d3bc-590e-95f4-a186e83c80b8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.301,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt palaute kurssista. Kerro yksi hyvä asia ja yksi huono asia.",
+    "materials": {
+      "scenario": "Palaute suomen kielen kurssista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita lyhyt palaute kurssista. Kerro yksi hyvä asia ja yksi huono asia."
+      }
+    ],
+    "rubric": "Kirjoita lyhyt palaute kurssista. Kerro yksi hyvä asia ja yksi huono asia.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

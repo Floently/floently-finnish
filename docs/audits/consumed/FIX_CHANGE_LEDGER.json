@@ -1,0 +1,292 @@
+{
+  "generated": "2026-04-11",
+  "agent": "fix-implementation-agent",
+  "changes": [
+    {
+      "id": "C-01",
+      "file": ".gitignore",
+      "type": "modified",
+      "audit_finding": "MF-01, MF-02, MF-09",
+      "reason": "Added runtime state, generated output, and Python artifact ignores for monorepo",
+      "verified_by": "manual inspection"
+    },
+    {
+      "id": "C-02",
+      "file": "apps/backend/main.py",
+      "type": "modified",
+      "audit_finding": "MF-03, SECURITY",
+      "reason": "CORS now uses settings (not wildcard); mock-login gated to development env",
+      "verified_by": "python3 import check — boot OK, 19 routes registered"
+    },
+    {
+      "id": "C-03",
+      "file": "apps/backend/api/router.py",
+      "type": "modified",
+      "audit_finding": "MF-04",
+      "reason": "Replaced silent dynamic loading with explicit named imports; fails loud on missing dependency",
+      "verified_by": "code inspection — no try/except swallowing"
+    },
+    {
+      "id": "C-04",
+      "file": "apps/backend/.env.example",
+      "type": "modified",
+      "audit_finding": "MF-07",
+      "reason": "Variable names aligned with core/config.py (FLOENTLY_ENV, SIGNED_SESSION_SECRET, YKI_ENGINE_BASE_URL)",
+      "verified_by": "manual diff vs config.py"
+    },
+    {
+      "id": "C-05",
+      "file": "apps/backend/core/config.py",
+      "type": "modified",
+      "audit_finding": "MF-07, SECURITY",
+      "reason": "Added production fail-fast guard on missing SIGNED_SESSION_SECRET; CORS reads from env var",
+      "verified_by": "python3 import check"
+    },
+    {
+      "id": "C-06",
+      "file": "render.yaml",
+      "type": "modified",
+      "audit_finding": "MF-07",
+      "reason": "Added all required env var stubs for Render deployment",
+      "verified_by": "manual inspection"
+    },
+    {
+      "id": "C-07",
+      "file": "docker-compose.yml",
+      "type": "modified",
+      "audit_finding": "MF-07",
+      "reason": "Fixed env_file from .env.example to .env",
+      "verified_by": "manual inspection"
+    },
+    {
+      "id": "C-08",
+      "file": "packages/core/api/apiConfig.ts",
+      "type": "modified",
+      "audit_finding": "MF-06",
+      "reason": "Removed dependency on non-existent @core/config/env; reads EXPO_PUBLIC_* env vars directly",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-09",
+      "file": "packages/core/api/client.ts",
+      "type": "modified",
+      "audit_finding": "MF-06",
+      "reason": "Replaced hardcoded http://localhost:8000 with getApiBaseUrl() call",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-10",
+      "file": "packages/core/apiConfig.ts",
+      "type": "modified",
+      "audit_finding": "MF-06",
+      "reason": "Converted to compatibility re-export shim; single source of truth now in api/apiConfig.ts",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-11",
+      "file": "packages/core/apiClient.ts",
+      "type": "modified",
+      "audit_finding": "MF-06",
+      "reason": "Converted to compatibility re-export shim; single source of truth now in api/client.ts",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-12",
+      "file": "packages/core/api/apiClient.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Fixed import path from @core/logging/logger to ../logging/logger (relative)",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-13",
+      "file": "packages/core/models/apiTypes.ts",
+      "type": "created",
+      "audit_finding": "MF-05",
+      "reason": "Required by api/apiClient.ts but missing from repo",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-14",
+      "file": "packages/core/logging/logger.ts",
+      "type": "created",
+      "audit_finding": "MF-05",
+      "reason": "Required by api/apiClient.ts and AppShell.tsx but missing from repo",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-15",
+      "file": "packages/core/api/auth.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Added AuthUser, StoredAuthSession, isStoredAuthSession, and authService exports required by authStore.ts",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-16",
+      "file": "packages/core/api/examRuntime.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Added proper generic types so useExamSession.ts gets correct return types",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-17",
+      "file": "packages/core/api/health.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Removed reference to non-existent ApiClient named export from client.ts",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-18",
+      "file": "packages/core/api/cards.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Added explicit generic types to fix TS2339/TS2322 errors on res.data access",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-19",
+      "file": "apps/client/tsconfig.json",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Added @core/* and @ui/* path aliases used throughout the client",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-20",
+      "file": "apps/client/app/index.tsx",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Fixed named import to default import; corrected relative path depth (3 not 4)",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-21",
+      "files": [
+        "apps/client/app/learn/index.tsx",
+        "apps/client/app/professional/index.tsx",
+        "apps/client/app/progress/index.tsx",
+        "apps/client/app/settings/index.tsx",
+        "apps/client/app/speaking/index.tsx",
+        "apps/client/app/yki-practice/index.tsx"
+      ],
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Fixed named imports ({ScreenName}) to default imports for screens that use default export",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-22",
+      "files": [
+        "apps/client/app/auth/login.tsx",
+        "apps/client/app/auth/register.tsx",
+        "apps/client/app/billing/subscription.tsx",
+        "apps/client/app/onboarding/index.tsx",
+        "apps/client/app/onboarding/frequency.tsx",
+        "apps/client/app/onboarding/intent.tsx",
+        "apps/client/app/onboarding/plan.tsx",
+        "apps/client/app/onboarding/profession.tsx"
+      ],
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Fixed wrong relative path depth (../../../ → ../../) for routes in app/<section>/ directories",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-23",
+      "file": "apps/client/.expo/types/router.d.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Stale — only knew about original Expo starter routes. Regenerated with all 31 product routes",
+      "verified_by": "tsc --noEmit passes — TS2345 route errors resolved"
+    },
+    {
+      "id": "C-24",
+      "file": "apps/client/package.json",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Added missing dependencies: zustand, expo-av, @react-native-async-storage/async-storage",
+      "verified_by": "npm install succeeded; tsc --noEmit passes"
+    },
+    {
+      "id": "C-25",
+      "files": [
+        "packages/ui/primitives/Card.tsx",
+        "packages/ui/primitives/ScreenContainer.tsx",
+        "packages/ui/primitives/Stack.tsx",
+        "packages/ui/primitives/Text.tsx",
+        "packages/ui/screens/ApplicationErrorScreen.tsx",
+        "packages/ui/screens/CertificateScreen.tsx"
+      ],
+      "type": "created",
+      "audit_finding": "MF-05",
+      "reason": "Required by client code via @ui/* alias but missing from packages/ui",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-26",
+      "files": [
+        "apps/client/state/navigationModel.ts",
+        "apps/client/state/appFlowStore.ts",
+        "apps/client/state/networkStore.ts",
+        "apps/client/state/sessionPersistence.ts",
+        "apps/client/state/AuthRoute.tsx",
+        "apps/client/state/FeatureEntryRoute.tsx",
+        "apps/client/state/HomeRoute.tsx",
+        "apps/client/state/LearningRoute.tsx",
+        "apps/client/state/YkiPracticeRoute.tsx",
+        "apps/client/state/YkiExamRoute.tsx"
+      ],
+      "type": "created",
+      "audit_finding": "MF-05",
+      "reason": "Imported by AppShell.tsx but missing from the repo",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-27",
+      "files": [
+        "apps/client/features/yki-practice/services/ykiPracticeService.ts",
+        "apps/client/features/yki-exam/services/ykiExamService.ts",
+        "apps/client/features/learning/services/learningService.ts"
+      ],
+      "type": "created",
+      "audit_finding": "MF-05",
+      "reason": "Imported by AppShell.tsx but missing from repo",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-28",
+      "file": "packages/ui/components/AppScaffold.tsx",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "title prop made optional — some screens use internal PageHeader and don't need scaffold title",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-29",
+      "file": "apps/client/state/authStore.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Fixed wrong import path (../../packages → @core alias)",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-30",
+      "file": "apps/client/features/onboarding/routes.ts",
+      "type": "modified",
+      "audit_finding": "MF-05",
+      "reason": "Added `as const` so route strings are literal types, resolving TS2345 in router.replace calls",
+      "verified_by": "tsc --noEmit passes"
+    },
+    {
+      "id": "C-31",
+      "file": ".github/workflows/ci.yml",
+      "type": "modified",
+      "audit_finding": "MF-08",
+      "reason": "Removed `|| true` from pytest and tsc steps — CI now gates on real failures",
+      "verified_by": "manual inspection"
+    }
+  ]
+}

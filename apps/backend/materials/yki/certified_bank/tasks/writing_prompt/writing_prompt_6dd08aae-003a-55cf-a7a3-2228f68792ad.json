@@ -1,0 +1,37 @@
+{
+  "id": "6dd08aae-003a-55cf-a7a3-2228f68792ad",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti puhelinoperaattorille. Olet saanut laskun, vaikka olet jo maksanut sen. Kerro laskun numero ja päivämäärä. Kerro, että maksoit sen verkkopankissa. Kysy, miksi lasku tuli uudelleen.",
+    "materials": {
+      "scenario": "Viesti puhelinoperaattorille laskusta"
+    },
+    "items": [
+      {
+        "id": "cdd0bc45-caed-500d-8133-5a224b7dc7ce",
+        "prompt": "Kirjoita lyhyt viesti puhelinoperaattorille. Olet saanut laskun, vaikka olet jo maksanut sen. Kerro laskun numero ja päivämäärä. Kerro, että maksoit sen verkkopankissa. Kysy, miksi lasku tuli uudelleen."
+      }
+    ],
+    "rubric": "Kerro, että olet saanut laskun\nKerro, että olet jo maksanut sen\nKerro laskun numero\nKysy, miksi lasku tuli uudelleen",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

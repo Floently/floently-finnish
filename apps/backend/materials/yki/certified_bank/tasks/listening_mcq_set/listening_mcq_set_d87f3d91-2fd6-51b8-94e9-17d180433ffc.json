@@ -1,0 +1,88 @@
+{
+  "id": "d87f3d91-2fd6-51b8-94e9-17d180433ffc",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kaupungin budjetista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Oletko lukenut uutisia kaupungin budjetista? He aikovat leikata kulttuurilta viisi miljoonaa. Henkilö B: Järkyttävää! Se tarkoittaa varmaan teattereiden ja orkestereiden toiminnan supistuksia. Henkilö A: Niin juuri. Ja samalla he aikovat lisätä liikuntapaikkojen rakentamiseen kaksi miljoonaa. Henkilö B: No liikuntapaikatkin ovat tärkeitä, mutta eikö kulttuuri ole yhtä tärkeää? Henkilö A: Samaa mieltä. Kaupunki perustelee, että liikunta edistää terveyttä ja säästää terveysmenoja pitkällä tähtäimellä. Henkilö B: Ymmärrän sen, mutta kulttuurillakin on terveysvaikutuksia. Se vähentää stressiä ja lisää hyvinvointia. Henkilö A: Totta. Taitaa olla kyse siitä, kenen ääni kuuluu päätöksenteossa. Urheiluväki on ilmeisesti ollut aktiivisempi lobbaamaan. Henkilö B: Harmi. Pitäisiköhän meidän kirjoittaa mielipidekirjoitus paikallislehteen?",
+      "audio_asset_id": "f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c"
+    },
+    "questions": [
+      {
+        "id": "l72q1",
+        "prompt": "Kuinka paljon kaupunki aikoo leikata kulttuurilta?",
+        "options": [
+          "Kaksi miljoonaa.",
+          "Kolme miljoonaa.",
+          "Viisi miljoonaa.",
+          "Kymmenen miljoonaa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l72q2",
+        "prompt": "Mihin kaupunki aikoo lisätä rahoitusta?",
+        "options": [
+          "Koulutukseen.",
+          "Terveydenhuoltoon.",
+          "Liikuntapaikkojen rakentamiseen.",
+          "Julkiseen liikenteeseen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l72q3",
+        "prompt": "Miten kaupunki perustelee liikuntapaikkojen lisärahoitusta?",
+        "options": [
+          "Liikunta on suosittua.",
+          "Liikunta edistää terveyttä ja säästää terveysmenoja pitkällä tähtäimellä.",
+          "Liikuntapaikat ovat huonossa kunnossa.",
+          "Liikunta tuo turisteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l72q4",
+        "prompt": "Mitä hyötyjä kulttuurilla henkilö B:n mukaan on?",
+        "options": [
+          "Se tuo turisteja.",
+          "Se vähentää stressiä ja lisää hyvinvointia.",
+          "Se työllistää.",
+          "Se on viihdyttävää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l72q5",
+        "prompt": "Mitä henkilöt harkitsevat tekevänsä asian tiimoilta?",
+        "options": [
+          "Järjestävät mielenosoituksen.",
+          "Kirjoittavat mielipidekirjoituksen lehteen.",
+          "Keräävät adressia.",
+          "Tapaavat kaupungin päättäjiä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

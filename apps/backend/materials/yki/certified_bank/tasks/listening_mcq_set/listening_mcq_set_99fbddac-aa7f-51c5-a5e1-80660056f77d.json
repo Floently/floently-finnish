@@ -1,0 +1,66 @@
+{
+  "id": "99fbddac-aa7f-51c5-a5e1-80660056f77d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Lääkäri: Huomenta, mitä teille kuuluu?\nPotilas: Huomenta. Minulla on ollut kurkku kipeänä ja yskä on vaivannut jo viikon.\nLääkäri: Onko teillä kuumetta?\nPotilas: Kyllä, eilen oli 38,5. Tänään aamulla mittasin 37,8.\nLääkäri: Hyvä, että tulitte. Kuunnellaan keuhkot. (Kuuntelee) Hengittäkää syvään. Keuhkot kuulostavat puhtailta. Kyseessä on todennäköisesti virusinfektio. Lepo ja runsas nesteen juonti auttavat. Jos oireet jatkuvat yli viikon, voitte tulla uudelleen.\nPotilas: Tarvitsenko sairauslomatodistuksen töihin?\nLääkäri: Kyllä, kirjoitan teille sairauslomaa kolmeksi päiväksi.",
+      "audio_asset_id": "a46a1aea-9518-5f5a-be7b-9ad7aef561bb"
+    },
+    "questions": [
+      {
+        "id": "list_028",
+        "prompt": "Mitä oireita potilaalla on?",
+        "options": [
+          "Päänsärkyä ja vatsakipua",
+          "Kurkkukipua ja yskää",
+          "Selkäkipua ja huimausta",
+          "Nenä vuotaa ja silmät kutiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_029",
+        "prompt": "Mikä on lääkärin arvion mukaan kyseessä?",
+        "options": [
+          "Bakteeri-infektio",
+          "Virusinfektio",
+          "Allergia",
+          "Astma"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_030",
+        "prompt": "Kuinka pitkän sairausloman lääkäri kirjoittaa?",
+        "options": [
+          "Kaksi päivää",
+          "Kolme päivää",
+          "Neljä päivää",
+          "Viisi päivää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

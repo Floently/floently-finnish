@@ -1,0 +1,66 @@
+{
+  "id": "1e33c47e-3c93-58ef-893a-00958dc9fc44",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pysäköintiohje ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ASUKASPYSÄKÖINTI\n\nTämä pysäköintialue on tarkoitettu vain asukkaille, joilla on voimassa oleva asukaspysäköintitunnus.\n\nVieraspaikat:\nVieraat voivat pysäköidä merkityille vieraspaikoille enintään 4 tunniksi. Vieraspaikoilla pitää käyttää vieraskiekkoa.\n\nPysäköintialueella nopeusrajoitus 20 km/h.\n\nHUOM! Älä pysäköi paloautotien eteen.",
+      "word_count": 34
+    },
+    "questions": [
+      {
+        "id": "ce70ee03-d9e8-5d9f-8ad3-b40ada65b403",
+        "prompt": "Kuka saa pysäköidä asukaspaikoille?",
+        "options": [
+          "Kaikki",
+          "Vain asukkaat",
+          "Vain vieraat",
+          "Kaikki, joilla on auto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "82e7dcc9-e4fa-5416-ac44-376e56dd259f",
+        "prompt": "Kuinka pitkäksi aikaa vieras voi pysäköidä?",
+        "options": [
+          "2 tuntia",
+          "3 tuntia",
+          "4 tuntia",
+          "5 tuntia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "47dfa04d-c25d-57ca-9968-b7f6d6ee4e5f",
+        "prompt": "Mikä on nopeusrajoitus pysäköintialueella?",
+        "options": [
+          "10 km/h",
+          "20 km/h",
+          "30 km/h",
+          "40 km/h"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

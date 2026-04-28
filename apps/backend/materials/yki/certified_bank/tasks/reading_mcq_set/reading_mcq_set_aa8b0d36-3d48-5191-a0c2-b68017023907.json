@@ -1,0 +1,66 @@
+{
+  "id": "aa8b0d36-3d48-5191-a0c2-b68017023907",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "UIMAHALLI ILMOITTAA\n\nUimahalli on suljettu 15.7.–28.7. vuosihuollon vuoksi.\n\nPoikkeukset aukioloajoissa:\n- Ma 14.7. avoinna vain klo 8–12\n- La 29.7. avoinna klo 10–20 (normaalisti 9–16)\n\nHuom! Lasten uimakoulut alkavat 5.8. Ilmoittautuminen uimakouluihin päättyy 20.7.\n\nPahoittelemme häiriötä.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "e25fde31-2406-5993-897a-0b4c89b59da1",
+        "prompt": "Miksi uimahalli on kiinni heinäkuussa?",
+        "options": [
+          "Lomien takia",
+          "Vuosihuollon takia",
+          "Henkilökunnan koulutuksen takia",
+          "Vähäisen kävijämäärän takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "42de944b-eeb4-5860-a988-564bafe44aaf",
+        "prompt": "Kuinka monta päivää uimahalli on kiinni?",
+        "options": [
+          "10 päivää",
+          "12 päivää",
+          "14 päivää",
+          "16 päivää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "5319e9e6-85b4-5c0f-8bf7-851051cbd21e",
+        "prompt": "Milloin uimakoulut alkavat?",
+        "options": [
+          "15.7.",
+          "28.7.",
+          "5.8.",
+          "20.8."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

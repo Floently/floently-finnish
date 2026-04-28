@@ -1,0 +1,110 @@
+{
+  "id": "4f684f3f-bee3-5387-8707-16e24027f0ed",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen väestö ikääntyy nopeammin kuin monessa muussa Euroopan maassa. Tämä johtuu pitkästä elinajanodotteesta ja alhaisesta syntyvyydestä. Ikääntyminen vaikuttaa moneen asiaan yhteiskunnassa. Työikäisten määrä vähenee, mikä tarkoittaa vähemmän veronmaksajia ja enemmän eläkeläisiä. Samaan aikaan sosiaali- ja terveyspalvelujen tarve kasvaa, kun yhä useampi ikääntynyt tarvitsee hoivaa ja hoitoa. Tämä luo paineita julkiselle taloudelle. Ratkaisuja on monia. Yksi on työurien pidentäminen, jotta ihmiset olisivat pidempään työelämässä. Toinen on teknologian hyödyntäminen hoivatyössä, esimerkiksi etähoivan ja robottien avulla. Myös maahanmuuttoa pidetään yhtenä keinona tuoda uusia työikäisiä Suomeen. Ikääntyminen ei ole vain ongelma, vaan se on myös mahdollisuus. Ikääntyneillä on paljon osaamista ja kokemusta, jota voidaan hyödyntää esimerkiksi vapaaehtoistyössä ja yritystoiminnassa.",
+      "word_count": 105
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi Suomen väestö ikääntyy nopeasti?",
+        "options": [
+          "Koska maahanmuutto on vähäistä.",
+          "Pitkän elinajanodotteen ja alhaisen syntyvyyden vuoksi.",
+          "Koska nuoret muuttavat ulkomaille.",
+          "Koska terveydenhuolto on huonoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten ikääntyminen vaikuttaa työikäisten määrään?",
+        "options": [
+          "Työikäisten määrä kasvaa.",
+          "Työikäisten määrä vähenee.",
+          "Työikäisten määrä pysyy samana.",
+          "Työikäisten määrällä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten ikääntyminen vaikuttaa sosiaali- ja terveyspalveluihin?",
+        "options": [
+          "Palvelujen tarve vähenee.",
+          "Palvelujen tarve kasvaa.",
+          "Palvelujen tarve pysyy samana.",
+          "Palveluja ei enää tarvita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja ikääntymisen tuomiin haasteisiin tekstissä mainitaan?",
+        "options": [
+          "Syntyvyyden lisäämistä ja eläkkeiden leikkaamista.",
+          "Työurien pidentämistä, teknologian hyödyntämistä ja maahanmuuttoa.",
+          "Vanhusten laitoshoidon lisäämistä.",
+          "Eläkeiän laskemista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten teknologiaa voidaan hyödyntää hoivatyössä?",
+        "options": [
+          "Korvaamalla kaikki hoitajat roboteilla.",
+          "Etähoivan ja robottien avulla.",
+          "Rakentamalla uusia hoitokoteja.",
+          "Lisäämällä lääkkeiden käyttöä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi maahanmuuttoa pidetään ratkaisuna ikääntymiseen?",
+        "options": [
+          "Maahanmuuttajat ovat aina nuoria.",
+          "Maahanmuutto tuo uusia työikäisiä Suomeen.",
+          "Maahanmuuttajat maksavat korkeampia veroja.",
+          "Maahanmuutto lisää syntyvyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen voi tuoda?",
+        "options": [
+          "Mahdollisuuden nuorentaa väestöä.",
+          "Mahdollisuuden hyödyntää ikääntyneiden osaamista ja kokemusta.",
+          "Mahdollisuuden vähentää terveysmenoja.",
+          "Mahdollisuuden luopua eläkkeistä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

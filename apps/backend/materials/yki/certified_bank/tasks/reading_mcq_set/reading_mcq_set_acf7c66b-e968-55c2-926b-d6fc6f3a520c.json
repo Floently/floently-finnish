@@ -1,0 +1,66 @@
+{
+  "id": "acf7c66b-e968-55c2-926b-d6fc6f3a520c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa julkinen liikenne vaihtelee alueittain. Pääkaupunkiseudulla HSL vastaa bussi-, raitiovaunu-, metro- ja lähijunaliikenteestä. Alueella on kattava verkosto, ja lippuja voi ostaa HSL-sovelluksella, lähikaupoista tai lippuautomaateista. Matkakortti on kätevä tapa maksaa matkoja, ja sillä voi ladata erilaisia lippuja. Suuremmissa kaupungeissa kuten Tampereella, Turussa ja Oulussa on myös toimivat paikallisliikennejärjestelmät. Kaupunkien välillä kulkevat VR:n kaukoliikenteen junat ja useat bussiyhtiöt, kuten Onnibus. Junaliikenne on yleensä nopein ja mukavin tapa matkustaa pidempiä matkoja, erityisesti eteläisen Suomen rataverkolla. Maaseudulla ja harvaan asutuilla alueilla julkinen liikenne on vähäisempää, ja siellä korostuvat kutsuliikenne ja koululaiskuljetukset. Monille auto on välttämättömyys, jos julkista liikennettä ei ole saatavilla.",
+      "word_count": 98
+    },
+    "questions": [
+      {
+        "id": "e0f1a2b3-c4d5-4e6f-9a7b-8c9d0e1f2a3b",
+        "prompt": "Mikä taho vastaa julkisesta liikenteestä pääkaupunkiseudulla?",
+        "options": [
+          "VR",
+          "HSL",
+          "Onnibus",
+          "Matkahuolto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f1a2b3c4-d5e6-4f7a-9b8c-9d0e1f2a3b4c",
+        "prompt": "Miten lippuja voi ostaa pääkaupunkiseudulla?",
+        "options": [
+          "Vain sovelluksella",
+          "Vain lähikaupoista",
+          "Sovelluksella, lähikaupoista tai lippuautomaateista",
+          "Vain kuljettajalta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a2b3c4d5-e6f7-4a8b-9c9d-0e1f2a3b4c5d",
+        "prompt": "Mikä on yleensä nopein tapa matkustaa pidempiä matkoja eteläisessä Suomessa?",
+        "options": [
+          "Bussi",
+          "Auto",
+          "Juna",
+          "Lentokone"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

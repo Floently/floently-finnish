@@ -1,0 +1,66 @@
+{
+  "id": "7ad5a184-96f5-57e3-bd83-5b9729e40ed8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Tekoäly kehittyy hurjaa vauhtia, ja sen sovellukset tulevat yhä syvemmälle arkeemme. Se auttaa meitä tekemään päätöksiä, suosittelee ostoksia, ajaa autoja ja jopa diagnosoi sairauksia. Mutta kuka vastaa, kun tekoäly tekee virheen? Ja millaisia arvoja me ohjelmoimme koneisiimme?\n\nNämä ovat eettisiä kysymyksiä, joita emme voi sivuuttaa. Tekoäly ei ole neutraali työkalu; se heijastaa niitä arvoja ja ennakkoluuloja, joita sen kehittäjillä on. Jos tekoälyä opetetaan datalla, joka sisältää syrjiviä rakenteita, se oppii ne. Tämä on jo nähty esimerkiksi Yhdysvalloissa, missä tekoälyyn perustuvat rikollisuuden ennustemallit ovat osoittautuneet rasistisiksi.\n\nToinen ongelma on läpinäkyvyys. Monet tekoälyjärjestelmät ovat niin monimutkaisia, että edes niiden kehittäjät eivät täysin ymmärrä, miten ne päätyvät tiettyihin päätöksiin. Tämä on ongelmallista esimerkiksi terveydenhuollossa tai lainkäytössä, missä päätöksillä on suuria vaikutuksia ihmisten elämään. Miten voimme luottaa järjestelmään, jonka toimintaa emme ymmärrä?\n\nKolmas haaste on työelämä. Tekoäly korvaa monia rutiinitehtäviä, mikä on sinänsä hyvä asia. Mutta mitä tapahtuu ihmisille, joiden työt katoavat? Tarvitaan uudenlaisia sosiaaliturvan malleja ja panostuksia uudelleenkoulutukseen. Muuten tekoäly voi lisätä eriarvoisuutta entisestään.\n\nLopuksi on kysymys vallasta. Ketkä omistavat tekoälyn ja sen tuottaman datan? Jos tekoäly keskittyy harvoille suuryrityksille, se voi johtaa ennennäkemättömään vallan keskittymiseen. Tarvitaan sääntelyä ja avoimuutta, jotta tekoäly palvelee koko yhteiskuntaa, ei vain harvoja etuja.\n\nTekoälyn kehitystä ei voi eikä pidä pysäyttää. Mutta meidän on varmistettava, että se kehittyy eettisesti kestävällä pohjalla. Tämä edellyttää laajaa yhteiskunnallista keskustelua, tutkimusta ja sääntelyä. Teknologia ei saa ajaa ihmisyyden ohi.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 260
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi tekoäly ei ole neutraali työkalu?",
+        "options": [
+          "A) Koska se on liian kallista",
+          "B) Koska se heijastaa kehittäjiensä arvoja ja ennakkoluuloja",
+          "C) Koska sitä on vaikea käyttää",
+          "D) Koska se on aina oikeassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ongelmia tekoälyn läpinäkyvyydessä on?",
+        "options": [
+          "A) Järjestelmät ovat liian yksinkertaisia",
+          "B) Järjestelmät ovat niin monimutkaisia, että niiden päätöksiä on vaikea ymmärtää",
+          "C) Kaikki ymmärtävät tekoälyä liian hyvin",
+          "D) Tekoäly ei tee päätöksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja ehdottaa tekoälyn ongelmien ratkaisuksi?",
+        "options": [
+          "A) Tekoälyn kehitys pitää pysäyttää",
+          "B) Tarvitaan yhteiskunnallista keskustelua, tutkimusta ja sääntelyä",
+          "C) Tekoäly annetaan vain suuryritysten käyttöön",
+          "D) Tekoälyä ei saa käyttää missään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

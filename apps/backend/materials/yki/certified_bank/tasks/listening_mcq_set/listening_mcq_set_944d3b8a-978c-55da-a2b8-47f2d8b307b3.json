@@ -1,0 +1,66 @@
+{
+  "id": "944d3b8a-978c-55da-a2b8-47f2d8b307b3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radiomainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Oletko väsynyt ikkunoiden pesuun? Haluaisitko nauttia kirkkaista näkymistä ilman vaivaa? Ikkunapesu Oy on täällä auttamassa! Me pesemme ikkunat ammattitaidolla niin kerrostaloissa, omakotitaloissa kuin toimistoissakin. Käytämme ympäristöystävällisiä aineita ja modernia kalustoa, jolla pääsemme käsiksi myös hankaliin paikkoihin. Hinta alkaen vain 50 euroa per käynti. Kotitalousvähennys on käytettävissä, joten saat ikkunoiden pesun vielä edullisemmaksi. Soita nyt ja tilaa ilmainen arvio! Numero on 0800 123 456. Muista myös verkkosivumme ikkunapesu.fi, josta voit varata ajan suoraan. Ikkunapesu Oy – kirkkaampi koti ilman vaivaa!",
+      "audio_asset_id": "6a3a591c-0eca-427e-a15a-f2f410c35ec1"
+    },
+    "questions": [
+      {
+        "id": "0ea80b54-5777-52cf-881e-14cc650e9775",
+        "prompt": "Mitä palvelua mainoksessa tarjotaan?",
+        "options": [
+          "Siivouspalvelua",
+          "Ikkunoiden pesua",
+          "Remonttipalvelua",
+          "Puutarhanhoitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "80482c72-10bc-55b3-863d-c3f7c1ae87ff",
+        "prompt": "Paljonko hinta alkaen on?",
+        "options": [
+          "30 euroa",
+          "40 euroa",
+          "50 euroa",
+          "60 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1d865c16-0a56-55e1-91d6-c02b063866c6",
+        "prompt": "Miten palvelun voi tilata?",
+        "options": [
+          "Vain sähköpostilla",
+          "Soittamalla tai verkkosivujen kautta",
+          "Vain käymällä paikan päällä",
+          "Tekstiviestillä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

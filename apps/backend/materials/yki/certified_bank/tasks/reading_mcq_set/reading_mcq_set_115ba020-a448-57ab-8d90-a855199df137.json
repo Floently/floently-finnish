@@ -1,0 +1,88 @@
+{
+  "id": "115ba020-a448-57ab-8d90-a855199df137",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.683,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen perhe on usein pieni. Perheessä on äiti, isä ja lapsia. Joskus on myös lemmikki. Koira tai kissa on lemmikki. Lapset leikkivät ja käyvät koulua. Vanhemmat käyvät töissä. Yhdessä ollaan iltaisin ja viikonloppuisin. Syödään yhdessä ja katsotaan televisiota. Kesällä mennään mökille. Talvella käydään hiihtämässä. Perhe on tärkeä. Se antaa turvaa ja rakkautta. Perheessä opitaan paljon.",
+      "word_count": 55
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen suomalainen perhe usein on?",
+        "options": [
+          "Suuri",
+          "Pieni",
+          "Monipuolinen",
+          "Kansainvälinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Keitä perheeseen kuuluu?",
+        "options": [
+          "Vain äiti ja isä",
+          "Äiti, isä ja lapsia",
+          "Vain lapsia",
+          "Vain isovanhempia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lemmikkejä perheillä usein on?",
+        "options": [
+          "Hamstereita ja kaneja",
+          "Koira tai kissa",
+          "Lintuja ja kaloja",
+          "Hevosia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin perhe on yhdessä?",
+        "options": [
+          "Vain aamuisin",
+          "Iltaisin ja viikonloppuisin",
+          "Vain kesällä",
+          "Vain talvella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä perhe antaa?",
+        "options": [
+          "Rahaa",
+          "Turvaa ja rakkautta",
+          "Ruokaa",
+          "Vaatteita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

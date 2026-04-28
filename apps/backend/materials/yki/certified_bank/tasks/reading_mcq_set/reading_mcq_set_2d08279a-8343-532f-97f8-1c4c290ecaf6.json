@@ -1,0 +1,88 @@
+{
+  "id": "2d08279a-8343-532f-97f8-1c4c290ecaf6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi suomalaisen koulutuksen muutoksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SUOMALAINEN KOULUTUS – IHMEESTÄ ARKEA?\n\n2000-luvun alussa suomalainen koulutus oli kansainvälinen ihmemaailma. PISA-tulokset olivat huippuluokkaa, ja ulkomaiset tutkijat matkustivat Suomeen oppimaan, miten ihme tehdään. Nyt tilanne on toinen: tulokset ovat laskeneet, ja kritiikki koulujärjestelmää kohtaan on kasvanut.\n\nMitä tapahtui? Yksinkertaista vastausta ei ole. Tutkijat ovat esittäneet useita syitä. Yksi on digitalisaatio. Vaikka tietokoneet ovat tuoneet paljon hyvää, ne ovat myös lisänneet häiriötekijöitä. Tutkimukset osoittavat, että jatkuva ruutuaika heikentää keskittymiskykyä.\n\nToinen syy on opettajien aseman heikkeneminen. Ennen opettajat olivat arvostettuja asiantuntijoita, joiden työhön ei puututtu. Nykyään he kokevat, että työhön tulee jatkuvasti uusia vaatimuksia ja byrokratiaa. Opettajapula on todellinen ongelma monilla paikkakunnilla.\n\nKolmas tekijä on oppilaiden eriytyminen. Koulujen väliset erot ovat kasvaneet, ja vanhempien koulutustausta vaikuttaa yhä enemmän lasten menestykseen. Suomi ei ole enää se tasa-arvoinen ihmemaa, jossa kaikilla on samat mahdollisuudet.\n\nMutta onko tilanne todella niin huono? Ehkä ongelma on siinä, että vertaamme itseämme menneisyyteen, emme muihin maihin. Kansainvälisesti vertailtuna suomalaislapset pärjäävät edelleen hyvin. Ongelma on, että odotukset ovat korkealla.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 193
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä PISA-tuloksille on tapahtunut?",
+        "options": [
+          "Ne ovat parantuneet",
+          "Ne ovat laskeneet",
+          "Ne ovat pysyneet samoina",
+          "Niitä ei enää mitata"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on yksi syy tulosten laskuun?",
+        "options": [
+          "Oppilaat eivät halua oppia",
+          "Digitalisaatio ja jatkuva ruutuaika",
+          "Kouluja on liian vähän",
+          "Opettajat ovat huonoja"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten opettajien asema on muuttunut?",
+        "options": [
+          "Se on parantunut",
+          "Se on heikentynyt ja työhön tulee jatkuvasti uusia vaatimuksia",
+          "Se on pysynyt samana",
+          "Opettajat saavat enemmän palkkaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan oppilaiden eriytymisellä?",
+        "options": [
+          "Oppilaat ovat eri ikäisiä",
+          "Koulujen väliset erot ovat kasvaneet ja tausta vaikuttaa enemmän",
+          "Oppilaat voivat valita itse oppiaineensa",
+          "Tytöt ja pojat opiskelevat eri luokilla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kirjoittaja sanoo lopuksi?",
+        "options": [
+          "Suomalainen koulutus on epäonnistunut",
+          "Kansainvälisesti vertailtuna tilanne on edelleen hyvä",
+          "Koulutus on pilalla",
+          "Opettajat pitää vaihtaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

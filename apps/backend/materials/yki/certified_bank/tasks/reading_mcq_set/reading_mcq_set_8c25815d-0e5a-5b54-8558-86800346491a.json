@@ -1,0 +1,66 @@
+{
+  "id": "8c25815d-0e5a-5b54-8558-86800346491a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.563,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kestävästä matkailusta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "VASTUULLINEN MATKAILU YLEISTYY\n\nKoronan jälkeen matkailu on palannut, mutta matkustustavat ovat muuttuneet. Yhä useampi matkailija pohtii matkansa ilmastovaikutuksia ja valitsee hitaampia kulkuneuvoja, kuten junaa tai laivaa. Myös majoitusvalinnoissa arvostetaan ekologisuutta: hotellit, joilla on ympäristösertifikaatti, ovat suositumpia kuin koskaan. Matkailututkija Laura Mäkisen mukaan kyse on arvomaailman muutoksesta. ”Nuoret aikuiset ovat valmiita maksamaan enemmän, jos tietävät rahan menevän vastuulliseen toimintaan”, Mäkinen sanoo. Toisaalta edulliset lennot ja pakettimatkat houkuttelevat edelleen, erityisesti lapsiperheitä ja pienituloisia. ”On tärkeää, ettei vastuullisuudesta tehdä vain varakkaiden etuoikeutta”, muistuttaa kansalaisjärjestö Reilun matkan toiminnanjohtaja.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "87dea789-84e6-5a0b-b3e9-000fb97ddaaf",
+        "prompt": "Miten matkailu on muuttunut koronan jälkeen?",
+        "options": [
+          "Ihmiset matkustavat vähemmän",
+          "Ihmiset miettivät enemmän matkansa ilmastovaikutuksia",
+          "Kaikki matkustavat vain lentäen",
+          "Vain rikkaat matkustavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6f141bdc-c36b-521c-ba40-3cb092288a17",
+        "prompt": "Mitä Laura Mäkinen sanoo nuorista aikuisista?",
+        "options": [
+          "He eivät välitä ilmastosta",
+          "He ovat valmiita maksamaan enemmän vastuullisuudesta",
+          "He matkustavat vain halvimmalla",
+          "He eivät matkusta ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3a33e415-0438-5930-8461-b4716554b786",
+        "prompt": "Mitä huolta kansalaisjärjestö nostaa esiin?",
+        "options": [
+          "Vastuullisuus on liian halpaa",
+          "Vastuullisuudesta ei saa tehdä vain varakkaiden etuoikeutta",
+          "Vastuulliset hotellit ovat huonoja",
+          "Juna on hitaampi kuin lentokone"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

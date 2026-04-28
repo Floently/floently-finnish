@@ -1,0 +1,37 @@
+{
+  "id": "c9195392-2800-5d39-80c7-a935f71ee15b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen reklamaatio ohjeen mukaan.",
+    "materials": {
+      "scenario": "Matkareklamaatio"
+    },
+    "items": [
+      {
+        "id": "39be1e52-607e-5f33-a891-181f96fc9bff",
+        "prompt": "Kirjoita reklamaatio matkatoimistolle epäonnistuneesta matkasta."
+      }
+    ],
+    "rubric": "Kirjoita reklamaatio matkatoimistolle epäonnistuneesta matkasta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

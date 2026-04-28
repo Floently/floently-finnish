@@ -1,0 +1,77 @@
+{
+  "id": "4c37ea84-4223-5620-9185-3041387c9871",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Arktisella tutkimusasemalla käyttöön otettu uusi mittausverkko yhdistää satelliittikuvia, meripoijuja ja rannikkolaboratorioiden havaintoja. Hankkeen tavoitteena on arvioida jäätiköiden sulamisen alueellisia eroja tarkemmin kuin aiemmissa malleissa. Tutkijat korostavat, että aineiston etu on sen ajallinen tiheys, mutta samalla anturit mittaavat eri muuttujia hieman eri standardeilla. Tämä pakottaa sovittamaan dataa jälkikäteen, mikä voi kasvattaa epävarmuutta etenkin siirtymäalueilla, joissa jää, avovesi ja sohjokerros vaihtelevat nopeasti saman vuorokauden aikana. Tuloksia pidetään silti hyödyllisinä, koska ne auttavat suuntaamaan kenttämittauksia niille alueille, joilla mallit poikkeavat eniten toisistaan.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 112
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on hankkeen päätavoite?",
+        "options": [
+          "lisätä satelliittien määrää",
+          "arvioida sulamisen alueellisia eroja tarkemmin",
+          "korvata kaikki kenttämittaukset",
+          "mitata vain rannikkotuulia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on aineiston keskeinen etu?",
+        "options": [
+          "halpa hinta",
+          "ajallinen tiheys",
+          "yksi mittausstandardi",
+          "pieni datamäärä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi epävarmuus voi kasvaa?",
+        "options": [
+          "satelliitit sammuvat yöllä",
+          "dataa ei tallenneta",
+          "eri standardien dataa sovitetaan yhteen",
+          "poijuja on liikaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin tuloksia käytetään erityisesti?",
+        "options": [
+          "matkailumainontaan",
+          "kenttämittausten kohdentamiseen",
+          "kalastuslupiin",
+          "laivareittien sulkemiseen pysyvästi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

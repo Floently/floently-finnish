@@ -1,0 +1,37 @@
+{
+  "id": "8f63b32a-9462-5de8-8d80-b74d5eeceeea",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työsuojelun toimintaohjelmasta. Kerro ohjelman tavoitteista, toimenpiteistä ja seurannasta. Ehdota yhtä uutta painopistealuetta.",
+    "materials": {
+      "scenario": "Palaute työpaikan työsuojelun toimintaohjelmasta"
+    },
+    "items": [
+      {
+        "id": "78430143-647b-51f7-9ee2-767985a38fe2",
+        "prompt": "Kirjoita palauteteksti työpaikan työsuojelun toimintaohjelmasta. Kerro ohjelman tavoitteista, toimenpiteistä ja seurannasta. Ehdota yhtä uutta painopistealuetta."
+      }
+    ],
+    "rubric": "Ohjelman tavoitteet\nToimenpiteet\nSeuranta\nUusi painopistealue",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

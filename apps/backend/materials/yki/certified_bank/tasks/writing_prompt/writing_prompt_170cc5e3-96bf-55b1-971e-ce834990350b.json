@@ -1,0 +1,37 @@
+{
+  "id": "170cc5e3-96bf-55b1-971e-ce834990350b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti valtioneuvoston kanslian EU-sihteeristöön. Olette asiantuntijaorganisaatio, ja haluatte antaa lausunnon valmisteilla olevasta EU-direktiivistä. Kerro, mitä direktiiviä lausunto koskee, mitkä ovat keskeiset huomionne ja ehdotuksenne. Kysy myös, miten lausunto toimitetaan.",
+    "materials": {
+      "scenario": "Lausunto EU-direktiivin valmisteluun"
+    },
+    "items": [
+      {
+        "id": "451d7aa8-5ec9-5954-8a8a-65ba9db7494e",
+        "prompt": "Kirjoita virallinen sähköposti valtioneuvoston kanslian EU-sihteeristöön. Olette asiantuntijaorganisaatio, ja haluatte antaa lausunnon valmisteilla olevasta EU-direktiivistä. Kerro, mitä direktiiviä lausunto koskee, mitkä ovat keskeiset huomionne ja ehdotuksenne. Kysy myös, miten lausunto toimitetaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

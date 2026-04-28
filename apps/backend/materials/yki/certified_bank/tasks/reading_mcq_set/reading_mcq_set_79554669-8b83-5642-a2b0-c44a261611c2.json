@@ -1,0 +1,77 @@
+{
+  "id": "79554669-8b83-5642-a2b0-c44a261611c2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.79,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Teknologian nopea kehitys on herättänyt keskustelua siitä, miten se vaikuttaa ihmisten välisiin suhteisiin ja yhteisöllisyyteen. Toisaalta teknologia mahdollistaa uudenlaisia yhteydenpidon muotoja ja auttaa ylläpitämään suhteita yli maantieteellisten etäisyyksien. Toisaalta on herännyt huoli siitä, että teknologia vähentää kasvokkaista vuorovaikutusta ja heikentää yhteisöllisyyden kokemusta. Kysymys on monitahoinen, eikä siihen ole yksinkertaista vastausta. Optimistit korostavat, että teknologia on rikastuttanut ihmissuhteita ja mahdollistanut uudenlaisten yhteisöjen syntymisen. Sosiaalinen media, keskustelufoorumit ja erilaiset verkkoyhteisöt tarjoavat mahdollisuuden löytää samanhenkisiä ihmisiä ympäri maailmaa. Ne voivat olla erityisen tärkeitä niille, jotka ovat syrjäytyneitä tai kuuluvat vähemmistöihin. Lisäksi teknologia helpottaa yhteydenpitoa perheen ja ystävien kanssa, jotka asuvat kaukana. Pessimistit puolestaan varoittavat, että teknologia voi tehdä ihmissuhteista pinnallisempia. Some-päivitykset ja pikaviestit eivät korvaa syvällisiä, kasvokkaisia keskusteluja. Lisäksi teknologia voi viedä aikaa ja huomiota pois läsnäolevilta ihmisiltä. Monet ovat huolissaan siitä, että ihmiset viettävät yhä enemmän aikaa ruutujen ääressä ja yhä vähemmän aikaa toistensa kanssa. Kolmas näkökulma korostaa, että teknologia itsessään ei ole hyvä tai paha, vaan sen vaikutukset riippuvat siitä, miten sitä käytetään. Teknologia voi sekä vahvistaa että heikentää yhteisöllisyyttä, ja on pitkälti kiinni yksilöistä ja yhteisöistä, mihin suuntaan se kehittyy. Tärkeää on oppia käyttämään teknologiaa tavalla, joka tukee ja vahvistaa ihmissuhteita, ei korvaa niitä. Tämä edellyttää tietoisuutta ja mediakasvatusta.",
+      "word_count": 199
+    },
+    "questions": [
+      {
+        "id": "7216d5e1-e311-5634-8c86-1500e8bbcf91",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Sosiaalisen median vaikutus nuorten hyvinvointiin",
+          "Teknologian ja ihmisten välisten suhteiden monitahoinen suhde",
+          "Verkkoyhteisöjen merkitys vähemmistöille",
+          "Kasvokkaisen vuorovaikutuksen väheneminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7c77cabe-be52-5246-ba5f-a28f7a482004",
+        "prompt": "Tekstin mukaan mitä optimistit korostavat teknologian vaikutuksista ihmissuhteisiin?",
+        "options": [
+          "Teknologia tekee ihmissuhteista pinnallisempia",
+          "Teknologia on rikastuttanut ihmissuhteita ja mahdollistanut uudenlaisten yhteisöjen syntymisen",
+          "Teknologia vähentää kasvokkaista vuorovaikutusta",
+          "Teknologia vie aikaa ja huomiota pois läsnäolevilta ihmisiltä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "05dcab3b-f893-5570-8f53-771bd321d278",
+        "prompt": "Mitä huolenaiheita pessimistit esittävät teknologian vaikutuksista?",
+        "options": [
+          "Teknologia on liian kallista eivätkä kaikki pääse siitä osallisiksi",
+          "Teknologia voi tehdä ihmissuhteista pinnallisempia ja viedä aikaa läsnäolevilta ihmisiltä",
+          "Teknologia on vähentänyt mahdollisuuksia löytää samanhenkisiä ihmisiä",
+          "Teknologia on heikentänyt yhteydenpitoa kaukana asuvien kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e4e1a7f2-9ed0-57fb-8665-3a3d94d51b01",
+        "prompt": "Mitä kolmas, käyttötapaa korostava näkökulma pitää tärkeänä?",
+        "options": [
+          "Teknologian käytön vähentämistä ja paluuta perinteisiin viestintämuotoihin",
+          "Teknologian täydellistä hylkäämistä",
+          "Teknologian käyttämistä tavalla, joka tukee ja vahvistaa ihmissuhteita, ei korvaa niitä",
+          "Teknologian kehittämistä siten, että se väistämättä vahvistaa yhteisöllisyyttä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

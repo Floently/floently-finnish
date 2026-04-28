@@ -1,0 +1,66 @@
+{
+  "id": "19f0a019-8acf-54e6-84df-a166922a485c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa on monenlaisia asumismuotoja. Noin 70 prosenttia suomalaisista asuu omistusasunnossa, joko omakotitalossa, rivitalossa tai kerrostalossa. Loput asuvat vuokralla. Vuokra-asuntoja tarjoavat niin yksityiset vuokranantajat kuin kunnalliset vuokrataloyhtiöt. Opiskelijoille ja nuorille on usein tarjolla opiskelija-asuntoja, jotka ovat vuokraltaan edullisempia. Asumiskustannukset vaihtelevat suuresti asuinpaikan mukaan: pääkaupunkiseudulla neliöhinnat ovat korkeita, kun taas pienemmillä paikkakunnilla asuminen on edullisempaa. Erityisryhmille, kuten vanhuksille ja vammaisille, on tarjolla palveluasumista ja tuettuja asumismuotoja. Viime vuosina on yleistynyt myös yhteisöllinen asuminen, jossa asukkailla on omat yksityiset tilat mutta yhteisiä tiloja ja mahdollisuus yhteiseen toimintaan. Asumisen tukimuotoja ovat esimerkiksi asumistuki, jota Kela maksaa pienituloisille.",
+      "word_count": 93
+    },
+    "questions": [
+      {
+        "id": "e6f7a8b9-c0d1-4e2f-9a3b-4c5d6e7f8a9b",
+        "prompt": "Kuinka moni suomalainen asuu omistusasunnossa?",
+        "options": [
+          "Noin 50 prosenttia",
+          "Noin 60 prosenttia",
+          "Noin 70 prosenttia",
+          "Noin 80 prosenttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f7a8b9c0-d1e2-4f3a-9b4c-5d6e7f8a9b0c",
+        "prompt": "Missä asumiskustannukset ovat korkeita?",
+        "options": [
+          "Pienillä paikkakunnilla",
+          "Pääkaupunkiseudulla",
+          "Maaseudulla",
+          "Lapissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8b9c0d1-e2f3-4a4b-9c5d-6e7f8a9b0c1d",
+        "prompt": "Mitä yhteisöllinen asuminen tarkoittaa?",
+        "options": [
+          "Kaikki asuvat samassa huoneessa",
+          "Asukkailla on omat tilat ja yhteisiä tiloja",
+          "Vain vanhuksille tarkoitettua asumista",
+          "Asumista hotellissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

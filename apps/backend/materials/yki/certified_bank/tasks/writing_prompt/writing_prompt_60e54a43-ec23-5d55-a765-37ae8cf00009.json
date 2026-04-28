@@ -1,0 +1,37 @@
+{
+  "id": "60e54a43-ec23-5d55-a765-37ae8cf00009",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt katsomassa urheilutapahtumaa. Kirjoita palaute. Kerro, oliko tunnelma hyvä ja oliko järjestelyt onnistuneet.",
+    "materials": {
+      "scenario": "Palaute urheilutapahtumasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt katsomassa urheilutapahtumaa. Kirjoita palaute. Kerro, oliko tunnelma hyvä ja oliko järjestelyt onnistuneet."
+      }
+    ],
+    "rubric": "Olet käynyt katsomassa urheilutapahtumaa. Kirjoita palaute. Kerro, oliko tunnelma hyvä ja oliko järjestelyt onnistuneet.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "913fa459-9c02-5e41-a548-96b7523e0f22",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.36,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute lähikauppasi leivonnaisosastosta. Ovatko leivonnaiset tuoreita? Onko valikoima riittävä?",
+    "materials": {
+      "scenario": "Palaute kaupan leivonnaisosastosta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute lähikauppasi leivonnaisosastosta. Ovatko leivonnaiset tuoreita? Onko valikoima riittävä?"
+      }
+    ],
+    "rubric": "Kirjoita palaute lähikauppasi leivonnaisosastosta. Ovatko leivonnaiset tuoreita? Onko valikoima riittävä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

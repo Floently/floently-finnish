@@ -1,0 +1,77 @@
+{
+  "id": "11da30f3-3d99-5b68-9d43-3c2669374d98",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kiertotalous on talousmalli, joka tähtää materiaalien arvon säilyttämiseen kierrossa mahdollisimman pitkään. Se perustuu tuotteiden suunnitteluun siten, että ne voidaan helposti korjata, päivittää ja kierrättää. Kiertotalous vähentää neitseellisten raaka-aineiden tarvetta ja pienentää ympäristökuormitusta. Se luo myös uusia liiketoimintamahdollisuuksia, kuten korjauspalveluita, uudelleenvalmistusta ja materiaalien jalostusta. Kiertotalouden edistäminen edellyttää muutoksia niin yritysten toimintatavoissa, kuluttajien käyttäytymisessä kuin julkisessa sääntelyssä. Se on keskeinen osa vihreää siirtymää ja ilmastotavoitteiden saavuttamista. Suomen tavoitteena on olla kiertotalouden edelläkävijä vuoteen 2035 mennessä.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "mcq_424",
+        "prompt": "Mihin kiertotalous tähtää?",
+        "options": [
+          "Materiaalien arvon säilyttämiseen kierrossa",
+          "Materiaalien nopeaan hävittämiseen",
+          "Neitseellisten raaka-aineiden käytön lisäämiseen",
+          "Ympäristökuormituksen lisäämiseen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_425",
+        "prompt": "Miten kiertotalous vähentää ympäristökuormitusta?",
+        "options": [
+          "Lisäämällä jätteen määrää",
+          "Vähentämällä neitseellisten raaka-aineiden tarvetta",
+          "Lisäämällä energian kulutusta",
+          "Vähentämällä kierrätystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_426",
+        "prompt": "Mitä uusia liiketoimintamahdollisuuksia kiertotalous luo?",
+        "options": [
+          "Korjauspalveluita, uudelleenvalmistusta ja materiaalien jalostusta",
+          "Vain korjauspalveluita",
+          "Vain uudelleenvalmistusta",
+          "Vain materiaalien jalostusta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_427",
+        "prompt": "Mihin mennessä Suomi tavoittelee kiertotalouden edelläkävijyyttä?",
+        "options": [
+          "2025",
+          "2030",
+          "2035",
+          "2040"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "4174de89-c6fc-5364-92f4-c95a58d15f79",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei kaikki! Tässä Jaakko teidän luokanvalvoja. Ensi viikolla on urheilupäivä. Se on torstaina. Kokoonnutaan koulun pihalla kello yhdeksän. Mennään sieltä yhdessä bussilla urheilukentälle. Muistakaa ottaa mukaan säänmukainen vaatetus, eväät ja juomapullo. Palataan takaisin koululle kahdelta.",
+      "audio_asset_id": "ad602def-36eb-5893-bbe1-0c13af1baf9b"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Urheiluopettaja.",
+          "Luokanvalvoja Jaakko.",
+          "Koulun rehtori.",
+          "Bussikuski."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin urheilupäivä on?",
+        "options": [
+          "Maanantaina.",
+          "Tiistaina.",
+          "Keskiviikkona.",
+          "Torstaina."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaa pitää olla koulun pihalla?",
+        "options": [
+          "Kello 8.00.",
+          "Kello 10.00.",
+          "Kello 9.00.",
+          "Kello 8.30."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten päästään urheilukentälle?",
+        "options": [
+          "Kävellen.",
+          "Pyörällä.",
+          "Henkilöautoilla.",
+          "Bussilla."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "Urheilukengät ja maila.",
+          "Säänmukainen vaatetus, eväät ja juomapullo.",
+          "Uimapuku ja pyyhe.",
+          "Läksyt ja kirjat."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

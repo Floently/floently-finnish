@@ -1,0 +1,66 @@
+{
+  "id": "36a35084-097c-5711-9b7d-7d7740cde33b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ohje ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MARJAPIIRAKAN OHJE\n\nPohja:\n3 dl vehnäjauhoja\n1 dl sokeria\n100 g voita\n1 muna\n\nTäyte:\n4 dl marjoja (esim. mustikoita)\n2 dl kermaviiliä\n1 muna\n0,5 dl sokeria\n\nPaista 200 asteessa 30 minuuttia.",
+      "word_count": 33
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko vehnäjauhoja tarvitaan pohjaan?",
+        "options": [
+          "2 dl",
+          "3 dl",
+          "4 dl",
+          "5 dl"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan piirakkaa paistetaan?",
+        "options": [
+          "20 minuuttia",
+          "30 minuuttia",
+          "40 minuuttia",
+          "45 minuuttia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä marjoja ohjeessa mainitaan esimerkkinä?",
+        "options": [
+          "mansikoita",
+          "vadelmia",
+          "mustikoita",
+          "puolukoita"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

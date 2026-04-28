@@ -1,0 +1,37 @@
+{
+  "id": "6c8a000f-e7e5-5d3a-b677-a7738ccc8783",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet saanut lapsilisän maksuun muutoksen, mutta et ymmärrä, miksi maksu on pienentynyt. Kerro tilanteesi, lapsiesi lukumäärä ja kysy, mistä muutos johtuu ja voiko siihen hakea muutosta.",
+    "materials": {
+      "scenario": "Lapsilisän maksun muutos"
+    },
+    "items": [
+      {
+        "id": "514f4900-41ba-5813-a2eb-8f10bf589608",
+        "prompt": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet saanut lapsilisän maksuun muutoksen, mutta et ymmärrä, miksi maksu on pienentynyt. Kerro tilanteesi, lapsiesi lukumäärä ja kysy, mistä muutos johtuu ja voiko siihen hakea muutosta."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

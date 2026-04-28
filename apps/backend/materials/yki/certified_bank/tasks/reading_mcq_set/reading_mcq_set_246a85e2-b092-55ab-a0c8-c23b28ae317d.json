@@ -1,0 +1,77 @@
+{
+  "id": "246a85e2-b092-55ab-a0c8-c23b28ae317d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kulttuurin rahoitus on ollut viime vuosina vilkkaan keskustelun kohteena. Julkisen talouden kiristyessä monet kulttuurilaitokset ovat joutuneet etsimään uusia rahoitusmalleja. Valtion ja kuntien myöntämien avustusten osuus on pienentynyt, ja omarahoituksen merkitys on kasvanut.\n\nSuomessa kulttuurin julkinen rahoitus on edelleen pohjoismaisella tasolla korkea, mutta leikkaukset ovat kohdistuneet erityisesti pieniin toimijoihin ja alueelliseen kulttuuritarjontaan. Esimerkiksi monet maakuntateatterit ja -museot ovat joutuneet supistamaan toimintaansa tai jopa lopettamaan.\n\nYksityinen rahoitus on noussut tärkeämmäksi. Säätiöt, yritysyhteistyö ja joukkorahoitus täydentävät julkista tukea. Myös pääsylipputulojen merkitys on kasvanut, mikä on johtanut siihen, että kulttuuritapahtumien hinnat ovat nousseet. Tämä herättää huolta siitä, että kulttuuri ei ole enää kaikkien saavutettavissa.\n\nKulttuurialan toimijat korostavat, että kulttuurilla on itseisarvo, mutta myös taloudellista merkitystä. Luovat alat työllistävät Suomessa noin 100 000 henkilöä ja tuovat merkittäviä vientituloja. Kulttuuri myös lisää alueiden vetovoimaa ja asukkaiden hyvinvointia. Siksi pitkäjänteinen ja ennakoitava rahoitus on tärkeää alan kehittymiselle.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 168
+    },
+    "questions": [
+      {
+        "id": "bc28ba35-8d8f-5e6f-a586-63c1a0a93d53",
+        "prompt": "Miten kulttuurin rahoitus on muuttunut?",
+        "options": [
+          "Julkinen rahoitus on lisääntynyt",
+          "Omarahoituksen merkitys on kasvanut",
+          "Kaikki rahoitus on loppunut",
+          "Vain yritykset rahoittavat kulttuuria"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "32480cf0-aea8-5874-bc92-61c2ed894d7b",
+        "prompt": "Keihin leikkaukset ovat kohdistuneet erityisesti?",
+        "options": [
+          "Suuriin oopperataloihin",
+          "Pieniin toimijoihin ja alueelliseen kulttuuritarjontaan",
+          "Yksityisiin taidegallerioihin",
+          "Elokuvateattereihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4236ccd8-6fb1-5202-81e4-342912e17a99",
+        "prompt": "Mitä huolta lipun hintojen nousu herättää?",
+        "options": [
+          "Taiteilijat saavat liikaa palkkaa",
+          "Kulttuuri ei ole enää kaikkien saavutettavissa",
+          "Liput ovat liian halpoja",
+          "Kukaan ei käy kulttuuritapahtumissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b6b3137c-80ae-5baa-903d-14fec20699ec",
+        "prompt": "Kuinka paljon luovat alat työllistävät Suomessa?",
+        "options": [
+          "Noin 50 000 henkilöä",
+          "Noin 75 000 henkilöä",
+          "Noin 100 000 henkilöä",
+          "Noin 125 000 henkilöä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

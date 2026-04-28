@@ -1,0 +1,37 @@
+{
+  "id": "744b4ddf-9916-5c91-8872-87675e4f94d2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin sivistystoimeen.",
+    "materials": {
+      "scenario": "Ehdota uutta kulttuuritapahtumaa"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti kaupungin sivistystoimeen."
+      }
+    ],
+    "rubric": "Olet huomannut, että kaupungissa on vähän kulttuuritapahtumia nuorille aikuisille. Kirjoita sähköposti ja ehdota uutta tapahtumaa. Kerro, millainen tapahtuma voisi olla ja miksi se kiinnostaisi kohderyhmää.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

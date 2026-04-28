@@ -1,0 +1,40 @@
+{
+  "id": "a424b81c-4fb2-5215-919d-b0e5c21dd59f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what Finnish foods you have tried and what you like or don't like.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "a39d857a-e1b5-581a-b822-99239c87ed9c",
+        "ai_first_turn_fi": "Mitä mieltä oot suomalaisesta ruoasta? Tykkäätkö esimerkiksi mustamakkarasta tai ruisleivästä?"
+      }
+    ],
+    "rubric": "Tell what Finnish foods you have tried and what you like or don't like.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

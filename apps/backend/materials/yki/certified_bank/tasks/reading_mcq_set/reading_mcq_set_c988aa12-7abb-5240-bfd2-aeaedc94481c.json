@@ -1,0 +1,110 @@
+{
+  "id": "c988aa12-7abb-5240-bfd2-aeaedc94481c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen sosiaaliturvajärjestelmä on monimutkainen ja vaikeaselkoinen. Se koostuu lukuisista eri etuuksista, joilla on erilaiset ehdot ja hakumenettelyt. Tämä tekee järjestelmästä byrokraattisen ja vaikeasti hahmotettavan sekä etuuksien hakijoille että viranomaisille. Monet ihmiset eivät tiedä, mitä etuuksia heille kuuluu, tai heillä on vaikeuksia hakea niitä. Järjestelmässä on myös kannustinloukkuja, jotka vähentävät työn vastaanottamisen houkuttelevuutta. Esimerkiksi työttömän voi olla taloudellisesti kannattamatonta ottaa vastaan lyhyitä tai matalapalkkaisia töitä, koska hän menettää samalla osan etuuksistaan. Tämä voi jopa estää työllistymistä ja lisätä pitkäaikaistyöttömyyttä. Sosiaaliturvan uudistaminen on ollut esillä pitkään. Tavoitteena on yksinkertaisempi, kannustavampi ja oikeudenmukaisempi järjestelmä. Yksi ehdotus on ollut perustulo, joka korvaisi osan nykyisistä etuuksista. Perustulo maksettaisiin kaikille tai tietyille ryhmille ilman ehtoja. Se voisi vähentää byrokratiaa ja kannustaa työntekoon, koska työstä saatavat ansiot eivät vähentäisi perustuloa. Toiset taas varoittavat, että perustulo voisi olla liian kallis eikä se tavoittaisi niitä, jotka eniten apua tarvitsevat. Toinen ehdotus on nykyisen järjestelmän yksinkertaistaminen yhdistämällä etuuksia ja selkeyttämällä sääntöjä. Myös asumistuen ja toimeentulotuen uudistuksia on esitetty. Keskustelu sosiaaliturvan uudistamisesta jatkuu, ja ratkaisuja etsitään, jotka turvaavat toimeentulon mutta kannustavat myös työntekoon.",
+      "word_count": 172
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi Suomen sosiaaliturvajärjestelmää kuvataan monimutkaiseksi?",
+        "options": [
+          "Se on yksinkertainen.",
+          "Se koostuu lukuisista eri etuuksista, joilla on erilaiset ehdot.",
+          "Se on helppokäyttöinen.",
+          "Sitä on vähän."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä seurauksia järjestelmän monimutkaisuudesta on?",
+        "options": [
+          "Kaikki saavat helposti etuuksia.",
+          "Ihmiset eivät tiedä, mitä etuuksia heille kuuluu, ja hakeminen on vaikeaa.",
+          "Byrokratia on vähäistä.",
+          "Järjestelmä on tehokas."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan kannustinloukulla?",
+        "options": [
+          "Tilannetta, jossa työn vastaanottaminen kannattaa hyvin.",
+          "Tilannetta, jossa työn vastaanottaminen ei ole taloudellisesti kannattavaa etuuksien menetyksen vuoksi.",
+          "Tilannetta, jossa työtä on liikaa.",
+          "Tilannetta, jossa työtä ei ole lainkaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä vaikutuksia kannustinloukuilla voi olla?",
+        "options": [
+          "Ne lisäävät työllisyyttä.",
+          "Ne voivat estää työllistymistä ja lisätä pitkäaikaistyöttömyyttä.",
+          "Ne parantavat taloutta.",
+          "Ne vähentävät köyhyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on sosiaaliturvan uudistamisen tavoite?",
+        "options": [
+          "Monimutkaisempi järjestelmä.",
+          "Yksinkertaisempi, kannustavampi ja oikeudenmukaisempi järjestelmä.",
+          "Vain säästöjen saavuttaminen.",
+          "Vain etuuksien leikkaaminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä perustulo tarkoittaisi?",
+        "options": [
+          "Tuloa, joka maksetaan vain työttömille.",
+          "Tuloa, joka maksettaisiin kaikille tai tietyille ryhmille ilman ehtoja.",
+          "Tuloa, joka perustuu tehtyyn työhön.",
+          "Tuloa, joka maksetaan vain eläkeläisille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä hyötyä perustulosta voisi olla?",
+        "options": [
+          "Se lisäisi byrokratiaa.",
+          "Se voisi vähentää byrokratiaa ja kannustaa työntekoon.",
+          "Se olisi halpa toteuttaa.",
+          "Se tavoittaisi vain harvat."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

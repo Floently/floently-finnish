@@ -1,0 +1,110 @@
+{
+  "id": "f8d0beac-a4eb-509f-8953-237d47921754",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen ulko- ja turvallisuuspolitiikka on kokenut perusteellisen ja historiallisen muutoksen viime vuosina. Tämä muutos on seurausta Euroopan turvallisuusympäristön rajusta muuttumisesta, erityisesti Venäjän hyökkäyksestä Ukrainaan. Pitkään, kylmän sodan aikakaudelta aina 2020-luvun alkuun, maa nojasi omaksuttuun sotilaalliseen liittoutumattomuuteen ja puolueettomuuspolitiikkaan. Tämä politiikka, joka tunnetaan myös Paasikiven–Kekkosen linjana, oli käytännössä ainoa mahdollisuus säilyttää itsenäisyys ja liikkumavara suurvaltojen välisessä jännitteisessä maailmassa. Se merkitsi hyvien ja toimivien suhteiden ylläpitämistä itänaapuriin Neuvostoliittoon, myöhemmin Venäjään, samalla kun pyrittiin kehittämään suhteita länteen. Neuvostoliiton hajoamisen jälkeen Suomi liittyi Euroopan unioniin vuonna 1995, mikä oli merkittävä askel kohti läntistä integraatiota ja yhteistä ulko- ja turvallisuuspolitiikkaa. Suomi ei kuitenkaan tuolloin hakenut Naton jäsenyyttä, vaan jatkoi liittoutumattomuuspolitiikkaa ja tiivisti samalla puolustusyhteistyötä erityisesti Ruotsin, muiden Pohjoismaiden ja Baltian maiden kanssa. Venäjän hyökkäys Ukrainaan helmikuussa 2022 muutti kuitenkin perusteellisesti Euroopan turvallisuusympäristön ja pakotti Suomenkin arvioimaan uudelleen turvallisuuspoliittisen doktriininsa. Hyökkäys osoitti, että Venäjä on valmis käyttämään sotilaallista voimaa naapurimaitaan vastaan ja että kansainväliset sopimukset ja yhteisymmärrys eivät tarjoa riittävää turvaa. Suomalaisten mielipide Nato-jäsenyydestä kääntyi poikkeuksellisen nopeasti, ja maa haki jäsenyyttä yhdessä Ruotsin kanssa. Suomi liittyi Naton täysjäseneksi huhtikuussa 2023. Tämä oli historiallinen ja peruuttamaton käänne, joka päätti pitkän liittoutumattomuuden kauden.",
+      "word_count": 185
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin Suomen ulkopolitiikka perustui kylmän sodan aikana?",
+        "options": [
+          "Aktiiviseen Nato-jäsenyyteen.",
+          "Sotilaalliseen liittoutumattomuuteen ja puolueettomuuspolitiikkaan.",
+          "Sotilaalliseen liittoutumiseen Yhdysvaltojen kanssa.",
+          "Vihamielisyyteen molempia suurvaltoja kohtaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan Paasikiven–Kekkosen linjalla?",
+        "options": [
+          "Aktiivista Nato-yhteistyötä.",
+          "Hyvien suhteiden ylläpitoa Neuvostoliittoon ja myöhemmin Venäjään.",
+          "Sotilaallista liittoutumista lännen kanssa.",
+          "Vihamielisyyttä itänaapuria kohtaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin Suomi liittyi Euroopan unioniin?",
+        "options": [
+          "1985.",
+          "1995.",
+          "2005.",
+          "2015."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä tapahtuma johti täydelliseen muutokseen Suomen turvallisuuspolitiikassa?",
+        "options": [
+          "EU:n laajentuminen.",
+          "Venäjän hyökkäys Ukrainaan vuonna 2022.",
+          "Yhdysvaltain presidentinvaalit.",
+          "Ruotsin Nato-jäsenyys."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin Suomi liittyi Natoon?",
+        "options": [
+          "2022.",
+          "2023.",
+          "2024.",
+          "2025."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä Nato-jäsenyys konkreettisesti tuo Suomelle?",
+        "options": [
+          "Vain symbolisen jäsenyyden.",
+          "Turvatakuut ja velvoitteita osallistua yhteiseen puolustukseen.",
+          "Vain kustannuksia.",
+          "Automaattisen sotilaallisen avun ilman vastavelvoitteita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten suhteet Venäjään ovat muuttuneet?",
+        "options": [
+          "Ne ovat tiivistyneet.",
+          "Ne ovat jäätyneet.",
+          "Ne ovat pysyneet ennallaan.",
+          "Ne ovat parantuneet."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

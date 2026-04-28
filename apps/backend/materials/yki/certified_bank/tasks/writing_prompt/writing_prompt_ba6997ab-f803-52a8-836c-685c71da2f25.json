@@ -1,0 +1,37 @@
+{
+  "id": "ba6997ab-f803-52a8-836c-685c71da2f25",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti siskolle. Kerro, että sinulla on vapaata viikonloppuna. Kysy, haluaako hän tulla käymään. Kerro, että voit tehdä ruokaa ja mennä vaikka elokuviin.",
+    "materials": {
+      "scenario": "Viesti siskolle vierailusta"
+    },
+    "items": [
+      {
+        "id": "d05d36db-7b3c-5107-88c8-fffa3e3f1942",
+        "prompt": "Kirjoita lyhyt viesti siskolle. Kerro, että sinulla on vapaata viikonloppuna. Kysy, haluaako hän tulla käymään. Kerro, että voit tehdä ruokaa ja mennä vaikka elokuviin."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on vapaata\nKysy, haluaako hän tulla\nEhdota tekemistä (ruokaa, elokuvat)",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

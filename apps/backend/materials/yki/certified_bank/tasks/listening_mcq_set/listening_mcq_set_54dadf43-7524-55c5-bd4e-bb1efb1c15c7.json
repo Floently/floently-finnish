@@ -1,0 +1,66 @@
+{
+  "id": "54dadf43-7524-55c5-bd4e-bb1efb1c15c7",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Missä sä oot?\nB: Oon kaupassa. Tarvitaanko jotain?\nA: Joo, maitoa ja leipää. Ja myös banaaneja.\nB: Okei, maitoa, leipää ja banaaneja. Tuleeko muuta?\nA: Ei muuta. Tuu pian kotiin.",
+      "audio_asset_id": "8007c434-636b-53f3-881b-71b4880306b3"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä B on?",
+        "options": [
+          "kotona",
+          "töissä",
+          "kaupassa",
+          "koulussa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä A pyytää ostamaan?",
+        "options": [
+          "maitoa, leipää ja banaaneja",
+          "maitoa ja leipää",
+          "vain maitoa",
+          "banaaneja ja omenoita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä A pyytää lopuksi?",
+        "options": [
+          "soittamaan",
+          "tulemaan pian kotiin",
+          "ostamaan lisää",
+          "odottamaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

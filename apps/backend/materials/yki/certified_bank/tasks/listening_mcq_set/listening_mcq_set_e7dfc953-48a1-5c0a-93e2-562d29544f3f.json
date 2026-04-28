@@ -1,0 +1,77 @@
+{
+  "id": "e7dfc953-48a1-5c0a-93e2-562d29544f3f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu alustatyön sääntelystä ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Juontaja: Keskustelemme alustatyön sääntelystä. Työoikeuden professori: Nykyinen malli hämärtää työntekijän ja yrittäjän rajaa, mikä vaikeuttaa sosiaaliturvan toteutumista. Alustayrityksen edustaja: Joustavuus on palvelun ydin, eikä sitä pidä menettää liian jäykällä sääntelyllä. Ammattiliiton asiantuntija: Joustavuus ei sulje pois vähimmäisturvaa, jos pelisäännöt määritellään selkeästi. Juontaja: Missä kiista käytännössä näkyy? Professori: Erityisesti siinä, kuka kantaa riskin kysynnän vaihteluista ja työvälinekustannuksista. Yrityksen edustaja: Osa kuljettajista haluaa nimenomaan vaihtelevan työajan ilman sitovia tuntirajoja. Ammattiliiton asiantuntija: Siksi tarvitaan malli, jossa työn tekijä voi valita joustavuuden, mutta ei menetä oikeutta perusturvaan. Juontaja: Eli kompromissi on mahdollinen? Professori: Mahdollinen, jos sääntely tunnistaa työn monimuotoisuuden eikä perustu vanhoihin kategorioihin.",
+      "audio_asset_id": "afda1c0a-6c4e-5096-a5e1-3cd29f75e982"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä perusjännite keskustelussa tunnistetaan?",
+        "options": [
+          "joustavuuden ja vähimmäisturvan yhteensovittaminen",
+          "kaupunkien välinen kilpailu",
+          "verotuksen poistaminen",
+          "kuljetuskaluston ikä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mihin käytännön kysymykseen professori kohdistaa kiistan?",
+        "options": [
+          "sovelluksen värimaailmaan",
+          "riskin jakautumiseen kysynnän ja kustannusten vaihtelussa",
+          "reittivalintojen algoritmiin",
+          "asiakasarvioiden määrään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä ammattiliiton asiantuntijan mukaan olisi toimiva suunta?",
+        "options": [
+          "pelkkä tuntirajoitus kaikille",
+          "valintaa joustavuuteen ilman perusturvan menetystä",
+          "alustatyön kieltäminen",
+          "täysi sääntelyn purku"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Millä ehdolla kompromissia pidetään mahdollisena?",
+        "options": [
+          "jos sääntely perustuu vain vanhoihin kategorioihin",
+          "jos sääntely tunnistaa työn monimuotoisuuden",
+          "jos yritykset päättävät yksin",
+          "jos sosiaaliturva erotetaan työstä kokonaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

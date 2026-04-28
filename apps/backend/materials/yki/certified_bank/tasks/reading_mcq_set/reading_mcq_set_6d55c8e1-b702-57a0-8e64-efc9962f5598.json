@@ -1,0 +1,63 @@
+{
+  "id": "6d55c8e1-b702-57a0-8e64-efc9962f5598",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhä useampi koulu on ottanut käyttöön kännykkäkiellon oppituntien ajaksi. Taustalla on huoli oppilaiden keskittymisestä ja koulurauhasta.\n\nRehtori kertoo, että kokeilu on ollut onnistunut. \"Oppilaat ovat aktiivisempia tunnilla ja välitunneilla näkee enemmän liikuntaa.\"\n\nOsa vanhemmista on huolissaan turvallisuudesta. Koulu on vastannut, että kännykän käyttö on sallittua tarvittaessa.\n\nOpettajien kokemukset ovat myös myönteisiä. \"Tunteja on helpompi pitää, kun kukaan ei näprää puhelinta.\"",
+      "word_count": 60
+    },
+    "questions": [
+      {
+        "id": "item_149_1",
+        "prompt": "Miksi koulut ottavat käyttöön kännykkäkieltoa?",
+        "options": [
+          "koska kännykät ovat kalliita",
+          "huoli keskittymisestä",
+          "koska opettajat eivät osaa käyttää kännyköitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_149_2",
+        "prompt": "Mitä hyötyjä rehtori on havainnut?",
+        "options": [
+          "oppilaat ovat aktiivisempia ja liikkuvat enemmän",
+          "oppilaat saavat parempia numeroita",
+          "kännykät eivät ole enää rikki"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_149_3",
+        "prompt": "Mitä opettajat sanovat?",
+        "options": [
+          "tunnit ovat vaikeampia",
+          "tunteja on helpompi pitää",
+          "mikään ei ole muuttunut"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

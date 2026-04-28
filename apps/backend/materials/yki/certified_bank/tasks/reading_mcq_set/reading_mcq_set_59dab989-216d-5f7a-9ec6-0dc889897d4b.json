@@ -1,0 +1,110 @@
+{
+  "id": "59dab989-216d-5f7a-9ec6-0dc889897d4b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.734,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Asuminen on yksi keskeisimmistä hyvinvoinnin tekijöistä. Turvallinen ja terveellinen asunto on jokaisen perusoikeus. Suomessa asumisen taso on korkea, ja lähes kaikilla on mahdollisuus asua omassa kodissa. Asuntokanta on monipuolista: kerrostaloja, omakotitaloja ja rivitaloja on tarjolla eri puolilla maata. Viime vuosina asumisessa on tapahtunut monia muutoksia. Kaupungistuminen on lisännyt asuntojen kysyntää kasvukeskuksissa, mikä on nostanut hintoja ja vuokria. Erityisesti nuorten ja opiskelijoiden on vaikea löytää kohtuuhintaista asuntoa. Myös asumisen laatua koskevat vaatimukset ovat kasvaneet. Ihmiset haluavat koteihin, joissa on hyvä sisäilma, toimivat tilat ja miellyttävä ympäristö. Energiatehokkuus on noussut tärkeäksi, kun pyritään vähentämään asumisen ympäristövaikutuksia. Korjausrakentaminen onkin yhä tärkeämpää, kun vanhaa asuntokantaa parannetaan vastaamaan nykyvaatimuksia. Asumiseen liittyy myös sosiaalisia ulottuvuuksia. Yksinasuminen on lisääntynyt, ja moni ikääntynyt asuu yksin. Tämä voi lisätä yksinäisyyttä ja turvattomuutta. Naapuruussuhteet ja yhteisöllisyys ovat tärkeitä hyvinvoinnille. Siksi asuinalueiden suunnittelussa pitää kiinnittää huomiota myös sosiaalisiin tekijöihin, kuten kohtaamispaikkoihin ja yhteisiin tiloihin.",
+      "word_count": 143
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi asuminen on tärkeää hyvinvoinnille?",
+        "options": [
+          "Se on vain välttämätön menoerä.",
+          "Turvallinen ja terveellinen asunto on perusoikeus ja keskeinen hyvinvoinnin tekijä.",
+          "Sillä ei ole merkitystä hyvinvoinnille.",
+          "Vain oman kodin omistaminen on tärkeää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten kaupungistuminen on vaikuttanut asumiseen?",
+        "options": [
+          "Se on vähentänyt asuntojen kysyntää.",
+          "Se on lisännyt asuntojen kysyntää kasvukeskuksissa, nostanut hintoja ja vuokria.",
+          "Se on laskenut asumisen kustannuksia.",
+          "Sillä ei ole ollut vaikutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kenellä on erityisen vaikea löytää kohtuuhintaista asuntoa?",
+        "options": [
+          "Eläkeläisillä.",
+          "Nuorilla ja opiskelijoilla.",
+          "Lapsiperheillä.",
+          "Varakkailla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä asumisen laadulta vaaditaan nykyään?",
+        "options": [
+          "Vain halpaa hintaa.",
+          "Hyvä sisäilma, toimivat tilat ja miellyttävä ympäristö.",
+          "Vain sijaintia.",
+          "Vain kokoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi energiatehokkuus on noussut tärkeäksi?",
+        "options": [
+          "Se lisää asumiskustannuksia.",
+          "Pyritään vähentämään asumisen ympäristövaikutuksia.",
+          "Se on muotia.",
+          "Se on pakollista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä sosiaalisia haasteita asumiseen liittyy?",
+        "options": [
+          "Liian paljon yhteisöllisyyttä.",
+          "Yksinasumisen lisääntyminen, yksinäisyys ja turvattomuus.",
+          "Liian paljon naapureita.",
+          "Liian vähän yksityisyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mihin asuinalueiden suunnittelussa pitäisi kiinnittää huomiota?",
+        "options": [
+          "Vain parkkipaikkoihin.",
+          "Myös sosiaalisiin tekijöihin, kuten kohtaamispaikkoihin ja yhteisiin tiloihin.",
+          "Vain julkiseen liikenteeseen.",
+          "Vain palveluihin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

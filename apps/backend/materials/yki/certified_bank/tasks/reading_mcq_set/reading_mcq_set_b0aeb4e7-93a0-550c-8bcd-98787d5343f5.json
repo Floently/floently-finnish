@@ -1,0 +1,99 @@
+{
+  "id": "b0aeb4e7-93a0-550c-8bcd-98787d5343f5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kesäteatteri aloittaa esitykset heinäkuun alussa. Tänä vuonna nähdään komedia keski-ikäisistä naisista, jotka perustavat rock-yhtyeen. Esityksiä on tiistaista sunnuntaihin kello 19. Lippuja voi ostaa ennakkoon teatterin verkkosivuilta. Kesäteatteri sijaitsee kauniilla paikalla järven rannalla. Esityksen jälkeen on mahdollista nauttia kahvion tarjoiluista.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin kesäteatteri aloittaa esitykset?",
+        "options": [
+          "Kesäkuun alussa",
+          "Heinäkuun alussa",
+          "Elokuun alussa",
+          "Syyskuun alussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minkä tyyppinen esitys tänä vuonna on?",
+        "options": [
+          "Draama",
+          "Komedia",
+          "Musikaali",
+          "Lastennäytelmä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä näytelmä kertoo?",
+        "options": [
+          "Nuorista miehistä",
+          "Keski-ikäisistä naisista, jotka perustavat rock-yhtyeen",
+          "Eläkeläisistä matkalla",
+          "Lapsista kesäleirillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Minä päivinä esityksiä on?",
+        "options": [
+          "Maanantaista perjantaihin",
+          "Tiistaista sunnuntaihin",
+          "Vain viikonloppuisin",
+          "Joka päivä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä lippuja voi ostaa ennakkoon?",
+        "options": [
+          "Teatterin verkkosivuilta",
+          "Vain ovelta",
+          "Kaupungin toimistolta",
+          "Kirjastosta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä esityksen jälkeen voi tehdä?",
+        "options": [
+          "Uida järvessä",
+          "Nauttia kahvion tarjoiluista",
+          "Kävellä metsässä",
+          "Osallistua työpajaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

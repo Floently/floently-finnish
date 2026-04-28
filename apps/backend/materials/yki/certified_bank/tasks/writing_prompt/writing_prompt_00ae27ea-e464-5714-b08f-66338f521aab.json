@@ -1,0 +1,37 @@
+{
+  "id": "00ae27ea-e464-5714-b08f-66338f521aab",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt kaupungin uimahallissa useita kertoja. Kirjoita palaute, jossa kerrot sekä hyviä että huonoja asioita. Mainitse ainakin siisteys, henkilökunta ja jokin parannusehdotus.",
+    "materials": {
+      "scenario": "Yksityiskohtainen palaute uimahallista"
+    },
+    "items": [
+      {
+        "id": "de84bbee-da8c-5c7d-a2b4-6db985327480",
+        "prompt": "Olet käynyt kaupungin uimahallissa useita kertoja. Kirjoita palaute, jossa kerrot sekä hyviä että huonoja asioita. Mainitse ainakin siisteys, henkilökunta ja jokin parannusehdotus."
+      }
+    ],
+    "rubric": "Siisteys (positiivista/negatiivista)\nHenkilökunta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

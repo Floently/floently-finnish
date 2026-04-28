@@ -1,0 +1,88 @@
+{
+  "id": "9ba793cf-1d1b-56da-a837-95aa521a9f6e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi nuorten syrjäytymisestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "NUORTEN SYRJÄYTYMINEN – MENETETTY SUKUPOLVI?\n\nNuorten syrjäytyminen on yksi aikamme vakavimmista yhteiskunnallisista ongelmista. Arviolta 30 000 – 50 000 nuorta on täysin koulutuksen ja työelämän ulkopuolella. He eivät ole työttöminä, eivät opiskele, eivätkä saa tukea mistään.\n\nSyrjäytyminen on prosessi, ei yksittäinen tapahtuma. Se alkaa usein varhain: kouluvaikeuksia, poissaoloja, keskittymisen ongelmia. Jos näihin ei puututa ajoissa, ongelmat kasautuvat. Koulu jää kesken, työpaikkaa ei löydy, ja nuori ajautuu yhä kauemmas yhteiskunnasta.\n\nTaustalla on usein monia tekijöitä. Perhetausta vaikuttaa: jos vanhemmilla on vähän koulutusta tai päihdeongelmia, riski kasvaa. Myös asuinpaikka merkitsee: tietyillä alueilla syrjäytyminen on yleisempää. Mielenterveysongelmat ovat yleisiä, ja ne voivat olla sekä syy että seuraus.\n\nYhteiskunnan tukijärjestelmät ovat pirstaleisia. Nuori voi pudota kaikkien järjestelmien ulkopuolelle, koska kukaan ei ota kokonaisvastuuta. Tarvitaan matalan kynnyksen palveluja, joihin voi tulla ilman ajanvarausta. Etsivä nuorisotyö on hyvä esimerkki toimivasta mallista.\n\nKouluilla on keskeinen rooli. Koulussa pitäisi olla riittävästi kuraattoreita, psykologeja ja erityisopettajia. Ongelmiin pitäisi pystyä puuttumaan varhain. Myös opettajien koulutukseen pitäisi sisältyä syrjäytymisen ehkäisyä.\n\nTyöpajatoiminta ja työkokeilut auttavat monia. Ne tarjoavat onnistumisen kokemuksia ja auttavat löytämään oman jutun. Myös kolmannen sektorin toimijat tekevät arvokasta työtä.\n\nSyrjäytyminen maksaa yhteiskunnalle valtavasti, mutta ennen kaikkea se on inhimillinen tragedia. Jokainen syrjäytynyt nuori on menetetty mahdollisuus – itselleen ja yhteiskunnalle.",
+      "word_count": 201
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka monta nuorta on arviolta täysin koulutuksen ja työelämän ulkopuolella?",
+        "options": [
+          "5 000 – 10 000",
+          "10 000 – 20 000",
+          "30 000 – 50 000",
+          "50 000 – 70 000"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten syrjäytymistä kuvataan?",
+        "options": [
+          "Yksittäisenä tapahtumana",
+          "Prosessina, joka alkaa usein varhain",
+          "Vain työttömyytenä",
+          "Perinnöllisenä ominaisuutena"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä tekijät vaikuttavat syrjäytymisen taustalla?",
+        "options": [
+          "Vain yksilön laiskuus",
+          "Perhetausta, asuinpaikka ja mielenterveysongelmat",
+          "Vain koulujen huono taso",
+          "Vain taloudellinen tilanne"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on esimerkki toimivasta matalan kynnyksen palvelusta?",
+        "options": [
+          "Työvoimatoimisto",
+          "Etsivä nuorisotyö",
+          "Sosiaalitoimisto",
+          "Terveyskeskus"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kouluissa pitäisi kirjoittajan mukaan olla enemmän?",
+        "options": [
+          "Kokeita ja läksyjä",
+          "Kuraattoreita, psykologeja ja erityisopettajia",
+          "Urheilua ja liikuntaa",
+          "Kieliä ja matematiikkaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

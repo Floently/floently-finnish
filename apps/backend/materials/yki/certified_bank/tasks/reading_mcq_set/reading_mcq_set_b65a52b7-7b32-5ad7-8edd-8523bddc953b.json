@@ -1,0 +1,66 @@
+{
+  "id": "b65a52b7-7b32-5ad7-8edd-8523bddc953b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue hammaslääkärin lähettämä tekstiviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hammaslääkäri: Muistutus ajasta\n\nSinulla on hammaslääkäriaika maanantaina 12.6. klo 10.30. Osoite: Hammashoitola Hymy, Kauppakatu 5, 3. kerros. Muistathan ottaa Kela-kortin mukaan. Jos et pääse, peruuta aika viimeistään 24 h ennen p. 010 234 5678. Tervetuloa!",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "81ce7188-a22f-5daa-8b95-7c0c4ac66933",
+        "prompt": "Milloin hammaslääkäriaika on?",
+        "options": [
+          "Sunnuntaina",
+          "Maanantaina",
+          "Tiistaina",
+          "Keskiviikkona"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2d2a5a95-0c9f-5d6e-a6ed-425db3ce2c74",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "Passi",
+          "Kela-kortti",
+          "Ajokortti",
+          "Opiskelijakortti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "33d4c06e-226e-531b-a60f-883179e25169",
+        "prompt": "Missä kerroksessa hammashoitola on?",
+        "options": [
+          "1. kerros",
+          "2. kerros",
+          "3. kerros",
+          "4. kerros"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

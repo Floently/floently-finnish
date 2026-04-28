@@ -1,0 +1,37 @@
+{
+  "id": "b33d53e4-31a6-55a7-9d0e-739cedb7d93d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt uutta bussisovellusta. Kirjoita palaute. Onko se helppo? Näyttääkö se oikeat ajat?",
+    "materials": {
+      "scenario": "Palaute uudesta bussisovelluksesta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt uutta bussisovellusta. Kirjoita palaute. Onko se helppo? Näyttääkö se oikeat ajat?"
+      }
+    ],
+    "rubric": "Olet käyttänyt uutta bussisovellusta. Kirjoita palaute. Onko se helppo? Näyttääkö se oikeat ajat?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

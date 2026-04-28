@@ -1,0 +1,63 @@
+{
+  "id": "e22a7e37-e3e9-53dc-9e85-66ee15a369f4",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele koulun tiedotus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Huomio kaikki oppilaat! Huomenna perjantaina on ylimääräinen vapaapäivä, koska opettajilla on koulutusta. Koulu on siis kiinni. Maanantaina jatketaan normaalisti. Läksyksi saatte lukea historian kappaleen 5 ja tehdä tehtävät 1–4. Mukavaa viikonloppua!",
+      "audio_asset_id": "1ac2c6af-b478-47ce-959c-f9a79f43ab63"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi huomenna on vapaapäivä?",
+        "options": [
+          "juhlapyhän vuoksi",
+          "opettajien koulutuksen vuoksi",
+          "remontin vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä läksyä tulee?",
+        "options": [
+          "matematiikan tehtävät",
+          "historian kappale 5",
+          "äidinkielen aine"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin koulu on taas auki?",
+        "options": [
+          "lauantaina",
+          "sunnuntaina",
+          "maanantaina"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

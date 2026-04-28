@@ -1,0 +1,37 @@
+{
+  "id": "76dd7e68-9cfe-582d-9332-46c201d8eccd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin venelyöntuvasta. Arvioi tilojen siisteyttä, varustelua ja sijaintia. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin venelyöntuvasta"
+    },
+    "items": [
+      {
+        "id": "29afc645-d8a3-543e-b5a7-8450b05b3078",
+        "prompt": "Kirjoita palauteteksti kaupungin venelyöntuvasta. Arvioi tilojen siisteyttä, varustelua ja sijaintia. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Tilojen siisteys\nVarustelu\nSijainti\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

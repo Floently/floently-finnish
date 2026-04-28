@@ -1,0 +1,110 @@
+{
+  "id": "3d995e52-5089-5775-a0f4-e185d1c2d1af",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Luonto on suomalaisille tärkeä arvo ja voimavara. Se tarjoaa paikan rentoutua, liikkua ja kokea elämyksiä. Jokaisella on oikeus nauttia luonnosta jokamiehenoikeuksien turvin. Tämä tarkoittaa, että saa liikkua luonnossa, poimia marjoja ja sieniä, ja yöpyä tilapäisesti siellä, missä se ei häiritse ketään. Jokamiehenoikeudet ovat ainutlaatuinen piirre suomalaisessa kulttuurissa. Ne mahdollistavat luonnon monipuolisen käytön kaikille. Samalla ne velvoittavat toimimaan vastuullisesti: ei saa roskata, häiritä eläimiä tai vahingoittaa luontoa. Suomalaiset viettävät paljon aikaa luonnossa. Metsät, järvet ja saaristo ovat tärkeitä virkistysalueita. Luonnossa liikkuminen on suosittu harrastus, ja monet harrastavat esimerkiksi patikointia, marjastusta, kalastusta ja retkeilyä. Luonto on myös tärkeä osa suomalaista identiteettiä. Se näkyy taiteessa, kirjallisuudessa ja musiikissa. Luonto on monille myös henkisesti tärkeä paikka, jossa voi rauhoittua ja löytää voimaa arkeen. Luonnon merkitys korostuu entisestään, kun yhteiskunta kaupungistuu ja arki on kiireistä. Monet kaupunkilaiset kaipaavat luontoon ja hakevat sieltä vastapainoa. Luonto onkin suomalaisten suuri rikkaus, jota on vaalittava ja suojeltava tuleville sukupolville.",
+      "word_count": 150
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä luonto tarjoaa suomalaisille?",
+        "options": [
+          "Vain työtä.",
+          "Paikan rentoutua, liikkua ja kokea elämyksiä.",
+          "Vain raaka-aineita.",
+          "Vain esteettisiä nautintoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä jokamiehenoikeudet tarkoittavat?",
+        "options": [
+          "Saa mennä kenen tahansa pihaan.",
+          "Saa liikkua luonnossa, poimia marjoja ja sieniä, ja yöpyä tilapäisesti.",
+          "Saa ottaa mitä tahansa luonnosta.",
+          "Saa rakentaa mitä tahansa luontoon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä velvollisuuksia jokamiehenoikeuksiin liittyy?",
+        "options": [
+          "Ei mitään velvollisuuksia.",
+          "Ei saa roskata, häiritä eläimiä tai vahingoittaa luontoa.",
+          "Saa tehdä mitä tahansa.",
+          "Pitää maksaa luonnon käytöstä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä ovat tärkeitä virkistysalueita Suomessa?",
+        "options": [
+          "Vain puistot.",
+          "Metsät, järvet ja saaristo.",
+          "Vain urheilukentät.",
+          "Vain kaupungit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä luontoharrastuksia tekstissä mainitaan?",
+        "options": [
+          "Golf ja tennis.",
+          "Patikointi, marjastus, kalastus ja retkeily.",
+          "Jalkapallo ja jääkiekko.",
+          "Uinti ja juoksu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten luonto näkyy suomalaisessa kulttuurissa?",
+        "options": [
+          "Se ei näy mitenkään.",
+          "Taiteessa, kirjallisuudessa ja musiikissa.",
+          "Vain mainonnassa.",
+          "Vain matkailussa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi luonnon merkitys korostuu kaupungistuvassa yhteiskunnassa?",
+        "options": [
+          "Koska luonto on vaarassa tuhoutua.",
+          "Koska ihmiset kaipaavat luontoon vastapainoa kiireiselle arjelle.",
+          "Koska kaupungit ovat rumia.",
+          "Koska luonto on ainoa paikka liikkua."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

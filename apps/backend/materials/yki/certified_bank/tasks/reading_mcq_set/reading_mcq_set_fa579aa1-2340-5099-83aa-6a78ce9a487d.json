@@ -1,0 +1,77 @@
+{
+  "id": "fa579aa1-2340-5099-83aa-6a78ce9a487d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.787,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Yksilöllisyyden ja yhteisöllisyyden välinen suhde on yksi länsimaisen yhteiskuntafilosofian keskeisimpiä ja jatkuvasti uudelleenarvioitavia teemoja. Kysymys siitä, missä määrin yksilön vapautta ja itsensä toteuttamista voidaan korostaa ilman, että se heikentää yhteisön koheesiota ja yhteistä hyvää, on ollut polttava niin antiikin Kreikan kaupunkivaltioissa kuin nykyajan monikulttuurisissa yhteiskunnissakin. Liberalistinen perinne korostaa yksilön vapautta ja oikeutta valita oma elämäntapansa. Tästä näkökulmasta yhteiskunnan ensisijainen tehtävä on turvata yksilön oikeudet ja luoda puitteet, joissa jokainen voi toteuttaa omia tavoitteitaan. Yhteisöllisyys nähdään tässä ajattelussa usein yksilön valinnan tuloksena: ihminen valitsee itse, mihin yhteisöihin hän haluaa kuulua ja mitä arvoja hän haluaa kannattaa. Valtion ei tulisi ohjata tätä valintaa, vaan ainoastaan taata, että eri arvojen ja elämäntapojen rinnakkainelo on mahdollista. Kommunitaristinen kritiikki puolestaan muistuttaa, että yksilö on aina sidoksissa yhteisöönsä ja kulttuuriinsa, eikä häntä voida ymmärtää irrallaan niistä. Tästä näkökulmasta yhteisöllisyys on arvo sinänsä, ja yhteiskunnan tehtävänä on vaalia ja vahvistaa yhteisöllisyyttä. Liiallinen yksilöllisyyden korostaminen voi johtaa yhteiskunnan pirstoutumiseen, yksinäisyyden lisääntymiseen ja yhteisten arvojen heikkenemiseen. Kommunitaristit korostavatkin kansalaiskasvatuksen, perinteiden ja yhteisten rituaalien merkitystä yhteisöllisyyden vahvistajina. Kolmas, niin sanottu kolmannen tien näkemys pyrkii löytämään tasapainon yksilöllisyyden ja yhteisöllisyyden välillä. Sen mukaan on mahdollista rakentaa yhteiskunta, joka kunnioittaa yksilön vapautta ja itsemääräämisoikeutta mutta samalla vaalii yhteisöllisyyttä ja solidaarisuutta. Tämä edellyttää kuitenkin aktiivista yhteiskuntapolitiikkaa, joka tukee sekä yksilöllisiä valintoja että yhteisöllisiä rakenteita. Tällaisia ovat esimerkiksi panostukset koulutukseen, kulttuuriin ja kansalaisyhteiskuntaan sekä sellaiset sosiaaliturvajärjestelmät, jotka mahdollistavat yksilölliset elämänpolut ilman, että ne jättävät ketään yksin. Yksilöllisyyden ja yhteisöllisyyden välinen jännite ei ole koskaan täysin ratkeava. Se on osa demokraattisen yhteiskunnan dynaamista tasapainoilua, ja siitä käytävä keskustelu on tärkeää. Keskeistä on, että eri näkökulmat tulevat kuulluiksi ja että ratkaisut syntyvät avoimen demokraattisen prosessin kautta. Vain siten voidaan rakentaa yhteiskunta, joka on sekä yksilön vapautta kunnioittava että yhteisöllisesti kiinteä.",
+      "word_count": 284
+    },
+    "questions": [
+      {
+        "id": "2e694a3b-ea33-5d48-906b-5d8cff355de9",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Liberalistisen ja kommunitaristisen ajattelun historiallinen kehitys",
+          "Yksilöllisyyden ja yhteisöllisyyden välinen jännite ja siihen esitetyt erilaiset filosofiset näkemykset",
+          "Kansalaiskasvatuksen merkitys yhteiskunnan koheesiolle",
+          "Sosiaaliturvajärjestelmien vaikutus yksilön valinnanvapauteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fcd99a5e-9cd2-53eb-b8a4-b91c3242deb9",
+        "prompt": "Tekstin mukaan miten liberalistinen perinne suhtautuu yksilön ja yhteisön suhteeseen?",
+        "options": [
+          "Se korostaa yhteisön ensisijaisuutta yksilöön nähden ja valtion velvollisuutta ohjata kansalaisia yhteisten arvojen suuntaan",
+          "Se korostaa yksilön vapautta ja oikeutta valita omat arvonsa ja yhteisönsä, ja katsoo valtion tehtäväksi turvata tämä vapaus",
+          "Se katsoo, että yksilöllä ei ole lainkaan vapautta, vaan kaikki määräytyy yhteiskunnallisten rakenteiden kautta",
+          "Se pitää yhteisöllisyyttä yksilön vapauden pahimpana uhkana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6e5a7da5-1b05-526c-a4b7-bec60bd26c4e",
+        "prompt": "Mitä kommunitaristinen kritiikki pitää ongelmallisena liiallisessa yksilöllisyyden korostamisessa?",
+        "options": [
+          "Se voi johtaa taloudellisen kasvun hidastumiseen ja innovaatioiden vähenemiseen",
+          "Se voi johtaa yhteiskunnan pirstoutumiseen, yksinäisyyden lisääntymiseen ja yhteisten arvojen heikkenemiseen",
+          "Se lisää valtion valtaa ja vähentää kansalaisten vapautta",
+          "Se tekee yhteiskunnasta liian homogeenisen ja vähentää monimuotoisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7e872380-659c-58c8-8a2d-acc86cc3c141",
+        "prompt": "Mitä kolmannen tien näkemys tekstin mukaan edellyttää yksilöllisyyden ja yhteisöllisyyden yhteensovittamiseksi?",
+        "options": [
+          "Yksilöllisyydestä luopumista ja täydellistä alistumista yhteisön tahtoon",
+          "Aktiivista yhteiskuntapolitiikkaa, joka tukee sekä yksilöllisiä valintoja että yhteisöllisiä rakenteita",
+          "Valtion täydellistä vetäytymistä yhteiskunnallisesta ohjauksesta ja kaiken vastuun siirtämistä yksilöille",
+          "Kommunitarististen periaatteiden omaksumista ja liberalistisen ajattelun hylkäämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

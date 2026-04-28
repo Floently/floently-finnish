@@ -1,0 +1,40 @@
+{
+  "id": "337a6d9b-3cb4-519c-bc49-039d1b31ecf7",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi selviytyä konfliktitilanteesta rakentavasti.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet asukas, joka on kyllästynyt meteliin ja haluaa lopullisen ratkaisun.",
+        "partner": "Yläkerran naapuri - nuori aikuinen, joka ei ehkä ymmärrä metelin häiritsevyyttä, tai suhtautuu välinpitämättömästi."
+      }
+    },
+    "items": [
+      {
+        "id": "srp7",
+        "ai_first_turn_fi": "Ai hei, pitkästä aikaa. Miten menee?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi selviytyä konfliktitilanteesta rakentavasti.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

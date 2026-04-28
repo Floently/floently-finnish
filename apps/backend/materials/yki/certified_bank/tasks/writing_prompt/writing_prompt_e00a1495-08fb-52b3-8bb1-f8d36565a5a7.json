@@ -1,0 +1,37 @@
+{
+  "id": "e00a1495-08fb-52b3-8bb1-f8d36565a5a7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita pääkirjoitus (noin 350-400 sanaa) otsikolla 'Onko EU:n yhteinen maatalouspolitiikka uudistettava kokonaan?'. Pohdi maatalouspolitiikan vaikutuksia ruoan tuotantoon, ympäristöön ja maaseudun elinvoimaisuuteen. Tulisiko tuotantotukia suunnata enemmän ympäristöystävälliseen tuotantoon? Vai pitäisikö maatalouspolitiikka palauttaa kansalliseksi? Perustele.",
+    "materials": {
+      "scenario": "EU:n maatalouspolitiikan uudistus"
+    },
+    "items": [
+      {
+        "id": "b149ffe5-b244-5d77-b763-56324d8f23bc",
+        "prompt": "Kirjoita pääkirjoitus (noin 350-400 sanaa) otsikolla 'Onko EU:n yhteinen maatalouspolitiikka uudistettava kokonaan?'. Pohdi maatalouspolitiikan vaikutuksia ruoan tuotantoon, ympäristöön ja maaseudun elinvoimaisuuteen. Tulisiko tuotantotukia suunnata enemmän ympäristöystävälliseen tuotantoon? Vai pitäisikö maatalouspolitiikka palauttaa kansalliseksi? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita pääkirjoitus (noin 350-400 sanaa) otsikolla 'Onko EU:n yhteinen maatalouspolitiikka uudistettava kokonaan?'. Pohdi maatalouspolitiikan vaikutuksia ruoan tuotantoon, ympäristöön ja maaseudun elinvoimaisuuteen. Tulisiko tuotantotukia suunnata enemmän ympäristöystävälliseen tuotantoon? Vai pitäisikö maatalouspolitiikka palauttaa kansalliseksi? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

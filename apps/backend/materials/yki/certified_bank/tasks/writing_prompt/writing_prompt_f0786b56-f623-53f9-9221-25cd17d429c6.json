@@ -1,0 +1,37 @@
+{
+  "id": "f0786b56-f623-53f9-9221-25cd17d429c6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa, että uimahallissa olisi enemmän vesijumppatunteja iltaisin. Kerro, miksi se olisi tarpeen työssäkäyville. Kysy, onko mahdollista lisätä tunteja.",
+    "materials": {
+      "scenario": "Ehdotus vesijumppatuntien lisäämisestä"
+    },
+    "items": [
+      {
+        "id": "3ef14cdd-df37-56a9-a1f7-d941a10a82ce",
+        "prompt": "Kirjoita sähköposti kaupungin liikuntapalveluihin. Haluat ehdottaa, että uimahallissa olisi enemmän vesijumppatunteja iltaisin. Kerro, miksi se olisi tarpeen työssäkäyville. Kysy, onko mahdollista lisätä tunteja."
+      }
+    ],
+    "rubric": "Tarpeen kuvaus\nEhdotus\nTiedustelu mahdollisuuksista",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

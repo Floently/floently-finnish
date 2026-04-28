@@ -1,0 +1,37 @@
+{
+  "id": "bd549523-f040-5130-b925-db0aa9f0a7db",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ulosottoviraston ylitarkastajalle. Olet saanut ulosottomerkinnän, vaikka olet maksanut velan, ja olet yrittänyt saada asiaa korjattua, mutta et ole onnistunut. Kerro tilanteestasi, toimita maksutositteet ja pyydä, että asia tutkitaan uudelleen ja merkintä poistetaan. Kerro myös, miten olet jo yrittänyt selvittää asiaa.",
+    "materials": {
+      "scenario": "Ulosottomerkinnän poistaminen"
+    },
+    "items": [
+      {
+        "id": "409633a5-841c-5a33-aaba-cdbd768d69dd",
+        "prompt": "Kirjoita virallinen sähköposti ulosottoviraston ylitarkastajalle. Olet saanut ulosottomerkinnän, vaikka olet maksanut velan, ja olet yrittänyt saada asiaa korjattua, mutta et ole onnistunut. Kerro tilanteestasi, toimita maksutositteet ja pyydä, että asia tutkitaan uudelleen ja merkintä poistetaan. Kerro myös, miten olet jo yrittänyt selvittää asiaa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

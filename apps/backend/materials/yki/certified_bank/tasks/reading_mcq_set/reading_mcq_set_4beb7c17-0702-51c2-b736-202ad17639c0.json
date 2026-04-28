@@ -1,0 +1,110 @@
+{
+  "id": "4beb7c17-0702-51c2-b736-202ad17639c0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Teknologian kehitys on muuttanut työelämää perusteellisesti viime vuosikymmeninä. Automaatio ja tekoäly korvaavat yhä useampia rutiininomaisia tehtäviä, mikä on johtanut keskusteluun työn tulevaisuudesta. Osa asiantuntijoista ennustaa, että monet nykyiset ammatit häviävät kokonaan ja uusia syntyy tilalle. Tämä edellyttää työntekijöiltä jatkuvaa oppimista ja sopeutumiskykyä. Toiset taas varoittavat, että teknologian kehitys voi lisätä eriarvoisuutta, jos hyödyt keskittyvät harvoille. Korkeasti koulutetut asiantuntijat, jotka osaavat hyödyntää uutta teknologiaa, voivat menestyä, kun taas matalasti koulutetut voivat jäädä työmarkkinoiden ulkopuolelle. Tämä on herättänyt kysymyksen siitä, pitäisikö yhteiskunnan puuttua kehitykseen esimerkiksi koulutuksen, sosiaaliturvan ja verotuksen keinoin. Yksi ehdotus on ollut perustulo, joka turvaisi jokaisen toimeentulon työmarkkinoiden murroksessa. Toiset korostavat koulutusjärjestelmän uudistamista siten, että se antaa valmiuksia elinikäiseen oppimiseen. Keskeistä onkin löytää keinoja, joilla teknologian tuomat mahdollisuudet saadaan jaettua oikeudenmukaisesti ja joilla varmistetaan, ettei kukaan jää kehityksen jalkoihin.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten teknologia on muuttanut työelämää?",
+        "options": [
+          "Se on lisännyt rutiinitöiden määrää.",
+          "Automaatio ja tekoäly korvaavat yhä useampia rutiininomaisia tehtäviä.",
+          "Se on vähentänyt tarvetta koulutukselle.",
+          "Se on tehnyt työstä vähemmän vaativaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä työntekijöiltä vaaditaan tulevaisuudessa?",
+        "options": [
+          "Yhden ammatin hallintaa koko elämän ajan.",
+          "Jatkuvaa oppimista ja sopeutumiskykyä.",
+          "Fyysistä voimaa ja kestävyyttä.",
+          "Kielten osaamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten teknologian kehitys voi lisätä eriarvoisuutta?",
+        "options": [
+          "Kaikki menettävät työpaikkansa.",
+          "Hyödyt keskittyvät harvoille, kuten korkeasti koulutetuille.",
+          "Matalasti koulutetut menestyvät parhaiten.",
+          "Teknologia hyödyttää kaikkia tasapuolisesti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä keinoja yhteiskunnalla on puuttua kehitykseen?",
+        "options": [
+          "Vain verotuksen keinoin.",
+          "Koulutuksen, sosiaaliturvan ja verotuksen keinoin.",
+          "Vain koulutuksen keinoin.",
+          "Millään keinoilla ei voi vaikuttaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan perustulolla?",
+        "options": [
+          "Tuloa, joka maksetaan vain työttömille.",
+          "Tuloa, joka turvaisi jokaisen toimeentulon työmarkkinoiden murroksessa.",
+          "Tuloa, joka maksetaan vain opiskelijoille.",
+          "Tuloa, joka perustuu tehtyyn työmäärään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten koulutusjärjestelmää pitäisi uudistaa?",
+        "options": [
+          "Painottamaan vain tiettyjä ammatteja.",
+          "Antamaan valmiuksia elinikäiseen oppimiseen.",
+          "Lyhentämään koulutusaikoja.",
+          "Vähentämään teoreettista opetusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on keskeistä teknologian kehityksen hallinnassa?",
+        "options": [
+          "Teknologian kehityksen pysäyttäminen.",
+          "Hyötyjen oikeudenmukainen jakaminen ja heikoimmista huolehtiminen.",
+          "Vain talouskasvun maksimointi.",
+          "Työpaikkojen säilyttäminen hinnalla millä hyvänsä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

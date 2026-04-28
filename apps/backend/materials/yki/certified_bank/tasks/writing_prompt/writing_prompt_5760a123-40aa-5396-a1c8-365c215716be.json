@@ -1,0 +1,37 @@
+{
+  "id": "5760a123-40aa-5396-a1c8-365c215716be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti verkkokauppaan.",
+    "materials": {
+      "scenario": "Kysy tilauksen toimitustilannetta"
+    },
+    "items": [
+      {
+        "id": "90d793ac-f462-5893-93df-fc23f17001a1",
+        "prompt": "Tilasit tuotteen verkkokaupasta viikko sitten, mutta et ole saanut sitä vielä. Kirjoita sähköposti ja kysy tilauksen tilannetta. Kerro tilausnumero ja kysy, milloin tuote toimitetaan."
+      }
+    ],
+    "rubric": "Tilasit tuotteen verkkokaupasta viikko sitten, mutta et ole saanut sitä vielä. Kirjoita sähköposti ja kysy tilauksen tilannetta. Kerro tilausnumero ja kysy, milloin tuote toimitetaan.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

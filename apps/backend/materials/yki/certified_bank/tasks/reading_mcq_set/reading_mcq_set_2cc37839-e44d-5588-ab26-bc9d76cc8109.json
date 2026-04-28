@@ -1,0 +1,66 @@
+{
+  "id": "2cc37839-e44d-5588-ab26-bc9d76cc8109",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KIRJASTON AUKIOLOAJAT\n\nKirjasto on avoinna maanantaista perjantaihin kello 10–19. Lauantaisin kello 10–15. Sunnuntaisin suljettu.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "aefbe7f2-1f5a-5fc9-913d-703e11f50b98",
+        "prompt": "Mihin aikaan kirjasto sulkeutuu arkisin?",
+        "options": [
+          "kello 17",
+          "kello 18",
+          "kello 19",
+          "kello 20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e805137d-728a-508f-ba5e-fbaaeec81a68",
+        "prompt": "Onko kirjasto auki lauantaisin?",
+        "options": [
+          "ei",
+          "kyllä, kello 10–15",
+          "kyllä, kello 12–18",
+          "vain aamupäivällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "20148209-dde5-5381-addb-d0ab15e04b4b",
+        "prompt": "Minä päivänä kirjasto on kiinni?",
+        "options": [
+          "maanantaina",
+          "perjantaina",
+          "lauantaina",
+          "sunnuntaina"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

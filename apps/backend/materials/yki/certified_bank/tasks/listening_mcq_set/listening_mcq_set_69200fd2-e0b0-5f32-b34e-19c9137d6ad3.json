@@ -1,0 +1,66 @@
+{
+  "id": "69200fd2-e0b0-5f32-b34e-19c9137d6ad3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu hotellin vastaanotossa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, olen varannut huoneen nimellä Mäkelä.\nVirkailija: Hetkinen, katsotaan. Kyllä, kahden hengen huone kahdeksi yöksi.\nAsiakas: Kyllä.\nVirkailija: Huone numero 412 on neljännessä kerroksessa. Tässä on avaimet.\nAsiakas: Kiitos. Mihin aikaan aamiainen on?\nVirkailija: Aamiainen on klo 7–10 ravintolassa ensimmäisessä kerroksessa.\nAsiakas: Entä wifi?\nVirkailija: Wifi toimii, salasana on 'hotellivieras'.\nAsiakas: Kiitos!",
+      "audio_asset_id": "e6b0ad0e-7e45-4ceb-a116-ff88928740b8"
+    },
+    "questions": [
+      {
+        "id": "60a91301-05f9-5518-b24a-d1a4bc706791",
+        "prompt": "Mikä on asiakkaan huoneen numero?",
+        "options": [
+          "312",
+          "412",
+          "512",
+          "612"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "055b54d2-db6c-5f45-98cc-2a3597d9bfa4",
+        "prompt": "Milloin aamiainen on?",
+        "options": [
+          "klo 6–9",
+          "klo 7–10",
+          "klo 8–11",
+          "klo 9–12"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4588d381-e707-57d8-a629-fa4f6a7f5671",
+        "prompt": "Mikä on wifin salasana?",
+        "options": [
+          "hotelli123",
+          "hotellivieras",
+          "welcome2026",
+          "guest123"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "22e20295-5346-5917-bfde-ed2c018edc38",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ruokakaupan sesonkituotteista (esim. joulu, pääsiäinen). Onko valikoima hyvä? Tuleeko ne ajoissa kauppaan?",
+    "materials": {
+      "scenario": "Palaute kaupan sesonkituotteista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute ruokakaupan sesonkituotteista (esim. joulu, pääsiäinen). Onko valikoima hyvä? Tuleeko ne ajoissa kauppaan?"
+      }
+    ],
+    "rubric": "Kirjoita palaute ruokakaupan sesonkituotteista (esim. joulu, pääsiäinen). Onko valikoima hyvä? Tuleeko ne ajoissa kauppaan?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

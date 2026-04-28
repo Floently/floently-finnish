@@ -1,0 +1,66 @@
+{
+  "id": "177ba7bd-8062-5ac2-adcf-77b9d4625c43",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Olen tulossa käymään kaupungissa ensi viikolla. Olisi kiva nähdä! Onko sinulla aikaa tavata keskiviikkona tai torstaina?  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "e2910338-66bc-5775-9900-6caeeae347e6",
+        "prompt": "Milloin lähettäjä on tulossa kaupunkiin?",
+        "options": [
+          "tänään",
+          "huomenna",
+          "ensi viikolla",
+          "kuukauden päästä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "cf1156dd-6699-56b8-b706-6721cfc91c41",
+        "prompt": "Mitä hän ehdottaa?",
+        "options": [
+          "puhelua",
+          "tapaamista",
+          "lahjaa",
+          "matkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b80d746b-5b6d-5d57-acf2-04e58a3b413b",
+        "prompt": "Minä päivinä tapaaminen voisi olla?",
+        "options": [
+          "maanantaina tai tiistaina",
+          "keskiviikkona tai torstaina",
+          "torstaina tai perjantaina",
+          "lauantaina tai sunnuntaina"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

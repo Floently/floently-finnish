@@ -1,0 +1,37 @@
+{
+  "id": "4536d331-7767-56bb-8d05-b6ce77f0a9ed",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.348,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet asioinut maistraatissa. Kirjoita palaute. Kerro, saitko ajanvarauksen helposti, sujuiko asiointi nopeasti ja olivatko työntekijät ystävällisiä.",
+    "materials": {
+      "scenario": "Palaute maistraatin asioinnista"
+    },
+    "items": [
+      {
+        "id": "b4a22232-ae1a-54a5-a629-fc25dd253aae",
+        "prompt": "Olet asioinut maistraatissa. Kirjoita palaute. Kerro, saitko ajanvarauksen helposti, sujuiko asiointi nopeasti ja olivatko työntekijät ystävällisiä."
+      }
+    ],
+    "rubric": "Ajanvarauksen helppous\nAsioinnin sujuvuus\nTyöntekijöiden ystävällisyys",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

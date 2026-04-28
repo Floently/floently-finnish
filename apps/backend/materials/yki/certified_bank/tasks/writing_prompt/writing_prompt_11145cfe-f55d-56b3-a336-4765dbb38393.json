@@ -1,0 +1,37 @@
+{
+  "id": "11145cfe-f55d-56b3-a336-4765dbb38393",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomen Nato-jäsenyyden myötä sallia ydinaseiden kauttakulku?'. Arvioi turvallisuuspoliittisia ja eettisiä näkökulmia.",
+    "materials": {
+      "scenario": "Ydinaseiden kauttakulku"
+    },
+    "items": [
+      {
+        "id": "d90f6fd2-d1cf-519c-a35b-fe5b6d9121ff",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomen Nato-jäsenyyden myötä sallia ydinaseiden kauttakulku?'. Arvioi turvallisuuspoliittisia ja eettisiä näkökulmia."
+      }
+    ],
+    "rubric": "Turvallisuuspolitiikka\nEettisyys\nKansainväliset suhteet\nKansalaismielipide",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

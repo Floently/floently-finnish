@@ -1,0 +1,37 @@
+{
+  "id": "5a55523b-f5c7-541d-a58d-d1404016ba72",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti sosiaali- ja terveysalan lupa- ja valvontavirastolle. Haluat tehdä ilmoituksen epäkohdasta hoivakodissa, jossa sukulaisesi asuu. Kerro havaitsemistasi ongelmista, kuten henkilökunnan vähäisyydestä ja hoidon laiminlyönnistä, ja pyydä selvitystä.",
+    "materials": {
+      "scenario": "Ilmoitus epäkohdasta hoivakodissa"
+    },
+    "items": [
+      {
+        "id": "2a905352-e5dc-530f-88b3-2e5799bca0f5",
+        "prompt": "Kirjoita virallinen sähköposti sosiaali- ja terveysalan lupa- ja valvontavirastolle. Haluat tehdä ilmoituksen epäkohdasta hoivakodissa, jossa sukulaisesi asuu. Kerro havaitsemistasi ongelmista, kuten henkilökunnan vähäisyydestä ja hoidon laiminlyönnistä, ja pyydä selvitystä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

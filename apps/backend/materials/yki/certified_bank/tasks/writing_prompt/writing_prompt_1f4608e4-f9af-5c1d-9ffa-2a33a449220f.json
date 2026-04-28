@@ -1,0 +1,37 @@
+{
+  "id": "1f4608e4-f9af-5c1d-9ffa-2a33a449220f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti verohallintoon. Olet saanut verotuspäätöksen, jossa sinua on verotettu tulosta, jota et ole koskaan saanut. Kerro, mikä tulo on kyseessä, miksi et ole saanut sitä ja toimita selvitys asiasta. Pyydä, että verotus oikaistaan ja virheellinen tieto poistetaan verotustiedoistasi.",
+    "materials": {
+      "scenario": "Kirjoita virallinen sähköposti verohallintoon. Olet saanut verotuspäätöksen, jossa sinua on verotettu tulosta, jota et ole koskaan saanut. Kerro, mikä tulo on kyseessä, miksi et ole saanut sitä ja toimita selvitys asiasta. Pyydä, että verotus oikaistaan ja virheellinen tieto poistetaan verotustiedoistasi."
+    },
+    "items": [
+      {
+        "id": "dae4fedc-6260-5f32-bba7-f0b1fa169944",
+        "prompt": "Kirjoita virallinen sähköposti verohallintoon. Olet saanut verotuspäätöksen, jossa sinua on verotettu tulosta, jota et ole koskaan saanut. Kerro, mikä tulo on kyseessä, miksi et ole saanut sitä ja toimita selvitys asiasta. Pyydä, että verotus oikaistaan ja virheellinen tieto poistetaan verotustiedoistasi."
+      }
+    ],
+    "rubric": "Kirjoita virallinen sähköposti verohallintoon. Olet saanut verotuspäätöksen, jossa sinua on verotettu tulosta, jota et ole koskaan saanut. Kerro, mikä tulo on kyseessä, miksi et ole saanut sitä ja toimita selvitys asiasta. Pyydä, että verotus oikaistaan ja virheellinen tieto poistetaan verotustiedoistasi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "9b1db99f-d976-51b3-8b25-3628c21da133",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell briefly what you hope for the future: work, studies, traveling.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "07d36efc-c4fd-578a-8644-74280283d40a",
+        "ai_first_turn_fi": "Onko sulla jotain suunnitelmia tulevaisuudelle? Mitä haluaisit tehdä?"
+      }
+    ],
+    "rubric": "Tell briefly what you hope for the future: work, studies, traveling.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

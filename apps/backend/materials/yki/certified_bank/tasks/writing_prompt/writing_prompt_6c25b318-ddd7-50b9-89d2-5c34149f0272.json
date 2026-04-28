@@ -1,0 +1,37 @@
+{
+  "id": "6c25b318-ddd7-50b9-89d2-5c34149f0272",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tilasin paidan verkkokaupasta. Kirjoita palaute. Kerro, tuliko paketti perille ajallaan, oliko paita oikean kokoinen ja oliko asiakaspalveluun helppo saada yhteys.",
+    "materials": {
+      "scenario": "Palaute verkkokaupasta"
+    },
+    "items": [
+      {
+        "id": "bad92496-63c0-5a1e-96ae-c15f491d7804",
+        "prompt": "Tilasin paidan verkkokaupasta. Kirjoita palaute. Kerro, tuliko paketti perille ajallaan, oliko paita oikean kokoinen ja oliko asiakaspalveluun helppo saada yhteys."
+      }
+    ],
+    "rubric": "Toimitusaika\nTuotteen koko\nAsiakaspalvelun tavoittaminen",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

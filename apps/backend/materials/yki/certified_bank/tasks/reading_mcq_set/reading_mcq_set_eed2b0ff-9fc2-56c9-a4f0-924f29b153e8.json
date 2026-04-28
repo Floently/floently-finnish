@@ -1,0 +1,99 @@
+{
+  "id": "eed2b0ff-9fc2-56c9-a4f0-924f29b153e8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Uimahallissa on nyt vesijuoksua. Vesijuoksu on helppoa nivelille ja sopii kaikenikäisille. Tunteja on maanantaisin, keskiviikkoisin ja perjantaisin kello 10–11. Mukaan voi tulla ilman ennakkoilmoittautumista. Uimahallista voi lainata vyön. Ohjaaja näyttää oikeat tekniikat. Vesijuoksu on suosittua, joten paikalle kannattaa tulla ajoissa.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uusi laji uimahallissa on alkanut?",
+        "options": [
+          "Vesipallo",
+          "Vesijuoksu",
+          "Uintikoulu",
+          "Hydrobic"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi vesijuoksu on hyvä laji?",
+        "options": [
+          "Se on raskasta nivelille",
+          "Se on helppoa nivelille ja sopii kaikenikäisille",
+          "Se on nopeaa ja tehokasta",
+          "Se vaatii paljon taitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Minä päivinä vesijuoksutunteja on?",
+        "options": [
+          "Tiistaisin, torstaisin ja lauantaisin",
+          "Maanantaisin, keskiviikkoisin ja perjantaisin",
+          "Vain viikonloppuisin",
+          "Joka päivä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin aikaan tunnit ovat?",
+        "options": [
+          "Kello 9–10",
+          "Kello 10–11",
+          "Kello 11–12",
+          "Kello 12–13"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Tarvitseeko tunnille ilmoittautua etukäteen?",
+        "options": [
+          "Kyllä, aina",
+          "Ei, voi tulla ilman ilmoittautumista",
+          "Vain ensimmäisellä kerralla",
+          "Vain, jos haluaa lainata vyön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi kannattaa tulla ajoissa paikalle?",
+        "options": [
+          "Koska paikkoja on vähän",
+          "Koska vesijuoksu on suosittua",
+          "Koska ohjaaja on paikalla vain alussa",
+          "Koska vyöt loppuvat kesken"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

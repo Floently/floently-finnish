@@ -1,0 +1,77 @@
+{
+  "id": "41a06212-a376-5eb7-b704-93350204224e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.571,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Aluesairaalassa otettiin käyttöön uusi tulkkipalvelun toimintamalli, koska kiirevastaanotossa havaittiin viiveitä tilanteissa, joissa yhteistä kieltä ei ollut. Aiemmin tulkki tilattiin yksikkökohtaisesti, mikä johti päällekkäisiin varauksiin ja epäselvään vastuunjakoon. Uudessa mallissa tilaukset ohjataan keskitettyyn palvelupisteeseen, joka priorisoi tapaukset lääketieteellisen kiireellisyyden ja arvioidun vastaanottoajan perusteella. Samalla sairaala koulutti henkilöstöä käyttämään etätulkkausjärjestelmää tilanteissa, joissa paikan päällä oleva tulkki ei ehdi ajoissa. Ensimmäisen kahden kuukauden seurannassa kiirevastaanoton odotusajat lyhenivät, mutta henkilöstö palautti, että etätulkkaus vaatii rauhallisen tilan ja toimivan verkkoyhteyden. Johto arvioi mallia syksyllä ja päättää, lisätäänkö yövuoroon erillinen koordinaattori.",
+      "word_count": 85
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi uusi malli otettiin käyttöön?",
+        "options": [
+          "koska potilaita oli liian vähän",
+          "koska tulkkaustilanteissa oli viiveitä",
+          "koska sairaala sulki osastoja",
+          "koska kaikki tulkit irtisanoutuivat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä muuttui uudessa mallissa?",
+        "options": [
+          "tilaukset poistettiin",
+          "tilaukset keskitettiin palvelupisteeseen",
+          "vain paperilomakkeet sallitaan",
+          "vastuu siirrettiin potilaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä havaittiin kahden kuukauden seurannassa?",
+        "options": [
+          "odotusajat pitenivät",
+          "mitään muutosta ei tapahtunut",
+          "odotusajat lyhenivät mutta etätulkkaus vaatii toimivat olosuhteet",
+          "järjestelmä lopetettiin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä johto harkitsee seuraavaksi?",
+        "options": [
+          "yövuoron koordinaattorin lisäämistä",
+          "sairaalan muuttoa",
+          "palvelun yksityistämistä heti",
+          "etätulkkauksen kieltoa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

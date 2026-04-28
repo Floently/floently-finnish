@@ -1,0 +1,77 @@
+{
+  "id": "5ed3c873-976a-5952-85dd-a8e409f7dbb4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-generator-v5",
+    "generated_at": "2026-03-04T12:00:12Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti asumisesta Suomessa ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomessa asutaan monenlaisissa asunnoissa. Kaupungeissa yleisiä ovat kerrostalot, kun taas taajamissa ja maaseudulla omakotitalot ja rivitalot ovat tavallisia. Noin kolmannes suomalaisista asuu vuokralla, ja loput omistavat asuntonsa. Asumisen kustannukset vaihtelevat paljon asuinpaikan mukaan; pääkaupunkiseudulla hinnat ovat korkeimmat. Monet asuvat yksin, mutta erityisesti lapsiperheissä asutaan useamman hengen talouksissa. Asuntojen varustelutaso on yleensä hyvä: lähes kaikissa on sähkö, juokseva vesi, viemäröinti ja keskuslämmitys. Uusissa rakennuksissa panostetaan energiatehokkuuteen ja esteettömyyteen. Asumiseen voi saada tukea, kuten asumistukea, jos tulot ovat pienet.",
+      "word_count": 77
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_013",
+        "prompt": "Millaisia asumismuotoja Suomessa on?",
+        "options": [
+          "Vain kerrostaloja",
+          "Kerrostaloja, omakotitaloja ja rivitaloja",
+          "Vain omakotitaloja",
+          "Vain vuokra-asuntoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_013",
+        "prompt": "Kuinka moni suomalainen asuu vuokralla?",
+        "options": [
+          "Noin puolet",
+          "Noin kolmannes",
+          "Noin neljännes",
+          "Noin kaksi kolmannesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_013",
+        "prompt": "Missä asumisen kustannukset ovat korkeimmat?",
+        "options": [
+          "Maaseudulla",
+          "Pohjois-Suomessa",
+          "Pääkaupunkiseudulla",
+          "Pienissä kaupungeissa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4_reading_b1_013",
+        "prompt": "Mitä asumisen tukea voi saada?",
+        "options": [
+          "Lapsilisää",
+          "Asumistukea",
+          "Opintotukea",
+          "Työttömyyskorvausta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

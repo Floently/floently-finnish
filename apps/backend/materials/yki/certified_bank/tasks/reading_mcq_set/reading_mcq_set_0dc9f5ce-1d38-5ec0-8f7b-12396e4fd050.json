@@ -1,0 +1,110 @@
+{
+  "id": "0dc9f5ce-1d38-5ec0-8f7b-12396e4fd050",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.781,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja valitse jokaiseen kysymykseen paras vaihtoehto.",
+    "materials": {
+      "text": "Julkisen hallinnon avoimen datan ja yksityisyyden suojan välistä jännitettä on kuvailtu usein kahden periaatteen väliseksi konfliktiksi: toisaalta laki julkisista asiakirjoista ja viranomaisten läpinäkyvyys, toisaalta henkilötietojen käsittely ja perustuslaillinen oikeus yksityisyyteen. Käytännössä konflikti ei kuitenkaan ole symmetrinen. Julkisuuslain nojalla saatavissa olevat asiakirjat ovat usein jo anonymisoituja tai aggregoituja, jolloin yksityisen henkilön tunnistaminen on estetty. Silti uudet analytiikkamenetelmät ja eri rekisterien yhdistäminen voivat joissain tapauksissa palauttaa tunnistettavuuden, jota lainsäädäntö ei ole vielä täysin kattanut. Toisaalta avoimen datan puolestapuhujat painottavat, että läpinäkyvyys ja tutkimusmahdollisuudet edistävät yhteiskunnallista valvontaa ja innovaatiota, ja että riskit voidaan hallita teknisillä ja organisatorisilla toimenpiteillä. Kriitikot vastaavat, että hallittavuus on usein yliarvioitu ja että vahingot jakautuvat epätasaisesti: tietyt ryhmät voivat joutua suuremman tunnistusriskin alle. Eurooppalainen sääntely on siirtymässä kohti tilannetta, jossa julkisen tiedon uudelleenkäyttöä ohjataan erillisellä direktiivillä, joka vaatii tasapainottelua julkisten etujen ja perusoikeuksien välillä. Tekstin mukaan ratkaisu ei ole luopua julkisuudesta tai avoimesta datasta, vaan vahvistaa sekä saatavuuden ehtoja että anonymisoinnin ja tarkkailun vaatimuksia niin, että molemmat periaatteet toteutuvat käytännössä.",
+      "word_count": 161
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten jännitettä avoimen datan ja yksityisyyden välillä on kuvailtu?",
+        "options": [
+          "vain tekniseksi ongelmaksi",
+          "kahden periaatteen väliseksi konfliktiksi",
+          "pelkästään oikeudelliseksi",
+          "ei kuvata"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi konflikti ei ole symmetrinen käytännössä?",
+        "options": [
+          "asiakirjat ovat usein jo anonymisoituja tai aggregoituja",
+          "kaikki asiakirjat ovat salaisia",
+          "lainsäädäntö kieltää julkisuuden",
+          "ei selitetä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä voi palauttaa tunnistettavuuden jo anonymisoiduissa aineistoissa?",
+        "options": [
+          "vain paperiasiakirjat",
+          "uudet analytiikkamenetelmät ja rekisterien yhdistäminen",
+          "pelkkä julkisuuslaki",
+          "ei mainita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä avoimen datan puolestapuhujat painottavat?",
+        "options": [
+          "vain kustannusten säästön",
+          "läpinäkyvyyden ja tutkimusmahdollisuuksien edistävän valvontaa ja innovaatiota",
+          "että riskit ovat aina hallittavissa",
+          "että yksityisyys on toisarvoinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kriitikot vastaavat?",
+        "options": [
+          "hallittavuus on usein yliarvioitu ja vahingot jakautuvat epätasaisesti",
+          "kaikki riskit on jo hallittu",
+          "direktiivejä ei tarvita",
+          "avoimiin datoihin ei pitäisi koskea"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mihin eurooppalainen sääntely on siirtymässä?",
+        "options": [
+          "julkisuuden poistamiseen",
+          "erilliseen direktiiviin julkisen tiedon uudelleenkäytöstä",
+          "vain kansallisiin lakeihin",
+          "ei mainita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on tekstin mukaan ratkaisu?",
+        "options": [
+          "luopua julkisuudesta",
+          "vahvistaa sekä saatavuuden ehtoja että anonymisoinnin vaatimuksia",
+          "vain yksityisyyden rajoittaminen",
+          "ei ehdoteta ratkaisua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

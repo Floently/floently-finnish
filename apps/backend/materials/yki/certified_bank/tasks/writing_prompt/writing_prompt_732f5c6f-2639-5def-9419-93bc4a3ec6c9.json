@@ -1,0 +1,37 @@
+{
+  "id": "732f5c6f-2639-5def-9419-93bc4a3ec6c9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Ystäväsi on muuttamassa uuteen asuntoon. Kirjoita hänelle sähköposti.\n\nKerro:\n- Onnittelut uudesta asunnosta\n- Kysy, millainen asunto on (koko, sijainti, kunto)\n- Kysy, tarvitseeko hän apua muutossa\n- Ehdota, että tapaatte muuton jälkeen",
+    "materials": {
+      "scenario": "Ystäväsi on muuttamassa uuteen asuntoon. Kirjoita hänelle sähköposti.\n\nKerro:\n- Onnittelut uudesta asunnosta\n- Kysy, millainen asunto on (koko, sijainti, kunto)\n- Kysy, tarvitseeko hän apua muutossa\n- Ehdota, että tapaatte muuton jälkeen"
+    },
+    "items": [
+      {
+        "id": "41211846-f7fd-50b7-bcb7-1272a00d444f",
+        "prompt": "Ystäväsi on muuttamassa uuteen asuntoon. Kirjoita hänelle sähköposti.\n\nKerro:\n- Onnittelut uudesta asunnosta\n- Kysy, millainen asunto on (koko, sijainti, kunto)\n- Kysy, tarvitseeko hän apua muutossa\n- Ehdota, että tapaatte muuton jälkeen"
+      }
+    ],
+    "rubric": "Ystäväsi on muuttamassa uuteen asuntoon. Kirjoita hänelle sähköposti.\n\nKerro:\n- Onnittelut uudesta asunnosta\n- Kysy, millainen asunto on (koko, sijainti, kunto)\n- Kysy, tarvitseeko hän apua muutossa\n- Ehdota, että tapaatte muuton jälkeen",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

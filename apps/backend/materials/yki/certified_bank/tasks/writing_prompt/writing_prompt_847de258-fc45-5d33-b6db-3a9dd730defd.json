@@ -1,0 +1,37 @@
+{
+  "id": "847de258-fc45-5d33-b6db-3a9dd730defd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupunginvaltuutetulle. Olet huolissasi alueesi bussiyhteyksien vähentämisestä. Kerro, miksi bussit ovat tärkeitä sinulle ja muille asukkaille. Pyydä, että valtuutettu ottaa kantaa asiaan.",
+    "materials": {
+      "scenario": "Huoli bussiyhteyksien vähentämisestä"
+    },
+    "items": [
+      {
+        "id": "5fcd81f2-6488-57e3-9e75-29fba2bb95e4",
+        "prompt": "Kirjoita sähköposti kaupunginvaltuutetulle. Olet huolissasi alueesi bussiyhteyksien vähentämisestä. Kerro, miksi bussit ovat tärkeitä sinulle ja muille asukkaille. Pyydä, että valtuutettu ottaa kantaa asiaan."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nVaikutukset asukkaisiin\nPyyntö vaikuttaa",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "a0dc91f8-1d72-53f0-b628-c7cf978cde44",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.311,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet ostanut uuden pelin. Kysy, haluaako hän tulla pelaamaan ensi viikonloppuna. Kerro, että voit tilata pizzaa. Kysy, mikä päivä hänelle sopii.",
+    "materials": {
+      "scenario": "Viesti ystävälle peli-illasta"
+    },
+    "items": [
+      {
+        "id": "89c00d7e-5dca-5812-a1ce-7b7bfa01a286",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet ostanut uuden pelin. Kysy, haluaako hän tulla pelaamaan ensi viikonloppuna. Kerro, että voit tilata pizzaa. Kysy, mikä päivä hänelle sopii."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on uusi peli\nKysy, haluaako hän tulla pelaamaan\nEhdota viikonloppua\nKerro, että tarjoat pizzaa\nKysy sopivaa päivää",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

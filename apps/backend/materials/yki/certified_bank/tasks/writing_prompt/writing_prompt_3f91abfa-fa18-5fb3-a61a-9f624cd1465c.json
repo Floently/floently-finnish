@@ -1,0 +1,37 @@
+{
+  "id": "3f91abfa-fa18-5fb3-a61a-9f624cd1465c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti puolisolle. Kerro, että olet lähdössä kaupassa ja kysy, tarvitseeko hän jotain. Kerro myös, että tulet kotiin noin tunnin päästä.",
+    "materials": {
+      "scenario": "Viesti puolisolle kaupassakäynnistä"
+    },
+    "items": [
+      {
+        "id": "4d1db82f-a934-5533-8bdc-ffc7a0f57324",
+        "prompt": "Kirjoita lyhyt viesti puolisolle. Kerro, että olet lähdössä kaupassa ja kysy, tarvitseeko hän jotain. Kerro myös, että tulet kotiin noin tunnin päästä."
+      }
+    ],
+    "rubric": "Kerro, että olet menossa kauppaan\nKysy, tarvitseeko hän jotain\nKerro, milloin tulet kotiin",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

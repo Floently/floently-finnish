@@ -1,0 +1,37 @@
+{
+  "id": "d9c72d99-e68e-5d9d-8bb3-882d81cd570d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.667,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa HR-asiantuntijana. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: HR-asiantuntija"
+    },
+    "items": [
+      {
+        "id": "50ec081a-ca8b-5d91-b7a9-714725d55d2f",
+        "prompt": "Haet työpaikkaa HR-asiantuntijana. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa HR-asiantuntijana. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

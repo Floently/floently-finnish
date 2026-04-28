@@ -1,0 +1,66 @@
+{
+  "id": "a12aacb2-2d00-5a97-943d-920d92e73056",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KADONNUT KISSA\n\nKissa nimeltä Viiru on kadonnut kotipihasta Töölössä 10.7.\n\nViiru on 5-vuotias mustavalkoinen kolli. Sillä on valkoinen rinta ja valkoiset tassut. Viiru on sisäkissa, mutta se pääsi vahingossa ulos. Se on arka eikä tule välttämättä luokse.\n\nJos näet Viirun, ota yhteys:\nMaija Virtanen, puh. 040 123 4567\nTai ilmoita Eläinsuojeluyhdistykseen.\n\nPalkkio löytäjälle!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 69
+    },
+    "questions": [
+      {
+        "id": "1cf99111-ba6b-530b-8924-0ac16ff5be53",
+        "prompt": "Minkä värinen Viiru on?",
+        "options": [
+          "kokonaan valkoinen",
+          "kokonaan musta",
+          "mustavalkoinen",
+          "ruskea"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "4faf6721-f458-5f72-94ef-e471177afeb9",
+        "prompt": "Millainen Viiru on luonteeltaan?",
+        "options": [
+          "rohkea",
+          "arka",
+          "leikkisä",
+          "vihainen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c8182649-6ee6-57ec-8da7-43eeed83e166",
+        "prompt": "Mitä saa, jos löytää Viirun?",
+        "options": [
+          "kiitokset",
+          "palkkion",
+          "kissan",
+          "ei mitään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

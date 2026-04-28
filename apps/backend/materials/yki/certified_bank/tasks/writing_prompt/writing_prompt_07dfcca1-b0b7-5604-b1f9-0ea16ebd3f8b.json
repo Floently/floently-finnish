@@ -1,0 +1,37 @@
+{
+  "id": "07dfcca1-b0b7-5604-b1f9-0ea16ebd3f8b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.344,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut kirjaston kautta kirjan toisesta kaupungista. Kirjoita palaute kaukolainapalvelusta. Toimiko se hyvin?",
+    "materials": {
+      "scenario": "Palaute kirjaston kaukolainasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet tilannut kirjaston kautta kirjan toisesta kaupungista. Kirjoita palaute kaukolainapalvelusta. Toimiko se hyvin?"
+      }
+    ],
+    "rubric": "Olet tilannut kirjaston kautta kirjan toisesta kaupungista. Kirjoita palaute kaukolainapalvelusta. Toimiko se hyvin?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

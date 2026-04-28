@@ -1,0 +1,66 @@
+{
+  "id": "ec55cd1f-b350-569e-bf83-731ae9f3c098",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.768,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Suomen kielipolitiikka on viime vuosina joutunut uudenlaisten paineiden eteen. Globalisaatio ja maahanmuutto ovat monipuolistaneet kielimaisemaa, mutta samalla ne ovat herättäneet keskustelua suomen kielen asemasta. Toisaalta ruotsin kielen pakollinen opetus on kyseenalaistettu, toisaalta englannin vahvistuva rooli tieteen ja korkeakoulutuksen kielenä nähdään uhkana suomen kielen tulevaisuudelle. Kielen asiantuntijat ovat eri mieltä siitä, tulisiko suomen kielen asemaa vahvistaa lainsäädännöllä vai luottaa markkinoiden ja yhteisöllisyyden voimaan. Osa tutkijoista korostaa, että kielen elinvoimaisuus riippuu ennen kaikkea siitä, miten paljon sitä käytetään arjessa, tieteessä ja kulttuurissa. Heidän mukaansa laki voi luoda puitteet, mutta se ei yksin takaa kielen säilymistä. Toiset taas varoittavat, että ilman aktiivista kielipolitiikkaa suomi voi jäädä englannin jalkoihin erityisesti akateemisessa maailmassa, mikä pitkällä aikavälillä köyhdyttää suomalaista tieteen ja kulttuurin kenttää. Ruotsin kielen asemasta käydyssä keskustelussa nousevat esiin sekä historialliset siteet että käytännön tarpeet. Pakkoruotsiksi kutsuttu oppiaine on herättänyt intohimoja puolesta ja vastaan. Osa näkee sen tärkeänä osana pohjoismaista yhteistyötä ja identiteettiä, osa pitää sitä tarpeettomana aikana, jolloin englanti toimii kansainvälisenä lingua francana. Myös saamen kielten ja muiden vähemmistökielten asema on noussut keskusteluun. Niiden elvyttämiseksi on tehty töitä, mutta resurssit ovat rajalliset. Tulevaisuuden kannalta ratkaisevaa on, miten Suomi onnistuu säilyttämään monikielisyytensä ja samalla turvaamaan suomen kielen aseman vahvana yhteiskunnan kaikilla osa-alueilla.",
+      "word_count": 197
+    },
+    "questions": [
+      {
+        "id": "65d4c82d-a649-598c-ad8e-0cc0901d9b5a",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Globalisaation vaikutus suomen kieleen",
+          "Ruotsin kielen pakollisuuden historia",
+          "Suomen kielen asemaan liittyvät haasteet ja näkemykset",
+          "Vähemmistökielten elvytystyö"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1b16ea39-4d98-5fd1-bba6-09bd1da169b4",
+        "prompt": "Mitä mieltä asiantuntijat ovat suomen kielen aseman vahvistamisesta?",
+        "options": [
+          "He ovat yksimielisesti sitä mieltä, että lainsäädäntö on välttämätön",
+          "He ovat yksimielisesti sitä mieltä, että markkinavoimat riittävät",
+          "Heillä on eriäviä näkemyksiä: osa luottaa yhteisöllisyyteen, osa vaatii lainsäädäntöä",
+          "Heidän mielestään asiaa ei tarvitse pohtia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1c4e235a-25f3-531f-94c8-dd290d1665aa",
+        "prompt": "Mikä seuraavista ei ole tekstin mukaan esitetty huoli suomen kielen tulevaisuudesta?",
+        "options": [
+          "Englannin vahvistuminen tieteessä",
+          "Ruotsin kielen pakollisuus",
+          "Saamen kielten elvytystyön riittämättömät resurssit",
+          "Suomen kielen käytön väheneminen akateemisessa maailmassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "7a70c0b3-c173-5e35-ac46-31e2eae476d5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuntosalin kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa kuntosali Kuntoon. Muistutamme, että kuntosalilla on tänään poikkeukselliset aukioloajat. Olemme avoinna kello 10-18 huoltotöiden vuoksi. Huomenna palaamme normaaleihin aukioloaikoihin kello 6-22. Ryhmäliikuntatunnit ovat tänään peruttu lukuun ottamatta kello 17.30 joogaa. Pukukaapeissa on hyvä käyttää omaa lukkoa. Arvotavaroita ei kannata jättää pukukaappiin. Kiitos ymmärryksestä!",
+      "audio_asset_id": "d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a"
+    },
+    "questions": [
+      {
+        "id": "l64q1",
+        "prompt": "Mihin asti kuntosali on tänään auki?",
+        "options": [
+          "Kello 16.",
+          "Kello 18.",
+          "Kello 20.",
+          "Kello 22."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l64q2",
+        "prompt": "Miksi aukioloajat ovat poikkeukselliset tänään?",
+        "options": [
+          "Henkilökunnan koulutuksen vuoksi.",
+          "Huoltotöiden vuoksi.",
+          "Juhlapyhän vuoksi.",
+          "Kesälomien vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l64q3",
+        "prompt": "Milloin kuntosali on normaalisti auki?",
+        "options": [
+          "Kello 8-20.",
+          "Kello 6-22.",
+          "Kello 7-21.",
+          "Kello 9-21."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l64q4",
+        "prompt": "Mikä ryhmäliikuntatunti on tänään poikkeuksellisesti?",
+        "options": [
+          "Kaikki tunnit on peruttu.",
+          "Vain kello 17.30 jooga on.",
+          "Kello 18 spinning on.",
+          "Kaikki tunnit ovat normaalisti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l64q5",
+        "prompt": "Mitä pukukaapeissa suositellaan käytettäväksi?",
+        "options": [
+          "Omaa lukkoa.",
+          "Kuntosalin tarjoamaa lukkoa.",
+          "Ei mitään.",
+          "Kassia."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

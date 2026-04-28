@@ -1,0 +1,66 @@
+{
+  "id": "a45f8f83-af11-56fc-9cba-37764518a190",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KOULUTUKSEN TASA-ARVO MURTUMASSA\n\nKoulutuksen tasa-arvo on ollut suomalaisen yhteiskunnan kulmakiviä. Viimeaikainen kehitys antaa kuitenkin aihetta huoleen. PISA-tulosten lasku ja koulujen eriytyminen kertovat siitä, että peruskoulun ihanne on murentumassa. Kasvatustieteen professori Janne Varjo kuvaa tilannetta 'hiljaiseksi eriarvoistumiseksi'. Hänen mukaansa ongelma on monien tekijöiden summa: vanhempien koulutustausta, asuinalueen segregaatio ja koulujen välinen kilpailu ohjaavat oppilaita yhä enemmän eri reiteille. Samalla koulujen mahdollisuudet tukea heikommassa asemassa olevia oppilaita ovat heikentyneet.",
+      "word_count": 67
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä Janne Varjo tarkoittaa 'hiljaisella eriarvoistumisella'?",
+        "options": [
+          "Äkillistä koulujen lakkauttamista",
+          "Monien tekijöiden summana tapahtuvaa eriytymistä",
+          "Oppilaiden avointa syrjintää",
+          "Koulujen välistä avointa kilpailua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on Varon mukaan yksi eriarvoistumisen syy?",
+        "options": [
+          "Koulujen välinen kilpailu",
+          "Liian pienet ryhmät",
+          "Opettajien koulutus",
+          "Liiallinen tuki"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä koulujen mahdollisuuksille on tapahtunut?",
+        "options": [
+          "Ne ovat parantuneet",
+          "Ne ovat heikentyneet",
+          "Ne ovat pysyneet samoina",
+          "Ne ovat lisääntyneet"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

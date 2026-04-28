@@ -1,0 +1,37 @@
+{
+  "id": "2c741769-a82b-5757-a088-61ff8955763d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.672,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: classroom. Purpose: give feedback. Constraint: keep it concise.",
+    "materials": {
+      "scenario": "family_life in classroom"
+    },
+    "items": [
+      {
+        "id": "b7d04ca7-0e60-5750-838b-884c05790127",
+        "prompt": "Write for the receiver in this scenario: classroom. Purpose: give feedback. Constraint: keep it concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

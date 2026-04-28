@@ -1,0 +1,77 @@
+{
+  "id": "7e6bb71c-0a8f-59a6-9ef3-0811886e56ab",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Helsingin seudun liikenne (HSL) suunnittelee bussiliikenteen vähentämistä iltaisin ja viikonloppuisin. Tavoitteena on säästää rahaa, koska matkustajamäärät ovat pienet noina aikoina. Samalla luvataan parantaa ruuhka-aikojen liikennettä.\n\nAsiakkaat ovat huolissaan. Erityisesti nuoret ja vanhukset käyttävät joukkoliikennettä iltaisin. Jos bussit kulkevat harvemmin, moni voi jäädä kotiin tai joutuu käyttämään taksia. Myös yötyöläisille muutos olisi hankala.\n\nHSL:n mukaan säästöt ovat välttämättömiä, koska valtion rahoitus on pienentynyt. 'Meidän on sopeuduttava uuteen tilanteeseen. Yritämme tehdä muutokset niin, että haitat olisivat mahdollisimman pieniä', sanoo HSL:n suunnittelija.\n\nKaupunginvaltuutetut ovat erimielisiä. Osa kannattaa säästöjä, osa vaatii lisää rahaa joukkoliikenteelle. 'Joukkoliikenne on peruspalvelu, josta ei voi säästää', sanoo vihreiden valtuutettu.\n\nPäätöstä odotetaan ensi kuussa. Jos muutokset toteutuvat, ne tulevat voimaan ensi vuonna.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 140
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi HSL suunnittelee bussiliikenteen vähentämistä?",
+        "options": [
+          "A) Bussit ovat vanhoja",
+          "B) Säästää rahaa, koska matkustajia on vähän iltaisin",
+          "C) Kuljettajia ei ole tarpeeksi",
+          "D) Ihmiset käyttävät enemmän metrot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Ketkä ovat erityisen huolissaan muutoksista?",
+        "options": [
+          "A) Turistit",
+          "B) Nuoret ja vanhukset",
+          "C) Työssäkäyvät",
+          "D) Opiskelijat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi HSL:n mukaan säästöt ovat välttämättömiä?",
+        "options": [
+          "A) Bensan hinta on noussut",
+          "B) Valtion rahoitus on pienentynyt",
+          "C) Bussit ovat liian vanhoja",
+          "D) Lipun hinnat ovat liian alhaiset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin päätös tehdään?",
+        "options": [
+          "A) tällä viikolla",
+          "B) ensi kuussa",
+          "C) ensi vuonna",
+          "D) ei tiedossa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

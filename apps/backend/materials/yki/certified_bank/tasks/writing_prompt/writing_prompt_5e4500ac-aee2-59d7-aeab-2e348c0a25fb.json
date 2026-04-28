@@ -1,0 +1,37 @@
+{
+  "id": "5e4500ac-aee2-59d7-aeab-2e348c0a25fb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit lähikaupassa. Haluat antaa palautetta sekä hyvästä että huonosta palvelusta. Kerro, oliko myyjä ystävällinen, löysitkö kaiken tarvitsemasi ja mikä olisi voinut olla paremmin.",
+    "materials": {
+      "scenario": "Palaute lähikaupasta"
+    },
+    "items": [
+      {
+        "id": "4cc97482-eb87-518e-9481-d225f1c82e71",
+        "prompt": "Kävit lähikaupassa. Haluat antaa palautetta sekä hyvästä että huonosta palvelusta. Kerro, oliko myyjä ystävällinen, löysitkö kaiken tarvitsemasi ja mikä olisi voinut olla paremmin."
+      }
+    ],
+    "rubric": "Myyjän ystävällisyys\nTuotteiden saatavuus\nMikä olisi voinut olla paremmin",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

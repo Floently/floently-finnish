@@ -1,0 +1,99 @@
+{
+  "id": "e9369050-2c51-5a01-adb4-5f5384906db5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu lasten harrastuksista ja vastaa.",
+    "materials": {
+      "transcript": "Elina: Hei Mikko, mitä sun lapset harrastaa? Mikko: Meidän esikoinen pelaa jalkapalloa ja käy kuvataidekoulussa. Kuopus on vasta 5, se käy kerran viikossa musiikkileikkikoulussa. Elina: Onks ne kalliita harrastuksia? Mikko: Jalkapallo on aika kallista, kun pitää maksaa pelimaksut, varusteet ja turnausmatkat. Kuvataidekoulu on edullisempi. Musiikkileikkikoulu on myös ihan kohtuuhintainen. Teidän lapset? Elina: Meidän tytöt harrastaa tanssia ja partiota. Tanssi on aika kallista, partio on edullisempaa. Mikko: Ehtiikö lapset kaikkeen? Elina: Välillä on vähän kiirettä, mutta ne tykkää molemmista. On tärkeää, että ne saa itse vaikuttaa. Mikko: Joo, meilläkin kysytään aina, mitä ne haluais tehdä. Elina: Entä kuskaaminen? Se on aika rankkaa. Mikko: Joo, meillä on naapureiden kanssa kimppakyytejä. Se auttaa paljon. Elina: Hyvä idea! Pitää kai itsekin alkaa organisoida.",
+      "audio_asset_id": "395b4818-d699-475d-8f2c-f08a7879d21e"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä Elina ja Mikko keskustelevat?",
+        "options": [
+          "Lasten koulunkäynnistä.",
+          "Lasten terveydestä.",
+          "Lasten harrastuksista.",
+          "Lasten lomista."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä Mikon esikoinen harrastaa?",
+        "options": [
+          "Jalkapalloa ja tanssia.",
+          "Jalkapalloa ja kuvataidekoulua.",
+          "Tanssia ja partiota.",
+          "Musiikkileikkikoulua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä harrastus on Mikon mukaan kallein?",
+        "options": [
+          "Kuvataidekoulu.",
+          "Musiikkileikkikoulu.",
+          "Jalkapallo.",
+          "Partio."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä Saran lapset harrastavat?",
+        "options": [
+          "Tanssia ja partiota.",
+          "Jalkapalloa ja kuvataidetta.",
+          "Musiikkia ja tanssia.",
+          "Partiota ja jalkapalloa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on harrastuksissa tärkeää Mikon ja Elinan mielestä?",
+        "options": [
+          "Että harrastukset ovat mahdollisimman halpoja.",
+          "Että harrastuksia on mahdollisimman paljon.",
+          "Että harrastukset ovat kilpailullisia.",
+          "Että lapset saavat itse vaikuttaa harrastuksiinsa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Miten Mikko helpottaa kuskaamista?",
+        "options": [
+          "Hän ei kuskaa lapsia.",
+          "Lapset kulkevat itse.",
+          "Hän käyttää taksia.",
+          "Hänellä on kimppakyytejä naapureiden kanssa."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

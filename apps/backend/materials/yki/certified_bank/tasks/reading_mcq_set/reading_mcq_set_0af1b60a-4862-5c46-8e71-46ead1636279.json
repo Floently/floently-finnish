@@ -1,0 +1,77 @@
+{
+  "id": "0af1b60a-4862-5c46-8e71-46ead1636279",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.786,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Julkisen keskustelun laatu on noussut yhdeksi aikamme huolestuttavimmista yhteiskunnallisista kysymyksistä. Erityisesti somekeskustelujen kärjistyminen, vastakkainasettelu ja niin sanottu 'cancel-kulttuuri' ovat herättäneet laajaa keskustelua sananvapauden rajoista ja demokraattisen vuoropuhelun edellytyksistä. Ilmiö on monitahoinen, ja sitä selitetään usein toisilleen vastakkaisista ideologisista lähtökohdista. Konservatiiviset kriitikot näkevät cancel-kulttuurin vasemmistolaisena yrityksenä vaientaa toisinajattelijoita ja kaventaa hyväksyttävän mielipiteen kirjoa. Heidän mukaansa erityisesti yliopistoissa ja kulttuurialalla vaikuttaa vahva ideologinen yhdenmukaisuus, joka rankaisee normista poikkeavista näkemyksistä. Tämä johtaa itse sensuuriin ja ilmapiiriin, jossa ihmiset pelkäävät ilmaista mielipiteitään. Liberaalit ja vasemmistolaiset puolestaan korostavat, että cancel-kulttuuri on usein vastareaktio pitkään jatkuneelle marginalisaatiolle ja vähättelylle. Heidän mukaansa kyse ei ole mielipiteiden vaientamisesta vaan vastuun vaatimisesta erityisesti niiltä, joilla on valtaa ja näkyvyyttä. Kun julkisuuden henkilö tai vaikuttaja esittää rasistisia, seksistisiä tai muulla tavoin syrjiviä näkemyksiä, on oikeutettua vaikuttaa heidän asemaansa ja näkyvyyteensä. Tämä ei ole sananvapauden rajoittamista vaan sen toteuttamista tavalla, joka ottaa huomioon vallan epätasaisen jakautumisen. Kolmas näkökulma korostaa, että cancel-kulttuuri on oire syvemmästä yhteiskunnallisesta ongelmasta: kyvyttömyydestä käydä rakentavaa keskustelua vaikeista ja ristiriitaisista aiheista. Kun keskustelukulttuuri on kärjistynyttä ja henkilöitynyttä, on helpompi leimata ja vaientaa vastapuoli kuin yrittää ymmärtää hänen näkökulmaansa ja etsiä yhteistä säveltä. Tämä näkemys korostaa tarvetta panostaa keskustelukulttuuriin ja vuorovaikutustaitoihin kaikilla yhteiskunnan tasoilla. Cancel-kulttuuriin liittyvä keskustelu heijastaa syvempiä jännitteitä yksilönvapauden, yhteisöllisyyden ja sosiaalisen oikeudenmukaisuuden välillä. Se pakottaa meidät pohtimaan, missä kulkee sananvapauden raja, kuka sen määrittelee ja millaisia seurauksia mielipiteiden ilmaisulla tulisi olla. Selviä vastauksia ei ole, mutta keskustelu itsessään on arvokasta ja tarpeellista demokraattisessa yhteiskunnassa.",
+      "word_count": 238
+    },
+    "questions": [
+      {
+        "id": "f30da5ac-07fc-5fbd-a604-1581b8a63e7a",
+        "prompt": "Mikä on tekstin keskeinen väite cancel-kulttuurista?",
+        "options": [
+          "Cancel-kulttuuri on yksiselitteisesti vasemmistolainen ilmiö, joka pyrkii vaientamaan kaikki toisinajattelijat",
+          "Cancel-kulttuuri on yksiselitteisesti oikeutettu vastareaktio marginalisoitujen ryhmien pitkäaikaiselle vähättelylle",
+          "Cancel-kulttuuri on monitahoinen ilmiö, jota tulkitaan eri tavoin eri ideologisista lähtökohdista ja joka heijastaa syvempiä yhteiskunnallisia jännitteitä",
+          "Cancel-kulttuuri on täysin uusi ja ennennäkemätön ilmiö, jolla ei ole yhteyttä aiempiin yhteiskunnallisiin kehityskulkuihin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7d8198df-6ede-5de5-b6b5-364e5edf1edb",
+        "prompt": "Tekstin mukaan miten konservatiiviset kriitikot selittävät cancel-kulttuuria?",
+        "options": [
+          "He pitävät sitä välttämättömänä työkaluna yhteiskunnallisen oikeudenmukaisuuden edistämiseksi",
+          "He näkevät sen vasemmistolaisena yrityksenä vaientaa toisinajattelijoita ja kaventaa hyväksyttävän mielipiteen kirjoa",
+          "He pitävät sitä seurauksena ihmisten kyvyttömyydestä käydä rakentavaa keskustelua",
+          "He pitävät sitä täysin merkityksettömänä ilmiönä, joka koskee vain pientä some-aktiivien joukkoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e99ebf0e-88f7-52bc-ace2-6f5a1875c4de",
+        "prompt": "Miten liberaalit ja vasemmistolaiset tekstin mukaan perustelevat cancel-kulttuuria?",
+        "options": [
+          "He pitävät sitä tarpeellisena keinona rajoittaa sananvapautta, joka on muuten liian laaja",
+          "He näkevät sen usein vastareaktiona marginalisaatiolle ja tapana vaatia vastuuta niiltä, joilla on valtaa ja näkyvyyttä",
+          "He pitävät sitä täysin tuomittavana ilmiönä, joka uhkaa demokratiaa",
+          "He pitävät sitä seurauksena konservatiivien yrityksestä vaientaa vähemmistöt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e2ab8b77-5186-56bf-bedc-f7096dda6cc4",
+        "prompt": "Mitä kolmas, keskustelukulttuurin ongelmia korostava näkökulma pitää cancel-kulttuurin perimmäisenä syynä?",
+        "options": [
+          "Vasemmiston liiallista valtaa yliopistoissa ja kulttuurialalla",
+          "Marginalisoitujen ryhmien oikeutettua vihaa sortajiaan kohtaan",
+          "Kyvyttömyyttä käydä rakentavaa keskustelua vaikeista aiheista, mikä johtaa vastapuolen leimaamiseen ja vaientamiseen",
+          "Konservatiivien haluttomuutta kuunnella vähemmistöjen näkemyksiä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

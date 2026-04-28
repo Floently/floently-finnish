@@ -1,0 +1,37 @@
+{
+  "id": "1f8e27ff-a274-5e6f-8d49-ccd5a13ff724",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa ravintolapäällikkönä. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Ravintolapäällikkö"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Haet työpaikkaa ravintolapäällikkönä. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa ravintolapäällikkönä. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

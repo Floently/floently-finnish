@@ -1,0 +1,37 @@
+{
+  "id": "18aa6f06-c71f-56f8-8463-763945e2145b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut ruokaa ravintolasta. Kirjoita palaute. Kerro, mitä tilasit, oliko ruoka hyvää ja tuliko se ajallaan.",
+    "materials": {
+      "scenario": "Palaute ravintolaruoasta"
+    },
+    "items": [
+      {
+        "id": "6ec70c83-734b-57d3-b21c-835db992fe5d",
+        "prompt": "Olet tilannut ruokaa ravintolasta. Kirjoita palaute. Kerro, mitä tilasit, oliko ruoka hyvää ja tuliko se ajallaan."
+      }
+    ],
+    "rubric": "Olet tilannut ruokaa ravintolasta. Kirjoita palaute. Kerro, mitä tilasit, oliko ruoka hyvää ja tuliko se ajallaan.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

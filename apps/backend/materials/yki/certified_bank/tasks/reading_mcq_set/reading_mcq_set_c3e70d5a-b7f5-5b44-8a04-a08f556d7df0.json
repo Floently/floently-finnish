@@ -1,0 +1,66 @@
+{
+  "id": "c3e70d5a-b7f5-5b44-8a04-a08f556d7df0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T10:11:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti liikunnasta ja hyvinvoinnista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Säännöllinen liikunta on tärkeää terveyden ja hyvinvoinnin kannalta. Se parantaa fyysistä kuntoa, auttaa painonhallinnassa ja vähentää monien sairauksien riskiä. Lisäksi liikunnalla on myönteisiä vaikutuksia mielialaan ja se lievittää stressiä. Suomalaiset harrastavat monenlaista liikuntaa: suosittuja lajeja ovat kävely, lenkkeily, hiihto, uinti ja kuntosaliharjoittelu. Monet kuuluvat urheiluseuroihin, joissa voi harrastaa lajeja ohjatusti ja tavata muita liikkujia. Työikäisille suositellaan vähintään 2,5 tuntia reipasta liikuntaa viikossa tai 1,25 tuntia rasittavaa liikuntaa. Arkiliikunta, kuten portaiden kävely ja työmatkojen taittaminen pyörällä, on myös hyvä tapa lisätä päivittäistä aktiivisuutta. Viime vuosina erityisesti luontoliikunta ja ulkona tapahtuva kuntoilu ovat kasvattaneet suosiotaan. Monet kunnat ylläpitävät ulkokuntosaleja ja valaistuja lenkkipolkuja, jotka ovat ilmaisia ja kaikkien käytettävissä.",
+      "word_count": 106
+    },
+    "questions": [
+      {
+        "id": "e6f7a8b9-c0d1-4e2f-9a3b-4c5d6e7f8a9b",
+        "prompt": "Mitä hyötyä liikunnasta on tekstin mukaan?",
+        "options": [
+          "Vain painonhallintaa",
+          "Parantaa fyysistä kuntoa ja vähentää sairauksien riskiä",
+          "Vain lihaskasvua",
+          "Vain ulkonäköä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f7a8b9c0-d1e2-4f3a-9b4c-5d6e7f8a9b0c",
+        "prompt": "Paljonko työikäisille suositellaan reipasta liikuntaa viikossa?",
+        "options": [
+          "1 tunti",
+          "2,5 tuntia",
+          "5 tuntia",
+          "10 tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8b9c0d1-e2f3-4a4b-9c5d-6e7f8a9b0c1d",
+        "prompt": "Mikä on esimerkki arkiliikunnasta?",
+        "options": [
+          "Maratonharjoittelu",
+          "Portaiden kävely ja työmatkapyöräily",
+          "Kuntosalitreeni",
+          "Jooga"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "907e29bb-4de3-567e-aa17-2278c6a9253d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa vakuuttavaa ja karismaattista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet ehdokas, joka haluaa tuoda esiin omat vahvuutesi ja erottua muista.",
+        "partner": "Paneelin juontaja ja muut ehdokkaat - juontaja esittää kysymyksiä, muut ehdokkaat saattavat haastaa näkemyksiäsi."
+      }
+    },
+    "items": [
+      {
+        "id": "srp18",
+        "ai_first_turn_fi": "Seuraava kysymys kaikille ehdokkaille: Miten parantaisitte kaupunkimme koulujen tasa-arvoa?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa vakuuttavaa ja karismaattista kieltä.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

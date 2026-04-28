@@ -1,0 +1,40 @@
+{
+  "id": "0d8acaf8-e6ee-5742-9b32-a112f1f1d226",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.301,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you know Finnish singers or bands. What style do you like?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "47623ee8-eac6-58db-b2e9-be2afd8a618f",
+        "ai_first_turn_fi": "Kuunteletko sä suomalaista musiikkia? Mitä artistia suosittelisit?"
+      }
+    ],
+    "rubric": "Tell if you know Finnish singers or bands. What style do you like?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

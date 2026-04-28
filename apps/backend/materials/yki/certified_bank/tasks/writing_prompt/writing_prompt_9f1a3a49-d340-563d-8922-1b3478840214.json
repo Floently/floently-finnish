@@ -1,0 +1,37 @@
+{
+  "id": "9f1a3a49-d340-563d-8922-1b3478840214",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kerro, millainen on hyvä päivä kaupungilla.",
+    "materials": {
+      "scenario": "Hyvä päivä kaupungilla"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kerro, millainen on hyvä päivä kaupungilla."
+      }
+    ],
+    "rubric": "Kerro, millainen on hyvä päivä kaupungilla.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

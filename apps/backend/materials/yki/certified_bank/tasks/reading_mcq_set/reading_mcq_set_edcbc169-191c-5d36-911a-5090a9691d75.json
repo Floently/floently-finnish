@@ -1,0 +1,63 @@
+{
+  "id": "edcbc169-191c-5d36-911a-5090a9691d75",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kierrätys on noussut muoti-ilmiöksi. Nuoret aikuiset suosivat kirpputoreja ja vintage-liikkeitä.\n\n\"En osta enää juuri mitään uutena. Kirpputoreilta löytää aarteita\", kertoo 25-vuotias opiskelija.\n\nMyös some on täynnä kierrätystilejä. Vaatteiden vaihtotapahtumat ja vuokrauspalvelut ovat yleistyneet.\n\nKierrätyksen suosio näkyy myös kauppojen valikoimissa. Monet ketjut ovat alkaneet myydä käytettyjä vaatteita.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "item_148_1",
+        "prompt": "Miksi nuoret suosivat kirpputoreja?",
+        "options": [
+          "koska se on kallista",
+          "ekologisuus ja edullisuus",
+          "koska uusia vaatteita ei saa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_148_2",
+        "prompt": "Mitä vaatekirjastossa voi tehdä?",
+        "options": [
+          "ostaa vaatteita",
+          "lainata vaatteita",
+          "myydä vaatteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_148_3",
+        "prompt": "Miten kaupat ovat reagoineet kierrätyksen suosioon?",
+        "options": [
+          "eivät ole tehneet mitään",
+          "ovat alkaneet myydä käytettyjä vaatteita",
+          "ovat lopettaneet toimintansa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "8bac69f2-221c-50fd-8bad-51b888f861be",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunginteatteri järjesti ensimmäistä kertaa niin kutsutun hiljaisen näytöksen, jossa äänenvoimakkuutta laskettiin ja salin valoja pidettiin osittain päällä koko esityksen ajan. Tapahtuma suunnattiin erityisesti katsojille, joille voimakkaat aistiärsykkeet voivat olla kuormittavia. Osa yleisöstä kiitti ratkaisua, koska se helpotti keskittymistä ja madalsi kynnystä tulla teatteriin. Toisaalta jotkut vakioasiakkaat kokivat, että tunnelma jäi tavallista vaisummaksi. Teatterin johto ilmoitti keräävänsä palautetta koko kauden ajan ennen päätöstä siitä, otetaanko malli pysyväksi osaksi ohjelmistoa.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä näytöksessä muutettiin?",
+        "options": [
+          "vain lipun hinta",
+          "äänenvoimakkuus ja valaistus",
+          "näyttelijät",
+          "esityksen kieli"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kenelle tapahtuma suunnattiin erityisesti?",
+        "options": [
+          "turisteille",
+          "koululaisille",
+          "katsojille, joille aistiärsykkeet kuormittavat",
+          "näyttelijöille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä oli yksi myönteinen palaute?",
+        "options": [
+          "esitys oli pidempi",
+          "keskittyminen helpottui",
+          "kahvila oli halvempi",
+          "musiikkia oli enemmän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten teatteri etenee?",
+        "options": [
+          "poistaa mallin heti",
+          "tekee päätöksen yhden illan jälkeen",
+          "kerää palautetta koko kauden ajan",
+          "siirtää näytökset ulos"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

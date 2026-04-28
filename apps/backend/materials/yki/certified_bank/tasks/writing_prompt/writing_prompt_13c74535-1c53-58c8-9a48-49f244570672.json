@@ -1,0 +1,37 @@
+{
+  "id": "13c74535-1c53-58c8-9a48-49f244570672",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lasten ruokailuun koulussa panostaa enemmän rahaa?'. Analysoi terveyttä, oppimista ja kustannuksia.",
+    "materials": {
+      "scenario": "Kouluruokailun laatu"
+    },
+    "items": [
+      {
+        "id": "b9fa992c-f18e-55c0-b911-16838750ddd6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lasten ruokailuun koulussa panostaa enemmän rahaa?'. Analysoi terveyttä, oppimista ja kustannuksia."
+      }
+    ],
+    "rubric": "Lasten terveys\nOppiminen\nKustannukset\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

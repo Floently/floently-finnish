@@ -1,0 +1,88 @@
+{
+  "id": "84b27499-f533-5379-b8ad-e678ae3b71d4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.678,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Koira on suosittu lemmikki. Se on uskollinen ystävä. Koira tarvitsee ulkoilua. Se pitää lenkkeilystä. Koiran kanssa voi leikkiä. Se rakastaa uimista. Koira ymmärtää paljon. Se odottaa kotona. Koira ilahtuu, kun tulet kotiin. Koirasta pidetään hyvää huolta. Se saa ruokaa ja rakkautta. Koira on tärkeä osa perhettä. Se tuo iloa ja seuraa. Monet perheet rakastavat koiraansa.",
+      "word_count": 55
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on suosittu lemmikki Suomessa?",
+        "options": [
+          "Kissa",
+          "Koira",
+          "Kani",
+          "Hamsteri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen ystävä koira on?",
+        "options": [
+          "Epäluotettava",
+          "Uskollinen",
+          "Itsekäs",
+          "Vihainen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä koira tarvitsee?",
+        "options": [
+          "Paljon nukkumista",
+          "Ulkoilua",
+          "Omaa rauhaa",
+          "Yksinoloa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä koira rakastaa?",
+        "options": [
+          "Hiihtämistä",
+          "Uimista",
+          "Luistelua",
+          "Lukemista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä koira saa?",
+        "options": [
+          "Vain ruokaa",
+          "Ruokaa ja rakkautta",
+          "Vain leluja",
+          "Vain huomiota"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

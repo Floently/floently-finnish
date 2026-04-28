@@ -1,0 +1,37 @@
+{
+  "id": "3160eb65-6c93-5e22-8db8-791de2bc7416",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut lääkkeitä verkkoapteekista. Kirjoita palaute apteekille.",
+    "materials": {
+      "scenario": "Palaute verkkoapteekista"
+    },
+    "items": [
+      {
+        "id": "e235ad2e-88c4-5a44-a872-63c343624b0b",
+        "prompt": "Olet tilannut lääkkeitä verkkoapteekista. Kirjoita palaute apteekille."
+      }
+    ],
+    "rubric": "Olet tilannut lääkkeitä verkkoapteekista. Kirjoita palaute apteekille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

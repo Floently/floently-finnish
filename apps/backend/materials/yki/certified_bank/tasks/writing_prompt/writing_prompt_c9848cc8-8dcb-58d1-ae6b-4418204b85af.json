@@ -1,0 +1,37 @@
+{
+  "id": "c9848cc8-8dcb-58d1-ae6b-4418204b85af",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin jätehuollosta. Arvioi jäteastioiden tyhjennysväliä, lajitteluohjeita ja jäteaseman palvelua. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin jätehuollosta"
+    },
+    "items": [
+      {
+        "id": "669343a4-2a2e-5c38-a2eb-f56b3a0992fc",
+        "prompt": "Kirjoita palauteteksti kaupungin jätehuollosta. Arvioi jäteastioiden tyhjennysväliä, lajitteluohjeita ja jäteaseman palvelua. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Jäteastioiden tyhjennysväli\nLajitteluohjeet\nJäteaseman palvelu\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

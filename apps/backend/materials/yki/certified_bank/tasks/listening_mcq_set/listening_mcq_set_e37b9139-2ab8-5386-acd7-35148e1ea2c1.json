@@ -1,0 +1,88 @@
+{
+  "id": "e37b9139-2ab8-5386-acd7-35148e1ea2c1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.305,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Moikka! Mä oon nyt jo bussissa. Oon menossa teidän luo. Mä tuon sitä sun lainaamaa hupparia takaisin. Oonko mä oikeessa bussissa? Tää menee yliopistolle päin.",
+      "audio_asset_id": "ba363f6c-cc41-475f-84e0-a8cc2eaa448d"
+    },
+    "questions": [
+      {
+        "id": "dcae8ba2-1ef1-5157-bc82-d6cda5071277",
+        "prompt": "Missä puhuja on nyt?",
+        "options": [
+          "Kotona.",
+          "Bussissa.",
+          "Yliopistolla.",
+          "Kaupassa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2f060bc2-276c-5957-b611-43bd47880beb",
+        "prompt": "Minne puhuja on menossa?",
+        "options": [
+          "Toisen luo.",
+          "Kotiin.",
+          "Töihin.",
+          "Yliopistolle."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b876fe3b-cdfd-5a11-a1e6-09dd6d6a461c",
+        "prompt": "Mitä puhuja tuo takaisin?",
+        "options": [
+          "Hupparin.",
+          "Kirjan.",
+          "Laukun.",
+          "Avaimet."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "84f2b220-1793-5f13-bbdf-04965aefbcac",
+        "prompt": "Mistä puhuja on epävarma?",
+        "options": [
+          "Mitä hän tuo.",
+          "Missä hän on.",
+          "Onko hän oikeassa bussissa.",
+          "Mitä kello on."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1d3cdf82-5a45-5b94-8a24-598218a58225",
+        "prompt": "Minne päin bussi on menossa?",
+        "options": [
+          "Yliopistolle päin.",
+          "Keskustaan.",
+          "Rautatieasemalle.",
+          "Lentokentälle."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

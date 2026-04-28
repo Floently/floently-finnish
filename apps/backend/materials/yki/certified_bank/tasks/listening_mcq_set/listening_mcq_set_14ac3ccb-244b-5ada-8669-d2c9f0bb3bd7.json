@@ -1,0 +1,88 @@
+{
+  "id": "14ac3ccb-244b-5ada-8669-d2c9f0bb3bd7",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu lääkäriajan varauksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Vastaaja: Terveysasema, päivää. Asiakas: Päivää, haluaisin varata ajan lääkärille. Vastaaja: Onko sinulla jokin erityinen vaiva? Asiakas: Minulla on ollut viikon ajan kovaa yskää ja kuumetta. Vastaaja: Kuulostaa hengitystieinfektiolta. Onko sinulla perussairauksia? Asiakas: Ei ole. Vastaaja: Hyvä. Lääkärille pääsee tänään kello 14.30 tai huomenna kello 9. Asiakas: Tänään kello 14.30 sopii hyvin. Vastaaja: Selvä, laitan teidät muistiin. Muistathan ottaa mukaan Kela-kortin. Jos vointi huononee ennen aikaa, soita uudelleen. Asiakas: Kiitos, teen niin.",
+      "audio_asset_id": "e3f4a5b6-c7d8-9e0f-1a2b-3c4d5e6f7a8b"
+    },
+    "questions": [
+      {
+        "id": "l83q1",
+        "prompt": "Mitä vaivoja asiakkaalla on?",
+        "options": [
+          "Vatsakipua ja pahoinvointia.",
+          "Päänsärkyä ja huimausta.",
+          "Kovaa yskää ja kuumetta.",
+          "Selkäkipua ja lihassärkyä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l83q2",
+        "prompt": "Kuinka kauan oireet ovat kestäneet?",
+        "options": [
+          "Kaksi päivää.",
+          "Viikon.",
+          "Kaksi viikkoa.",
+          "Kuukauden."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l83q3",
+        "prompt": "Mitä vastaaja kysyy perussairauksista?",
+        "options": [
+          "Onko asiakkaalla diabetes?",
+          "Onko asiakkaalla verenpainetauti?",
+          "Onko asiakkaalla perussairauksia?",
+          "Onko asiakkaalla allergioita?"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l83q4",
+        "prompt": "Mille kellonajalle aika varataan tänään?",
+        "options": [
+          "Kello 13.30.",
+          "Kello 14.00.",
+          "Kello 14.30.",
+          "Kello 15.00."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l83q5",
+        "prompt": "Mitä asiakkaan pitää muistaa ottaa mukaan?",
+        "options": [
+          "Henkilöllisyystodistus.",
+          "Kela-kortti.",
+          "Aiemmat reseptit.",
+          "Oma puhelin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

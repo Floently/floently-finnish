@@ -1,0 +1,77 @@
+{
+  "id": "49360c4b-b7d7-52f6-8572-3004808e9893",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.774,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kulttuurisen moninaisuuden ja yhteiskunnallisen yhtenäisyyden välinen suhde on yksi monikulttuuristen yhteiskuntien keskeisimmistä jännitteistä. Kysymys siitä, miten sovittaa yhteen eri kulttuureista tulevien ihmisten oikeus omaan kulttuuriinsa ja tarve yhteisille arvoille ja normeille, on polttava niin Suomessa kuin muuallakin Euroopassa. Tämä jännite näkyy keskustelussa kotouttamisesta, koulutuksesta ja julkisesta tilasta. Assimilationistinen malli korostaa maahanmuuttajien sopeutumista valtakulttuuriin ja omasta kulttuurista luopumista. Tämän näkemyksen mukaan yhteiskunnan yhtenäisyys edellyttää yhteisiä arvoja, kieltä ja tapoja. Maahanmuuttajien odotetaan omaksuvan nämä mahdollisimman nopeasti, ja heidän oman kulttuurinsa ilmentäminen nähdään usein ongelmallisena. Tämä malli on saanut osakseen kritiikkiä, koska se ei kunnioita kulttuurista monimuotoisuutta ja voi johtaa syrjintään ja syrjäytymiseen. Monikulttuurinen malli puolestaan korostaa eri kulttuurien rinnakkaiseloa ja niiden oikeutta säilyttää omat perinteensä ja tapansa. Tämän näkemyksen mukaan kulttuurinen moninaisuus on rikkaus, jota tulee vaalia. Valtion tehtävänä on tukea vähemmistökulttuureja ja turvata niiden edustajien oikeudet. Tätä mallia on kritisoitu siitä, että se voi johtaa yhteiskunnan pirstoutumiseen ja eri ryhmien väliseen vastakkainasetteluun. Kolmas, interkulttuurinen malli pyrkii ylittämään tämän vastakkainasettelun. Sen mukaan tavoitteena ei ole joko sulautuminen tai erillisyys, vaan jatkuva vuoropuhelu ja vuorovaikutus eri kulttuurien välillä. Tässä mallissa korostetaan yhteisiä kohtaamisia, yhteistyötä ja yhteisten arvojen rakentamista. Se tunnustaa sekä kulttuurisen moninaisuuden arvon että tarpeen yhteiselle pohjalle. Interkulttuurinen malli edellyttää avoimuutta, uteliaisuutta ja halua oppia toisilta sekä valmiutta tarkastella kriittisesti myös omaa kulttuuriaan.",
+      "word_count": 211
+    },
+    "questions": [
+      {
+        "id": "8fbca409-b361-5b4b-b4ab-34b805e570fb",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Maahanmuuttajien kotouttamisen käytännön ongelmat",
+          "Kulttuurisen moninaisuuden ja yhteiskunnallisen yhtenäisyyden välinen jännite ja siihen esitetyt ratkaisumallit",
+          "Assimilationistisen ja monikulttuurisen mallin vertailu",
+          "Interkulttuurisen mallin ylivoimaisuus muihin malleihin nähden"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1a3e540-3da0-5ab2-bbd5-7945d195d947",
+        "prompt": "Tekstin mukaan mitä assimilationistinen malli korostaa?",
+        "options": [
+          "Eri kulttuurien rinnakkaiseloa ja oikeutta säilyttää omat perinteet",
+          "Maahanmuuttajien sopeutumista valtakulttuuriin ja omasta kulttuurista luopumista",
+          "Jatkuvaa vuoropuhelua ja vuorovaikutusta eri kulttuurien välillä",
+          "Kulttuurisen moninaisuuden vaalimista ja vähemmistökulttuurien tukemista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "416440db-a362-5389-b46c-3037c7b05fce",
+        "prompt": "Mitä kritiikkiä monikulttuurista mallia kohtaan tekstissä esitetään?",
+        "options": [
+          "Se ei kunnioita kulttuurista monimuotoisuutta ja voi johtaa syrjintään",
+          "Se voi johtaa yhteiskunnan pirstoutumiseen ja eri ryhmien väliseen vastakkainasetteluun",
+          "Se edellyttää liian suurta avoimuutta ja uteliaisuutta",
+          "Se ei tunnusta yhteisten arvojen tarvetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6a14b11a-ae43-51c4-aa2c-3e2ff2111db8",
+        "prompt": "Mitä interkulttuurinen malli tekstin mukaan pitää tärkeänä?",
+        "options": [
+          "Joko sulautumista tai erillisyyttä",
+          "Jatkuvaa vuoropuhelua, vuorovaikutusta, yhteisiä kohtaamisia ja yhteisten arvojen rakentamista",
+          "Maahanmuuttajien nopeaa sopeutumista valtakulttuuriin",
+          "Eri kulttuurien pitämistä erillään toisistaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

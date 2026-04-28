@@ -1,0 +1,66 @@
+{
+  "id": "949f403a-5338-52f9-b567-53ff55c07bd8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "NUORTEN KIELITAITO PARANEE\n\nSuomalaisten nuorten kielitaito on tutkimusten mukaan parempi kuin koskaan. Erityisesti englannin kielen taito on nuorilla erinomaisella tasolla. Lähes kaikki nuoret osaavat englantia, ja monet puhuvat sitä sujuvasti.\n\nMistä tämä johtuu? Suuri syy on median käyttö. Nuoret katsovat videoita, pelaavat pelejä ja seuraavat somea englanniksi. He oppivat kielen luonnollisesti arjessa, eivät pelkästään koulussa. Myös matkailu ja kansainväliset kontaktit lisäävät kielitaitoa.\n\nMuiden kielten osalta tilanne on heikompi. Ruotsin kielen taito on heikentynyt, ja harvempi nuori osaa sitä hyvin. Saksan ja ranskan opiskelu on vähentynyt. Tämä huolestuttaa asiantuntijoita, sillä työelämässä tarvitaan monipuolista kielitaitoa.\n\nKouluissa pyritään vastaamaan haasteeseen. Kieltenopetusta on pyritty tekemään kiinnostavammaksi ja käytännönläheisemmäksi. Myös kielten valinnaisuutta on lisätty, jotta nuoret voivat valita itselleen sopivia kieliä.\n\nAsiantuntijat muistuttavat, että kielitaito on tärkeä voimavara. Se avaa ovia työelämässä ja mahdollistaa kansainvälisyyden. Siksi kielten oppimiseen kannattaa panostaa.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 163
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi nuorten englannin kielen taito on niin hyvä?",
+        "options": [
+          "Koska koulussa on paljon englannin tunteja",
+          "Koska nuoret käyttävät englantia arjessa median ja pelien kautta",
+          "Koska vanhemmat puhuvat englantia kotona",
+          "Koska Suomessa puhutaan vain englantia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on huolenaihe muiden kielten osalta?",
+        "options": [
+          "Nuoret osaavat kaikkia kieliä täydellisesti",
+          "Ruotsin taito on heikentynyt ja muiden kielten opiskelu vähentynyt",
+          "Nuoret eivät halua oppia muita kieliä",
+          "Kouluissa ei opeteta muita kieliä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten koulut pyrkivät parantamaan tilannetta?",
+        "options": [
+          "Lisäämällä kielten pakollisuutta",
+          "Tekemällä opetuksesta kiinnostavampaa ja lisäämällä valinnaisuutta",
+          "Vähentämällä kielten opetusta",
+          "Opettamalla vain englantia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

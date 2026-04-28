@@ -1,0 +1,37 @@
+{
+  "id": "bd4126d8-8ba2-519c-95f9-6d6eded43019",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön kansanäänestykset nykyistä useammin?'. Analysoi demokratiaa, päätöksenteon tehokkuutta ja kansalaisten osallistumista.",
+    "materials": {
+      "scenario": "Kansanäänestysten lisääminen"
+    },
+    "items": [
+      {
+        "id": "5200dac4-98c5-564f-adda-e89c91189507",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön kansanäänestykset nykyistä useammin?'. Analysoi demokratiaa, päätöksenteon tehokkuutta ja kansalaisten osallistumista."
+      }
+    ],
+    "rubric": "Demokratia\nPäätöksenteon tehokkuus\nKansalaisten osallistuminen\nPopulismin riskit",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

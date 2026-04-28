@@ -1,0 +1,88 @@
+{
+  "id": "30665e6a-a891-500f-bcbb-711c533a3c9f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele analyysi median roolista yhteiskunnassa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Mediatutkija: Perinteinen media, kuten sanomalehdet ja televisio, on menettänyt asemaansa somealustoille. Tämä on mullistanut tavan, jolla ihmiset saavat tietoa. Haastattelija: Mitä hyvää tässä kehityksessä on? Tutkija: Moniäänisyys. Kuka tahansa voi julkaista ja tuoda esiin asioita, jotka eivät välttämättä saa tilaa valtamediassa. Haastattelija: Entä huonot puolet? Tutkija: Valitettavasti ne ovat merkittäviä. Some mahdollistaa disinformaation ja valeuutisten leviämisen salamannopeasti. Algoritmit suosivat usein sisältöjä, jotka herättävät voimakkaita tunteita, kuten vihaa ja pelkoa. Tämä voi johtaa yhteiskunnan polarisoitumiseen. Lisäkaikukammioissa ihmiset altistuvat vain omia näkemyksiään vahvistaville sisällöille, mikä vaikeuttaa yhteisymmärrystä. Haastattelija: Mikä on ratkaisu? Tutkija: Tarvitaan mediakasvatusta, kriittistä lukutaitoa ja vastuuta myös some-alustoilta sisältöjen moderointiin.",
+      "audio_asset_id": "bab8a9d4-af51-4e4f-aaf7-144d08658c64"
+    },
+    "questions": [
+      {
+        "id": "l35q1",
+        "prompt": "Mikä on tutkijan mukaan mullistanut tiedonvälityksen?",
+        "options": [
+          "Somealustojen nousu.",
+          "Sanomalehtien määrän kasvu.",
+          "Perinteisen median vahvistuminen.",
+          "Uutisten maksullisuus."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l35q2",
+        "prompt": "Mikä on kehityksen hyvä puoli?",
+        "options": [
+          "Tieto on aina todenmukaista.",
+          "Uutiset ovat lyhyempiä.",
+          "Kukaan ei voi julkaista mitään.",
+          "Moniäänisyys ja mahdollisuus tuoda esiin eri asioita."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l35q3",
+        "prompt": "Mitä some mahdollistaa helposti?",
+        "options": [
+          "Asiantuntijoiden haastattelut.",
+          "Disinformaation ja valeuutisten nopean leviämisen.",
+          "Pitkät analyysit.",
+          "Kansalaisten rauhallisen keskustelun."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l35q4",
+        "prompt": "Millaista sisältöä algoritmit tutkijan mukaan suosivat?",
+        "options": [
+          "Sisältöjä, jotka herättävät voimakkaita tunteita.",
+          "Asiallista ja asiantuntevaa.",
+          "Pitkiä ja syvällisiä artikkeleita.",
+          "Lastenohjelmia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l35q5",
+        "prompt": "Mitä tutkija ehdottaa ratkaisuksi ongelmiin?",
+        "options": [
+          "Mediakasvatusta, kriittistä lukutaitoa ja some-alustojen vastuuta.",
+          "Somen käytön kieltämistä.",
+          "Perinteisen median suosimista.",
+          "Uutisten maksullisuuden lisäämistä."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

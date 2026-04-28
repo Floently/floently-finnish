@@ -1,0 +1,37 @@
+{
+  "id": "0c18a256-e3f6-5b6b-85e6-6bfac0036468",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen reklamaatio ohjeen mukaan.",
+    "materials": {
+      "scenario": "Asumishäiriö"
+    },
+    "items": [
+      {
+        "id": "d040862e-dbbf-5169-9568-cb482765f446",
+        "prompt": "Kirjoita reklamaatio taloyhtiölle toistuvista häiriöistä."
+      }
+    ],
+    "rubric": "Kirjoita reklamaatio taloyhtiölle toistuvista häiriöistä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

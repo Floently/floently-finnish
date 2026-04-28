@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-04-11",
+  "target_repo": "/home/vitus/floently-finnish",
+  "canonical_decisions": {
+    "yki_schema_family": {
+      "winner": "kielitaikka-yki-engine_v3_2_certified",
+      "adopt_into_target": true,
+      "notes": "Byte-identical schema, validator, and index builder already exist in floently-finnish engine."
+    },
+    "card_schema_family": {
+      "winner": "puhis_card_envelope_runtime_publication_family",
+      "adopt_into_target": true,
+      "notes": "Floently-finnish currently has only a partial copy."
+    },
+    "professional_cards_content_donor": {
+      "winner": "kielitaika_normalized_cards_authority",
+      "adopt_into_target": true,
+      "notes": "Best high-value content donor; convert into canonical card envelopes."
+    }
+  },
+  "entries": [
+    {
+      "path": "/home/vitus/floently-finnish/engine/schema/task_models_v3_2.py",
+      "domain": "yki_schema",
+      "status": "active",
+      "severity_if_problematic": "high",
+      "notes": "Byte-identical to kielitaikka-yki-engine canonical schema.",
+      "recommended_action": "Keep as canonical target schema."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/engine/validator/task_validator_v3_2.py",
+      "domain": "yki_validation",
+      "status": "active",
+      "severity_if_problematic": "high",
+      "notes": "Byte-identical to canonical donor validator.",
+      "recommended_action": "Keep and bind all YKI imports to this validator."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/engine/tools/build_task_index_v3_2.py",
+      "domain": "yki_publication",
+      "status": "active",
+      "severity_if_problematic": "high",
+      "notes": "Byte-identical to canonical donor index builder.",
+      "recommended_action": "Use for local certified-bank indexing after bank internalization."
+    },
+    {
+      "path": "/home/vitus/kielitaikka-yki-engine/yki_material_certified_bank/manifest.json",
+      "domain": "yki_materials",
+      "status": "active",
+      "severity_if_problematic": "high",
+      "notes": "9706 certified tasks with explicit section and level counts.",
+      "recommended_action": "Treat as current external source-truth until mirrored internally."
+    },
+    {
+      "path": "/home/vitus/kielitaikka-yki-engine/task_banks/task_index_v3_2.json",
+      "domain": "yki_inventory",
+      "status": "active",
+      "severity_if_problematic": "high",
+      "notes": "Current runtime-facing YKI index authority.",
+      "recommended_action": "Mirror into floently-finnish after bank import."
+    },
+    {
+      "path": "/home/vitus/Documents/puhis/backend/app/cards/schemas/cards.py",
+      "domain": "card_schema",
+      "status": "active",
+      "severity_if_problematic": "high",
+      "notes": "Strongest canonical card envelope contract.",
+      "recommended_action": "Import this schema family into floently-finnish."
+    },
+    {
+      "path": "/home/vitus/Documents/puhis/backend/app/cards/schemas/publication.py",
+      "domain": "card_schema",
+      "status": "active",
+      "severity_if_problematic": "medium",
+      "notes": "Publication state contract; byte-identical copy already exists in floently-finnish.",
+      "recommended_action": "Keep equivalent file in floently-finnish."
+    },
+    {
+      "path": "/home/vitus/Documents/puhis/backend/app/cards/output/accepted/accepted_cards.json",
+      "domain": "card_materials",
+      "status": "active",
+      "severity_if_problematic": "medium",
+      "notes": "Canonical validated sample cards; byte-identical to floently-finnish copy.",
+      "recommended_action": "Keep as validated sample/source, not full runtime bank."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/app/cards/schemas/publication.py",
+      "domain": "card_schema",
+      "status": "active",
+      "severity_if_problematic": "medium",
+      "notes": "Present, but rest of card schema family is missing.",
+      "recommended_action": "Retain and complete the rest of the family."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/app/cards/schemas/cards.py",
+      "domain": "card_schema",
+      "status": "unknown",
+      "severity_if_problematic": "critical",
+      "notes": "Missing file required by publication/runtime code.",
+      "recommended_action": "Import canonical file from puhis."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/app/cards/schemas/common.py",
+      "domain": "card_schema",
+      "status": "unknown",
+      "severity_if_problematic": "critical",
+      "notes": "Missing file required by publication/runtime code.",
+      "recommended_action": "Import canonical file from puhis."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/app/cards/runtime/api/router.py",
+      "domain": "card_runtime",
+      "status": "duplicate",
+      "severity_if_problematic": "critical",
+      "notes": "Claims active runtime role but imports missing modules and fails to import.",
+      "recommended_action": "Complete dependencies or demote until fully functional."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/app/cards/publication/deck_publication_service.py",
+      "domain": "card_publication",
+      "status": "duplicate",
+      "severity_if_problematic": "critical",
+      "notes": "Partial copied service; import chain currently broken.",
+      "recommended_action": "Replace with complete canonical family from puhis."
+    },
+    {
+      "path": "/home/vitus/kielitaika/backend/runtime/materials/normalized/cards_authority.json",
+      "domain": "professional_cards",
+      "status": "reference",
+      "severity_if_problematic": "high",
+      "notes": "High-value normalized donor bank with 1425 cards.",
+      "recommended_action": "Convert into canonical card envelopes."
+    },
+    {
+      "path": "/home/vitus/kielitaika/backend/runtime/materials/material_inventory.json",
+      "domain": "material_inventory",
+      "status": "reference",
+      "severity_if_problematic": "medium",
+      "notes": "Good donor inventory; same checked-in file currently appears in floently-finnish.",
+      "recommended_action": "Use as inventory model, not as card payload file."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/runtime/materials/material_inventory.json",
+      "domain": "material_inventory",
+      "status": "active",
+      "severity_if_problematic": "high",
+      "notes": "Currently an inventory ledger, not a card payload bank.",
+      "recommended_action": "Preserve ledger role and stop card-payload writes to this file."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/src/features/practice_content/pipeline/publish_to_material_bank.py",
+      "domain": "practice_generation",
+      "status": "active",
+      "severity_if_problematic": "critical",
+      "notes": "Publishes card items to material_inventory.json, conflicting with inventory contract.",
+      "recommended_action": "Redirect output to offline export or canonical card ingestion target."
+    },
+    {
+      "path": "/home/vitus/floently-finnish/apps/backend/src/features/practice_content/pipeline/build_unified_cards.py",
+      "domain": "practice_generation",
+      "status": "reference",
+      "severity_if_problematic": "medium",
+      "notes": "Emits legacy flat schema; not canonical runtime card contract.",
+      "recommended_action": "Treat as offline generator only."
+    },
+    {
+      "path": "/home/vitus/Documents/puhis/yki_content_bank/v1/manifest.json",
+      "domain": "yki_materials",
+      "status": "reference",
+      "severity_if_problematic": "medium",
+      "notes": "Useful donor bank with 1875 tasks.",
+      "recommended_action": "Convert selected overlapping families into v3.2 canonical schema."
+    },
+    {
+      "path": "/home/vitus/Documents/puhis/content/yki_bank/v2/A1_A2/manifest.json",
+      "domain": "yki_materials",
+      "status": "reference",
+      "severity_if_problematic": "medium",
+      "notes": "Atomic scaffold family with broader taxonomy.",
+      "recommended_action": "Keep as future donor only."
+    },
+    {
+      "path": "/home/vitus/yki_material_pipeline/reports/pipeline_report.json",
+      "domain": "yki_pipeline",
+      "status": "reference",
+      "severity_if_problematic": "low",
+      "notes": "Forensic recovery signal only; shows extreme duplicate/corruption burden.",
+      "recommended_action": "Use for offline recovery reporting only."
+    },
+    {
+      "path": "/home/vitus/Documents/puhis/backend/practice/data/generated_cards.json",
+      "domain": "raw_cards",
+      "status": "artifact",
+      "severity_if_problematic": "high",
+      "notes": "Large raw generated set with low pedagogical reliability in sample rows.",
+      "recommended_action": "Do not use as runtime authority."
+    },
+    {
+      "path": "/home/vitus/Documents/puhis/backend/practice/data/enriched_cards.json",
+      "domain": "raw_cards",
+      "status": "artifact",
+      "severity_if_problematic": "high",
+      "notes": "Heuristically enriched donor set, still non-canonical.",
+      "recommended_action": "Keep offline and filter aggressively before any reuse."
+    }
+  ]
+}

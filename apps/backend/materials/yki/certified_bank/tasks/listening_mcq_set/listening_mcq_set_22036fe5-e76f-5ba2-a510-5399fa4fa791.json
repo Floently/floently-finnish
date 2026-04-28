@@ -1,0 +1,88 @@
+{
+  "id": "22036fe5-e76f-5ba2-a510-5399fa4fa791",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelman esittely ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Radio Suomessa alkaa kohta uusi keskusteluohjelma nimeltä 'Mitä tänään syötäisiin?'. Ohjelmassa kokki Jari Lehtonen ja ravitsemusterapeutti Sanna Mäkelä keskustelevat arjen ruoanlaitosta ja vinkkaavat helpoista ja terveellisistä resepteistä. Tänään aiheena on kasvisruoka ja siitä, miten saadaan lapsille maistuvia kasvisruokia. Ohjelma alkaa kello 14 ja kestää tunnin. Kuuntelijat voivat soittaa suoraan lähetykseen tai lähettää kysymyksiä tekstiviestillä. Tervetuloa mukaan!",
+      "audio_asset_id": "3b701513-1ff2-49ce-b11b-8f82b693a82c"
+    },
+    "questions": [
+      {
+        "id": "80c69096-93a6-50dd-8a92-f8e8290a7626",
+        "prompt": "Mikä on uuden radio-ohjelman nimi?",
+        "options": [
+          "Ruoanlaittajan vinkit.",
+          "Mitä tänään syötäisiin?",
+          "Kokki ja terapeutti.",
+          "Kasvisruokaa arkeen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "58f02868-1aa3-5c6f-8bbc-848bdd92a30a",
+        "prompt": "Ketkä ohjelmaa juontavat?",
+        "options": [
+          "Kaksi ravitsemusterapeuttia.",
+          "Kaksi kokkia.",
+          "Kokki ja ravitsemusterapeutti.",
+          "Radiojuontaja ja kokki."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "cc7e150e-ee75-5f30-8d0a-103052641c91",
+        "prompt": "Mikä on tämän päivän ohjelman aihe?",
+        "options": [
+          "Leivonta.",
+          "Kasvisruoka ja lasten maistuvat ruoat.",
+          "Kalaruoat.",
+          "Juhlaruokien valmistus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4a5ae3d3-327b-51b3-8cde-734e82ffa82d",
+        "prompt": "Mitä kello ohjelma alkaa?",
+        "options": [
+          "Klo 13.",
+          "Klo 15.",
+          "Klo 16.",
+          "Klo 14."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "31e43fb6-7ad8-5222-bd06-cdef457963f0",
+        "prompt": "Miten kuuntelijat voivat osallistua ohjelmaan?",
+        "options": [
+          "Lähettämällä sähköpostia.",
+          "Tulemalla studioon.",
+          "Äänestämällä netissä.",
+          "Soittamalla tai lähettämällä tekstiviestin."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

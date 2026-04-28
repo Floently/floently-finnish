@@ -1,0 +1,77 @@
+{
+  "id": "a76b2dc2-74dc-58e6-b2be-601af50b4782",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.778,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Työelämän murros on yksi aikamme puhutuimmista teemoista, ja sen ytimessä on kysymys siitä, millaista työtä tulevaisuudessa tehdään ja millaisin ehdoin. Perinteisen palkkatyön rinnalle on noussut uusia työn tekemisen muotoja, kuten keikkatyö, alustatyö ja jakamistalous. Tämä kehitys on herättänyt vilkasta keskustelua siitä, miten työntekijöiden oikeudet ja sosiaaliturva tulisi järjestää uudessa tilanteessa. Alustatalouden kannattajat korostavat sen tuomaa joustavuutta ja vapautta. Heidän mukaansa alustat, kuten Wolt ja Uber, mahdollistavat työn tekemisen ilman perinteisen työsuhteen tuomia rasitteita, kuten työaikoja ja hierarkioita. Ne tarjoavat matalan kynnyksen mahdollisuuksia lisäansioihin ja voivat toimia ponnahduslautana yrittäjyyteen. Tästä näkökulmasta alustatyö nähdä uudenlaisena, vapautta lisäävänä työn muotona. Kriitikot puolestaan varoittavat alustatyön varjopuolista. Heidän mukaansa alustat kiertävät työlainsäädäntöä luokittelemalla työntekijänsä yrittäjiksi, jolloin he eivät ole oikeutettuja työsuhdeturvaan, kuten sairauslomaan, vuosilomaan, työterveyshuoltoon tai työttömyysturvaan. Työ on usein pirstaleista, ansiotaso alhainen ja työntekijöiden neuvotteluasema heikko. Tästä näkökulmasta alustatyö on uusliberalistinen tapa heikentää työntekijöiden asemaa ja kiertää työehtosopimuksia. Kolmas näkökulma korostaa, että alustatalous on tullut jäädäkseen, ja sille on löydettävä toimivat pelisäännöt. Tämä edellyttää uudenlaista sääntelyä, joka tunnistaa alustatyön erityispiirteet mutta turvaa työntekijöiden perusoikeudet. Tällaisia ratkaisuja voisivat olla esimerkiksi työntekijän statuksesta riippumaton sosiaaliturva, alustojen velvollisuus tarjota tietoa työehdoista ja -oloista sekä työntekijöiden oikeus järjestäytyä ja neuvotella työehdoistaan. Alustatalouden sääntely on monitahoinen kysymys, jossa joudutaan punnitsemaan joustavuuden ja turvallisuuden välistä suhdetta. Keskeistä on, että ratkaisuja etsitään avoimessa vuoropuhelussa eri osapuolten kesken ja että ne perustuvat parhaaseen mahdolliseen tietoon alustatyön vaikutuksista.",
+      "word_count": 225
+    },
+    "questions": [
+      {
+        "id": "740df9df-b225-5104-bc08-957c2aa32f3f",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Woltin ja Uberin liiketoimintamallien vertailu",
+          "Alustatalouteen liittyvä keskustelu työntekijöiden oikeuksista ja sääntelytarpeesta",
+          "Perinteisen palkkatyön tulevaisuus",
+          "Yrittäjyyden edistäminen alustatalouden avulla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1ba693fd-ece7-5f38-b797-7b74e3e6b2ee",
+        "prompt": "Tekstin mukaan mitä hyötyjä alustatalouden kannattajat korostavat?",
+        "options": [
+          "Työntekijöiden vahvaa työsuhdeturvaa ja korkeaa ansiotasoa",
+          "Joustavuutta, vapautta, matalan kynnyksen ansaintamahdollisuuksia ja ponnahduslautaa yrittäjyyteen",
+          "Työehtosopimusten noudattamista ja ammattiliittojen vahvaa roolia",
+          "Työn pysyvyyttä ja pitkiä työuria"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e1c1c32c-fa9f-509f-a05d-4275ce0c7721",
+        "prompt": "Mitä huolenaiheita alustatalouden kriitikot esittävät?",
+        "options": [
+          "Alustat ovat liian tiukasti säänneltyjä ja vähentävät innovaatioita",
+          "Alustat kiertävät työlainsäädäntöä, heikentävät työntekijöiden asemaa ja lisäävät epävarmuutta",
+          "Alustat maksavat liian korkeita veroja",
+          "Alustat ovat tehottomia eivätkä pysty kilpailemaan perinteisten yritysten kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8e0a5d36-bb0c-525c-8b24-ca6c6ea68f52",
+        "prompt": "Mitä kolmas, sääntelyä korostava näkökulma ehdottaa alustatalouden hallitsemiseksi?",
+        "options": [
+          "Alustatalouden täydellistä kieltämistä",
+          "Työntekijän statuksesta riippumatonta sosiaaliturvaa, läpinäkyvyyttä ja oikeutta järjestäytyä",
+          "Alustojen täydellistä vapautta ilman minkäänlaista sääntelyä",
+          "Paluuta perinteiseen palkkatyöhön ja alustataloudesta luopumista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

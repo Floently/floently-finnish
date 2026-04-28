@@ -1,0 +1,37 @@
+{
+  "id": "26372db3-1126-5ce2-ac41-ee1b4ed997e2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kirjastoon. Haluat uusia lainaamasi kirjat, koska et ole ehtinyt lukea niitä. Kerro, että kirjojen eräpäivä on huomenna. Kerro nimesi ja kirjojen nimet (voit keksiä).",
+    "materials": {
+      "scenario": "Viesti kirjastoon kirjojen uusimisesta"
+    },
+    "items": [
+      {
+        "id": "47d74d89-92eb-5d5e-b050-8fe1d72e807e",
+        "prompt": "Kirjoita lyhyt viesti kirjastoon. Haluat uusia lainaamasi kirjat, koska et ole ehtinyt lukea niitä. Kerro, että kirjojen eräpäivä on huomenna. Kerro nimesi ja kirjojen nimet (voit keksiä)."
+      }
+    ],
+    "rubric": "Kerro, että haluat uusia kirjat\nKerro, että eräpäivä on huomenna\nKerro nimesi\nKerro kirjojen nimet",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "172f2ad1-bb02-50ea-81b1-e5c36368e39e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kaupungin uudesta kulttuurikortista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin kulttuuripalvelujen tiedote. Olemme lanseeranneet uuden kulttuurikortin kaikille kaupunkilaisille. Kulttuurikortilla saa alennusta kulttuuritapahtumista, museoista, teattereista ja elokuvateattereista. Kortin voi ladata kaupungin sovelluksesta tai hakea kirjastosta. Kortti on henkilökohtainen ja maksuton. Kortilla saa esimerkiksi -20% alennusta museoiden pääsylipuista ja kaksi yhden hinnalla -tarjouksia teatteriesityksistä. Kortti on voimassa toistaiseksi. Lisätietoa ja lista yhteistyökumppaneista löytyy verkkosivuiltamme. Tervetuloa nauttimaan kulttuurista edullisemmin!",
+      "audio_asset_id": "d0bd1ad6-c2e3-4f3e-8938-ba0d5fd8e2e6"
+    },
+    "questions": [
+      {
+        "id": "a88d9bf7-32f8-54ce-a1fc-b10ed8d89ab4",
+        "prompt": "Mistä kaupungin kulttuuripalvelut tiedottavat?",
+        "options": [
+          "Uudesta museosta.",
+          "Uudesta kulttuurikortista.",
+          "Uudesta teatterista.",
+          "Uudesta tapahtumasta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0827e221-07bb-51d1-87ed-359b97f35c81",
+        "prompt": "Mihin kulttuurikortilla saa alennusta?",
+        "options": [
+          "Vain museoihin.",
+          "Vain teattereihin.",
+          "Vain elokuviin.",
+          "Kulttuuritapahtumiin, museoihin, teattereihin ja elokuviin."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "14605a1e-fc41-5fe1-beb0-f9751a4bfe22",
+        "prompt": "Miten kulttuurikortin saa?",
+        "options": [
+          "Lataamalla kaupungin sovelluksesta tai hakemalla kirjastosta.",
+          "Postitse tilaamalla.",
+          "Ostamalla kaupasta.",
+          "Noutamalla kaupungintalolta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "87a32ebb-a9ca-500d-9af5-e9005c591c73",
+        "prompt": "Paljonko kulttuurikortti maksaa?",
+        "options": [
+          "10 euroa.",
+          "Se on maksuton.",
+          "20 euroa vuodessa.",
+          "Hinta määräytyy iän mukaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9acfc163-2d5a-5cae-bedc-6f4476f0059b",
+        "prompt": "Minkä suuruinen alennus museoista on?",
+        "options": [
+          "-10%.",
+          "-30%.",
+          "-20%.",
+          "-50%."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "bfccfda7-f138-526d-ae81-178e1ecdab82",
+        "prompt": "Mikä tarjous teattereista on?",
+        "options": [
+          "Puoleen hintaan.",
+          "Ilmainen sisäänpääsy.",
+          "-30% alennus.",
+          "Kaksi yhden hinnalla."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "f7b5e2ff-7e04-551f-bb3c-04b97048b52a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö metsien hakkuumääriä vähentää hiilinielujen turvaamiseksi?'. Pohdi ilmastotavoitteita ja metsäteollisuuden tarpeita.",
+    "materials": {
+      "scenario": "Metsien hakkuumäärät"
+    },
+    "items": [
+      {
+        "id": "28d8137d-0551-54d7-8053-5b48115fa4c3",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö metsien hakkuumääriä vähentää hiilinielujen turvaamiseksi?'. Pohdi ilmastotavoitteita ja metsäteollisuuden tarpeita."
+      }
+    ],
+    "rubric": "Hiilinielut\nMetsäteollisuus\nMonimuotoisuus\nTyöllisyys",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

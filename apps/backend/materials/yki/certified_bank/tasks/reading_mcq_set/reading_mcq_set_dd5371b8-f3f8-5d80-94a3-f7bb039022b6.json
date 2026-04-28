@@ -1,0 +1,66 @@
+{
+  "id": "dd5371b8-f3f8-5d80-94a3-f7bb039022b6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei Tiina!\n\nOlen nyt Turussa työmatkalla. Työ on sujunut hyvin. Kävin eilen Vanhassa Raumalla – se on todella kaunis paikka! Tänään on vielä palaveri, ja huomenna lähden takaisin kotiin. Junani lähtee kello 14.20 ja olen Helsingissä noin kello 18. Pääsenkö suoraan teille? Vai haluatteko syödä jotain ennen kuin tulen? Voin tuoda tuliaisia, jotain toivomuksia? Terveisin, Mari  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "5c1c6fba-0d92-55a9-b133-507157da3ce7",
+        "prompt": "Missä Mari on nyt?",
+        "options": [
+          "Helsingissä",
+          "Turussa",
+          "Raumalla",
+          "Tampereella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "df8e3e39-2f0f-5f15-8453-3de508696b25",
+        "prompt": "Milloin Mari palaa kotiin?",
+        "options": [
+          "tänään",
+          "huomenna",
+          "ylihuomenna",
+          "ensi viikolla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "15509aba-b268-54c7-be65-1b5bc1f6cb81",
+        "prompt": "Mitä Mari kysyy lopussa?",
+        "options": [
+          "onko kotona ruokaa",
+          "haluavatko tuliaisia",
+          "tuleeko joku vastaan",
+          "onko hän myöhässä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

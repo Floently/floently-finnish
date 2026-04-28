@@ -1,0 +1,37 @@
+{
+  "id": "3f3a7556-b655-55d4-b5cb-c441f700e864",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut lääkärille ajan netissä. Kirjoita palaute. Toimiiko ajanvaraus hyvin? Onko se helppoa?",
+    "materials": {
+      "scenario": "Palaute terveyskeskuksen ajanvarauksesta"
+    },
+    "items": [
+      {
+        "id": "be5cf8ea-b718-581c-9e79-d3df84783f51",
+        "prompt": "Olet tilannut lääkärille ajan netissä. Kirjoita palaute. Toimiiko ajanvaraus hyvin? Onko se helppoa?"
+      }
+    ],
+    "rubric": "Olet tilannut lääkärille ajan netissä. Kirjoita palaute. Toimiiko ajanvaraus hyvin? Onko se helppoa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

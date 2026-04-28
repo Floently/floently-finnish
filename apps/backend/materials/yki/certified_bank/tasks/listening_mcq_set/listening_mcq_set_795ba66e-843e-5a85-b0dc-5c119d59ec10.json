@@ -1,0 +1,77 @@
+{
+  "id": "795ba66e-843e-5a85-b0dc-5c119d59ec10",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu työuran muutoksista ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme työuran muutoksista. Minulla on täällä Antti, joka vaihtoi alaa 45-vuotiaana. Antti, kerro omin sanoin, mitä teit ennen?\n\nAntti: Toimin pitkään IT-alalla, noin 20 vuotta. Työ oli hyvää, mutta jossain vaiheessa alkoi tuntua, että haluan tehdä jotain konkreettisempaa. Päätin vaihtaa alaa ja kouluttautua puusepäksi.\n\nToimittaja: Miten alanvaihto onnistui?\n\nAntti: Se vaati uskallusta ja taloudellista suunnittelua. Olin pari vuotta opiskelemassa ja tein samalla osa-aikatöitä. Nyt olen toiminut puuseppänä kolme vuotta, ja olen todella tyytyväinen.\n\nToimittaja: Mikä on parasta uudessa työssä?\n\nAntti: Käden taidot ja se, että näkee konkreettisen lopputuloksen. Teen huonekaluja ja remontteja. Jokainen työ on erilainen ja saa käyttää luovuutta.\n\nToimittaja: Mitä haasteita olet kohdannut?\n\nAntti: Palkka on pienempi kuin IT-alalla. Fyysinen työ on raskaampaa. Mutta se ei haittaa, koska työ on mielekästä. Myös asenne: moni ihmettelee, miksi lähdin hyvästä työstä.\n\nToimittaja: Mitä neuvoja antaisit muille, jotka miettivät alanvaihtoa?\n\nAntti: Kannattaa miettiä, mikä oikeasti kiinnostaa. Uskalla kokeilla, vaikka se pelottaisi. Elämä on liian pitkä tehdäkseen työtä, josta ei nauti.",
+      "audio_asset_id": "e0026935-4bd9-5916-b16d-f7ee5c2edb09"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_005_q1",
+        "prompt": "Mitä Antti teki ennen alanvaihtoa?",
+        "options": [
+          "hän oli opettaja",
+          "hän työskenteli IT-alalla",
+          "hän oli rakennusalalla",
+          "hän oli kokki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_005_q2",
+        "prompt": "Miksi Antti vaihtoi alaa?",
+        "options": [
+          "hän sai potkut",
+          "hän halusi tehdä konkreettisempaa työtä",
+          "hän halusi lisää rahaa",
+          "hän muutti ulkomaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_005_q3",
+        "prompt": "Mikä on parasta uudessa työssä?",
+        "options": [
+          "korkea palkka",
+          "käden taidot ja konkreettinen lopputulos",
+          "lyhyet työpäivät",
+          "paljon vapaa-aikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_005_q4",
+        "prompt": "Mitä neuvoja Antti antaa alanvaihtajille?",
+        "options": [
+          "älä koskaan vaihda",
+          "mieti mikä kiinnostaa ja uskalla kokeilla",
+          "vaihda vain nuorena",
+          "tee vain sitä mitä osaat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

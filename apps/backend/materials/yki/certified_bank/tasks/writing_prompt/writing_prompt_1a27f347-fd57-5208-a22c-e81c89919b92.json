@@ -1,0 +1,37 @@
+{
+  "id": "1a27f347-fd57-5208-a22c-e81c89919b92",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.344,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute bussipysäkin aikataulunäytöstä.",
+    "materials": {
+      "scenario": "Bussipysäkin näyttö"
+    },
+    "items": [
+      {
+        "id": "e2e9e676-7eb6-5fbf-9dca-57767ff560f9",
+        "prompt": "Kirjoita palaute bussipysäkin aikataulunäytöstä."
+      }
+    ],
+    "rubric": "Kirjoita palaute bussipysäkin aikataulunäytöstä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

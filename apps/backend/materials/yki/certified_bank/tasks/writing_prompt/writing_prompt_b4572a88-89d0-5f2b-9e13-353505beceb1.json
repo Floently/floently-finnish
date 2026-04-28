@@ -1,0 +1,37 @@
+{
+  "id": "b4572a88-89d0-5f2b-9e13-353505beceb1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työpaikan henkilöstöhallintoon.",
+    "materials": {
+      "scenario": "Kysy mahdollisuutta työaikajoustoon"
+    },
+    "items": [
+      {
+        "id": "0cffdf30-1e58-5672-8924-81a52c8a5a69",
+        "prompt": "Haluaisit aloittaa työt aikaisemmin aamulla, jotta pääsisit aikaisemmin lähtemään. Kirjoita sähköposti ja kysy, onko työaikajousto mahdollista. Perustele, miksi se sopisi sinulle ja miten se vaikuttaisi työhösi."
+      }
+    ],
+    "rubric": "Haluaisit aloittaa työt aikaisemmin aamulla, jotta pääsisit aikaisemmin lähtemään. Kirjoita sähköposti ja kysy, onko työaikajousto mahdollista. Perustele, miksi se sopisi sinulle ja miten se vaikuttaisi työhösi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

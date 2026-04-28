@@ -1,0 +1,77 @@
+{
+  "id": "02635722-eef9-5046-92f3-ff61f092c5fa",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.781,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Terveydenhuollon digitalisaatio on edennyt viime vuosina nopeasti, ja sen vaikutukset ulottuvat laajalle yhteiskuntaan. Sähköiset reseptit, etävastaanotot ja potilastietojärjestelmät ovat jo arkipäivää, ja uusia sovelluksia kehitetään jatkuvasti. Tämä kehitys tuo mukanaan monia mahdollisuuksia, mutta myös eettisiä kysymyksiä, jotka vaativat yhteiskunnallista keskustelua ja sääntelyä. Yksi keskeisimmistä kysymyksistä liittyy potilastietojen suojaan ja yksityisyyteen. Sähköiset potilastietojärjestelmät mahdollistavat tiedon nopean ja helpon saatavuuden, mikä parantaa hoidon jatkuvuutta ja vähentää päällekkäisiä tutkimuksia. Samalla ne kuitenkin lisäävät riskiä tietovuodoista ja tietojen väärinkäytöstä. Kysymys siitä, kuka saa nähdä potilastietoja ja millä perusteilla, on monimutkainen. Terveydenhuollon ammattilaiset tarvitsevat tietoja hoitopäätösten tekemiseen, mutta potilaalla on oikeus määrätä omista tiedoistaan. Lisäksi on pohdittava, miten tietosuoja toteutuu tilanteissa, joissa tietoja käytetään tutkimukseen tai tilastointiin. Toinen merkittävä eettinen kysymys liittyy tekoälyn käyttöön terveydenhuollossa. Tekoälyä voidaan käyttää esimerkiksi diagnostiikan apuna, hoitosuositusten laatimisessa ja jopa leikkausten tekemisessä. Tämä voi parantaa hoidon laatua ja tehokkuutta, mutta samalla se herättää kysymyksiä vastuusta ja päätöksenteon läpinäkyvyydestä. Kuka kantaa vastuun, jos tekoäly tekee virheellisen diagnoosin? Miten varmistetaan, että tekoälyn käyttö ei johda syrjiviin käytäntöihin tai potilaiden epätasa-arvoiseen kohteluun? Kolmas keskeinen kysymys liittyy digitaaliseen kuiluun ja saavutettavuuteen. Kaikilla ihmisillä ei ole tasavertaisia mahdollisuuksia käyttää digitaalisia terveyspalveluja. Ikääntyneet, vammaiset, kielivähemmistöt ja ne, joilla ei ole tarvittavia digitaitoja tai -laitteita, voivat jäädä palvelujen ulkopuolelle. Tämä voi lisätä terveyseroja ja heikentää yhdenvertaisuutta. On siis varmistettava, että digitaalisten palvelujen rinnalla säilyy myös perinteisiä palvelumuotoja ja että kaikilla on mahdollisuus saada tarvitsemaansa apua digitaalisten palvelujen käyttöön. Terveydenhuollon digitalisaation eettiset kysymykset eivät ole yksinkertaisia, eikä niihin ole olemassa helppoja vastauksia. Ne vaativat jatkuvaa keskustelua ja arviointia, jossa otetaan huomioon eri osapuolten näkökulmat ja arvot. Tavoitteena on kehittää digitaalisia palveluja, jotka ovat turvallisia, oikeudenmukaisia ja kaikkien saavutettavissa, ja jotka samalla hyödyntävät teknologian tarjoamat mahdollisuudet parhaalla mahdollisella tavalla.",
+      "word_count": 280
+    },
+    "questions": [
+      {
+        "id": "9a2d792a-dc57-513b-ac2b-02b752a0977a",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Terveydenhuollon digitalisaation tekniset ratkaisut",
+          "Terveydenhuollon digitalisaation mukanaan tuomat eettiset kysymykset",
+          "Potilastietojärjestelmien kehityshistoria Suomessa",
+          "Tekoälyn käyttö kirurgiassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2c8626d9-d57f-58bb-8495-01492b99a28f",
+        "prompt": "Tekstin mukaan mikä on keskeinen ongelma potilastietojen sähköisessä saatavuudessa?",
+        "options": [
+          "Tiedot eivät ole riittävän nopeasti saatavilla",
+          "Tiedot ovat vain harvojen ammattilaisten käytettävissä",
+          "Tietoturvariskit ja tiedon väärinkäytön mahdollisuus",
+          "Potilastietojärjestelmät ovat liian kalliita"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "60429244-34cf-511e-8181-279df3c4eb9d",
+        "prompt": "Mitä vastuukysymyksiä tekoälyn käyttö terveydenhuollossa tekstin mukaan herättää?",
+        "options": [
+          "Kuka omistaa tekoälyn kehittämät diagnoosit?",
+          "Kuka vastaa tekoälyn tekemistä virheistä?",
+          "Miten tekoälyä koulutetaan tunnistamaan harvinaisia sairauksia?",
+          "Kuinka paljon tekoäly maksaa?"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a3ef1200-a9e5-5560-9d24-3b197ada898d",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'digitaalisella kuilulla'?",
+        "options": [
+          "Eroa digitaalisten ja perinteisten palvelujen välillä",
+          "Teknologian nopeaa kehitystä, jota lainsäädäntö ei pysty seuraamaan",
+          "Eri väestöryhmien välisiä eroja mahdollisuuksissa käyttää digitaalisia palveluja",
+          "Terveydenhuollon ammattilaisten ja potilaiden välistä viestintäkuilua"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

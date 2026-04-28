@@ -1,0 +1,37 @@
+{
+  "id": "25e55520-7c83-588f-9ac1-8dc09d2ef483",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisten uimarantojen pelastusvalmiutta parantaa?'. Arvioi turvallisuutta, kustannuksia ja vastuukysymyksiä.",
+    "materials": {
+      "scenario": "Uimarantojen pelastusvalmius"
+    },
+    "items": [
+      {
+        "id": "6d5ddf84-e656-51c6-ab65-a5c0613b9a8b",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisten uimarantojen pelastusvalmiutta parantaa?'. Arvioi turvallisuutta, kustannuksia ja vastuukysymyksiä."
+      }
+    ],
+    "rubric": "Turvallisuus\nKustannukset\nVastuukysymykset\nVapaaehtoistoiminta",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

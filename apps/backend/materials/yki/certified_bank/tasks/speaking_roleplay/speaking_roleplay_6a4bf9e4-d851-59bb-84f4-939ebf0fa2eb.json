@@ -1,0 +1,40 @@
+{
+  "id": "6a4bf9e4-d851-59bb-84f4-939ebf0fa2eb",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella arkaluonteisesta aiheesta empaattisesti ja ammattimaisesti.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet potilas, joka on huolissaan terveydentilastaan mutta haluaa ymmärtää tilanteen ja hoitovaihtoehdot.",
+        "partner": "Lääkäri - ammattitaitoinen ja empaattinen, haluaa kertoa diagnoosista rehellisesti mutta toivoa antaen."
+      }
+    },
+    "items": [
+      {
+        "id": "srp13",
+        "ai_first_turn_fi": "Kiitos kun tulitte. Tutkimustulokset ovat valmistuneet. Keskustellaan niistä rauhassa. Miten voitte tällä hetkellä?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi keskustella arkaluonteisesta aiheesta empaattisesti ja ammattimaisesti.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

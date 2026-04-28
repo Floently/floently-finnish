@@ -1,0 +1,37 @@
+{
+  "id": "161c02c2-528b-5309-bb60-6e927b222df8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että lieden uuni ei toimi. Se ei lämpene, vaikka säädön laittaa päälle. Kerro, että olet tarkistanut sulakkeet. Kysy, milloin korjaaja voi tulla ja pitääkö sinun olla kotona.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle rikkinäisestä uunista"
+    },
+    "items": [
+      {
+        "id": "10c9a256-621c-5332-818a-ce342560646d",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että lieden uuni ei toimi. Se ei lämpene, vaikka säädön laittaa päälle. Kerro, että olet tarkistanut sulakkeet. Kysy, milloin korjaaja voi tulla ja pitääkö sinun olla kotona."
+      }
+    ],
+    "rubric": "Kerro, että uuni on rikki\nKerro, mikä vika on\nKerro, mitä olet tarkistanut\nKysy korjausaikaa\nKysy, pitääkö olla kotona",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

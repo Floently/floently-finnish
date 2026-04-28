@@ -1,0 +1,110 @@
+{
+  "id": "3a4ce98a-0b0e-5a0b-b777-8f9a039da434",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.735,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen koulutusjärjestelmä on herättänyt kansainvälistä kiinnostusta jo vuosikymmeniä. Sen erityispiirteitä ovat muun muassa pätevät opettajat, luottamus kouluihin ja oppilaisiin, sekä vähäinen testaaminen. Suomessa opettajilla on oltava maisterin tutkinto, ja he ovat arvostettuja ammattilaisia. Kouluissa ei tehdä jatkuvasti kokeita ja testejä, vaan oppimista seurataan muulla tavoin. Oppilaita kannustetaan uteliaisuuteen ja kriittiseen ajatteluun. Tämä malli on tuottanut hyviä tuloksia pitkään. PISA-tutkimuksissa suomalaisnuoret ovat menestyneet erinomaisesti. Viime vuosina tulokset ovat kuitenkin hieman laskeneet, ja erot oppilaiden välillä ovat kasvaneet. Tämä on herättänyt keskustelua siitä, tarvitaanko uudistuksia. Osa asiantuntijoista korostaa, että perusasiat, kuten lukeminen, kirjoittaminen ja laskeminen, on turvattava. Toiset painottavat tulevaisuuden taitoja, kuten digiosaamista, ongelmanratkaisua ja luovuutta. Todennäköisesti tarvitaan molempia. Koulujärjestelmää kehitetään jatkuvasti, ja uusia opetussuunnitelmia otetaan käyttöön. Tärkeää on, että muutokset tehdään harkiten ja opettajia kuunnellen. Suomalainen koulu on edelleen hyvä, mutta se ei saa jäädä paikoilleen. Maailma muuttuu, ja koulun on muututtava mukana.",
+      "word_count": 142
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä erityispiirteitä suomalaisessa koulutusjärjestelmässä on?",
+        "options": [
+          "Paljon testaamista ja kokeita.",
+          "Pätevät opettajat, luottamus ja vähäinen testaaminen.",
+          "Tiukka kurinpito ja hierarkia.",
+          "Yksityiskoulujen suuri määrä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaista koulutusta suomalaisilla opettajilla on?",
+        "options": [
+          "Ammattikoulututkinto.",
+          "Maisterin tutkinto.",
+          "Tohtorin tutkinto.",
+          "Pelkkä opettajankoulutus ilman korkeakoulututkintoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin oppilaita kannustetaan?",
+        "options": [
+          "Kilpailuun ja paremmuuteen.",
+          "Uteliaisuuteen ja kriittiseen ajatteluun.",
+          "Ulkoa opetteluun ja toistoon.",
+          "Yksin puurtamiseen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä PISA-tutkimukset ovat osoittaneet suomalaisnuorista?",
+        "options": [
+          "He ovat menestyneet heikosti.",
+          "He ovat menestyneet erinomaisesti, mutta tulokset ovat hieman laskeneet.",
+          "He eivät ole osallistuneet tutkimuksiin.",
+          "He ovat menestyneet vain lukuaineissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä perusasioita asiantuntijat haluavat turvata?",
+        "options": [
+          "Digiosaamista ja luovuutta.",
+          "Lukemista, kirjoittamista ja laskemista.",
+          "Ongelmanratkaisua.",
+          "Kielten osaamista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tulevaisuuden taitoja toiset painottavat?",
+        "options": [
+          "Perinteisiä oppiaineita.",
+          "Digiosaamista, ongelmanratkaisua ja luovuutta.",
+          "Ulkoa oppimista.",
+          "Fyysisiä taitoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten koulujärjestelmän uudistukset pitäisi tehdä?",
+        "options": [
+          "Nopeasti ja ylhäältä päin.",
+          "Harkiten ja opettajia kuunnellen.",
+          "Oppilaiden ehdoilla.",
+          "Poliittisten päätösten mukaan."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

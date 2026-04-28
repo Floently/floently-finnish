@@ -1,0 +1,66 @@
+{
+  "id": "b93b0b83-c650-5983-a3b2-4ad35cbde336",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yrittäjän haastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Kerrotko, millaisen yrityksen perustit?\nYrittäjä: Perustin pienen design-alan yrityksen, joka valmistaa kierrätysmateriaaleista sisustustuotteita. Idea lähti siitä, että halusin yhdistää luovuuden ja ekologisuuden. Aluksi tein kaiken yksin, nyt meitä on kolme työntekijää.\nToimittaja: Mikä on ollut suurin haaste?\nYrittäjä: Ehdottomasti rahoituksen saaminen alkuvaiheessa. Pankit eivät innostuneet, koska minulla ei ollut vakuuksia. Lopulta sain starttirahaa ja pienen lainan Finnveralta. Myös markkinointi on haastavaa pienellä budjetilla. Onneksi some on auttanut, ja tuotteemme ovat saaneet huomiota.\nToimittaja: Mitä vinkkejä antaisit muille aloittaville yrittäjille?\nYrittäjä: Kannattaa verkostoitua paljon. Itse sain paljon apua toisilta yrittäjiltä. Myös yrittäjäkurssit olivat hyödyllisiä. Ja tärkein: usko omaan ideaan, vaikka välillä epäilyttäisi.",
+      "audio_asset_id": "86b918bd-e8ef-4ad3-9fb9-c52c3ecc28f5"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä yrittäjän yritys tekee?",
+        "options": [
+          "Myy vaatteita",
+          "Valmistaa kierrätysmateriaaleista sisustustuotteita",
+          "Korjaa huonekaluja",
+          "Järjestää tapahtumia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä oli suurin haaste yrityksen perustamisessa?",
+        "options": [
+          "Työntekijöiden löytäminen",
+          "Rahoituksen saaminen",
+          "Toimitilojen löytäminen",
+          "Koneiden hankinta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä yrittäjä sai rahoitusta?",
+        "options": [
+          "Pankkilainasta",
+          "Starttirahasta ja Finnveran lainasta",
+          "Sijoittajilta",
+          "Perheeltä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

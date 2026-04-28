@@ -1,0 +1,37 @@
+{
+  "id": "c7a2e7ed-76e8-5da2-b3ee-1dfe9ed1b842",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti lähikirpputorille. Arvioi tavaroiden laatua, hintatasoa ja järjestystä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute lähikirpputorille"
+    },
+    "items": [
+      {
+        "id": "87acc1a2-3655-5a17-a057-979fc4c91143",
+        "prompt": "Kirjoita palauteteksti lähikirpputorille. Arvioi tavaroiden laatua, hintatasoa ja järjestystä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Tavaroiden laatu\nHintataso\nJärjestys\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

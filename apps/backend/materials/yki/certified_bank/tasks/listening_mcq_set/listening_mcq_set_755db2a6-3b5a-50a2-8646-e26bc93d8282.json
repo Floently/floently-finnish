@@ -1,0 +1,88 @@
+{
+  "id": "755db2a6-3b5a-50a2-8646-e26bc93d8282",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.684,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele bussipysäkin kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Linja-auto 55 lentoasemalle on myöhässä noin 15 minuuttia. Myöhästyminen johtuu liikenneonnettomuudesta. Seuraava linja-auto lähtee normaalisti 30 minuutin kuluttua. Pahoittelemme viivästystä.",
+      "audio_asset_id": "f7c24c6b-5c4b-4d69-a43c-2c8b0ebae8e2"
+    },
+    "questions": [
+      {
+        "id": "l275q1",
+        "prompt": "Mikä linja-auto on myöhässä?",
+        "options": [
+          "Linja-auto 50.",
+          "Linja-auto 60.",
+          "Linja-auto 65.",
+          "Linja-auto 55."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l275q2",
+        "prompt": "Minne linja-auto on menossa?",
+        "options": [
+          "Lentoasemalle.",
+          "Keskustaan.",
+          "Rautatieasemalle.",
+          "Satamaan."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l275q3",
+        "prompt": "Kuinka paljon linja-auto on myöhässä?",
+        "options": [
+          "15 minuuttia.",
+          "5 minuuttia.",
+          "10 minuuttia.",
+          "20 minuuttia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l275q4",
+        "prompt": "Mistä viivästys johtuu?",
+        "options": [
+          "Teknisistä ongelmista.",
+          "Liikenneonnettomuudesta.",
+          "Ruuhkasta.",
+          "Kuljettajan sairaudesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l275q5",
+        "prompt": "Kuinka pian seuraava linja-auto lähtee normaalisti?",
+        "options": [
+          "30 minuutin kuluttua.",
+          "15 minuutin kuluttua.",
+          "20 minuutin kuluttua.",
+          "45 minuutin kuluttua."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

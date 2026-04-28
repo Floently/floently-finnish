@@ -1,0 +1,37 @@
+{
+  "id": "ee5c6dd1-8cf5-5cbd-94cc-6a0176df3595",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute suomen kielen kurssin ryhmätöistä. Auttoivatko ne oppimista? Oliko ryhmissä helppo työskennellä?",
+    "materials": {
+      "scenario": "Palaute kurssin ryhmätöistä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute suomen kielen kurssin ryhmätöistä. Auttoivatko ne oppimista? Oliko ryhmissä helppo työskennellä?"
+      }
+    ],
+    "rubric": "Kirjoita palaute suomen kielen kurssin ryhmätöistä. Auttoivatko ne oppimista? Oliko ryhmissä helppo työskennellä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

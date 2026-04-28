@@ -1,0 +1,37 @@
+{
+  "id": "25e4ee3b-e0ed-5134-bab5-d14b60cf1ca6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.501,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti hammashoitolaan. Haluat siirtää varattua aikaasi. Kerro nimesi ja nykyinen aika. Kerro, miksi et pääse ja ehdota uutta aikaa, joka sopisi sinulle paremmin.",
+    "materials": {
+      "scenario": "Ajan siirto hammashoitolaan"
+    },
+    "items": [
+      {
+        "id": "cbdd4e24-f9d4-5ef6-aea5-731254362b7e",
+        "prompt": "Kirjoita sähköposti hammashoitolaan. Haluat siirtää varattua aikaasi. Kerro nimesi ja nykyinen aika. Kerro, miksi et pääse ja ehdota uutta aikaa, joka sopisi sinulle paremmin."
+      }
+    ],
+    "rubric": "Nykyinen aika\nEste\nUusi ehdotettu aika",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "eac2883a-951c-5868-9319-0f13d9c65755",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti ammattiliittoon.",
+    "materials": {
+      "scenario": "Pyydä apua työehtokiistassa"
+    },
+    "items": [
+      {
+        "id": "d2b28fd1-a1bd-585a-9f24-ade3af0b58b2",
+        "prompt": "Sinulla on työnantajan kanssa erimielisyyttä työehdoista etkä tiedä, miten edetä. Kirjoita sähköposti ja pyydä apua ja neuvoja. Kerro tilanteesta mahdollisimman tarkasti. Kysy, mitä liitto voi tehdä hyväksesi."
+      }
+    ],
+    "rubric": "Sinulla on työnantajan kanssa erimielisyyttä työehdoista etkä tiedä, miten edetä. Kirjoita sähköposti ja pyydä apua ja neuvoja. Kerro tilanteesta mahdollisimman tarkasti. Kysy, mitä liitto voi tehdä hyväksesi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

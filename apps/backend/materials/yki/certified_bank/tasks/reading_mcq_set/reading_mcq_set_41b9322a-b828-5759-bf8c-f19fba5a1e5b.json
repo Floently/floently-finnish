@@ -1,0 +1,63 @@
+{
+  "id": "41b9322a-b828-5759-bf8c-f19fba5a1e5b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uutinen ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kirjastot ovat löytäneet uuden tavan tavoittaa nuoria: some. Monella kirjastolla on tili TikTokissa ja Instagramissa.\n\n\"Nuoret eivät lue perinteisiä lehtiä. Somen kautta heidät tavoittaa helpommin\", kertoo kirjaston somevastaava.\n\nSisältö vaihtelee. Jotkut tekevät kirjasuosituksia, toiset esittelevät kirjaston tiloja.\n\nKriitikot ihmettelevät, onko tämä kirjaston tehtävä. Kirjastonjohtaja vastaa: \"Meidän tehtävä on tavoittaa kaikenikäiset.\"",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "item_147_1",
+        "prompt": "Miksi kirjastot ovat lähteneet someen?",
+        "options": [
+          "koska se on halpaa",
+          "tavoittaakseen nuoret",
+          "koska henkilökunta haluaa viihdyttää itseään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_147_2",
+        "prompt": "Millaista sisältöä kirjastot tekevät someen?",
+        "options": [
+          "vain kirjasuosituksia",
+          "kirjasuosituksia ja tilojen esittelyä",
+          "poliittista sisältöä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_147_3",
+        "prompt": "Miten kirjastonjohtaja vastaa kritiikkiin?",
+        "options": [
+          "some unohtaa perinteiset palvelut",
+          "some on tapa tavoittaa nuoret",
+          "kirjasto lopettaa somekäytön"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

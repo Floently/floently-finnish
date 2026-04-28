@@ -1,0 +1,37 @@
+{
+  "id": "a0dd7988-e3fa-5f76-8c3b-1292de5ca1b4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kampaamon väripalvelusta. Kerro lopputuloksesta, kestosta ja hinnasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kampaamon väripalvelusta"
+    },
+    "items": [
+      {
+        "id": "ded212c7-8231-51a7-b7b9-51546d4d70ab",
+        "prompt": "Kirjoita palauteteksti kampaamon väripalvelusta. Kerro lopputuloksesta, kestosta ja hinnasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Lopputulos\nKesto\nHinta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

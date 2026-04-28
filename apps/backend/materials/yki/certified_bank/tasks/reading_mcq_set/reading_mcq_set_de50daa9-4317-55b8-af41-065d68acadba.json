@@ -1,0 +1,88 @@
+{
+  "id": "de50daa9-4317-55b8-af41-065d68acadba",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Koti on tärkeä paikka suomalaisille. Siellä asuu perhe. Kotona on olohuone, keittiö, makuuhuoneita ja kylpyhuone. Monilla on myös sauna. Kotona rentoudutaan työn jälkeen. Siellä luetaan, katsotaan televisiota ja kuunnellaan musiikkia. Lapset tekevät läksyjä keittiön pöydässä. Viikonloppuisin saatetaan leipoa pullaa. Koti on turvallinen paikka. Siellä saa olla oma itsensä. Kodin sisustuksesta pidetään huolta. Suomalainen koti on usein siisti ja kodikas.",
+      "word_count": 59
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä huoneita suomalaisessa kodissa on?",
+        "options": [
+          "Vain makuuhuone ja keittiö",
+          "Olohuone, keittiö, makuuhuoneita ja kylpyhuone",
+          "Vain olohuone ja keittiö",
+          "Vain sauna ja makuuhuone"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä monella suomalaisella on kotona?",
+        "options": [
+          "Uima-allas",
+          "Sauna",
+          "Kuntosali",
+          "Kirjasto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kotona tehdään?",
+        "options": [
+          "Vain syödään",
+          "Rentoudutaan, luetaan, katsotaan televisiota ja kuunnellaan musiikkia",
+          "Vain nukutaan",
+          "Vain tehdään töitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä lapset tekevät läksyjä?",
+        "options": [
+          "Makuuhuoneessa",
+          "Keittiön pöydässä",
+          "Olohuoneessa",
+          "Saunassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millainen suomalainen koti usein on?",
+        "options": [
+          "Epäsiisti ja sotkuinen",
+          "Siisti ja kodikas",
+          "Tyhjä ja kylmä",
+          "Vanhanaikainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "961b51f0-b903-5e9b-a35b-1916c0ead186",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tiedoksi kaikille kerrostaloasukkaille. Taloyhtiön yhtiökokous pidetään keskiviikkona 12.4. kello 18.30 alakerran kerhohuoneella. Kokouksessa käsitellään tärkeitä asioita: ensi vuoden korjaussuunnitelma, saunojen käyttöajat ja pihan kunnostus. Myös uusi isännöitsijä valitaan. Kaikki asukkaat ovat tervetulleita. Kahvitarjoilu. Tervetuloa!",
+      "audio_asset_id": "3d384702-3d38-5b03-896e-864091ab7ad9"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin yhtiökokous pidetään?",
+        "options": [
+          "Tiistaina 11.4. kello 18",
+          "Keskiviikkona 12.4. kello 18.30",
+          "Torstaina 13.4. kello 18",
+          "Perjantaina 14.4. kello 18.30"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä kokous pidetään?",
+        "options": [
+          "Ravintolassa",
+          "Kerhohuoneella",
+          "Ulkona",
+          "Isännöitsijän toimistolla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä asioita kokouksessa käsitellään?",
+        "options": [
+          "Vain saunojen käyttöaikoja",
+          "Korjaussuunnitelma, saunojen käyttöajat, pihan kunnostus ja uusi isännöitsijä",
+          "Vain uusi isännöitsijä",
+          "Vain pihan kunnostus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

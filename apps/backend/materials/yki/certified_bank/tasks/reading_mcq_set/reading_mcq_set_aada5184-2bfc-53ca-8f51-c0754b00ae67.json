@@ -1,0 +1,77 @@
+{
+  "id": "aada5184-2bfc-53ca-8f51-c0754b00ae67",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen käyttänyt joukkoliikennettä päivittäin 20 vuotta. Olen nähnyt hyvät ja huonot puolet. Viime aikoina huonot puolet ovat lisääntyneet.\n\nEnsinnäkin, hinnat nousevat koko ajan. Kymmenen vuotta sitten kuukausilippu maksoi puolet vähemmän kuin nyt. Palkat eivät ole nousseet samaa tahtia. Joukkoliikenteen pitäisi olla edullista, jotta ihmiset jättäisivät auton kotiin.\n\nToiseksi, vuorovälit ovat liian pitkät. Erityisesti iltaisin ja viikonloppuisin busseja kulkee harvemmin. Jos on myöhään liikkeellä, joutuu odottamaan puoli tuntia tai tilaamaan kalliin taksin.\n\nKolmanneksi, täsmällisyys on huonontunut. Bussit myöhästelevät, ja aikataulut eivät pidä. Tämä on erityisen hankalaa, jos on menossa töihin tai tapaamiseen.\n\nYmmärrän, että kaupungilla on taloudellisia paineita. Mutta joukkoliikenne on tärkeä palvelu, josta ei voi säästää. Toivon, että päättäjät panostaisivat joukkoliikenteeseen enemmän, eivät vähemmän.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 142
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka kauan kirjoittaja on käyttänyt joukkoliikennettä?",
+        "options": [
+          "A) 10 vuotta",
+          "B) 15 vuotta",
+          "C) 20 vuotta",
+          "D) 25 vuotta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ongelmia kirjoittaja mainitsee?",
+        "options": [
+          "A) Hinnat nousevat, vuorovälit pitkät, täsmällisyys huono",
+          "B) Bussit ovat vanhoja ja likaisia",
+          "C) Kuljettajat ovat epäystävällisiä",
+          "D) Liian vähän linjoja"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja sanoo hinnoista?",
+        "options": [
+          "A) Hinnat ovat laskeneet",
+          "B) Hinnat ovat nousseet enemmän kuin palkat",
+          "C) Hinnat ovat samat kuin ennen",
+          "D) Hinnat ovat kohtuulliset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kirjoittaja toivoo päättäjiltä?",
+        "options": [
+          "A) Lisää bussilinjoja",
+          "B) Enemmän panostusta joukkoliikenteeseen",
+          "C) Halvempia lippuja opiskelijoille",
+          "D) Uusia busseja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

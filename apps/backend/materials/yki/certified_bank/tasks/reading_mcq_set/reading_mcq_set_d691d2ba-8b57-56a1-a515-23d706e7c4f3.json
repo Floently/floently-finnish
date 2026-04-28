@@ -1,0 +1,73 @@
+{
+  "id": "d691d2ba-8b57-56a1-a515-23d706e7c4f3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kansalaisopiston kurssitarjonta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KANSALAISOPISTO – KEVÄÄN 2025 KURSSIT\n\nIlmoittautuminen alkaa 7.1.2025 kello 9. Kursseille on rajoitettu määrä paikkoja.\n\nKIELIKURSSIT:\n- Saksan alkeet (maanantaisin kello 17–19, 12 kertaa, 125 €)\n- Venäjän jatkokurssi (keskiviikkoisin kello 18–20, 10 kertaa, 115 €)\n- Suomen kielen kirjoituskurssi (torstaisin kello 16–18, 8 kertaa, 95 €)\n\nLIIKUNTAKURSSIT:\n- Kehonhuolto (tiistaisin kello 18–19, 12 kertaa, 105 €)\n- Tanssi (perjantaisin kello 17–18, 10 kertaa, 90 €)\n- Itsepuolustus (keskiviikkoisin kello 19–20.30, 6 kertaa, 85 €)\n\nKÄSITYÖKURSSIT:\n- Ompelukurssi (torstaisin kello 12–15, 5 kertaa, 70 €)\n- Keramiikka (maanantaisin kello 10–13, 8 kertaa, 120 €, sisältää materiaalit)\n\nMUSIIKKIKURSSIT:\n- Pianon alkeet (tiistaisin kello 15–16, 12 kertaa, 135 €)\n- Kansanlaulu (keskiviikkoisin kello 18–20, 10 kertaa, 70 €)\n\nOpistolla on myös maksuttomia luentoja. Tarkemmat tiedot nettisivuilla.\n\nKurssit alkavat viikolla 3. Tervetuloa oppimaan uutta!",
+      "word_count": 131
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin ilmoittautuminen kursseille alkaa?",
+        "options": [
+          "1.1.2025",
+          "7.1.2025",
+          "15.1.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko saksan alkeet maksaa?",
+        "options": [
+          "115 €",
+          "125 €",
+          "135 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Minä päivänä kehonhuoltokurssi kokoontuu?",
+        "options": [
+          "maanantaisin",
+          "tiistaisin",
+          "keskiviikkoisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä keramiikkakurssin hintaan sisältyy?",
+        "options": [
+          "vain opetus",
+          "opetus ja materiaalit",
+          "vain materiaalit"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

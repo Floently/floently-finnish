@@ -1,0 +1,66 @@
+{
+  "id": "ae35f5ad-c210-513c-876e-71600856c9f0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.572,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomi tarvitsee työperäistä maahanmuuttoa. Tämä on tosiasia, jonka lähes kaikki poliittiset puolueet tunnustavat. Väestö ikääntyy, syntyvyys laskee, ja monilta aloilta puuttuu työntekijöitä. Ilman maahanmuuttoa hyvinvointiyhteiskuntamme on kestämättömällä pohjalla.\n\nKeskustelu työperäisestä maahanmuutosta on kuitenkin usein yksipuolista. Puhutaan vain työvoimatarpeista ja taloudellisista hyödyistä. Harvemmin puhutaan siitä, mitä maahanmuuttajat itse kokevat ja tarvitsevat. He ovat ensisijaisesti ihmisiä, eivät työyksiköitä.\n\nKun ihminen muuttaa toiseen maahan, hän kohtaa monenlaisia haasteita. Kielitaito on usein heikko, mikä vaikeuttaa sekä työtä että arkea. Kulttuurierot voivat aiheuttaa väärinkäsityksiä ja yksinäisyyttä. Byrokratia on monimutkaista. Työnantajat saattavat suhtautua ennakkoluuloisesti. Perheestä huolehtiminen toisella puolella maailmaa tuo oman stressinsä.\n\nJos haluamme, että maahanmuuttajat viihtyvät ja juurtuvat Suomeen, meidän on panostettava kotoutumiseen. Tämä tarkoittaa kielikoulutusta, työpaikkojen tarjoamia mentorointiohjelmia, asumisen helpottamista ja ennakkoluulojen vähentämistä. Se tarkoittaa myös sitä, että meidän on opittava ymmärtämään erilaisia kulttuureja ja arvostamaan moninaisuutta.\n\nToinen tärkeä näkökulma on inhimillisyys. Meidän ei pitäisi suhtautua maahanmuuttajiin vain välineinä, joilla paikataan työvoimapulaa. He ovat yksilöitä, joilla on omat toiveensa, unelmansa ja tarpeensa. Jos kohtelemme heitä hyvin, he todennäköisemmin jäävät maahan ja rikastuttavat yhteiskuntaa myös muilla tavoin kuin työpanoksellaan.\n\nLopuksi on muistettava, että maahanmuutto on kaksisuuntainen prosessi. Se ei muuta vain maahanmuuttajia, vaan myös meitä kantasuomalaisia. Se haastaa meidät ajattelemaan uudella tavalla, kyseenalaistamaan omia ennakkoluulojamme ja avartamaan maailmankuvaamme. Tämä ei ole uhka, vaan mahdollisuus.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 242
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi Suomi tarvitsee työperäistä maahanmuuttoa?",
+        "options": [
+          "A) Koska suomalaiset eivät halua tehdä töitä",
+          "B) Väestö ikääntyy, syntyvyys laskee ja monilta aloilta puuttuu työntekijöitä",
+          "C) Koska EU vaatii sitä",
+          "D) Koska maahanmuutto on halpaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haasteita maahanmuuttajat kohtaavat?",
+        "options": [
+          "A) Liian korkea palkka",
+          "B) Kielitaito, kulttuurierot, byrokratia, ennakkoluulot",
+          "C) Liian paljon vapaa-aikaa",
+          "D) Liian helppo kotoutuminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja tarkoittaa sanomalla, että maahanmuutto on kaksisuuntainen prosessi?",
+        "options": [
+          "A) Maahanmuuttajat tulevat ja menevät",
+          "B) Se muuttaa sekä maahanmuuttajia että kantasuomalaisia",
+          "C) Se vaikuttaa molempien osapuolten talouteen",
+          "D) Se vaatii kahden maan välistä sopimusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

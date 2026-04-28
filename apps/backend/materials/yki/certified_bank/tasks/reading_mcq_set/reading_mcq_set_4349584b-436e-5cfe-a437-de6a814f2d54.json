@@ -1,0 +1,66 @@
+{
+  "id": "4349584b-436e-5cfe-a437-de6a814f2d54",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalaiset syövät paljon kalaa ja perunaa. Musta makkara on suosittua Tampereella. Kesällä ihmiset syövät mansikoita ja grillaavat. Jouluna syödään kinkkua ja laatikoita. Ruisleipä kuuluu suomalaiseen ruokapöytään.",
+      "word_count": 26
+    },
+    "questions": [
+      {
+        "id": "a51fea4c-9719-53b2-bcf6-64a7bb10c9db",
+        "prompt": "Mitä suomalaiset syövät paljon?",
+        "options": [
+          "Riisiä ja pastaa",
+          "Kalaa ja perunaa",
+          "Lihaa ja kanaa",
+          "Kasviksia ja hedelmiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8b3fbb82-9a40-5fe5-94cb-734bf6d72bb1",
+        "prompt": "Missä musta makkara on suosittua?",
+        "options": [
+          "Helsingissä",
+          "Turussa",
+          "Tampereella",
+          "Oulussa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "77681717-b49d-52f6-9b7e-7a51b58bd86c",
+        "prompt": "Mitä syödään jouluna?",
+        "options": [
+          "Mansikoita",
+          "Makkaraa",
+          "Kinkkua",
+          "Kalaa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

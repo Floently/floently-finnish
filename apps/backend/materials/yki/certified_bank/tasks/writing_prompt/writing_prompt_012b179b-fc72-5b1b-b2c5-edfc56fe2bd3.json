@@ -1,0 +1,37 @@
+{
+  "id": "012b179b-fc72-5b1b-b2c5-edfc56fe2bd3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti oikeusaputoimistoon. Tarvitset oikeudellista apua avioerossa ja haluat tietää, voitko saada oikeusapua tulojesi perusteella. Kerro tilanteestasi, tuloistasi ja perheestäsi. Kysy, miten oikeusapua haetaan, mitä asiakirjoja tarvitaan ja kuinka kauan käsittely kestää. Kysy myös, mitä oikeusapu maksaa, jos et ole täysin maksuvapautettu.",
+    "materials": {
+      "scenario": "Oikeusapu avioerossa"
+    },
+    "items": [
+      {
+        "id": "eb070647-19c1-56f2-97eb-2afbf978b3c9",
+        "prompt": "Kirjoita virallinen sähköposti oikeusaputoimistoon. Tarvitset oikeudellista apua avioerossa ja haluat tietää, voitko saada oikeusapua tulojesi perusteella. Kerro tilanteestasi, tuloistasi ja perheestäsi. Kysy, miten oikeusapua haetaan, mitä asiakirjoja tarvitaan ja kuinka kauan käsittely kestää. Kysy myös, mitä oikeusapu maksaa, jos et ole täysin maksuvapautettu."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

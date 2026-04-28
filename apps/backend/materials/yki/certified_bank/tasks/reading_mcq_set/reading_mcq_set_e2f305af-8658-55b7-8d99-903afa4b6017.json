@@ -1,0 +1,66 @@
+{
+  "id": "e2f305af-8658-55b7-8d99-903afa4b6017",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Jos et pääse, ilmoita siitä etukäteen. Asia alkaa tiistaina 2. päivä. Tarkista aika ja paikka ennen kuin lähdet. Ota mukaan henkilöllisyystodistus, jos sitä pyydetään. Terveysasema lähettää viestin aiheesta: bussin aikataulumuutos ja poikkeuspysäkki. Jos tarvitset apua, voit kysyä palvelutiskiltä. Ohjeet ovat lyhyet ja selkeät. Viesti on tarkoitettu arjen asiointiin. Lopussa kerrotaan yhteystiedot ja aukiolo. Tämä koskee monia ihmisiä Turussa. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä tiistaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä tiistaina asti.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "a1_a2r01-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Ruoanlaitto kotona",
+          "Pääse ja siihen liittyvä muutos",
+          "Urheilutapahtuma",
+          "Matkustaminen ja sää"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r01-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Uusi elokuva",
+          "Lentojen peruuntuminen",
+          "Sairaalan remontti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r01-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Kysy neuvoa",
+          "Älä kerro kenellekään",
+          "Odota viikko",
+          "Jätä asia kesken"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

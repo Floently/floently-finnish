@@ -1,0 +1,37 @@
+{
+  "id": "6101835b-4d9a-5d44-9fd6-865e0268ffed",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti nettikauppaan.",
+    "materials": {
+      "scenario": "Reklamaatio viallisesta tuotteesta"
+    },
+    "items": [
+      {
+        "id": "a6be0efe-552d-58f1-95f6-0d5823f3a8cc",
+        "prompt": "Sait verkkokaupasta tuotteen, mutta se on rikki. Kirjoita sähköposti ja tee reklamaatio. Kerro, mikä tuote on kyseessä, mikä siinä on vikana ja mitä haluat (hyvitys, uusi tuote tai rahat takaisin)."
+      }
+    ],
+    "rubric": "Sait verkkokaupasta tuotteen, mutta se on rikki. Kirjoita sähköposti ja tee reklamaatio. Kerro, mikä tuote on kyseessä, mikä siinä on vikana ja mitä haluat (hyvitys, uusi tuote tai rahat takaisin).",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "3f8d5b2d-ca0e-5893-91ff-c86262b07904",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.683,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an office cleaner position. Tell about your attention to detail, previous experience in cleaning, and how you take into account the special features of the work environment. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus toimistosiivoojan tehtävään"
+    },
+    "items": [
+      {
+        "id": "3685b5ee-83ea-58e3-a195-d94edcd7ac55",
+        "prompt": "Write a job application. You are applying for an office cleaner position. Tell about your attention to detail, previous experience in cleaning, and how you take into account the special features of the work environment. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an office cleaner position. Tell about your attention to detail, previous experience in cleaning, and how you take into account the special features of the work environment. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

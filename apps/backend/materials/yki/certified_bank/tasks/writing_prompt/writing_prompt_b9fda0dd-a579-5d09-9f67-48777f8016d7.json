@@ -1,0 +1,37 @@
+{
+  "id": "b9fda0dd-a579-5d09-9f67-48777f8016d7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.292,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt kuvaus.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt kuvaus."
+    },
+    "items": [
+      {
+        "id": "9d73cc8e-adb3-526e-8ea7-1ad26b17c2e5",
+        "prompt": "Kuvaile tavallinen aamusi.\nKerro:\n- mihin aikaan heräät\n- mitä teet aamulla\n- mitä syöt aamiaiseksi."
+      }
+    ],
+    "rubric": "Kuvaile tavallinen aamusi.\nKerro:\n- mihin aikaan heräät\n- mitä teet aamulla\n- mitä syöt aamiaiseksi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

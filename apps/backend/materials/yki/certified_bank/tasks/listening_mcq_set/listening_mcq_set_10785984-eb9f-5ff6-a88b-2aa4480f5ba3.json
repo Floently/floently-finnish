@@ -1,0 +1,66 @@
+{
+  "id": "10785984-eb9f-5ff6-a88b-2aa4480f5ba3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä soittaa hammashoitola Hymy. Teillä on aika maanantaina 10.5. klo 13.30. Jos ette pääse, peruuttakaa aika viimeistään edellisenä päivänä numerossa 010 234 5678. Muistattehan ottaa Kela-kortin mukaan. Kiitos ja näkemiin!",
+      "audio_asset_id": "003ef957-29cd-4453-82e4-b4ff439df656"
+    },
+    "questions": [
+      {
+        "id": "89650e81-1e9b-5c6e-bde4-a4501d1570eb",
+        "prompt": "Mistä paikasta soitetaan?",
+        "options": [
+          "Terveyskeskuksesta",
+          "Hammashoidosta",
+          "Apteekista",
+          "Fysioterapiasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3d642bd0-a71a-52be-8087-040c875ec110",
+        "prompt": "Mihin aikaan aika on?",
+        "options": [
+          "klo 12.30",
+          "klo 13.00",
+          "klo 13.30",
+          "klo 14.00"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d622d4ac-1128-5bc2-be80-d7c32f7be34f",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "Passi",
+          "Kela-kortti",
+          "Ajokortti",
+          "Vakuutustodistus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "6cf64397-eb07-5095-8a61-94f9b4914de0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi argumentoida ja vaikuttaa päättäjiin.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet kaupunginosayhdistyksen edustaja, joka tuntee alueen asukkaiden näkemykset ja haluaa puolustaa heidän etujaan.",
+        "partner": "Kaavoituspäällikkö - asiantunteva mutta sitoutunut hankkeeseen, kuuntelee asukkaita mutta painottaa kaupungin kehittämistavoitteita."
+      }
+    },
+    "items": [
+      {
+        "id": "srp5",
+        "ai_first_turn_fi": "Tervetuloa. Ymmärrän, että asukkailla on huolia kauppakeskushankkeesta. Haluan kuulla näkemyksenne."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi argumentoida ja vaikuttaa päättäjiin.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

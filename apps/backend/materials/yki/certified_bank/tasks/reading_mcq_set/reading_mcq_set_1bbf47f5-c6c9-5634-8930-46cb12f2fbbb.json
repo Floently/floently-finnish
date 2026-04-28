@@ -1,0 +1,66 @@
+{
+  "id": "1bbf47f5-c6c9-5634-8930-46cb12f2fbbb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Pohjoismainen hyvinvointivaltio on noussut jälleen kansainväliseen keskusteluun mallina, joka yhdistää taloudellisen kilpailukyvyn ja sosiaalisen oikeudenmukaisuuden. Samalla kun monissa maissa eriarvoisuus kasvaa, Pohjoismaissa on onnistuttu säilyttämään suhteellisen tasainen tulonjako. Tutkija Heikki Hiilamo kuitenkin varoittaa itse tyytyväisyydestä. Hänen mukaansa hyvinvointivaltio on jatkuvan uudistamisen tarpeessa eikä se ole itsestäänselvyys. Väestön ikääntyminen, julkisen talouden paineet ja globaali kilpailu asettavat haasteita, joihin on vastattava. Hiilamo korostaa, ettei kyse ole vain rahasta, vaan myös siitä, miten palvelut järjestetään. 'Meidän on uskallettava uudistaa rakenteita, mutta samalla pidettävä kiinni periaatteesta, että kaikilla on yhdenvertainen pääsy palveluihin', hän sanoo. Yksi keskeinen kysymys on, miten sovitetaan yhteen yksilön valinnanvapaus ja yhteiskunnan kokonaisetu. Liiallinen yksilöllistäminen voi johtaa palvelujen pirstoutumiseen ja kustannusten kasvuun, mutta toisaalta ihmiset odottavat nykyään enemmän vaikutusmahdollisuuksia. Hiilamo näkee, että tulevaisuuden hyvinvointivaltio on entistä enemmän neuvotteleva ja osallistava, ei ylhäältä ohjaava.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 165
+    },
+    "questions": [
+      {
+        "id": "4ac41187-204c-5a8c-9ebb-490a8e297b95",
+        "prompt": "Mistä Heikki Hiilamo varoittaa?",
+        "options": [
+          "Hyvinvointivaltio on liian kallis",
+          "Liiallisesta itse tyytyväisyydestä",
+          "Pohjoismainen malli ei toimi",
+          "Eriarvoisuus kasvaa myös Pohjoismaissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "10608ac2-1f6e-5cb9-a6fc-cd0118a53b57",
+        "prompt": "Mikä on Hiilamon mukaan keskeinen haaste hyvinvointivaltiolle?",
+        "options": [
+          "Maahanmuutto",
+          "Väestön ikääntyminen ja julkisen talouden paineet",
+          "Nuorten syrjäytyminen",
+          "Kansainvälinen kilpailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3ff65f6d-6cd4-5684-9d1d-6babda28f894",
+        "prompt": "Millainen tulevaisuuden hyvinvointivaltion tulisi Hiilamon mukaan olla?",
+        "options": [
+          "Ylhäältä ohjaava",
+          "Neuvotteleva ja osallistava",
+          "Täysin yksilöllistetty",
+          "Markkinaohjautuva"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

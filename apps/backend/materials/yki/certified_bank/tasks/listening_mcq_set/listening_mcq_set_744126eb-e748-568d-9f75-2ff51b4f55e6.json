@@ -1,0 +1,88 @@
+{
+  "id": "744126eb-e748-568d-9f75-2ff51b4f55e6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Tässä on kiinteistönvälittäjä. Soitan teille, koska teidän tarjouksenne asunnosta on hyväksytty. Onneksi olkoon! Voitte tulla allekirjoittamaan paperit vaikka huomenna.",
+      "audio_asset_id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Pankki.",
+          "Kiinteistönvälittäjä.",
+          "Myyjä.",
+          "Lakimies."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi hän soittaa?",
+        "options": [
+          "Kertoakseen, että tarjous on hylätty.",
+          "Kertoakseen, että tarjous on hyväksytty.",
+          "Kysyäkseen lisätietoja.",
+          "Sopiaakseen näytön."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hän sanoo aluksi?",
+        "options": [
+          "Anteeksi.",
+          "Onneksi olkoon.",
+          "Valitettavasti.",
+          "Kiitos."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä seuraavaksi pitäisi tehdä?",
+        "options": [
+          "Maksaa kauppahinta.",
+          "Allekirjoittaa paperit.",
+          "Muuttaa asuntoon.",
+          "Soittaa pankkiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin paperit voi allekirjoittaa?",
+        "options": [
+          "Tänään.",
+          "Huomenna.",
+          "Viikonloppuna.",
+          "Ensi viikolla."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

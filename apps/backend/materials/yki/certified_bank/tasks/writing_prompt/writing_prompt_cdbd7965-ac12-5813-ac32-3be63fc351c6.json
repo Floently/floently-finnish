@@ -1,0 +1,37 @@
+{
+  "id": "cdbd7965-ac12-5813-ac32-3be63fc351c6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sähköyhtiö on laskuttanut sinua kohtuuttomista siirtomaksuista ja taannehtivasti korotetuista hinnoista. Kirjoita virallinen reklamaatio, jossa vaadit laskun tarkistamista, viittaa sähkömarkkinalakiin ja kuluttajansuojaan, kuvaa hintojen nousun kohtuuttomuutta ja vaadi hyvitystä liikaa perityistä maksuista. Ilmoita vieväsi asian tarvittaessa Energiavirastoon.",
+    "materials": {
+      "scenario": "Sähkön siirtomaksujen kohtuuttomuus"
+    },
+    "items": [
+      {
+        "id": "ef856f97-21f9-5664-85dc-d954bf6199d2",
+        "prompt": "Sähköyhtiö on laskuttanut sinua kohtuuttomista siirtomaksuista ja taannehtivasti korotetuista hinnoista. Kirjoita virallinen reklamaatio, jossa vaadit laskun tarkistamista, viittaa sähkömarkkinalakiin ja kuluttajansuojaan, kuvaa hintojen nousun kohtuuttomuutta ja vaadi hyvitystä liikaa perityistä maksuista. Ilmoita vieväsi asian tarvittaessa Energiavirastoon."
+      }
+    ],
+    "rubric": "Sähköyhtiö on laskuttanut sinua kohtuuttomista siirtomaksuista ja taannehtivasti korotetuista hinnoista. Kirjoita virallinen reklamaatio, jossa vaadit laskun tarkistamista, viittaa sähkömarkkinalakiin ja kuluttajansuojaan, kuvaa hintojen nousun kohtuuttomuutta ja vaadi hyvitystä liikaa perityistä maksuista. Ilmoita vieväsi asian tarvittaessa Energiavirastoon.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

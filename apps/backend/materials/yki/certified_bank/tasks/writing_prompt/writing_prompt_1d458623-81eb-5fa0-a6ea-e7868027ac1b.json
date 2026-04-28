@@ -1,0 +1,37 @@
+{
+  "id": "1d458623-81eb-5fa0-a6ea-e7868027ac1b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uimahallin hierontapalvelussa. Kirjoita palaute. Kerro, oliko hieroja ammattitaitoinen ja auttoiko se.",
+    "materials": {
+      "scenario": "Palaute uimahallin hieronnasta"
+    },
+    "items": [
+      {
+        "id": "91e9ffe9-7ffa-587b-9b70-42fca18a6fa8",
+        "prompt": "Olet käynyt uimahallin hierontapalvelussa. Kirjoita palaute. Kerro, oliko hieroja ammattitaitoinen ja auttoiko se."
+      }
+    ],
+    "rubric": "Olet käynyt uimahallin hierontapalvelussa. Kirjoita palaute. Kerro, oliko hieroja ammattitaitoinen ja auttoiko se.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

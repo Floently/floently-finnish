@@ -1,0 +1,66 @@
+{
+  "id": "81ded3d2-5ad2-57cc-9430-343d7e783a91",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Terveyden ja hyvinvoinnin laitos (THL) suosittelee uutta koronarokotetta kaikille 65 vuotta täyttäneille ja riskiryhmille. Rokote on päivitetty vastaamaan uusimpia virusmuunnoksia. THL:n ylilääkäri Hanna Nohynek perustelee: 'Vaikka tauti on nykyään lievempi, vakavan taudin riski on edelleen olemassa iäkkäämmillä ja perussairaita sairastavilla. Rokote vähentää sairaalahoidon tarvetta.' Rokotukset alkavat marraskuussa, ja ne ovat maksuttomia. THL muistuttaa, että samalla voi ottaa influenssarokotteen. 'Kaksi rokotusta samalla kerralla on turvallista ja kätevää', Nohynek sanoo. Terveysasemat lähettävät kutsut rokotteisiin syksyn aikana. Niitä, jotka eivät kuulu suosituksen piiriin, THL ei kehota ottamaan uutta rokotetta, mutta muistuttaa, että perusterveydenhuollosta voi kysyä tarvittaessa.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 121
+    },
+    "questions": [
+      {
+        "id": "9a42e16c-78fb-5f82-b562-fd829bedf738",
+        "prompt": "Kenelle uutta koronarokotetta suositellaan?",
+        "options": [
+          "Kaikille suomalaisille",
+          "Yli 65-vuotiaille ja riskiryhmille",
+          "Vain sairaalassa työskenteleville",
+          "Kaikille yli 50-vuotiaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8e6405df-6ef0-5f25-bf1b-257b16b66e33",
+        "prompt": "Miksi rokotetta suositellaan THL:n mukaan?",
+        "options": [
+          "Koska tauti on vaarallinen kaikille",
+          "Vähentämään sairaalahoidon tarvetta",
+          "Koska rokotetta on paljon varastossa",
+          "Estämään tautia kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "28e6fa3b-021b-5a2e-a924-f7fb22ae869b",
+        "prompt": "Mitä muuta THL kertoo rokottamisesta?",
+        "options": [
+          "Influenssarokote pitää ottaa eri aikaan",
+          "Samalla voi ottaa influenssarokotteen",
+          "Rokote maksaa 50 euroa",
+          "Rokotukset ovat vapaaehtoisia vain osalle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

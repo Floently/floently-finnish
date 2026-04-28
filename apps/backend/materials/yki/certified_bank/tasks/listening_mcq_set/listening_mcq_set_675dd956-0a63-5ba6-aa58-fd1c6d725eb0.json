@@ -1,0 +1,99 @@
+{
+  "id": "675dd956-0a63-5ba6-aa58-fd1c6d725eb0",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kahden henkilön keskustelu ja valitse oikea vastaus.",
+    "materials": {
+      "transcript": "Mikko: Hei Sanna, mitä mieltä olet tästä uudesta työajasta, että saadaan liukua? Sanna: No mun mielestä se on ihan hyvä juttu. Nyt voin tuoda lapset hoitoon ja tulla vasta yhdeksän jälkeen töihin, eikä tarvitse stressata. Mikko: Joo, se on just se hyvä puoli. Itse tykkään tulla aikaisin, että pääsen lähtemään jo kolmelta. Onko teillä tiimipalaverit sovitettu jotenkin tähän? Sanna: On. Meillä on ydinajat, jolloin kaikkien pitää olla paikalla, eli tiistaista torstaihin kello 10–14. Silloin pidetään myös palaverit. Perjantaisin ei ole ytinaikaa, joten silloin voi tehdä vaikka lyhyempää päivää, jos on tarve. Mikko: Aika fiksua. Entäs sitten ne, jotka tekevä etätöitä? Miten se liukuminen toimii? Sanna: Sama systeemi, mutta etätöissä pitää vaan itse pitää huolta, että työaika kertyy ja että on tavoitettavissa ytinaikana. Meillä on vielä vähän hakusessa, miten seurataan, ettei kukaan tee ihan hirveästi ylitöitä. Se on vähän ongelma. Mikko: Meillä sama. Jotkut tekee helposti 50 tuntia viikossa, vaikka pitäisi pysyä 37,5:ssä. Se ei ole kenenkään etu. Sanna: Niinpä. Pitäisi varmaan olla joku automaattinen hälytys, jos tunnit alkaa ylittyä. Mikko: Oisko teillä kiinnostusta ottaa käyttöön sama työaikapankki kuin meillä? Siinä voi tallettaa ylityötunteja ja pitää sitten myöhemmin vapaata. Sanna: Kuulostaa hyvältä, mä voin ehdottaa sitä esihenkilölle.",
+      "audio_asset_id": "d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä asiasta Mikko ja Sanna keskustelevat?",
+        "options": [
+          "Palkankorotuksista.",
+          "Uudesta työajasta ja liukuvista tunneista.",
+          "Työpaikan lounasedusta.",
+          "Yhteisistä virkistyspäivistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Miksi Sanna pitää uudesta työajasta?",
+        "options": [
+          "Hän voi nukkua pidempään.",
+          "Hän voi tuoda lapset hoitoon rauhassa.",
+          "Hän voi harrastaa aamuisin.",
+          "Hän välttää ruuhkat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitkä ovat ydinajat, jolloin kaikkien on oltava paikalla?",
+        "options": [
+          "Maanantaista perjantaihin 8–16.",
+          "Tiistaista torstaihin 10–14.",
+          "Maanantaista keskiviikkoon 9–15.",
+          "Vain keskiviikkoisin 12–14."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten perjantait toimivat Sannan tiimissä?",
+        "options": [
+          "Perjantaisin on pakollinen palaveri.",
+          "Perjantaisin ei ole ytinaikaa.",
+          "Perjantaisin kaikki tekevät etätöitä.",
+          "Perjantaisin tehdään aina pitkä päivä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä ongelma liukuvassa työajassa on Sannan mukaan?",
+        "options": [
+          "Etätyöläisiä on vaikea tavoittaa.",
+          "Ylitöiden kertymisen seuranta on vaikeaa.",
+          "Kaikki haluavat tulla vasta myöhään.",
+          "Toimiston valot jäävät päälle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä Mikko ehdottaa ylitöiden hallintaan?",
+        "options": [
+          "Ylityöt kielletään kokonaan.",
+          "Käyttöön otetaan työaikapankki.",
+          "Jokainen pitää kirjaa itse.",
+          "Ylitöistä maksetaan kaksinkertainen palkka."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

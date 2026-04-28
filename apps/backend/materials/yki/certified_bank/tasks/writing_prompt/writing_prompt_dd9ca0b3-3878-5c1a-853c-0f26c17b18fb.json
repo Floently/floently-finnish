@@ -1,0 +1,37 @@
+{
+  "id": "dd9ca0b3-3878-5c1a-853c-0f26c17b18fb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ympäristöministeriön luonnonsuojeluosastolle. Olette kansalaisjärjestö, ja haluatte tehdä aloitteen uuden luonnonsuojelualueen perustamisesta. Kerro, mikä alue on kyseessä, miksi se tulisi suojella ja mitä uhanalaisia lajeja siellä esiintyy. Kysy, miten aloite käsitellään.",
+    "materials": {
+      "scenario": "Aloite luonnonsuojelualueen perustamisesta"
+    },
+    "items": [
+      {
+        "id": "ee060741-a8a8-5ba4-9087-fb23b1d6ebfb",
+        "prompt": "Kirjoita virallinen sähköposti ympäristöministeriön luonnonsuojeluosastolle. Olette kansalaisjärjestö, ja haluatte tehdä aloitteen uuden luonnonsuojelualueen perustamisesta. Kerro, mikä alue on kyseessä, miksi se tulisi suojella ja mitä uhanalaisia lajeja siellä esiintyy. Kysy, miten aloite käsitellään."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

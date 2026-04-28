@@ -1,0 +1,88 @@
+{
+  "id": "5e38725e-a407-53ba-ab1f-b58fbb04b844",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.296,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Terve vaan kaikille! Täällä on Teemu ja mä oon nyt bussissa matkalla mökille. Bussi on vähän myöhässä, mutta ei haittaa. Mä tuon teille kaksi pullaa ja mehua. Nähdään pian!",
+      "audio_asset_id": "20329f37-0829-53db-a660-6c4c0c1b6070"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Jaakko.",
+          "Teemu.",
+          "Matti.",
+          "Pekka."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä puhuja on nyt?",
+        "options": [
+          "Mökillä.",
+          "Bussissa.",
+          "Kaupassa.",
+          "Kotona."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Minne puhuja on matkalla?",
+        "options": [
+          "Kouluun.",
+          "Töihin.",
+          "Mökille.",
+          "Keskustaan."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä puhuja tuo tullessaan?",
+        "options": [
+          "Leipää ja mehua.",
+          "Kaksi pullaa ja mehua.",
+          "Kakkua ja limua.",
+          "Hedelmiä ja vettä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä puhuja sanoo bussista?",
+        "options": [
+          "Se on ajoissa.",
+          "Se on vähän myöhässä.",
+          "Se on mennyt rikki.",
+          "Se on ihan tyhjä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

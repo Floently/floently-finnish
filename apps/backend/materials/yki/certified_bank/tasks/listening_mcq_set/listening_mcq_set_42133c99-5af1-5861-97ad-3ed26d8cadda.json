@@ -1,0 +1,88 @@
+{
+  "id": "42133c99-5af1-5861-97ad-3ed26d8cadda",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei tytöt! Täällä on Miisa. Oon ihan unohtanut, että meillä on huomenna se kokous. Mihin aikaan se olikaan ja missä huoneessa? Voisiko joku laittaa mulle viestiä? Kiitos!",
+      "audio_asset_id": "39bcf42d-1934-5443-94e6-15ba0c2ba0cf"
+    },
+    "questions": [
+      {
+        "id": "5faa6dd3-58f0-5cc0-bdca-51b72977cff7",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Maija.",
+          "Miisa.",
+          "Liisa.",
+          "Anna."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "46f37664-ee75-50b8-be49-6a42b0ccf1cc",
+        "prompt": "Mitä puhuja on unohtanut?",
+        "options": [
+          "Kokouksen ajan ja paikan.",
+          "Hänen on mentävä kauppaan.",
+          "Hänen lääkärin aikansa.",
+          "Ystävän syntymäpäivät."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b7efaaff-5232-5ad1-9a2b-f845c56c9f35",
+        "prompt": "Milloin kokous on?",
+        "options": [
+          "Tänään.",
+          "Viikonloppuna.",
+          "Ensi viikolla.",
+          "Huomenna."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "c1d36e32-574c-52f9-9a64-603332ef3ad6",
+        "prompt": "Mitä puhuja pyytää muita tekemään?",
+        "options": [
+          "Soittamaan hänelle.",
+          "Lähettämään viestillä ajan ja paikan.",
+          "Tulemaan hakemaan hänet.",
+          "Perumaan kokouksen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "034d3092-376b-5501-bb06-5fdac6649cae",
+        "prompt": "Kenelle puhuja todennäköisesti puhuu?",
+        "options": [
+          "Perheelleen.",
+          "Naapureilleen.",
+          "Opettajilleen.",
+          "Työkavereilleen."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

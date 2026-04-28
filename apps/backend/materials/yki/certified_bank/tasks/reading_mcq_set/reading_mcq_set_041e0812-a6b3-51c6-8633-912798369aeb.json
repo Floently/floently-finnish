@@ -1,0 +1,110 @@
+{
+  "id": "041e0812-a6b3-51c6-8633-912798369aeb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen kulttuuri on saanut vaikutteita sekä idästä että lännestä. Pitkään Suomi oli osa Ruotsia, mikä toi länsimaisia vaikutteita. Myöhemmin Venäjän vallan aika toi itäisiä vaikutteita. Itsenäisyyden aikana suomalainen kulttuuri on kehittynyt omanlaisekseen. Nykyään kulttuuri on monimuotoista ja kansainvälistä. Suomalainen design, musiikki ja elokuva tunnetaan maailmalla. Kulttuurivienti on tärkeä osa taloutta. Samalla Suomeen on tullut uusia kulttuurivaikutteita maahanmuuton myötä. Tämä on rikastuttanut kulttuuria. Monikulttuurisuus on arkipäivää monilla paikkakunnilla. Keskustelua käydään siitä, miten eri kulttuurit voivat elää rinnakkain. Tärkeää on avoimuus ja kunnioitus. Oma kulttuuri-identiteetti voi säilyä, vaikka saa vaikutteita muualta. Suomalainen kulttuuri ei ole staattinen vaan elävä ja muuttuva. Se mukautuu ajan mukana ja ottaa vaikutteita ympäröivästä maailmasta.",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä suomalainen kulttuuri on saanut vaikutteita?",
+        "options": [
+          "Vain lännestä.",
+          "Sekä idästä että lännestä.",
+          "Vain idästä.",
+          "Vain pohjoisesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä vaikutteita Ruotsin vallan aika toi?",
+        "options": [
+          "Itäisiä vaikutteita.",
+          "Länsimaisia vaikutteita.",
+          "Aasialaisia vaikutteita.",
+          "Afrikkalaisia vaikutteita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä Venäjän vallan aika toi?",
+        "options": [
+          "Länsimaisia vaikutteita.",
+          "Itäisiä vaikutteita.",
+          "Amerikkalaisia vaikutteita.",
+          "Ei mitään vaikutteita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millaista suomalainen kulttuuri on nykyään?",
+        "options": [
+          "Yksipuolista ja sulkeutunutta.",
+          "Monimuotoista ja kansainvälistä.",
+          "Vain perinteistä.",
+          "Vain ulkomaalaisista vaikutteista koostuvaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on kulttuuriviennin merkitys?",
+        "options": [
+          "Se on vähäistä.",
+          "Se on tärkeä osa taloutta.",
+          "Sillä ei ole merkitystä.",
+          "Se on vain viihdettä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten maahanmuutto on vaikuttanut suomalaiseen kulttuuriin?",
+        "options": [
+          "Se on köyhdyttänyt kulttuuria.",
+          "Se on tuonut uusia kulttuurivaikutteita ja rikastuttanut kulttuuria.",
+          "Sillä ei ole ollut vaikutusta.",
+          "Se on vähentänyt kulttuurin monimuotoisuutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millainen suomalainen kulttuuri on luonteeltaan?",
+        "options": [
+          "Staattinen ja muuttumaton.",
+          "Elävä ja muuttuva.",
+          "Vain menneisyyteen katsova.",
+          "Vain tulevaisuuteen tähtäävä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

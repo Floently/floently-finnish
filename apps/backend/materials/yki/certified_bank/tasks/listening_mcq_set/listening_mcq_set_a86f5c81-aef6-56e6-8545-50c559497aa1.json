@@ -1,0 +1,99 @@
+{
+  "id": "a86f5c81-aef6-56e6-8545-50c559497aa1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei, tässä on Mikko kaupungin nuorisopalveluista. Soitan koska teidän nuori on ilmoittautunut kesätyöhön leikkipuistoon. Työt alkavat 3. kesäkuuta kello kahdeksan aamulla. Kokoontuminen on puiston toimistolla, joka sijaitsee aivan uimarannan vieressä. Ensimmäisenä päivänä saatte työvaatteet ja nimikyltin. Toivoisin, että ottaisitte mukaan oman vesipullon ja säänmukaiset vaatteet, koska työ on ulkona. Nuori voi tehdä enintään 25 tuntia viikossa, ja palkka maksetaan kuun lopussa. Jos teillä on kysyttävää, voitte soittaa minulle numerossa 040 123 4567. Huomioikaa myös, että nuoren täytyy tuoda terveystodistus viimeistään viikkoa ennen työn alkua. Odotan innolla yhteistyötä!",
+      "audio_asset_id": "7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mihin kesätyöhön nuori on ilmoittautunut?",
+        "options": [
+          "Toimistotyöhön kaupungintalolle.",
+          "Leikkipuistoon uimarannan lähelle.",
+          "Kesäkioskille keskustorille.",
+          "Kirjaston kesälukudiplomiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä nuoren pitää ottaa mukaan ensimmäisenä päivänä?",
+        "options": [
+          "Työvaatteet ja nimikyltti.",
+          "Oma vesipullo ja säänmukaiset vaatteet.",
+          "Terveystodistus ja pankkikortti.",
+          "Puhelin ja kuulokkeet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Milloin palkka maksetaan?",
+        "options": [
+          "Joka perjantai.",
+          "Työn alussa.",
+          "Kuun lopussa.",
+          "Vasta syksyllä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on tärkeää huomioida ennen työn alkua?",
+        "options": [
+          "Työvaatteet pitää ostaa itse.",
+          "Terveystodistus on toimitettava ajoissa.",
+          "Nuoren täytyy osata uida.",
+          "Työaika on vain aamuisin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mihin aikaan työt alkavat ensimmäisenä päivänä?",
+        "options": [
+          "Kello 10.",
+          "Kello 8.",
+          "Kello 9.",
+          "Kello 12."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on enimmäistyöaika viikossa?",
+        "options": [
+          "15 tuntia.",
+          "20 tuntia.",
+          "25 tuntia.",
+          "30 tuntia."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

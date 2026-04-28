@@ -1,0 +1,88 @@
+{
+  "id": "b3418d59-da01-5a0b-887e-858471fcfda1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.778,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Medialla on yhteiskunnassa valtava vaikutusvalta, ja tämä valta tuo mukanaan suuren vastuun siitä, millaista tietoa se tuottaa ja levittää. Perinteisesti median tehtävänä on ollut välittää tietoa, valvoa vallankäyttöä, tarjota viihdettä ja luoda foorumi yhteiskunnalliselle keskustelulle. Tämä tehtävä on yhä tärkeä, mutta se on muuttunut digitalisaation ja sosiaalisen median myötä. Yksi keskeisimmistä median vastuun alueista on tiedon luotettavuus ja totuudenmukaisuus. Journalismin ammattietiikka edellyttää, että uutiset tarkistetaan, lähteet arvioidaan kriittisesti ja virheet korjataan. Nopeassa uutiskilpailussa ja sosiaalisen median paineessa nämä periaatteet voivat kuitenkin jäädä toissijaisiksi. Valheelliset tai harhaanjohtavat uutiset voivat levitä nopeasti ja aiheuttaa vakavaa haittaa yksilöille ja yhteiskunnalle. Toinen keskeinen vastuun alue on moniäänisyys ja vähemmistöjen huomioiminen. Median tulisi heijastaa yhteiskunnan moninaisuutta ja antaa ääni myös niille, jotka eivät muuten tule kuulluiksi. Tämä tarkoittaa esimerkiksi eri ikäryhmien, sukupuolten, kulttuurien ja sosioekonomisten ryhmien näkökulmien esiin tuomista. Valitettavasti mediassa korostuvat usein valtavirran näkökulmat, ja vähemmistöt voivat jäädä marginaaliin tai joutua stereotypioiden kohteeksi. Kolmas vastuun alue on yksityisyyden suoja. Media uutisoi usein julkisuuden henkilöistä ja tapahtumista, jotka kiinnostavat suurta yleisöä. Tämä oikeus yleisön tiedonsaantiin on kuitenkin tasapainoteltava yksilön oikeuden kanssa yksityisyyteen. Rajanveto sen välillä, mikä on yleisen mielenkiinnon kohteena ja mikä on yksityistä, on usein vaikeaa. Neljäs vastuun alue on vaikutus yleiseen mielipiteeseen ja yhteiskunnalliseen keskusteluun. Media ei vain heijasta todellisuutta vaan myös muokkaa sitä. Se voi nostaa esiin tiettyjä aiheita ja jättää toisia huomiotta, ja se voi vaikuttaa siihen, miten asioista puhutaan ja mitä niistä ajatellaan. Tämä valta edellyttää harkintaa ja vastuullisuutta.",
+      "word_count": 239
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yksi keskeisimmistä median vastuun alueista?",
+        "options": [
+          "Voittojen maksimointi",
+          "Tiedon luotettavuus ja totuudenmukaisuus",
+          "Viihdyttävyyden lisääminen",
+          "Mainostajien tarpeiden tyydyttäminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä journalismin ammattietiikka edellyttää?",
+        "options": [
+          "Nopeutta ja ensiksi ehtimistä",
+          "Uutisten tarkistamista, lähteiden kriittistä arviointia ja virheiden korjaamista",
+          "Sensaatiohakuisuutta",
+          "Vain positiivisten uutisten julkaisemista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan moniäänisyydellä mediassa?",
+        "options": [
+          "Useiden toimittajien kirjoittamia uutisia",
+          "Eri näkökulmien ja vähemmistöjen äänen esiin tuomista",
+          "Useita eri medioita",
+          "Äänestysten järjestämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä median on tasapainoteltava yksityisyyden suojan suhteen?",
+        "options": [
+          "Julkisuuden henkilöiden ja tavallisten kansalaisten välillä",
+          "Yleisön tiedonsaannin ja yksilön yksityisyyden välillä",
+          "Kotimaisten ja ulkomaisten uutisten välillä",
+          "Painetun ja digitaalisen median välillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten media vaikuttaa yhteiskunnalliseen keskusteluun?",
+        "options": [
+          "Se ei vaikuta siihen lainkaan",
+          "Se heijastaa todellisuutta ja myös muokkaa sitä",
+          "Se vain toistaa virallisia tiedotteita",
+          "Se on täysin erillään yhteiskunnasta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

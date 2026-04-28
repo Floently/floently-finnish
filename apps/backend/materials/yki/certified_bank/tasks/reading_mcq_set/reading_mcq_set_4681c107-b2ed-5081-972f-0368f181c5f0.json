@@ -1,0 +1,66 @@
+{
+  "id": "4681c107-b2ed-5081-972f-0368f181c5f0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PERUUTUSOHJEET\n\nJos et pääse varatulle ajalle, peruuta aika viimeistään 24 tuntia ennen vastaanottoa. Peruuttamattomasta ajasta perimme 50 € maksun.\n\nPeruutuksen voit tehdä:\n- Soittamalla numeroon 010 123 456 ma–pe klo 8–15\n- Verkko-osoitteessa www.terveysasema.fi (vaatii pankkitunnukset)\n\nSairaustapauksissa ota yhteys jo samana päivänä.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 58
+    },
+    "questions": [
+      {
+        "id": "1db5febc-36a8-5f50-b6f9-f2fa1159a46c",
+        "prompt": "Milloin aika pitää perua viimeistään?",
+        "options": [
+          "sama päivä",
+          "12 tuntia ennen",
+          "24 tuntia ennen",
+          "viikkoa ennen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "bf602733-1b63-5173-9a8f-b47629fefda1",
+        "prompt": "Paljonko maksu on, jos ei peru aikaa?",
+        "options": [
+          "25 €",
+          "50 €",
+          "75 €",
+          "100 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c47df45e-dd23-51b9-8390-b2c0fd17bfa2",
+        "prompt": "Milloin peruutusnumeroon voi soittaa?",
+        "options": [
+          "24 tuntia vuorokaudessa",
+          "ma–pe klo 8–15",
+          "vain aamuisin",
+          "viikonloppuisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

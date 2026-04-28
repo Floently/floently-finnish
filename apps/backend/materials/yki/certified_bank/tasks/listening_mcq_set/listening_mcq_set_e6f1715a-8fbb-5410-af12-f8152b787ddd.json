@@ -1,0 +1,88 @@
+{
+  "id": "e6f1715a-8fbb-5410-af12-f8152b787ddd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinmainos ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Vakuutusyhtiö Turvaan! Nyt voit saada kotivakuutuksen ensimmäiset 6 kuukautta puoleen hintaan. Tarjous koskee uusia asiakkaita ja on voimassa 31. tammikuuta asti. Vakuutus kattaa tulipalon, vesivahingot, murron ja oikeusturvan. Soita tai tee tarjouspyyntö verkkosivuillamme!",
+      "audio_asset_id": "c13b8b43-7851-483b-91a0-5b47e2b13a15"
+    },
+    "questions": [
+      {
+        "id": "l276q1",
+        "prompt": "Mitä mainostetaan?",
+        "options": [
+          "Autovakuutus.",
+          "Matkavakuutus.",
+          "Henkivakuutus.",
+          "Kotivakuutus."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l276q2",
+        "prompt": "Mikä on tarjous?",
+        "options": [
+          "Ensimmäinen kuukausi ilmaiseksi.",
+          "Ensimmäiset 6 kuukautta puoleen hintaan.",
+          "Ensimmäinen vuosi puoleen hintaan.",
+          "Toinen vuosi ilmaiseksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l276q3",
+        "prompt": "Ketä tarjous koskee?",
+        "options": [
+          "Uusia asiakkaita.",
+          "Kaikkia asiakkaita.",
+          "Vanhoja asiakkaita.",
+          "Opiskelijoita."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l276q4",
+        "prompt": "Mitä vakuutus kattaa?",
+        "options": [
+          "Vain tulipalon.",
+          "Tulipalon, vesivahingot, murron ja oikeusturvan.",
+          "Vain vesivahingot.",
+          "Vain murron."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l276q5",
+        "prompt": "Mihin asti tarjous on voimassa?",
+        "options": [
+          "31. joulukuuta.",
+          "28. helmikuuta.",
+          "31. maaliskuuta.",
+          "31. tammikuuta."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "4cc54665-2730-5453-9aa7-bc65a984e98e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Helsingin kaupunginkirjasto suunnittelee aukioloaikojen muuttamista. Tavoitteena on pitää kirjastot auki pidempään iltaisin ja viikonloppuisin. Uusien aukioloaikojen toivotaan palvelevan paremmin työssäkäyviä ja opiskelijoita.\n\nMuutos koskisi aluksi viittä suurinta kirjastoa. Ne olisivat auki maanantaista torstaihin kello 22 asti, perjantaisin kello 20 ja viikonloppuisin kello 12–18. Tällä hetkellä kirjastot sulkevat jo kello 20 arki-iltaisin.\n\nHenkilökunnalla on kuitenkin huolia. He pelkäävät, että myöhäiset illat lisäävät häiriöitä ja turvallisuusriskejä. Lisäksi ilta- ja viikonlopputyöstä pitää maksaa lisäkorvausta. Kaupunki on luvannut palkata lisää vartijoita ja neuvotella henkilökunnan kanssa työehdoista.\n\nKirjastonkäyttäjät ovat suunnitelmaan tyytyväisiä. Opiskelija Anna kertoo: 'Olisi mahtavaa, jos voisi lukea kirjastossa myöhempään. Nyt joudun lähtemään juuri kun pääsen vauhtiin.' Myös työssäkäyvät toivovat, että kirjastossa voisi käydä työpäivän jälkeen rauhassa.\n\nUudet aukioloajat otetaan käyttöön ensi vuoden alussa, jos kokeilu onnistuu.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 151
+    },
+    "questions": [
+      {
+        "id": "8d03444c-43e4-5b36-90d3-7ab6f2a2208b",
+        "prompt": "Miksi kirjasto haluaa muuttaa aukioloaikoja?",
+        "options": [
+          "A) Säästää rahaa",
+          "B) Palvella paremmin työssäkäyviä ja opiskelijoita",
+          "C) Vähentää henkilökuntaa",
+          "D) Koska muut kaupungit tekevät niin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f951323a-b358-5f58-b10d-20ddae0776d6",
+        "prompt": "Mihin asti kirjastot olisivat auki maanantaisin uuden suunnitelman mukaan?",
+        "options": [
+          "A) kello 20",
+          "B) kello 21",
+          "C) kello 22",
+          "D) kello 23"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0ec45a31-ce3a-555b-b276-2a425928d0c7",
+        "prompt": "Mitä henkilökunta pelkää?",
+        "options": [
+          "A) Työpaikat vähenevät",
+          "B) Häiriöitä ja turvallisuusriskejä",
+          "C) Kirjasto muuttuu liian suosituksi",
+          "D) Heidän täytyy opiskella lisää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "17cdc6ab-544e-5bf3-a2dd-df1616ce7c55",
+        "prompt": "Mitä kaupunki lupaa tehdä?",
+        "options": [
+          "A) Sulkea pieniä kirjastoja",
+          "B) Palkata lisää vartijoita ja neuvotella työehdoista",
+          "C) Antaa henkilökunnalle bonuksia",
+          "D) Lyhentää työaikoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

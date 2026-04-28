@@ -1,0 +1,68 @@
+{
+  "id": "b02ab2e7-e487-5ac5-8281-2a94ce57a53c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa lähettää paketin ulkomaille. Keskustele postin työntekijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Postin työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp16_1",
+        "ai_first_turn_fi": "Hei, miten voin auttaa?"
+      },
+      {
+        "id": "srp16_2",
+        "ai_first_turn_fi": "Totta kai. Kuinka suuri paketti on ja mitä se sisältää?"
+      },
+      {
+        "id": "srp16_3",
+        "ai_first_turn_fi": "Hyvä. Ulkomaan lähetyksiä on kahdenlaisia: Economy (hitaampi) ja Priority (nopeampi). Haluatko kuulla hintaeroja?"
+      },
+      {
+        "id": "srp16_4",
+        "ai_first_turn_fi": "Economy-lähetys tällaiselle paketille maksaa noin 25 euroa ja perillemeno kestää 5-7 arkipäivää. Priority maksaa 38 euroa ja kestää 2-4 arkipäivää."
+      },
+      {
+        "id": "srp16_5",
+        "ai_first_turn_fi": "Täytäthän tämän lähetystodistuksen. Tarvitaan myös vastaanottajan nimi ja osoite Saksassa."
+      },
+      {
+        "id": "srp16_6",
+        "ai_first_turn_fi": "Haluatko myös seurantanumeron? Se maksaa 2 euroa lisää."
+      },
+      {
+        "id": "srp16_7",
+        "ai_first_turn_fi": "Selvä. Yhteensä tulee 40 euroa. Miten haluat maksaa?"
+      },
+      {
+        "id": "srp16_8",
+        "ai_first_turn_fi": "Kiitos. Tässä on kuitti ja seurantanumerosi. Paketti lähtee tänään eteenpäin."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa lähettää paketin ulkomaille. Keskustele postin työntekijän kanssa.",
+    "timing": {
+      "recommended_minutes": 8
+    }
+  }
+}

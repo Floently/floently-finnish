@@ -1,0 +1,110 @@
+{
+  "id": "77d217cd-40c6-57cb-9117-d78b2d866ffd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen energiapolitiikassa on tapahtunut suuri murros viime vuosina. Fossiilisista polttoaineista luovutaan, ja uusiutuvien energialähteiden osuus kasvaa nopeasti. Tuulivoiman rakentaminen on lisääntynyt huimasti, ja aurinkovoimakin yleistyy. Myös bioenergia on tärkeä, erityisesti metsäteollisuuden sivuvirroista. Tavoitteena on hiilineutraalius vuoteen 2035 mennessä. Tämä tavoite on kunnianhimoinen ja vaatii paljon työtä. Se tarkoittaa, että energiajärjestelmää on uudistettava perusteellisesti. Fossiiliset polttoaineet on korvattava, energiatehokkuutta on parannettava ja energiankulutusta on vähennettävä. Myös sähkön siirtoverkkoa on vahvistettava, jotta uusiutuva energia saadaan siirrettyä kulutuskohteisiin. Energiamurros ei ole pelkästään tekninen kysymys. Sillä on myös taloudellisia, sosiaalisia ja poliittisia ulottuvuuksia. Energian hinta nousee, mikä voi olla vaikeaa pienituloisille. Tuulivoimalat herättävät vastustusta maisemahaittojen vuoksi. Myös energiaomavaraisuus ja huoltovarmuus ovat tärkeitä turvallisuuskysymyksiä. Venäjän hyökkäys Ukrainaan on korostanut tätä. Suomi on pyrkinyt vähentämään riippuvuuttaan venäläisestä energiasta. Energiamurros on välttämätön, mutta se on tehtävä hallitusti ja oikeudenmukaisesti. Tarvitaan pitkäjänteistä suunnittelua, investointeja ja yhteiskunnallista keskustelua.",
+      "word_count": 139
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on Suomen tavoite energiapolitiikassa?",
+        "options": [
+          "Lisätä fossiilisten polttoaineiden käyttöä.",
+          "Vähentää uusiutuvan energian käyttöä.",
+          "Hiilineutraalius vuoteen 2035 mennessä.",
+          "Luopua ydinvoimasta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä uusiutuva energiamuoto on lisääntynyt huimasti?",
+        "options": [
+          "Vesivoima.",
+          "Aurinkovoima.",
+          "Tuulivoima.",
+          "Bioenergia."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä energiamurros vaatii?",
+        "options": [
+          "Vain fossiilisten polttoaineiden korvaamista.",
+          "Vain energiatehokkuuden parantamista.",
+          "Vain sähköverkon vahvistamista.",
+          "Fossiilisten polttoaineiden korvaamista, energiatehokkuuden parantamista ja kulutuksen vähentämistä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä muita kuin teknisiä ulottuvuuksia energiamurroksella on?",
+        "options": [
+          "Ei mitään muita.",
+          "Taloudellisia, sosiaalisia ja poliittisia ulottuvuuksia.",
+          "Vain taloudellisia.",
+          "Vain sosiaalisia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä sosiaalisia haasteita energiamurrokseen liittyy?",
+        "options": [
+          "Ei mitään haasteita.",
+          "Vain tuulivoiman vastustus.",
+          "Vain sähkökatkot.",
+          "Energian hinnan nousu, joka voi olla vaikeaa pienituloisille."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi energiaomavaraisuus on tärkeää?",
+        "options": [
+          "Se vähentää energian käyttöä.",
+          "Se lisää energian tuontia.",
+          "Se on tärkeä turvallisuuskysymys, kuten Venäjän hyökkäys on osoittanut.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten energiamurros pitäisi toteuttaa?",
+        "options": [
+          "Nopeasti ja suunnittelematta.",
+          "Vain markkinoiden ehdoilla.",
+          "Hallitusti ja oikeudenmukaisesti, pitkäjänteisellä suunnittelulla ja investoinneilla.",
+          "Ilman yhteiskunnallista keskustelua."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

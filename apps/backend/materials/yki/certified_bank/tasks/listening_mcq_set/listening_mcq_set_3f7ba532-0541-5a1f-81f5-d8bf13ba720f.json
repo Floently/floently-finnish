@@ -1,0 +1,66 @@
+{
+  "id": "3f7ba532-0541-5a1f-81f5-d8bf13ba720f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa työpaikan palaverista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Esihenkilö: Hei kaikki, aloitetaan tiimipalaveri. Ensimmäisenä asiana on uuden projektin aikataulu. Asiakas haluaisi saada projektin valmiiksi jo toukokuun loppuun mennessä, mikä on kuukauden aiemmin kuin sovimme.\n\nTyöntekijä: Onko se realistista? Meillä on tällä hetkellä paljon töitä, ja lisäksi kaksi työntekijää on lomalla huhtikuussa.\n\nEsihenkilö: Tiedän, siksi halusinkin keskustella tästä teidän kanssanne. Voisimmeko priorisoida tämän projektin ja siirtää joitain vähemmän kiireellisiä tehtäviä myöhemmäksi?\n\nToinen työntekijä: Voisiko asiakas suostua siihen, että toimitamme osan projektista toukokuun lopussa ja loput kesäkuussa?\n\nEsihenkilö: Sitä voin ehdottaa. Mutta ensin haluaisin kuulla, paljonko työtunteja tämä projekti teiltä vaatii, jotta voimme laskea, onko se mahdollista.\n\nTyöntekijä: Meillä on jo alustava työnjako. Jos kaikki menee hyvin, arvio on noin 300 tuntia yhteensä.\n\nEsihenkilö: Selvä. Katsotaan kalentereita. Voisimmeko tehdä ylitöitä tarvittaessa?\n\nTyöntekijä: Periaatteessa kyllä, mutta pitää muistaa työhyvinvointi. Jos teemme pitkää päivää useita viikkoja, se näkyy varmasti jaksamisessa.\n\nEsihenkilö: Totta. Mietitään tätä vielä ja palataan asiaan huomenna.",
+      "audio_asset_id": "7275804e-6b3e-4704-99c8-80e205ce0013"
+    },
+    "questions": [
+      {
+        "id": "990438c0-181f-587b-93a8-62c1726500ac",
+        "prompt": "Mikä on palaverin aihe?",
+        "options": [
+          "Uusien työntekijöiden palkkaaminen",
+          "Projektin aikataulun nopeuttaminen",
+          "Toimitilojen muutto",
+          "Työmatkakulut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8756fd3d-1a45-599f-8799-3ba09aa513c8",
+        "prompt": "Paljonko projekti vaatii työtunteja arviolta?",
+        "options": [
+          "200 tuntia",
+          "300 tuntia",
+          "400 tuntia",
+          "500 tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d975e991-6eab-53cb-aba9-2e38a8b0d686",
+        "prompt": "Mistä työntekijät ovat huolissaan?",
+        "options": [
+          "Liian vähästä työstä",
+          "Työhyvinvoinnista ja jaksamisesta",
+          "Liian matalasta palkasta",
+          "Lomien peruuntumisesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

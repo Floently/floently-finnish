@@ -1,0 +1,66 @@
+{
+  "id": "029881f8-694a-5ec1-afe5-4c885a715e79",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa maahanmuuttodebatista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Seuraavaksi keskustelemme maahanmuuton vaikutuksista talouteen ja yhteiskuntaan. Ensimmäinen puheenvuoro, teille professori Kivinen.\n\nProfessori Kivinen: Kiitos. Haluan aloittaa toteamalla, että maahanmuutto on monimutkainen ilmiö, ja sen vaikutuksia on tarkasteltava monesta näkökulmasta. Taloustieteellinen tutkimus osoittaa, että maahanmuuton kokonaisvaikutus kansantalouteen on yleensä positiivinen, mutta se jakautuu epätasaisesti. Osa väestöstä voi hyötyä, osa hävitä. Maahanmuutto lisää työvoiman tarjontaa, voi tuoda uutta osaamista ja yrittäjyyttä, mutta se voi myös painaa palkkoja tietyillä aloilla.\n\nKansalaisjärjestön edustaja: Professori puhuu taloudesta, mutta unohdetaanko tässä inhimillinen puoli? Maahanmuuttajat ovat ihmisiä, joilla on oikeus turvalliseen elämään ja ihmisarvoiseen kohteluun. He eivät ole vain työvoimaa tai tilastoja. Moni on paennut sotaa, vainoa tai ilmastonmuutoksen seurauksia. Heillä on oikeus kansainväliseen suojeluun.\n\nPoliitikko: Haluaisin puuttua tähän. Meillä on velvollisuus auttaa, mutta meillä on myös velvollisuus huolehtia omista kansalaisistamme. Julkiset palvelut ovat kovilla, eikä kotoutuminen aina toimi. Meidän on oltava realisteja ja katsottava kokonaisuutta. Maahanmuuton on oltava hallittua ja kestävää.\n\nProfessori Kivinen: Totta, kotoutuminen on avainasemassa. Tutkimukset osoittavat, että maahanmuuttajien työllistyminen vie aikaa, ja se on usein vaikeampaa kuin kantaväestöllä. Tähän tarvitaan panostuksia – kielikoulutusta, työvoimapalveluita, asennemuutosta ja syrjinnän torjuntaa. Pitkällä aikavälillä onnistunut kotoutuminen hyödyttää koko yhteiskuntaa.\n\nKansalaisjärjestön edustaja: Ja samalla pitää muistaa, että monet maahanmuuttajat tekevät töitä, joihin kantaväestöä ei riitä – hoiva-ala, siivous, ravintola-ala, rakennusala. Ilman heitä monet palvelut olisivat pulassa. He maksavat veroja ja elättävät osaltaan hyvinvointivaltiota.\n\nPoliitikko: Tämä on totta, mutta samalla on mietittävä, miksi näillä aloilla on huonot palkat ja työolot. Ehkä pitäisi parantaa työehtoja, jotta aloille saataisiin tekijöitä myös kantaväestöstä. Se olisi reilua kaikille.\n\nPuheenjohtaja: Aika on lopuillaan. Lopuksi jokaiselta lyhyt loppukommentti.\n\nProfessori Kivinen: Tarvitaan kokonaisvaltaista maahanmuuttopolitiikkaa, joka ottaa huomioon sekä talouden, inhimillisyyden, turvallisuuden että yhteiskunnallisen eheyden.\n\nKansalaisjärjestön edustaja: Ihmisoikeudet ensin, kaikki muu tulee sen jälkeen.\n\nPoliitikko: Realismia ja vastuullisuutta – sekä maahanmuuttajia että kantaväestöä kohtaan.",
+      "audio_asset_id": "1bf02deb-26d4-4f0e-af9f-ab79c71142fa"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä professori Kivinen sanoo maahanmuuton taloudellisista vaikutuksista?",
+        "options": [
+          "Vaikutus on aina negatiivinen",
+          "Kokonaisvaikutus on yleensä positiivinen, mutta se jakautuu epätasaisesti",
+          "Vaikutusta ei voida mitata",
+          "Se on täysin merkityksetön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kansalaisjärjestön edustaja nostaa esiin talouspuheen vastapainoksi?",
+        "options": [
+          "Maahanmuuttajien rikollisuuden",
+          "Maahanmuuttajien inhimillisen puolen ja oikeudet",
+          "Maahanmuuton kustannukset",
+          "Kieliongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä yhteistä keskustelijoilla on?",
+        "options": [
+          "He ovat kaikki maahanmuuton vastustajia",
+          "He ovat kaikki maahanmuuton kannattajia",
+          "He tunnistavat, että kotoutuminen on keskeinen kysymys",
+          "He eivät ole yhtään mistään samaa mieltä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

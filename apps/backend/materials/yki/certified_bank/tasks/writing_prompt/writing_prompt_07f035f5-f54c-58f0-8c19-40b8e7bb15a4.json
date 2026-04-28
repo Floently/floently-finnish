@@ -1,0 +1,37 @@
+{
+  "id": "07f035f5-f54c-58f0-8c19-40b8e7bb15a4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin kulttuuritoimelle. Arvioi tapahtumatarjontaa, lipun hintoja ja tiedotusta. Ehdota yhtä uutta tapahtumaa.",
+    "materials": {
+      "scenario": "Palaute kaupungin kulttuuritoimelle"
+    },
+    "items": [
+      {
+        "id": "644091a7-d472-5b25-b5ac-e4cb81d97cf0",
+        "prompt": "Kirjoita palauteteksti kaupungin kulttuuritoimelle. Arvioi tapahtumatarjontaa, lipun hintoja ja tiedotusta. Ehdota yhtä uutta tapahtumaa."
+      }
+    ],
+    "rubric": "Tapahtumatarjonta\nLipun hinnat\nTiedotus\nUusi tapahtuma",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

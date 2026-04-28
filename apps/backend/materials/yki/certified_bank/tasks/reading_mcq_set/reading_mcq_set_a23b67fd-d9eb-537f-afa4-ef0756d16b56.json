@@ -1,0 +1,63 @@
+{
+  "id": "a23b67fd-d9eb-537f-afa4-ef0756d16b56",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LINJA-AUTOLIIKENTEEN MUUTOS\n\nLinja 15 ei kulje 5.8.–12.8. välisenä aikana tienrakennuksen vuoksi.\n\nKorvaava linja 15K kulkee samaa reittiä.\n\nLisätietoja liikennöitsijän verkkosivuilta.",
+      "word_count": 20
+    },
+    "questions": [
+      {
+        "id": "item_110_1",
+        "prompt": "Kauanko linja 15 on pois käytöstä?",
+        "options": [
+          "viikon",
+          "kaksi viikkoa",
+          "kolme viikkoa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_110_2",
+        "prompt": "Mikä linja korvaa linjan 15?",
+        "options": [
+          "linja 14",
+          "linja 15K",
+          "linja 16"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_110_3",
+        "prompt": "Mistä saa lisätietoja?",
+        "options": [
+          "lehdestä",
+          "liikennöitsijän verkkosivuilta",
+          "bussipysäkiltä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

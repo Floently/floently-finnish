@@ -1,0 +1,37 @@
+{
+  "id": "516e829e-c898-58a2-ab64-d180bff9916b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ohjeen mukaan.",
+    "materials": {
+      "scenario": "Uusi harrastus"
+    },
+    "items": [
+      {
+        "id": "d061b541-bd01-559e-ba8c-d44a073eea9f",
+        "prompt": "Kirjoita viesti ystävälle ja kerro uudesta harrastuksestasi."
+      }
+    ],
+    "rubric": "Kirjoita viesti ystävälle ja kerro uudesta harrastuksestasi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

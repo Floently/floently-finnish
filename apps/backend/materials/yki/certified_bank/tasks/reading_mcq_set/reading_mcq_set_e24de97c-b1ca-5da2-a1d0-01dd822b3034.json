@@ -1,0 +1,60 @@
+{
+  "id": "e24de97c-b1ca-5da2-a1d0-01dd822b3034",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.285,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kissa istuu matolla.",
+      "word_count": 3
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä kissa istuu?",
+        "options": [
+          "Matolla",
+          "Pöydällä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Onko kissa ulkona?",
+        "options": [
+          "Kyllä",
+          "Ei"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Onko kyseessä eläin?",
+        "options": [
+          "Kyllä",
+          "Ei"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

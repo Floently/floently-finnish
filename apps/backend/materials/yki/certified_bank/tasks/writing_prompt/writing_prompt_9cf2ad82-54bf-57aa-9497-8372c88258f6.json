@@ -1,0 +1,37 @@
+{
+  "id": "9cf2ad82-54bf-57aa-9497-8372c88258f6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti lähikaupasta. Arvioi valikoimaa, hintatasoa ja henkilökunnan ystävällisyyttä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute lähikaupasta"
+    },
+    "items": [
+      {
+        "id": "e638cf41-0e9e-5ff2-877f-ee2ced5f5036",
+        "prompt": "Kirjoita palauteteksti lähikaupasta. Arvioi valikoimaa, hintatasoa ja henkilökunnan ystävällisyyttä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Valikoima\nHintataso\nHenkilökunnan ystävällisyys\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

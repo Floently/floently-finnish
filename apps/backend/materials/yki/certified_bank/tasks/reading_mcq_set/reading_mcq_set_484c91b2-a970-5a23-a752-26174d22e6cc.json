@@ -1,0 +1,110 @@
+{
+  "id": "484c91b2-a970-5a23-a752-26174d22e6cc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen talous on kohdannut merkittäviä haasteita 2000-luvulla. Paperiteollisuuden rakennemuutos, Nokian matkapuhelinliiketoiminnan romahdus ja viime vuosien koronapandemia ovat koetelleet maata. Myös Venäjän hyökkäys Ukrainaan ja siitä seuranneet talouspakkotteet ovat vaikuttaneet kauppaan ja energian hintoihin. Nämä shokit ovat paljastaneet Suomen talouden haavoittuvuuksia. Maa on pieni ja avoin talous, joka on riippuvainen viennistä. Keskittyminen muutamiin toimialoihin ja kumppanimaihin on lisännyt riskejä. Toisaalta Suomi on sopeutunut aiempiin kriiseihin hyvin. Taloutta on monipuolistettu, ja uusia menestystarinoita on syntynyt, esimerkiksi peliteollisuudessa ja biotaloudessa. Työmarkkinat ovat joustavat, ja koulutustaso on korkea. Julkinen talous on kuitenkin velkaantunut, ja väestön ikääntyminen lisää paineita. Tulevaisuudessa Suomen on panostettava tutkimukseen ja tuotekehitykseen, koulutukseen ja työperäiseen maahanmuuttoon. Myös julkista taloutta on tasapainotettava, jotta hyvinvointivaltio voidaan säilyttää. Talouspolitiikassa tarvitaan pitkäjänteisyyttä ja kykyä uudistua. Menestys ei ole itsestäänselvyys, vaan se vaatii aktiivisia toimia ja yhteistyötä eri toimijoiden välillä.",
+      "word_count": 134
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä haasteita Suomen talous on kohdannut 2000-luvulla?",
+        "options": [
+          "Vain koronapandemian.",
+          "Paperiteollisuuden rakennemuutos, Nokian romahdus, koronapandemia ja Venäjän hyökkäyksen vaikutukset.",
+          "Vain Nokian romahduksen.",
+          "Vain paperiteollisuuden muutoksen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi Suomen talous on haavoittuvainen?",
+        "options": [
+          "Koska se on suuri ja suljettu.",
+          "Koska se on pieni, avoin ja riippuvainen viennistä ja muutamista toimialoista.",
+          "Koska se on monipuolinen.",
+          "Koska se ei ole riippuvainen mistään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten Suomi on sopeutunut aiempiin kriiseihin?",
+        "options": [
+          "Huonosti.",
+          "Hyvin, taloutta on monipuolistettu ja uusia aloja on syntynyt.",
+          "Ei mitenkään.",
+          "Vain lisäämällä velkaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia menestysaloja on syntynyt?",
+        "options": [
+          "Tekstiiliteollisuus.",
+          "Peliteollisuus ja biotalous.",
+          "Laivanrakennus.",
+          "Kemianteollisuus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä heikkouksia Suomen taloudessa on?",
+        "options": [
+          "Liian vähän velkaa.",
+          "Julkinen velkaantuminen ja väestön ikääntyminen.",
+          "Liian korkea koulutustaso.",
+          "Liian joustavat työmarkkinat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mihin Suomen on panostettava tulevaisuudessa?",
+        "options": [
+          "Vain vientiin.",
+          "Tutkimukseen, koulutukseen, työperäiseen maahanmuuttoon ja julkisen talouden tasapainottamiseen.",
+          "Vain verotuksen kiristämiseen.",
+          "Vain säästöihin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä talouspolitiikassa tarvitaan?",
+        "options": [
+          "Lyhytjänteisyyttä ja nopeita ratkaisuja.",
+          "Pitkäjänteisyyttä ja kykyä uudistua.",
+          "Vain veronkevennyksiä.",
+          "Vain menojen lisäämistä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "b7f940da-12ba-5b6b-b310-09b91b5deb3c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti tiede- ja kulttuurikeskukseen. Haluaisit ehdottaa yhteistyötä näyttelyn järjestämiseksi, joka käsittelee suomalaista muotoilua. Kerro ideasi, taustasi ja mitä yhteistyö voisi pitää sisällään. Kysy kiinnostuksesta ja seuraavista askelista.",
+    "materials": {
+      "scenario": "Yhteistyöehdotus näyttelystä"
+    },
+    "items": [
+      {
+        "id": "4cb7916a-a035-5a55-94d3-a988866208d6",
+        "prompt": "Kirjoita virallinen sähköposti tiede- ja kulttuurikeskukseen. Haluaisit ehdottaa yhteistyötä näyttelyn järjestämiseksi, joka käsittelee suomalaista muotoilua. Kerro ideasi, taustasi ja mitä yhteistyö voisi pitää sisällään. Kysy kiinnostuksesta ja seuraavista askelista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

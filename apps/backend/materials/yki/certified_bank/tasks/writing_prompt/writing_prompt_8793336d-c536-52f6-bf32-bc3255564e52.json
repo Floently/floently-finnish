@@ -1,0 +1,37 @@
+{
+  "id": "8793336d-c536-52f6-bf32-bc3255564e52",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.704,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan nuorisopalveluihin. Haluat perustaa nuorille suunnatun lukupiirin ja tarvitsette tilan kokoontumisille. Kerro ideastasi, miksi se on tärkeä, ja kysy, onko nuorisotilassa mahdollista kokoontua iltaisin.",
+    "materials": {
+      "scenario": "Lukupiirin tilan tarve"
+    },
+    "items": [
+      {
+        "id": "8cbf19ad-3019-5cfa-9d5b-f94bbcd7623b",
+        "prompt": "Kirjoita virallinen sähköposti kunnan nuorisopalveluihin. Haluat perustaa nuorille suunnatun lukupiirin ja tarvitsette tilan kokoontumisille. Kerro ideastasi, miksi se on tärkeä, ja kysy, onko nuorisotilassa mahdollista kokoontua iltaisin."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

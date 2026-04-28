@@ -1,0 +1,110 @@
+{
+  "id": "d9c2ce60-f78b-50ae-9fd2-6bc9a6afc28f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.74,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kulttuuri on keskeinen osa yhteiskunnan identiteettiä ja hyvinvointia. Se tarjoaa ihmisille mahdollisuuksia ilmaista itseään, kokea yhteisöllisyyttä ja ymmärtää maailmaa. Suomessa kulttuurin rahoitus on perinteisesti perustunut vahvaan julkiseen tukeen. Valtio ja kunnat rahoittavat merkittävästi esimerkiksi teattereita, orkestereita, museoita ja taiteilijoiden työskentelyä. Tämä malli on mahdollistanut kulttuurin saatavuuden koko maassa ja taiteen monimuotoisuuden. Viime vuosina julkisen talouden paineet ovat kuitenkin pakottaneet miettimään kulttuurin rahoituspohjaa uudelleen. Keskustelua käydään siitä, pitäisikö kulttuurin rahoitusta lisätä, leikata vai uudistaa. Osa korostaa, että kulttuuri on julkinen hyödyke, jota pitää tukea verovaroin, koska markkinat eivät yksin pysty ylläpitämään monimuotoista kulttuuria. Toiset taas katsovat, että kulttuurin pitäisi hakea enemmän rahoitusta yksityiseltä sektorilta ja yleisöltä esimerkiksi lipputulojen ja sponsorointien kautta. Kolmannet pelkäävät, että kaupallistuminen kaventaa taiteen kirjoa ja tekee siitä vain niille, joilla on siihen varaa. Kyse on jälleen arvovalinnasta: mikä on kulttuurin arvo ja kenen vastuulla sen rahoitus on.",
+      "word_count": 140
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kulttuuri on tärkeää yhteiskunnalle?",
+        "options": [
+          "Se tuo rahaa valtiolle.",
+          "Se tarjoaa mahdollisuuksia ilmaista itseä, kokea yhteisöllisyyttä ja ymmärtää maailmaa.",
+          "Se vähentää tarvetta koulutukselle.",
+          "Se lisää kaupallisuutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin kulttuurin rahoitus on perinteisesti perustunut Suomessa?",
+        "options": [
+          "Yksityisiin lahjoituksiin.",
+          "Vahvaan julkiseen tukeen.",
+          "Lipputuloihin.",
+          "Yritysten sponsorointeihin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä julkisesta kulttuurituesta on ollut?",
+        "options": [
+          "Se on vähentänyt taiteen määrää.",
+          "Se on mahdollistanut kulttuurin saatavuuden koko maassa ja taiteen monimuotoisuuden.",
+          "Se on lisännyt kulttuurin kaupallistumista.",
+          "Se on vähentänyt kulttuurin arvostusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kulttuurin rahoitusta joudutaan miettimään uudelleen?",
+        "options": [
+          "Kulttuurin suosion laskun vuoksi.",
+          "Julkisen talouden paineiden vuoksi.",
+          "Taiteilijoiden vähenemisen vuoksi.",
+          "Kansainvälisen kilpailun vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä perusteita julkisen tuen puolustajat esittävät?",
+        "options": [
+          "Kulttuuri on yksityinen asia, johon valtion ei pidä puuttua.",
+          "Kulttuuri on julkinen hyödyke, jota markkinat eivät yksin pysty ylläpitämään.",
+          "Kulttuuri tuottaa voittoa, joten se ei tarvitse tukea.",
+          "Kulttuuri on vain eliitin etuoikeus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä riskejä kulttuurin kaupallistumiseen liittyy?",
+        "options": [
+          "Se lisää taiteen monimuotoisuutta.",
+          "Se voi kaventaa taiteen kirjoa ja tehdä siitä vain varakkaiden etuoikeuden.",
+          "Se vähentää byrokratiaa.",
+          "Se parantaa taiteen laatua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä arvovalintaa kulttuurin rahoituskeskustelu heijastelee?",
+        "options": [
+          "Kysymystä tekniikan kehityksestä.",
+          "Kysymystä kulttuurin arvosta ja rahoitusvastuusta.",
+          "Kysymystä maahanmuutosta.",
+          "Kysymystä ympäristönsuojelusta."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

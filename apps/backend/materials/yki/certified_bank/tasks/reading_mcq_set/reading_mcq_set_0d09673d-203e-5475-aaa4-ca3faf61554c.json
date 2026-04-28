@@ -1,0 +1,77 @@
+{
+  "id": "0d09673d-203e-5475-aaa4-ca3faf61554c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ohjeet asumisoikeusasunnon remontoinnista.",
+    "materials": {
+      "text": "SAANKO REMONTOIDA ASUMISOIKEUSASUNTOANI?\n\nAsumisoikeusasunnossa asuvalla on oikeus tehdä pieniä korjauksia, mutta suuremmat remontit vaativat taloyhtiön luvan. Pieniksi remonteiksi lasketaan maalaustyöt, uusien listojen asennus ja kevyet kalusteiden vaihdot. Sen sijaan vesikalusteiden, sähköjohtojen tai kantavien rakenteiden muutokset kuuluvat ammattilaisille ja edellyttävät isännöitsijän hyväksyntää.\n\n\"Monet asukkaat eivät tiedä, että luvaton remontti voi johtaa korvausvelvollisuuteen muuton yhteydessä\", kertoo lakimies Juhani Virtanen. Jos teet muutoksia, joita ei voida pitää tavanomaisena kulumisena, joudut ehkä palauttamaan asunnon ennalleen tai maksamaan korvauksia.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "00740c58-af2e-565b-96bd-a2845b60dd3d",
+        "prompt": "Mitä saa tehdä ilman lupaa asumisoikeusasunnossa?",
+        "options": [
+          "Vaihtaa vesikalusteet",
+          "Maalata seinät",
+          "Muuttaa sähköjohtoja",
+          "Purkaa kantavan seinän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cb82eac7-f7bd-5092-90bd-b74270e49eda",
+        "prompt": "Mitä lakimies Virtanen varoittaa?",
+        "options": [
+          "Remontti on aina kallista",
+          "Luvaton remontti voi aiheuttaa korvausvelvollisuuden",
+          "Isännöitsijä kieltää kaikki remontit",
+          "Naapurit eivät saa tietää remontista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0f72f114-1266-5b58-815c-21fe07c80fce",
+        "prompt": "Mitä isännöitsijän hyväksyntä vaaditaan?",
+        "options": [
+          "Maalaustöihin",
+          "Vesikalusteiden muutoksiin",
+          "Listojen asennukseen",
+          "Kalusteiden vaihtoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "17f37a9d-60c0-534b-ae93-6853ca48aae7",
+        "prompt": "Mitä tapahtuu, jos tekee luvattoman remontin?",
+        "options": [
+          "Ei mitään",
+          "Voi joutua maksamaan korvauksia muuton yhteydessä",
+          "Saa sakot",
+          "Menettää asumisoikeuden"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

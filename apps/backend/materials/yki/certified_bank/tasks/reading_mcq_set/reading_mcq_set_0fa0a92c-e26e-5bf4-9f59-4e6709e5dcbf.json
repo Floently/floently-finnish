@@ -1,0 +1,77 @@
+{
+  "id": "0fa0a92c-e26e-5bf4-9f59-4e6709e5dcbf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli etätyön vaikutuksista.",
+    "materials": {
+      "text": "ETÄTYÖN SUOSIO JAKAA MIELIPITEITÄ\n\nTyöterveyslaitoksen tuore kysely osoittaa, että etätyö on tullut jäädäkseen. Kyselyyn vastanneista 68 prosenttia kertoi tekevänsä etätöitä vähintään kerran viikossa. Eniten etätyötä tehdään asiantuntijatehtävissä ja IT-alalla, vähiten sosiaali- ja terveysalalla.\n\nTutkijat korostavat, että etätyön onnistuminen edellyttää selkeitä pelisääntöjä. Työntekijät, jotka kokivat etätyön aikataulut epäselviksi, raportoivat useammin uupumuksesta ja yksinäisyydestä. Sen sijaan ne, joilla oli säännölliset tiimipalaverit ja yhteiset käytännöt, olivat tyytyväisempiä.\n\nTyönantajat ovat huolissaan työyhteisön heikkenemisestä. Osa yrityksistä on ottanut käyttöön pakollisia läsnäolopäiviä. Tutkija muistuttaa, että täysin etänä toimivat tiimit tarvitsevat enemmän tietoista vuorovaikutusta.",
+      "word_count": 87
+    },
+    "questions": [
+      {
+        "id": "4989b75c-4a95-571e-8fa7-95fc951f7f32",
+        "prompt": "Kuinka moni tekee etätöitä vähintään kerran viikossa?",
+        "options": [
+          "Alle puolet",
+          "Noin puolet",
+          "68 prosenttia",
+          "Lähes kaikki"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ce77f956-c06b-5470-b0ee-e6235b03bded",
+        "prompt": "Mikä ala tekee vähiten etätöitä?",
+        "options": [
+          "IT-ala",
+          "Asiantuntijatyö",
+          "Sosiaali- ja terveysala",
+          "Koulutusala"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "10f8b694-d9ff-5208-92ec-c8d04b99c664",
+        "prompt": "Mikä vähentää tutkijan mukaan uupumusta etätyössä?",
+        "options": [
+          "Vapaus tehdä töitä milloin haluaa",
+          "Selkeät aikataulut ja yhteiset käytännöt",
+          "Mahdollisuus olla aina etänä",
+          "Vähemmän palavereja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e3642f80-7922-5634-b231-723ad3628075",
+        "prompt": "Mistä työnantajat ovat huolissaan?",
+        "options": [
+          "Työntekijät eivät tee tarpeeksi töitä",
+          "Työyhteisön heikkeneminen",
+          "Toimitilojen tyhjyys",
+          "Sähkölaskun pieneneminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "32f8ca7b-ccfc-5ae1-8422-e6147bb9c77b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "GLOBAALIT KRIISIT JA KANSAINVÄLINEN YHTEISTYÖ\n\nMaailma kohtaa ennennäkemättömiä haasteita: ilmastonmuutos, pandemiat, talouden epävakaus, konfliktit ja muuttoliike. Nämä ongelmat eivät tunne valtioiden rajoja, mikä tekee niistä erityisen vaikeita ratkaista. Samalla ne korostavat kansainvälisen yhteistyön merkitystä.\n\nIlmastonmuutos on globaaleista ongelmista kenties suurin. Päästöt yhdessä maassa vaikuttavat koko planeettaan. Ratkaisut edellyttävät kaikkien maiden sitoutumista päästövähennyksiin. Pariisin ilmastosopimus on askel oikeaan suuntaan, mutta sen tavoitteet eivät toteudu, elleivät maat kiristä toimiaan. Ongelmana on, että maiden intressit ovat erilaiset: teollisuusmaat ovat tuottaneet suurimman osan päästöistä, mutta kehittyvät maat kärsivät seurauksista.\n\nPandemiat ovat toinen esimerkki globaalista uhasta. Koronapandemia osoitti, miten nopeasti virus leviää maasta toiseen. Se osoitti myös kansainvälisen yhteistyön tärkeyden: tutkijat jakoivat tietoa, rokotteita kehitettiin yhdessä ja taloudellista tukea annettiin. Samalla paljastui epäkohtia: rikkaat maat hamstrasivat rokotteita, kun köyhät jäivät ilman.\n\nTalouden globalisaatio on tuonut hyvinvointia, mutta myös uudenlaisia riskejä. Finanssikriisit leviävät nopeasti maasta toiseen. Veroparatiisit mahdollistavat veronkierron. Kansainväliset yritykset voivat vältellä veroja siirtämällä voittoja maihin, joissa verotus on kevyttä. Tämä heikentää valtioiden kykyä rahoittaa hyvinvointipalveluja.\n\nMuuttoliike on toinen globaali haaste. Ihmiset lähtevät kotimaistaan sodan, vainon, köyhyyden ja ilmastonmuutoksen vuoksi. Tämä asettaa paineita sekä lähtö- että kohdemaille. Ratkaisut edellyttävät yhteisiä pelisääntöjä ja vastuunjakoa, mutta toistaiseksi kansainvälinen yhteisö on ollut haluton ottamaan tätä vastuuta.\n\nKansainvälinen yhteistyö on vaikeaa, koska se edellyttää kansallisten etujen asettamista sivuun. Valtiot ajattelevat usein lyhyellä tähtäimellä ja omaa etuaan. Tarvitaan uudenlaista ajattelua, jossa ymmärretään, että globaalit ongelmat voidaan ratkaista vain yhdessä. Se vaatii luottamusta, pitkäjänteisyyttä ja halua tehdä kompromisseja. Se vaatii myös kansalaisyhteiskunnan painetta ja uudenlaista globaalia tietoisuutta.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 279
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi ilmastonmuutos on erityisen vaikea ratkaista?",
+        "options": [
+          "Koska se ei ole todellinen ongelma",
+          "Koska päästöt yhdessä maassa vaikuttavat kaikkiin ja maiden intressit ovat erilaiset",
+          "Koska se koskee vain pientä aluetta",
+          "Koska teknologiaa ei ole olemassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä koronapandemia paljasti kansainvälisestä yhteistyöstä?",
+        "options": [
+          "Se toimi täydellisesti",
+          "Se osoitti yhteistyön tärkeyden, mutta myös epäkohdat kuten rokotteiden hamstraamisen",
+          "Kansainvälistä yhteistyötä ei tarvita",
+          "Kaikki maat toimivat tasavertaisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten globaali talous luo uusia riskejä?",
+        "options": [
+          "Se ei luo riskejä",
+          "Finanssikriisit leviävät nopeasti ja veroparatiisit mahdollistavat veronkierron",
+          "Se hyödyttää kaikkia tasapuolisesti",
+          "Se on täysin vakaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kansainvälinen yhteistyö on vaikeaa?",
+        "options": [
+          "Koska kaikki maat ovat samanlaisia",
+          "Koska se edellyttää kansallisten etujen asettamista sivuun ja pitkäjänteisyyttä",
+          "Koska kukaan ei halua tehdä yhteistyötä",
+          "Koska se on liian kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

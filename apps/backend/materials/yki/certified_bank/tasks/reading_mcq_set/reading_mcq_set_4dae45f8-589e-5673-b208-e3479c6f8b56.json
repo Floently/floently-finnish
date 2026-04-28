@@ -1,0 +1,88 @@
+{
+  "id": "4dae45f8-589e-5673-b208-e3479c6f8b56",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.686,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Monet suomalaiset pyöräilevät. Pyörällä on helppo liikkua kaupungissa. Se on nopeaa ja halpaa. Kesällä pyöräillään eniten. Silloin on lämmintä ja valoisaa. Pyöräily on hyvä liikuntamuoto. Se pitää kunnossa. Monet pyöräilevät töihin ja kouluun. Pyöräillessä pitää käyttää kypärää. Se suojaa päätä. Pyörässä pitää olla valot pimeällä. Lapset oppivat pyöräilemään jo pienenä. Pyöräily on mukava harrastus.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi pyörällä on helppo liikkua kaupungissa?",
+        "options": [
+          "Se on hidasta",
+          "Se on nopeaa ja halpaa",
+          "Se on kallista",
+          "Se on vaarallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin pyöräillään eniten?",
+        "options": [
+          "Talvella",
+          "Kesällä",
+          "Syksyllä",
+          "Keväällä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä pyöräilystä on?",
+        "options": [
+          "Se on kallista",
+          "Se on hyvä liikuntamuoto ja pitää kunnossa",
+          "Se on vaarallista",
+          "Se on hidasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä turvavarusteita pyöräilyssä tarvitaan?",
+        "options": [
+          "Hanskat ja pipo",
+          "Kypärä ja valot",
+          "Lasit",
+          "Heijastinliivi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin pyörässä pitää olla valot?",
+        "options": [
+          "Aina",
+          "Pimeällä",
+          "Kesällä",
+          "Sateella"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

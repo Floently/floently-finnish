@@ -1,0 +1,110 @@
+{
+  "id": "8f473de5-d484-5f93-b312-2def05df92dc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kansainvälistyminen on vaikuttanut syvästi suomalaiseen yhteiskuntaan ja kulttuuriin. Se näkyy arjessa monin tavoin: kaupoissa on tuotteita ympäri maailmaa, työpaikoilla puhutaan useita kieliä, ja ihmiset liikkuvat yhä enemmän maiden välillä. Kansainvälistyminen tuo mukanaan monia mahdollisuuksia. Se avaa uusia markkinoita yrityksille, lisää kulttuurien välistä ymmärrystä ja rikastuttaa suomalaista kulttuuria. Opiskelu- ja työmahdollisuudet ulkomailla ovat lisääntyneet, ja kansainväliset kontaktit ovat monille arkipäivää. Toisaalta kansainvälistyminen herättää myös huolta. Osa pelkää, että suomalainen kulttuuri ja identiteetti heikkenevät, kun vaikutteet tulevat ulkopuolelta. Myös talouden globaalit kriisit ja kansainvälinen kilpailu voivat heijastua Suomeen nopeasti. Keskustelua käydään siitä, miten voidaan säilyttää oma kulttuuri ja samalla olla avoimia kansainvälisyydelle. Keskeistä on löytää tasapaino, jossa hyödynnetään kansainvälistymisen mahdollisuudet mutta vaalitaan omaa kieltä, kulttuuria ja yhteiskunnallisia arvoja. Tämä edellyttää tietoista politiikkaa ja avointa keskustelua siitä, millaista tulevaisuutta halutaan rakentaa.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten kansainvälistyminen näkyy suomalaisessa arjessa?",
+        "options": [
+          "Vain suomalaisia tuotteita on saatavilla.",
+          "Kaupoissa on tuotteita ympäri maailmaa, työpaikoilla puhutaan useita kieliä, ja ihmiset liikkuvat maiden välillä.",
+          "Kukaan ei puhu muita kieliä.",
+          "Ihmiset eivät matkusta ulkomaille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mahdollisuuksia kansainvälistyminen tuo?",
+        "options": [
+          "Se sulkee markkinoita.",
+          "Se avaa uusia markkinoita, lisää kulttuurien välistä ymmärrystä ja rikastuttaa kulttuuria.",
+          "Se vähentää opiskelumahdollisuuksia.",
+          "Se heikentää taloutta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä huolta kansainvälistyminen herättää?",
+        "options": [
+          "Suomalainen kulttuuri ja identiteetti voivat heiketä.",
+          "Suomalaiset oppivat uusia kieliä.",
+          "Kansainväliset kontaktit lisääntyvät.",
+          "Markkinat avautuvat."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten globaalit kriisit vaikuttavat Suomeen?",
+        "options": [
+          "Ne eivät vaikuta millään tavalla.",
+          "Ne voivat heijastua Suomeen nopeasti.",
+          "Ne vaikuttavat vain positiivisesti.",
+          "Ne vaikuttavat vain vuosien viiveellä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä kansainvälistymiseen liittyvässä keskustelussa on kyse?",
+        "options": [
+          "Siitä, pitäisikö kansainvälistyminen kieltää kokonaan.",
+          "Siitä, miten voidaan säilyttää oma kulttuuri ja olla avoimia kansainvälisyydelle.",
+          "Siitä, miten kaikki ulkomaiset vaikutteet voidaan ottaa sellaisenaan.",
+          "Siitä, miten suomalaisuus voidaan unohtaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoittaa tasapainon löytäminen kansainvälistymisessä?",
+        "options": [
+          "Sitä, että sulkeudutaan kaikelta ulkopuoliselta.",
+          "Sitä, että hyödynnetään mahdollisuudet mutta vaalitaan omaa kieltä, kulttuuria ja arvoja.",
+          "Sitä, että unohdetaan oma kulttuuri kokonaan.",
+          "Sitä, että otetaan kaikki ulkopuolinen kritiikittä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä tasapainon löytäminen edellyttää?",
+        "options": [
+          "Tietoista politiikkaa ja avointa keskustelua.",
+          "Kansainvälistymisen täydellistä kieltämistä.",
+          "Kaikkien rajojen sulkemista.",
+          "Vain taloudellisia päätöksiä."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

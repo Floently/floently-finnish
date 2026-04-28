@@ -1,0 +1,66 @@
+{
+  "id": "35bd5b90-fbf7-56d3-8cf2-bd10cf2db97a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen kirjallisuus on tunnettu erityisesti kansalliseepoksesta Kalevalasta, jonka Elias Lönnrot kokosi 1800-luvulla. Se on vaikuttanut suomalaiseen kulttuuriin ja taiteeseen. Tunnettuja suomalaisia kirjailijoita ovat esimerkiksi Aleksis Kivi, jonka teos Seitsemän veljestä on klassikko, sekä Väinö Linna, joka kirjoitti Tuntemattoman sotilaan ja Pohjantähti-trilogian. Nykykirjailijoista kansainvälistä mainetta ovat saavuttaneet esimerkiksi Sofi Oksanen, Johanna Sinisalo ja Antti Tuomainen. Suomalaiset lukevat paljon, ja kirjastot ovat suosittuja. Yleisissä kirjastoissa voi lainata kirjoja ilmaiseksi, ja niissä järjestetään myös tapahtumia. Kirjojen lisäksi lainattavissa on lehtiä, elokuvia ja musiikkia. Lasten lukemiseen kannustetaan, ja monissa kouluissa on kirjastovierailuja. Suomen Kirjamessut Helsingissä on vuosittainen tapahtuma, joka kerää yhteen kirjailijoita, kustantajia ja lukijoita.",
+      "word_count": 101
+    },
+    "questions": [
+      {
+        "id": "e2f3a4b5-c6d7-4e8f-9a9b-0c1d2e3f4a5b",
+        "prompt": "Kuka kokosi Kalevalan?",
+        "options": [
+          "Aleksis Kivi",
+          "Väinö Linna",
+          "Elias Lönnrot",
+          "Sofi Oksanen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f3a4b5c6-d7e8-4f9a-9b0c-1d2e3f4a5b6c",
+        "prompt": "Mikä on Aleksis Kiven tunnettu teos?",
+        "options": [
+          "Tuntematon sotilas",
+          "Kalevala",
+          "Seitsemän veljestä",
+          "Puhdistus"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a4b5c6d7-e8f9-4a0b-9c1d-2e3f4a5b6c7d",
+        "prompt": "Mitä Suomen Kirjamessuilla tapahtuu?",
+        "options": [
+          "Vain kirjojen myyntiä",
+          "Kirjailijat, kustantajat ja lukijat kokoontuvat yhteen",
+          "Vain ulkomaisia kirjailijoita",
+          "Elokuvafestivaalit"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

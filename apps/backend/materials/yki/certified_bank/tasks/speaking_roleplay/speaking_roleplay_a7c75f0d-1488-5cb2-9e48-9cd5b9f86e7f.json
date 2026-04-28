@@ -1,0 +1,40 @@
+{
+  "id": "a7c75f0d-1488-5cb2-9e48-9cd5b9f86e7f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa rauhallista ja arvovaltaista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet tuomari, joka edustaa oikeuslaitoksen arvovaltaa.",
+        "partner": "Asianosaiset ja heidän asianajajansa - odottavat tuomiota, saattavat olla pettyneitä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp46",
+        "ai_first_turn_fi": "Istunto päättyy. Annan seuraavaksi tuomion perusteluineen. Olen harkinnut asiassa esitetyn näytön ja sovellettavat lainkohdat."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa rauhallista ja arvovaltaista kieltä.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "628e5058-2f4a-5230-9cd0-ae6b443d31bb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.769,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Yrittäjyyden rooli yhteiskunnassa on monitahoinen. Toisaalta se nähdään talouskasvun ja innovaatioiden moottorina, toisaalta epävarmuuden ja eriarvoisuuden lähteenä. Keskustelu yrittäjyyden merkityksestä heijastaa syvempiä arvovalintoja siitä, millaista yhteiskuntaa haluamme rakentaa.\n\nPerinteinen näkemys korostaa yrittäjyyttä luovana tuhoavana voimana, joka synnyttää uutta ja korvaa vanhentunutta. Tässä schumpeterilaisessa ajattelussa yrittäjä on sankari, joka uskaltaa ottaa riskejä ja haastaa vakiintuneet toimijat. Ilman yrittäjyyttä talous kangistuu, eikä uusia innovaatioita synny. Tämä näkemys on ohjannut politiikkaa, joka suosii yritystukia, kevyempää sääntelyä ja yrittäjyyskasvatusta.\n\nToinen näkökulma korostaa yrittäjyyden varjopuolia. Alustatalous on synnyttänyt uudenlaisia työsuhteita, joissa työntekijän oikeudet ovat heikentyneet. Keikkatyöläiset, kuten ruokalähetit ja kyydinjakajat, ovat muodollisesti yrittäjiä, mutta tosiasiassa he ovat usein alustan armoilla. Heillä ei ole samoja sosiaalisia turvaverkkoja kuin perinteisillä työntekijöillä. Tämä herättää kysymyksen siitä, onko yrittäjyyden ihannointi johtanut työelämän perusturvan rapautumiseen.\n\nKolmas ulottuvuus on yrittäjyyden yhteiskunnallinen vastuu. Keskustelu yritysten yhteiskuntavastuusta (CSR) on siirtynyt vapaaehtoisuudesta kohti velvoittavuutta. Ilmastokriisi ja eriarvoisuus ovat pakottaneet yritykset pohtimaan rooliaan laajemmin. Osa yrityksistä on ottanut aktiivisen roolin yhteiskunnallisten ongelmien ratkaisemisessa, mutta osa jatkaa entiseen malliin. Sijoittajat ja kuluttajat vaativat yhä enemmän läpinäkyvyyttä ja vastuullisuutta.\n\nYrittäjyyspolitiikan tulevaisuus on tasapainottelua näiden eri näkökulmien välillä. Tarvitaan ympäristöä, joka kannustaa innovaatioihin ja uuden luomiseen, mutta samalla on varmistettava, että yrittäjyys ei johda hyväksikäyttöön ja eriarvoisuuden kasvuun. Ratkaisut löytyvät todennäköisesti harmaalta alueelta, jossa yhdistyvät markkinatalouden dynamiikka ja hyvinvointivaltion turvaverkot.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 245
+    },
+    "questions": [
+      {
+        "id": "46b6b7eb-75d7-502e-8916-6b7bd34b5794",
+        "prompt": "Mitä tarkoitetaan yrittäjyydellä 'luovana tuhoavana voimana'?",
+        "options": [
+          "Yritysten tuhoamista kilpailijoilta",
+          "Uuden synnyttämistä ja vanhentuneen korvaamista",
+          "Työpaikkojen vähentämistä",
+          "Ympäristön tuhoamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6df09a84-b954-50fe-9825-f2469a48c7d1",
+        "prompt": "Mitä ongelmia alustatalouden yrittäjyyteen liittyy?",
+        "options": [
+          "Yrittäjät tienaavat liikaa",
+          "Työntekijän oikeudet heikkenevät ja sosiaalinen turva on heikompi",
+          "Alustat ovat tehottomia",
+          "Kuluttajat eivät pidä palveluista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f0ce3c99-961f-5acf-8bf2-efab47b9f42a",
+        "prompt": "Miten yritysten yhteiskuntavastuu on muuttunut?",
+        "options": [
+          "Se on vähentynyt",
+          "Se on siirtynyt vapaaehtoisuudesta kohti velvoittavuutta",
+          "Sitä ei enää tarvita",
+          "Se on vain markkinointia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0832c308-a22d-54fb-a1ce-2254a3b4ee94",
+        "prompt": "Mitä tulevaisuuden yrittäjyyspolitiikalta vaaditaan?",
+        "options": [
+          "Yrittäjyyden täydellistä vapauttamista",
+          "Tasapainoa innovaatioiden kannustamisen ja sosiaalisen turvan välillä",
+          "Yrittäjyyden lopettamista",
+          "Kaikkien yritysten kansallistamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

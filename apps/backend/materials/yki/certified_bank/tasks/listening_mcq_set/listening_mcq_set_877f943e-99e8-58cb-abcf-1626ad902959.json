@@ -1,0 +1,88 @@
+{
+  "id": "877f943e-99e8-58cb-abcf-1626ad902959",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Huomenta! Tänään on tosi kiva päivä. Ensin meillä on aamulla kielitunti. Sitten me mennään yhdessä syömään. Iltapäivällä me käydään kaupungilla katsomassa uutta museota. Illalla me grillataan puistossa, jos ei sada.",
+      "audio_asset_id": "1c74d6f9-8c4f-56cc-969a-7e80ce6754d9"
+    },
+    "questions": [
+      {
+        "id": "d805f1bb-dde2-58e9-a8e4-2d4dc5fb0750",
+        "prompt": "Mitä tänään tehdään ensimmäisenä?",
+        "options": [
+          "Mennään syömään.",
+          "Käydään museossa.",
+          "On kielitunti.",
+          "Grillataan puistossa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "bc88292d-7f02-5882-90ae-e3e509abc64c",
+        "prompt": "Mitä tehdään aamun jälkeen?",
+        "options": [
+          "Mennään yhdessä syömään.",
+          "Mennään kotiin.",
+          "Käydään lenkillä.",
+          "Mennään uimaan."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "245b5ea2-a8fa-5f26-a996-077a7db21432",
+        "prompt": "Mitä tehdään iltapäivällä?",
+        "options": [
+          "Käydään uudessa museossa.",
+          "Käydään kaupassa.",
+          "Käydään kirjastossa.",
+          "Käydään elokuvissa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "f8f20058-09e2-58e0-a97b-36907519c8c6",
+        "prompt": "Mitä tehdään illalla?",
+        "options": [
+          "Mennään teatteriin.",
+          "Grillataan puistossa.",
+          "Mennään baariin.",
+          "Katsotaan telkkaria."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ad9254f9-9116-5a6e-a113-41de67ca782a",
+        "prompt": "Mikä voi estää illan grillaamisen?",
+        "options": [
+          "Kylmä ilma.",
+          "Sade.",
+          "Tuuli.",
+          "Myöhäinen kellonaika."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

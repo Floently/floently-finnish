@@ -1,0 +1,37 @@
+{
+  "id": "b8bc6d30-aa35-5059-a53f-3d353d09cf15",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.35,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit hammaslääkärissä. Kirjoita palaute. Arvioi itse hoitotoimenpidettä, hammaslääkärin ammattitaitoa ja hänen tapaansa kertoa, mitä tekee.",
+    "materials": {
+      "scenario": "Palaute hammaslääkäristä"
+    },
+    "items": [
+      {
+        "id": "f283eaf7-977a-535c-8a19-9aeb7f879c60",
+        "prompt": "Kävit hammaslääkärissä. Kirjoita palaute. Arvioi itse hoitotoimenpidettä, hammaslääkärin ammattitaitoa ja hänen tapaansa kertoa, mitä tekee."
+      }
+    ],
+    "rubric": "Hoitotoimenpide\nHammaslääkärin ammattitaito\nTiedottaminen toimenpiteen aikana",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

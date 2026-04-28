@@ -1,0 +1,37 @@
+{
+  "id": "b1c047f9-ebbf-5cae-a943-82c166de11ff",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisen terveydenhuollon jonotuslistoja lyhentää lisäämällä yksityisten palvelujen käyttöä?'. Analysoi kustannuksia ja tasa-arvoa.",
+    "materials": {
+      "scenario": "Terveydenhuollon jonotuslistat"
+    },
+    "items": [
+      {
+        "id": "8213fad0-1990-5838-8c8e-64c930207a4d",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisen terveydenhuollon jonotuslistoja lyhentää lisäämällä yksityisten palvelujen käyttöä?'. Analysoi kustannuksia ja tasa-arvoa."
+      }
+    ],
+    "rubric": "Jonotusaikojen lyhentäminen\nKustannukset\nTasa-arvo\nPalvelujen laatu",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "0f9c7346-fc68-5ac5-99a7-d7e45481480c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut uuden puhelimen suojakuoren. Kirjoita palaute. Sopiiko se puhelimeen? Onko se hyvä?",
+    "materials": {
+      "scenario": "Palaute puhelimen suojakuoresta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet tilannut uuden puhelimen suojakuoren. Kirjoita palaute. Sopiiko se puhelimeen? Onko se hyvä?"
+      }
+    ],
+    "rubric": "Olet tilannut uuden puhelimen suojakuoren. Kirjoita palaute. Sopiiko se puhelimeen? Onko se hyvä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

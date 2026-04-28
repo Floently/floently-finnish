@@ -1,0 +1,37 @@
+{
+  "id": "e20b458d-be70-52bd-9560-77453d6eca31",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.36,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: adult_education_center. Purpose: propose_an_improvement. Constraint: respect_the_schedule.",
+    "materials": {
+      "scenario": "hobbies aikuiskoulutuskeskuksesta"
+    },
+    "items": [
+      {
+        "id": "57f39255-178d-588f-b44f-43221145091c",
+        "prompt": "Write for the receiver in this scenario: adult_education_center. Purpose: propose_an_improvement. Constraint: respect_the_schedule."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

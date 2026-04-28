@@ -1,0 +1,40 @@
+{
+  "id": "b72e6153-684d-59f9-871c-03019b45a59a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.307,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what you know about the Finnish education system. Mention two things that make it special.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "60bdc899-b732-51fb-8b9f-8ee7cf5b3b41",
+        "ai_first_turn_fi": "Mikä Suomen koulutuksessa on sun mielestä hyvää? Onko se erilaista kuin kotimaassasi?"
+      }
+    ],
+    "rubric": "Tell what you know about the Finnish education system. Mention two things that make it special.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

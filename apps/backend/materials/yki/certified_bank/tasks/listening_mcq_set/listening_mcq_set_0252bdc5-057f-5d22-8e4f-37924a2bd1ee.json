@@ -1,0 +1,88 @@
+{
+  "id": "0252bdc5-057f-5d22-8e4f-37924a2bd1ee",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.286,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Täällä on Sanna. Mulla ois yks pieni pyyntö. Olen tulossa huomenna kylään ja tuon mun koiran mukanani. Onko se ok? Se on tosi kiltti ja rauhallinen.",
+      "audio_asset_id": "b29f73fb-2c49-463e-b058-c4631ed1cc8c"
+    },
+    "questions": [
+      {
+        "id": "6d53f7bf-fe75-538e-a27d-3865a10aa291",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Liisa.",
+          "Sanna.",
+          "Maija.",
+          "Anna."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9f784e56-488e-524f-8e79-0d4493fc8fd6",
+        "prompt": "Mitä puhuja aikoo tehdä huomenna?",
+        "options": [
+          "Mennä elokuviin.",
+          "Mennä töihin.",
+          "Tulla kylään.",
+          "Mennä lääkäriin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "cbd6b6dd-4722-55d8-ac8a-21fdc4b91cbe",
+        "prompt": "Mitä puhuja aikoo tuoda mukanaan?",
+        "options": [
+          "Lahjan.",
+          "Ruokaa.",
+          "Kirjan.",
+          "Koiran."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "aa86e979-0599-5580-9165-d10b3ee8fa71",
+        "prompt": "Miten puhuja kuvailee koiraansa?",
+        "options": [
+          "Se on villi ja leikkisä.",
+          "Se on tosi kiltti ja rauhallinen.",
+          "Se on iso ja äänekäs.",
+          "Se on pieni ja arka."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cbe7f466-e3e2-52b4-b18f-edeb41040ca0",
+        "prompt": "Mitä puhuja kysyy?",
+        "options": [
+          "Onko toisella koiraa.",
+          "Mitä toinen haluaa lahjaksi.",
+          "Mitä ruokaa pitää ostaa.",
+          "Saako koira tulla mukaan."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

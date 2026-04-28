@@ -1,0 +1,99 @@
+{
+  "id": "652350e3-9d54-5c22-a1f5-fb8525fffb33",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Ruokahävikki on maailmanlaajuinen ongelma. Suomessa kotitaloudet heittävät pois syömäkelpoista ruokaa noin 20 kiloa henkeä kohti vuodessa. Tämä on sekä taloudellinen että ympäristöongelma. Ruoan tuotanto kuluttaa luonnonvaroja, ja poisheitetty ruoka on turhaa kuormitusta. Ruokahävikkiä voi vähentää suunnittelemalla ostoksia, hyödyntämällä tähteitä ja säilyttämällä ruokaa oikein.",
+      "word_count": 43
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on maailmanlaajuinen ongelma?",
+        "options": [
+          "Ruoan hinta",
+          "Ruokahävikki",
+          "Ruoan laatu",
+          "Ruoan saatavuus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka paljon ruokaa suomalaiset kotitaloudet heittävät pois vuodessa henkeä kohti?",
+        "options": [
+          "Noin 10 kiloa",
+          "Noin 20 kiloa",
+          "Noin 30 kiloa",
+          "Noin 50 kiloa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen ongelma ruokahävikki on?",
+        "options": [
+          "Vain taloudellinen",
+          "Vain ympäristöongelma",
+          "Sekä taloudellinen että ympäristöongelma",
+          "Ei kumpikaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ruoan tuotanto kuluttaa?",
+        "options": [
+          "Paljon rahaa",
+          "Luonnonvaroja",
+          "Aikaa",
+          "Energiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten ruokahävikkiä voi vähentää?",
+        "options": [
+          "Ostamalla enemmän ruokaa",
+          "Suunnittelemalla ostoksia, hyödyntämällä tähteitä ja säilyttämällä ruokaa oikein",
+          "Heittämällä ruokaa pois aikaisemmin",
+          "Ostamalla vain eineksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'tähteiden hyödyntämisellä'?",
+        "options": [
+          "Tähteiden heittämistä pois",
+          "Tähteiden käyttämistä uudelleen aterioissa",
+          "Tähteiden myymistä",
+          "Tähteiden kompostointia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

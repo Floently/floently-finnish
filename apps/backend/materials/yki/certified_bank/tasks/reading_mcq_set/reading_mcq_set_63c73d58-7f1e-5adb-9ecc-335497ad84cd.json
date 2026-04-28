@@ -1,0 +1,88 @@
+{
+  "id": "63c73d58-7f1e-5adb-9ecc-335497ad84cd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.759,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Hyvinvointiteknologian nopea kehitys on tuonut uusia mahdollisuuksia terveyden edistämiseen, sairauksien hoitoon ja ikääntyvien kotona asumisen tukemiseen. Samalla se on herättänyt monia eettisiä kysymyksiä, jotka vaativat yhteiskunnallista keskustelua ja sääntelyä. Hyvinvointiteknologialla tarkoitetaan digitaalisia ratkaisuja, kuten terveyssovelluksia, etähoitopalveluita, älykkäitä terveysmittareita ja robotiikkaa, joiden tavoitteena on parantaa ihmisten hyvinvointia ja terveyttä. Yksi keskeisimmistä eettisistä kysymyksistä on tietosuoja ja yksityisyys. Hyvinvointiteknologia kerää valtavia määriä arkaluonteista terveystietoa, kuten syketietoja, unen laatua, liikkumista ja jopa genomitietoa. Kenellä on oikeus näihin tietoihin? Miten varmistetaan, että niitä käytetään vain hyvinvoinnin edistämiseen eikä esimerkiksi vakuutusyhtiöiden tai työnantajien toimintaan? Entä jos tiedot vuotavat tai joutuvat vääriin käsiin? Toinen keskeinen kysymys on teknologian saatavuus ja tasa-arvo. Kaikilla ei ole varaa uusimpiin laitteisiin, eikä kaikilla ole taitoja käyttää niitä. Tämä voi johtaa siihen, että hyvinvointiteknologia lisää terveyseroja: ne, joilla on jo ennestään hyvä terveys ja taloudellinen asema, hyötyvät eniten, kun taas heikommassa asemassa olevat jäävät jälkeen. Kolmas kysymys koskee inhimillisen vuorovaikutuksen vähenemistä. Jos teknologia korvaa liikaa ihmisten välistä kanssakäymistä esimerkiksi vanhustenhoidossa, saatetaan menettää jotain korvaamatonta: empatiaa, lämpöä ja inhimillistä läsnäoloa. Robotti voi muistuttaa lääkkeiden otosta, mutta se ei voi korvata ihmisen kosketusta ja keskustelua. Neljäs kysymys liittyy autonomiaan ja itsemääräämisoikeuteen. Jos teknologia seuraa jatkuvasti ihmisen toimia ja tekee päätöksiä hänen puolestaan, miten käy yksilön vapauden ja oman tahdon? On tärkeää, että teknologia tukee ihmisen omaa päätöksentekoa eikä ohjaa häntä huomaamatta.",
+      "word_count": 218
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on hyvinvointiteknologian keskeisin eettinen ongelma?",
+        "options": [
+          "Teknologian korkea hinta",
+          "Tietosuoja ja yksityisyys",
+          "Laitteiden toimintavarmuus",
+          "Teknologian monimutkaisuus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten hyvinvointiteknologia voi lisätä terveyseroja?",
+        "options": [
+          "Se on tarkoitettu vain sairaille",
+          "Kaikilla ei ole varaa tai taitoa käyttää sitä",
+          "Se toimii vain tietyillä alueilla",
+          "Se on saatavilla vain yksityisellä sektorilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä inhimillistä voidaan menettää, jos teknologia korvaa liikaa ihmiskontakteja?",
+        "options": [
+          "Tehokkuutta ja nopeutta",
+          "Taloudellisia säästöjä",
+          "Empatiaa ja inhimillistä läsnäoloa",
+          "Teknistä osaamista"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan autonomialla hyvinvointiteknologian yhteydessä?",
+        "options": [
+          "Teknologian itsenäistä toimintaa",
+          "Yksilön vapautta ja itsemääräämisoikeutta",
+          "Laitteiden akun kestoa",
+          "Automaattisia päivityksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä arkaluonteista tietoa hyvinvointiteknologia kerää?",
+        "options": [
+          "Vain ikätietoja",
+          "Syketietoja, unen laatua ja liikkumista",
+          "Vain lääkärissä käyntitietoja",
+          "Vain ruokavalioita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

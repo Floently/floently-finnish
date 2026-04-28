@@ -1,0 +1,37 @@
+{
+  "id": "e06862af-a9d4-5f95-a195-da8f5ac7c5e0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.726,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti tietosuojavaltuutetun toimiston johtavalle tietosuoja-asiantuntijalle. Olet saanut selville, että viranomainen on luovuttanut henkilötietojasi kolmannelle osapuolelle ilman suostumustasi. Kerro, mitä tietoja on luovutettu, kenelle niitä on luovutettu ja miten sait asian selville. Pyydä, että asia tutkitaan ja että viranomaista ohjeistetaan noudattamaan tietosuojasäännöksiä.",
+    "materials": {
+      "scenario": "Viranomaisen suorittama henkilötietojen luvaton luovutus"
+    },
+    "items": [
+      {
+        "id": "98bded9f-0380-5d42-9145-44a0200efeb2",
+        "prompt": "Kirjoita virallinen sähköposti tietosuojavaltuutetun toimiston johtavalle tietosuoja-asiantuntijalle. Olet saanut selville, että viranomainen on luovuttanut henkilötietojasi kolmannelle osapuolelle ilman suostumustasi. Kerro, mitä tietoja on luovutettu, kenelle niitä on luovutettu ja miten sait asian selville. Pyydä, että asia tutkitaan ja että viranomaista ohjeistetaan noudattamaan tietosuojasäännöksiä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

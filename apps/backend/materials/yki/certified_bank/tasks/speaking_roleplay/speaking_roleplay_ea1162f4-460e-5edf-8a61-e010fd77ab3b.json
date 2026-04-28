@@ -1,0 +1,40 @@
+{
+  "id": "ea1162f4-460e-5edf-8a61-e010fd77ab3b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele lentokentän turvatarkastajan kanssa. Vastaa kysymyksiin ja toimi ohjeiden mukaan.",
+    "materials": {
+      "roles": {
+        "user": "lentokentällä menossa ulkomaanmatkalle",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "40627a8a-b606-5ea7-8151-54c6a0fa6a52",
+        "ai_first_turn_fi": "Päivää, saisinko teidän matkatavarat tähän. Onko teillä laukussa kannettavaa tietokonetta tai nesteitä?"
+      }
+    ],
+    "rubric": "Keskustele lentokentän turvatarkastajan kanssa. Vastaa kysymyksiin ja toimi ohjeiden mukaan.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

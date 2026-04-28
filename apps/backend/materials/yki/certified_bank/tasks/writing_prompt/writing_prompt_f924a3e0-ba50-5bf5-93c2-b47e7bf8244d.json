@@ -1,0 +1,37 @@
+{
+  "id": "f924a3e0-ba50-5bf5-93c2-b47e7bf8244d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a deputy mayor position in a large city. Tell about your experience in city management, developing vitality, and renewing the service network. Also describe how you have promoted the city's strategic goals and built partnerships. Length about 360 words.",
+    "materials": {
+      "scenario": "Hakemus apulaiskaupunginjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a deputy mayor position in a large city. Tell about your experience in city management, developing vitality, and renewing the service network. Also describe how you have promoted the city's strategic goals and built partnerships. Length about 360 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a deputy mayor position in a large city. Tell about your experience in city management, developing vitality, and renewing the service network. Also describe how you have promoted the city's strategic goals and built partnerships. Length about 360 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

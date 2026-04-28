@@ -1,0 +1,77 @@
+{
+  "id": "a8790676-806e-5e9b-91cb-4c364da924ba",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.757,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "DIGITALISAATIO JA YHTEISKUNNALLINEN TASA-ARVO\n\nDigitalisaatio on viime vuosikymmeninä muuttanut yhteiskuntaamme perusteellisesti. Palvelut ovat siirtyneet verkkoon, työ on muuttunut joustavammaksi ja tiedonkulku on nopeutunut. Samalla on kuitenkin syntynyt uudenlaisia jakolinjoja.\n\nDigitaalinen kuilu tarkoittaa eroa niiden välillä, joilla on pääsy digitaalisiin palveluihin ja taidot käyttää niitä, ja niiden, joilla ei ole. Tämä kuilu ei kulje ainoastaan sukupolvien välillä, vaan myös koulutuksen, tulotason ja asuinpaikan mukaan. Korkeasti koulutettu kaupunkilainen omaksuu uudet sovellukset vaivatta, kun taas ikääntynyt maaseudun asukas saattaa pudota palvelujen ulkopuolelle.\n\nToinen ongelma on osallisuuden kapeutuminen. Kun yhteiskunnallinen keskustelu siirtyy some-alustoille, algoritmit määrittelevät yhä vahvemmin sitä, mitä näemme ja mitä emme. Tämä luo kuplia, joissa omat mielipiteet vahvistuvat eikä vastakkaisia näkökulmia tule vastaan. Polarisaatio lisääntyy, ja yhteisen ymmärryksen rakentaminen vaikeutuu.\n\nKolmas haaste liittyy demokratiaan. Digitaaliset alustat ovat yksityisten yritysten omistuksessa, ja niiden toimintaa säätelevät liiketoiminnan logiikat, eivät demokraattiset periaatteet. Tämä herättää kysymyksiä vallasta ja omistajuudesta: kuka oikeastaan määrittelee, mikä on tärkeää ja mikä näkyvää?\n\nRatkaisut eivät ole yksinkertaisia. Tarvitaan panostuksia digitaitoihin, jotta kukaan ei jää ulkopuolelle. Tarvitaan algoritmien läpinäkyvyyttä ja demokraattista valvontaa. Ja tarvitaan keskustelua siitä, millaista yhteiskuntaa haluamme rakentaa. Digitalisaatio ei ole arvovapaa prosessi – se on poliittinen valinta, jolla on voittajansa ja häviäjänsä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 226
+    },
+    "questions": [
+      {
+        "id": "67131682-31ab-5264-a4fe-6cc387255310",
+        "prompt": "Mitä tarkoitetaan 'digitaalisella kuilulla'?",
+        "options": [
+          "Eri maiden välistä eroa digitaalisessa kehityksessä",
+          "Eroa digipalvelut hallitsevien ja niiden ulkopuolelle jäävien välillä",
+          "Teknisten laitteiden aiheuttamaa eriarvoisuutta",
+          "Nuorten ja vanhojen välistä teknologista eroa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "15b78d40-abd7-5d4d-a91f-c6388936eef6",
+        "prompt": "Miten some-alustat vaikuttavat yhteiskunnalliseen keskusteluun?",
+        "options": [
+          "Ne monipuolistavat keskustelua",
+          "Ne luovat kuplia ja lisäävät polarisaatiota",
+          "Ne tekevät keskustelusta avoimempaa",
+          "Ne vähentävät vastakkainasettelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5a68e28b-e3f5-5a45-81c6-1f1fc47999b4",
+        "prompt": "Mitä ongelmia yksityisten alustojen vallassa on?",
+        "options": [
+          "Ne ovat liian kalliita",
+          "Ne toimivat liiketoiminnan logiikoilla, eivät demokraattisilla periaatteilla",
+          "Niitä on liian vähän",
+          "Ne ovat tehottomia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "02590621-b43c-5820-ae58-5d5d1a0a71e4",
+        "prompt": "Mitä kirjoittaja tarkoittaa, että digitalisaatio on 'poliittinen valinta'?",
+        "options": [
+          "Vain poliitikot voivat päättää digitalisaatiosta",
+          "Sillä on voittajansa ja häviäjänsä, ja se heijastaa arvovalintoja",
+          "Digitalisaatio on puolueiden välinen kysymys",
+          "Se on väistämätöntä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

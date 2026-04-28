@@ -1,0 +1,37 @@
+{
+  "id": "8ad754de-e86f-5257-97ba-c1b45fcb06cc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.342,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kuntosalin venyttelyalueesta. Onko siellä mattoja? Onko tilaa tarpeeksi?",
+    "materials": {
+      "scenario": "Palaute kuntosalin venyttelyalueesta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute kuntosalin venyttelyalueesta. Onko siellä mattoja? Onko tilaa tarpeeksi?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kuntosalin venyttelyalueesta. Onko siellä mattoja? Onko tilaa tarpeeksi?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

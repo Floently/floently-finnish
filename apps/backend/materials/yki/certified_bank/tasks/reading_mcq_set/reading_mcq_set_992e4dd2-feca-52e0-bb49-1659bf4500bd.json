@@ -1,0 +1,88 @@
+{
+  "id": "992e4dd2-feca-52e0-bb49-1659bf4500bd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Talvella Suomessa on kylmä. Pakkasta voi olla -20 astetta. Lunta sataa paljon. Ihmiset pukeutuvat lämpimästi. He käyttävät takkia, pipoa ja hanskoja. Talvella voi hiihtää ja luistella. Lapset rakentavat lumiukkoja. He laskevat mäkeä pulkalla. Monet sytyttävät kynttilöitä pimeänä iltana. Joulu tuo valoa talveen. Talvella on myös kaunista, kun lumi peittää maiseman. Monet odottavat jo kevättä.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen sää talvella on?",
+        "options": [
+          "Lämmin",
+          "Kylmä",
+          "Viileä",
+          "Kuuma"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten ihmiset pukeutuvat talvella?",
+        "options": [
+          "Kevyesti",
+          "Lämpimästi",
+          "Ohuesti",
+          "Sateenvarjon kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä talvella voi harrastaa?",
+        "options": [
+          "Uida ja kalastaa",
+          "Hiihtää ja luistella",
+          "Pelata jalkapalloa",
+          "Pyöräillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä lapset tekevät talvella?",
+        "options": [
+          "Uivat",
+          "Rakentavat lumiukkoja ja laskevat mäkeä",
+          "Keräävät marjoja",
+          "Leikkivät hiekkalaatikolla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä juhlaa talvella vietetään?",
+        "options": [
+          "Juhannusta",
+          "Joulua",
+          "Pääsiäistä",
+          "Vappua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "d598a146-89b1-5b1d-b614-88b0bf820ea1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita ilmoitus kadonneesta tavarasta.",
+    "materials": {
+      "scenario": "Kirjoita ilmoitus kadonneesta tavarasta."
+    },
+    "items": [
+      {
+        "id": "99256099-b090-564f-859e-583271a4a35a",
+        "prompt": "Kadotit kukkarosi bussissa. Kirjoita ilmoitus, jonka voit laittaa someen. Kerro, minkä värinen kukkaro oli, mitä siellä oli (esim. henkilökortti, 20 euroa) ja mihin numeroon pitää soittaa, jos sen löytää."
+      }
+    ],
+    "rubric": "Kadotit kukkarosi bussissa. Kirjoita ilmoitus, jonka voit laittaa someen. Kerro, minkä värinen kukkaro oli, mitä siellä oli (esim. henkilökortti, 20 euroa) ja mihin numeroon pitää soittaa, jos sen löytää.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

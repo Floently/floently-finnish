@@ -1,0 +1,77 @@
+{
+  "id": "86f09cab-2dad-5938-b579-51c3fb4dd71f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele luento ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät kuulijat, tervetuloa kuuntelemaan luentoa aiheesta 'Mielenterveys muuttuvassa maailmassa'. Olen psykologi ja psykoterapeutti Matti Hakala.\n\nMielenterveys on yksi keskeisimmistä hyvinvoinnin osa-alueista, ja sen merkitys ymmärretään nykyään paremmin kuin koskaan. Samalla mielenterveysongelmat ovat lisääntyneet, erityisesti nuorten keskuudessa. Mistä tämä johtuu?\n\nYksi selitys on elämänrytmin muutos. Työelämä on tehostunut, vaatimukset ovat kasvaneet, ja kiire on läsnä kaikkialla. Ihmisillä on vähemmän aikaa palautua ja levätä. Työn ja vapaa-ajan raja on hämärtynyt, kun sähköpostit ja työpuhelut seuraavat kotiin.\n\nToinen merkittävä tekijä on sosiaalinen media. Se tarjoaa mahdollisuuden pitää yhteyttä, mutta samalla se altistaa vertailulle, kateudelle ja riittämättömyyden tunteille. Some on täynnä kuvia täydellisistä elämistä, ja oma arki saattaa tuntua harmaalta. Myös kiusaaminen on siirtynyt someen, ja se voi olla rajumpaa kuin perinteinen kiusaaminen.\n\nKolmas tekijä on yksinäisyys. Vaikka olemme yhteydessä toisiimme enemmän kuin koskaan, monet kokevat syvää yksinäisyyttä. Perinteiset yhteisöt, kuten perhe, naapurusto ja työyhteisö, ovat heikentyneet, eikä uusia ole syntynyt tilalle.\n\nMiten sitten voimme suojella mielenterveyttämme? Ensinnäkin on tärkeää tunnistaa omat voimavaransa ja rajoittaa kuormitusta. Tauot, uni, liikunta ja terveellinen ruoka ovat perusasioita, jotka auttavat jaksamaan. Toiseksi on tärkeää vaalia ihmissuhteita ja hakea tukea, kun sitä tarvitsee. Kolmanneksi on hyvä oppia hyväksymään, että elämä ei ole aina täydellistä – epävarmuus ja epätäydellisyys kuuluvat elämään.\n\nYhteiskunnan tehtävä on luoda rakenteita, jotka tukevat mielenterveyttä. Tarvitaan matalan kynnyksen palveluita, koulujen ja työpaikkojen panostusta hyvinvointiin ja mielenterveysongelmien stigmaa vähentävää keskustelua.\n\nMuistakaamme: mielenterveys ei ole vain sairauden poissaoloa, vaan se on voimavara, joka auttaa meitä elämään täysipainoista elämää.",
+      "audio_asset_id": "db4358b0-8c00-5d4e-a99c-e64936185411"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä syitä luennoitsija mainitsee mielenterveysongelmien lisääntymiselle?",
+        "options": [
+          "Vain some",
+          "Elämänrytmin muutos, sosiaalinen media ja yksinäisyys",
+          "Vain työelämän muutokset",
+          "Perinnölliset tekijät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten sosiaalinen media vaikuttaa mielenterveyteen?",
+        "options": [
+          "Vain positiivisesti",
+          "Altistaa vertailulle, kateudelle ja riittämättömyyden tunteille",
+          "Ei vaikuta mitenkään",
+          "Vain negatiivisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä perusasioita luennoitsija mainitsee jaksamisen kannalta?",
+        "options": [
+          "Raha ja menestys",
+          "Tauot, uni, liikunta ja terveellinen ruoka",
+          "Ulkonäkö ja suosio",
+          "Matkustelu ja harrastukset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä luennoitsija sanoo mielenterveydestä?",
+        "options": [
+          "Se on vain sairauden poissaoloa",
+          "Se on voimavara, joka auttaa elämään täysipainoista elämää",
+          "Se on merkityksetöntä",
+          "Se on vain nuorten ongelma"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

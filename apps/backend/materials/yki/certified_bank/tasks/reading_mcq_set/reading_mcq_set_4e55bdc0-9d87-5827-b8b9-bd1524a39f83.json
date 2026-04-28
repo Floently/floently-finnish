@@ -1,0 +1,66 @@
+{
+  "id": "4e55bdc0-9d87-5827-b8b9-bd1524a39f83",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KAUPUNGINKIRJASTO\n\nAukioloajat:\nMaanantai–perjantai 10–20\nLauantai 10–16\nSunnuntai suljettu\n\nOsoite: Kirjastokatu 5, 00100 Helsinki\nPuhelin: 09 123 4567  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "a1ece038-c78a-5e90-a84a-f1c29ea2b98b",
+        "prompt": "Mihin aikaan kirjasto aukeaa maanantaina?",
+        "options": [
+          "A) klo 8",
+          "B) klo 9",
+          "C) klo 10",
+          "D) klo 11"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "e8f161f1-187f-50cb-b922-f31d53273099",
+        "prompt": "Onko kirjasto auki sunnuntaina?",
+        "options": [
+          "A) Kyllä, klo 10–16",
+          "B) Kyllä, klo 12–18",
+          "C) Ei, se on kiinni",
+          "D) Kyllä, klo 10–20"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "197d29dd-6ec2-5b94-a97a-62520bb11087",
+        "prompt": "Mikä on kirjaston puhelinnumero?",
+        "options": [
+          "A) 09 123 4560",
+          "B) 09 123 4567",
+          "C) 09 123 4568",
+          "D) 09 123 4569"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "3c47b5a5-54a4-5629-971e-fbad4ff55e39",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit kaupungin puistossa. Kirjoita palaute. Kerro, oliko puisto siisti, oliko penkkejä riittävästi ja oliko roskiksia tyhjennetty.",
+    "materials": {
+      "scenario": "Palaute kaupungin puistosta"
+    },
+    "items": [
+      {
+        "id": "c7813138-eb56-552c-8a73-7999735edf6d",
+        "prompt": "Kävit kaupungin puistossa. Kirjoita palaute. Kerro, oliko puisto siisti, oliko penkkejä riittävästi ja oliko roskiksia tyhjennetty."
+      }
+    ],
+    "rubric": "Siisteys\nPenkkien riittävyys\nRoskisten tyhjennys",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

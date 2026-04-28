@@ -1,0 +1,88 @@
+{
+  "id": "a6387187-332f-5c35-94d9-e31e0cbc2e63",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radio-ohjelma nuorten vapaa-ajasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Juontaja: Tänään keskustelemme nuorten vapaa-ajan vietosta. Studiossa on nuorisotutkija Laura Mäkelä. Laura, miten nuorten vapaa-aika on muuttunut? Mäkelä: Se on pirstaloitunut. Ennen nuoret harrastivat samoja asioita pitkään, nykyään harrastukset vaihtuvat nopeasti. Myös digitaalinen viihde vie yhä enemmän aikaa. Juontaja: Onko tämä huono asia? Mäkelä: Ei välttämättä. Netissä voi oppia paljon ja solmia ystävyyssuhteita. Ongelma on, jos ruutuaika on kohtuuton ja vie ajan muulta tekemiseltä, kuten liikunnalta ja kasvokkain tapahtuvalta kanssakäymiseltä. Juontaja: Mitä vanhemmat voisivat tehdä? Mäkelä: Tärkeintä on keskustella ja olla kiinnostunut. Asettaa yhdessä rajoja ruutuajalle, mutta myös tarjota vaihtoehtoja, kuten yhteisiä retkiä ja harrastuksia. Malli tulee usein kotoa.",
+      "audio_asset_id": "b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e"
+    },
+    "questions": [
+      {
+        "id": "l68q1",
+        "prompt": "Miten nuorten vapaa-aika on tutkijan mukaan muuttunut?",
+        "options": [
+          "Harrastukset kestävät pidempään.",
+          "Harrastukset vaihtuvat nopeasti ja digitaalinen viihde vie enemmän aikaa.",
+          "Nuoret viettävät vähemmän aikaa netissä.",
+          "Vapaa-aika on vähentynyt."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l68q2",
+        "prompt": "Mitä hyvää tutkija näkee netin käytössä?",
+        "options": [
+          "Se on ilmaista.",
+          "Siellä voi oppia paljon ja solmia ystävyyssuhteita.",
+          "Se vähentää yksinäisyyttä.",
+          "Se on turvallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l68q3",
+        "prompt": "Mikä on ongelma, jos ruutuaika on kohtuuton?",
+        "options": [
+          "Se vie ajan koulutehtäviltä.",
+          "Se vie ajan liikunnalta ja kasvokkain tapahtuvalta kanssakäymiseltä.",
+          "Se aiheuttaa riitoja kotona.",
+          "Se on kallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l68q4",
+        "prompt": "Mitä tutkija neuvoo vanhempia tekemään?",
+        "options": [
+          "Kieltämään kaiken digitaalisen viihteen.",
+          "Keskustelemaan, olemaan kiinnostuneita ja asettamaan yhdessä rajoja.",
+          "Antamaan lasten päättää itse.",
+          "Lisäämään ruutuaikaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l68q5",
+        "prompt": "Mistä malli usein tulee?",
+        "options": [
+          "Koulusta.",
+          "Kavereilta.",
+          "Kotoa.",
+          "Mediasta."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

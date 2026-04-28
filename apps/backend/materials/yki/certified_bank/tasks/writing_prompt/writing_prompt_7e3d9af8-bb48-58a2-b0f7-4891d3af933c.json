@@ -1,0 +1,37 @@
+{
+  "id": "7e3d9af8-bb48-58a2-b0f7-4891d3af933c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin skeittipuistosta. Arvioi ramppien kuntoa, turvallisuutta ja valaistusta. Ehdota yhtä uutta elementtiä.",
+    "materials": {
+      "scenario": "Palaute kaupungin skeittipuistosta"
+    },
+    "items": [
+      {
+        "id": "794e1a87-c3c6-5753-b557-8ad30b09cb2c",
+        "prompt": "Kirjoita palauteteksti kaupungin skeittipuistosta. Arvioi ramppien kuntoa, turvallisuutta ja valaistusta. Ehdota yhtä uutta elementtiä."
+      }
+    ],
+    "rubric": "Ramppien kunto\nTurvallisuus\nValaistus\nUusi elementti",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

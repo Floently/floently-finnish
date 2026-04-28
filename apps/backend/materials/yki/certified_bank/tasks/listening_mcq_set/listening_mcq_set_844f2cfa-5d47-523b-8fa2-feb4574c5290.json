@@ -1,0 +1,77 @@
+{
+  "id": "844f2cfa-5d47-523b-8fa2-feb4574c5290",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.753,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele radiohaastattelu kulttuuriesineiden palautuksesta ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Toimittaja: Museot keskustelevat yhä enemmän kokoelmiin kuuluvien kulttuuriesineiden palautuksesta alkuperäyhteisöille. Museojohtaja Leppä, mikä on suurin muutos ajattelussa? Leppä: Enää ei kysytä vain omistusoikeutta, vaan myös sitä, millä ehdoilla esine on aikoinaan hankittu ja kenen ääni puuttuu tarinasta. Tutkija Aalto: Juuri näin, mutta keskustelussa pitää erottaa symboliset eleet ja pitkäjänteiset yhteistyösopimukset. Toimittaja: Mitä tarkoitatte yhteistyösopimuksilla? Aalto: Esimerkiksi yhteiskuraattoruutta, jossa alkuperäyhteisö päättää esillepanon sisällöistä yhdessä museon kanssa. Leppä: Tämä vaatii myös resurssia, koska pelkkä palautuspäätös ilman jatkosuunnitelmaa voi jättää vastuun epäselväksi. Toimittaja: Onko palautus aina paras ratkaisu? Aalto: Ei automaattisesti, mutta prosessin pitää olla läpinäkyvä ja aidosti neuvoteltu, ei valmiiksi rajattu. Leppä: Joskus yhteisölle tärkeintä onkin päätösvalta tulkinnasta, ei vain fyysinen siirto.",
+      "audio_asset_id": "1438c61e-de36-587a-9bbe-acbdf384e620"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä ajattelutavan muutos haastattelussa kuvataan?",
+        "options": [
+          "keskitytään vain varastointikuluihin",
+          "omistuksen lisäksi tarkastellaan hankinnan ehtoja ja puuttuvia ääniä",
+          "palautuksia ei enää käsitellä lainkaan",
+          "esineet digitoidaan aina palautuksen sijasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä Aalto tarkoittaa pitkäjänteisellä yhteistyöllä?",
+        "options": [
+          "vain museon sisäistä koulutusta",
+          "yhteiskuraattoruutta ja yhteistä päätöksentekoa",
+          "nopeaa kuljetusjärjestelyä",
+          "yksittäistä tiedotustilaisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Miksi Leppä korostaa jatkosuunnitelmaa palautuspäätöksen jälkeen?",
+        "options": [
+          "jotta vastuu ei jää epäselväksi",
+          "jotta esineet voidaan myydä",
+          "jotta näyttelyt lopetetaan",
+          "jotta kävijämäärä pienenee"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on haastattelun implisiittinen viesti parhaasta menettelytavasta?",
+        "options": [
+          "kaikki esineet pitää palauttaa heti ilman keskustelua",
+          "prosessi vaatii läpinäkyvää neuvottelua ja päätösvallan jakamista",
+          "museo päättää yksin, koska sillä on asiantuntemus",
+          "keskustelu kannattaa siirtää tulevaisuuteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

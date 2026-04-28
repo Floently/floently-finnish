@@ -1,0 +1,99 @@
+{
+  "id": "7c24784d-25a3-5f82-ae88-8ef37e3da48e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.563,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kaupunkien viheralueet ja puistot ovat tärkeitä kaupunkilaisten hyvinvoinnille. Ne tarjoavat paikan rentoutua, liikkua ja kohdata muita ihmisiä. Viheralueet myös parantavat ilmanlaatua ja vähentävät melua. Kaupunkien tiivistyessä viheralueiden säilyttäminen on haaste. Päättäjät joutuvat punnitsemaan, rakennetaanko uusia asuntoja vai säilytetäänkö puisto. Asukkaat osallistuvat yhä useammin keskusteluun siitä, mitkä viheralueet ovat kaikkein tärkeimpiä.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi viheralueet ja puistot ovat tärkeitä kaupunkilaisille?",
+        "options": [
+          "Ne lisäävät autoilua",
+          "Ne tarjoavat paikan rentoutua, liikkua ja kohdata ihmisiä",
+          "Ne lisäävät melua",
+          "Ne huonontavat ilmanlaatua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä muuta hyötyä viheralueista on?",
+        "options": [
+          "Ne lisäävät rakentamista",
+          "Ne parantavat ilmanlaatua ja vähentävät melua",
+          "Ne lisäävät liikennettä",
+          "Ne vähentävät asukkaiden määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on haaste kaupunkien tiivistyessä?",
+        "options": [
+          "Viheralueiden lisääminen",
+          "Viheralueiden säilyttäminen",
+          "Uusien puistojen rakentaminen",
+          "Melun lisääminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä päättäjät joutuvat punnitsemaan?",
+        "options": [
+          "Rakennetaanko uusia teitä vai kouluja",
+          "Rakennetaanko uusia asuntoja vai säilytetäänkö puisto",
+          "Lisätäänkö parkkipaikkoja vai bussiliikennettä",
+          "Vähennetäänkö veroja vai lisätäänkö palveluja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten asukkaat osallistuvat päätöksentekoon?",
+        "options": [
+          "He eivät osallistu ollenkaan",
+          "He osallistuvat keskusteluun siitä, mitkä viheralueet ovat tärkeitä",
+          "He päättävät yksin",
+          "He keräävät nimiä adresseihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'kaupunkien tiivistymisellä'?",
+        "options": [
+          "Kaupunki laajenee pelloille",
+          "Rakentaminen on tehokkaampaa ja tilaa käytetään säästeliäämmin",
+          "Kaupungin väkiluku pienenee",
+          "Puistojen määrä lisääntyy"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

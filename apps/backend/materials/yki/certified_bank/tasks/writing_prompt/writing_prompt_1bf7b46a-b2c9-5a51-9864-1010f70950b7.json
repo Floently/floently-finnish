@@ -1,0 +1,37 @@
+{
+  "id": "1bf7b46a-b2c9-5a51-9864-1010f70950b7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuvaile jotakin perinteistä ruokaa, jota teet kotona.",
+    "materials": {
+      "scenario": "Perinneruoka kotona"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kuvaile jotakin perinteistä ruokaa, jota teet kotona."
+      }
+    ],
+    "rubric": "Kuvaile jotakin perinteistä ruokaa, jota teet kotona.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

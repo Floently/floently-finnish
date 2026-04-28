@@ -1,0 +1,99 @@
+{
+  "id": "a82d9801-41de-5691-8307-cc608acd15e8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kevät on monelle suomalaiselle vuoden odotetuin aika. Luonto herää eloon, linnut laulavat ja päivät pitenevät. Ihmiset viettävät enemmän aikaa ulkona ja nauttivat auringosta. Monille kevät merkitsee myös pihatöiden alkua ja puutarhanhoitoa. Keväällä on tapana tehdä suursiivous ja heittää talven aikana kertynyt ylimääräinen tavara pois. Kevät tuo mukanaan uutta energiaa.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä vuodenaika on monelle suomalaiselle odotetuin?",
+        "options": [
+          "Kesä",
+          "Kevät",
+          "Syksy",
+          "Talvi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä keväällä tapahtuu luonnossa?",
+        "options": [
+          "Lumet sulavat ja pakkanen kiristyy",
+          "Luonto herää eloon ja linnut laulavat",
+          "Lehdet putoavat ja illat pimenevät",
+          "Lämpötila laskee ja päivät lyhenevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ihmiset tekevät keväällä enemmän?",
+        "options": [
+          "Nukkuvat",
+          "Ovat ulkona",
+          "Katsovat televisiota",
+          "Matkustavat ulkomaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kevät merkitsee monille?",
+        "options": [
+          "Talviurheilun alkua",
+          "Pihatöiden ja puutarhanhoidon alkua",
+          "Sisällä oleskelua",
+          "Lomamatkojen loppua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on keväällä tapana tehdä?",
+        "options": [
+          "Jouluvalmistelut",
+          "Suursiivous ja turhan tavaran pois heittäminen",
+          "Talvitelojen laitto",
+          "Loman suunnittelu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä kevät tuo mukanaan tekstin mukaan?",
+        "options": [
+          "Väsymystä",
+          "Uutta energiaa",
+          "Ikävää",
+          "Yksinäisyyttä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

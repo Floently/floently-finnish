@@ -1,0 +1,37 @@
+{
+  "id": "d717da4b-3523-57d2-ac1e-eabe6b1a76d5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.354,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet osallistunut vapaaehtoisena ruuanjakeluun. Kirjoita palaute järjestäjille. Kerro, oliko tehtävät selkeät, oliko yhteistyö muiden vapaaehtoisten kanssa sujuvaa ja kokiko, että työstä arvostettiin.",
+    "materials": {
+      "scenario": "Palaute vapaaehtoistyöstä"
+    },
+    "items": [
+      {
+        "id": "3163e379-e387-5d9e-ae4b-0181079b6011",
+        "prompt": "Olet osallistunut vapaaehtoisena ruuanjakeluun. Kirjoita palaute järjestäjille. Kerro, oliko tehtävät selkeät, oliko yhteistyö muiden vapaaehtoisten kanssa sujuvaa ja kokiko, että työstä arvostettiin."
+      }
+    ],
+    "rubric": "Tehtävien selkeys\nYhteistyön sujuvuus\nArvostuksen kokemus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

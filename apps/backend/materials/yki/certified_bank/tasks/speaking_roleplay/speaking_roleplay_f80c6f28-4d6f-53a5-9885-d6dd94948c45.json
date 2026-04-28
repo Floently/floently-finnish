@@ -1,0 +1,40 @@
+{
+  "id": "f80c6f28-4d6f-53a5-9885-d6dd94948c45",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.288,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell where you use Finnish: at the store, at work, with friends. Do you speak Finnish every day?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "8ef1d443-3d02-59a7-98da-5ff6ddb7841f",
+        "ai_first_turn_fi": "Käytätkö sä suomea päivittäin? Missä tilanteissa?"
+      }
+    ],
+    "rubric": "Tell where you use Finnish: at the store, at work, with friends. Do you speak Finnish every day?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

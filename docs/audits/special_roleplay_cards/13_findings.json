@@ -1,0 +1,300 @@
+[
+  {
+    "id": "F001",
+    "title": "load_runtime_bank KeyError 'prompt'",
+    "category": "cards-runtime",
+    "severity": "Critical",
+    "verdict": "FAIL",
+    "deployment_impact": "blocks",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/cards_material_bank.py:105"
+    ],
+    "evidence": "Line 105: `prompt=item['prompt']` raises KeyError because load_authority_cards() stores the prompt under 'follow_up_prompt', not 'prompt'. The CardRecord dataclass requires a 'prompt: str' field.",
+    "recommended_fix": "Replace `item['prompt']` with `item.get('follow_up_prompt') or item.get('front') or ''` on line 105.",
+    "verification_steps": "GET /cards/session?mode=vocabulary returns HTTP 200 with items array; no 500 error in logs.",
+    "regression_risk": "high",
+    "status": "open",
+    "release_blocker": true
+  },
+  {
+    "id": "F002",
+    "title": "Doctor card content: front=Finnish, back=Finnish, no English translation",
+    "category": "content",
+    "severity": "Critical",
+    "verdict": "FAIL",
+    "deployment_impact": "blocks",
+    "owner": "content",
+    "file_paths": [
+      "apps/backend/practice/data/cards/doctor_cards.json"
+    ],
+    "evidence": "Sample card: {\"type\":\"recognition\",\"question\":\"Mikä sana tämä on?\",\"prompt\":\"potilas\",\"options\":[\"potilas\",\"palkkio\",\"suolisto\",\"keuhka\"],\"answer\":\"potilas\"}. load_authority_cards() line 68-69: front=item.get('prompt')='potilas', back=item.get('answer')='potilas'. Both are the same Finnish word. 11,507 cards have this pattern.",
+    "recommended_fix": "Add 'english' or 'translation' field to each card item containing the English gloss. OR switch the runtime to load from materials/cards/published/ which has proper bilingual content (content.back.gloss = English translation).",
+    "verification_steps": "Inspect 20 doctor cards from the deck endpoint - front_text shows Finnish term, back_prompt shows English translation.",
+    "regression_risk": "high",
+    "status": "open",
+    "release_blocker": true
+  },
+  {
+    "id": "F003",
+    "title": "Nurse card content: front=Finnish, back=Finnish, no English translation",
+    "category": "content",
+    "severity": "Critical",
+    "verdict": "FAIL",
+    "deployment_impact": "blocks",
+    "owner": "content",
+    "file_paths": [
+      "apps/backend/practice/data/cards/nurse_cards.json"
+    ],
+    "evidence": "Sample card: {\"type\":\"recognition\",\"prompt\":\"lääkäri\",\"answer\":\"lääkäri\"}. 7,551 cards have Finnish word in both prompt and answer fields. No English translations anywhere in the file.",
+    "recommended_fix": "Same as F002 — add English translations or switch to published materials.",
+    "verification_steps": "Inspect 20 nurse cards from deck endpoint - front_text shows Finnish, back_prompt shows English translation.",
+    "regression_risk": "high",
+    "status": "open",
+    "release_blocker": true
+  },
+  {
+    "id": "F004",
+    "title": "TTS provider not configured - silent failure in production",
+    "category": "infra",
+    "severity": "Critical",
+    "verdict": "FAIL",
+    "deployment_impact": "blocks",
+    "owner": "infra",
+    "file_paths": [
+      "apps/backend/app/core/config.py:151-165",
+      "apps/backend/app/services/tts/runtime.py:149-180",
+      "apps/backend/app/services/tts/providers/openai.py:11-12",
+      "apps/backend/app/services/tts/providers/google.py:11-12"
+    ],
+    "evidence": "config.py default: openai_api_key='', google_tts_credentials_path=None. _pick_provider_and_voice() returns (None, None) if no credentials configured. resolve_tts_audio() then raises TTSRouterError. Voice service raises AppError(503). Frontend requestRoleplayTts() catches error, returns null. speakRoleplayText() calls onUnavailable() -> setRemoteAudioAvailable(false) -> shows 'TTS ei saatavilla' warning.",
+    "recommended_fix": "Set OPENAI_API_KEY environment variable in production, OR set GOOGLE_TTS_CREDENTIALS_PATH and GOOGLE_TTS_ENABLED=true. Verify with health endpoint.",
+    "verification_steps": "GET /api/v1/voice/tts/health -> providers.openai or providers.google shows 'ok'. Then POST /api/v1/voice/tts/requests with {\"text\":\"Hei\",\"voice_preference\":\"female\"} -> returns audio.url.",
+    "regression_risk": "high",
+    "status": "open",
+    "release_blocker": true
+  },
+  {
+    "id": "F005",
+    "title": "Roleplay finish_session response shape mismatch",
+    "category": "roleplay",
+    "severity": "High",
+    "verdict": "FAIL",
+    "deployment_impact": "should-fix",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/roleplay.py:216-247",
+      "packages/core/api/roleplay.ts:51-76",
+      "apps/client/features/speaking/screens/RoleplayConversationScreen.tsx:274-292"
+    ],
+    "evidence": "Backend get_roleplay_review() returns: {session_id, overall, scores:{fluency,grammar,vocabulary,appropriateness}, focus_points:[{label,description}], recommended_next_actions:[...]}. Frontend RoleplayFinishResponse type expects: {summary, transcriptAnnotated, scores:{avgPhrasesCoverage,avgWordCount,repairLanguageUsed,totalTurns}, strongPhrases, difficultPhrases, grammarObservations, nextSteps, nextAction, personaName, track, trackLabel, levelBand, scenario}. Frontend checks 'transcriptAnnotated' in finished (line 274) - not present -> falls to degraded report with empty arrays.",
+    "recommended_fix": "Update get_roleplay_review() to return all fields expected by RoleplayFinishResponse. Minimum: add transcriptAnnotated (from session.turns), summary (placeholder text), strongPhrases:[], difficultPhrases:[], grammarObservations, nextSteps, nextAction, personaName, track, trackLabel, levelBand, scenario.",
+    "verification_steps": "Complete 5-turn roleplay session, call POST /api/v1/roleplay/session/{id}/finish -> response.transcriptAnnotated is a non-empty array with speaker/text/comment entries.",
+    "regression_risk": "medium",
+    "status": "open",
+    "release_blocker": true
+  },
+  {
+    "id": "F006",
+    "title": "No entitlement check on professional cards endpoint",
+    "category": "entitlements",
+    "severity": "High",
+    "verdict": "FAIL",
+    "deployment_impact": "should-fix",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/routers/v1_cards.py:58-75",
+      "apps/backend/app/services/subscription_service.py:201-212"
+    ],
+    "evidence": "start_runtime_session route (line 58-75) calls _require_cards_user_id() which only checks authentication, not subscription tier. No call to require_feature(user, 'workplace'). subscription_service.py defines require_feature() which raises AppError(403, ENTITLEMENT_REQUIRED) for free users requesting workplace features. This is never called at the cards endpoint.",
+    "recommended_fix": "In start_runtime_session route, when domain=='professional', resolve full user object and call require_feature(user=user, feature='workplace'). Same for runtime_deck route.",
+    "verification_steps": "Request GET /cards/session/adaptive/start?domain=professional&profession=doctor with a free-tier JWT -> HTTP 403 with code ENTITLEMENT_REQUIRED.",
+    "regression_risk": "medium",
+    "status": "open",
+    "release_blocker": true
+  },
+  {
+    "id": "F007",
+    "title": "No entitlement check on roleplay session start for professional professions",
+    "category": "entitlements",
+    "severity": "High",
+    "verdict": "FAIL",
+    "deployment_impact": "should-fix",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/routers/v1_roleplay.py:63-79"
+    ],
+    "evidence": "start_roleplay_session_route (line 63-79) accepts no authorization header. Any unauthenticated user can start a doctor/nurse/practical_nurse roleplay session. All sessions use user_id='preview'.",
+    "recommended_fix": "Add optional Authorization header to v2 roleplay routes. For non-general professions, require auth and check require_feature(user, 'workplace').",
+    "verification_steps": "POST /api/v1/roleplay/session/start with profession=doctor and free-tier token -> HTTP 403.",
+    "regression_risk": "medium",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F008",
+    "title": "Grammar and phrase card mode returns 404 - content_type hardcoded as vocabulary_card",
+    "category": "cards-runtime",
+    "severity": "Medium",
+    "verdict": "FAIL",
+    "deployment_impact": "should-fix",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/cards_material_bank.py:83",
+      "apps/backend/app/runtime/cards_logic.py:133-134"
+    ],
+    "evidence": "load_authority_cards() line 83 hardcodes content_type='vocabulary_card' for all cards. _filtered_cards() line 133-134: `if content_type and card['content_type'] != content_type: continue`. Frontend sends content_type=grammar_card for grammar mode, sentence_card for phrases mode. These skip all cards -> authority_cards=[] -> AppError(404, CARDS_NO_AUTHORITY_MATCH).",
+    "recommended_fix": "Option A: ignore content_type filter for grammar_card/sentence_card requests, serve vocabulary cards as fallback. Option B: properly derive content_type from source card type field (grammar types -> grammar_card, completion/sentence types -> sentence_card).",
+    "verification_steps": "GET /cards/session/adaptive/start?content_type=grammar_card&domain=general -> HTTP 200 with cards, not 404.",
+    "regression_risk": "medium",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F009",
+    "title": "Roleplay opening and reply text has ASCII-stripped Finnish characters",
+    "category": "roleplay",
+    "severity": "Low",
+    "verdict": "WARN",
+    "deployment_impact": "should-fix",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/roleplay.py:68,110-115"
+    ],
+    "evidence": "Line 68: 'tanaan' should be 'tänään'. Line 110-115: 'Selva' should be 'Selvä', 'Minka' should be 'Minkä', 'Hyva' should be 'Hyvä', 'Ymmarran' should be 'Ymmärrän', 'hyvaa' should be 'hyvää'. These ASCII-stripped strings will be spoken by TTS with incorrect Finnish pronunciation.",
+    "recommended_fix": "Replace all ASCII-stripped Finnish strings with proper Unicode versions using ä, ö, etc.",
+    "verification_steps": "Start roleplay session, openingText field contains 'tänään' with proper ä character.",
+    "regression_risk": "low",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F010",
+    "title": "Roleplay replies are generic appointment-booking not profession-specific",
+    "category": "roleplay",
+    "severity": "High",
+    "verdict": "FAIL",
+    "deployment_impact": "blocks-product",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/roleplay.py:108-116"
+    ],
+    "evidence": "_roleplay_reply() returns 5 hardcoded appointment-booking Finnish phrases: 'Selvä. Minkä asian vuoksi haluaisit varata ajan?', 'Kiitos. Milloin sinulle sopisi parhaiten?', etc. These are identical for all professions (doctor, nurse, practical_nurse, general) and all scenarios (patient_consult, shift_handover, daily_care). A nurse doing shift handover receives 'When do you want to book an appointment?'",
+    "recommended_fix": "Create profession+scenario-specific reply dictionaries. Or integrate an LLM (OpenAI GPT) to generate contextually appropriate Finnish responses based on profession, scenario, and user input.",
+    "verification_steps": "Start nurse roleplay session with scenario shift_handover, submit user turn -> AI reply should reference shift handover context, not appointment booking.",
+    "regression_risk": "high",
+    "status": "open",
+    "release_blocker": true
+  },
+  {
+    "id": "F011",
+    "title": "Published card materials (materials/cards/published/) never loaded by runtime",
+    "category": "cards-runtime",
+    "severity": "High",
+    "verdict": "WARN",
+    "deployment_impact": "should-fix",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/cards_material_bank.py:11-12",
+      "apps/backend/app/core/paths.py:36",
+      "apps/backend/materials/cards/published/"
+    ],
+    "evidence": "CARDS_DIR = PRACTICE_DATA_DIR / 'cards' = apps/backend/practice/data/cards. The 33 professionally structured JSON files under apps/backend/materials/cards/published/ are never loaded. Published files have proper content schema (content.front.term, content.back.gloss with English translation, follow_ups with variant_type, option_id, answer_key, quality scores). The practice/data/cards files have inferior schema (Finnish-only, no IDs, no quality metadata).",
+    "recommended_fix": "Update CARDS_DIR to point to CARDS_MATERIALS_DIR / 'published' (already defined in paths.py as CARDS_MATERIALS_DIR = MATERIALS_DIR / 'cards'). Update load_authority_cards() to handle the nested subdirectory structure and the published file schema.",
+    "verification_steps": "GET /cards/deck?domain=professional&profession=doctor returns cards with id prefix 'card.vocab.doctor.' and English back_prompt values.",
+    "regression_risk": "medium",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F012",
+    "title": "Practical nurse missing words/a1_a2 in published materials",
+    "category": "content",
+    "severity": "Low",
+    "verdict": "WARN",
+    "deployment_impact": "can-defer",
+    "owner": "content",
+    "file_paths": [
+      "apps/backend/materials/cards/published/professional/practical_nurse/words/"
+    ],
+    "evidence": "practical_nurse/words/ contains only b1_b2.json. doctor/words/ has a1_a2.json, b1_b2.json, c1_c2.json. nurse/words/ has a1_a2.json and b1_b2.json. Practical nurse lacks A1-A2 and C1-C2 vocabulary cards in published materials.",
+    "recommended_fix": "Create words/a1_a2.json for practical_nurse with A1-A2 level care work vocabulary (bilingual Finnish/English).",
+    "verification_steps": "ls apps/backend/materials/cards/published/professional/practical_nurse/words/ shows a1_a2.json, b1_b2.json, c1_c2.json.",
+    "regression_risk": "low",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F013",
+    "title": "Roleplay v2 sessions use hardcoded user_id=preview",
+    "category": "roleplay",
+    "severity": "Medium",
+    "verdict": "WARN",
+    "deployment_impact": "can-defer",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/roleplay.py:275"
+    ],
+    "evidence": "Line 275: create_roleplay_session(user_id='preview', ...). All v2 roleplay sessions share user_id='preview'. _assert_session_access() check `session['user_id'] != user_id` is always False (preview==preview), so any caller can access any session by session_id. No per-user history or progress tracking.",
+    "recommended_fix": "Accept optional Authorization header in v2 routes. Use authenticated user_id when provided, fall back to 'preview' for unauthenticated access. Add session ownership check.",
+    "verification_steps": "Two authenticated users start sessions; each can only access their own session.",
+    "regression_risk": "medium",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F014",
+    "title": "personaName in start_session returns scenario title not persona name",
+    "category": "roleplay",
+    "severity": "Low",
+    "verdict": "WARN",
+    "deployment_impact": "can-defer",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/runtime/roleplay.py:299"
+    ],
+    "evidence": "Line 299: 'personaName': scenario_meta['title']. _scenario_payload() only returns {scenario_id, family, title}. _SCENARIOS['doctor'][0] has personaName='Patient' which is never used. Result: personaName='Doctor Patient Consult' displayed in UI as 'Keskustelukumppani: Doctor Patient Consult'.",
+    "recommended_fix": "Look up the persona name from _SCENARIOS entry: `chosen_entry = next((s for s in _SCENARIOS.get(profession, []) if s['scenarioId'] == chosen), {}); persona_name = chosen_entry.get('personaName') or scenario_meta['title']`",
+    "verification_steps": "POST /api/v1/roleplay/session/start with profession=doctor -> personaName='Patient'.",
+    "regression_risk": "low",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F015",
+    "title": "Backend subscription_status does not return professions array",
+    "category": "entitlements",
+    "severity": "Low",
+    "verdict": "WARN",
+    "deployment_impact": "can-defer",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/services/subscription_service.py:139-172",
+      "packages/core/api/entitlements.ts:168-180"
+    ],
+    "evidence": "subscription_status() return value has no 'professions' field. normalizeSubscriptionStatus() in entitlements.ts line 168: deriveProfessions() falls through to tier-string parsing when no explicit professions array is present. This fragile string-matching (tier.includes('doctor')) breaks if tier naming changes.",
+    "recommended_fix": "Add professions list to subscription_status() return based on PLAN_CATALOG lookup for the user's billing_tier.",
+    "verification_steps": "GET /api/v1/subscription/status (or equivalent) returns professions=['doctor'] for professional_doctor_monthly tier.",
+    "regression_risk": "low",
+    "status": "open",
+    "release_blocker": false
+  },
+  {
+    "id": "F016",
+    "title": "TTS request endpoint has no authentication requirement",
+    "category": "security",
+    "severity": "Low",
+    "verdict": "WARN",
+    "deployment_impact": "can-defer",
+    "owner": "backend",
+    "file_paths": [
+      "apps/backend/app/routers/v1_voice.py:54-58"
+    ],
+    "evidence": "POST /api/v1/voice/tts/requests route: `if authorization: current_user_from_authorization(authorization)` — auth is entirely optional. Any unauthenticated caller can generate TTS audio, consuming OpenAI/Google API credits. No rate limiting enforced beyond provider-level.",
+    "recommended_fix": "Change auth check to require authentication: call current_user_from_authorization() unconditionally (not conditionally).",
+    "verification_steps": "POST /api/v1/voice/tts/requests without Authorization header -> HTTP 401.",
+    "regression_risk": "low",
+    "status": "open",
+    "release_blocker": false
+  }
+]

@@ -1,0 +1,99 @@
+{
+  "id": "1d216478-1862-5f85-99a5-c122f9a8a974",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet suomalaiset käyvät kirjastossa usein. Kirjastoista voi lainata kirjojen lisäksi myös lehtiä, elokuvia ja musiikkia. Kirjastoissa on myös tietokoneita, joita voi käyttää ilmaiseksi. Lisäksi kirjastot järjestävät tapahtumia, kuten lukupiirejä ja satutunteja. Kirjastokortin saaminen on helppoa ja ilmaista. Se kannattaa hankkia.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä monet suomalaiset tekevät usein?",
+        "options": [
+          "Käyvät elokuvissa",
+          "Käyvät kirjastossa",
+          "Käyvät kaupassa",
+          "Käyvät kuntosalilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirjastoista voi lainata kirjojen lisäksi?",
+        "options": [
+          "Vaatteita ja kenkiä",
+          "Lehtiä, elokuvia ja musiikkia",
+          "Huonekaluja ja astioita",
+          "Urheiluvälineitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjaston tietokoneilla voi tehdä?",
+        "options": [
+          "Pelata maksullisia pelejä",
+          "Käyttää ilmaiseksi",
+          "Tulostaa ilmaiseksi",
+          "Ostaa netistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tapahtumia kirjastot järjestävät?",
+        "options": [
+          "Konsertteja ja näytelmiä",
+          "Lukupiirejä ja satutunteja",
+          "Urheilukilpailuja",
+          "Myyjäisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kirjastokortin saaminen on?",
+        "options": [
+          "Vaikeaa ja kallista",
+          "Helppoa ja ilmaista",
+          "Mahdotonta",
+          "Vain aikuisille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä kannattaa hankkia?",
+        "options": [
+          "Oma tietokone",
+          "Kirjastokortti",
+          "Oma kirjahylly",
+          "Lehtitilaus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

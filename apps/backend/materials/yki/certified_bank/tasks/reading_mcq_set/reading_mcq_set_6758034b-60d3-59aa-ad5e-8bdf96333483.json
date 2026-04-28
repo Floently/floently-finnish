@@ -1,0 +1,77 @@
+{
+  "id": "6758034b-60d3-59aa-ad5e-8bdf96333483",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Suomen huoltovarmuuden ylläpitäminen on monitahoinen tehtävä. Se edellyttää yhteistyötä julkisen ja yksityisen sektorin välillä sekä varautumista monenlaisiin uhkiin. Elintarvikehuollossa on ylläpidetty valtion viljavarastoja ja tuettu kotimaista tuotantoa. Energiahuollossa on panostettu monipuoliseen energialähteiden käyttöön ja varastointiin. Terveydenhuollossa on varauduttu pandemioihin ja muihin terveysuhkiin. Kyberturvallisuus on noussut yhä tärkeämmäksi osaksi huoltovarmuutta. Huoltovarmuuskeskus koordinoi varautumista ja tukee yrityksiä. Viime vuosina huoltovarmuuden merkitys on korostunut pandemian ja geopoliittisen epävakauden myötä.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "mcq_612",
+        "prompt": "Mitä huoltovarmuuden ylläpitäminen edellyttää?",
+        "options": [
+          "Vain julkisen sektorin toimia",
+          "Yhteistyötä julkisen ja yksityisen sektorin välillä",
+          "Vain yksityisen sektorin toimia",
+          "Kansainvälistä yhteistyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_613",
+        "prompt": "Miten elintarvikehuollossa on varauduttu?",
+        "options": [
+          "Vähentämällä kotimaista tuotantoa",
+          "Ylläpitämällä valtion viljavarastoja",
+          "Lisäämällä tuontia",
+          "Vähentämällä kulutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_614",
+        "prompt": "Mikä on noussut yhä tärkeämmäksi osaksi huoltovarmuutta?",
+        "options": [
+          "Elintarvikehuolto",
+          "Kyberturvallisuus",
+          "Energiahuolto",
+          "Terveydenhuolto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_615",
+        "prompt": "Mikä taho koordinoi varautumista Suomessa?",
+        "options": [
+          "Poliisi",
+          "Huoltovarmuuskeskus",
+          "Puolustusvoimat",
+          "Sisäministeriö"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

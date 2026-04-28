@@ -1,0 +1,77 @@
+{
+  "id": "028e112a-f436-58af-adbc-01317eee88f5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paikallisradion haastattelu energiaosuuskunnasta ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Toimittaja: Kylään perustettiin energiaosuuskunta, joka asentaa aurinkopaneeleja yhteisille kiinteistöille. Vetäjä Miettinen, miksi hanke käynnistettiin? Miettinen: Halusimme pienentää sähkölaskuja ja lisätä paikallista omavaraisuutta. Toimittaja: Mitä hyötyä asukkaat ovat nähneet ensimmäisen vuoden aikana? Miettinen: Yhteisten tilojen sähkökulut laskivat, ja samalla pystyimme pitämään harrastetilan auki pidempään. Toimittaja: Entä haasteet? Miettinen: Alussa tiedottaminen oli liian teknistä, eikä kaikki ymmärtäneet liittymisehtoja. Toimittaja: Miten asia korjattiin? Miettinen: Järjestimme avoimen neuvontaillan ja julkaisimme selkeän kysymys-vastausoppaan. Toimittaja: Aiotteko laajentaa toimintaa? Miettinen: Kyllä, mutta vain jos huoltosopimus saadaan varmistettua pidemmälle ajalle.",
+      "audio_asset_id": "779f5412-39cb-5076-88d9-36ca43a50023"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Miksi osuuskunta perustettiin?",
+        "options": [
+          "lisäämään matkailua",
+          "pienentämään sähkökuluja ja lisäämään omavaraisuutta",
+          "myymään sähköä ulkomaille",
+          "lopettamaan yhteiset tilat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä hyötyä ensimmäisen vuoden aikana huomattiin?",
+        "options": [
+          "uusi tie rakennettiin",
+          "sähkökulut laskivat yhteisissä tiloissa",
+          "kaikki liittyivät osuuskuntaan",
+          "paneelit poistettiin käytöstä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä ongelma oli alussa?",
+        "options": [
+          "laitteet rikkoutuivat",
+          "tiedotus oli liian teknistä",
+          "sähkökatkot lisääntyivät",
+          "lupia ei saatu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Millä ehdolla toimintaa laajennetaan?",
+        "options": [
+          "jos jäsenmaksu kaksinkertaistuu",
+          "jos huoltosopimus varmistetaan pidemmälle",
+          "jos toiminta siirretään kaupungille",
+          "jos paneelit vaihdetaan tuulivoimaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

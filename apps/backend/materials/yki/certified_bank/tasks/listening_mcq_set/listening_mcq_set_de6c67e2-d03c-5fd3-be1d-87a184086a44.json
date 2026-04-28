@@ -1,0 +1,88 @@
+{
+  "id": "de6c67e2-d03c-5fd3-be1d-87a184086a44",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu laskusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, soittelen koskien laskuani, joka on mielestäni väärä. Asiakaspalvelija: Mikä laskun numero on? Asiakas: Laskun numero on 1234567. Asiakaspalvelija: Hetki, tarkistan. Katsotaan. Lasku on 89,90 euroa. Mikä siinä on väärin? Asiakas: Minulle piti tulla 20 euron alennus uutena asiakkaana, mutta sitä ei ole vähennetty. Asiakaspalvelija: Aivan, näen tässä, että alennus on kyllä merkitty, mutta se ei ole näköjään mennyt laskulle. Pahoittelen virhettä. Hyvitän sen nyt. Laitan teille uuden laskun, jossa alennus on vähennetty. Asiakas: Kuinka paljon se on sitten? Asiakaspalvelija: Uusi summa on 69,90 euroa. Näkyykö teillä muita ongelmia? Asiakas: Ei kiitos, tämä selvensi. Asiakaspalvelija: Hyvä, kiitos ja kuulemiin!",
+      "audio_asset_id": "b0c1d2e3-f4a5-6b7c-8d9e-0f1a2b3c4d5e"
+    },
+    "questions": [
+      {
+        "id": "l110q1",
+        "prompt": "Miksi asiakas soittaa asiakaspalveluun?",
+        "options": [
+          "Hän haluaa tilata uuden tuotteen.",
+          "Hänen laskunsa on mielestä väärä.",
+          "Hän haluaa vaihtaa maksutapaa.",
+          "Hän haluaa kysyä tuotteen toimituksesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l110q2",
+        "prompt": "Mikä on laskun numero?",
+        "options": [
+          "123456.",
+          "1234567.",
+          "7654321.",
+          "9876543."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l110q3",
+        "prompt": "Mikä alkuperäisessä laskussa on väärin?",
+        "options": [
+          "Summa on liian pieni.",
+          "20 euron alennusta ei ole vähennetty.",
+          "Tuotteita on liikaa.",
+          "Laskun eräpäivä on väärä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l110q4",
+        "prompt": "Mitä asiakaspalvelija lupaa tehdä?",
+        "options": [
+          "Perua laskun.",
+          "Hyvittää alennuksen ja lähettää uuden laskun.",
+          "Lähettää tuotteen uudelleen.",
+          "Soittaa takaisin myöhemmin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l110q5",
+        "prompt": "Mikä on uuden laskun summa?",
+        "options": [
+          "59,90 euroa.",
+          "69,90 euroa.",
+          "79,90 euroa.",
+          "89,90 euroa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

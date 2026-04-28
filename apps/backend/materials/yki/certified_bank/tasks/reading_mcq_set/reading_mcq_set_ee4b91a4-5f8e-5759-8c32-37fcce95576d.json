@@ -1,0 +1,88 @@
+{
+  "id": "ee4b91a4-5f8e-5759-8c32-37fcce95576d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Juhannusta vietetään kesäkuussa. Silloin on valoisaa. Monet menevät mökille. Saunotaan ja grillataan. Uidaan ja kalastetaan. Juhannuksena sytytetään kokko. Kokko palaa järven rannalla. Ihmiset tanssivat ja laulavat. Juhannus on loman alku. Silloin on hauskaa. Perhe ja ystävät ovat yhdessä. Juhannus on tärkeä juhla. Sitä odotetaan paljon.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin juhannusta vietetään?",
+        "options": [
+          "Toukokuussa",
+          "Kesäkuussa",
+          "Heinäkuussa",
+          "Elokuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä juhannusta usein vietetään?",
+        "options": [
+          "Kaupungissa",
+          "Mökillä",
+          "Hotellissa",
+          "Ravintolassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä juhannuksena tehdään?",
+        "options": [
+          "Hiihdetään",
+          "Saunotaan, grillataan, uidaan ja kalastetaan",
+          "Luistellaan",
+          "Tehdään läksyjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä juhannuksena sytytetään?",
+        "options": [
+          "Kynttilöitä",
+          "Kokko",
+          "Nuotio",
+          "Raketteja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä juhannus on monelle?",
+        "options": [
+          "Loman loppu",
+          "Loman alku",
+          "Keskikesä",
+          "Talven alku"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

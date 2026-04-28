@@ -1,0 +1,73 @@
+{
+  "id": "bfecad2c-6bdc-51ee-b7af-c74aa9dd1482",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan ilmoitus työhyvinvointipäivästä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TYÖHYVINVOINTIPÄIVÄ 25.10.2025\n\nJärjestämme koko henkilökunnalle työhyvinvointipäivän perjantaina 25.10. kello 9–16. Päivän tavoitteena on rentoutua, tutustua työkavereihin ja saada uutta energiaa.\n\nOhjelma:\n\n9.00–9.30: Aamukahvi ja päivän esittely (henkilöstöravintola)\n9.30–11.30: Työpaja: Työn ja vapaa-ajan tasapaino (kouluttaja Työterveyslaitos)\n11.30–12.30: Lounas (ravintola Piikki)\n12.30–14.30: Liikunnallinen aktiviteetti (vaihtoehtoina: kävelylenkki, sulkapallo, jooga)\n14.30–15.30: Yhteistä tekemistä (pöytäjalkapallo, biljardi, pingis)\n15.30–16.00: Yhteenveto ja päätöskahvit\n\nIlmoittautuminen:\nIlmoittaudu 18.10. mennessä HR-järjestelmässä. Valitse samalla liikunnallinen aktiviteetti. Kerro myös mahdolliset erityisruokavaliot.\n\nHuomioitavaa:\n- Työhyvinvointipäivä on työaikaa.\n- Sairastapauksissa ilmoita esihenkilöllesi.\n- Päivä on tärkeä osa työyhteisön kehittämistä, joten toivomme kaikkien osallistuvan.\n\nLisätietoja: henkilosto@yritys.fi\n\nTervetuloa!",
+      "word_count": 92
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin työhyvinvointipäivä järjestetään?",
+        "options": [
+          "18.10.",
+          "25.10.",
+          "30.10."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mihin mennessä pitää ilmoittautua?",
+        "options": [
+          "18.10.",
+          "25.10.",
+          "30.10."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä liikunnallisia vaihtoehtoja on tarjolla?",
+        "options": [
+          "uinti, lenkkeily, jooga",
+          "kävelylenkki, sulkapallo, jooga",
+          "kuntosali, zumba, tennis"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Missä lounas syödään?",
+        "options": [
+          "henkilöstöravintolassa",
+          "ravintola Piikissä",
+          "omassa työpaikassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

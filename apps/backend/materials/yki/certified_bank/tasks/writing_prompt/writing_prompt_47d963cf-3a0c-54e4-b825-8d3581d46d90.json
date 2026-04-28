@@ -1,0 +1,37 @@
+{
+  "id": "47d963cf-3a0c-54e4-b825-8d3581d46d90",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työnantajalle. Haluat pyytää palkatonta vapaata opiskelua varten. Kerro, mitä aiot opiskella ja miksi se on tärkeää työsi kannalta. Kerro myös, milloin haluaisit vapaan ja miten hoidat työt.",
+    "materials": {
+      "scenario": "Palkaton vapaa opiskelua varten"
+    },
+    "items": [
+      {
+        "id": "25c4dca7-0fac-548b-bee6-735c41ab1629",
+        "prompt": "Kirjoita sähköposti työnantajalle. Haluat pyytää palkatonta vapaata opiskelua varten. Kerro, mitä aiot opiskella ja miksi se on tärkeää työsi kannalta. Kerro myös, milloin haluaisit vapaan ja miten hoidat työt."
+      }
+    ],
+    "rubric": "Opiskelun kuvaus\nPerustelut\nAjankohta ja työjärjestelyt",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

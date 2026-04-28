@@ -1,0 +1,66 @@
+{
+  "id": "2e200be2-97a8-5ba6-b1f5-782f1c53695f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Suomen itsenäisyyden ajan taloushistoriaa leimaavat nopeat rakennemuutokset. Sotien jälkeen maa oli vielä voimakkaasti maatalousvaltainen, mutta 1960-luvulta lähtien teollistuminen ja kaupungistuminen kiihtyivät. Metsäteollisuus oli pitkään talouden selkäranka, ja se loi perustan hyvinvointivaltion rakentamiselle. 1990-luvun alun lama oli syvä käännekohta, joka pakotti uudistamaan taloutta. 2000-luvulla Nokian menestys veti it-alan nousuun, mutta myös elektroniikkateollisuuden rakennemuutos on ollut nopeaa. Nykyään taloutta leimaavat monipuolistuminen, digitalisaatio ja vihreä siirtymä.",
+      "word_count": 63
+    },
+    "questions": [
+      {
+        "id": "mcq_093",
+        "prompt": "Mikä toimiala oli pitkään Suomen talouden selkäranka?",
+        "options": [
+          "Elektroniikkateollisuus",
+          "Palvelusektori",
+          "Metsäteollisuus",
+          "IT-ala"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_094",
+        "prompt": "Mikä tapahtuma oli syvä käännekohta Suomen taloudessa?",
+        "options": [
+          "Toinen maailmansota",
+          "1990-luvun alun lama",
+          "Nokian nousu",
+          "Euroopan unioniin liittyminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_095",
+        "prompt": "Mitä digitalisaatio ja vihreä siirtymä edustavat nykytaloudessa?",
+        "options": [
+          "Taantumaa",
+          "Rakennemuutosta",
+          "Maatalouden paluuta",
+          "Teollisuuden vähenemistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

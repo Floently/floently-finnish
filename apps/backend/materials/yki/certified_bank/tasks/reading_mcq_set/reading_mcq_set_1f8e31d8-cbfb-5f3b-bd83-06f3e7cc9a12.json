@@ -1,0 +1,77 @@
+{
+  "id": "1f8e31d8-cbfb-5f3b-bd83-06f3e7cc9a12",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.601,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kunnan raporttiteksti vapaaehtoistoiminnan uudistuksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kunta on käynnistänyt uuden vapaaehtoistoiminnan mallin, jolla pyritään tukemaan yksinäisiä ikäihmisiä ja samalla tarjoamaan opiskelijoille mahdollisuus kartuttaa käytännön vuorovaikutustaitoja. Mallissa vapaaehtoiset eivät toimi yksin, vaan he kuuluvat alueellisiin tiimeihin, joilla on nimetty koordinaattori. Koordinaattorin tehtävä on sovittaa yhteen vierailuajat, huolehtia perehdytyksestä ja varmistaa, että mahdolliset huolenaiheet ohjataan eteenpäin oikealle ammattilaiselle. Kokeilun ensimmäisten kuukausien aikana havaittiin, että eniten tukea tarvittiin tilanteissa, joissa ikäihmisen arki oli muuttunut nopeasti esimerkiksi puolison kuoleman tai pitkän sairaalajakson jälkeen.\n\nArviointiraportissa korostetaan, että vapaaehtoistoiminnan vaikuttavuus syntyy säännöllisyydestä, ei yksittäisten käyntien määrästä. Siksi kunta päätti rajata uusien vapaaehtoisten asiakasmäärää niin, että jokaiselle jää riittävästi aikaa valmistautua tapaamisiin. Päätös herätti aluksi kritiikkiä, koska jonossa oli enemmän avun tarvitsijoita kuin vapaaehtoisia. Koordinaattorit kuitenkin perustelivat linjaa sillä, että liian kiireinen aikataulu lisäisi keskeytyksiä ja heikentäisi luottamusta. Samalla kunta sopi paikallisen oppilaitoksen kanssa, että sosiaali- ja terveysalan opiskelijat voivat suorittaa osan harjoittelusta mallin puitteissa.\n\nKeskustelua on käyty myös tiedonjaosta. Osa vapaaehtoisista toivoi tarkempia taustatietoja tapaamistaan henkilöistä, mutta tietosuojavastaava muistutti, että luottamuksellisia tietoja voidaan jakaa vain välttämättömässä laajuudessa. Lopullinen ratkaisu oli kaksitasoinen perehdytys: vapaaehtoinen saa ensin yleisen toimintasuunnitelman ja tarvittaessa tapauskohtaisen lisäohjeen koordinaattorilta. Raportin mukaan malli ei poista kaikkia haasteita, mutta se tekee vastuuketjusta näkyvämmän ja vähentää tilanteita, joissa avunpyyntö jää ilman jatkotoimia.",
+      "word_count": 200
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä oli mallin päätavoite?",
+        "options": [
+          "lisätä iltatapahtumia nuorille",
+          "tukea yksinäisiä ikäihmisiä ja kehittää opiskelijoiden taitoja",
+          "korvata kotihoito vapaaehtoisilla",
+          "lyhentää terveyskeskuksen jonoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi uusien vapaaehtoisten asiakasmäärää rajattiin?",
+        "options": [
+          "rahoitus loppui",
+          "säännöllinen ja laadukas toiminta haluttiin turvata",
+          "vapaaehtoiset pyysivät vähemmän koulutusta",
+          "asiakaskäyntejä haluttiin vähentää pysyvästi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä aiheutti keskustelua tiedonjaossa?",
+        "options": [
+          "vapaaehtoisten palkkaus",
+          "toimintapäivien määrä",
+          "taustatietojen laajuus ja tietosuoja",
+          "kuljetuspalvelujen puute"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä oli lopullinen ratkaisu perehdytykseen?",
+        "options": [
+          "vain verkkokurssi ilman ohjausta",
+          "kaksitasoinen perehdytys yleisellä ja tapauskohtaisella ohjeella",
+          "perehdytys poistettiin kokonaan",
+          "perehdytys annettiin vain opiskelijoille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

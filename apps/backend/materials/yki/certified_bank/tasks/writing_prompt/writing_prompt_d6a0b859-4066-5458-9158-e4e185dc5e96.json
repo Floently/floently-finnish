@@ -1,0 +1,37 @@
+{
+  "id": "d6a0b859-4066-5458-9158-e4e185dc5e96",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt kaupungin uimahallissa. Kirjoita palaute. Kerro, oliko vesi sopivan lämpöistä, oliko pukuhuone siisti ja toimiko lipunmyynti hyvin.",
+    "materials": {
+      "scenario": "Palaute uimahallista"
+    },
+    "items": [
+      {
+        "id": "d1d58e93-5beb-5c5c-a4ae-9d23514aedf1",
+        "prompt": "Olet käynyt kaupungin uimahallissa. Kirjoita palaute. Kerro, oliko vesi sopivan lämpöistä, oliko pukuhuone siisti ja toimiko lipunmyynti hyvin."
+      }
+    ],
+    "rubric": "Veden lämpötila\nPukuhuoneen siisteys\nLipunmyynnin toimivuus",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

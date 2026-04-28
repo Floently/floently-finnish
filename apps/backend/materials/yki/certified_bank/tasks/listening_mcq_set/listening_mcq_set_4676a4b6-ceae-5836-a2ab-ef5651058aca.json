@@ -1,0 +1,66 @@
+{
+  "id": "4676a4b6-ceae-5836-a2ab-ef5651058aca",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu perheessä ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Isä: Hei lapset, mitä haluatte tehdä viikonloppuna?\nLapsi 1: Mennään eläintarhaan!\nLapsi 2: Joo, nähdään norsuja ja apinoita!\nIsä: Eläintarha on hyvä idea. Entä mitä tehdään sunnuntaina?\nLapsi 1: Mennään uimaan!\nLapsi 2: Uimahalliin!",
+      "audio_asset_id": "96adf31a-64b7-5b71-aaf2-c6ff1c65b4b3"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_002_q1",
+        "prompt": "Mitä lapset haluavat tehdä lauantaina?",
+        "options": [
+          "mennä uimaan",
+          "mennä eläintarhaan",
+          "mennä elokuviin",
+          "mennä kahvilaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_002_q2",
+        "prompt": "Mitä isä sanoo eläintarhasta?",
+        "options": [
+          "se on liian kallis",
+          "se on hyvä idea",
+          "se on liian kaukana",
+          "se on kiinni"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_002_q3",
+        "prompt": "Mitä he aikovat tehdä sunnuntaina?",
+        "options": [
+          "mennä kävelylle",
+          "mennä uimaan",
+          "mennä syömään",
+          "mennä kotiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

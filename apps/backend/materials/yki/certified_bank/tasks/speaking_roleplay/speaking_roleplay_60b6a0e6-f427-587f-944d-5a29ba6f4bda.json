@@ -1,0 +1,60 @@
+{
+  "id": "60b6a0e6-f427-587f-944d-5a29ba6f4bda",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa kuntosalijäsenyyden sairastumisen vuoksi. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kuntosalin asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp52_1",
+        "ai_first_turn_fi": "Hei, Kuntosali Health Club."
+      },
+      {
+        "id": "srp52_2",
+        "ai_first_turn_fi": "Voi ei, ikävä kuulla. Mikä on nimesi ja jäsennumerosi?"
+      },
+      {
+        "id": "srp52_3",
+        "ai_first_turn_fi": "Kiitos. Voimme peruuttaa jäsenyyden, jos toimitat lääkärintodistuksen. Onko sinulla mahdollisuus saada sellainen?"
+      },
+      {
+        "id": "srp52_4",
+        "ai_first_turn_fi": "Hyvä. Voit lähettää sen sähköpostitse tai tuoda paikan päälle. Peruutus on voimassa, kun olemme saaneet todistuksen."
+      },
+      {
+        "id": "srp52_5",
+        "ai_first_turn_fi": "Osoite on asiakaspalvelu@healthclub.fi. Laita viestiin myös jäsennumerosi."
+      },
+      {
+        "id": "srp52_6",
+        "ai_first_turn_fi": "Kiitos. Toivottavasti paranet pian!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa kuntosalijäsenyyden sairastumisen vuoksi. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

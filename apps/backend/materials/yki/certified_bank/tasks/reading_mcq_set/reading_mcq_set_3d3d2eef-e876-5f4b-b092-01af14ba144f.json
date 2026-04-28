@@ -1,0 +1,63 @@
+{
+  "id": "3d3d2eef-e876-5f4b-b092-01af14ba144f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÄHIKIRJASTON KESÄSULKU\n\nHervannan lähikirjasto on suljettu 15.8.–29.8.\n\nLähikirjaston asioita voi hoitaa pääkirjastossa.\n\nKirjoja voi palauttaa kirjaston palautusluukkuun.\n\nOmatoimikirjasto on auki normaalisti klo 7–22.",
+      "word_count": 23
+    },
+    "questions": [
+      {
+        "id": "item_115_1",
+        "prompt": "Kauanko Hervannan lähikirjasto on suljettu?",
+        "options": [
+          "viikon",
+          "kaksi viikkoa",
+          "kolme viikkoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_115_2",
+        "prompt": "Missä voi hoitaa lähikirjaston asioita sulun aikana?",
+        "options": [
+          "pääkirjastossa",
+          "muussa lähikirjastossa",
+          "verkkokirjastossa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_115_3",
+        "prompt": "Onko omatoimikirjasto auki sulun aikana?",
+        "options": [
+          "ei",
+          "kyllä, normaalisti",
+          "vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

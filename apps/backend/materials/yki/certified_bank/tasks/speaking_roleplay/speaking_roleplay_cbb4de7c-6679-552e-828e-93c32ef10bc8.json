@@ -1,0 +1,40 @@
+{
+  "id": "cbb4de7c-6679-552e-828e-93c32ef10bc8",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.506,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele työterveyspsykologin kanssa. Kerro työuupumuksesta ja kysy neuvoa.",
+    "materials": {
+      "roles": {
+        "user": "ollut pitkään väsynyt ja stressaantunut töiden takia",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "104a05ee-6001-5f6f-9d92-9aad741072c2",
+        "ai_first_turn_fi": "Hei, ole hyvä ja istu. Kerro nyt omin sanoin, miltä sinusta tuntuu ja miksi uskot, että tarvitset apua."
+      }
+    ],
+    "rubric": "Keskustele työterveyspsykologin kanssa. Kerro työuupumuksesta ja kysy neuvoa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

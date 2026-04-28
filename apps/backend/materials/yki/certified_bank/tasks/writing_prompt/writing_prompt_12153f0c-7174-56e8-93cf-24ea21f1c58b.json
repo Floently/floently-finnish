@@ -1,0 +1,37 @@
+{
+  "id": "12153f0c-7174-56e8-93cf-24ea21f1c58b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ollut työharjoittelussa. Kirjoita palaute työpaikalle.",
+    "materials": {
+      "scenario": "Palaute työharjoittelusta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet ollut työharjoittelussa. Kirjoita palaute työpaikalle."
+      }
+    ],
+    "rubric": "Olet ollut työharjoittelussa. Kirjoita palaute työpaikalle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "26486376-6ab6-5336-a108-5bc685c85c13",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomessa monet kunnat ovat viime vuosina pidentäneet kirjastojen omatoimiaukioloa. Tämä tarkoittaa, että asiakkaat voivat mennä kirjastoon myös silloin, kun henkilökunta ei ole paikalla. Sisään pääsee kirjastokortilla ja tunnusluvulla, ja samalla käynnillä voi lainata, palauttaa ja noutaa varauksia automaateilla. Uudistuksen tavoitteena on parantaa palvelujen saatavuutta erityisesti pienillä paikkakunnilla ja niille asiakkaille, jotka eivät ehdi kirjastoon tavallisten työaikojen aikana. Kaikki eivät kuitenkaan pidä muutosta ongelmattomana. Osa asukkaista pelkää, että henkilökohtainen neuvonta vähenee ja että tilojen turvallisuudesta on vaikeampi huolehtia iltaisin. Kirjastojen mukaan kokemukset ovat silti olleet enimmäkseen myönteisiä, koska lainausmäärät ovat kasvaneet ja asiakkaat ovat löytäneet palvelut entistä joustavammin.",
+      "word_count": 97
+    },
+    "questions": [
+      {
+        "id": "rq1",
+        "prompt": "Mitä omatoimiaukiolo tarkoittaa tekstin mukaan?",
+        "options": [
+          "Kirjastoon pääsee myös ilman henkilökuntaa paikalla.",
+          "Kirjasto on avoinna vain henkilökunnalle.",
+          "Kirjastokorttia ei enää tarvita lainaukseen.",
+          "Palvelu koskee vain koululaisryhmiä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "rq2",
+        "prompt": "Miksi uudistus on tekstin mukaan tehty?",
+        "options": [
+          "Jotta kirjastot voisivat lopettaa varauspalvelun.",
+          "Jotta henkilökunta voisi siirtyä kokonaan etätöihin.",
+          "Jotta palvelut olisivat helpommin saavutettavissa eri asiakkaille.",
+          "Jotta kirjastoihin tulisi vähemmän kävijöitä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "rq3",
+        "prompt": "Mikä huoli osalla asukkaista on?",
+        "options": [
+          "Automaateilla ei voi palauttaa kirjoja.",
+          "Henkilökohtainen neuvonta voi vähentyä.",
+          "Kirjastokortin käyttö kielletään iltaisin.",
+          "Varausten noutaminen poistuu kokonaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "rq4",
+        "prompt": "Millaisia kokemuksia kirjastoilla on ollut uudistuksesta?",
+        "options": [
+          "Kokemukset ovat olleet enimmäkseen myönteisiä.",
+          "Kokemukset ovat olleet täysin kielteisiä.",
+          "Kokemuksia ei ole vielä lainkaan.",
+          "Kokemukset ovat johtaneet kaikkien automaattien poistoon."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

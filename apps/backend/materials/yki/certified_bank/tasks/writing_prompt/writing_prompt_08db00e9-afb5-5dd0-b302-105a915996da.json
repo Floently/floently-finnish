@@ -1,0 +1,37 @@
+{
+  "id": "08db00e9-afb5-5dd0-b302-105a915996da",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat pitää kesällä kaksi viikkoa lomaa asunnossa, mutta samalla haluat varmistaa, että postisi ja mahdolliset paketit säilyvät turvassa. Kysy, voiko vuokranantaja auttaa tai neuvoa asiassa.",
+    "materials": {
+      "scenario": "Loma-aikana postin turvaaminen"
+    },
+    "items": [
+      {
+        "id": "b4926b73-a92c-51cf-9870-9992d0e4d4b8",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat pitää kesällä kaksi viikkoa lomaa asunnossa, mutta samalla haluat varmistaa, että postisi ja mahdolliset paketit säilyvät turvassa. Kysy, voiko vuokranantaja auttaa tai neuvoa asiassa."
+      }
+    ],
+    "rubric": "Loma-ajan ilmoitus\nPostin turvaaminen\nAvun tai neuvojen pyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

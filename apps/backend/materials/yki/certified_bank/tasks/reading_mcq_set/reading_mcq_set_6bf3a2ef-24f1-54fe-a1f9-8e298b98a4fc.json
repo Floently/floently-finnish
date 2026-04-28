@@ -1,0 +1,66 @@
+{
+  "id": "6bf3a2ef-24f1-54fe-a1f9-8e298b98a4fc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalainen ruokakulttuuri on muuttunut paljon viime vuosikymmeninä. Perinteisiä ruokia ovat esimerkiksi karjalanpiirakat, kalakeitto ja mustamakkara. Nykyään suomalaiseen ruokapöytään kuuluu myös vaikutteita muista maista. Pizzat, kebabit ja wokit ovat arkipäivää. Samaan aikaan luomu- ja lähiruoka ovat kasvattaneet suosiotaan. Suomalaiset arvostavat puhtaita raaka-aineita ja kotimaista ruokaa. Myös kasvissyönti on yleistynyt. Monet ravintolat tarjoavat nykyään kasvisvaihtoehtoja.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä perinteisiä suomalaisia ruokia tekstissä mainitaan?",
+        "options": [
+          "Pizza ja kebab",
+          "Karjalanpiirakat ja kalakeitto",
+          "Sushi ja pad thai",
+          "Taco ja burrito"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on yleistynyt ruokakulttuurissa?",
+        "options": [
+          "Vain liharuoat",
+          "Kasvissyönti",
+          "Vain einekset",
+          "Vain ulkomainen ruoka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä suomalaiset arvostavat ruoassa?",
+        "options": [
+          "Halpuutta",
+          "Puhtaita raaka-aineita",
+          "Nopeutta",
+          "Mausteisuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

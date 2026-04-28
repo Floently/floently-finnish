@@ -1,0 +1,37 @@
+{
+  "id": "6085d9a1-fede-5410-b37e-41b6da951bf9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan tekniselle toimelle. Olette kiinnostuneita vuokraamaan kunnan omistamaa tilaa yhdistyksenne kokouksia varten. Kysy vapaista tiloista, vuokrista ja varauskäytännöistä. Kerro myös, minkä kokoisen tilan tarvitsette.",
+    "materials": {
+      "scenario": "Kunnan tilan vuokraus"
+    },
+    "items": [
+      {
+        "id": "1d4118c0-efca-54e7-9d9c-bad43710f007",
+        "prompt": "Kirjoita virallinen sähköposti kunnan tekniselle toimelle. Olette kiinnostuneita vuokraamaan kunnan omistamaa tilaa yhdistyksenne kokouksia varten. Kysy vapaista tiloista, vuokrista ja varauskäytännöistä. Kerro myös, minkä kokoisen tilan tarvitsette."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

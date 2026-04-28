@@ -1,0 +1,40 @@
+{
+  "id": "944f6423-8312-5f18-8136-d235ea3221e2",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet opiskelija ja keskustelet opettajan kanssa kurssiarvosanasta.",
+    "materials": {
+      "roles": {
+        "user": "saanut kurssista arvosanan",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "e86abd6c-f245-5a9b-833f-b141ab18fe9c",
+        "ai_first_turn_fi": "Hei, kerro ihmeessä mikä mietityttää."
+      }
+    ],
+    "rubric": "Olet opiskelija ja keskustelet opettajan kanssa kurssiarvosanasta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "path": ".gitignore",
+    "status": "modified",
+    "area": "security",
+    "reason": "ignore tracked runtime artifacts, keystore, and cache"
+  },
+  {
+    "path": "android/app/build.gradle",
+    "status": "modified",
+    "area": "android_release",
+    "reason": "fail closed unless real release signing env vars exist"
+  },
+  {
+    "path": "android/app/src/main/AndroidManifest.xml",
+    "status": "modified",
+    "area": "android_security",
+    "reason": "remove SYSTEM_ALERT_WINDOW and disable backup"
+  },
+  {
+    "path": "apps/backend/app/routers/v1_cards.py",
+    "status": "modified",
+    "area": "backend_authz",
+    "reason": "require auth for personalized card runtime routes"
+  },
+  {
+    "path": "apps/backend/app/routers/v1_subscription.py",
+    "status": "modified",
+    "area": "backend_billing",
+    "reason": "truthful plans endpoint and fail-closed billing URLs"
+  },
+  {
+    "path": "apps/backend/app/services/tts/runtime.py",
+    "status": "modified",
+    "area": "backend_tts",
+    "reason": "honor configured provider order"
+  },
+  {
+    "path": "apps/client/services/authStorage.ts",
+    "status": "modified",
+    "area": "frontend_security",
+    "reason": "use secure store with migration and cleanup"
+  },
+  {
+    "path": "apps/client/state/authStore.ts",
+    "status": "modified",
+    "area": "frontend_security",
+    "reason": "persist auth session via secure storage"
+  },
+  {
+    "path": "packages/core/api/apiConfig.ts",
+    "status": "modified",
+    "area": "shared_config",
+    "reason": "env-driven API and audio base URLs"
+  },
+  {
+    "path": "tsconfig.json",
+    "status": "modified",
+    "area": "frontend_build",
+    "reason": "add baseUrl so path aliases compile"
+  }
+]

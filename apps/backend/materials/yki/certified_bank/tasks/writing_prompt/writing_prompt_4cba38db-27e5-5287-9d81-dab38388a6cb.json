@@ -1,0 +1,37 @@
+{
+  "id": "4cba38db-27e5-5287-9d81-dab38388a6cb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt hammashygienistillä. Kirjoita palaute. Kerro, oliko käynti miellyttävä ja saitko hyviä ohjeita.",
+    "materials": {
+      "scenario": "Palaute hammashygienististä"
+    },
+    "items": [
+      {
+        "id": "02396299-eb4f-5206-ba7f-31a40f7fd3c2",
+        "prompt": "Olet käynyt hammashygienistillä. Kirjoita palaute. Kerro, oliko käynti miellyttävä ja saitko hyviä ohjeita."
+      }
+    ],
+    "rubric": "Olet käynyt hammashygienistillä. Kirjoita palaute. Kerro, oliko käynti miellyttävä ja saitko hyviä ohjeita.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

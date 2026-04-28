@@ -1,0 +1,40 @@
+{
+  "id": "87d1c184-cebb-56bd-b9f0-be07954dab29",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.29,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what Finnish movies you have seen. What are they about and did you like them?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "32489db9-7b54-5549-934f-45f3c2c444c2",
+        "ai_first_turn_fi": "Ootko nähnyt suomalaisia elokuvia? Mitä suosittelisit?"
+      }
+    ],
+    "rubric": "Tell what Finnish movies you have seen. What are they about and did you like them?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

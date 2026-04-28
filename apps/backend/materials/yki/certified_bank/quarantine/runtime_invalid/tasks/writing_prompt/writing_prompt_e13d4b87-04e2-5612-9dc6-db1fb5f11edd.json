@@ -1,0 +1,37 @@
+{
+  "id": "e13d4b87-04e2-5612-9dc6-db1fb5f11edd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: office break room. Purpose: agree on a change. Constraint: use clear structure.",
+    "materials": {
+      "scenario": "family_life in office_break_room"
+    },
+    "items": [
+      {
+        "id": "1281ad1f-4251-56cb-847a-4c7c3daa76f5",
+        "prompt": "Write for the receiver in this scenario: office break room. Purpose: agree on a change. Constraint: use clear structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

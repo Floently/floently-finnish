@@ -1,0 +1,66 @@
+{
+  "id": "7d7435d1-2b0b-5cd9-a5bf-deb4d15e0ecf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Digitaalinen turvallisuus on yhä tärkeämpää yhteiskunnan kaikilla osa-alueilla. Kyberhyökkäykset voivat kohdistua yksityishenkilöihin, yrityksiin, kriittiseen infrastruktuuriin ja valtionhallintoon. Ne voivat aiheuttaa taloudellisia vahinkoja, tietovuotoja ja jopa vaarantaa yhteiskunnan toimintakyvyn. Suomessa on panostettu kyberturvallisuuteen muun muassa perustamalla Kyberturvallisuuskeskus ja kehittämällä kansallista kyberturvallisuusstrategiaa. Myös kansalaisilla on vastuu omasta digitaalisesta turvallisuudestaan: vahvojen salasanojen käyttö, monivaiheinen tunnistautuminen ja tietojen jakamisen harkinta ovat tärkeitä keinoja suojautua uhkia vastaan. Kansainvälinen yhteistyö on välttämätöntä, sillä kyberuhat eivät tunne rajoja.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "mcq_138",
+        "prompt": "Mihin kyberhyökkäykset voivat kohdistua?",
+        "options": [
+          "Vain yksityishenkilöihin",
+          "Vain yrityksiin",
+          "Kaikkiin edellä mainittuihin",
+          "Vain valtionhallintoon"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_139",
+        "prompt": "Mitä keinoja kansalaiset voivat käyttää digitaalisen turvallisuutensa parantamiseksi?",
+        "options": [
+          "Heikkojen salasanojen käyttö",
+          "Vahvojen salasanojen käyttö ja monivaiheinen tunnistautuminen",
+          "Tietojen jakaminen kaikille",
+          "Vain sähköpostin käyttö"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_140",
+        "prompt": "Miksi kansainvälinen yhteistyö on tärkeää kyberturvallisuudessa?",
+        "options": [
+          "Kyberuhat ovat vain paikallisia",
+          "Kyberuhat eivät tunne rajoja",
+          "Suomi on ainoa maa, jolla on kyberuhkia",
+          "Kansainvälinen yhteistyö on tehotonta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

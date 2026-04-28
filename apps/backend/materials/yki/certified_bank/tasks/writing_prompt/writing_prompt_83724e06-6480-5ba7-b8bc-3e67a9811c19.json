@@ -1,0 +1,37 @@
+{
+  "id": "83724e06-6480-5ba7-b8bc-3e67a9811c19",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt ravintolassa ja haluat antaa palautetta. Kirjoita palaute ravintolalle.\n\nKerro:\n- Missä ravintolassa kävit ja milloin\n- Mikä oli hyvää (ruoka, palvelu, tunnelma)\n- Mikä oli huonoa tai parannettavaa\n- Tulisitko uudelleen ja suosittelisitko muille",
+    "materials": {
+      "scenario": "Olet käynyt ravintolassa ja haluat antaa palautetta. Kirjoita palaute ravintolalle.\n\nKerro:\n- Missä ravintolassa kävit ja milloin\n- Mikä oli hyvää (ruoka, palvelu, tunnelma)\n- Mikä oli huonoa tai parannettavaa\n- Tulisitko uudelleen ja suosittelisitko muille"
+    },
+    "items": [
+      {
+        "id": "fa5b673c-1c0b-57ba-97d2-5dfb5024f1a8",
+        "prompt": "Olet käynyt ravintolassa ja haluat antaa palautetta. Kirjoita palaute ravintolalle.\n\nKerro:\n- Missä ravintolassa kävit ja milloin\n- Mikä oli hyvää (ruoka, palvelu, tunnelma)\n- Mikä oli huonoa tai parannettavaa\n- Tulisitko uudelleen ja suosittelisitko muille"
+      }
+    ],
+    "rubric": "Olet käynyt ravintolassa ja haluat antaa palautetta. Kirjoita palaute ravintolalle.\n\nKerro:\n- Missä ravintolassa kävit ja milloin\n- Mikä oli hyvää (ruoka, palvelu, tunnelma)\n- Mikä oli huonoa tai parannettavaa\n- Tulisitko uudelleen ja suosittelisitko muille",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

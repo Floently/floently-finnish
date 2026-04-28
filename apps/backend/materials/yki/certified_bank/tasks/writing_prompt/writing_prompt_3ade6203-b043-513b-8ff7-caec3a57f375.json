@@ -1,0 +1,37 @@
+{
+  "id": "3ade6203-b043-513b-8ff7-caec3a57f375",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.683,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a dentist position in a private dental clinic. Tell about your education, areas of special expertise, and experience in patient work. Also describe how you create a confidential relationship with patients. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus hammaslääkärin tehtävään"
+    },
+    "items": [
+      {
+        "id": "25dd5bc3-1c7e-5a34-ac10-746b9460b0ec",
+        "prompt": "Write a job application. You are applying for a dentist position in a private dental clinic. Tell about your education, areas of special expertise, and experience in patient work. Also describe how you create a confidential relationship with patients. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a dentist position in a private dental clinic. Tell about your education, areas of special expertise, and experience in patient work. Also describe how you create a confidential relationship with patients. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

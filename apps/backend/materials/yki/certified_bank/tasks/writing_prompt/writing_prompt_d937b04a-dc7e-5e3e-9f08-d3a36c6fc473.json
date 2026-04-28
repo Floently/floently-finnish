@@ -1,0 +1,37 @@
+{
+  "id": "d937b04a-dc7e-5e3e-9f08-d3a36c6fc473",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.35,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ostanut vaatteen verkkokaupasta. Kirjoita palaute. Kerro, toimitettiinko tuote ajallaan, vastasiko tuote kuvausta ja oliko asiakaspalveluun helppo saada yhteys.",
+    "materials": {
+      "scenario": "Palaute verkkokaupasta"
+    },
+    "items": [
+      {
+        "id": "54ffe055-6959-5ec0-b24a-15dab03ebc35",
+        "prompt": "Olet ostanut vaatteen verkkokaupasta. Kirjoita palaute. Kerro, toimitettiinko tuote ajallaan, vastasiko tuote kuvausta ja oliko asiakaspalveluun helppo saada yhteys."
+      }
+    ],
+    "rubric": "Toimitusaika\nTuotteen vastaavuus kuvaukseen\nAsiakaspalvelun tavoittaminen",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

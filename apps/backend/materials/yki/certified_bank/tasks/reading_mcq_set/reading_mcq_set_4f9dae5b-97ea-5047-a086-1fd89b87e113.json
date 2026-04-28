@@ -1,0 +1,73 @@
+{
+  "id": "4f9dae5b-97ea-5047-a086-1fd89b87e113",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kyläyhdistyksen tiedote kesäjuhlista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kyläyhdistys järjestää perinteiset kesäjuhlat lauantaina 15.6. kello 12–18 seurantalon pihalla. Tapahtumaan on vapaa pääsy, ja ohjelmassa on monipuolista tekemistä kaikenikäisille.\n\nOhjelmassa:\n- Kello 12–14: Myyjäiset, jossa myydään käsitöitä, leivonnaisia ja kirpputoritavaraa. Oma myyntipöytä maksaa 10 €, ja se pitää varata etukäteen.\n- Kello 14–15: Taikuri Taavi viihdyttää lapsia\n- Kello 15–16: Kyläkuoron esitys\n- Kello 16–18: Yhteistä laulua ja tanssia, grillimakkaraa ja kahvia\n\nRuokaa ja juomaa on myynnissä koko tapahtuman ajan. Grillimakkara 3 €, kahvi ja pulla 4 €, mehu 2 €.\n\nJärjestämme myös arpajaiset, jossa voi voittaa paikallisten yritysten lahjoittamia palkintoja. Arvat maksavat 2 €/kpl.\n\nTalkoolaisia tarvitaan! Jos voit auttaa tapahtuman järjestelyissä (pystytys, myynti, siivous), ota yhteyttä Maijaan puh. 123 4569.\n\nTervetuloa viettämään mukavaa päivää kyläläisten kanssa!\n\nKyläyhdistyksen hallitus",
+      "word_count": 120
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Milloin kesäjuhlat pidetään?",
+        "options": [
+          "15.6. kello 12–18",
+          "15.6. kello 14–20",
+          "20.6. kello 12–18"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko oma myyntipöytä maksaa?",
+        "options": [
+          "5 €",
+          "10 €",
+          "15 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä ohjelmassa on kello 14–15?",
+        "options": [
+          "myyjäiset",
+          "taikuri",
+          "kyläkuoro"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä arvat maksavat?",
+        "options": [
+          "1 €/kpl",
+          "2 €/kpl",
+          "3 €/kpl"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

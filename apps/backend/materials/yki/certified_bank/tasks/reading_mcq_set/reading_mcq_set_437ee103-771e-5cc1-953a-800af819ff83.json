@@ -1,0 +1,66 @@
+{
+  "id": "437ee103-771e-5cc1-953a-800af819ff83",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KUNNOSTA HUOLTAVA KAUPUNKI\n\nOulun kaupunki on panostanut viime vuosina paljon asukkaiden hyvinvointiin ja kuntoiluun. Kaupunkiin on rakennettu uusia ulkoilureittejä ja puistoja, joissa voi harrastaa monipuolisesti. Erityisesti pyöräilyyn on panostettu: uusia pyöräteitä on rakennettu kymmeniä kilometrejä, ja pyöräparkkeja on lisätty keskustan alueella.\n\nKaupunki tarjoaa myös edullisia liikuntapalveluita. Kuntosalit ja uimahallit ovat kaupunkilaisille halvempia kuin monissa muissa kaupungeissa. Lisäksi kaupunki järjestää maksuttomia tapahtumia, kuten ulkoilmakonsertteja ja liikuntatapahtumia puistoissa.\n\nTavoitteena on, että vuonna 2030 jo puolet oululaisista liikkuu terveytensä kannalta riittävästi. Kaupunki uskoo, että hyvinvoivat asukkaat ovat myös onnellisempia ja viihtyvät kaupungissa paremmin. Tämä taas lisää kaupungin vetovoimaa ja saa uusia asukkaita muuttamaan Ouluun.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "51127ed0-1504-5fff-b6d5-9d75504b0bb4",
+        "prompt": "Mihin Oulun kaupunki on erityisesti panostanut?",
+        "options": [
+          "Yksityisiin kuntokeskuksiin",
+          "Pyöräilyyn ja ulkoilureitteihin",
+          "Kauppakeskuksiin",
+          "Hotelleihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e87a2c50-f29d-5e0d-9eaf-22abbb530875",
+        "prompt": "Mitä maksuttomia tapahtumia kaupunki järjestää?",
+        "options": [
+          "Teatteriesityksiä",
+          "Ulkoilmakonsertteja ja liikuntatapahtumia",
+          "Ravintolapäiviä",
+          "Elokuvanäytöksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2cb80119-8f8a-5ca0-a4be-3ed02c67cc25",
+        "prompt": "Mikä on kaupungin tavoite vuodelle 2030?",
+        "options": [
+          "Kaikki asukkaat käyvät kuntosalilla",
+          "Puolet asukkaista liikkuu terveytensä kannalta riittävästi",
+          "Oulu on Suomen suurin kaupunki",
+          "Jokaisella on oma pyörä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

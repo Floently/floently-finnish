@@ -1,0 +1,40 @@
+{
+  "id": "a52501fa-1a11-574d-85b7-bd910516dc8e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what insurances you have and why. What insurances are recommended?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "1107c2cd-c9a2-5455-be5b-0ef2aaf57944",
+        "ai_first_turn_fi": "Onko sulla vakuutuksia? Mitä vakuutuksia Suomessa kannattaa ottaa?"
+      }
+    ],
+    "rubric": "Tell what insurances you have and why. What insurances are recommended?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

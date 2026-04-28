@@ -1,0 +1,66 @@
+{
+  "id": "4340033b-217f-5aaa-a2fa-ae2f88b8f778",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.307,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kesätyöilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "HAE KESÄTÖIHIN!\n\nSiivousliike Puhtaus-Pete hakee kahta kesätyöntekijää ajalle 1.6.–31.8.\n\nTyötehtävät:\n- toimistojen siivous\n- ikkunoiden pesu\n- piha-alueiden siistiminen\n\nTyöaika: ma–pe klo 7–15. Työhön kuuluu tarvittava koulutus.\n\nPalkka työehtosopimuksen mukaan.\n\nHae lähettämällä hakemus ja cv osoitteeseen: pete@siivous.fi 15.4. mennessä.\n\nLisätietoja p. 050 123 4567 (ma–pe klo 9–12).",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "c7ccfac7-c1a3-5437-bc57-492abeef15ba",
+        "prompt": "Kuinka monta työntekijää haetaan?",
+        "options": [
+          "Yksi",
+          "Kaksi",
+          "Kolme",
+          "Neljä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0e0ab068-fff6-53d8-9793-32737ef8a2d1",
+        "prompt": "Milloin työaika alkaa aamuisin?",
+        "options": [
+          "klo 6",
+          "klo 7",
+          "klo 8",
+          "klo 9"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8b0bf453-fef2-5ff5-ad7b-fce51e5d9b80",
+        "prompt": "Mihin mennessä pitää hakea?",
+        "options": [
+          "1.6.",
+          "15.4.",
+          "31.5.",
+          "31.8."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "78573e6b-73e4-568c-9f12-722b996bfa02",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.291,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell how your home is heated. What time is the heating on and how do you adjust the temperature?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "9b02307a-a660-5bc0-9945-7f3e61290352",
+        "ai_first_turn_fi": "Miten teillä lämmitetään? Onko kaukolämpö vai sähkö?"
+      }
+    ],
+    "rubric": "Tell how your home is heated. What time is the heating on and how do you adjust the temperature?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

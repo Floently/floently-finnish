@@ -1,0 +1,40 @@
+{
+  "id": "ecb4f4d6-b9d5-5fa5-9e90-49a97dba2ced",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell how healthcare works in Finland. What is the difference between public and private?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "e18a3dc4-ebf0-5827-ada4-5e44aebb4ee2",
+        "ai_first_turn_fi": "Ootko käyttänyt julkista vai yksityistä terveydenhuoltoa? Kumpi on parempi?"
+      }
+    ],
+    "rubric": "Tell how healthcare works in Finland. What is the difference between public and private?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

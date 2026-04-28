@@ -1,0 +1,37 @@
+{
+  "id": "13f3e024-0cc9-5f71-91dd-6bd8e65d32f6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon patterit eivät toimi kunnolla, ja asunnossa on kylmä. Kerro ongelmasta ja pyydä, että patterit tarkistetaan ja korjataan mahdollisimman pian.",
+    "materials": {
+      "scenario": "Vikailmoitus pattereista"
+    },
+    "items": [
+      {
+        "id": "a94769aa-9491-54f1-9c3c-17dbeca039b6",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Huomasit, että asunnon patterit eivät toimi kunnolla, ja asunnossa on kylmä. Kerro ongelmasta ja pyydä, että patterit tarkistetaan ja korjataan mahdollisimman pian."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nVaikutukset asumiseen\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

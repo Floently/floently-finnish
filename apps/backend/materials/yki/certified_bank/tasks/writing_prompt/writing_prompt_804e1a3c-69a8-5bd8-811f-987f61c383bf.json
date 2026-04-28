@@ -1,0 +1,37 @@
+{
+  "id": "804e1a3c-69a8-5bd8-811f-987f61c383bf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.356,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haluat muistuttaa ystävääsi tulevista juhlista. Kirjoita lyhyt viesti.",
+    "materials": {
+      "scenario": "Haluat muistuttaa ystävääsi tulevista juhlista. Kirjoita lyhyt viesti."
+    },
+    "items": [
+      {
+        "id": "62f06fa0-bfb4-5de0-a431-56d7327ff536",
+        "prompt": "Kirjoita viesti, jossa:\n- muistutat, että juhlat ovat lauantaina\n- kerrot, mihin aikaan juhlat alkavat\n- kysyt, tarvitseeko ystäväsi kyydin\n- kerrot, että odotat innolla"
+      }
+    ],
+    "rubric": "Kirjoita viesti, jossa:\n- muistutat, että juhlat ovat lauantaina\n- kerrot, mihin aikaan juhlat alkavat\n- kysyt, tarvitseeko ystäväsi kyydin\n- kerrot, että odotat innolla",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

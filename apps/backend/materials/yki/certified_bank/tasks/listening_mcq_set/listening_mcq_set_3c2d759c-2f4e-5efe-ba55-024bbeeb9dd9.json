@@ -1,0 +1,88 @@
+{
+  "id": "3c2d759c-2f4e-5efe-ba55-024bbeeb9dd9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.677,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesitähti tiedottaa, että marraskuussa alkaa uusi vesijuoksuryhmä ikääntyneille. Ryhmä kokoontuu tiistaisin ja torstaisin kello 10-11. Ryhmä on maksuton ja ohjattu. Ilmoittautuminen alkaa 15. lokakuuta puhelimitse. Ryhmään mahtuu 15 osallistujaa. Tervetuloa mukaan!",
+      "audio_asset_id": "7814c748-7b4e-4033-9971-338584cc9802"
+    },
+    "questions": [
+      {
+        "id": "1ec0d935-b510-5f4c-afeb-b7c672b93f68",
+        "prompt": "Mitä uimahalli tiedottaa?",
+        "options": [
+          "Remontista.",
+          "Aukioloaikojen muutoksista.",
+          "Hinnankorotuksista.",
+          "Uudesta vesijuoksuryhmästä ikääntyneille."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "d4bb44e0-00e0-535a-bbb1-3e40e774d047",
+        "prompt": "Minä kuukautena ryhmä alkaa?",
+        "options": [
+          "Syyskuussa.",
+          "Lokakuussa.",
+          "Joulukuussa.",
+          "Marraskuussa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "b929f8e1-c609-5914-80d1-f2792080811f",
+        "prompt": "Minä viikonpäivinä ryhmä kokoontuu?",
+        "options": [
+          "Maanantaisin ja keskiviikkoisin.",
+          "Keskiviikkoisin ja perjantaisin.",
+          "Lauantaisin ja sunnuntaisin.",
+          "Tiistaisin ja torstaisin."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "64bec480-7cd5-5124-bf29-603b31b6012b",
+        "prompt": "Mihin aikaan ryhmä kokoontuu?",
+        "options": [
+          "Kello 10-11.",
+          "Kello 9-10.",
+          "Kello 11-12.",
+          "Kello 12-13."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "567c4817-b99b-5e2b-972f-04749a8f478f",
+        "prompt": "Paljonko ryhmä maksaa?",
+        "options": [
+          "5 euroa kerta.",
+          "10 euroa kerta.",
+          "Se on maksuton.",
+          "30 euroa kuukaudessa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "c5e94728-8ae5-5c85-931e-dd298d8dbe3e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti yliopiston jatko-opintotoimistoon. Olet kiinnostunut tohtoriohjelmasta, mutta et ole varma, täytätkö pääsyvaatimukset. Kerro aiemmasta tutkinnostasi, arvosanoistasi ja työkokemuksestasi. Kysy, mitkä ovat tarkat pääsyvaatimukset ja miten voit parantaa mahdollisuuksiasi tulla hyväksytyksi.",
+    "materials": {
+      "scenario": "Tohtoriohjelman pääsyvaatimukset"
+    },
+    "items": [
+      {
+        "id": "5d01312a-ba2f-5351-bf45-46f13398f1e9",
+        "prompt": "Kirjoita virallinen sähköposti yliopiston jatko-opintotoimistoon. Olet kiinnostunut tohtoriohjelmasta, mutta et ole varma, täytätkö pääsyvaatimukset. Kerro aiemmasta tutkinnostasi, arvosanoistasi ja työkokemuksestasi. Kysy, mitkä ovat tarkat pääsyvaatimukset ja miten voit parantaa mahdollisuuksiasi tulla hyväksytyksi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

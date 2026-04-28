@@ -1,0 +1,99 @@
+{
+  "id": "be176d40-3170-5a89-a39b-9037101fc12b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työpaikoilla on alettu kiinnittää huomiota työntekijöiden mielenterveyteen. Stressi ja työuupumus ovat yleisiä syitä sairauspoissaoloihin. Työnantajat tarjoavat nykyään työterveyspsykologeja ja mielenterveyspalveluita. Myös työyhteisön hyvinvointiin panostetaan esimerkiksi tyky-päivillä ja liikuntasetelillä. Avoin keskustelu mielenterveydestä on tärkeää, jotta kukaan ei jää ongelmiensa kanssa yksin.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin työpaikoilla on alettu kiinnittää huomiota?",
+        "options": [
+          "Työntekijöiden palkkaukseen",
+          "Työntekijöiden mielenterveyteen",
+          "Työpaikan siisteyteen",
+          "Työmatkojen pituuteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä ovat yleisiä syitä sairauspoissaoloihin?",
+        "options": [
+          "Flunssa ja kuume",
+          "Stressi ja työuupumus",
+          "Tapaturmat",
+          "Allergiat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työnantajat tarjoavat työntekijöille?",
+        "options": [
+          "Ilmaista kahvia ja lounasta",
+          "Työterveyspsykologeja ja mielenterveyspalveluita",
+          "Palkankorotuksia",
+          "Pidempiä lomia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin muuhun työpaikoilla panostetaan?",
+        "options": [
+          "Työyhteisön hyvinvointiin",
+          "Työtehtävien lisäämiseen",
+          "Työajan pidentämiseen",
+          "Työpaikan vaihtoon"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä esimerkkejä työyhteisön hyvinvointiin panostamisesta mainitaan?",
+        "options": [
+          "Tyky-päivät ja liikuntasetelit",
+          "Palkankorotukset ja bonukset",
+          "Uudet työvälineet",
+          "Koulutukset ja kurssit"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi avoin keskustelu mielenterveydestä on tärkeää?",
+        "options": [
+          "Jotta työntekijät voisivat vaieta ongelmistaan",
+          "Jotta kukaan ei jäisi ongelmiensa kanssa yksin",
+          "Jotta työnantaja voisi kontrolloida työntekijöitä",
+          "Jotta sairauspoissaolot lisääntyisivät"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e1f86635-bd6f-5a5e-9f04-d6f405b459c4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat pitää lemmikkikissaa asunnossasi. Vuokrasopimuksessa ei mainita lemmikeistä. Kerro, että kissa on sisäkissa ja hyvin hoidettu. Kysy lupaa ja tarjoudu maksamaan lisävakuus.",
+    "materials": {
+      "scenario": "Lupakysymys lemmikkikissalle"
+    },
+    "items": [
+      {
+        "id": "7d366b07-dadd-5a7a-943e-9ad96f6e4ac6",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat pitää lemmikkikissaa asunnossasi. Vuokrasopimuksessa ei mainita lemmikeistä. Kerro, että kissa on sisäkissa ja hyvin hoidettu. Kysy lupaa ja tarjoudu maksamaan lisävakuus."
+      }
+    ],
+    "rubric": "Lemmikin kuvaus\nPerustelut\nTarjous lisävakuudesta",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

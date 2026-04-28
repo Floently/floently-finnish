@@ -1,0 +1,66 @@
+{
+  "id": "82f50635-f2db-53ec-a8dc-5e8e86449765",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin varata ajan hammaslääkärille. Onko teillä vapaita aikoja ensi viikolla?\nVirkailija: Hetkinen, katsotaan. Ensi viikolla on vapaita aikoja maanantaina kello 10 ja keskiviikkona kello 14. Kumpi sopisi teille paremmin?\nAsiakas: Keskiviikko kello 14 olisi hyvä. Onko se toimenpideaika vai tarkastus?\nVirkailija: Tämä on tarkastusaika. Se kestää noin 30 minuuttia. Tarvitsetteko myös hammashygienistin ajan samalle päivälle?\nAsiakas: Ei kiitos, vain tarkastus riittää tällä kertaa.",
+      "audio_asset_id": "75401fcb-445c-53e5-8ae4-22e705f5dfba"
+    },
+    "questions": [
+      {
+        "id": "list_001",
+        "prompt": "Mihin kellonaikaan asiakas varaa ajan?",
+        "options": [
+          "Maanantai kello 10",
+          "Keskiviikko kello 14",
+          "Keskiviikko kello 10",
+          "Maanantai kello 14"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_002",
+        "prompt": "Mitä palvelua asiakas varaa?",
+        "options": [
+          "Hammashygienistin ajan",
+          "Tarkastuksen",
+          "Toimenpiteen",
+          "Hampaiden valkaisun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_003",
+        "prompt": "Kuinka kauan varattu aika kestää?",
+        "options": [
+          "15 minuuttia",
+          "20 minuuttia",
+          "30 minuuttia",
+          "45 minuuttia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

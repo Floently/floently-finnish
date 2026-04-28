@@ -1,0 +1,99 @@
+{
+  "id": "f02b6dfc-bea1-579c-9522-e2b481aa3bb5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote kerrostalon remontista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on taloyhtiön tiedote. Aloitamme ensi maanantaina 8.5. talon julkisivun ja parvekkeiden peruskorjauksen. Remontti kestää noin neljä kuukautta, eli se valmistuu syyskuun loppuun mennessä. Remontin aikana parvekkeet ovat pois käytöstä, eikä niille saa mennä. Rakennuksen ympärillä on rakennustelineet ja mahdollisesti melua. Ikkunoiden pesu ja huolto hoidetaan urakoitsijan toimesta. Huomioittehan, että parvekelasit joudutaan irrottamaan remontin ajaksi. Ne asennetaan takaisin syyskuussa. Pyydämme, että tyhjennätte parvekkeet kaikesta irtaimistosta viimeistään sunnuntaina 7.5. Taloyhtiö ei vastaa parvekkeelle jääneistä tavaroista. Remontin aikana saattaa esiintyä hetkellisiä katkoksia vedentulossa ja sähkössä. Näistä tiedotetaan erikseen urakoitsijan toimesta. Pahoittelemme remontista aiheutuvaa haittaa. Remontin jälkeen talomme on entistä paremmassa kunnossa ja energiatehokkaampi.",
+      "audio_asset_id": "dc2d27bc-cc5e-46a2-9954-f2830355f5e6"
+    },
+    "questions": [
+      {
+        "id": "eda98c45-29e3-54cc-8d63-d60cb9fb0762",
+        "prompt": "Mistä taloyhtiö tiedottaa?",
+        "options": [
+          "Uuden hissin rakentamisesta.",
+          "Julkisivun ja parvekkeiden peruskorjauksesta.",
+          "Vesivahingosta.",
+          "Asuntojen myynnistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b20bd947-f34b-5701-8c3c-68f3bdfdece4",
+        "prompt": "Milloin remontti alkaa?",
+        "options": [
+          "Maanantaina 1.5.",
+          "Keskiviikkona 10.5.",
+          "Maanantaina 8.5.",
+          "Perjantaina 12.5."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "61b73339-38ab-5b93-b5fc-9c8712a86033",
+        "prompt": "Kuinka kauan remontti kestää?",
+        "options": [
+          "Kaksi kuukautta.",
+          "Kolme kuukautta.",
+          "Noin neljä kuukautta.",
+          "Viisi kuukautta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9e02bdd1-0458-5ad1-972c-a361ecc71c8e",
+        "prompt": "Mitä parvekkeille saa jättää remontin ajaksi?",
+        "options": [
+          "Kukkia ja kasveja.",
+          "Vain pieniä tavaroita.",
+          "Ei mitään, ne pitää tyhjentää.",
+          "Huonekaluja saa jättää."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "61807cdd-6bc9-5d19-ba71-489acd382261",
+        "prompt": "Mitä parvekelaseille tapahtuu remontin aikana?",
+        "options": [
+          "Ne irrotetaan ja asennetaan takaisin syyskuussa.",
+          "Ne jätetään paikoilleen.",
+          "Ne vaihdetaan uusiin.",
+          "Ne poistetaan kokonaan."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "32616905-0084-50df-86b5-a0eb55165a4c",
+        "prompt": "Mitä haittoja remontista voi olla?",
+        "options": [
+          "Asunnot kylmenevät.",
+          "Posti ei tule perille.",
+          "Ikkunoita ei saa avata.",
+          "Melua ja mahdollisia katkoksia vedessä ja sähkössä."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

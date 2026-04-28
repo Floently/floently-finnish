@@ -1,0 +1,37 @@
+{
+  "id": "8a199beb-1ee4-508e-a48e-6cc9778edb44",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti työväenopistoon. Olet kiinnostunut osallistumaan kielikurssille, mutta kurssi on jo täynnä. Kysy, onko peruutuspaikkoja tai järjestetäänkö kurssia uudelleen myöhemmin. Kerro myös, mitä kieltä haluaisit opiskella ja millä tasolla.",
+    "materials": {
+      "scenario": "Tiedustelu täynnä olevasta kurssista"
+    },
+    "items": [
+      {
+        "id": "1493e60d-5031-52ed-8dd9-7c3e519812ad",
+        "prompt": "Kirjoita virallinen sähköposti työväenopistoon. Olet kiinnostunut osallistumaan kielikurssille, mutta kurssi on jo täynnä. Kysy, onko peruutuspaikkoja tai järjestetäänkö kurssia uudelleen myöhemmin. Kerro myös, mitä kieltä haluaisit opiskella ja millä tasolla."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

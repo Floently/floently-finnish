@@ -1,0 +1,37 @@
+{
+  "id": "b184c264-5195-5dd1-b583-df52becb63f8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Yksityisautoilu"
+    },
+    "items": [
+      {
+        "id": "a8e97d24-6099-5252-bdbc-6a2a74e16614",
+        "prompt": "Pitäisikö kaupungeissa rajoittaa yksityisautoilua?"
+      }
+    ],
+    "rubric": "Pitäisikö kaupungeissa rajoittaa yksityisautoilua?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

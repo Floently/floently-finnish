@@ -1,0 +1,37 @@
+{
+  "id": "7808f2e8-a950-5729-a71c-5f3e25841a2c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.654,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: service desk. Purpose: agree on a change. Constraint: include two reasons.",
+    "materials": {
+      "scenario": "culture in service_desk"
+    },
+    "items": [
+      {
+        "id": "43cf9c65-3763-5213-a9e5-b8ee5f594aaa",
+        "prompt": "Write for the receiver in this scenario: service desk. Purpose: agree on a change. Constraint: include two reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

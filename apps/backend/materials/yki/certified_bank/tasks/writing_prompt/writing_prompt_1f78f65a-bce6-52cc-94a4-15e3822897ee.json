@@ -1,0 +1,37 @@
+{
+  "id": "1f78f65a-bce6-52cc-94a4-15e3822897ee",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuntosali on laskuttanut sinua jäsenyydestä, vaikka olet irtisanonut sopimuksen. Kirjoita virallinen reklamaatio, jossa kuvaat irtisanomisen ajankohdan ja tavan, liität mukaan kopion irtisanomisilmoituksesta, viittaa kuluttajansuojalakiin ja sopimusehtoihin, vaadi hyvitystä virheellisesti perityistä maksuista ja vaadi sopimuksen välitöntä päättämistä.",
+    "materials": {
+      "scenario": "Virheellinen laskutus irtisanotusta sopimuksesta"
+    },
+    "items": [
+      {
+        "id": "2694960d-7e16-580d-82dd-b166228e35ee",
+        "prompt": "Kuntosali on laskuttanut sinua jäsenyydestä, vaikka olet irtisanonut sopimuksen. Kirjoita virallinen reklamaatio, jossa kuvaat irtisanomisen ajankohdan ja tavan, liität mukaan kopion irtisanomisilmoituksesta, viittaa kuluttajansuojalakiin ja sopimusehtoihin, vaadi hyvitystä virheellisesti perityistä maksuista ja vaadi sopimuksen välitöntä päättämistä."
+      }
+    ],
+    "rubric": "Kuntosali on laskuttanut sinua jäsenyydestä, vaikka olet irtisanonut sopimuksen. Kirjoita virallinen reklamaatio, jossa kuvaat irtisanomisen ajankohdan ja tavan, liität mukaan kopion irtisanomisilmoituksesta, viittaa kuluttajansuojalakiin ja sopimusehtoihin, vaadi hyvitystä virheellisesti perityistä maksuista ja vaadi sopimuksen välitöntä päättämistä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

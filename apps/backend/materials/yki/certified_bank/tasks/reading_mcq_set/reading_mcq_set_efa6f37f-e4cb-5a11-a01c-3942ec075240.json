@@ -1,0 +1,77 @@
+{
+  "id": "efa6f37f-e4cb-5a11-a01c-3942ec075240",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "DIGITAALISET TERVEYSPALVELUT YLEISTYVÄT\n\nViime vuosina digitaaliset terveyspalvelut ovat lisääntyneet räjähdysmäisesti. Etävastaanotot ja chat-palvelut ovat arkipäivää monille kaupunkilaisille. Terveydenhuollon ammattilaiset ovat kuitenkin huolissaan siitä, että digiloikka jättää osan väestöstä ulkopuolelle.\n\n\"Ikääntyneet, matalasti koulutetut ja ne, joilla on heikompi kielitaito, käyttävät digipalveluja selvästi vähemmän\", toteaa tutkija Laura Mäkelä. Hänen mukaansa digitaaliset palvelut voivat lisätä terveyseroja.\n\nToisaalta digitaalisuus tuo mahdollisuuksia. Harvaan asutuilla alueilla etävastaanotto voi olla ainoa keino saada erikoislääkärin apua. Myös nuoret suosivat digitaalisia palveluja nopeuden vuoksi.\n\nSosiaali- ja terveysministeriössä valmistellaan ohjeistusta, jonka mukaan jokaisella tulisi olla mahdollisuus myös perinteiseen vastaanottoon.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 117
+    },
+    "questions": [
+      {
+        "id": "19111de6-b0df-5848-930e-68c2d10b6cdb",
+        "prompt": "Mitä digitaalisia terveyspalveluja tekstissä mainitaan?",
+        "options": [
+          "Sairaalahoito",
+          "Etävastaanotot ja chat-palvelut",
+          "Laboratoriopalvelut",
+          "Fysioterapia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4d05c534-38e3-57b5-9ce5-8673b639b477",
+        "prompt": "Mistä tutkija Laura Mäkelä on huolissaan?",
+        "options": [
+          "Digipalvelut ovat liian kalliita",
+          "Osa väestöstä jää digipalvelujen ulkopuolelle",
+          "Digipalvelut ovat liian hitaita",
+          "Nuoret eivät käytä digipalveluja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bc531860-3c3e-5341-88b6-5d80a4503ea3",
+        "prompt": "Mikä on digitaalisten palvelujen etu harvaan asutuilla alueilla?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne tuovat erikoislääkärin avun",
+          "Ne ovat nopeampia",
+          "Ne korvaavat kaikki palvelut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "128d5025-80cf-539b-baf3-f2d86ad56e26",
+        "prompt": "Mitä ministeriössä valmistellaan?",
+        "options": [
+          "Digipalvelujen lopettamista",
+          "Ohjeistusta, jonka mukaan perinteinen vastaanotto säilyy",
+          "Uusia digipalveluja",
+          "Maksujen nostamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

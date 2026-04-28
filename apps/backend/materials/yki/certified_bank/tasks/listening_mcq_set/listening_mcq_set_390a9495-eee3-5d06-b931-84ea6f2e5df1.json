@@ -1,0 +1,66 @@
+{
+  "id": "390a9495-eee3-5d06-b931-84ea6f2e5df1",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin lähettää tämän paketin ulkomaille. Paljonko se maksaa?\nPostivirkailija: Hei, minne päin ja minkä kokoinen paketti on kyseessä?\nAsiakas: Saksaan ja se on aika pieni, noin 30 x 20 x 15 senttiä.\nVirkailija: Punnitaan se ensin. (Punnitsee) Tämä on 1,2 kiloa. Halvin tapa on lähettää se Economy-lähetyksenä, hinta on 18,90 euroa.\nAsiakas: Kauanko toimitus kestää?\nVirkailija: Economy-lähetyksessä noin 5-7 arkipäivää. Jos haluat nopeammin, Priority maksaa 24,90 euroa ja kestää 2-3 arkipäivää.\nAsiakas: Priority on parempi. Hoidetaan se.",
+      "audio_asset_id": "871ccffd-47a7-5106-aaa1-66da5fa20e72"
+    },
+    "questions": [
+      {
+        "id": "list_130",
+        "prompt": "Minne asiakas lähettää paketin?",
+        "options": [
+          "Ruotsiin",
+          "Saksaan",
+          "Ranskaan",
+          "Italiaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_131",
+        "prompt": "Kuinka painava paketti on?",
+        "options": [
+          "0,8 kiloa",
+          "1,0 kiloa",
+          "1,2 kiloa",
+          "1,5 kiloa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_132",
+        "prompt": "Minkä lähetystavan asiakas valitsee?",
+        "options": [
+          "Economy",
+          "Priority",
+          "Express",
+          "Normaali"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

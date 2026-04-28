@@ -1,0 +1,66 @@
+{
+  "id": "3cdd635d-e6fd-5f7c-9780-0eed3874db12",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan sisäinen tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIEDOTE: HENKILÖSTÖPÄIVÄ JA KESÄJUHLAT\n\nHyvät työkaverit,\n\nJärjestämme perinteisen henkilöstöpäivän perjantaina 7.6. klo 12–16. Ohjelmassa on vaihtoehtoista toimintaa: voit osallistua joko liikuntatuokioon (sulkapallo, uinti) tai rentouttavalle luontopolun kävelylle. Ilmoittaudu näihin 31.5. mennessä intran lomakkeella.\n\nHenkilöstöpäivän jälkeen siirrymme kesäjuhlien viettoon Ravintola Kasvuun klo 18 alkaen. Tarjolla on kolmen ruokalajin illallinen. Puolisot ovat tervetulleita. Ilmoittaudu kesäjuhlaan erikseen 24.5. mennessä.\n\nTerveisin, Henkilöstötiimi",
+      "word_count": 58
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä vaihtoehtoja henkilöstöpäivässä on?",
+        "options": [
+          "Uinti ja sauna",
+          "Liikuntaa tai luontopolku",
+          "Luentoja ja työpajoja",
+          "Hieronta ja jooga"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin mennessä pitää ilmoittautua henkilöstöpäivään?",
+        "options": [
+          "24.5.",
+          "31.5.",
+          "7.6.",
+          "14.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Ketkä ovat tervetulleita kesäjuhlaan?",
+        "options": [
+          "Vain työntekijät",
+          "Työntekijät ja puolisot",
+          "Vain esimiehet",
+          "Koko perhe"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

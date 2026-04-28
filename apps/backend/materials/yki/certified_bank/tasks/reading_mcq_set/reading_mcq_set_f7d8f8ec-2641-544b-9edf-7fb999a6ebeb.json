@@ -1,0 +1,66 @@
+{
+  "id": "f7d8f8ec-2641-544b-9edf-7fb999a6ebeb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue historianfilosofinen essee ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "VOIKO HISTORIASTA OPPIA?\n\nHistorianfilosofi Jussi Pakkasvirta pohtii, voiko historiasta todella oppia. Hänen mukaansa historiaa ei voi käyttää suoraan ennustamiseen, koska olosuhteet muuttuvat. Silti historian tuntemus auttaa ymmärtämään nykyisyyttä ja tunnistamaan toistuvia rakenteita. 'Historia ei toista itseään, mutta se riimittelee.' Pakkasvirta erottaa pinnallisen historian käytön ja syvällisen historiallisen ymmärryksen. Pinnallista on vetää suoria analogioita menneisyyden ja nykyisyyden välillä. Syvällinen ymmärrys taas tarkoittaa kykyä hahmottaa pitkiä kehityskulkuja ja rakenteellisia tekijöitä.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten Jussi Pakkasvirta suhtautuu historian käyttöön ennustamisessa?",
+        "options": [
+          "Sitä voi käyttää suoraan",
+          "Sitä ei voi käyttää suoraan, koska olosuhteet muuttuvat",
+          "Se on ainoa tapa ennustaa",
+          "Sillä ei ole merkitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Pakkasvirta tarkoittaa 'pinnallisella historian käytöllä'?",
+        "options": [
+          "Historian opiskelua koulussa",
+          "Suorien analogioiden vetämistä",
+          "Historian unohtamista",
+          "Historian tutkimista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä syvällisestä historiallisesta ymmärryksestä on?",
+        "options": [
+          "Se auttaa ennustamaan tulevaisuutta",
+          "Se auttaa hahmottamaan pitkiä kehityskulkuja",
+          "Se osoittaa, että mikään ei muutu",
+          "Se tekee pessimistiseksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

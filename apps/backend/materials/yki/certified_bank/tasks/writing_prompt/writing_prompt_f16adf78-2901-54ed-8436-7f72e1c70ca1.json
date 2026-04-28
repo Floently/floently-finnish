@@ -1,0 +1,37 @@
+{
+  "id": "f16adf78-2901-54ed-8436-7f72e1c70ca1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.692,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a CEO position at Finnair. Tell about your experience in leading an international airline, strategic renewal, and crisis management. Also describe how you have developed customer experience and responded to aviation industry challenges. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus Finnairin toimitusjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "922c6d02-aff9-54c0-8841-1e761f1102ea",
+        "prompt": "Write a job application. You are applying for a CEO position at Finnair. Tell about your experience in leading an international airline, strategic renewal, and crisis management. Also describe how you have developed customer experience and responded to aviation industry challenges. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a CEO position at Finnair. Tell about your experience in leading an international airline, strategic renewal, and crisis management. Also describe how you have developed customer experience and responded to aviation industry challenges. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

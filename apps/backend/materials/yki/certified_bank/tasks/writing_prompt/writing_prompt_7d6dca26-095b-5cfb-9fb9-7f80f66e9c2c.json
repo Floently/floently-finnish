@@ -1,0 +1,37 @@
+{
+  "id": "7d6dca26-095b-5cfb-9fb9-7f80f66e9c2c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti asukasyhdistykselle.",
+    "materials": {
+      "scenario": "Ehdota yhteistä kampanjaa"
+    },
+    "items": [
+      {
+        "id": "e4fea802-4878-58c8-8548-6087c2413a26",
+        "prompt": "Olet huolissasi jostakin asuinaluettasi koskevasta asiasta, kuten liikenteestä tai palveluiden vähenemisestä. Kirjoita sähköposti ja ehdota, että asukasyhdistys käynnistäisi kampanjan asian parantamiseksi. Kerro, mitä kampanjassa voisi tehdä."
+      }
+    ],
+    "rubric": "Olet huolissasi jostakin asuinaluettasi koskevasta asiasta, kuten liikenteestä tai palveluiden vähenemisestä. Kirjoita sähköposti ja ehdota, että asukasyhdistys käynnistäisi kampanjan asian parantamiseksi. Kerro, mitä kampanjassa voisi tehdä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

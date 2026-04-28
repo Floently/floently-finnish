@@ -1,0 +1,37 @@
+{
+  "id": "55e5e1ea-4045-5fc4-baf6-d25ca9dcbf14",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti verotoimistoon. Olet saanut verokortin, jossa on väärä veroprosentti. Kerro nimesi ja henkilötunnuksesi. Kerro, mikä prosentti on väärin ja mikä sen pitäisi olla. Pyydä uutta verokorttia.",
+    "materials": {
+      "scenario": "Väärän veroprosentin korjaus"
+    },
+    "items": [
+      {
+        "id": "4bbcedf5-87e9-5a5a-9692-f4663fef947b",
+        "prompt": "Kirjoita sähköposti verotoimistoon. Olet saanut verokortin, jossa on väärä veroprosentti. Kerro nimesi ja henkilötunnuksesi. Kerro, mikä prosentti on väärin ja mikä sen pitäisi olla. Pyydä uutta verokorttia."
+      }
+    ],
+    "rubric": "Henkilötiedot\nVäärä tieto\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

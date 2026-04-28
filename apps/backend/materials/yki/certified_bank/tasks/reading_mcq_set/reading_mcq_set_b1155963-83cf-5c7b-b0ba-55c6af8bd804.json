@@ -1,0 +1,110 @@
+{
+  "id": "b1155963-83cf-5c7b-b0ba-55c6af8bd804",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kaupungistuminen on yksi näkyvimmistä yhteiskunnallisista muutoksista Suomessa. Yhä useampi suomalainen asuu kaupunkiseuduilla, kun taas maaseutualueet tyhjenevät. Tällä kehityksellä on monia syitä. Työpaikat, koulutusmahdollisuudet ja palvelut keskittyvät kasvukeskuksiin, mikä vetää väestöä niihin. Nuoret muuttavat kaupunkeihin opiskelemaan, ja monet jäävät sinne työn perässä. Kaupungistuminen tuo mukanaan sekä hyötyjä että haittoja. Kaupungeissa on tehokkaampaa järjestää palveluita ja joukkoliikennettä, ja ne ovat usein innovaation ja talouskasvun moottoreita. Toisaalta kaupungistuminen lisää asuntojen hintoja, ruuhkia ja eriarvoisuutta, kun hyvätuloiset asuvat keskustoissa ja pienituloiset työmatkalaisten kaupunginosissa. Maaseudulla väestön väheneminen johtaa palvelujen katoamiseen, mikä heikentää jäljelle jäävien elämänlaatua. Tämä luo itseään vahvistavan kierteen: kun palvelut vähenevät, alueesta tulee entistä vähemmän houkutteleva, ja muuttoliike kiihtyy. Ratkaisuja etsitään sekä kaupunkien sisäisestä kehittämisestä että maaseudun elinvoiman vahvistamisesta.",
+      "word_count": 116
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kaupungistuminen tarkoittaa?",
+        "options": [
+          "Ihmisten muuttamista maaseudulta kaupunkeihin.",
+          "Kaupunkien määrän vähenemistä.",
+          "Maaseudun teollistumista.",
+          "Ulkomaalaisten muuttamista Suomeen."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi ihmiset muuttavat kaupunkeihin?",
+        "options": [
+          "Halvempien asuntojen vuoksi.",
+          "Työpaikkojen, koulutusmahdollisuuksien ja palvelujen vuoksi.",
+          "Puhtaamman ilman vuoksi.",
+          "Rauhallisemman ympäristön vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyjä kaupungistumisesta on?",
+        "options": [
+          "Asuntojen hinnat laskevat.",
+          "Ruuhkat vähenevät.",
+          "Palvelut ja joukkoliikenne voidaan järjestää tehokkaammin.",
+          "Eriarvoisuus vähenee."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haittoja kaupungistumisesta on?",
+        "options": [
+          "Työpaikat vähenevät.",
+          "Koulutusmahdollisuudet heikkenevät.",
+          "Asuntojen hinnat nousevat ja eriarvoisuus lisääntyy.",
+          "Innovaatiot vähenevät."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten kaupungistuminen vaikuttaa maaseutuun?",
+        "options": [
+          "Maaseudun palvelut paranevat.",
+          "Maaseudulle muuttaa lisää ihmisiä.",
+          "Väestön väheneminen johtaa palvelujen katoamiseen.",
+          "Maaseudun elinkeinoelämä vahvistuu."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan itseään vahvistavalla kierteellä?",
+        "options": [
+          "Kun muuttoliike kiihtyy, se hidastuu itsestään.",
+          "Kun palvelut vähenevät, alueesta tulee vähemmän houkutteleva ja muuttoliike kiihtyy.",
+          "Kun väestö vähenee, palvelut paranevat.",
+          "Kun hinnat nousevat, kysyntä kasvaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mistä ratkaisuja kaupungistumisen haasteisiin etsitään?",
+        "options": [
+          "Vain kaupunkien sisäisestä kehittämisestä.",
+          "Vain maaseudun elinvoiman vahvistamisesta.",
+          "Sekä kaupunkien kehittämisestä että maaseudun elinvoiman vahvistamisesta.",
+          "Muuttoliikkeen kieltämisestä."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

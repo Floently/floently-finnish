@@ -1,0 +1,66 @@
+{
+  "id": "a2cf8b38-9535-5c82-920b-01efea80ac63",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.307,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ohjeet asunnon siivoukseen. Valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "MUUTTO SIIVOUKSEN TARKISTUSLISTA\n\nImuroi lattiat.\nPyyhi pölyt tasoilta.\nPese jääkaappi ja uuni.\nPuhdista wc-istuin ja lavuaari.\nTarkista, että ikkunat ovat kiinni.\nVie roskat ulos.",
+      "word_count": 24
+    },
+    "questions": [
+      {
+        "id": "b1adf191-e5e3-5b46-8bee-3358b5139c53",
+        "prompt": "Mitä lattioille pitää tehdä?",
+        "options": [
+          "Maalata",
+          "Imuroida",
+          "pestä saippualla",
+          "Jättää tyhjäksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8cb8aff3-c082-57fc-a3aa-0d968b18f1a4",
+        "prompt": "Pitääkö jääkaappi pestä?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain jos se on likainen",
+          "Vain kesällä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "5c37c5e9-9c10-52f4-a90a-8af7973841fc",
+        "prompt": "Mitä teet roskille?",
+        "options": [
+          "Jätä keittiöön",
+          "Vie ulos",
+          "Polta takassa",
+          "Laita komeroon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

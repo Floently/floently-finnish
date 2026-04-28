@@ -1,0 +1,77 @@
+{
+  "id": "75654733-a57e-5f4a-b197-887b89a6e200",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu demokratian tulevaisuudesta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan demokratian tulevaisuudesta. Meillä on täällä kaksi asiantuntijaa: valtiotieteilijä Tuomas Kivi ja filosofi Sanna Lehtinen.\n\nTuomas Kivi: Demokratia on kriisissä monessa maassa. Luottamus instituutioihin on heikentynyt, populismi ja ääriliikkeet ovat vahvistuneet. Tämä on vakava uhka demokratialle.\n\nSanna Lehtinen: Kriisi on myös mahdollisuus. Se pakottaa meidät miettimään, millaista demokratiaa haluamme. Ehkä perinteinen edustuksellinen demokratia ei enää riitä. Tarvitaan uusia osallistumisen muotoja.\n\nTuomas Kivi: Osallistava demokratia on yksi suunta. Kansalaisraadit, osallistava budjetointi ja kansalaisaloitteet ovat hyviä esimerkkejä. Ne voivat täydentää edustuksellista demokratiaa ja lisätä kansalaisten vaikutusmahdollisuuksia.\n\nSanna Lehtinen: Mutta ne eivät yksin riitä. Tarvitaan myös syvällisempää kulttuurin muutosta. Ihmisten on opittava sietämään erilaisia mielipiteitä ja etsimään kompromisseja. Tämä on vaikeaa polarisoituneessa maailmassa.\n\nTuomas Kivi: Some on tässä sekä ongelma että mahdollisuus. Se voi vahvistaa kuplia ja levittää vihaa, mutta se voi myös madaltaa kynnystä osallistua ja antaa äänen niille, jotka eivät muuten tulisi kuulluiksi.\n\nSanna Lehtinen: Tässä tarvitaan sääntelyä. Some-alustoja on saatava vastuuseen sisällöistä. Algoritmeja on muutettava niin, että ne eivät vahvista äärimielipiteitä. Tämä on vaikeaa, mutta välttämätöntä.\n\nTuomas Kivi: Myös koulutuksella on tärkeä rooli. Kriittinen ajattelu ja medialukutaito ovat tulevaisuuden kansalaistaitoja. Ihmisten on osattava arvioida tiedon lähteitä ja tunnistaa disinformaatio.\n\nSanna Lehtinen: Lopuksi on muistettava, että demokratia on enemmän kuin järjestelmä. Se on asenne ja kulttuuri. Se on kykyä kuunnella ja kunnioittaa toisia, vaikka olisi eri mieltä.\n\nTuomas Kivi: Ja se on meidän kaikkien vastuu. Demokratia ei toimi ilman osallistuvia kansalaisia. Siksi meidän on panostettava siihen nyt.",
+      "audio_asset_id": "2258653f-19be-5c9b-9f6c-445aa6b9e84a"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_017_q1",
+        "prompt": "Mitä ongelmia demokratiassa on Tuomas Kiven mukaan?",
+        "options": [
+          "kaikki on hyvin",
+          "luottamus instituutioihin on heikentynyt, populismi ja ääriliikkeet ovat vahvistuneet",
+          "ihmiset äänestävät liikaa",
+          "päätökset ovat liian lähellä kansalaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_017_q2",
+        "prompt": "Mitä uusia osallistumisen muotoja mainitaan?",
+        "options": [
+          "vain vaalit",
+          "kansalaisraadit, osallistava budjetointi ja kansalaisaloitteet",
+          "vain mielenosoitukset",
+          "vain puoluejäsenyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_017_q3",
+        "prompt": "Miten some vaikuttaa demokratiaan?",
+        "options": [
+          "se parantaa aina keskustelua",
+          "se voi vahvistaa kuplia ja levittää vihaa, mutta myös madaltaa osallistumiskynnystä",
+          "sillä ei ole vaikutusta",
+          "se lisää aina moniäänisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_017_q4",
+        "prompt": "Mitä taitoja kansalaiset tarvitsevat tulevaisuudessa?",
+        "options": [
+          "vain teknisiä taitoja",
+          "kriittistä ajattelua ja medialukutaitoa",
+          "vain some-taitoja",
+          "vain kielitaitoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

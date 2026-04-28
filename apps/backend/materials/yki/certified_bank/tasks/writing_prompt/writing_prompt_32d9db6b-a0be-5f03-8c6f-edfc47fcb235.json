@@ -1,0 +1,37 @@
+{
+  "id": "32d9db6b-a0be-5f03-8c6f-edfc47fcb235",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita perusteltu kannanotto, jossa esität mielipiteesi ja perustelet sen huolellisesti. Käytä esimerkkejä ja pyri selkeään rakenteeseen.",
+    "materials": {
+      "scenario": "Julkisen terveydenhuollon jonot ovat liian pitkät"
+    },
+    "items": [
+      {
+        "id": "a414f135-7287-5b4b-9324-5715450035c2",
+        "prompt": "Kirjoita perusteltu kannanotto, jossa esität mielipiteesi ja perustelet sen huolellisesti. Käytä esimerkkejä ja pyri selkeään rakenteeseen."
+      }
+    ],
+    "rubric": "Kirjoita perusteltu kannanotto, jossa esität mielipiteesi ja perustelet sen huolellisesti. Käytä esimerkkejä ja pyri selkeään rakenteeseen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

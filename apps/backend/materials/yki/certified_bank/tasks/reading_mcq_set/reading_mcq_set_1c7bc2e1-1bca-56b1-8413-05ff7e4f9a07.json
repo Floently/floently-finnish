@@ -1,0 +1,77 @@
+{
+  "id": "1c7bc2e1-1bca-56b1-8413-05ff7e4f9a07",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.786,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Julkisen talouden kestävyys on yksi aikamme keskeisimmistä poliittisista kysymyksistä. Väestön ikääntyminen, julkisten menojen kasvu ja globaali taloudellinen kilpailu asettavat paineita julkiselle taloudelle, ja ratkaisuja haetaan niin menoleikkauksista, verotuksen kiristyksestä kuin rakenteellisista uudistuksistakin. Tämä keskustelu on kuitenkin usein kärjekästä ja ideologisesti latautunutta, ja eri osapuolet vetoavat erilaisiin arvoihin ja intresseihin. Leikkauspolitiikan kannattajat korostavat julkisen talouden tasapainottamisen välttämättömyyttä. Heidän mukaansa liiallinen velkaantuminen siirtää taakan tuleville sukupolville ja heikentää maan kykyä selviytyä tulevista kriiseistä. He vaativat nopeita ja kipeitäkin päätöksiä menojen sopeuttamiseksi, ja he katsovat, että leikkaukset voidaan kohdentaa vähemmän tärkeisiin kohteisiin ilman, että peruspalvelut kärsivät. Verotuksen kiristämisen kannattajat puolestaan katsovat, että leikkaukset ovat epäoikeudenmukaisia, koska ne kohdistuvat usein heikoimmassa asemassa oleviin. He korostavat, että hyvinvointivaltion rahoitus on turvattava progressiivisella verotuksella, joka kohdistuu eniten niihin, joilla on eniten varaa maksaa. Heidän mukaansa verotuksella voidaan myös ohjata yhteiskuntaa toivottuun suuntaan, esimerkiksi ympäristöverojen avulla. Rakenteellisten uudistusten kannattajat korostavat, että sekä leikkaukset että veronkorotukset ovat väistämättä kivuliaita, jos ne tehdään ilman samanaikaisia uudistuksia, jotka parantavat talouden tuottavuutta ja työllisyyttä pitkällä aikavälillä. Tällaisia uudistuksia ovat esimerkiksi koulutusjärjestelmän kehittäminen, työmarkkinoiden joustavoittaminen ja innovaatioiden tukeminen. Heidän mukaansa kestävä julkisen talouden ratkaisu edellyttää kaikkien näiden keinojen yhdistelmää, jossa huomioidaan sekä taloudelliset realiteetit että sosiaalinen oikeudenmukaisuus.",
+      "word_count": 195
+    },
+    "questions": [
+      {
+        "id": "bc144a43-a4f7-5b51-a0a1-475a982735df",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Verotuksen kiristämisen vaikutukset talouskasvuun",
+          "Julkisen talouden kestävyyteen liittyvä keskustelu ja erilaiset näkökulmat ratkaisuiksi",
+          "Menoleikkausten hyödyt ja haitat",
+          "Rakenteellisten uudistusten merkitys talouskasvulle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9e7b2768-9a6b-5720-83d0-e043afc32b38",
+        "prompt": "Tekstin mukaan mitä leikkauspolitiikan kannattajat korostavat?",
+        "options": [
+          "Verotuksen kiristämistä ja hyvinvointivaltion rahoituksen turvaamista",
+          "Julkisen talouden tasapainottamisen välttämättömyyttä, jotta velkataakka ei siirry tuleville sukupolville",
+          "Rakenteellisten uudistusten merkitystä tuottavuuden ja työllisyyden parantamisessa",
+          "Ympäristöverojen merkitystä yhteiskunnan ohjaamisessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "362f6ebd-b307-55b9-9887-f11879724271",
+        "prompt": "Mitä perusteita verotuksen kiristämisen kannattajat esittävät?",
+        "options": [
+          "Leikkaukset ovat epäoikeudenmukaisia, ja hyvinvointivaltion rahoitus on turvattava progressiivisella verotuksella, joka kohdistuu eniten varakkaisiin",
+          "Verotuksen kiristäminen on välttämätöntä julkisen talouden tasapainottamiseksi",
+          "Verotuksen kiristäminen kannustaa työntekoon ja yrittäjyyteen",
+          "Verotuksen kiristäminen on ainoa keino vähentää julkista velkaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "5c35ee6f-44d3-5e41-bd49-d6b2c9c274fb",
+        "prompt": "Mitä rakenteellisten uudistusten kannattajat pitävät tärkeänä kestävän julkisen talouden saavuttamiseksi?",
+        "options": [
+          "Vain menoleikkauksia",
+          "Vain veronkorotuksia",
+          "Sekä menoleikkauksia että veronkorotuksia ilman muita uudistuksia",
+          "Kaikkien keinojen (leikkaukset, veronkorotukset ja rakenteelliset uudistukset) yhdistelmää, joka huomioi taloudelliset realiteetit ja sosiaalisen oikeudenmukaisuuden"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "652be0eb-9ede-5dad-9e79-08f244e3f514",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti hammaslääkärille. Sinulla on kova hammassärky. Kerro, että tarvitset ajan mahdollisimman pian. Kerro myös, että et ole käynyt hammaslääkärissä kahteen vuoteen. Kerro nimesi ja puhelinnumerosi.",
+    "materials": {
+      "scenario": "Viesti hammaslääkärille kiireellisestä ajasta"
+    },
+    "items": [
+      {
+        "id": "85e71f1e-1b5c-5a13-8c52-c39b31af536a",
+        "prompt": "Kirjoita lyhyt viesti hammaslääkärille. Sinulla on kova hammassärky. Kerro, että tarvitset ajan mahdollisimman pian. Kerro myös, että et ole käynyt hammaslääkärissä kahteen vuoteen. Kerro nimesi ja puhelinnumerosi."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on hammassärky\nKerro, että tarvitset ajan pian\nKerro, milloin olet viimeksi käynyt\nKerro nimesi ja puhelinnumerosi",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "7755d262-30d2-5c97-a5d8-a032028036ab",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kuntosalin hinnasto ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KUNTOSALI KUNTO – HINNASTO 2025\n\nKertamaksu: 12 €\n10 kerran kortti: 90 €\nKuukausikortti: 50 €\nVuosikortti: 420 €\n\nOpiskelija- ja eläkeläisalennus: -20 % kuukausi- ja vuosikorteista.\n\nRyhmäliikuntatunnit: 8 €/kerta tai 70 €/10 kertaa.\n\nOhjaajatunti: 55 €/tunti.\n\nAukioloajat:\nma–pe 6–22, la–su 8–20.\n\nEnsimmäinen käynti ilmaiseksi!",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Paljonko kertamaksu on?",
+        "options": [
+          "10 €",
+          "12 €",
+          "14 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Paljonko 10 kerran kortti maksaa?",
+        "options": [
+          "80 €",
+          "90 €",
+          "100 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Kuka saa alennusta?",
+        "options": [
+          "kaikki",
+          "opiskelijat ja eläkeläiset",
+          "vain uudet asiakkaat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Milloin kuntosali on auki viikonloppuisin?",
+        "options": [
+          "8–20",
+          "9–21",
+          "10–18"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

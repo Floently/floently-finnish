@@ -1,0 +1,37 @@
+{
+  "id": "0e562542-c33e-5e3b-9882-0a5f7ffbe73a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikkaruokalasta. Arvioi ruuan laatua, hintaa ja ruokalan viihtyisyyttä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute työpaikkaruokalasta"
+    },
+    "items": [
+      {
+        "id": "93caecc3-ba7b-5730-a450-1e1fea7817d9",
+        "prompt": "Kirjoita palauteteksti työpaikkaruokalasta. Arvioi ruuan laatua, hintaa ja ruokalan viihtyisyyttä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Ruuan laatu\nHinta\nRuokalan viihtyisyys\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e5a7e694-295f-51e2-9ce2-4cb0bde64d92",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for an investment director position in a private equity company. Tell about your experience in making investment decisions, company valuation, and portfolio management. Also describe how you have created returns for investors and developed portfolio companies. Length about 360 words.",
+    "materials": {
+      "scenario": "Hakemus investointijohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for an investment director position in a private equity company. Tell about your experience in making investment decisions, company valuation, and portfolio management. Also describe how you have created returns for investors and developed portfolio companies. Length about 360 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for an investment director position in a private equity company. Tell about your experience in making investment decisions, company valuation, and portfolio management. Also describe how you have created returns for investors and developed portfolio companies. Length about 360 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

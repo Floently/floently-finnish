@@ -1,0 +1,66 @@
+{
+  "id": "69ab0bbf-7157-59ea-8c8e-d2bc4c0eb1de",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "BURANA 400 mg -tabletit\n\nKäyttötarkoitus: lievä tai keskivaikea kipu, kuume.\n\nAnnostus:\nAikuiset ja yli 40 kg painavat nuoret: 1–2 tablettia 3 kertaa vuorokaudessa.\nÄlä käytä enempää kuin 6 tablettia vuorokaudessa.\n\nAlle 12-vuotiaille vain lääkärin määräyksestä.\n\nSäilytä huoneenlämmössä, alle 25 °C.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "e759db92-7cbb-5ee9-b704-5a985ed56030",
+        "prompt": "Mihin tarkoitukseen lääke on?",
+        "options": [
+          "verenpaineeseen",
+          "allergiaan",
+          "kipuun ja kuumeeseen",
+          "yskään"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b17740c9-a093-5b1a-a9e6-de7e8aa143cb",
+        "prompt": "Montako tablettia voi ottaa enintään vuorokaudessa?",
+        "options": [
+          "3 tablettia",
+          "4 tablettia",
+          "6 tablettia",
+          "8 tablettia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "292c6103-7bd9-5e78-ae10-6f0a69de9138",
+        "prompt": "Missä lääke pitää säilyttää?",
+        "options": [
+          "jääkaapissa",
+          "pakastimessa",
+          "huoneenlämmössä",
+          "kylmässä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

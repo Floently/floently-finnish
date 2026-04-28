@@ -1,0 +1,37 @@
+{
+  "id": "63498595-63ef-5150-b1ac-ffc2cdd7b895",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vuokrausilmoitus asunnosta.",
+    "materials": {
+      "scenario": "Kirjoita vuokrausilmoitus asunnosta."
+    },
+    "items": [
+      {
+        "id": "2e0b04b9-7291-5174-a9d9-b715aa64f9f7",
+        "prompt": "Sinulla on kaksio vuokrattavana. Kirjoita ilmoitus vuokraussivustolle. Kerro asunnon koko, sijainti, kunto, vuokra ja milloin se on vapaana. Kerro myös, millaista vuokralaista etsit."
+      }
+    ],
+    "rubric": "Sinulla on kaksio vuokrattavana. Kirjoita ilmoitus vuokraussivustolle. Kerro asunnon koko, sijainti, kunto, vuokra ja milloin se on vapaana. Kerro myös, millaista vuokralaista etsit.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

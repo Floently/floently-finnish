@@ -1,0 +1,37 @@
+{
+  "id": "7c2a35ff-edc2-5aab-ba12-be58d7ba35b2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet yöpynyt hotellissa. Kirjoita palaute. Arvioi huoneen siisteyttä, aamiaisen laatua ja henkilökunnan ystävällisyyttä.",
+    "materials": {
+      "scenario": "Palaute hotellista"
+    },
+    "items": [
+      {
+        "id": "602e9e6a-2df4-59a7-af7d-6b422af6c8d4",
+        "prompt": "Olet yöpynyt hotellissa. Kirjoita palaute. Arvioi huoneen siisteyttä, aamiaisen laatua ja henkilökunnan ystävällisyyttä."
+      }
+    ],
+    "rubric": "Huoneen siisteys\nAamiaisen laatu\nHenkilökunnan ystävällisyys",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

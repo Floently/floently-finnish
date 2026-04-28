@@ -1,0 +1,77 @@
+{
+  "id": "e55b3664-0d9f-57d3-ad1d-800a29170b90",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue terveysaseman ohje ja valitse oikea vastaus jokaiseen kysymykseen.",
+    "materials": {
+      "text": "Terveysasema ottaa käyttöön uuden jonotusjärjestelmän ensi maanantaista alkaen. Aamun ensimmäiset vastaanottoajat jaetaan numerolapuilla kello 7.45 alkaen pääovella. Jos potilaalla on varattu aika, numerolappua ei tarvitse ottaa. Kiireettömissä asioissa suositellaan ajan varaamista verkossa tai puhelimessa, jotta odotusaika lyhenee. Laboratorioon tulevat asiakkaat ilmoittautuvat ensin automaatilla ja siirtyvät sen jälkeen odotustilaan B. Lasten rokotusvastaanotto toimii edelleen vanhassa huoneessa 12, mutta sisäänkäynti on nyt pihan puolelta. Terveysasema muistuttaa, että sairauslomatodistusta varten tarvitaan henkilöllisyystodistus. Jos asiakas ei pääse varatulle ajalle, peruutus pitää tehdä viimeistään edellisenä päivänä kello 15. Muuten käynnistä voidaan veloittaa maksu. Tiedot mahdollisista muutoksista julkaistaan terveysaseman verkkosivuilla.",
+      "word_count": 94
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin numerolappuja jaetaan aamulla?",
+        "options": [
+          "kello 7.30",
+          "kello 7.45",
+          "kello 8.15",
+          "kello 9.00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuka ei tarvitse numerolappua?",
+        "options": [
+          "laboratorioasiakas",
+          "rokotusasiakas",
+          "asiakas, jolla on varattu aika",
+          "kaikki asiakkaat tarvitsevat"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä lasten rokotusvastaanoton sisäänkäynti on?",
+        "options": [
+          "pääovella",
+          "pihan puolella",
+          "laboratorion kautta",
+          "toisessa kerroksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin peruutus pitää tehdä viimeistään?",
+        "options": [
+          "samana aamuna",
+          "edellisenä päivänä kello 15",
+          "kaksi tuntia ennen aikaa",
+          "edellisenä iltana kello 20"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

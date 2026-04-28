@@ -1,0 +1,77 @@
+{
+  "id": "17b39c67-7423-5e56-8194-ac8aa2bf21cb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.308,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "UIMAKOULU ALKAA\n\nUimakoulu 4-6-vuotiaille: la klo 10-10.45\nUimakoulu 7-12-vuotiaille: la klo 11-12\nAikuisten uimakoulu: ti klo 19-20\n\nHinta 80 € (8 kertaa). Ryhmissä enintään 8 lasta. Ota mukaan uimapuku, pyyhe ja uimalasit. Ilmoittautuminen 15.5. mennessä.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "09e869ed-b139-5483-b878-e449c20826ed",
+        "prompt": "Monelta alkaa 7-12-vuotiaiden uimakoulu?",
+        "options": [
+          "klo 10",
+          "klo 11",
+          "klo 12",
+          "klo 19"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f7bb0b2c-7751-541a-9751-88e6ebbe0426",
+        "prompt": "Paljonko uimakoulu maksaa?",
+        "options": [
+          "60 €",
+          "70 €",
+          "80 €",
+          "90 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c79f98d8-976e-529a-bda9-eb430b4d8b45",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "uimapuku, pyyhe ja uimalasit",
+          "vain uimapuku",
+          "vain pyyhe",
+          "eväät"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "981a6872-e937-5dd7-8354-c70dc10b24ff",
+        "prompt": "Milloin pitää ilmoittautua?",
+        "options": [
+          "15.4.",
+          "15.5.",
+          "1.6.",
+          "31.5."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

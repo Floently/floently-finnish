@@ -1,0 +1,99 @@
+{
+  "id": "944571ba-d18e-50b8-bd35-fe626855627a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen media on monipuolista ja luotettavaa. Maassa ilmestyy useita sanomalehtiä, joista suurimpia ovat Helsingin Sanomat, Ilta-Sanomat ja Iltalehti. Yleisradio eli Yle tuottaa julkisen palvelun televisio- ja radiokanavia sekä verkkosisältöjä. Ylen toimintaa rahoitetaan verovaroilla, ja sen tehtävänä on tarjota monipuolista ja puolueetonta tietoa. Viime vuosina digitaaliset mediat, kuten uutissivustot ja somekanavat, ovat kasvattaneet suosiotaan. Monet suomalaiset lukevat uutisia myös puhelimellaan. Luottamus suomalaiseen mediaan on kansainvälisesti korkealla tasolla.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "148f25b9-802d-5450-bc46-71898d60f31a",
+        "prompt": "Mikä on suurin sanomalehti Suomessa?",
+        "options": [
+          "Ilta-Sanomat",
+          "Helsingin Sanomat",
+          "Iltalehti",
+          "Kauppalehti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "69f07336-60e7-53af-9960-47d298bef83e",
+        "prompt": "Miten Ylen toiminta rahoitetaan?",
+        "options": [
+          "mainoksilla",
+          "verovaroilla",
+          "katsojamaksuilla",
+          "yrityslahjoituksilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1cc969a-4191-5b29-aec0-2c53e01c4d81",
+        "prompt": "Mikä on Ylen tehtävä?",
+        "options": [
+          "tuottaa viihdettä",
+          "tarjota monipuolista ja puolueetonta tietoa",
+          "kilpailla kaupallisten kanavien kanssa",
+          "lähettää vain urheilua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5107f986-281b-5e54-969a-c25536a2292b",
+        "prompt": "Mitkä mediat ovat kasvattaneet suosiotaan viime vuosina?",
+        "options": [
+          "printtilehdet",
+          "digitaaliset mediat",
+          "radio",
+          "televisio"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8361b360-652c-589a-9257-ebe779468312",
+        "prompt": "Miten monet suomalaiset lukevat uutisia nykyään?",
+        "options": [
+          "vain paperilehdistä",
+          "puhelimella",
+          "tietokoneella",
+          "television tekstityksellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7de8b7c0-0afa-5a09-b15c-5919802dbfcc",
+        "prompt": "Millainen on luottamus suomalaiseen mediaan?",
+        "options": [
+          "matala",
+          "kansainvälisesti korkealla tasolla",
+          "keskitasoa",
+          "vaihtelee paljon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

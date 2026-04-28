@@ -1,0 +1,99 @@
+{
+  "id": "e74275de-64ec-5adc-bd7b-b23c86cce681",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kotitalousvähennys on monelle tuttu verotuksessa. Se tarkoittaa, että kotona teetetystä työstä, kuten siivouksesta tai remontista, saa vähentää osan kustannuksista verotuksessa. Vähennyksen tavoitteena on vähentää harmaata taloutta ja lisätä työllisyyttä. Vähennyksen saa vain, jos työn teettää yrityksellä tai yrittäjällä, jolla on veronumero.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kotitalousvähennys?",
+        "options": [
+          "Tuki kotitalouksille",
+          "Vähennys kotona teetetyn työn kustannuksista verotuksessa",
+          "Kotitalouksien saama avustus",
+          "Kotitalouksien maksama vero"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä työstä voi saada kotitalousvähennystä?",
+        "options": [
+          "Omasta työstä",
+          "Siivouksesta tai remontista",
+          "Lasten hoidosta",
+          "Puutarhatöistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on kotitalousvähennyksen tavoite?",
+        "options": [
+          "Lisätä veroja",
+          "Vähentää harmaata taloutta ja lisätä työllisyyttä",
+          "Tukea suuria yrityksiä",
+          "Helpottaa byrokratiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Keneltä työn voi teettää, jotta vähennyksen saa?",
+        "options": [
+          "Keneltä tahansa",
+          "Yritykseltä tai yrittäjältä, jolla on veronumero",
+          "Vain tutuilta",
+          "Vain suurilta firmoilta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan 'harmaalla taloudella'?",
+        "options": [
+          "Verojen maksamista",
+          "Laillista yritystoimintaa",
+          "Toimintaa, jossa veroja ei makseta",
+          "Ympäristöystävällistä taloutta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mistä kotitalousvähennys on monelle tuttu?",
+        "options": [
+          "Palkanlaskennasta",
+          "Verotuksesta",
+          "Asumistuesta",
+          "Opintotuesta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

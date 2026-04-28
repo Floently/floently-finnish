@@ -1,0 +1,73 @@
+{
+  "id": "9db67f29-34ea-5650-b35e-b0ca470c65df",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähidemokratia on ollut pitkään vaivalla. Äänestysprosentit kunnallisvaaleissa laskevat. Samalla päätökset vaikuttavat enemmän kuin koskaan arkeemme.\n\nLähidemokratialla tarkoitetaan päätöksentekoa, joka tapahtuu lähellä kansalaisia: kunnanvaltuustot, lautakunnat ja asukasyhdistykset. Periaatteessa jokaisella on mahdollisuus vaikuttaa. Käytännössä kynnys on korkea.\n\nYksi syy on päätöksenteon monimutkaistuminen. Kuntien asiat ovat vaikeita, ja harvalla on aikaa perehtyä. Toinen syy on tunne, ettei oma ääni merkitse.\n\nTeknologia voisi auttaa. Joissakin kunnissa kokeillaan osallistuvaa budjetointia, jossa asukkaat saavat päättää, mihin tietty summa rahaa käytetään. Myös verkkokyselyt ovat lisääntyneet.\n\nTärkeintä olisi madaltaa kynnystä osallistua. Päätöksistä pitäisi viestiä selkeästi. Päättäjien pitäisi olla läsnä siellä, missä ihmiset ovat. Lähidemokratia ei ole kuollut, mutta se kaipaa elvytystä.",
+      "word_count": 103
+    },
+    "questions": [
+      {
+        "id": "item_070_1",
+        "prompt": "Mitä tarkoitetaan lähidemokratialla?",
+        "options": [
+          "päätöksentekoa eduskunnassa",
+          "päätöksentekoa lähellä kansalaisia, kuten kunnissa",
+          "päätöksentekoa EU:ssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_070_2",
+        "prompt": "Miksi lähidemokratia on heikentynyt?",
+        "options": [
+          "ihmiset eivät välitä",
+          "päätöksenteko on monimutkaistunut ja ihmiset kokevat, ettei ääni merkitse",
+          "kuntia on liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_070_3",
+        "prompt": "Miten teknologia voi auttaa?",
+        "options": [
+          "se korvaa päätöksenteon",
+          "osallistuva budjetointi ja verkkokyselyt",
+          "se ei voi auttaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_070_4",
+        "prompt": "Mitä kirjoittaja ehdottaa lähidemokratian elvyttämiseksi?",
+        "options": [
+          "kuntien lakkauttamista",
+          "selkeää viestintää ja päättäjien läsnäoloa arjessa",
+          "vain verkkovaaleja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

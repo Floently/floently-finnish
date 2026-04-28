@@ -1,0 +1,77 @@
+{
+  "id": "911418e4-62d9-519a-b176-702e458a6444",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue raportti ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Kaupunginteatteri aloitti kouluyhteistyön, jossa oppilaat osallistuivat esityksen käsikirjoituksen työpajoihin. Opettajat kokivat hankkeen lisänneen oppilaiden motivaatiota, mutta aikataulutus oli haastavaa koeviikkojen aikana. Teatterin mukaan osallistujamäärä kasvoi, kun työpajat sidottiin osaksi äidinkielen opetusta.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 59
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin oppilaat osallistuivat?",
+        "options": [
+          "lavastukseen vain",
+          "käsikirjoituksen työpajoihin",
+          "lipunmyyntiin",
+          "kahvilaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä opettajat pitivät myönteisenä?",
+        "options": [
+          "lyhyempiä koulupäiviä",
+          "motivaation kasvua",
+          "vähemmän kotitehtäviä",
+          "pienempiä ryhmiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä oli haaste?",
+        "options": [
+          "matkustus",
+          "koeviikkojen aikataulut",
+          "tilan puute",
+          "rahoituksen puute"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin osallistujamäärä kasvoi?",
+        "options": [
+          "kun työpajat poistettiin",
+          "kun työpajat liitettiin äidinkieleen",
+          "kun liput kallistuivat",
+          "kun opettajat vaihtuivat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

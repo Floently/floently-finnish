@@ -1,0 +1,73 @@
+{
+  "id": "bb4741ca-fa2e-5bbd-b545-7cafb342a4e1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Nuorten syrjäytyminen on yksi aikamme suurimmista haasteista. Noin 50 000 nuorta on työelämän ja koulutuksen ulkopuolella. Tämä on inhimillinen tragedia ja yhteiskunnallinen riski.\n\nSyrjäytymisen syyt ovat moninaiset. Mielenterveysongelmat ovat yleisiä, samoin oppimisvaikeudet. Perhetausta vaikuttaa: jos vanhemmat ovat syrjäytyneitä, riski on suurempi. Myös alueellinen eriytyminen näkyy: joillakin alueilla nuorten mahdollisuudet ovat heikommat.\n\nSeuraukset ovat vakavia. Syrjäytynyt nuori ei saa koulutusta, ei työkokemusta eikä sosiaalisia verkostoja. Terveys heikkenee ja taloudellinen tilanne on huono. Pahimmillaan syrjäytyminen periytyy seuraavalle sukupolvelle.\n\nRatkaisuja on etsittävä monesta suunnasta. Varhainen tuki on tärkeää: kouluissa pitää tunnistaa ongelmat ajoissa. Mielenterveyspalveluja pitää olla helposti saatavilla. Myös matalan kynnyksen työpajoja ja koulutusta tarvitaan.\n\nJulkisella sektorilla on vastuu, mutta myös yritykset ja järjestöt voivat auttaa. Kesätyöt, harjoittelut ja työkokeilut antavat nuorelle mahdollisuuden näyttää osaamisensa. Tärkeintä on, ettei kukaan jää yksin.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "item_068_1",
+        "prompt": "Noin kuinka monta nuorta on työelämän ja koulutuksen ulkopuolella?",
+        "options": [
+          "noin 20 000",
+          "noin 50 000",
+          "noin 100 000"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_068_2",
+        "prompt": "Mitä syrjäytymisen syitä kirjoittaja mainitsee?",
+        "options": [
+          "vain mielenterveysongelmat",
+          "mielenterveysongelmat, oppimisvaikeudet, perhetausta ja alueellinen eriytyminen",
+          "vain työpaikkojen puute"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_068_3",
+        "prompt": "Mitä seurauksia syrjäytymisellä on?",
+        "options": [
+          "nuoret saavat hyvän koulutuksen",
+          "nuoret eivät saa koulutusta, työkokemusta eikä verkostoja",
+          "nuoret muuttavat pois"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_068_4",
+        "prompt": "Mitä ratkaisuja kirjoittaja ehdottaa?",
+        "options": [
+          "vain lisää rahaa",
+          "varhaista tukea, mielenterveyspalveluja, työpajoja ja yritysten apua",
+          "nuorten siirtämistä toiselle paikkakunnalle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

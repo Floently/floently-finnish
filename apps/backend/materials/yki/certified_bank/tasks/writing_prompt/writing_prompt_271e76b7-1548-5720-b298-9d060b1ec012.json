@@ -1,0 +1,37 @@
+{
+  "id": "271e76b7-1548-5720-b298-9d060b1ec012",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö peruskoulussa painottaa enemmän digitaitoja vai perinteisiä oppiaineita?'. Arvioi koulutuksen tavoitteita ja tulevaisuuden työelämän tarpeita.",
+    "materials": {
+      "scenario": "Digitaitojen painotus peruskoulussa"
+    },
+    "items": [
+      {
+        "id": "7430fa49-733e-5ede-a947-06899319dcab",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö peruskoulussa painottaa enemmän digitaitoja vai perinteisiä oppiaineita?'. Arvioi koulutuksen tavoitteita ja tulevaisuuden työelämän tarpeita."
+      }
+    ],
+    "rubric": "Tulevaisuuden työelämän tarpeet\nPerusopetuksen tavoitteet\nOppimistulokset\nTasa-arvoinen osaaminen",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

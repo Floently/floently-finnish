@@ -1,0 +1,37 @@
+{
+  "id": "139530fd-9ea5-5e89-9c3d-a13996ea0799",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön oppivelvollisuuden suorittaneiden yhteiskuntapalvelus?'. Analysoi kansalaisvelvollisuutta, työelämätaitoja ja kustannuksia.",
+    "materials": {
+      "scenario": "Yhteiskuntapalvelus"
+    },
+    "items": [
+      {
+        "id": "e3e014f2-019f-576e-b86b-e8166e4e1aaa",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön oppivelvollisuuden suorittaneiden yhteiskuntapalvelus?'. Analysoi kansalaisvelvollisuutta, työelämätaitoja ja kustannuksia."
+      }
+    ],
+    "rubric": "Kansalaisvelvollisuus\nTyöelämätaidot\nKustannukset\nVapaaehtoisuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "d44f6c19-5732-5b27-aea6-5838648fac14",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen väestö ikääntyy nopeasti. Tämä vaikuttaa moniin asioihin yhteiskunnassa. Työikäisten määrä vähenee. Eläkkeellä olevien määrä kasvaa. Tämä lisää eläkemenoja ja hoivapalvelujen tarvetta. Julkinen talous joutuu paineiden alle. Ratkaisuja etsitään monelta suunnalta. Työuria halutaan pidentää. Ihmisten pitäisi olla pidempään työelämässä. Työperäistä maahanmuuttoa halutaan lisätä. Uudet työntekijät voisivat paikata työvoimapulaa. Teknologia voi auttaa, jotta vähemmällä työvoimalla saadaan enemmän aikaan. Ikääntyminen on myös mahdollisuus. Ikääntyneillä on paljon osaamista ja kokemusta. Monet haluavat jatkaa työelämässä pidempään. Ikääntyneille suunnatut palvelut ovat kasvava markkina. Teknologia voi auttaa ikääntyneitä asumaan kotona pidempään.",
+      "word_count": 85
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten väestön ikääntyminen vaikuttaa työikäisten määrään?",
+        "options": [
+          "Työikäisten määrä kasvaa.",
+          "Työikäisten määrä vähenee.",
+          "Työikäisten määrä pysyy samana.",
+          "Työikäisten määrällä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu eläkkeellä olevien määrälle?",
+        "options": [
+          "Se vähenee.",
+          "Se kasvaa.",
+          "Se pysyy samana.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä paineita ikääntyminen aiheuttaa julkiselle taloudelle?",
+        "options": [
+          "Verotulot kasvavat ja menot vähenevät.",
+          "Eläkemenot ja hoivapalvelujen tarve kasvavat.",
+          "Verotulot vähenevät ja menot vähenevät.",
+          "Sillä ei ole vaikutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja ikääntymisen haasteisiin etsitään?",
+        "options": [
+          "Vain työurien lyhentäminen.",
+          "Työurien pidentäminen, työperäinen maahanmuutto ja teknologia.",
+          "Vain maahanmuuton lisääminen.",
+          "Vain teknologian käyttö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen tarjoaa?",
+        "options": [
+          "Ei mitään mahdollisuuksia.",
+          "Ikääntyneiden osaamisen hyödyntäminen ja uudet markkinat.",
+          "Vain uusia markkinoita.",
+          "Vain vapaaehtoistyötä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten teknologia voi auttaa ikääntyneitä?",
+        "options": [
+          "Se vaikeuttaa elämää.",
+          "Se auttaa asumaan kotona pidempään.",
+          "Sillä ei ole merkitystä.",
+          "Se korvaa ihmiskontaktit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä työperäinen maahanmuutto tarkoittaa?",
+        "options": [
+          "Maahanmuuttoa perhesyistä.",
+          "Maahanmuuttoa työn perässä työvoimapulan paikkaamiseksi.",
+          "Maahanmuuttoa opiskelun vuoksi.",
+          "Maahanmuuttoa turvapaikan vuoksi."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

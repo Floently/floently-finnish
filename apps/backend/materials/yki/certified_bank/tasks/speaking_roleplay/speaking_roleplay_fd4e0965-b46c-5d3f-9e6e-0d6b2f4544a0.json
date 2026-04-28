@@ -1,0 +1,40 @@
+{
+  "id": "fd4e0965-b46c-5d3f-9e6e-0d6b2f4544a0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you use bus, train or metro. Are the schedules good and is the traffic functional?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "137676b9-e334-575b-afd9-fe4bbc144f21",
+        "ai_first_turn_fi": "Käytätkö sä paljon julkisia? Toimiiko bussit hyvin sun mielestä?"
+      }
+    ],
+    "rubric": "Tell if you use bus, train or metro. Are the schedules good and is the traffic functional?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

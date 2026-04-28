@@ -1,0 +1,77 @@
+{
+  "id": "a1fd2389-a723-5ed2-99c8-de994253a9b7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.625,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysiteksti avoimuudesta ja vastaa kysymyksiin argumentaation perusteella.",
+    "materials": {
+      "text": "Dataa koskevan päätöksenteon avoimuutta pidetään julkisessa keskustelussa lähes yksiselitteisenä hyveenä. Tarkasteltu analyysi kuitenkin osoittaa, että avoimuus ei ole yksiulotteinen periaate, vaan joukko osittain ristiriitaisia tavoitteita, jotka muuttavat merkitystään päätöksenteon eri vaiheissa. Yhdessä vaiheessa avoimuus tarkoittaa pääsyä lähtöaineistoihin, toisessa vaiheessa ymmärrettävää perustelua valituille menetelmille, ja kolmannessa vaiheessa mahdollisuutta arvioida päätöksen vaikutuksia jälkikäteen. Jos nämä ulottuvuudet sekoitetaan toisiinsa, syntyy helposti tilanne, jossa organisaatio voi väittää toimivansa avoimesti, vaikka kansalaisen näkökulmasta päätöksenteko pysyy läpinäkymättömänä.\n\nAnalyysi tarkastelee tätä ongelmaa kaupunkisuunnittelun esimerkin kautta. Kaupunki julkaisi laajan aineiston liikennevirroista ja väestöennusteista, mutta itse priorisointimalli jäi tekniseksi dokumentiksi, jota vain harva pystyi tulkitsemaan. Virallisesti prosessi täytti tiedon julkisuusvaatimukset, mutta käytännössä keskustelu kaventui muutamien asiantuntijoiden väliseksi. Kun asukasryhmät pyysivät lisäselvitystä siitä, miksi tietyt kaupunginosat asetettiin investointijärjestyksessä kärkeen, he saivat vastaukseksi viittauksen mallin kokonaisoptimointiin. Tämä vastaus oli muodollisesti oikea, mutta se ei avannut päätöksen normatiivisia oletuksia, kuten sitä, mitä hyötyä painotettiin ja kenen arjen muutoksia pidettiin hyväksyttävinä.\n\nToisessa tapauksessa viranomainen teki päinvastaisen ratkaisun: menetelmäkuvaus kirjoitettiin selkokielelle, mutta lähdedata jätettiin julkaisematta tietosuojasyistä. Tämä paransi ymmärrettävyyttä lyhyellä aikavälillä, mutta heikensi ulkopuolisen arvioinnin mahdollisuutta. Analyysin mukaan kumpikaan ääripää ei yksin riitä. Tarvitaan kaksitasoinen avoimuusmalli, jossa sekä tekninen tarkastettavuus että tulkinnallinen ymmärrettävyys rakennetaan järjestelmällisesti osaksi samaa prosessia.\n\nKeskeinen väite liittyy myös vastuuseen. Jos avoimuus ymmärretään pelkäksi dokumenttien julkaisemiseksi, vastuuketju jää epäselväksi silloin, kun päätöksen seuraukset osoittautuvat odottamattomiksi. Analyysi korostaa, että avoimuuden pitäisi ulottua myös korjausmekanismeihin: kuka voi käynnistää uudelleenarvioinnin, millä perusteella ja missä aikataulussa. Ilman tätä ulottuvuutta avoimuus voi muuttua rituaaliksi, joka tuottaa tietoa mutta ei mahdollisuutta vaikuttaa.\n\nLoppupäätelmässä esitetään, että toimiva avoimuus syntyy vasta, kun organisaatio tunnistaa avoimuuden eri funktiot ja sitoo ne päätöksenteon rytmiin. Julkaisun hetki, perustelun taso ja jälkiarvioinnin menettely eivät ole erillisiä liitteitä, vaan hallinnollisen legitimiteetin ydinrakenteita. Näin avoimuus ei ole vain tiedon jakamista, vaan institutionaalinen lupaus siitä, että päätöksiä voidaan myös haastaa, tarkentaa ja korjata ilman että koko järjestelmän uskottavuus romahtaa. Lisäksi analyysi huomauttaa, että avoimuuden institutionaalinen laatu voidaan testata vasta ristiriitatilanteissa. Jos eri toimijat päätyvät keskenään vastakkaisiin tulkintoihin, järjestelmän pitää kyetä osoittamaan, miten erimielisyys käsitellään ilman että päätöksenteko pysähtyy tai vastuu hämärtyy. Tähän liittyy myös resurssikysymys: avoimuuden ylläpito vaatii osaamista, aikaa ja dokumentointia, joita ei voi ajatella sivutehtävinä. Muuten riskinä on, että avoimuus jää muodolliseksi velvoitteeksi, jonka sisältö ohenee jokaisessa käytännön paineessa.",
+      "word_count": 365
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on analyysin pääväite avoimuudesta?",
+        "options": [
+          "avoimuus tarkoittaa aina samaa asiaa",
+          "avoimuus koostuu useista osittain ristiriitaisista ulottuvuuksista",
+          "avoimuus on tekninen yksityiskohta",
+          "avoimuutta ei voida arvioida"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi ensimmäinen kaupunkisuunnitteluesimerkki jäi ongelmalliseksi?",
+        "options": [
+          "lähtöaineistoa ei ollut lainkaan",
+          "malli oli liian kallis",
+          "tekninen malli jäi useimmille tulkinnallisesti suljetuksi",
+          "päätöksiä ei tehty ollenkaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kaksitasoinen avoimuusmalli tarkoittaa tekstissä?",
+        "options": [
+          "vain selkokielisiä tiivistelmiä",
+          "teknistä tarkastettavuutta ja ymmärrettävää perustelua yhdessä",
+          "vain tietosuojapoikkeuksia",
+          "kahden viranomaisen yhteislausuntoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi korjausmekanismit liitetään avoimuuteen?",
+        "options": [
+          "jotta dokumentteja tulee enemmän",
+          "jotta päätöksiä voidaan tarvittaessa arvioida uudelleen selkein vastuin",
+          "jotta päätöksiä ei tarvitse perustella",
+          "jotta media ei puutu asiaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

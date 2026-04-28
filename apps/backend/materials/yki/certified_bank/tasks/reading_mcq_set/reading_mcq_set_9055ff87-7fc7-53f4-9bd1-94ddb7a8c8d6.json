@@ -1,0 +1,77 @@
+{
+  "id": "9055ff87-7fc7-53f4-9bd1-94ddb7a8c8d6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "LIIKUNTAKESKUS PULSSI\n\nRYHMÄLIIKUNTA VIIKOLLA 12\n\nMaanantai:\n17.00–18.00 BodyPump (Sali 1)\n18.30–19.30 Jooga (Sali 2)\n\nTiistai:\n17.00–18.00 Spinning (Pyöräilysali)\n18.30–19.30 Core (Sali 2)\n\nKeskiviikko:\n17.00–18.00 Kehonhuolto (Sali 2)\n18.30–19.30 Zumba (Sali 1)\n\nTorstai:\n17.00–18.00 BodyPump (Sali 1)\n18.30–19.30 Venyttely (Sali 2)\n\nPerjantai:\n16.00–17.00 Spinning (Pyöräilysali)\n17.30–18.30 Rentoutus (Sali 2)\n\nIlmoittaudu tunnille viimeistään 30 min ennen alkua.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "1fd8a55a-871a-5594-bb1e-a71e1bb0281e",
+        "prompt": "Moneltako alkaa BodyPump maanantaina?",
+        "options": [
+          "17.00",
+          "18.00",
+          "18.30",
+          "19.30"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "f1f0d2ca-7556-5931-9ef5-770fcd1dbf4a",
+        "prompt": "Missä salissa on Zumba keskiviikkona?",
+        "options": [
+          "Sali 1",
+          "Sali 2",
+          "Pyöräilysali",
+          "Ei tiedossa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "f32f4aab-d792-527e-913c-c54056f93c55",
+        "prompt": "Minä päivänä on venyttely?",
+        "options": [
+          "Maanantaina",
+          "Tiistaina",
+          "Keskiviikkona",
+          "Torstaina"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "4b16dfce-3755-58de-a68d-b0033d15d149",
+        "prompt": "Milloin pitää ilmoittautua tunnille?",
+        "options": [
+          "Edellisenä päivänä",
+          "Viimeistään 30 min ennen",
+          "Tuntia ennen",
+          "Voi tulla ilman ilmoittautumista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

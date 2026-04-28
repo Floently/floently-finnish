@@ -1,0 +1,66 @@
+{
+  "id": "0d8a548f-1ec3-538f-ac9c-6cfb97146a2f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalaiset ovat maailman innokkaimpia kahvinjuojia. Tilastojen mukaan jokainen suomalainen juo keskimäärin noin 10 kiloa kahvia vuodessa, mikä on yksi maailman korkeimmista luvuista. Kahvia juodaan useita kuppeja päivässä: aamulla, töissä, lounaan jälkeen ja iltapäivällä. Kahvihetki on usein sosiaalinen tapahtuma, jossa vaihdetaan kuulumisia työkavereiden tai ystävien kanssa. Monilla työpaikoilla on omat kahvihuoneet, ja kahvitauot kuuluvat työpäivän rytmiin. Perinteinen suomalainen tapa on juoda kahvia pullan kanssa, erityisesti kahvipöydässä juhlien yhteydessä. Suomessa juodaan yleensä vaaleaa paahdettua kahvia, mutta nykyään myös tumma paahto ja erikoiskahvit ovat yleistyneet. Kahvinkeittimiä on lähes jokaisessa kodissa, ja monet käyttävät myös pannua tai pressopannua. Kahvin laatuun kiinnitetään yhä enemmän huomiota, ja reilun kaupan ja luomukahvit ovat kasvattaneet suosiotaan. Kahvi on niin tärkeä osa suomalaista arkea, että sillä on joko oma kansallispäivä: Kansallinen kahvipäivää vietetään syyskuussa.",
+      "word_count": 125
+    },
+    "questions": [
+      {
+        "id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+        "prompt": "Paljonko suomalainen juo kahvia keskimäärin vuodessa?",
+        "options": [
+          "Noin 5 kiloa",
+          "Noin 8 kiloa",
+          "Noin 10 kiloa",
+          "Noin 15 kiloa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d5e6f7a8-b9c0-4d1e-9f2a-3b4c5d6e7f8a",
+        "prompt": "Mitä suomalaiset syövät usein kahvin kanssa?",
+        "options": [
+          "Leipää",
+          "Pullaa",
+          "Kakkua",
+          "Keksiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e6f7a8b9-c0d1-4e2f-9a3b-4c5d6e7f8a9b",
+        "prompt": "Milloin vietetään kansallista kahvipäivää Suomessa?",
+        "options": [
+          "Toukokuussa",
+          "Kesäkuussa",
+          "Elokuussa",
+          "Syyskuussa"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "0d6ff093-3499-5fe9-a776-eca331a587a3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.75,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Sukupolvien välinen oikeudenmukaisuus on noussut keskeiseksi yhteiskuntapoliittiseksi kysymykseksi väestön ikääntyessä ja julkisen talouden kestävyyshaasteiden kasvaessa. Se tarkoittaa eri ikäryhmien oikeuksien, velvollisuuksien ja voimavarojen tasapuolista jakautumista sekä nykyisten että tulevien sukupolvien välillä. Eläkejärjestelmä on yksi konkreettinen sukupolvien välinen sopimus. Työssäkäyvät maksavat eläkemaksuja, joilla rahoitetaan nykyisten eläkeläisten eläkkeitä. Väestön ikääntyessä ja huoltosuhteen heiketessä tämän järjestelmän kestävyys on kyseenalaistettu. Nuoremmat sukupolvet saattavat kokea, että he joutuvat maksamaan suhteettoman paljon verrattuna siihen, mitä he itse tulevat eläkkeellä saamaan. Toinen keskeinen kysymys on julkinen velka. Kun valtio ottaa velkaa rahoittaakseen menojaan, tulevat sukupolvet joutuvat maksamaan sitä takaisin. On oikeudenmukaista pohtia, missä määrin nykyisten etujen rahoittaminen velalla siirtää taakkaa tuleville sukupolville. Ilmastopolitiikka on ehkä selkein esimerkki sukupolvien välisestä oikeudenmukaisuudesta. Nykyiset päästöt aiheuttavat ilmastonmuutosta, jonka seuraukset kohdistuvat ankarimmin tuleviin sukupolviin. Päästöjen vähentäminen nyt on investointi tulevaisuuteen, mutta se vaatii uhrauksia nykyisiltä sukupolvilta. Koulutus ja osaamisen kehittäminen ovat toinen ulottuvuus. Investoinnit nuorten koulutukseen ovat investointeja tulevaisuuden työvoimaan ja hyvinvointiin. Leikkaukset koulutuksesta voivat säästää lyhyellä aikavälillä, mutta ne heikentävät pitkällä aikavälillä sukupolvien mahdollisuuksia. Sukupolvien välinen oikeudenmukaisuus ei ole nollasummapeliä. Eri sukupolvet ovat riippuvaisia toisistaan, ja yhteiskunnan hyvinvointi perustuu niiden väliseen yhteistyöhön ja solidaarisuuteen. Tarvitaan pitkäjänteistä politiikkaa, joka ottaa huomioon eri ikäryhmien tarpeet ja turvaa kestävän tulevaisuuden kaikille.",
+      "word_count": 198
+    },
+    "questions": [
+      {
+        "id": "f3a4b5c6-d7e8-4f9a-9b0c-1d2e3f4a5b6c",
+        "prompt": "Mitä tarkoitetaan sukupolvien välisellä oikeudenmukaisuudella?",
+        "options": [
+          "Vain eläkkeiden tasa-arvoa",
+          "Eri ikäryhmien oikeuksien ja velvollisuuksien tasapuolista jakautumista",
+          "Vain nuorten etuja",
+          "Vain vanhusten etuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a4b5c6d7-e8f9-4a0b-9c1d-2e3f4a5b6c7d",
+        "prompt": "Mikä on selkein esimerkki sukupolvien välisestä oikeudenmukaisuudesta?",
+        "options": [
+          "Liikennepolitiikka",
+          "Ilmastopolitiikka",
+          "Kulttuuripolitiikka",
+          "Maatalouspolitiikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b5c6d7e8-f9a0-4b1c-9d2e-3f4a5b6c7d8e",
+        "prompt": "Miksi julkinen velka on sukupolvien välinen kysymys?",
+        "options": [
+          "Koska se hyödyttää kaikkia",
+          "Koska tulevat sukupolvet joutuvat maksamaan nykyistä velkaa takaisin",
+          "Koska se on aina pieni",
+          "Koska se ei vaikuta tulevaisuuteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

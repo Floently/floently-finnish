@@ -1,0 +1,77 @@
+{
+  "id": "9715449f-78c6-51a7-8591-3a7aeb2ca4e6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.794,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Yhteiskunnan eriarvoistumiskehitys on herättänyt laajaa keskustelua hyvinvointivaltion tulevaisuudesta ja sosiaalipolitiikan uudistamistarpeista. Perinteinen jako oikeiston ja vasemmiston välillä on monilta osin hämärtynyt, ja tilalle on tullut uudenlaisia jakolinjoja. Yksi keskeinen kysymys koskee sitä, missä määrin hyvinvointivaltion tulisi olla universaali eli kaikille kansalaisille yhtäläisiä oikeuksia tarjoava, ja missä määrin sen tulisi olla selektiivinen eli kohdennettu vain heikoimmassa asemassa oleville. Universalismin kannattajat katsovat, että laajat, kaikille yhteiset palvelut, kuten julkinen terveydenhuolto ja koulutus, lisäävät yhteiskunnallista yhteenkuuluvuutta ja luottamusta. Kun kaikki käyttävät samoja palveluja, syntyy kokemus yhteisestä panoksesta ja jaetusta vastuusta. Universalismi myös vähentää leimautumista ja byrokratiaa, kun palvelut eivät edellytä tarveharkintaa. Selektiivisyyden kannattajat puolestaan katsovat, että julkisia varoja tulisi kohdentaa ensisijaisesti niille, jotka niitä eniten tarvitsevat. Heidän mukaansa universaalit palvelut ovat usein kalliita ja tehottomia, ja ne hyödyttävät myös niitä, jotka pärjäisivät ilmankin. Kohdentamalla resurssit sinne, missä tarve on suurin, voidaan heidän mukaansa saada aikaan suurempi vaikutus pienemmillä kustannuksilla. Kolmas, niin sanottu investointipoliittinen näkemys korostaa, että hyvinvointivaltiota ei tulisi nähdä pelkkänä menona vaan investointina tulevaisuuteen. Panostukset esimerkiksi varhaiskasvatukseen, koulutukseen ja työllisyyspolitiikkaan tuottavat pitkällä aikavälillä säästöjä ja lisäävät hyvinvointia. Tämä näkemys painottaa ennaltaehkäisyä ja aktiivista työvoimapolitiikkaa passiivisen tulonsiirtojen sijaan. Se yhdistää universalistisia ja selektiivisiä elementtejä: tietyt peruspalvelut ovat kaikille yhteisiä, mutta niiden lisäksi on kohdennettuja toimia niille, jotka ovat vaarassa syrjäytyä. Hyvinvointivaltion tulevaisuutta koskeva keskustelu on monitahoinen, eikä siihen ole olemassa yhtä oikeaa ratkaisua. Se heijastaa erilaisia arvoja ja käsityksiä siitä, mikä on julkisen vallan rooli, miten vastuu hyvinvoinnista tulisi jakaa ja mikä on taloudellisen tehokkuuden ja sosiaalisen oikeudenmukaisuuden suhde.",
+      "word_count": 246
+    },
+    "questions": [
+      {
+        "id": "a5f33a4c-1359-5600-a2dd-35984948ea6a",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Universalistisen ja selektiivisen sosiaalipolitiikan vertailu",
+          "Hyvinvointivaltion tulevaisuuteen liittyvä keskustelu erilaisista painotuksista ja periaatteista",
+          "Investointipoliittisen näkemyksen ylivoimaisuus muihin vaihtoehtoihin nähden",
+          "Oikeiston ja vasemmiston välisen jaon hämärtyminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "badb178d-e042-5f17-bb51-8e5467e0c4d6",
+        "prompt": "Tekstin mukaan mitä universalismin kannattajat pitävät sen keskeisinä etuina?",
+        "options": [
+          "Se on halvempaa ja tehokkaampaa kuin selektiiviset järjestelmät",
+          "Se lisää yhteiskunnallista yhteenkuuluvuutta ja luottamusta sekä vähentää leimautumista ja byrokratiaa",
+          "Se kohdentaa resurssit parhaiten niitä eniten tarvitseville",
+          "Se kannustaa ihmisiä ottamaan enemmän vastuuta omasta hyvinvoinnistaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "154d9c53-759d-50af-8b7f-9a7b94d8891c",
+        "prompt": "Mitä selektiivisyyden kannattajat tekstin mukaan korostavat?",
+        "options": [
+          "Kaikkien kansalaisten yhtäläisiä oikeuksia palveluihin",
+          "Julkisten varojen kohdentamista ensisijaisesti niitä eniten tarvitseville",
+          "Panostuksia varhaiskasvatukseen ja koulutukseen investointina tulevaisuuteen",
+          "Passiivisten tulonsiirtojen lisäämistä aktiivisen työvoimapolitiikan sijaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ea68f930-5a70-586a-b559-4158bed50ccc",
+        "prompt": "Mitä investointipoliittinen näkemys pitää tärkeänä hyvinvointivaltion kehittämisessä?",
+        "options": [
+          "Menojen leikkaamista ja julkisen sektorin supistamista",
+          "Panostuksia varhaiskasvatukseen, koulutukseen ja työllisyyspolitiikkaan, jotka tuottavat pitkällä aikavälillä säästöjä ja lisäävät hyvinvointia",
+          "Kaikkien palvelujen muuttamista maksullisiksi",
+          "Universaalien palvelujen korvaamista yksityisillä vaihtoehdoilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "e5e80fb2-5fdf-5c22-92ba-89ca67596228",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele kaupungin liikennesuunnittelijan kanssa. Kerro mielipiteesi pyöräteiden kunnosta.",
+    "materials": {
+      "roles": {
+        "user": "innokas pyöräilijä ja olet huomannut",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "5b45e09b-ca94-52f0-9bc7-ec4296642a36",
+        "ai_first_turn_fi": "Päivää, kerrothan, mikä teitä huolettaa pyöräteiden kunnossa."
+      }
+    ],
+    "rubric": "Keskustele kaupungin liikennesuunnittelijan kanssa. Kerro mielipiteesi pyöräteiden kunnosta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

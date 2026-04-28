@@ -1,0 +1,37 @@
+{
+  "id": "b0b1b71a-14af-576f-a16f-6ba42ccb1560",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipidekirjoitus (noin 370-420 sanaa) otsikolla 'Pitäisikö terveyspalveluiden digitalisaatiota vauhdittaa entisestään, vai uhkaako se syrjäyttää vanhuksia?'. Pohdi etäpalveluiden ja digitaalisten ratkaisujen etuja (tehokkuus, saatavuus) ja haittoja (saavutettavuus, syrjäytyminen). Miten varmistetaan, että myös ikäihmiset ja digitaidottomat saavat tarvitsemansa palvelut? Perustele.",
+    "materials": {
+      "scenario": "Terveyspalveluiden digitalisaatio ja vanhukset"
+    },
+    "items": [
+      {
+        "id": "d4389c0c-c133-5161-b1b0-4aae83dbee1f",
+        "prompt": "Kirjoita mielipidekirjoitus (noin 370-420 sanaa) otsikolla 'Pitäisikö terveyspalveluiden digitalisaatiota vauhdittaa entisestään, vai uhkaako se syrjäyttää vanhuksia?'. Pohdi etäpalveluiden ja digitaalisten ratkaisujen etuja (tehokkuus, saatavuus) ja haittoja (saavutettavuus, syrjäytyminen). Miten varmistetaan, että myös ikäihmiset ja digitaidottomat saavat tarvitsemansa palvelut? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita mielipidekirjoitus (noin 370-420 sanaa) otsikolla 'Pitäisikö terveyspalveluiden digitalisaatiota vauhdittaa entisestään, vai uhkaako se syrjäyttää vanhuksia?'. Pohdi etäpalveluiden ja digitaalisten ratkaisujen etuja (tehokkuus, saatavuus) ja haittoja (saavutettavuus, syrjäytyminen). Miten varmistetaan, että myös ikäihmiset ja digitaidottomat saavat tarvitsemansa palvelut? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

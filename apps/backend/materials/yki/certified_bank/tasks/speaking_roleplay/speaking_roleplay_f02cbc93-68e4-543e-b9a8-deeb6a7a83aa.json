@@ -1,0 +1,40 @@
+{
+  "id": "f02cbc93-68e4-543e-b9a8-deeb6a7a83aa",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.286,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell which cities or places you have visited in Finland. What did you like the most?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "09f37dd5-2f70-5040-9613-8a7dd041fba8",
+        "ai_first_turn_fi": "Missä päin Suomea olet käynyt? Minne haluaisit matkustaa?"
+      }
+    ],
+    "rubric": "Tell which cities or places you have visited in Finland. What did you like the most?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

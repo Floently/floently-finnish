@@ -1,0 +1,66 @@
+{
+  "id": "f57f3b96-ccb7-5327-b8fa-34191809ca90",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.504,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLIN SÄÄNNÖT\n\n1. Peseydy huolellisesti ennen altaaseen menoa.\n2. Käytä uimapukua.\n3. Älä juokse altaan reunalla.\n4. Hyppääminen on kielletty matalassa altaassa.\n5. Noudata hengenpelastajan ohjeita.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä pitää tehdä ennen altaaseen menoa?",
+        "options": [
+          "A) Venytellä",
+          "B) Peseytyä huolellisesti",
+          "C) Juoda vettä",
+          "D) Soittaa kelloa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ei saa tehdä altaan reunalla?",
+        "options": [
+          "A) Puhua",
+          "B) Kävellä",
+          "C) Juosta",
+          "D) Istua"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Kenen ohjeita pitää noudattaa?",
+        "options": [
+          "A) Opettajan",
+          "B) Vanhempien",
+          "C) Hengenpelastajan",
+          "D) Kaverin"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

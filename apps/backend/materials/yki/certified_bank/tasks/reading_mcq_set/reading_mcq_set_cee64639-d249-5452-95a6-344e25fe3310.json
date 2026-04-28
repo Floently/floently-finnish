@@ -1,0 +1,66 @@
+{
+  "id": "cee64639-d249-5452-95a6-344e25fe3310",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.299,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue naapurin viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei naapuri!\n\nMinulla on ongelma. Pesukoneeni hajosi eilen ja vettä tuli lattialle. Pesuhuoneen lattia on märkä. Voitko tarkistaa, onko teidän asunnossa vettä? Meidän asunto on numero 22. Soita minulle, jos huomaat jotain. Numero on 040 123 4567.\n\nTerveisin,\nMatti",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "83dfa8ea-f139-5c2a-a7b4-45bd6ee14856",
+        "prompt": "Mikä Matin pesukoneessa on vikana?",
+        "options": [
+          "Se ei pyöri",
+          "Se hajosi ja vuotaa",
+          "Se on liian vanha",
+          "Se on liian äänekäs"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f52df782-ad2a-5127-9a46-f3a40ef94855",
+        "prompt": "Mitä Matti pyytää naapuria tekemään?",
+        "options": [
+          "Auttaa korjaamaan",
+          "Soittaa huoltoon",
+          "Tarkistaa oman asunnon",
+          "Tulla kahville"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9300bec3-68ce-53b7-a0f2-487474b0ebe1",
+        "prompt": "Mikä on Matin asunnon numero?",
+        "options": [
+          "12",
+          "22",
+          "32",
+          "42"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

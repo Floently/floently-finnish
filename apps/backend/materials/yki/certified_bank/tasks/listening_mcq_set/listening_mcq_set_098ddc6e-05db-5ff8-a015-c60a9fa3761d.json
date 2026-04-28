@@ -1,0 +1,88 @@
+{
+  "id": "098ddc6e-05db-5ff8-a015-c60a9fa3761d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu työpaikan vaihdosta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Olen miettinyt työpaikan vaihtoa. Nykyinen työ ei enää innosta. Henkilö B: Mitä hommaa teet? Henkilö A: Olen toimistotöissä, mutta se on niin yksitoikkoista. Samat rutiinit päivästä toiseen. Henkilö B: Ymmärrän. Haluaisitko tehdä jotain ihan muuta? Henkilö A: Ehkä jotain luovempaa. Olen miettinyt graafista suunnittelua tai valokuvausta. Henkilö B: Oletko harkinnut opiskelua? Henkilö A: Olen katsonut muutamia kursseja. Mutta pelottaa, että palkka on aluksi paljon pienempi. Henkilö B: Se on totta, mutta jos työ on mielekästä, se voi olla sen arvoista. Voit myös tehdä ensin iltaisin ja viikonloppuisin, niin näet, onko se sinun juttusi. Henkilö A: Hyvä idea. Ehkä uskaltaudun kokeilemaan.",
+      "audio_asset_id": "b3e37b63-394f-4ba1-9ebe-458a8f236a29"
+    },
+    "questions": [
+      {
+        "id": "6bea9d60-8aed-5486-bab9-57c2d89fb412",
+        "prompt": "Miksi henkilö A harkitsee työpaikan vaihtoa?",
+        "options": [
+          "Huonon palkan vuoksi.",
+          "Työ ei enää innosta ja on yksitoikkoista.",
+          "Pitkän työmatkan vuoksi.",
+          "Huonojen työkavereiden vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9e8f8ac2-d836-5d7b-bac8-aace7fbec7ef",
+        "prompt": "Millaista työtä henkilö A tekee nyt?",
+        "options": [
+          "Asiakaspalvelua.",
+          "Rakennustyötä.",
+          "Toimistotyötä.",
+          "Kuljetusalaa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6aae0fc4-daf0-57e2-b56d-97d57b258bf7",
+        "prompt": "Mitä aloja henkilö A harkitsee?",
+        "options": [
+          "Graafista suunnittelua tai valokuvausta.",
+          "Ohjelmointia ja IT-alaa.",
+          "Opettajan työtä.",
+          "Myyntityötä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "59b85f9e-4072-59f1-a5e5-e1eca13e4fc7",
+        "prompt": "Mikä henkilöä A pelottaa alanvaihdossa?",
+        "options": [
+          "Työn vaativuus.",
+          "Työn löytäminen.",
+          "Opiskelun vaikeus.",
+          "Palkka on aluksi paljon pienempi."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "1abd7960-8cb8-59f9-8693-580dd318ce60",
+        "prompt": "Mitä henkilö B ehdottaa?",
+        "options": [
+          "Vaihtamaan työpaikkaa heti.",
+          "Unohtamaan koko asian.",
+          "Pyytämään palkankorotusta.",
+          "Tekemään ensin iltaisin ja viikonloppuisin, niin näkee onko se oma juttu."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

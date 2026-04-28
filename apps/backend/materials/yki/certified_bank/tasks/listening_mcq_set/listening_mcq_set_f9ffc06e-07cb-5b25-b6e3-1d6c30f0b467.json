@@ -1,0 +1,66 @@
+{
+  "id": "f9ffc06e-07cb-5b25-b6e3-1d6c30f0b467",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opiskelija 1: Hei, mitä mieltä olet eilisestä luennosta?\nOpiskelija 2: Se oli ihan mielenkiintoinen, mutta vähän liian pitkä. Olisin toivonut enemmän keskustelua.\nOpiskelija 1: Samaa mieltä. Luennoitsija oli kyllä asiantunteva, mutta hän puhui vähän liian nopeasti.\nOpiskelija 2: Joo, välillä oli vaikea pysyä mukana. Laitoitko muistiinpanoja?\nOpiskelija 1: Kyllä, laitoin. Voit lainata niitä, jos haluat.\nOpiskelija 2: Kiitos, se olisi tosi hyvä. Haluatko mennä yhdessä kahville ennen seuraavaa luentoa?\nOpiskelija 1: Ehdottomasti! Mennään.",
+      "audio_asset_id": "03931877-1d93-50cf-a43c-cbe003618495"
+    },
+    "questions": [
+      {
+        "id": "list_055",
+        "prompt": "Mitä mieltä opiskelijat olivat luennosta?",
+        "options": [
+          "Se oli liian lyhyt",
+          "Se oli mielenkiintoinen mutta liian pitkä",
+          "Se oli tylsä ja turha",
+          "Se oli täydellinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_056",
+        "prompt": "Mitä opiskelijat toivoivat enemmän?",
+        "options": [
+          "Kuvia",
+          "Keskustelua",
+          "Tehtäviä",
+          "Taukoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_057",
+        "prompt": "Mitä opiskelija 1 tarjoaa opiskelija 2:lle?",
+        "options": [
+          "Kahvia",
+          "Kirjan",
+          "Muistiinpanoja",
+          "Kynän"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

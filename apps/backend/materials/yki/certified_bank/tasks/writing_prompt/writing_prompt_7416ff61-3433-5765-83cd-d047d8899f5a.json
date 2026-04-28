@@ -1,0 +1,37 @@
+{
+  "id": "7416ff61-3433-5765-83cd-d047d8899f5a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin talviuintipaikasta. Arvioi avannon kuntoa, pukuhuoneita ja turvallisuutta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin talviuintipaikasta"
+    },
+    "items": [
+      {
+        "id": "e13d7ab9-2e5d-5423-baac-1f0117bd913e",
+        "prompt": "Kirjoita palauteteksti kaupungin talviuintipaikasta. Arvioi avannon kuntoa, pukuhuoneita ja turvallisuutta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Avannon kunto\nPukuhuoneet\nTurvallisuus\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

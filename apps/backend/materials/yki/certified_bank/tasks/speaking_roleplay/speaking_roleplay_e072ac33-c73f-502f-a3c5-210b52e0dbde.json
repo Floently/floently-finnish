@@ -1,0 +1,64 @@
+{
+  "id": "e072ac33-c73f-502f-a3c5-210b52e0dbde",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä tavarailmoituksen kadonneesta matkalaukusta. Keskustele lentokentän infopisteen kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Lentokentän infopisteen työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp24_1",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp24_2",
+        "ai_first_turn_fi": "Voi ei, harmillista. Tehdään katoamisilmoitus. Mistä lennolta saavuit?"
+      },
+      {
+        "id": "srp24_3",
+        "ai_first_turn_fi": "Millainen matkalaukku on kyseessä? Väri, koko, merkki?"
+      },
+      {
+        "id": "srp24_4",
+        "ai_first_turn_fi": "Oliko laukussa nimilappu?"
+      },
+      {
+        "id": "srp24_5",
+        "ai_first_turn_fi": "Tarvitsen vielä nimesi, osoitteesi ja puhelinnumerosi. Ja matkustajanumeron jos sinulla on se."
+      },
+      {
+        "id": "srp24_6",
+        "ai_first_turn_fi": "Kiitos. Teemme ilmoituksen ja otamme yhteyttä, kun laukku löytyy. Toivottavasti se löytyy pian!"
+      },
+      {
+        "id": "srp24_7",
+        "ai_first_turn_fi": "Yleensä 24–48 tunnin sisällä. Jos ei, ole yhteydessä lentoyhtiöön suoraan. Tässä on ilmoitusnumerosi."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä tavarailmoituksen kadonneesta matkalaukusta. Keskustele lentokentän infopisteen kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

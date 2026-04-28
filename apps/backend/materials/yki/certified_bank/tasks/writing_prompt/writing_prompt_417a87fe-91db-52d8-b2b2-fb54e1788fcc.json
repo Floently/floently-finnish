@@ -1,0 +1,37 @@
+{
+  "id": "417a87fe-91db-52d8-b2b2-fb54e1788fcc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt fysioterapiassa. Kirjoita palaute fysioterapeutille.",
+    "materials": {
+      "scenario": "Palaute fysioterapiasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt fysioterapiassa. Kirjoita palaute fysioterapeutille."
+      }
+    ],
+    "rubric": "Olet käynyt fysioterapiassa. Kirjoita palaute fysioterapeutille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

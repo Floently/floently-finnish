@@ -1,0 +1,37 @@
+{
+  "id": "7514ec9d-7f9a-5ab6-b1d3-a4d0466d6cbd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: sports_hall. Purpose: justify_an_opinion. Constraint: offer_a_concrete_solution.",
+    "materials": {
+      "scenario": "palauteen sports hall"
+    },
+    "items": [
+      {
+        "id": "17f0e63d-fa4d-51a1-a1a2-5c5e1d902b7c",
+        "prompt": "Write for the receiver in this scenario: sports_hall. Purpose: justify_an_opinion. Constraint: offer_a_concrete_solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

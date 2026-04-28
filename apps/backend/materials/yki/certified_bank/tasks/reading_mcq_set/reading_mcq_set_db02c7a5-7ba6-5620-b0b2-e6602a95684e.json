@@ -1,0 +1,110 @@
+{
+  "id": "db02c7a5-7ba6-5620-b0b2-e6602a95684e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Poliittinen polarisaatio on ilmiö, jossa yhteiskunnan eri ryhmien väliset mielipide-erot kasvavat ja vastakkainasettelu kärjistyy. Tämä on näkynyt viime vuosina monissa maissa, myös Suomessa. Keskustelu politiikasta on muuttunut aiempaa kärkevämmäksi, ja kompromissien tekeminen on vaikeutunut. Sosiaalisen median algoritmit voivat vahvistaa tätä kehitystä, koska ne suosivat sisältöä, joka herättää voimakkaita tunteita ja sitouttaa käyttäjiä. Ihmiset altistuvat yhä useammin vain omia näkemyksiään vahvistavalle tiedolle, mikä voi lisätä kuplautumista ja vähentää ymmärrystä toisin ajattelevia kohtaan. Polarisaatio voi heikentää yhteiskunnan kykyä ratkaista ongelmia, koska se vaikeuttaa yhteisymmärryksen löytämistä ja pitkäjänteistä päätöksentekoa. Se voi myös lisätä epäluottamusta instituutioita ja asiantuntijoita kohtaan. Toisaalta voidaan ajatella, että voimakas keskustelu on merkki elävästä demokratiasta, jossa erilaiset näkemykset pääsevät esiin. Keskeistä onkin, miten polarisaatiota hallitaan. Tarvitaan kohtaamisia eri tavalla ajattelevien välillä, medialukutaitoa ja kykyä käydä rakentavaa keskustelua myös vaikeista aiheista. Päättäjillä on vastuu siitä, ettei polarisaatiota lietsota tarkoituksella, vaan etsitään yhteistä maaperää.",
+      "word_count": 142
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan poliittisella polarisaatiolla?",
+        "options": [
+          "Sitä, että kaikki ovat samaa mieltä politiikasta.",
+          "Sitä, että mielipide-erot kasvavat ja vastakkainasettelu kärjistyy.",
+          "Sitä, että politiikka ei kiinnosta ketään.",
+          "Sitä, että uusia puolueita perustetaan jatkuvasti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten sosiaalinen media voi vahvistaa polarisaatiota?",
+        "options": [
+          "Se tarjoaa monipuolisesti erilaisia näkökulmia.",
+          "Sen algoritmit suosivat sisältöä, joka herättää voimakkaita tunteita.",
+          "Se vähentää ihmisten altistumista uutisille.",
+          "Se yhdistää ihmisiä yli puoluerajojen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan kuplautumisella?",
+        "options": [
+          "Ihmiset altistuvat vain omia näkemyksiään vahvistavalle tiedolle.",
+          "Ihmiset asuvat samalla alueella.",
+          "Ihmiset kuuluvat samaan sosiaaliluokkaan.",
+          "Ihmiset äänestävät samaa puoluetta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten polarisaatio voi vaikuttaa yhteiskunnan ongelmanratkaisukykyyn?",
+        "options": [
+          "Se parantaa sitä, koska eri näkökulmat tulevat esiin.",
+          "Se heikentää sitä, koska se vaikeuttaa yhteisymmärryksen löytämistä.",
+          "Sillä ei ole mitään vaikutusta.",
+          "Se nopeuttaa päätöksentekoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä myönteistä polarisaatiossa voi olla?",
+        "options": [
+          "Se lisää yhteiskunnan vakautta.",
+          "Se on merkki elävästä demokratiasta, jossa erilaiset näkemykset pääsevät esiin.",
+          "Se vähentää konflikteja.",
+          "Se helpottaa päätöksentekoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten polarisaatiota voidaan hallita?",
+        "options": [
+          "Viestinnän rajoittamisella ja sensuurilla.",
+          "Kohtaamisilla, medialukutaidolla ja rakentavalla keskustelulla.",
+          "Vain samanmielisten kanssa keskustelemalla.",
+          "Poliittisen keskustelun vähentämisellä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on päättäjien vastuu polarisaation hallinnassa?",
+        "options": [
+          "Heidän tulee lietsota vastakkainasettelua saadakseen ääniä.",
+          "Heidän ei tule lietsota polarisaatiota vaan etsiä yhteistä maaperää.",
+          "Heidän tulee kieltää sosiaalinen media.",
+          "Heidän tulee eristäytyä omiin kupliinsa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

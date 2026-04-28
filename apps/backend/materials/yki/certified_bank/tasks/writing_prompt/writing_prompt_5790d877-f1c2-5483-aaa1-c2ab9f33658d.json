@@ -1,0 +1,37 @@
+{
+  "id": "5790d877-f1c2-5483-aaa1-c2ab9f33658d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin liikuntaleiristä. Arvioi ohjelmaa, ohjaajia ja ruokailua. Ehdota yhtä uutta aktiviteettia.",
+    "materials": {
+      "scenario": "Palaute kaupungin liikuntaleiristä"
+    },
+    "items": [
+      {
+        "id": "000e3be9-519a-5158-8da9-87e3777c70b2",
+        "prompt": "Kirjoita palauteteksti kaupungin liikuntaleiristä. Arvioi ohjelmaa, ohjaajia ja ruokailua. Ehdota yhtä uutta aktiviteettia."
+      }
+    ],
+    "rubric": "Ohjelma\nOhjaajat\nRuokailu\nUusi aktiviteetti",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

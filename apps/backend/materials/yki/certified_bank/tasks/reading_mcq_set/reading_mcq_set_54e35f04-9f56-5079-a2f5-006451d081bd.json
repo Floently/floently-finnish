@@ -1,0 +1,66 @@
+{
+  "id": "54e35f04-9f56-5079-a2f5-006451d081bd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue lääkärin antama resepti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÄÄKEMÄÄRÄYS\n\nLääke: Burana 400 mg tabletti\nKäyttötarkoitus: kipu, kuume\n\nAnnostus:\naikuiset ja yli 12-vuotiaat: 1–2 tablettia 2–3 kertaa päivässä.\nEnintään 6 tablettia vuorokaudessa.\n\nAlle 12-vuotiaille vain lääkärin ohjeen mukaan.\n\nOta lääke ruoan jälkeen runsaan veden kanssa.\n\nÄlä käytä, jos olet allerginen ibuprofeenille.\n\nSäilytä huoneenlämmössä, poissa lasten ulottuvilta.\n\nPäiväys: 15.5.2026\nLääkäri: Maija Virtanen",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "587a27c5-04bf-52c4-8a28-e574a28b9ac9",
+        "prompt": "Mihin vaivaan tämä lääke on tarkoitettu?",
+        "options": [
+          "Allergiaan",
+          "Kipuun ja kuumeeseen",
+          "Vatsavaivoihin",
+          "Unettomuuteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6c6ea4b5-c004-5050-bfeb-28af6fcb92e4",
+        "prompt": "Montako tablettia voi ottaa päivässä enintään?",
+        "options": [
+          "4 tablettia",
+          "5 tablettia",
+          "6 tablettia",
+          "7 tablettia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "30982531-242e-56dd-9a43-5a82b2e378a5",
+        "prompt": "Milloin lääke pitää ottaa?",
+        "options": [
+          "Tyhjään vatsaan",
+          "Ruoan jälkeen",
+          "Ennen nukkumaanmenoa",
+          "Heti aamulla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

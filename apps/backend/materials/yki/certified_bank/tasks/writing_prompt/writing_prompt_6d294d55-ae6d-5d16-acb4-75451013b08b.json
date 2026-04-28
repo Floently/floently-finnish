@@ -1,0 +1,37 @@
+{
+  "id": "6d294d55-ae6d-5d16-acb4-75451013b08b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti matkatoimistosta. Arvioi matkaneuvonnan laatua, verkkosivujen selkeyttä ja hintojen kilpailukykyä. Ehdota yhtä uutta kohdetta.",
+    "materials": {
+      "scenario": "Palaute matkatoimistosta"
+    },
+    "items": [
+      {
+        "id": "d549f8d2-fe5b-58ed-b69a-99869cce7cb8",
+        "prompt": "Kirjoita palauteteksti matkatoimistosta. Arvioi matkaneuvonnan laatua, verkkosivujen selkeyttä ja hintojen kilpailukykyä. Ehdota yhtä uutta kohdetta."
+      }
+    ],
+    "rubric": "Matkaneuvonnan laatu\nVerkkosivujen selkeys\nHintojen kilpailukyky\nUusi kohde",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

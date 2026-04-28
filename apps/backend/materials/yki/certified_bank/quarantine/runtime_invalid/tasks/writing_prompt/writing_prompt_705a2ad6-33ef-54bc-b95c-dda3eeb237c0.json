@@ -1,0 +1,37 @@
+{
+  "id": "705a2ad6-33ef-54bc-b95c-dda3eeb237c0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.365,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: housing_association. Purpose: react_to_a_situation. Constraint: address_the_receiver.",
+    "materials": {
+      "scenario": "digitaalisista palveluista asunto-osakeyhtiöstä"
+    },
+    "items": [
+      {
+        "id": "e7f6c56c-f3d2-55b1-8ff8-6ba443745a90",
+        "prompt": "Write for the receiver in this scenario: housing_association. Purpose: react_to_a_situation. Constraint: address_the_receiver."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

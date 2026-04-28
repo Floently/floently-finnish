@@ -1,0 +1,77 @@
+{
+  "id": "ba9866b7-6039-5ed0-808e-f89bf59b131f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen koulutus on maksutonta esiopetuksesta korkeakoulutukseen. Peruskoulun jälkeen nuoret voivat hakeutua lukioon tai ammatilliseen oppilaitokseen. Lukio valmistaa ylioppilastutkintoon ja akateemisiin opintoihin, kun taas ammatillinen koulutus antaa valmiudet työelämään ja jatko-opintoihin ammattikorkeakoulussa. Ammattikorkeakoulut ja yliopistot tarjoavat korkea-asteen koulutusta. Aikuiskoulutus on monipuolista, ja työikäiset voivat päivittää osaamistaan esimerkiksi työväenopistoissa, avoimessa yliopistossa tai ammatillisissa täydennyskoulutuksissa. Koulutusjärjestelmää kehitetään jatkuvasti vastaamaan työelämän tarpeita. Erityistä huomiota kiinnitetään oppimisen tukeen ja joustaviin opintopolkuihin.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_014",
+        "prompt": "Mitä koulutusta on tarjolla peruskoulun jälkeen?",
+        "options": [
+          "Vain lukio",
+          "Lukio tai ammatillinen oppilaitos",
+          "Vain ammatillinen oppilaitos",
+          "Vain työelämä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_014",
+        "prompt": "Mihin lukio valmistaa?",
+        "options": [
+          "Vain työelämään",
+          "Ylioppilastutkintoon ja akateemisiin opintoihin",
+          "Vain ammattiin",
+          "Vain jatko-opintoihin ulkomailla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_014",
+        "prompt": "Missä aikuiset voivat päivittää osaamistaan?",
+        "options": [
+          "Vain yliopistossa",
+          "Työväenopistoissa, avoimessa yliopistossa ja ammatillisissa täydennyskoulutuksissa",
+          "Vain ammattikorkeakoulussa",
+          "Vain verkkokursseilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_014",
+        "prompt": "Mihin koulutusjärjestelmän kehittämisessä kiinnitetään huomiota?",
+        "options": [
+          "Vain oppimateriaaleihin",
+          "Oppimisen tukeen ja joustaviin opintopolkuihin",
+          "Vain opettajien koulutukseen",
+          "Vain koulujen rakennuksiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

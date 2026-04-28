@@ -1,0 +1,40 @@
+{
+  "id": "f0a4856e-48e4-53ff-afb7-83dc3ac89433",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.284,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell how to sauna at a cottage. What should you know before going to the sauna?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "eeaac8ec-d1f4-515e-bd7c-131ec552fc48",
+        "ai_first_turn_fi": "Miten mökkisaunassa toimitaan? Milloin mennään veteen?"
+      }
+    ],
+    "rubric": "Tell how to sauna at a cottage. What should you know before going to the sauna?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "7fb9a06e-64d6-5e50-9e03-2d8cdd34c763",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: adult_education_center. Purpose: react_to_a_situation. Constraint: use_clear_structure.",
+    "materials": {
+      "scenario": "transport in adult_education_center"
+    },
+    "items": [
+      {
+        "id": "bcb627e9-9191-52a7-84de-128b0273b590",
+        "prompt": "Write for the receiver in this scenario: adult_education_center. Purpose: react_to_a_situation. Constraint: use_clear_structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

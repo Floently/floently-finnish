@@ -1,0 +1,37 @@
+{
+  "id": "9d9b5275-69a9-553e-90c9-ccb3ac85b696",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti tapahtuman järjestäjälle. Olit eilen konsertissa, mutta unohit sinne sateenvarjosi. Se on musta taitettava sateenvarjo, ja siinä on nimi. Kysy, löytyykö se ja miten voit saada sen takaisin.",
+    "materials": {
+      "scenario": "Viesti tapahtuman järjestäjälle unohtuneesta tavarasta"
+    },
+    "items": [
+      {
+        "id": "15064b1c-9b2a-58bc-bc0e-9e50342e11e7",
+        "prompt": "Kirjoita lyhyt viesti tapahtuman järjestäjälle. Olit eilen konsertissa, mutta unohit sinne sateenvarjosi. Se on musta taitettava sateenvarjo, ja siinä on nimi. Kysy, löytyykö se ja miten voit saada sen takaisin."
+      }
+    ],
+    "rubric": "Kerro, missä olit (konsertissa)\nKerro, mitä unohtui (sateenvarjo)\nKuvaile sateenvarjoa\nKysy, löytyykö se\nKysy, miten saat sen takaisin",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "3b526a15-a8ef-5cb0-a38a-3393ca691e19",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Puutarhanhoidon suosio on kasvanut, ja yhä useampi suomalainen viettää aikaa puutarhassa, pihalla tai parvekkeella. Puutarhanhoito on monipuolinen harrastus, joka tarjoaa liikuntaa, rentoutumista ja elämyksiä. Yksi keskeisimmistä hyödyistä on halu kasvattaa omaa ruokaa. Yhä useampi haluaa tietää, mistä ruoka tulee, ja nauttia itse kasvatettujen vihannesten, yrttien ja marjojen mausta. Toinen hyöty on hyvinvointivaikutukset. Puutarhanhoito on tutkitusti hyväksi mielelle ja keholle. Se vähentää stressiä, parantaa mielialaa ja pitää kunnossa. Multa sormissa ja kasvien kasvun seuraaminen tuovat iloa. Kolmas hyöty on ympäristötietoisuus. Puutarhanhoito lisää ymmärrystä luonnon kiertokulusta ja ekologisuudesta. Monet pyrkivät viljelemään ekologisesti ja käyttämään kotimaisia lajikkeita. Neljäs hyöty on esteettisyys ja viihtyisyys. Kaunis puutarha tai parveke lisää kodin viihtyisyyttä ja antaa iloa joka päivä. Viides hyöty on yhteisöllisyys. Puutarhanhoito yhdistää ihmisiä: naapurit vaihtavat kasveja ja kokemuksia, puutarhakerhot kokoavat harrastajia yhteen.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "447f3e65-11d7-5dd6-bf77-4c6ef6b4ca53",
+        "prompt": "Miksi ihmiset haluavat kasvattaa omaa ruokaa?",
+        "options": [
+          "Koska se on halvempaa",
+          "Koska he haluavat tietää ruoan alkuperän ja nauttia tuoreesta mausta",
+          "Koska se on helpompaa",
+          "Koska kaupassa ei ole ruokaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "72474e06-d610-5e7b-96dd-cd4c0d5bd1ee",
+        "prompt": "Mitä hyvinvointivaikutuksia puutarhanhoidolla on?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä, parantaa mielialaa ja pitää kunnossa",
+          "Se väsyttää",
+          "Sillä ei ole hyvinvointivaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f01ab356-516f-5a25-b743-95f9449dd380",
+        "prompt": "Miten ympäristötietoisuus näkyy puutarhanhoidossa?",
+        "options": [
+          "Käytetään paljon kemikaaleja",
+          "Viljellään ekologisesti ja käytetään kotimaisia lajikkeita",
+          "Kulutetaan paljon vettä",
+          "Ei näy millään tavalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7f11fb96-8118-54d3-a633-9858b3debe1c",
+        "prompt": "Miten puutarhanhoito lisää esteettisyyttä?",
+        "options": [
+          "Se tekee pihasta epäsiistin",
+          "Kaunis puutarha lisää kodin viihtyisyyttä",
+          "Se ei vaikuta viihtyisyyteen",
+          "Se tekee pihasta rumemman"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "700a8f22-d1a5-5c71-aa7e-86a04d6756e8",
+        "prompt": "Miten puutarhanhoito lisää yhteisöllisyyttä?",
+        "options": [
+          "Se eristää ihmisiä",
+          "Naapurit vaihtavat kasveja ja puutarhakerhot kokoavat harrastajia",
+          "Se lisää kilpailua",
+          "Sillä ei ole vaikutusta yhteisöllisyyteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "4a05aecb-e11a-5517-b40c-cc8ed4f2e13c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.358,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita viesti, jossa:\n- kerrot, että tarvitset tiettyä kirjaa\n- kysyt, onko ystävälläsi sitä\n- kerrot, miksi tarvitset kirjan (esim. opiskelu, harrastus)\n- lupaat palauttaa sen pian",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "ff72d279-dec4-5b49-92c4-14a5c1045b20",
+        "prompt": "Kirjoita viesti, jossa:\n- kerrot, että tarvitset tiettyä kirjaa\n- kysyt, onko ystävälläsi sitä\n- kerrot, miksi tarvitset kirjan (esim. opiskelu, harrastus)\n- lupaat palauttaa sen pian"
+      }
+    ],
+    "rubric": "Tehtävän ohjeiden noudattaminen\nViestin ymmärrettävyys\nYksinkertaisten lauseiden muodostus",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

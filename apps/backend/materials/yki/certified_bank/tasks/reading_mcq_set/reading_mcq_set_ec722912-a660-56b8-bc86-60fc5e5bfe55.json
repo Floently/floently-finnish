@@ -1,0 +1,99 @@
+{
+  "id": "ec722912-a660-56b8-bc86-60fc5e5bfe55",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.57,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kiertotalous on noussut keskeiseksi tavoitteeksi EU:ssa. Se tarkoittaa siirtymistä pois kertakäyttökulttuurista kohti järjestelmää, jossa materiaalit pysyvät käytössä mahdollisimman pitkään. Tämä edellyttää tuotteiden suunnittelua kestäviksi ja korjattaviksi sekä uusia liiketoimintamalleja, kuten tuotteiden vuokrausta ja jakamista. Kiertotalous vähentää luonnonvarojen kulutusta, jätteen määrää ja päästöjä. Suomi on yksi kiertotalouden edelläkävijöistä.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on noussut keskeiseksi tavoitteeksi EU:ssa?",
+        "options": [
+          "Kertakäyttökulttuuri",
+          "Kiertotalous",
+          "Massatuotanto",
+          "Fossiilisten polttoaineiden käyttö"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kiertotalous tarkoittaa?",
+        "options": [
+          "Materiaalien käyttöä kertaalleen",
+          "Siirtymistä pois kertakäyttökulttuurista",
+          "Jätteen määrän lisäämistä",
+          "Luonnonvarojen kulutuksen lisäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kiertotalous edellyttää tuotteiden suunnittelulta?",
+        "options": [
+          "Tuotteet suunnitellaan halvoiksi",
+          "Tuotteet suunnitellaan kestäviksi ja korjattaviksi",
+          "Tuotteet suunnitellaan kertakäyttöisiksi",
+          "Tuotteet suunnitellaan muodikkaiksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia liiketoimintamalleja kiertotalouteen liittyy?",
+        "options": [
+          "Kertamyynti",
+          "Tuotteiden vuokraus ja jakaminen",
+          "Massatuotanto",
+          "Halpatuonti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä kiertotaloudesta on?",
+        "options": [
+          "Se lisää jätettä ja päästöjä",
+          "Se vähentää luonnonvarojen kulutusta, jätettä ja päästöjä",
+          "Se lisää luonnonvarojen kulutusta",
+          "Sillä ei ole ympäristövaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Millainen maa Suomi on kiertotalouden suhteen?",
+        "options": [
+          "Jälkeenjäänyt",
+          "Edelläkävijä",
+          "Täysin välinpitämätön",
+          "Vasta aloittelija"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "70191ee6-0e29-5b62-93c9-079ce264ca97",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Kerro, että olet pahoillasi, että pidit eilen myöhään musiikkia. Kerro, että oli syntymäpäiväsi. Lupaa, että jatkossa pidät musiikin hiljaisemmalla.",
+    "materials": {
+      "scenario": "Viesti naapurille anteeksipyyntö musiikista"
+    },
+    "items": [
+      {
+        "id": "9719f691-08c8-5c24-8f58-8b5c37775e15",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Kerro, että olet pahoillasi, että pidit eilen myöhään musiikkia. Kerro, että oli syntymäpäiväsi. Lupaa, että jatkossa pidät musiikin hiljaisemmalla."
+      }
+    ],
+    "rubric": "Pyydä anteeksi\nKerro syy (syntymäpäivä)\nLupaa jatkossa hiljaisempaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

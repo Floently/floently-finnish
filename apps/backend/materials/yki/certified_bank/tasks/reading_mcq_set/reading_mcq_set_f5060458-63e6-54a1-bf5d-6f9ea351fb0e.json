@@ -1,0 +1,66 @@
+{
+  "id": "f5060458-63e6-54a1-bf5d-6f9ea351fb0e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "PIZZERIA MAMMA MIA\n\nAvoinna: ma–pe 11–21, la 12–22, su 12–20\nLounas ma–pe 11–14: pizza + salaatti + juoma 12 €\nNouto- ja toimituspalvelu: puh. 050 123 4567\nOsoite: Kauppakatu 10, 00100 Helsinki  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "67d02ca6-0d10-5b8b-afb1-4f99744095e7",
+        "prompt": "Mihin aikaan pizzeria suljetaan arkisin?",
+        "options": [
+          "A) klo 20",
+          "B) klo 21",
+          "C) klo 22",
+          "D) klo 23"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3bd94a00-5392-5c72-be54-7973c61e6cfc",
+        "prompt": "Paljonko lounas maksaa?",
+        "options": [
+          "A) 10 €",
+          "B) 12 €",
+          "C) 15 €",
+          "D) 18 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0ea5d0bd-3db1-5014-a83a-c81ed90d02ed",
+        "prompt": "Mikä on pizzerian osoite?",
+        "options": [
+          "A) Kauppakatu 5",
+          "B) Kauppakatu 8",
+          "C) Kauppakatu 10",
+          "D) Kauppakatu 12"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "5bb677ad-7d53-5931-b317-adb77169b0ac",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.343,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sait ystävältäsi lahjan. Kirjoita lyhyt kiitosviesti.",
+    "materials": {
+      "scenario": "Sait ystävältäsi lahjan. Kirjoita lyhyt kiitosviesti."
+    },
+    "items": [
+      {
+        "id": "cfbd654b-7ab5-5891-b6cb-6110b73755d3",
+        "prompt": "Kirjoita viesti, jossa:\n- kiität lahjasta\n- kerrot, mistä pidit erityisesti\n- kerrot, aiotko käyttää lahjaa pian\n- toivotat hyvää jatkoa"
+      }
+    ],
+    "rubric": "Kirjoita viesti, jossa:\n- kiität lahjasta\n- kerrot, mistä pidit erityisesti\n- kerrot, aiotko käyttää lahjaa pian\n- toivotat hyvää jatkoa",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

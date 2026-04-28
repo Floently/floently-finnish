@@ -1,0 +1,37 @@
+{
+  "id": "5ce4e89d-0a38-5c98-a990-f94b4b218743",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti maahanmuuttovirastoon. Olet saanut oleskelulupapäätöksen, mutta siinä on virhe henkilötiedoissasi. Kerro, mikä tieto on väärin ja mikä on oikein. Pyydä korjausta ja uutta päätöstä.",
+    "materials": {
+      "scenario": "Virheellisen oleskelulupapäätöksen korjaus"
+    },
+    "items": [
+      {
+        "id": "4e0d2a3a-682d-5ea8-8f20-747d8cdac1f7",
+        "prompt": "Kirjoita sähköposti maahanmuuttovirastoon. Olet saanut oleskelulupapäätöksen, mutta siinä on virhe henkilötiedoissasi. Kerro, mikä tieto on väärin ja mikä on oikein. Pyydä korjausta ja uutta päätöstä."
+      }
+    ],
+    "rubric": "Virheen kuvaus\nOikea tieto\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "7b46d858-888b-5d0b-8c62-5c2244963e74",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.795,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kaupunkisuunnittelussa on viime vuosikymmeninä tapahtunut paradigman muutos, joka on saanut vaikutteita sekä ekologisesta että sosiaalisesta kestävyydestä. Perinteinen, autoilun ympärille rakennettu kaupunki on väistymässä tiiviimmän ja monipuolisemman kaupunkirakenteen tieltä. Tämän uuden ajattelun taustalla on useita toisiinsa kietoutuvia tekijöitä. Ensinnäkin ilmastonmuutoksen hillitseminen edellyttää päästöjen vähentämistä liikenteessä, mikä tarkoittaa käytännössä jalankulun, pyöräilyn ja joukkoliikenteen aseman vahvistamista. Toiseksi kaupunkien tiivistäminen nähdään keinona suojella ympäröiviä luontoalueita ja viljelysmaata. Kolmanneksi sosiaalinen kestävyys korostaa sekoittuneen kaupunkirakenteen merkitystä: kun eri tuloluokat ja ikäryhmät asuvat samoilla alueilla, eriarvoisuus vähenee ja yhteisöllisyys vahvistuu. Käytännössä tämä tiivistämisen ihanne on kuitenkin osoittautunut ristiriitaiseksi. Keskeisin ongelma liittyy asumisen hintaan. Tiiviisti rakennetut, hyvien palveluiden ja liikenneyhteyksien äärellä sijaitsevat alueet ovat usein niin kalliita, että ne houkuttelevat vain varakkaita asukkaita. Tämä johtaa helposti segregaatioon eli alueiden eriytymiseen, mikä on juuri päinvastainen tulos kuin mitä sosiaalisella kestävyydellä tavoiteltiin. Lisäksi tiivistäminen voi tarkoittaa viheralueiden vähenemistä, millä on vaikutuksia sekä asukkaiden hyvinvointiin että kaupunkien ilmanlaatuun ja hulevesien hallintaan. Kaupunkisuunnittelijat ja päättäjät joutuvatkin tasapainoilemaan ristiriitaisten tavoitteiden välillä. Heidän on punnittava yhtäältä ekologisia tavoitteita, toisaalta sosiaalista oikeudenmukaisuutta ja toisaalta vielä taloudellisia realiteetteja. Ratkaisut vaihtelevat kaupungeittain ja jopa kaupunginosittain, eikä yhtä oikeaa mallia ole olemassa. Keskeistä on kuitenkin se, että suunnitteluprosessit ovat avoimia ja että asukkailla on mahdollisuus vaikuttaa oman elinympäristönsä kehittämiseen. Ilman asukkaiden osallisuutta kaupunkisuunnittelu jää helposti etäiseksi ja kohtaamatta niitä todellisia tarpeita, joita kaupunkilaisilla on.",
+      "word_count": 216
+    },
+    "questions": [
+      {
+        "id": "040265bd-e1ef-5b79-ac6b-b2f110472fce",
+        "prompt": "Mikä on tekstin keskeinen väite kaupunkisuunnittelun muutoksesta?",
+        "options": [
+          "Muutos on ongelmaton ja yksiselitteisesti myönteinen",
+          "Muutos on välttämätön, mutta sen toteuttaminen sisältää ristiriitoja",
+          "Muutos on epäonnistunut kaikkialla ja siitä tulisi luopua",
+          "Muutos koskee vain harvoja suuria kaupunkeja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "59dd9ae2-3857-5fda-b7dd-e6896cbc11b1",
+        "prompt": "Tekstin mukaan mikä on keskeinen syy sille, että tiivistäminen voi johtaa segregaatioon?",
+        "options": [
+          "Tiiviit alueet ovat usein liian kalliita pienituloisille",
+          "Tiiviillä alueilla on huonot julkiset liikenneyhteydet",
+          "Tiiviit alueet sijaitsevat kaukana työpaikoista",
+          "Tiiviit alueet houkuttelevat vain lapsiperheitä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e46afc4c-00d6-5e1b-a02e-200dfd5ff288",
+        "prompt": "Mitä tekstissä sanotaan viheralueiden merkityksestä tiivistämisen yhteydessä?",
+        "options": [
+          "Viheralueita voidaan vähentää ilman kielteisiä vaikutuksia",
+          "Viheralueet ovat tärkeitä, ja niiden väheneminen on ongelma",
+          "Viheralueiden merkitystä ei ole tutkittu riittävästi",
+          "Viheralueet tulisi korvata kokonaan puistoilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cc51f8b9-dccd-5f44-8ca1-b4fcd8e13c84",
+        "prompt": "Mitä tekstin mukaan tarvitaan onnistuneeseen kaupunkisuunnitteluun?",
+        "options": [
+          "Yksi yhtenäinen malli kaikille kaupungeille",
+          "Asukkaiden osallisuus ja avoimet suunnitteluprosessit",
+          "Päättäjien yksin tekemät päätökset",
+          "Autoilun aseman vahvistaminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

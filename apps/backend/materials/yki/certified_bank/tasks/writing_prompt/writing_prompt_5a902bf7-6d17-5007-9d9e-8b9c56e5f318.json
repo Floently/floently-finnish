@@ -1,0 +1,37 @@
+{
+  "id": "5a902bf7-6d17-5007-9d9e-8b9c56e5f318",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt lääkärissä yksityisellä klinikalla. Kirjoita palaute. Kerro, oliko ajan saaminen helppoa ja oliko palvelu hyvää.",
+    "materials": {
+      "scenario": "Palaute yksityiseltä lääkäriasemalta"
+    },
+    "items": [
+      {
+        "id": "adcff752-e337-5cba-a56f-2430da86b17e",
+        "prompt": "Olet käynyt lääkärissä yksityisellä klinikalla. Kirjoita palaute. Kerro, oliko ajan saaminen helppoa ja oliko palvelu hyvää."
+      }
+    ],
+    "rubric": "Olet käynyt lääkärissä yksityisellä klinikalla. Kirjoita palaute. Kerro, oliko ajan saaminen helppoa ja oliko palvelu hyvää.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

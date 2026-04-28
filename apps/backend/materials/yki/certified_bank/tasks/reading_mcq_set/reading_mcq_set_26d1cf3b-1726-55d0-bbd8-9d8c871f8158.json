@@ -1,0 +1,88 @@
+{
+  "id": "26d1cf3b-1726-55d0-bbd8-9d8c871f8158",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.751,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kansallispuistot ovat tärkeitä sekä luonnonsuojelun että virkistyskäytön kannalta. Suomessa on 41 kansallispuistoa, jotka sijaitsevat eri puolilla maata Lapin tuntureilta Etelä-Suomen saaristoon. Kansallispuistot perustetaan suojelemaan luonnon monimuotoisuutta ja kauniita maisemia. Samalla ne tarjoavat ihmisille mahdollisuuksia retkeilyyn, patikointiin ja luonnon tarkkailuun. Yksi kansallispuistojen keskeisistä tehtävistä on luonnon monimuotoisuuden säilyttäminen. Kansallispuistoissa suojellaan uhanalaisia lajeja ja luontotyyppejä, jotka olisivat vaarassa kadota muualta. Ne toimivat tärkeinä turvapaikkoina monille eläimille ja kasveille. Toinen keskeinen tehtävä on mahdollistaa ihmisille luontokokemuksia. Kansallispuistot ovat kaikille avoimia, ja niissä on merkittyjä reittejä, laavuja, tulipaikkoja ja telttailualueita. Ne tarjoavat puitteet retkeilyyn, patikointiin, melontaan ja muuhun luontoliikuntaan. Luonnossa liikkuminen on hyväksi terveydelle ja hyvinvoinnille. Kolmas tehtävä on tukea paikallista elinkeinoelämää, erityisesti matkailua. Kansallispuistot houkuttelevat kävijöitä, jotka käyttävät rahaa majoitukseen, ravintoloihin ja muihin palveluihin. Tämä luo työpaikkoja ja elinvoimaa maaseutualueille. Neljäs tehtävä on tarjota mahdollisuuksia tutkimukseen ja ympäristökasvatukseen. Kansallispuistoissa tehdään tutkimusta luonnon monimuotoisuudesta ja ilmastonmuutoksen vaikutuksista. Ne ovat myös tärkeitä oppimisympäristöjä koululaisille ja muille ryhmille. Kansallispuistojen käyntimäärät ovat kasvaneet viime vuosina. Tämä on hyvä asia, mutta se tuo myös haasteita, kuten luonnon kulumista ja roskaantumista. Siksi on tärkeää ohjata kävijöitä ja huolehtia puistojen kunnosta.",
+      "word_count": 181
+    },
+    "questions": [
+      {
+        "id": "415a8f75-02f2-5507-a9df-06e7580efa8a",
+        "prompt": "Kuinka monta kansallispuistoa Suomessa on?",
+        "options": [
+          "21",
+          "41",
+          "61",
+          "81"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "70857e69-5019-5776-ace5-4147df9644b7",
+        "prompt": "Mikä on kansallispuistojen keskeinen tehtävä luonnonsuojelun kannalta?",
+        "options": [
+          "Metsästyksen edistäminen",
+          "Uhanalaisten lajien ja luontotyyppien säilyttäminen",
+          "Puiden kaataminen",
+          "Teiden rakentaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "97edef89-75d4-5a7f-b4cb-f677915d4719",
+        "prompt": "Mitä palveluita kansallispuistoissa on retkeilijöille?",
+        "options": [
+          "Hotelleja ja ravintoloita",
+          "Merkittyjä reittejä, laavuja, tulipaikkoja ja telttailualueita",
+          "Kauppoja ja kahviloita",
+          "Uimahalleja ja kuntosaleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9388c2d0-bb95-59c2-83ce-485f0f3eb03a",
+        "prompt": "Miten kansallispuistot tukevat paikallista elinkeinoelämää?",
+        "options": [
+          "Ne työllistävät suoraan paikallisia asukkaita",
+          "Ne houkuttelevat matkailijoita, jotka käyttävät rahaa paikallisiin palveluihin",
+          "Ne maksavat veroja kunnalle",
+          "Ne rakentavat teitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9ca67bd3-4b57-58ef-9212-9708cdd8afb8",
+        "prompt": "Mitä haasteita kansallispuistojen kasvanut suosio tuo?",
+        "options": [
+          "Liian vähän kävijöitä",
+          "Luonnon kulumista ja roskaantumista",
+          "Liian vähän rahoitusta",
+          "Liian vähän henkilökuntaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

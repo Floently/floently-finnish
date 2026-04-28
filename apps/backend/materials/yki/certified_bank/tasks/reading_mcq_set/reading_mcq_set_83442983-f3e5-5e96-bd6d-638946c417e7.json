@@ -1,0 +1,77 @@
+{
+  "id": "83442983-f3e5-5e96-bd6d-638946c417e7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Lääkärikäynnit etänä ovat yleistyneet viime vuosina. Moni kokee sen helpotuksena, kun ei tarvitse matkustaa vastaanotolle pienten vaivojen vuoksi. Videovastaanotot ja digitaaliset terveyspalvelut säästävät sekä potilaan että hoitajan aikaa.\n\nToisaalta osa potilaista kokee, että etävastaanotto ei korvaa kasvokkain tapahtuvaa kohtaamista. Lääkäri ei välttämättä huomaa kaikkia oireita videon välityksellä, ja luottamuksellisen suhteen rakentaminen on vaikeampaa. Erityisesti vanhukset ja ne, joilla on huonot digitaidot, saattavat jäädä palvelujen ulkopuolelle.\n\nTerveyskeskukset ovat saaneet palautetta sekä puolesta että vastaan. Jotkut toivovat, että jatkossakin saisi valita, haluaako tavata lääkärin etänä vai paikan päällä. Toiset taas haluaisivat, että kaikki mahdollinen hoidettaisiin etänä jonotusaikojen lyhentämiseksi.\n\nAsiantuntijat muistuttavat, että etäpalvelut ovat hyvä lisä, mutta ne eivät saa syrjäyttää perinteisiä vastaanottoja kokonaan. Tarvitaan molempia, jotta terveydenhuolto palvelee kaikkia väestöryhmiä tasapuolisesti.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "78f7a69a-a280-5b25-a0e7-4432a88ebb9b",
+        "prompt": "Mitä hyötyä etälääkärikäynneistä on tekstin mukaan?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne säästävät aikaa",
+          "Lääkäri ehtii paremmin",
+          "Ne ovat tarkempia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "736cb49e-87fe-5f8c-820a-2b550c6de9b4",
+        "prompt": "Mikä on etävastaanoton haitta?",
+        "options": [
+          "Se on kalliimpi",
+          "Tekniikka ei toimi",
+          "Lääkäri ei huomaa kaikkia oireita",
+          "Se kestää pidempään"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f877ae28-4361-5233-bfe5-f970189408e2",
+        "prompt": "Ketkä saattavat jäädä palvelujen ulkopuolelle?",
+        "options": [
+          "Lapset ja nuoret",
+          "Työssäkäyvät aikuiset",
+          "Vanhukset ja huonot digitaidot omaavat",
+          "Maahanmuuttajat"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f99dc148-7af0-5e22-bbdb-a51bb4dabbac",
+        "prompt": "Mitä asiantuntijat suosittelevat?",
+        "options": [
+          "Siirtymistä kokonaan etäpalveluihin",
+          "Perinteisten vastaanottojen lopettamista",
+          "Molempien vaihtoehtojen säilyttämistä",
+          "Vain kiireellisten tapausten hoitamista etänä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

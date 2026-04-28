@@ -1,0 +1,66 @@
+{
+  "id": "d9b71d86-d2c7-5a80-84cf-0478f55e2569",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LEMMIKKIPUISTO\n\nLemmikkipuisto on tarkoitettu koirille ja muille lemmikeille. Puistossa on aidattu alue, jossa koirat voivat olla vapaana. Muistathan siivota lemmikkisi jäljet.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_002_q1",
+        "prompt": "Kenelle lemmikkipuisto on tarkoitettu?",
+        "options": [
+          "vain koirille",
+          "koirille ja muille lemmikeille",
+          "vain kissoille",
+          "lapsille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_002_q2",
+        "prompt": "Mitä puistossa on?",
+        "options": [
+          "uimaranta",
+          "aidattu alue",
+          "kahvila",
+          "leikkipaikka"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_002_q3",
+        "prompt": "Mitä pitää muistaa?",
+        "options": [
+          "pitää koiraa kytkettynä",
+          "siivota lemmikin jäljet",
+          "maksaa sisäänpääsy",
+          "ilmoittautua etukäteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

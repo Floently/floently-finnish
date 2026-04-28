@@ -1,0 +1,64 @@
+{
+  "id": "5f8843d3-4dae-5d11-a03d-0a913d3dea97",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen huoneistohotellissa. Keskustele vastaanoton kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Hotellin vastaanottovirkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp21_1",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp21_2",
+        "ai_first_turn_fi": "Voi ei, ikävä kuulla. Mikä huoneessa on vialla?"
+      },
+      {
+        "id": "srp21_3",
+        "ai_first_turn_fi": "Ymmärrän, se kuulostaa epämiellyttävältä. Mikä huone sinulla on?"
+      },
+      {
+        "id": "srp21_4",
+        "ai_first_turn_fi": "Kiitos. Voin tarjota teille toista huonetta. Vapaita huoneita on samalla hinnalla toisessa kerroksessa. Haluaisitteko vaihtaa?"
+      },
+      {
+        "id": "srp21_5",
+        "ai_first_turn_fi": "Loistavaa. Voin myös lähettää henkilökunnan auttamaan tavaroiden siirrossa. Haluatteko apua?"
+      },
+      {
+        "id": "srp21_6",
+        "ai_first_turn_fi": "Selvä. Tässä on uuden huoneen avain. Pahoittelut aiheutuneesta vaivasta. Tarjoamme huoneeseen myös pienen hedelmäkorin hyvitykseksi."
+      },
+      {
+        "id": "srp21_7",
+        "ai_first_turn_fi": "Toivottavasti loppuloma sujuu paremmin. Hyvää oleskelua!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen huoneistohotellissa. Keskustele vastaanoton kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

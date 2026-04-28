@@ -1,0 +1,37 @@
+{
+  "id": "6b6ed2f8-909b-5a92-aadc-42613d633f4a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö äitiyspakkauksen sisältöä uudistaa vastaamaan nykyaikaisia tarpeita?'. Analysoi perinteitä, käytännöllisyyttä ja tasa-arvoa.",
+    "materials": {
+      "scenario": "Äitiyspakkauksen uudistaminen"
+    },
+    "items": [
+      {
+        "id": "662605c0-6bcb-59f7-92c9-2c8bb064fa8c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö äitiyspakkauksen sisältöä uudistaa vastaamaan nykyaikaisia tarpeita?'. Analysoi perinteitä, käytännöllisyyttä ja tasa-arvoa."
+      }
+    ],
+    "rubric": "Perinteiden vaaliminen\nKäytännöllisyys\nTasa-arvo\nKustannustehokkuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

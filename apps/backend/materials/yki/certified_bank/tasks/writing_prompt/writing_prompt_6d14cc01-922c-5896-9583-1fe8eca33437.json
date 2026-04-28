@@ -1,0 +1,37 @@
+{
+  "id": "6d14cc01-922c-5896-9583-1fe8eca33437",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lääkekorvauksia leikata halvempien rinnakkaisvalmisteiden käytön lisäämiseksi?'. Arvioi terveysvaikutuksia ja kustannussäästöjä.",
+    "materials": {
+      "scenario": "Lääkekorvausten leikkaaminen"
+    },
+    "items": [
+      {
+        "id": "d6cd2d6c-b17b-5620-9249-817d365110e4",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lääkekorvauksia leikata halvempien rinnakkaisvalmisteiden käytön lisäämiseksi?'. Arvioi terveysvaikutuksia ja kustannussäästöjä."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nKustannussäästöt\nLääketeollisuus\nPotilaiden tasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

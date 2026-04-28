@@ -1,0 +1,99 @@
+{
+  "id": "36cd9829-e721-575f-88ba-95c1b144db09",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Julkisen liikenteen kehittäminen on keskeinen osa kaupunkien ilmastotavoitteita. Uudet raitiovaunulinjat ja sähköbussit vähentävät päästöjä ja parantavat ilmanlaatua. Samalla on tärkeää, että joukkoliikenne on sujuvaa ja houkuttelevaa. Tämä tarkoittaa riittävää vuorotarjontaa, luotettavuutta ja kohtuullisia hintoja. Moni kaupunki panostaa myös lippujärjestelmien yhteensopivuuteen, jotta matkustajan on helppo vaihtaa välineestä toiseen.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi julkisen liikenteen kehittäminen on tärkeää?",
+        "options": [
+          "Se on osa kaupunkien ilmastotavoitteita",
+          "Se tuo lisää turisteja",
+          "Se vähentää työttömyyttä",
+          "Se lisää autojen myyntiä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uutta julkisessa liikenteessä mainitaan?",
+        "options": [
+          "Uusia metroasemia",
+          "Uusia raitiovaunulinjoja ja sähköbusseja",
+          "Lisää takseja",
+          "Halvempia lentoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä uusista linjoista ja sähköbusseista on?",
+        "options": [
+          "Ne lisäävät liikennettä",
+          "Ne vähentävät päästöjä ja parantavat ilmanlaatua",
+          "Ne nostavat lippujen hintoja",
+          "Ne pidentävät matka-aikoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoittaa sujuva ja houkutteleva joukkoliikenne?",
+        "options": [
+          "Riittävä vuorotarjonta, luotettavuus ja kohtuulliset hinnat",
+          "Vain halvat hinnat",
+          "Vain nopeat yhteydet",
+          "Vain uudet autot"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin moni kaupunki panostaa lippujärjestelmissä?",
+        "options": [
+          "Eri järjestelmien yhteensopivuuteen",
+          "Vain yhden lipun käyttöön",
+          "Paperilipuista luopumiseen",
+          "Kalliimpiin lippuihin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä yhteensopivuus helpottaa matkustajalle?",
+        "options": [
+          "Välineestä toiseen vaihtamista",
+          "Autolla ajamista",
+          "Pysäköinnin löytämistä",
+          "Lippujen ostamista ulkomailta"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

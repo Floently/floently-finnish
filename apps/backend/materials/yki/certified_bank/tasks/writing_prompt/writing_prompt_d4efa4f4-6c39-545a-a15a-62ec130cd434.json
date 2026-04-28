@@ -1,0 +1,37 @@
+{
+  "id": "d4efa4f4-6c39-545a-a15a-62ec130cd434",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö korkeakoulujen aloituspaikkoja lisätä koulutustason nostamiseksi?'. Pohdi koulutuksen laatua, työmarkkinoiden tarvetta ja kustannuksia.",
+    "materials": {
+      "scenario": "Korkeakoulujen aloituspaikat"
+    },
+    "items": [
+      {
+        "id": "86ad6631-4c89-5fb3-8e6c-a50cb0e1246e",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö korkeakoulujen aloituspaikkoja lisätä koulutustason nostamiseksi?'. Pohdi koulutuksen laatua, työmarkkinoiden tarvetta ja kustannuksia."
+      }
+    ],
+    "rubric": "Koulutuksen laatu\nTyömarkkinoiden tarve\nKustannukset\nNuorten koulutusmahdollisuudet",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "3bce1c61-0ac9-5b2b-a459-3e2a74241933",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Yksinäisyys on kasvava ongelma erityisesti ikääntyneiden keskuudessa. Moni vanhus asuu yksin ja kaipaa seuraa. Kaupungit ovat alkaneet kehittää erilaisia toimia yksinäisyyden vähentämiseksi. Tällaisia ovat esimerkiksi ystävätoiminta, kerhot ja puhelinpalvelut. Vapaaehtoisilla on tässä tärkeä rooli. Tavoitteena on, että kukaan ei jäisi yksin ilman sosiaalisia kontakteja.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kasvava ongelma erityisesti ikääntyneillä?",
+        "options": [
+          "Rahanpuute",
+          "Yksinäisyys",
+          "Työttömyys",
+          "Huono terveys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millainen tilanne monella vanhuksella on?",
+        "options": [
+          "He asuvat laitoksessa",
+          "He asuvat yksin ja kaipaavat seuraa",
+          "He asuvat sukulaisten luona",
+          "He asuvat ulkomailla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kaupungit ovat alkaneet kehittää?",
+        "options": [
+          "Uusia asuinalueita",
+          "Toimia yksinäisyyden vähentämiseksi",
+          "Vanhusten hoivakoteja",
+          "Kuljetuspalveluita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä esimerkkejä toimista mainitaan?",
+        "options": [
+          "Ilmaiset ateriat",
+          "Ystävätoiminta, kerhot ja puhelinpalvelut",
+          "Liikuntapalvelut",
+          "Taloudellinen tuki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kellä on tärkeä rooli näissä toimissa?",
+        "options": [
+          "Poliitikoilla",
+          "Vapaaehtoisilla",
+          "Terveydenhoitajilla",
+          "Omaisilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on toimien tavoite?",
+        "options": [
+          "Kaikki vanhukset muuttavat palvelutaloihin",
+          "Kukaan ei jäisi yksin ilman sosiaalisia kontakteja",
+          "Yksinäisyys poistuu kokonaan",
+          "Jokaiselle löytyy puoliso"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

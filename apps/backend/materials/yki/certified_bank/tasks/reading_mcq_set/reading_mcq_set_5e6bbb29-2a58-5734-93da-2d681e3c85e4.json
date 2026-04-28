@@ -1,0 +1,110 @@
+{
+  "id": "5e6bbb29-2a58-5734-93da-2d681e3c85e4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen muotoilu on tunnettu maailmalla jo vuosikymmeniä. Nimiä kuten Alvar Aalto, Kaj Franck ja Timo Sarpaneva tunnetaan design-piireissä kaikkialla. Suomalaiselle muotoilulle on tyypillistä yksinkertaisuus, toimivuus ja luonnonmateriaalien käyttö. Nämä piirteet juontavat juurensa suomalaiseen elämäntapaan ja luontosuhteeseen. Muotoilu ei ole vain kauniita esineitä, vaan se on läsnä kaikkialla arjessa. Huonekalut, astiat, tekstiilit ja rakennukset kertovat suomalaisesta muotoiluosaamisesta. Nykyään suomalainen muotoilu elää vahvana ja uudistuu koko ajan. Nuoret suunnittelijat yhdistävät perinteitä ja uutta teknologiaa. Kestävän kehityksen mukainen muotoilu on noussut tärkeäksi. Suositaan kierrätysmateriaaleja, pitkäikäisiä tuotteita ja korjattavuutta. Myös digitaalinen muotoilu, kuten käyttöliittymät ja pelit, on uusi kasvava alue. Suomi panostaa muotoiluun, koska se on kilpailuetu ja osa maakuvaa. Designpääkaupungit, kuten Helsinki vuonna 2012, ovat tuoneet suomalaista muotoilua tunnetuksi. Tulevaisuudessa muotoilulla on tärkeä rooli, kun ratkaistaan ympäristöongelmia ja parannetaan ihmisten arkea.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä suomalaiselle muotoilulle on tyypillistä?",
+        "options": [
+          "Monimutkaisuus ja koristeellisuus.",
+          "Yksinkertaisuus, toimivuus ja luonnonmateriaalien käyttö.",
+          "Vain muovin käyttö.",
+          "Vain massatuotanto."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä suomalaisen muotoilun piirteet juontavat juurensa?",
+        "options": [
+          "Ulkomaisista vaikutteista.",
+          "Suomalaisesta elämäntavasta ja luontosuhteesta.",
+          "Vain teollisuudesta.",
+          "Vain kaupunkikulttuurista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Missä muotoilu on läsnä?",
+        "options": [
+          "Vain museoissa.",
+          "Kaikkialla arjessa: huonekaluissa, astioissa, tekstiileissä ja rakennuksissa.",
+          "Vain taiteessa.",
+          "Vain mainonnassa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten nuoret suunnittelijat uudistavat suomalaista muotoilua?",
+        "options": [
+          "Hylkäämällä kaikki perinteet.",
+          "Yhdistämällä perinteitä ja uutta teknologiaa.",
+          "Kopioimalla ulkomaisia malleja.",
+          "Tekemällä vain taidetta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on noussut tärkeäksi kestävän kehityksen mukaisessa muotoilussa?",
+        "options": [
+          "Kertakäyttöisyys.",
+          "Kierrätysmateriaalit, pitkäikäiset tuotteet ja korjattavuus.",
+          "Halvat materiaalit.",
+          "Nopea tuotanto."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on uusi kasvava alue suomalaisessa muotoilussa?",
+        "options": [
+          "Perinteinen keramiikka.",
+          "Digitaalinen muotoilu, kuten käyttöliittymät ja pelit.",
+          "Vain huonekalut.",
+          "Vain tekstiilit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi Suomi panostaa muotoiluun?",
+        "options": [
+          "Koska se on halpaa.",
+          "Koska se on kilpailuetu ja osa maakuvaa.",
+          "Koska se on pakollista.",
+          "Koska muuta ei ole."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

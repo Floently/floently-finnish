@@ -1,0 +1,37 @@
+{
+  "id": "2b13b400-3f66-54cc-b052-1150b48d2467",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Kerro, että olet pahoillasi, että koirasi haukkui eilen illalla. Kerro, että se pelästyi ukkosta. Lupaa, että pidät sen sisällä ensi kerralla, kun ukkostaa.",
+    "materials": {
+      "scenario": "Viesti naapurille anteeksipyyntö koiran haukkumisesta"
+    },
+    "items": [
+      {
+        "id": "751d5661-567b-586b-b43d-fdc26e9cbb7f",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Kerro, että olet pahoillasi, että koirasi haukkui eilen illalla. Kerro, että se pelästyi ukkosta. Lupaa, että pidät sen sisällä ensi kerralla, kun ukkostaa."
+      }
+    ],
+    "rubric": "Pyydä anteeksi haukkumista\nKerro syy (ukkonen)\nLupaa toimia toisin",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

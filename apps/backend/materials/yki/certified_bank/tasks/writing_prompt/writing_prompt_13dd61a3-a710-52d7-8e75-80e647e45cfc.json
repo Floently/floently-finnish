@@ -1,0 +1,37 @@
+{
+  "id": "13dd61a3-a710-52d7-8e75-80e647e45cfc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työkaverille.",
+    "materials": {
+      "scenario": "Kysy työmatkan aikataulusta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti työkaverille."
+      }
+    ],
+    "rubric": "Olette menossa työmatkalle yhdessä työkaverin kanssa. Kirjoita sähköposti ja kysy matkan aikataulusta. Kysy esimerkiksi, milloin lento lähtee ja missä tapaatte.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "0df595df-cb00-5dc4-9712-b40da648aa2d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue taloyhtiön tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TALOYHTIÖN TALKOOT\n\nJärjestämme perinteiset kevättalkoot lauantaina 20.5. klo 10–14. Talkoissa siivotaan pihaa, haravoidaan ja pestään ikkunoita. Myös sauna ja varasto siivotaan.\n\nKahvia ja mehua tarjolla. Talkoisiin osallistuvat saavat ilmaisen saunavuoron.\n\nIlmoittaudu viimeistään 15.5. isännöitsijälle tai laita viestiä WhatsApp-ryhmään. Jos et pääse, voit osallistua esimerkiksi leipomalla jotain tarjottavaa.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä talkoissa tehdään?",
+        "options": [
+          "Vain ikkunoiden pesua",
+          "Pihan siivousta, haravointia ja ikkunoiden pesua",
+          "Rakennetaan uusi sauna",
+          "Maalataan seinät"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä talkoisiin osallistuvat saavat?",
+        "options": [
+          "Rahaa",
+          "Ilmaisen saunavuoron",
+          "Uuden pyörän",
+          "Alennusta vuokraan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin mennessä pitää ilmoittautua?",
+        "options": [
+          "10.5.",
+          "15.5.",
+          "20.5.",
+          "25.5."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Jos ei pääse paikalle, mitä voi tehdä?",
+        "options": [
+          "Ei mitään",
+          "Maksaa sakkoa",
+          "Leipoa jotain tarjottavaa",
+          "Lähettää sijaisen"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

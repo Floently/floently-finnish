@@ -1,0 +1,99 @@
+{
+  "id": "f58e6bc4-793e-583a-935b-cf1ac3113bcc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalaiset matkustavat nykyään yhä enemmän kotimaassa. Koronapandemian jälkeen moni on löytänyt kotimaan matkailun ilot. Erityisesti luontokohteet ja pienet kaupungit houkuttelevat. Matkailuyrittäjät ovat panostaneet palveluihin, kuten ruokaelämyksiin ja aktiviteetteihin. Kotimaan matkailu tukee myös paikallista taloutta ja työllisyyttä. Ennusteiden mukaan trendi jatkuu vahvana.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten suomalaisten matkailu on muuttunut?",
+        "options": [
+          "He matkustavat vähemmän",
+          "He matkustavat enemmän ulkomailla",
+          "He matkustavat enemmän kotimaassa",
+          "He eivät matkusta ollenkaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä sai monet löytämään kotimaan matkailun?",
+        "options": [
+          "Halvat hinnat",
+          "Koronapandemia",
+          "Uudet lentoreitit",
+          "Mainoskampanjat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millaiset kohteet erityisesti houkuttelevat kotimaan matkailijoita?",
+        "options": [
+          "Suuret kaupungit ja kauppakeskukset",
+          "Luontokohteet ja pienet kaupungit",
+          "Huvipuistot ja eläintarhat",
+          "Historialliset linnat ja museot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin matkailuyrittäjät ovat panostaneet?",
+        "options": [
+          "Halpoihin majoituksiin",
+          "Ruokaelämyksiin ja aktiviteetteihin",
+          "Kansainväliseen markkinointiin",
+          "Uusiin hotelleihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä kotimaan matkailusta on paikallisesti?",
+        "options": [
+          "Se lisää roskaamista",
+          "Se tukee paikallista taloutta ja työllisyyttä",
+          "Se vähentää luonnon viihtyisyyttä",
+          "Se lisää melua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ennusteet kertovat kotimaan matkailun tulevaisuudesta?",
+        "options": [
+          "Trendi hiipuu",
+          "Trendi jatkuu vahvana",
+          "Trendi loppuu kokonaan",
+          "Sitä ei osata ennustaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

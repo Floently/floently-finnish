@@ -1,0 +1,88 @@
+{
+  "id": "3bb6f215-b61d-5971-a888-55e39539eb50",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu etätyön tulevaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Luuletko, että etätyö jää pysyväksi ilmiöksi? Henkilö B: Uskon, että se jää, mutta vähenee nykyisestä. Moni haluaa joustavuutta, mutta myös yhteisöllisyyttä. Henkilö A: Millainen malli olisi paras? Henkilö B: Hybridi, jossa ollaan pari päivää viikossa toimistolla ja loput etänä. Se vaatii kuitenkin hyvää johtamista ja sopimista. Henkilö A: Mitä haasteita hybridissä on? Henkilö B: Se, että etätyöläiset voivat jäädä paitsi tärkeästä tiedosta ja sosiaalisista tilanteista. Myös urakehitys voi kärsiä, jos esihenkilö ei näe työpanosta. Henkilö A: Miten näitä ongelmia voisi ratkaista? Henkilö B: Yhteiset pelisäännöt ovat tärkeitä. Esimerkiksi kokouksissa pitää varmistaa, että etänä olevat kuulevat ja näkevät hyvin. Myös vapaamuotoiset tapaamiset, kuten yhteiset lounaat, auttavat. Henkilö A: Tuleeko toimisto muuttumaan? Henkilö B: Tulee. Toimisto on enemmän kohtaamispaikka, jonne tullaan tapaamaan kollegoita ja tekemään yhteistyötä, ei yksilötyötä.",
+      "audio_asset_id": "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f"
+    },
+    "questions": [
+      {
+        "id": "l140q1",
+        "prompt": "Mitä henkilö B uskoo etätyön tulevaisuudesta?",
+        "options": [
+          "Etätyö loppuu kokonaan.",
+          "Etätyö jää pysyväksi, mutta vähenee nykyisestä.",
+          "Kaikki tekevät jatkossa täysin etänä.",
+          "Etätyö lisääntyy entisestään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l140q2",
+        "prompt": "Mikä malli olisi henkilön B mukaan paras?",
+        "options": [
+          "Täysin etätyö.",
+          "Täysin toimistotyö.",
+          "Hybridimalli.",
+          "Vaihteleva malli."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l140q3",
+        "prompt": "Mikä on hybridityön haaste?",
+        "options": [
+          "Liian paljon kokouksia.",
+          "Etätyöläiset voivat jäädä paitsi tiedosta ja sosiaalisista tilanteista.",
+          "Teknologia ei toimi.",
+          "Työntekijät eivät halua tulla toimistolle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l140q4",
+        "prompt": "Miten urakehitys voi kärsiä etätyössä?",
+        "options": [
+          "Jos työntekijä ei tee tarpeeksi töitä.",
+          "Jos esihenkilö ei näe työpanosta.",
+          "Jos työntekijä on liian näkyvä.",
+          "Jos työntekijä on aina toimistolla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l140q5",
+        "prompt": "Millainen toimisto on tulevaisuudessa?",
+        "options": [
+          "Samanlainen kuin ennen.",
+          "Enemmän kohtaamispaikka yhteistyölle, ei yksilötyölle.",
+          "Tyhjä ja autio.",
+          "Pelkkä varasto."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

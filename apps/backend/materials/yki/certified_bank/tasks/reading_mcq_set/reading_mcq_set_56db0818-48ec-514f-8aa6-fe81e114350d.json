@@ -1,0 +1,99 @@
+{
+  "id": "56db0818-48ec-514f-8aa6-fe81e114350d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kotona tehtävä etätyö on tuonut joustavuutta, mutta myös haasteita. Työ ja vapaa-aika voivat sekoittua, ja tauot saattavat unohtua. Hyvä etätyöpiste, jossa on kunnollinen tuoli ja pöytä, auttaa jaksamaan. Myös säännölliset tauot ja ulkoilu ovat tärkeitä. Moni kaipaa työkavereiden tapaamisia, joten työpaikalla kannattaa käydä säännöllisesti. Työnantajan tuki etätyöhön on tärkeää.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä etätyö on tuonut?",
+        "options": [
+          "Vain joustavuutta",
+          "Joustavuutta, mutta myös haasteita",
+          "Vain haasteita",
+          "Ei mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä etätyössä voi tapahtua?",
+        "options": [
+          "Työ ja vapaa-aika pysyvät erillään",
+          "Työ ja vapaa-aika voivat sekoittua",
+          "Tauot lisääntyvät",
+          "Ulkoilu lisääntyy"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä auttaa jaksamaan etätyössä?",
+        "options": [
+          "Työskentely sohvalla",
+          "Hyvä etätyöpiste",
+          "Pitkät työpäivät",
+          "Työskentely ilman taukoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ovat tärkeitä etätyössä?",
+        "options": [
+          "Säännölliset kokoukset",
+          "Säännölliset tauot ja ulkoilu",
+          "Työpuhelut",
+          "Sähköpostit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä moni kaipaa etätyössä?",
+        "options": [
+          "Lisää palkkaa",
+          "Työkavereiden tapaamisia",
+          "Vähemmän työtä",
+          "Uusia työtehtäviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on tärkeää työnantajan osalta etätyössä?",
+        "options": [
+          "Työnantajan valvonta",
+          "Työnantajan tuki",
+          "Työnantajan vaatimukset",
+          "Työnantajan läsnäolo"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

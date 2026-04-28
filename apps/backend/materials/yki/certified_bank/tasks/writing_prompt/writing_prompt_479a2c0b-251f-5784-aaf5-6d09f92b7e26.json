@@ -1,0 +1,37 @@
+{
+  "id": "479a2c0b-251f-5784-aaf5-6d09f92b7e26",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Kerro, että sinulla on avaimet hukassa. Kysy, voisitko lainata hänen puhelintaan soittaaksesi lukkoliikkeeseen. Kerro, että maksat puhelinlaskun. Kerro, että odotat ulkona.",
+    "materials": {
+      "scenario": "Viesti naapurille avainten hukkuminen"
+    },
+    "items": [
+      {
+        "id": "973b3e9a-a51a-5aab-b9e7-40c64b177a18",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Kerro, että sinulla on avaimet hukassa. Kysy, voisitko lainata hänen puhelintaan soittaaksesi lukkoliikkeeseen. Kerro, että maksat puhelinlaskun. Kerro, että odotat ulkona."
+      }
+    ],
+    "rubric": "Kerro, että avaimet ovat hukassa\nKysy, voiko lainata puhelinta\nKerro, että maksat laskun\nKerro, että odotat ulkona",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

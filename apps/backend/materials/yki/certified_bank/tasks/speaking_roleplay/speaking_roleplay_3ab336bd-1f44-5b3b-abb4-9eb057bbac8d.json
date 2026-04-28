@@ -1,0 +1,64 @@
+{
+  "id": "3ab336bd-1f44-5b3b-abb4-9eb057bbac8d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen lentoyhtiölle myöhästyneestä lennosta. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Lentoyhtiön asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp50_1",
+        "ai_first_turn_fi": "Hei, lentoyhtiö Skyways, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp50_2",
+        "ai_first_turn_fi": "Ikävä kuulla. Mikä oli lennon numero ja päivämäärä?"
+      },
+      {
+        "id": "srp50_3",
+        "ai_first_turn_fi": "Kiitos. Lentonne myöhästyi viisi tuntia teknisen vian vuoksi. Olette oikeutettu korvaukseen EU-lainsäädännön mukaan. Haluatteko tehdä korvaushakemuksen?"
+      },
+      {
+        "id": "srp50_4",
+        "ai_first_turn_fi": "Tarvitsemme nimesi, osoitteesi ja tilinumeron korvausta varten. Sekä matkustajanumeron jos sinulla on se."
+      },
+      {
+        "id": "srp50_5",
+        "ai_first_turn_fi": "Kiitos. Korvaussumma on 250 euroa. Se maksetaan tilillesi 2-4 viikon kuluessa. Pahoittelut viivästyksestä."
+      },
+      {
+        "id": "srp50_6",
+        "ai_first_turn_fi": "Tarvitsetko vielä muuta apua?"
+      },
+      {
+        "id": "srp50_7",
+        "ai_first_turn_fi": "Hyvä. Kiitos yhteydenotosta ja hyvää päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen lentoyhtiölle myöhästyneestä lennosta. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

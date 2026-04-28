@@ -1,0 +1,77 @@
+{
+  "id": "5b0628bb-f908-5175-863c-d03c8c409282",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Terveyserojen kaventaminen on keskeinen tavoite suomalaisessa terveyspolitiikassa. Hyväosaisten ja huono-osaisten välinen terveysero on Suomessa suuri verrattuna moneen muuhun Euroopan maahan. Koulutus, tulotaso, ammattiasema ja asuinpaikka vaikuttavat merkittävästi ihmisten terveyteen ja hyvinvointiin. Terveyserojen kaventaminen edellyttää toimia, jotka kohdistuvat terveyden taustalla oleviin tekijöihin, kuten koulutukseen, työllisyyteen, toimeentuloon ja elinoloihin. Myös terveyspalveluiden on oltava kaikkien saatavilla ja niiden on vastattava eri väestöryhmien tarpeisiin. Ennaltaehkäisevällä työllä, varhaisella puuttumisella ja matalan kynnyksen palveluilla on tärkeä rooli terveyserojen kaventamisessa.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "mcq_299",
+        "prompt": "Mikä on keskeinen tavoite suomalaisessa terveyspolitiikassa?",
+        "options": [
+          "Terveyserojen kasvattaminen",
+          "Terveyserojen kaventaminen",
+          "Terveyspalveluiden yksityistäminen",
+          "Terveydenhuollon kustannusten lisääminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_300",
+        "prompt": "Miten hyväosaisten ja huono-osaisten välinen terveysero Suomessa vertautuu muuhun Eurooppaan?",
+        "options": [
+          "Se on pienempi",
+          "Se on suurempi",
+          "Se on samaa tasoa",
+          "Sitä ei ole tutkittu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_301",
+        "prompt": "Mitkä tekijät vaikuttavat merkittävästi ihmisten terveyteen?",
+        "options": [
+          "Vain koulutus",
+          "Koulutus, tulotaso, ammattiasema ja asuinpaikka",
+          "Vain tulotaso",
+          "Vain ammattiasema"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_302",
+        "prompt": "Millä keinoilla terveyseroja voidaan kaventaa?",
+        "options": [
+          "Kohdistamalla toimia terveyden taustalla oleviin tekijöihin",
+          "Vain lisäämällä terveyspalveluiden käyttömaksuja",
+          "Vain keskittämällä palvelut suuriin kaupunkeihin",
+          "Vain vähentämällä ennaltaehkäisevää työtä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

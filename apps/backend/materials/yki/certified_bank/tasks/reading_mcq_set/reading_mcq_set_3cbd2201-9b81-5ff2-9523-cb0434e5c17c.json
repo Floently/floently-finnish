@@ -1,0 +1,77 @@
+{
+  "id": "3cbd2201-9b81-5ff2-9523-cb0434e5c17c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.773,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kielten oppiminen on murroksessa. Digitaaliset työkalut, tekoäly ja globaalit viestintäympäristöt ovat muuttaneet sekä sitä, miten kieliä opitaan, että sitä, miksi niitä ylipäätään tarvitaan. Perinteinen kieltenopetus, joka perustuu kielioppisääntöjen opetteluun ja sanalistoihin, on saanut rinnalleen uusia menetelmiä, jotka korostavat autenttisuutta ja vuorovaikutusta.\n\nSovellukset ja verkkoympäristöt ovat tehneet kielten opiskelusta helpommin saavutettavaa. Kuka tahansa voi aloittaa uuden kielen opiskelun älypuhelimellaan ilmaiseksi. Tämä on demokratisoinut kieltenoppimista, mutta samalla herättänyt kysymyksiä oppimisen laadusta ja syvyydestä. Nopeat, pelillistetyt oppimisympäristöt voivat tuottaa pintapuolista osaamista, joka ei riitä monimutkaiseen vuorovaikutukseen. Kielioppi ja vivahteet jäävät helposti oppimatta, kun keskiössä ovat yksittäiset sanat ja fraasit.\n\nToinen keskeinen muutos on englannin kielen aseman vahvistuminen. Englanti on paitsi kansainvälisen viestinnän kieli, myös yhä useamman suomalaisen arkipäivää. Tämä on johtanut keskusteluun siitä, tarvitaanko muita kieliä enää lainkaan. Tutkimukset kuitenkin osoittavat, että monikielisyys on sekä yksilön että yhteiskunnan voimavara. Se kehittää kognitiivisia taitoja, avartaa maailmankuvaa ja parantaa työllistymismahdollisuuksia. Lisäksi pienempien kielten osaaminen on tärkeää kulttuuriperinnön säilyttämiseksi.\n\nKolmas ulottuvuus on tekoälyn rooli. Käännössovellukset ja kielimallit kykenevät jo tuottamaan yhä laadukkaampaa tekstiä eri kielillä. Tämä herättää kysymyksen: kannattaako kieliä enää opetella, jos kone kääntää kaiken? Asiantuntijoiden mukaan kone ei kuitenkaan korvaa inhimillistä kielitaitoa, koska kieli on muutakin kuin sanojen kääntämistä. Se on kulttuurin, identiteetin ja vuorovaikutuksen väline. Koneella ei ole ymmärrystä kontekstista, huumorista tai tunnesävyistä.\n\nTulevaisuudessa kieltenopetuksen on löydettävä uusi tasapaino digitaalisten työkalujen hyödyntämisen ja inhimillisen vuorovaikutuksen välillä. Tarvitaan pedagogiikkaa, joka yhdistää parhaat puolet molemmista maailmoista. Tärkeintä on kuitenkin säilyttää ymmärrys siitä, miksi kieliä ylipäätään opitaan – ei vain välineenä vaan ihmisyyteen kasvamisena.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 281
+    },
+    "questions": [
+      {
+        "id": "31831460-45e7-599a-aa0c-1eb25c2cbb7b",
+        "prompt": "Mitä hyötyä digitaalisista kieltenoppimissovelluksista on?",
+        "options": [
+          "Ne opettavat kielioppia syvällisesti",
+          "Ne ovat helposti saavutettavia ja demokratisoivat oppimista",
+          "Ne korvaavat kokonaan perinteisen opetuksen",
+          "Ne ovat ainoa tapa oppia kieliä nykyään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5d3470aa-41f3-530e-9671-30e9268085c2",
+        "prompt": "Mitä ongelmia nopeisiin oppimisympäristöihin liittyy?",
+        "options": [
+          "Ne ovat liian kalliita",
+          "Ne tuottavat helposti pintapuolista osaamista",
+          "Ne eivät toimi kaikilla kielillä",
+          "Ne vaativat paljon aikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bd8d3b31-7b21-573e-8528-5feb3ed175b4",
+        "prompt": "Miksi monikielisyys on tärkeää tutkimusten mukaan?",
+        "options": [
+          "Se on välttämätöntä työelämässä",
+          "Se kehittää kognitiivisia taitoja, avartaa maailmankuvaa ja parantaa työllistymistä",
+          "Se on ainoa tapa ymmärtää kulttuuria",
+          "Se tekee ihmisestä älykkäämmän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8325ea3e-fb98-5981-9f64-b2741ff4b548",
+        "prompt": "Miksi tekoäly ei korvaa inhimillistä kielitaitoa?",
+        "options": [
+          "Koska se on liian hidasta",
+          "Koska se ei ymmärrä kontekstia, huumoria tai tunnesävyjä",
+          "Koska se ei osaa kaikkia kieliä",
+          "Koska se on epäluotettava"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "7b92e5cb-1d84-50fd-8daf-4bd920dc49b6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.491,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Pekka asuu perheensä kanssa omakotitalossa. Hänen äitinsä on kotiäiti. Isä on rakennusmies. Pekalla on kaksi siskoa, Laura ja Anna. Laura on 12 vuotta ja Anna on 8 vuotta. Perheellä on auto ja kaksi pyörää.",
+      "word_count": 34
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Missä Pekan perhe asuu?",
+        "options": [
+          "Kerrostalossa",
+          "Omakotitalossa",
+          "Rivitalossa",
+          "Paritalossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Pekan isä tekee työkseen?",
+        "options": [
+          "Opettaja",
+          "Rakennusmies",
+          "Insinööri",
+          "Myyjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuinka monta siskoa Pekalla on?",
+        "options": [
+          "Yksi",
+          "Kaksi",
+          "Kolme",
+          "Ei yhtään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

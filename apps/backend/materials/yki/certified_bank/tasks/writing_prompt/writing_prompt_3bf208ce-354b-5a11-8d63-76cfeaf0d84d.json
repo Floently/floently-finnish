@@ -1,0 +1,37 @@
+{
+  "id": "3bf208ce-354b-5a11-8d63-76cfeaf0d84d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.349,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uimahallissa. Kirjoita palaute uimahallin asiakaspalvelusta. Kerro, mitä mieltä olit henkilökunnan ystävällisyydestä, siisteydestä ja yhdestä muusta asiasta, kuten aukioloajoista tai hinnasta.",
+    "materials": {
+      "scenario": "Palaute uimahallista"
+    },
+    "items": [
+      {
+        "id": "80681bdc-4926-5e0f-b0ad-c4b26fcca939",
+        "prompt": "Olet käynyt uimahallissa. Kirjoita palaute uimahallin asiakaspalvelusta. Kerro, mitä mieltä olit henkilökunnan ystävällisyydestä, siisteydestä ja yhdestä muusta asiasta, kuten aukioloajoista tai hinnasta."
+      }
+    ],
+    "rubric": "Henkilökunnan ystävällisyys\nSiisteys\nYksi muu asia (aukioloajat / hinta / jne.)",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

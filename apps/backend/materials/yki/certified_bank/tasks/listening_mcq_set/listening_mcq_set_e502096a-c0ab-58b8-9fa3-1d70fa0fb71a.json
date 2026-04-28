@@ -1,0 +1,66 @@
+{
+  "id": "e502096a-c0ab-58b8-9fa3-1d70fa0fb71a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei Mikko, tässä äiti. Soitan vaan, että tänään ei tarvitse hakea pikkuveljeä harrastuksesta. Isä hakee hänet kello 17. Mutta voisitko sinä käydä kaupassa? Meillä loppui maito ja leipä. Ota rahaa eteisen pöydältä. Jos ehdit, osta myös banaaneja. Kiitos! Soita jos on jotain.",
+      "audio_asset_id": "9f316050-f875-49a9-903b-b6082c1068c5"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka hakee pikkuveljen harrastuksesta?",
+        "options": [
+          "äiti",
+          "isä",
+          "Mikko",
+          "serkku"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ruokaa Mikon pitäisi ostaa?",
+        "options": [
+          "maitoa ja leipää",
+          "juustoa ja voita",
+          "mehua ja keksejä",
+          "karkkia ja jäätelöä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä Mikko ottaa rahaa?",
+        "options": [
+          "omasta lompakosta",
+          "eteisen pöydältä",
+          "äidin laukusta",
+          "keittiön laatikosta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

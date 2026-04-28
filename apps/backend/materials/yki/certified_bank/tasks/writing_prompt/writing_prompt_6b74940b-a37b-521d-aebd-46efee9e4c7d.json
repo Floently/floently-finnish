@@ -1,0 +1,37 @@
+{
+  "id": "6b74940b-a37b-521d-aebd-46efee9e4c7d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat peruuttaa ensi viikon ajan, koska olet jo terve. Kerro nimesi ja ajan päivämäärä. Kysy, voitko saada uuden ajan myöhemmin, jos oireet palaavat.",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle ajan peruminen"
+    },
+    "items": [
+      {
+        "id": "3aa5ac1e-516c-5453-b508-771e23f8033e",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat peruuttaa ensi viikon ajan, koska olet jo terve. Kerro nimesi ja ajan päivämäärä. Kysy, voitko saada uuden ajan myöhemmin, jos oireet palaavat."
+      }
+    ],
+    "rubric": "Kerro, että haluat perua ajan\nKerro syy (olet jo terve)\nKerro nimesi ja ajan päivämäärä\nKysy mahdollisuutta uuteen aikaan",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

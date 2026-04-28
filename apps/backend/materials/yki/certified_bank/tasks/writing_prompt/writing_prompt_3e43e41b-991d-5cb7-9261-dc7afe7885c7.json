@@ -1,0 +1,37 @@
+{
+  "id": "3e43e41b-991d-5cb7-9261-dc7afe7885c7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Olet saanut uuden puhelimen ja haluat näyttää sitä. Kysy, haluaako hän tulla kahville viikonloppuna. Kerro, että voit myös auttaa häntä, jos hän miettii puhelimen ostoa.",
+    "materials": {
+      "scenario": "Viesti ystävälle uudesta puhelimesta"
+    },
+    "items": [
+      {
+        "id": "6529d16a-46e6-51fc-b6eb-a8a70615a5d6",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Olet saanut uuden puhelimen ja haluat näyttää sitä. Kysy, haluaako hän tulla kahville viikonloppuna. Kerro, että voit myös auttaa häntä, jos hän miettii puhelimen ostoa."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on uusi puhelin\nKysy, haluaako hän tavata\nEhdota viikonloppua\nTarjoudu auttamaan puhelinasioissa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

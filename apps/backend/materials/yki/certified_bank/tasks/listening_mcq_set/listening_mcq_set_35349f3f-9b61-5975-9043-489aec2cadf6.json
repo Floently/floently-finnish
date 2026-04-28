@@ -1,0 +1,99 @@
+{
+  "id": "35349f3f-9b61-5975-9043-489aec2cadf6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta teknologiateollisuudesta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta teknologiateollisuudesta. Haastattelussa on toimitusjohtaja Mikko Mäkelä Teknologiateollisuus ry:stä. Mikko, mikä on teknologiateollisuuden tila Suomessa? Mikko: Se on tärkeä osa Suomen taloutta. Teknologiateollisuus työllistää noin 300 000 ihmistä ja vastaa noin puolesta viennistä. Alan vienti on viime vuosina kasvanut, erityisesti koneiden ja laitteiden osalta. Toimittaja: Mitkä ovat alan vahvuudet? Mikko: Suomalainen insinööritaito ja korkea osaaminen ovat vahvuuksia. Myös luotettavuus ja laatu ovat tunnettuja. Erityisesti digitaaliset ratkaisut ja tekoäly ovat kasvavia aloja. Toimittaja: Entä haasteet? Mikko: Kansainvälinen kilpailu on kovaa. Erityisesti Aasian maat, kuten Kiina, ovat vahvoja. Myös osaavan työvoiman saatavuus on haaste. Tarvitaan lisää koulutusta ja kansainvälistä rekrytointia. Toimittaja: Miten teknologiateollisuus vastaa ilmastonmuutokseen? Mikko: Se on suuri mahdollisuus. Suomalaiset yritykset kehittävät ratkaisuja puhtaaseen energiaan, energiatehokkuuteen ja kiertotalouteen. Esimerkiksi sähköautojen latausjärjestelmät ja älykkäät sähköverkot ovat kasvavia vientituotteita. Toimittaja: Mikä on tulevaisuuden visio? Mikko: Suomi voi olla edelläkävijä vihreässä siirtymässä ja digitaalisuudessa. Tarvitaan yhteistyötä yritysten, tutkimuslaitosten ja valtion välillä. Toimittaja: Kiitos Mikko.",
+      "audio_asset_id": "b4655028-9524-48cd-b22a-2bc42b249a06"
+    },
+    "questions": [
+      {
+        "id": "fb8744e1-1869-58d4-b819-1170df3288b7",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen metsäteollisuus.",
+          "Suomalainen teknologiateollisuus.",
+          "Suomalainen elintarviketeollisuus.",
+          "Suomalainen rakennusteollisuus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3957265b-7608-514e-bd15-ec97aeafc15c",
+        "prompt": "Kuinka monta ihmistä teknologiateollisuus työllistää?",
+        "options": [
+          "Noin 200 000.",
+          "Noin 400 000.",
+          "Noin 300 000.",
+          "Noin 500 000."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ea378946-068a-5e41-9252-6cc06a35aa4d",
+        "prompt": "Mistä osasta viennistä teknologiateollisuus vastaa?",
+        "options": [
+          "Noin neljänneksestä.",
+          "Noin puolesta.",
+          "Noin kolmanneksesta.",
+          "Noin kahdesta kolmasosasta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9a0372af-7cfb-583a-8791-c70f7546fc14",
+        "prompt": "Mitkä ovat alan vahvuudet?",
+        "options": [
+          "Halpa työvoima.",
+          "Massatuotanto.",
+          "Insinööritaito, korkea osaaminen, luotettavuus ja laatu.",
+          "Ulkomainen omistus."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "817e7c9c-dbad-5cf5-81fe-991ddf983238",
+        "prompt": "Mikä on alan suuri haaste?",
+        "options": [
+          "Liian vähän vientiä.",
+          "Liian korkea verotus.",
+          "Kansainvälinen kilpailu ja osaavan työvoiman saatavuus.",
+          "Liian vähän innovaatioita."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8933ee7c-62d6-5c6f-8068-07ed1d6ca14e",
+        "prompt": "Miten teknologiateollisuus vastaa ilmastonmuutokseen?",
+        "options": [
+          "Ei mitenkään.",
+          "Kehittämällä ratkaisuja puhtaaseen energiaan ja kiertotalouteen.",
+          "Vähentämällä tuotantoa.",
+          "Siirtämällä tuotantoa ulkomaille."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "6768c61a-dcda-572d-a789-76457c9f0dcf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.783,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Ilmastonmuutoksen torjunta edellyttää nopeita ja syvällisiä muutoksia yhteiskunnan eri sektoreilla. Keskustelu keinoista ja vastuista on kuitenkin monisyistä ja usein ristiriitaista. Yksi keskeisimmistä jännitteistä liittyy siihen, millä tasolla toimia tulisi ensisijaisesti tapahtua: kansainvälisesti, kansallisesti vai paikallisesti. Kansainväliset ilmastosopimukset, kuten Pariisin ilmastosopimus, asettavat puitteet ja tavoitteet, mutta niiden toimeenpano ja konkreettiset toimet jäävät pitkälti kansallisten hallitusten ja paikallisten toimijoiden vastuulle. Tämä asetelma on omiaan synnyttämään niin sanottua vapaamatkustajuutta: jotkut maat voivat hyötyä toisten maiden toimista ilman, että itse sitoutuvat riittäviin päästövähennyksiin. Toisaalta voidaan kysyä, onko oikeudenmukaista vaatia samanlaisia toimia kaikilta mailta, kun niiden historialliset päästöt ja taloudelliset mahdollisuudet poikkeavat toisistaan merkittävästi. Kansallisella tasolla keskustelua käydään muun muassa siitä, millaisia ohjauskeinoja tulisi käyttää. Pitäisikö päästöjä vähentää sääntelyn, verotuksen vai kannustimien avulla? Jokaisella keinolla on omat kannattajansa ja vastustajansa. Paikallistasolla ilmastotoimet voivat olla hyvin konkreettisia ja näkyviä. Kaupungit ja kunnat voivat vaikuttaa esimerkiksi kaavoitukseen, joukkoliikenteeseen ja energiaratkaisuihin. Monet kaupungit ovatkin asettaneet kunnianhimoisia ilmastotavoitteita ja ryhtyneet toimiin, jotka ylittävät kansalliset vaatimukset. Paikallistoimien ongelmana voi kuitenkin olla niiden pirstaleisuus ja riittämättömyys ilman laajempaa koordinaatiota ja tukea.",
+      "word_count": 170
+    },
+    "questions": [
+      {
+        "id": "935a2308-d90b-53f2-ab5c-1943ccc01ba4",
+        "prompt": "Mikä on tekstin keskeinen väite ilmastonmuutoksen torjunnan toimintatasoista?",
+        "options": [
+          "Toiminnan tulisi keskittyä yksinomaan kansainväliselle tasolle",
+          "Toiminnan tulisi keskittyä yksinomaan paikallistasolle",
+          "Kaikki tasot ovat tärkeitä, ja niiden tulisi tukea toisiaan",
+          "Kansallinen taso on ainoa, jolla voidaan tehdä merkittäviä päätöksiä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7a0c1e79-02b0-555b-bced-96ba9986a8e9",
+        "prompt": "Mitä tarkoitetaan tekstin mainitsemalla 'vapaamatkustajuudella' kansainvälisessä ilmastopolitiikassa?",
+        "options": [
+          "Maita, jotka eivät osallistu kansainvälisiin ilmastokokouksiin",
+          "Sitä, että jotkut maat hyötyvät toisten maiden päästövähennyksistä ilman omia sitoumuksiaan",
+          "Sitä, että kehitysmaat vaativat korvauksia teollisuusmailta",
+          "Sitä, että kansainväliset sopimukset ovat vapaaehtoisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a15db12f-9bfa-5a3e-9e0d-4d088bfdd5c8",
+        "prompt": "Tekstin mukaan mikä on keskeinen ongelma hiilidioksidiverossa poliittisesta näkökulmasta?",
+        "options": [
+          "Se on teknisesti vaikea toteuttaa",
+          "Sen pelätään heikentävän teollisuuden kilpailukykyä ja lisäävän kansalaisten kustannuksia",
+          "Se ei vähennä päästöjä riittävästi",
+          "Se kohdistuu vain suuriin teollisuuslaitoksiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6875f08c-204f-515d-b6d0-ceb0891b02a6",
+        "prompt": "Mitä mahdollisuuksia ja haasteita tekstin mukaan liittyy paikallistason ilmastotoimiin?",
+        "options": [
+          "Ne ovat aina tehokkaita ja hyvin koordinoituja",
+          "Ne ovat konkreettisia ja näkyviä, mutta voivat olla pirstaleisia ja riittämättömiä ilman laajempaa koordinaatiota",
+          "Ne ovat täysin riippuvaisia kansainvälisestä rahoituksesta",
+          "Ne ovat mahdollisia vain suurissa kaupungeissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

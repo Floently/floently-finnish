@@ -1,0 +1,77 @@
+{
+  "id": "4c3c9e18-aafb-58bb-81fe-c6aac622d4ad",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.633,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue essee valvonnan oikeusvaltioperusteista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kansallisen turvallisuuden ja yksilönvapauksien välinen punninta on viime vuosina saanut uuden ulottuvuuden, kun digitaaliset valvontajärjestelmät ovat laajentuneet kriisitilanteiden hallinnasta osaksi arjen hallintakäytäntöjä. Tarkasteltu esseemuotoinen tutkimus arvioi tätä kehitystä oikeusvaltioperiaatteen näkökulmasta ja väittää, että keskeinen kysymys ei ole valvonnan olemassaolo sinänsä vaan valvonnan normatiivinen arkkitehtuuri: millä perusteella valvonta käynnistetään, kuka sitä valvoo ja miten valvonnan kohteella on tosiasiallinen mahdollisuus oikeussuojaan.\n\nTutkimus nostaa esiin kolme rakenteellista jännitettä. Ensimmäinen koskee tarkoitussidonnaisuutta. Järjestelmä, joka on otettu käyttöön rajattuun turvallisuustarpeeseen, voi ajan myötä laajentua uusiin käyttötarkoituksiin ilman vastaavaa parlamentaarista arviointia. Tätä kutsutaan toimivallan hiipiväksi laajenemiseksi, jossa sääntely pysyy muodollisesti ennallaan mutta käytännön soveltamisala kasvaa. Toinen jännite liittyy läpinäkyvyyden asymmetriaan: kansalaiselta voidaan edellyttää laajaa tietojen luovutusta, vaikka viranomaisen käyttämät riskiluokitukset ja päättelysäännöt jäävät osittain salatuiksi. Kolmas jännite koskee ajallisuutta. Poikkeusperusteella käyttöön otettu valvonta voi jatkua, vaikka alkuperäinen uhkakuva muuttuu, jos järjestelmän purkamiselle ei ole selkeitä oikeudellisia kriteerejä.\n\nTutkimus ei ehdota valvontateknologian kategorista torjumista. Päinvastoin se tunnistaa tilanteita, joissa kohdennettu valvonta voi suojata perusoikeuksia esimerkiksi väkivallan ehkäisyssä. Ratkaisevaksi muodostuu kuitenkin se, miten suhteellisuusperiaate operationalisoidaan. Pelkkä yleinen viittaus turvallisuustarpeeseen ei riitä, vaan viranomaisen on osoitettava, miksi valittu toimi on välttämätön, mikä on lievempi vaihtoehto ja millä tavoin toimen vaikutuksia seurataan. Tutkimus korostaa myös riippumatonta ennakko- ja jälkivalvontaa, jotta arviointi ei jää yksin toimeenpanijan vastuulle.\n\nLopussa esitetään institutionaalinen malli, jossa valvonnan oikeutus perustuu neljään toisiaan täydentävään ehtoon: täsmällinen laillinen perusta, rajattu käyttötarkoitus, määräaikainen voimassaolo ja toimiva muutoksenhaku. Tutkimuksen mukaan vasta tämänkaltaisessa mallissa voidaan väittää, että turvallisuustoimet ovat yhteensopivia oikeusvaltiollisen legitimiteetin kanssa. Ilman näitä ehtoja valvonta voi normalisoitua hallinnolliseksi rutiiniksi tavalla, joka kaventaa vapautta ilman näkyvää poliittista päätöstä. Esseessä korostetaan lisäksi, että oikeussuojakeinojen tosiasiallinen saatavuus on yhtä tärkeä kuin niiden muodollinen olemassaolo. Jos valvonnan kohteella ei ole ymmärrettävää tietoa siitä, mihin päätös perustui, muutoksenhaku jää käytännössä tehottomaksi. Tämän vuoksi tutkimus ehdottaa menettelyä, jossa valvontapäätöksestä annetaan perusteltu yhteenveto myös silloin, kun kaikkia yksityiskohtia ei voida turvallisuussyistä avata julkisesti. Samalla riippumattoman valvontaelimen pitäisi pystyä tarkistamaan salassapidettävät perusteet täysimääräisesti. Toinen lisäehto liittyy määräaikaisuuden valvontaan: poikkeustoimien jatkaminen pitäisi sitoa ennakolta määriteltyihin arviointipisteisiin, joissa tarkastellaan sekä uhkakuvan ajantasaisuutta että toimen vaikutuksia perusoikeuksiin. Ilman tällaisia arviointipisteitä väliaikaisuus voi muuttua pysyväksi käytännöksi hallinnollisen inertian vuoksi. Tämäkin tulee huomioida.",
+      "word_count": 351
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tekstin mukaan valvontakeskustelun ydinkysymys?",
+        "options": [
+          "onko valvontaa olemassa",
+          "millainen normatiivinen rakenne valvonnalla on",
+          "kuinka nopeasti järjestelmä toimii",
+          "kuinka halpa järjestelmä on"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoittaa toimivallan hiipivä laajeneminen?",
+        "options": [
+          "toimivalta vähenee vähitellen",
+          "käyttöala laajenee ilman vastaavaa poliittista arviointia",
+          "toimivalta siirtyy kunnille",
+          "toimivalta jää käyttämättä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten suhteellisuusperiaatetta tulisi tekstin mukaan soveltaa?",
+        "options": [
+          "riittää yleinen turvallisuusviittaus",
+          "on osoitettava välttämättömyys, lievemmät vaihtoehdot ja seuranta",
+          "toimi hyväksytään automaattisesti kriisissä",
+          "periaatetta käytetään vain tuomioistuimissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä neljä ehtoa tutkimus liittää valvonnan oikeutukseen?",
+        "options": [
+          "laaja toimivalta, salainen valvonta, pysyvyys, hallinnollinen päätös",
+          "täsmällinen perusta, rajattu tarkoitus, määräaikaisuus, muutoksenhaku",
+          "nopeus, kustannus, automaatio, keskittäminen",
+          "vapaaehtoisuus, ilmoitusvelvollisuus, arvonta, vuosiraportti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

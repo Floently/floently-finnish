@@ -1,0 +1,66 @@
+{
+  "id": "d279f5eb-0837-5ba6-bcfe-31d5e11d2de1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIRJASTON KESÄSULKU\n\nHuomio asiakkaat!\n\nKaupunginkirjasto on suljettu 24.6.–28.6. välisen ajan kesäsiivouksen vuoksi.\n\nTänä aikana et voi palauttaa kirjoja kirjastoon. Voit palauttaa kirjat kirjaston ulkopuolella olevaan palautuslaatikkoon. Palautuslaatikko tyhjennetään joka päivä.\n\nLainat, joiden eräpäivä on sulun aikana, siirtyvät automaattisesti 2.7. asti.\n\nSähköiset aineistot (e-kirjat, äänikirjat) ovat käytettävissä normaalisti verkkokirjastossa.\n\nKiitos ymmärryksestä!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kirjasto on suljettu?",
+        "options": [
+          "henkilökunnan koulutuksen vuoksi",
+          "kesäsiivouksen vuoksi",
+          "juhlapyhän vuoksi",
+          "remontin vuoksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minne kirjoja voi palauttaa sulun aikana?",
+        "options": [
+          "pääkirjastoon",
+          "lähikirjastoon",
+          "palautuslaatikkoon",
+          "ei voi palauttaa ollenkaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tapahtuu lainoille, joiden eräpäivä on sulun aikana?",
+        "options": [
+          "ne pitää palauttaa ennen sulkua",
+          "eräpäivä siirtyy 2.7. asti",
+          "niistä tulee sakkoa",
+          "ne pitää uusia netissä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "38bb7a21-01a9-5daa-9ae2-559637d42c66",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "OPINTOTUKI – AUTTAKO VAI PAKOTTAKO?\n\nOpintotuki on ollut viime aikoina paljon esillä. Se koostuu opintorahasta, asumislisästä ja opintolainasta. Opintotuen tarkoitus on turvata opiskelijan toimeentulo opintojen aikana. Mutta onko se riittävä?\n\nMonet opiskelijat kokevat, että opintotuki on liian pieni. Opintoraha on noin 250 euroa kuukaudessa, ja asumislisä on enintään 200 euroa. Yhteensä se on 450 euroa, jolla pitäisi maksaa vuokra, ruoka, kirjat ja muut kulut. Suurissa kaupungeissa tämä on lähes mahdotonta.\n\nSiksi opiskelijat joutuvat usein tekemään töitä opintojen ohella. Työnteko voi olla hyvä asia, jos se liittyy opintoihin tai antaa arvokasta työkokemusta. Mutta jos töitä on liikaa, opinnot kärsivät. Moni valmistuu myöhässä, koska joutuu tekemään töitä toimeentulon vuoksi.\n\nOpintolaina on yksi vaihtoehto. Sitä voi saada enintään 650 euroa kuukaudessa. Laina on edullinen, ja osa siitä voidaan muuntaa valtion takaukseksi. Moni kuitenkin pelkää velkaantumista eikä uskalla ottaa lainaa.\n\nAsiantuntijat ehdottavat, että opintotukea pitäisi korottaa. Se mahdollistaisi nopeamman valmistumisen ja vähentäisi opiskelijoiden stressiä. Toisaalta jotkut pelkäävät, että korotus lisäisi opintojen venymistä. Ratkaisuna on ehdotettu myös opintolainan parempaa markkinointia ja lainan anteeksiantoa tietyissä tilanteissa.\n\nOpintotuki on monimutkainen kysymys, johon ei ole helppoja vastauksia. Tärkeintä olisi, että jokaisella olisi mahdollisuus keskittyä opintoihin ilman jatkuvaa taloudellista huolta.",
+      "word_count": 191
+    },
+    "questions": [
+      {
+        "id": "1e8af54f-d0da-564f-b17e-831ae29eaa51",
+        "prompt": "Mistä opintotuki koostuu?",
+        "options": [
+          "Vain opintorahasta",
+          "Opintorahasta, asumislisästä ja opintolainasta",
+          "Vain asumislisästä",
+          "Vain opintolainasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "255b3f29-dbb1-515e-9bac-9e0a8f591087",
+        "prompt": "Miksi opiskelijat joutuvat tekemään töitä opintojen ohella?",
+        "options": [
+          "Koska he haluavat rahaa",
+          "Koska opintotuki on liian pieni",
+          "Koska he eivät halua opiskella",
+          "Koska työnantajat pakottavat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "867f1a0d-37e2-57ab-87e2-c066ddc0a010",
+        "prompt": "Mitä ongelmaa työnteko opintojen ohella voi aiheuttaa?",
+        "options": [
+          "Opiskelijat valmistuvat nopeammin",
+          "Opiskelijat valmistuvat myöhässä ja opinnot kärsivät",
+          "Opiskelijat saavat liikaa rahaa",
+          "Opiskelijat eivät ehdi syödä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

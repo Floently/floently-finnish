@@ -1,0 +1,37 @@
+{
+  "id": "aa8f42cc-d38e-57f2-9eca-3689ef8ab152",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö kirjastoissa olla enemmän tapahtumia lapsiperheille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Kirjastojen tapahtumat lapsiperheille"
+    },
+    "items": [
+      {
+        "id": "0dc87c1c-3eea-5cd3-a83c-4f13f50bafc6",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö kirjastoissa olla enemmän tapahtumia lapsiperheille. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

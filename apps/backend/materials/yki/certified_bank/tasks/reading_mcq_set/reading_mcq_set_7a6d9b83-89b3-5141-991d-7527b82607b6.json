@@ -1,0 +1,99 @@
+{
+  "id": "7a6d9b83-89b3-5141-991d-7527b82607b6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet työpaikat järjestävät virkistyspäiviä työntekijöilleen. Virkistyspäivänä tehdään jotain mukavaa yhdessä, kuten käydään keilaamassa, syödään hyvin tai pelataan pelejä. Tavoitteena on parantaa työilmapiiriä ja lisätä yhteishenkeä. Työntekijät pitävät virkistyspäivistä, koska ne tuovat vaihtelua arkeen ja auttavat tutustumaan työkavereihin paremmin.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä monet työpaikat järjestävät?",
+        "options": [
+          "Palkankorotuksia",
+          "Virkistyspäiviä",
+          "Työhaastatteluja",
+          "Lomautuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä virkistyspäivänä tehdään?",
+        "options": [
+          "Tehdään töitä",
+          "Tehdään jotain mukavaa yhdessä",
+          "Pidetään palavereja",
+          "Ollaan kotona"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä virkistyspäivän tekemisistä mainitaan?",
+        "options": [
+          "Käydään elokuvissa",
+          "Keilaamassa, syödään hyvin tai pelataan pelejä",
+          "Käydään kuntosalilla",
+          "Matkustetaan ulkomaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on virkistyspäivän tavoite?",
+        "options": [
+          "Lisätä työmäärää",
+          "Parantaa työilmapiiriä ja lisätä yhteishenkeä",
+          "Säästää rahaa",
+          "Pidentää työpäivää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi työntekijät pitävät virkistyspäivistä?",
+        "options": [
+          "Koska ne ovat pakollisia",
+          "Koska ne tuovat vaihtelua arkeen ja auttavat tutustumaan työkavereihin",
+          "Koska niistä maksetaan ylityökorvausta",
+          "Koska ne ovat ainoa tauko työssä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'yhteishengellä'?",
+        "options": [
+          "Kilpailua työntekijöiden välillä",
+          "Hyvää yhteistyötä ja me-henkeä",
+          "Työntekijöiden yksinäisyyttä",
+          "Esimiesten ja alaisten välistä kuilua"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "30febc08-d3a4-5c75-91a5-452e902a3f12",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lainata kuvia someen ilman kuvassa olevien lupaa?'. Pohdi yksityisyyttä, tekijänoikeuksia ja sosiaalisen median käytäntöjä.",
+    "materials": {
+      "scenario": "Kuvien jakaminen somessa"
+    },
+    "items": [
+      {
+        "id": "035ca06a-2429-58d2-946d-e398630980ab",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lainata kuvia someen ilman kuvassa olevien lupaa?'. Pohdi yksityisyyttä, tekijänoikeuksia ja sosiaalisen median käytäntöjä."
+      }
+    ],
+    "rubric": "Yksityisyys\nTekijänoikeudet\nSome-käytännöt\nLainsäädäntö",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

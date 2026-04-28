@@ -1,0 +1,66 @@
+{
+  "id": "71868176-f0c0-5765-9e99-e36f5e305f26",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KUNTOSALI LIIKE\n\nHINNASTO:\nKertamaksu: 12 €\nKuukausikortti: 45 €\nVuosikortti: 400 €\nOpiskelija- ja eläkeläisalennus -20%\n\nAvoinna: ma–pe 6–22, la–su 8–20\nOsoite: Urheilukatu 3, 00100 Helsinki  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko maksaa yksi kerta kuntosalilla?",
+        "options": [
+          "A) 10 €",
+          "B) 12 €",
+          "C) 15 €",
+          "D) 20 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko vuosikortti maksaa?",
+        "options": [
+          "A) 300 €",
+          "B) 350 €",
+          "C) 400 €",
+          "D) 450 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaan kuntosali suljetaan arkisin?",
+        "options": [
+          "A) klo 20",
+          "B) klo 21",
+          "C) klo 22",
+          "D) klo 23"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

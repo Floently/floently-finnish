@@ -1,0 +1,77 @@
+{
+  "id": "bceaf630-b405-550f-be62-6f0bf30185be",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalaisilla on erityinen suhde luontoon. Luonnossa liikkuminen on suosituimpia vapaa-ajanviettotapoja. Joka kesä tuhannet suomalaiset suuntaavat mökeilleen nauttimaan hiljaisuudesta ja luonnon rauhasta. Marjastus ja sienestys ovat monelle rakkaita harrastuksia, ja niissä hyödynnetään jokamiehenoikeuksia. Myös kalastus, metsästys ja retkeily ovat suosittuja. Luonto merkitsee suomalaisille myös henkistä hyvinvointia ja voimavarojen lataamista. Tutkimukset osoittavat, että luonnossa oleminen vähentää stressiä ja parantaa mielialaa. Luonnonsuojelu on suomalaisille tärkeää, ja monet osallistuvat vapaaehtoistoimintaan, kuten roskien keruuseen tai lintujen suojeluun.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_019",
+        "prompt": "Minne suomalaiset suuntaavat kesällä?",
+        "options": [
+          "Ulkomaille",
+          "Mökeilleen",
+          "Hotelleihin",
+          "Leirintäalueille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_019",
+        "prompt": "Mitä harrastuksia tekstissä mainitaan?",
+        "options": [
+          "Golf ja tennis",
+          "Marjastus, sienestys, kalastus, metsästys ja retkeily",
+          "Uinti ja juoksu",
+          "Laskettelu ja lumilautailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_019",
+        "prompt": "Mitä hyötyä luonnossa olemisesta on?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä ja parantaa mielialaa",
+          "Se aiheuttaa väsymystä",
+          "Se lisää sairastumisriskiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_019",
+        "prompt": "Millaista vapaaehtoistoimintaa suomalaiset tekevät luonnonsuojelussa?",
+        "options": [
+          "Rahankeräystä",
+          "Roskien keruuta ja lintujen suojelua",
+          "Puiden istutusta",
+          "Vain eläinten ruokintaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

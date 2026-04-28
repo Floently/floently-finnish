@@ -1,0 +1,77 @@
+{
+  "id": "f6a5ea09-e5df-548e-85c3-408555a5a769",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen nuorten hyvinvoinnista ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Uutisia. Tuore kouluterveyskysely paljastaa, että nuorten hyvinvointi on heikentynyt. Erityisesti tytöt voivat huonosti. Yhä useampi tyttö kokee ahdistusta, yksinäisyyttä ja koulu-uupumusta.\n\nTutkija Anna Laitinen kertoo, että syitä on monia. \"Sosiaalinen media luo paineita ulkonäöstä ja suosiosta. Koulun vaatimukset ovat kasvaneet. Myös huoli ilmastosta ja maailman tilasta painaa nuorten mieliä.\"\n\nPojilla ongelmat ovat erilaisia. Heillä ahdistus näkyy usein käytöshäiriöinä ja vetäytymisenä. Pojat myös hakevat harvemmin apua.\n\nLaitinen korostaa, että ennaltaehkäisy on tärkeää. \"Kouluilla pitää olla riittävästi resursseja oppilashuoltoon. Myös matalan kynnyksen mielenterveyspalveluita tarvitaan.\"\n\nVanhempien rooli on keskeinen. \"Kannattaa olla kiinnostunut nuoren arjesta, myös somemaailmasta. Keskustelu ja läsnäolo auttavat.\"\n\nTulevaisuudessa tarvitaan yhteiskunnan panostusta. \"Nuorten hyvinvointi on investointi tulevaisuuteen. Siihen on panostettava nyt.\"",
+      "audio_asset_id": "c9b24562-3b48-5885-9740-3554c19927a4"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_004_q1",
+        "prompt": "Mitä kouluterveyskysely paljastaa?",
+        "options": [
+          "nuorten hyvinvointi on parantunut",
+          "nuorten hyvinvointi on heikentynyt, erityisesti tytöillä",
+          "kaikki nuoret voivat hyvin",
+          "pojilla ei ole ongelmia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_004_q2",
+        "prompt": "Mitä syitä tyttöjen pahoinvointiin mainitaan?",
+        "options": [
+          "liian vähän somea",
+          "some-paineet, koulun vaatimukset ja huoli ilmastosta",
+          "liian vähän koulua",
+          "liian paljon vapaa-aikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_004_q3",
+        "prompt": "Miten poikien ongelmat näkyvät?",
+        "options": [
+          "he puhuvat ahdistuksestaan",
+          "käytöshäiriöinä ja vetäytymisenä",
+          "he eivät koe ongelmia",
+          "he hakevat heti apua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_004_q4",
+        "prompt": "Mitä Anna Laitinen neuvoo vanhemmille?",
+        "options": [
+          "antaa nuorten olla rauhassa",
+          "olla kiinnostunut nuoren arjesta ja keskustella",
+          "kieltää somen",
+          "vähentää koulupaineita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

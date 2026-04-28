@@ -1,0 +1,37 @@
+{
+  "id": "b9bedee6-a923-5506-b0af-5cea35ef01a5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti tutkimuseettiselle toimikunnalle. Suunnittelet tutkimusta, jossa haastatellaan haavoittuvassa asemassa olevia henkilöitä. Pyydä ohjeistusta eettisestä ennakkoarvioinnista, tarvittavista luvista ja suostumuslomakkeiden sisällöstä.",
+    "materials": {
+      "scenario": "Eettinen ennakkoarviointi tutkimukselle"
+    },
+    "items": [
+      {
+        "id": "37cf5a43-edce-5f2c-a4a9-b78b0fa2a21b",
+        "prompt": "Kirjoita virallinen sähköposti tutkimuseettiselle toimikunnalle. Suunnittelet tutkimusta, jossa haastatellaan haavoittuvassa asemassa olevia henkilöitä. Pyydä ohjeistusta eettisestä ennakkoarvioinnista, tarvittavista luvista ja suostumuslomakkeiden sisällöstä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "3c2cf610-a9b2-515f-b3fa-53033635c07c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti nettikirppiksen myyjälle.",
+    "materials": {
+      "scenario": "Kysy myytävästä tuotteesta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti nettikirppiksen myyjälle."
+      }
+    ],
+    "rubric": "Näit nettikirppiksellä myytävän tuotteen, joka kiinnostaa sinua. Kirjoita sähköposti myyjälle ja kysy tarkempia tietoja. Kysy esimerkiksi tuotteen kunnosta, mitoista ja siitä, voiko hintaa tinkiä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

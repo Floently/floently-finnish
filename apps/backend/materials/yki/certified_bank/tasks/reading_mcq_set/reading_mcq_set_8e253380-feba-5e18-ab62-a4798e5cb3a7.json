@@ -1,0 +1,88 @@
+{
+  "id": "8e253380-feba-5e18-ab62-a4798e5cb3a7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.749,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Digitalisaatio on muuttanut työelämää perusteellisesti viimeisten vuosikymmenten aikana. Monet työtehtävät ovat automatisoituneet, ja uusia ammatteja on syntynyt. Etätyö on yleistynyt, ja työajat ovat joustavoituet. Tämä kehitys on tuonut mukanaan sekä mahdollisuuksia että haasteita. Yksi keskeisimmistä mahdollisuuksista on työn joustavuus. Työntekijät voivat usein vaikuttaa työaikoihinsa ja työskennellä etänä, mikä helpottaa työn ja perheen yhteensovittamista. Toisaalta työn ja vapaa-ajan raja on hämärtynyt, ja monet kokevat työn tunkeutuvan liikaa vapaa-ajalle. Toinen keskeinen mahdollisuus on tuottavuuden kasvu. Digitalisaatio mahdollistaa tehokkaammat työprosessit ja nopeamman tiedonkulun. Samalla se asettaa uusia vaatimuksia työntekijöiden osaamiselle. Jatkuva oppiminen ja uusien taitojen omaksuminen ovat välttämättömiä. Kolmas haaste on työelämän polarisaatio. Korkeasti koulutetut asiantuntijat hyötyvät digitalisaatiosta, kun taas matalammin koulutetut voivat syrjäytyä, jos heidän työtehtävänsä automatisoituvat. Tämä lisää eriarvoisuutta työmarkkinoilla. Neljäs haaste on työhyvinvointi. Jatkuva tavoitettavuus ja informaatiotulva voivat aiheuttaa stressiä ja uupumusta. Työntekijöiltä vaaditaan uudenlaisia taitoja oman työn hallintaan ja palautumiseen. Digitalisaatio ei ole vain teknologinen vaan myös sosiaalinen ja kulttuurinen muutos, joka vaatii uudenlaista ajattelua ja toimintatapoja.",
+      "word_count": 158
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yksi keskeisimmistä digitalisaation tuomista mahdollisuuksista työelämässä?",
+        "options": [
+          "Työn fyysisyyden lisääntyminen",
+          "Työn joustavuus ja etätyömahdollisuudet",
+          "Työaikojen pidentyminen",
+          "Lomien lyheneminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä haittapuolia työn joustavuudella voi olla?",
+        "options": [
+          "Työmatkat pitenevät",
+          "Työn ja vapaa-ajan raja hämärtyy",
+          "Palkkataso laskee",
+          "Työtehtävät yksipuolistuvat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä digitalisaatio edellyttää työntekijöiltä?",
+        "options": [
+          "Fyysistä voimaa",
+          "Jatkuvaa oppimista ja uusien taitojen omaksumista",
+          "Pitkiä työpäiviä",
+          "Ulkomaille muuttoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan työelämän polarisaatiolla?",
+        "options": [
+          "Työpaikkojen jakautumista eri puolille maata",
+          "Korkeasti ja matalasti koulutettujen välisten erojen kasvamista",
+          "Työaikojen jakaantumista eri vuorokaudenajoille",
+          "Palkkojen tasa-arvoistumista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on digitalisaation vaikutus työhyvinvointiin?",
+        "options": [
+          "Se parantaa aina työhyvinvointia",
+          "Jatkuva tavoitettavuus voi aiheuttaa stressiä ja uupumusta",
+          "Sillä ei ole vaikutusta työhyvinvointiin",
+          "Se vähentää työn kuormittavuutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "fdc0a2de-45e6-549f-b3a4-41790c89e69c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti paikalliseen yhdistykseen.",
+    "materials": {
+      "scenario": "Tarjoudu vapaaehtoiseksi"
+    },
+    "items": [
+      {
+        "id": "d2346d05-d02e-5bbf-b07d-9ae67fa61a03",
+        "prompt": "Haluat tehdä vapaaehtoistyötä ja auttaa muita. Kirjoita sähköposti paikalliseen yhdistykseen ja kysy, tarvitaanko heillä apua. Kerro, millaista työtä haluaisit tehdä ja kuinka paljon aikaa sinulla on."
+      }
+    ],
+    "rubric": "Haluat tehdä vapaaehtoistyötä ja auttaa muita. Kirjoita sähköposti paikalliseen yhdistykseen ja kysy, tarvitaanko heillä apua. Kerro, millaista työtä haluaisit tehdä ja kuinka paljon aikaa sinulla on.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

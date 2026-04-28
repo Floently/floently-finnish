@@ -1,0 +1,37 @@
+{
+  "id": "e711914f-d7b8-5697-a54d-6ba079b9c05c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö korkeakoulujen valintakokeita kehittää vähemmän stressaaviksi?'. Pohdi oppimistuloksia ja opiskelijavalinnan oikeudenmukaisuutta.",
+    "materials": {
+      "scenario": "Korkeakoulujen valintakokeet"
+    },
+    "items": [
+      {
+        "id": "1c175a3b-3bd3-5510-9c2c-7eeb6b9fcf9f",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö korkeakoulujen valintakokeita kehittää vähemmän stressaaviksi?'. Pohdi oppimistuloksia ja opiskelijavalinnan oikeudenmukaisuutta."
+      }
+    ],
+    "rubric": "Opiskelijavalinnan oikeudenmukaisuus\nStressi ja hyvinvointi\nOppimistulokset\nEnnustavuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

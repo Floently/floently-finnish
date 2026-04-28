@@ -1,0 +1,66 @@
+{
+  "id": "91f6f535-6ba6-5abe-886e-65c400a5661d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TALOYHTIÖN PESULA\n\nPesula on varattavissa asukaskäyttöön tunniksi kerrallaan. Varauskalenteri on pesulan ovessa. Pesukoneen käyttö maksaa 2 euroa.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "a9570c1b-7d26-5f7d-b3d5-62f6201af782",
+        "prompt": "Miten pesulan varaa?",
+        "options": [
+          "soittamalla isännöitsijälle",
+          "varauskalenterilla pesulan ovessa",
+          "sähköpostilla",
+          "nettisivulla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9f1f78dd-2bc3-54a9-a030-bd33875bcc02",
+        "prompt": "Kuinka pitkäksi aikaa pesulan voi varata?",
+        "options": [
+          "puoleksi tunniksi",
+          "tunniksi",
+          "kahdeksi tunniksi",
+          "koko päiväksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4dcd969d-73a3-52d5-9679-36a2ac20eba5",
+        "prompt": "Paljonko pesukoneen käyttö maksaa?",
+        "options": [
+          "1 euro",
+          "2 euroa",
+          "3 euroa",
+          "4 euroa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

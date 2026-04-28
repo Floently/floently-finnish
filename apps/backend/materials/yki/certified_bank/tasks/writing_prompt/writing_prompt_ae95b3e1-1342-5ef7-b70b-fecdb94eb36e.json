@@ -1,0 +1,37 @@
+{
+  "id": "ae95b3e1-1342-5ef7-b70b-fecdb94eb36e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö koulujen aloittaa säännölliset siivouspäivät. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Säännölliset siivouspäivät kouluissa"
+    },
+    "items": [
+      {
+        "id": "e163203c-aea3-5d51-90d7-c1aa0ba13b65",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö koulujen aloittaa säännölliset siivouspäivät. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

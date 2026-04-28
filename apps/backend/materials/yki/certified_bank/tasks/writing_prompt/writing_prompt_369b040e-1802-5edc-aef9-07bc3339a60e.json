@@ -1,0 +1,37 @@
+{
+  "id": "369b040e-1802-5edc-aef9-07bc3339a60e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitääkö julkisten palvelujen digitalisaatiossa säilyttää aina vaihtoehtoinen ei-digitaalinen palvelu?'. Arvioi ainakin yhdenvertaisuutta, kustannuksia, turvallisuutta ja esitä perusteltu johtopäätös.",
+    "materials": {
+      "scenario": "Julkisten palvelujen digitalisaatio"
+    },
+    "items": [
+      {
+        "id": "e852e4cc-ad60-5c55-8c49-47efde2d48d5",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitääkö julkisten palvelujen digitalisaatiossa säilyttää aina vaihtoehtoinen ei-digitaalinen palvelu?'. Arvioi ainakin yhdenvertaisuutta, kustannuksia, turvallisuutta ja esitä perusteltu johtopäätös."
+      }
+    ],
+    "rubric": "Yhdenvertaisuus\nKustannukset\nTurvallisuus\nPerusteltu johtopäätös",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

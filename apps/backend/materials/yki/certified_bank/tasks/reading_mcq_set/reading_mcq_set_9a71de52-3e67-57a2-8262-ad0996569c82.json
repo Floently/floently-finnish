@@ -1,0 +1,77 @@
+{
+  "id": "9a71de52-3e67-57a2-8262-ad0996569c82",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.778,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Ilmastonmuutoksen torjunnassa puhutaan usein oikeudenmukaisesta siirtymästä. Tämä käsite viittaa siihen, että siirtymän vähähiiliseen yhteiskuntaan on oltava oikeudenmukainen eikä se saa jättää ketään jälkeen. Käytännössä tämä tarkoittaa sitä, että ilmastotoimien suunnittelussa on otettava huomioon niiden vaikutukset eri väestöryhmiin ja eri alueisiin. Yksi keskeinen kysymys koskee työllisyyttä. Uusiutuvan energian ja vähähiilisten teknologioiden kehittäminen luo uusia työpaikkoja, mutta samalla fossiilisiin polttoaineisiin perustuvat toimialat, kuten turpeentuotanto ja hiilivoima, vähenevät. Näillä aloilla työskenteleville on tarjottava mahdollisuuksia uudelleenkouluttautumiseen ja uusiin työpaikkoihin. Toinen kysymys koskee kuluttajia. Esimerkiksi hiilidioksidivero voi kohdistua ankarimmin pienituloisiin, jotka käyttävät suhteessa suuremman osan tuloistaan energiaan. Tämän vuoksi on tärkeää, että verotuksen kiristämisen yhteydessä otetaan käyttöön kompensaatiomekanismeja, jotka suojaavat heikoimmassa asemassa olevia. Kolmas kysymys koskee alueellisia eroja. Esimerkiksi turvetuotannosta riippuvaisilla alueilla työpaikkojen väheneminen voi olla erityisen rajua. Tarvitaan aluepoliittisia toimia, jotka tukevat uusien työpaikkojen syntymistä näille alueille. Neljäs kysymys koskee globaalia oikeudenmukaisuutta. Teollisuusmaat ovat historiallisesti vastuussa suurimmasta osasta päästöjä, ja niillä on myös paremmat mahdollisuudet toteuttaa päästövähennyksiä. Tästä näkökulmasta niillä on velvollisuus tukea kehitysmaita niiden siirtymässä vähähiiliseen talouteen esimerkiksi teknologian siirrolla ja rahoituksella. Oikeudenmukainen siirtymä on monitahoinen haaste, joka vaatii toimia monilla eri rintamilla. Se edellyttää, että ilmastopolitiikkaa ei suunnitella irrallaan muusta yhteiskuntapolitiikasta, vaan se integroidaan osaksi laajempaa talous- ja sosiaalipolitiikkaa. Vain siten voidaan varmistaa, että siirtymä vähähiiliseen yhteiskuntaan on sekä ekologisesti että sosiaalisesti kestävä.",
+      "word_count": 211
+    },
+    "questions": [
+      {
+        "id": "7b87e3b8-46e8-5b6d-a608-4163eeadfea7",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Uusiutuvan energian teknologinen kehitys",
+          "Oikeudenmukaisen siirtymän käsite ja siihen liittyvät haasteet ilmastonmuutoksen torjunnassa",
+          "Hiilidioksidiveron vaikutukset eri väestöryhmiin",
+          "Kehitysmaiden velvollisuus vähentää päästöjään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "edc602f9-bbff-54f0-badf-8340a6c74269",
+        "prompt": "Tekstin mukaan mitä tarkoitetaan oikeudenmukaisella siirtymällä?",
+        "options": [
+          "Sitä, että kaikkien maiden on vähennettävä päästöjään samaa tahtia",
+          "Sitä, että siirtymän vähähiiliseen yhteiskuntaan on oltava oikeudenmukainen eikä se saa jättää ketään jälkeen",
+          "Sitä, että teollisuusmaiden on maksettava kehitysmaiden päästövähennykset",
+          "Sitä, että uusiutuvan energian tuotanto on keskitettävä kehitysmaihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "df9992cf-6374-5c80-b36b-5d68ff996778",
+        "prompt": "Mitä työllisyyskysymyksiä oikeudenmukaiseen siirtymään liittyy?",
+        "options": [
+          "Vain uusien työpaikkojen luominen uusiutuvan energian alalle",
+          "Fossiilisilla aloilla työskentelevien uudelleenkouluttautuminen ja uudet työpaikat",
+          "Työpaikkojen väheneminen kaikilla aloilla",
+          "Työntekijöiden pakollinen siirtyminen muille aloille ilman tukea"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ded77ab0-b9f4-538f-8e9b-a2631d98bd00",
+        "prompt": "Miten globaali oikeudenmukaisuus tekstin mukaan liittyy ilmastonmuutoksen torjuntaan?",
+        "options": [
+          "Kaikkien maiden on vähennettävä päästöjään samassa suhteessa",
+          "Teollisuusmailla on historiallinen vastuu ja paremmat resurssit, joten niiden tulee tukea kehitysmaita siirtymässä",
+          "Kehitysmaiden tulee vähentää päästöjään ennen teollisuusmaita",
+          "Globaalilla oikeudenmukaisuudella ei ole merkitystä ilmastopolitiikassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

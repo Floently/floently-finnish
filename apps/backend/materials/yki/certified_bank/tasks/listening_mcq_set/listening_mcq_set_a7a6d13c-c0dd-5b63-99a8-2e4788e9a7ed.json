@@ -1,0 +1,88 @@
+{
+  "id": "a7a6d13c-c0dd-5b63-99a8-2e4788e9a7ed",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.296,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Tässä on parturi-kampaamo. Soitan teille, koska teidän aikanne huomenna on peruttu. Parturi on sairas. Uusi aika on ensi viikon torstaina kello 13. Sopiiko se?",
+      "audio_asset_id": "2ef75a85-8c55-439a-ab9e-4d6a239621aa"
+    },
+    "questions": [
+      {
+        "id": "ccb19a83-0822-5633-9e92-6a4f7edc4daa",
+        "prompt": "Kuka soittaa?",
+        "options": [
+          "Parturi-kampaamo.",
+          "Parturi.",
+          "Asiakas.",
+          "Kampaaja."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "467d843e-9888-5efe-9420-501fd42a366c",
+        "prompt": "Miksi he soittavat?",
+        "options": [
+          "Vahvistaakseen ajan.",
+          "Peruakseen ajan.",
+          "Kertoakseen uuden ajan.",
+          "Kysyäkseen toiveita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bf8c61b0-c96f-5448-972c-824d04ed8425",
+        "prompt": "Miksi aika perutaan?",
+        "options": [
+          "Parturi on sairas.",
+          "Parturi on lomalla.",
+          "Liike on kiinni.",
+          "Asiakas on sairas."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "bf6931dd-b1be-592d-9a66-ef82f5297860",
+        "prompt": "Milloin uusi aika on?",
+        "options": [
+          "Huomenna.",
+          "Ensi viikon tiistaina.",
+          "Ensi viikon perjantaina.",
+          "Ensi viikon torstaina."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "9b291bbc-8034-5988-b3a7-29953dc7fa98",
+        "prompt": "Mihin aikaan uusi aika on?",
+        "options": [
+          "Kello 12.00.",
+          "Kello 14.00.",
+          "Kello 15.00.",
+          "Kello 13.00."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

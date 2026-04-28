@@ -1,0 +1,99 @@
+{
+  "id": "878316cd-2dee-5fd5-9499-6e7fc66271c2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta energiansäästökampanjasta ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on kaupungin ympäristöpalveluiden tiedote. Käynnistämme yhdessä energiayhtiön kanssa uuden energiansäästökampanjan nimeltä 'Virtaa viisaasti'. Kampanjan tavoitteena on kannustaa kaupunkilaisia vähentämään energiankulutusta ja pienentämään hiilijalanjälkeä. Kampanja kestää koko vuoden. Kampanjassa on mukana vinkkejä arjen energiansäästöön. Esimerkiksi: sammuta valot huoneista, joissa ei oleskele; vältä turhaa sähkölaitteiden valmiustilaa; pese pyykkiä alhaisemmissa lämpötiloissa; ja säädä kodin lämpötilaa alemmas öisin. Kampanjan aikana järjestetään myös tapahtumia ja työpajoja. Ensimmäinen tapahtuma on 'Energianeuvontapäivä' kirjastolla 15.3. kello 12–16. Siellä voi saada henkilökohtaista neuvontaa ja lainata energiamittareita. Lisäksi kaupunkilaiset voivat osallistua kilpailuun, jossa jaetaan palkintoja parhaista säästövinkeistä. Lisätietoa kampanjasta löytyy verkkosivuiltamme ja sosiaalisesta mediasta. Jokainen säästetty kilowattitunti on tärkeä!",
+      "audio_asset_id": "d5e6f7a8-b9c0-1d2e-3f4a-5b6c7d8e9f0a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on uuden kampanjan nimi?",
+        "options": [
+          "Säästä sähköä.",
+          "Virtaa viisaasti.",
+          "Energiatehokas arki.",
+          "Vihreä virta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mikä on kampanjan tavoite?",
+        "options": [
+          "Lisätä energiankulutusta.",
+          "Kannustaa vähentämään energiankulutusta.",
+          "Myydä enemmän sähköä.",
+          "Rakentaa uusi voimala."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Kuinka kauan kampanja kestää?",
+        "options": [
+          "Yhden kuukauden.",
+          "Puoli vuotta.",
+          "Koko vuoden.",
+          "Kaksi vuotta."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on yksi kampanjan vinkeistä?",
+        "options": [
+          "Pitää kaikki valot päällä.",
+          "Pestä pyykkiä korkeissa lämpötiloissa.",
+          "Välttää turhaa sähkölaitteiden valmiustilaa.",
+          "Lämmittää kotia yöllä enemmän."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Milloin ja missä on Energianeuvontapäivä?",
+        "options": [
+          "15.3. kello 12–16 kirjastolla.",
+          "20.3. kello 14–18 kauppakeskuksessa.",
+          "1.4. kello 10–14 torilla.",
+          "10.4. kello 13–17 nuorisotalolla."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä Energianeuvontapäivänä voi tehdä?",
+        "options": [
+          "Ostaa uusia kodinkoneita.",
+          "Saada henkilökohtaista neuvontaa ja lainata energiamittareita.",
+          "Myydä vanhoja huonekaluja.",
+          "Osallistua konserttiin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "561e02a2-5bf1-5440-81f7-08d2fcc3d6f9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TYÖHYVINVOINTI ETÄTYÖSSÄ – NÄIN JAKSAA PAREMMIN\n\nTyöterveyslaitoksen tuore tutkimus osoittaa, että etätyö on tullut jäädäkseen, mutta sen vaikutukset hyvinvointiin ovat ristiriitaisia. Tutkimuksen mukaan etätyöntekijät kokevat työn ja vapaa-ajan rajan hämärtyvän.\n\n\"Monet kokevat, että työ venyy helposti iltaan, koska kone on auki ja sähköposteja tulee\", kertoo tutkija Päivi Mäkelä. Hänen mukaansa säännölliset tauot ja selkeä työaika auttavat jaksamaan.\n\nTyöpaikan yhteishenki voi kärsiä etätyössä. Kahvipöytäkeskustelut ja spontaanit kohtaamiset jäävät pois. Monet kaipaavat työkavereita. Siksi monet yritykset järjestävät yhteisiä tapahtumia ja pakollisia läsnäolopäiviä.\n\nHyvä puoli etätyössä on ajan säästyminen työmatkoista. Tämä lisää jaksamista ja antaa aikaa harrastuksille. Tutkimuksen mukaan työntekijät, jotka voivat itse vaikuttaa työaikoihinsa, ovat tyytyväisempiä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 132
+    },
+    "questions": [
+      {
+        "id": "723de509-9c8e-5aee-bc2d-b5f6d6a9e742",
+        "prompt": "Mitä ongelmia etätyössä on tutkijan mukaan?",
+        "options": [
+          "Työmatkat pitenevät",
+          "Työn ja vapaa-ajan raja hämärtyy",
+          "Palkka pienenee",
+          "Työtehtävät vähenevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7216237b-ea5b-507d-9324-ee2092dbc7c2",
+        "prompt": "Mitä auttaa jaksamaan etätyössä?",
+        "options": [
+          "Pidemmät työpäivät",
+          "Säännölliset tauot ja selkeä työaika",
+          "Enemmän sähköposteja",
+          "Työskentely yöllä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "91a27552-5ecf-5905-9d2a-22570193d7ed",
+        "prompt": "Mikä on hyvä puoli etätyössä?",
+        "options": [
+          "Enemmän kahvitaukoja",
+          "Ajan säästyminen työmatkoista",
+          "Parempi palkka",
+          "Enemmän työkavereita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4d70b173-3a82-5ea5-b88a-a655a729e33c",
+        "prompt": "Mitä työpaikan yhteishengelle tapahtuu etätyössä?",
+        "options": [
+          "Se paranee",
+          "Se voi kärsiä",
+          "Se pysyy samana",
+          "Sitä ei ole"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

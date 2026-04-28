@@ -1,0 +1,77 @@
+{
+  "id": "22b962dd-024d-5003-a2fe-9648f4b9a656",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kaupunkilehden artikkeli ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Kaupunki toteutti alikulkutunneliin suuren taideseinän osana turvallisuus- ja viihtyisyyshanketta. Ennen muutosta tunneli koettiin pimeäksi ja levottomaksi, ja osa asukkaista vältti reittiä iltaisin. Teoksen suunnitteluun kutsuttiin paikallisia nuoria, alueen kuvataideyhdistys ja valaistussuunnittelija. Toteutuksen jälkeen poliisin kirjaamat häiriöilmoitukset vähenivät, mutta vaikutusta ei voi osoittaa yksin taiteen ansioksi, sillä samaan aikaan alueella lisättiin valvontakäyntejä. Asukaspalautteessa korostui, että tunneli tuntuu nyt avoimemmalta ja reitillä liikkuu enemmän jalankulkijoita. Kriittiset kommentit liittyivät kustannuksiin: osa piti hanketta liian kalliina aikana, jolloin katujen talvikunnossapidossa on säästöpaineita. Kaupunki perustelee valintaa sillä, että turvallisuuden ja käytettävyyden parantaminen vähentää pitkällä aikavälillä korjauskustannuksia ja tukee alueen palveluita.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 123
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä ongelma tunnelissa oli ennen hanketta?",
+        "options": [
+          "liian paljon pyöräparkkeja",
+          "pimeys ja levottomuuden tunne",
+          "liian kirkas valaistus",
+          "suljettu bussipysäkki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Ketkä osallistuivat suunnitteluun?",
+        "options": [
+          "vain kaupungin johto",
+          "nuoret, taideyhdistys ja valaistussuunnittelija",
+          "vain poliisi",
+          "ulkomainen urakoitsija"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi vaikutusta ei voi tulkita vain taiteen tulokseksi?",
+        "options": [
+          "teos valmistui myöhässä",
+          "samaan aikaan lisättiin valvontakäyntejä",
+          "asukkaat muuttivat pois",
+          "tunnelia käytettiin vähemmän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä oli yleisin kriittinen huomio?",
+        "options": [
+          "teoksen värit",
+          "kustannusten suuruus",
+          "nuorten osallistuminen",
+          "valvonnan puute"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

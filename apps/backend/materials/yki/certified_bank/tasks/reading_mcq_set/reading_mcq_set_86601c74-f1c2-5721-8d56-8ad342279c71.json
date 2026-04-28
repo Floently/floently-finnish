@@ -1,0 +1,77 @@
+{
+  "id": "86601c74-f1c2-5721-8d56-8ad342279c71",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.73,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Kulttuuri on merkittävä osa Suomen pehmeää valtaa ja maakuvaa. Suomalainen design, arkkitehtuuri, musiikki, kirjallisuus ja elokuva tunnetaan maailmalla. Ne herättävät kiinnostusta ja luovat myönteistä mielikuvaa Suomesta. Kulttuuri on myös tärkeä vientituote, ja kulttuurivienti on kasvanut viime vuosina. Kulttuurin edistäminen ja vienti vaativat panostuksia ja yhteistyötä eri toimijoiden välillä. Kulttuurin saavutettavuus on tärkeää myös kotimaassa: kaikilla kansalaisilla tulee olla mahdollisuus osallistua kulttuurielämään ja nauttia taiteesta asuinpaikasta tai sosioekonomisesta asemasta riippumatta. Kulttuuri lisää hyvinvointia, luovuutta ja yhteisöllisyyttä.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "mcq_340",
+        "prompt": "Mitä kulttuuri edustaa Suomen kansainvälisessä asemassa?",
+        "options": [
+          "Kovaa valtaa",
+          "Pehmeää valtaa ja maakuvaa",
+          "Taloudellista valtaa",
+          "Sotilaallista valtaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_341",
+        "prompt": "Mitkä kulttuurin alat tunnetaan Suomesta maailmalla?",
+        "options": [
+          "Vain design",
+          "Design, arkkitehtuuri, musiikki, kirjallisuus ja elokuva",
+          "Vain musiikki",
+          "Vain kirjallisuus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_342",
+        "prompt": "Mitä kulttuurivienti on tehnyt viime vuosina?",
+        "options": [
+          "Se on vähentynyt",
+          "Se on kasvanut",
+          "Se on pysynyt ennallaan",
+          "Se on loppunut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_343",
+        "prompt": "Miksi kulttuurin saavutettavuus on tärkeää kotimaassa?",
+        "options": [
+          "Jotta kaikilla on mahdollisuus osallistua kulttuurielämään",
+          "Jotta kulttuuri pysyy eliitin etuoikeutena",
+          "Jotta kulttuurivienti vähenee",
+          "Jotta kulttuuri ei lisää hyvinvointia"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

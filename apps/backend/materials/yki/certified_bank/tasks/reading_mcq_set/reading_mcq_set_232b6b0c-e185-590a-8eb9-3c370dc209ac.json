@@ -1,0 +1,66 @@
+{
+  "id": "232b6b0c-e185-590a-8eb9-3c370dc209ac",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-atomic-generator-v5",
+    "generated_at": "2026-03-04T10:03:00Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti suomalaisesta saunasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalainen sauna on tärkeä osa suomalaista kulttuuria ja jokapäiväistä elämää. Suomessa on noin 3,3 miljoonaa saunaa, mikä tarkoittaa, että noin jokaista suomalaista kohden on yksi sauna. Saunatyyppejä on monia: perinteinen puulämmitteinen savusauna, sähkösauna ja nykyaikainen infrapunasauna. Saunomiseen kuuluu yleensä löylyjen heittäminen, eli veden heittäminen kuumille kiville, mikä nostaa ilman kosteutta ja lämpöä. Monet suomalaiset viilentävät saunomisen jälkeen esimerkiksi järvessä, avannossa tai ottamalla kylmän suihkun. Saunassa rentoudutaan, pestäydytään ja joskus myös tavataan ystäviä ja perhettä. Perinteisesti saunalla on ollut myös terveydellinen merkitys, ja sitä on käytetty esimerkiksi vilvoittelussa ja lihasten rentouttamisessa.",
+      "word_count": 90
+    },
+    "questions": [
+      {
+        "id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b",
+        "prompt": "Kuinka monta saunaa Suomessa on noin?",
+        "options": [
+          "1,3 miljoonaa",
+          "2,3 miljoonaa",
+          "3,3 miljoonaa",
+          "4,3 miljoonaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6c",
+        "prompt": "Mitä tarkoittaa löylyjen heittäminen?",
+        "options": [
+          "Saunomisen lopettamista",
+          "Veden heittämistä kuumille kiville",
+          "Saunan pesemistä",
+          "Ulkona käymistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a3b4c5d6-e7f8-4a9b-8c0d-1e2f3a4b5c6d",
+        "prompt": "Mikä on perinteinen suomalainen saunatyyppi?",
+        "options": [
+          "Kylpyläsauna",
+          "Infrapunasauna",
+          "Höyrysauna",
+          "Savusauna"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "239238c6-cc97-5aaa-82f4-219c08621228",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti suurlähetystöön. Haluat hakea viisumia Suomeen tapaamaan suomalaista ystävääsi. Kerro matkan tarkoitus, kesto ja majoitusjärjestelyt. Kysy, mitä asiakirjoja hakemukseen tarvitaan ja onko mahdollista jättää hakemus sähköisesti.",
+    "materials": {
+      "scenario": "Viisumihakemus Suomeen"
+    },
+    "items": [
+      {
+        "id": "10b0ae39-e3d0-5f46-87d3-8fa4b6cb5f14",
+        "prompt": "Kirjoita virallinen sähköposti suurlähetystöön. Haluat hakea viisumia Suomeen tapaamaan suomalaista ystävääsi. Kerro matkan tarkoitus, kesto ja majoitusjärjestelyt. Kysy, mitä asiakirjoja hakemukseen tarvitaan ja onko mahdollista jättää hakemus sähköisesti."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

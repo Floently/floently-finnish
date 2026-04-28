@@ -1,0 +1,77 @@
+{
+  "id": "357baebf-716b-5c9e-92b6-3d1c09c86a69",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Hei, oletko seurannut tätä keskustelua tekoälyn vaikutuksista työelämään?\nB: Olen kyllä. Se on sekä jännittävää että pelottavaa.\nA: Jännittävää miten?\nB: No, tekoäly voi vapauttaa meidät rutiinitöistä ja antaa aikaa luovemmalle tekemiselle. Se voi auttaa vaikeissa ongelmissa, kuten ilmastonmuutoksen torjunnassa tai sairauksien hoidossa.\nA: Entä pelottavaa?\nB: Pelottavaa on se, että monet työpaikat häviävät. Etenkin toimistotyön rutiinit, kuten kirjanpito ja asiakaspalvelu, voivat kadota. Ja mitä tapahtuu niille ihmisille, joiden osaaminen vanhenee?\nA: Joo, ja se, että tekoälyä kehittävät muutamat suuryritykset. Valta keskittyy entisestään.\nB: Täsmälleen. Ja sitten on nämä eettiset kysymykset: jos tekoäly tekee päätöksiä, kuka on vastuussa, kun jotain menee pieleen?\nA: Luin jostain, että Euroopassa ollaan säätämässä tekoälylle tiukempia sääntöjä. Se on hyvä.\nB: Toivottavasti. Mutta tärkeintä olisi miettiä, miten koulutus saadaan vastaamaan tätä muutosta. Ihmisten pitää pystyä oppimaan uutta koko elämän ajan.\nA: Ja miten turvataan toimeentulo niille, joiden työt katoavat? Tarvitaanko perustuloa tai jotain muuta uudenlaista sosiaaliturvaa?\nB: Juuri näin. Tämä on niin iso muutos, että se vaatii koko yhteiskunnan uudelleenajattelua.",
+      "audio_asset_id": "ba8c284d-17e1-5b17-bc84-35d9483d3a85"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä mahdollisuuksia tekoäly tarjoaa keskustelijoiden mielestä?",
+        "options": [
+          "Vain lisää töitä",
+          "Vapauttaa rutiinitöistä ja auttaa vaikeiden ongelmien ratkaisussa",
+          "Vain viihteellisiä sovelluksia",
+          "Korvaa kaiken inhimillisen toiminnan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uhkia tekoälyyn liittyy?",
+        "options": [
+          "Työpaikkojen häviäminen, osaamisen vanheneminen ja vallan keskittyminen",
+          "Vain teknisiä ongelmia",
+          "Vain kustannuskysymyksiä",
+          "Ei mitään uhkia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä eettisiä kysymyksiä keskustelijat nostavat esiin?",
+        "options": [
+          "Kuka omistaa tekoälyn",
+          "Kuka on vastuussa tekoälyn tekemistä päätöksistä",
+          "Paljonko tekoäly maksaa",
+          "Minkä värinen tekoäly on"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja he ehdottavat?",
+        "options": [
+          "Tekoälyn kieltämistä",
+          "Tiukempaa sääntelyä, koulutuksen uudistamista ja uudenlaista sosiaaliturvaa",
+          "Paluuta vanhaan",
+          "Ei mitään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

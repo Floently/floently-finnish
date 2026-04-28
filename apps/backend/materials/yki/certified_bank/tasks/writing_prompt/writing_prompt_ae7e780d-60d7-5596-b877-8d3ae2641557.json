@@ -1,0 +1,37 @@
+{
+  "id": "ae7e780d-60d7-5596-b877-8d3ae2641557",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö työttömyysturvan aktivointiehtoja kiristää työllisyyden parantamiseksi?'. Pohdi kannustimia, sosiaaliturvaa ja byrokratiaa.",
+    "materials": {
+      "scenario": "Työttömyysturvan aktivointi"
+    },
+    "items": [
+      {
+        "id": "e865ca86-c73f-52b2-a2e4-b0c2520762d7",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö työttömyysturvan aktivointiehtoja kiristää työllisyyden parantamiseksi?'. Pohdi kannustimia, sosiaaliturvaa ja byrokratiaa."
+      }
+    ],
+    "rubric": "Kannustimet\nSosiaaliturva\nByrokratia\nTyöllisyysvaikutukset",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

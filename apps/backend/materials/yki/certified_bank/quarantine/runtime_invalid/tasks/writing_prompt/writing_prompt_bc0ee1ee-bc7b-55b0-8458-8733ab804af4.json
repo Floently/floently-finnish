@@ -1,0 +1,37 @@
+{
+  "id": "bc0ee1ee-bc7b-55b0-8458-8733ab804af4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.368,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: terveysasema. Purpose: propose an improvement. Constraint: use clear structure.",
+    "materials": {
+      "scenario": "culture in health_clinic"
+    },
+    "items": [
+      {
+        "id": "ff8d0c01-6439-56e5-80d1-37f465a5ca8d",
+        "prompt": "Write for the receiver in this scenario: terveysasema. Purpose: propose an improvement. Constraint: use clear structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

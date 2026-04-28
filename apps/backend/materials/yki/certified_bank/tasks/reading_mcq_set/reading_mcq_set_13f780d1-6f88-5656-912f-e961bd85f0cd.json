@@ -1,0 +1,66 @@
+{
+  "id": "13f780d1-6f88-5656-912f-e961bd85f0cd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.505,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin säännöt ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI HYPYNPAIKKA\n\nSäännöt:\n- Käy suihkussa ennen altaaseen menoa.\n- Uimapuku on pakollinen.\n- Allasalueella ei saa juosta.\n- Hyppääminen on sallittua vain isoon altaaseen.\n- Alle 12-vuotiaat vain aikuisen seurassa.\n\nAukioloajat: ma–pe 7–20, la–su 9–18  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä pitää tehdä ennen altaaseen menoa?",
+        "options": [
+          "Mennä syömään",
+          "Käydä suihkussa",
+          "Mennä saunaan",
+          "Maksaa lippu"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Saako allasalueella juosta?",
+        "options": [
+          "Kyllä, aina",
+          "Ei koskaan",
+          "Vain aamuisin",
+          "Vain jos on kiire"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaan uimahalli sulkeutuu arkisin?",
+        "options": [
+          "klo 18",
+          "klo 19",
+          "klo 20",
+          "klo 21"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

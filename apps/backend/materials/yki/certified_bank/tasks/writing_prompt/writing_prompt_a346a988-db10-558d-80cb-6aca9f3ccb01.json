@@ -1,0 +1,37 @@
+{
+  "id": "a346a988-db10-558d-80cb-6aca9f3ccb01",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhelimesi varastettiin. Kirjoita vakuutusyhtiölle korvaushakemus. Kerro, mitä tapahtui, missä ja milloin, ja mikä on puhelimen arvo. Kerro myös, onko sinulla poliisin tutkintanumero.",
+    "materials": {
+      "scenario": "Puhelimesi varastettiin. Kirjoita vakuutusyhtiölle korvaushakemus. Kerro, mitä tapahtui, missä ja milloin, ja mikä on puhelimen arvo. Kerro myös, onko sinulla poliisin tutkintanumero."
+    },
+    "items": [
+      {
+        "id": "dcba7fb1-5032-57e5-aaa6-0e9df7020114",
+        "prompt": "Puhelimesi varastettiin. Kirjoita vakuutusyhtiölle korvaushakemus. Kerro, mitä tapahtui, missä ja milloin, ja mikä on puhelimen arvo. Kerro myös, onko sinulla poliisin tutkintanumero."
+      }
+    ],
+    "rubric": "Puhelimesi varastettiin. Kirjoita vakuutusyhtiölle korvaushakemus. Kerro, mitä tapahtui, missä ja milloin, ja mikä on puhelimen arvo. Kerro myös, onko sinulla poliisin tutkintanumero.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "8083f745-ef57-5052-8acb-73ed48370bb4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet saanut päätöksen sairauspäivärahan maksamisesta, mutta päätös on mielestäsi epäselvä. Kerro, mitä kohtaa et ymmärrä ja pyydä tarkempaa selvitystä päätöksen perusteista. Kysy myös, voitko hakea muutosta ja miten se tehdään.",
+    "materials": {
+      "scenario": "Sairauspäivärahapäätöksen selvityspyyntö"
+    },
+    "items": [
+      {
+        "id": "69169612-45d4-5bb4-a988-8ce099019466",
+        "prompt": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet saanut päätöksen sairauspäivärahan maksamisesta, mutta päätös on mielestäsi epäselvä. Kerro, mitä kohtaa et ymmärrä ja pyydä tarkempaa selvitystä päätöksen perusteista. Kysy myös, voitko hakea muutosta ja miten se tehdään."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

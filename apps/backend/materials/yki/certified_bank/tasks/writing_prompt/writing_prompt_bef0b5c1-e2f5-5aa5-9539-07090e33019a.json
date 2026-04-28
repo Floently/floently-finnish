@@ -1,0 +1,37 @@
+{
+  "id": "bef0b5c1-e2f5-5aa5-9539-07090e33019a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa hankintapäällikkönä. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Hankintapäällikkö"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Haet työpaikkaa hankintapäällikkönä. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa hankintapäällikkönä. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

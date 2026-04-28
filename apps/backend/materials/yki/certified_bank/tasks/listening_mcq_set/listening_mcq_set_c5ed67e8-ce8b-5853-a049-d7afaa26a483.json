@@ -1,0 +1,99 @@
+{
+  "id": "c5ed67e8-ce8b-5853-a049-d7afaa26a483",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta muotoilusta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta muotoilusta. Haastattelussa on muotoilija Arto Kivi. Arto, mikä tekee suomalaisesta muotoilusta ainutlaatuista? Arto: Se on yksinkertaisuutta ja toimivuutta. Muotoilussa ei ole turhia koristeita, vaan jokaisella yksityiskohdalla on tarkoitus. Se on myös rehellisyyttä: materiaalit saavat näkyä ja tuntua. Toimittaja: Mistä tämä perinne tulee? Arto: Se on peräisin sodanjälkeisestä ajasta, jolloin materiaaleista oli pulaa. Piti tehdä kestävää ja yksinkertaista. Samalla vaikutteita tuli luonnosta, kuten metsistä ja järvistä. Toimittaja: Miten suomalainen muotoilu on muuttunut? Arto: Nyt on enemmän värejä ja kokeiluja. Nuoret suunnittelijat yhdistävät perinteitä ja uutta teknologiaa. Esimerkiksi huonekaluihin voidaan upottaa langaton lataus. Mutta ydin on edelleen sama: ihmislähtöisyys. Toimittaja: Mikä on tämän hetken trendi? Arto: Kestävyys on todella tärkeää. Halutaan tehdä esineitä, jotka kestävät sukupolvelta toiselle. Myös kierrätysmateriaalien käyttö on lisääntynyt. Toinen trendi on tarinallisuus. Ihmiset haluavat tietää, kuka on tehnyt ja mistä materiaalit tulevat. Toimittaja: Miten suomalainen muotoilu pärjää maailmalla? Arto: Erittäin hyvin. Se on tunnettu laadusta ja ajattomuudesta. Esimerkiksi japanilaiset arvostavat suomalaista muotoilua todella paljon. Toimittaja: Kiitos Arto.",
+      "audio_asset_id": "d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen arkkitehtuuri.",
+          "Suomalainen muotoilu ja sen erityispiirteet.",
+          "Suomalainen taide.",
+          "Suomalainen käsityöperinne."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä Arton mukaan suomalaiselle muotoilulle on tyypillistä?",
+        "options": [
+          "Monimutkaisuus ja koristeellisuus.",
+          "Yksinkertaisuus, toimivuus ja materiaalien rehellisyys.",
+          "Värien runsaus ja kuosit.",
+          "Ulkomaisten tyylien kopiointi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mistä suomalaisen muotoilun perinne on peräisin?",
+        "options": [
+          "Ranskalaisesta muodista.",
+          "Sodanjälkeisestä ajasta ja luonnosta.",
+          "Amerikkalaisesta teollisuudesta.",
+          "Itämaisesta filosofiasta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten nuoret suunnittelijat uudistavat muotoilua?",
+        "options": [
+          "He tekevät vain perinteisiä esineitä.",
+          "He yhdistävät perinteitä ja uutta teknologiaa.",
+          "He kopioivat vanhoja malleja.",
+          "He käyttävät vain muovia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on tämän hetken trendi muotoilussa?",
+        "options": [
+          "Kertakäyttöisyys.",
+          "Kestävyys ja kierrätysmateriaalit.",
+          "Halpuus.",
+          "Muovin käyttö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Missä maassa suomalaista muotoilua arvostetaan erityisen paljon?",
+        "options": [
+          "Ranskassa.",
+          "Japanissa.",
+          "Brasiliassa.",
+          "Australiassa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

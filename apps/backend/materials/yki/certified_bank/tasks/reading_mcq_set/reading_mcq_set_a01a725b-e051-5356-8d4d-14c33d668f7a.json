@@ -1,0 +1,66 @@
+{
+  "id": "a01a725b-e051-5356-8d4d-14c33d668f7a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.293,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue sähköposti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Aihe: Huominen kokous\n\nHei!\n\nHuomisen kokous on siirretty klo 13:sta klo 14:ään. Kokous on huoneessa 305. Muistathan ottaa oman tietokoneen mukaan. Kahvia on tarjolla.\n\nTerveisin,\nMikko",
+      "word_count": 26
+    },
+    "questions": [
+      {
+        "id": "9c01a694-b527-5ec7-ac7a-02a6e12f9fd0",
+        "prompt": "Mihin aikaan kokous alkaa?",
+        "options": [
+          "klo 12",
+          "klo 13",
+          "klo 14",
+          "klo 15"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "062bf46c-dd14-5f2e-a24b-1442d464437a",
+        "prompt": "Missä kokous on?",
+        "options": [
+          "Huone 203",
+          "Huone 305",
+          "Huone 401",
+          "Kahviossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "89eb1f7f-e313-59f7-9eaf-5df74795b90f",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "Muistiinpanot",
+          "Tietokone",
+          "Kahvia",
+          "Kirja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

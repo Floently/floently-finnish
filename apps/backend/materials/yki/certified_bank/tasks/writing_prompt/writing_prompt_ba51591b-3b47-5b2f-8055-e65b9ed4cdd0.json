@@ -1,0 +1,37 @@
+{
+  "id": "ba51591b-3b47-5b2f-8055-e65b9ed4cdd0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Työaikajoustot"
+    },
+    "items": [
+      {
+        "id": "94dc6cf6-d273-5096-88fb-cebf3586f2ae",
+        "prompt": "Pitäisikö yritysten tarjota työntekijöilleen enemmän joustavia työaikoja?"
+      }
+    ],
+    "rubric": "Pitäisikö yritysten tarjota työntekijöilleen enemmän joustavia työaikoja?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

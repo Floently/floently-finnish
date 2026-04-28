@@ -1,0 +1,66 @@
+{
+  "id": "a88fa2ef-771e-523f-942e-668c802aa35b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kuntosalin esite ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TULE KUNTOSALILLE!\n\nKuntosali on avoinna joka päivä 6–23.\n\nHINNAT:\nKertamaksu 10 €\n10 kerran kortti 80 €\nKuukausikortti 45 €\nVuosikortti 400 €\n\nOpiskelija- ja eläkeläisalennus -20 %.\n\nRyhmäliikuntatunnit sisältyvät kuukausi- ja vuosikorttiin.\n\nEnsimmäinen kerta on ilmainen!\n\nTervetuloa tutustumaan.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "55f08e5f-8b30-5604-b874-c84dda4107fa",
+        "prompt": "Milloin kuntosali on auki?",
+        "options": [
+          "klo 8–20",
+          "klo 7–21",
+          "klo 6–23",
+          "klo 9–22"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "67887c81-f487-5530-bd28-c9e82a5da48b",
+        "prompt": "Paljonko maksaa 10 kerran kortti?",
+        "options": [
+          "45 €",
+          "80 €",
+          "100 €",
+          "400 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9fc49f44-526c-51cb-9f9d-2d1d2d5dfb4e",
+        "prompt": "Mitä saa ilmaiseksi?",
+        "options": [
+          "Kuukausikortin",
+          "Ensimmäinen kerta",
+          "Ryhmäliikunnan",
+          "Vuosikortin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

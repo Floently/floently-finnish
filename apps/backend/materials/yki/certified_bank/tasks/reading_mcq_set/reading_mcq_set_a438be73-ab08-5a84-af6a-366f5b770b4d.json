@@ -1,0 +1,66 @@
+{
+  "id": "a438be73-ab08-5a84-af6a-366f5b770b4d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.751,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen poliittinen kenttä on kokenut merkittävän muutoksen viimeisen vuosikymmenen aikana. Perinteiset ideologiset rajat ovat hämärtyneet, ja uudet teemat, kuten ilmastonmuutos ja maahanmuutto, ovat nousseet keskiöön. Politiikan tutkija Hanna Wass Helsingin yliopistosta kuvaa ilmiötä 'uuden aikakauden politiikaksi'. Hänen mukaansa äänestäjät eivät enää sitoudu puolueisiin samalla tavalla kuin ennen, vaan äänestyspäätökset tehdään yhä useammin yksittäisten kysymysten perusteella. Tämä on johtanut puoluekentän pirstaloitumiseen ja hallitusten muodostamisen vaikeutumiseen. Toisaalta Wass näkee tässä myös demokratiaa vahvistavia piirteitä: 'Kansalaiset ovat valveutuneempia ja vaativat puolueilta kantaa konkreettisiin ongelmiin.' Haasteena on kuitenkin se, että yksittäisiin kysymyksiin keskittyvä politiikka voi johtaa kokonaisuuksien hallinnan vaikeutumiseen. Kompromissien tekeminen monimutkaistuu, kun jokaisesta teemasta löytyy vahvoja mielipiteitä. Wass ennustaakin, että tulevaisuudessa tarvitaan entistä enemmän vuoropuhelua ja neuvottelutaitoa, jotta yhteiskunta pysyy hallittavana.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 151
+    },
+    "questions": [
+      {
+        "id": "953d77f5-14ee-5deb-8a2a-9bac8d904146",
+        "prompt": "Miten äänestyskäyttäytyminen on muuttunut Hanna Wassin mukaan?",
+        "options": [
+          "Ihmiset äänestävät aina samaa puoluetta",
+          "Äänestyspäätökset tehdään yksittäisten kysymysten perusteella",
+          "Äänestysprosentti on laskenut",
+          "Nuoret eivät äänestä ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3f467734-3fc9-5cc5-b395-eb5160474bb4",
+        "prompt": "Mitä myönteistä Wass näkee muutoksessa?",
+        "options": [
+          "Hallitukset ovat vakaampia",
+          "Kansalaiset ovat valveutuneempia ja vaativampia",
+          "Puolueet ovat vahvistuneet",
+          "Politiikka on yksinkertaistunut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5cc11bb8-4c1b-5ef7-9844-852c4cc581f6",
+        "prompt": "Mikä on muutoksen haaste Wassin mukaan?",
+        "options": [
+          "Puolueita on liian vähän",
+          "Kokonaisuuksien hallinta vaikeutuu",
+          "Äänestäjät eivät ymmärrä politiikkaa",
+          "Kompromisseja tehdään liian helposti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

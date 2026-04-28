@@ -1,0 +1,73 @@
+{
+  "id": "9781630a-f3b0-50be-a546-64534d8230df",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kiertotalous on ollut viime vuosien trendisana, mutta mitä se oikeastaan tarkoittaa? Perinteisessä lineaarisessa taloudessa tuote valmistetaan, käytetään ja heitetään pois. Kiertotaloudessa pyritään siihen, että materiaalit pysyvät kierrossa mahdollisimman pitkään.\n\nKäytännössä tämä tarkoittaa tuotteiden suunnittelua niin, että ne voidaan korjata, päivittää tai kierrättää. Esimerkiksi elektroniikkavalmistajat suunnittelevat puhelimia, joiden akun voi vaihtaa. Vaateteollisuudessa suositaan kierrätysmateriaaleja ja vuokrauspalveluita.\n\nKiertotaloudella on myös taloudellisia vaikutuksia. Se voi luoda uusia työpaikkoja korjaus- ja kierrätysaloille. Toisaalta se haastaa perinteiset liiketoimintamallit, jotka perustuvat jatkuvaan kulutukseen.\n\nKuluttajalla on tässä tärkeä rooli. Kun ostaa laadukkaita ja korjattavia tuotteita, huoltaa niitä ja kierrättää oikein, edistää kiertotaloutta. Myös tavaran lainaaminen ja vuokraaminen ostamisen sijaan on osa kiertotaloutta.",
+      "word_count": 105
+    },
+    "questions": [
+      {
+        "id": "item_038_1",
+        "prompt": "Mitä eroa on lineaarisella taloudella ja kiertotaloudella?",
+        "options": [
+          "kiertotaloudessa materiaalit pyritään pitämään kierrossa",
+          "lineaarisessa taloudessa kierrätetään kaikki",
+          "kiertotaloudessa tuotteet ovat kalliimpia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_038_2",
+        "prompt": "Miten elektroniikkateollisuus voi edistää kiertotaloutta?",
+        "options": [
+          "tekemällä puhelimista halvempia",
+          "suunnittelemalla tuotteita, joissa akun voi vaihtaa",
+          "vaihtamalla mallia joka vuosi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_038_3",
+        "prompt": "Mitä taloudellisia vaikutuksia kiertotaloudella voi olla?",
+        "options": [
+          "se vähentää työpaikkoja",
+          "se voi luoda uusia työpaikkoja korjaus- ja kierrätysaloille",
+          "se tekee kaikesta halvempaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_038_4",
+        "prompt": "Miten kuluttaja voi edistää kiertotaloutta?",
+        "options": [
+          "ostamalla aina halvinta",
+          "ostamalla laadukkaita ja korjattavia tuotteita sekä kierrättämällä",
+          "heittämällä vanhat pois ja ostamalla uutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "e2ad17f0-b062-56d9-9099-9aebf333735b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.775,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "YKSILÖN VASTUU YMPÄRISTÖKRIISISSÄ – RIITTÄVÄTKÖ ARKIVALINNAT?\n\nIlmastonmuutos ja luontokato ovat aikamme suurimpia haasteita. Keskustelu niiden ratkaisemisesta jakautuu usein kahteen leiriin: toiset korostavat yksilön valintojen merkitystä, toiset vaativat rakenteellisia muutoksia. Kumpi on oikeassa? Entä miten nämä kaksi näkökulmaa suhtautuvat toisiinsa?\n\nYksilön vastuuta korostavat muistuttavat, että jokainen ostopäätös, ruokavalio ja liikkumistapa vaikuttavat. Jos miljoonat ihmiset vähentävät lihansyöntiä, lentämistä ja turhaa kulutusta, vaikutus on merkittävä. Lisäksi yksilön valinnat lähettävät viestin päättäjille ja yrityksille: kansalaiset haluavat muutosta. Tämä voi nopeuttaa rakenteellisia uudistuksia.\n\nRakenteellisten muutosten kannattajat taas huomauttavat, että yksilön vaikutusmahdollisuudet ovat rajalliset. Suurin osa päästöistä syntyy energiajärjestelmistä, teollisuudesta, liikenteen infrastruktuurista ja maatalouden tuotantotavoista – asioista, joihin yksittäinen kansalainen ei juuri voi vaikuttaa. Lisäksi kaikilla ei ole taloudellisia mahdollisuuksia tehdä kalliita ekologisia valintoja. Vastuun sysääminen yksilölle voi myös olla tapa välttää todellisia rakenteellisia toimia.\n\nTodellisuudessa nämä kaksi näkökulmaa eivät ole ristiriidassa, vaan ne täydentävät toisiaan. Tarvitaan sekä yksilön tekoja että rakenteellisia muutoksia. Yksilön valinnat luovat kysyntää ja kulttuurista muutosta, mutta ilman systeemitason uudistuksia ne eivät yksin riitä. Toisaalta rakenteelliset muutokset ovat tehottomia, jos ne eivät saa tukea kansalaisilta.\n\nHaastavaa on, että rakenteelliset muutokset ovat usein hitaita ja vaativat poliittista tahtoa. Yksilön teot taas voivat tuntua pieniltä, mikä voi aiheuttaa turhautumista. Tarvitaan uudenlaista ajattelua, joka ylittää tämän kahtiajaon. Kyse on ekologisesta kansalaisuudesta, jossa yksilö toimii sekä omassa arjessaan että painostaa päättäjiä ja osallistuu yhteiskunnalliseen keskusteluun.\n\nTulevaisuudessa tarvitaan myös uudenlaisia mittareita ja kannustimia. Yritysten ja yhteisöjen vastuuta on lisättävä, ja ympäristöystävällisten valintojen on oltava helppoja ja edullisia kaikille. Yksilön vastuu ei ole ristiriidassa rakenteellisten muutosten kanssa – ne ovat toistensa edellytyksiä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 287
+    },
+    "questions": [
+      {
+        "id": "1642d66f-d0c0-5fa4-aaba-a3900d28b291",
+        "prompt": "Mitä yksilön vastuuta korostavat pitävät tärkeänä?",
+        "options": [
+          "Vain rakenteellisia muutoksia",
+          "Jokaisen arjen valintoja, jotka yhdessä vaikuttavat ja lähettävät viestin päättäjille",
+          "Yksilön tekojen merkityksettömyyttä",
+          "Vain poliittista päätöksentekoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0cfe8741-47c2-5680-bbe6-907530d63017",
+        "prompt": "Mitä rakenteellisten muutosten kannattajat huomauttavat?",
+        "options": [
+          "Yksilön teot ratkaisevat kaiken",
+          "Suurin osa päästöistä on rakenteellisia, eikä yksilö voi vaikuttaa niihin juurikaan",
+          "Rakenteelliset muutokset ovat turhia",
+          "Yksilön vastuu on ainoa tapa edetä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2accaa20-44c6-5280-ac17-9b322e1bf9a7",
+        "prompt": "Miten teksti suhtautuu näiden kahden näkökulman suhteeseen?",
+        "options": [
+          "Ne ovat täysin ristiriidassa",
+          "Ne täydentävät toisiaan ja molempia tarvitaan",
+          "Vain toinen on oikeassa",
+          "Ne eivät liity toisiinsa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1fb6d40-2f32-58bf-984d-26a759b7ceb6",
+        "prompt": "Mitä tarkoitetaan 'ekologisella kansalaisuudella'?",
+        "options": [
+          "Vain äänestämistä ympäristöpuolueita",
+          "Yksilön toimimista sekä omassa arjessaan että painostamassa päättäjiä",
+          "Luonnonsuojelualueilla asumista",
+          "Kaikesta kulutuksesta luopumista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

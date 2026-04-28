@@ -1,0 +1,37 @@
+{
+  "id": "35e173ec-7ac0-5cbe-aab7-5b9f0c12363b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: train_station. Purpose: compare_options. Constraint: mention_a_follow_up_step.",
+    "materials": {
+      "scenario": "asiakaspalvelusta train station"
+    },
+    "items": [
+      {
+        "id": "adb74d2f-fc1a-56f5-987d-db3eb01d4249",
+        "prompt": "Write for the receiver in this scenario: train_station. Purpose: compare_options. Constraint: mention_a_follow_up_step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

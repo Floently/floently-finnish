@@ -1,0 +1,37 @@
+{
+  "id": "d01d6c56-8665-50a7-9650-179f21d376c1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työpaikan tiimille.",
+    "materials": {
+      "scenario": "Ehdota uutta tapaa käsitellä epäonnistumisia"
+    },
+    "items": [
+      {
+        "id": "9106e84b-b90c-506e-ad70-16a1e480068c",
+        "prompt": "Olet huomannut, että tiimissä on vaikea puhua epäonnistumisista ja niistä usein syytellään toisia. Kirjoita sähköposti ja ehdota, että otettaisiin käyttöön uusi tapa käsitellä epäonnistumisia rakentavasti. Kerro, miten se voisi toimia."
+      }
+    ],
+    "rubric": "Olet huomannut, että tiimissä on vaikea puhua epäonnistumisista ja niistä usein syytellään toisia. Kirjoita sähköposti ja ehdota, että otettaisiin käyttöön uusi tapa käsitellä epäonnistumisia rakentavasti. Kerro, miten se voisi toimia.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

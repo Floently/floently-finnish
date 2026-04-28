@@ -1,0 +1,37 @@
+{
+  "id": "46a0f06c-06b8-5ffc-8747-492558d42465",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita analyysi ilmastopolitiikan keskeisistä ristiriidoista. Pohdi esimerkiksi talouskasvun ja ekologisen kestävyyden suhdetta, globaalia oikeudenmukaisuutta ja eri toimijoiden (valtiot, yritykset, kansalaiset) vastuita. Esitä myös oma näkemyksesi siitä, miten näitä ristiriitoja voitaisiin sovittaa yhteen.",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "b9de89ca-5c87-5218-bf30-8830c696acd5",
+        "prompt": "Kirjoita noin 400–450 sanaa. Käytä asiantuntevaa ja analyyttistä kieltä. Älä tyydy yksinkertaisiin vastauksiin, vaan tuo esiin ongelmien monimutkaisuus."
+      }
+    ],
+    "rubric": "Kirjoita noin 400–450 sanaa. Käytä asiantuntevaa ja analyyttistä kieltä. Älä tyydy yksinkertaisiin vastauksiin, vaan tuo esiin ongelmien monimutkaisuus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

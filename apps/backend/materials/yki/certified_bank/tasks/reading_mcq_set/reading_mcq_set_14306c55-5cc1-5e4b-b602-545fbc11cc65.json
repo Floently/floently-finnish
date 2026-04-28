@@ -1,0 +1,99 @@
+{
+  "id": "14306c55-5cc1-5e4b-b602-545fbc11cc65",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.568,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Pienten lasten digitaitojen opettaminen puhuttaa. Osa vanhemmista on huolissaan ruutuajan lisääntymisestä ja sen vaikutuksista lapsen kehitykseen. Toisaalta digitaidot nähdään tärkeänä osana tulevaisuuden osaamista. Asiantuntijat suosittelevat, että digilaitteita käytettäisiin yhdessä lapsen kanssa ja että sisällöt olisivat laadukkaita ja ikätasolle sopivia. Tärkeintä on löytää tasapaino ruutuajan ja muun tekemisen välillä.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä puhuttaa pienten lasten kohdalla?",
+        "options": [
+          "Ulkoleikkien vähyys",
+          "Digitaitojen opettaminen",
+          "Liian vähäinen nukkuminen",
+          "Päiväkodin laatu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä osa vanhemmista on huolissaan?",
+        "options": [
+          "Liian vähäisestä ruutuajasta",
+          "Ruutuajan lisääntymisestä ja sen vaikutuksista",
+          "Lasten kiinnostuksesta kirjoihin",
+          "Liian aikaisesta nukkumaanmenosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten digitaidot nähdään toisaalta?",
+        "options": [
+          "Turhina taitoina",
+          "Tärkeänä osana tulevaisuuden osaamista",
+          "Vain viihdykkeenä",
+          "Vain aikuisten asiana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä asiantuntijat suosittelevat digilaitteiden käytöstä lasten kanssa?",
+        "options": [
+          "Niitä saa käyttää vain yksin",
+          "Niitä käytettäisiin yhdessä ja sisällöt olisivat laadukkaita",
+          "Laitteita ei saisi käyttää ollenkaan",
+          "Vain koulussa saa käyttää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millaisten sisältöjen tulisi olla?",
+        "options": [
+          "Viihdyttäviä ja nopeita",
+          "Laadukkaita ja ikätasolle sopivia",
+          "Vaikeita ja haastavia",
+          "Mainoksia sisältäviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on tärkeintä lasten digilaitteiden käytössä?",
+        "options": [
+          "Laitteiden kalleus",
+          "Ruutuajan ja muun tekemisen välinen tasapaino",
+          "Uusimpien sovellusten käyttö",
+          "Päivittäinen käyttö"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

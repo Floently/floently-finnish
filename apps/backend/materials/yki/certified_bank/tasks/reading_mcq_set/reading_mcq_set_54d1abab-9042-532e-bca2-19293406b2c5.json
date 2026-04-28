@@ -1,0 +1,66 @@
+{
+  "id": "54d1abab-9042-532e-bca2-19293406b2c5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mainos ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KESÄTYÖT HAKUUN!\n\nHaemme kesätyöntekijöitä kahvilaamme!\n\nTehtävät: asiakaspalvelu, kahvin ja teen valmistus, leivonnaisten myynti, siivous.\n\nTarjoamme: mukavan työympäristön, hyvän perehdytyksen ja kilpailukykyisen palkan.\n\nTyöaika: kesäkuu–elokuu, noin 25 tuntia viikossa. Työvuorot ovat ma–pe 8–16 tai 12–20.\n\nHae lähettämällä vapaamuotoinen hakemus ja CV osoitteeseen: kahvila@aurinko.fi 15.2. mennessä.\n\nLisätietoja: puh. 050 987 6543.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 65
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tehtäviä kesätyöhön kuuluu?",
+        "options": [
+          "vain kahvin valmistus",
+          "vain asiakaspalvelu",
+          "asiakaspalvelu, kahvin valmistus, myynti ja siivous",
+          "vain siivous"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka monta tuntia viikossa työtä on noin?",
+        "options": [
+          "15 tuntia",
+          "20 tuntia",
+          "25 tuntia",
+          "30 tuntia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin hakemus pitää lähettää?",
+        "options": [
+          "15.1. mennessä",
+          "15.2. mennessä",
+          "15.3. mennessä",
+          "15.4. mennessä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

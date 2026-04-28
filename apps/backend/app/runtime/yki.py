@@ -1,0 +1,76 @@
+from __future__ import annotations
+
+from typing import Any
+
+from ..adapters.yki_engine_adapter import EngineResponse, perform_engine_request
+from app.core.errors import AppError
+from app.core.state_store import STORE
+from app.core.utils import iso_now
+
+
+async def engine_request(*, method: str, path: str, payload: dict[str, Any] | None = None) -> EngineResponse:
+    return await perform_engine_request(method=method, path=path, payload=payload)
+
+
+def map_engine_error(*, response: EngineResponse) -> None:
+    if response.status_code < 400:
+        return
+    detail = response.payload.get("detail") if isinstance(response.payload, dict) else response.payload
+    message = detail.get("message") if isinstance(detail, dict) and detail.get("message") else str(detail or "YKI engine request failed.")
+    if response.status_code in {408, 429, 500, 502, 503, 504}:
+        raise AppError(response.status_code, "YKI_ENGINE_RETRYABLE", message, True, {"classification": "retryable"})
+    if response.status_code == 410:
+        raise AppError(response.status_code, "YKI_SESSION_EXPIRED", message, False, {"classification": "terminal"})
+    if response.status_code in {404, 409}:
+        raise AppError(response.status_code, "YKI_INVALID_STATE", message, False, {"classification": "terminal"})
+    raise AppError(response.status_code, "YKI_REQUEST_REJECTED", message, False, {"classification": "non_retryable"})
+
+
+def store_yki_session(*, user_id: str, runtime: dict[str, Any]) -> None:
+    session_id = str(runtime.get("session_id") or "").strip()
+    token = str(
+        runtime.get("engine_session_token")
+        or (runtime.get("metadata") or {}).get("engine_session_token")
+        or ""
+    ).strip()
+    if not session_id:
+        return
+    with STORE.locked(("yki_sessions", session_id)):
+        STORE.set(
+            "yki_sessions",
+            session_id,
+            {
+                "user_id": user_id,
+                "engine_session_token": token,
+                "runtime_schema_version": runtime.get("runtime_schema_version"),
+                "updated_at": iso_now(),
+            },
+        )
+
+
+def sanitize_runtime_for_client(value: Any) -> Any:
+    if isinstance(value, dict):
+        sanitized: dict[str, Any] = {}
+        for key, item in value.items():
+            if key in {"engine_session_token", "debug", "canonical_structure", "canonical_task", "internal_state", "raw_runtime"}:
+                continue
+            sanitized[key] = sanitize_runtime_for_client(item)
+        return sanitized
+    if isinstance(value, list):
+        return [sanitize_runtime_for_client(item) for item in value]
+    return value
+
+
+def get_yki_session_record(*, user_id: str, session_id: str) -> dict[str, Any]:
+    with STORE.locked(("yki_sessions", session_id)):
+        payload = STORE.get_ref("yki_sessions", session_id)
+        if not payload:
+            raise AppError(404, "YKI_SESSION_NOT_FOUND", "YKI session is not known to the adapter.", False, {"classification": "terminal"})
+        if payload.get("user_id") != user_id:
+            raise AppError(403, "YKI_SESSION_FORBIDDEN", "YKI session is not available for this user.", False, {"classification": "non_retryable"})
+        return {
+            "user_id": payload["user_id"],
+            "engine_session_token": payload["engine_session_token"],
+            "runtime_schema_version": payload.get("runtime_schema_version"),
+            "updated_at": payload.get("updated_at"),
+        }

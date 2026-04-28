@@ -1,0 +1,40 @@
+{
+  "id": "26f0c50b-9c1d-5f2b-8e20-d4a472584810",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa juhlavaa ja kunnioittavaa kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet puhuja, joka on surullinen mutta haluaa juhlistaa vainajan elämää.",
+        "partner": "Surijat - odottavat lohdutusta ja yhteisiä muistoja."
+      }
+    },
+    "items": [
+      {
+        "id": "srp40",
+        "ai_first_turn_fi": "Hyvät ystävät, rakkaat omaiset. Meillä on tänään surullinen mutta myös kiitollinen tehtävä: muistella [vainajan nimi] elämää."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa juhlavaa ja kunnioittavaa kieltä.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

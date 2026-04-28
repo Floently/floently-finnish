@@ -1,0 +1,66 @@
+{
+  "id": "69b877ff-e23e-58b7-ace0-7f3dde12526b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KIRPPUTORI 15.5.\n\nTervetuloa Vuosaaren kirpputorille lauantaina 15.5. kello 10–16!\n\nPaikka: Vuosaaren koulu, Koulutie 5\n\nMyynnissä: vaatteita, kenkiä, leluja, kirjoja, astioita, kodintavaraa.\n\nMyyntipöydän hinta: 15 €. Ilmoittautumiset 10.5. mennessä: kirpputori@vuosaari.fi\n\nKahvio: myynnissä kahvia, pullaa, voileipiä.\n\nTervetuloa tekemään löytöjä!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "e1903d9e-8c69-5e11-ba67-465c3966a3b7",
+        "prompt": "Milloin kirpputori järjestetään?",
+        "options": [
+          "sunnuntaina 14.5.",
+          "lauantaina 15.5.",
+          "maanantaina 16.5.",
+          "tiistaina 17.5."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "02817b80-eb38-5951-b8b5-1866fa80d392",
+        "prompt": "Paljonko myyntipöytä maksaa?",
+        "options": [
+          "10 €",
+          "12 €",
+          "15 €",
+          "20 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ebfba28e-e540-5d0e-b3de-1c1c437c07c3",
+        "prompt": "Mitä kirpputorilla on myynnissä?",
+        "options": [
+          "vain vaatteita",
+          "vain leluja",
+          "vaatteita, leluja, kirjoja, astioita",
+          "vain huonekaluja"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

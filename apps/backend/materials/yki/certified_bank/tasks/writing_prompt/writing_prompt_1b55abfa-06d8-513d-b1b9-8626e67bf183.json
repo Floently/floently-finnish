@@ -1,0 +1,37 @@
+{
+  "id": "1b55abfa-06d8-513d-b1b9-8626e67bf183",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on ollut pieni tulva esimerkiksi pesukoneen rikkoutumisen vuoksi. Kerro, mitä tapahtui ja mitä olet jo tehnyt. Pyydä ohjeita ja korjausta.",
+    "materials": {
+      "scenario": "Ilmoitus tulvavahingosta"
+    },
+    "items": [
+      {
+        "id": "7b79a6ea-9033-5136-8ea5-b9bca21b3450",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnossasi on ollut pieni tulva esimerkiksi pesukoneen rikkoutumisen vuoksi. Kerro, mitä tapahtui ja mitä olet jo tehnyt. Pyydä ohjeita ja korjausta."
+      }
+    ],
+    "rubric": "Vahingon kuvaus\nTehdyt toimet\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

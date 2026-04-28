@@ -1,0 +1,40 @@
+{
+  "id": "3d00edfe-851b-57a9-b8ca-c9cf82ee1882",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vastaa haastattelijan kysymykseen. Kerro itsestäsi, perustele motivaatiosi, kuvaile vahvuuksiasi ja pohdi pitkän aikavälin tavoitteitasi.",
+    "materials": {
+      "roles": {
+        "user": "työhaastattelussa markkinointialan yrityksessä",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "d3980bd6-59eb-585a-9243-99850c9dffa9",
+        "ai_first_turn_fi": "Kerro hieman itsestäsi ja siitä, miksi haet tätä markkinointikoordinaattorin paikkaa. Mitkä ovat vahvuutesi ja millaisia tavoitteita sinulla on urallasi seuraavan viiden vuoden aikana?"
+      }
+    ],
+    "rubric": "Vastaa haastattelijan kysymykseen. Kerro itsestäsi, perustele motivaatiosi, kuvaile vahvuuksiasi ja pohdi pitkän aikavälin tavoitteitasi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

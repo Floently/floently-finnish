@@ -1,0 +1,77 @@
+{
+  "id": "5e026a7b-1794-5937-a388-40f209fa7551",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.76,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni talouskasvun rajoista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TALOUSKASVUN RAJAT – ONKO JATKUVA KASVU MAHDOLLISTA?\n\nTalouskasvu on ollut viime vuosisatojen ajan länsimaiden yhteiskuntien keskeinen tavoite. Sen on uskottu tuovan hyvinvointia, työpaikkoja ja ratkaisuja yhteiskunnallisiin ongelmiin. Mutta viime vuosina keskustelu talouskasvun rajoista on voimistunut. Onko jatkuva kasvu ylipäätään mahdollista rajallisella planeetalla?\n\nKasvun kritiikki nousee erityisesti ympäristönäkökulmasta. Rajattoman kasvun malli kuluttaa luonnonvaroja ja tuottaa päästöjä tavalla, joka ei ole kestävää. Ilmastonmuutos ja luontokato ovat konkreettisia osoituksia siitä, että nykyinen malli on ajautunut kriisiin. Ekologit muistuttavat, että maapallon kantokyvyllä on rajansa.\n\nToinen kritiikin kohde on hyvinvoinnin jakautuminen. Vaikka talous on kasvanut, hyödyt ovat keskittyneet. Eriarvoisuus on kasvanut, eikä kasvu ole automaattisesti parantanut kaikkien elämänlaatua. Monet kokevat, että työelämä on kiristynyt, vaikka bruttokansantuote nousee.\n\nTalouskasvun kannattajat korostavat, että kasvu on välttämätöntä, jotta voimme ylläpitää hyvinvointivaltiota ja ratkaista ympäristöongelmia. Heidän mukaansa teknologinen kehitys mahdollistaa kasvun ilman ympäristön kuormitusta. Vihreä siirtymä ja kiertotalous ovat esimerkkejä siitä, miten kasvua voidaan jatkaa kestävästi.\n\nKolmas näkökulma on niin sanottu jälkikasvuajattelu. Sen mukaan tavoitteena ei pitäisi olla jatkuva määrällinen kasvu, vaan laadullinen kehitys. Tärkeämpää olisi panostaa hyvinvointiin, terveyteen, koulutukseen ja ympäristön tilaan – asioihin, jotka eivät aina näy BKT:ssa. Tämä vaatisi uudenlaista talousajattelua ja mittareita.\n\nSuomessa keskustelu on ollut vielä varovaista, mutta kansainvälisesti se on voimistunut. Monet tutkijat ja kansalaisjärjestöt ovat vaatineet talouspolitiikan uudelleenarviointia. Myös poliittisessa keskustelussa aletaan puhua hyvinvoinnin mittaamisesta pelkän talouskasvun sijaan.\n\nLopuksi voidaan todeta, että talouskasvu on monimutkainen ilmiö, johon liittyy sekä mahdollisuuksia että ongelmia. Tulevaisuudessa tarvitaan nykyistä monipuolisempaa keskustelua siitä, millaista kehitystä haluamme ja millä keinoilla sitä mitataan.",
+      "word_count": 244
+    },
+    "questions": [
+      {
+        "id": "c1c2_reading_mcq_009_q1",
+        "prompt": "Mitä kritiikkiä talouskasvua kohtaan esitetään?",
+        "options": [
+          "se on liian hidasta",
+          "se kuluttaa luonnonvaroja ja lisää eriarvoisuutta",
+          "se on täysin ongelmatonta",
+          "se on liian nopeaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_009_q2",
+        "prompt": "Miten talouskasvun kannattajat perustelevat kasvun tarvetta?",
+        "options": [
+          "kasvu on haitallista",
+          "kasvu on välttämätöntä hyvinvointivaltiolle ja ympäristöongelmien ratkaisemiselle",
+          "kasvua ei tarvita",
+          "kasvu on vain rikkaita varten"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_009_q3",
+        "prompt": "Mitä tarkoittaa jälkikasvuajattelu?",
+        "options": [
+          "talouskasvun lopettamista kokonaan",
+          "laadullista kehitystä määrällisen kasvun sijaan",
+          "vain määrällistä kasvua",
+          "talouskasvun kiihtymistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_009_q4",
+        "prompt": "Mitä kirjoittaja ehdottaa tulevaisuuden mittareiksi?",
+        "options": [
+          "vain BKT:ta",
+          "hyvinvoinnin, terveyden, koulutuksen ja ympäristön tilan mittaamista",
+          "vain yritysten voittoja",
+          "vain kulutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

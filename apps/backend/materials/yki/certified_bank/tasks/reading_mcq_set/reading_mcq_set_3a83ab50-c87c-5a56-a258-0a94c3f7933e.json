@@ -1,0 +1,77 @@
+{
+  "id": "3a83ab50-c87c-5a56-a258-0a94c3f7933e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.806,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Koulutuksen tulevaisuutta koskeva keskustelu on viime vuosina keskittynyt pitkälti kahteen toisilleen vastakkaiseen näkemykseen: toisaalta perinteisen sivistysihanteen puolustajiin, toisaalta uusliberalistisen, markkinaehtoisen koulutuspolitiikan kannattajiin. Tämä vastakkainasettelu on kuitenkin usein liian yksinkertaistava, ja se jättää huomiotta monia keskeisiä kysymyksiä koulutuksen yhteiskunnallisesta merkityksestä ja tulevaisuuden haasteista. Perinteisen sivistysihanteen kannattajat korostavat koulutuksen itseisarvoa. Heidän mukaansa koulutuksen ensisijainen tehtävä on kasvattaa ihmisestä ajatteleva, kriittinen ja vastuullinen kansalainen. Tämä niin sanottu bildung-perinne painottaa humanististen tieteiden, historian ja filosofian merkitystä. Sen mukaan koulutus ei ole vain väline työelämää varten, vaan se on arvokasta itsessään. Uusliberalistisen, markkinaehtoisen koulutuspolitiikan kannattajat puolestaan korostavat koulutuksen välinearvoa. Heidän mukaansa koulutuksen tärkein tehtävä on tuottaa osaajia työelämän tarpeisiin ja vahvistaa kansantalouden kilpailukykyä. Tämä ajattelu painottaa mitattavia oppimistuloksia, tehokkuutta ja tiivistä yhteistyötä elinkeinoelämän kanssa. Kolmas, syntetisoiva näkemys pyrkii ylittämään tämän vastakkainasettelun. Sen mukaan koulutuksen tulee sekä sivistää että valmentaa työelämään. Nämä kaksi tavoitetta eivät ole ristiriidassa, vaan ne voivat tukea toisiaan. Laaja-alainen sivistys antaa valmiuksia sopeutua muuttuviin työelämän tarpeisiin ja kehittää uudenlaisia ratkaisuja. Toisaalta työelämätaidot, kuten ongelmanratkaisukyky ja yhteistyötaidot, ovat myös tärkeitä yleissivistyksen kannalta. Tulevaisuuden koulutusjärjestelmän tulisi kyetä yhdistämään nämä molemmat tavoitteet joustavasti ja yksilöllisesti. Se vaatii uudenlaisia pedagogisia ratkaisuja, oppiainerajojen ylittämistä ja jatkuvaa vuoropuhelua koulutuksen ja työelämän välillä. Samalla on kuitenkin tärkeää säilyttää koulutuksen perustehtävä sivistyksen ja ihmisenä kasvamisen välineenä.",
+      "word_count": 206
+    },
+    "questions": [
+      {
+        "id": "dd4e4007-5081-5e8a-9b73-01b9333e6494",
+        "prompt": "Mikä on tekstin keskeinen väite koulutusta koskevasta keskustelusta?",
+        "options": [
+          "Perinteinen sivistysihanne ja uusliberalistinen koulutuspolitiikka ovat täysin yhteensovittamattomia",
+          "Koulutuskeskustelua hallitseva vastakkainasettelu on liian yksinkertaistava, ja koulutuksen tulisi yhdistää sekä sivistyksellisiä että työelämälähtöisiä tavoitteita",
+          "Uusliberalistinen, markkinaehtoinen koulutuspolitiikka on ainoa oikea tie tulevaisuuteen",
+          "Perinteinen sivistysihanne on vanhentunut eikä vastaa nyky-yhteiskunnan tarpeita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9f9e1e37-102e-523a-a725-8124dc674701",
+        "prompt": "Tekstin mukaan mitä perinteinen sivistysihanne (bildung-perinne) korostaa?",
+        "options": [
+          "Koulutuksen välinearvoa työelämän tarpeisiin",
+          "Koulutuksen itseisarvoa ja sen tehtävää kasvattaa kriittinen, ajatteleva ja vastuullinen kansalainen",
+          "Oppimistulosten mittaamista ja tehokkuutta",
+          "Tiivistä yhteistyötä elinkeinoelämän kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e5a65b5f-7a99-568b-a8d0-5a259e828398",
+        "prompt": "Mitä uusliberalistinen koulutuspolitiikka tekstin mukaan painottaa?",
+        "options": [
+          "Humanististen tieteiden ja filosofian merkitystä",
+          "Koulutuksen itseisarvoa ja sivistystä",
+          "Koulutuksen välinearvoa, työelämätaitoja, mitattavia tuloksia ja elinkeinoelämän yhteistyötä",
+          "Oppiainerajojen ylittämistä ja uudenlaisia pedagogisia ratkaisuja"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0894a33f-63f5-596b-8d62-b599a7139edc",
+        "prompt": "Mitä kolmas, syntetisoiva näkemys edellyttää tulevaisuuden koulutusjärjestelmältä?",
+        "options": [
+          "Joko sivistyksellisiin tai työelämälähtöisiin tavoitteisiin keskittymistä",
+          "Perinteisen sivistysihanteen täydellistä hylkäämistä",
+          "Sivistyksellisten ja työelämälähtöisten tavoitteiden yhdistämistä joustavasti ja yksilöllisesti",
+          "Tiukkaa eriyttämistä akateemiseen ja ammatilliseen koulutukseen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

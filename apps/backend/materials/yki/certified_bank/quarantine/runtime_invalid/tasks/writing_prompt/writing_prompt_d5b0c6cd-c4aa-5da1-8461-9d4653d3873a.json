@@ -1,0 +1,37 @@
+{
+  "id": "d5b0c6cd-c4aa-5da1-8461-9d4653d3873a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: library counter. Purpose: justify an opinion. Constraint: offer a concrete solution.",
+    "materials": {
+      "scenario": "family_life in library_counter"
+    },
+    "items": [
+      {
+        "id": "57a098bf-2745-5da6-b464-a4707282053d",
+        "prompt": "Write for the receiver in this scenario: library counter. Purpose: justify an opinion. Constraint: offer a concrete solution."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

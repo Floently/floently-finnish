@@ -1,0 +1,99 @@
+{
+  "id": "2c4846c9-ee25-596e-8649-7cb7007dbb5a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Uusi ruokakauppa avataan lokakuussa. Se sijaitsee keskustassa, torin laidalla. Kaupassa on laaja valikoima tuoreita elintarvikkeita, kuten hedelmiä, vihanneksia ja leipää. Lisäksi siellä on pieni kahvila, josta saa kahvia ja leivonnaisia. Kauppa on auki maanantaista lauantaihin kello 8–21. Sunnuntaisin kauppa on kiinni.",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uusi ruokakauppa avataan?",
+        "options": [
+          "Syyskuussa",
+          "Lokakuussa",
+          "Marraskuussa",
+          "Joulukuussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä kauppa sijaitsee?",
+        "options": [
+          "Lähiössä",
+          "Keskustassa, torin laidalla",
+          "Aseman vieressä",
+          "Kauppakeskuksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tuoreita elintarvikkeita kaupassa on?",
+        "options": [
+          "Lihaa ja kalaa",
+          "Hedelmiä, vihanneksia ja leipää",
+          "Maitotuotteita",
+          "Pakasteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kaupassa on elintarvikkeiden lisäksi?",
+        "options": [
+          "Leikkipaikka",
+          "Pieni kahvila",
+          "Kirjakauppa",
+          "Kukkakauppa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin kauppa on auki?",
+        "options": [
+          "Maanantaista perjantaihin kello 8–20",
+          "Maanantaista lauantaihin kello 8–21",
+          "Joka päivä kello 9–21",
+          "Vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Minä päivänä kauppa on kiinni?",
+        "options": [
+          "Maanantaisin",
+          "Lauantaisin",
+          "Sunnuntaisin",
+          "Joka päivä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

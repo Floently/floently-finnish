@@ -1,0 +1,37 @@
+{
+  "id": "5f08db2e-2222-5e49-a26f-c728192ad56c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: kaupungin toimistossa. Tarkoitus: perustele mielipide. Rajoite: tarjoa konkreettinen ratkaisu.",
+    "materials": {
+      "scenario": "palauteen kaupungin toimistosta"
+    },
+    "items": [
+      {
+        "id": "a848f098-9291-5a9e-8395-7e2fd5b5a4b5",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: kaupungin toimistossa. Tarkoitus: perustele mielipide. Rajoite: tarjoa konkreettinen ratkaisu."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

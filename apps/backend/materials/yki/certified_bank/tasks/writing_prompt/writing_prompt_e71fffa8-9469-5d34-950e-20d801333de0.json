@@ -1,0 +1,37 @@
+{
+  "id": "e71fffa8-9469-5d34-950e-20d801333de0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit kirjastossa, mutta et saanut tarvitsemaasi apua henkilökunnalta. Kirjoita valitus kirjaston johtajalle. Kerro, mitä tapahtui, milloin ja kuka oli kyseessä. Kerro myös, miten tilanne olisi pitänyt hoitaa ja mitä odotat jatkossa.",
+    "materials": {
+      "scenario": "Kävit kirjastossa, mutta et saanut tarvitsemaasi apua henkilökunnalta. Kirjoita valitus kirjaston johtajalle. Kerro, mitä tapahtui, milloin ja kuka oli kyseessä. Kerro myös, miten tilanne olisi pitänyt hoitaa ja mitä odotat jatkossa."
+    },
+    "items": [
+      {
+        "id": "7496f42f-7263-5e72-9f1e-7bd1c90b1d78",
+        "prompt": "Kävit kirjastossa, mutta et saanut tarvitsemaasi apua henkilökunnalta. Kirjoita valitus kirjaston johtajalle. Kerro, mitä tapahtui, milloin ja kuka oli kyseessä. Kerro myös, miten tilanne olisi pitänyt hoitaa ja mitä odotat jatkossa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 200, \"min\": 150}}",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "56499232-78bf-5963-8a6a-102f9e45b13e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KOLUMNI: Työelämän murros vaatii uusia pelisääntöjä\n\nTyöelämä on murroksessa. Etätyö on tullut jäädäkseen, ja samalla raja työn ja vapaa-ajan välillä on hämärtynyt. Tämä asettaa uudenlaisia vaatimuksia niin työntekijöille kuin esimiehillekin. Perinteinen läsnäolon kulttuuri on väistymässä, mutta sen tilalle ei ole vielä muodostunut selkeitä pelisääntöjä. Työntekijältä vaaditaan entistä enemmän itseohjautuvuutta. Kaikilla tätä kykyä ei ole. Toisaalta työnantajien on opeteltava luottamaan ilman jatkuvaa valvontaa. Luottamus ei kuitenkaan synny tyhjästä, vaan se vaatii rakenteita: selkeitä tavoitteita, säännöllistä palautetta ja toimivia kommunikaatiokanavia.",
+      "word_count": 78
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja pitää ongelmallisena etätyön yleistymisessä?",
+        "options": [
+          "Etätyö vähentää tuottavuutta",
+          "Selkeitä pelisääntöjä ei ole vielä muodostunut",
+          "Työnantajat eivät hyväksy etätyötä",
+          "Työntekijät eivät halua tehdä etätyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä työntekijältä vaaditaan etätyössä kirjoittajan mukaan?",
+        "options": [
+          "Jatkuvaa tavoitettavuutta",
+          "Itseohjautuvuutta",
+          "Pidempiä työpäiviä",
+          "Teknistä osaamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työnantajilta vaaditaan?",
+        "options": [
+          "Jatkuvaa valvontaa",
+          "Luottamusta ja selkeitä rakenteita",
+          "Läsnäoloa toimistolla",
+          "Työaikojen pidentämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

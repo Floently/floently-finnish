@@ -1,0 +1,37 @@
+{
+  "id": "2b403564-9e1f-59e2-9fad-6ccf0db76452",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a restaurant manager position in a medium-sized restaurant. Tell about your previous experience in the restaurant industry, personnel management, and how you have developed the restaurant's operations. Length about 280 words.",
+    "materials": {
+      "scenario": "Hakemus ravintolapäällikön tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a restaurant manager position in a medium-sized restaurant. Tell about your previous experience in the restaurant industry, personnel management, and how you have developed the restaurant's operations. Length about 280 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a restaurant manager position in a medium-sized restaurant. Tell about your previous experience in the restaurant industry, personnel management, and how you have developed the restaurant's operations. Length about 280 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

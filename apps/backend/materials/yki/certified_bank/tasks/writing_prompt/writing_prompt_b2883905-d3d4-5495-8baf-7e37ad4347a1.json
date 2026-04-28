@@ -1,0 +1,37 @@
+{
+  "id": "b2883905-d3d4-5495-8baf-7e37ad4347a1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin ympäristökeskukseen. Olet huomannut, että lähipuiston roskiksia tyhjennetään liian harvoin, ja roskia on maassa. Kerro havaintosi ja ehdota, että tyhjennysväliä tihennettäisiin kesällä.",
+    "materials": {
+      "scenario": "Palaute puiston roskaantumisesta"
+    },
+    "items": [
+      {
+        "id": "e3543d86-4b03-5905-a313-a0d0a59d57c6",
+        "prompt": "Kirjoita sähköposti kaupungin ympäristökeskukseen. Olet huomannut, että lähipuiston roskiksia tyhjennetään liian harvoin, ja roskia on maassa. Kerro havaintosi ja ehdota, että tyhjennysväliä tihennettäisiin kesällä."
+      }
+    ],
+    "rubric": "Havainnon kuvaus\nOngelma\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

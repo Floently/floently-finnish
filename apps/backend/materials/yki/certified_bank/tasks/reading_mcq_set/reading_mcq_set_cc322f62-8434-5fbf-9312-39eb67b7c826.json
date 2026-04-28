@@ -1,0 +1,77 @@
+{
+  "id": "cc322f62-8434-5fbf-9312-39eb67b7c826",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Artikkelissa kuvataan palliatiivisen hoidon päätöksentekoa tilanteissa, joissa lääketieteellinen hyöty, potilaan oma tahto ja läheisten näkemykset eivät täysin kohtaa. Kirjoittaja korostaa, että eettisesti kestävää ratkaisua ei löydy pelkällä juridisella tarkistuslistalla, vaan prosessin läpinäkyvyys on ratkaiseva. Dokumentoinnin tulee tehdä näkyväksi, millä perusteella vaihtoehtoja punnittiin ja miksi tiettyyn linjaan päädyttiin.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä artikkeli käsittelee?",
+        "options": [
+          "päivystyksen ruuhkaa",
+          "palliatiivisen hoidon päätöksentekoa",
+          "sairaalan rakentamista",
+          "lääkehintojen nousua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä ei yksin riitä kirjoittajan mukaan?",
+        "options": [
+          "läpinäkyvyys",
+          "juridinen tarkistuslista",
+          "dokumentointi",
+          "keskustelu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on kirjoittajan keskeinen vaatimus?",
+        "options": [
+          "nopea äänestys",
+          "prosessin läpinäkyvyys",
+          "vain lääkärin päätös",
+          "vain omaisten päätös"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä dokumentoinnin tulee tehdä näkyväksi?",
+        "options": [
+          "budjetti",
+          "päätöksen punnintaperusteet",
+          "henkilöstöluettelo",
+          "rakennuspiirustukset"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

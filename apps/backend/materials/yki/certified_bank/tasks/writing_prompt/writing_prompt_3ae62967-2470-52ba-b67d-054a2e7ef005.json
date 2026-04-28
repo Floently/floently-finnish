@@ -1,0 +1,37 @@
+{
+  "id": "3ae62967-2470-52ba-b67d-054a2e7ef005",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a vice president position at the World Bank. Tell about your experience in international development finance, poverty reduction, and institutional reform. Also describe how you have promoted sustainable development and impact in developing countries in a global operating environment. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus Maailmanpankin varapääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "a1aff78a-1e98-51c0-9af4-63e30546a44f",
+        "prompt": "Write a job application. You are applying for a vice president position at the World Bank. Tell about your experience in international development finance, poverty reduction, and institutional reform. Also describe how you have promoted sustainable development and impact in developing countries in a global operating environment. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a vice president position at the World Bank. Tell about your experience in international development finance, poverty reduction, and institutional reform. Also describe how you have promoted sustainable development and impact in developing countries in a global operating environment. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

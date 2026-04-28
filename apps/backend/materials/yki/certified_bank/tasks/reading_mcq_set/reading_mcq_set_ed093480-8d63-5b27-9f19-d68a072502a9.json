@@ -1,0 +1,77 @@
+{
+  "id": "ed093480-8d63-5b27-9f19-d68a072502a9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen kaksikielisessä perheessä kasvanut nuori. Äitini on suomalainen ja isäni espanjalainen. Olen oppinut molemmat kielet pienestä pitäen. Tämä on ollut minulle valtava rikkaus.\n\nMonet ajattelevat, että monikielisyys on hankalaa tai että se sekoittaa lapsen päätä. Tutkimukset osoittavat päinvastaista. Monikieliset lapset oppivat usein ajattelemaan joustavammin ja heillä on parempi ongelmanratkaisukyky. He myös oppivat uusia kieliä helpommin myöhemmin.\n\nSuomessa puhutaan paljon ruotsin kielen pakollisuudesta. Itse en ymmärrä, miksi tästä pitää vängätä. Kielitaito on aina hyödyksi. Jos osaa suomea ja ruotsia, on helpompi saada töitä ja pärjätä pohjoismaissa. Ja maahanmuuttajien lapset oppivat suomea koulussa ihan hyvin, vaikka kotona puhuttaisiin muuta kieltä.\n\nToivon, että Suomessa arvostettaisiin enemmän monikielisyyttä. Se ei ole uhka suomen kielelle, vaan rikkaus. Maailma on täynnä eri kieliä, ja mitä useampaa osaa, sitä paremmin pärjää.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 152
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kieliä kirjoittaja puhuu?",
+        "options": [
+          "A) suomea ja ruotsia",
+          "B) suomea ja espanjaa",
+          "C) suomea ja englantia",
+          "D) espanjaa ja englantia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä monikielisyydestä on tutkimusten mukaan?",
+        "options": [
+          "A) Lapset oppivat puhumaan aikaisin",
+          "B) Joustavampi ajattelu ja parempi ongelmanratkaisukyky",
+          "C) Lapset menestyvät koulussa paremmin",
+          "D) Lapset saavat enemmän kavereita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä mieltä kirjoittaja on ruotsin kielen opetuksesta?",
+        "options": [
+          "A) Se pitäisi lopettaa",
+          "B) Se on hyödyllistä, kannattaa opiskella",
+          "C) Se on liian vaikeaa",
+          "D) Vain tietyillä aloilla tarvitaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kirjoittaja toivoo?",
+        "options": [
+          "A) Monikielisyyttä arvostettaisiin enemmän",
+          "B) Suomea puhuttaisiin enemmän",
+          "C) Maahanmuuttajat oppisivat nopeammin suomea",
+          "D) Kouluissa olisi enemmän kielten opetusta"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

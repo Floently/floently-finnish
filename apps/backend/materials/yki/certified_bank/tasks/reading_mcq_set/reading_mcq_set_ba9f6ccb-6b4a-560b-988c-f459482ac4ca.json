@@ -1,0 +1,77 @@
+{
+  "id": "ba9f6ccb-6b4a-560b-988c-f459482ac4ca",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Lääkärikäynnit etänä ovat yleistyneet. Moni kokee sen helpotuksena, mutta osa potilaista kokee, että etävastaanotto ei korvaa kasvokkain tapahtuvaa kohtaamista. Erityisesti vanhukset ja ne, joilla on huonot digitaidot, saattavat jäädä palvelujen ulkopuolelle. Asiantuntijat muistuttavat, että etäpalvelut ovat hyvä lisä, mutta ne eivät saa syrjäyttää perinteisiä vastaanottoja.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "94bbe4d3-8211-51fd-b024-f99137ccf82a",
+        "prompt": "Mitä hyötyä etälääkärikäynneistä on?",
+        "options": [
+          "Ne ovat ilmaisia",
+          "Ne säästävät aikaa",
+          "Lääkäri ehtii paremmin",
+          "Ne ovat tarkempia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "736cb49e-87fe-5f8c-820a-2b550c6de9b4",
+        "prompt": "Mikä on etävastaanoton haitta?",
+        "options": [
+          "Se on kalliimpi",
+          "Lääkäri ei huomaa kaikkia oireita",
+          "Se kestää pidempään",
+          "Tekniikka ei toimi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f877ae28-4361-5233-bfe5-f970189408e2",
+        "prompt": "Ketkä saattavat jäädä palvelujen ulkopuolelle?",
+        "options": [
+          "Lapset",
+          "Vanhukset ja huonot digitaidot omaavat",
+          "Työssäkäyvät",
+          "Maahanmuuttajat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f99dc148-7af0-5e22-bbdb-a51bb4dabbac",
+        "prompt": "Mitä asiantuntijat suosittelevat?",
+        "options": [
+          "Vain etäpalveluja",
+          "Vain perinteisiä vastaanottoja",
+          "Molempien säilyttämistä",
+          "Vain kiireellisten tapausten hoitamista etänä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

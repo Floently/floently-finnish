@@ -1,0 +1,88 @@
+{
+  "id": "4e3fb06d-e38f-51f7-9466-8b80e4a94167",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta kierrätyspisteestä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupunki on avannut uuden kierrätyspisteen Koilliskeskukseen. Piste on tarkoitettu kotitalouksien lajitellulle jätteelle. Sinne voi viedä lasia, metallia, kartonkia, muovia, tekstiilejä ja pienmetallia. Pisteellä on opastusta lajitteluun, ja siellä on myös vaihtohylly, johon voi jättää ehjiä ja käyttökelpoisia tavaroita muiden otettavaksi. Kierrätyspiste on avoinna joka päivä kello 7-21. Alue on valaistu ja kameravalvottu. Pisteelle ei saa tuoda vaarallisia jätteitä, kuten akkuja, paristoja, maaleja tai lääkkeitä. Ne tulee viedä erilliseen ongelmajätepisteeseen. Uuden kierrätyspisteen tavoitteena on helpottaa asukkaiden arkea ja lisätä kierrätystä. Samalla vähennetään kaatopaikkajätteen määrää. Tervetuloa käyttämään uutta palvelua!",
+      "audio_asset_id": "c418b680-5c12-42d5-aa0e-4fd7f542bda4"
+    },
+    "questions": [
+      {
+        "id": "02978be4-d451-5f20-899e-140c7f817be5",
+        "prompt": "Minne uusi kierrätyspiste on avattu?",
+        "options": [
+          "Keskustaan.",
+          "Itäkeskukseen.",
+          "Läntiseen keskukseen.",
+          "Koilliskeskukseen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "cde46145-b942-50a8-be16-92db071aada0",
+        "prompt": "Mitä jätteitä pisteelle voi viedä?",
+        "options": [
+          "Vain lasia ja metallia.",
+          "Vain tekstiilejä ja muovia.",
+          "Lasia, metallia, kartonkia, muovia, tekstiilejä ja pienmetallia.",
+          "Vain ongelmajätteitä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9bef8e34-9c19-5399-9510-855ae634b86b",
+        "prompt": "Mikä on vaihtohylly?",
+        "options": [
+          "Paikka, jossa voi myydä tavaroita.",
+          "Paikka, jossa voi korjata tavaroita.",
+          "Paikka, johon voi jättää ehjiä tavaroita muiden otettavaksi.",
+          "Paikka, jossa voi lainata työkaluja."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "fa0e78c5-5e3e-582a-97c3-bea8dbf4a0e8",
+        "prompt": "Mihin asti kierrätyspiste on auki?",
+        "options": [
+          "Kello 19.",
+          "Kello 21.",
+          "Kello 20.",
+          "Kello 22."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5ce04127-1a42-5179-a163-b02b7b46fc0b",
+        "prompt": "Mitä pisteelle EI saa viedä?",
+        "options": [
+          "Lasia ja metallia.",
+          "Vaarallisia jätteitä, kuten akkuja, maaleja tai lääkkeitä.",
+          "Kartonkia ja muovia.",
+          "Tekstiilejä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

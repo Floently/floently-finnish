@@ -1,0 +1,110 @@
+{
+  "id": "71f42952-7f02-589e-8ca7-276e88072df3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.729,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen metsäteollisuus on ollut maan talouden tukipilari vuosisatojen ajan. Metsät ovat Suomelle tärkeä luonnonvara, ja niiden käyttö on ollut tarkoin säädeltyä. Puuta on käytetty paperin, sellun ja sahatavaran valmistukseen. Metsäteollisuus on työllistänyt satojatuhansia suomalaisia ja tuonut maahan merkittävästi vientituloja. Viime vuosikymmeninä metsäteollisuus on kuitenkin kohdannut suuria muutoksia. Digitaalinen vallankumous on vähentänyt paperin kysyntää, kun sanomalehdet ja aikakauslehdet ovat siirtyneet verkkoon. Tämä on pakottanut metsäteollisuuden etsimään uusia tuotteita ja markkinoita. Nykyään puusta tehdään paljon muutakin kuin paperia. Biotuotteet, kuten biopolttoaineet, bio muovit ja kemikaalit, ovat kasvava ala. Puuta käytetään myös rakentamisessa yhä enemmän, koska se on uusiutuva ja ympäristöystävällinen materiaali. Metsäteollisuus panostaa myös kiertotalouteen, jossa kaikki materiaalit käytetään tehokkaasti ja jätettä syntyy mahdollisimman vähän. Tulevaisuudessa metsillä on tärkeä rooli ilmastonmuutoksen torjunnassa. Ne sitovat hiiltä ja tarjoavat uusiutuvia raaka-aineita, jotka korvaavat fossiilisia polttoaineita. Suomalainen metsäteollisuus on muutoksessa, mutta sen merkitys säilyy.",
+      "word_count": 139
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on ollut metsäteollisuuden asema Suomen taloudessa?",
+        "options": [
+          "Vähäinen merkitys.",
+          "Talouden tukipilari vuosisatojen ajan.",
+          "Vain vientiä ulkomaille.",
+          "Vain kotimaan käyttöön."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin puuta on perinteisesti käytetty?",
+        "options": [
+          "Vain polttoaineeksi.",
+          "Paperin, sellun ja sahatavaran valmistukseen.",
+          "Vain huonekaluiksi.",
+          "Vain rakentamiseen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on vähentänyt paperin kysyntää?",
+        "options": [
+          "Metsien väheneminen.",
+          "Digitaalinen vallankumous ja verkkoon siirtyminen.",
+          "Kalliimpi hinta.",
+          "Huonompi laatu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä biotuotteita puusta voidaan valmistaa?",
+        "options": [
+          "Vain paperia.",
+          "Biopolttoaineita, biomuoveja ja kemikaaleja.",
+          "Vain sahapuuta.",
+          "Vain sellua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi puuta käytetään rakentamisessa yhä enemmän?",
+        "options": [
+          "Koska se on halpaa.",
+          "Koska se on uusiutuva ja ympäristöystävällinen materiaali.",
+          "Koska se on kevyttä.",
+          "Koska se on muodikasta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan kiertotaloudella metsäteollisuudessa?",
+        "options": [
+          "Puun polttamista energiaksi.",
+          "Materiaalien tehokasta käyttöä ja jätteen vähentämistä.",
+          "Vain uusien metsien istuttamista.",
+          "Vain vanhojen metsien suojelua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä rooli metsillä on ilmastonmuutoksen torjunnassa?",
+        "options": [
+          "Ne lisäävät päästöjä.",
+          "Ne sitovat hiiltä ja tarjoavat uusiutuvia raaka-aineita.",
+          "Ne vähentävät happea.",
+          "Ne eivät vaikuta ilmastoon."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

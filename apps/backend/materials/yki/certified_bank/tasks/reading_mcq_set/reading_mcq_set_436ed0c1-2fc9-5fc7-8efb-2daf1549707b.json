@@ -1,0 +1,110 @@
+{
+  "id": "436ed0c1-2fc9-5fc7-8efb-2daf1549707b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen media on monipuolista ja luotettavaa. Maassa ilmestyy useita sanomalehtiä, ja yleisradioyhtiö Yle tuottaa kattavasti uutisia ja ohjelmia eri väestöryhmille. Median tehtävä on tuottaa tietoa, valvoa vallankäyttöä ja tarjota viihdettä. Sananvapaus on turvattu perustuslaissa, mikä mahdollistaa moniäänisen keskustelun. Viime vuosina median toimintaympäristö on muuttunut rajusti. Digitaaliset alustat, kuten some ja verkkomediat, ovat tulleet tärkeiksi tiedonlähteiksi, erityisesti nuorille. Perinteinen media, kuten paperilehdet ja televisio, on menettänyt yleisöään. Tämä on johtanut median taloudellisiin vaikeuksiin, kun mainostulot ovat siirtyneet verkkoon. Moni lehti on lopetettu tai siirtynyt kokonaan verkkoon. Toimittajien määrä on vähentynyt, ja uutistarjonta on köyhtynyt erityisesti paikallisesti. Samalla disinformaatio ja valeuutiset ovat lisääntyneet. Kuka tahansa voi julkaista mitä tahansa verkossa, ja totuuden ja valheen erottaminen on vaikeutunut. Tämä on herättänyt huolta demokratian tilasta. Tarvitaan medialukutaitoa ja kriittistä ajattelua, jotta kansalaiset osaavat arvioida tiedon luotettavuutta. Myös median oma vastuu korostuu: sen on tehtävä työnsä huolellisesti ja läpinäkyvästi.",
+      "word_count": 144
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen suomalainen media on?",
+        "options": [
+          "Yksipuolista ja epäluotettavaa.",
+          "Monipuolista ja luotettavaa.",
+          "Vain viihteellistä.",
+          "Vain poliittista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä ovat median tehtävät?",
+        "options": [
+          "Vain viihteen tuottaminen.",
+          "Tiedon tuottaminen, vallankäytön valvonta ja viihteen tarjoaminen.",
+          "Vain mainostaminen.",
+          "Vain poliittinen vaikuttaminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä turvaa moniäänisen keskustelun Suomessa?",
+        "options": [
+          "Median itsesääntely.",
+          "Sananvapaus perustuslaissa.",
+          "Vain Ylen toiminta.",
+          "Vain sanomalehdet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten median toimintaympäristö on muuttunut?",
+        "options": [
+          "Perinteinen media on vahvistunut.",
+          "Digitaaliset alustat ovat tulleet tärkeiksi, ja perinteinen media on menettänyt yleisöään.",
+          "Media on vähentynyt kokonaan.",
+          "Kukaan ei enää seuraa mediaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä seurauksia median muutoksella on ollut?",
+        "options": [
+          "Median talous on vahvistunut.",
+          "Median taloudelliset vaikeudet, lehtien lopettaminen ja toimittajien väheneminen.",
+          "Uutistarjonta on monipuolistunut.",
+          "Paikallisuutiset ovat lisääntyneet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä ongelmaa disinformaatio aiheuttaa?",
+        "options": [
+          "Se lisää tiedon luotettavuutta.",
+          "Totuuden ja valheen erottaminen on vaikeutunut, mikä herättää huolta demokratiasta.",
+          "Se vähentää uutisten määrää.",
+          "Sillä ei ole merkitystä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä tarvitaan disinformation torjunnassa?",
+        "options": [
+          "Vain lisää lakeja.",
+          "Medialukutaitoa, kriittistä ajattelua ja median omaa vastuuta.",
+          "Vain sensuuria.",
+          "Vain median vähentämistä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

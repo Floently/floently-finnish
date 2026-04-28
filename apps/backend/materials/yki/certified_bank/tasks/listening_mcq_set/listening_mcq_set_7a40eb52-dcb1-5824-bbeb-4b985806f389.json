@@ -1,0 +1,66 @@
+{
+  "id": "7a40eb52-dcb1-5824-bbeb-4b985806f389",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä soittaa Timo hammaslääkäristä. Sinulla on aika huomenna kello 9.30. Jos et pääse, peru aika viimeistään tänään kello 16. Voit soittaa numeroon 045 678 1234. Kiitos!",
+      "audio_asset_id": "3ecee00f-a4ce-5730-81a9-99b6f473138a"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä Timo soittaa?",
+        "options": [
+          "terveyskeskuksesta",
+          "hammaslääkäristä",
+          "koulusta",
+          "työpaikalta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin aika on?",
+        "options": [
+          "tänään kello 9.30",
+          "huomenna kello 9.30",
+          "huomenna kello 10.30",
+          "perjantaina kello 9.30"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin numeroon pitää soittaa, jos haluaa perua ajan?",
+        "options": [
+          "040 678 1234",
+          "045 678 1234",
+          "050 678 1234",
+          "046 678 1234"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

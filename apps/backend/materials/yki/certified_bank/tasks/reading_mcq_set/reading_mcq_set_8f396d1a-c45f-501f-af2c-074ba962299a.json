@@ -1,0 +1,73 @@
+{
+  "id": "8f396d1a-c45f-501f-af2c-074ba962299a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.577,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kestävästä kehityksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kestävä kehitys on yksi aikamme keskeisimmistä käsitteistä. Sillä tarkoitetaan kehitystä, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta mahdollisuutta tyydyttää omia tarpeitaan. Se jakautuu ekologiseen, taloudelliseen ja sosiaaliseen ulottuvuuteen.\n\nEkologinen kestävyys tarkoittaa luonnonvarojen kestävää käyttöä ja ympäristön suojelua. Ilmastonmuutoksen torjunta, luonnon monimuotoisuuden säilyttäminen ja saastumisen vähentäminen ovat keskeisiä tavoitteita. Tämä vaatii uusiutuvaan energiaan siirtymistä, kierrätystä ja kulutuksen vähentämistä.\n\nTaloudellinen kestävyys tarkoittaa talouskasvua, joka ei perustu luonnonvarojen ylikulutukseen. Se edellyttää resurssitehokkuutta, innovaatioita ja uusia liiketoimintamalleja, kuten kiertotaloutta. Talouskasvun pitää olla tasapainossa ekologisten rajojen kanssa.\n\nSosiaalinen kestävyys tarkoittaa hyvinvoinnin ja oikeudenmukaisuuden edistämistä. Koulutus, terveydenhuolto, tasa-arvo ja osallisuus ovat tärkeitä. Kenenkään ei pidä jäädä jälkeen.\n\nKestävän kehityksen kannattajat korostavat, että se on välttämätöntä tulevaisuuden turvaamiseksi. Ilman toimia ilmastonmuutos kiihtyy, luonto köyhtyy ja eriarvoisuus kasvaa.\n\nKriitikot kuitenkin huomauttavat, että kestävä kehitys on usein ristiriidassa talouskasvun kanssa. Yritysten on vaikea olla kannattavia ja samalla täysin kestäviä. Tarvitaan kompromisseja.\n\nToinen haaste on globaali epätasa-arvo. Rikkaat maat ovat aiheuttaneet suurimman osan päästöistä, mutta köyhät maat kärsivät seurauksista. Tämä herättää kysymyksiä oikeudenmukaisuudesta.\n\nKolmas näkökulma on kuluttajien käyttäytyminen. Vaikka monet sanovat arvostavansa kestävyyttä, ostopäätöksissä hinta ja mukavuus ratkaisevat. Tarvitaan sekä valistusta että ohjausta.\n\nLopuksi voidaan todeta, että kestävä kehitys on monimutkainen haaste, joka vaatii toimia kaikilla tasoilla. Yksilöt, yritykset ja valtiot – kaikki ovat vastuussa. Tärkeintä on aloittaa nyt, pienistä teoista.",
+      "word_count": 211
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä tarkoitetaan ekologisella kestävyydellä?",
+        "options": [
+          "talouskasvua",
+          "luonnonvarojen kestävää käyttöä ja ympäristön suojelua",
+          "hyvinvoinnin edistämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä haasteita kestävään kehitykseen liittyy?",
+        "options": [
+          "se on helppoa",
+          "ristiriita talouskasvun kanssa, globaali epätasa-arvo ja kuluttajien käyttäytyminen",
+          "sitä ei tarvita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä tarkoitetaan sosiaalisella kestävyydellä?",
+        "options": [
+          "luonnon monimuotoisuutta",
+          "hyvinvoinnin ja oikeudenmukaisuuden edistämistä",
+          "talouskasvua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mikä on globaali epätasa-arvo kestävässä kehityksessä?",
+        "options": [
+          "rikkaat maat kärsivät eniten",
+          "rikkaat maat ovat aiheuttaneet suurimman osan päästöistä, mutta köyhät kärsivät",
+          "kaikki maat ovat samassa asemassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

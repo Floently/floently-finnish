@@ -1,0 +1,68 @@
+{
+  "id": "1cda1142-01a1-5cf4-a569-4721c0b82544",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa varata pöydän ravintolasta syntymäpäiväillalliselle. Keskustele ravintolan työntekijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Ravintolan vastaanottaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp17_1",
+        "ai_first_turn_fi": "Hei, Ravintola Aurora, miten voin auttaa?"
+      },
+      {
+        "id": "srp17_2",
+        "ai_first_turn_fi": "Mille päivälle ja monelleko hengelle haluat varata pöydän?"
+      },
+      {
+        "id": "srp17_3",
+        "ai_first_turn_fi": "Kahdeksalle hengelle onnistuu. Mihin aikaan haluaisitte tulla? Meillä on vapaita aikoja kello 18 ja 20.30."
+      },
+      {
+        "id": "srp17_4",
+        "ai_first_turn_fi": "Onko kyseessä juhlat vai joku erityinen tilaisuus?"
+      },
+      {
+        "id": "srp17_5",
+        "ai_first_turn_fi": "Onneksi olkoon! Haluatteko erikoisruokavalioita huomioitavan?"
+      },
+      {
+        "id": "srp17_6",
+        "ai_first_turn_fi": "Selvä, merkitsen ne ylös. Varausta varten tarvitsen vielä nimesi ja puhelinnumerosi."
+      },
+      {
+        "id": "srp17_7",
+        "ai_first_turn_fi": "Kiitos. Pöytä on nyt varattu 8 hengelle lauantaina kello 18. Saat vahvistuksen tekstiviestillä."
+      },
+      {
+        "id": "srp17_8",
+        "ai_first_turn_fi": "Ole hyvä. Tervetuloa Auroraan!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa varata pöydän ravintolasta syntymäpäiväillalliselle. Keskustele ravintolan työntekijän kanssa.",
+    "timing": {
+      "recommended_minutes": 8
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "ba490f3c-209d-54ac-a55a-831f613d81e0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vuokrata auton matkaa varten. Keskustele autovuokraamon työntekijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Autovuokraamon työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp14_1",
+        "ai_first_turn_fi": "Hei, Rent-A-Car, Mika."
+      },
+      {
+        "id": "srp14_2",
+        "ai_first_turn_fi": "Milloin tarvitsisit auton ja kuinka pitkäksi aikaa?"
+      },
+      {
+        "id": "srp14_3",
+        "ai_first_turn_fi": "Meillä on autoja vapaana sinä viikonloppuna. Minkä kokoista autoa etsit? Pieni, keskikokoinen vai tila-auto?"
+      },
+      {
+        "id": "srp14_4",
+        "ai_first_turn_fi": "Suosittelen keskikokoista autoa, esimerkiksi Volkswagen Golfia. Vuokra on 89 euroa vuorokaudelta. Sopiiko tämä?"
+      },
+      {
+        "id": "srp14_5",
+        "ai_first_turn_fi": "Hintaan sisältyy vakuutus ja rajoittamaton kilometrimäärä. Haluatko lisäksi lastenistuimen tai navigaattorin?"
+      },
+      {
+        "id": "srp14_6",
+        "ai_first_turn_fi": "Selvä. Varausta varten tarvitsen nimesi, puhelinnumerosi ja luottokorttisi tiedot."
+      },
+      {
+        "id": "srp14_7",
+        "ai_first_turn_fi": "Kiitos. Saat vahvistuksen sähköpostitse. Noudettavissa autot ovat osoitteestamme vuokrauspäivän aamusta alkaen."
+      },
+      {
+        "id": "srp14_8",
+        "ai_first_turn_fi": "Hyvää matkaa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vuokrata auton matkaa varten. Keskustele autovuokraamon työntekijän kanssa.",
+    "timing": {
+      "recommended_minutes": 8
+    }
+  }
+}

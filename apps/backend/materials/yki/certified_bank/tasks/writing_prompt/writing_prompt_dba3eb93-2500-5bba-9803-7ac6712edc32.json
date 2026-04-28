@@ -1,0 +1,37 @@
+{
+  "id": "dba3eb93-2500-5bba-9803-7ac6712edc32",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.68,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita analyyttinen mielipideteksti.",
+    "materials": {
+      "scenario": "Perustulo"
+    },
+    "items": [
+      {
+        "id": "a0b4d79b-70bc-5850-b848-964e077f4c45",
+        "prompt": "Pitäisikö kansalaisille taata ehdoton perustulo?"
+      }
+    ],
+    "rubric": "Pitäisikö kansalaisille taata ehdoton perustulo?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

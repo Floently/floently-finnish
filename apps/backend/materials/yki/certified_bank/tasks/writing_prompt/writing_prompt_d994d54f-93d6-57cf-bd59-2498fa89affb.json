@@ -1,0 +1,37 @@
+{
+  "id": "d994d54f-93d6-57cf-bd59-2498fa89affb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.344,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet matkustanut paikallisbussilla. Kirjoita palaute liikennöitsijälle. Kerro, tuliko bussi ajallaan, oliko bussi siisti ja oliko kuljettaja ystävällinen.",
+    "materials": {
+      "scenario": "Palaute bussimatkasta"
+    },
+    "items": [
+      {
+        "id": "bab7e156-da4d-56ff-8018-c90e280c7d07",
+        "prompt": "Olet matkustanut paikallisbussilla. Kirjoita palaute liikennöitsijälle. Kerro, tuliko bussi ajallaan, oliko bussi siisti ja oliko kuljettaja ystävällinen."
+      }
+    ],
+    "rubric": "Aikataulussa pysyminen\nBussin siisteys\nKuljettajan ystävällisyys",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

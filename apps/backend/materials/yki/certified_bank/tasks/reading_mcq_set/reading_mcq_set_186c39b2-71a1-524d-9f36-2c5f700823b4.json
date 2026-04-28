@@ -1,0 +1,88 @@
+{
+  "id": "186c39b2-71a1-524d-9f36-2c5f700823b4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.77,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Ikääntyvien asuminen on yksi keskeisimmistä yhteiskunnallisista kysymyksistä, kun väestö ikääntyy ja yhä useampi haluaa asua kotonaan mahdollisimman pitkään. Kotona asumisen tukeminen on paitsi ikääntyvien itsensä toive myös yhteiskunnallisesti järkevää, sillä laitoshoito on kallista. Kotona asumisen mahdollistaminen vaatii kuitenkin monenlaisia toimia ja ratkaisuja. Yksi keskeisimmistä tekijöistä on asunnon esteettömyys. Ikääntyessä liikkuminen voi vaikeutua, ja portaat, kynnykset ja ahtaat tilat voivat muodostua esteiksi. Esteetön asunto mahdollistaa turvallisen ja sujuvan arjen. Tämä voi tarkoittaa esimerkiksi hissin asentamista, kynnysten poistamista, ovien leventämistä ja liukumattomien lattiapintojen valitsemista. Toinen keskeinen tekijä on turvallisuus. Ikääntyneet ovat alttiimpia kaatumisille ja muille tapaturmille. Turvallisuutta voidaan parantaa erilaisin teknisin ratkaisuin, kuten turvarannekkeilla, liiketunnistimilla ja automaattisilla sammutusjärjestelmillä. Myös hyvä valaistus ja liukuesteet ovat tärkeitä. Kolmas tekijä on palveluiden saavutettavuus. Ikääntyvien on päästävä käsiksi terveyspalveluihin, kauppoihin, pankkeihin ja muihin peruspalveluihin. Tämä voi tarkoittaa palveluiden sijoittamista lähelle asutusta, hyviä liikenneyhteyksiä tai kotiin tuotavia palveluita. Neljäs tekijä on sosiaalinen ympäristö ja yhteisöllisyys. Yksinäisyys on ikääntyvien keskuudessa yleistä, ja se heikentää sekä elämänlaatua että terveyttä. On tärkeää luoda rakenteita ja toimintamuotoja, jotka mahdollistavat ikääntyvien sosiaalisen kanssakäymisen ja osallistumisen yhteiskunnalliseen toimintaan. Tällaisia ovat esimerkiksi päiväkeskukset, harrastusryhmät ja vapaaehtoistoiminta. Viides tekijä on teknologian hyödyntäminen. Älykkäät kodinhoitoratkaisut, etähoivapalvelut ja muistuttavat laitteet voivat tukea ikääntyvien kotona asumista ja parantaa heidän turvallisuuttaan ja elämänlaatuaan.",
+      "word_count": 204
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi ikääntyvien kotona asumisen tukeminen on tärkeää?",
+        "options": [
+          "Koska se on halvempaa kuin laitoshoito",
+          "Koska ikääntyvät itse haluavat asua kotona",
+          "Sekä ikääntyvien toive että yhteiskunnallisesti järkevää",
+          "Koska laitoshoitoa ei ole saatavilla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan asunnon esteettömyydellä?",
+        "options": [
+          "Asunnon sijaintia lähellä palveluita",
+          "Asunnon muokkaamista niin, että se on turvallinen ja sujuva liikkua",
+          "Asunnon hintaa",
+          "Asunnon kokoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä teknisiä ratkaisuja voidaan käyttää ikääntyvien turvallisuuden parantamiseen?",
+        "options": [
+          "Videopuheluita",
+          "Turvarannekkeita, liiketunnistimia ja automaattisia sammutusjärjestelmiä",
+          "Älytelevisioita",
+          "Robotti-imureita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi palveluiden saavutettavuus on tärkeää ikääntyville?",
+        "options": [
+          "Jotta he voivat käyttää rahaa",
+          "Jotta he pääsevät käsiksi terveyspalveluihin, kauppoihin ja muihin peruspalveluihin",
+          "Jotta he voivat matkustaa",
+          "Jotta he voivat asua keskustassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ongelmaa yhteisöllisyyden lisääminen ikääntyvien keskuudessa auttaa ratkaisemaan?",
+        "options": [
+          "Köyhyyttä",
+          "Yksinäisyyttä",
+          "Sairauksia",
+          "Työttömyyttä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

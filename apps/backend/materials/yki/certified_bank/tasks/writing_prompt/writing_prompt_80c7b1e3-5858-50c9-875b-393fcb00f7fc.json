@@ -1,0 +1,37 @@
+{
+  "id": "80c7b1e3-5858-50c9-875b-393fcb00f7fc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt sähköauton latauspistettä. Kirjoita palaute. Toimiiko se hyvin? Onko ohjeet selkeät?",
+    "materials": {
+      "scenario": "Palaute sähköauton latauspisteestä"
+    },
+    "items": [
+      {
+        "id": "2f2ad508-a434-5ece-b2bd-adcfb6cc7194",
+        "prompt": "Olet käyttänyt sähköauton latauspistettä. Kirjoita palaute. Toimiiko se hyvin? Onko ohjeet selkeät?"
+      }
+    ],
+    "rubric": "Olet käyttänyt sähköauton latauspistettä. Kirjoita palaute. Toimiiko se hyvin? Onko ohjeet selkeät?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

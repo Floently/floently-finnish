@@ -1,0 +1,37 @@
+{
+  "id": "b53fe099-710c-56af-a622-5f8f1a496ce4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti paikallislehteen.",
+    "materials": {
+      "scenario": "Ehdota juttuaihetta"
+    },
+    "items": [
+      {
+        "id": "bafdad40-ae07-528c-a23f-c625b4f03e52",
+        "prompt": "Sinulla on idea jutusta, joka voisi kiinnostaa paikallislehden lukijoita. Kirjoita sähköposti toimitukseen ja kerro aiheesta. Perustele, miksi se olisi tärkeä ja miksi lukijat hyötyisivät siitä."
+      }
+    ],
+    "rubric": "Sinulla on idea jutusta, joka voisi kiinnostaa paikallislehden lukijoita. Kirjoita sähköposti toimitukseen ja kerro aiheesta. Perustele, miksi se olisi tärkeä ja miksi lukijat hyötyisivät siitä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

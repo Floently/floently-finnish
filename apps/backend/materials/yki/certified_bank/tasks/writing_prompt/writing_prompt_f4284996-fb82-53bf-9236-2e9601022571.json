@@ -1,0 +1,37 @@
+{
+  "id": "f4284996-fb82-53bf-9236-2e9601022571",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti serkulle. Kerro, että olet kuullut hyvää uutista. Kerro, että pääsit opiskelemaan haluamaasi kouluun. Kerro, mikä koulu on. Kysy, haluaako hän juhlia kanssasi.",
+    "materials": {
+      "scenario": "Viesti serkulle hyvistä uutisista"
+    },
+    "items": [
+      {
+        "id": "f9b51d9a-94ff-5c12-9d3f-bbfa860f343c",
+        "prompt": "Kirjoita lyhyt viesti serkulle. Kerro, että olet kuullut hyvää uutista. Kerro, että pääsit opiskelemaan haluamaasi kouluun. Kerro, mikä koulu on. Kysy, haluaako hän juhlia kanssasi."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on hyvä uutinen\nKerro, mihin pääsit opiskelemaan\nKerro, mikä koulu on\nKysy juhlimisesta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

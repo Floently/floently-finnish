@@ -1,0 +1,77 @@
+{
+  "id": "083c92aa-a7fc-5136-915d-fcd42e08b320",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.539,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue huoltajille lähetetty retkitiedote huolellisesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaislan päiväkodin Kettu-ryhmä tekee keskiviikkona kevätretken luontokeskukseen. Lähtö on päiväkodin pihasta kello 8.30, ja paluu on noin kello 14.45. Lapsille annetaan lämmin lounas luontokeskuksessa, mutta mukaan pitää pakata oma juomapullo ja pieni välipala iltapäivää varten. Retkellä liikutaan paljon ulkona, joten lapsella tulee olla säänmukaiset vaatteet, varasukat ja nimikoidut hanskat. Jos lapsi tarvitsee retkipäivänä lääkettä, huoltajan on annettava lääkitys kirjallisena ohjeena henkilökunnalle viimeistään tiistaina kello 16. Erityisruokavaliosta pyydetään ilmoittamaan sähköisessä järjestelmässä maanantaihin mennessä. Retkimaksu on kolme euroa, ja se lisätään toukokuun laskuun. Jos lapsi ei osallistu retkelle, hoitopäivä järjestetään päiväkodilla normaalisti. Poissaolosta pitää ilmoittaa ryhmän puhelimeen viimeistään keskiviikkona kello 7.30.",
+      "word_count": 99
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan retkelle lähdetään?",
+        "options": [
+          "kello 7.30",
+          "kello 8.30",
+          "kello 14.45",
+          "kello 16.00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lapselle annetaan retkellä valmiiksi?",
+        "options": [
+          "juomapullo",
+          "varasukat",
+          "lämmin lounas",
+          "hanskat"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin lääkitysohje pitää antaa henkilökunnalle viimeistään?",
+        "options": [
+          "maanantaina",
+          "tiistaina kello 16",
+          "keskiviikkona kello 8",
+          "retken jälkeen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten poissaolosta ilmoitetaan retkipäivänä?",
+        "options": [
+          "sähköpostilla johtajalle",
+          "paperilomakkeella",
+          "ryhmän puhelimeen",
+          "laskun yhteydessä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "8cd11c9c-ca33-5af6-93ac-b770b88511ce",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Tervetuloa uimahalliin. Muistathan peseytyä huolellisesti ennen altaaseen menoa. Poreallas on tänään auki kello 16 asti. Lasten allas suljetaan tunnin kuluttua.",
+      "audio_asset_id": "e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä pitää muistaa tehdä ennen altaaseen menoa?",
+        "options": [
+          "Maksaa sisäänpääsy.",
+          "Peseytyä huolellisesti.",
+          "Vuokrata uimapuku.",
+          "Syödä välipalaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan poreallas menee kiinni?",
+        "options": [
+          "Kello 14.00.",
+          "Kello 15.00.",
+          "Kello 16.00.",
+          "Kello 17.00."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lasten altaalle tapahtuu?",
+        "options": [
+          "Se aukeaa.",
+          "Se suljetaan tunnin kuluttua.",
+          "Se on kiinni koko päivän.",
+          "Se on remontissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka tiedotteen todennäköisesti pitää?",
+        "options": [
+          "Uimaopettaja.",
+          "Uimahallin työntekijä.",
+          "Pelastaja.",
+          "Siivooja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mistä tässä tiedotteessa kerrotaan?",
+        "options": [
+          "Uimahallin hinnoista.",
+          "Uimahallin aukioloajoista ja säännöistä.",
+          "Uimakoulun aikatauluista.",
+          "Uimahallin remontista."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

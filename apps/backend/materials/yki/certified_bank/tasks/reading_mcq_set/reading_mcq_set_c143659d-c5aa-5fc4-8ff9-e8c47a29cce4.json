@@ -1,0 +1,88 @@
+{
+  "id": "c143659d-c5aa-5fc4-8ff9-e8c47a29cce4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kotimaisen ruoan suosio on kasvanut. Sille on monia syitä. Yksi syy on turvallisuus. Suomalainen ruoantuotanto on tarkoin valvottua. Kotimaiset tuotteet täyttävät korkeat laatuvaatimukset. Toinen syy on kotimaisen työllisyyden tukeminen. Kotimaisen ruoan ostaminen työllistää suomalaisia. Se pitää rahan kotimaassa. Kolmas syy on ympäristötietoisuus. Kotimainen ruoka on usein ympäristöystävällisempää, koska kuljetusmatkat ovat lyhyemmät. Neljäs syy on maku ja tuoreus. Kotimaiset vihannekset ja marjat poimitaan usein täysin kypsinä. Silloin niiden maku on paras. Viides syy on ruokakulttuurin vaaliminen. Kotimaisen ruoan suosiminen on tapa vaalia suomalaista ruokakulttuuria.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä kotimaisen ruoan turvallisuudesta on?",
+        "options": [
+          "Se on halvempaa",
+          "Se on tarkoin valvottua ja täyttää korkeat laatuvaatimukset",
+          "Se on helpompaa",
+          "Se on nopeampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten kotimaisen ruoan ostaminen vaikuttaa työllisyyteen?",
+        "options": [
+          "Se vähentää työllisyyttä",
+          "Se työllistää suomalaisia",
+          "Sillä ei ole vaikutusta",
+          "Se vie työpaikkoja ulkomaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi kotimainen ruoka on usein ympäristöystävällisempää?",
+        "options": [
+          "Koska se pakataan vähemmän",
+          "Koska kuljetusmatkat ovat lyhyemmät",
+          "Koska sitä viljellään vähemmän",
+          "Koska se on luomua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kotimaiset vihannekset ja marjat maistuvat usein paremmilta?",
+        "options": [
+          "Koska ne ovat kalliimpia",
+          "Koska ne poimitaan täysin kypsinä",
+          "Koska niitä lannoitetaan enemmän",
+          "Koska ne ovat ulkomaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä kotimaisen ruoan suosiminen vaalii?",
+        "options": [
+          "Ulkomaista ruokakulttuuria",
+          "Suomalaista ruokakulttuuria",
+          "Teollista ruoantuotantoa",
+          "Halpatuontia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

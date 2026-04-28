@@ -1,0 +1,88 @@
+{
+  "id": "4e825041-457c-5721-b4f5-f1fd2d993c19",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.682,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele bussipysäkin kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Linja-auto 24 yliopistolle saapuu kolmen minuutin kuluttua. Seuraava linja-auto yliopistolle lähtee 15 minuutin kuluttua. Matkustajia pyydetään valmistautumaan nousemaan kyytiin.",
+      "audio_asset_id": "e3f4a5b6-c7d8-9e0f-1a2b-3c4d5e6f7a8b"
+    },
+    "questions": [
+      {
+        "id": "l248q1",
+        "prompt": "Mikä linja-auto on tulossa?",
+        "options": [
+          "Linja-auto 22.",
+          "Linja-auto 23.",
+          "Linja-auto 24.",
+          "Linja-auto 25."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l248q2",
+        "prompt": "Minne linja-auto on menossa?",
+        "options": [
+          "Keskustaan.",
+          "Yliopistolle.",
+          "Rautatieasemalle.",
+          "Lentoasemalle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l248q3",
+        "prompt": "Kuinka pian linja-auto saapuu?",
+        "options": [
+          "1 minuutin kuluttua.",
+          "2 minuutin kuluttua.",
+          "3 minuutin kuluttua.",
+          "5 minuutin kuluttua."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l248q4",
+        "prompt": "Kuinka pian seuraava linja-auto lähtee?",
+        "options": [
+          "10 minuutin kuluttua.",
+          "12 minuutin kuluttua.",
+          "15 minuutin kuluttua.",
+          "20 minuutin kuluttua."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l248q5",
+        "prompt": "Mitä matkustajia pyydetään tekemään?",
+        "options": [
+          "Istuutumaan.",
+          "Valmistautumaan nousemaan kyytiin.",
+          "Näyttämään lippunsa.",
+          "Odottaa rauhassa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

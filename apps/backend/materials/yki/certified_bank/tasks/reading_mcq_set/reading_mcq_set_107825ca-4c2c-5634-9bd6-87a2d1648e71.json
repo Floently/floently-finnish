@@ -1,0 +1,63 @@
+{
+  "id": "107825ca-4c2c-5634-9bd6-87a2d1648e71",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÄHIKIRJASTON KESÄSULKU\n\nTesoman lähikirjasto on suljettu 10.8.–24.8.\n\nLähikirjaston asioita voi hoitaa pääkirjastossa.\n\nKirjoja voi palauttaa kirjaston palautusluukkuun.\n\nOmatoimikirjasto on auki normaalisti klo 7–22.",
+      "word_count": 23
+    },
+    "questions": [
+      {
+        "id": "item_112_1",
+        "prompt": "Kauanko Tesoman lähikirjasto on suljettu?",
+        "options": [
+          "viikon",
+          "kaksi viikkoa",
+          "kolme viikkoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_112_2",
+        "prompt": "Missä voi hoitaa lähikirjaston asioita sulun aikana?",
+        "options": [
+          "pääkirjastossa",
+          "muussa lähikirjastossa",
+          "verkkokirjastossa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_112_3",
+        "prompt": "Onko omatoimikirjasto auki sulun aikana?",
+        "options": [
+          "ei",
+          "kyllä, normaalisti",
+          "vain viikonloppuisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

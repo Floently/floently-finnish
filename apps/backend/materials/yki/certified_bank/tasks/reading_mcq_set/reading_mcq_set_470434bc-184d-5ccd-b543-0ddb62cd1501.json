@@ -1,0 +1,66 @@
+{
+  "id": "470434bc-184d-5ccd-b543-0ddb62cd1501",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kaupungin kierrätysohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIERRÄTYSOHJEITA KOTITALOUKSILLE\n\nMuovipakkausten keräys on laajentunut koko kaupungin alueelle. Nyt voit kierrättää muovipakkaukset, kuten jugurttipurkit, pesuainepullot ja muovikassit, omassa taloyhtiössäsi tai lähimmällä kierrätysasemalla. Huomioithan, että muovipakkaukset pitää huuhdella ennen keräykseen laittamista. Biojätteen keräys on pakollista kaikissa vähintään viiden huoneiston taloyhtiöissä. Biojätteeseen kuuluvat ruoantähteet, hedelmien kuoret ja kahvinporot. Lajittelemalla biojätteen voit vähentää sekajätteen määrää ja samalla pienentää jätemaksujasi. Kartongin ja paperin keräys jatkuu ennallaan. Muista, että paperinkeräykseen kuuluu vain sanoma- ja aikakauslehdet, mainokset ja toimistopaperi, kun taas kartonkiin menevät maito- ja mehutölkit sekä kartonkipakkaukset.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä pitää tehdä muovipakkauksille ennen kierrätystä?",
+        "options": [
+          "Pestä ja kuivata",
+          "Huuhdella",
+          "Litistää",
+          "Poistaa etiketit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä taloyhtiöissä biojätteen keräys on pakollista?",
+        "options": [
+          "Kaikissa taloyhtiöissä",
+          "Vähintään viiden huoneiston taloyhtiöissä",
+          "Vain uusissa taloyhtiöissä",
+          "Jos taloyhtiö niin päättää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä biojätteen lajittelusta on?",
+        "options": [
+          "Saa ilmaisia kompostimultaa",
+          "Vähentää sekajätteen määrää ja pienentää jätemaksuja",
+          "Säästää aikaa roskien viennissä",
+          "Saa kaupunki bonusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

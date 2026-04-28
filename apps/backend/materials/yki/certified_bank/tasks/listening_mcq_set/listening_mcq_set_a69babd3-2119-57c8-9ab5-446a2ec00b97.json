@@ -1,0 +1,99 @@
+{
+  "id": "a69babd3-2119-57c8-9ab5-446a2ec00b97",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu työpaikan koulutuspäivästä ja vastaa.",
+    "materials": {
+      "transcript": "Tiina: Hei Antti, ootko menossa ensi viikon koulutuspäivään? Antti: Joo, oon ilmottautunut. Se on muistaakseni tiistaina 23.5. Tiina: Joo, se on tiistaina. Onko sulla tarkempaa tietoa ohjelmasta? Antti: Sain sähköpostia, että aamupäivä on teoriaa uudesta asiakaspalvelujärjestelmästä, ja iltapäivällä on käytännön harjoituksia pienryhmissä. Tiina: Kuulostaa hyvältä. Tarvitaanko oma läppäri mukaan? Antti: Kyllä, ohjeessa sanottiin, että jokainen ottaa oman tietokoneen mukaan. Myös laturi kannattaa ottaa. Tiina: Entä lounas? Antti: Lounas on järjestetty, se kuuluu koulutukseen. Se on yrityksen omassa henkilöstöravintolassa. Tiina: Hyvä. Koko päiväkö se on? Antti: Joo, kello 9–16. Iltapäivällä on kahvitauko noin kello 14. Tiina: Osaatko sanoa, onko se pakollinen? Antti: Mun mielestä se on suositeltava kaikille, jotka käyttävät järjestelmää. En usko, että kukaan pakottaa, mutta onhan se fiksu mennä. Tiina: Joo, mennään yhdessä!",
+      "audio_asset_id": "eb6cb246-3c2d-46fe-9a82-95eb40847340"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä Tiina ja Antti keskustelevat?",
+        "options": [
+          "Työpaikan pikkujouluista.",
+          "Lomamatkasta.",
+          "Työkaverin syntymäpäivistä.",
+          "Tulevasta koulutuspäivästä."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minä päivänä koulutuspäivä on?",
+        "options": [
+          "Tiistaina 23.5.",
+          "Maanantaina 22.5.",
+          "Keskiviikkona 24.5.",
+          "Torstaina 25.5."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä aamupäivällä on ohjelmassa?",
+        "options": [
+          "Käytännön harjoituksia.",
+          "Teoriaa uudesta asiakaspalvelujärjestelmästä.",
+          "Ryhmätyöskentelyä.",
+          "Vapaata keskustelua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "Kynä ja paperia.",
+          "Oma tietokone ja laturi.",
+          "Työvaatteet.",
+          "Eväät."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Kuuluuko lounas koulutukseen?",
+        "options": [
+          "Ei, se pitää maksaa itse.",
+          "Kyllä, se on järjestetty.",
+          "Vain kahvi kuuluu.",
+          "Ei ole tietoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Onko koulutuspäivä pakollinen?",
+        "options": [
+          "Kyllä, kaikkien on pakko mennä.",
+          "Vain uusille työntekijöille.",
+          "Vain esimiehille.",
+          "Ei, mutta se on suositeltava."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

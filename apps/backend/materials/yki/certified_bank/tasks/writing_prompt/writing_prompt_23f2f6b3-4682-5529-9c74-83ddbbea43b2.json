@@ -1,0 +1,37 @@
+{
+  "id": "23f2f6b3-4682-5529-9c74-83ddbbea43b2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lähiruuan käyttöä lisätä julkisissa keittiöissä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lähiruoka julkisissa keittiöissä"
+    },
+    "items": [
+      {
+        "id": "9f4d8678-db8c-556a-bb1c-085c4f8e1b0e",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lähiruuan käyttöä lisätä julkisissa keittiöissä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

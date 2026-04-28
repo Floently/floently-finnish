@@ -1,0 +1,37 @@
+{
+  "id": "ee6351e9-2cbc-5ae8-b84e-1a866f1fe964",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin viheralueista vastaavalle.",
+    "materials": {
+      "scenario": "Ehdota uusia istutuksia puistoon"
+    },
+    "items": [
+      {
+        "id": "b545becd-9ac5-5281-99e8-40ca9f82ba46",
+        "prompt": "Olet huomannut, että lähipuistossa voisi olla enemmän kukkia ja pensaita. Kirjoita sähköposti ja ehdota, mitä sinne voisi istuttaa. Perustele, miksi se parantaisi puiston viihtyisyyttä."
+      }
+    ],
+    "rubric": "Olet huomannut, että lähipuistossa voisi olla enemmän kukkia ja pensaita. Kirjoita sähköposti ja ehdota, mitä sinne voisi istuttaa. Perustele, miksi se parantaisi puiston viihtyisyyttä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "60380099-fda8-5463-b0cc-2b234c56584a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vaihtaa matkapuhelinliittymää toiseen. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Teleoperaattorin asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp10_1",
+        "ai_first_turn_fi": "Hei, Telen asiakaspalvelu, Minna."
+      },
+      {
+        "id": "srp10_2",
+        "ai_first_turn_fi": "Hienoa, otetaan asia hoitoon. Mikä on nykyinen liittymätyyppisi ja minkälaista uutta liittymää etsit?"
+      },
+      {
+        "id": "srp10_3",
+        "ai_first_turn_fi": "Meillä on useita erilaisia liittymiä. Käytätkö paljon dataa vai puhutko enemmän?"
+      },
+      {
+        "id": "srp10_4",
+        "ai_first_turn_fi": "Selvä. Suosittelisin sinulle 20 gigatavun dataliittymää hintaan 24,90 euroa kuussa. Se sisältää rajattomat puhelut ja tekstiviestit."
+      },
+      {
+        "id": "srp10_5",
+        "ai_first_turn_fi": "Hyvä. Liittymän voi ottaa joko määräaikaisena tai toistaiseksi voimassa olevana. Kumman haluat?"
+      },
+      {
+        "id": "srp10_6",
+        "ai_first_turn_fi": "Tarvitsemme vielä henkilötunnuksesi ja nykyisen numerosi vaihdon toteuttamiseksi."
+      },
+      {
+        "id": "srp10_7",
+        "ai_first_turn_fi": "Kiitos. Vaihto on nyt valmis. Uusi liittymäsi aktivoituu 24 tunnin kuluessa. Saat vahvistuksen tekstiviestillä."
+      },
+      {
+        "id": "srp10_8",
+        "ai_first_turn_fi": "Olkaa hyvä. Mukavaa päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa vaihtaa matkapuhelinliittymää toiseen. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

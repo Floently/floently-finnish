@@ -1,0 +1,99 @@
+{
+  "id": "9bb2f3bb-7307-5255-981c-234305bb21a2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Mielenterveysongelmat ovat yleisiä nuorten aikuisten keskuudessa. Masennus ja ahdistus vaivaavat monia, ja avun saamisessa on usein viiveitä. Yliopistot ja ammattikorkeakoulut ovat lisänneet opiskelijoiden tukipalveluja, kuten kriisiapua ja lyhytterapiaa. Myös vertaistukiryhmät ovat suosittuja. Asiantuntijat korostavat, että ongelmista pitää puhua avoimesti ja hakea apua ajoissa. Ennaltaehkäisy on tärkeää.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millaisia ongelmat ovat yleisiä nuorten aikuisten keskuudessa?",
+        "options": [
+          "Rahaongelmat",
+          "Mielenterveysongelmat",
+          "Työttömyys",
+          "Asumisongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä masennus ja ahdistus tekevät?",
+        "options": [
+          "Ne vaivaavat monia",
+          "Ne ovat harvinaisia",
+          "Ne eivät vaikuta elämään",
+          "Ne helpottavat nopeasti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on ongelmana avun saamisessa?",
+        "options": [
+          "Apua on liian helposti saatavilla",
+          "Avun saamisessa on usein viiveitä",
+          "Apua ei tarvita",
+          "Kaikki saavat apua heti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä korkeakoulut ovat lisänneet?",
+        "options": [
+          "Opiskelijamääriä",
+          "Opiskelijoiden tukipalveluja",
+          "Opintomaksuja",
+          "Luentojen määrää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitkä ovat suosittuja?",
+        "options": [
+          "Luennot",
+          "Vertaistukiryhmät",
+          "Tentit",
+          "Opintopiirit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä asiantuntijat korostavat?",
+        "options": [
+          "Ongelmista ei pidä puhua",
+          "Apua pitää hakea vasta kun ongelmat ovat vakavia",
+          "Ongelmista pitää puhua avoimesti ja hakea apua ajoissa",
+          "Mielenterveysongelmat eivät ole vakavia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

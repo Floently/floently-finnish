@@ -1,0 +1,37 @@
+{
+  "id": "fe415352-137c-5749-b2a1-12389044b09f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti TE-toimistoon. Olet työtön ja haluat osallistua työvoimakoulutukseen, joka parantaisi ammattitaitoasi. Kerro, millaista koulutusta toivot. Kysy, miten haet ja täyttyvätkö ehdot.",
+    "materials": {
+      "scenario": "Tiedustelu työvoimakoulutuksesta"
+    },
+    "items": [
+      {
+        "id": "44b97ddd-5fdc-59e1-865b-34cb91d93d3e",
+        "prompt": "Kirjoita sähköposti TE-toimistoon. Olet työtön ja haluat osallistua työvoimakoulutukseen, joka parantaisi ammattitaitoasi. Kerro, millaista koulutusta toivot. Kysy, miten haet ja täyttyvätkö ehdot."
+      }
+    ],
+    "rubric": "Koulutustoive\nHakeminen\nEhtojen täyttyminen",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

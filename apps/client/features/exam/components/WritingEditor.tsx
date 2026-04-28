@@ -1,0 +1,2 @@
+import React from 'react'; import { TextInput } from 'react-native'; import { colors, radius, spacing } from '@ui/theme';
+export default function WritingEditor({ value, onChange }: { value: string; onChange: (v: string) => void }) { return <TextInput multiline value={value} onChangeText={onChange} style={{ minHeight: 160, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md, padding: spacing.md, color: colors.text }} placeholder="Kirjoita vastauksesi" placeholderTextColor={colors.textMuted} />; }

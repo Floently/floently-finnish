@@ -1,0 +1,37 @@
+{
+  "id": "048521d0-df50-5ed6-ab5a-1349520b736f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: community center. Purpose: agree on a change. Constraint: keep it concise.",
+    "materials": {
+      "scenario": "family_life in community_center"
+    },
+    "items": [
+      {
+        "id": "cfe9cdaa-d45e-50e7-b8d4-3c22357842c4",
+        "prompt": "Write for the receiver in this scenario: community center. Purpose: agree on a change. Constraint: keep it concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

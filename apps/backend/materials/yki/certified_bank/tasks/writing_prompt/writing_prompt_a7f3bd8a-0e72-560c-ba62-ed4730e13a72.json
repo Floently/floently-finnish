@@ -1,0 +1,37 @@
+{
+  "id": "a7f3bd8a-0e72-560c-ba62-ed4730e13a72",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti ohjeen mukaan.",
+    "materials": {
+      "scenario": "Laskukysely"
+    },
+    "items": [
+      {
+        "id": "3d2e820f-197b-566a-8505-baa309919759",
+        "prompt": "Kirjoita sähköposti asiakaspalveluun ja pyydä lisäselvitystä laskusta."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti asiakaspalveluun ja pyydä lisäselvitystä laskusta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

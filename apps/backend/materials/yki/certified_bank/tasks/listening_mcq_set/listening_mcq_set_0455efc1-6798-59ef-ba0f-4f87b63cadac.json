@@ -1,0 +1,77 @@
+{
+  "id": "0455efc1-6798-59ef-ba0f-4f87b63cadac",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele lääkäriaseman soittojärjestelmä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tervetuloa Lääkäriasema Terveyspisteeseen. Soittojärjestelmämme palvelee teitä. Jos soitat laboratorion ajanvaraukseen, paina 1. Jos soitat lääkärin vastaanotolle, paina 2. Jos haluat yhteyden sairaanhoitajaan, paina 3. Jos haluat kuulla omat tutkimustuloksesi, paina 4. Jos haluat perua ajan, paina 5. Jos haluat puhua asiakaspalvelijan kanssa, odota linjalla, niin seuraava vapaa asiakaspalvelija vastaa.",
+      "audio_asset_id": "8c470b50-42de-4c5b-a69f-28e0e2f4c18a"
+    },
+    "questions": [
+      {
+        "id": "6e7a55d3-311c-51b5-956a-70931828a225",
+        "prompt": "Mitä pitää painaa, jos haluaa varata ajan laboratorioon?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "5bc41d01-c7e5-5ab1-8464-04b903570946",
+        "prompt": "Mitä kautta saa yhteyden sairaanhoitajaan?",
+        "options": [
+          "painamalla 2",
+          "painamalla 3",
+          "painamalla 4",
+          "painamalla 5"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8b34cf72-cad2-51c8-b669-e839a1516289",
+        "prompt": "Mitä painamalla voi kuulla tutkimustulokset?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "937ad3da-8a76-5f08-821b-0e3b2d608308",
+        "prompt": "Mitä pitää tehdä, jos haluaa puhua asiakaspalvelijan kanssa?",
+        "options": [
+          "painaa 0",
+          "painaa 9",
+          "odottaa linjalla",
+          "soittaa uudelleen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

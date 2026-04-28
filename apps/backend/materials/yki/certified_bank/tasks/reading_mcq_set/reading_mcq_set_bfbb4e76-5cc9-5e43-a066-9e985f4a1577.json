@@ -1,0 +1,73 @@
+{
+  "id": "bfbb4e76-5cc9-5e43-a066-9e985f4a1577",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähiliikuntapaikat ovat yleistyneet suomalaisissa kaupungeissa. Ne ovat maksuttomia, kaikille avoimia paikkoja, joissa voi harrastaa monenlaista liikuntaa: keppihevosesta parkouriin ja kuntoiluun.\n\nLähiliikuntapaikkojen idea on madaltaa kynnystä liikkua. Ne sijaitsevat asuinalueilla, joten sinne on helppo mennä. Varusteitakaan ei tarvita paljon.\n\nKaupungit panostavat näihin paikkoihin, koska ne edistävät terveyttä ja yhteisöllisyyttä. \"Kun paikalla on monen ikäisiä ihmisiä, se lisää turvallisuutta ja naapuruutta\", kertoo liikuntasuunnittelija.\n\nHaasteena on ylläpito ja ilkivalta. Osa paikoista on kärsinyt rikkinäisistä välineistä ja roskaamisesta. Myös melu on herättänyt keskustelua, kun nuoret kokoontuvat paikoille iltaisin.\n\nAsukkaat toivovat, että paikkoja kehitettäisiin yhdessä käyttäjien kanssa. \"Kun nuoret pääsevät suunnittelemaan, he myös pitävät paikkoja paremmin kunnossa\", sanoo paikallinen asukas.",
+      "word_count": 105
+    },
+    "questions": [
+      {
+        "id": "item_036_1",
+        "prompt": "Mitä lähiliikuntapaikat ovat?",
+        "options": [
+          "kalliita liikuntakeskuksia",
+          "maksuttomia, kaikille avoimia liikuntapaikkoja",
+          "vain lasten leikkipaikkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_036_2",
+        "prompt": "Miksi kaupungit panostavat lähiliikuntapaikkoihin?",
+        "options": [
+          "ne tuottavat rahaa",
+          "ne edistävät terveyttä ja yhteisöllisyyttä",
+          "ne korvaavat kalliit urheiluhallit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_036_3",
+        "prompt": "Mitä haasteita lähiliikuntapaikoilla on?",
+        "options": [
+          "niitä käytetään liian vähän",
+          "ylläpito, ilkivalta ja melu",
+          "ne ovat liian kalliita rakentaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_036_4",
+        "prompt": "Mitä asukkaat toivovat?",
+        "options": [
+          "että paikat suljetaan yöksi",
+          "että käyttäjät pääsevät suunnittelemaan paikkoja",
+          "että paikat ovat vain aikuisille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

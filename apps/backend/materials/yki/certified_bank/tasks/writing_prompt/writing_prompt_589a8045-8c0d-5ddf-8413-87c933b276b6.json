@@ -1,0 +1,37 @@
+{
+  "id": "589a8045-8c0d-5ddf-8413-87c933b276b6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti oikeusministeriöön. Haluat tehdä aloitteen kansalaisaloitteen käsittelyajan lyhentämiseksi. Perustele, miksi nykyinen käsittelyaika on ongelmallinen ja ehdota konkreettisia muutoksia lainsäädäntöön.",
+    "materials": {
+      "scenario": "Aloite kansalaisaloitteen käsittelyajasta"
+    },
+    "items": [
+      {
+        "id": "f887b16d-be2e-5dca-ab0e-cf72aa30c453",
+        "prompt": "Kirjoita virallinen sähköposti oikeusministeriöön. Haluat tehdä aloitteen kansalaisaloitteen käsittelyajan lyhentämiseksi. Perustele, miksi nykyinen käsittelyaika on ongelmallinen ja ehdota konkreettisia muutoksia lainsäädäntöön."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

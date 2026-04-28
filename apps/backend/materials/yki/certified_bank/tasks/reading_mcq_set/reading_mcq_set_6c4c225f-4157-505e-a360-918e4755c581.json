@@ -1,0 +1,77 @@
+{
+  "id": "6c4c225f-4157-505e-a360-918e4755c581",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue essee ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Esseessä väitetään, että kuolemaa koskevassa julkisessa keskustelussa sekoittuvat usein kaksi tasoa: biologinen tapahtuma ja sosiaalinen merkityksenanto. Kirjoittaja ehdottaa, että kiistat kärjistyvät silloin, kun näitä tasoja käsitellään samoin käsittein. Hän ei vähättele tunteiden roolia, mutta painottaa, että selkeä kieli voi vähentää väärinymmärryksiä ilman että keskustelusta tulee kylmää.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitkä kaksi tasoa esseessä erotetaan?",
+        "options": [
+          "talous ja uskonto",
+          "biologinen tapahtuma ja sosiaalinen merkityksenanto",
+          "laki ja politiikka",
+          "taide ja tiede"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin kiistat kärjistyvät?",
+        "options": [
+          "kun keskustelu on lyhyt",
+          "kun tasoja käsitellään samoilla käsitteillä",
+          "kun käytetään esimerkkejä",
+          "kun mukana on asiantuntijoita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja painottaa?",
+        "options": [
+          "tunteet pois keskustelusta",
+          "selkeä kieli vähentää väärinymmärryksiä",
+          "vain juridinen puhe on sallittu",
+          "keskustelua ei tarvita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kirjoittaja suhtautuu tunteisiin?",
+        "options": [
+          "pitää niitä haitallisina",
+          "ei vähättele niiden roolia",
+          "kieltää niiden merkityksen",
+          "sivuuttaa täysin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

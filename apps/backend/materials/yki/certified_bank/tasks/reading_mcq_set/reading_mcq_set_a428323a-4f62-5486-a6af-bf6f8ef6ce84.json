@@ -1,0 +1,66 @@
+{
+  "id": "a428323a-4f62-5486-a6af-bf6f8ef6ce84",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.739,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Teknologian kehitys, erityisesti tekoäly ja automaatio, muuttaa työelämää perusteellisesti. Monet asiantuntijat ennustavat, että jopa puolet nykyisistä työtehtävistä voidaan automatisoida seuraavan 20 vuoden aikana. Tämä ei kuitenkaan tarkoita työn loppua, vaan työn sisällön muutosta. Uusia työpaikkoja syntyy erityisesti teknologian kehittämisen, ylläpidon ja valvonnan aloille, sekä aloilla, joilla vaaditaan ihmisten välistä vuorovaikutusta, luovuutta ja eettistä harkintaa. Keskeiseksi kysymykseksi nousee, miten varmistetaan, että ihmisillä on tulevaisuudessa tarvittava osaaminen ja miten turvataan toimeentulo työelämän murroksessa.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "mcq_111",
+        "prompt": "Kuinka suuri osa nykyisistä työtehtävistä saatetaan ennusteiden mukaan automatisoida?",
+        "options": [
+          "Neljännes",
+          "Puolet",
+          "Kolme neljäsosaa",
+          "Kaikki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_112",
+        "prompt": "Millä aloilla ennustetaan syntyvän uusia työpaikkoja?",
+        "options": [
+          "Rutiininomaisessa tehdastyössä",
+          "Teknologian kehittämisen ja ihmisten välisen vuorovaikutuksen aloilla",
+          "Maanviljelyssä",
+          "Kuljetus- ja logistiikka-alalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_113",
+        "prompt": "Mikä on keskeinen kysymys työelämän murroksessa?",
+        "options": [
+          "Miten vähennetään automatisaatiota",
+          "Miten varmistetaan tarvittava osaaminen",
+          "Miten palataan vanhoihin työmuotoihin",
+          "Miten lisätään rutiinityötä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

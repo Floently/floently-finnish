@@ -1,0 +1,66 @@
+{
+  "id": "0a1ea029-c892-5b22-91aa-41d12e796c97",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "HISSIN KORJAUS\n\nTiedoksi asukkaille! Talon hissiä korjataan maanantaina 5.6. kello 9–15. Tänä aikana hissi ei toimi. Pahoittelemme melua ja häiriötä. Kiitos ymmärryksestä!",
+      "word_count": 22
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin hissiä korjataan?",
+        "options": [
+          "sunnuntaina 4.6.",
+          "maanantaina 5.6.",
+          "tiistaina 6.6.",
+          "keskiviikkona 7.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan korjaus kestää?",
+        "options": [
+          "2 tuntia",
+          "4 tuntia",
+          "6 tuntia",
+          "8 tuntia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hissille tapahtuu korjauksen aikana?",
+        "options": [
+          "se toimii normaalisti",
+          "se ei toimi",
+          "se on nopeampi",
+          "se on hitaampi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

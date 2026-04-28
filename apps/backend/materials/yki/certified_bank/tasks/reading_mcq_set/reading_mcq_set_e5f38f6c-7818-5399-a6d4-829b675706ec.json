@@ -1,0 +1,99 @@
+{
+  "id": "e5f38f6c-7818-5399-a6d4-829b675706ec",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lasten liikkumisen väheneminen on huolestuttava trendi. Lapset viettävät yhä enemmän aikaa ruutujen ääressä, ja ulkoleikit ovat vähentyneet. Tämä vaikuttaa lasten terveyteen ja kehitykseen. Kouluissa pyritään lisäämään liikuntaa esimerkiksi välituntiliikunnalla ja liikuntatunneilla. Vanhemmat voivat kannustaa lapsia ulkoilemaan ja harrastamaan liikuntaa yhdessä. Myös kaupunkiympäristöllä on merkitystä.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on huolestuttava trendi lasten kohdalla?",
+        "options": [
+          "Liikkumisen lisääntyminen",
+          "Liikkumisen väheneminen",
+          "Ulkoleikkien lisääntyminen",
+          "Ruutuajan väheneminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten lapset viettävät yhä enemmän aikaa?",
+        "options": [
+          "Ulkona leikkien",
+          "Ruutujen ääressä",
+          "Liikuntaharrastuksissa",
+          "Perheen kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin liikkumisen väheneminen vaikuttaa?",
+        "options": [
+          "Vain koulumenestykseen",
+          "Lasten terveyteen ja kehitykseen",
+          "Vain unen laatuun",
+          "Vain ruokailutottumuksiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kouluissa pyritään lisäämään liikuntaa?",
+        "options": [
+          "Välituntiliikunnalla ja liikuntatunneilla",
+          "Lisäämällä istumista",
+          "Vähentämällä liikuntatunteja",
+          "Kieltämällä välitunnit"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten vanhemmat voivat vaikuttaa lasten liikkumiseen?",
+        "options": [
+          "Antamalla lasten olla rauhassa",
+          "Kannustamalla ulkoilemaan ja harrastamaan liikuntaa yhdessä",
+          "Kieltämällä kaiken liikunnan",
+          "Ostamalla lisää ruutuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Millä muulla tekijällä on merkitystä lasten liikkumiseen?",
+        "options": [
+          "Säällä",
+          "Kaupunkiympäristöllä",
+          "Koulumatkan pituudella",
+          "Lasten iällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

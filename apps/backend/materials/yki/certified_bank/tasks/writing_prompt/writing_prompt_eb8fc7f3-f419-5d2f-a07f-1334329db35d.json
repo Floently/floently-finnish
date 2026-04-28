@@ -1,0 +1,37 @@
+{
+  "id": "eb8fc7f3-f419-5d2f-a07f-1334329db35d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.678,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haet työpaikkaa kotiapulaiseksi. Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Hakemus: Kotiapulainen"
+    },
+    "items": [
+      {
+        "id": "c4ffd322-059e-5bdb-b596-711d5c1faa7d",
+        "prompt": "Haet työpaikkaa kotiapulaiseksi. Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "Haet työpaikkaa kotiapulaiseksi. Kirjoita työhakemus.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2e455af8-11f4-5262-a75a-b32057443b57",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.659,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cultural_center. Purpose: ask_for_information. Constraint: use_clear_structure.",
+    "materials": {
+      "scenario": "health in cultural_center"
+    },
+    "items": [
+      {
+        "id": "0fd6f02c-6838-5f2c-8acd-2112cc41644c",
+        "prompt": "Write for the receiver in this scenario: cultural_center. Purpose: ask_for_information. Constraint: use_clear_structure."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

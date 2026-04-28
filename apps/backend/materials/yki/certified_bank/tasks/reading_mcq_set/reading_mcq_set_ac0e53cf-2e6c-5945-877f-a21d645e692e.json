@@ -1,0 +1,73 @@
+{
+  "id": "ac0e53cf-2e6c-5945-877f-a21d645e692e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KADONNUT LOMPAKKO\n\nOlen hukannut lompakkoni 10.7.2025 kauppakeskus Kolmion kahvilassa. Lompakko on ruskea ja nahkainen. Sisällä on ajokortti, pankkikortti ja 20 euroa rahaa.\n\nJos löydät lompakon, vie se kauppakeskuksen asiakaspalveluun.\n\nLöytöpalkkio luvassa!\n\n-- Mikko",
+      "word_count": 33
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä lompakko katosi?",
+        "options": [
+          "9.7.2025",
+          "10.7.2025",
+          "11.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mistä lompakko katosi?",
+        "options": [
+          "bussista",
+          "kauppakeskuksen kahvilasta",
+          "uimahallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä lompakossa on?",
+        "options": [
+          "ajokortti, pankkikortti ja rahaa",
+          "henkilökortti ja pankkikortti",
+          "vain pankkikortti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_004",
+        "prompt": "Minne lompakon voi viedä?",
+        "options": [
+          "poliisiasemalle",
+          "kauppakeskuksen asiakaspalveluun",
+          "bussiyhtiön toimistoon"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

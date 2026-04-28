@@ -1,0 +1,37 @@
+{
+  "id": "a9d0d642-5ab1-583c-a701-1f01e655a6e4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: adult_education_center. Purpose: propose_an_improvement. Constraint: mention_a_follow_up_step.",
+    "materials": {
+      "scenario": "työnhausta aikuiskoulutuskeskuksesta"
+    },
+    "items": [
+      {
+        "id": "94d96009-380f-5c3f-a9ba-5b0476b1804d",
+        "prompt": "Write for the receiver in this scenario: adult_education_center. Purpose: propose_an_improvement. Constraint: mention_a_follow_up_step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

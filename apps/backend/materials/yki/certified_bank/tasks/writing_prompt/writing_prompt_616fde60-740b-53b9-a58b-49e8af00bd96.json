@@ -1,0 +1,37 @@
+{
+  "id": "616fde60-740b-53b9-a58b-49e8af00bd96",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö Suomessa ottaa käyttöön kansalaispalkka. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Kansalaispalkka Suomessa"
+    },
+    "items": [
+      {
+        "id": "98949e88-c2f5-5e60-a32d-755fbbf561b4",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö Suomessa ottaa käyttöön kansalaispalkka. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

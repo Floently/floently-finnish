@@ -1,0 +1,40 @@
+{
+  "id": "8562be14-053c-5b73-aad3-f65b62c3b9d1",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.732,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele sairaanhoitopiirin johtajan kanssa päivystyksen keskittämisestä. Perustele päivystyksen säilyttämistä pienemmällä sairaalalla ja vastaa potilasturvallisuusargumentteihin.",
+    "materials": {
+      "roles": {
+        "user": "paikallisen terveysaseman lääkäri ja vastustat suunnitelmaa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "38ae4b54-b328-511c-b1a3-e186000ee32b",
+        "ai_first_turn_fi": "Tämä on vaikea päätös, mutta lääketieteelliset faktat puhuvat puolestaan. Meillä on tutkimuksia, jotka osoittavat, että potilaat selviävät paremmin, kun heidät hoidetaan sairaalassa, jossa on ympärivuorokautinen leikkausvalmius, teho-osasto ja erikoislääkärit. Pienessä sairaalassa on vain yleislääkäri, ja jos tulee sydänkohtaus tai aivoverenvuoto, potilas on siirrettävä joka tapauksessa. Se siirto vie aikaa, ja se aika on kriittinen. Eikö ole parempi, että potilas menee suoraan oikeaan paikkaan, vaikka matka olisi pidempi, kuin että hän menee väärään paikkaan ja joutuu siirretyksi?"
+      }
+    ],
+    "rubric": "Keskustele sairaanhoitopiirin johtajan kanssa päivystyksen keskittämisestä. Perustele päivystyksen säilyttämistä pienemmällä sairaalalla ja vastaa potilasturvallisuusargumentteihin.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

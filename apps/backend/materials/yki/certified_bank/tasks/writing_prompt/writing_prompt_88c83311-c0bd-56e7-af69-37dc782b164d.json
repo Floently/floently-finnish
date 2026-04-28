@@ -1,0 +1,37 @@
+{
+  "id": "88c83311-c0bd-56e7-af69-37dc782b164d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin sosiaalitoimeen. Tarvitset toimeentulotukea väliaikaisesti, koska olet jäänyt työttömäksi. Kerro tilanteestasi ja kysy, miten toimeentulotukea haetaan ja mitä liitteitä tarvitaan.",
+    "materials": {
+      "scenario": "Tiedustelu toimeentulotuesta"
+    },
+    "items": [
+      {
+        "id": "9e1494f4-a38f-5052-a1ae-4ba4c1c38b4a",
+        "prompt": "Kirjoita sähköposti kaupungin sosiaalitoimeen. Tarvitset toimeentulotukea väliaikaisesti, koska olet jäänyt työttömäksi. Kerro tilanteestasi ja kysy, miten toimeentulotukea haetaan ja mitä liitteitä tarvitaan."
+      }
+    ],
+    "rubric": "Tilanteen kuvaus\nHakeminen\nTarvittavat liitteet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

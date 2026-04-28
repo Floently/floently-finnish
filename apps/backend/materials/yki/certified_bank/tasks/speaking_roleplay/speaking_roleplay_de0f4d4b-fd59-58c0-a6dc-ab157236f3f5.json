@@ -1,0 +1,64 @@
+{
+  "id": "de0f4d4b-fd59-58c0-a6dc-ab157236f3f5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa avata säästötilin pankissa. Keskustele pankkivirkailijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Pankkivirkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp43_1",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp43_2",
+        "ai_first_turn_fi": "Totta kai. Onko sinulla jo käyttötili meillä?"
+      },
+      {
+        "id": "srp43_3",
+        "ai_first_turn_fi": "Hyvä. Säästötilin avaaminen on helppoa. Haluatko tilin, jolta voit nostaa rahaa milloin tahansa, vai haluatko määräaikaistalletuksen korkeammalla korolla?"
+      },
+      {
+        "id": "srp43_4",
+        "ai_first_turn_fi": "Suosittelen joustavaa säästötiliä, jolta voit siirtää rahaa helposti. Korko on tällä hetkellä 0,5%."
+      },
+      {
+        "id": "srp43_5",
+        "ai_first_turn_fi": "Tilin avaamiseen tarvitsemme henkilöllisyystodistuksen ja henkilötunnuksen. Onko ne mukana?"
+      },
+      {
+        "id": "srp43_6",
+        "ai_first_turn_fi": "Kiitos. Tili on nyt avattu ja saat verkkopankkitunnukset myös säästötilille. Haluatko tehdä heti ensimmäisen talletuksen?"
+      },
+      {
+        "id": "srp43_7",
+        "ai_first_turn_fi": "Selvä. Tässä on tilinumerosi. Voit tehdä talletuksen milloin vain. Muistathan, että säästäminen kannattaa aina!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa avata säästötilin pankissa. Keskustele pankkivirkailijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

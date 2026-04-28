@@ -1,0 +1,88 @@
+{
+  "id": "d9214e59-2fb8-57ca-9c4c-94dd7e13ef7a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.737,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Luonnon merkitys lasten kehityksessä on kiistaton, ja sitä on tutkittu paljon viime vuosina. Luonto tarjoaa lapsille monipuolisia aistikokemuksia, mahdollisuuksia leikkiin ja oppimiseen sekä rauhoittumiseen. Se on tärkeä vastapaino ruutuajalle ja sisällä vietetylle ajalle. Yksi keskeisimmistä luonnon hyödyistä on sen vaikutus motoriseen kehitykseen. Luonnossa liikkuminen, kuten kiipeily, juokseminen, hyppiminen ja tasapainoilu, kehittää lasten motorisia taitoja ja kehonhallintaa. Epätasainen maasto ja luonnon esteet tarjoavat haasteita, joita tasaisella lattialla ei ole. Toinen keskeinen hyöty on aistien kehittyminen. Luonto tarjoaa monipuolisia aistikokemuksia: tuoksuja, ääniä, värejä, muotoja ja tuntemuksia. Lapsi oppii hahmottamaan maailmaa kaikilla aisteillaan. Kolmas hyöty on kognitiivinen kehitys. Luonto innostaa lasta tutkimaan, kyselemään ja oppimaan. Mikä tuo mato? Miksi lehdet vaihtavat väriä? Luonto herättää uteliaisuutta ja antaa mahdollisuuksia oppia luonnontieteitä. Neljäs hyöty on mielenterveys ja hyvinvointi. Luonto rauhoittaa ja vähentää stressiä. Luonnossa lapsi voi leikkiä vapaasti ja purkaa energiaansa. Se on myös tärkeä paikka käsitellä tunteita ja rauhoittua. Viides hyöty on sosiaalisten taitojen kehittyminen. Luonnossa lapset leikkivät usein yhdessä, ja he oppivat neuvottelemaan, tekemään yhteistyötä ja ratkaisemaan ristiriitoja. Yhteiset luontokokemukset vahvistavat ystävyyssuhteita.",
+      "word_count": 169
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä vastapainoa luonto tarjoaa lapsille?",
+        "options": [
+          "Vastapainoa koulutyölle",
+          "Vastapainoa ruutuajalle ja sisällä vietetylle ajalle",
+          "Vastapainoa harrastuksille",
+          "Vastapainoa unelle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten luonto vaikuttaa lasten motoriseen kehitykseen?",
+        "options": [
+          "Se hidastaa motorista kehitystä",
+          "Liikkuminen epätasaisessa maastossa kehittää motorisia taitoja ja kehonhallintaa",
+          "Sillä ei ole vaikutusta",
+          "Se tekee lapsista kömpelöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä aistikokemuksia luonto tarjoaa?",
+        "options": [
+          "Vain näköaistimuksia",
+          "Tuoksuja, ääniä, värejä, muotoja ja tuntemuksia",
+          "Vain kuuloaistimuksia",
+          "Vain tuntoaistimuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten luonto vaikuttaa lasten kognitiiviseen kehitykseen?",
+        "options": [
+          "Se tylsistyttää",
+          "Se innostaa tutkimaan, kyselemään ja oppimaan",
+          "Sillä ei ole vaikutusta",
+          "Se hidastaa oppimista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten luonto vaikuttaa lasten mielenterveyteen?",
+        "options": [
+          "Se lisää stressiä",
+          "Se rauhoittaa, vähentää stressiä ja auttaa käsittelemään tunteita",
+          "Se aiheuttaa ahdistusta",
+          "Sillä ei ole vaikutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

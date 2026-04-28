@@ -1,0 +1,37 @@
+{
+  "id": "6431d6ef-abdf-543a-8902-8d8cebaa9d43",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kampaajalle. Kerro, että sinulla on aika huomenna klo 14, mutta haluat vaihtaa ajan toiseen päivään. Ehdota kahta uutta aikaa.",
+    "materials": {
+      "scenario": "Viesti kampaajalle ajan vaihtamisesta"
+    },
+    "items": [
+      {
+        "id": "13bd29fe-3e72-524c-b1b4-4952e5766dcc",
+        "prompt": "Kirjoita lyhyt viesti kampaajalle. Kerro, että sinulla on aika huomenna klo 14, mutta haluat vaihtaa ajan toiseen päivään. Ehdota kahta uutta aikaa."
+      }
+    ],
+    "rubric": "Kerro nykyinen aika\nKerro, että haluat vaihtaa ajan\nEhdota kahta uutta aikaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "dad82f60-86be-55b0-a6f2-ac65db8538d2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Asuminen on yksi tärkeimmistä hyvinvoinnin tekijöistä. Turvallinen ja terveellinen asunto on jokaisen perusoikeus. Suomessa asumisen taso on korkea. Asuntokanta on monipuolista: kerrostaloja, omakotitaloja ja rivitaloja. Viime vuosina asumisessa on tapahtunut muutoksia. Kaupungistuminen on lisännyt asuntojen kysyntää kasvukeskuksissa. Tämä on nostanut hintoja ja vuokria. Erityisesti nuorten ja opiskelijoiden on vaikea löytää kohtuuhintaista asuntoa. Asumisen laatua koskevat vaatimukset ovat kasvaneet. Ihmiset haluavat koteja, joissa on hyvä sisäilma ja toimivat tilat. Energiatehokkuus on noussut tärkeäksi. Korjausrakentaminen on yhä tärkeämpää. Asumiseen liittyy myös sosiaalisia ulottuvuuksia. Yksinasuminen on lisääntynyt. Tämä voi lisätä yksinäisyyttä. Naapuruussuhteet ja yhteisöllisyys ovat tärkeitä hyvinvoinnille.",
+      "word_count": 94
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi asuminen on tärkeää hyvinvoinnille?",
+        "options": [
+          "Se on vain välttämätön menoerä.",
+          "Turvallinen ja terveellinen asunto on perusoikeus.",
+          "Sillä ei ole merkitystä hyvinvoinnille.",
+          "Vain oman kodin omistaminen on tärkeää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten kaupungistuminen on vaikuttanut asumiseen?",
+        "options": [
+          "Se on vähentänyt asuntojen kysyntää.",
+          "Se on lisännyt asuntojen kysyntää kasvukeskuksissa ja nostanut hintoja.",
+          "Se on laskenut asumisen kustannuksia.",
+          "Sillä ei ole ollut vaikutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kenellä on erityisen vaikea löytää kohtuuhintaista asuntoa?",
+        "options": [
+          "Eläkeläisillä.",
+          "Nuorilla ja opiskelijoilla.",
+          "Lapsiperheillä.",
+          "Varakkailla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä asumisen laadulta vaaditaan nykyään?",
+        "options": [
+          "Vain halpaa hintaa.",
+          "Hyvä sisäilma ja toimivat tilat.",
+          "Vain sijaintia.",
+          "Vain kokoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi energiatehokkuus on noussut tärkeäksi?",
+        "options": [
+          "Se lisää asumiskustannuksia.",
+          "Pyritään vähentämään asumisen ympäristövaikutuksia.",
+          "Se on muotia.",
+          "Se on pakollista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä sosiaalisia haasteita asumiseen liittyy?",
+        "options": [
+          "Liian paljon yhteisöllisyyttä.",
+          "Yksinasumisen lisääntyminen ja yksinäisyys.",
+          "Liian paljon naapureita.",
+          "Liian vähän yksityisyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä tarkoitetaan korjausrakentamisella?",
+        "options": [
+          "Uusien talojen rakentamista.",
+          "Vanhojen talojen korjaamista vastaamaan nykyvaatimuksia.",
+          "Talojen purkamista.",
+          "Talojen myymistä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

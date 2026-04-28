@@ -1,0 +1,77 @@
+{
+  "id": "588cf636-12ac-5246-a262-3667cf56f7b5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.783,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Sukupolvien välinen oikeudenmukaisuus on noussut keskeiseksi yhteiskunnalliseksi kysymykseksi niin Suomessa kuin muuallakin länsimaissa. Keskustelua käydään siitä, millaisen maailman ja yhteiskunnan nykyiset sukupolvet jättävät tuleville sukupolville, ja miten vastuut ja velvollisuudet jakautuvat eri ikäluokkien välillä. Tämä kysymys on monitahoinen ja ulottuu taloudesta ympäristöön ja sosiaalipolitiikasta kulttuuriin. Yksi keskeisimmistä kysymyksistä liittyy julkiseen talouteen ja velkaantumiseen. Monet maat ovat viime vuosikymmeninä velkaantuneet voimakkaasti, ja tämä velkataakka jää tulevien sukupolvien maksettavaksi. Samalla ikääntyvä väestö lisää julkisia menoja esimerkiksi eläkkeiden ja terveydenhuollon muodossa, mikä entisestään kiristää julkista taloutta. Kriitikot kysyvät, onko oikein, että nykyiset sukupolvet elävät yli varojensa ja siirtävät laskun tuleville sukupolville. Toinen keskeinen kysymys liittyy ympäristöön ja ilmastonmuutokseen. Nykyisten sukupolvien kulutustottumukset ja energiantuotantotavat ovat johtaneet ilmaston lämpenemiseen ja luonnon monimuotoisuuden heikkenemiseen. Tämän seuraukset, kuten äärimmäiset sääilmiöt, merenpinnan nousu ja luonnonvarojen ehtyminen, koituvat ennen kaikkea tulevien sukupolvien kannettaviksi. Kolmas keskustelunaihe koskee sosiaaliturvaa ja eläkejärjestelmää. Useimmat länsimaat ovat rakentaneet sosiaaliturvajärjestelmänsä pay-as-you-go-periaatteen varaan, jossa nykyiset työssäkäyvät maksavat nykyisten eläkeläisten eläkkeet. Väestön ikääntyessä tämä järjestelmä joutuu paineen alle, ja nuoremmat sukupolvet joutuvat maksamaan yhä suuremman osan tuloistaan eläkkeisiin samalla kun heidän oma eläketurvansa on epävarma. Toisaalta on tärkeää huomata, että vanhemmat sukupolvet ovat rakentaneet ne yhteiskunnalliset rakenteet, joista nuoremmat pääsevät nauttimaan.",
+      "word_count": 194
+    },
+    "questions": [
+      {
+        "id": "a2f3a792-0cf4-5bb8-81fb-415b7ee62bd4",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Väestön ikääntymisen vaikutukset eläkejärjestelmään",
+          "Julkisen talouden velkaantuminen ja sen seuraukset",
+          "Sukupolvien välinen oikeudenmukaisuus ja siihen liittyvät taloudelliset, ympäristölliset ja sosiaaliset kysymykset",
+          "Ilmastonmuutoksen vaikutukset tuleviin sukupolviin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "5a4667c8-efa3-5391-bd85-c5c740a265e1",
+        "prompt": "Tekstin mukaan millä tavoin julkinen velkaantuminen liittyy sukupolvien väliseen oikeudenmukaisuuteen?",
+        "options": [
+          "Se hyödyttää tulevia sukupolvia, koska he saavat paremmat palvelut",
+          "Se on ongelma vain nykyisille sukupolville, jotka joutuvat maksamaan velkoja",
+          "Se siirtää taakan tuleville sukupolville, jotka joutuvat maksamaan nykyisten sukupolvien ylivelkaantumisen",
+          "Sillä ei ole merkitystä sukupolvien välisen oikeudenmukaisuuden kannalta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "144185b7-235d-59dc-bf17-0d950b6a9c46",
+        "prompt": "Miten väestön ikääntyminen vaikuttaa pay-as-you-go -periaatteella toimivaan eläkejärjestelmään?",
+        "options": [
+          "Se vahvistaa järjestelmää, koska eläkeläisiä on enemmän",
+          "Sillä ei ole vaikutusta, koska järjestelmä on suunniteltu kestämään ikääntyminen",
+          "Se asettaa paineita järjestelmälle, koska nuoremmat sukupolvet joutuvat maksamaan yhä suuremman osan tuloistaan eläkkeisiin",
+          "Se vähentää tarvetta eläkejärjestelmälle, koska ihmiset elävät pidempään"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8878f359-f211-508b-a0ae-d19eda150bd2",
+        "prompt": "Mitä vasta-argumenttia tekstissä esitetään sille, että sukupolvien välinen epäoikeudenmukaisuus olisi yksisuuntainen ilmiö?",
+        "options": [
+          "Nuoremmat sukupolvet ovat aina paremmassa asemassa kuin vanhemmat",
+          "Vanhemmat sukupolvet ovat rakentaneet ne yhteiskunnalliset rakenteet, joista nuoremmat nauttivat",
+          "Vanhemmilla sukupolvilla ei ole mitään annettavaa nuoremmille",
+          "Sukupolvien välinen oikeudenmukaisuus on merkityksetön käsite"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

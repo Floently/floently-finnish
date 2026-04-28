@@ -1,0 +1,88 @@
+{
+  "id": "c334a7b0-05fe-5297-babb-dd67d44bf436",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kotimaiset käsityöperinteet ovat rikkaat ja monipuoliset, ja ne kertovat suomalaisten taidosta, luovuudesta ja sopeutumisesta pohjoisiin olosuhteisiin. Ne ovat kehittyneet vuosisatojen kuluessa ja siirtyneet sukupolvelta toiselle. Nykyään perinteiset käsityöt ovat kokeneet uuden tulemisen, ja yhä useampi arvostaa käsityön taitoa, laatua ja ainutlaatuisuutta. Yksi keskeisimmistä käsityöperinteistä on tekstiilityöt, kuten neulominen, virkkaus ja kudonta. Suomalaiset villasukat, lapaset ja puserot ovat tunnettuja lämmittävyydestään ja kauniista kuvioistaan. Perinteiset kirjoneuleet, kuten jussipuserot ja raitaneuleet, ovat suosittuja edelleen. Kudotut matot, raanut ja ryijyt ovat koristaneet suomalaisia koteja vuosisatojen ajan. Toinen keskeinen perinne on puutyöt ja rakentaminen. Suomalaiset ovat aina olleet taitavia käsittelemään puuta, ja perinteiset hirsirakennukset, aitat ja saunat ovat osoitus tästä taidosta. Puuveneiden veistäminen, huonekalujen valmistus ja puuesineiden kaivertaminen ovat perinteitä, joita vaalitaan edelleen. Kolmas perinne on keramiikka ja savityöt. Suomalainen keramiikka, kuten Arabian astiat, on tunnettua ympäri maailmaa. Perinteiset savipadassa tehdyt ruoat, kuten kalakeitto, ovat olleet osa ruokakulttuuria. Neljäs perinne on korujen ja hopeatöiden valmistus. Suomalainen hopeasepäntyö on perinteikästä ja arvostettua. Perinteiset korut, kuten kalevalaiset korut, ovat suosittuja. Viides perinne on perinneruokien valmistus ja säilöntä. Ruoanlaitto ja leivonta ovat kädentaitoja, joita siirretään eteenpäin. Ruisleivän leivonta, kalojen savustus, marjojen ja sienien säilöntä ovat perinteitä, jotka elävät edelleen.",
+      "word_count": 191
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kotimaiset käsityöperinteet kertovat suomalaisista?",
+        "options": [
+          "Vain taloudellisesta tilanteesta",
+          "Taidosta, luovuudesta ja sopeutumisesta pohjoisiin olosuhteisiin",
+          "Vain historiasta",
+          "Vain ulkomaisista vaikutteista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä ovat keskeisimpiä tekstiilityön perinteitä Suomessa?",
+        "options": [
+          "Vain ompelu",
+          "Neulominen, virkkaus ja kudonta",
+          "Vain kirjonta",
+          "Vain pitsinnypläys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä suomalaiset villasukat ja lapaset tunnetaan?",
+        "options": [
+          "Värikkyydestään",
+          "Lämmittävyydestään ja kauniista kuvioistaan",
+          "Halpuudestaan",
+          "Nopeudestaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä perinteisiä puurakennuksia Suomessa on?",
+        "options": [
+          "Vain moderneja rakennuksia",
+          "Hirsirakennuksia, aittoja ja saunoja",
+          "Vain kivitaloja",
+          "Vain betonirakennuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä perinneruokien valmistukseen kuuluu?",
+        "options": [
+          "Vain uusien reseptien kokeilu",
+          "Ruisleivän leivonta, kalojen savustus, marjojen ja sienien säilöntä",
+          "Vain pitsan leivonta",
+          "Vain ulkomaisten ruokien valmistus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

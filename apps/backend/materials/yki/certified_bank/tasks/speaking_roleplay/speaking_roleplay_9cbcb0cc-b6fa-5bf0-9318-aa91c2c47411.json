@@ -1,0 +1,40 @@
+{
+  "id": "9cbcb0cc-b6fa-5bf0-9318-aa91c2c47411",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "matkustaja",
+        "partner": "toinen matkustaja"
+      }
+    },
+    "items": [
+      {
+        "id": "srp95_01",
+        "ai_first_turn_fi": "Hei, odotatko myös bussia?"
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "2c29bfc5-b789-5bd9-a497-bf59f2ecc999",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KIERRÄTYSOHJEITA KOTITALOUKSILLE\n\nBiojäte: Biojätteeseen kuuluvat ruoantähteet, hedelmien ja vihannesten kuoret, kahvinporot ja suodatinpaperit. Biojäte tulee laittaa paperipussiin tai biohajoavaan pussiin.\n\nMuovi: Muovipakkaukset, kuten jugurttipurkit, pesuainepullot ja muovipussit, kerätään muovinkeräykseen. Pakkaukset pitää huuhdella ennen keräykseen laittamista.\n\nKartonki: Maitotölkit, mehutölkit ja kartonkipakkaukset kuuluvat kartonkikeräykseen. Muista litistää tölkit ennen keräystä.\n\nLasi: Värilliset ja värittömät lasipakkaukset kerätään erikseen. Paristot ja sähkölaitteet viedään omaan keräyspisteeseensä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 88
+    },
+    "questions": [
+      {
+        "id": "fc6a5502-bf10-5049-acb2-f78fe241a1ff",
+        "prompt": "Mitä biojätteeseen saa laittaa?",
+        "options": [
+          "Muovipakkauksia",
+          "Ruoantähteet ja kahvinporot",
+          "Lasipurkkeja",
+          "Paristoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ce0c8dda-5c57-57d6-ba1d-59f184829905",
+        "prompt": "Mitä muovipakkauksille pitää tehdä ennen kierrätystä?",
+        "options": [
+          "Pestä",
+          "Huuhdella",
+          "Kuivata",
+          "Litistää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "17b40fbd-519b-5c23-b706-e0d1596a0468",
+        "prompt": "Minne paristot pitää viedä?",
+        "options": [
+          "Biojätteeseen",
+          "Muovinkeräykseen",
+          "Omaan keräyspisteeseensä",
+          "Kartonkikeräykseen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

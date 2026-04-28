@@ -1,0 +1,37 @@
+{
+  "id": "56a0874c-35c5-53ab-a1aa-9a89df2667cd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit maalata olohuoneen seinät. Kerro, että haluaisit maalata ne vaaleanharmaaksi. Kysy, saatko tehdä sen ja maksaako vuokranantaja maalit. Kerro, että teet sen itse.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle maalaamisesta"
+    },
+    "items": [
+      {
+        "id": "8f30628d-5f48-5ad1-9a22-9de3fcdc56d1",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että haluaisit maalata olohuoneen seinät. Kerro, että haluaisit maalata ne vaaleanharmaaksi. Kysy, saatko tehdä sen ja maksaako vuokranantaja maalit. Kerro, että teet sen itse."
+      }
+    ],
+    "rubric": "Kerro, että haluat maalata\nKerro, minkä huoneen ja minkä väriseksi\nKysy lupaa\nKysy, maksaako vuokranantaja maalit\nKerro, että teet sen itse",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

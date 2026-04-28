@@ -1,0 +1,40 @@
+{
+  "id": "bf189cb1-407e-59a7-91f3-3ac40d07517a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu suomea roolisi mukaan.",
+    "materials": {
+      "roles": {
+        "user": "asiakas",
+        "partner": "kuntosalin työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp154_01",
+        "ai_first_turn_fi": "Hei, oletko kiinnostunut jäsenyydestä?"
+      }
+    ],
+    "rubric": "Puhu suomea roolisi mukaan.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

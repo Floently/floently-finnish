@@ -1,0 +1,40 @@
+{
+  "id": "9826f126-4122-55ac-966c-1696af88837c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.295,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you speak your native language in Finland. With whom and how often?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "0cc1004b-d5f2-53b5-8995-131979e1cefb",
+        "ai_first_turn_fi": "Puhutko sä omaa kieltäsi täällä? Missä tilanteissa?"
+      }
+    ],
+    "rubric": "Tell if you speak your native language in Finland. With whom and how often?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

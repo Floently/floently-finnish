@@ -1,0 +1,37 @@
+{
+  "id": "2df99df2-9c5f-5c3a-88eb-39d1360996a9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt konsertissa. Kirjoita palaute. Kerro, oliko ääni hyvä ja oliko siellä hyvä tunnelma.",
+    "materials": {
+      "scenario": "Palaute konsertista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt konsertissa. Kirjoita palaute. Kerro, oliko ääni hyvä ja oliko siellä hyvä tunnelma."
+      }
+    ],
+    "rubric": "Olet käynyt konsertissa. Kirjoita palaute. Kerro, oliko ääni hyvä ja oliko siellä hyvä tunnelma.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

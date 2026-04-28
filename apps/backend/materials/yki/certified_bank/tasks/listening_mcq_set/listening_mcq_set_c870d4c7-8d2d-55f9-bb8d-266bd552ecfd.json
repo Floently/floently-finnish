@@ -1,0 +1,88 @@
+{
+  "id": "c870d4c7-8d2d-55f9-bb8d-266bd552ecfd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.71,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu etätyön vaikutuksista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Työpsykologi, miten etätyö on vaikuttanut työntekijöiden hyvinvointiin? Psykologi: Se on kaksiteräinen miekka. Monille se on lisännyt joustavuutta ja vähentänyt työmatkastressiä. Toisaalta työn ja vapaa-ajan raja on hämärtynyt, ja työpäivät ovat pidentyneet. Toimittaja: Mitkä ovat suurimmat haasteet? Psykologi: Yksinäisyys ja eristäytyminen ovat isoja ongelmia. Myös tiedonkulku ja yhteisöllisyys kärsivät, kun spontaanit kohtaamiset jäävät pois. Toimittaja: Miten työnantaja voi tukea työntekijöitä? Psykologi: Tärkeää on luoda selkeät pelisäännöt ja varmistaa, että kaikilla on mahdollisuus osallistua yhteisiin tapaamisiin. Myös virtuaaliset kahvihetket ja yhteiset tapahtumat voivat auttaa. Työnantajan pitää myös muistaa, että etätyö ei sovi kaikille, ja tarjota mahdollisuus toimistotyöhön niille, jotka sitä kaipaavat.",
+      "audio_asset_id": "c3a141b6-60a9-4893-a761-17c191864bad"
+    },
+    "questions": [
+      {
+        "id": "0f7718a7-cd1d-597b-8002-6a538a61c2f6",
+        "prompt": "Miten työpsykologi kuvaa etätyön vaikutuksia?",
+        "options": [
+          "Pelkästään positiivisina.",
+          "Kaksiteräisenä miekka: joustavuutta, mutta työn ja vapaa-ajan raja hämärtynyt.",
+          "Pelkästään negatiivisina.",
+          "Ilman mitään vaikutuksia."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "672b54e9-cff1-5ef5-8d8b-c2667bae51e6",
+        "prompt": "Mikä on psykologin mukaan yksi suurimmista haasteista etätyössä?",
+        "options": [
+          "Liiallinen työkuorma.",
+          "Yksinäisyys ja eristäytyminen.",
+          "Tekniset ongelmat.",
+          "Huono palkka."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9852a29f-8b43-5d04-8a86-5b9c36da73db",
+        "prompt": "Mikä kärsii, kun spontaanit kohtaamiset jäävät pois?",
+        "options": [
+          "Tiedonkulku ja yhteisöllisyys.",
+          "Työn laatu.",
+          "Työn tehokkuus.",
+          "Työntekijöiden palkka."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b6b9e0ef-2034-5348-a2b3-41406aab663e",
+        "prompt": "Mitä työnantajan pitää psykologin mukaan luoda?",
+        "options": [
+          "Pidemmät työpäivät.",
+          "Lisää kokouksia.",
+          "Selkeät pelisäännöt.",
+          "Pienemmät tiimit."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0656e92c-95d9-5ce9-b5a0-7eef7a9aa97f",
+        "prompt": "Mitä työnantajan pitää muistaa etätyön suhteen?",
+        "options": [
+          "Etätyö ei sovi kaikille, ja tarjota mahdollisuus toimistotyöhön.",
+          "Pakottaa kaikki etätöihin.",
+          "Lopettaa etätyö kokonaan.",
+          "Seurata työntekijöitä tarkasti."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

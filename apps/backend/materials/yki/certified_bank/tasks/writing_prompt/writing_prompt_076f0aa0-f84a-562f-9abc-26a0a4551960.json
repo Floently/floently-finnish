@@ -1,0 +1,37 @@
+{
+  "id": "076f0aa0-f84a-562f-9abc-26a0a4551960",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa lapsesi sairastumisesta ja siitä, että hän ei pääse päiväkotiin. Kerro lapsen nimi ja ryhmä sekä arvioitu poissaoloaika.",
+    "materials": {
+      "scenario": "Sairastapausilmoitus päiväkotiin"
+    },
+    "items": [
+      {
+        "id": "eee202d0-de32-5d08-a91e-98e96fde8906",
+        "prompt": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa lapsesi sairastumisesta ja siitä, että hän ei pääse päiväkotiin. Kerro lapsen nimi ja ryhmä sekä arvioitu poissaoloaika."
+      }
+    ],
+    "rubric": "Lapsen nimi ja ryhmä\nSairaus\nPoissaolon arvioitu kesto",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

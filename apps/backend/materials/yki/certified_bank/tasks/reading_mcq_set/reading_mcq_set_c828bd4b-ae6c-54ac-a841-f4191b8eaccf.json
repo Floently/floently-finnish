@@ -1,0 +1,88 @@
+{
+  "id": "c828bd4b-ae6c-54ac-a841-f4191b8eaccf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Puutarhanhoidon suosio on kasvanut viime vuosina, ja yhä useampi suomalainen viettää aikaa puutarhassa, pihalla tai parvekkeella. Tämä kehitys kertoo kaipuusta luontoon, haluun tehdä itse ja nähdä oman työn tulokset. Puutarhanhoito on monipuolinen harrastus, joka tarjoaa liikuntaa, rentoutumista ja elämyksiä. Yksi keskeisimmistä syistä puutarhanhoidon suosioon on halu kasvattaa omaa ruokaa. Yhä useampi haluaa tietää, mistä ruoka tulee, ja nauttia itse kasvatettujen vihannesten, yrttien ja marjojen mausta. Omasta puutarhasta saa tuoretta ja puhdasta satoa. Toinen syy on hyvinvointivaikutukset. Puutarhanhoito on tutkitusti hyväksi mielelle ja keholle. Se vähentää stressiä, parantaa mielialaa ja pitää kunnossa. Multa sormissa ja kasvien kasvun seuraaminen tuovat iloa ja tyydytystä. Kolmas syy on ympäristötietoisuus. Puutarhanhoito lisää ymmärrystä luonnon kiertokulusta ja ekologisuudesta. Monet pyrkivät viljelemään ekologisesti, käyttämään kotimaisia lajikkeita ja säästämään vettä. Myös pölyttäjien huomioiminen on tärkeää. Neljäs syy on esteettisyys ja viihtyisyys. Kaunis puutarha tai parveke lisää kodin viihtyisyyttä ja antaa iloa joka päivä. Kukkien värit, tuoksut ja muodot tuovat kauneutta arkeen. Viides syy on yhteisöllisyys. Puutarhanhoito yhdistää ihmisiä: naapurit vaihtavat kasveja ja kokemuksia, puutarhakerhot ja -tapahtumat keräävät harrastajia yhteen, ja yhteisöpuutarhat luovat uudenlaista yhteisöllisyyttä kaupunkiympäristössä.",
+      "word_count": 177
+    },
+    "questions": [
+      {
+        "id": "90c5adb5-5fab-5c47-a928-1e4cc0944cc1",
+        "prompt": "Mitä puutarhanhoidon suosion kasvu kertoo?",
+        "options": [
+          "Ihmiset haluavat asua maalla",
+          "Kaipuusta luontoon, halusta tehdä itse ja nähdä oman työn tulokset",
+          "Ihmiset haluavat säästää rahaa",
+          "Ihmiset haluavat olla muodikkaita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "447f3e65-11d7-5dd6-bf77-4c6ef6b4ca53",
+        "prompt": "Miksi ihmiset haluavat kasvattaa omaa ruokaa?",
+        "options": [
+          "Koska se on halvempaa",
+          "Koska he haluavat tietää ruoan alkuperän ja nauttia tuoreesta mausta",
+          "Koska se on helpompaa",
+          "Koska kaupassa ei ole ruokaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "72474e06-d610-5e7b-96dd-cd4c0d5bd1ee",
+        "prompt": "Mitä hyvinvointivaikutuksia puutarhanhoidolla on?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä, parantaa mielialaa ja pitää kunnossa",
+          "Se väsyttää",
+          "Sillä ei ole hyvinvointivaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f01ab356-516f-5a25-b743-95f9449dd380",
+        "prompt": "Miten ympäristötietoisuus näkyy puutarhanhoidossa?",
+        "options": [
+          "Käytetään paljon kemikaaleja",
+          "Viljellään ekologisesti, käytetään kotimaisia lajikkeita ja huomioidaan pölyttäjät",
+          "Kulutetaan paljon vettä",
+          "Ei näy millään tavalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "700a8f22-d1a5-5c71-aa7e-86a04d6756e8",
+        "prompt": "Miten puutarhanhoito lisää yhteisöllisyyttä?",
+        "options": [
+          "Se eristää ihmisiä",
+          "Naapurit vaihtavat kasveja, puutarhakerhot ja -tapahtumat kokoavat harrastajia",
+          "Se lisää kilpailua",
+          "Sillä ei ole vaikutusta yhteisöllisyyteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

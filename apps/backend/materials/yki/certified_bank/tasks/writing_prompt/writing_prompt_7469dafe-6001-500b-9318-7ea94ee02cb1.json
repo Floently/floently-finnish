@@ -1,0 +1,37 @@
+{
+  "id": "7469dafe-6001-500b-9318-7ea94ee02cb1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a hospital director position in a central hospital. Tell about your experience in healthcare management, leading large organizations, and strategic development. Also describe how you have improved quality of care and patient safety, and promoted staff well-being. Length about 320 words.",
+    "materials": {
+      "scenario": "Hakemus sairaalajohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "a5d64ff7-70bc-5342-9e75-39d3df21f21d",
+        "prompt": "Write a job application. You are applying for a hospital director position in a central hospital. Tell about your experience in healthcare management, leading large organizations, and strategic development. Also describe how you have improved quality of care and patient safety, and promoted staff well-being. Length about 320 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a hospital director position in a central hospital. Tell about your experience in healthcare management, leading large organizations, and strategic development. Also describe how you have improved quality of care and patient safety, and promoted staff well-being. Length about 320 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

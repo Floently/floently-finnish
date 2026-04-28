@@ -1,0 +1,88 @@
+{
+  "id": "811f7852-9f01-5eee-9c06-1fc079bbe852",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.576,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi koulutuksen tasa-arvosta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KOULUTUS PERIYTYY – SUOMI EI OLE TASA-ARVOINEN IHMEMAA\n\nSuomen koulutusjärjestelmää on pidetty kansainvälisesti tasa-arvon malliesimerkkinä. Ajatus on ollut, että jokaisella lapsella on mahdollisuus menestyä taustastaan riippumatta. Tutkimukset kuitenkin osoittavat, että todellisuus on toinen.\n\nKoulutus periytyy yhä vahvasti. Jos vanhemmat ovat korkeasti koulutettuja, lapset todennäköisesti päätyvät korkeakouluun. Jos vanhemmilla on vain peruskoulutus, lasten on vaikeampi päästä pitkälle. Tämä näkyy jo peruskoulussa: hyväosaisten alueiden koulut pärjäävät, huono-osaisten kouluilla on ongelmia.\n\nMiksi näin? Yksi syy on vanhempien resurssit. Korkeasti koulutetut vanhemmat pystyvät auttamaan lapsiaan läksyissä, hankkimaan yksityistunteja ja ohjaamaan oikeisiin valintoihin. Heillä on myös verkostoja, jotka auttavat myöhemmin työelämässä.\n\nToinen syy on asenteet. Koulutetuissa perheissä koulutusta arvostetaan ja pidetään itsestäänselvyytenä. Lapselle on luontevaa jatkaa opintoja, koska kaikki ympärillä tekevät niin.\n\nKolmas syy on koulujen eriytyminen. Hyväosaisilla alueilla kouluilla on enemmän resursseja, kokeneempia opettajia ja motivoituneempia oppilaita. Tämä luo itseään vahvistavan kierteen.\n\nTasa-arvon lisääminen vaatisi panostuksia heikoimmassa asemassa oleviin kouluihin, varhaiskasvatukseen ja perheiden tukemiseen. Ilman näitä toimia Suomi ei ole enää se tasa-arvon ihmemaa, josta on totuttu puhumaan.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 197
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tarkoitetaan koulutuksen periytymisellä?",
+        "options": [
+          "Koulutus siirtyy geenien kautta",
+          "Vanhempien koulutustaso vaikuttaa lasten koulutuspolkuun",
+          "Lapset menevät aina samalle alalle kuin vanhempansa",
+          "Koulutus on ilmaista"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten vanhempien resurssit vaikuttavat?",
+        "options": [
+          "Ne eivät vaikuta",
+          "Vanhemmat voivat auttaa läksyissä, hankkia yksityistunteja ja ohjata valintoja",
+          "Ne lisäävät lasten stressiä",
+          "Ne vähentävät lasten motivaatiota"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten asenteet vaikuttavat koulutuksen periytymiseen?",
+        "options": [
+          "Koulutetuissa perheissä koulutusta arvostetaan",
+          "Kouluttamattomissa perheissä koulutusta arvostetaan enemmän",
+          "Asenteilla ei ole merkitystä",
+          "Lapset eivät välitä vanhempien asenteista"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten koulujen eriytyminen vaikuttaa?",
+        "options": [
+          "Kaikki koulut ovat samanlaisia",
+          "Hyväosaisilla alueilla koulut ovat parempia, mikä vahvistaa eroja",
+          "Huono-osaisilla alueilla koulut ovat parempia",
+          "Sillä ei ole vaikutusta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ratkaisuja kirjoittaja ehdottaa?",
+        "options": [
+          "Vain korkeakoulujen lisäämistä",
+          "Panostuksia heikoimpiin kouluihin, varhaiskasvatukseen ja perheiden tukemiseen",
+          "Yksityiskoulujen lisäämistä",
+          "Opintomaksujen käyttöönottoa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

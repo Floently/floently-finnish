@@ -1,0 +1,40 @@
+{
+  "id": "7fd9fc2e-3d80-52a5-b671-0ddff71ef80f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.485,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Soita ja tilaa taksi. Kerro, mistä ja mihin olet menossa.",
+    "materials": {
+      "roles": {
+        "user": "myöhässä junasta ja tarvitset taksin rautatieasemalle",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "7389ae47-b87a-504d-9676-e40584c77803",
+        "ai_first_turn_fi": "Taksi Helsinki, miten voin auttaa?"
+      }
+    ],
+    "rubric": "Soita ja tilaa taksi. Kerro, mistä ja mihin olet menossa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

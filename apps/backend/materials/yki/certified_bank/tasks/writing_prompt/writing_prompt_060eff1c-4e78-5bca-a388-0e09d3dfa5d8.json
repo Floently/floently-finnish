@@ -1,0 +1,37 @@
+{
+  "id": "060eff1c-4e78-5bca-a388-0e09d3dfa5d8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.698,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vastaanottajalle tässä tilanteessa: cultural center. Tarkoitus: perustele mielipide. Rajoite: osoita vastaanottajalle.",
+    "materials": {
+      "scenario": "matkailusta kulttuurikeskuksesta"
+    },
+    "items": [
+      {
+        "id": "720497ab-b9cb-51e6-930d-a299516c8722",
+        "prompt": "Kirjoita vastaanottajalle tässä tilanteessa: cultural center. Tarkoitus: perustele mielipide. Rajoite: osoita vastaanottajalle."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

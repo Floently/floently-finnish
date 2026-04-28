@@ -1,0 +1,73 @@
+{
+  "canonical_authority": {
+    "bank_root": "apps/backend/materials/yki/certified_bank/",
+    "manifest": "apps/backend/materials/yki/certified_bank/manifest.json",
+    "pool_index": "apps/backend/materials/yki/certified_bank/metadata/pool_index.json",
+    "task_index": "apps/backend/materials/yki/task_banks/task_index_v3_2.json"
+  },
+  "secondary_or_side_files": [
+    {
+      "path": "apps/backend/materials/yki/manifest/manifest.json",
+      "classification": "compatible_secondary"
+    },
+    {
+      "path": "apps/backend/materials/yki/manifest/task_index_salvaged_tasks.json",
+      "classification": "donor_only_empty"
+    },
+    {
+      "path": "apps/backend/materials/yki/manifest/task_index_unusable_tasks.json",
+      "classification": "reject_side_index_empty"
+    }
+  ],
+  "engine_side_indexes": [],
+  "counts": {
+    "total_tasks": 9706,
+    "by_level": {
+      "A1_A2": 2092,
+      "B1_B2": 3882,
+      "C1_C2": 3732
+    },
+    "by_level_skill": {
+      "A1_A2": {
+        "reading": 282,
+        "listening": 175,
+        "writing": 1282,
+        "speaking": 353
+      },
+      "B1_B2": {
+        "reading": 965,
+        "listening": 227,
+        "writing": 2046,
+        "speaking": 644
+      },
+      "C1_C2": {
+        "reading": 864,
+        "listening": 216,
+        "writing": 2139,
+        "speaking": 513
+      }
+    },
+    "by_task_type": {
+      "reading_mcq_set": 2111,
+      "listening_mcq_set": 618,
+      "writing_prompt": 5467,
+      "speaking_roleplay": 1510
+    }
+  },
+  "integrity": {
+    "selected_for_runtime_false": 0,
+    "missing_file_references": 0,
+    "duplicate_task_ids": 0,
+    "duplicate_file_paths": 0
+  },
+  "runtime_findings": {
+    "repaired_pool_index_path_readers": [
+      "apps/backend/api/routes/yki_exam.py",
+      "apps/backend/api/routes/yki_practice.py"
+    ],
+    "engine_url_default": "http://localhost:8010",
+    "engine_url_legacy_shadow": "http://127.0.0.1:8181",
+    "engine_health_localhost_8010": "unreachable",
+    "engine_health_127_0_0_1_8181": "unreachable"
+  }
+}

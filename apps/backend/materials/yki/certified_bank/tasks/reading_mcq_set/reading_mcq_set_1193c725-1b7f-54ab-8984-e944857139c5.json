@@ -1,0 +1,88 @@
+{
+  "id": "1193c725-1b7f-54ab-8984-e944857139c5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.758,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Työelämän murros on yksi aikamme keskeisimmistä yhteiskunnallisista muutoksista, ja se vaikuttaa syvällisesti sekä yksilöiden elämään että koko yhteiskunnan rakenteisiin. Teknologian kehitys, erityisesti automaatio ja tekoäly, on korvannut monia rutiininomaisia työtehtäviä ja muuttanut toisten työnkuvia. Samalla on syntynyt täysin uudenlaisia ammatteja, jotka vaativat uudenlaista osaamista. Tämä kehitys on johtanut työmarkkinoiden polarisoitumiseen: korkeasti koulutetut asiantuntijat ovat kysyttyjä, kun taas matalammin koulutetut voivat syrjäytyä työelämästä. Yksi merkittävimmistä muutoksista on työsuhteiden pirstaloituminen. Vakituisten, kokoaikaisten työsuhteiden määrä on vähentynyt, ja niiden tilalle on tullut erilaisia epätyypillisiä työsuhteita, kuten määräaikaisuuksia, osa-aikatöitä, keikkatöitä ja vuokratyötä. Tämä on tuonut työelämään joustavuutta mutta myös epävarmuutta. Työntekijät joutuvat yhä useammin tasapainoilemaan useiden työnantajien välillä ja kantamaan itse vastuuta omasta toimeentulostaan ja osaamisensa kehittämisestä. Työn ja vapaa-ajan raja on hämärtynyt erityisesti tietotyössä. Etätyö ja digitaaliset työvälineet mahdollistavat työskentelyn missä ja milloin tahansa, mikä voi lisätä työn joustavuutta mutta myös vaikeuttaa irrottautumista työstä. Tämä on lisännyt vaatimuksia työntekijöiden itseohjautuvuudelle ja ajankäytön hallinnalle. Työnantajien on puolestaan kehitettävä uudenlaisia johtamisen ja työhyvinvoinnin tukemisen muotoja, jotka toimivat hajautetuissa ja joustavissa työympäristöissä. Työelämän murros edellyttää myös koulutusjärjestelmältä uudenlaista ajattelua. Jatkuva oppiminen ja osaamisen päivittäminen läpi työuran on välttämätöntä, jotta työntekijät pysyvät työmarkkinoiden muutoksissa mukana.",
+      "word_count": 188
+    },
+    "questions": [
+      {
+        "id": "c385ba26-5299-51ad-898d-89c1137ac3ed",
+        "prompt": "Mikä on keskeisin syy työelämän murrokseen?",
+        "options": [
+          "Väestön ikääntyminen",
+          "Teknologian kehitys",
+          "Globalisaatio",
+          "Poliittiset päätökset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "395c280f-545c-561a-8d90-43f4c0923616",
+        "prompt": "Mitä tarkoitetaan työmarkkinoiden polarisoitumisella?",
+        "options": [
+          "Työpaikkojen jakautumisella eri puolille maata",
+          "Korkeasti ja matalasti koulutettujen välisten erojen kasvamisella",
+          "Työaikojen jakautumisella eri vuorokaudenajoille",
+          "Palkkojen tasa-arvoistumisella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "adef5ac3-f7df-5f08-ac6e-f88918b37f85",
+        "prompt": "Mitä haittapuolia työsuhteiden pirstaloitumisella on?",
+        "options": [
+          "Työn joustavuus vähenee",
+          "Työntekijöiden epävarmuus lisääntyy",
+          "Työnantajien vastuu kasvaa",
+          "Työajat lyhenevät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "de5016ef-6cf1-53a7-901e-174e17ab1e2c",
+        "prompt": "Miten työn ja vapaa-ajan raja on muuttunut?",
+        "options": [
+          "Se on selkiytynyt",
+          "Se on hämärtynyt",
+          "Se on poistunut kokonaan",
+          "Se on muuttunut jäykemmäksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3bb06972-0086-583c-8e6a-879e18093a6e",
+        "prompt": "Mitä työntekijöiltä vaaditaan uudessa työelämässä?",
+        "options": [
+          "Vain teknistä osaamista",
+          "Itseohjautuvuutta ja ajankäytön hallintaa",
+          "Fyysistä kestävyyttä",
+          "Kielitaitoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

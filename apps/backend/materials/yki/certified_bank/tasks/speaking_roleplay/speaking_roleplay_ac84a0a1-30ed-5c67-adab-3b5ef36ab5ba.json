@@ -1,0 +1,40 @@
+{
+  "id": "ac84a0a1-30ed-5c67-adab-3b5ef36ab5ba",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Neuvottele vuokranantajan kanssa vuokranalennuksesta. Perustele pyyntösi.",
+    "materials": {
+      "roles": {
+        "user": "ilmoittanut asiasta useita kertoja",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "475d8c64-7590-51de-8dd7-8daa1112f804",
+        "ai_first_turn_fi": "Hei vain, tässä on nyt tämä teidän asuntoon liittyvä juttu. Ymmärrän kyllä huolenne, mutta vuokranalennus on aika iso pyyntö. Kerro tarkemmin, mikä siellä on oikein vialla."
+      }
+    ],
+    "rubric": "Neuvottele vuokranantajan kanssa vuokranalennuksesta. Perustele pyyntösi.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

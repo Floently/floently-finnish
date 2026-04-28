@@ -1,0 +1,37 @@
+{
+  "id": "d7e30d46-733a-534d-bb27-4adce9bd5af1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.717,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö yritysten maksaa enemmän yhteisöveroa yhteiskunnan palveluiden rahoittamiseksi?'. Pohdi kilpailukykyä, investointeja ja julkisia palveluja.",
+    "materials": {
+      "scenario": "Yhteisöveron korottaminen"
+    },
+    "items": [
+      {
+        "id": "d82b00ac-66f9-516d-8880-8855bd75ddd3",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö yritysten maksaa enemmän yhteisöveroa yhteiskunnan palveluiden rahoittamiseksi?'. Pohdi kilpailukykyä, investointeja ja julkisia palveluja."
+      }
+    ],
+    "rubric": "Kilpailukyky\nInvestoinnit\nJulkiset palvelut\nVerokilpailu",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e3541d3e-a2b4-5375-ae53-149b18852886",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti opiskelijajärjestölle.",
+    "materials": {
+      "scenario": "Ehdota uutta tapahtumaa"
+    },
+    "items": [
+      {
+        "id": "5de531f6-5824-5c60-864d-4fe089fe526c",
+        "prompt": "Sinulla on idea opiskelijatapahtumasta, jota ei ole vielä järjestetty. Kirjoita sähköposti opiskelijajärjestölle ja kerro ideasi. Perustele, miksi tapahtuma olisi suosittu ja miten se voitaisiin toteuttaa."
+      }
+    ],
+    "rubric": "Sinulla on idea opiskelijatapahtumasta, jota ei ole vielä järjestetty. Kirjoita sähköposti opiskelijajärjestölle ja kerro ideasi. Perustele, miksi tapahtuma olisi suosittu ja miten se voitaisiin toteuttaa.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

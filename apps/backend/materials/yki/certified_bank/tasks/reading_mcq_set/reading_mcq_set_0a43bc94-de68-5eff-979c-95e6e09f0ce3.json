@@ -1,0 +1,66 @@
+{
+  "id": "0a43bc94-de68-5eff-979c-95e6e09f0ce3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADUN PESU\n\nTiedoksi asukkaille!\n\nKauppakatu pestään perjantaina 12.5. kello 8–16. Tänä aikana kadulla ei saa pysäköidä. Autot, jotka ovat tiellä pesun aikana, siirretään pois. Siirrosta tulee 50 euron maksu.\n\nKiitos yhteistyöstä!\n\nTekninen toimiala  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin katu pestään?",
+        "options": [
+          "torstaina 11.5.",
+          "perjantaina 12.5.",
+          "lauantaina 13.5.",
+          "maanantaina 15.5."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko auton siirto maksaa?",
+        "options": [
+          "30 euroa",
+          "40 euroa",
+          "50 euroa",
+          "60 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä autolle tapahtuu, jos se on kadulla pesun aikana?",
+        "options": [
+          "Se pestään",
+          "Se sakotetaan",
+          "Se siirretään pois",
+          "Se jää kadulle"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "ee4366c6-7235-5e30-a866-43c55f9cb46d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.493,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto (A, B tai C).",
+    "materials": {
+      "text": "KADONNUT KASSI\n\nOlen hukannut mustan kangaskassin bussissa 1.7.2025. Kassissa on sininen vihko, punainen kynä ja avaimet.\n\nJos löydät kassin, soita numeroon 050 123 4573. Voit myös viedä sen bussiyhtiön toimistoon.\n\nAvaimet ovat tärkeät, joten toivon, että kassi löytyy.\n\nLöytäjälle palkkio.\n\n-- Anna",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivänä kassi katosi?",
+        "options": [
+          "30.6.2025",
+          "1.7.2025",
+          "2.7.2025"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mistä kassi katosi?",
+        "options": [
+          "kaupasta",
+          "bussista",
+          "kirjastosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä kassissa on?",
+        "options": [
+          "vihko ja kynä",
+          "vihko, kynä ja avaimet",
+          "lompakko ja avaimet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä luvataan löytäjälle?",
+        "options": [
+          "ilmainen bussilippu",
+          "palkkio",
+          "uusi kassi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

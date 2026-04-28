@@ -1,0 +1,40 @@
+{
+  "id": "482ab433-0b9b-59b8-aa71-2fc8462b2ed8",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.297,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what clothes you like and what you often wear.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "1798316d-ae68-5a2c-b081-9a12580a212f",
+        "ai_first_turn_fi": "Tykkäätkö ostaa vaatteita? Mikä on sun lempivaate?"
+      }
+    ],
+    "rubric": "Tell what clothes you like and what you often wear.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

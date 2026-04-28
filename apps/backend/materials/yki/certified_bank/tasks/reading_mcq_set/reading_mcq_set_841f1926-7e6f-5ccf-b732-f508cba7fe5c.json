@@ -1,0 +1,66 @@
+{
+  "id": "841f1926-7e6f-5ccf-b732-f508cba7fe5c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.494,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADONNUT KOIRA\n\nMusta labradorinnoutaja nimeltä Max on kadonnut 3.5. Helsingin Lauttasaaressa. Max on 4-vuotias ja sillä on sininen kaulapanta. Se on ystävällinen ja tulee luokse kutsuttaessa. Jos näet Maxin, soita 040 987 6543. Palkkio löytäjälle.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä värinen koira on kadonnut?",
+        "options": [
+          "A) ruskea",
+          "B) musta",
+          "C) valkoinen",
+          "D) harmaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on koiran nimi?",
+        "options": [
+          "A) Musti",
+          "B) Max",
+          "C) Riku",
+          "D) Bruno"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Minkä värinen kaulapanta koiralla on?",
+        "options": [
+          "A) punainen",
+          "B) vihreä",
+          "C) sininen",
+          "D) keltainen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

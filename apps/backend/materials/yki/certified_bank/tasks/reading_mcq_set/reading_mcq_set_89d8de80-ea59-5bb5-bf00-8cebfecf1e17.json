@@ -1,0 +1,73 @@
+{
+  "id": "89d8de80-ea59-5bb5-bf00-8cebfecf1e17",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.577,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kestävästä kehityksestä ja talouskasvusta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kestävä kehitys ja talouskasvu asetetaan usein vastakkain. Ympäristöaktivistit vaativat talouskasvun pysäyttämistä, kun taas talousasiantuntijat varoittavat, että ilman kasvua hyvinvointiyhteiskunta romahtaa. Onko ristiriita väistämätön, vai voidaanko nämä tavoitteet sovittaa yhteen?\n\nPerinteinen talouskasvu perustuu luonnonvarojen kulutukseen. Teollisuus tuottaa tavaroita, ihmiset kuluttavat ja jätteet syntyvät. Tämä lineaarinen malli on osoittautunut kestämättömäksi. Luonnonvarat ehtyvät, ja ilmasto lämpenee.\n\nKestävän kehityksen kannattajat korostavat, että talouskasvu voidaan irrottaa luonnonvarojen kulutuksesta. Tämä tarkoittaa siirtymistä kiertotalouteen, jossa materiaalit pysyvät kierrossa. Se tarkoittaa myös uusiutuvaan energiaan panostamista ja energiatehokkuutta.\n\nToiseksi on kysymys siitä, mitä mitataan. BKT ei kerro koko totuutta hyvinvoinnista. Se mittaa vain taloudellista aktiviteettia, ei terveyttä, koulutusta tai ympäristön tilaa. On ehdotettu uusia mittareita, kuten inhimillisen kehityksen indeksiä tai onnellisuusindeksiä.\n\nKolmanneksi on otettava huomioon, että talouskasvu voi olla laadullista eikä määrällistä. Sen sijaan, että tuotettaisiin enemmän, voidaan tuottaa paremmin. Laadukkaat, pitkäikäiset tuotteet ja palvelut luovat arvoa ilman, että luonnonvaroja kuluu yhtä paljon.\n\nKriitikot kuitenkin väittävät, että täydellinen irtikytkentä on mahdotonta. Vaikka materiaalitehokkuus paranee, kokonaiskulutus kasvaa. Tämä tunnetaan Jevonsin paradoksina. Jos jotain tuotetaan tehokkaammin, sitä kulutetaan enemmän.\n\nToinen haaste on globaali epätasa-arvo. Rikkaat maat kuluttavat eniten, mutta köyhät maat haluavat saavuttaa saman elintason. Jos kaikki kuluttaisivat kuin länsimaalaiset, tarvittaisiin useita maapalloja. Tämä on moraalinen ongelma.\n\nKolmas näkökulma liittyy poliittiseen tahtoon. Yritykset ja kuluttajat eivät muuta käyttäytymistään ilman ohjausta. Tarvitaan veroja, lakeja ja kannustimia. Tämä on poliittisesti vaikeaa, koska se koetaan usein holhouksena.\n\nLopuksi voidaan todeta, että kestävä kehitys ja talouskasvu eivät välttämättä ole toistensa vihollisia. Ne voidaan sovittaa yhteen, jos talouskasvu ymmärretään uudella tavalla. Tarvitaan rohkeita päätöksiä ja pitkäjänteistä työtä. Tulevaisuus on tehtävissä, mutta se vaatii meiltä kaikilta panosta.",
+      "word_count": 260
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mihin perinteinen talouskasvu perustuu?",
+        "options": [
+          "palveluihin",
+          "luonnonvarojen kulutukseen",
+          "koulutukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä tarkoitetaan talouskasvun irrottamisella luonnonvarojen kulutuksesta?",
+        "options": [
+          "siirtymistä kiertotalouteen ja uusiutuvaan energiaan",
+          "talouskasvun pysäyttämistä",
+          "kulutuksen lisäämistä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä ongelmia BKT:ssa on hyvinvoinnin mittarina?",
+        "options": [
+          "se mittaa vain taloudellista aktiviteettia",
+          "se on liian monimutkainen",
+          "se mittaa vain ympäristön tilaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä tarkoitetaan Jevonsin paradoksilla?",
+        "options": [
+          "tehokkuus vähentää kulutusta",
+          "tehokkuus voi lisätä kulutusta",
+          "kulutus ei vaikuta tehokkuuteen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

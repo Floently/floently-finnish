@@ -1,0 +1,99 @@
+{
+  "id": "1f5bd6c4-3ff5-5b56-b86f-77796ef4e89a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.567,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Verkko-ostaminen on muuttanut kaupan alaa pysyvästi. Perinteiset kivijalkakaupat ovat joutuneet miettimään uusia keinoja houkutella asiakkaita. Moni on panostanut asiakaspalveluun ja erikoistuotteisiin, joita ei verkosta helposti löydy. Toisaalta verkkokaupat kehittävät jatkuvasti palvelujaan, kuten nopeita toimituksia ja helppoja palautuksia. Tulevaisuudessa yhä useampi kauppa saattaa olla yhdistelmä fyysistä myymälää ja verkkokauppaa.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten verkko-ostaminen on vaikuttanut kauppojen alaan?",
+        "options": [
+          "Se on vähentänyt kaupankäyntiä",
+          "Se on muuttanut alaa pysyvästi",
+          "Se ei ole vaikuttanut mitenkään",
+          "Se on lisännyt vain tavaratalojen myyntiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä perinteiset kaupat ovat joutuneet tekemään?",
+        "options": [
+          "Sulkemaan ovensa",
+          "Miettimään uusia keinoja houkutella asiakkaita",
+          "Siirtymään kokonaan verkkoon",
+          "Laskemaan hintoja roimasti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin monet kaupat ovat panostaneet?",
+        "options": [
+          "Halpoihin hintoihin ja massatuotteisiin",
+          "Asiakaspalveluun ja erikoistuotteisiin",
+          "Mainontaan televisiossa",
+          "Suuriin varastoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä verkkokaupat kehittävät?",
+        "options": [
+          "Hitaampia toimituksia",
+          "Vaikeita palautuskäytäntöjä",
+          "Nopeita toimituksia ja helppoja palautuksia",
+          "Kalliimpia tuotteita"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Millaisia kauppoja tulevaisuudessa saattaa olla enemmän?",
+        "options": [
+          "Pelkkiä verkkokauppoja",
+          "Pelkkiä fyysisiä myymälöitä",
+          "Fyysisen myymälän ja verkkokaupan yhdistelmiä",
+          "Kauppoja, joissa ei myydä mitään"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä erikoistuotteilla tarkoitetaan tässä yhteydessä?",
+        "options": [
+          "Tuotteita, joita myydään kaikkialla",
+          "Tuotteita, joita ei verkosta helposti löydy",
+          "Tuotteita, jotka ovat aina halpoja",
+          "Tuotteita, jotka on pakko ostaa kaupasta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "ff2b5d07-ed9a-5600-9019-c09f1ba37f66",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kansainväliselle siirtolaisuusjärjestölle. Olet kiinnostunut työskentelemään maahanmuuttajien parissa ja haluat tarjoutua vapaaehtoiseksi. Kerro osaamisestasi, kielitaidostasi ja motivaatiostasi. Kysy myös mahdollisista koulutuksista.",
+    "materials": {
+      "scenario": "Vapaaehtoistyö maahanmuuttajien parissa"
+    },
+    "items": [
+      {
+        "id": "9fb4b088-d064-5d3d-a68f-9a4f88a75520",
+        "prompt": "Kirjoita virallinen sähköposti kansainväliselle siirtolaisuusjärjestölle. Olet kiinnostunut työskentelemään maahanmuuttajien parissa ja haluat tarjoutua vapaaehtoiseksi. Kerro osaamisestasi, kielitaidostasi ja motivaatiostasi. Kysy myös mahdollisista koulutuksista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

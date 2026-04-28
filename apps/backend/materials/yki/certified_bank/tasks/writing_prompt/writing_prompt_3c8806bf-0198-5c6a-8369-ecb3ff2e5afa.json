@@ -1,0 +1,37 @@
+{
+  "id": "3c8806bf-0198-5c6a-8369-ecb3ff2e5afa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Täytä lomake.",
+    "materials": {
+      "scenario": "Täytä lomake."
+    },
+    "items": [
+      {
+        "id": "2f46e3b0-4879-537d-a355-01f525688b7a",
+        "prompt": "Olet uusi asiakas kirjastossa. Täytä lomake.\nKirjoita:\n- nimesi\n- osoitteesi\n- puhelinnumerosi\n- miksi haluat kirjastokortin."
+      }
+    ],
+    "rubric": "Olet uusi asiakas kirjastossa. Täytä lomake.\nKirjoita:\n- nimesi\n- osoitteesi\n- puhelinnumerosi\n- miksi haluat kirjastokortin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

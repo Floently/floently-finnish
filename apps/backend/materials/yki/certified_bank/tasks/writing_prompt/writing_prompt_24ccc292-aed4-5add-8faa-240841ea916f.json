@@ -1,0 +1,37 @@
+{
+  "id": "24ccc292-aed4-5add-8faa-240841ea916f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kirjastoon. Haluat ehdottaa, että he hankkisivat tietyn kirjan. Kerro kirjan nimi ja kirjailija. Kerro, miksi se olisi hyvä kirjastoon (suosittu, uutuus). Kysy, voiko kirjaehdotuksia tehdä.",
+    "materials": {
+      "scenario": "Viesti kirjastoon kirjaehdotuksesta"
+    },
+    "items": [
+      {
+        "id": "b6ec87ab-9c8c-5093-abec-d92942afe88e",
+        "prompt": "Kirjoita lyhyt viesti kirjastoon. Haluat ehdottaa, että he hankkisivat tietyn kirjan. Kerro kirjan nimi ja kirjailija. Kerro, miksi se olisi hyvä kirjastoon (suosittu, uutuus). Kysy, voiko kirjaehdotuksia tehdä."
+      }
+    ],
+    "rubric": "Ehdota kirjaa\nKerro kirjan nimi ja kirjailija\nKerro, miksi se olisi hyvä\nKysy ehdotusmahdollisuudesta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

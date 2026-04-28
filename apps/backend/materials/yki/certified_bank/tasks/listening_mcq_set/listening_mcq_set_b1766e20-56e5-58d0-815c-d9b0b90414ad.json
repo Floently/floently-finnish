@@ -1,0 +1,88 @@
+{
+  "id": "b1766e20-56e5-58d0-815c-d9b0b90414ad",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.685,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu lääkäriajan varaamisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Vastaaja: Terveysasema, päivää. Asiakas: Päivää, haluaisin varata ajan lääkärille. Minulla on ollut muutaman päivän ajan kuumetta ja yskää. Vastaaja: Onko teillä perussairauksia? Asiakas: Ei ole. Vastaaja: Hyvä. Pääsette lääkärille ensi maanantaina kello 9.15. Sopiiko se? Asiakas: Kyllä, sopii. Vastaaja: Muistathan ottaa mukaan Kela-kortin. Paranemista!",
+      "audio_asset_id": "b6c7d8e9-f0a1-2b3c-4d5e-6f7a8b9c0d1e"
+    },
+    "questions": [
+      {
+        "id": "l221q1",
+        "prompt": "Miksi asiakas soittaa terveysasemalle?",
+        "options": [
+          "Uusiakseen reseptin.",
+          "Varatakseen ajan lääkärille.",
+          "Kysyäkseen neuvoa.",
+          "Peruuttaakseen ajan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l221q2",
+        "prompt": "Mitä oireita asiakkaalla on?",
+        "options": [
+          "Päänsärkyä ja huimausta.",
+          "Kuumetta ja yskää.",
+          "Vatsakipua ja pahoinvointia.",
+          "Selkäkipua ja lihassärkyä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l221q3",
+        "prompt": "Onko asiakkaalla perussairauksia?",
+        "options": [
+          "Kyllä.",
+          "Ei.",
+          "Ei mainita.",
+          "Kyllä, diabetes."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l221q4",
+        "prompt": "Mille päivälle ja kellonajalle aika varataan?",
+        "options": [
+          "Ensi maanantai kello 8.15.",
+          "Ensi maanantai kello 9.15.",
+          "Ensi tiistai kello 9.15.",
+          "Ensi keskiviikko kello 10.15."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l221q5",
+        "prompt": "Mitä asiakkaan pitää muistaa ottaa mukaan?",
+        "options": [
+          "Henkilöllisyystodistus.",
+          "Kela-kortti.",
+          "Aiemmat reseptit.",
+          "Oma puhelin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

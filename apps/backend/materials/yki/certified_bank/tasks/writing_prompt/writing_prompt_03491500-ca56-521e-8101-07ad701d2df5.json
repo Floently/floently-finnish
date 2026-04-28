@@ -1,0 +1,37 @@
+{
+  "id": "03491500-ca56-521e-8101-07ad701d2df5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on rikkinäinen leikkiväline, joka voi olla vaarallinen lapsille. Kerro, mikä väline on rikki ja missä se sijaitsee. Pyydä korjausta.",
+    "materials": {
+      "scenario": "Ilmoitus rikkinäisestä leikkivälineestä"
+    },
+    "items": [
+      {
+        "id": "4aaa2dc7-f15a-5f70-a519-51d4cd83408a",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on rikkinäinen leikkiväline, joka voi olla vaarallinen lapsille. Kerro, mikä väline on rikki ja missä se sijaitsee. Pyydä korjausta."
+      }
+    ],
+    "rubric": "Rikkinäisen välineen kuvaus\nSijainti\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

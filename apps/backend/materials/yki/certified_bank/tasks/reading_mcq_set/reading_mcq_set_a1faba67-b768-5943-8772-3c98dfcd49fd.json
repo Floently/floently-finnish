@@ -1,0 +1,77 @@
+{
+  "id": "a1faba67-b768-5943-8772-3c98dfcd49fd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Helsingin kaupunki tehostaa kierrätystä ensi vuonna. Tavoitteena on vähentää sekajätteen määrää ja lisätä biojätteen ja muovin kierrätystä. Uusien ohjeiden mukaan kaikissa taloyhtiöissä pitää olla erilliset keräysastiat biojätteelle ja muoville.\n\nKaupunki jakaa asukkaille ilmaisia lajitteluoppaita ja tarroja roska-astioihin. Lisäksi järjestetään kierrätysinfoja eri kaupunginosissa. 'Haluamme tehdä kierrätyksestä mahdollisimman helppoa', sanoo kaupungin ympäristösuunnittelija.\n\nAsukkaat ovat ottaneet uudistuksen hyvin vastaan. 'Olen jo pitkään toivonut, että muovin kierrätys olisi helpompaa. Nyt se vihdoin on', sanoo helsinkiläinen asukas.\n\nUudistus tuo myös sakkoja, jos taloyhtiöt eivät noudata ohjeita. Ensimmäisenä vuonna tarkastuksia tehdään satunnaisesti, ja laiminlyönneistä varoitetaan. Seuraavana vuonna sakot voivat olla jopa 500 euroa.\n\nKaupunki toivoo, että uudet toimet vähentävät jätteen määrää ja parantavat kierrätysprosenttia. Tällä hetkellä Helsingissä kierrätetään noin 40 prosenttia jätteestä. Tavoite on nostaa se 60 prosenttiin.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 150
+    },
+    "questions": [
+      {
+        "id": "34083c5f-a8b1-59ee-88bb-5660aeb9723d",
+        "prompt": "Mitä uutta kaupunki vaatii taloyhtiöiltä?",
+        "options": [
+          "A) Uudet roska-astiat",
+          "B) Erilliset keräysastiat biojätteelle ja muoville",
+          "C) Jätemaksujen korottamista",
+          "D) Roskien polttamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4b715696-d851-5a35-a19e-0184c1f604ae",
+        "prompt": "Mitä kaupunki jakaa asukkaille?",
+        "options": [
+          "A) Uusia roska-astioita",
+          "B) Ilmaisia lajitteluoppaita ja tarroja",
+          "C) Jätesäkkejä",
+          "D) Kierrätyspusseja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7c01df71-9744-5ae9-8507-935cb13fd31a",
+        "prompt": "Mitä seuraa, jos taloyhtiöt eivät noudata ohjeita?",
+        "options": [
+          "A) Ei mitään",
+          "B) Ensin varoitus, sitten sakkoja",
+          "C) Roskat jätetään keräämättä",
+          "D) Kaupunki hakee roskat itse"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "2df7e4a8-148d-5044-a6f6-8f691cdd7341",
+        "prompt": "Mikä on kaupungin tavoite kierrätysprosentille?",
+        "options": [
+          "A) 40 prosenttia",
+          "B) 50 prosenttia",
+          "C) 60 prosenttia",
+          "D) 70 prosenttia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

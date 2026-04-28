@@ -1,0 +1,77 @@
+{
+  "id": "07e18056-0d10-54d3-9d88-216c7e236d27",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.78,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Maahanmuuttopolitiikka on yksi aikamme kiistellyimmistä yhteiskunnallisista kysymyksistä. Keskustelua käydään niin maahanmuuton määrästä, syistä kuin seurauksistakin, ja se jakaa voimakkaasti mielipiteitä. Kysymys on monitahoinen, eikä siihen ole olemassa yksinkertaisia vastauksia. Maahanmuuton kannattajat korostavat sen taloudellisia ja demografisia hyötyjä. Väestön ikääntyessä ja syntyvyyden laskiessa maahanmuutto nähdään keinona turvata työvoiman saatavuus ja julkisen talouden kestävyys. Maahanmuuttajat tuovat mukanaan osaamista, yrittäjyyttä ja uusia näkökulmia, jotka voivat vahvistaa taloutta ja kulttuuria. He myös maksavat veroja ja kuluttavat, mikä lisää kysyntää ja työllisyyttä. Humanitaarisesta näkökulmasta maahanmuutto on velvollisuus auttaa niitä, jotka pakenevat sotaa, vainoa ja kurjuutta. Maahanmuuton kriitikot puolestaan varoittavat sen tuomista haasteista. He pelkäävät, että suuri ja nopea maahanmuutto voi heikentää kantaväestön työllistymismahdollisuuksia ja painaa palkkoja alas erityisesti matalapalkka-aloilla. He ovat huolissaan julkisten palvelujen, kuten koulutuksen ja terveydenhuollon, kuormittumisesta ja kotouttamisen kustannuksista. Lisäksi he näkevät uhkana kulttuurisen yhtenäisyyden heikkenemisen ja sosiaalisten jännitteiden lisääntymisen. Kolmas näkökulma korostaa, että onnistunut maahanmuuttopolitiikka vaatii toimia niin maahanmuuton säätelyssä, kotouttamisessa kuin asenteisiin vaikuttamisessakin. Se on pitkäjänteistä työtä, jonka tulokset näkyvät vasta vuosien kuluttua. Tämä edellyttää, että maahanmuuttopolitiikkaa kehitetään kokonaisvaltaisesti, ottaen huomioon sekä taloudelliset, sosiaaliset että kulttuuriset näkökulmat. Se edellyttää myös, että eri osapuolet, kuten viranomaiset, työnantajat, järjestöt ja maahanmuuttajat itse, tekevät tiivistä yhteistyötä. Ilman tällaista kokonaisvaltaista lähestymistapaa maahanmuutto voi helposti johtaa ongelmiin, joita on vaikea korjata jälkikäteen.",
+      "word_count": 207
+    },
+    "questions": [
+      {
+        "id": "87666818-2502-5aad-a7e8-2d7bffd8b7b0",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Maahanmuuton taloudelliset vaikutukset",
+          "Maahanmuuttopolitiikkaan liittyvä monitahoinen keskustelu ja erilaiset näkökulmat",
+          "Kotouttamisen haasteet ja ongelmat",
+          "Humanitaarisen maahanmuuton merkitys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9d4be0cb-3a13-5415-953d-ec2e6a2479c4",
+        "prompt": "Tekstin mukaan mitä taloudellisia hyötyjä maahanmuuton kannattajat korostavat?",
+        "options": [
+          "Maahanmuuttajat lisäävät julkisten palvelujen kuormitusta",
+          "Maahanmuuttajat tuovat osaamista, yrittäjyyttä, maksavat veroja ja lisäävät kysyntää",
+          "Maahanmuuttajat vievät työpaikat kantaväestöltä",
+          "Maahanmuuttajat heikentävät kulttuurista yhtenäisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ed0e734a-9e58-5ccd-826a-8f9388cc27a7",
+        "prompt": "Mitä huolenaiheita maahanmuuton kriitikot esittävät tekstin mukaan?",
+        "options": [
+          "Maahanmuutto lisää kulttuurista monimuotoisuutta",
+          "Maahanmuutto heikentää kantaväestön työllistymismahdollisuuksia, kuormittaa julkisia palveluja ja voi heikentää kulttuurista yhtenäisyyttä",
+          "Maahanmuutto vähentää julkisia menoja",
+          "Maahanmuutto parantaa julkisen talouden kestävyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d212c0df-1d5b-51d0-9dbe-3928b8a32b75",
+        "prompt": "Mitä kolmas, onnistumisen edellytyksiä korostava näkemys pitää tärkeänä maahanmuuttopolitiikassa?",
+        "options": [
+          "Vain maahanmuuton rajoittamista",
+          "Vain kotouttamisen tehostamista",
+          "Kokonaisvaltaista lähestymistapaa, jossa otetaan huomioon taloudelliset, sosiaaliset ja kulttuuriset näkökulmat sekä eri osapuolten yhteistyö",
+          "Vain humanitaarisen maahanmuuton lisäämistä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

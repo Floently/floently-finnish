@@ -1,0 +1,66 @@
+{
+  "id": "b7f764a5-51cb-5519-ba88-ad3b5465f4be",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele junan kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat! IC 59 Helsingistä Ouluun saapuu nyt raiteelle 3. Juna lähtee 5 minuutin kuluttua. Ensimmäisen luokan vaunut ovat junan etuosassa, toisen luokan vaunut keskellä ja ravintolavaunu on vaunussa 7. Matkalippuja voi ostaa konduktööriltä. Seuraava pysäkki on Tikkurila. Hyvää matkaa!",
+      "audio_asset_id": "4a1d5979-04b2-4cf7-ad3e-fac6bb78a42d"
+    },
+    "questions": [
+      {
+        "id": "6a5b277d-bc24-5ed5-abb1-765807025553",
+        "prompt": "Mille raiteelle juna saapuu?",
+        "options": [
+          "Raide 1",
+          "Raide 2",
+          "Raide 3",
+          "Raide 4"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "97db9255-ddc0-52f9-b2e9-4194347530ef",
+        "prompt": "Missä on ravintolavaunu?",
+        "options": [
+          "Vaunu 3",
+          "Vaunu 5",
+          "Vaunu 7",
+          "Vaunu 9"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "2665a22e-fbe8-5d2a-8855-cf97105a4658",
+        "prompt": "Mikä on seuraava pysäkki?",
+        "options": [
+          "Helsinki",
+          "Tikkurila",
+          "Riihimäki",
+          "Tampere"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

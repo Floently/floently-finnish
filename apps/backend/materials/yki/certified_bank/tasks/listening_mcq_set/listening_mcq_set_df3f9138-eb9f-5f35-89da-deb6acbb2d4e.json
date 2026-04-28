@@ -1,0 +1,88 @@
+{
+  "id": "df3f9138-eb9f-5f35-89da-deb6acbb2d4e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele linja-auton kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat. Seuraava pysäkki on Keskustori. Tämä linja-auto jatkaa matkaa kohti yliopistollista sairaalaa. Matkustajia pyydetään siirtymään kohti poistumisovia. Seuraava pysäkki on Kauppahalli. Kauppahallin jälkeen auto kääntyy vasemmalle. Matkanne pääteasema on rautatieasema. Kiitos, että matkustatte kanssamme.",
+      "audio_asset_id": "1e151c92-ae0b-413a-a439-a754415f1b60"
+    },
+    "questions": [
+      {
+        "id": "l46q1",
+        "prompt": "Mikä on seuraava pysäkki?",
+        "options": [
+          "Rautatieasema.",
+          "Kauppahalli.",
+          "Keskustori.",
+          "Yliopistollinen sairaala."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l46q2",
+        "prompt": "Minne tämä linja-auto on menossa?",
+        "options": [
+          "Lentokentälle.",
+          "Satamaan.",
+          "Yliopistolliseen sairaalaan.",
+          "Keskustaan."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l46q3",
+        "prompt": "Mitä matkustajia pyydetään tekemään?",
+        "options": [
+          "Istuutumaan.",
+          "Näyttämään lippunsa.",
+          "Soittamaan kelloa.",
+          "Siirtymään kohti poistumisovia."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l46q4",
+        "prompt": "Mikä on Kauppahallin jälkeen seuraava pysäkki?",
+        "options": [
+          "Keskustori.",
+          "Rautatieasema.",
+          "Sairaala.",
+          "Sitä ei mainita."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l46q5",
+        "prompt": "Mikä on tämän linja-auton pääteasema?",
+        "options": [
+          "Yliopisto.",
+          "Kauppakeskus.",
+          "Linja-autoasema.",
+          "Rautatieasema."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

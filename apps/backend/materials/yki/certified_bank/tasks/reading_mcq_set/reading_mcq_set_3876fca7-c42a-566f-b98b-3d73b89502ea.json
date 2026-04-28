@@ -1,0 +1,66 @@
+{
+  "id": "3876fca7-c42a-566f-b98b-3d73b89502ea",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa varhaiskasvatus on tärkeä osa perheiden arkea. Se tarkoittaa lasten suunnitelmallista ja tavoitteellista hoitoa, kasvatusta ja opetusta ennen oppivelvollisuusikää. Varhaiskasvatusta tarjotaan päiväkodeissa, perhepäivähoidossa ja avoimessa varhaiskasvatustoiminnassa, kuten kerhoissa. Päiväkodit ovat suosituin varhaiskasvatusmuoto. Niissä lapset jaetaan ikäryhmiin, ja jokaisella ryhmällä on omat kasvattajat. Päiväkodeissa korostetaan leikin merkitystä oppimisessa, ja toiminta on usein monipuolista: askartelua, liikuntaa, musiikkia, retkiä ja ulkoilua. Varhaiskasvatusmaksut ovat tulosidonnaisia, ja pienituloisimmat perheet voivat saada palvelun ilmaiseksi. Alle kouluikäisillä lapsilla on subjektiivinen oikeus varhaiskasvatukseen, mikä tarkoittaa, että jokaisella lapsella on oikeus saada hoitopaikka. Tämä mahdollistaa vanhempien työssäkäynnin ja opiskelun. Varhaiskasvatuksen tavoitteena on tukea lasten kasvua, kehitystä ja oppimista yhteistyössä huoltajien kanssa. Myös kieli- ja kulttuuritaustaltaan erilaiset lapset huomioidaan, ja heille voidaan tarjota esimerkiksi suomi toisena kielenä -opetusta. Laadukas varhaiskasvatus on tärkeää lasten tasa-arvon ja syrjäytymisen ehkäisyn kannalta.",
+      "word_count": 128
+    },
+    "questions": [
+      {
+        "id": "f5a6b7c8-d9e0-4f1a-9b2c-3d4e5f6a7b8c",
+        "prompt": "Mitä varhaiskasvatus tarkoittaa?",
+        "options": [
+          "Kouluopetusta",
+          "Lasten suunnitelmallista hoitoa, kasvatusta ja opetusta ennen oppivelvollisuusikää",
+          "Vain lastenhoitoa",
+          "Vain esikoulua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a6b7c8d9-e0f1-4a2b-9c3d-4e5f6a7b8c9d",
+        "prompt": "Mikä on suosituin varhaiskasvatusmuoto Suomessa?",
+        "options": [
+          "Perhepäivähoito",
+          "Päiväkodit",
+          "Kerhot",
+          "Kotona hoito"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Mitä tarkoittaa subjektiivinen oikeus varhaiskasvatukseen?",
+        "options": [
+          "Vain rikkailla on oikeus",
+          "Jokaisella lapsella on oikeus saada hoitopaikka",
+          "Vain työssäkäyvien vanhempien lapset saavat hoitopaikan",
+          "Hoito on aina maksullista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

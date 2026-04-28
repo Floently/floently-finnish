@@ -1,0 +1,77 @@
+{
+  "id": "f6ef7e5b-b909-5fe7-8cd0-ee83bed7ba20",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.789,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Sukupolvien välinen oikeudenmukaisuus on noussut keskeiseksi yhteiskunnalliseksi kysymykseksi niin Suomessa kuin muuallakin länsimaissa. Keskustelua käydään siitä, millaisen maailman ja yhteiskunnan nykyiset sukupolvet jättävät tuleville sukupolville, ja miten vastuut ja velvollisuudet jakautuvat eri ikäluokkien välillä. Tämä kysymys on monitahoinen ja ulottuu taloudesta ympäristöön ja sosiaalipolitiikasta kulttuuriin. Yksi keskeisimmistä kysymyksistä liittyy julkiseen talouteen ja velkaantumiseen. Monet maat ovat viime vuosikymmeninä velkaantuneet voimakkaasti, ja tämä velkataakka jää tulevien sukupolvien maksettavaksi. Samalla ikääntyvä väestö lisää julkisia menoja esimerkiksi eläkkeiden ja terveydenhuollon muodossa, mikä entisestään kiristää julkista taloutta. Kriitikot kysyvät, onko oikein, että nykyiset sukupolvet elävät yli varojensa ja siirtävät laskun tuleville sukupolville. Toinen keskeinen kysymys liittyy ympäristöön ja ilmastonmuutokseen. Nykyisten sukupolvien kulutustottumukset ja energiantuotantotavat ovat johtaneet ilmaston lämpenemiseen ja luonnon monimuotoisuuden heikkenemiseen. Tämän seuraukset, kuten äärimmäiset sääilmiöt, merenpinnan nousu ja luonnonvarojen ehtyminen, koituvat ennen kaikkea tulevien sukupolvien kannettaviksi. Tässä mielessä sukupolvien välinen epäoikeudenmukaisuus on jo nyt ilmeistä. Kolmas keskustelunaihe koskee sosiaaliturvaa ja eläkejärjestelmää. Useimmat länsimaat ovat rakentaneet sosiaaliturvajärjestelmänsä niin sanotun pay-as-you-go-periaatteen varaan, jossa nykyiset työssäkäyvät maksavat nykyisten eläkeläisten eläkkeet. Väestön ikääntyessä tämä järjestelmä joutuu paineen alle, ja nuoremmat sukupolvet joutuvat maksamaan yhä suuremman osan tuloistaan eläkkeisiin samalla kun heidän oma eläketurvansa on epävarma. Tämä on omiaan synnyttämään katkeruutta ja kokemusta epäoikeudenmukaisuudesta. Toisaalta on tärkeää huomata, että sukupolvien välinen oikeudenmukaisuus ei ole yksisuuntainen kysymys. Vanhemmat sukupolvet ovat rakentaneet ne yhteiskunnalliset rakenteet, koulutusjärjestelmän ja infrastruktuurin, joista nuoremmat sukupolvet pääsevät nauttimaan. He ovat myös maksaneet veroja, jotka ovat rahoittaneet esimerkiksi koulutusta ja terveydenhuoltoa. Vastuu jakautuu siis molempiin suuntiin, ja on tärkeää välttää mustavalkoista asetelmaa, jossa toiset sukupolvet nähdään uhreina ja toiset syyllisinä. Sukupolvien välinen oikeudenmukaisuus edellyttää pitkäjänteistä päätöksentekoa ja kykyä katsoa oman sukupolven etua pidemmälle. Se vaatii investointeja koulutukseen, tutkimukseen ja ympäristönsuojeluun, joiden hyödyt realisoituvat vasta vuosikymmenten päästä. Se vaatii myös rehellistä keskustelua siitä, millaisia uhrauksia nykyisten sukupolvien on oltava valmiita tekemään tulevien sukupolvien hyvinvoinnin turvaamiseksi.",
+      "word_count": 299
+    },
+    "questions": [
+      {
+        "id": "a2f3a792-0cf4-5bb8-81fb-415b7ee62bd4",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Väestön ikääntymisen vaikutukset eläkejärjestelmään",
+          "Julkisen talouden velkaantuminen ja sen seuraukset",
+          "Sukupolvien välinen oikeudenmukaisuus ja siihen liittyvät taloudelliset, ympäristölliset ja sosiaaliset kysymykset",
+          "Ilmastonmuutoksen vaikutukset tuleviin sukupolviin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "5a4667c8-efa3-5391-bd85-c5c740a265e1",
+        "prompt": "Tekstin mukaan millä tavoin julkinen velkaantuminen liittyy sukupolvien väliseen oikeudenmukaisuuteen?",
+        "options": [
+          "Se hyödyttää tulevia sukupolvia, koska he saavat paremmat palvelut",
+          "Se on ongelma vain nykyisille sukupolville, jotka joutuvat maksamaan velkoja",
+          "Se siirtää taakan tuleville sukupolville, jotka joutuvat maksamaan nykyisten sukupolvien ylivelkaantumisen",
+          "Sillä ei ole merkitystä sukupolvien välisen oikeudenmukaisuuden kannalta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6074c7c6-3156-5f12-9823-f0f14a21f916",
+        "prompt": "Mitä esimerkkejä tekstissä annetaan siitä, miten nykyiset sukupolvet voivat edistää sukupolvien välistä oikeudenmukaisuutta?",
+        "options": [
+          "Vähentämällä kulutustaan ja maksamalla vähemmän veroja",
+          "Investoimalla koulutukseen, tutkimukseen ja ympäristönsuojeluun",
+          "Siirtämällä eläkevastuun kokonaan nuoremmille sukupolville",
+          "Keskittymällä vain oman sukupolvensa etujen ajamiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8ea8d272-f44f-5b58-9f9f-de421b75b986",
+        "prompt": "Mitä perusteita tekstissä esitetään sille, että sukupolvien välinen oikeudenmukaisuus ei ole yksisuuntainen kysymys?",
+        "options": [
+          "Vanhemmat sukupolvet ovat rakentaneet ne yhteiskunnalliset rakenteet, joista nuoremmat sukupolvet nauttivat",
+          "Nuoremmat sukupolvet ovat aina paremmassa asemassa kuin vanhemmat",
+          "Vanhemmilla sukupolvilla ei ole mitään annettavaa nuoremmille",
+          "Sukupolvien välinen oikeudenmukaisuus on merkityksetön käsite"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

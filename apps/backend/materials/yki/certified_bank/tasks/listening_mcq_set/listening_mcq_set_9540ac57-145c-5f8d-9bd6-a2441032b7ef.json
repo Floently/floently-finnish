@@ -1,0 +1,66 @@
+{
+  "id": "9540ac57-145c-5f8d-9bd6-a2441032b7ef",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutislähetys ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tässä Ylen uutiset. Hallitus on esittänyt uusia toimia työllisyyden parantamiseksi. Esityksen mukaan työttömyysturvan aktiivimalli palautetaan ja työvoimakoulutukseen ohjataan lisää resursseja. Opposituo kritisoi esitystä ja sanoo sen heikentävän työttömien asemaa. Säässä jatkuu lämmin ja aurinkoinen sää. Lämpötilat kohoavat päivällä 22 asteeseen. Illalla lännestä saapuu sadealuetta, joka voi tuoda ukkoskuuroja. Ulkoministeri tapaa huomenna Ruotsin ulkoministerin Tukholmassa. Keskustelujen aiheina ovat Nato-yhteistyö ja turvallisuustilanne Itämerellä.",
+      "audio_asset_id": "efca9903-7aeb-4d33-9c21-27356f8da4db"
+    },
+    "questions": [
+      {
+        "id": "94e25f77-7b1a-56fc-bca3-3503f48de14e",
+        "prompt": "Mitä hallitus esittää työllisyyden parantamiseksi?",
+        "options": [
+          "Työttömyysturvan korotusta",
+          "Aktiivimallin palauttamista ja lisää resursseja työvoimakoulutukseen",
+          "Eläkeiän nostamista",
+          "Ulkomaalaisten työntekijöiden määrän lisäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "45f1be6a-e81d-5400-a231-2028c2eb10d3",
+        "prompt": "Millainen sää on päivällä?",
+        "options": [
+          "Sateinen ja kylmä",
+          "Lämmin ja aurinkoinen",
+          "Tuulinen ja pilvinen",
+          "Ukkosinen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c89548c1-d1fc-5c82-bb5a-6b382f564ef8",
+        "prompt": "Missä ulkoministeri tapaa Ruotsin ulkoministerin?",
+        "options": [
+          "Helsingissä",
+          "Tukholmassa",
+          "Oslossa",
+          "Kööpenhaminassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

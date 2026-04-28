@@ -1,0 +1,73 @@
+{
+  "id": "b7020ac6-0075-54f6-868b-565e30f29fd2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "LÖYTTAVARA\n\nOlen löytänyt hopeisen sormuksen 9.7.2025 uimahallin pukuhuoneesta. Sormuksessa on pieni sininen kivi.\n\nJos tunnistat sormuksen, voit noutaa sen uimahallin asiakaspalvelusta. Asiakaspalvelu on auki arkisin kello 8–20, viikonloppuisin kello 9–18.\n\nVoit myös soittaa numeroon 050 123 4579.",
+      "word_count": 37
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mistä sormus löytyi?",
+        "options": [
+          "bussista",
+          "uimahallin pukuhuoneesta",
+          "kirjastosta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Minkä värinen kivi sormuksessa on?",
+        "options": [
+          "punainen",
+          "sininen",
+          "vihreä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mistä sormuksen voi noutaa?",
+        "options": [
+          "bussiyhtiön toimistosta",
+          "uimahallin asiakaspalvelusta",
+          "poliisiasemalta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Milloin asiakaspalvelu on auki viikonloppuisin?",
+        "options": [
+          "8–18",
+          "9–18",
+          "10–16"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

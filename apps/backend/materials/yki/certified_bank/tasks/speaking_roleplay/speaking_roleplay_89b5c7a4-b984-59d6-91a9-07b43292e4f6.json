@@ -1,0 +1,40 @@
+{
+  "id": "89b5c7a4-b984-59d6-91a9-07b43292e4f6",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele yliopiston tutkimusetiikan komitean kanssa uuden tekoälyn käytöstä tutkimuksessa. Perustele tekoälyn hyödyntämistä ja vastaa tietosuoja- ja eettisiin huoliin.",
+    "materials": {
+      "roles": {
+        "user": "tutkija ja haet lupaa käyttää tekoälyä",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "cf53e261-79df-565f-a0d1-97f32e7cedeb",
+        "ai_first_turn_fi": "Tämä on erittäin herkkä alue. Puhumme ihmisten terveystiedoista, jotka ovat kaikkein arkaluontoisimpia. Meillä on laki, joka velvoittaa meitä suojelemaan näitä tietoja. Jos teidän tekoälynne tekee virheen, ja se virhe perustuu johonkin, mitä emme ymmärrä, kuka on vastuussa? Ja mitä jos tekoäly on oppinut jostakin aineistosta, joka on vinoutunut, ja se syrjii jotakin ryhmää? Me emme voi antaa lupaa, jos te ette pysty selittämään, miten tekoäly päätyy päätelmiinsä. Se on musta laatikko, ja se on ongelma."
+      }
+    ],
+    "rubric": "Keskustele yliopiston tutkimusetiikan komitean kanssa uuden tekoälyn käytöstä tutkimuksessa. Perustele tekoälyn hyödyntämistä ja vastaa tietosuoja- ja eettisiin huoliin.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "bffa50cb-6e01-55e8-8cee-26ffd7b6b466",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ravintolan lounaslista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "RAVINTOLA AURORA\n\nLounas ma–pe klo 11–14\n\nMaanantai: Lohikeitto, 10,50 €\nTiistai: Lihapullat ja perunamuusi, 11,50 €\nKeskiviikko: Kasviskeitto, 9,50 €\nTorstai: Kalapihvit ja perunat, 12,00 €\nPerjantai: Pizza, 10,00 €\n\nLounaaseen kuuluu salaattipöytä, leipä ja kahvi.\n\nTervetuloa!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Paljonko lihapullat maksavat tiistaina?",
+        "options": [
+          "9,50 €",
+          "10,00 €",
+          "10,50 €",
+          "11,50 €"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä on maanantain lounaaksi?",
+        "options": [
+          "Lihapullia",
+          "Lohikeittoa",
+          "Kalapihvejä",
+          "Kasviskeittoa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin aikaan lounas on?",
+        "options": [
+          "klo 10–13",
+          "klo 11–14",
+          "klo 12–15",
+          "klo 11–15"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "61ce7391-3567-50cf-a566-547dceabe5b1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti taloyhtiön isännöitsijälle. Kerro, että saunan lauteet ovat rikki. Yksi lauta on halki ja siihen voi satuttaa itsensä. Kysy, milloin ne voidaan korjata.",
+    "materials": {
+      "scenario": "Viesti isännöitsijälle rikkinäisistä saunan lauteista"
+    },
+    "items": [
+      {
+        "id": "f059ae63-925b-5997-826d-611194e1674e",
+        "prompt": "Kirjoita lyhyt viesti taloyhtiön isännöitsijälle. Kerro, että saunan lauteet ovat rikki. Yksi lauta on halki ja siihen voi satuttaa itsensä. Kysy, milloin ne voidaan korjata."
+      }
+    ],
+    "rubric": "Kerro, että lauteet ovat rikki\nKerro tarkemmin vika (lauta halki)\nKerro, että se voi olla vaarallinen\nKysy korjausaikataulua",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "e8a79f59-f639-54fd-880b-42a7bc3cbd7b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.548,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin vanhusneuvostolle. Kerro vanhusten osallistumismahdollisuuksista, palveluiden saavutettavuudesta ja tiedotuksesta. Ehdota yhtä uutta toimintamuotoa.",
+    "materials": {
+      "scenario": "Palaute kaupungin vanhusneuvostolle"
+    },
+    "items": [
+      {
+        "id": "a759e316-6f02-5b60-a6f5-ebe27c5a0a3b",
+        "prompt": "Kirjoita palauteteksti kaupungin vanhusneuvostolle. Kerro vanhusten osallistumismahdollisuuksista, palveluiden saavutettavuudesta ja tiedotuksesta. Ehdota yhtä uutta toimintamuotoa."
+      }
+    ],
+    "rubric": "Vanhusten osallistumismahdollisuudet\nPalveluiden saavutettavuus\nTiedotus\nUusi toimintamuoto",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

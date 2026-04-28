@@ -1,0 +1,37 @@
+{
+  "id": "4015d286-638e-524b-82ec-3c55112373dc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ulosottovirastoon. Olet saanut maksuhäiriömerkinnän vanhasta laskusta, jota et ole koskaan saanut. Selitä tilanne, kerro, että olet valmis maksamaan mahdollisen erääntyneen laskun, ja pyydä ohjeita merkinnän poistamiseksi.",
+    "materials": {
+      "scenario": "Maksuhäiriömerkinnän oikaisu"
+    },
+    "items": [
+      {
+        "id": "f0955cf5-3ab4-5dea-b67a-eb4339154157",
+        "prompt": "Kirjoita virallinen sähköposti ulosottovirastoon. Olet saanut maksuhäiriömerkinnän vanhasta laskusta, jota et ole koskaan saanut. Selitä tilanne, kerro, että olet valmis maksamaan mahdollisen erääntyneen laskun, ja pyydä ohjeita merkinnän poistamiseksi."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

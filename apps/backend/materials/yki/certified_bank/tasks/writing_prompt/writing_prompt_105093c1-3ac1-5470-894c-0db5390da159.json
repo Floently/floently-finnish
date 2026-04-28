@@ -1,0 +1,37 @@
+{
+  "id": "105093c1-3ac1-5470-894c-0db5390da159",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti seurakunnan keskusrekisteriin. Haluat liittyä evankelis-luterilaisen kirkon jäseneksi. Pyydä tietoa liittymisprosessista, tarvittavista asiakirjoista ja siitä, miten liittymisilmoitus tehdään. Kerro, että olet kastettu aikuisena toisessa kirkkokunnassa.",
+    "materials": {
+      "scenario": "Kirkkoon liittyminen"
+    },
+    "items": [
+      {
+        "id": "5a16a75a-72b9-5017-b38f-1c8ccf6ead46",
+        "prompt": "Kirjoita virallinen sähköposti seurakunnan keskusrekisteriin. Haluat liittyä evankelis-luterilaisen kirkon jäseneksi. Pyydä tietoa liittymisprosessista, tarvittavista asiakirjoista ja siitä, miten liittymisilmoitus tehdään. Kerro, että olet kastettu aikuisena toisessa kirkkokunnassa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

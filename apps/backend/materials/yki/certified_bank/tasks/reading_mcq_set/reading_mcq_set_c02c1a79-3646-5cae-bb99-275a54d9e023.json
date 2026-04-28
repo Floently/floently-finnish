@@ -1,0 +1,73 @@
+{
+  "id": "c02c1a79-3646-5cae-bb99-275a54d9e023",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhä useampi suomalainen pyöräilee talvella. Oulussa talvipyöräily on ollut arkea vuosikymmeniä, mutta nyt ilmiö leviää myös etelään.\n\n\"Talvipyöräily on asennekysymys. Kun on hyvät varusteet ja renkaat, se on oikeastaan mukavampaa kuin kesällä. Ei ole ruuhkia ja ilma on raikas\", kertoo helsinkiläinen talvipyöräilijä.\n\nKaupungit ovat panostaneet talvikunnossapitoon. Oulussa pyörätiet aurataan ensin, vasta sitten autotiet. Helsingissäkin talvihoitoa on paramettu, mutta pyöräilijät toivovat lisää panostusta.\n\n\"Pahinta on, kun pyörätiet muuttuvat jäisiksi tai sohjoisiksi. Silloin on vaarallista. Myös hiekoitus on tärkeää\", sanoo pyöräilyaktiivi.\n\nLääkärit muistuttavat, että talvipyöräily on hyvää liikuntaa ja pitää kunnon yllä. Tapaturmariski on kuitenkin suurempi kuin kesällä. Kypärä ja heijastin ovat välttämättömiä.\n\nPyöräliikkeet ovat huomanneet kasvavan kysynnän. \"Talvipyörien ja nastarenkaiden myynti on kasvanut räjähdysmäisesti. Myös valoja ja heijastimia menee paljon\", kertoo pyöräkauppias.",
+      "word_count": 121
+    },
+    "questions": [
+      {
+        "id": "item_042_1",
+        "prompt": "Missä talvipyöräily on ollut pitkään yleistä?",
+        "options": [
+          "Helsingissä",
+          "Oulussa",
+          "Turussa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_042_2",
+        "prompt": "Mitä talvipyöräilijä sanoo pyöräilystä talvella?",
+        "options": [
+          "se on aina ikävää",
+          "hyvillä varusteilla se on mukavampaa kuin kesällä",
+          "se on mahdotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_042_3",
+        "prompt": "Miten Oulu eroaa muista kaupungeista talvikunnossapidossa?",
+        "options": [
+          "siellä ei aurata pyöräteitä",
+          "siellä pyörätiet aurataan ensin",
+          "siellä pyöräily on kielletty talvella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_042_4",
+        "prompt": "Mitä lääkärit neuvovat talvipyöräilijöille?",
+        "options": [
+          "pyöräilemään vain kesällä",
+          "käyttämään kypärää ja heijastinta",
+          "jättämään pyörän kotiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

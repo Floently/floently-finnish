@@ -1,0 +1,77 @@
+{
+  "id": "6859b24e-e1ca-5a3f-97f9-1d82f60e290d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue terveysaseman rokotusilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Keskustan terveysasema järjestää influenssarokotuspäivän lauantaina 12.10. Rokotuksia annetaan kello 9-14 ilman ajanvarausta. Aamun ensimmäinen tunti on varattu yli 70-vuotiaille ja raskaana oleville. Muut asiakkaat otetaan jonotusnumerolla saapumisjärjestyksessä. Rokotukseen tullessa mukaan tarvitaan Kela-kortti tai henkilöllisyystodistus. Alle 12-vuotias tulee paikalle huoltajan kanssa. Jos asiakkaalla on kuumetta tai hengitystieoireita, rokotusaika siirretään myöhempään ajankohtaan. Terveysasema suosittelee lyhythihaista paitaa, jotta rokotus sujuu nopeasti. Rokotuksen jälkeen odotustilassa seurataan vointia 15 minuutin ajan. Tapahtuman aikana pysäköinti pihalla on maksuton kahden tunnin ajan. Rokotuspäivänä paikalla on myös erillinen neuvontapiste, josta saa tietoa mahdollisista sivuoireista. Jos asiakas tarvitsee tulkkausta, siitä voi ilmoittaa etukäteen puhelimitse. Terveysasema toivoo, että asiakkaat saapuvat paikalle ajoissa mutta eivät liian aikaisin ruuhkan välttämiseksi.",
+      "word_count": 108
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin rokotuksia annetaan?",
+        "options": [
+          "kello 8-12",
+          "kello 9-14",
+          "kello 10-16",
+          "kello 12-18"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kenelle ensimmäinen tunti on varattu?",
+        "options": [
+          "alle 12-vuotiaille",
+          "työssäkäyville",
+          "yli 70-vuotiaille ja raskaana oleville",
+          "kaikille asiakkaille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tehdään, jos asiakkaalla on kuumetta?",
+        "options": [
+          "rokotus annetaan heti",
+          "rokotusaika siirretään",
+          "asiakas menee apteekkiin",
+          "asiakas maksaa lisämaksun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuinka kauan vointia seurataan rokotuksen jälkeen?",
+        "options": [
+          "5 minuuttia",
+          "10 minuuttia",
+          "15 minuuttia",
+          "30 minuuttia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

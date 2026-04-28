@@ -1,0 +1,40 @@
+{
+  "id": "2c04606d-af68-5344-abb7-f652f4904b97",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa muodollista kieltä ja osoita kykysi käsitellä arkaluonteisia asioita.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet työntekijä, joka haluaa tuoda huolesi esiin rakentavasti ja etsiä ratkaisuja.",
+        "partner": "Esimies - ymmärtäväinen mutta vastuussa tiimin tuloksista, haluaa löytää tasapainon työntekijän hyvinvoinnin ja tavoitteiden välillä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp4",
+        "ai_first_turn_fi": "Hei, kiitos että järjestit aikaa keskustelulle. Miten voin auttaa?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa muodollista kieltä ja osoita kykysi käsitellä arkaluonteisia asioita.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

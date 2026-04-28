@@ -1,0 +1,37 @@
+{
+  "id": "5aae4da4-af2a-5ac4-ae31-84cd9877f85a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin vuokrattavia sähköpotkulautoja. Kirjoita palaute. Arvioi lautojen kuntoa, saatavuutta ja hintaa. Kerro myös, mitä kehittäisit.",
+    "materials": {
+      "scenario": "Palaute sähköpotkulautojen vuokrauksesta"
+    },
+    "items": [
+      {
+        "id": "db150ab9-d9ee-5a33-b7b5-3e35bc73486d",
+        "prompt": "Olet käyttänyt kaupungin vuokrattavia sähköpotkulautoja. Kirjoita palaute. Arvioi lautojen kuntoa, saatavuutta ja hintaa. Kerro myös, mitä kehittäisit."
+      }
+    ],
+    "rubric": "Lautojen kunto\nSaatavuus\nHinta\nKehitysehdotus",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "ec3e3066-df29-5159-9475-56aa4fc4e50d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.778,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Tieteellisen tiedon asema yhteiskunnassa on kokenut murroksen viime vuosikymmenten aikana. Perinteisesti tiedettä on pidetty luotettavana tiedon tuottajana, jonka menetelmät takaavat objektiivisuuden ja tulosten toistettavuuden. Viime aikoina tätä asemaa on kuitenkin haastettu monelta suunnalta. Yhtäältä tieteellisen tiedon monimutkaistuminen on tehnyt siitä vaikeammin saavutettavaa suurelle yleisölle, mikä on synnyttänyt tilaa erilaisille vaihtoehtoisille totuuksille ja salaliittoteorioille. Toisaalta tiedeyhteisön sisällä on käyty keskustelua toistettavuuskriisistä, joka on paljastanut, että osa tieteellisistä tuloksista ei ole toistettavissa, mikä on horjuttanut luottamusta tieteen menetelmiin. Erityisen ongelmalliseksi tilanne on muodostunut kiistanalaisilla aloilla, kuten ilmastotutkimuksessa ja rokotekehityksessä, joissa tieteellinen tieto on suorassa yhteydessä poliittiseen päätöksentekoon. Tässä kontekstissa vastakkain asettuvat usein tieteellinen konsensus ja kansalaisten henkilökohtaiset uskomukset tai kokemukset. Ratkaisuksi tieteen ja kansalaisten välisen kuilun kaventamiseksi on esitetty avoimempaa tiedeviestintää ja kansalaistieteen hankkeita, joissa tavalliset ihmiset osallistuvat tieteelliseen tutkimukseen. Samalla tiedeyhteisön on kyettävä itsekriittisyyteen ja omien menetelmiensä jatkuvaan kehittämiseen, jotta tieteellinen tieto säilyttää uskottavuutensa. Kyse on ennen kaikkea luottamuksen rakentamisesta, joka ei tapahdu itsestään vaan vaatii jatkuvaa työtä ja vuoropuhelua.",
+      "word_count": 159
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin tieteellisen tiedon asema perinteisesti perustui?",
+        "options": [
+          "Auktoriteettiin ja perinteisiin",
+          "Objektiivisuuteen ja tulosten toistettavuuteen",
+          "Suosioon ja julkisuuteen",
+          "Taloudelliseen menestykseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan toistettavuuskriisillä?",
+        "options": [
+          "Tutkimuksia ei haluta toistaa",
+          "Osa tieteellisistä tuloksista ei ole toistettavissa",
+          "Tutkimus on liian kallista toistaa",
+          "Toistettavuus ei ole tärkeää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millä aloilla tieteen asema on erityisen ongelmallinen?",
+        "options": [
+          "Taiteissa ja humanistisissa tieteissä",
+          "Kiistanalaisilla aloilla, jotka liittyvät poliittiseen päätöksentekoon",
+          "Tekniikan aloilla",
+          "Kauppatieteissä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ratkaisuja tieteen ja kansalaisten välisen kuilun kaventamiseksi on esitetty?",
+        "options": [
+          "Tieteen salaaminen julkisuudelta",
+          "Avoimempi tiedeviestintä ja kansalaistiede",
+          "Tieteellisen tiedon yksinkertaistaminen",
+          "Tieteen rahoituksen vähentäminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on keskeistä tieteellisen tiedon uskottavuuden säilyttämiselle?",
+        "options": [
+          "Tieteen pitäminen erillään yhteiskunnasta",
+          "Luottamuksen rakentaminen ja itsekriittisyys",
+          "Tutkimustulosten julkaisematta jättäminen",
+          "Vain yhden tieteenalan arvostaminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

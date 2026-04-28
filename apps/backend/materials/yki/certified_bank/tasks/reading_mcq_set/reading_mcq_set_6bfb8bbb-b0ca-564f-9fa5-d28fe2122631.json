@@ -1,0 +1,77 @@
+{
+  "id": "6bfb8bbb-b0ca-564f-9fa5-d28fe2122631",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.773,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Taiteen ja kulttuurin asema yhteiskunnassa on paradoksaalinen. Toisaalta niitä pidetään tärkeinä hyvinvoinnin, identiteetin ja yhteiskunnallisen keskustelun kannalta. Toisaalta ne joutuvat jatkuvasti perustelemaan olemassaoloaan taloudellisilla argumenteilla, joihin ne eivät helposti taivu. Tämä jännite on ollut olemassa koko modernin taidekäsityksen historian ajan, mutta se on viime vuosina kärjistynyt.\n\nTaiteen itseisarvo on vaikeasti määriteltävä käsite. Sillä tarkoitetaan ajatusta, että taiteella on arvoa itsessään, riippumatta sen taloudellisista tai yhteiskunnallisista vaikutuksista. Tämä ajatus on ollut keskeinen taiteen vapauden perustelu, mutta se on myös asettanut taiteen alttiiksi kritiikille: jos taiteella ei ole mitattavissa olevia vaikutuksia, miksi sitä pitäisi julkisin varoin tukea? Tämä kysymys on erityisen polttava aikana, jolloin julkista taloutta joudutaan sopeuttamaan.\n\nToinen ulottuvuus on taiteen ja teknologian suhde. Tekoäly pystyy tuottamaan kuvia, musiikkia ja tekstiä, jotka ovat vaikeasti erotettavissa ihmisen tekemästä taiteesta. Tämä herättää kysymyksiä tekijyydestä, luovuudesta ja taiteen olemuksesta. Onko tekoälyn tuotos taidetta? Kuka omistaa tekijänoikeudet? Miten arvotamme ihmisen ja koneen tuottamaa? Nämä kysymykset ovat vasta alussa, ja ne tulevat muuttamaan käsitystämme taiteesta perustavanlaatuisesti.\n\nKolmas keskeinen teema on taiteen saavutettavuus. Digitaaliset alustat ovat tuoneet taiteen entistä laajemman yleisön ulottuville, mutta samalla ne ovat muuttaneet tapaa, jolla taidetta kulutetaan. Pätkissä, nopeasti, ohikiitävästi – tämä ei välttämättä sovi syvällisen kokemuksen vaativalle taiteelle. Samalla perinteiset taidelaitokset kamppailevat yleisöjen tavoittamisesta, ja nuoret sukupolvet hakeutuvat yhä harvemmin museoihin ja teattereihin.\n\nTulevaisuudessa tarvitaan uudenlaista ajattelua taiteen rahoituksesta, asemasta ja merkityksestä. Taiteen itseisarvoa ei voi eikä pidä unohtaa, mutta sen rinnalle tarvitaan myös kykyä artikuloida taiteen yhteiskunnallista merkitystä tavalla, joka on ymmärrettävää myös niille, jotka eivät itse ole taiteen piirissä. Taide ei ole vain koriste – se on tapa jäsentää maailmaa, kyseenalaistaa itsestäänselvyyksiä ja kuvitella toisenlaisia tulevaisuuksia.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 299
+    },
+    "questions": [
+      {
+        "id": "64c00886-b4f1-525b-bd80-86d8d1c558b4",
+        "prompt": "Mitä tarkoitetaan taiteen 'itseisarvolla'?",
+        "options": [
+          "Taiteen taloudellista arvoa",
+          "Ajatusta, että taiteella on arvoa itsessään riippumatta sen vaikutuksista",
+          "Taiteen viihdearvoa",
+          "Taiteen opetuksellista arvoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ff1a2590-6c9c-5ade-a9ed-917bb149d67f",
+        "prompt": "Mitä kysymyksiä tekoäly herättää taiteen kentällä?",
+        "options": [
+          "Tekoäly on liian kallista",
+          "Tekijyydestä, luovuudesta ja taiteen olemuksesta",
+          "Tekoäly tekee huonoa taidetta",
+          "Tekoäly korvaa taiteilijat kokonaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c3f3421e-52a0-59cf-b5e6-28ef353af796",
+        "prompt": "Miten digitaaliset alustat ovat muuttaneet taiteen kulutusta?",
+        "options": [
+          "Ne ovat lisänneet syvällistä taiteen kokemista",
+          "Ne ovat johtaneet pätkissä, nopeasti ja ohikiitävästi tapahtuvaan kulutukseen",
+          "Ne ovat vähentäneet taiteen kulutusta",
+          "Ne ovat tehneet taiteesta maksullista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8e0a024-360e-5836-ba4f-a0447f4bc36b",
+        "prompt": "Mitä tulevaisuudessa tarvitaan taiteen aseman turvaamiseksi?",
+        "options": [
+          "Vain lisää julkista rahoitusta",
+          "Uudenlaista ajattelua taiteen rahoituksesta ja kykyä artikuloida sen yhteiskunnallinen merkitys",
+          "Taiteen eristämistä teknologiasta",
+          "Paluuta perinteisiin taidemuotoihin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

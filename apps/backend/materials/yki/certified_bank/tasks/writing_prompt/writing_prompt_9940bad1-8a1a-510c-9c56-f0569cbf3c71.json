@@ -1,0 +1,37 @@
+{
+  "id": "9940bad1-8a1a-510c-9c56-f0569cbf3c71",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a quality and environmental manager position in an industrial company. Tell about your education, experience with quality systems and environmental management. Also describe how you have developed sustainability reporting and certifications. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus laatu- ja ympäristöpäällikön tehtävään"
+    },
+    "items": [
+      {
+        "id": "3b2ef29e-0d89-5ce6-bf95-e068f2aeba95",
+        "prompt": "Write a job application. You are applying for a quality and environmental manager position in an industrial company. Tell about your education, experience with quality systems and environmental management. Also describe how you have developed sustainability reporting and certifications. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a quality and environmental manager position in an industrial company. Tell about your education, experience with quality systems and environmental management. Also describe how you have developed sustainability reporting and certifications. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

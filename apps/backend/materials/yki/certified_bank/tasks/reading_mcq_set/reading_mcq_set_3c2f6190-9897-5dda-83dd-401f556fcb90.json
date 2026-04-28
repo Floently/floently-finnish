@@ -1,0 +1,77 @@
+{
+  "id": "3c2f6190-9897-5dda-83dd-401f556fcb90",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.734,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Energiamurros etenee Suomessa nopeasti. Uusiutuvan energian osuus sähköntuotannosta on kasvanut merkittävästi, ja fossiilisten polttoaineiden käyttö on vähentynyt. Tuulivoiman kapasiteetti on lisääntynyt voimakkaasti, ja aurinkovoiman osuus kasvaa. Myös lämpöpumput ja muu hajautettu energiantuotanto yleistyvät. Energiamurros on osa laajempaa vihreää siirtymää, jolla pyritään hiilineutraaliuteen. Murros luo uusia työpaikkoja ja liiketoimintamahdollisuuksia esimerkiksi puhtaan teknologian alalla. Samalla se asettaa haasteita sähköverkon kapasiteetille ja sääriippuvuudelle. Energiavarastointi ja kysyntäjousto ovat keskeisiä ratkaisuja näihin haasteisiin.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "mcq_203",
+        "prompt": "Miten uusiutuvan energian osuus sähköntuotannossa on kehittynyt?",
+        "options": [
+          "Se on vähentynyt",
+          "Se on kasvanut merkittävästi",
+          "Se on pysynyt ennallaan",
+          "Se on vähentynyt hieman"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_204",
+        "prompt": "Minkä energiamuodon kapasiteetti on lisääntynyt voimakkaasti?",
+        "options": [
+          "Hiilivoiman",
+          "Tuulivoiman",
+          "Turpeen",
+          "Öljyn"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_205",
+        "prompt": "Mitä haasteita energiamurros asettaa?",
+        "options": [
+          "Sähköverkon kapasiteetille ja sääriippuvuudelle",
+          "Fossiilisten polttoaineiden saatavuudelle",
+          "Energian hinnan laskulle",
+          "Työpaikkojen vähenemiselle"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "mcq_206",
+        "prompt": "Mitä ratkaisuja energiamurroksen haasteisiin on esitetty?",
+        "options": [
+          "Energian tuonnin lisääminen",
+          "Energiavarastointi ja kysyntäjousto",
+          "Fossiilisten polttoaineiden käytön lisääminen",
+          "Sähköverkon purkaminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

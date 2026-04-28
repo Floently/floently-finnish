@@ -1,0 +1,40 @@
+{
+  "id": "9b58ebf6-1ef3-5825-8651-1a5b58cc974d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell where you have spent holidays and what kind of place is best for vacation.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "2d503ae0-a1b8-5068-8e92-7ca6d9e5cd9e",
+        "ai_first_turn_fi": "Missä sä tykkäät lomailla? Rannalla vai kaupungissa?"
+      }
+    ],
+    "rubric": "Tell where you have spent holidays and what kind of place is best for vacation.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

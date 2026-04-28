@@ -1,0 +1,66 @@
+{
+  "id": "59e4380c-0689-5b05-aa95-0919e367be89",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue uimahallin säännöt ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLIN SÄÄNNÖT\n\n1. Käy suihkussa ennen altaaseen menoa.\n2. Käytä uimapukua. Alushousuilla ei saa uida.\n3. Hyppääminen on sallittua vain syvässä päässä.\n4. Alle 10-vuotiaat vain aikuisen kanssa.\n5. Juoksu kielletty altaan reunalla.\n6. Uimahalli suljetaan 30 min ennen sulkemisaikaa.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä pitää tehdä ennen altaaseen menoa?",
+        "options": [
+          "Käydä suihkussa",
+          "Juoda vettä",
+          "Maksaa lippu",
+          "Soittaa kotiin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Saako alushousuilla uida?",
+        "options": [
+          "Kyllä",
+          "Ei",
+          "Vain aamulla",
+          "Vain lapsilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Minkä ikäiset lapset saavat uida yksin?",
+        "options": [
+          "yli 5-vuotiaat",
+          "yli 7-vuotiaat",
+          "yli 10-vuotiaat",
+          "yli 12-vuotiaat"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

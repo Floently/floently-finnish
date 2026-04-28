@@ -1,0 +1,66 @@
+{
+  "id": "2a6b3702-dfa3-5a93-b9a7-77c68fe990dd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "LEIKKIPUISTON SÄÄNNÖT\n\nLeikkipuisto on avoinna klo 8–21. Puisto on tarkoitettu alle 12-vuotiaille lapsille. Vanhemmat vastaavat lapsistaan. Koiria ei saa tuoda puistoon. Roskat pitää laittaa roskikseen. Kiitos!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "cd851b1b-e40d-5852-9861-bcf0e3b75a69",
+        "prompt": "Mihin asti leikkipuisto on auki?",
+        "options": [
+          "A) klo 20",
+          "B) klo 21",
+          "C) klo 22",
+          "D) klo 23"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9dc340d2-f461-5fc7-b66b-55235a2b63f0",
+        "prompt": "Kenelle leikkipuisto on tarkoitettu?",
+        "options": [
+          "A) aikuisille",
+          "B) alle 12-vuotiaille lapsille",
+          "C) yli 12-vuotiaille",
+          "D) koirille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e7854603-871a-5e30-b8bb-2b8b8ef3b859",
+        "prompt": "Saa koiria tuoda leikkipuistoon?",
+        "options": [
+          "A) Kyllä",
+          "B) Vain pieniä koiria",
+          "C) Ei",
+          "D) Vain aamulla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

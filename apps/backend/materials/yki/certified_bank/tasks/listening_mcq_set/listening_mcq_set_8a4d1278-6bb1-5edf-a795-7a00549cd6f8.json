@@ -1,0 +1,99 @@
+{
+  "id": "8a4d1278-6bb1-5edf-a795-7a00549cd6f8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu uuden auton ostosta ja vastaa.",
+    "materials": {
+      "transcript": "Jussi: Hei Sanna, me ollaan mietitty uuden auton ostoa. Sulla on just ostettu uusi auto, mitä suosittelisit? Sanna: Me ostettiin sähköauto, ja se on ollut tosi hyvä. Säästöä tulee polttoaineessa ja veroissa. Mutta kannattaa miettiä, ajatko paljon pitkiä matkoja. Jussi: Me ajetaan lähinnä kaupungissa ja joskus mökille, about 200 kilometriä. Sähköauto vois toimia. Sanna: Joo, se riittää hyvin. Meillä on kanssa kotilataus, se on kätevää. Yöllä lataat, ja aamulla on täys akku. Jussi: Onko latausasemia tarpeeksi? Sanna: On, varsinkin Etelä-Suomessa. Me ollaan käyty Lapissakin, ja sielläkin on nykyään aika hyvin. Kannattaa vaan suunnitella reitti etukäteen. Jussi: Entä hinta? Sähköautot on kalliimpia. Sanna: Joo, hankintahinta on korkeampi, mutta käyttökustannukset on paljon pienemmät. Me laskettiin, että viidessä vuodessa se tulee halvemmaksi kuin bensa-auto. Jussi: Mitä muita vaihtoehtoja on? Sanna: Hybridi on hyvä kompromissi. Siinä on sekä sähkömoottori että bensamoottori. Kaupungissa voit ajaa sähköllä ja pitkillä matkoilla bensalla. Jussi: Pitää tutkia asiaa. Kiitos vinkeistä!",
+      "audio_asset_id": "a2b3c4d5-e6f7-8a9b-0c1d-2e3f4a5b6c7d"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä Jussi ja Sanna keskustelevat?",
+        "options": [
+          "Auton vuokrauksesta.",
+          "Uuden auton ostosta.",
+          "Auton korjauksesta.",
+          "Auton pesusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Millaisen auton Sanna osti?",
+        "options": [
+          "Bensa-auton.",
+          "Diesel-auton.",
+          "Sähköauton.",
+          "Hybridiauton."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on sähköauton etu Sannan mukaan?",
+        "options": [
+          "Halpa hankintahinta.",
+          "Säästö polttoaineessa ja veroissa.",
+          "Nopea lataus.",
+          "Hiljainen moottori."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten Sanna lataa autonsa?",
+        "options": [
+          "Julkisilla latausasemilla.",
+          "Kotilatauksella yöllä.",
+          "Työpaikalla.",
+          "Huoltoasemilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on hybridiauton etu?",
+        "options": [
+          "Se on aina halvin.",
+          "Siinä on sekä sähkö- että bensamoottori.",
+          "Se on kevyin.",
+          "Se on nopein."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä Jussi aikoo tehdä seuraavaksi?",
+        "options": [
+          "Ostaa saman auton kuin Sanna.",
+          "Tutkia asiaa lisää.",
+          "Luopua auton ostosta.",
+          "Ostaa bensa-auton."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

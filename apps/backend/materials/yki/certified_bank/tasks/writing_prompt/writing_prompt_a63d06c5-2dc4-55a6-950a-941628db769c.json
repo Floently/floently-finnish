@@ -1,0 +1,37 @@
+{
+  "id": "a63d06c5-2dc4-55a6-950a-941628db769c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.343,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute lähikauppasi juomaosastosta. Onko valikoima hyvä? Onko hinnat kohtuulliset?",
+    "materials": {
+      "scenario": "Palaute kaupan juomaosastosta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute lähikauppasi juomaosastosta. Onko valikoima hyvä? Onko hinnat kohtuulliset?"
+      }
+    ],
+    "rubric": "Kirjoita palaute lähikauppasi juomaosastosta. Onko valikoima hyvä? Onko hinnat kohtuulliset?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

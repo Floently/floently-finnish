@@ -1,0 +1,60 @@
+{
+  "id": "2616842c-9333-5e74-a3f5-fb54c533adad",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen huonosta hotellihuoneesta. Keskustele vastaanottovirkailijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Hotellin vastaanottovirkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp58_1",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp58_2",
+        "ai_first_turn_fi": "Voi ei, ikävä kuulla. Mikä huone sinulla on?"
+      },
+      {
+        "id": "srp58_3",
+        "ai_first_turn_fi": "Pahoittelut. Voin tarjota teille toista huonetta saman tien. Onko teillä allergioita tai muita toiveita?"
+      },
+      {
+        "id": "srp58_4",
+        "ai_first_turn_fi": "Selvä, tässä on uusi huone 432. Se on savuton ja siivottu juuri. Haluatteko apua tavaroiden siirrossa?"
+      },
+      {
+        "id": "srp58_5",
+        "ai_first_turn_fi": "Lähetämme henkilökunnan auttamaan. Tarjoamme huoneeseen myös pienen hyvityksenä. Pahoittelut vielä."
+      },
+      {
+        "id": "srp58_6",
+        "ai_first_turn_fi": "Toivottavasti loppuloma sujuu paremmin."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tehdä valituksen huonosta hotellihuoneesta. Keskustele vastaanottovirkailijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "619f8efd-c698-5764-af9c-92c06ca31bec",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Koirien ja kissojen hyvinvointi on tärkeää. Lemmikit tarvitsevat lajityypillistä ruokaa, liikuntaa ja virikkeitä. Eläinlääkäriin on hyvä mennä säännöllisesti tarkastuksissa ja rokotuksissa. Moni ottaa lemmikin mukaan harrastuksiin, kuten metsälenkeille tai agilityyn. Suomessa on tiukat eläinsuojelulait, jotka velvoittavat omistajia huolehtimaan eläimistään. Lemmikki tuo iloa ja seuraa arkeen.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tärkeää koirien ja kissojen kohdalla?",
+        "options": [
+          "Niiden ulkonäkö",
+          "Niiden hyvinvointi",
+          "Niiden rotu",
+          "Niiden määrä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lemmikit tarvitsevat?",
+        "options": [
+          "Vaan ruokaa",
+          "Lajityypillistä ruokaa, liikuntaa ja virikkeitä",
+          "Vaan lepoa",
+          "Vaan hoitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi eläinlääkärissä on hyvä käydä säännöllisesti?",
+        "options": [
+          "Vaan sairaustapauksissa",
+          "Tarkastuksissa ja rokotuksissa",
+          "Vaan rokotuksissa",
+          "Vaan leikkausten takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Minne moni ottaa lemmikin mukaan?",
+        "options": [
+          "Töihin",
+          "Harrastuksiin, kuten metsälenkeille tai agilityyn",
+          "Kauppaan",
+          "Ravintolaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä Suomessa on tiukat lemmikkien suhteen?",
+        "options": [
+          "Verot",
+          "Eläinsuojelulait",
+          "Tuontisäännökset",
+          "Rotumääräykset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä lemmikki tuo arkeen?",
+        "options": [
+          "Vaivaa",
+          "Iloa ja seuraa",
+          "Kuluja",
+          "Lisätöitä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

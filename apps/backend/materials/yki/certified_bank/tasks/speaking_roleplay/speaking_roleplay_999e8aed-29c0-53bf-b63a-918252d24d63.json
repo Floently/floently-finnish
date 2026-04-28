@@ -1,0 +1,40 @@
+{
+  "id": "999e8aed-29c0-53bf-b63a-918252d24d63",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.27,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell about some new skill you have learned. How did you learn it?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "b130b281-fd0d-5552-a417-d79cede29e60",
+        "ai_first_turn_fi": "Ootko sä oppinut jotain uutta viime aikoina? Mitä?"
+      }
+    ],
+    "rubric": "Tell about some new skill you have learned. How did you learn it?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "176992d0-78cc-502b-8bdc-94db9d807d44",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele työhaastattelun osa ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Haastattelija: Kerro vähän itsestäsi ja taustastasi.\nHakija: Olen valmistunut tradenomiksi kolme vuotta sitten ja työskennellyt sen jälkeen myynnin tehtävissä. Viimeisimmässä työpaikassani olin vastuussa asiakkuuksien hoidosta ja myynnin kehittämisestä. Pidän asiakaspalvelusta ja ratkaisukeskeisestä työotteesta. Haen nyt uusia haasteita, koska haluan kehittyä ja päästä käyttämään kielitaitoani enemmän. Puhun suomen lisäksi englantia ja ruotsia ja opiskelen parhaillaan saksaa.",
+      "audio_asset_id": "1f76f21b-a082-4137-b09e-fa3d47ac508a"
+    },
+    "questions": [
+      {
+        "id": "e4c03c15-30b5-55ad-accd-139cd12f6544",
+        "prompt": "Mikä on hakijan koulutus?",
+        "options": [
+          "Insinööri",
+          "Tradenomi",
+          "Ylioppilas",
+          "Lääkäri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "90d64780-6d12-5b7b-8561-a1812ff49095",
+        "prompt": "Mitä hakija teki viimeisimmässä työpaikassaan?",
+        "options": [
+          "Toimi siivoojana",
+          "Oli vastuussa asiakkuuksien hoidosta ja myynnin kehittämisestä",
+          "Työskenteli varastolla",
+          "Toimi opettajana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e4d816c9-22ea-569a-b881-fe0a7092c918",
+        "prompt": "Mitä kieltä hakija opiskelee parhaillaan?",
+        "options": [
+          "Ranskaa",
+          "Saksaa",
+          "Espanjaa",
+          "Venäjää"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

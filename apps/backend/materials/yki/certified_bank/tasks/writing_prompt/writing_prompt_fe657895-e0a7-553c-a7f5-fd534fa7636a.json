@@ -1,0 +1,37 @@
+{
+  "id": "fe657895-e0a7-553c-a7f5-fd534fa7636a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.718,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa siirtyä enemmän kiertotalouteen ja vähentää luonnonvarojen käyttöä?'. Analysoi taloudellisia ja ympäristöllisiä vaikutuksia.",
+    "materials": {
+      "scenario": "Kiertotalouteen siirtyminen"
+    },
+    "items": [
+      {
+        "id": "d9bff3a4-9503-5738-b755-b664b6362326",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa siirtyä enemmän kiertotalouteen ja vähentää luonnonvarojen käyttöä?'. Analysoi taloudellisia ja ympäristöllisiä vaikutuksia."
+      }
+    ],
+    "rubric": "Taloudelliset vaikutukset\nYmpäristöhyödyt\nKuluttajien rooli\nTeollisuuden muutos",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

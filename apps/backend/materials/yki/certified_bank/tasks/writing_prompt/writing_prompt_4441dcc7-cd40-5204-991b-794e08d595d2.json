@@ -1,0 +1,37 @@
+{
+  "id": "4441dcc7-cd40-5204-991b-794e08d595d2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.716,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien pakollista tunnistusmerkintää ja rekisteröintiä laajentaa koskemaan myös kissoja?'. Pohdi eläinten hyvinvointia, vastuullisuutta ja kustannuksia.",
+    "materials": {
+      "scenario": "Kissojen tunnistusmerkintä"
+    },
+    "items": [
+      {
+        "id": "039e8d8a-8b30-5ef5-9280-ce090c099cab",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koirien pakollista tunnistusmerkintää ja rekisteröintiä laajentaa koskemaan myös kissoja?'. Pohdi eläinten hyvinvointia, vastuullisuutta ja kustannuksia."
+      }
+    ],
+    "rubric": "Eläinten hyvinvointi\nVastuullisuus\nKustannukset\nKulkukissat",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

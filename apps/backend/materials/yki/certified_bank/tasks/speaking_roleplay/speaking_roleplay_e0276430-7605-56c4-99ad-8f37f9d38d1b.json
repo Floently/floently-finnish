@@ -1,0 +1,40 @@
+{
+  "id": "e0276430-7605-56c4-99ad-8f37f9d38d1b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.285,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what kind of food is eaten in your home country. Is there some food you can't get in Finland?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "c6527732-34c8-54ec-adb6-05cfb3bd12fd",
+        "ai_first_turn_fi": "Millasta ruokaa sun kotimaassa syödään? Onko joku erikoinen ruoka?"
+      }
+    ],
+    "rubric": "Tell what kind of food is eaten in your home country. Is there some food you can't get in Finland?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

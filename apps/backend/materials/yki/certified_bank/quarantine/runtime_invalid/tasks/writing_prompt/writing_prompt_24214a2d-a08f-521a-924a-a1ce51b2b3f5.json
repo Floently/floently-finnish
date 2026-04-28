@@ -1,0 +1,37 @@
+{
+  "id": "24214a2d-a08f-521a-924a-a1ce51b2b3f5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.679,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: classroom. Purpose: react to a situation. Constraint: mention a follow up step.",
+    "materials": {
+      "scenario": "housing in classroom"
+    },
+    "items": [
+      {
+        "id": "91af6fde-d90d-5ab5-8e15-ea899981211c",
+        "prompt": "Write for the receiver in this scenario: classroom. Purpose: react to a situation. Constraint: mention a follow up step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

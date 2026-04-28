@@ -1,0 +1,37 @@
+{
+  "id": "9ec1c0e3-1501-503e-9e1e-a54031173e87",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ohjeen mukaan.",
+    "materials": {
+      "scenario": "Kielikurssi"
+    },
+    "items": [
+      {
+        "id": "9c64e3c2-36eb-50dd-a672-a74a3329cea9",
+        "prompt": "Kirjoita palaute kielikurssista."
+      }
+    ],
+    "rubric": "Kirjoita palaute kielikurssista.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

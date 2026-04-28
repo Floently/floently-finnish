@@ -1,0 +1,37 @@
+{
+  "id": "d03259b0-4e67-5baa-a592-7bda91871831",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti työnantajalle. Haluat pyytää palkatonta vapaata muutamaksi päiväksi, koska sinulla on muutto. Kerro, milloin muutto on ja miksi tarvitset vapaata. Kerro myös, miten hoidat työtehtäväsi ennen ja jälkeen muuton.",
+    "materials": {
+      "scenario": "Palkaton vapaa muuttoa varten"
+    },
+    "items": [
+      {
+        "id": "625e1151-787b-51b5-b9b2-cc94d5cc34e5",
+        "prompt": "Kirjoita sähköposti työnantajalle. Haluat pyytää palkatonta vapaata muutamaksi päiväksi, koska sinulla on muutto. Kerro, milloin muutto on ja miksi tarvitset vapaata. Kerro myös, miten hoidat työtehtäväsi ennen ja jälkeen muuton."
+      }
+    ],
+    "rubric": "Muuttopäivä\nPerustelu\nTyöjärjestelyt",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

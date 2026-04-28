@@ -1,0 +1,37 @@
+{
+  "id": "751e0d7e-525f-5f57-a4a0-474ce5434a67",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti työpaikan kahvipöytään. Kerro, että sinulla on ylimääräisiä liput konserttiin tänään. Liput ovat ilmaiset. Kerro, että voit antaa ne ensimmäiselle, joka haluaa. Kerro, mistä voit hakea liput.",
+    "materials": {
+      "scenario": "Viesti työpaikalle ilmaisista konserttilipuista"
+    },
+    "items": [
+      {
+        "id": "ba11323a-5e35-5642-b972-dee2b9ec7cb8",
+        "prompt": "Kirjoita lyhyt viesti työpaikan kahvipöytään. Kerro, että sinulla on ylimääräisiä liput konserttiin tänään. Liput ovat ilmaiset. Kerro, että voit antaa ne ensimmäiselle, joka haluaa. Kerro, mistä voit hakea liput."
+      }
+    ],
+    "rubric": "Kerro, että sinulla on ylimääräisiä lippuja\nKerro, että ne ovat ilmaiset\nKerro, milloin konsertti on\nKerro, mistä liput saa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

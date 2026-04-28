@@ -1,0 +1,77 @@
+{
+  "id": "b2668d0f-dc6a-5391-9e15-1995467a111a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Koulutuksen ja työelämän välinen suhde on murroksessa. Perinteinen malli, jossa ensin hankitaan ammatti ja sitten tehdään työura saman alan parissa, on väistymässä joustavampien työurien tieltä. Teknologinen kehitys, työtehtävien muuttuminen ja alojen välisten rajojen hämärtyminen edellyttävät yksilöltä jatkuvaa uuden oppimista. Tämä asettaa uusia haasteita koulutusjärjestelmälle. Sen on kyettävä tarjoamaan paitsi vahvaa perusosaamista myös valmiuksia elinikäiseen oppimiseen. Keskustelua käydään siitä, pitäisikö koulutuksen olla yleissivistävää vai pitäisikö sen keskittyä enemmän työelämän tarpeisiin. Laaja-alaisten taitojen, kuten kriittisen ajattelun ja ongelmanratkaisukyvyn, merkitys korostuu. Toisaalta koulutuksen ja työelämän välistä yhteistyötä tulisi tiivistää työharjoittelujen ja oppisopimuskoulutuksen avulla.",
+      "word_count": 90
+    },
+    "questions": [
+      {
+        "id": "e2014515-5687-504c-8e35-abce17052f24",
+        "prompt": "Mikä on tekstin keskeinen väite koulutuksen ja työelämän suhteesta?",
+        "options": [
+          "Perinteinen malli toimii edelleen hyvin",
+          "Suhde on murroksessa ja vaatii koulutusjärjestelmältä uudenlaisia valmiuksia",
+          "Koulutuksen ja työelämän välinen suhde on katkennut kokonaan",
+          "Työelämä on sopeuduttava täysin koulutusjärjestelmän tarjontaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cdfb422e-b457-5400-9ecf-09e7d216ef3b",
+        "prompt": "Tekstin mukaan miksi perinteinen koulutusmalli on väistymässä?",
+        "options": [
+          "Koska nuoret eivät ole kiinnostuneita työnteosta",
+          "Teknologian kehityksen, työtehtävien muuttumisen ja alojen rajojen hämärtymisen vuoksi",
+          "Koska koulutus on liian kallista",
+          "Koska työnantajat eivät arvosta koulutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7aac03fd-3b7a-5bae-944e-9698d31322c9",
+        "prompt": "Mitä laaja-alaisia taitoja tekstissä pidetään tärkeinä?",
+        "options": [
+          "Vain tarkkaa ammattiosaamista",
+          "Kriittistä ajattelua ja ongelmanratkaisukykyä",
+          "Kielitaitoa ja matemaattista osaamista",
+          "Teknistä osaamista ja ohjelmointitaitoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ffce1992-7fdd-597e-abb1-e0fa809d009d",
+        "prompt": "Mitä keinoja tekstissä mainitaan koulutuksen ja työelämän yhteistyön tiivistämiseksi?",
+        "options": [
+          "Koulutuslaitosten sulkemista",
+          "Työharjoitteluja ja oppisopimuskoulutusta",
+          "Opiskelijoiden pakollista työssäkäyntiä",
+          "Koulutuksen täydellistä yksityistämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

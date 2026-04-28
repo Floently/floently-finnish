@@ -1,0 +1,66 @@
+{
+  "id": "ebb54105-82d0-5e1c-bdee-a68577bfe838",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.326,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIEDOTE KOTITALOYHTIÖLLE\n\nHyvät asukkaat!\n\nPihalla tehdään kesäkunnostusta viikoilla 25–27 (17.6.–5.7.). Tänä aikana piha-alue on osittain suljettu. Työkoneet liikkuvat alueella, joten noudattakaa varovaisuutta. Erityisesti lasten ja lemmikkien kanssa pitää olla tarkkana.\n\nAutopaikat 10–15 ovat pois käytöstä 17.6.–30.6. Näille paikoille ei saa pysäköidä.\n\nPahoittelemme häiriötä. Toivomme, että kesästä tulee kaunis ja lämmin!\n\nTaloyhtiön hallitus  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin pihaa kunnostetaan?",
+        "options": [
+          "17.6.–5.7.",
+          "1.6.–15.6.",
+          "5.7.–20.7.",
+          "elokuussa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi pitää olla varovainen?",
+        "options": [
+          "koska on liukasta",
+          "koska työkoneet liikkuvat",
+          "koska on pimeää",
+          "koska sataa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä autopaikat ovat pois käytöstä?",
+        "options": [
+          "1–5",
+          "5–10",
+          "10–15",
+          "15–20"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

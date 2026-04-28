@@ -1,0 +1,77 @@
+{
+  "id": "d1778ec0-77f2-5e76-841a-50005aace104",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pesutuvan käyttöohje ja valitse oikea vastaus.",
+    "materials": {
+      "text": "Taloyhtiön pesutupa siirtyy uuteen varauskäytäntöön ensi viikosta alkaen. Vuoron voi varata ilmoitustaulun paperilistalle tai taloyhtiön verkkopalvelussa. Yksi asunto voi varata enintään kaksi vuoroa viikossa, jotta kaikki saavat tasapuolisesti aikoja. Vuorot alkavat tasatunnein ja kestävät kaksi tuntia. Jos vuoroa ei ole aloitettu 30 minuutin sisällä, se vapautuu muille asukkaille. Pesutuvan avain haetaan huoltomieheltä maanantaisin ja torstaisin kello 17-18. Käytön jälkeen lattia pitää pyyhkiä ja koneiden luukut jättää auki kuivumista varten. Pyykkiä ei saa jättää kuivumaan yön yli. Jos laite rikkoutuu, vikailmoitus tehdään heti taloyhtiön huoltonumeroon. Lisäksi taloyhtiö muistuttaa, että pesutuvan oven pitää olla lukittuna vuoron jälkeen. Jos avain katoaa, siitä ilmoitetaan heti huoltoon. Pesuaineet tuodaan itse, eikä niitä säilytetä yhteisessä kaapissa. Näin tila pysyy siistinä kaikille käyttäjille.",
+      "word_count": 116
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuinka monta vuoroa asunto voi varata viikossa?",
+        "options": [
+          "yhden",
+          "kaksi",
+          "kolme",
+          "neljä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten pitkä yksi vuoro on?",
+        "options": [
+          "yksi tunti",
+          "kaksi tuntia",
+          "kolme tuntia",
+          "neljä tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin vuoro vapautuu muille?",
+        "options": [
+          "heti aloitusajan jälkeen",
+          "15 minuutin jälkeen",
+          "30 minuutin jälkeen",
+          "60 minuutin jälkeen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä pitää tehdä, jos laite rikkoutuu?",
+        "options": [
+          "odottaa seuraavaan päivään",
+          "soittaa huoltonumeroon",
+          "jättää lappu oveen",
+          "sammuttaa sähköt koko talosta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

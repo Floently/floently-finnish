@@ -1,0 +1,37 @@
+{
+  "id": "6227071e-7017-524f-88a9-0212c8923064",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita analyyttinen mielipideteksti.",
+    "materials": {
+      "scenario": "Algoritmit ja puolueettomuus"
+    },
+    "items": [
+      {
+        "id": "e5aeb860-42f0-504e-8869-cee284e0317c",
+        "prompt": "Voiko algoritminen päätöksenteko olla täysin puolueetonta?"
+      }
+    ],
+    "rubric": "Voiko algoritminen päätöksenteko olla täysin puolueetonta?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

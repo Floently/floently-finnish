@@ -1,0 +1,99 @@
+{
+  "id": "ed5fd328-06b4-552c-bb17-a5943ae053e4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Pienten lasten vanhemmat kokoontuvat kerran viikossa perhekahvilaan. Perhekahvila on maksuton ja sinne voi tulla oman lapsen kanssa. Siellä on mahdollisuus jutella muiden vanhempien kanssa ja lapset voivat leikkiä yhdessä. Paikalla on myös ohjaaja, joka vastaa kysymyksiin. Perhekahvila on avoinna tiistaisin kello 9–12 osoitteessa Nuorisotie 5.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Keitä varten perhekahvila on?",
+        "options": [
+          "Kaikille lapsille",
+          "Pienten lasten vanhemmille ja heidän lapsilleen",
+          "Vain äideille",
+          "Vain isille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka usein perhekahvila kokoontuu?",
+        "options": [
+          "Kerran kuussa",
+          "Kerran viikossa",
+          "Joka päivä",
+          "Kaksi kertaa viikossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä perhekahvilassa voi tehdä?",
+        "options": [
+          "Ostaa kahvia ja pullaa",
+          "Jutella muiden vanhempien kanssa ja lapset voivat leikkiä",
+          "Osallistua askarteluun",
+          "Kuunnella luentoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Paljonko perhekahvila maksaa?",
+        "options": [
+          "5 euroa kerta",
+          "Se on maksuton",
+          "10 euroa kuukaudessa",
+          "Hinnan saa kysyä ohjaajalta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Kuka on paikalla perhekahvilassa?",
+        "options": [
+          "Lääkäri",
+          "Ohjaaja",
+          "Psykologi",
+          "Opettaja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Milloin ja missä perhekahvila on?",
+        "options": [
+          "Maanantaisin kello 10–13, Koulutie 3",
+          "Tiistaisin kello 9–12, Nuorisotie 5",
+          "Keskiviikkoisin kello 12–15, Torikatu 1",
+          "Perjantaisin kello 14–17, Puistokatu 8"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "9a3eac21-a6d3-50ef-ae24-41a8aac9720a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa kuntosalijäsenyytensä. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kuntosalin asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp3_1",
+        "ai_first_turn_fi": "Hei, Kuntosali Activeen, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp3_2",
+        "ai_first_turn_fi": "Voin auttaa siinä. Mikä on nimesi ja jäsennumerosi?"
+      },
+      {
+        "id": "srp3_3",
+        "ai_first_turn_fi": "Kiitos. Saanko kysyä, miksi haluat peruuttaa jäsenyytesi?"
+      },
+      {
+        "id": "srp3_4",
+        "ai_first_turn_fi": "Ymmärrän. Haluaisitko sen sijaan jäädyttää jäsenyytesi määräajaksi? Se on mahdollista ilman kuluja kolmeksi kuukaudeksi."
+      },
+      {
+        "id": "srp3_5",
+        "ai_first_turn_fi": "Selvä, peruutetaan sitten jäsenyys. Viimeinen laskutuskertamme on tässä kuussa, joten jäsenyys päättyy kuun lopussa."
+      },
+      {
+        "id": "srp3_6",
+        "ai_first_turn_fi": "Lähetämme sinulle vahvistuksen sähköpostitse. Haluatko vielä jotain muuta?"
+      },
+      {
+        "id": "srp3_7",
+        "ai_first_turn_fi": "Kiitos soitostasi ja mukavaa jatkoa uudella paikkakunnalla!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa peruuttaa kuntosalijäsenyytensä. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

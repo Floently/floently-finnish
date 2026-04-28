@@ -1,0 +1,63 @@
+{
+  "id": "9ee6b410-236b-5668-9ad1-24314d6859c9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, täällä soittaa lääkärikeskus Terveyshelmi. Sinulla on aika hammaslääkärille keskiviikkona 12.3. kello 13.30. Jos et pääse tulemaan, peruuta aika viimeistään 24 tuntia ennen soittamalla numeroon 020 123 456. Muista ottaa Kela-kortti mukaan. Kiitos ja hyvää päivää!",
+      "audio_asset_id": "68a5c512-804b-4d05-9564-c7d350b20447"
+    },
+    "questions": [
+      {
+        "id": "bce964ec-1897-5d12-96f3-402355e91486",
+        "prompt": "Mistä soitetaan?",
+        "options": [
+          "apteekista",
+          "lääkärikeskuksesta",
+          "hammaslääkäristä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7212e849-5ff8-56d1-aad4-83ef67a1ac70",
+        "prompt": "Milloin aika on?",
+        "options": [
+          "maanantaina 12.3.",
+          "keskiviikkona 12.3.",
+          "perjantaina 12.3."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0e044c9f-f64c-5724-839d-8e31ae49bbd9",
+        "prompt": "Mitä pitää ottaa mukaan?",
+        "options": [
+          "ajokortti",
+          "Kela-kortti",
+          "passi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

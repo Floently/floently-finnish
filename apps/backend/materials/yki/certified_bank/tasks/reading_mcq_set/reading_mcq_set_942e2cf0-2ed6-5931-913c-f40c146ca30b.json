@@ -1,0 +1,77 @@
+{
+  "id": "942e2cf0-2ed6-5931-913c-f40c146ca30b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.494,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kesäjooga alkaa kaupunginpuistossa maanantaina 3.6. Tunti pidetään kello 18.00-18.45. Osallistuminen maksaa 6 euroa kerralta. Ota mukaan oma alusta ja vesipullo. Sateella tunti siirtyy nuorisotalon saliin.",
+      "word_count": 25
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin tunti alkaa?",
+        "options": [
+          "17.30",
+          "18.00",
+          "18.30",
+          "19.00"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan tunti kestää?",
+        "options": [
+          "30 min",
+          "45 min",
+          "60 min",
+          "75 min"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä osallistuminen maksaa?",
+        "options": [
+          "4 euroa",
+          "5 euroa",
+          "6 euroa",
+          "7 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin tunti siirtyy sateella?",
+        "options": [
+          "kouluun",
+          "uimahalliin",
+          "nuorisotalon saliin",
+          "kirjastoon"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

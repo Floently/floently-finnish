@@ -1,0 +1,77 @@
+{
+  "id": "faceef6c-676a-5233-8695-d5bcbd9da475",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Aluesairaala kokeili uutta yövuoromallia sisätautiosastolla kuuden kuukauden ajan. Tavoitteena oli vähentää henkilöstön kuormitusta ja parantaa potilasturvallisuutta viikonloppuisin. Uudessa mallissa kaksi osastoa jakoi yötiimin, mutta digitaaliset hälytykset ohjattiin suoraan vastuuhenkilölle. Henkilöstökyselyssä osa koki työnjaon selkeytyneen, vaikka siirtymät osastojen välillä lisäsivät kävelymatkoja. Johdon mukaan lääkityspoikkeamat vähenivät hieman, mutta vaikutukseen liittyy epävarmuutta, koska samaan aikaan käyttöön tuli uusi perehdytysohjelma.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 84
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä oli kokeilun päätavoite?",
+        "options": [
+          "lisätä kävelymatkoja",
+          "vähentää kuormitusta ja parantaa turvallisuutta",
+          "sulkea toinen osasto",
+          "poistaa yövuorot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten hälytykset ohjattiin?",
+        "options": [
+          "keskuspuhelimeen",
+          "suoraan vastuuhenkilölle",
+          "sähköpostiin",
+          "paperilistaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä henkilöstö koki?",
+        "options": [
+          "työnjako selkeytyi",
+          "malli peruttiin heti",
+          "potilaita oli vähemmän",
+          "vuorot lyhenivät"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi tulkinnassa on epävarmuutta?",
+        "options": [
+          "data katosi",
+          "perehdytysohjelma muuttui samaan aikaan",
+          "potilaita ei ollut",
+          "kokeilu kesti liian kauan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

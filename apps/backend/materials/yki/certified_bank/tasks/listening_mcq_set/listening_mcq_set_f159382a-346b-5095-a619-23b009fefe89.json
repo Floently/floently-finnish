@@ -1,0 +1,99 @@
+{
+  "id": "f159382a-346b-5095-a619-23b009fefe89",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.536,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta työelämästä ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta työelämästä. Haastattelussa on työelämäprofessori Liisa Mäkelä. Liisa, mitkä ovat suomalaisen työelämän vahvuudet? Liisa: Vahvuuksia ovat korkea koulutustaso, luottamus ja matala hierarkia. Työntekijöihin luotetaan ja heillä on paljon itsenäisyyttä. Myös työhyvinvointiin panostetaan. Toimittaja: Entä heikkoudet? Liisa: Työuupumus on iso ongelma. Työelämä on muuttunut intensiivisemmäksi, ja vaatimukset ovat kovat. Myös epätyypilliset työsuhteet, kuten määräaikaisuudet ja osa-aikatyö, ovat lisääntyneet. Toimittaja: Miten työelämä on muuttunut? Liisa: Digitalisaatio on muuttanut työtä valtavasti. Etätyö on yleistynyt, ja työ ja vapaa-aika sekoittuvat. Myös työn merkityksellisyys korostuu. Ihmiset haluavat tehdä työtä, joka tuntuu tärkeältä. Toimittaja: Miten tulevaisuus näyttää? Liisa: Tarvitaan jatkuvaa oppimista. Myös työkyvystä huolehtiminen on tärkeää. Työnantajien on panostettava työhyvinvointiin ja joustaviin työjärjestelyihin. Toimittaja: Kiitos Liisa.",
+      "audio_asset_id": "b9c0d1e2-f3a4-5b6c-7d8e-9f0a1b2c3d4e"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen koulutus.",
+          "Suomalainen työelämä.",
+          "Suomalainen talous.",
+          "Suomalainen kulttuuri."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä ovat suomalaisen työelämän vahvuudet?",
+        "options": [
+          "Kova kilpailu ja pitkät työpäivät.",
+          "Korkea koulutus, luottamus ja matala hierarkia.",
+          "Paljon ylitöitä ja stressiä.",
+          "Hierarkkisuus ja kontrolli."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on yksi työelämän heikkous?",
+        "options": [
+          "Liian vähän töitä.",
+          "Työuupumus ja epätyypilliset työsuhteet.",
+          "Liian pitkät lomat.",
+          "Liian alhaiset vaatimukset."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten digitalisaatio on muuttanut työtä?",
+        "options": [
+          "Työ on hidastunut.",
+          "Etätyö on yleistynyt ja työ ja vapaa-aika sekoittuvat.",
+          "Työpaikkoja on tullut lisää.",
+          "Työ on muuttunut helpommaksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä työssä korostuu nykyään?",
+        "options": [
+          "Palkan määrä.",
+          "Työn merkityksellisyys.",
+          "Työpaikan sijainti.",
+          "Työkaverit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mitä tulevaisuudessa tarvitaan?",
+        "options": [
+          "Lisää lomia.",
+          "Jatkuvaa oppimista ja työkyvystä huolehtimista.",
+          "Vähemmän työtä.",
+          "Enemmän byrokratiaa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

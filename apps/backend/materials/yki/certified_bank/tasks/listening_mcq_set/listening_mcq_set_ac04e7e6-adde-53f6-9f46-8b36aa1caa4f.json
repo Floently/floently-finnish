@@ -1,0 +1,99 @@
+{
+  "id": "ac04e7e6-adde-53f6-9f46-8b36aa1caa4f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.547,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään studiossa on Leena Mäkelä, joka on kirjoittanut kirjan suomalaisesta ruokakulttuurista. Leena, miten suomalaisten ruokailutottumukset ovat muuttuneet viime vuosikymmeninä? Leena: No, suurin muutos on kasvisten lisääntyminen. Kun olin nuori, ruoka oli hyvin lihapainotteista, ja kasvikset olivat usein vain keitettyjä porkkanoita tai herneitä. Nykyään syödään paljon enemmän salaattia ja erilaisia kasvisruokia. Toinen iso asia on ulkona syöminen. Ennen syötiin lähinnä kotona, mutta nyt ravintoloissa ja kahviloissa käydään ihan arkenakin. Toimittaja: Miten suomalaiset suhtautuvat nykyään leivontaan? Leena: Leipominen on edelleen suosittua, mutta se on muuttunut kiireisemmäksi. Harvempi enää leipoo pullaa tai pitkään kohoavia leipiä. Nopeat ja helpot ohjeet, kuten piirakat valmiista pohjista, ovat arkipäivää. Jauhotkin ovat monipuolistuneet: nykyään käytetään paljon esimerkiksi kaura- ja tattarijauhoja perunaperunajauhojen lisäksi. Toimittaja: Entä lempiruokasi? Leena: Ehdottomasti lohikeitto. Se on hyvä esimerkki siitä, miten perinneruokaa voi muunnella. Perinteinen versio on kermainen ja tillinen, mutta itse teen siitä usein kevyemmän version sitruunalla ja yrteillä.",
+      "audio_asset_id": "dc92e56d-c0e5-4121-8b4b-a54e8c3246f6"
+    },
+    "questions": [
+      {
+        "id": "19f378f8-c6d2-5ad1-a96b-430fc41c5254",
+        "prompt": "Mikä on suurin muutos suomalaisten ruokailutottumuksissa Leenan mukaan?",
+        "options": [
+          "Lihan syönti on lisääntynyt.",
+          "Maitotuotteita käytetään vähemmän.",
+          "Makeiden herkkujen syönti on vähentynyt.",
+          "Kasvisten syönti on lisääntynyt."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "c5fd4a87-d858-5c8f-aedc-2be558372132",
+        "prompt": "Miten ulkona syöminen on muuttunut?",
+        "options": [
+          "Ravintoloissa käydään vain juhlapyhinä.",
+          "Ravintoloissa käydään harvemmin kuin ennen.",
+          "Ulkona syöminen on kokonaan loppunut.",
+          "Ravintoloissa käydään arkenakin useammin."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "f23d0373-e48e-5767-beca-f9b1c3bc0778",
+        "prompt": "Mitä Leena kertoo nykypäivän leipomisesta?",
+        "options": [
+          "Kaikki leipovat yhä monimutkaisia leipiä.",
+          "Suositaan nopeita ja helppoja ohjeita.",
+          "Leipomiseen käytetään vain perunajauhoja.",
+          "Leipominen on vähentynyt kokonaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "255707b5-41be-51ec-aa9e-1c14750e3513",
+        "prompt": "Mitä uusia jauhoja Leenan mukaan nykyään käytetään?",
+        "options": [
+          "Riisi- ja maissijauhoja.",
+          "Soija- ja mantelijauhoja.",
+          "Ohra- ja ruisjauhoja.",
+          "Kaura- ja tattarijauhoja."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "cd3797a8-7655-5b33-9f68-83fb985defdf",
+        "prompt": "Mikä on Leenan oma lempiruoka?",
+        "options": [
+          "Karjalanpaisti.",
+          "Lihapullat ja muusi.",
+          "Hernekeitto.",
+          "Lohikeitto."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "da329c87-b75c-5a41-8c57-f16662433172",
+        "prompt": "Miten Leena muuntelee perinteistä lohikeittoa?",
+        "options": [
+          "Tekemällä siitä kevyemmän sitruunalla.",
+          "Lisäämällä siihen perunoita.",
+          "Keittämällä sen maidossa.",
+          "Tarjoamalla sen kylmänä."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

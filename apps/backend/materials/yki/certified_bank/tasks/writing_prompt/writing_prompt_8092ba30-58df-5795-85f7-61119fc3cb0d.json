@@ -1,0 +1,37 @@
+{
+  "id": "8092ba30-58df-5795-85f7-61119fc3cb0d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kampaajalle. Haluat peruuttaa huomisen aikasi, koska sinulle tuli yllättäen töitä. Kerro nimesi ja ajan kellonaika. Kysy, voitko saada uuden ajan kahden viikon päähän.",
+    "materials": {
+      "scenario": "Viesti kampaajalle ajan peruutus"
+    },
+    "items": [
+      {
+        "id": "476872e6-3531-51a9-966f-2c7bb6d003f9",
+        "prompt": "Kirjoita lyhyt viesti kampaajalle. Haluat peruuttaa huomisen aikasi, koska sinulle tuli yllättäen töitä. Kerro nimesi ja ajan kellonaika. Kysy, voitko saada uuden ajan kahden viikon päähän."
+      }
+    ],
+    "rubric": "Peru huominen aika\nKerro syy (töitä)\nKerro nimesi ja ajan kellonaika\nKysy uutta aikaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

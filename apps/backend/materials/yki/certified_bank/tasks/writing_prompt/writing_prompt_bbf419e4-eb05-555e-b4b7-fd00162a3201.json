@@ -1,0 +1,37 @@
+{
+  "id": "bbf419e4-eb05-555e-b4b7-fd00162a3201",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti, jossa esität omat näkökulmasi aiheeseen. Perustele ajatuksesi ja käytä konkreettisia esimerkkejä arjesta.",
+    "materials": {
+      "scenario": "Digitaaliset oppimateriaalit ovat parempia kuin perinteiset paperikirjat"
+    },
+    "items": [
+      {
+        "id": "6ac8c2a9-d85f-563d-8c36-62efdcdca279",
+        "prompt": "Kirjoita mielipideteksti, jossa esität omat näkökulmasi aiheeseen. Perustele ajatuksesi ja käytä konkreettisia esimerkkejä arjesta."
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti, jossa esität omat näkökulmasi aiheeseen. Perustele ajatuksesi ja käytä konkreettisia esimerkkejä arjesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

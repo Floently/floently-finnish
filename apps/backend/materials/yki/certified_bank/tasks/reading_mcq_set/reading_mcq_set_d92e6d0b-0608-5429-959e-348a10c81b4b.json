@@ -1,0 +1,88 @@
+{
+  "id": "d92e6d0b-0608-5429-959e-348a10c81b4b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kotimaiset käsityöperinteet ovat rikkaat ja monipuoliset, ja ne kertovat suomalaisten taidosta, luovuudesta ja sopeutumisesta pohjoisiin olosuhteisiin. Ne ovat kehittyneet vuosisatojen kuluessa ja siirtyneet sukupolvelta toiselle. Nykyään perinteiset käsityöt ovat kokeneet uuden tulemisen, ja yhä useampi arvostaa käsityön taitoa, laatua ja ainutlaatuisuutta. Yksi keskeisimmistä käsityöperinteistä on tekstiilityöt, kuten neulominen, virkkaus ja kudonta. Suomalaiset villasukat, lapaset ja puserot ovat tunnettuja lämmittävyydestään ja kauniista kuvioistaan. Perinteiset kirjoneuleet, kuten jussipuserot ja raitaneuleet, ovat suosittuja edelleen. Kudotut matot, raanut ja ryijyt ovat koristaneet suomalaisia koteja vuosisatojen ajan. Toinen keskeinen perinne on puutyöt ja rakentaminen. Suomalaiset ovat aina olleet taitavia käsittelemään puuta, ja perinteiset hirsirakennukset, aitat ja saunat ovat osoitus tästä taidosta. Puuveneiden veistäminen, huonekalujen valmistus ja puuesineiden kaivertaminen ovat perinteitä, joita vaalitaan edelleen. Kolmas perinne on keramiikka ja savityöt. Suomalainen keramiikka, kuten Arabian astiat, on tunnettua ympäri maailmaa. Perinteiset savipadassa tehdyt ruoat, kuten kalakeitto, ovat olleet osa ruokakulttuuria. Neljäs perinne on korujen ja hopeatöiden valmistus. Suomalainen hopeasepäntyö on perinteikästä ja arvostettua. Perinteiset korut, kuten kalevalaiset korut, ovat suosittuja. Viides perinne on perinneruokien valmistus ja säilöntä. Ruoanlaitto ja leivonta ovat kädentaitoja, joita siirretään eteenpäin. Ruisleivän leivonta, kalojen savustus, marjojen ja sienien säilöntä ovat perinteitä, jotka elävät edelleen.",
+      "word_count": 191
+    },
+    "questions": [
+      {
+        "id": "55d697a3-de18-598d-8d8b-4ed95e6583cb",
+        "prompt": "Mitä kotimaiset käsityöperinteet kertovat suomalaisista?",
+        "options": [
+          "Vain taloudellisesta tilanteesta",
+          "Taidosta, luovuudesta ja sopeutumisesta pohjoisiin olosuhteisiin",
+          "Vain historiasta",
+          "Vain ulkomaisista vaikutteista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7467113f-9c0f-5296-9b2e-41d47b9e1490",
+        "prompt": "Mitkä ovat keskeisimpiä tekstiilityön perinteitä Suomessa?",
+        "options": [
+          "Vain ompelu",
+          "Neulominen, virkkaus ja kudonta",
+          "Vain kirjonta",
+          "Vain pitsinnypläys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4969ae1b-d583-51e8-a273-93a508ff30b5",
+        "prompt": "Mistä suomalaiset villasukat ja lapaset tunnetaan?",
+        "options": [
+          "Värikkyydestään",
+          "Lämmittävyydestään ja kauniista kuvioistaan",
+          "Halpuudestaan",
+          "Nopeudestaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b541dbc7-5dd3-5f44-a036-b0b00d891d20",
+        "prompt": "Mitä perinteisiä puurakennuksia Suomessa on?",
+        "options": [
+          "Vain moderneja rakennuksia",
+          "Hirsirakennuksia, aittoja ja saunoja",
+          "Vain kivitaloja",
+          "Vain betonirakennuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "07867663-a405-54e4-856d-c196b9b26fdf",
+        "prompt": "Mitä perinneruokien valmistukseen kuuluu?",
+        "options": [
+          "Vain uusien reseptien kokeilu",
+          "Ruisleivän leivonta, kalojen savustus, marjojen ja sienien säilöntä",
+          "Vain pitsan leivonta",
+          "Vain ulkomaisten ruokien valmistus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

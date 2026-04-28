@@ -1,0 +1,66 @@
+{
+  "id": "4e62e526-8ea3-58f2-9b5f-0ff6e5db6640",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.493,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kampaajan viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei Maija!\n\nMuistathan, että sinulla on aika kampaajalla perjantaina 15.3. kello 14.30.\n\nJos et pääse, peru aika viimeistään torstaina 14.3. soittamalla numeroon 044 123 4567.\n\nPeruuttamattomasta ajasta perimme 50 % hinnasta.\n\nTervetuloa!\n\nParturi-Kampaamo Satu",
+      "word_count": 34
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin Maijalla on kampaaja-aika?",
+        "options": [
+          "Torstaina 14.3.",
+          "Perjantaina 15.3.",
+          "Lauantaina 16.3.",
+          "Maanantaina 18.3."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kello aika on?",
+        "options": [
+          "klo 13.30",
+          "klo 14.00",
+          "klo 14.30",
+          "klo 15.00"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pitää tehdä, jos ei pääse?",
+        "options": [
+          "Lähettää sähköpostia",
+          "Perua soittamalla edellisenä päivänä",
+          "Tulla paikalle ja kertoa",
+          "Ei tarvitse tehdä mitään"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

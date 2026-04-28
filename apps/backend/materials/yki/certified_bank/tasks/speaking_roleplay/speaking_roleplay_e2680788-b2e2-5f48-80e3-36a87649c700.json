@@ -1,0 +1,40 @@
+{
+  "id": "e2680788-b2e2-5f48-80e3-36a87649c700",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.294,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell something you know about Finnish history. Where did you hear or read about it?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "962c8150-cea9-5f90-bff6-aa52369426d3",
+        "ai_first_turn_fi": "Ootko oppinut jotain Suomen historiasta? Mikä on jäänyt mieleen?"
+      }
+    ],
+    "rubric": "Tell something you know about Finnish history. Where did you hear or read about it?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

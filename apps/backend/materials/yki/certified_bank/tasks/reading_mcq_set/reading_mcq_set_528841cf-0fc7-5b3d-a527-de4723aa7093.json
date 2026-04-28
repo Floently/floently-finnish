@@ -1,0 +1,88 @@
+{
+  "id": "528841cf-0fc7-5b3d-a527-de4723aa7093",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Ystävät ovat tärkeitä suomalaisille. Heidän kanssaan viettää aikaa vapaa-ajalla. Mennään kahvilaan, elokuviin tai lenkille. Ystävän kanssa voi puhua kaikesta. Hän kuuntelee ja auttaa vaikeina aikoina. Ystävään voi luottaa. Ystäviä on usein lapsuudesta asti. Uusia ystäviä saa myös myöhemmin elämässä. Ystävänpäivänä muistetaan ystäviä kortilla tai pienellä lahjalla. Ystävät tekevät elämästä mukavampaa.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä ystävien kanssa tehdään?",
+        "options": [
+          "Mennään töihin",
+          "Mennään kahvilaan, elokuviin tai lenkille",
+          "Mennään kouluun",
+          "Mennään nukkumaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ystävälle voi tehdä?",
+        "options": [
+          "Valehdella",
+          "Puhua kaikesta",
+          "Olla vihainen",
+          "Vältellä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten ystävä auttaa?",
+        "options": [
+          "Rahalla",
+          "Kuuntelemalla ja auttamalla vaikeina aikoina",
+          "Tekemällä työt puolesta",
+          "Antamalla neuvoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millainen hyvä ystävä on?",
+        "options": [
+          "Epäluotettava",
+          "Luotettava",
+          "Itsekäs",
+          "Vaativa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin ystäviä muistetaan erityisesti?",
+        "options": [
+          "Jouluna",
+          "Ystävänpäivänä",
+          "Juhannuksena",
+          "Pääsiäisenä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

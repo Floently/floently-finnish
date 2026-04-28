@@ -1,0 +1,40 @@
+{
+  "id": "193b3e44-cee7-56af-b707-25bd06c633a5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia opettajana ja selittää vaikea asia ymmärrettävästi.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet professori, joka haluaa opiskelijoiden todella ymmärtävän asian.",
+        "partner": "Opiskelijat - hämmentyneitä, tarvitsevat selkeämpää selitystä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp35",
+        "ai_first_turn_fi": "Huomaan, että tämä käsite on haastava. Yritetäänpä lähestyä sitä toisesta näkökulmasta. Miettikää seuraavaa arkielämän esimerkkiä..."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi toimia opettajana ja selittää vaikea asia ymmärrettävästi.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

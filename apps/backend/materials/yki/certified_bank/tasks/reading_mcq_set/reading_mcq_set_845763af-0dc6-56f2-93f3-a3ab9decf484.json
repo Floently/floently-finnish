@@ -1,0 +1,99 @@
+{
+  "id": "845763af-0dc6-56f2-93f3-a3ab9decf484",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Vapaaehtoistyö kiinnostaa monia eläkeläisiä. Heillä on usein aikaa ja elämänkokemusta, jota he haluavat jakaa. Vapaaehtoistehtävät voivat olla monenlaisia: ystävätoimintaa, tapahtumien järjestämistä tai vaikkapa yhdistysten hallitustyötä. Vapaaehtoistyö pitää mielen virkeänä ja antaa sisältöä arkeen. Monet eläkeläiset kertovat saavansa vapaaehtoistyöstä jopa enemmän kuin antavansa.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä kiinnostaa monia eläkeläisiä?",
+        "options": [
+          "Matkustelu",
+          "Vapaaehtoistyö",
+          "Opiskelu",
+          "Lomailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä eläkeläisillä usein on, mitä he haluavat jakaa?",
+        "options": [
+          "Rahaa",
+          "Aikaa ja elämänkokemusta",
+          "Tavaroita",
+          "Verkostoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millaisia vapaaehtoistehtäviä mainitaan?",
+        "options": [
+          "Vain ystävätoimintaa",
+          "Ystävätoimintaa, tapahtumien järjestämistä ja hallitustyötä",
+          "Vain tapahtumien järjestämistä",
+          "Vain kerhotoimintaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä vapaaehtoistyöstä on eläkeläiselle?",
+        "options": [
+          "Se tuo rahaa",
+          "Se pitää mielen virkeänä ja antaa sisältöä arkeen",
+          "Se vähentää vapaa-aikaa",
+          "Se on pakollista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä monet eläkeläiset kertovat vapaaehtoistyöstä?",
+        "options": [
+          "Se on liian raskasta",
+          "He saavat siitä enemmän kuin antavat",
+          "Se on tylsää",
+          "Se on turhaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'ystävätoiminnalla'?",
+        "options": [
+          "Toimintaa, jossa käydään ystävien kanssa kahvilla",
+          "Vapaaehtoista toimintaa, jossa käydään esimerkiksi vanhusten luona seurustelemassa",
+          "Ystävien kanssa harrastamista",
+          "Uusien ystävien etsimistä netissä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

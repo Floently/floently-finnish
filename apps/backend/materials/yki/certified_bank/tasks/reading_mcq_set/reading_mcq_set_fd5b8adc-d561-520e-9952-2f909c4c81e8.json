@@ -1,0 +1,66 @@
+{
+  "id": "fd5b8adc-d561-520e-9952-2f909c4c81e8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kulttuurikritiikki ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TAITEEN KAUPALLISTUMINEN\n\nKulttuurin kaupallistuminen on ollut pitkä trendi. Kriitikko Jukka Koskelainen väittää, että taiteen autonomia on kadonnut markkinavoimien alle. Hänen mukaansa kaikki kulttuuri arvotetaan nykyään ensisijaisesti myyntilukujen perusteella. Tämä on johtanut siihen, että kokeileva ja haastava taide on marginalisoitunut. Koskelainen ei syytä pelkästään markkinoita, vaan näkee ilmiön laajempana kulttuurisena muutoksena. 'Yleisö on tottunut viihteeseen, joka on helposti sulatettavaa. Samalla kyky vastaanottaa monitulkintaista taidetta on heikentynyt.'",
+      "word_count": 65
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä Jukka Koskelainen väittää taiteen autonomiasta?",
+        "options": [
+          "Se on vahvistunut",
+          "Se on kadonnut markkinavoimien alle",
+          "Se on aina ollut riippuvainen markkinoista",
+          "Se ei ole koskaan ollut tärkeää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten yleisön muutos vaikuttaa taiteeseen?",
+        "options": [
+          "Yleisö vaatii yhä haastavampaa taidetta",
+          "Yleisö suosii helposti sulatettavaa viihdettä",
+          "Yleisö on valveutuneempaa",
+          "Yleisö arvostaa kokeellisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä seurauksia kaupallistumisella on ollut?",
+        "options": [
+          "Kokeileva taide on vahvistunut",
+          "Kokeileva taide on marginalisoitunut",
+          "Taiteen määrä on vähentynyt",
+          "Taide on muuttunut laadukkaammaksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

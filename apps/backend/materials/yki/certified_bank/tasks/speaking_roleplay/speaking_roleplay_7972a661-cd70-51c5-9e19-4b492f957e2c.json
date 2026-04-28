@@ -1,0 +1,40 @@
+{
+  "id": "7972a661-cd70-51c5-9e19-4b492f957e2c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele työterveyshoitajan kanssa. Keskustele työergonomiasta ja kysy neuvoa.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan työterveyshoitajalle",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "edd01de6-7199-5645-8261-46db3409cafb",
+        "ai_first_turn_fi": "Hei, istu alas. Kerro nyt, millaisia kipuja sinulla on ja missä tilanteissa ne ilmenevät."
+      }
+    ],
+    "rubric": "Keskustele työterveyshoitajan kanssa. Keskustele työergonomiasta ja kysy neuvoa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

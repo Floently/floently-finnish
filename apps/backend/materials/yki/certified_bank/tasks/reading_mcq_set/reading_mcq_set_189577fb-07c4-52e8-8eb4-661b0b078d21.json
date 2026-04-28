@@ -1,0 +1,110 @@
+{
+  "id": "189577fb-07c4-52e8-8eb4-661b0b078d21",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.748,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Tekoälyn kehitys on yksi aikamme merkittävimmistä ilmiöistä, ja sen vaikutukset ulottuvat kaikkialle yhteiskuntaan. Tekoälyä käytetään jo nyt laajasti eri aloilla: terveydenhuollossa se avustaa diagnostiikassa ja lääkekehityksessä, liikenteessä se mahdollistaa autonomiset ajoneuvot, teollisuudessa se ohjaa robotteja, rahoitusalalla se tekee nopeita kaupankäyntipäätöksiä, ja palvelusektorilla se toimii chatbotteina. Tekoäly tarjoaa valtavia mahdollisuuksia parantaa tehokkuutta, ratkaista monimutkaisia ongelmia ja luoda uusia innovaatioita. Se voi myös vapauttaa ihmisiä rutiininomaisista tehtävistä ja antaa aikaa luovuudelle ja vuorovaikutukselle. Tekoälyn nopea kehitys herättää kuitenkin myös syvällisiä eettisiä, yhteiskunnallisia ja taloudellisia kysymyksiä. Yksi suurimmista huolenaiheista on tekoälyn vaikutus työmarkkinoihin. Monet pelkäävät, että tekoäly vie laajalti työpaikkoja ja lisää massatyöttömyyttä. Asiantuntijoiden mukaan tekoäly todennäköisesti muuttaa ja muokkaa työtehtäviä enemmän kuin tuhoaa niitä kokonaan. Uusia ammatteja syntyy, ja vanhat muuttuvat, mikä edellyttää työntekijöiltä jatkuvaa uudelleenkouluttautumista. Toinen keskeinen huolenaihe liittyy tekoälyn eettisyyteen ja läpinäkyvyyteen. Miten varmistetaan, että tekoälyjärjestelmät toimivat oikeudenmukaisesti ja syrjimättömästi? Kuka on vastuussa, jos tekoäly tekee virheen? Nämä kysymykset ovat erityisen tärkeitä, kun tekoälyä käytetään yhteiskunnallisesti merkittävissä päätöksissä.",
+      "word_count": 158
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millä aloilla tekoälyä käytetään jo nyt laajasti?",
+        "options": [
+          "Vain terveydenhuollossa ja liikenteessä.",
+          "Terveydenhuollossa, liikenteessä, teollisuudessa, rahoitusalalla ja palvelusektorilla.",
+          "Vain teollisuudessa ja rahoitusalalla.",
+          "Vain palvelusektorilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä mahdollisuuksia tekoäly tarjoaa?",
+        "options": [
+          "Vain tehokkuuden parantamista.",
+          "Tehokkuuden parantamista, ongelmien ratkaisua, innovaatioita ja ihmisten vapauttamista rutiineista.",
+          "Vain uusia innovaatioita.",
+          "Vain työpaikkojen vähentämistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä pelkoja tekoälyn kehitykseen liittyy?",
+        "options": [
+          "Se vie liian vähän työpaikkoja.",
+          "Se vie työpaikkoja ja herättää eettisiä kysymyksiä.",
+          "Se on liian hidasta.",
+          "Se on liian kallista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten asiantuntijat suhtautuvat tekoälyn vaikutukseen työpaikkoihin?",
+        "options": [
+          "Se tuhoaa kaikki työpaikat.",
+          "Se muuttaa työtehtäviä enemmän kuin tuhoaa niitä, ja uusia ammatteja syntyy.",
+          "Sillä ei ole vaikutusta.",
+          "Se lisää vain rutiinitöitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä eettisiä kysymyksiä tekoälyyn liittyy?",
+        "options": [
+          "Miten tekoäly saadaan mahdollisimman nopeaksi.",
+          "Oikeudenmukaisuus, syrjimättömyys, läpinäkyvyys ja vastuukysymykset.",
+          "Miten tekoäly saadaan halvemmaksi.",
+          "Miten tekoäly saadaan kauniimmaksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Kuka on vastuussa tekoälyn tekemistä virheistä?",
+        "options": [
+          "Aina itse tekoäly.",
+          "Kysymys on monimutkainen, eikä siihen ole yksinkertaista vastausta.",
+          "Vastuu on aina loppukäyttäjällä.",
+          "Vastuu on aina ohjelmistokehittäjällä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millä yhteiskunnallisilla aloilla tekoälyn eettisyys on erityisen tärkeää?",
+        "options": [
+          "Vain viihteessä.",
+          "Yhteiskunnallisesti merkittävissä päätöksissä.",
+          "Vain yksityisessä käytössä.",
+          "Vain tieteellisessä tutkimuksessa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

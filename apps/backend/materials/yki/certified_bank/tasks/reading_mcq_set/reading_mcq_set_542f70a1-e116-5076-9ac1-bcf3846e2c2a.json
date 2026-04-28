@@ -1,0 +1,66 @@
+{
+  "id": "542f70a1-e116-5076-9ac1-bcf3846e2c2a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Tekoäly on tullut jäädäkseen, ja se muuttaa työelämää perusteellisesti. Osa ammateista katoaa, uusia syntyy. Tämä herättää kysymyksen: miten meidän pitäisi valmistautua tulevaisuuteen?\n\nYksi asia on varma: rutiinityöt vähenevät. Tietokoneet ja robotit hoitavat yhä useamman tehtävän, joka on toistuvaa ja ennakoitavaa. Ihmisille jää tehtäviä, jotka vaativat luovuutta, empatiaa ja monimutkaista ongelmanratkaisua. Tämä tarkoittaa, että koulutuksen merkitys korostuu. Jatkuva oppiminen ei ole enää valinta, vaan välttämättömyys.\n\nToisaalta tekoäly voi myös luoda uusia mahdollisuuksia. Se voi vapauttaa meidät tylsistä tehtävistä ja antaa aikaa luovemmalle työlle. Se voi auttaa tekemään parempia päätöksiä ja ratkaisemaan ongelmia, jotka ovat liian monimutkaisia ihmisille. Terveydenhuollossa tekoäly voi auttaa diagnosoimaan sairauksia nopeammin ja tarkemmin.\n\nMutta tekoälyssä on myös riskejä. Se voi lisätä eriarvoisuutta, jos vain harvat osaavat käyttää sitä. Se voi myös johtaa valvonnan lisääntymiseen ja yksityisyyden vähenemiseen. Siksi tarvitaan keskustelua siitä, millaista tulevaisuutta haluamme rakentaa. Teknologia ei ole arvoneutraalia; se heijastaa niitä arvoja, joita siihen ohjelmoimme.\n\nPäättäjiltä vaaditaan viisautta. On luotava puitteet, joissa ihmiset voivat kouluttautua uudelleen ja sopeutua muutoksiin. On myös huolehdittava siitä, ettei kukaan jää täysin paitsi kehityksestä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 205
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tekoälyn vaikutuksia työelämään kirjoittaja mainitsee?",
+        "options": [
+          "A) Kaikki työpaikat katoavat",
+          "B) Rutiinityöt vähenevät, uusia työpaikkoja syntyy",
+          "C) Työttömyys lisääntyy",
+          "D) Palkat nousevat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä taitoja ihmisille jää tekoälyn yleistyessä?",
+        "options": [
+          "A) Mekaanisia taitoja",
+          "B) Luovuutta, empatiaa ja ongelmanratkaisua",
+          "C) Matemaattisia taitoja",
+          "D) Kielitaitoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä riskejä tekoälyyn liittyy?",
+        "options": [
+          "A) Se on liian kallista",
+          "B) Eriarvoisuus voi lisääntyä ja valvonta kasvaa",
+          "C) Se vie liikaa sähköä",
+          "D) Se on epäluotettavaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

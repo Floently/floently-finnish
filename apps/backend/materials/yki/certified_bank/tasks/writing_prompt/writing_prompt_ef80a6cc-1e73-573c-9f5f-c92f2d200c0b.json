@@ -1,0 +1,37 @@
+{
+  "id": "ef80a6cc-1e73-573c-9f5f-c92f2d200c0b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin jätehuoltoa. Kirjoita palaute. Onko kierrätys helppoa? Tuleeko roska-auto ajallaan?",
+    "materials": {
+      "scenario": "Palaute jätehuollosta"
+    },
+    "items": [
+      {
+        "id": "8cb7052f-1348-53a7-91ec-07577c526fc6",
+        "prompt": "Olet käyttänyt kaupungin jätehuoltoa. Kirjoita palaute. Onko kierrätys helppoa? Tuleeko roska-auto ajallaan?"
+      }
+    ],
+    "rubric": "Olet käyttänyt kaupungin jätehuoltoa. Kirjoita palaute. Onko kierrätys helppoa? Tuleeko roska-auto ajallaan?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

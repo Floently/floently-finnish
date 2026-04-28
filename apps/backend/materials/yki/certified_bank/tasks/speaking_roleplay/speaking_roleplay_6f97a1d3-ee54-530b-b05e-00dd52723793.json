@@ -1,0 +1,40 @@
+{
+  "id": "6f97a1d3-ee54-530b-b05e-00dd52723793",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.496,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Soita ja tiedustele, onko vuokra-asuntoa vapaana. Kerro, millaista asuntoa etsit.",
+    "materials": {
+      "roles": {
+        "user": "etsimässä uutta vuokra-asuntoa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "28c667dc-7f8a-5f81-a5a5-b6a5f04dbfd1",
+        "ai_first_turn_fi": "Hei, Marko Laine, soitan sen asuntoilmoituksen takia."
+      }
+    ],
+    "rubric": "Soita ja tiedustele, onko vuokra-asuntoa vapaana. Kerro, millaista asuntoa etsit.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

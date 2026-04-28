@@ -1,0 +1,66 @@
+{
+  "id": "42d77ea2-e804-5554-bd5b-5f66eb12adc1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.762,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Liikenne on yksi suurimmista kasvihuonekaasupäästöjen lähteistä, ja sen muuttaminen kestävämmäksi on keskeistä ilmastotavoitteiden saavuttamiseksi. Liikenteen sähköistyminen on voimakkain trendi: sähköautojen määrä kasvaa nopeasti, ja latausinfrastruktuuria rakennetaan kiihtyvällä tahdilla. Myös biopolttoaineet ja vety voivat olla osa ratkaisua erityisesti raskaassa liikenteessä. Julkinen liikenne on kestävän liikkumisen selkäranka. Toimivat bussi-, juna- ja raitioliikenneyhteydet vähentävät yksityisautoilun tarvetta ja tarjoavat liikkumismahdollisuuksia kaikille. Joukkoliikenteen houkuttelevuutta voidaan lisätä nopeilla yhteyksillä, tiheillä vuoroväleillä ja älykkäillä lippujärjestelmillä. Monissa kaupungeissa on otettu käyttöään myös yhteiskäyttöautot ja -pyörät, jotka täydentävät julkista liikennettä. Kevyt liikenne, eli kävely ja pyöräily, on päästötöntä ja terveellistä. Kaupunkisuunnittelulla voidaan edistää kevyen liikenteen olosuhteita rakentamalla turvallisia pyöräteitä ja kävelykeskustoja. Pyöräpysäköinti ja yhdistetyt matkat, joissa pyöräillään asemalle ja jatketaan junalla, ovat tärkeitä. Uudet liikkumispalvelut, kuten kimppakyydit, kutsuliikenne ja liikkuminen palveluna (MaaS, Mobility as a Service), tarjoavat vaihtoehtoja oman auton omistamiselle. Älypuhelinsovellukset yhdistävät eri liikkumismuodot ja tekevät matkan suunnittelusta ja maksamisesta helppoa. Liikkumisen ohjauksella pyritään vaikuttamaan ihmisten liikkumistottumuksiin tiedottamalla, kampanjoilla ja neuvonnalla. Työnantajat voivat tukea kestävää liikkumista tarjoamalla työsuhdepyöriä, joukkoliikennelipun etuja ja etätyömahdollisuuksia. Liikenteen tulevaisuuteen vaikuttavat myös teknologiset innovaatiot, kuten autonomiset ajoneuvot ja älykkäät liikennejärjestelmät, jotka voivat parantaa liikenteen sujuvuutta ja turvallisuutta. Haasteita on kuitenkin runsaasti: infrastruktuurin uudistaminen on kallista, asenteet muuttuvat hitaasti, ja maaseudulla joukkoliikenteen järjestäminen on vaikeaa välimatkojen pituuden vuoksi. Kestävä liikkuminen vaatii kokonaisvaltaista suunnittelua ja yhteistyötä eri toimijoiden välillä.",
+      "word_count": 213
+    },
+    "questions": [
+      {
+        "id": "f5a6b7c8-d9e0-4f1a-9b2c-3d4e5f6a7b8c",
+        "prompt": "Mikä on voimakkain trendi liikenteen kestävyyden parantamisessa?",
+        "options": [
+          "Biopolttoaineet",
+          "Liikenteen sähköistyminen",
+          "Vetyautot",
+          "Kimppakyydit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a6b7c8d9-e0f1-4a2b-9c3d-4e5f6a7b8c9d",
+        "prompt": "Mitä tarkoittaa MaaS (Mobility as a Service)?",
+        "options": [
+          "Julkisen liikenteen maksuttomuutta",
+          "Liikkumista palveluna, jossa eri liikkumismuodot yhdistetään",
+          "Autojen yhteiskäyttöä",
+          "Sähköpotkulautoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Mitä haasteita kestävässä liikkumisessa on maaseudulla?",
+        "options": [
+          "Liian paljon pyöräteitä",
+          "Välimatkat ovat pitkiä ja joukkoliikenteen järjestäminen vaikeaa",
+          "Liian tiheä joukkoliikenne",
+          "Liian paljon sähköautoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

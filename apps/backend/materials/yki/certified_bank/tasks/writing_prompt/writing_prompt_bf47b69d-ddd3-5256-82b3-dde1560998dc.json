@@ -1,0 +1,37 @@
+{
+  "id": "bf47b69d-ddd3-5256-82b3-dde1560998dc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Kuulit, että hän myy autonsa. Kerro, että olet kiinnostunut ostamaan sen. Kysy auton merkkiä, vuosimallia, mittarilukemaa ja hintaa. Kysy myös, voiko autoa tulla katsomaan.",
+    "materials": {
+      "scenario": "Viesti naapurille auton ostosta"
+    },
+    "items": [
+      {
+        "id": "bbe4d6f4-90c0-57c3-8ba1-18dbb7f9b035",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Kuulit, että hän myy autonsa. Kerro, että olet kiinnostunut ostamaan sen. Kysy auton merkkiä, vuosimallia, mittarilukemaa ja hintaa. Kysy myös, voiko autoa tulla katsomaan."
+      }
+    ],
+    "rubric": "Kerro, että olet kiinnostunut autosta\nKysy auton tiedot (merkki, vuosimalli)\nKysy mittarilukema\nKysy hintaa\nKysy katsomismahdollisuutta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

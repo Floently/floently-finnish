@@ -1,0 +1,77 @@
+{
+  "id": "7665d65f-7a6e-511c-89ec-eaf2fec0bc71",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.633,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysiteksti ennakointijärjestelmistä ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Julkisen päätöksenteon ennakointijärjestelmät ovat viime vuosina yleistyneet erityisesti aloilla, joilla palvelutarpeen vaihtelu aiheuttaa merkittäviä kustannuspaineita. Tarkasteltu analyysi arvioi ennakointimallien käyttöä sosiaali- ja terveyspalveluiden resurssiohjauksessa ja esittää, että mallien hyöty ei synny pelkästä ennustetarkkuudesta. Ratkaisevaa on se, miten ennusteet kytketään institutionaalisiin päätöksentekorakenteisiin, joissa vastuu, harkintavalta ja julkinen perustelu kohtaavat. Jos ennusteita käytetään mekaanisina ohjaussignaaleina, vaarana on, että päätökset näyttävät teknisesti neutraaleilta vaikka niiden vaikutukset kohdistuvat epäsymmetrisesti eri väestöryhmiin.\n\nAnalyysi erottelee kolme tasoa, joilla ennakointijärjestelmää pitäisi arvioida. Ensimmäinen taso on tietopohjan laatu: mitä aineistoa kerätään, mitä jää keräämättä ja millaisin oletuksin puuttuva tieto täydennetään. Toinen taso on mallin operatiivinen käyttö: kuka tulkitsee ennusteen, kuinka paljon paikallista harkintaa sallitaan ja miten poikkeamat dokumentoidaan. Kolmas taso on demokraattinen tilivelvollisuus: millä tavoin päätösten kohteena olevat ryhmät voivat ymmärtää ja haastaa ennusteen roolin päätöksenteossa. Analyysin mukaan järjestelmät epäonnistuvat usein juuri kolmannella tasolla, koska viestintä jää tekniseksi eikä kerro, miten ennusteen epävarmuus on huomioitu.\n\nKeskeinen havainto koskee myös kannustinrakenteita. Organisaatioissa, joissa yksiköitä arvioidaan ensisijaisesti lyhyen aikavälin kustannustehokkuudella, ennakointimalli voi ohjata välttämään riskejä tavalla, joka heikentää palvelujen saavutettavuutta pitkällä aikavälillä. Tällöin ennuste ei toimi varautumisen työkaluna vaan budjettikurin instrumenttina. Analyysi ehdottaa vastapainoksi monitasoista mittaristoa, jossa kustannusten lisäksi seurataan palvelujen kohdentumista, oikea-aikaisuutta ja vaikutusten jakautumista.\n\nLopuksi analyysi korostaa, että ennakointijärjestelmän legitimiteetti rakentuu korjattavuudesta. Mallin ei tarvitse olla täydellinen, mutta sen pitää olla institutionaalisesti korjattavissa silloin, kun havaitaan systemaattisia vinoumia tai odottamattomia seurauksia. Tämä edellyttää sekä teknisiä auditointeja että julkista menettelyä, jossa päätöksentekijät perustelevaan, miksi mallia käytetään, missä rajoissa ja millä ehdoilla siitä voidaan poiketa. Näin ennakointi toimii demokraattisen hallinnan välineenä eikä sen korvikkeena. Analyysi täydentää tätä ehdottamalla, että jokaiselle ennakointimallille määritellään etukäteen selkeä vastuumatriisi: kuka omistaa mallin, kuka valvoo vaikutuksia ja kuka tekee päätöksen mallista poikkeamisesta. Tällainen rakenne estäisi tilanteita, joissa virheellinen tulkinta jää ilman korjaajaa siksi, että vastuu hajaantuu usealle yksikölle. Lisäksi analyysi painottaa, että mallin käyttöönotto on aina myös organisatorinen muutos, joka vaikuttaa työnjakoon, osaamisvaatimuksiin ja palvelukulttuuriin. Jos henkilöstön koulutusta ei sidota tähän muutokseen, ennusteiden tulkinta voi jäädä kapean asiantuntijaryhmän varaan. Tämä lisää riippuvuutta yksittäisistä toimijoista ja heikentää järjestelmän resilienssiä. Lopuksi analyysi esittää, että ennakointimallien vaikutusarvioinnissa pitäisi hyödyntää myös palvelunkäyttäjien kokemustietoa, jotta tilastollisesti toimiva ratkaisu ei tuota arjessa kohtuutonta kuormitusta tietyille ryhmille.",
+      "word_count": 355
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on analyysin mukaan ennakointimallin keskeinen onnistumisen ehto?",
+        "options": [
+          "mahdollisimman korkea laskentanopeus",
+          "ennusteen kytkeminen vastuun ja perustelun rakenteisiin",
+          "täysin automaattinen päätöksenteko",
+          "vain kustannustavoitteiden seuraaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitkä kolme arviointitasoa tekstissä erotellaan?",
+        "options": [
+          "hinta, henkilöstö, viestintä",
+          "tietopohja, operatiivinen käyttö, demokraattinen tilivelvollisuus",
+          "lainsäädäntö, media, markkinat",
+          "teknologia, arkkitehtuuri, koulutus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin ongelmaan lyhyen aikavälin kustannuskannustin voi johtaa?",
+        "options": [
+          "palvelujen liialliseen laajentamiseen",
+          "palvelujen saavutettavuuden heikkenemiseen pitkällä aikavälillä",
+          "ennusteiden poistamiseen käytöstä",
+          "henkilöstön automaattiseen lisäämiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten tekstin mukaan järjestelmän legitimiteetti vahvistuu?",
+        "options": [
+          "mallia ei muuteta koskaan",
+          "järjestelmä on korjattavissa auditoinnein ja julkisin menettelyin",
+          "kaikki poikkeamat kielletään",
+          "päätökset pidetään sisäisinä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

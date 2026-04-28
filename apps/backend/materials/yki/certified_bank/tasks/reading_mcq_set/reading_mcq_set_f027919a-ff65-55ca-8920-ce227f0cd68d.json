@@ -1,0 +1,88 @@
+{
+  "id": "f027919a-ff65-55ca-8920-ce227f0cd68d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.725,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Sauna on suomalaisille tärkeä osa vieraanvaraisuutta. Kun kutsutaan vieraita saunaan, se on merkki luottamuksesta. Saunominen yhdessä on tapa viettää aikaa ja tutustua toisiin. Yksi keskeisimmistä syistä on saunan intiimiys. Saunassa ollaan vähissä vaatteissa, mikä luo erityisen tunnelman ja madaltaa kynnystä keskustella henkilökohtaisemmista asioista. Toinen syy on yhdessä tekeminen. Saunominen on yhteinen kokemus, johon kuuluu löylyn heittämistä ja vilvoittelua. Saunan jälkeen istutaan usein yhdessä nauttimassa virvokkeita. Kolmas syy on perinteiden kunnioittaminen. Saunominen on vanha suomalainen perinne, ja sen jakaminen vieraiden kanssa on tapa kunnioittaa tätä perinnettä. Neljäs syy on vieraan arvostuksen osoittaminen. Saunaan kutsuminen on erityinen ele, jolla osoitetaan, että vieras on tärkeä. Viides syy on hyvinvointi. Saunominen on hyväksi terveydelle, ja sen tarjoaminen vieraalle on tapa huolehtia hänen hyvinvoinnistaan.",
+      "word_count": 119
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä saunaan kutsuminen osoittaa suomalaisessa kulttuurissa?",
+        "options": [
+          "Vieraan aliarvostusta",
+          "Luottamusta",
+          "Välinpitämättömyyttä",
+          "Kiirettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi saunan intiimiys on tärkeää vieraanvaraisuuden kannalta?",
+        "options": [
+          "Se tekee olon epämukavaksi",
+          "Se luo erityisen tunnelman ja madaltaa kynnystä keskustella henkilökohtaisemmista asioista",
+          "Se on kiusallista",
+          "Sillä ei ole merkitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä saunomiseen yhdessä kuuluu?",
+        "options": [
+          "Vain istumista",
+          "Löylyn heittämistä ja vilvoittelua",
+          "Vain löylyn heittämistä",
+          "Vain vilvoittelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä saunan jälkeen usein tehdään?",
+        "options": [
+          "Mennään nukkumaan",
+          "Istutaan yhdessä nauttimassa virvokkeita",
+          "Lähdetään kotiin",
+          "Mennään uimaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä saunaan kutsuminen kertoo perinteiden kunnioittamisesta?",
+        "options": [
+          "Se on tapa unohtaa perinteet",
+          "Se on tapa kunnioittaa vanhaa suomalaista perinnettä",
+          "Sillä ei ole tekemistä perinteiden kanssa",
+          "Se on uusi tapa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

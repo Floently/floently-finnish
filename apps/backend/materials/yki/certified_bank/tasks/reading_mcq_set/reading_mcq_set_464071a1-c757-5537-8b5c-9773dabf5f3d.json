@@ -1,0 +1,66 @@
+{
+  "id": "464071a1-c757-5537-8b5c-9773dabf5f3d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.554,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Lähiluonnon merkitys on viime aikoina noussut uudella tavalla esiin. Korona-aikana monet löysivät uudelleen lähimetsät ja puistot. Huomattiin, että luontoon pääsy ei ole ylellisyyttä, vaan välttämättömyys hyvinvoinnille.\n\nTutkimukset osoittavat, että jo lyhyt oleskelu luonnossa laskee stressitasoja, parantaa mielialaa ja vahvistaa immuunijärjestelmää. Lapsille luonto on erityisen tärkeä: se tarjoaa virikkeitä, liikuntaa ja rauhaa. Vanhuksille lähiluonto on usein ainoa paikka, missä voi liikkua turvallisesti.\n\nSilti kaupungeissa lähiluonto on usein uhattuna. Rakentaminen ja tiivistäminen vievät tilaa metsiltä ja puistoilta. Moni uusi asuinalue on suunniteltu niin, että lähin metsä on kaukana. Puhutaan viheralueiden pirstoutumisesta: luonto jää pieniin saarekkeisiin, jotka eivät riitä ylläpitämään monimuotoisuutta.\n\nTässä kohtaa tarvitaan viisasta kaupunkisuunnittelua. Luonto ei saa olla vain täyteainetta, joka jää yli, kun kaikki on rakennettu. Sen pitää olla suunnittelun lähtökohta. Jokaisella pitäisi olla mahdollisuus päästä luontoon arjessa, ilman että tarvitsee matkustaa pitkälle.\n\nPäättäjiltä vaaditaan rohkeutta asettaa luonto etusijalle. On uskallettava sanoa, että tähän ei rakenneta, koska tämä on tärkeää asukkaille. Vain siten voimme säilyttää kaupungit elävinä ja terveinä paikkoina elää.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 194
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä hyötyä lähiluonnosta on tutkimusten mukaan?",
+        "options": [
+          "A) Se lisää kiinteistöjen arvoa",
+          "B) Se laskee stressiä, parantaa mielialaa ja vahvistaa immuunijärjestelmää",
+          "C) Se vähentää rikollisuutta",
+          "D) Se parantaa ilmanlaatua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uhkia lähiluonnolla on kaupungeissa?",
+        "options": [
+          "A) Ilmastonmuutos",
+          "B) Rakentaminen ja tiivistäminen vievät tilaa",
+          "C) Roskaaminen",
+          "D) Melu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan viheralueiden pirstoutumisella?",
+        "options": [
+          "A) Luonto jakautuu pieniin erillisiin alueisiin",
+          "B) Viheralueet yhdistetään toisiinsa",
+          "C) Luonto häviää kokonaan",
+          "D) Viheralueet muuttuvat puistoiksi"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

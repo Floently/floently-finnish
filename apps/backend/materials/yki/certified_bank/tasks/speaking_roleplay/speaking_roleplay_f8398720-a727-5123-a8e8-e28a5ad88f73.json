@@ -1,0 +1,40 @@
+{
+  "id": "f8398720-a727-5123-a8e8-e28a5ad88f73",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele lääkärin kanssa. Kerro allergiaoireistasi ja kysy neuvoa.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan lääkärille",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "93d8c44c-d67c-50e9-97ce-2b2632664e08",
+        "ai_first_turn_fi": "Hei, istu alas. Kerro nyt, millaisia allergiaoireita sinulla on ja milloin ne yleensä esiintyvät."
+      }
+    ],
+    "rubric": "Keskustele lääkärin kanssa. Kerro allergiaoireistasi ja kysy neuvoa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

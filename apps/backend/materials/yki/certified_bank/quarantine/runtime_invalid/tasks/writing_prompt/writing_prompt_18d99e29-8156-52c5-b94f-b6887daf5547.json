@@ -1,0 +1,37 @@
+{
+  "id": "18d99e29-8156-52c5-b94f-b6887daf5547",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.692,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: work_interview_room. Purpose: justify_an_opinion. Constraint: include_two_reasons.",
+    "materials": {
+      "scenario": "kuluttajaoikeuksista haastattelutilasta"
+    },
+    "items": [
+      {
+        "id": "945b6b0e-f557-5e49-b5dd-6a96cb8f3242",
+        "prompt": "Write for the receiver in this scenario: work_interview_room. Purpose: justify_an_opinion. Constraint: include_two_reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

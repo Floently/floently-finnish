@@ -1,0 +1,99 @@
+{
+  "id": "3469d9cd-a0b4-597a-92f4-e255e17047e7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kansalaisopistot tarjoavat monipuolista harrastustoimintaa. Tarjolla on kursseja esimerkiksi kielistä, kädentaidoista, liikunnasta ja musiikista. Kursseille voi ilmoittautua kuka tahansa iästä riippumatta. Kansalaisopistot ovat tärkeitä paikkoja oppia uutta, tavata ihmisiä ja pitää yllä hyvinvointia. Ne toimivat iltaisin ja viikonloppuisin, joten ne sopivat hyvin työssäkäyville. Kursseista peritään pieni maksu.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kansalaisopistot tarjoavat?",
+        "options": [
+          "Vain kielikursseja",
+          "Monipuolista harrastustoimintaa",
+          "Vain liikuntakursseja",
+          "Vain lasten toimintaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä esimerkkejä kursseista mainitaan?",
+        "options": [
+          "Vain kieliä ja liikuntaa",
+          "Kieliä, kädentaitoja, liikuntaa ja musiikkia",
+          "Vain kädentaitoja ja musiikkia",
+          "Vain tietotekniikkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuka voi ilmoittautua kursseille?",
+        "options": [
+          "Vaan eläkeläiset",
+          "Vaan nuoret",
+          "Kuka tahansa iästä riippumatta",
+          "Vaan työttömät"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kansalaisopistot ovat tärkeitä?",
+        "options": [
+          "Vain siksi, että ne ovat halpoja",
+          "Vain siksi, että niissä saa opintopisteitä",
+          "Oppia uutta, tavata ihmisiä ja pitää yllä hyvinvointia",
+          "Vain siksi, että ne sijaitsevat lähellä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin kansalaisopistot toimivat?",
+        "options": [
+          "Vaan päivisin",
+          "Iltaisin ja viikonloppuisin",
+          "Vaan arkisin",
+          "Vaan aamuisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Paljonko kursseista peritään?",
+        "options": [
+          "Ei mitään",
+          "Pieni maksu",
+          "Suuri maksu",
+          "Hinta vaihtelee kurssin mukaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

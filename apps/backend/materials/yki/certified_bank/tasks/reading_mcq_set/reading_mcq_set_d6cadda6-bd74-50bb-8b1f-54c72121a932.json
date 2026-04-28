@@ -1,0 +1,77 @@
+{
+  "id": "d6cadda6-bd74-50bb-8b1f-54c72121a932",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.629,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue asiantuntija-artikkeli terveysdatan hallinnasta ja valitse kysymyksiin tekstin kanssa parhaiten sopivat vastaukset.",
+    "materials": {
+      "text": "Julkisessa keskustelussa terveysdatan jakaminen esitetään usein kaksijakoisesti: joko tieto avataan mahdollisimman laajasti tutkimukselle tai se pidetään lähes täysin suljettuna yksityisyyden turvaamiseksi. Artikkelin kirjoittaja kritisoi tätä vastakkainasettelua ja väittää, että todellinen kysymys koskee hallintamallia, ei yksittäistä kyllä tai ei -päätöstä. Hänen mukaansa datan hyöty syntyy vasta silloin, kun keruun tarkoitus, käyttöoikeuksien rajat ja valvonnan vastuut määritellään samassa prosessissa. Pelkkä anonymisointi ei riitä, koska rekistereitä yhdistelemällä voidaan joissain tilanteissa tunnistaa yksilöitä epäsuorasti. Toisaalta liian varovainen linja hidastaa sellaisten hoitokäytäntöjen kehittämistä, joista hyötyisivät juuri ne potilasryhmät, joiden tietoihin liittyy suurin suojaustarve. Kirjoittaja nostaa esiin kolme periaatetta, joilla ristiriitaa voisi purkaa. Ensimmäinen on kerroksellinen käyttöoikeus: mitä herkempi aineisto, sitä tarkempi perustelu ja lyhyempi käyttöaika. Toinen on jäljitettävä päätöksenteko, jossa jokainen luovutuspäätös perusteluineen jää auditoitavaan rekisteriin. Kolmas on vastavuoroisuus, eli tutkimustulosten palauttaminen ymmärrettävässä muodossa takaisin terveydenhuollon arkeen. Hän huomauttaa, että ilman tätä viimeistä kohtaa kansalaisen näkökulmasta syntyy kokemus, että tietoa kerätään mutta hyöty jää etäiseksi. Artikkeli ei silti maalaa hallintamallista teknistä ratkaisua, joka poistaisi eettiset jännitteet. Päinvastoin kirjoittaja painottaa, että epävarmuus on pysyvä osa järjestelmää. Uudet analyysimenetelmät voivat muuttaa käsitystä siitä, mikä on tunnistettavaa, ja samalla kansalaisten odotukset läpinäkyvyydestä kasvavat. Siksi järjestelmän legitimiteetti ei rakennu kerran hyväksytyllä säännöstöllä vaan kyvyllä korjata sääntöjä julkisesti, kun riskikäsitys tai tutkimuksen tarpeet muuttuvat. Kirjoittajan loppupäätelmä on, että terveysdatan käyttöä ei pitäisi arvioida vain tietoturvan kustannuksena tai innovaatiopolitiikan moottorina, vaan yhteiskunnallisena sopimuksena, jonka uskottavuus riippuu jatkuvasta perustelutyöstä. Hän konkretisoi väitettään kuvaamalla sairaanhoitopiirin tapausta, jossa tutkimuslupa myönnettiin muodollisesti oikein mutta käytännön tiedottaminen jäi epäselväksi, minkä seurauksena potilasjärjestöt pitivät prosessia suljettuna ja vaativat jälkikäteistä selvitystä. Tapauksen opetus ei ollut hänen mukaansa se, että lupamenettely olisi tarpeeton, vaan se, että menettelyn oikeutus täytyy rakentaa myös viestinnän kautta. Toinen esimerkki koskee harvinaissairauksien tutkimusta: aineistoa on vähän, joten käyttörajoitukset pitää suunnitella huolellisesti, mutta liian tiukka tulkinta voi estää kansainvälisen vertailun, joka juuri näissä sairauksissa olisi lääketieteellisesti ratkaisevaa. Kirjoittaja lisää, että päätöksenteon legitimiteetti vahvistuu, kun kansalaisille kerrotaan avoimesti myös epäonnistumisista, ei vain onnistumisista. Hänen mielestään tämä on vaikeaa, koska hallinto pelkää luottamuksen heikkenemistä, vaikka pidemmällä aikavälillä luottamus syntyy nimenomaan siitä, että epävarmuutta ei peitellä. Lopuksi hän ehdottaa pysyvää kansalaispaneelia, joka arvioisi datan käytön periaatteita vuosittain ja toisi päätöksentekoon käytännön kokemuksia eri väestöryhmistä.",
+      "word_count": 356
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kirjoittajan pääkritiikki keskustelun nykytilasta?",
+        "options": [
+          "keskustelu keskittyy liikaa teknologiaan",
+          "kysymys pelkistetään virheellisesti kahdeksi äärivaihtoehdoksi",
+          "kansalaiset ovat liian passiivisia",
+          "lainsäädäntöä on liikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirjoittaja tarkoittaa vastavuoroisuudella?",
+        "options": [
+          "tutkimusryhmien keskinäistä datavaihtoa",
+          "potilaiden oikeutta kieltää kaikki käyttö",
+          "tutkimuksen hyötyjen palauttamista käytäntöihin ymmärrettävässä muodossa",
+          "taloudellista korvausta jokaiselle rekisteröidylle"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miksi artikkelin mukaan järjestelmän legitimiteetti on jatkuva prosessi?",
+        "options": [
+          "koska teknologia muuttuu, riskikäsitykset elävät ja sääntöjä on päivitettävä julkisesti",
+          "koska asiantuntijat eivät pääse yksimielisyyteen termeistä",
+          "koska auditointi on liian kallista",
+          "koska kansainväliset sopimukset estävät kansallisen päätöksenteon"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä seuraavista kuvaa parhaiten kirjoittajan loppupäätelmää?",
+        "options": [
+          "terveysdatan käyttö on ensisijaisesti markkinakysymys",
+          "terveysdatan käyttö on yhteiskunnallinen sopimus, joka vaatii perustelua",
+          "terveysdatan käyttö tulisi keskeyttää viideksi vuodeksi",
+          "terveysdatan käyttö kannattaa rajata vain yliopistoille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

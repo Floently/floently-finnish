@@ -1,0 +1,88 @@
+{
+  "id": "c1255e36-8e9f-508c-a5de-03b3e8847beb",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.304,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Terve! Tässä on Mikko. Meillä on tänään vähän ongelma. Mä oon jumissa ruuhkassa. Tulen varmaan vähän myöhässä. Aloittakaa vaan syömättä mua odottamatta.",
+      "audio_asset_id": "618a816e-51c2-4a68-9561-1103d1195d0f"
+    },
+    "questions": [
+      {
+        "id": "1da2415b-f9fb-5ca0-b832-7a31a015f529",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Jaakko.",
+          "Mikko.",
+          "Teemu.",
+          "Joonas."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e875c29b-da9e-533b-a733-9435e1957861",
+        "prompt": "Mikä on puhujan ongelma?",
+        "options": [
+          "Hän on eksynyt.",
+          "Hänellä ei ole autoa.",
+          "Hän on jumissa ruuhkassa.",
+          "Hän on sairas."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8220e81e-d6f4-5486-984b-808b0e0c89ff",
+        "prompt": "Mitä tästä seuraa?",
+        "options": [
+          "Hän ei tule ollenkaan.",
+          "Hän tulee varmaan vähän myöhässä.",
+          "Hän tulee aikaisemmin.",
+          "Hän peruu tulonsa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a8b7483e-b203-5927-ae7e-fda138aa6e98",
+        "prompt": "Mitä puhuja pyytää muita tekemään?",
+        "options": [
+          "Odottaa häntä.",
+          "Aloittaa syömättä häntä odottamatta.",
+          "Soittaa hänelle.",
+          "Tulla hakemaan hänet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ac07ccdc-799d-5c4f-9a90-31b4f3ae2607",
+        "prompt": "Mihin tilanteeseen tämä liittyy?",
+        "options": [
+          "Työpaikan kokoukseen.",
+          "Yhteiseen ruokailuun.",
+          "Elokuviin menoon.",
+          "Urheilutapahtumaan."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

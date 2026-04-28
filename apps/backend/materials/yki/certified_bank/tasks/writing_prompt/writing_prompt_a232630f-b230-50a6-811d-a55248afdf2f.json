@@ -1,0 +1,37 @@
+{
+  "id": "a232630f-b230-50a6-811d-a55248afdf2f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on kaatunut puu myrskyn jälkeen. Se on vaaraksi ja tukkii kulkuväylän. Kerro tarkka sijainti ja pyydä, että se poistetaan nopeasti.",
+    "materials": {
+      "scenario": "Ilmoitus kaatuneesta puusta"
+    },
+    "items": [
+      {
+        "id": "94e3028a-9b51-56a4-84e8-97f9762c34de",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla on kaatunut puu myrskyn jälkeen. Se on vaaraksi ja tukkii kulkuväylän. Kerro tarkka sijainti ja pyydä, että se poistetaan nopeasti."
+      }
+    ],
+    "rubric": "Tapahtuman kuvaus\nSijainti\nKiireellinen poistopyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

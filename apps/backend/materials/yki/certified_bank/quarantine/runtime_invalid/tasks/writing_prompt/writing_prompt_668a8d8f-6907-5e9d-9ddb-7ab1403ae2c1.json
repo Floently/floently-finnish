@@ -1,0 +1,37 @@
+{
+  "id": "668a8d8f-6907-5e9d-9ddb-7ab1403ae2c1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.694,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: call_center. Purpose: solve_a_problem. Constraint: state_the_main_point_first.",
+    "materials": {
+      "scenario": "julkishallinnosta asiakaspalvelusta"
+    },
+    "items": [
+      {
+        "id": "5a556e89-7ea3-5ec5-b050-31363e2afade",
+        "prompt": "Write for the receiver in this scenario: call_center. Purpose: solve_a_problem. Constraint: state_the_main_point_first."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

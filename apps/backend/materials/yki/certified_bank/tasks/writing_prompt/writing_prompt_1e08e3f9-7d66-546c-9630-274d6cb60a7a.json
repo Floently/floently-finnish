@@ -1,0 +1,37 @@
+{
+  "id": "1e08e3f9-7d66-546c-9630-274d6cb60a7a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita kolumni (noin 370-420 sanaa) otsikolla 'Pitäisikö some-jättejä verottaa niiden keräämän datan perusteella?'. Pohdi datan arvoa ja sitä, hyötyvätkö some-yhtiöt kohtuuttomasti käyttäjien datasta. Olisiko datalle mahdollista asettaa arvo ja verottaa sitä? Vai olisiko se teknisesti mahdotonta ja hidastaisi innovaatioita? Perustele näkemyksesi.",
+    "materials": {
+      "scenario": "Some-jättien datan verotus"
+    },
+    "items": [
+      {
+        "id": "72bc024b-92cc-513d-bee3-bf408e6db688",
+        "prompt": "Kirjoita kolumni (noin 370-420 sanaa) otsikolla 'Pitäisikö some-jättejä verottaa niiden keräämän datan perusteella?'. Pohdi datan arvoa ja sitä, hyötyvätkö some-yhtiöt kohtuuttomasti käyttäjien datasta. Olisiko datalle mahdollista asettaa arvo ja verottaa sitä? Vai olisiko se teknisesti mahdotonta ja hidastaisi innovaatioita? Perustele näkemyksesi."
+      }
+    ],
+    "rubric": "Kirjoita kolumni (noin 370-420 sanaa) otsikolla 'Pitäisikö some-jättejä verottaa niiden keräämän datan perusteella?'. Pohdi datan arvoa ja sitä, hyötyvätkö some-yhtiöt kohtuuttomasti käyttäjien datasta. Olisiko datalle mahdollista asettaa arvo ja verottaa sitä? Vai olisiko se teknisesti mahdotonta ja hidastaisi innovaatioita? Perustele näkemyksesi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

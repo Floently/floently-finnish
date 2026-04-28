@@ -1,0 +1,88 @@
+{
+  "id": "9a0d5a86-d9da-5734-98b6-da38d096ef52",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan puheenvuoro kaupunkisuunnittelusta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupunkisuunnittelija: Kaupunkien suunnittelussa on tapahtumassa paradigman muutos. Ennen suunnittelua ohjasi tehokkuus ja autoliikenteen sujuvuus. Nyt keskiössä on ihmisten hyvinvointi ja ekologisuus. Haastattelija: Mitä tämä tarkoittaa käytännössä? Suunnittelija: Panostetaan kävelyyn ja pyöräilyyn, vähennetään autojen määrää keskustoissa. Rakennetaan viihtyisiä kaupunkitiloja, joissa on istutuksia, penkkejä ja kahviloita. Lisätään viheralueita ja vähennetään melua. Haastattelija: Entä asuminen? Suunnittelija: Halutaan monipuolista asuntokantaa, jossa on asuntoja eri kokoisille perheille ja eri tulotasoille. Sekä omistus- että vuokra-asuntoja. Tärkeää on, että palvelut ovat lähellä ja saavutettavissa ilman autoa. Haastattelija: Mikä on suurin haaste? Suunnittelija: Vanhan kaupunkirakenteen muuttaminen on hidasta ja kallista. Uusilla alueilla on helpompi toteuttaa uusia ideoita. Tarvitaan pitkäjänteistä työtä ja poliittista tahtoa.",
+      "audio_asset_id": "ff63316e-dfae-4d67-a0f3-a3ad1523d5d5"
+    },
+    "questions": [
+      {
+        "id": "5a7d2eaa-2ee7-57d1-b575-e7ccce966222",
+        "prompt": "Mikä on kaupunkisuunnittelijan mukaan tapahtumassa kaupunkisuunnittelussa?",
+        "options": [
+          "Kaikki pysyy ennallaan.",
+          "Paradigman muutos: tehokkuudesta ja autoilusta ihmisten hyvinvointiin ja ekologisuuteen.",
+          "Autoilun määrä lisääntyy.",
+          "Tehokkuus korostuu entisestään."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "461732b1-bdcc-52b2-96d7-129df38a35bd",
+        "prompt": "Mitä käytännön muutoksia tämä tarkoittaa?",
+        "options": [
+          "Lisää parkkipaikkoja.",
+          "Rakennetaan lisää moottoriteitä.",
+          "Panostetaan kävelyyn, pyöräilyyn, viihtyisiin kaupunkitiloihin ja viheralueisiin.",
+          "Vähennetään istutuksia."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6922a59d-a8b2-5284-9a01-42a736010aa4",
+        "prompt": "Millainen asuntokanta on tavoitteena?",
+        "options": [
+          "Vain omistusasuntoja.",
+          "Monipuolinen, eri kokoisia asuntoja ja eri tulotasoille, sekä omistus- että vuokra-asuntoja.",
+          "Vain vuokra-asuntoja.",
+          "Vain suuria perheasuntoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "95de999c-5327-5035-8beb-3513526ecfbf",
+        "prompt": "Mikä on suurin haaste uudenlaisen kaupunkisuunnittelun toteuttamisessa?",
+        "options": [
+          "Poliittinen vastustus.",
+          "Vanhan kaupunkirakenteen muuttamisen hitaus ja kalleus.",
+          "Asukkaiden vastustus.",
+          "Rakennusmateriaalien puute."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4affe242-b5de-52cd-9877-89dcd7ba9ae7",
+        "prompt": "Missä on helpompi toteuttaa uusia ideoita?",
+        "options": [
+          "Keskustoissa.",
+          "Vanhoilla asuinalueilla.",
+          "Uusilla alueilla.",
+          "Teollisuusalueilla."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "f00f75fc-2021-5153-a39e-964f36223ce4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Luova talous on noussut yhä tärkeämmäksi osaksi kehittyneiden maiden taloutta, ja sen merkitys työllistäjänä ja hyvinvoinnin tuottajana on kasvanut. Luovalla taloudella tarkoitetaan toimialoja, jotka perustuvat yksilölliseen luovuuteen, osaamiseen ja lahjakkuuteen ja joilla on potentiaalia luoda vaurautta ja työpaikkoja. Näitä aloja ovat esimerkiksi muotoilu, arkkitehtuuri, mainonta, elokuva, musiikki, peliteollisuus ja kuvataide. Yksi luovan talouden keskeisistä piirteistä on sen kyky tuottaa aineetonta arvoa. Luovat tuotteet ja palvelut eivät ole pelkkiä hyödykkeitä, vaan ne tuottavat elämyksiä, merkityksiä ja identiteettiä. Tämä tekee niistä vaikeasti kopioitavia ja antaa niille kilpailuetua globaaleilla markkinoilla. Toinen keskeinen piirre on luovan talouden kytkeytyminen muihin toimialoihin. Luovat alat eivät toimi tyhjiössä, vaan ne tuottavat sisältöjä ja ratkaisuja muille aloille, kuten matkailulle, teollisuudelle ja julkiselle sektorille. Hyvä muotoilu voi parantaa teollisuustuotteiden kilpailukykyä, ja elokuvat ja musiikki voivat houkutella matkailijoita. Kolmas keskeinen piirre on luovan työn luonne. Luova työ on usein projektiluontoista ja epäsäännöllistä, ja se edellyttää jatkuvaa verkostoitumista ja oman osaamisen kehittämistä. Luovat työntekijät ovat usein yrittäjiä tai freelancereita, mikä tuo vapautta mutta myös taloudellista epävarmuutta. Tämä asettaa haasteita sosiaaliturvajärjestelmälle, joka on perinteisesti rakennettu vakituisten työsuhteiden varaan. Neljäs keskeinen kysymys on luovan talouden tukeminen. Luovat alat tarvitsevat toimiakseen monenlaista tukea, kuten koulutusta, tiloja, rahoitusta ja vientiapua. Monet maat ovatkin kehittäneet erityisiä luovan talouden strategioita ja tukiohjelmia. Keskeistä on myös tekijänoikeuksien suojaaminen, joka mahdollistaa luovan työn tekijöille heidän työnsä hedelmien keräämisen.",
+      "word_count": 219
+    },
+    "questions": [
+      {
+        "id": "a5a783e3-d7cc-53b4-80da-9c818365823f",
+        "prompt": "Mihin luova talous perustuu?",
+        "options": [
+          "Massatuotantoon ja teollisuuteen",
+          "Yksilölliseen luovuuteen, osaamiseen ja lahjakkuuteen",
+          "Luonnonvarojen hyödyntämiseen",
+          "Halpatyövoimaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "80986d2e-1a6f-5d2a-9078-f50c59872d41",
+        "prompt": "Mitä tarkoitetaan aineettomalla arvolla?",
+        "options": [
+          "Tuotteiden fyysistä arvoa",
+          "Elämyksiä, merkityksiä ja identiteettiä",
+          "Raaka-aineiden arvoa",
+          "Kuljetuskustannuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d9fb8ae8-48f1-5dde-9a80-2c06f650c6cc",
+        "prompt": "Miten luova talous kytkeytyy muihin toimialoihin?",
+        "options": [
+          "Se on täysin erillinen muista aloista",
+          "Se tuottaa sisältöjä ja ratkaisuja muille aloille",
+          "Se kilpailee muiden alojen kanssa",
+          "Se on riippuvainen muiden alojen tuista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "f53a4647-cecd-58c2-ab25-fd66347e0d1c",
+        "prompt": "Mikä on luovan työn luonteelle tyypillistä?",
+        "options": [
+          "Vakituiset ja pitkäaikaiset työsuhteet",
+          "Projektiluontoisuus ja epäsäännöllisyys",
+          "Kiinteä työaika ja työpaikka",
+          "Vähäinen koulutusvaatimus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "252d6ad4-369d-5215-aad8-8da5471eece7",
+        "prompt": "Mitä luovat alat tarvitsevat toimiakseen?",
+        "options": [
+          "Vain pääomaa",
+          "Koulutusta, tiloja, rahoitusta ja vientiapua",
+          "Vain valtion tukea",
+          "Vain tekijänoikeuksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

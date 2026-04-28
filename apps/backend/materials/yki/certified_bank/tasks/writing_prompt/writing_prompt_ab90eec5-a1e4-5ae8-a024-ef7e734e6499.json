@@ -1,0 +1,37 @@
+{
+  "id": "ab90eec5-a1e4-5ae8-a024-ef7e734e6499",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti valtion taloudelliselle tutkimuskeskukselle. Pyydät saada tutustua tutkimusaineistoon, jota tarvitset väitöskirjassasi. Kerro tutkimuksestasi, miksi tarvitset juuri tätä aineistoa ja sitoudut tietosuojaohjeiden noudattamiseen.",
+    "materials": {
+      "scenario": "Tutkimusaineiston käyttöoikeus"
+    },
+    "items": [
+      {
+        "id": "77b8695b-1480-5b06-ae77-d4b2d34b9e0d",
+        "prompt": "Kirjoita virallinen sähköposti valtion taloudelliselle tutkimuskeskukselle. Pyydät saada tutustua tutkimusaineistoon, jota tarvitset väitöskirjassasi. Kerro tutkimuksestasi, miksi tarvitset juuri tätä aineistoa ja sitoudut tietosuojaohjeiden noudattamiseen."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

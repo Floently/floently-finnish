@@ -1,0 +1,88 @@
+{
+  "id": "89e24435-9461-52c4-b916-fd111503cc38",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.682,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesileijona tiedottaa kesän aukioloajoista. Kesäkuun alusta elokuun loppuun uimahalli on avoinna maanantaista perjantaihin kello 7-20 sekä lauantaisin ja sunnuntaisin kello 9-18. Heinäkuussa uimahalli on suljettu viikolla 29, eli 15.-21. heinäkuuta, vuosihuollon vuoksi. Tänä aikana kuntosali ja kahvio ovat kiinni. Lasten uimakoulut pidetään kesäkuussa ja elokuussa. Ilmoittautuminen uimakouluihin alkaa 1. toukokuuta verkkosivuilla. Pääsymaksut pysyvät ennallaan.",
+      "audio_asset_id": "02bfb6a7-fe98-4b9a-8692-6912d668a850"
+    },
+    "questions": [
+      {
+        "id": "3760661f-f548-5b2e-81df-b9561f350806",
+        "prompt": "Mihin asti uimahalli on arkisin auki kesällä?",
+        "options": [
+          "Kello 18.",
+          "Kello 20.",
+          "Kello 19.",
+          "Kello 21."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7a83db2e-a369-525b-9078-5fabe9e4ee7d",
+        "prompt": "Minä viikkona uimahalli on suljettuna heinäkuussa?",
+        "options": [
+          "Viikolla 29.",
+          "Viikolla 28.",
+          "Viikolla 30.",
+          "Viikolla 31."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "d9239485-c6cd-535a-920a-fbbba23c541b",
+        "prompt": "Mitä tiloja ovat kiinni huoltoviikolla?",
+        "options": [
+          "Vain allasosasto.",
+          "Vain kuntosali ja kahvio.",
+          "Vain lastenallas.",
+          "Allasosasto, kuntosali ja kahvio."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "58ecf0e7-6a8a-50d3-804d-683ad1137a91",
+        "prompt": "Milloin lasten uimakoulut pidetään?",
+        "options": [
+          "Vain kesäkuussa.",
+          "Vain heinäkuussa.",
+          "Kesäkuussa ja elokuussa.",
+          "Koko kesän."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "8529614d-6c2b-5e82-92c6-eeeb3c8797b3",
+        "prompt": "Mistä uimakouluihin ilmoittaudutaan?",
+        "options": [
+          "Puhelimitse.",
+          "Paikan päällä.",
+          "Sähköpostilla.",
+          "Verkkosivuilla."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

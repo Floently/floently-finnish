@@ -1,0 +1,77 @@
+{
+  "id": "2d570b1d-4f1d-52cb-b1e8-0b5dc06b62b9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Maahanmuutto on lisääntynyt Suomessa 1990-luvulta lähtien. Maahanmuuttajien määrä on kasvanut, ja heidän taustansa on monipuolistunut. Maahanmuuttajat tulevat Suomeen eri syistä: työn, opiskelun, perhesiteiden tai kansainvälisen suojelun vuoksi. Maahanmuuton on todettu tuovan taloudellisia hyötyjä, kuten työvoiman tarjonnan lisääntymistä ja innovaatioita. Se myös monipuolistaa yhteiskuntaa. Maahanmuuttoon liittyy myös haasteita, kuten kotoutumisen onnistuminen, syrjinnän ehkäisy ja yhteiskunnallisen yhteenkuuluvuuden ylläpitäminen. Kotoutumispolitiikalla pyritään edistämään maahanmuuttajien osallisuutta ja työllistymistä.",
+      "word_count": 63
+    },
+    "questions": [
+      {
+        "id": "mcq_199",
+        "prompt": "Mistä lähtien maahanmuutto on lisääntynyt Suomessa?",
+        "options": [
+          "1970-luvulta",
+          "1980-luvulta",
+          "1990-luvulta",
+          "2000-luvulta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_200",
+        "prompt": "Mistä syistä maahanmuuttajat tulevat Suomeen?",
+        "options": [
+          "Vain työn vuoksi",
+          "Vain opiskelun vuoksi",
+          "Eri syistä: työ, opiskelu, perhe, kansainvälinen suojelu",
+          "Vain kansainvälisen suojelun vuoksi"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_201",
+        "prompt": "Mitä taloudellisia hyötyjä maahanmuutolla on?",
+        "options": [
+          "Työvoiman tarjonnan vähenemistä",
+          "Työvoiman tarjonnan lisääntymistä ja innovaatioita",
+          "Verotulojen vähenemistä",
+          "Kulutuksen vähenemistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_202",
+        "prompt": "Mitä kotoutumispolitiikalla pyritään edistämään?",
+        "options": [
+          "Maahanmuuttajien paluuta kotimaahansa",
+          "Maahanmuuttajien osallisuutta ja työllistymistä",
+          "Maahanmuuton vähentämistä",
+          "Maahanmuuttajien eristämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

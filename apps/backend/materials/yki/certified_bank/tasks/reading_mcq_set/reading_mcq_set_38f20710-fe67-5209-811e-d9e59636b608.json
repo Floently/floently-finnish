@@ -1,0 +1,66 @@
+{
+  "id": "38f20710-fe67-5209-811e-d9e59636b608",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "OHJEITA PYYKINPESUUN\n\n1. Lajittele pyykki värin mukaan: valkoinen, tumma ja kirjava erikseen.\n2. Tarkista vaatteiden hoito-ohjelaput. Siinä lukee, missä lämpötilassa vaate pestään.\n3. Valkoiset ja kestävät kankaat voi pestä 60 asteessa. Kirjavat ja tummat pestään 30 tai 40 asteessa.\n4. Villa ja silkki pestään käsin tai villapesuohjelmalla, max 30 astetta.\n5. Älä täytä konetta liian täyteen. Pyykille pitää jäädä tilaa liikkua.\n6. Käytä oikea määrä pesuainetta. Liika pesuaine jättää pyykkiin jäämiä.\n7. Kuivaus: rumpukuivaus vain, jos hoito-ohjelapussa on lupa. Muuten pyykki kuivataan narulla.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "037e9e90-0358-5f9b-ba2e-ec487c6a2542",
+        "prompt": "Miten pyykki pitää lajitella ennen pesua?",
+        "options": [
+          "kankaan mukaan",
+          "värin mukaan",
+          "koon mukaan",
+          "käyttäjän mukaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "50154192-0255-58b5-aae6-b9a50b54490d",
+        "prompt": "Missä lämpötilassa villavaatteet pestään?",
+        "options": [
+          "60 asteessa",
+          "40 asteessa",
+          "30 asteessa käsinpesuna",
+          "90 asteessa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9d4be2d7-bfd5-57ec-abf9-bdaa30da4528",
+        "prompt": "Mitä pitää tarkistaa hoito-ohjelapusta ennen rumpukuivausta?",
+        "options": [
+          "onko lupa rumpukuivaukseen",
+          "mikä väri vaate on",
+          "mistä vaate on ostettu",
+          "kuinka vanha vaate on"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

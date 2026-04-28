@@ -1,0 +1,66 @@
+{
+  "id": "a02c5676-c896-5713-aa55-e2cd9ec4c650",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei isä! Olen kaverilla yökylässä. Nukun täällä ja tulen huomenna aamupäivällä kotiin. Ei tarvitse huolehtia. Nähdään huomenna!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "dfd2201f-0b73-5cd3-9d4b-ef8a20afecce",
+        "prompt": "Missä lähettäjä on?",
+        "options": [
+          "kotona",
+          "koulussa",
+          "kaverilla",
+          "kaupassa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "6eb198f8-a550-5565-a3dd-b7cc74b5a68c",
+        "prompt": "Milloin hän tulee kotiin?",
+        "options": [
+          "tänään illalla",
+          "huomenna aamupäivällä",
+          "huomenna illalla",
+          "ylihuomenna"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7c7d091a-7aca-5662-b6b7-abf69664bbfd",
+        "prompt": "Mitä viestissä sanotaan isälle?",
+        "options": [
+          "tuo ruokaa",
+          "ei tarvitse huolehtia",
+          "hae kotiin",
+          "soita takaisin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

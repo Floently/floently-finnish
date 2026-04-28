@@ -1,0 +1,66 @@
+{
+  "id": "dac8e41e-7af3-56cc-8794-43fa98d924f5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomen luonnonmarjat ja -sienet ovat tärkeä osa suomalaista ruokakulttuuria ja kansanperinnettä. Jokamiehenoikeudet takaavat jokaiselle oikeuden poimia marjoja ja sieniä missä tahansa metsässä, maanomistajasta riippumatta. Suosituimpia marjoja ovat mustikat, puolukat, vadelmat ja karpalot. Myös lakat eli hilla, joita kasvaa pohjoisessa, ovat arvostettuja. Marjoja käytetään mehuina, hilloina, kiisseleinä ja leivonnassa. Ne ovat myös terveellisiä, täynnä vitamiineja ja antioksidantteja. Monet keräävät marjoja pakastimeen talven varalle. Sienestys on myös suosittua. Parhaita ruokasieniä ovat kantarellit, tatit, rouskut, mustatorvisienet ja suppilovahverot. Sienet säilötään kuivaamalla, pakastamalla tai suolaamalla. Sienestys vaatii tietoa, koska osa sienistä on myrkyllisiä. Sienikirjat ja -kurssit auttavat tunnistamaan lajit. Martat ja muut järjestöt järjestävät sienestysretkiä ja -kursseja. Marja- ja sienisato vaihtelee vuosittain sään mukaan. Hyvänä vuonna metsät notkuvat marjoja ja sieniä. Kaupallisesti marjoja ja sieniä myydään toreilla ja suoraan kuluttajille. Osa menee vientiin, erityisesti Keski-Eurooppaan. Luonnonmarjat ja -sienet ovat paitsi ruokaa, myös tärkeä osa suomalaista luontosuhdetta ja hyvinvointia. Metsässä liikkuminen ja satojen kerääminen on monelle rakas harrastus ja tapa rentoutua.",
+      "word_count": 156
+    },
+    "questions": [
+      {
+        "id": "c6d7e8f9-a0b1-4c2d-9e3f-4a5b6c7d8e9f",
+        "prompt": "Mitkä ovat suosituimpia suomalaisia luonnonmarjoja?",
+        "options": [
+          "Mansikat ja herukat",
+          "Mustikat, puolukat, vadelmat ja karpalot",
+          "Pensasmustikat ja tyrni",
+          "Viinirypäleet ja banaanit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d7e8f9a0-b1c2-4d3e-9f4a-5b6c7d8e9f0a",
+        "prompt": "Mitä ovat suosittuja ruokasieniä?",
+        "options": [
+          "Kärpässienet ja valmuskat",
+          "Kantarellit, tatit ja suppilovahverot",
+          "Myrkkysienet",
+          "Ukonsienet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8f9a0b1-c2d3-4e4f-9a5b-6c7d8e9f0a1b",
+        "prompt": "Miksi sienestys vaatii tietoa?",
+        "options": [
+          "Koska sieniä on vaikea löytää",
+          "Koska osa sienistä on myrkyllisiä",
+          "Koska sienet ovat kalliita",
+          "Koska sieniä saa poimia vain tietyissä paikoissa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

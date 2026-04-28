@@ -1,0 +1,77 @@
+{
+  "id": "ddeda2ab-88b7-572b-a710-0afa4eec589f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.345,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kuulutus ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Tässä pyöräliike Rengas. Huoltoon tuotavat pyörät vastaanotetaan arkipäivisin kello 12-18. Nopea jarruhuolto valmistuu usein samana päivänä, mutta täyshuolto kestää kolme päivää. Kun tuot pyörän, kerro puhelinnumero ja avaimen koodi, jos lukko jää paikalleen. Noutoviesti lähetetään tekstiviestinä.",
+      "audio_asset_id": "29ebc1a1-aa68-5d9a-b7d6-5a3ace90ded9"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Milloin pyöriä vastaanotetaan?",
+        "options": [
+          "arkisin 10-16",
+          "arkisin 12-18",
+          "joka päivä 12-18",
+          "vain lauantaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Kuinka kauan täyshuolto kestää?",
+        "options": [
+          "yhden päivän",
+          "kaksi päivää",
+          "kolme päivää",
+          "viisi päivää"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä tietoja pitää kertoa?",
+        "options": [
+          "vain nimi",
+          "puhelinnumero ja avaimen koodi",
+          "osoite ja sähköposti",
+          "vain rekisterinumero"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten noutoviesti tulee?",
+        "options": [
+          "sähköpostina",
+          "kirjeenä",
+          "tekstiviestinä",
+          "puheluna"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

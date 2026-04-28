@@ -1,0 +1,99 @@
+{
+  "id": "7609b26c-3a29-5a5b-a262-faab39577039",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja valitse jokaiseen kysymykseen paras vaihtoehto.",
+    "materials": {
+      "text": "Kunnan asukaslehti: Putkiremontti alkaa Purokadun taloyhtiössä 15.4. Työn arvioidaan kestävän noin kuusi viikkoa. Asukkaille järjestetään tiedotustilaisuus 8.4. klo 18.00 taloyhtiön yhteistilassa. Siellä kerrotaan työn vaiheet, melut ja mahdolliset vesikatkot. Vesikatkot ilmoitetaan viikon etukäteen taloyhtiön ilmoitustaululla ja sähköpostitse. Piha- ja parkkipaikkojen käyttöä rajoitetaan työmaan vuoksi tietyillä viikoilla; ajankohdat merkitään pihaan. Asukkaat voivat kysyä lisää isännöitsijän kautta tai suoraan työmaan vastaavalta. Remontin aikana hissi voi olla pois käytöstä lyhyitä jaksoja; näistä ilmoitetaan erikseen. Valitus- ja yhteydenottotilanne: isännöitsijä vastaa viimeistään kolmen arkipäivän kuluessa. Taloyhtiö on varannut vararahaston remonttia varten, joten asukasmaksuja ei tässä vaiheessa koroteta remontin takia. Lopullinen laskutus tapahtuu työn valmistuttua. Tervetuloa tiedotustilaisuuteen.",
+      "word_count": 101
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin putkiremontti alkaa?",
+        "options": [
+          "15.4.",
+          "8.4.",
+          "kuuden viikon kuluttua",
+          "ei mainita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä tiedotustilaisuus pidetään?",
+        "options": [
+          "taloyhtiön yhteistilassa",
+          "isännöitsijän toimistolla",
+          "työmaalla",
+          "kunnantalolla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten vesikatkot ilmoitetaan?",
+        "options": [
+          "viikon etukäteen ilmoitustaululla ja sähköpostitse",
+          "vain suullisesti",
+          "ei ilmoiteta",
+          "vain hississä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi piha- ja parkkipaikkojen käyttöä rajoitetaan?",
+        "options": [
+          "työmaan vuoksi",
+          "remonttibudjetin vuoksi",
+          "ei kerrota",
+          "asukasvalitusten vuoksi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä isännöitsijästä sanotaan?",
+        "options": [
+          "vastaa viimeistään kolmen arkipäivän kuluessa",
+          "ei vastaa valituksiin",
+          "vastaavat vain sähköposteihin",
+          "vastaa vain tiedotustilaisuudessa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Korotetaanko asukasmaksuja remontin takia tässä vaiheessa?",
+        "options": [
+          "ei tässä vaiheessa",
+          "kyllä heti",
+          "vain osalle asukkaista",
+          "ei mainita"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

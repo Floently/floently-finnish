@@ -1,0 +1,99 @@
+{
+  "id": "07d6b680-3cf7-5fe7-aca4-6848f8bcc9ee",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu etätyön tulevaisuudesta ja vastaa.",
+    "materials": {
+      "transcript": "Tutkija: Olemme tutkineet etätyön vaikutuksia nyt kolmen vuoden ajan. Tulokset ovat mielenkiintoisia. Haastattelija: Mitkä ovat tärkeimmät havainnot? Tutkija: Ensinnäkin, tuottavuus ei ole laskenut, kuten jotkut pelkäsivät. Päinvastoin, monilla aloilla se on noussut. Ihmiset pystyvät keskittymään paremmin, kun toimistohäiriöt puuttuvat. Toiseksi, työhyvinvointi on parantunut niillä, jotka voivat itse säädellä työtahtiaan. Haastattelija: Entä haitat? Tutkija: Suurin haitta on sosiaalisten kontaktien väheneminen. Moni kokee yksinäisyyttä ja kaipaa työkavereita. Myös työn ja vapaa-ajan raja on hämärtynyt. Ihmiset tekevät helposti pidempää päivää, kun työ on aina läsnä. Haastattelija: Miten yritysten pitäisi reagoida? Tutkija: Hybridimalli on todennäköisesti tulevaisuutta. Kaksi tai kolme päivää viikossa toimistolla, loppu etänä. Mutta se vaatii uudenlaista johtamista. Esihenkilöiden pitää luottaa työntekijöihin ja mitata tuloksia, ei läsnäoloa. Haastattelija: Entä nuoret työntekijät? Tutkija: Heille etätyö on ongelmallisempaa. He tarvitsevat enemmän tukea ja oppimista työyhteisössä. Jos he ovat koko ajan yksin, oppiminen hidastuu. Toimistolla tapahtuva epävirallinen oppiminen on tärkeää. Haastattelija: Millainen on etätyön tulevaisuus? Tutkija: Uskon, että etätyö jää pysyväksi ilmiöksi, mutta se muuttaa muotoaan. Teknologia kehittyy, ja virtuaalitodellisuus voi tuoda uusia mahdollisuuksia yhteistyöhön.",
+      "audio_asset_id": "d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mitä tutkimus on selvittänyt?",
+        "options": [
+          "Etätyön vaikutuksia työntekijöihin.",
+          "Toimistotyön etuja.",
+          "Uusien teknologioiden käyttöä.",
+          "Työmatkojen pituuksia."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Miten tuottavuus on muuttunut etätyössä?",
+        "options": [
+          "Se on laskenut merkittävästi.",
+          "Se on pysynyt samana tai noussut.",
+          "Se on vaihdellut paljon.",
+          "Sitä ei ole tutkittu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mikä on etätyön suurin haitta?",
+        "options": [
+          "Tekniset ongelmat.",
+          "Sosiaalisten kontaktien väheneminen.",
+          "Liian vähäinen valvonta.",
+          "Työvälineiden puute."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on toinen etätyön haitta?",
+        "options": [
+          "Liian paljon vapaa-aikaa.",
+          "Työn ja vapaa-ajan rajan hämärtyminen.",
+          "Liian lyhyet työpäivät.",
+          "Liian vähän töitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Millainen työmalli on tutkijan mukaan tulevaisuutta?",
+        "options": [
+          "Kokoaikainen etätyö.",
+          "Kokoaikainen toimistotyö.",
+          "Hybridimalli, jossa osa viikosta toimistolla.",
+          "Työskentely ulkomailla."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq6",
+        "prompt": "Miksi etätyö on ongelmallisempaa nuorille työntekijöille?",
+        "options": [
+          "He eivät osaa käyttää tietokonetta.",
+          "He tarvitsevat enemmän tukea ja oppimista työyhteisössä.",
+          "Heillä ei ole omaa työhuonetta.",
+          "He eivät halua tehdä töitä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

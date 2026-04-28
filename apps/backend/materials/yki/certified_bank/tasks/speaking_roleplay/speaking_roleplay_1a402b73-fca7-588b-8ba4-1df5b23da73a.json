@@ -1,0 +1,56 @@
+{
+  "id": "1a402b73-fca7-588b-8ba4-1df5b23da73a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata taksin lentokentälle. Keskustele taksikeskuksen kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Taksikeskuksen välittäjä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp59_1",
+        "ai_first_turn_fi": "Hei, taksikeskus."
+      },
+      {
+        "id": "srp59_2",
+        "ai_first_turn_fi": "Mistä osoitteesta ja mihin aikaan?"
+      },
+      {
+        "id": "srp59_3",
+        "ai_first_turn_fi": "Lentokentälle, selvä. Montako matkustajaa ja paljonko matkatavaroita?"
+      },
+      {
+        "id": "srp59_4",
+        "ai_first_turn_fi": "Tilaus on tehty. Taksi saapuu osoitteeseesi kello 4.30. Hinta on noin 35-40 euroa. Saat vahvistuksen tekstiviestillä."
+      },
+      {
+        "id": "srp59_5",
+        "ai_first_turn_fi": "Hyvää matkaa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tilata taksin lentokentälle. Keskustele taksikeskuksen kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

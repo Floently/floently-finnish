@@ -1,0 +1,37 @@
+{
+  "id": "c1f0deef-0fed-5771-8913-1b4c00c66f27",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti siskolle. Kerro, että olet saanut uuden puhelimen. Kerro, että se on punainen. Kysy, haluaako hän nähdä sitä.",
+    "materials": {
+      "scenario": "Viesti siskolle uudesta puhelimesta"
+    },
+    "items": [
+      {
+        "id": "da6371cc-4f1b-5646-a181-ac80ff3d5309",
+        "prompt": "Kirjoita lyhyt viesti siskolle. Kerro, että olet saanut uuden puhelimen. Kerro, että se on punainen. Kysy, haluaako hän nähdä sitä."
+      }
+    ],
+    "rubric": "Kerro uudesta puhelimesta\nKerro, minkä värinen\nKysy, haluaako nähdä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

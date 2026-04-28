@@ -1,0 +1,88 @@
+{
+  "id": "9d901b87-cc82-5a7b-a7af-83491bcbc467",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.697,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Viikonloppu on monelle lepoaikaa. Lauantaina nukutaan pitkään. Syödään hyvä aamupala. Mennään ulos, käydään kaupassa tai tavataan ystäviä. Sunnuntaina on rauhallisempaa. Luetaan lehteä ja katsotaan televisiota. Lapset leikkivät. Sunnuntai-iltana valmistaudutaan uuteen viikkoon. Laitetaan vaatteet valmiiksi. Viikonloppu on tärkeä aika rentoutua ja ladata akkuja. Se menee nopeasti, mutta se on odotettu. Viikonloppuna ehtii tehdä kaikkea kivaa.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä lauantaina usein tehdään?",
+        "options": [
+          "Herätään aikaisin",
+          "Nukutaan pitkään",
+          "Mennään töihin",
+          "Mennään kouluun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lauantaina syödään?",
+        "options": [
+          "Nopea aamupala",
+          "Hyvä aamupala",
+          "Ei mitään",
+          "Vain iltapalaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen sunnuntai on?",
+        "options": [
+          "Kiireinen",
+          "Rauhallinen",
+          "Työntäyteinen",
+          "Juhlava"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä sunnuntaina tehdään?",
+        "options": [
+          "Käydään töissä",
+          "Luetaan lehteä ja katsotaan televisiota",
+          "Mennään matkalle",
+          "Siivotaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä sunnuntai-iltana tehdään?",
+        "options": [
+          "Lähdetään ulos",
+          "Valmistaudutaan uuteen viikkoon",
+          "Mennään aikaisin nukkumaan",
+          "Katsotaan elokuva"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "38d0f243-2912-56f1-9fa0-7d505bd257a3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikamuodin valmistajille asettaa tiukempia ympäristövaatimuksia?'. Arvioi teollisuuden vastuuta, kuluttajahintoja ja globaaleja vaikutuksia.",
+    "materials": {
+      "scenario": "Pikamuodin ympäristövaatimukset"
+    },
+    "items": [
+      {
+        "id": "e9dccf27-2d57-5b54-84c7-df56ce5f2ff0",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö pikamuodin valmistajille asettaa tiukempia ympäristövaatimuksia?'. Arvioi teollisuuden vastuuta, kuluttajahintoja ja globaaleja vaikutuksia."
+      }
+    ],
+    "rubric": "Teollisuuden vastuu\nKuluttajahinnat\nGlobaalit vaikutukset\nSääntelyn toteutus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

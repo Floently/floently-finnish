@@ -1,0 +1,37 @@
+{
+  "id": "08ce3280-d8a2-5da4-806b-7f9a3e4db106",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.712,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen reklamaatio ohjeen mukaan.",
+    "materials": {
+      "scenario": "Virheellinen lasku"
+    },
+    "items": [
+      {
+        "id": "28ac6a17-3939-5e21-89bb-47f3910486b0",
+        "prompt": "Kirjoita reklamaatio palveluntarjoajalle virheellisestä laskutuksesta."
+      }
+    ],
+    "rubric": "Kirjoita reklamaatio palveluntarjoajalle virheellisestä laskutuksesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

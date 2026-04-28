@@ -1,0 +1,77 @@
+{
+  "id": "68d66f8d-224a-5555-9827-e4fcf6ee6ff5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kiertotalous on talousmalli, jossa pyritään minimoimaan jätteen määrä ja käyttämään resursseja tehokkaasti. Tuotteet suunnitellaan niin, että ne voidaan korjata, käyttää uudelleen ja lopulta kierrättää. Tämä vähentää neitseellisten raaka-aineiden tarvetta ja pienentää ympäristökuormitusta. Suomessa kiertotaloutta edistetään monin tavoin. Kierrätys on jo arkipäivää, ja uusia innovaatioita kehitetään jatkuvasti. Esimerkiksi tekstiilien kierrätys on kehittynyt, ja muovin kierrätysaste nousee. Myös jakamistalous, kuten yhteiskäyttöautot ja lainauspalvelut, kuuluu kiertotalouteen. Haasteita on kuitenkin vielä paljon. Kulutustottumusten muuttaminen vie aikaa, ja yritysten on sopeuduttava uusiin malleihin. Kiertotalous vaatii yhteistyötä kaikilta: kuluttajilta, yrityksiltä ja päättäjiltä.",
+      "word_count": 86
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kiertotalouden tavoite?",
+        "options": [
+          "Lisätä kulutusta",
+          "Minimoida jätteen määrä",
+          "Tuottaa enemmän muovia",
+          "Nopeuttaa tuotantoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kiertotalouteen kuuluu?",
+        "options": [
+          "Kertakäyttötuotteet",
+          "Tuotteiden suunnittelu kestäviksi",
+          "Luonnonvarojen tuhlaaminen",
+          "Roskaaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkiä kiertotaloudesta mainitaan?",
+        "options": [
+          "Kertakäyttömuovit",
+          "Yhteiskäyttöautot",
+          "Uudet ostoskeskukset",
+          "Mainostaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kiertotalous vaatii?",
+        "options": [
+          "Vain yritysten toimia",
+          "Vain kuluttajien toimia",
+          "Vain päättäjien toimia",
+          "Yhteistyötä kaikilta"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

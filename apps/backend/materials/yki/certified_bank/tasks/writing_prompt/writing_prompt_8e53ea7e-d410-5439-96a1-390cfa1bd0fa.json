@@ -1,0 +1,37 @@
+{
+  "id": "8e53ea7e-d410-5439-96a1-390cfa1bd0fa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.459,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write your opinion. Justify your viewpoint in two different ways. Length about 100 words.",
+    "materials": {
+      "scenario": "Onko hyvä, että kaupat ovat auki sunnuntaisin?"
+    },
+    "items": [
+      {
+        "id": "c2eb8cc9-a5b4-5398-9e4f-49298600ac9d",
+        "prompt": "Write your opinion. Justify your viewpoint in two different ways. Length about 100 words."
+      }
+    ],
+    "rubric": "Write your opinion. Justify your viewpoint in two different ways. Length about 100 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "53795f09-6304-5b96-957d-b30f45126120",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan työsuojelutoimikunnalle. Kerro työturvallisuudesta, työergonomiasta ja työilmapiiristä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute työpaikan työsuojelutoimikunnalle"
+    },
+    "items": [
+      {
+        "id": "014aa3b3-5b2e-5e57-b438-4f3cd53ffc65",
+        "prompt": "Kirjoita palauteteksti työpaikan työsuojelutoimikunnalle. Kerro työturvallisuudesta, työergonomiasta ja työilmapiiristä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Työturvallisuus\nTyöergonomia\nTyöilmapiiri\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

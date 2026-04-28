@@ -1,0 +1,37 @@
+{
+  "id": "8ef5ad78-80b0-50ee-a487-027740291013",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.483,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita työhakemus.",
+    "materials": {
+      "scenario": "Kirjoita työhakemus."
+    },
+    "items": [
+      {
+        "id": "a0ff7495-6b48-530d-802c-1438191478c3",
+        "prompt": "Kirjoita työhakemus."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 200, \"min\": 150}}",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

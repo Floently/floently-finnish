@@ -1,0 +1,37 @@
+{
+  "id": "c3d94e49-205b-50ee-8b0a-555c82e4d807",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen ruokailussa huomioida enemmän erityisruokavalioita?'. Arvioi yhdenvertaisuutta, kustannuksia ja terveysnäkökulmia.",
+    "materials": {
+      "scenario": "Erityisruokavaliot kouluruokailussa"
+    },
+    "items": [
+      {
+        "id": "a2d3fee9-ad41-52d8-93ae-543db6d7327c",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen ruokailussa huomioida enemmän erityisruokavalioita?'. Arvioi yhdenvertaisuutta, kustannuksia ja terveysnäkökulmia."
+      }
+    ],
+    "rubric": "Yhdenvertaisuus\nKustannukset\nTerveysnäkökulmat\nToteutuksen käytännöt",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

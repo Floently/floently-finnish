@@ -1,0 +1,99 @@
+{
+  "id": "46045915-f5ba-533b-816d-13e7f9f6ba7c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.564,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työpaikoilla kiinnitetään yhä enemmän huomiota työntekijöiden hyvinvointiin. Työhyvinvointi koostuu monesta asiasta: mielekkäästä työstä, hyvästä ilmapiiristä ja mahdollisuudesta vaikuttaa. Työnantajat tarjoavat liikuntaetuja, työterveyshuoltoa ja joustavia työaikoja. Myös työkuormituksen seuranta on tärkeää. Hyvinvoiva työntekijä on motivoituneempi ja sairastaa vähemmän. Panostukset työhyvinvointiin maksavat itsensä takaisin.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin työpaikoilla kiinnitetään yhä enemmän huomiota?",
+        "options": [
+          "Työntekijöiden palkkaukseen",
+          "Työntekijöiden hyvinvointiin",
+          "Työpaikan siisteyteen",
+          "Työmatkojen pituuteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä työhyvinvointi koostuu?",
+        "options": [
+          "Vain korkeasta palkasta",
+          "Mielekkäästä työstä, hyvästä ilmapiiristä ja mahdollisuudesta vaikuttaa",
+          "Vain lyhyistä työpäivistä",
+          "Vain hyvistä työkavereista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työnantajat tarjoavat työntekijöille?",
+        "options": [
+          "Ilmaista lounasta",
+          "Liikuntaetuja, työterveyshuoltoa ja joustavia työaikoja",
+          "Palkankorotuksia",
+          "Pidempiä lomia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on tärkeää työkuormituksen suhteen?",
+        "options": [
+          "Työkuormituksen lisääminen",
+          "Työkuormituksen seuranta",
+          "Työkuormituksen unohtaminen",
+          "Työkuormituksen jakaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millainen on hyvinvoiva työntekijä?",
+        "options": [
+          "Motivoituneempi ja sairastaa vähemmän",
+          "Väsyneempi ja sairastaa enemmän",
+          "Tuottamattomampi",
+          "Poissa useammin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä panostukset työhyvinvointiin tekevät?",
+        "options": [
+          "Maksavat itsensä takaisin",
+          "Ovat turhia kustannuksia",
+          "Heikentävät tuottavuutta",
+          "Lisäävät sairauspoissaoloja"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

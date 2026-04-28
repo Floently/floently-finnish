@@ -1,0 +1,37 @@
+{
+  "id": "6bf96223-606f-5f9d-8761-3400476bde3b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kiinteistönhuoltoon. Ilmoita, että asuntosi pesukone vuotaa vettä. Kerro, missä huoneessa kone on ja kuinka paha vuoto on. Pyydä, että huoltomies tulisi mahdollisimman pian.",
+    "materials": {
+      "scenario": "Vikailmoitus pesukoneen vuodosta"
+    },
+    "items": [
+      {
+        "id": "e860d57e-270d-5499-abf1-437e3feb9c02",
+        "prompt": "Kirjoita sähköposti kiinteistönhuoltoon. Ilmoita, että asuntosi pesukone vuotaa vettä. Kerro, missä huoneessa kone on ja kuinka paha vuoto on. Pyydä, että huoltomies tulisi mahdollisimman pian."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nSijainti\nKiireellisyys",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

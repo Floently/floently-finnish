@@ -1,0 +1,37 @@
+{
+  "id": "08f34c76-286c-5205-a5a2-175792525894",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Pankki on sulkenut tilisi ilman asianmukaista varoitusta ja perusteita. Kirjoita virallinen reklamaatio pankille, jossa vaadit selvitystä tilin sulkemisen perusteista, viittaat pankkilakiin ja hyvään pankkitapaan, kuvaa sulkemisesta aiheutuneet haitat ja vaadit vahingonkorvausta sekä tilin avaamista uudelleen.",
+    "materials": {
+      "scenario": "Pankkitilin perusteeton sulkeminen"
+    },
+    "items": [
+      {
+        "id": "013b995c-9441-5006-bfa0-86a65b4e55b1",
+        "prompt": "Pankki on sulkenut tilisi ilman asianmukaista varoitusta ja perusteita. Kirjoita virallinen reklamaatio pankille, jossa vaadit selvitystä tilin sulkemisen perusteista, viittaat pankkilakiin ja hyvään pankkitapaan, kuvaa sulkemisesta aiheutuneet haitat ja vaadit vahingonkorvausta sekä tilin avaamista uudelleen."
+      }
+    ],
+    "rubric": "Pankki on sulkenut tilisi ilman asianmukaista varoitusta ja perusteita. Kirjoita virallinen reklamaatio pankille, jossa vaadit selvitystä tilin sulkemisen perusteista, viittaat pankkilakiin ja hyvään pankkitapaan, kuvaa sulkemisesta aiheutuneet haitat ja vaadit vahingonkorvausta sekä tilin avaamista uudelleen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

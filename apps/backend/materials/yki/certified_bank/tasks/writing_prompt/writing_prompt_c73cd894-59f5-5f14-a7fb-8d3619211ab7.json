@@ -1,0 +1,37 @@
+{
+  "id": "c73cd894-59f5-5f14-a7fb-8d3619211ab7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.542,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan yhteistyökumppanille. Kerro yhteistyön sujuvuudesta, viestinnän selkeydestä ja tapaamisten hyödyllisyydestä. Ehdota yhtä uutta yhteistyömuotoa.",
+    "materials": {
+      "scenario": "Palaute työpaikan yhteistyökumppanille"
+    },
+    "items": [
+      {
+        "id": "c9086aa0-1cd3-5b2a-b68c-5574f2478e67",
+        "prompt": "Kirjoita palauteteksti työpaikan yhteistyökumppanille. Kerro yhteistyön sujuvuudesta, viestinnän selkeydestä ja tapaamisten hyödyllisyydestä. Ehdota yhtä uutta yhteistyömuotoa."
+      }
+    ],
+    "rubric": "Yhteistyön sujuvuus\nViestinnän selkeys\nTapaamisten hyödyllisyys\nUusi yhteistyömuoto",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "5ade6cf9-c733-5919-8bb5-7e4aec7db733",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kuntosalin pukuhuoneesta. Onko siellä siistiä? Onko suihkut hyvät?",
+    "materials": {
+      "scenario": "Palaute kuntosalin pukuhuoneesta"
+    },
+    "items": [
+      {
+        "id": "5aeb1bee-97da-53c5-b2b8-8040bb90cfaf",
+        "prompt": "Kirjoita palaute kuntosalin pukuhuoneesta. Onko siellä siistiä? Onko suihkut hyvät?"
+      }
+    ],
+    "rubric": "Kirjoita palaute kuntosalin pukuhuoneesta. Onko siellä siistiä? Onko suihkut hyvät?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

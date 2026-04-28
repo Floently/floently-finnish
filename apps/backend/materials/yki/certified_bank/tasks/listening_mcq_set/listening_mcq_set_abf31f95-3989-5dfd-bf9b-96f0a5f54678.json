@@ -1,0 +1,88 @@
+{
+  "id": "abf31f95-3989-5dfd-bf9b-96f0a5f54678",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.299,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Moi, tässä on Sanna. Mulla olis yks juttu. Mä meen huomenna katsomaan mun serkun lasta. Se on vasta kaks kuukautta vanha. Oon ihan innoissani!",
+      "audio_asset_id": "2a1958c6-b9e3-54e1-95f7-30e68537b38b"
+    },
+    "questions": [
+      {
+        "id": "44dc67a1-e148-5352-a547-0e3d6ac5d5f0",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Liisa.",
+          "Sanna.",
+          "Maija.",
+          "Anna."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "78805ed4-a92e-58f2-a79f-168c5d156307",
+        "prompt": "Mitä Sanna aikoo tehdä huomenna?",
+        "options": [
+          "Mennä töihin.",
+          "Katsomaan serkkunsa lasta.",
+          "Mennä elokuviin.",
+          "Kävellä puistossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0c1dff46-babd-5530-ba11-a4680e562165",
+        "prompt": "Kuinka vanha serkun lapsi on?",
+        "options": [
+          "Kaksi viikkoa.",
+          "Kaksi vuotta.",
+          "Kuusi kuukautta.",
+          "Kaksi kuukautta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "ed1cb2e8-c740-5bab-ac41-a1d3e147f257",
+        "prompt": "Miltä Sannasta tuntuu?",
+        "options": [
+          "Hän on väsynyt.",
+          "Hän on surullinen.",
+          "Hän on innoissaan.",
+          "Hän on huolissaan."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "828ccdcd-70c5-52a5-b0bd-e56211479bfc",
+        "prompt": "Mikä on viestin tyyli?",
+        "options": [
+          "Virallinen.",
+          "Rento ja kaverillinen.",
+          "Surullinen.",
+          "Vihainen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

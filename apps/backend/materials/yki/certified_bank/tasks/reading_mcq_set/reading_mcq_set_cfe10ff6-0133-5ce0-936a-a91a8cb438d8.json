@@ -1,0 +1,99 @@
+{
+  "id": "cfe10ff6-0133-5ce0-936a-a91a8cb438d8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähikaupassa on uudet aukioloajat. Nyt kauppa on auki arkisin kello 7–22 ja viikonloppuisin kello 9–21. Aukioloajat ovat pidemmät kuin ennen. Kauppa on nyt auki myös sunnuntaisin. Asiakkaita on ollut enemmän iltaisin. Uudet aukioloajat ovat tulleet jäädäkseen.",
+      "word_count": 36
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä lähikaupassa on uutta?",
+        "options": [
+          "Uusi omistaja",
+          "Uudet aukioloajat",
+          "Uusi siivooja",
+          "Uudet hyllyt"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Milloin kauppa on auki arkisin?",
+        "options": [
+          "Kello 8–21",
+          "Kello 7–22",
+          "Kello 9–20",
+          "Kello 10–18"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin kauppa on auki viikonloppuisin?",
+        "options": [
+          "Kello 10–20",
+          "Kello 9–21",
+          "Kello 8–22",
+          "Kello 12–18"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Minä päivänä kauppa on nyt myös auki?",
+        "options": [
+          "Maanantaisin",
+          "Lauantaisin",
+          "Sunnuntaisin",
+          "Keskiviikkoisin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Milloin asiakkaita on ollut enemmän?",
+        "options": [
+          "Aamuisin",
+          "Päivisin",
+          "Iltaisin",
+          "Yöllä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Ovatko uudet aukioloajat pysyviä?",
+        "options": [
+          "Ei, ne ovat vain kokeilu",
+          "Kyllä, ne ovat jäädäkseen",
+          "Vain kesäksi",
+          "Ei kukaan tiedä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

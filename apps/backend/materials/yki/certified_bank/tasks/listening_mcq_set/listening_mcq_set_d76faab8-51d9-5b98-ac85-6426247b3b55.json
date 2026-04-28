@@ -1,0 +1,88 @@
+{
+  "id": "d76faab8-51d9-5b98-ac85-6426247b3b55",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.7,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yrityksen tiedote henkilöstölle ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvä henkilökunta. Haluamme tiedottaa tärkeistä muutoksista lounasruokailun järjestelyissä. Ensimmäinen muutos on, että yrityksemme on solminut uuden sopimuksen paikallisen lounasravintola 'Maku' kanssa. Jatkossa henkilökunta-ateria nautitaan heidän tiloissaan. Toiseksi, ruokailuun on varattu aikaa 45 minuuttia, ja ruokailuvuorot porrastetaan osastoittain välttääksemme ruuhkat. Tarkempi aikataulu julkaistaan intra-netissä huomenna. Kolmanneksi, muistutamme, että ruokailu on etuus, ja se on tarkoitettu vain työsuhteessa oleville henkilöille. Päivittäin paikalla on myös kasvis- ja erityisruokavaihtoehto. Kiitos, että huomioitte nämä muutokset.",
+      "audio_asset_id": "85f1f944-72cb-4050-9fcc-cc33fe22ca57"
+    },
+    "questions": [
+      {
+        "id": "31a8b222-8bf7-559b-bd0e-f44b403e9fe7",
+        "prompt": "Mikä on suurin muutos lounasruokailussa?",
+        "options": [
+          "Ruokailu loppuu kokonaan.",
+          "Uusi sopimus toisen ravintolan kanssa.",
+          "Ruokailu on jatkossa omakustanteista.",
+          "Ruokailuaika lyhenee."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "22e1d386-77ff-5f75-a160-61482ebd4cad",
+        "prompt": "Mikä on uuden yhteistyöravintolan nimi?",
+        "options": [
+          "Herkku.",
+          "Lounas.",
+          "Pata.",
+          "Maku."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "2bec5fc6-2bdb-5f85-9a0a-a40301be996a",
+        "prompt": "Kuinka paljon aikaa ruokailuun on varattu?",
+        "options": [
+          "30 minuuttia.",
+          "60 minuuttia.",
+          "Ei aikarajaa.",
+          "45 minuuttia."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "52285c3e-e98e-5a9f-a2cf-24b75b6cff74",
+        "prompt": "Miten ruuhkia aiotaan välttää?",
+        "options": [
+          "Porrastamalla ruokailuvuorot osastoittain.",
+          "Pidentämällä ruokailuaikaa.",
+          "Rajoittamalla ruokailijoiden määrää.",
+          "Järjestämällä ruokailun etänä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "1c848fc5-ad41-5f78-a0a1-be2d547dc7b6",
+        "prompt": "Kenelle ruokailuetuus on tarkoitettu?",
+        "options": [
+          "Vain työsuhteessa oleville henkilöille.",
+          "Kaikille talossa työskenteleville.",
+          "Vain kokopäiväisille työntekijöille.",
+          "Henkilökunnalle ja heidän perheilleen."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

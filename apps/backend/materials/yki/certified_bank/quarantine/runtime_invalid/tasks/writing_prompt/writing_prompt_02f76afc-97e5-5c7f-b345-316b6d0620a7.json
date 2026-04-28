@@ -1,0 +1,37 @@
+{
+  "id": "02f76afc-97e5-5c7f-b345-316b6d0620a7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cultural_center. Purpose: propose_an_improvement. Constraint: keep_it_concise.",
+    "materials": {
+      "scenario": "housing in cultural_center"
+    },
+    "items": [
+      {
+        "id": "3dd71f53-5285-598f-a2de-27d8ef8d7871",
+        "prompt": "Write for the receiver in this scenario: cultural_center. Purpose: propose_an_improvement. Constraint: keep_it_concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

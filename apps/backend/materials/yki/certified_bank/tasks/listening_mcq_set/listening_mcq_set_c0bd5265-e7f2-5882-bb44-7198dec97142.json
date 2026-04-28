@@ -1,0 +1,66 @@
+{
+  "id": "c0bd5265-e7f2-5882-bb44-7198dec97142",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, tarvitsen uuden talvirenkaat autooni. Onko teillä tarjouksia?\nMyyjä: Kyllä, meillä on nyt talvirenkaista -20% alennus. Minkä kokoiset renkaat tarvitsette?\nAsiakas: Tarvitsen 205/55 R16 -kokoiset renkaat. Onko niitä varastossa?\nMyyjä: Hetkinen, katsotaan. Kyllä, niitä on saatavilla. Meillä on nastallisia ja kitkarenkaita. Kummat haluatte?\nAsiakas: Nastalliset varmaan, koska asun Pohjois-Suomessa.\nMyyjä: Hyvä valinta. Hintaa tulee alennuksen jälkeen 600 euroa. Sisältää asennuksen ja tasapainotuksen.\nAsiakas: Selvä, otan ne. Voinko maksaa kortilla?",
+      "audio_asset_id": "7c3e2a36-b854-5def-8191-e9fe233bf96e"
+    },
+    "questions": [
+      {
+        "id": "list_058",
+        "prompt": "Mitä asiakas on ostamassa?",
+        "options": [
+          "Kesärenkaita",
+          "Talvirenkaita",
+          "Säilytysrenkaita",
+          "Vanhoja renkaita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_059",
+        "prompt": "Minkä kokoiset renkaat asiakas tarvitsee?",
+        "options": [
+          "195/65 R15",
+          "205/55 R16",
+          "215/60 R17",
+          "225/45 R18"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_060",
+        "prompt": "Paljonko renkaat maksavat alennuksen jälkeen?",
+        "options": [
+          "500 euroa",
+          "550 euroa",
+          "600 euroa",
+          "650 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

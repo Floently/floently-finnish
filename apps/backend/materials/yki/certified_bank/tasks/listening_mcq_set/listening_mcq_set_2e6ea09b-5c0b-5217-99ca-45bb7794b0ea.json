@@ -1,0 +1,66 @@
+{
+  "id": "2e6ea09b-5c0b-5217-99ca-45bb7794b0ea",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele koulun kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät oppilaat! Huomenna on koulun urheilupäivä. Kokoontuminen omilla luokilla kello 9. Sitten siirrymme yhdessä urheilukentälle. Urheilupäivä kestää kello 14 asti. Ottakaa mukaan säänmukainen vaatetus, juomapullo ja eväät. Koulu tarjoaa mehun. Tervetuloa!",
+      "audio_asset_id": "005b5353-6ebd-4a61-b8c8-d44a265ec330"
+    },
+    "questions": [
+      {
+        "id": "d2fc566a-f922-5f13-927b-898b7837ec60",
+        "prompt": "Mitä huomenna on?",
+        "options": [
+          "Retkipäivä",
+          "Urheilupäivä",
+          "Teatteripäivä",
+          "Museopäivä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "62a8ec3d-d820-533c-b835-875462a71b5f",
+        "prompt": "Mihin aikaan kokoontuminen on?",
+        "options": [
+          "klo 8",
+          "klo 9",
+          "klo 10",
+          "klo 11"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9cb5fa0a-48e3-5670-8a10-09168a7f37c8",
+        "prompt": "Mitä koulu tarjoaa?",
+        "options": [
+          "Lounaan",
+          "Mehun",
+          "Jäätelön",
+          "Kahvin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

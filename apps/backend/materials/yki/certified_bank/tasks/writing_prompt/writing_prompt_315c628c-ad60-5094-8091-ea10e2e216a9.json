@@ -1,0 +1,37 @@
+{
+  "id": "315c628c-ad60-5094-8091-ea10e2e216a9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.701,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti sairaalan poliklinikalle. Sinulle on tehty tutkimuksia, etkä ole saanut tuloksia luvatussa ajassa. Kerro, milloin kävit tutkimuksissa, mitä tutkimuksia tehtiin ja kauanko tulosten luvattiin kestävän. Pyydä tietoa siitä, milloin saat tulokset ja keneen voit olla yhteydessä, jos ne viipyvät.",
+    "materials": {
+      "scenario": "Tutkimustulosten viivästyminen"
+    },
+    "items": [
+      {
+        "id": "38500687-445b-5c87-a3f5-f4f1f769eba1",
+        "prompt": "Kirjoita virallinen sähköposti sairaalan poliklinikalle. Sinulle on tehty tutkimuksia, etkä ole saanut tuloksia luvatussa ajassa. Kerro, milloin kävit tutkimuksissa, mitä tutkimuksia tehtiin ja kauanko tulosten luvattiin kestävän. Pyydä tietoa siitä, milloin saat tulokset ja keneen voit olla yhteydessä, jos ne viipyvät."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

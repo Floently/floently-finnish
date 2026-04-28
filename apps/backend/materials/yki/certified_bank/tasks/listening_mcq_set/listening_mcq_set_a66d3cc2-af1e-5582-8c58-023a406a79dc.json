@@ -1,0 +1,66 @@
+{
+  "id": "a66d3cc2-af1e-5582-8c58-023a406a79dc",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa kaupunginvaltuuston kokouksesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Seuraavana asiana on uuden koulun rakentaminen Itäkeskukseen. Esittelijä, olkaa hyvä.\nEsittelijä: Kiitos. Kaupunki on suunnitellut uuden yhtenäiskoulun rakentamista Itäkeskukseen, koska alueen väestö kasvaa ja nykyiset koulut ovat täynnä. Uuteen kouluun tulisi tilat noin 600 oppilaalle luokille 1–9. Kustannusarvio on 25 miljoonaa euroa. Rakentaminen on tarkoitus aloittaa ensi vuonna ja koulun pitäisi olla valmis 2028. Hanketta on valmisteltu yhdessä alueen asukkaiden ja henkilökunnan kanssa.\nValtuutettu: Tämä on tärkeä hanke, mutta olen huolissani liikenteestä. Miten alueen liikennejärjestelyt on otettu huomioon? Lisääkö uusi koulu ruuhkia?\nEsittelijä: Hyvä kysymys. Suunnitelmissa on uusi kevyen liikenteen väylä ja bussipysäkkien siirto lähemmäs koulua. Myös saattoliikennettä on mietitty. Tavoitteena on, että koulu olisi helposti saavutettavissa ilman yksityisautoa.",
+      "audio_asset_id": "426229f1-4a3c-4702-8cb1-4075f45ee5dd"
+    },
+    "questions": [
+      {
+        "id": "14262a08-4951-5ca2-946e-5115e9f5d079",
+        "prompt": "Miksi uusi koulu tarvitaan Itäkeskukseen?",
+        "options": [
+          "Vanha koulu on huonossa kunnossa",
+          "Alueen väestö kasvaa ja nykyiset koulut ovat täynnä",
+          "Koulu halutaan keskustaan",
+          "Valtio vaatii uuden koulun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e6ad579d-a408-5cd1-ae0a-bac2e7e0fea2",
+        "prompt": "Paljonko uuden koulun rakentaminen maksaa?",
+        "options": [
+          "15 miljoonaa euroa",
+          "20 miljoonaa euroa",
+          "25 miljoonaa euroa",
+          "30 miljoonaa euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b3b728a6-442f-59e5-b7a1-c238e204682f",
+        "prompt": "Mikä huoli valtuutetulla on?",
+        "options": [
+          "Koulun koko",
+          "Liikennejärjestelyt ja ruuhkat",
+          "Rakentamisen aikataulu",
+          "Koulun nimi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

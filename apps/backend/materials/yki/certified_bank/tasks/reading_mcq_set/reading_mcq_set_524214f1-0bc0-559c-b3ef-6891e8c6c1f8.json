@@ -1,0 +1,66 @@
+{
+  "id": "524214f1-0bc0-559c-b3ef-6891e8c6c1f8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Paikallislehti: Kaupunki harkitsee uuden ulkoliikuntapaikan rakentamista vanhan parkkialueen tilalle. Kannattajat uskovat, että paikka lisää arkiaktiivisuutta ja parantaa nuorten hyvinvointia. Kriitikot pelkäävät pysäköinnin vaikeutuvan ja ehdottavat vaihtoehtoista sijaintia.",
+      "word_count": 27
+    },
+    "questions": [
+      {
+        "id": "b1r2q1",
+        "prompt": "Mitä kaupunki harkitsee?",
+        "options": [
+          "Uutta parkkihallia",
+          "Ulkoliikuntapaikkaa",
+          "Uutta koulua",
+          "Uutta ostoskeskusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1r2q2",
+        "prompt": "Mitä kannattajat odottavat?",
+        "options": [
+          "Lisää arkiaktiivisuutta",
+          "Vähemmän nuoria",
+          "Halvempaa pysäköintiä",
+          "Lyhyempiä koulupäiviä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "b1r2q3",
+        "prompt": "Mikä huoli kriitikoilla on?",
+        "options": [
+          "Melun lisääntyminen",
+          "Pysäköinnin vaikeutuminen",
+          "Veronkorotus",
+          "Liian monta tapahtumaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

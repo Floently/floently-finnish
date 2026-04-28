@@ -1,0 +1,66 @@
+{
+  "id": "01fa851f-30ba-5f2f-983b-4d507c75d436",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kestävä kehitys on noussut tärkeäksi teemaksi viime vuosina. Se tarkoittaa sellaista kehitystä, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta mahdollisuutta tyydyttää omat tarpeensa. Käytännössä tämä näkyy esimerkiksi uusiutuvan energian käytön lisääntymisenä, kierrätyksen tehostumisena ja kestävien kulutusvalintojen suosimisena. Monet suomalaiset yritykset ovat ottaneet kestävän kehityksen osaksi liiketoimintastrategiaansa. Esimerkiksi vaateteollisuudessa käytetään yhä enemmän kierrätysmateriaaleja. Myös kuluttajien asenteet ovat muuttuneet: yhä useampi on valmis maksamaan enemmän ekologisesti tuotetuista tuotteista. Haasteitakin toki on, kuten muovin käytön vähentäminen ja liikenteen päästöjen pienentäminen.",
+      "word_count": 77
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kestävä kehitys tarkoittaa tekstin mukaan?",
+        "options": [
+          "Vain taloudellista kasvua",
+          "Nykyhetken tarpeiden tyydyttämistä tulevaisuuden kustannuksella",
+          "Kehitystä, joka ottaa huomioon myös tulevat sukupolvet",
+          "Teollisuuden lisäämistä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten yritykset ovat tekstin mukaan reagoineet kestävään kehitykseen?",
+        "options": [
+          "Ne eivät ole kiinnostuneita asiasta",
+          "Ne ovat ottaneet sen osaksi strategiaansa",
+          "Ne ovat vähentäneet tuotantoa",
+          "Ne ovat keskittyneet vain vientiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita kestävässä kehityksessä tekstin mukaan on?",
+        "options": [
+          "Uusiutuvan energian lisääminen",
+          "Kuluttajien asenteet",
+          "Muovin käytön vähentäminen",
+          "Kierrätyksen tehostaminen"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

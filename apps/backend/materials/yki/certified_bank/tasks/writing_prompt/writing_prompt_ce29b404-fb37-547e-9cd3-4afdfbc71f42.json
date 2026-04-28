@@ -1,0 +1,37 @@
+{
+  "id": "ce29b404-fb37-547e-9cd3-4afdfbc71f42",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute ruokakaupan hedelmäosastosta. Onko hedelmät tuoreita? Onko valikoima hyvä? Mitä pitäisi parantaa?",
+    "materials": {
+      "scenario": "Palaute ruokakaupan hedelmäosastosta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute ruokakaupan hedelmäosastosta. Onko hedelmät tuoreita? Onko valikoima hyvä? Mitä pitäisi parantaa?"
+      }
+    ],
+    "rubric": "Kirjoita palaute ruokakaupan hedelmäosastosta. Onko hedelmät tuoreita? Onko valikoima hyvä? Mitä pitäisi parantaa?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

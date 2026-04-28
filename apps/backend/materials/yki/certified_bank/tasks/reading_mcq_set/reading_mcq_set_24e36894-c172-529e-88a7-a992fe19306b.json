@@ -1,0 +1,77 @@
+{
+  "id": "24e36894-c172-529e-88a7-a992fe19306b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.631,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue selvitysteksti yliopiston kielipolitiikasta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yliopistojen kielipolitiikasta käyty keskustelu on viime vuosina kärjistynyt kysymykseksi siitä, heikentääkö englanninkielisten ohjelmien kasvu kansalliskielten asemaa vai vahvistaako se tutkimuksen kansainvälistä kilpailukykyä. Tarkasteltu selvitys ehdottaa, että vastakkainasettelu on osin virheellinen, koska kielivalinnat eivät jakaudu pelkästään kahteen leiriin, vaan muodostavat kerrostuneen järjestelmän, jossa opetuksen, tutkimusjulkaisujen ja hallinnon kielikäytännöt vaikuttavat toisiinsa eri aikajänteillä. Selvityksen mukaan ongelma ei synny siitä, että englannin käyttö lisääntyy, vaan siitä, että päätöksenteossa ei aina tunnisteta, missä tehtävissä monikielisyys on toiminnallinen edellytys ja missä se jää symboliseksi tavoitteeksi.\n\nEnsimmäinen havainto koskee opetuksen saavutettavuutta. Kun maisteriohjelma toteutetaan lähes kokonaan englanniksi, kansainväliset opiskelijat hyötyvät, mutta samalla osa kotimaisista opiskelijoista kokee, että ammattisanasto omalla äidinkielellä jää heikoksi. Tämä vaikeuttaa työelämään siirtymistä erityisesti aloilla, joilla asiakastyö, viranomaisyhteistyö tai julkinen viestintä tapahtuu kotimaisilla kielillä. Selvitys ei ehdota paluuta yksikieliseen malliin, vaan velvoitetta rakentaa rinnakkaiset oppimispolut: keskeiset käsitteet tulisi käsitellä myös kansallisilla kielillä ainakin niillä kursseilla, jotka suoraan liittyvät kotimaan työmarkkinoihin. Toisaalta tutkimuksen kansainvälinen näkyvyys edellyttää edelleen vahvaa englanninkielistä julkaisemista, joten täydellinen kotimaistaminen ei ole realistinen vaihtoehto.\n\nToinen havainto liittyy hallinnon käytäntöihin. Monessa yksikössä strategiat korostavat kaksikielisyyttä tai kolmikielisyyttä, mutta käytännön asiakirjat, kokousmateriaalit ja sisäinen tiedotus liikkuvat pääosin yhdellä kielellä. Tämä synnyttää tilanteita, joissa muodollinen osallistumisoikeus on olemassa, mutta tosiasiallinen osallistuminen vaikeutuu. Selvityksessä tätä kutsutaan osallistumiskuiluksi: henkilö voi olla läsnä, mutta ei aidosti osallinen, jos päätöksenteon kieli ei vastaa hänen toiminnallista kielitaitoaan kyseisessä kontekstissa.\n\nKolmas havainto koskee henkilöstön työnjakoa. Monikielisyys toteutuu usein muutaman avainhenkilön varassa, jotka kääntävät, tulkkaavat ja selittävät eri kieliyhteisöjen välillä. Tätä työtä pidetään tärkeänä, mutta sitä ei aina tunnisteta osaksi virallista työkuvaa tai arviointikriteerejä. Selvityksen mukaan seurauksena on näkymätön kuormitus, joka voi heikentää sekä työhyvinvointia että päätösten laatua.\n\nLoppupäätelmässä esitetään, että kielipolitiikan onnistumista pitäisi mitata kahdella tasolla: ensinnäkin sillä, kuinka hyvin eri kieliryhmät pääsevät osallistumaan keskeisiin prosesseihin, ja toiseksi sillä, miten kielivalinnat tukevat tutkimuksen ja opetuksen pitkän aikavälin tavoitteita. Näin kieli ei näyttäydy pelkkänä identiteettipoliittisena kysymyksenä, vaan institutionaalisena infrastruktuurina, joka vaikuttaa osaamisen jakautumiseen, päätöksenteon legitimiteettiin ja yliopiston yhteiskunnalliseen tehtävään. Lisäksi selvitys korostaa, että kieliratkaisujen vaikutuksia pitäisi seurata myös opiskelijoiden valmistumisen jälkeen, esimerkiksi siinä, miten he käyttävät erikoisalan käsitteitä työelämän vuorovaikutustilanteissa. Ilman tällaista seurantaa kielipolitiikan onnistumista arvioidaan vain sisäisillä mittareilla, jotka eivät kerro, miten hyvin koulutus palvelee yhteiskuntaa.",
+      "word_count": 356
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on selvityksen mukaan keskustelun keskeinen ongelma?",
+        "options": [
+          "englanninkielisiä ohjelmia on liian vähän",
+          "kielivalintojen vaikutuksia eri tehtävissä ei tunnisteta riittävästi",
+          "kotimaiset kielet poistuvat lainsäädännöstä",
+          "kansainväliset opiskelijat eivät osallistu tutkimukseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä rinnakkaisilla oppimispoluilla tavoitellaan?",
+        "options": [
+          "englanninkielisen opetuksen lopettamista",
+          "ammattisanaston hallintaa myös kansallisilla kielillä",
+          "kurssien määrän puolittamista",
+          "vain hallinnon keventämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä osallistumiskuilu tarkoittaa tässä tekstissä?",
+        "options": [
+          "opiskelijoiden vähäistä hakijamäärää",
+          "tilannetta, jossa muodollinen oikeus on mutta tosiasiallinen osallistuminen vaikeutuu",
+          "rahoituksen jakautumista tiedekuntien välillä",
+          "kansainvälisten julkaisujen vähyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten tekstin loppupäätelmä jäsentää kielipolitiikan arvioinnin?",
+        "options": [
+          "vain julkaisumäärien kautta",
+          "osallistumisen toimivuuden ja pitkän aikavälin tavoitteiden kautta",
+          "vain opiskelijapalautteen perusteella",
+          "ainoastaan kustannusten perusteella"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

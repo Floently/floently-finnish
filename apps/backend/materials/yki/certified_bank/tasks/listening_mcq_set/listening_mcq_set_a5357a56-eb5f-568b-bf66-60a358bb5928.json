@@ -1,0 +1,77 @@
+{
+  "id": "a5357a56-eb5f-568b-bf66-60a358bb5928",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.747,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu ilmastopolitiikasta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan ilmastopolitiikasta. Meillä on täällä kaksi asiantuntijaa: ympäristöekonomisti Markku Salo ja ilmastoaktivisti Sanna Lehtinen.\n\nMarkku Salo: Ilmastopolitiikassa tarvitaan taloudellisia ohjauskeinoja. Päästökauppa ja verot kannustavat yrityksiä ja kuluttajia vähentämään päästöjä tehokkaasti. Ne ovat joustavia ja antavat aikaa sopeutua.\n\nSanna Lehtinen: Taloudelliset keinot ovat hitaita ja epävarmoja. Tarvitaan suoria kieltoja ja rajoituksia. Esimerkiksi uusien öljylämmitysjärjestelmien kieltäminen ja bensiiniautojen myynnin lopettaminen ovat tehokkaita toimia.\n\nMarkku Salo: Mutta kiellot voivat olla epäoikeudenmukaisia. Ne iskevät kovimmin niihin, joilla ei ole varaa vaihtaa autoa tai lämmitysjärjestelmää. Taloudelliset ohjauskeinot voidaan suunnitella niin, että ne huomioivat eri väestöryhmät.\n\nSanna Lehtinen: Aikaa ei ole odottaa. Ilmastonmuutos etenee nopeammin kuin taloudelliset ohjauskeinot ehtivät vaikuttaa. Tarvitaan rohkeita päätöksiä nyt.\n\nMarkku Salo: Mutta jos päätökset koetaan epäoikeudenmukaisiksi, ne voivat kääntää kansalaisia ilmastopolitiikkaa vastaan. Sitä on nähty Ranskassa keltaliivien mielenosoituksissa.\n\nSanna Lehtinen: Totta. Siksi tarvitaan myös sosiaalista oikeudenmukaisuutta. Päätösten vaikutukset eri väestöryhmiin on arvioitava ja kompensoitava. Mutta se ei saa hidastaa toimia.\n\nPuheenjohtaja: Mikä olisi paras yhdistelmä?\n\nMarkku Salo: Taloudelliset ohjauskeinot pääasiallisina, mutta täydennettynä kielloilla, joissa se on välttämätöntä.\n\nSanna Lehtinen: Nopeat kiellot ja rajoitukset, mutta samalla panostettava sosiaaliseen oikeudenmukaisuuteen.",
+      "audio_asset_id": "5e06af4b-e359-5bf7-8a5f-85e5c275656f"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_009_q1",
+        "prompt": "Mitä etuja taloudellisissa ohjauskeinoissa on Markku Salon mukaan?",
+        "options": [
+          "ne ovat hitaita",
+          "ne ovat joustavia, kannustavat vähentämään päästöjä tehokkaasti ja antavat aikaa sopeutua",
+          "ne ovat epävarmoja",
+          "ne ovat epäoikeudenmukaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_009_q2",
+        "prompt": "Mitä Sanna Lehtinen vaatii?",
+        "options": [
+          "vain taloudellisia keinoja",
+          "suoria kieltoja ja rajoituksia, koska aikaa ei ole odottaa",
+          "ei mitään",
+          "vain vapaaehtoisia toimia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_009_q3",
+        "prompt": "Mitä ongelmia kielloissa voi olla?",
+        "options": [
+          "ne ovat liian tehokkaita",
+          "ne voivat olla epäoikeudenmukaisia ja iskeä kovimmin pienituloisiin",
+          "ne ovat liian hitaita",
+          "niillä ei ole vaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_009_q4",
+        "prompt": "Mistä molemmat ovat samaa mieltä?",
+        "options": [
+          "taloudelliset keinot riittävät",
+          "kiellot yksin riittävät",
+          "tarvitaan sosiaalista oikeudenmukaisuutta",
+          "mitään ei tarvitse tehdä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

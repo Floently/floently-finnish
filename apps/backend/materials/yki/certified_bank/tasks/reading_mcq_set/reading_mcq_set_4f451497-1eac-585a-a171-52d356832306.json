@@ -1,0 +1,73 @@
+{
+  "id": "4f451497-1eac-585a-a171-52d356832306",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan ilmoitus työterveyshuollosta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIEDOTE: TYÖTERVEYSHUOLLON PALVELUT 2024\n\nHyvät työntekijät,\n\ntässä tietoa työterveyshuollon palveluista syyskaudella.\n\nTyöterveyslääkäri:\nVastaanotot ovat maanantaisin ja keskiviikkoisin kello 8–16 osoitteessa Kauppakatu 12. Ajanvaraus puhelimitse 123 4568 tai sähköisesti. Kiireelliset asiat hoidetaan aina samana päivänä.\n\nTyöterveyshoitaja:\nTyöpaikallamme on työterveyshoitaja paikalla tiistaisin ja torstaisin kello 9–15 huoneessa 124. Hoitaja antaa neuvoja, tekee terveystarkastuksia ja ohjaa tarvittaessa lääkärille.\n\nTyöfysioterapeutti:\nTyöfysioterapeutti on tavattavissa kerran kuukaudessa. Hän auttaa ergonomiakysymyksissä ja antaa neuvoja tuki- ja liikuntaelinten vaivoihin. Ajanvaraus työterveyshoitajan kautta.\n\nTyöpsykologi:\nKeskusteluapua on saatavilla tarvittaessa. Ota yhteyttä työterveyshoitajaan, jos koet työsi kuormittavaksi.\n\nMääräaikaistarkastukset:\nTarkastuskutsut lähetetään sähköpostitse syys-lokakuussa.\n\nLisätietoja: henkilosto@yritys.fi",
+      "word_count": 93
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Minä päivinä työterveyslääkäri on paikalla?",
+        "options": [
+          "maanantaisin ja torstaisin",
+          "maanantaisin ja keskiviikkoisin",
+          "tiistaisin ja torstaisin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Missä työterveyshoitaja vastaanottaa?",
+        "options": [
+          "Kauppakatu 12:ssä",
+          "työpaikalla huoneessa 124",
+          "Terveystalossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Miten työfysioterapeutille varataan aika?",
+        "options": [
+          "suoraan",
+          "työterveyshoitajan kautta",
+          "puhelimitse"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Milloin määräaikaistarkastuksista ilmoitetaan?",
+        "options": [
+          "kesällä",
+          "syys-lokakuussa",
+          "heti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

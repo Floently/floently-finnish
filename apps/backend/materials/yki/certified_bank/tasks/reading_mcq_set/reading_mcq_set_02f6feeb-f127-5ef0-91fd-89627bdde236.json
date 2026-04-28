@@ -1,0 +1,110 @@
+{
+  "id": "02f6feeb-f127-5ef0-91fd-89627bdde236",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.724,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalaiset lukevat yhä vähemmän kirjoja. Tuoreen tutkimuksen mukaan erityisesti nuorten aikuisten lukeminen on vähentynyt merkittävästi viimeisen kymmenen vuoden aikana. Syitä on monia. Digitaalinen viihde, kuten suoratoistopalvelut ja sosiaalinen media, vievät aikaa perinteiseltä lukemiselta. Myös kiireinen arki ja informaation tulva vaikeuttavat keskittymistä pitkäkestoisiin teksteihin. Kirjastot ovat huolissaan kehityksestä. Ne ovat alkaneet panostaa entistä enemmän tapahtumiin, lukuvinkkaukseen ja yhteistyöhön koulujen kanssa. Monet uskovat, että lukemisen edistäminen vaatii monenlaisia keinoja, joissa yhdistyvät digitaalisuus ja perinteinen kirjallisuus. Pelkkä teknologia ei kuitenkaan riitä, vaan tarvitaan myös aikaa, rauhaa ja innostavia lukukokemuksia.",
+      "word_count": 86
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mistä ilmiöstä teksti kertoo?",
+        "options": [
+          "Kirjastojen määrä on vähentynyt.",
+          "Suomalaisten kirjojen lukeminen on vähentynyt.",
+          "Nuoret lukevat enemmän kuin ennen.",
+          "Digitaalinen viihde on vähentynyt."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä syitä lukemisen vähenemiselle tekstissä mainitaan?",
+        "options": [
+          "Kirjojen hinta on noussut liian korkeaksi.",
+          "Kirjastot ovat vähentäneet aukioloaikojaan.",
+          "Digitaalinen viihde vie aikaa ja arki on kiireistä.",
+          "Ihmiset eivät enää osaa lukea."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kirjastot ovat reagoineet muutokseen?",
+        "options": [
+          "Ne ovat vähentäneet kirjahankintoja.",
+          "Ne ovat panostaneet tapahtumiin ja lukuvinkkaukseen.",
+          "Ne ovat sulkeneet sivukirjastoja.",
+          "Ne ovat siirtyneet kokonaan digitaaliseen lainaukseen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä lukemisen edistäminen tekstin mukaan vaatii?",
+        "options": [
+          "Vain digitaalisia ratkaisuja.",
+          "Vain perinteisiä kirjoja.",
+          "Sekä digitaalisuutta että perinteistä kirjallisuutta.",
+          "Lisää rahoitusta kirjastoille."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarvitaan teknologian lisäksi?",
+        "options": [
+          "Halvempia kirjoja.",
+          "Aikaa, rauhaa ja innostavia lukukokemuksia.",
+          "Lisää lukutaitokampanjoita.",
+          "Pidempiä laina-aikoja kirjastoissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Minkä ikäisten lukeminen on vähentynyt eniten?",
+        "options": [
+          "Lasten.",
+          "Nuorten aikuisten.",
+          "Keski-ikäisten.",
+          "Eläkeläisten."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi keskittyminen pitkiin teksteihin on vaikeutunut?",
+        "options": [
+          "Kirjastot ovat vähentyneet.",
+          "Informaation tulva vaikeuttaa keskittymistä.",
+          "Ihmiset eivät enää pidä lukemisesta.",
+          "Kirjat ovat muuttuneet vaikeammiksi."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

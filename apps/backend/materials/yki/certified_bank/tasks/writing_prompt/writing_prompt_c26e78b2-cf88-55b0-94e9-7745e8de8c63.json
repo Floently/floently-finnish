@@ -1,0 +1,37 @@
+{
+  "id": "c26e78b2-cf88-55b0-94e9-7745e8de8c63",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö koirien ulkoiluttaminen olla kiellettyä tietyillä uimarannoilla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Koirien ulkoiluttamisen kieltäminen tietyillä uimarannoilla"
+    },
+    "items": [
+      {
+        "id": "703f9c32-875b-5197-b82e-4726b742d9a7",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö koirien ulkoiluttaminen olla kiellettyä tietyillä uimarannoilla. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

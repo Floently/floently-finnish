@@ -1,0 +1,66 @@
+{
+  "id": "20b339bb-c093-5f8e-aff0-a765e0bfe2bd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue viesti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei! Olin kaupassa, mutta unohdin ostaa maitoa ja leipää. Voisitko käydä kaupassa matkalla kotiin? Kiitos!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 31
+    },
+    "questions": [
+      {
+        "id": "a1a2_reading_mcq_004_q1",
+        "prompt": "Mitä lähettäjä unohti ostaa?",
+        "options": [
+          "juustoa ja voita",
+          "maitoa ja leipää",
+          "mehua ja keksejä",
+          "karkkia ja limsaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_004_q2",
+        "prompt": "Mitä hän pyytää vastaanottajaa tekemään?",
+        "options": [
+          "mennä kotiin",
+          "käydä kaupassa",
+          "soittaa takaisin",
+          "tuoda rahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_reading_mcq_004_q3",
+        "prompt": "Milloin hän pyytää tekemään sen?",
+        "options": [
+          "heti",
+          "matkalla kotiin",
+          "huomenna",
+          "viikonloppuna"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

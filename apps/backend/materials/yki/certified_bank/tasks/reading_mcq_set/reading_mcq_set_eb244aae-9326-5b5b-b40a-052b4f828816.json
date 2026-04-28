@@ -1,0 +1,66 @@
+{
+  "id": "eb244aae-9326-5b5b-b40a-052b4f828816",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TERVETULOA KAUPPAKESKUS PLAZAAN\n\nKerrokset:\nK1: Pysäköinti\nK2: Ruokakaupat, kahvilat\nK3: Vaateliikkeet, kenkäkaupat\nK4: Ravintolat, elokuvateatteri\nK5: Toimistot, hammaslääkäri\n\nAsiakaspalvelu sijaitsee 2. kerroksessa.\n\nWC-tilat: jokaisessa kerroksessa hissien vieressä.\n\nLastenvaunuja voi jättää 1. kerroksen vaunuvarastoon.\n\nIrtotavarasäilytyslokeroita on K1-tasolla.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 52
+    },
+    "questions": [
+      {
+        "id": "d0d16cb1-fd3a-5fd6-9ea7-a2f170e0b9c3",
+        "prompt": "Missä kerroksessa on ruokakauppoja?",
+        "options": [
+          "K1",
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8302693-3bb5-5fb0-aa88-c3550d627d6d",
+        "prompt": "Missä asiakaspalvelu on?",
+        "options": [
+          "1. kerros",
+          "2. kerros",
+          "3. kerros",
+          "4. kerros"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bbb00c7c-0713-5b1b-9feb-397a400002a7",
+        "prompt": "Minne voi jättää lastenvaunut?",
+        "options": [
+          "K1-tasolle",
+          "K2-tasolle",
+          "K3-tasolle",
+          "K4-tasolle"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

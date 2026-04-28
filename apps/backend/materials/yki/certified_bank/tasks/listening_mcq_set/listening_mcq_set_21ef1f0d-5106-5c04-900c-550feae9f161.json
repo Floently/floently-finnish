@@ -1,0 +1,88 @@
+{
+  "id": "21ef1f0d-5106-5c04-900c-550feae9f161",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.673,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uimahallin tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Uimahalli Vesitähti tiedottaa, että lasten uimakoulut alkavat 3. kesäkuuta. Ilmoittautuminen on käynnissä verkkosivuillamme. Uimakoulut on tarkoitettu 5-12-vuotiaille. Ryhmissä on vielä tilaa. Tervetuloa mukaan!",
+      "audio_asset_id": "91cc6ea2-aa5b-41ff-8c9b-bde6a1c799ff"
+    },
+    "questions": [
+      {
+        "id": "8ce1dcab-f7a6-5622-961b-41bc2f42b03e",
+        "prompt": "Mitä uimahalli tiedottaa?",
+        "options": [
+          "Remontista.",
+          "Aukioloaikojen muutoksista.",
+          "Hinnankorotuksista.",
+          "Lasten uimakoulujen alkamisesta."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "68d4b26d-0223-5be5-a0b0-334eb908fee9",
+        "prompt": "Milloin uimakoulut alkavat?",
+        "options": [
+          "3. kesäkuuta.",
+          "1. kesäkuuta.",
+          "2. kesäkuuta.",
+          "4. kesäkuuta."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "0a0fd387-44e4-50f4-9c5c-61ed7b572318",
+        "prompt": "Mistä ilmoittautuminen tapahtuu?",
+        "options": [
+          "Puhelimitse.",
+          "Verkkosivuilla.",
+          "Paikan päällä.",
+          "Sähköpostilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "59f38f8d-c094-51d2-8a01-d1b7c1567f76",
+        "prompt": "Mille ikäryhmälle uimakoulut on tarkoitettu?",
+        "options": [
+          "5-12-vuotiaille.",
+          "3-8-vuotiaille.",
+          "7-15-vuotiaille.",
+          "10-18-vuotiaille."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "32182033-c9a7-50f7-8e14-3ab0d2b24758",
+        "prompt": "Mikä on uimahallin nimi?",
+        "options": [
+          "Vesipekka.",
+          "Vesileijona.",
+          "Vesitähti.",
+          "Vesiveijari."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

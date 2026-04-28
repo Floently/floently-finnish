@@ -1,0 +1,77 @@
+{
+  "id": "857b1969-00cb-56cd-bc45-6fac07b0e274",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAHALLI\n\nAvoinna:\nmaanantai–perjantai klo 8–20\nlauantai klo 9–18\nsunnuntai klo 10–16\n\nUimahalli on kiinni juhannusaattona 23.6.\n\nOsoite: Uimarannantie 5, 00100 Helsinki",
+      "word_count": 21
+    },
+    "questions": [
+      {
+        "id": "f034b646-3b9c-5012-998e-48f659da5483",
+        "prompt": "Milloin uimahalli on avoinna maanantaina?",
+        "options": [
+          "klo 8–20",
+          "klo 9–18",
+          "klo 10–16",
+          "kiinni"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "2ca92e05-68d1-52a8-b9a1-2b37b535141c",
+        "prompt": "Milloin uimahalli on avoinna lauantaina?",
+        "options": [
+          "klo 8–20",
+          "klo 9–18",
+          "klo 10–16",
+          "kiinni"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7d21c8ec-f642-5960-afdc-c34232161411",
+        "prompt": "Onko uimahalli auki juhannusaattona?",
+        "options": [
+          "Kyllä, normaalisti",
+          "Kyllä, mutta vain aamulla",
+          "Ei, se on kiinni",
+          "Ei tietoa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "13ab2d4e-9f2e-5c2a-990f-9c1a29f6aa2a",
+        "prompt": "Mikä on uimahallin osoite?",
+        "options": [
+          "Uimarannantie 3",
+          "Uimarannantie 5",
+          "Uimarannantie 8",
+          "Uimarannantie 10"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

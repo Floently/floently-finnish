@@ -1,0 +1,77 @@
+{
+  "id": "62c62350-1cfc-5a7f-b200-88b080ff014f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.756,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Tekoälyn kehitys on herättänyt keskustelua sen vaikutuksista työllisyyteen. Osa asiantuntijoista ennustaa, että tekoäly korvaa monia nykyisiä työtehtäviä, erityisesti rutiininomaisia ja ennakoitavia tehtäviä. Toisaalta tekoälyn uskotaan myös luovan uusia työpaikkoja, jotka liittyvät tekoälyn kehittämiseen, ylläpitoon ja valvontaan, sekä aloilla, joilla tarvitaan ihmisen luovuutta, empatiaa ja vuorovaikutustaitoja. Keskeiseksi kysymykseksi nousee, miten työntekijöitä voidaan kouluttaa ja tukea muutoksessa. Elinikäisestä oppimisesta ja työntekijöiden uudelleenkoulutuksesta tulee entistä tärkeämpää. Yhteiskunnan on myös mietittävä, miten turvataan toimeentulo niille, joiden työpaikat katoavat.",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "mcq_291",
+        "prompt": "Millaisia työtehtäviä tekoälyn ennustetaan korvaavan?",
+        "options": [
+          "Luovia tehtäviä",
+          "Rutiininomaisia ja ennakoitavia tehtäviä",
+          "Vuorovaikutusta vaativia tehtäviä",
+          "Empatiaa vaativia tehtäviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_292",
+        "prompt": "Millä aloilla tekoälyn uskotaan luovan uusia työpaikkoja?",
+        "options": [
+          "Vain tekoälyn kehittämisessä",
+          "Tekoälyn kehittämisessä, ylläpidossa ja valvonnassa sekä aloilla, joilla tarvitaan ihmisen luovuutta, empatiaa ja vuorovaikutustaitoja",
+          "Vain aloilla, joilla tarvitaan ihmisen luovuutta",
+          "Vain tekoälyn valvonnassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_293",
+        "prompt": "Mikä nousee keskeiseksi kysymykseksi työelämän muutoksessa?",
+        "options": [
+          "Miten vähennetään koulutusta",
+          "Miten työntekijöitä voidaan kouluttaa ja tukea muutoksessa",
+          "Miten lisätään rutiinityötä",
+          "Miten vähennetään vuorovaikutustaitoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_294",
+        "prompt": "Mitä elinikäinen oppiminen ja uudelleenkoulutus tarkoittavat?",
+        "options": [
+          "Oppimista vain nuoruudessa",
+          "Jatkuvaa oppimista ja kouluttautumista läpi työuran",
+          "Koulutuksen lopettamista työuran alussa",
+          "Vain työnantajan järjestämää koulutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

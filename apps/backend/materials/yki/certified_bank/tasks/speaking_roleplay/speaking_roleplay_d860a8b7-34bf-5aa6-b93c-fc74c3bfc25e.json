@@ -1,0 +1,40 @@
+{
+  "id": "d860a8b7-34bf-5aa6-b93c-fc74c3bfc25e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.499,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele lääkärin kanssa. Kerro univaikeuksistasi ja kysy neuvoa.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan lääkärille",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "61e7b210-e367-5c46-9aba-93099b534f4e",
+        "ai_first_turn_fi": "Hei, istu alas. Kerro nyt, millaisia univaikeuksia sinulla on ja kuinka kauan ne ovat kestäneet."
+      }
+    ],
+    "rubric": "Keskustele lääkärin kanssa. Kerro univaikeuksistasi ja kysy neuvoa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

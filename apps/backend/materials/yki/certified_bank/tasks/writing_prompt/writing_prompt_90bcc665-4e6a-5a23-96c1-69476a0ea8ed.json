@@ -1,0 +1,37 @@
+{
+  "id": "90bcc665-4e6a-5a23-96c1-69476a0ea8ed",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti siskolle. Kerro, että olet leiponut pullaa. Kysy, haluaako hän tulla kahville ja saada pullaa. Ehdota tapaamista huomenna iltapäivällä.",
+    "materials": {
+      "scenario": "Viesti siskolle kahvikutsusta"
+    },
+    "items": [
+      {
+        "id": "b4e4dcf1-6efd-51a4-894c-7d3ee90d3e88",
+        "prompt": "Kirjoita lyhyt viesti siskolle. Kerro, että olet leiponut pullaa. Kysy, haluaako hän tulla kahville ja saada pullaa. Ehdota tapaamista huomenna iltapäivällä."
+      }
+    ],
+    "rubric": "Kerro, että olet leiponut\nKysy, haluaako hän tulla\nEhdota tapaamista\nKerro, milloin",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

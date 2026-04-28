@@ -1,0 +1,40 @@
+{
+  "id": "48e456f6-0aad-5d41-816f-4e02b7b7d0cf",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Harjoittele keskustelua.",
+    "materials": {
+      "roles": {
+        "user": "työhaastattelussa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "a773e4b3-48c9-5047-835c-a4dddd538be6",
+        "ai_first_turn_fi": "Kerro hieman aikaisemmasta työkokemuksestasi. Mitä tehtäviä sinulla on ollut ja mitä opit niistä?"
+      }
+    ],
+    "rubric": "Harjoittele keskustelua.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

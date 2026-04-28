@@ -1,0 +1,37 @@
+{
+  "id": "65083e59-2d18-5fa2-b752-58bcff2f5b6c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.525,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita vapaamuotoinen hakemus kesäkurssille.",
+    "materials": {
+      "scenario": "Kirjoita vapaamuotoinen hakemus kesäkurssille."
+    },
+    "items": [
+      {
+        "id": "w_b1_010_001_item",
+        "prompt": "Kirjoita hakemus."
+      }
+    ],
+    "rubric": "Kirjoita vapaamuotoinen hakemus kesäkurssille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

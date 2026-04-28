@@ -1,0 +1,73 @@
+{
+  "id": "30296976-4375-5f8f-9846-dab8028e64ad",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.5,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kahden ystävän keskustelu.",
+    "materials": {
+      "transcript": "A: Hei, mitä kuuluu? Pitkästä aikaa!\nB: Ihan hyvää. Ollaan muutettu just uuteen asuntoon. Siitä asti on ollut vähän kaaosta.\nA: Ai jaa, minne muutitte?\nB: Vantaan Myyrmäkeen. Meillä oli ennen kämppä keskustassa, mutta haluttiin isompi ja halvempi.\nA: Onko se kiva?\nB: On joo, 72 neliötä ja parveke. Lastenhuonekin on vihdoin tarpeeks iso. Mutta työmatka on nyt pidempi, menee melkein tunti suuntaansa.\nA: Huh, se on aika paljon. Miten jaksat?\nB: Kyllä siihen tottuu. Junassa voi lukea tai katsoa sarjoja. Lapset tykkää kun on lähellä metsää ja leikkipuisto.\nA: Kuulostaa hyvältä. Täytyy tulla käymään!\nB: Joo, tervetuloa vaikka ens viikonloppuna. Saunotaan ja grillataan!",
+      "audio_asset_id": "54c90e06-15a5-410a-a191-b2d133b0b991"
+    },
+    "questions": [
+      {
+        "id": "f855cc44-e11f-5d73-a3f0-f10c244b9fce",
+        "prompt": "Minne B muutti?",
+        "options": [
+          "Helsingin keskustaan",
+          "Vantaan Myyrmäkeen",
+          "Espooseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "67689db0-6600-5ab3-8a08-e95b380a8433",
+        "prompt": "Miksi he muuttivat?",
+        "options": [
+          "työn takia",
+          "halusivat isomman ja halvemman asunnon",
+          "halusivat lähemmäs keskustaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dc63862e-5552-5d61-9eda-61495e850ff8",
+        "prompt": "Miten pitkä työmatka B:llä on nyt?",
+        "options": [
+          "puoli tuntia",
+          "melkein tunti",
+          "kaksi tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0d073d15-55f0-5cd0-b234-9f88ee3dd9b0",
+        "prompt": "Mistä lapset tykkäävät uudessa asuinpaikassa?",
+        "options": [
+          "lähellä on kauppa",
+          "lähellä on metsä ja leikkipuisto",
+          "lähellä on koulu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

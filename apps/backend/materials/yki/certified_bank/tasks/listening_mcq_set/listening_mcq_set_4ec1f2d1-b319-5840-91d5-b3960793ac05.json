@@ -1,0 +1,77 @@
+{
+  "id": "4ec1f2d1-b319-5840-91d5-b3960793ac05",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.74,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu ja valitse oikeat vastaukset.",
+    "materials": {
+      "transcript": "Avaruuspolitiikan tutkija arvioi, että nykyinen avaruusromun hallinta perustuu liikaa vapaaehtoisiin käytäntöihin. Hänen mukaansa ongelma ei ole niinkään teknologian puute kuin kannustimien heikkous: romun poistaminen on kallista, mutta hyöty jakautuu koko toimialalle. Haastattelussa ehdotetaan vakuutusmallia, jossa laukaisulupa sidotaan jälkihoitovelvoitteeseen. Kriitikot pelkäävät, että malli nostaisi uusien toimijoiden markkinoilletulon kynnystä. Tutkija vastaa, että ilman yhteisiä sääntöjä riskit kasaantuvat erityisesti niille, joilla ei ole varaa siirtää satelliitteja turvallisemmille radoille.",
+      "audio_asset_id": "d7192802-282c-5a75-8f29-a1fe2805b35e"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mitä tutkija kritisoi nykytilassa?",
+        "options": [
+          "teknologian liiallista määrää",
+          "vapaaehtoisuuteen nojaamista",
+          "liian tiukkoja sääntöjä",
+          "liian halpoja laukaisuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mikä on tutkijan mukaan varsinainen pullonkaula?",
+        "options": [
+          "havaintolaitteet",
+          "kannustimien heikkous",
+          "rakettien puute",
+          "koulutuksen taso"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mihin laukaisulupa ehdotetaan sidottavaksi?",
+        "options": [
+          "mainosrahoitukseen",
+          "jälkihoitovelvoitteeseen",
+          "henkilöstön määrään",
+          "lentojen määrään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mitä riskiä tutkija korostaa ilman yhteisiä sääntöjä?",
+        "options": [
+          "markkinoinnin hidastumista",
+          "riskien kasaantumista heikompiresursseille toimijoille",
+          "satelliittien värin vaihtumista",
+          "lyhyempiä sopimuksia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "b7fa4bba-0e79-56de-899f-6d412137584a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Pienpanimoiden määrä on kasvanut Suomessa räjähdysmäisesti viime vuosina. Ne valmistavat usein pieniä eriä olutta, jolla on omaperäinen maku. Paikallisuus ja käsityö ovat niiden valttikortteja. Isot panimot ovat vastanneet kilpailuun tuomalla markkinoille omia pienpanimotyylisiä tuotteitaan. Ala työllistää nykyään satoja ihmisiä, ja vientiäkin on alettu suunnitella tosissaan.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten pienpanimoiden määrä on kehittynyt Suomessa?",
+        "options": [
+          "Se on vähentynyt",
+          "Se on kasvanut räjähdysmäisesti",
+          "Se on pysynyt samana",
+          "Se on hieman laskenut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millaisia oluita pienpanimot usein valmistavat?",
+        "options": [
+          "Tavallisia ja halpoja",
+          "Suuria eriä mautonta olutta",
+          "Pieniä eriä, joilla on omaperäinen maku",
+          "Kansainvälisiä brändejä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitkä ovat pienpanimoiden valttikortteja?",
+        "options": [
+          "Halpa hinta ja saatavuus",
+          "Paikallisuus ja käsityö",
+          "Suuri tuotanto ja tunnettuus",
+          "Kansainvälisyys ja tehokkuus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten isot panimot ovat vastanneet kilpailuun?",
+        "options": [
+          "Ne ovat lopettaneet toimintansa",
+          "Ne ovat tuoneet markkinoille omia pienpanimotyylisiä tuotteita",
+          "Ne ovat laskeneet hintoja rajusti",
+          "Ne ovat ostaneet pienpanimot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ala nykyään tekee?",
+        "options": [
+          "Työllistää satoja ihmisiä",
+          "Työllistää muutaman ihmisen",
+          "Vienti on loppunut",
+          "Se on kannattamatonta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä vientiä on alettu suunnitella?",
+        "options": [
+          "Vientiä ulkomaille",
+          "Vientiä muihin kaupunkeihin",
+          "Vientiä naapurimaihin",
+          "Vientiä ei suunnitella ollenkaan"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

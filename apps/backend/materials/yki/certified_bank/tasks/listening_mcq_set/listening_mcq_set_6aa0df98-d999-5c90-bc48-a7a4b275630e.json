@@ -1,0 +1,88 @@
+{
+  "id": "6aa0df98-d999-5c90-bc48-a7a4b275630e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kauppakeskuksen kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät asiakkaat, tervetuloa kauppakeskus Plazaan. Muistutamme, että kauppakeskus on avoinna tänään kello 10-20. Ravintolat ja kahvilat palvelevat normaalisti. Kadonneita lapsia koskevissa asioissa käännytkää infopisteen puoleen. Löytötavarat voi toimittaa infopisteeseen. Parkkihallissa on tänään teknisen huollon vuoksi liikkumisrajoituksia. Seuraamme tilannetta ja tiedotamme muutoksista. Kiitos, että asioitte meillä!",
+      "audio_asset_id": "f0a1b2c3-d4e5-6f7a-8b9c-0d1e2f3a4b5c"
+    },
+    "questions": [
+      {
+        "id": "l90q1",
+        "prompt": "Mihin asti kauppakeskus on tänään auki?",
+        "options": [
+          "Kello 18.",
+          "Kello 19.",
+          "Kello 20.",
+          "Kello 21."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l90q2",
+        "prompt": "Mihin käännytään, jos lapsi on kadonnut?",
+        "options": [
+          "Poliisin puoleen.",
+          "Infopisteen puoleen.",
+          "Vartijan puoleen.",
+          "Kassalle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l90q3",
+        "prompt": "Mihin löytötavarat voi toimittaa?",
+        "options": [
+          "Poliisille.",
+          "Infopisteeseen.",
+          "Lähimpään liikkeeseen.",
+          "Parkkihalliin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l90q4",
+        "prompt": "Miksi parkkihallissa on liikkumisrajoituksia?",
+        "options": [
+          "Runsaan kävijämäärän vuoksi.",
+          "Teknisen huollon vuoksi.",
+          "Rakennustöiden vuoksi.",
+          "Tapahtuman vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l90q5",
+        "prompt": "Mikä on tämän kauppakeskuksen nimi?",
+        "options": [
+          "Forum.",
+          "Plaza.",
+          "Keskus.",
+          "Galleria."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "20e713be-e4c0-5e9b-946b-0b364e8f1fc1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalainen hyvinvointivaltio perustuu ajatukseen, että kaikilla on oikeus peruspalveluihin. Tämä tarkoittaa ilmaista koulutusta, terveydenhuoltoa ja sosiaaliturvaa. Järjestelmää rahoitetaan veroilla. Hyvinvointivaltion tavoitteena on vähentää eriarvoisuutta ja taata turvaa kaikissa elämäntilanteissa. Haasteena on väestön ikääntyminen, mikä lisää terveydenhuollon kuluja. Myös taloudellinen tilanne vaikuttaa siihen, miten paljon palveluita voidaan ylläpitää.",
+      "word_count": 47
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin suomalainen hyvinvointivaltio perustuu?",
+        "options": [
+          "Yksityisiin vakuutuksiin",
+          "Ajatukseen kaikkien oikeudesta peruspalveluihin",
+          "Vapaaehtoiseen hyväntekeväisyyteen",
+          "Kuntien itsenäisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten hyvinvointivaltio rahoitetaan?",
+        "options": [
+          "Maksuilla",
+          "Lahjoituksilla",
+          "Veroilla",
+          "Lainoilla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on hyvinvointivaltion haaste?",
+        "options": [
+          "Nuorten työttömyys",
+          "Väestön ikääntyminen",
+          "Maahanmuutto",
+          "Koulutuksen laatu"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

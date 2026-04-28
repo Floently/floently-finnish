@@ -1,0 +1,37 @@
+{
+  "id": "3f9883bc-015f-5e06-a35f-5091f875626c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Sinulla on aika ensi maanantaina, mutta haluat perua sen, koska olet jo terve. Kerro nimesi ja henkilötunnuksesi (voit keksiä).",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle ajan perumisesta"
+    },
+    "items": [
+      {
+        "id": "44c6f4d4-bdf7-5bf5-9814-8ac94e65c249",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Sinulla on aika ensi maanantaina, mutta haluat perua sen, koska olet jo terve. Kerro nimesi ja henkilötunnuksesi (voit keksiä)."
+      }
+    ],
+    "rubric": "Kerro, että haluat perua ajan\nKerro, miksi perut ajan\nKerro nimesi ja henkilötunnuksesi",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

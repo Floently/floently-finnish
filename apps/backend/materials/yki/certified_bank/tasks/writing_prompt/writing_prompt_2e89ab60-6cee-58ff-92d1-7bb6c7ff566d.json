@@ -1,0 +1,37 @@
+{
+  "id": "2e89ab60-6cee-58ff-92d1-7bb6c7ff566d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö vanhusten päivätoimintaa lisätä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Vanhusten päivätoiminnan lisääminen"
+    },
+    "items": [
+      {
+        "id": "93bd6076-ad4a-5368-9802-01d46d8d45b1",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö vanhusten päivätoimintaa lisätä. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

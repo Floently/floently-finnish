@@ -1,0 +1,66 @@
+{
+  "id": "094cb194-44a4-5ff4-a7a1-1095d04ab49d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.731,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue tiedeartikkeli ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MUISTI JA IKÄÄNTYMINEN – UUSIA NÄKÖKULMIA\n\nTuore suomalaistutkimus valottaa muistin ja ikääntymisen monimutkaista suhdetta. Jyväskylän yliopiston tutkimuksessa seurattiin yli 2000 ikääntyvää henkilöä kymmenen vuoden ajan. Tulokset osoittavat, että muistin heikkeneminen ei ole väistämätöntä. Keskeisimmät muistia suojaavat tekijät olivat yllättäviä: sosiaalisten kontaktien määrä ja laatu osoittautuivat tärkeämmiksi kuin perinteiset tekijät, kuten koulutus. Tutkimusprofessori Miia Kivipelto korostaa, että yksinäisyys on merkittävä riskitekijä muistisairauksille. 'Aivot tarvitsevat stimulaatiota, ja sosiaalinen vuorovaikutus on yksi tehokkaimmista tavoista ylläpitää kognitiivisia toimintoja.'",
+      "word_count": 74
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä oli tutkimuksen keskeinen ja yllättävä löydös?",
+        "options": [
+          "Koulutus suojaa muistia parhaiten",
+          "Sosiaaliset kontaktit ovat tärkeämpiä kuin koulutus",
+          "Ikääntyminen heikentää aina muistia",
+          "Liikunta ei vaikuta muistiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä Miia Kivipelto sanoo yksinäisyydestä?",
+        "options": [
+          "Se ei vaikuta muistiin",
+          "Se on merkittävä riskitekijä muistisairauksille",
+          "Se parantaa muistia",
+          "Se on hyväksi aivoille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä aivot tarvitsevat Kivipellon mukaan?",
+        "options": [
+          "Lepoa",
+          "Stimulaatiota ja sosiaalista vuorovaikutusta",
+          "Yksinoloa",
+          "Rutiineja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

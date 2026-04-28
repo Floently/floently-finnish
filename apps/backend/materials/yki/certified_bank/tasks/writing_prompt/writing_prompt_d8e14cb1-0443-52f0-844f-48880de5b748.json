@@ -1,0 +1,37 @@
+{
+  "id": "d8e14cb1-0443-52f0-844f-48880de5b748",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.699,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lasten digitaitojen opetusta lisätä jo alaluokilla?'. Pohdi lasten kehitystä, turvallisuutta ja oppimistuloksia.",
+    "materials": {
+      "scenario": "Digitaitojen opetus alaluokilla"
+    },
+    "items": [
+      {
+        "id": "fa68beb5-78b2-536b-b932-e683e6658d6a",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lasten digitaitojen opetusta lisätä jo alaluokilla?'. Pohdi lasten kehitystä, turvallisuutta ja oppimistuloksia."
+      }
+    ],
+    "rubric": "Lasten kehitys\nTurvallisuus\nOppimistulokset\nTasa-arvo",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

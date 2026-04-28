@@ -1,0 +1,37 @@
+{
+  "id": "b22195b9-be33-575c-9a67-1cc70b36cae7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa jakaa ilmainen lounas myös loma-aikoina vähävaraisille perheille?'. Arvioi lasten hyvinvointia, kustannuksia ja yhdenvertaisuutta.",
+    "materials": {
+      "scenario": "Ilmainen koululounas loma-aikoina"
+    },
+    "items": [
+      {
+        "id": "384a1932-ecbf-5b8c-ae15-1c7d6c7d61a3",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kouluissa jakaa ilmainen lounas myös loma-aikoina vähävaraisille perheille?'. Arvioi lasten hyvinvointia, kustannuksia ja yhdenvertaisuutta."
+      }
+    ],
+    "rubric": "Lasten hyvinvointi\nKustannukset\nYhdenvertaisuus\nKöyhyyden ehkäisy",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

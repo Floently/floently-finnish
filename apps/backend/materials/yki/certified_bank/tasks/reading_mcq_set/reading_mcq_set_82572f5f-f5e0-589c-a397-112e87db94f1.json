@@ -1,0 +1,66 @@
+{
+  "id": "82572f5f-f5e0-589c-a397-112e87db94f1",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.763,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Tekoälyn nopea kehitys on herättänyt laajaa keskustelua sen vaikutuksista työelämään ja yhteiskuntaan. Optimistien mukaan tekoäly vapauttaa ihmiset rutiininomaisista ja kuormittavista tehtävistä, jolloin voimme keskittyä luovuutta, empatiaa ja monimutkaista ongelmanratkaisua vaativaan työhön. He ennustavat uusien ammattien syntyvän samalla kun vanhat katoavat, aivan kuten teollisen vallankumouksen aikana. Pessimistit puolestaan varoittavat laajamittaisesta työttömyydestä ja eriarvoisuuden kasvusta. Heidän mukaansa tekoäly korvaa ihmisiä paitsi tehdastyössä myös asiantuntijatehtävissä, kuten juridiikassa, journalismissa ja jopa ohjelmoinnissa. Keskeinen kysymys on, kykeneekö yhteiskunta sopeutumaan muutoksen vauhtiin ja jakamaan tuottavuushyödyt oikeudenmukaisesti. Tämä edellyttää paitsi koulutusjärjestelmän uudistamista myös sosiaaliturvan ja verotuksen uudelleenarviointia. On selvää, että tekoälyn yleistyminen vaatii uudenlaista ajattelua työn, toimeentulon ja merkityksellisyyden suhteesta. Puhutaan jo perustulosta yhtenä mahdollisena ratkaisuna. Toisaalta on tärkeää huomata, että tekoälyn kehitys ei ole luonnonvoima, johon ei voi vaikuttaa. Päättäjät, yritykset ja kansalaiset voivat ohjata kehitystä haluamaansa suuntaan. Siksi tarvitaan laajaa yhteiskunnallista keskustelua siitä, millaista tulevaisuutta haluamme rakentaa ja millaisin keinoin. Teknologian etiikka, läpinäkyvyys ja ihmiskeskeisyys nousevat avainasemaan.",
+      "word_count": 152
+    },
+    "questions": [
+      {
+        "id": "daca4f69-d593-5eed-9cc5-ec8a391b5777",
+        "prompt": "Mikä on tekstin keskeinen sanoma tekoälyn vaikutuksista?",
+        "options": [
+          "Tekoäly tuhoaa työpaikat väistämättä",
+          "Tekoäly luo uusia työpaikkoja automaattisesti",
+          "Vaikutukset ovat monitahoisia ja yhteiskunnallinen ohjaus on tarpeen",
+          "Tekoälyn kehitystä ei voi hallita"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "eb51d3c7-87f7-5ed4-bfd6-f0698fca54af",
+        "prompt": "Tekstin mukaan mitä yhteiskunnalta vaaditaan tekoälyn aikakauteen sopeutumiseksi?",
+        "options": [
+          "Vain koulutusjärjestelmän uudistamista",
+          "Koulutuksen, sosiaaliturvan ja verotuksen uudelleenarviointia",
+          "Tekoälyn kehityksen pysäyttämistä",
+          "Työn ja toimeentulon käsitteiden hylkäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "aaef1917-ef55-536d-bc5b-9aab55111ad4",
+        "prompt": "Mitä tarkoitetaan ilmaisulla 'tekoälyn kehitys ei ole luonnonvoima'?",
+        "options": [
+          "Sitä, että tekoälyn kehitys on hidasta ja ennakoitavaa",
+          "Sitä, että kehitykseen voidaan vaikuttaa poliittisilla ja yhteiskunnallisilla päätöksillä",
+          "Sitä, että tekoäly ei voi koskaan korvata ihmistä",
+          "Sitä, että tekoälyn kehitys on riippumatonta teknologiasta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

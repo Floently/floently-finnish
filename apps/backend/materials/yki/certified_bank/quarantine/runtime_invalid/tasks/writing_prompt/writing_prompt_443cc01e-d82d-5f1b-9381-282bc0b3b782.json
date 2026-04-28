@@ -1,0 +1,37 @@
+{
+  "id": "443cc01e-d82d-5f1b-9381-282bc0b3b782",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: municipal office. Purpose: justify an opinion. Constraint: keep it concise.",
+    "materials": {
+      "scenario": "travel in municipal_office"
+    },
+    "items": [
+      {
+        "id": "41dbf539-20cc-5eb5-acc2-65e7a2204aef",
+        "prompt": "Write for the receiver in this scenario: municipal office. Purpose: justify an opinion. Constraint: keep it concise."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

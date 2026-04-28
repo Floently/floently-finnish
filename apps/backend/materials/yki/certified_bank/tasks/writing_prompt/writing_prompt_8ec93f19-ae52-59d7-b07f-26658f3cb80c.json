@@ -1,0 +1,37 @@
+{
+  "id": "8ec93f19-ae52-59d7-b07f-26658f3cb80c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.317,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit eilen elokuvissa. Kirjoita lyhyt palaute elokuvasta. Mainitse yksi hyvä asia ja yksi huono asia.",
+    "materials": {
+      "scenario": "Palaute elokuvasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kävit eilen elokuvissa. Kirjoita lyhyt palaute elokuvasta. Mainitse yksi hyvä asia ja yksi huono asia."
+      }
+    ],
+    "rubric": "Kävit eilen elokuvissa. Kirjoita lyhyt palaute elokuvasta. Mainitse yksi hyvä asia ja yksi huono asia.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

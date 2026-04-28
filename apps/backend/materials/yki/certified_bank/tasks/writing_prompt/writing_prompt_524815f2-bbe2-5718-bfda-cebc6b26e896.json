@@ -1,0 +1,37 @@
+{
+  "id": "524815f2-bbe2-5718-bfda-cebc6b26e896",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan silmätarkastukseen. Kerro, että näkö on huonontunut viime aikoina. Kerro, että käytät jo laseja. Kysy, onko heillä optikkoa vai pitääkö mennä erikseen.",
+    "materials": {
+      "scenario": "Viesti lääkäriasemalle silmätarkastuksesta"
+    },
+    "items": [
+      {
+        "id": "14067983-5ba1-597d-8998-d910e7754e1b",
+        "prompt": "Kirjoita lyhyt viesti lääkäriasemalle. Haluat varata ajan silmätarkastukseen. Kerro, että näkö on huonontunut viime aikoina. Kerro, että käytät jo laseja. Kysy, onko heillä optikkoa vai pitääkö mennä erikseen."
+      }
+    ],
+    "rubric": "Kerro, että haluat silmätarkastuksen\nKerro ongelma (näkö huonontunut)\nKerro, että käytät jo laseja\nKysy, onko optikkoa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

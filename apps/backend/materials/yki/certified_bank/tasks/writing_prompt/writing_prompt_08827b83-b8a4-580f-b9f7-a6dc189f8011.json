@@ -1,0 +1,37 @@
+{
+  "id": "08827b83-b8a4-580f-b9f7-a6dc189f8011",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö bussiliikenteen aikatauluja lisätä iltaisin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Bussiliikenteen lisääminen iltaisin"
+    },
+    "items": [
+      {
+        "id": "3aec39a3-bc61-50a1-94d2-5f738706ec35",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö bussiliikenteen aikatauluja lisätä iltaisin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

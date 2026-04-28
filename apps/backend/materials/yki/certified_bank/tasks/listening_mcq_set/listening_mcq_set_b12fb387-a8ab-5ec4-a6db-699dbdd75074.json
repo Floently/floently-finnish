@@ -1,0 +1,66 @@
+{
+  "id": "b12fb387-a8ab-5ec4-a6db-699dbdd75074",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele bussikuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tämä on bussi numero 24. Seuraava pysäkki on Kauppatori. Kauppatorin jälkeen bussi jatkaa Rautatieasemalle. Matkustajat, jotka haluavat jäädä pois Kauppatorilla, painakaa stop-nappia.",
+      "audio_asset_id": "c94bda99-b248-5a07-955d-2e735da7afb5"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on seuraava pysäkki?",
+        "options": [
+          "Rautatieasema",
+          "Kauppatori",
+          "Keskusta",
+          "Yliopisto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä bussinumero on kyseessä?",
+        "options": [
+          "14",
+          "20",
+          "24",
+          "42"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä matkustajien pitää tehdä, jos he jäävät pois Kauppatorilla?",
+        "options": [
+          "mennä etuovelle",
+          "näyttää lippua",
+          "painaa stop-nappia",
+          "huutaa kuljettajalle"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

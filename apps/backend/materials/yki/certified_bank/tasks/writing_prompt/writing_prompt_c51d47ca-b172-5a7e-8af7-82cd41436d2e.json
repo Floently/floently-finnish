@@ -1,0 +1,37 @@
+{
+  "id": "c51d47ca-b172-5a7e-8af7-82cd41436d2e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet hakenut asumistukea, mutta hakemuksesi käsittely on kestänyt odotettua kauemmin. Tiedustele käsittelyaikaa ja pyydä tarkistamaan, puuttuuko hakemuksesta jotain.",
+    "materials": {
+      "scenario": "Asumistuen käsittelyn tiedustelu"
+    },
+    "items": [
+      {
+        "id": "3054d8f0-6b54-53f7-9591-222c3d96c719",
+        "prompt": "Kirjoita virallinen sähköposti Kelan etuuskäsittelyyn. Olet hakenut asumistukea, mutta hakemuksesi käsittely on kestänyt odotettua kauemmin. Tiedustele käsittelyaikaa ja pyydä tarkistamaan, puuttuuko hakemuksesta jotain."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

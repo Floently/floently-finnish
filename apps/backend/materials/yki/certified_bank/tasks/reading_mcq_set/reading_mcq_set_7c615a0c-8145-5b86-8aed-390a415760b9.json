@@ -1,0 +1,77 @@
+{
+  "id": "7c615a0c-8145-5b86-8aed-390a415760b9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue sähköposti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Hei Olli,\n\nKiitos kutsusta! En pääse tänään, koska olen flunssassa. Voimmeko tavata huomenna kahvilassa klo 14?\n\nTerveisin,\nMari",
+      "word_count": 18
+    },
+    "questions": [
+      {
+        "id": "89dfe30a-a598-5940-b4e5-62e0d20b2a3f",
+        "prompt": "Miksi Mari ei pääse tänään?",
+        "options": [
+          "Hän on töissä",
+          "Hän on flunssassa",
+          "Hän on matkalla",
+          "Hänellä on meno"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ea00dcf7-1194-5d1f-b33d-bee0c6e00181",
+        "prompt": "Milloin Mari ehdottaa tapaamista?",
+        "options": [
+          "Tänään klo 14",
+          "Huomenna klo 12",
+          "Huomenna klo 14",
+          "Ylihuomenna klo 14"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "af3b4c4c-6e67-5b45-9a1b-e9d987748a2f",
+        "prompt": "Missä he tapaavat?",
+        "options": [
+          "Ravintolassa",
+          "Puistossa",
+          "Kahvilassa",
+          "Kotona"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "151ff4e0-faa2-5ec2-ba41-fc3af2d3711b",
+        "prompt": "Kuka on viestin lähettäjä?",
+        "options": [
+          "Olli",
+          "Mari",
+          "Pekka",
+          "Anna"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

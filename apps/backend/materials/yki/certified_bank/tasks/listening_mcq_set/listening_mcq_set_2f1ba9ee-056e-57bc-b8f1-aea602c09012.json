@@ -1,0 +1,66 @@
+{
+  "id": "2f1ba9ee-056e-57bc-b8f1-aea602c09012",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.764,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kaupunkikehityksen asiantuntijan haastattelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään vieraana on arkkitehti ja kaupunkikehityksen asiantuntija Elina Mäkelä. Keskustelemme siitä, millaisia kaupunkeja meidän pitäisi rakentaa tulevaisuudessa ottaen huomioon ilmastonmuutos, sosiaalinen kestävyys ja teknologian kehitys.\n\nMäkelä: Kiitos. Tämä on valtavan tärkeä kysymys. Kaupungit ovat avainasemassa niin ilmastonmuutoksen torjunnassa kuin ihmisten hyvinvoinnin ja talouden kannalta. Ja kaupunkeja rakennetaan nyt enemmän kuin koskaan ihmiskunnan historiassa, erityisesti Aasiassa ja Afrikassa.\n\nToimittaja: Mikä on mielestänne suurin ongelma nykyisessä kaupunkikehityksessä?\n\nMäkelä: Yksi suurimmista ongelmista on kaupunkien hajautuminen, urban sprawl. Rakennetaan väljää pientaloaluetta, jotka ovat autojen varassa, mikä lisää liikenteen päästöjä, vie maata luonnolta ja maataloudelta ja tekee julkisen liikenteen järjestämisestä kallista. Samalla kaupunkien sisällä on paljon vajaakäyttöisiä alueita – teollisuuskiinteistöjä, parkkipaikkoja, varastoalueita – jotka voitaisiin ottaa tehokkaampaan ja monipuolisempaan käyttöön.\n\nToimittaja: Mitä tarkoittaa tiivis kaupunki? Eivätkö ihmiset halua väljyyttä, omaa pihaa ja luontoa?\n\nMäkelä: Hyvä kysymys. Tiivis ei tarkoita ahtautta, tungosta ja korkeita tornitaloja. Se tarkoittaa sitä, että kaupunki rakentuu kävelyn, pyöräilyn ja julkisen liikenteen varaan, että palvelut, työpaikat ja virkistysalueet ovat lähellä ja että viheralueita on riittävästi ja ne ovat saavutettavia. Tiiviissä kaupungissa voi olla enemmän puistoja ja vehreyttä kuin hajanaisessa, koska maata ei tuhlaannu autoteihin ja hajanaiseen infrastruktuuriin. Laadukas tiiviys on avain.\n\nToimittaja: Entä sosiaalinen kestävyys? Miten se otetaan huomioon?\n\nMäkelä: Se on yhtä tärkeää kuin ekologinen. Kaupunkeja suunniteltaessa on mietittävä, miten estetään segregaatio, miten luodaan kohtaamispaikkoja ja -tiloja eri sosiaaliryhmille, ikäryhmille ja kulttuuritaustoille, miten varmistetaan, että kaikilla on mahdollisuus laadukkaaseen ja kohtuuhintaiseen asumiseen. Tämä vaatii tietoista politiikkaa, kaavoitusta ja investointeja – ei voi jättää vain markkinoiden varaan.\n\nToimittaja: Miten näette suomalaisen kaupunkikehityksen tulevaisuuden?\n\nMäkelä: Olen varovaisen optimistinen. Monissa kaupungeissa on havahduttu näihin kysymyksiin. Puhutaan 15 minuutin kaupungista, jossa kaikki tärkeä on saavutettavissa vartissa kävellen tai pyörällä. Tehdään kokeiluja, osallistetaan asukkaita, kehitetään uusia asumisen muotoja. Mutta muutos on hidasta, koska kaupunkirakenteet ovat hyvin pitkäikäisiä. Tänään tehdyt päätökset vaikuttavat vuosikymmeniä, jopa vuosisatoja. Siksi virheiden hinta on korkea.",
+      "audio_asset_id": "0a475907-eaf3-48f7-ba34-c369c196a562"
+    },
+    "questions": [
+      {
+        "id": "916eab98-64ea-5459-90bb-90ed18123b6a",
+        "prompt": "Mikä on Mäkelän mukaan suurin ongelma nykyisessä kaupunkikehityksessä?",
+        "options": [
+          "Liian tiivis rakentaminen",
+          "Kaupunkien hajautuminen ja autoliikenteen varaan rakentaminen",
+          "Liian vähän parkkipaikkoja",
+          "Liian korkeat rakennukset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8cb60e6c-b566-5317-81d6-f5103bad03e7",
+        "prompt": "Mitä Mäkelä tarkoittaa tiiviillä kaupungilla?",
+        "options": [
+          "Ahtautta ja tungosta",
+          "Kaupunkia, joka rakentuu kävelyn, pyöräilyn ja julkisen liikenteen varaan ja jossa palvelut ovat lähellä",
+          "Vain korkeita kerrostaloja",
+          "Kaupunkia ilman viheralueita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4bb6435e-6bed-5b34-acef-0538486e4846",
+        "prompt": "Miten sosiaalinen kestävyys otetaan huomioon kaupunkisuunnittelussa?",
+        "options": [
+          "Se on automaattista",
+          "Estämällä segregaatio, luomalla kohtaamispaikkoja ja varmistamalla laadukas ja kohtuuhintainen asuminen kaikille",
+          "Se on toissijaista",
+          "Rakentamalla vain kalliita asuntoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

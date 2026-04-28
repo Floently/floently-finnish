@@ -1,0 +1,66 @@
+{
+  "id": "2f86e1bd-2be7-5c1a-b5e4-21589437ae09",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.757,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tietoturva ja kyberuhkat ovat nousseet yhdeksi aikamme keskeisimmistä turvallisuuspoliittisista kysymyksistä. Yhteiskunnan digitalisoituessa yhä useammat kriittiset toiminnot, kuten sähköverkko, pankkijärjestelmät, terveydenhuolto ja liikenne, ovat riippuvaisia tietojärjestelmistä. Tämä tekee niistä haavoittuvia kyberhyökkäyksille, joita voivat toteuttaa niin rikollisryhmät, aktivistit kuin valtiolliset toimijat. Kyberuhkien kirjo on laaja. Palvelunestohyökkäyksillä pyritään kaatamaan verkkopalveluita ja estämään niiden käyttö. Tietomurroilla hankitaan luvatta pääsy tietojärjestelmiin ja varastetaan tai muutetaan tietoja. Kiristyshaittaohjelmat lukitsevat järjestelmiä ja vaativat lunnaita niiden avaamiseksi. Vakoiluohjelmilla kerätään salassa pidettävää tietoa. Valtiolliset toimijat voivat käyttää kyberkeinoja vaikuttaakseen toisten maiden politiikkaan, talouteen tai yleiseen mielipiteeseen, esimerkiksi sekaantumalla vaaleihin tai levittämällä disinformaatiota. Suomessa kyberturvallisuudesta on tullut tärkeä osa kokonaisturvallisuutta. Kyberturvallisuuskeskus toimii kansallisena yhteyspisteenä ja auttaa organisaatioita varautumaan ja torjumaan kyberuhkia. Se myös seuraa ja analysoi tietoturvauhkia ja tiedottaa niistä. Myös viranomaiset, kuten poliisi ja Puolustusvoimat, ovat kehittäneet kyvykkyyksiään kyberuhkien torjunnassa. Yrityksille ja organisaatioille tietoturva on kriittinen kilpailutekijä ja mainekysymys. Tietoturvaloukkausten seuraukset voivat olla taloudellisesti tuhoisia ja heikentää asiakkaiden luottamusta. Siksi investoinnit tietoturvaan, henkilöstön koulutukseen ja varautumiseen ovat välttämättömiä. Yksittäisillä kansalaisilla on myös tärkeä rooli tietoturvassa: vahvojen salasanojen käyttö, monivaiheinen tunnistautuminen ja tietojenkalasteluyritysten tunnistaminen ovat keskeisiä taitoja. Kyberuhkien torjunta on jatkuvaa kilpavarustelua, jossa hyökkääjät ja puolustajat kehittävät jatkuvasti uusia menetelmiä. Kansainvälinen yhteistyö on tärkeää, koska kyberuhkat eivät tunne rajoja. Tulevaisuudessa tekoälyn kehitys tuo sekä uusia mahdollisuuksia että uhkia kyberturvallisuuteen.",
+      "word_count": 209
+    },
+    "questions": [
+      {
+        "id": "c2d3e4f5-a6b7-4c8d-9e9f-0a1b2c3d4e5f",
+        "prompt": "Mitkä tahot voivat toteuttaa kyberhyökkäyksiä?",
+        "options": [
+          "Vain rikollisryhmät",
+          "Rikollisryhmät, aktivistit ja valtiolliset toimijat",
+          "Vain valtiolliset toimijat",
+          "Vain yksittäiset hakkerit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d3e4f5a6-b7c8-4d9e-9f0a-1b2c3d4e5f6a",
+        "prompt": "Mikä on palvelunestohyökkäyksen tavoite?",
+        "options": [
+          "Varastaa tietoja",
+          "Kaataa verkkopalveluita ja estää niiden käyttö",
+          "Kiristää rahaa",
+          "Vakoilla salaisuuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e4f5a6b7-c8d9-4e0f-9a1b-2c3d4e5f6a7b",
+        "prompt": "Mikä on kansallinen toimija, joka auttaa organisaatioita varautumaan kyberuhkiin?",
+        "options": [
+          "Poliisi",
+          "Kyberturvallisuuskeskus",
+          "Suomen Pankki",
+          "Tilastokeskus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

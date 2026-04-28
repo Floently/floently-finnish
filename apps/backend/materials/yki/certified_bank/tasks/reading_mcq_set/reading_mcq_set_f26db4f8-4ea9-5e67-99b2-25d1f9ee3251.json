@@ -1,0 +1,66 @@
+{
+  "id": "f26db4f8-4ea9-5e67-99b2-25d1f9ee3251",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kampaamon hinnasto ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KAMPAAMO SATU\n\nHINNASTO\n\nHiustenleikkaus:\n- naiset 45 €\n- miehet 35 €\n- lapset (alle 12 v) 25 €\n\nVärjäys:\n- juurikasvu 55 €\n- koko pää 80 €\n\nRaidat 70 €\n\nKampaus juhliin 50 €\n\nOpiskelija- ja eläkeläisalennus -20 % ma–ke.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "2971cd0e-a5d2-5943-9fec-1dc221d1c1d7",
+        "prompt": "Paljonko miesten hiustenleikkaus maksaa?",
+        "options": [
+          "25 €",
+          "35 €",
+          "45 €",
+          "55 €"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "00a05c3f-44ec-5b4d-a826-4e24d337afd5",
+        "prompt": "Mikä on halvin värjäyspalvelu?",
+        "options": [
+          "Raidat",
+          "Juurikasvu",
+          "Koko pää",
+          "Kampaus"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1a1fe7ef-eaad-55ac-911a-5550052a29e4",
+        "prompt": "Milloin saa opiskelija-alennuksen?",
+        "options": [
+          "ma–ke",
+          "to–pe",
+          "la–su",
+          "joka päivä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

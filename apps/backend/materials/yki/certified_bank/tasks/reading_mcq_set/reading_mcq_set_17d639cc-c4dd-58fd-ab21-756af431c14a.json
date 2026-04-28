@@ -1,0 +1,66 @@
+{
+  "id": "17d639cc-c4dd-58fd-ab21-756af431c14a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalaiset ovat innokas lemmikkikansa. Tilastojen mukaan noin joka toisessa suomalaisessa taloudessa on lemmikki. Suosituimpia lemmikkejä ovat koirat, kissat, pienet jyrsijät, kanit ja kalat. Koiria on Suomessa noin 800 000 ja kissoja noin 600 000. Lemmikkien hyvinvointiin kiinnitetään paljon huomiota. Eläinlääkäripalvelut ovat helposti saatavilla, ja lemmikkivakuutukset ovat yleisiä. Lemmikkieläinkaupat ja -tarvikeliikkeet tarjoavat monipuolisesti ruokia ja tarvikkeita. Myös lemmikkien koulutus on suosittua: koirakoulut ja tottelevaisuuskurssit ovat täynnä innokkaita osallistujia. Suomessa on tiukat eläinsuojelulait, ja eläinten kaltoinkohtelu on rangaistavaa. Koirien on oltava kytkettyinä taajamissa, ja kunnanvaltuustot voivat määrätä koirille hihna- ja kytkemispakkoja. Ulkoiluttajan on myös kerättävä koiran jätökset. Kissat saavat liikkua vapaammin, mutta niidenkin toivotaan pysyvän omalla pihalla. Monet kunnat tukevat kissojen steriloimista ja lemmikkien tunnistusmerkintää. Lemmikit ovat tärkeä osa perhettä, ja niiden kanssa ulkoillaan, matkustetaan ja vietetään aikaa. Viime vuosina myös erilaiset lemmikkikahvilat ja -tapahtumat ovat yleistyneet. Lemmikit tuovat iloa ja seuraa, ja niillä on positiivinen vaikutus ihmisten hyvinvointiin.",
+      "word_count": 147
+    },
+    "questions": [
+      {
+        "id": "f1a2b3c4-d5e6-4f7a-9b8c-9d0e1f2a3b4c",
+        "prompt": "Kuinka monessa suomalaisessa taloudessa on lemmikki?",
+        "options": [
+          "Joka kolmannessa",
+          "Joka toisessa",
+          "Joka neljännessä",
+          "Joka viidennessä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a2b3c4d5-e6f7-4a8b-9c9d-0e1f2a3b4c5d",
+        "prompt": "Paljonko koiria on Suomessa noin?",
+        "options": [
+          "400 000",
+          "600 000",
+          "800 000",
+          "1 000 000"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b3c4d5e6-f7a8-4b9c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Mitä koiran ulkoiluttajan on tehtävä?",
+        "options": [
+          "Soittaa musiikkia",
+          "Kerättävä koiran jätökset",
+          "Juostava koiran kanssa",
+          "Kiellettävä haukkuminen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

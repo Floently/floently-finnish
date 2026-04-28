@@ -1,0 +1,64 @@
+{
+  "id": "31126255-fbf3-5cbd-991e-c672c12611ca",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka on kadottanut lompakkonsa kaupassa. Keskustele infopisteen työntekijän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Infopisteen työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp12_1",
+        "ai_first_turn_fi": "Hei, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp12_2",
+        "ai_first_turn_fi": "Voin tarkistaa meille toimitetut löytötavarat. Millainen lompakko se on?"
+      },
+      {
+        "id": "srp12_3",
+        "ai_first_turn_fi": "Entä mitä lompakossa oli sisällä?"
+      },
+      {
+        "id": "srp12_4",
+        "ai_first_turn_fi": "Odota hetki, tarkistan... Valitettavasti tällaista lompakkoa ei ole toimitettu meille. Oletko käynyt kaupoissa, joissa kävit kyselemässä?"
+      },
+      {
+        "id": "srp12_5",
+        "ai_first_turn_fi": "Suosittelen, että otat yhteyttä pankkiin korttien sulkemiseksi ja teet katoamisilmoituksen poliisille. Jos lompakko löytyy, otamme yhteyttä."
+      },
+      {
+        "id": "srp12_6",
+        "ai_first_turn_fi": "Jätäthän yhteystietosi, jos haluat että otamme yhteyttä."
+      },
+      {
+        "id": "srp12_7",
+        "ai_first_turn_fi": "Kiitos. Toivottavasti lompakkosi löytyy pian!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka on kadottanut lompakkonsa kaupassa. Keskustele infopisteen työntekijän kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

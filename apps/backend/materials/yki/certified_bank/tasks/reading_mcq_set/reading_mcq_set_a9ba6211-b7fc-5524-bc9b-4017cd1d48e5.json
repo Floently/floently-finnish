@@ -1,0 +1,66 @@
+{
+  "id": "a9ba6211-b7fc-5524-bc9b-4017cd1d48e5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei Maija!\n\nTulen huomenna Helsinkiin junalla. Juna saapuu kello 14.35. Voidaanko tavata asemalla? Sen jälkeen voimme menä syömään yhdessä. Onko sinulla ehdotusta hyvästä ravintolasta?\n\nSoita minulle, kun olet saanut tämän viestin. Numeroni on 050 123 4567.\n\nTerveisin,\nAnna  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "32a4a93b-883d-513d-bace-983da22e1adb",
+        "prompt": "Milloin Anna saapuu Helsinkiin?",
+        "options": [
+          "huomenna kello 14.35",
+          "tänään kello 14.35",
+          "huomenna aamulla",
+          "ensi viikolla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "33e4b371-1b19-553c-bb0f-0ab532caca00",
+        "prompt": "Missä Anna haluaa tavata Maijan?",
+        "options": [
+          "ravintolassa",
+          "asemalla",
+          "kotona",
+          "kahvilassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0ffd7b38-7d38-5e13-8c23-55f24d60a6c6",
+        "prompt": "Mitä Anna pyytää Maijaa tekemään?",
+        "options": [
+          "lähettämään sähköpostia",
+          "tulemaan asemalle",
+          "soittamaan",
+          "varaamaan pöydän"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

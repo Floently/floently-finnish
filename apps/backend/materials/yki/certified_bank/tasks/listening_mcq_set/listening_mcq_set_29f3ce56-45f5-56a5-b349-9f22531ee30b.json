@@ -1,0 +1,99 @@
+{
+  "id": "29f3ce56-45f5-56a5-b349-9f22531ee30b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uuden sairaalan suunnitelmista ja vastaa.",
+    "materials": {
+      "transcript": "Tämä on sairaanhoitopiirin tiedotustilaisuus. Esittelemme tänään suunnitelmat uuden keskussairaalan rakentamiseksi. Nykyinen sairaala on vanhentunut eikä vastaa nykypäivän tarpeita. Uusi sairaala rakennetaan Kiviharjun alueelle, ja sen on määrä valmistua vuonna 2028. Sairaalasta tulee nykyaikainen ja potilaslähtöinen. Siellä on 350 vuodeosastopaikkaa, 10 leikkaussalia ja nykyaikaiset päivystystilat. Erityisesti on panostettu siihen, että potilaiden yksityisyys on parempi: suurin osa huoneista on yhden hengen huoneita. Sairaalaan tulee myös helikopterikenttä ja monipuoliset diagnostiikkatilat. Rakentamisen aikana sairaalan toiminnot jatkuvat väistötiloissa. Osa toiminnoista siirtyy väliaikaisesti kaupunginsairaalaan ja yksityisiin palveluntuottajiin. Potilaita tiedotetaan tarkemmin, kun siirrot ovat ajankohtaisia. Uuden sairaalan kokonaiskustannusarvio on 350 miljoonaa euroa. Hanke rahoitetaan valtion avustuksilla ja sairaanhoitopiirin omarahoituksella. Tervetuloa tutustumaan suunnitelmiin verkkosivuillamme.",
+      "audio_asset_id": "d7e8f9a0-b1c2-3d4e-5f6a-7b8c9d0e1f2a"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä sairaanhoitopiiri tiedottaa?",
+        "options": [
+          "Sairaalan lakkauttamisesta.",
+          "Uuden sairaalan suunnitelmista.",
+          "Sairaalan henkilökunnan lomautuksista.",
+          "Potilasmaksujen korotuksesta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Minne uusi sairaala rakennetaan?",
+        "options": [
+          "Nykyisen sairaalan paikalle.",
+          "Kiviharjun alueelle.",
+          "Keskustaan.",
+          "Lentokentän viereen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Milloin sairaalan on määrä valmistua?",
+        "options": [
+          "2026.",
+          "2027.",
+          "2028.",
+          "2029."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq4",
+        "prompt": "Kuinka monta vuodeosastopaikkaa uudessa sairaalassa on?",
+        "options": [
+          "250.",
+          "350.",
+          "450.",
+          "550."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on uudessa sairaalassa erityisesti potilaiden kannalta paremmin?",
+        "options": [
+          "Ruoka ja viihde.",
+          "Yksityisyys ja yhden hengen huoneet.",
+          "Parkkipaikat ja kulkuyhteydet.",
+          "Henkilökunnan määrä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on sairaalan kokonaiskustannusarvio?",
+        "options": [
+          "250 miljoonaa euroa.",
+          "300 miljoonaa euroa.",
+          "350 miljoonaa euroa.",
+          "400 miljoonaa euroa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

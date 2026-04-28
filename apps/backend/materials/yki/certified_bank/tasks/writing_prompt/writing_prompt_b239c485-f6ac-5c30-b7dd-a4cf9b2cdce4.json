@@ -1,0 +1,37 @@
+{
+  "id": "b239c485-f6ac-5c30-b7dd-a4cf9b2cdce4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö koirien omistajien kerätä koirien jätökset aina. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Koirien jätösten kerääminen"
+    },
+    "items": [
+      {
+        "id": "4aa0bb52-d6c6-50c8-ba39-ec29c42bce84",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö koirien omistajien kerätä koirien jätökset aina. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

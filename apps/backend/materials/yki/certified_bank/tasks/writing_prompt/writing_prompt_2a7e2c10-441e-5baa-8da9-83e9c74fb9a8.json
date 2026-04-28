@@ -1,0 +1,37 @@
+{
+  "id": "2a7e2c10-441e-5baa-8da9-83e9c74fb9a8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan kirjastoon. Haluaisit ehdottaa, että kirjasto hankkisi kokoelmiinsa lisää selkokielisiä kirjoja aikuisille maahanmuuttajille. Perustele ehdotustasi ja kysy, miten hankintaehdotuksia käsitellään.",
+    "materials": {
+      "scenario": "Selkokielisten kirjojen hankintaehdotus"
+    },
+    "items": [
+      {
+        "id": "72b9ccf8-67ad-5abf-a07a-ba58040a565f",
+        "prompt": "Kirjoita virallinen sähköposti kunnan kirjastoon. Haluaisit ehdottaa, että kirjasto hankkisi kokoelmiinsa lisää selkokielisiä kirjoja aikuisille maahanmuuttajille. Perustele ehdotustasi ja kysy, miten hankintaehdotuksia käsitellään."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

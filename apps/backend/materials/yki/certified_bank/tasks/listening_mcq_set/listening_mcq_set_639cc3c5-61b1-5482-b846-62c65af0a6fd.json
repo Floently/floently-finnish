@@ -1,0 +1,88 @@
+{
+  "id": "639cc3c5-61b1-5482-b846-62c65af0a6fd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.67,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele juna-aseman kuulutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvät matkustajat. IC 85 Rovaniemelle lähtee raiteelta 1 kello 20.15. Junassa on makuuvaunuja ja ravintolavaunu. Seuraava juna Rovaniemelle lähtee huomenna aamulla kello 6.30. Hyvää matkaa ja hyvää yötä!",
+      "audio_asset_id": "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f"
+    },
+    "questions": [
+      {
+        "id": "l270q1",
+        "prompt": "Mille raiteelle juna Rovaniemelle lähtee?",
+        "options": [
+          "Raide 1.",
+          "Raide 2.",
+          "Raide 3.",
+          "Raide 4."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l270q2",
+        "prompt": "Mihin aikaan juna lähtee?",
+        "options": [
+          "Kello 19.45.",
+          "Kello 20.00.",
+          "Kello 20.15.",
+          "Kello 20.30."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l270q3",
+        "prompt": "Mikä on junan numero?",
+        "options": [
+          "IC 83.",
+          "IC 84.",
+          "IC 85.",
+          "IC 86."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l270q4",
+        "prompt": "Mitä erityisiä vaunuja junassa on?",
+        "options": [
+          "Makuuvaunuja ja ravintolavaunu.",
+          "Ravintolavaunu ja lasten leikkivaunu.",
+          "Elokuvavaunu ja makuuvaunuja.",
+          "Konferenssivaunu ja ravintolavaunu."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l270q5",
+        "prompt": "Milloin seuraava juna Rovaniemelle lähtee?",
+        "options": [
+          "Kello 22.15.",
+          "Kello 23.30.",
+          "Huomenna aamulla kello 6.30.",
+          "Huomenna illalla."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

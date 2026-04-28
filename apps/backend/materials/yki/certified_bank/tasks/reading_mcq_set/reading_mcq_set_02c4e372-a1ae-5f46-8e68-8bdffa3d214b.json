@@ -1,0 +1,77 @@
+{
+  "id": "02c4e372-a1ae-5f46-8e68-8bdffa3d214b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Minulla on koira nimeltään Rexi. Rexillä oli tiistaina vatsa kipeä. Se ei syönyt mitään ja oli väsynyt. Vein Rexin eläinlääkäriin keskiviikkona. Eläinlääkäri tutki Rexin ja antoi lääkettä. Nyt Rexi voi jo paremmin. Se syö taas normaalisti ja on iloinen. Eläinlääkärikäynti maksoi 80 euroa. Onneksi minulla on lemmikkivakuutus, joka kattaa osan kuluista.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä koiralla oli vikana?",
+        "options": [
+          "Sillä oli kuume",
+          "Sillä oli vatsa kipeä",
+          "Sillä oli jalka kipeä",
+          "Sillä oli korva kipeä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Minä päivänä koira vietiin eläinlääkäriin?",
+        "options": [
+          "Maanantaina",
+          "Tiistaina",
+          "Keskiviikkona",
+          "Torstaina"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä eläinlääkäri teki?",
+        "options": [
+          "Leikkasi koiran",
+          "Antoi lääkettä",
+          "Peseytti koiran",
+          "Rokotti koiran"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Paljonko eläinlääkärikäynti maksoi?",
+        "options": [
+          "50 euroa",
+          "60 euroa",
+          "70 euroa",
+          "80 euroa"
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

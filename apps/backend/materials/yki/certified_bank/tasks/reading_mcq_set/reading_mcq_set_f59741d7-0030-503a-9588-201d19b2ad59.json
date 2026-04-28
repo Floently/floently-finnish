@@ -1,0 +1,66 @@
+{
+  "id": "f59741d7-0030-503a-9588-201d19b2ad59",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "VERKKOKAUPAN KÄYTTÖEHDOT\n\n1. REKISTERÖITYMINEN\nAsiakkaan on annettava oikeat ja ajantasaiset tiedot. Väärien tietojen antaminen voi johtaa tilin sulkemiseen.\n\n2. TILAAMINEN\nTilaus sitoo, kun olet saanut tilausvahvistuksen sähköpostiisi. Pidätämme oikeuden peruuttaa tilaus, jos tuotetta ei ole varastossa. Tällöin rahat palautetaan viikon kuluessa.\n\n3. MAKSAMINEN\nHyväksytyt maksutavat: verkkopankki, luottokortti, lasku (30 vrk). Laskutuslisä 3 €.\n\n4. TOIMITUS\nToimitusaika on 3–7 arkipäivää. Ilmainen toimitus yli 50 € tilauksiin, muutoin toimitusmaksu 5,90 €.\n\n5. PALAUTUS\n30 päivän palautusoikeus. Tuotteen on oltava käyttämätön ja alkuperäispakkauksessa. Asiakas maksaa palautuksen postikulut.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 112
+    },
+    "questions": [
+      {
+        "id": "94571af0-8bf5-5882-b252-09950e85c611",
+        "prompt": "Milloin tilaus on sitova?",
+        "options": [
+          "Kun tuote lisätään ostoskoriin",
+          "Kun maksu on maksettu",
+          "Kun tilausvahvistus on saatu",
+          "Kun tuote on toimitettu"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "7b8e820c-bfb5-54ee-8ee0-5565dabe74ae",
+        "prompt": "Paljonko on laskutuslisä?",
+        "options": [
+          "2 €",
+          "3 €",
+          "5 €",
+          "Ilmainen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "999346e5-a53e-561d-b1d6-78606ba28b84",
+        "prompt": "Milloin toimitus on ilmainen?",
+        "options": [
+          "Aina",
+          "Kun tilaus on yli 30 €",
+          "Kun tilaus on yli 50 €",
+          "Vain lähialueelle"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

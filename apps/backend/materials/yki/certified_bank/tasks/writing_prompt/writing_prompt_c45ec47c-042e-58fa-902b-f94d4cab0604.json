@@ -1,0 +1,37 @@
+{
+  "id": "c45ec47c-042e-58fa-902b-f94d4cab0604",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.516,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti terveyskeskukseen. Sinulla on oireita, jotka voivat viitata flunssaan. Pyydä ajanvarausta lääkärille ja kuvaile lyhyesti oireitasi. Kerro myös, jos sinulla on kiireellinen tarve saada aika nopeasti.",
+    "materials": {
+      "scenario": "Ajanvaraus lääkärille"
+    },
+    "items": [
+      {
+        "id": "6b1ad85a-f066-5ef8-8483-4294ca8b3af2",
+        "prompt": "Kirjoita sähköposti terveyskeskukseen. Sinulla on oireita, jotka voivat viitata flunssaan. Pyydä ajanvarausta lääkärille ja kuvaile lyhyesti oireitasi. Kerro myös, jos sinulla on kiireellinen tarve saada aika nopeasti."
+      }
+    ],
+    "rubric": "Oireiden kuvaus\nPyyntö ajasta\nMahdollinen kiireellisyys",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

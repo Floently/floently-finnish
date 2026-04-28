@@ -1,0 +1,37 @@
+{
+  "id": "0f155af3-b0a8-5bf2-b6f2-817cfeacf0d1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin puistosta. Kerro puiston siisteydestä, leikkipaikan turvallisuudesta ja penkkien määrästä. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin puistosta"
+    },
+    "items": [
+      {
+        "id": "fd1d427c-427f-53d6-82ba-190967147123",
+        "prompt": "Kirjoita palauteteksti kaupungin puistosta. Kerro puiston siisteydestä, leikkipaikan turvallisuudesta ja penkkien määrästä. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Puiston siisteys\nLeikkipaikan turvallisuus\nPenkkien määrä\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

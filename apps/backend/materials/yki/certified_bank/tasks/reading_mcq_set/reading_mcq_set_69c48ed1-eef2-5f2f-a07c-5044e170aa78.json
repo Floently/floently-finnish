@@ -1,0 +1,99 @@
+{
+  "id": "69c48ed1-eef2-5f2f-a07c-5044e170aa78",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Luonnontuoteala on kasvava toimiala Suomessa. Marjojen, sienten ja yrttien keruu ja jalostus työllistävät tuhansia ihmisiä. Tuotteita myydään niin kotimaahan kuin vientiin. Ala on tärkeä erityisesti harvaan asutuilla seuduilla, joilla muita työmahdollisuuksia on vähemmän. Haasteena on alan kausiluonteisuus ja markkinoinnin osaaminen. Alan tulevaisuus nähdään kuitenkin valoisana kasvavan kysynnän vuoksi.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kasvava toimiala Suomessa?",
+        "options": [
+          "Teknologiateollisuus",
+          "Luonnontuoteala",
+          "Rakennusala",
+          "Kauppa-ala"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä luonnontuotealaan kuuluu?",
+        "options": [
+          "Puun ja turpeen keruu",
+          "Marjojen, sienten ja yrttien keruu ja jalostus",
+          "Kalastus ja metsästys",
+          "Luontomatkailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Kuinka monia ala työllistää?",
+        "options": [
+          "Satoja ihmisiä",
+          "Tuhansia ihmisiä",
+          "Kymmeniä tuhansia",
+          "Miljoonia ihmisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä päin Suomea ala on erityisen tärkeä?",
+        "options": [
+          "Suurissa kaupungeissa",
+          "Harvaan asutuilla seuduilla",
+          "Rannikkoseuduilla",
+          "Koko maassa tasaisesti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä haasteita alalla on?",
+        "options": [
+          "Liian suuri kysyntä",
+          "Kausiluonteisuus ja markkinoinnin osaaminen",
+          "Liian kova kilpailu",
+          "Raaka-aineiden puute"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi alan tulevaisuus nähdään valoisana?",
+        "options": [
+          "Vähenevän kysynnän takia",
+          "Kasvavan kysynnän takia",
+          "Valtion tukien takia",
+          "Ulkomaalaisten kiinnostuksen takia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

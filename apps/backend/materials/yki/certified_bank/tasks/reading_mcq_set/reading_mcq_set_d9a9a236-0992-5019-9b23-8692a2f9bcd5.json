@@ -1,0 +1,77 @@
+{
+  "id": "d9a9a236-0992-5019-9b23-8692a2f9bcd5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.782,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MAAHANMUUTTO JA YHTEISKUNNALLINEN YHTEENKUULUVUUS\n\nMaahanmuutto on yksi aikamme puhutuimmista ja polarisoivimmista aiheista. Se jakaa mielipiteitä niin poliittisella kentällä kuin arjen keskusteluissa. Keskustelun kärjistyessä on vaarana, että monisyinen ilmiö pelkistyy mustavalkoiseksi asetelmaksi, jossa tunnepuhe ohittaa faktat.\n\nTaloudellisesta näkökulmasta maahanmuuton vaikutukset ovat monitahoiset. Tutkimukset osoittavat, että työperäinen maahanmuutto vaikuttaa myönteisesti julkiseen talouteen, sillä työikäiset maahanmuuttajat maksavat veroja ja kuluttavat palveluita vähemmän kuin kantaväestö keskimäärin. Toisaalta humanitaarisen maahanmuuton alkuvaiheessa kustannukset voivat olla merkittäviä kotouttamistoimien ja sosiaaliturvan vuoksi. Pitkällä aikavälillä kuitenkin myös humanitaarisesti maahan tulleiden työllistyminen ja kotoutuminen ovat ratkaisevia sekä yksilön että yhteiskunnan kannalta.\n\nKulttuurinen moninaisuus on sekä rikkaus että haaste. Monikulttuurisuus voi tuoda uusia näkökulmia, rikastuttaa taidetta ja ruokakulttuuria sekä avartaa maailmankuvaa. Samalla se voi synnyttää jännitteitä, jos eri ryhmät elävät rinnakkain ilman vuorovaikutusta ja yhteisiä arvoja. Kotoutumisen kannalta on tärkeää, että maahanmuuttajat oppivat kielen, ymmärtävät yhteiskunnan pelisääntöjä ja kokevat kuuluvansa yhteiskuntaan.\n\nSosiaalinen yhteenkuuluvuus on yksi keskeisimmistä tekijöistä, joka ratkaisee, onko maahanmuutto yhteiskuntaa eheyttävä vai hajottava voima. Jos maahanmuuttajat ja kantaväestö elävät erillään toisistaan, syntyy rinnakkaisyhteiskuntia, mikä heikentää luottamusta ja yhteisöllisyyttä. Toisaalta, jos kohtaamisia on riittävästi – työpaikoilla, kouluissa, harrastuksissa – syntyy ymmärrystä ja sosiaalisia siteitä, jotka vahvistavat yhteiskuntaa.\n\nTulevaisuuden kannalta on olennaista, että maahanmuuttopolitiikka on johdonmukaista, pitkäjänteistä ja inhimillistä. Tarvitaan selkeitä sääntöjä ja reittejä maahan tuloon, mutta myös panostusta kotoutumiseen ja syrjinnän ehkäisyyn. Maahanmuuttajat tulevat olemaan yhä tärkeämpi osa suomalaista yhteiskuntaa, ja heidän potentiaalinsa valjastaminen on koko yhteiskunnan etu.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 261
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten teksti arvioi työperäisen maahanmuuton taloudellisia vaikutuksia?",
+        "options": [
+          "Se on aina kielteistä",
+          "Se vaikuttaa myönteisesti julkiseen talouteen",
+          "Sillä ei ole taloudellisia vaikutuksia",
+          "Se on liian kallista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on ratkaisevaa humanitaarisen maahanmuuton pitkän aikavälin onnistumisessa?",
+        "options": [
+          "Nopea karkottaminen",
+          "Työllistyminen ja kotoutuminen",
+          "Kulttuurinen eristäytyminen",
+          "Taloudellinen tuki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tarkoitetaan rinnakkaisyhteiskunnilla?",
+        "options": [
+          "Eri kulttuurien täydellistä sulautumista",
+          "Tilannetta, jossa maahanmuuttajat ja kantaväestö elävät erillään ilman vuorovaikutusta",
+          "Yhteiskuntaa, jossa on vain yksi kulttuuri",
+          "Kansainvälistä yhteistyötä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä teksti pitää tärkeänä kotoutumisen kannalta?",
+        "options": [
+          "Oman kulttuurin täydellistä hylkäämistä",
+          "Kielen oppimista, yhteiskunnan pelisääntöjen ymmärtämistä ja kuulumisen tunnetta",
+          "Mahdollisimman nopeaa paluuta lähtömaahan",
+          "Kulttuurista eristäytymistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

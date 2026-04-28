@@ -1,0 +1,66 @@
+{
+  "id": "168d24bb-a101-5edb-bdff-b6ebb6ebe57f",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, olen varannut pöydän kahdelle kello 19. Nimeni on Virtanen.\nTarjoilija: Hei, tervetuloa! Katsotaan varauksia. Kyllä, täällä on varaus nimellä Virtanen. Pöytä on ikkunan vieressä, tätä kautta.\nAsiakas: Kiitos. Tämä on oikein mukava paikka.\nTarjoilija: Tässä on ruokalista. Päivän erikoisena on grillattua lohta tillikastikkeen kanssa. Ottaisitteko alkuun jotain juotavaa?\nAsiakas: Kyllä, otetaan pullo kivennäisvettä ja lasilliset punkkua.\nTarjoilija: Tulee heti.",
+      "audio_asset_id": "9a92a92c-9133-563a-a0ed-2e7837bb8c3d"
+    },
+    "questions": [
+      {
+        "id": "list_582",
+        "prompt": "Mihin aikaan asiakas on varannut pöydän?",
+        "options": [
+          "Kello 18",
+          "Kello 19",
+          "Kello 20",
+          "Kello 21"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_583",
+        "prompt": "Mikä on päivän erikoisruoka?",
+        "options": [
+          "Pihvi",
+          "Grillattua lohta",
+          "Kasvispasta",
+          "Kanaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_584",
+        "prompt": "Mitä asiakkaat tilaavat juotavaksi?",
+        "options": [
+          "Olutta ja siideriä",
+          "Kivennäisvettä ja punkkua",
+          "Mehua ja kahvia",
+          "Valkoviiniä ja vettä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "b60e6c71-9163-52ec-a9a3-82ff4b10811f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.736,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Tekoälyn nopea kehitys on herättänyt vilkasta keskustelua eettisistä kysymyksistä. Keskeisiä teemoja ovat muun muassa tekoälyn läpinäkyvyys, vastuukysymykset ja mahdolliset syrjivät vaikutukset. Läpinäkyvyydellä tarkoitetaan sitä, että tekoälyn päätöksenteon pitäisi olla ymmärrettävää ja selitettävissä, jotta sen toimintaa voidaan arvioida. Tämä on erityisen tärkeää esimerkiksi lainopillisissa päätöksissä tai terveydenhuollossa. Vastuukysymykset nousevat esiin, kun tekoäly tekee virheen: kuka on vastuussa – kehittäjä, käyttäjä vai itse kone? Kolmas keskeinen huolenaihe on tekoälyn mahdollisuus vahvistaa yhteiskunnassa olemassa olevia ennakkoluuloja. Jos tekoälyä opetetaan aineistolla, joka sisältää syrjiviä asenteita, se voi oppia toistamaan niitä. Tämän vuoksi tekoälyn kehittäjillä on suuri eettinen vastuu. Euroopan unioni onkin valmistelemassa tekoälysäädöstä, joka asettaisi tiukat vaatimukset erityisesti korkean riskin tekoälysovelluksille.",
+      "word_count": 107
+    },
+    "questions": [
+      {
+        "id": "940e314d-7e64-5626-8250-24b5671052ec",
+        "prompt": "Mitä läpinäkyvyys tekoälyn yhteydessä tarkoittaa?",
+        "options": [
+          "Sitä, että tekoälyn lähdekoodi on julkista",
+          "Sitä, että tekoälyn päätöksenteon pitäisi olla ymmärrettävissä",
+          "Sitä, että tekoäly toimii nopeasti",
+          "Sitä, että tekoälyä voi käyttää kuka tahansa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "84e844ee-2686-5cbf-b65d-cd8c7d13aa85",
+        "prompt": "Mitä ongelmaa vastuukysymykset koskevat?",
+        "options": [
+          "Tekoälyn kehittämisen rahoitusta",
+          "Tekoälyn virheiden seurauksia ja vastuutahoja",
+          "Tekoälyn nopeaa kehitystä",
+          "Tekoälyn energiankulutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "54d09050-1895-5ec7-8fcb-f4b59cf9ebe9",
+        "prompt": "Miten tekoäly voi vahvistaa syrjintää?",
+        "options": [
+          "Se on suunniteltu syrjimään tiettyjä ryhmiä",
+          "Se oppii ennakkoluuloja harjoitusaineistosta",
+          "Se toimii vain tietyillä kielillä",
+          "Se on kallista hankkia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

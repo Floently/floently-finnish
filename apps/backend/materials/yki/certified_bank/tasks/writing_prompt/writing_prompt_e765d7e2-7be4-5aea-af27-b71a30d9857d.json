@@ -1,0 +1,37 @@
+{
+  "id": "e765d7e2-7be4-5aea-af27-b71a30d9857d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita argumentoiva essee (noin 370-420 sanaa) otsikolla 'Pitäisikö ydinvoiman käyttöä lisätä ilmastotavoitteiden saavuttamiseksi?'. Pohdi ydinvoiman roolia päästöttömänä energialähteenä, sen turvallisuutta ja jätehuoltoa. Vertaa uusiutuviin energialähteisiin ja niiden vaatimaan säätövoimaan. Onko ydinvoima tarpeellinen osa tulevaisuuden energiayhdistelmää? Perustele.",
+    "materials": {
+      "scenario": "Ydinvoiman lisääminen"
+    },
+    "items": [
+      {
+        "id": "afe6cce9-6a34-5ed1-a53e-c1b77a1e060f",
+        "prompt": "Kirjoita argumentoiva essee (noin 370-420 sanaa) otsikolla 'Pitäisikö ydinvoiman käyttöä lisätä ilmastotavoitteiden saavuttamiseksi?'. Pohdi ydinvoiman roolia päästöttömänä energialähteenä, sen turvallisuutta ja jätehuoltoa. Vertaa uusiutuviin energialähteisiin ja niiden vaatimaan säätövoimaan. Onko ydinvoima tarpeellinen osa tulevaisuuden energiayhdistelmää? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita argumentoiva essee (noin 370-420 sanaa) otsikolla 'Pitäisikö ydinvoiman käyttöä lisätä ilmastotavoitteiden saavuttamiseksi?'. Pohdi ydinvoiman roolia päästöttömänä energialähteenä, sen turvallisuutta ja jätehuoltoa. Vertaa uusiutuviin energialähteisiin ja niiden vaatimaan säätövoimaan. Onko ydinvoima tarpeellinen osa tulevaisuuden energiayhdistelmää? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

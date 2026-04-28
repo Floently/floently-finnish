@@ -1,0 +1,37 @@
+{
+  "id": "a3cfcf22-db40-57c3-b2ed-62cad646322d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti harrastusryhmän WhatsApp-ryhmään. Kerro, että et pääse tämän viikon treeneihin, koska olet matkoilla. Toivota muille hyviä treenejä.",
+    "materials": {
+      "scenario": "Viesti harrastusryhmälle poissaolosta"
+    },
+    "items": [
+      {
+        "id": "218cdd31-4d06-590e-8673-ba4f891b0bed",
+        "prompt": "Kirjoita lyhyt viesti harrastusryhmän WhatsApp-ryhmään. Kerro, että et pääse tämän viikon treeneihin, koska olet matkoilla. Toivota muille hyviä treenejä."
+      }
+    ],
+    "rubric": "Kerro, että et pääse treeneihin\nKerro syy (matkat)\nToivota muille hyviä treenejä",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

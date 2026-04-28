@@ -1,0 +1,77 @@
+{
+  "id": "86e0bcbc-9451-5db4-ac4b-89f1e8cf0ab3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kierrätyksestä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIERRÄTYS – NÄIN ONNISTUT ARJESSA\n\nMonelle kierrätys on itsestään selvää, mutta epäselvyyksiäkin on. Tässä muistutus yleisimmistä kierrätysasioista.\n\nMUOVI: Muovipakkaukset, kuten jugurttipurkit, shampoopullot ja muovipussit, kuuluvat muovinkeräykseen. Huom! Muovilelut eivät kuulu sinne, vaan sekajätteeseen.\n\nKARTONKI: Maitotölkit, kartonkiset mehupurkit ja pizzalaatikot (tyhjennettyinä ja ilman rasvaa) kuuluvat kartonkikeräykseen.\n\nLASI: Lasipurkit ja -pullot kuuluvat lasinkeräykseen. Värillinen ja kirkas lasi samaan. Ikkunalasi, peilit ja posliini eivät kuulu lasinkeräykseen.\n\nBIOJÄTE: Biojätteeseen kuuluvat ruuantähteet, kahvinporot, hedelmien kuoret ja kuihtuneet kukat. Biojätepussi saa olla hajoava, tavallinen muovipussi ei käy.\n\nMETALLI: Metallipurkit, foliot ja tyhjät maalipurkit (kuivina) kuuluvat metallinkeräykseen.\n\nSÄHKÖLAITTEET: Rikkinäiset sähkölaitteet viedään SER-keräykseen, esimerkiksi kaupan keräyspisteeseen. Niitä ei saa laittaa sekajätteeseen.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 131
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin muovilelut kuuluvat?",
+        "options": [
+          "Muovinkeräykseen",
+          "Sekajätteeseen",
+          "Metallinkeräykseen",
+          "Kartonkikeräykseen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä maitotölkeille pitää tehdä ennen kartonkikeräystä?",
+        "options": [
+          "Pestä ja kuivata",
+          "Tyhjentää (ei tarvitse pestä)",
+          "Pilkoa pieniksi",
+          "Poistaa korkki"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Saako ikkunalasin laittaa lasinkeräykseen?",
+        "options": [
+          "Kyllä, aina",
+          "Vain jos se on puhdas",
+          "Ei",
+          "Vain värillinen lasi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin rikkinäinen leivänpaahdin viedään?",
+        "options": [
+          "Sekajätteeseen",
+          "Metallinkeräykseen",
+          "SER-keräykseen",
+          "Kartonkikeräykseen"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

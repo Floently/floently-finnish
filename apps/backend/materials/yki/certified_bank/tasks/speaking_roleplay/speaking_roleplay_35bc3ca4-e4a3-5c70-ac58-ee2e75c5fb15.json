@@ -1,0 +1,64 @@
+{
+  "id": "35bc3ca4-e4a3-5c70-ac58-ee2e75c5fb15",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka reklamoi ravintolassa huonosta palvelusta. Keskustele esihenkilön kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Ravintolapäällikkö"
+      }
+    },
+    "items": [
+      {
+        "id": "srp4_1",
+        "ai_first_turn_fi": "Hyvää päivää, olen ravintolapäällikkö Jukka. Miten voin auttaa?"
+      },
+      {
+        "id": "srp4_2",
+        "ai_first_turn_fi": "Totta kai, kuuntelen mielelläni. Kerro ihmeessä, mitä tapahtui?"
+      },
+      {
+        "id": "srp4_3",
+        "ai_first_turn_fi": "Olen todella pahoillani kuullessani tämän. Mainitsitko asiasta tarjoilijalle eilen?"
+      },
+      {
+        "id": "srp4_4",
+        "ai_first_turn_fi": "Ymmärrän. Haluaisitko, että hyvitämme eilisen illallisen tai tarjoamme uuden illallisen korvaukseksi?"
+      },
+      {
+        "id": "srp4_5",
+        "ai_first_turn_fi": "Selvä, teemme niin. Keskustelen myös henkilökunnan kanssa, jotta vastaavaa ei tapahdu uudelleen. Mikä olisi sopiva ajankohta uudelle illalliselle?"
+      },
+      {
+        "id": "srp4_6",
+        "ai_first_turn_fi": "Loistavaa, merkitsen sen ylös. Haluatko vielä jotain muuta?"
+      },
+      {
+        "id": "srp4_7",
+        "ai_first_turn_fi": "Kiitos palautteestasi, se auttaa meitä kehittymään. Tervetuloa uudelleen!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka reklamoi ravintolassa huonosta palvelusta. Keskustele esihenkilön kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "b8c5a0c6-7cb7-595a-a2c9-3b924da5d2f7",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kotitalouksien kierrätyksestä ja vastaa.",
+    "materials": {
+      "transcript": "Elina: Hei Mikko, miten teillä hoidetaan kierrätys? Mikko: Meillä on taloyhtiössä hyvät puitteet. On omat astiat biojätteelle, muoville, metallille, lasille, kartongille ja sekajätteelle. Me lajitellaan kaikki tarkasti. Elina: Meillä ei oo vielä biojätettä, mutta se on tulossa. Onko se vaikeaa? Mikko: Ei ollenkaan. Biopussiin laitetaan ruoantähteet, kahvinporot, talouspaperit. Se pitää vaan muistaa tyhjentää usein, ettei tule hajuja. Elina: Entä muovi? Mikko: Muovi pestään kevyesti ja laitetaan omaan astiaan. Vain muovipakkaukset, ei esimerkiksi leluja. Elina: Meillä on pahvinkeräys. Sekin on ihan helppoa. Mikko: Joo, ja kannattaa muistaa, että pizzalaatikot pitää laittaa pahviin, mutta jos ne on kovin rasvaisia, ne menee sekajätteeseen. Elina: Onko teillä ongelmia roskisten kanssa? Mikko: Joskus on, jos joku laittaa väärää tavaraa. Mutta yleensä porukka on oppinut. Taloyhtiö järjestää myös kierrätysinfoa. Elina: Se on hyvä. Meillä vois olla enemmän opastusta. Mikko: Kannattaa ehdottaa taloyhtiön kokouksessa. Elina: Joo, voisin tehdä niin.",
+      "audio_asset_id": "0e2b4365-fb76-41a5-8ac9-853bff4b2d33"
+    },
+    "questions": [
+      {
+        "id": "0cb270a0-9be0-5a80-9a3f-ab6550e5cd6f",
+        "prompt": "Mistä Elina ja Mikko keskustelevat?",
+        "options": [
+          "Roskien maksuista.",
+          "Siivousvälineistä.",
+          "Kotitalouksien kierrätyksestä.",
+          "Jäteautojen reiteistä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "46f908ce-9303-544f-abe6-633f4d1eba93",
+        "prompt": "Mitä jakeita Mikon taloyhtiössä kerätään?",
+        "options": [
+          "Biojäte, muovi, metalli, lasi, kartonki ja sekajäte.",
+          "Vain biojäte ja sekajäte.",
+          "Vain paperi ja pahvi.",
+          "Vain lasi ja metalli."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "8f846ae3-12bc-5f17-8771-d91f2a355bf8",
+        "prompt": "Mitä biojätteeseen laitetaan?",
+        "options": [
+          "Muovipakkaukset.",
+          "Ruoantähteet, kahvinporot ja talouspaperit.",
+          "Lasipullot.",
+          "Paristot."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "473744c4-fec3-5206-b62c-c16a2c37fd1f",
+        "prompt": "Mitä muovinkeräykseen saa laittaa?",
+        "options": [
+          "Vain muovipakkaukset.",
+          "Kaiken muovin.",
+          "Vain muovipussit.",
+          "Vain muovilelut."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "01debd31-dcc8-5d39-85c6-54ca0c02de3b",
+        "prompt": "Mihin kovin rasvainen pizzalaatikko laitetaan?",
+        "options": [
+          "Kartonkiin.",
+          "Biojätteeseen.",
+          "Sekajätteeseen.",
+          "Muoviin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "bcd5df54-8e64-5677-8b3f-52d2e3b8a071",
+        "prompt": "Mitä Mikko suosittelee Elinalle?",
+        "options": [
+          "Vaihtaa taloyhtiötä.",
+          "Lopettaa kierrätyksen.",
+          "Ehdottaa kierrätysinfoa taloyhtiön kokouksessa.",
+          "Ostaa oma kompostori."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

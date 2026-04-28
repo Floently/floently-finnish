@@ -1,0 +1,54 @@
+name: ci
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install backend dependencies
+        run: pip install -r apps/backend/requirements.txt
+      - name: Verify material convergence
+        run: |
+          cd apps/backend
+          python - <<'CHECK'
+          from app.runtime.cards_material_bank import load_authority_cards, load_runtime_bank
+
+          authority_cards = load_authority_cards()
+          runtime_cards = load_runtime_bank()
+
+          print("authority_cards", len(authority_cards))
+          print("runtime_cards", len(runtime_cards))
+
+          if not authority_cards:
+              raise SystemExit("No authority cards loaded from apps/backend/card_bank")
+
+          if len(authority_cards) != len(runtime_cards):
+              raise SystemExit("Authority/runtime card count mismatch")
+          CHECK
+      - name: Run backend and engine tests
+        run: pytest apps/backend/tests engine/tests -q
+        env:
+          FLOENTLY_ENV: development
+          SIGNED_SESSION_SECRET: ci-test-secret
+
+  client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install client dependencies
+        run: cd apps/client && npm ci
+      - name: TypeScript check
+        run: cd apps/client && npx tsc --noEmit

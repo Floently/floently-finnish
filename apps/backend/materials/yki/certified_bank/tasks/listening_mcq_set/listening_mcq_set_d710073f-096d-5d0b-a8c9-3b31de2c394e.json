@@ -1,0 +1,66 @@
+{
+  "id": "d710073f-096d-5d0b-a8c9-3b31de2c394e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.499,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinvastaajaviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei, tässä on Leena. Soitan hammaslääkäriasemalta. Sinulla on aika ensi tiistaina kello 14.30. Jos et pääse, peruuta aika viimeistään maanantaina. Voit soittaa numeroon 045 789 1234. Huomioithan, että peruuttamattomasta ajasta veloitetaan 50 euroa. Kiitos ja hei!",
+      "audio_asset_id": "0b023f68-1c2c-5bb2-a523-1512463f5863"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin aika on?",
+        "options": [
+          "Maanantaina kello 14.30",
+          "Tiistaina kello 14.30",
+          "Keskiviikkona kello 14.30",
+          "Torstaina kello 14.30"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tapahtuu, jos ajan peruu liian myöhään?",
+        "options": [
+          "Saa uuden ajan",
+          "Joutuu maksamaan 50 euroa",
+          "Ei voi varata enää uutta aikaa",
+          "Ei mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin numeroon pitää soittaa?",
+        "options": [
+          "040 789 1234",
+          "045 789 1234",
+          "050 789 1234",
+          "046 789 1234"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

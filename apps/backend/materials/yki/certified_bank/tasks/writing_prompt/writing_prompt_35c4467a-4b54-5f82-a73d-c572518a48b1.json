@@ -1,0 +1,37 @@
+{
+  "id": "35c4467a-4b54-5f82-a73d-c572518a48b1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit parturissa tai kampaajalla. Kirjoita lyhyt palaute. Olitko tyytyväinen?",
+    "materials": {
+      "scenario": "Palaute parturista/kampaajasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kävit parturissa tai kampaajalla. Kirjoita lyhyt palaute. Olitko tyytyväinen?"
+      }
+    ],
+    "rubric": "Kävit parturissa tai kampaajalla. Kirjoita lyhyt palaute. Olitko tyytyväinen?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

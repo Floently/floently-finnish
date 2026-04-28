@@ -1,0 +1,66 @@
+{
+  "id": "5d3439fd-b548-5dfb-a04a-875d21ed0ddb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.763,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "HYVINVOINTIVALTIO PURISTUKSESSA – UUDISTUKSEN PAINE\n\nPohjoismainen hyvinvointivaltio on ollut kansainvälisesti tunnettu malli, jossa yhdistyvät taloudellinen tehokkuus ja sosiaalinen oikeudenmukaisuus. Viime vuosina malli on kuitenkin joutunut kasvavien haasteiden eteen. Väestön ikääntyminen, julkisen talouden velkaantuminen ja globaali kilpailu asettavat paineita, jotka pakottavat uudelleenarviointiin.\n\nSosiaalipolitiikan tutkija Anne-Mari Mäkelä avaa haasteita. ”Julkiset menot kasvavat, kun yhä useampi suomalainen on eläkeiässä ja tarvitsee hoivaa. Samaan aikaan työikäisten määrä vähenee. Tämä luo kestämättömän tilanteen, jos mitään ei tehdä. Pelkkä leikkaaminen ei kuitenkaan ole ratkaisu, sillä se heikentäisi hyvinvointivaltion peruslupausta turvallisuudesta ja tasa-arvosta.”\n\nMäkelän mukaan tarvitaan uudenlaista ajattelua. ”On kysyttävä, mitä palveluja ja etuuksia tarvitaan, miten ne voidaan tuottaa tehokkaammin ja miten rahoitus saadaan kestävälle pohjalle. Tämä edellyttää priorisointia ja rohkeutta luopua vanhentuneista rakenteista.”\n\nYksi keskustelunaihe on perustulon kaltaiset uudet sosiaaliturvan mallit. Ne voisivat yksinkertaistaa byrokratiaa ja kannustaa työntekoon, mutta niiden vaikutuksista ja kustannuksista on kiistelty. Myös yksityisen ja kolmannen sektorin rooli palvelujen tuottajina on herättänyt keskustelua.\n\nMäkelä korostaa, että hyvinvointivaltion tulevaisuutta ei voi tarkastella irrallaan taloudesta. ”Talouskasvu on pitkään mahdollistanut hyvinvointivaltion laajentamisen. Jos kasvu hidastuu tai pysähtyy, joudumme miettimään uudelleen, mikä on mahdollista ja millä hinnalla. Tämä ei tarkoita hyvinvointivaltion hylkäämistä, vaan sen sopeuttamista uuteen todellisuuteen.”\n\nToinen keskeinen kysymys on sukupolvien välinen oikeudenmukaisuus. Nuoret ja tulevat sukupolvet joutuvat kantamaan raskaan taakan, jos hyvinvointivaltiota rahoitetaan velalla. Heidän näkökulmansa on otettava vakavasti päätöksenteossa.\n\nMäkelän mukaan ratkaisu ei ole yhdessä suuressa uudistuksessa vaan monissa pienissä. ”Tarvitaan jatkuvaa kehittämistä, kokeiluja ja arviointia. Myös kansalaisten osallistuminen keskusteluun on tärkeää – hyvinvointivaltio on loppujen lopuksi meidän kaikkien yhteinen hanke.”  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 280
+    },
+    "questions": [
+      {
+        "id": "05b9086f-72c2-5b7d-951c-8e268e3689c5",
+        "prompt": "Mitkä ovat suurimmat haasteet hyvinvointivaltiolle Anne-Mari Mäkelän mukaan?",
+        "options": [
+          "Liian suuri työttömyys",
+          "Väestön ikääntyminen, julkisen talouden velkaantuminen ja globaali kilpailu",
+          "Liian korkea verotus",
+          "Liian vähän maahanmuuttajia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "89fe73db-b11c-5ad9-b22d-70205e84f794",
+        "prompt": "Miksi pelkkä leikkaaminen ei ole Mäkelän mukaan ratkaisu?",
+        "options": [
+          "Koska se on poliittisesti mahdotonta",
+          "Koska se heikentäisi hyvinvointivaltion peruslupausta turvallisuudesta ja tasa-arvosta",
+          "Koska se ei säästä tarpeeksi rahaa",
+          "Koska se lisäisi byrokratiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "26bed73b-9a3d-58a7-a695-84f8a2320e44",
+        "prompt": "Mitä Mäkelä tarkoittaa sukupolvien välisellä oikeudenmukaisuudella?",
+        "options": [
+          "Kaikilla sukupolvilla on samat oikeudet",
+          "Nuoret ja tulevat sukupolvet eivät saa joutua kantamaan kohtuutonta taakkaa nykyisistä päätöksistä",
+          "Vanhukset pitää asettaa etusijalle",
+          "Lapset eivät saa joutua maksamaan vanhempiensa eduista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

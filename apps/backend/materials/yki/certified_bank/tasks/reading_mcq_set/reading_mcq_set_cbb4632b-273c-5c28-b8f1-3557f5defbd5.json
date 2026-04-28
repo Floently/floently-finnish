@@ -1,0 +1,66 @@
+{
+  "id": "cbb4632b-273c-5c28-b8f1-3557f5defbd5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kestävä kehitys tarkoittaa toimintaa, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta mahdollisuutta tyydyttää omia tarpeitaan. Arjessa tämä voi näkyä monin tavoin. Yksi tärkeä osa-alue on energiankulutus: valitsemalla vihreää sähköä, sammuttamalla valot turhaan ja suosimalla julkista liikennettä tai pyöräilyä voi vähentää hiilijalanjälkeä. Toinen keskeinen asia on kulutustottumukset. Kestävän kehityksen mukaista on ostaa vähemmän mutta laadukkaampaa ja korjauttaa rikkinäiset tavarat uusien ostamisen sijaan. Myös ruuan alkuperään kannattaa kiinnittää huomiota: sesongin mukaiset ja lähellä tuotetut vihannekset ovat ympäristölle parempi vaihtoehto kuin kaukaa lentorahdilla tuodut. Monet kaupungit ja kunnat panostavat nykyään kestävän kehityksen ohjelmiin ja kannustavat asukkaita ympäristöystävällisiin valintoihin esimerkiksi kierrätyspisteillä ja energianeuvonnalla.",
+      "word_count": 99
+    },
+    "questions": [
+      {
+        "id": "b7c8d9e0-f1a2-4b3c-9d4e-5f6a7b8c9d0e",
+        "prompt": "Mitä kestävä kehitys tarkoittaa?",
+        "options": [
+          "Vain luonnonsuojelua",
+          "Toimintaa, joka tyydyttää nykyhetken tarpeet viemättä tulevilta sukupolvilta",
+          "Teollisuuden kasvua",
+          "Vain kierrätystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c8d9e0f1-a2b3-4c4d-9e5f-6a7b8c9d0e1f",
+        "prompt": "Miten voi vähentää hiilijalanjälkeä liikkumisessa?",
+        "options": [
+          "Käyttämällä yksityisautoa",
+          "Lentämällä usein",
+          "Suosimalla julkista liikennettä ja pyöräilyä",
+          "Ajamalla isolla autolla"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "d9e0f1a2-b3c4-4d5e-9f6a-7b8c9d0e1f2a",
+        "prompt": "Millainen ruoka on ympäristölle parempi vaihtoehto?",
+        "options": [
+          "Kaukaa lentorahdilla tuotu ruoka",
+          "Sesonkimukainen ja lähellä tuotettu ruoka",
+          "Pakatut einekset",
+          "Ulkomaalainen eksoottinen ruoka"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

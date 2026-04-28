@@ -1,0 +1,37 @@
+{
+  "id": "f2a616af-c152-5196-9c98-8dba637c5b43",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kunnan rakennusvalvontaan. Olet rakentamassa autotallia tontillesi ja haluat tietää, tarvitaanko siihen rakennuslupa ja mitä kaavamääräyksiä sinun tulee noudattaa. Kerro tontin koko, sijainti ja autotallin suunnitellut mitat.",
+    "materials": {
+      "scenario": "Autotallin rakennuslupa"
+    },
+    "items": [
+      {
+        "id": "d7856841-68db-53ec-aae7-9afdd7511c1a",
+        "prompt": "Kirjoita virallinen sähköposti kunnan rakennusvalvontaan. Olet rakentamassa autotallia tontillesi ja haluat tietää, tarvitaanko siihen rakennuslupa ja mitä kaavamääräyksiä sinun tulee noudattaa. Kerro tontin koko, sijainti ja autotallin suunnitellut mitat."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

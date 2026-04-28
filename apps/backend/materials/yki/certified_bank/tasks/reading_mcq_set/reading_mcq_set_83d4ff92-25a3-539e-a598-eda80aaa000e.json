@@ -1,0 +1,77 @@
+{
+  "id": "83d4ff92-25a3-539e-a598-eda80aaa000e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomessa jokaisella alle kouluikäisellä lapsella on oikeus varhaiskasvatukseen. Päivähoitoa voi saada päiväkodissa, perhepäivähoidossa tai avoimena varhaiskasvatuksena. Päivähoidon tavoitteena on tukea lapsen kehitystä, oppimista ja hyvinvointia yhteistyössä vanhempien kanssa. Päivähoidon maksut määräytyvät perheen koon ja tulojen mukaan, ja pienituloisimmat perheet saavat hoitopaikan maksutta. Päiväkodeissa on varhaiskasvatushenkilöstöä, ja ryhmäkokoja pyritään pitämään kohtuullisina. Subjektiivinen päivähoito-oikeus takaa, että jokainen lapsi saa paikan. Viime vuosina on keskusteltu henkilöstön riittävyydestä ja laatuvaatimuksista.",
+      "word_count": 66
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_025",
+        "prompt": "Millaisia päivähoitomuotoja Suomessa on?",
+        "options": [
+          "Vain päiväkoteja",
+          "Päiväkoti, perhepäivähoito ja avoin varhaiskasvatus",
+          "Vain perhepäivähoito",
+          "Vain kotona hoito"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_025",
+        "prompt": "Miten päivähoidon maksut määräytyvät?",
+        "options": [
+          "Kaikille samat",
+          "Perheen koon ja tulojen mukaan",
+          "Lapsen iän mukaan",
+          "Asuinpaikan mukaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_025",
+        "prompt": "Mikä on subjektiivinen päivähoito-oikeus?",
+        "options": [
+          "Vain työssäkäyvien lapset saavat paikan",
+          "Jokainen lapsi saa päivähoitopaikan",
+          "Vain esikoululaiset saavat paikan",
+          "Päivähoito on maksullista kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_025",
+        "prompt": "Mistä päivähoidossa on keskusteltu viime aikoina?",
+        "options": [
+          "Ruuan laadusta",
+          "Henkilöstön riittävyydestä ja laatuvaatimuksista",
+          "Aukioloajoista",
+          "Kuljetuksista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

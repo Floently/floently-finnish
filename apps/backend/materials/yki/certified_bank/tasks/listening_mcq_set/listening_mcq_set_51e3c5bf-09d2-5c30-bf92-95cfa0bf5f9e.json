@@ -1,0 +1,66 @@
+{
+  "id": "51e3c5bf-09d2-5c30-bf92-95cfa0bf5f9e",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin avata uuden säästötilin. Mitä vaihtoehtoja teillä on?\nPankkivirkailija: Hei, meillä on kolme erilaista säästötiliä. Perustili, jossa korko on 0,5%, ja kaksi määräaikaista tiliä, joissa korko on korkeampi, mutta rahat ovat sidottuja 12 tai 24 kuukaudeksi.\nAsiakas: Mikä on korko 12 kuukauden määräaikaistilillä?\nPankkivirkailija: 1,2 prosenttia. Ja 24 kuukauden tilillä korko on 1,5 prosenttia.\nAsiakas: Haluaisin avata 12 kuukauden määräaikaistilin. Paljonko minimisumma on?\nPankkivirkailija: Minimisumma on 1000 euroa. Voitte myös tallettaa lisää myöhemmin, mutta lisätalletuksille ei ole takuukorkoa.\nAsiakas: Selvä, avataan tili tuhannella eurolla.",
+      "audio_asset_id": "580c9e20-84a4-5e5a-8965-2cd9dd0b34d3"
+    },
+    "questions": [
+      {
+        "id": "list_085",
+        "prompt": "Mitä asiakas haluaa avata?",
+        "options": [
+          "Luottokortin",
+          "Säästötilin",
+          "Käyttötilin",
+          "Sijoitusrahaston"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_086",
+        "prompt": "Minkä tilin asiakas valitsee?",
+        "options": [
+          "Perustilin",
+          "12 kuukauden määräaikaistilin",
+          "24 kuukauden määräaikaistilin",
+          "Sijoitusrahaston"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_087",
+        "prompt": "Paljonko on minimisumma tilin avaamiseen?",
+        "options": [
+          "500 euroa",
+          "1000 euroa",
+          "1500 euroa",
+          "2000 euroa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

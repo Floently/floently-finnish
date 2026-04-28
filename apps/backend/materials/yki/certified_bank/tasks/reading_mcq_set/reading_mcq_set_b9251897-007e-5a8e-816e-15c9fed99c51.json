@@ -1,0 +1,88 @@
+{
+  "id": "b9251897-007e-5a8e-816e-15c9fed99c51",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Mökkeily on yksi suomalaisten rakkaimmista perinteistä. Se on tapa viettää aikaa luonnossa ja olla yhdessä perheen kanssa. Mökkeilyyn liittyy monia tapoja, jotka siirtyvät sukupolvelta toiselle. Yksi keskeisimmistä mökkeilyn perinteistä on saunominen. Mökillä saunotaan usein, ja sauna on mökkielämän keskus. Saunan jälkeen pulahtaminen järveen on monelle tärkeää. Toinen keskeinen perinne on kalastus. Mökillä kalastetaan ongella tai verkolla. Saalis paistetaan nuotiolla. Kalastus on tapa hankkia ruokaa ja viettää aikaa luonnossa. Kolmas perinne on marjastus ja sienestys. Mökiltä tehdään retkiä metsiin poimimaan mustikoita ja puolukoita. Sato pakastetaan talven varalle. Neljäs perinne on yhdessäolo. Mökillä vietetään aikaa yhdessä: grillataan, pelataan pelejä ja istutaan iltaa laiturilla. Viides perinne on yksinkertainen elämä. Mökillä eletään usein yksinkertaisemmin kuin kaupungissa: ei ole jatkuvaa kiirettä.",
+      "word_count": 116
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on mökkeilyn keskeisin merkitys suomalaisille?",
+        "options": [
+          "Työnteko",
+          "Ajan viettäminen luonnossa ja yhdessäolo",
+          "Rahan ansaitseminen",
+          "Urheilu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on mökkielämän keskus?",
+        "options": [
+          "Keittiö",
+          "Sauna",
+          "Olohuone",
+          "Laituri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kalastus on mökkiläisille?",
+        "options": [
+          "Vain harrastus",
+          "Tapa hankkia ruokaa ja viettää aikaa luonnossa",
+          "Vain työtä",
+          "Vain ajanvietettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä mökkeilyn perinteisiin kuuluu marjastuksen ja sienestyksen lisäksi?",
+        "options": [
+          "Vain saunominen",
+          "Saunominen, kalastus, yhdessäolo ja yksinkertainen elämä",
+          "Vain kalastus",
+          "Vain yhdessäolo"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä tarkoitetaan mökkeilyn yksinkertaisella elämällä?",
+        "options": [
+          "Elämää ilman ruokaa",
+          "Elämää ilman jatkuvaa kiirettä",
+          "Elämää ilman mitään mukavuuksia",
+          "Elämää ilman ihmisiä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

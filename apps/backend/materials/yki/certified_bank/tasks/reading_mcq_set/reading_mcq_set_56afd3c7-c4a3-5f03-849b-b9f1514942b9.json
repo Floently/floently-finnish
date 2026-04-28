@@ -1,0 +1,66 @@
+{
+  "id": "56afd3c7-c4a3-5f03-849b-b9f1514942b9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.519,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Ohjeet ovat lyhyet ja selkeät. Viesti on tarkoitettu arjen asiointiin. Tämä koskee monia ihmisiä Jyväskylässä. Jos et pääse, ilmoita siitä etukäteen. Lopussa kerrotaan yhteystiedot ja aukiolo. Ota mukaan henkilöllisyystodistus, jos sitä pyydetään. Työpaikka lähettää viestin aiheesta: taloyhtiön pesutuvan varausohje. Tarkista aika ja paikka ennen kuin lähdet. Jos tarvitset apua, voit kysyä palvelutiskiltä. Asia alkaa keskiviikkona 26. päivä. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä keskiviikkona asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä keskiviikkona asti.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "a1_a2r02-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Ruoanlaitto kotona",
+          "Matkustaminen ja sää",
+          "Ohjeet ja siihen liittyvä muutos",
+          "Urheilutapahtuma"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r02-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Lentojen peruuntuminen",
+          "Uusi elokuva",
+          "Sairaalan remontti",
+          "Ohjeet tai toimintatapa kerrotaan"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r02-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Kysy neuvoa",
+          "Jätä asia kesken",
+          "Odota viikko",
+          "Älä kerro kenellekään"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

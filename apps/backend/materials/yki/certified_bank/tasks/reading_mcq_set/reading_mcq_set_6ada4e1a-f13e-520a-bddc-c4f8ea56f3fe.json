@@ -1,0 +1,88 @@
+{
+  "id": "6ada4e1a-f13e-520a-bddc-c4f8ea56f3fe",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.72,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Kotimainen luonto on suomalaisille tärkeä hyvinvoinnin lähde. Luonnossa liikkuminen on olennainen osa elämäntapaa. Tutkimukset osoittavat, että luonnolla on monia myönteisiä vaikutuksia terveyteen. Yksi keskeisimmistä vaikutuksista on stressin lievitys. Luonnossa oleskelu vähentää stressiä ja laskee verenpainetta. Jo lyhytkin kävely metsässä auttaa rauhoittumaan. Toinen keskeinen vaikutus on mielialan koheneminen. Luonto saa meidät hyvälle tuulelle. Sen kauneus tuottaa iloa. Kolmas vaikutus on fyysisen kunnon ylläpitäminen. Luonto tarjoaa puitteet liikunnalle. Neljäs vaikutus on immuunijärjestelmän vahvistuminen. Luonnossa liikkuessa altistuu mikrobeille, jotka vahvistavat vastustuskykyä. Viides vaikutus on unen laadun paraneminen. Raitis ilma auttaa nukahtamaan paremmin.",
+      "word_count": 89
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kotimaisen luonnon merkitys suomalaisille?",
+        "options": [
+          "Vain taloudellinen merkitys",
+          "Tärkeä hyvinvoinnin lähde",
+          "Vain esteettinen merkitys",
+          "Vain kulttuurinen merkitys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten luonto vaikuttaa stressiin?",
+        "options": [
+          "Se lisää stressiä",
+          "Se vähentää stressiä ja laskee verenpainetta",
+          "Sillä ei ole vaikutusta stressiin",
+          "Se aiheuttaa stressiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten luonto vaikuttaa mielialaan?",
+        "options": [
+          "Se huonontaa mielialaa",
+          "Se kohentaa mielialaa",
+          "Sillä ei ole vaikutusta",
+          "Se aiheuttaa masennusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten luonto auttaa fyysisen kunnon ylläpitämisessä?",
+        "options": [
+          "Se tarjoaa kuntosalilaitteita",
+          "Se tarjoaa puitteet liikunnalle",
+          "Se vaatii erityisiä välineitä",
+          "Sillä ei ole vaikutusta fyysiseen kuntoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten luonto vaikuttaa immuunijärjestelmään?",
+        "options": [
+          "Se heikentää immuunijärjestelmää",
+          "Se vahvistaa immuunijärjestelmää",
+          "Sillä ei ole vaikutusta",
+          "Se aiheuttaa allergioita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

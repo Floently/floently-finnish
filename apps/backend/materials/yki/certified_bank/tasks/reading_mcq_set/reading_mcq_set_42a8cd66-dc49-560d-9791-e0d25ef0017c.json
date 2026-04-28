@@ -1,0 +1,77 @@
+{
+  "id": "42a8cd66-dc49-560d-9791-e0d25ef0017c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.783,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Digitaalisen ajan keskeisimpiä yhteiskunnallisia kysymyksiä on yksityisyyden ja turvallisuuden välinen jännite. Toisaalta kansalaiset odottavat, että heidän henkilökohtaisia tietojaan suojellaan ja että he voivat luottaa digitaalisten palvelujen tietoturvaan. Toisaalta valtioilla on velvollisuus suojella kansalaisiaan rikollisuudelta, terrorismilta ja muilta uhkilta, mikä edellyttää usein laajaa tiedonkeruuta ja -analyysiä. Tämä jännite on ollut erityisen näkyvä keskustelussa salatuista viestipalveluista ja viranomaisten pääsystä niihin. Salattujen viestien puolustajat korostavat, että yksityisyys on perusoikeus, ja että vahva salaus on välttämätön paitsi arkiviestinnän suojaamiseksi myös esimerkiksi toimittajien, ihmisoikeusaktivistien ja liikesalaisuuksien suojaamiseksi. He varoittavat, että niin sanotut takaovet, jotka mahdollistaisivat viranomaisten pääsyn viesteihin, heikentäisivät salauksen suojaa kaikilta ja loisivat mahdollisuuksia väärinkäytöksille. Turvallisuusviranomaiset puolestaan katsovat, että salattu viestintä vaikeuttaa vakavien rikosten tutkintaa ja terrorismin ennaltaehkäisyä. Heidän mukaansa lainsäädännössä tulisi olla mekanismeja, jotka mahdollistavat viranomaisten pääsyn viesteihin tiukoin edellytyksin ja tuomioistuimen valvonnassa, aivan kuten puhelinkuuntelussakin. Kolmas näkökulma korostaa, että kysymys ei ole mustavalkoinen, vaan siinä on kyse tasapainosta eri intressien välillä. Tarvitaan teknisiä ratkaisuja ja lainsäädäntöä, joka mahdollistaa sekä yksityisyyden suojan että tehokkaan rikostutkinnan. Tämä edellyttää jatkuvaa keskustelua ja uusien teknologioiden kehittämistä, jotka voisivat mahdollistaa esimerkiksi kohdennetun pääsyn viesteihin ilman, että koko järjestelmän turvallisuus vaarantuu.",
+      "word_count": 183
+    },
+    "questions": [
+      {
+        "id": "c816f04a-0a81-57c9-86e8-0b2afafad670",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Toimittajien ja aktivistien viestinnän suojaaminen",
+          "Yksityisyyden ja turvallisuuden välinen jännite salattujen viestien yhteydessä",
+          "Takaovien tekniset toteutusmahdollisuudet",
+          "Puhelinkuuntelun ja viestisalausten vertailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1d3bb51-d5c8-50ae-8e4b-25bc462ba58b",
+        "prompt": "Tekstin mukaan mitä perusteluja salattujen viestien puolustajat esittävät?",
+        "options": [
+          "Yksityisyys on perusoikeus, ja vahva salaus on välttämätön monien ryhmien suojaamiseksi; takaovet heikentäisivät suojaa kaikilta",
+          "Viranomaisten on päästävä kaikkiin viesteihin terrorismin torjumiseksi",
+          "Tekniset ratkaisut mahdollistavat sekä yksityisyyden että turvallisuuden",
+          "Viestisalaus on tärkeää vain liikesalaisuuksien suojaamiseksi"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "63fcbf91-c5bd-5463-bf94-5d6e438f0282",
+        "prompt": "Mitä turvallisuusviranomaiset tekstin mukaan vaativat?",
+        "options": [
+          "Kaiken viestisalauksen kieltämistä",
+          "Mahdollisuutta päästä viesteihin tiukoin edellytyksin ja tuomioistuimen valvonnassa",
+          "Täydellistä pääsyä kaikkiin viesteihin ilman rajoituksia",
+          "Teknologian kehittämistä, joka tekee salauksesta mahdotonta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fda62dc4-791d-5d77-84dd-7fedd7af724a",
+        "prompt": "Mitä kolmas, tasapainoa korostava näkemys pitää tärkeänä?",
+        "options": [
+          "Yksityisyyden täydellistä turvaamista ilman kompromisseja",
+          "Turvallisuuden asettamista aina yksityisyyden edelle",
+          "Teknisiä ratkaisuja ja lainsäädäntöä, jotka mahdollistavat molempien intressien huomioimisen",
+          "Sitä, että viranomaiset eivät koskaan saa puuttua viestintään"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

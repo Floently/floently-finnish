@@ -1,0 +1,40 @@
+{
+  "id": "b8fa4ecd-5074-5836-b3f6-aca394679a80",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.298,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what the welfare state means in Finland. Mention two services you use and what you think about them.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "3bcf5eb4-8ac9-53bc-bc24-a2844c7e7506",
+        "ai_first_turn_fi": "Mitä hyvinvointiyhteiskunnan palveluja sä käytät? Ovatko ne hyviä?"
+      }
+    ],
+    "rubric": "Tell what the welfare state means in Finland. Mention two services you use and what you think about them.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

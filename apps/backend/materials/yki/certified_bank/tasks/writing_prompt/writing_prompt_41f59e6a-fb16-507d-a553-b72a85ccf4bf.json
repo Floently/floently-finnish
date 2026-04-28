@@ -1,0 +1,37 @@
+{
+  "id": "41f59e6a-fb16-507d-a553-b72a85ccf4bf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.699,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti tasa-arvovaltuutetulle. Olet kokenut syrjintää työpaikalla raskautesi vuoksi. Kerro, mitä tapahtui, miten työnantaja kohteli sinua ja miten se on vaikuttanut työsuhteeseesi. Kysy, miten voit tehdä kantelun ja mitä selvityksiä tarvitaan. Kerro myös, oletko yrittänyt ratkaista asiaa työnantajan kanssa.",
+    "materials": {
+      "scenario": "Raskaussyrjintä työpaikalla"
+    },
+    "items": [
+      {
+        "id": "907c072c-16c8-5250-bcbc-8e80c7aca421",
+        "prompt": "Kirjoita virallinen sähköposti tasa-arvovaltuutetulle. Olet kokenut syrjintää työpaikalla raskautesi vuoksi. Kerro, mitä tapahtui, miten työnantaja kohteli sinua ja miten se on vaikuttanut työsuhteeseesi. Kysy, miten voit tehdä kantelun ja mitä selvityksiä tarvitaan. Kerro myös, oletko yrittänyt ratkaista asiaa työnantajan kanssa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "064a8c8c-0bda-52fa-88bc-8e2373b1b396",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita perusteltu mielipidekirjoitus, jossa arvioit väitettä ja esität omat näkemyksesi. Käytä konkreettisia esimerkkejä arjesta.",
+    "materials": {
+      "scenario": "Suomalainen ruokakulttuuri on liian yksipuolista"
+    },
+    "items": [
+      {
+        "id": "db936c84-2c9e-5c11-baa1-fe5cc3518429",
+        "prompt": "Kirjoita perusteltu mielipidekirjoitus, jossa arvioit väitettä ja esität omat näkemyksesi. Käytä konkreettisia esimerkkejä arjesta."
+      }
+    ],
+    "rubric": "Kirjoita perusteltu mielipidekirjoitus, jossa arvioit väitettä ja esität omat näkemyksesi. Käytä konkreettisia esimerkkejä arjesta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,296 @@
+[
+  {
+    "path": "apps/backend/tools/phase_5_2_live_verification.py",
+    "change_type": "modified",
+    "scope": "pass_6",
+    "notes": "Removed dependency on checked-in runtime upload sample by generating a temporary WAV fixture"
+  },
+  {
+    "path": "docs/cleanup/executed_prompts/cleanup_agent_prompt_pass_final.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Executed final residue-cleanup prompt normalized under executed_prompts"
+  },
+  {
+    "path": "docs/cleanup/pass_6_residue_cleanup_report.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 residue cleanup report"
+  },
+  {
+    "path": "docs/cleanup/pass_6_residue_inventory.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 residue inventory"
+  },
+  {
+    "path": "docs/cleanup/pass_6_merge_and_move_log.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 merge-and-move log"
+  },
+  {
+    "path": "docs/cleanup/pass_6_quarantine_manifest.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 quarantine manifest"
+  },
+  {
+    "path": "docs/cleanup/pass_6_verification_results.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 verification results"
+  },
+  {
+    "path": "docs/cleanup/pass_6_repo_tree_after.txt",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 repo tree"
+  },
+  {
+    "path": "docs/cleanup/pass_6_keep_justification.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 keep justifications"
+  },
+  {
+    "path": "docs/cleanup/pass_6_final_verdict.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Pass 6 final verdict"
+  },
+  {
+    "path": "docs/cleanup/00_cleanup_index.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current top-level cleanup index recreated after historical move to read_reports"
+  },
+  {
+    "path": "docs/cleanup/04_group_by_group_merge_log.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current grouped merge log"
+  },
+  {
+    "path": "docs/cleanup/05_quarantine_manifest.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current final quarantine manifest"
+  },
+  {
+    "path": "docs/cleanup/07_verification_results.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current final verification summary"
+  },
+  {
+    "path": "docs/cleanup/09_final_repo_tree.txt",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current final repo tree"
+  },
+  {
+    "path": "docs/cleanup/10_final_verdict.md",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current final verdict"
+  },
+  {
+    "path": "docs/cleanup/11_change_inventory.csv",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current final change inventory CSV"
+  },
+  {
+    "path": "docs/cleanup/12_change_inventory.json",
+    "change_type": "added",
+    "scope": "pass_6",
+    "notes": "Current final change inventory JSON"
+  },
+  {
+    "path": "apps/backend/.pytest_cache/",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "pytest cache removed from live repo"
+  },
+  {
+    "path": "apps/backend/runtime/",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "empty runtime artifact root removed from live repo"
+  },
+  {
+    "path": "apps/backend/app/runtime/state.json",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "committed runtime auth/session snapshot removed from live repo"
+  },
+  {
+    "path": "apps/backend/app/runtime/uploads/",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "runtime voice upload residue removed from live repo"
+  },
+  {
+    "path": "apps/backend/app/audio/storage/assets/",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "generated audio asset cache removed from live repo"
+  },
+  {
+    "path": "repo-local __pycache__/",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "local Python bytecode caches removed from live repo"
+  },
+  {
+    "path": "apps/client/.expo/",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "Expo cache removed from live repo"
+  },
+  {
+    "path": "dist/",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "build output removed from live repo"
+  },
+  {
+    "path": "tts_test.py",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "ad hoc TTS probe removed from live repo"
+  },
+  {
+    "path": "output.mp3",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "generated ad hoc TTS output removed from live repo"
+  },
+  {
+    "path": "everything_remaining_ledger.json",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "dead migration-control ledger removed from live repo"
+  },
+  {
+    "path": "EVERYTHING_REMAINING_README.md",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "dead migration-control readme removed from live repo"
+  },
+  {
+    "path": "PRODUCE_NOW_README.md",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "dead migration-control readme removed from live repo"
+  },
+  {
+    "path": "ROLEPLAY_PACK_NOTES.md",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "root duplicate notes removed from live repo"
+  },
+  {
+    "path": "completion_pack_file_list.txt",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "dead migration package index removed from live repo"
+  },
+  {
+    "path": "error_log.txt",
+    "change_type": "moved_to_quarantine",
+    "scope": "pass_6",
+    "notes": "stale log artifact removed from live repo"
+  },
+  {
+    "path": "docs/cleanup/read_reports/00_cleanup_index.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical final cleanup index moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/04_group_by_group_merge_log.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical grouped merge log moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/05_quarantine_manifest.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical quarantine manifest moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/07_verification_results.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical verification results moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/09_final_repo_tree.txt",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical final repo tree moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/10_final_verdict.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical final verdict moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/11_change_inventory.csv",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical change inventory CSV moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/12_change_inventory.json",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical change inventory JSON moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_5_report.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical Pass 5 report moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_5_authority_map.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical Pass 5 authority map moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_5_merge_log.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical Pass 5 merge log moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_5_quarantine_manifest.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical Pass 5 quarantine manifest moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_5_verification_results.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical Pass 5 verification results moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_5_repo_tree_after.txt",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical Pass 5 repo tree moved under read_reports"
+  },
+  {
+    "path": "docs/cleanup/read_reports/pass_5_final_open_items.md",
+    "change_type": "added",
+    "scope": "preexisting_worktree",
+    "notes": "Historical Pass 5 open items moved under read_reports"
+  }
+]

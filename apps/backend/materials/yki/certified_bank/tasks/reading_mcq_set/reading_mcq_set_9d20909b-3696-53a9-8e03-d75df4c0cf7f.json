@@ -1,0 +1,77 @@
+{
+  "id": "9d20909b-3696-53a9-8e03-d75df4c0cf7f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kadonneen koiran ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADONNUT KOIRA\n\nNimi: Rex\nRotu: saksanpaimenkoira\nVäri: musta ja ruskea\nKoko: iso\nKadonnut: 15.3.2026 Sibeliuksen puiston lähellä\nTunnistus: koiralla on punainen pantta ja kunnan tunnusmerkki\n\nPalkinto löytäjälle. Soita 040 123 4567 tai 050 987 6543.",
+      "word_count": 35
+    },
+    "questions": [
+      {
+        "id": "a3556b18-113a-54c5-9dde-32117d228e01",
+        "prompt": "Minkä värinen koira on kadonnut?",
+        "options": [
+          "musta",
+          "ruskea",
+          "musta ja ruskea",
+          "valkoinen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "537723e8-f12d-55e6-9686-f0db6b146b98",
+        "prompt": "Mikä on koiran nimi?",
+        "options": [
+          "Rekku",
+          "Musti",
+          "Rex",
+          "Luna"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a2c6d371-7aa1-5904-8e07-c56ed5b3b98e",
+        "prompt": "Millainen pantta koiralla on?",
+        "options": [
+          "sininen",
+          "vihreä",
+          "punainen",
+          "keltainen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "83ee8bfc-f874-5e4e-bb9f-660467c36f91",
+        "prompt": "Mitä luvataan löytäjälle?",
+        "options": [
+          "kiitos",
+          "kukkia",
+          "palkinto",
+          "ilmainen koiranruoka"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

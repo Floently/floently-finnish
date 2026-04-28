@@ -1,0 +1,40 @@
+{
+  "id": "695f559c-6d2b-5e6b-836d-58e784103b3d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.29,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what is difficult in Finnish (e.g. word order, long words) and what is easy.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "2ab6b536-232f-5746-bfda-829553348db1",
+        "ai_first_turn_fi": "Mikä suomen kielessä on sun mielestä vaikeinta? Entä helppoa?"
+      }
+    ],
+    "rubric": "Tell what is difficult in Finnish (e.g. word order, long words) and what is easy.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

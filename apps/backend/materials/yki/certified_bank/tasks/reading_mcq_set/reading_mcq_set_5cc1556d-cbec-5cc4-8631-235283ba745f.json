@@ -1,0 +1,99 @@
+{
+  "id": "5cc1556d-cbec-5cc4-8631-235283ba745f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Uusi uimaranta avataan ensi kesänä. Rannalle tulee hiekkarantaa, nurmialueita ja kahvila. Pelastajia on paikalla päivittäin. Rannalle pääsee bussilla. Bussipysäkki on aivan rannan vieressä. Uimaranta on avoinna kesäkuusta elokuuhun. Tervetuloa uimaan ja nauttimaan auringosta!",
+      "word_count": 33
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin uusi uimaranta avataan?",
+        "options": [
+          "Tänä kesänä",
+          "Ensi kesänä",
+          "Ensi talvena",
+          "Syksyllä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä rannalle tulee?",
+        "options": [
+          "Uusi hotelli",
+          "Hiekkarantaa, nurmialueita ja kahvila",
+          "Leikkipuisto ja kuntosali",
+          "Venevalkama ja grillikatos"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin pelastajat ovat paikalla?",
+        "options": [
+          "Vain viikonloppuisin",
+          "Päivittäin",
+          "Vain aamuisin",
+          "Ei ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten rannalle pääsee?",
+        "options": [
+          "Autolla",
+          "Bussilla",
+          "Junalla",
+          "Kävellen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Missä bussipysäkki sijaitsee?",
+        "options": [
+          "Kaukana rannasta",
+          "Aivan rannan vieressä",
+          "Kaupungin keskustassa",
+          "Metsän takana"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mistä kuuhun uimaranta on avoinna?",
+        "options": [
+          "Toukokuusta heinäkuuhun",
+          "Kesäkuusta elokuuhun",
+          "Heinäkuusta syyskuuhun",
+          "Elokuusta lokakuuhun"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

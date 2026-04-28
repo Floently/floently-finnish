@@ -1,0 +1,37 @@
+{
+  "id": "d362eefd-8bbc-58cf-825d-a8ef1313fc25",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen liikuntatuntien määrää lisätä lasten terveyden parantamiseksi?'. Arvioi terveysvaikutuksia, oppimista ja resursseja.",
+    "materials": {
+      "scenario": "Liikuntatuntien lisääminen"
+    },
+    "items": [
+      {
+        "id": "46fab462-133c-51de-aefc-c5749fcd1c18",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö koulujen liikuntatuntien määrää lisätä lasten terveyden parantamiseksi?'. Arvioi terveysvaikutuksia, oppimista ja resursseja."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nOppiminen\nResurssit\nLasten hyvinvointi",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

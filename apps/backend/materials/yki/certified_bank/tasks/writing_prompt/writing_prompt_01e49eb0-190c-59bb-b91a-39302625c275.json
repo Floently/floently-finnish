@@ -1,0 +1,37 @@
+{
+  "id": "01e49eb0-190c-59bb-b91a-39302625c275",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute pizzaravintolasta.",
+    "materials": {
+      "scenario": "Ruokailukokemus"
+    },
+    "items": [
+      {
+        "id": "c642b301-ffd6-5cff-84f7-b1be91f09fd2",
+        "prompt": "Kirjoita palaute pizzaravintolasta."
+      }
+    ],
+    "rubric": "Kirjoita palaute pizzaravintolasta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

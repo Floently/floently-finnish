@@ -1,0 +1,37 @@
+{
+  "id": "a0619bf8-0b19-5bdd-8c6e-0ca1f4243b26",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin kulttuuritapahtumasta. Arvioi ohjelman monipuolisuutta, järjestelyjen toimivuutta ja hintaa. Ehdota yhtä uutta tapahtumaa.",
+    "materials": {
+      "scenario": "Palaute kaupungin kulttuuritapahtumasta"
+    },
+    "items": [
+      {
+        "id": "a1e4aac1-c1b2-58b6-9ab1-6aa2876c28f1",
+        "prompt": "Kirjoita palauteteksti kaupungin kulttuuritapahtumasta. Arvioi ohjelman monipuolisuutta, järjestelyjen toimivuutta ja hintaa. Ehdota yhtä uutta tapahtumaa."
+      }
+    ],
+    "rubric": "Ohjelman monipuolisuus\nJärjestelyjen toimivuus\nHinta\nUusi tapahtuma",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

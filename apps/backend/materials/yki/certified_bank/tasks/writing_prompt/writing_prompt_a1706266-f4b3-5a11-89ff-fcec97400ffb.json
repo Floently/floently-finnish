@@ -1,0 +1,37 @@
+{
+  "id": "a1706266-f4b3-5a11-89ff-fcec97400ffb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita viesti.",
+    "materials": {
+      "scenario": "Kirjoita viesti."
+    },
+    "items": [
+      {
+        "id": "04263200-9460-5aa8-be6f-db9f7db56aa0",
+        "prompt": "Olet lähdössä lomalle ja pyydät naapuria kastelemaan kukkia. Kirjoita viesti.\nKerro:\n- että olet lomalla\n- milloin lähdet ja tulet takaisin\n- pyydä kastelemaan kukkia."
+      }
+    ],
+    "rubric": "Olet lähdössä lomalle ja pyydät naapuria kastelemaan kukkia. Kirjoita viesti.\nKerro:\n- että olet lomalla\n- milloin lähdet ja tulet takaisin\n- pyydä kastelemaan kukkia.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "9645d5ff-d8e1-5e71-9307-1004ef478d32",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.785,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Terveydenhuollon resurssit ovat rajalliset, ja kysymykset siitä, miten niitä tulisi kohdentaa, ovat sekä lääketieteellisiä että eettisiä. Priorisointi on välttämätöntä, mutta se herättää aina kysymyksiä oikeudenmukaisuudesta ja arvoista. Keskustelu priorisoinnista on ollut viime vuosina erityisen vilkasta, kun uudet kalliit hoidot ja väestön ikääntyminen ovat lisänneet kustannuspaineita.\n\nPerinteinen tapa priorisoida on perustunut hoidon kiireellisyyteen ja vaikuttavuuteen. Mitä kiireellisempi ja mitä paremmin hoidettavissa oleva vaiva, sitä korkeammalle se asetetaan. Tämä lääketieteellinen priorisointi on kuitenkin osoittautunut riittämättömäksi, koska se ei ota huomioon esimerkiksi harvinaisia sairauksia sairastavia, joille hoidot ovat kalliita mutta joiden sairaus on vakava. Tasa-arvon näkökulmasta tämä on ongelmallista.\n\nToinen ulottuvuus on maksukyvyn vaikutus. Julkisessa terveydenhuollossa periaatteena on, että hoito määräytyy tarpeen eikä maksukyvyn mukaan. Käytännössä tämä periaate on kuitenkin koetuksella, kun julkiset palvelut ruuhkautuvat. Ne, joilla on varaa, voivat hakeutua yksityiselle puolelle ja saada hoitoa nopeammin. Tämä luo kaksitasoista terveydenhuoltoa, jossa asuinpaikka ja varallisuus vaikuttavat siihen, miten nopeasti hoitoa saa.\n\nKolmas keskeinen kysymys on iän merkitys. Pitäisikö ikääntyneille antaa yhtäläinen oikeus kalliisiin hoitoihin kuin nuoremmille? Toisaalta voidaan ajatella, että jokainen elämä on yhtä arvokas iästä riippumatta. Toisaalta voidaan ajatella, että nuoremmilla on edessään enemmän elinvuosia, ja siksi heidän hoitonsa priorisointi on yhteiskunnallisesti tehokkaampaa. Tämä keskustelu on erityisen vaikea, koska se koskettaa syvimpiä arvokäsityksiämme.\n\nRatkaisut edellyttävät avointa ja laajaa yhteiskunnallista keskustelua. Priorisointia ei voi jättää vain lääkäreiden tai virkamiesten päätettäväksi, vaan siihen tarvitaan kansalaisten näkemyksiä ja eettistä harkintaa. Samalla on tärkeää, että priorisointiperusteet ovat läpinäkyviä ja että niitä sovelletaan yhdenmukaisesti. Terveydenhuollon resurssit eivät riitä kaikkeen, ja siksi meidän on yhdessä päätettävä, mikä on tärkeintä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 284
+    },
+    "questions": [
+      {
+        "id": "1da4912a-6095-5c95-8620-f4f83779d802",
+        "prompt": "Mihin perinteinen priorisointi terveydenhuollossa on perustunut?",
+        "options": [
+          "Potilaan ikään ja sukupuoleen",
+          "Hoidon kiireellisyyteen ja vaikuttavuuteen",
+          "Potilaan varallisuuteen",
+          "Sairauden harvinaisuuteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "86693579-fdc6-58ed-861d-63190d71547f",
+        "prompt": "Mitä ongelmia perinteiseen priorisointiin liittyy?",
+        "options": [
+          "Se on liian kallista",
+          "Se ei ota huomioon harvinaisia sairauksia sairastavia",
+          "Se suosii vanhuksia",
+          "Se on epäeettistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b7d84dbf-a13c-51b3-b00f-75863ef69617",
+        "prompt": "Miten maksukyky vaikuttaa terveydenhuollon saatavuuteen käytännössä?",
+        "options": [
+          "Se ei vaikuta mitenkään",
+          "Varakkaat voivat hakeutua yksityiselle ja saada hoitoa nopeammin",
+          "Vain köyhät saavat hoitoa",
+          "Julkinen terveydenhuolto on nopeampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b2c9083e-5bbc-582f-9259-e49d7c7f18e3",
+        "prompt": "Mitä ratkaisuja priorisointikeskusteluun esitetään?",
+        "options": [
+          "Priorisoinnin jättämistä lääkäreille",
+          "Avoimen yhteiskunnallisen keskustelun käymistä ja läpinäkyviä perusteita",
+          "Kaikkien hoitojen tarjoamista kaikille",
+          "Ikärajojen asettamista hoidoille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

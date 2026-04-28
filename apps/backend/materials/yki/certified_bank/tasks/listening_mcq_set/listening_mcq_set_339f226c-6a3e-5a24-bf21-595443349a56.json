@@ -1,0 +1,66 @@
+{
+  "id": "339f226c-6a3e-5a24-bf21-595443349a56",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele kirjaston automaattinen muistutus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Tämä on automaattinen muistutus Helsingin kaupunginkirjastosta. Lainanne erääntyvät huomenna 15.3. Palauttakaa kirjat ajoissa, jotta vältätte myöhästymismaksut. Lainojen uusiminen onnistuu verkkosivuillamme tai soittamalla asiakaspalveluun. Kiitos, että käytätte kirjastoa!",
+      "audio_asset_id": "d29fd70d-6b3a-4edb-a56f-c5b276012023"
+    },
+    "questions": [
+      {
+        "id": "d3b91a00-6c4e-52ad-9dc5-ea012bcda87f",
+        "prompt": "Miksi tämä viesti soitetaan?",
+        "options": [
+          "Kirjasto on kiinni",
+          "Lainat erääntyvät",
+          "Uusi kirjasto aukeaa",
+          "Tapahtumasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fb8a5ef3-ceab-5cd7-97c9-38d57571091e",
+        "prompt": "Milloin lainat erääntyvät?",
+        "options": [
+          "Tänään",
+          "Huomenna",
+          "Ylihuomenna",
+          "Ensi viikolla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b170cf1b-4f83-5b4e-a314-bc6b101c1a72",
+        "prompt": "Miten lainat voi uusia?",
+        "options": [
+          "Vain paikan päällä",
+          "Verkkosivuilla tai puhelimella",
+          "Sähköpostilla",
+          "Tekstiviestillä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

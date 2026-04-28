@@ -1,0 +1,37 @@
+{
+  "id": "2e82088f-cd40-5839-b470-ae74d1f15a2d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.339,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt ravintolassa, joka mainosti kasvisruokaa. Kirjoita palaute. Kerro, oliko kasvisruokavalikoima hyvä.",
+    "materials": {
+      "scenario": "Palaute ravintolan kasvisruoasta"
+    },
+    "items": [
+      {
+        "id": "3aaca7c6-d519-5251-afe7-1743fea1b722",
+        "prompt": "Olet käynyt ravintolassa, joka mainosti kasvisruokaa. Kirjoita palaute. Kerro, oliko kasvisruokavalikoima hyvä."
+      }
+    ],
+    "rubric": "Olet käynyt ravintolassa, joka mainosti kasvisruokaa. Kirjoita palaute. Kerro, oliko kasvisruokavalikoima hyvä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "d67a6e33-035a-5934-bc93-fdbba9a5ec0f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kuntien tarjota maksuton ehkäisy alle 25-vuotiaille?'. Arvioi terveysvaikutuksia ja kustannuksia.",
+    "materials": {
+      "scenario": "Maksuton ehkäisy nuorille"
+    },
+    "items": [
+      {
+        "id": "9bb25001-7187-5a73-9670-7478120c1fc7",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kuntien tarjota maksuton ehkäisy alle 25-vuotiaille?'. Arvioi terveysvaikutuksia ja kustannuksia."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nKustannukset\nTasa-arvo\nEnnaltaehkäisy",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

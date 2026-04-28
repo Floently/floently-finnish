@@ -1,0 +1,37 @@
+{
+  "id": "7c054a3e-bd0c-58c6-b3ee-b23159f38af2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.699,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti poliisilaitoksen lupapalveluihin. Tarvitset rikosrekisteriotetta työnhakua varten. Kysy, miten sitä haetaan, kauanko käsittely kestää ja voiko sen tilata sähköisesti. Kerro myös, mihin tarkoitukseen otetta tarvitaan.",
+    "materials": {
+      "scenario": "Rikosrekisteriotteen hakeminen"
+    },
+    "items": [
+      {
+        "id": "5db25dbf-5027-5c9b-8e6d-c2df1397c5b7",
+        "prompt": "Kirjoita virallinen sähköposti poliisilaitoksen lupapalveluihin. Tarvitset rikosrekisteriotetta työnhakua varten. Kysy, miten sitä haetaan, kauanko käsittely kestää ja voiko sen tilata sähköisesti. Kerro myös, mihin tarkoitukseen otetta tarvitaan."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "ccf70845-50fb-51a9-ba1f-56ba9694cdd8",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu suomalaisesta luonnosta ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta luonnosta. Haastattelussa on luontokirjailija Pekka Mäkelä. Pekka, mitä luonto merkitsee suomalaisille? Pekka: Todella paljon. Meillä on jokamiehenoikeudet, jotka antavat kaikille mahdollisuuden nauttia luonnosta. Luonto on monelle henkireikä, paikka rauhoittua ja rentoutua. Se on myös tärkeä harrastuspaikka. Toimittaja: Miten suomalaiset käyttävät luontoa? Pekka: Monin tavoin. Kesällä retkeillään, marjastetaan ja sienestetään. Talvella hiihtäminen ja pilkkiminen ovat suosittuja. Monilla on myös mökki, jossa vietetään aikaa luonnon keskellä. Toimittaja: Miten luonnon tila on muuttunut? Pekka: Se on huolenaihe. Ilmastonmuutos näkyy esimerkiksi leutoina talvina. Myös metsien hakkuut ja soiden ojitukset ovat vaikuttaneet lajiston monimuotoisuuteen. Toisaalta suojelualueita on perustettu, ja ihmisten tietoisuus on lisääntynyt. Toimittaja: Miten ihmiset voivat auttaa luontoa? Pekka: Pienillä teoilla on merkitystä. Ei roskata, noudatetaan jokamiehenoikeuksia, suositaan lähiruokaa ja vähennetään turhaa kulutusta. Myös linnunpönttöjen laitto ja perinnebiotooppien hoito auttavat. Toimittaja: Mikä on suosikkipaikkasi suomalaisessa luonnossa? Pekka: Se on Oulangan kansallispuisto. Siellä on upeita maisemia, ja siellä voi kokea erämaan tunnelman.",
+      "audio_asset_id": "b5c6d7e8-f9a0-1b2c-3d4e-5f6a7b8c9d0e"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen eläimistö.",
+          "Suomalaisen luonnon merkitys.",
+          "Luonnonsuojelualueet.",
+          "Ilmastonmuutoksen vaikutukset."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Mitä jokamiehenoikeudet tarkoittavat?",
+        "options": [
+          "Vain maanomistajat saavat liikkua luonnossa.",
+          "Jokainen saa nauttia luonnosta tietyin rajoituksin.",
+          "Luonnossa liikkuminen on kiellettyä.",
+          "Vain metsästäjät saavat liikkua metsissä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä suomalaiset tekevät luonnossa kesällä?",
+        "options": [
+          "Hiihtävät ja pilkkivät.",
+          "Retkeilevät, marjastavat ja sienestävät.",
+          "Laskettelevat ja lumilautailevat.",
+          "Luistelevat ja pelaavat jääkiekkoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Mikä on yksi luonnon tilaa koskeva huolenaihe?",
+        "options": [
+          "Liian vähän metsiä.",
+          "Ilmastonmuutos ja leudot talvet.",
+          "Liian paljon suojelualueita.",
+          "Liian vähän turisteja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miten ihmiset voivat auttaa luontoa?",
+        "options": [
+          "Roskaamalla ja kuluttamalla paljon.",
+          "Noudattamalla jokamiehenoikeuksia ja vähentämällä turhaa kulutusta.",
+          "Ajamalla paljon autolla.",
+          "Hakkaamalla puita omalla tontilla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on Pekan suosikkipaikka?",
+        "options": [
+          "Lemmenjoen kansallispuisto.",
+          "Oulangan kansallispuisto.",
+          "Kolin kansallispuisto.",
+          "Nuuksion kansallispuisto."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "b9d2e895-cafd-5660-bd3e-1e6a40da57f5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti äänikirjapalvelusta. Kerro valikoiman laajuudesta, sovelluksen käytettävyydestä ja hinnoittelusta. Ehdota yhtä uutta ominaisuutta.",
+    "materials": {
+      "scenario": "Palaute äänikirjapalvelusta"
+    },
+    "items": [
+      {
+        "id": "5f6edbd0-2ec6-5b7e-a1d6-44676c6ff3d9",
+        "prompt": "Kirjoita palauteteksti äänikirjapalvelusta. Kerro valikoiman laajuudesta, sovelluksen käytettävyydestä ja hinnoittelusta. Ehdota yhtä uutta ominaisuutta."
+      }
+    ],
+    "rubric": "Valikoiman laajuus\nSovelluksen käytettävyys\nHinnoittelu\nUusi ominaisuus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

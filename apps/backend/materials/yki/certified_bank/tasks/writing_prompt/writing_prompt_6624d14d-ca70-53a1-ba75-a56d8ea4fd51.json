@@ -1,0 +1,37 @@
+{
+  "id": "6624d14d-ca70-53a1-ba75-a56d8ea4fd51",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita pääkirjoitus (noin 350-400 sanaa) otsikolla 'Onko liikenteen päästövähennystavoitteet mahdollista saavuttaa ilman autokannan nopeaa sähköistymistä?'. Pohdi liikenteen päästöjen vähentämisen keinoja: sähköautot, biopolttoaineet, joukkoliikenne, pyöräily. Mikä on realistinen yhdistelmä? Entä mitä haasteita liittyy sähköautojen yleistymiseen, kuten latausinfra ja akkujen raaka-aineet? Perustele.",
+    "materials": {
+      "scenario": "Liikenteen päästövähennyskeinot"
+    },
+    "items": [
+      {
+        "id": "a584b01c-d5d5-559e-ae2c-78bc4016e28a",
+        "prompt": "Kirjoita pääkirjoitus (noin 350-400 sanaa) otsikolla 'Onko liikenteen päästövähennystavoitteet mahdollista saavuttaa ilman autokannan nopeaa sähköistymistä?'. Pohdi liikenteen päästöjen vähentämisen keinoja: sähköautot, biopolttoaineet, joukkoliikenne, pyöräily. Mikä on realistinen yhdistelmä? Entä mitä haasteita liittyy sähköautojen yleistymiseen, kuten latausinfra ja akkujen raaka-aineet? Perustele."
+      }
+    ],
+    "rubric": "Kirjoita pääkirjoitus (noin 350-400 sanaa) otsikolla 'Onko liikenteen päästövähennystavoitteet mahdollista saavuttaa ilman autokannan nopeaa sähköistymistä?'. Pohdi liikenteen päästöjen vähentämisen keinoja: sähköautot, biopolttoaineet, joukkoliikenne, pyöräily. Mikä on realistinen yhdistelmä? Entä mitä haasteita liittyy sähköautojen yleistymiseen, kuten latausinfra ja akkujen raaka-aineet? Perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

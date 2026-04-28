@@ -1,0 +1,66 @@
+{
+  "id": "d99cc921-a5eb-5827-944b-31b767e28b08",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "LEIPOMO LOPETTAA TOIMINTANSA\n\nKauppakadulla sijaitseva Leipomo Kotipulla lopettaa toimintansa elokuun lopussa. Omistaja Maija Laitinen kertoo syyksi eläköitymisen. Leipomo on toiminut samalla paikalla yli 30 vuotta. Viimeinen aukiolopäivä on 31.8. Sen jälkeen leipomo on myynnissä.\n\n\"Haluan kiittää kaikkia asiakkaita vuosien varrella. Olen saanut tehdä työtä, jota rakastan\", Laitinen sanoo. Hän toivoo, että joku jatkaisi leipomon perinteitä.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 71
+    },
+    "questions": [
+      {
+        "id": "33f94017-e2a1-5265-be85-b800a7feae7b",
+        "prompt": "Miksi leipomo lopettaa?",
+        "options": [
+          "Huonon taloudellisen tilanteen vuoksi",
+          "Omistaja eläköityy",
+          "Vuokra on liian korkea",
+          "Työntekijöitä ei löydy"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7634a173-3b0c-5acc-bd9f-88facdc9f4b8",
+        "prompt": "Kuinka kauan leipomo on toiminut?",
+        "options": [
+          "10 vuotta",
+          "20 vuotta",
+          "30 vuotta",
+          "40 vuotta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "46c14708-0855-5591-837a-642c7c0b28e1",
+        "prompt": "Mikä on viimeinen aukiolopäivä?",
+        "options": [
+          "30.6.",
+          "31.7.",
+          "31.8.",
+          "30.9."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

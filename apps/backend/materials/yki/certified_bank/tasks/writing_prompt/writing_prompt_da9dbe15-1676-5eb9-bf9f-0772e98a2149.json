@@ -1,0 +1,37 @@
+{
+  "id": "da9dbe15-1676-5eb9-bf9f-0772e98a2149",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita valitus kaupungille.",
+    "materials": {
+      "scenario": "Kirjoita valitus kaupungille."
+    },
+    "items": [
+      {
+        "id": "97499e64-17bb-5a2c-8f25-08a99d64654c",
+        "prompt": "Asuinalueellasi on huonot liikenneyhteydet. Bussit kulkevat harvoin, eikä pyöräteitä ole kunnolla. Kirjoita kirje kaupungin liikennesuunnittelulle. Kerro ongelmista ja ehdota parannuksia."
+      }
+    ],
+    "rubric": "Asuinalueellasi on huonot liikenneyhteydet. Bussit kulkevat harvoin, eikä pyöräteitä ole kunnolla. Kirjoita kirje kaupungin liikennesuunnittelulle. Kerro ongelmista ja ehdota parannuksia.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

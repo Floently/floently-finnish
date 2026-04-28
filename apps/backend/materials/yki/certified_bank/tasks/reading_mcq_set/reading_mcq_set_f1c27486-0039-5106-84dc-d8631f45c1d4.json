@@ -1,0 +1,110 @@
+{
+  "id": "f1c27486-0039-5106-84dc-d8631f45c1d4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Globalisaatio on muuttanut maailmaa perusteellisesti viime vuosikymmeninä. Se on käsite, joka kuvaa talouksien, kulttuurien ja yhteiskuntien kietoutumista toisiinsa yli kansallisten rajojen. Globalisaatio on mahdollistanut tavaroiden, palvelujen, pääoman, tiedon ja ihmisten aiempaa vapaamman liikkuvuuden. Tämä on tuonut mukanaan valtavia etuja. Kuluttajille se on merkinnyt halvempia hintoja ja laajempaa valikoimaa. Yritykset ovat voineet laajentaa markkinoitaan ja tehostaa tuotantoaan. Kehitysmaat ovat nousseet köyhyydestä, kun ne ovat päässeet mukaan maailmankauppaan ja saaneet investointeja. Globalisaatiolla on kuitenkin myös selviä varjopuolia. Teollisuusmaissa työpaikat ovat vähentyneet, kun tuotantoa on siirretty halvemman kustannustason maihin. Tämä on lisännyt eriarvoisuutta ja synnyttänyt tyytymättömyyttä, mikä on osaltaan ruokkinut populismia ja nationalismia. Ympäristö on kärsinyt, kun kuljetusten määrä on kasvanut ja luonnonvaroja on kulutettu yhä enemmän. Globalisaatio on myös tehnyt maailmasta haavoittuvamman. Rahoituskriisit leviävät nopeasti maasta toiseen. Pandemiat, kuten korona, leviävät matkustuksen myötä. Ilmastonmuutos on globaali ongelma, joka vaatii kaikkien maiden yhteistyötä. Viime vuosina globalisaatio on kohdannut vastavoimia. Protektionismi on lisääntynyt, ja kauppasodat ovat kiihtyneet. Globalisaation tulevaisuus on epävarma. Todennäköisesti se jatkuu, mutta eri muodossa. Painopiste siirtynee kohti kestävämpää ja oikeudenmukaisempaa globalisaatiota, jossa otetaan paremmin huomioon ympäristö- ja sosiaaliset näkökohdat.",
+      "word_count": 178
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä globalisaatio tarkoittaa?",
+        "options": [
+          "Maan sulkeutumista kansainväliseltä kaupalta.",
+          "Talouksien, kulttuurien ja yhteiskuntien kietoutumista toisiinsa yli rajojen.",
+          "Vain tavaroiden liikkumista.",
+          "Vain ihmisten liikkumista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä globalisaatiosta on ollut kuluttajille?",
+        "options": [
+          "Kalliimpia hintoja ja pienempi valikoima.",
+          "Halvempia hintoja ja laajempi valikoima.",
+          "Vain halvempia hintoja.",
+          "Vain laajempi valikoima."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kehitysmaat ovat hyötyneet globalisaatiosta?",
+        "options": [
+          "Ne ovat jääneet köyhemmiksi.",
+          "Ne ovat nousseet köyhyydestä päästessään mukaan maailmankauppaan.",
+          "Ne eivät ole hyötyneet.",
+          "Ne ovat menettäneet työpaikkoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haittapuolia globalisaatiolla on teollisuusmaissa?",
+        "options": [
+          "Työpaikkojen lisääntyminen.",
+          "Työpaikkojen väheneminen ja eriarvoisuuden lisääntyminen.",
+          "Palkkojen nousu.",
+          "Teollisuuden vahvistuminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi globalisaatio on tehnyt maailmasta haavoittuvamman?",
+        "options": [
+          "Kriisit eivät leviä.",
+          "Rahoituskriisit ja pandemiat leviävät nopeasti.",
+          "Maista on tullut omavaraisempia.",
+          "Yhteistyö on vähentynyt."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä vastavoimia globalisaatio on kohdannut?",
+        "options": [
+          "Kansainvälisen yhteistyön lisääntymistä.",
+          "Protektionismia ja kauppasotia.",
+          "Vapaakaupan lisääntymistä.",
+          "Avoimuuden kasvua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Millainen globalisaation tulevaisuus todennäköisesti on?",
+        "options": [
+          "Se loppuu kokonaan.",
+          "Se jatkuu, mutta painopiste siirtynee kohti kestävämpää ja oikeudenmukaisempaa globalisaatiota.",
+          "Se palaa entiselleen.",
+          "Se kiihtyy entisestään ilman muutoksia."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

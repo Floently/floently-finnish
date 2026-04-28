@@ -1,0 +1,37 @@
+{
+  "id": "177c5261-bfed-567a-973d-5624a1c9b5ed",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet joutunut virheellisen verotuspäätöksen kohteeksi. Kirjoita muutoksenhaku Verohallintoon, jossa osoitat virheen, esität oman laskelmasi ja vaadit päätöksen oikaisua. Liitä mukaan viittaukset verolainsäädäntöön ja perustelut sille, miksi alkuperäinen päätös on virheellinen.",
+    "materials": {
+      "scenario": "Virheellinen verotuspäätös"
+    },
+    "items": [
+      {
+        "id": "2a063d5f-48bd-5943-9cb1-2a808feab178",
+        "prompt": "Olet joutunut virheellisen verotuspäätöksen kohteeksi. Kirjoita muutoksenhaku Verohallintoon, jossa osoitat virheen, esität oman laskelmasi ja vaadit päätöksen oikaisua. Liitä mukaan viittaukset verolainsäädäntöön ja perustelut sille, miksi alkuperäinen päätös on virheellinen."
+      }
+    ],
+    "rubric": "Olet joutunut virheellisen verotuspäätöksen kohteeksi. Kirjoita muutoksenhaku Verohallintoon, jossa osoitat virheen, esität oman laskelmasi ja vaadit päätöksen oikaisua. Liitä mukaan viittaukset verolainsäädäntöön ja perustelut sille, miksi alkuperäinen päätös on virheellinen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

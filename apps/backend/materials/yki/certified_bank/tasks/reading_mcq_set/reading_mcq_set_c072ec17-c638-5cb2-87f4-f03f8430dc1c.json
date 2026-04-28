@@ -1,0 +1,77 @@
+{
+  "id": "c072ec17-c638-5cb2-87f4-f03f8430dc1c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "DEMOKRATIAN TILA – ONKO HUOLEN AIHETTA?\n\nDemokratiaa pidetään usein itsestäänselvyytenä. Meillä on vapaat vaalit, sananvapaus ja oikeusvaltio. Mutta pinnan alla on nähtävissä huolestuttavia merkkejä. Poliittinen luottamus on laskenut, erityisesti nuorten keskuudessa. Äänestysprosentti on laskenut, ja samalla äänet keskittyvät. Myös polarisaatio on lisääntynyt.\n\nYksi keskeinen huolenaihe on kansalaisten osallistumismahdollisuudet. Demokratia ei ole vain vaaleja, vaan myös arjen vaikuttamista. Monilla on tunne, ettei heidän äänellään ole väliä. Päätökset tuntuvat kaukaisilta, ja byrokratia vaikeuttaa osallistumista. Tämä ruokkii populismia ja ääriliikkeitä.\n\nToinen huolenaihe on tiedon pirstaloituminen. Ihmiset saavat uutisensa eri lähteistä, ja moni hakeutuu vain itselleen mieluisten näkökulmien pariin. Some-algoritmit vahvistavat omia näkemyksiä ja luovat kuplia. Tämä vaikeuttaa yhteiskunnallista keskustelua ja kompromissien tekemistä.\n\nKolmas huolenaihe on disinformaatio. Valeuutiset ja salaliittoteoriat leviävät tehokkaasti, ja niiden erottaminen oikeasta tiedosta on vaikeaa. Tämä heikentää ihmisten kykyä tehdä tietoon perustuvia päätöksiä ja rapauttaa luottamusta asiantuntijoihin ja mediaan.\n\nTässä tilanteessa tarvitaan uudenlaista ajattelua demokratiasta. Se ei ole vain järjestelmä, vaan myös kulttuuri ja asenne. Meidän on opittava sietämään erilaisia mielipiteitä ja etsimään kompromisseja. Meidän on kyettävä keskustelemaan yli kuplien ja vastakkainasettelujen.\n\nKoulutuksella on tässä tärkeä rooli. Kriittinen medialukutaito on tulevaisuuden kansalaistaito. Ihmisten on osattava arvioida lähteitä ja tunnistaa disinformaatio. Myös kansalaiskasvatusta tarvitaan: on ymmärrettävä, miten yhteiskunta toimii ja miten itse voi vaikuttaa.\n\nLopuksi on muistettava, että demokratia ei ole itsestäänselvyys. Se vaatii jatkuvaa työtä ja meidän kaikkien panosta. Se on kuin puutarha, joka tarvitsee hoitoa. Jos sitä ei hoideta, se rehottaa ja villiintyy. Meillä jokaisella on vastuu demokratian vaalimisesta.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 273
+    },
+    "questions": [
+      {
+        "id": "997f708c-7d37-5674-a29a-c1f5ecc41c80",
+        "prompt": "Mitä ongelmia demokratiassa on?",
+        "options": [
+          "kaikki on hyvin",
+          "poliittinen luottamus laskenut, äänestysprosentti laskenut, polarisaatio lisääntynyt",
+          "ihmiset äänestävät liikaa",
+          "päätökset ovat liian lähellä kansalaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0ef88f49-6e43-59c3-b46f-661d4b2b298e",
+        "prompt": "Miten some vaikuttaa demokratiaan?",
+        "options": [
+          "se parantaa keskustelua",
+          "algoritmit vahvistavat omia näkemyksiä ja luovat kuplia",
+          "sillä ei ole vaikutusta",
+          "se lisää moniäänisyyttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0a463420-d9f8-5d21-a66e-035faa5744d0",
+        "prompt": "Miten disinformaatio vaikuttaa demokratiaan?",
+        "options": [
+          "se parantaa päätöksentekoa",
+          "se heikentää ihmisten kykyä tehdä tietoon perustuvia päätöksiä",
+          "sillä ei ole vaikutusta",
+          "se lisää luottamusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6211b692-5250-5252-b15d-ccf874ac372b",
+        "prompt": "Mitä taitoja kansalaiset tarvitsevat?",
+        "options": [
+          "vain teknisiä taitoja",
+          "kriittistä medialukutaitoa ja ymmärrystä yhteiskunnan toiminnasta",
+          "vain some-taitoja",
+          "vain kielitaitoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "d6889a25-4b37-5611-af4d-2df63f9d95f2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita tiedote.",
+    "materials": {
+      "scenario": "Kirjoita tiedote."
+    },
+    "items": [
+      {
+        "id": "b4962239-fe2b-5f3b-a96e-5a769ac1fe73",
+        "prompt": "Olet taloyhtiön hallituksen jäsen. Taloyhtiössä suunnitellaan piharemonttia. Kirjoita tiedote kaikille asukkaille.\nKerro:\n- mitä remontissa tehdään\n- milloin remontti alkaa ja kauanko se kestää\n- miten remontti vaikuttaa asukkaiden arkeen (pysäköinti, melu, turvallisuus)\n- mistä saa lisätietoja"
+      }
+    ],
+    "rubric": "Olet taloyhtiön hallituksen jäsen. Taloyhtiössä suunnitellaan piharemonttia. Kirjoita tiedote kaikille asukkaille.\nKerro:\n- mitä remontissa tehdään\n- milloin remontti alkaa ja kauanko se kestää\n- miten remontti vaikuttaa asukkaiden arkeen (pysäköinti, melu, turvallisuus)\n- mistä saa lisätietoja",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

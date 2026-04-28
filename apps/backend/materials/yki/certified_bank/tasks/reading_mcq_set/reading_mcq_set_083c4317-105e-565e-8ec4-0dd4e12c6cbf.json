@@ -1,0 +1,66 @@
+{
+  "id": "083c4317-105e-565e-8ec4-0dd4e12c6cbf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.327,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Minulla on ylimääräisiä lippuja elokuviin huomenna kello 19. Haluaisitko tulla mukaan? Liput ovat ilmaiset. Vastaa pian!  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "cee8c388-392c-56be-adb6-01596d2e60f8",
+        "prompt": "Mitä viestissä tarjotaan?",
+        "options": [
+          "konserttilippuja",
+          "elokuvalippuja",
+          "teatterilippuja",
+          "bussilippuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8d0b8e5a-4af0-5d1e-8535-ee27bb094c27",
+        "prompt": "Paljonko liput maksavat?",
+        "options": [
+          "5 euroa",
+          "10 euroa",
+          "ilmaiset",
+          "15 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "34e018f6-b8bf-5c9b-953f-170f0f8845e0",
+        "prompt": "Mitä pitää tehdä, jos haluaa lähteä?",
+        "options": [
+          "maksaa liput",
+          "hakea liput",
+          "vastata pian",
+          "mennä elokuviin"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

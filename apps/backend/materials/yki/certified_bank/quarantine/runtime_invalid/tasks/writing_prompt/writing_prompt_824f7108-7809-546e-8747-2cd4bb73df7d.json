@@ -1,0 +1,37 @@
+{
+  "id": "824f7108-7809-546e-8747-2cd4bb73df7d",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cafeteria. Purpose: ask_for_information. Constraint: mention_a_follow_up_step.",
+    "materials": {
+      "scenario": "study in cafeteria"
+    },
+    "items": [
+      {
+        "id": "2ade0436-4e61-5fd4-8873-ec57a08cd340",
+        "prompt": "Write for the receiver in this scenario: cafeteria. Purpose: ask_for_information. Constraint: mention_a_follow_up_step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

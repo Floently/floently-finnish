@@ -1,0 +1,37 @@
+{
+  "id": "709396ca-3fe2-571b-a08c-cbeb1fe0d792",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: classroom. Purpose: justify_an_opinion. Constraint: be_polite.",
+    "materials": {
+      "scenario": "consumer_rights in classroom"
+    },
+    "items": [
+      {
+        "id": "2f61c036-fe15-5978-b8bf-3990531fbff7",
+        "prompt": "Write for the receiver in this scenario: classroom. Purpose: justify_an_opinion. Constraint: be_polite."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

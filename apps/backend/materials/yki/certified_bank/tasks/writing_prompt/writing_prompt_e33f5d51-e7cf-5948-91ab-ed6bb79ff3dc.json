@@ -1,0 +1,37 @@
+{
+  "id": "e33f5d51-e7cf-5948-91ab-ed6bb79ff3dc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.531,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin osallistuvasta budjetoinnista. Arvioi ehdotusten käsittelyä, äänestystä ja toteutusta. Ehdota yhtä uutta kohdetta.",
+    "materials": {
+      "scenario": "Palaute kaupungin osallistuvasta budjetoinnista"
+    },
+    "items": [
+      {
+        "id": "41984120-cb40-5248-81ff-80f14cb22856",
+        "prompt": "Kirjoita palauteteksti kaupungin osallistuvasta budjetoinnista. Arvioi ehdotusten käsittelyä, äänestystä ja toteutusta. Ehdota yhtä uutta kohdetta."
+      }
+    ],
+    "rubric": "Ehdotusten käsittely\nÄänestys\nToteutus\nUusi kohde",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

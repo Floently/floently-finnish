@@ -1,0 +1,37 @@
+{
+  "id": "d436612d-e08b-5ba5-be23-b913d5f42ca7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.677,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a library customer service position. Tell about your interest in literature, experience in customer service, and why you want to work in a library. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus kirjaston asiakaspalvelijan tehtävään"
+    },
+    "items": [
+      {
+        "id": "a53c8152-c73a-5f75-bad5-4b3a2005cc82",
+        "prompt": "Write a job application. You are applying for a library customer service position. Tell about your interest in literature, experience in customer service, and why you want to work in a library. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a library customer service position. Tell about your interest in literature, experience in customer service, and why you want to work in a library. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

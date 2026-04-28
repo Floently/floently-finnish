@@ -1,0 +1,37 @@
+{
+  "id": "435ab00e-204e-53fe-b834-fbb7d162cca0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti parturiin.",
+    "materials": {
+      "scenario": "Varaa aika hiustenleikkuuseen"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti parturiin."
+      }
+    ],
+    "rubric": "Haluaisit varata ajan hiustenleikkuuseen. Kirjoita sähköposti ja kerro, milloin sinulle sopisi. Kysy, onko heillä vapaita aikoja ja paljonko leikkaus maksaa. Kerro myös, millaista leikkausta toivot.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

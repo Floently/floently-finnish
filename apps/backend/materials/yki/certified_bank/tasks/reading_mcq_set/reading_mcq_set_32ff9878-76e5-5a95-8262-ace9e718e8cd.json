@@ -1,0 +1,66 @@
+{
+  "id": "32ff9878-76e5-5a95-8262-ace9e718e8cd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.353,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "UIMAKOULUT KESÄLLÄ 2025\n\nLasten uimakoulu (7–12 v): maanantaisin ja keskiviikkoisin klo 16–17\nAikuisten alkeisuinti: tiistaisin klo 18–19\nAikuisten tekniikkauinti: torstaisin klo 18–19\nVauvauinti (0–2 v): lauantaisin klo 10–11\n\nHinta: 65 € (8 kertaa)\n\nIlmoittautuminen uimahallin verkkosivuilla 15.5. alkaen.",
+      "word_count": 38
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin on lasten uimakoulu?",
+        "options": [
+          "maanantaisin ja keskiviikkoisin",
+          "tiistaisin",
+          "keskiviikkoisin ja perjantaisin",
+          "torstaisin"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko uimakoulu maksaa?",
+        "options": [
+          "55 €",
+          "60 €",
+          "65 €",
+          "70 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten ilmoittaudutaan?",
+        "options": [
+          "puhelimitse",
+          "sähköpostilla",
+          "verkkosivuilla",
+          "paikan päällä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

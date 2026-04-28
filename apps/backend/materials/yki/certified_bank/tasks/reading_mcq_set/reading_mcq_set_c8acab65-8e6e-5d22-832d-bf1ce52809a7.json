@@ -1,0 +1,66 @@
+{
+  "id": "c8acab65-8e6e-5d22-832d-bf1ce52809a7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.325,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Hei! Kiitos avusta muutossa. Oli mahtavaa, että autoit. Tarjoan mielelläni lounaan kiitokseksi. Sopiiko ensi viikolla?  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "f4a6b9a2-18f1-5bcb-a1be-f0b8ee4be8a5",
+        "prompt": "Miksi lähettäjä kiittää?",
+        "options": [
+          "lahjasta",
+          "avusta muutossa",
+          "kutsusta",
+          "ruuasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5d46cc36-5fd8-53ce-95b1-7ac15c2c7dc9",
+        "prompt": "Mitä hän tarjoaa kiitokseksi?",
+        "options": [
+          "rahaa",
+          "lounaan",
+          "kutsun",
+          "lahjan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9bf6cc7f-291e-5a97-a4d8-e0a43f9746d6",
+        "prompt": "Milloin lounas voisi olla?",
+        "options": [
+          "tänään",
+          "huomenna",
+          "ensi viikolla",
+          "viikonloppuna"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

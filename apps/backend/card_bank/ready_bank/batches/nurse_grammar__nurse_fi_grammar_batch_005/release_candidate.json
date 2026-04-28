@@ -1,0 +1,5367 @@
+{
+  "manifest": {
+    "content_type": "grammar_card",
+    "language": "fi",
+    "path": "professional/nurse/grammar",
+    "domain": "medical_work_finnish",
+    "profession": "nurse",
+    "level_band": "B1_B2",
+    "source_id": "source.generated.professional.nurse.grammar",
+    "authoring_note": null,
+    "manifest_origin": "explicit",
+    "manifest_confidence": 0.95,
+    "source_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json"
+  },
+  "items": [
+    {
+      "id": "card.grammar.nurse.future-expressed-with-present-time.d479be",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "future expressed with present + time",
+          "usage": "present tense with future time adverb"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'future expressed with present + time'?",
+          "gloss": "The doctor comes (will come) tomorrow.",
+          "example_sentence": "Lääkäri tulee huomenna."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lääkäri tulee huomenna.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had not eaten in the morning.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The doctor comes (will come) tomorrow.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "present tense with future time adverb",
+          "example": "Lääkäri tulee huomenna."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.future-expressed-with-tulla-1st-infinitive.0e3ae8",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "future expressed with tulla + 1st infinitive",
+          "usage": "tulla to express future (colloquial)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'future expressed with tulla + 1st infinitive'?",
+          "gloss": "The patient will get pain medication.",
+          "example_sentence": "Potilas tulee saamaan kipulääkettä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas tulee saamaan kipulääkettä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had not eaten in the morning.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient will get pain medication.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "tulla to express future (colloquial)",
+          "example": "Potilas tulee saamaan kipulääkettä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.pluperfect-past-perfect.ac616d",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "pluperfect (past perfect)",
+          "usage": "had done before another past action"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'pluperfect (past perfect)'?",
+          "gloss": "The patient had slept before I gave the medicine.",
+          "example_sentence": "Potilas oli nukkunut ennen kuin annoin lääkkeen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas oli nukkunut ennen kuin annoin lääkkeen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had not eaten in the morning.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient had slept before I gave the medicine.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "had done before another past action",
+          "example": "Potilas oli nukkunut ennen kuin annoin lääkkeen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.pluperfect-negative.cbbc97",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "pluperfect negative",
+          "usage": "had not done"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'pluperfect negative'?",
+          "gloss": "The patient had not eaten in the morning.",
+          "example_sentence": "Potilas ei ollut syönyt aamulla."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas ei ollut syönyt aamulla.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient had not eaten in the morning.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient had not eaten in the morning.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "had not done",
+          "example": "Potilas ei ollut syönyt aamulla."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.future-perfect-rare-formal.40abe3",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "future perfect (rare, formal)",
+          "usage": "will have done (by some future time)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'future perfect (rare, formal)'?",
+          "gloss": "The patient will have recovered in a week.",
+          "example_sentence": "Potilas on toipunut viikon kuluttua."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas on toipunut viikon kuluttua.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient will have recovered in a week.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient will have recovered in a week.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "will have done (by some future time)",
+          "example": "Potilas on toipunut viikon kuluttua."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.passive-pluperfect.531e80",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "passive pluperfect",
+          "usage": "had been done"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'passive pluperfect'?",
+          "gloss": "The patient had been operated before my arrival.",
+          "example_sentence": "Potilas oli leikattu ennen saapumistani."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas oli leikattu ennen saapumistani.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient had been operated before my arrival.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient had been operated before my arrival.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "had been done",
+          "example": "Potilas oli leikattu ennen saapumistani."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.necessive-in-past-oli-pakko.aa6b2c",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "necessive in past (oli pakko)",
+          "usage": "had to (impersonal)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'necessive in past (oli pakko)'?",
+          "gloss": "I had to call the doctor at night.",
+          "example_sentence": "Minun oli pakko soittaa lääkärille yöllä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Minun oli pakko soittaa lääkärille yöllä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I had to call the doctor at night.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I had to call the doctor at night.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "had to (impersonal)",
+          "example": "Minun oli pakko soittaa lääkärille yöllä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.necessive-in-conditional-olisi-pakko.92f114",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "necessive in conditional (olisi pakko)",
+          "usage": "would have to"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'necessive in conditional (olisi pakko)'?",
+          "gloss": "If the condition worsens, I would have to move the patient to ICU.",
+          "example_sentence": "Jos tila huononee, minun olisi pakko siirtää potilas teholle."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jos tila huononee, minun olisi pakko siirtää potilas teholle.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "If the condition worsens, I would have to move the patient to ICU.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "If the condition worsens, I would have to move the patient to ICU.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "would have to",
+          "example": "Jos tila huononee, minun olisi pakko siirtää potilas teholle."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.necessive-passive-on-tehtava-oli-tehtava.82cdc5",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "necessive passive (on tehtävä → oli tehtävä)",
+          "usage": "had to be done"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'necessive passive (on tehtävä → oli tehtävä)'?",
+          "gloss": "The wound had to be cleaned again.",
+          "example_sentence": "Haava oli puhdistettava uudelleen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Haava oli puhdistettava uudelleen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The wound had to be cleaned again.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The wound had to be cleaned again.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "had to be done",
+          "example": "Haava oli puhdistettava uudelleen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.possessive-suffix-with-postpositions-vieressani.4ebbb0",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "possessive suffix with postpositions (vieressäni)",
+          "usage": "next to me"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'possessive suffix with postpositions (vieressäni)'?",
+          "gloss": "The patient sits next to me.",
+          "example_sentence": "Potilas istuu vieressäni."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas istuu vieressäni.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient sits next to me.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient sits next to me.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "next to me",
+          "example": "Potilas istuu vieressäni."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.possessive-suffix-in-passive.e11a64",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "possessive suffix in passive",
+          "usage": "showing whose responsibility in passive"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'possessive suffix in passive'?",
+          "gloss": "The patient's blood sugar must be checked.",
+          "example_sentence": "On tarkistettava potilaan verensokeri."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? On tarkistettava potilaan verensokeri.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient's blood sugar must be checked.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient's blood sugar must be checked.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "showing whose responsibility in passive",
+          "example": "On tarkistettava potilaan verensokeri."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.possessive-suffix-with-body-parts.eb39a3",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "possessive suffix with body parts",
+          "usage": "my hand = käteni"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'possessive suffix with body parts'?",
+          "gloss": "I washed my hands before the procedure.",
+          "example_sentence": "Pesin käteni ennen toimenpidettä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Pesin käteni ennen toimenpidettä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I washed my hands before the procedure.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I washed my hands before the procedure.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "my hand = käteni",
+          "example": "Pesin käteni ennen toimenpidettä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.possessive-suffix-in-formal-address.81df78",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "possessive suffix in formal address",
+          "usage": "Teidän + noun + possessive"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'possessive suffix in formal address'?",
+          "gloss": "Your (formal) blood pressure is high.",
+          "example_sentence": "Teidän verenpaineenne on korkea."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Teidän verenpaineenne on korkea.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Your (formal) blood pressure is high.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Your (formal) blood pressure is high.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Teidän + noun + possessive",
+          "example": "Teidän verenpaineenne on korkea."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.interrogative-kuka-in-all-cases.30a135",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "interrogative kuka in all cases",
+          "usage": "who (nom, gen, part, etc.)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'interrogative kuka in all cases'?",
+          "gloss": "Who? Whose? Whom? In whom? From whom? Into whom? At whom? From whom? To whom?",
+          "example_sentence": "Kuka? Kenen? Ketä? Kenessä? Kenestä? Kehen? Kenellä? Keneltä? Kenelle?"
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kuka? Kenen? Ketä? Kenessä? Kenestä? Kehen? Kenellä? Keneltä? Kenelle?",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Who? Whose? Whom? In whom? From whom? Into whom? At whom? From whom? To whom?",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Who? Whose? Whom? In whom? From whom? Into whom? At whom? From whom? To whom?",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "who (nom, gen, part, etc.)",
+          "example": "Kuka? Kenen? Ketä? Kenessä? Kenestä? Kehen? Kenellä? Keneltä? Kenelle?"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.interrogative-mika-in-all-cases-medical-examples.38aacb",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "interrogative mikä in all cases (medical examples)",
+          "usage": "what"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'interrogative mikä in all cases (medical examples)'?",
+          "gloss": "What pain? Where is the pain? Where does the pain radiate to?",
+          "example_sentence": "Mikä kipu? Missä kipu? Mihin kipu säteilee?"
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Mikä kipu? Missä kipu? Mihin kipu säteilee?",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "What pain? Where is the pain? Where does the pain radiate to?",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "What pain? Where is the pain? Where does the pain radiate to?",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "what",
+          "example": "Mikä kipu? Missä kipu? Mihin kipu säteilee?"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.interrogative-kumpi-in-all-cases.f295ed",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "interrogative kumpi in all cases",
+          "usage": "which one (of two)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'interrogative kumpi in all cases'?",
+          "gloss": "Which hand? Which hand's? Which hand (partial)?",
+          "example_sentence": "Kumpi käsi? Kumman käden? Kumpaa kättä?"
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kumpi käsi? Kumman käden? Kumpaa kättä?",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Which hand? Which hand's? Which hand (partial)?",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Which hand? Which hand's? Which hand (partial)?",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "which one (of two)",
+          "example": "Kumpi käsi? Kumman käden? Kumpaa kättä?"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.relative-pronoun-joka-in-all-cases-nom-gen-part-iness-elat-illat-adess-abl-all-e.73f000",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "relative pronoun joka in all cases (nom, gen, part, iness, elat, illat, adess, abl, all, ess, transl, abess, comit)",
+          "usage": "who/which"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'relative pronoun joka in all cases (nom, gen, part, iness, elat, illat, adess, abl, all, ess, transl, abess, comit)'?",
+          "gloss": "The patient whom I treat, whose wound I cleaned, in whom there is pain...",
+          "example_sentence": "Potilas, jota hoidan, jonka haavan puhdistin, jossa on kipua..."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas, jota hoidan, jonka haavan puhdistin, jossa on kipua...",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient whom I treat, whose wound I cleaned, in whom there is pain...",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient whom I treat, whose wound I cleaned, in whom there is pain...",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "who/which",
+          "example": "Potilas, jota hoidan, jonka haavan puhdistin, jossa on kipua..."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.relative-pronoun-mika-referring-to-whole-sentence.d59e06",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "relative pronoun mikä (referring to whole sentence)",
+          "usage": "which (refers to previous clause)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'relative pronoun mikä (referring to whole sentence)'?",
+          "gloss": "The patient slept well, which is a good sign.",
+          "example_sentence": "Potilas nukkui hyvin, mikä on hyvä merkki."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas nukkui hyvin, mikä on hyvä merkki.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient slept well, which is a good sign.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient slept well, which is a good sign.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "which (refers to previous clause)",
+          "example": "Potilas nukkui hyvin, mikä on hyvä merkki."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-joku-in-all-cases.c04f06",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite joku in all cases",
+          "usage": "someone"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite joku in all cases'?",
+          "gloss": "Someone, someone's, someone (partial), in someone, from someone, into someone, at someone...",
+          "example_sentence": "Joku, jonkun, jotakuta, jossakussa, jostakusta, johonkuhun, jollakulla..."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Joku, jonkun, jotakuta, jossakussa, jostakusta, johonkuhun, jollakulla...",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Someone, someone's, someone (partial), in someone, from someone, into someone, at someone...",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Someone, someone's, someone (partial), in someone, from someone, into someone, at someone...",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "someone",
+          "example": "Joku, jonkun, jotakuta, jossakussa, jostakusta, johonkuhun, jollakulla..."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-jokin-in-all-cases.135fdd",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite jokin in all cases",
+          "usage": "something"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite jokin in all cases'?",
+          "gloss": "Something, something's, something (partial), in something, from something, into something, at something...",
+          "example_sentence": "Jokin, jonkin, jotakin, jossakin, jostakin, johonkin, jollakin..."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jokin, jonkin, jotakin, jossakin, jostakin, johonkin, jollakin...",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Something, something's, something (partial), in something, from something, into something, at something...",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Something, something's, something (partial), in something, from something, into something, at something...",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "something",
+          "example": "Jokin, jonkin, jotakin, jossakin, jostakin, johonkin, jollakin..."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-kukaan-in-all-cases-negative.fa20a4",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite kukaan in all cases (negative)",
+          "usage": "nobody (requires negative verb)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite kukaan in all cases (negative)'?",
+          "gloss": "I didn't see anyone. Nobody has a fever.",
+          "example_sentence": "En nähnyt ketään. Ei kenelläkään ole kuumetta."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? En nähnyt ketään. Ei kenelläkään ole kuumetta.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I didn't see anyone. Nobody has a fever.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I didn't see anyone. Nobody has a fever.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "nobody (requires negative verb)",
+          "example": "En nähnyt ketään. Ei kenelläkään ole kuumetta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-kukaan-positive-anyone-in-if-clause.f03c73",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite kukaan positive (anyone in if-clause)",
+          "usage": "if anyone"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite kukaan positive (anyone in if-clause)'?",
+          "gloss": "If anyone calls, say I'm busy.",
+          "example_sentence": "Jos kukaan soittaa, sano että olen kiireinen."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jos kukaan soittaa, sano että olen kiireinen.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "If anyone calls, say I'm busy.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "If anyone calls, say I'm busy.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "if anyone",
+          "example": "Jos kukaan soittaa, sano että olen kiireinen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-kumpikaan-neither-in-cases.42b8f6",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite kumpikaan (neither) in cases",
+          "usage": "neither (of two)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite kumpikaan (neither) in cases'?",
+          "gloss": "I will help neither patient before the doctor.",
+          "example_sentence": "En auta kumpaakaan potilasta ennen lääkäriä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? En auta kumpaakaan potilasta ennen lääkäriä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I will help neither patient before the doctor.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I will help neither patient before the doctor.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "neither (of two)",
+          "example": "En auta kumpaakaan potilasta ennen lääkäriä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-jokainen-in-cases.cf26c2",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite jokainen in cases",
+          "usage": "each/everyone"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite jokainen in cases'?",
+          "gloss": "Each/everyone, each one's, each one (partial), in each one...",
+          "example_sentence": "Jokainen, jokaisen, jokaista, jokaisessa..."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Jokainen, jokaisen, jokaista, jokaisessa...",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Each/everyone, each one's, each one (partial), in each one...",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Each/everyone, each one's, each one (partial), in each one...",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "each/everyone",
+          "example": "Jokainen, jokaisen, jokaista, jokaisessa..."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-molemmat-in-cases.6e2679",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite molemmat in cases",
+          "usage": "both"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite molemmat in cases'?",
+          "gloss": "Both, both's, both (partial), in both...",
+          "example_sentence": "Molemmat, molempien, molempia, molemmissa..."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Molemmat, molempien, molempia, molemmissa...",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Both, both's, both (partial), in both...",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Both, both's, both (partial), in both...",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "both",
+          "example": "Molemmat, molempien, molempia, molemmissa..."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.indefinite-kaikki-in-all-cases.74fe83",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "indefinite kaikki in all cases",
+          "usage": "all"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'indefinite kaikki in all cases'?",
+          "gloss": "All, all's, all (partial), in all, from all, into all, at all...",
+          "example_sentence": "Kaikki, kaikkien, kaikkia, kaikissa, kaikista, kaikkiin, kaikilla..."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kaikki, kaikkien, kaikkia, kaikissa, kaikista, kaikkiin, kaikilla...",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "All, all's, all (partial), in all, from all, into all, at all...",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "All, all's, all (partial), in all, from all, into all, at all...",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "all",
+          "example": "Kaikki, kaikkien, kaikkia, kaikissa, kaikista, kaikkiin, kaikilla..."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-hyva-parempi-paras.31c799",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: hyvä → parempi → paras",
+          "usage": "good → better → best"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: hyvä → parempi → paras'?",
+          "gloss": "This medicine is better than the previous one. This is the best.",
+          "example_sentence": "Tämä lääke on parempi kuin edellinen. Tämä on paras."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tämä lääke on parempi kuin edellinen. Tämä on paras.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "This medicine is better than the previous one. This is the best.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "This medicine is better than the previous one. This is the best.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "good → better → best",
+          "example": "Tämä lääke on parempi kuin edellinen. Tämä on paras."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-paljon-enemman-eniten.68f60b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: paljon → enemmän → eniten",
+          "usage": "much → more → most"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: paljon → enemmän → eniten'?",
+          "gloss": "The patient sleeps more now. He sleeps most in the mornings.",
+          "example_sentence": "Potilas nukkuu enemmän nyt. Hän nukkuu eniten aamuisin."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas nukkuu enemmän nyt. Hän nukkuu eniten aamuisin.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient sleeps more now. He sleeps most in the mornings.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient sleeps more now. He sleeps most in the mornings.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "much → more → most",
+          "example": "Potilas nukkuu enemmän nyt. Hän nukkuu eniten aamuisin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-pitka-pidempi-pisin.04732d",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: pitkä → pidempi → pisin",
+          "usage": "long → longer → longest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: pitkä → pidempi → pisin'?",
+          "gloss": "The wait is longer today. It is the longest this week.",
+          "example_sentence": "Odotus on pidempi tänään. Se on pisin tällä viikolla."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Odotus on pidempi tänään. Se on pisin tällä viikolla.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The wait is longer today. It is the longest this week.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The wait is longer today. It is the longest this week.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "long → longer → longest",
+          "example": "Odotus on pidempi tänään. Se on pisin tällä viikolla."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-lyhyt-lyhyempi-lyhin.16d78b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: lyhyt → lyhyempi → lyhin",
+          "usage": "short → shorter → shortest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: lyhyt → lyhyempi → lyhin'?",
+          "gloss": "Shorter sick leave. The shortest treatment time.",
+          "example_sentence": "Lyhyempi sairausloma. Lyhin hoitoaika."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lyhyempi sairausloma. Lyhin hoitoaika.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Shorter sick leave. The shortest treatment time.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Shorter sick leave. The shortest treatment time.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "short → shorter → shortest",
+          "example": "Lyhyempi sairausloma. Lyhin hoitoaika."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-korkea-korkeampi-korkein.8fc1bb",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: korkea → korkeampi → korkein",
+          "usage": "high → higher → highest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: korkea → korkeampi → korkein'?",
+          "gloss": "The blood pressure is higher now. It was highest in the morning.",
+          "example_sentence": "Verenpaine on korkeampi nyt. Se oli korkein aamulla."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Verenpaine on korkeampi nyt. Se oli korkein aamulla.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The blood pressure is higher now. It was highest in the morning.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The blood pressure is higher now. It was highest in the morning.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "high → higher → highest",
+          "example": "Verenpaine on korkeampi nyt. Se oli korkein aamulla."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-matala-matalampi-matalin.a7e0c4",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: matala → matalampi → matalin",
+          "usage": "low → lower → lowest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: matala → matalampi → matalin'?",
+          "gloss": "The temperature is lower in the evening. Lowest at night.",
+          "example_sentence": "Lämpö on matalampi illalla. Matalin yöllä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lämpö on matalampi illalla. Matalin yöllä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The temperature is lower in the evening. Lowest at night.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The temperature is lower in the evening. Lowest at night.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "low → lower → lowest",
+          "example": "Lämpö on matalampi illalla. Matalin yöllä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-vanha-vanhempi-vanhin.e80b61",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: vanha → vanhempi → vanhin",
+          "usage": "old → older → oldest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: vanha → vanhempi → vanhin'?",
+          "gloss": "An older patient needs more help. The oldest patient is 95.",
+          "example_sentence": "Vanhempi potilas tarvitsee enemmän apua. Vanhin potilas on 95."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Vanhempi potilas tarvitsee enemmän apua. Vanhin potilas on 95.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "An older patient needs more help. The oldest patient is 95.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "An older patient needs more help. The oldest patient is 95.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "old → older → oldest",
+          "example": "Vanhempi potilas tarvitsee enemmän apua. Vanhin potilas on 95."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-nuori-nuorempi-nuorin.6edaad",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: nuori → nuorempi → nuorin",
+          "usage": "young → younger → youngest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: nuori → nuorempi → nuorin'?",
+          "gloss": "The younger patient recovers faster. The youngest is only 20.",
+          "example_sentence": "Nuorempi potilas toipuu nopeammin. Nuorin on vasta 20."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Nuorempi potilas toipuu nopeammin. Nuorin on vasta 20.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The younger patient recovers faster. The youngest is only 20.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The younger patient recovers faster. The youngest is only 20.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "young → younger → youngest",
+          "example": "Nuorempi potilas toipuu nopeammin. Nuorin on vasta 20."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-suuri-suurempi-suurin.2950cf",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: suuri → suurempi → suurin",
+          "usage": "big/large → bigger → biggest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: suuri → suurempi → suurin'?",
+          "gloss": "A bigger dose. The biggest risk is infection.",
+          "example_sentence": "Suurempi annos. Suurin riski on infektio."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Suurempi annos. Suurin riski on infektio.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "A bigger dose. The biggest risk is infection.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "A bigger dose. The biggest risk is infection.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "big/large → bigger → biggest",
+          "example": "Suurempi annos. Suurin riski on infektio."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-pieni-pienempi-pienin.1f528a",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: pieni → pienempi → pienin",
+          "usage": "small → smaller → smallest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: pieni → pienempi → pienin'?",
+          "gloss": "A smaller needle. The smallest possible dose.",
+          "example_sentence": "Pienempi neula. Pienin mahdollinen annos."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Pienempi neula. Pienin mahdollinen annos.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "A smaller needle. The smallest possible dose.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "A smaller needle. The smallest possible dose.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "small → smaller → smallest",
+          "example": "Pienempi neula. Pienin mahdollinen annos."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-nopea-nopeampi-nopein.d66ba4",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: nopea → nopeampi → nopein",
+          "usage": "fast → faster → fastest"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: nopea → nopeampi → nopein'?",
+          "gloss": "A faster heart rate. The fastest treatment is surgery.",
+          "example_sentence": "Nopeampi syke. Nopein hoito on leikkaus."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Nopeampi syke. Nopein hoito on leikkaus.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "A faster heart rate. The fastest treatment is surgery.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "A faster heart rate. The fastest treatment is surgery.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "fast → faster → fastest",
+          "example": "Nopeampi syke. Nopein hoito on leikkaus."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.irregular-comparative-usein-useammin-useimmin.d0b955",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "irregular comparative: usein → useammin → useimmin",
+          "usage": "often → more often → most often"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'irregular comparative: usein → useammin → useimmin'?",
+          "gloss": "The patient wakes more often at night. Most often between 2-3.",
+          "example_sentence": "Potilas herää useammin yöllä. Useimmin klo 2-3."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas herää useammin yöllä. Useimmin klo 2-3.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient wakes more often at night. Most often between 2-3.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient wakes more often at night. Most often between 2-3.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "often → more often → most often",
+          "example": "Potilas herää useammin yöllä. Useimmin klo 2-3."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.cardinal-numbers-1-10-in-cases-nominative-genitive-partitive.90a4b9",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "cardinal numbers 1-10 in cases (nominative, genitive, partitive)",
+          "usage": "yksi, yhden, yhtä / kaksi, kahden, kahta / kolme, kolmen, kolmea"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'cardinal numbers 1-10 in cases (nominative, genitive, partitive)'?",
+          "gloss": "One patient, one patient's condition, I treat two patients (partial).",
+          "example_sentence": "Yksi potilas, yhden potilaan tila, hoidan kahta potilasta."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Yksi potilas, yhden potilaan tila, hoidan kahta potilasta.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "One patient, one patient's condition, I treat two patients (partial).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "One patient, one patient's condition, I treat two patients (partial).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "yksi, yhden, yhtä / kaksi, kahden, kahta / kolme, kolmen, kolmea",
+          "example": "Yksi potilas, yhden potilaan tila, hoidan kahta potilasta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.ordinal-numbers-1-10-in-cases.3763db",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "ordinal numbers 1-10 in cases",
+          "usage": "first, second, third, etc."
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'ordinal numbers 1-10 in cases'?",
+          "gloss": "The first nurse, the second patient's, for the third time.",
+          "example_sentence": "Ensimmäinen hoitaja, toisen potilaan, kolmatta kertaa."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Ensimmäinen hoitaja, toisen potilaan, kolmatta kertaa.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The first nurse, the second patient's, for the third time.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The first nurse, the second patient's, for the third time.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "first, second, third, etc.",
+          "example": "Ensimmäinen hoitaja, toisen potilaan, kolmatta kertaa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.time-expressions-kello-partitive.501af4",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "time expressions: kello + partitive",
+          "usage": "at (clock time)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'time expressions: kello + partitive'?",
+          "gloss": "I wake at six o'clock.",
+          "example_sentence": "Herään kello kuutta."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Herään kello kuutta.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "I wake at six o'clock.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "I wake at six o'clock.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "at (clock time)",
+          "example": "Herään kello kuutta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.time-expressions-kello-genitive-jalkeen.f8e831",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "time expressions: kello + genitive + jälkeen",
+          "usage": "after (clock time)"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'time expressions: kello + genitive + jälkeen'?",
+          "gloss": "After six o'clock, I measure the temperature.",
+          "example_sentence": "Kello kuuden jälkeen mittaan lämmön."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Kello kuuden jälkeen mittaan lämmön.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "After six o'clock, I measure the temperature.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "After six o'clock, I measure the temperature.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "after (clock time)",
+          "example": "Kello kuuden jälkeen mittaan lämmön."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.time-expressions-puoli-partitive.97ec05",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "time expressions: puoli + partitive",
+          "usage": "half past"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'time expressions: puoli + partitive'?",
+          "gloss": "Half past six (lit. half seven).",
+          "example_sentence": "Puoli seitsemän = 6:30."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Puoli seitsemän = 6:30.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Half past six (lit. half seven).",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Half past six (lit. half seven).",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "half past",
+          "example": "Puoli seitsemän = 6:30."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.time-expressions-varttia-vaille-partitive.17052a",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "time expressions: varttia vaille + partitive",
+          "usage": "quarter to"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'time expressions: varttia vaille + partitive'?",
+          "gloss": "Quarter to seven.",
+          "example_sentence": "Varttia vaille seitsemän = 6:45."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Varttia vaille seitsemän = 6:45.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Quarter to seven.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Quarter to seven.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "quarter to",
+          "example": "Varttia vaille seitsemän = 6:45."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.time-expressions-vartin-yli-partitive.6d1e42",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "time expressions: vartin yli + partitive",
+          "usage": "quarter past"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'time expressions: vartin yli + partitive'?",
+          "gloss": "Quarter past six.",
+          "example_sentence": "Vartin yli kuusi = 6:15."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Vartin yli kuusi = 6:15.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Quarter past six.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Quarter past six.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "quarter past",
+          "example": "Vartin yli kuusi = 6:15."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.frequency-kaksi-kertaa-paivassa.d4436b",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "frequency: kaksi kertaa päivässä",
+          "usage": "twice a day"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'frequency: kaksi kertaa päivässä'?",
+          "gloss": "Give the medicine twice a day.",
+          "example_sentence": "Anna lääke kaksi kertaa päivässä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Anna lääke kaksi kertaa päivässä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Give the medicine twice a day.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Give the medicine twice a day.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "twice a day",
+          "example": "Anna lääke kaksi kertaa päivässä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.frequency-joka-toinen-paiva.91c238",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "frequency: joka toinen päivä",
+          "usage": "every other day"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'frequency: joka toinen päivä'?",
+          "gloss": "Check the wound every other day.",
+          "example_sentence": "Tarkista haava joka toinen päivä."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Tarkista haava joka toinen päivä.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Check the wound every other day.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Check the wound every other day.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "every other day",
+          "example": "Tarkista haava joka toinen päivä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.frequency-kolmen-tunnin-valein.cc6b37",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "frequency: kolmen tunnin välein",
+          "usage": "every three hours"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'frequency: kolmen tunnin välein'?",
+          "gloss": "Measure the blood sugar every three hours.",
+          "example_sentence": "Mittaa verensokeri kolmen tunnin välein."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Mittaa verensokeri kolmen tunnin välein.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Measure the blood sugar every three hours.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Measure the blood sugar every three hours.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "every three hours",
+          "example": "Mittaa verensokeri kolmen tunnin välein."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.duration-lapi-yon.ffc7a6",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "duration: läpi yön",
+          "usage": "throughout the night"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'duration: läpi yön'?",
+          "gloss": "The patient slept through the night.",
+          "example_sentence": "Potilas nukkui läpi yön."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas nukkui läpi yön.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient slept through the night.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient slept through the night.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "throughout the night",
+          "example": "Potilas nukkui läpi yön."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    },
+    {
+      "id": "card.grammar.nurse.duration-koko-paivan.bf0e6a",
+      "version": 1,
+      "path": "professional/nurse/grammar",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "nurse",
+        "label": "Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.nurse.grammar",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/nurse_grammar.json",
+        "authoring_note": "source.generated.professional.nurse.grammar"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "b1_b2",
+        "medical_work_finnish",
+        "nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.nurse.grammar",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "duration: koko päivän",
+          "usage": "the whole day"
+        },
+        "back": {
+          "recall_prompt": "What is the function of 'duration: koko päivän'?",
+          "gloss": "The patient complained of nausea the whole day.",
+          "example_sentence": "Potilas valitti pahoinvointia koko päivän."
+        },
+        "prompt_family": "grammar_pattern",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas valitti pahoinvointia koko päivän.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "The doctor comes (will come) tomorrow.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will get pain medication.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient had slept before I gave the medicine.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient complained of nausea the whole day.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "The patient complained of nausea the whole day.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "the whole day",
+          "example": "Potilas valitti pahoinvointia koko päivän."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      }
+    }
+  ]
+}

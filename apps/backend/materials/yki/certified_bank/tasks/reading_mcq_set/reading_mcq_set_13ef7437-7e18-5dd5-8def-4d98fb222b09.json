@@ -1,0 +1,110 @@
+{
+  "id": "13ef7437-7e18-5dd5-8def-4d98fb222b09",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.734,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Vapaaehtoistyöllä on Suomessa pitkät perinteet ja tärkeä rooli. Sitä tehdään monilla aloilla, kuten liikunnassa, kulttuurissa, sosiaalialalla ja ympäristönsuojelussa. Vapaaehtoistyö tarjoaa ihmisille mahdollisuuden osallistua, vaikuttaa ja kokea yhteisöllisyyttä. Samalla se tuottaa yhteiskunnalle merkittävää taloudellista arvoa, jota on vaikea mitata rahassa. Monet järjestöt ja yhdistykset ovat riippuvaisia vapaaehtoisten panoksesta. Viime vuosina on keskusteltu siitä, miten vapaaehtoistyötä voitaisiin tukea paremmin. Ihmisten elämä on kiireistä, ja vapaaehtoisten löytäminen voi olla vaikeaa. Siksi tarvitaan matalan kynnyksen osallistumismahdollisuuksia ja joustavia tapoja tehdä vapaaehtoistyötä. Digitaaliset alustat ovat helpottaneet osallistumista, kun tehtäviä voi tehdä etänä ja oman aikataulun mukaan. Myös työnantajilla on rooli: joustavat työajat ja vapaaehtoistyön arvostus voivat kannustaa työntekijöitä osallistumaan. Vapaaehtoistyön arvo tulisi tunnustaa laajemmin, ja sille pitäisi antaa enemmän näkyvyyttä ja tukea yhteiskunnassa.",
+      "word_count": 118
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millä aloilla vapaaehtoistyötä tehdään Suomessa?",
+        "options": [
+          "Vain liikunnassa ja kulttuurissa.",
+          "Liikunnassa, kulttuurissa, sosiaalialalla ja ympäristönsuojelussa.",
+          "Vain sosiaalialalla.",
+          "Vain ympäristönsuojelussa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä vapaaehtoistyöstä on tekijälleen?",
+        "options": [
+          "Se tuo rahallista korvausta.",
+          "Se tarjoaa mahdollisuuden osallistua, vaikuttaa ja kokea yhteisöllisyyttä.",
+          "Se vie paljon aikaa.",
+          "Se on pakollista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä arvoa vapaaehtoistyö tuottaa yhteiskunnalle?",
+        "options": [
+          "Vain vähän arvoa.",
+          "Merkittävää taloudellista arvoa, jota on vaikea mitata rahassa.",
+          "Vain sosiaalista arvoa.",
+          "Ei mitään arvoa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi vapaaehtoisten löytäminen voi olla vaikeaa?",
+        "options": [
+          "Koska vapaaehtoistyö on epäsuosittua.",
+          "Koska ihmiset ovat kiireisiä.",
+          "Koska vapaaehtoistyö on liian vaativaa.",
+          "Koska siitä ei makseta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten digitaaliset alustat ovat helpottaneet vapaaehtoistyötä?",
+        "options": [
+          "Ne ovat tehneet siitä pakollista.",
+          "Ne mahdollistavat tehtävien tekemisen etänä ja oman aikataulun mukaan.",
+          "Ne ovat vähentäneet tarvetta vapaaehtoisille.",
+          "Ne ovat lisänneet byrokratiaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten työnantajat voivat tukea vapaaehtoistyötä?",
+        "options": [
+          "Kieltämällä vapaaehtoistyön työajalla.",
+          "Joustavilla työajoilla ja arvostamalla vapaaehtoistyötä.",
+          "Vaatimalla työntekijöitä tekemään vapaaehtoistyötä.",
+          "Ei millään tavalla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä vapaaehtoistyölle toivotaan tulevaisuudessa?",
+        "options": [
+          "Sen vähentämistä ja rajoittamista.",
+          "Enemmän näkyvyyttä ja tukea yhteiskunnassa.",
+          "Sen korvaamista palkkatyöllä.",
+          "Sen tekemistä pakolliseksi."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

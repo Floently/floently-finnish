@@ -1,0 +1,37 @@
+{
+  "id": "416a7073-fa7e-53dc-be2c-a9787b28899c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti terveyskeskuksen hammashoitolaan. Tarvitset kiireellistä hammashoitoa, mutta sinulla ei ole ajanvarausta. Kerro, mikä ongelma on, kuinka kauan se on kestänyt ja onko se pahentunut. Kysy, voitko saada ajan nopeasti ja miten toimit hätätapauksessa.",
+    "materials": {
+      "scenario": "Kiireellinen hammashoito"
+    },
+    "items": [
+      {
+        "id": "b7fc473e-a4a9-5aaa-a649-b199c482e9e3",
+        "prompt": "Kirjoita virallinen sähköposti terveyskeskuksen hammashoitolaan. Tarvitset kiireellistä hammashoitoa, mutta sinulla ei ole ajanvarausta. Kerro, mikä ongelma on, kuinka kauan se on kestänyt ja onko se pahentunut. Kysy, voitko saada ajan nopeasti ja miten toimit hätätapauksessa."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

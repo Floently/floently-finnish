@@ -1,0 +1,76 @@
+{
+  "id": "e4b2dbfa-0833-553d-8772-58dbe15b6bf5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu maahanmuutosta ja identiteetistä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan maahanmuutosta ja identiteetistä. Meillä on täällä tutkija Ahmed Hassan, kirjailija Sanna Nieminen ja nuorisojärjestön edustaja Mikko Virtanen.\n\nAhmed: Maahanmuutto muuttaa sekä maahanmuuttajien että kantaväestön identiteettiä. Se on kaksisuuntainen prosessi. Itse koen olevani sekä suomalainen että somalialainen – se ei ole joko-tai, vaan sekä-että.\n\nSanna: Kirjailijana näen, että identiteetti on aina monikerroksinen. Meillä kaikilla on monta identiteettiä: ammatti, perhe, harrastukset, kulttuuri. Maahanmuutto tuo vain yhden lisäkerroksen.\n\nMikko: Nuoret, joilla on maahanmuuttajatausta, kokevat usein olevansa 'liian suomalaisia' kotimaassaan ja 'liian ulkomaalaisia' Suomessa. Se on raskasta.\n\nAhmed: Juuri tämä on ongelma. Jos yhteiskunta pakottaa valitsemaan, se aiheuttaa pahoinvointia. Pitäisi hyväksyä, että voi olla monta asiaa samaan aikaan.\n\nSanna: Media luo usein kuvaa, että maahanmuuttajat ovat joko uhri tai uhka. Molemmat ovat vahingollisia. Ihminen on aina enemmän kuin yksi kategoria.\n\nMikko: Meidän nuorisojärjestössä on nuoria 30 maasta. Yhteistä on halu tulla nähdyksi yksilöinä, ei edustamaan mitään ryhmää.\n\nAhmed: Kotoutuminen ei ole vain maahanmuuttajien tehtävä. Se on koko yhteiskunnan prosessi. Meidän kaikkien on opittava elämään moninaisuudessa.\n\nSanna: Identiteetti ei ole kiveen hakattu. Se elää ja muuttuu. Tärkeintä on, että saa olla oma itsensä.",
+      "audio_asset_id": "98eefd0b-a925-44e5-a9a7-ffd656e78615"
+    },
+    "questions": [
+      {
+        "id": "aa2190fa-58fb-5e46-b041-1689aaa76ba8",
+        "prompt": "Miten Ahmed kuvaa omaa identiteettiään?",
+        "options": [
+          "Vain suomalainen",
+          "Vain somalialainen",
+          "Sekä suomalainen että somalialainen",
+          "Ei kumpikaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "f748c5f3-034b-56ab-a9ff-b159fec453bb",
+        "prompt": "Mitä ongelmia nuoret, joilla on maahanmuuttajatausta, kohtaavat?",
+        "options": [
+          "Liian vähän koulutusta",
+          "Kokevat olevansa 'liian suomalaisia' kotimaassa ja 'liian ulkomaalaisia' Suomessa",
+          "Liian paljon kavereita",
+          "Liian helppoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "709db21a-718d-534f-a7aa-ec7cc5a4a2f1",
+        "prompt": "Miten media luo kuvaa maahanmuuttajista Sannan mukaan?",
+        "options": [
+          "Monipuolisesti",
+          "Joko uhrina tai uhkana",
+          "Positiivisesti Neutraalisti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "194a0c04-eaaa-54aa-98ac-95d352c67267",
+        "prompt": "Mitä kotoutuminen Ahmedin mukaan vaatii?",
+        "options": [
+          "Vain maahanmuuttajien ponnisteluja",
+          "Koko yhteiskunnan prosessia",
+          "Vain kielikursseja",
+          "Vain työpaikkoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

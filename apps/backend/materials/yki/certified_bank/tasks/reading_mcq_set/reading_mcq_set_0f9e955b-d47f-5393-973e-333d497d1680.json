@@ -1,0 +1,88 @@
+{
+  "id": "0f9e955b-d47f-5393-973e-333d497d1680",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.762,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomen kielen asema on monella tapaa vahva, mutta se kohtaa myös haasteita globalisoituvassa maailmassa. Suomi on virallinen kieli Suomessa, ja se on ainoa kotoperäinen kieli, jota puhuu enemmistö väestöstä. Kielen asemaa turvaavat lait ja asetukset, jotka velvoittavat viranomaisia ja julkisia palveluita toimimaan suomeksi. Koulujärjestelmä takaa, että jokainen suomalainen saa opetusta äidinkielessään. Yksi keskeisimmistä haasteista suomen kielen tulevaisuudelle on englannin kielen vahva asema. Englanti on noussut tieteen, korkeakoulutuksen, liike-elämän ja viihdeteollisuuden kieleksi, ja se on monilla aloilla työkieli myös Suomessa. Tämä on johtanut siihen, että suomen kielen asiantuntijasanasto ja akateeminen kirjoittaminen ovat heikentyneet tietyillä aloilla. Toinen haaste on kielten opiskelun väheneminen. Vaikka englannin osaaminen on Suomessa hyvällä tasolla, muiden kielten, kuten ruotsin, saksan ja ranskan, opiskelu on vähentynyt. Tämä kaventaa suomalaisten kielitaitoa ja heikentää heidän mahdollisuuksiaan toimia kansainvälisessä ympäristössä. Kolmas haaste on maahanmuuttajien kotoutuminen. Maahanmuuttajien määrä on kasvanut, ja heidän suomen kielen oppimisensa on keskeistä kotoutumisen ja työllistymisen kannalta. Koulutusjärjestelmän on kyettävä tarjoamaan riittävästi ja laadukasta suomen kielen opetusta maahanmuuttajille. Suomen kielen asemaa pyritään vahvistamaan monin tavoin. Kotimaisten kielten keskus ja muut toimijat kehittävät ja ylläpitävät kieltä, ja mediassa ja kulttuurissa suomen kielellä on vahva asema. Myös digitaalisessa maailmassa suomen kielen asemaa pyritään turvaamaan, vaikka monet sovellukset ja palvelut ovatkin ensisijaisesti englanninkielisiä.",
+      "word_count": 201
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on yksi keskeisimmistä haasteista suomen kielen tulevaisuudelle?",
+        "options": [
+          "Suomen kielen puhujien määrän kasvu",
+          "Englannin kielen vahva asema",
+          "Ruotsin kielen aseman heikkeneminen",
+          "Maahanmuuton väheneminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millä aloilla englanti on erityisen vahvasti läsnä?",
+        "options": [
+          "Vain viihdeteollisuudessa",
+          "Tieteessä, korkeakoulutuksessa, liike-elämässä ja viihdeteollisuudessa",
+          "Vain liike-elämässä",
+          "Vain korkeakoulutuksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ongelmia englannin vahva asema aiheuttaa suomen kielelle?",
+        "options": [
+          "Suomen kielen sanasto köyhtyy",
+          "Suomen kielen asiantuntijasanasto ja akateeminen kirjoittaminen heikkenevät",
+          "Suomen kielen puhujat vähenevät",
+          "Suomen kieltä ei enää opeteta kouluissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä on tapahtunut muiden kielten opiskelulle Suomessa?",
+        "options": [
+          "Se on lisääntynyt",
+          "Se on vähentynyt",
+          "Se on pysynyt ennallaan",
+          "Sitä ei ole koskaan ollutkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi maahanmuuttajien suomen kielen oppiminen on tärkeää?",
+        "options": [
+          "Jotta he voivat puhua englantia",
+          "Kotoutumisen ja työllistymisen kannalta",
+          "Jotta he voivat matkustaa",
+          "Jotta he voivat opiskella ulkomailla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "5405607f-6eb9-5716-93c1-8897489862ff",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Nainen: Hei, olen menossa työhaastatteluun ensi viikolla. Mitä kannattaa ottaa huomioon?\nYstävä: Hei, onnea haastatteluun! Ensinnäkin, pukeudu siististi ja asiallisesti. Toiseksi, mieti etukäteen, mitä haluat kertoa itsestäsi ja osaamisestasi.\nNainen: Kiitos vinkeistä. Mitä minun kannattaisi kysyä haastattelijalta?\nYstävä: Kysy vaikka työtehtävistä, työyhteisöstä ja kehittymismahdollisuuksista. Se osoittaa, että olet kiinnostunut paikasta.\nNainen: Hyvä pointti. Entä jos en osaa vastata johonkin kysymykseen?\nYstävä: Ole rehellinen. Sano, että et tiedä, mutta olet valmis oppimaan. Älä keksi mitään.",
+      "audio_asset_id": "529b48ff-f0b1-5ad3-8614-cc5581eb5abf"
+    },
+    "questions": [
+      {
+        "id": "list_359",
+        "prompt": "Mihin nainen on menossa ensi viikolla?",
+        "options": [
+          "Koulutukseen",
+          "Työhaastatteluun",
+          "Lomalle",
+          "Tapaamiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_360",
+        "prompt": "Mitä ystävä neuvoo pukeutumisesta?",
+        "options": [
+          "Pukeutuu rennosti",
+          "Pukeutuu siististi ja asiallisesti",
+          "Pukeutuu värikkäästi",
+          "Pukeutuu samalla tavalla kuin aina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_361",
+        "prompt": "Mitä ystävä neuvoo tekemään, jos ei osaa vastata kysymykseen?",
+        "options": [
+          "Keksii vastauksen",
+          "Vaihtaa puheenaihetta",
+          "Sanoo, ettei tiedä mutta on valmis oppimaan",
+          "Jättää vastaamatta"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

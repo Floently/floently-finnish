@@ -1,0 +1,37 @@
+{
+  "id": "b231f8cb-27c8-5527-b2cc-a2987e0298ad",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.669,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a baker's assistant position in a bakery. Tell about your interest in baking, previous experience, and why you want to work in a bakery. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus leipurin apulaisen tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a baker's assistant position in a bakery. Tell about your interest in baking, previous experience, and why you want to work in a bakery. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a baker's assistant position in a bakery. Tell about your interest in baking, previous experience, and why you want to work in a bakery. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

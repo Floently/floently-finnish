@@ -1,0 +1,77 @@
+{
+  "id": "fadecce5-319a-58b5-a4ef-ee710f8b560c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.763,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Yliopistojen ja korkeakoulujen rooli yhteiskunnassa on ollut viime vuosina voimakkaan uudelleenarvioinnin kohteena. Perinteisesti yliopistot on nähty sivistysyliopistoina, joiden tehtävänä on harjoittaa perustutkimusta ja tarjota korkeatasoista opetusta ilman välittömiä taloudellisia hyötyodotuksia. Tämä ihanne korostaa tieteen autonomiaa ja tutkijoiden vapautta. Viime vuosikymmeninä tämän rinnalle on vahvistunut innovaatioyliopiston malli, jossa yliopistoilta odotetaan talouskasvua ja yhteiskunnallisten ongelmien ratkaisuja. Yliopistoilta vaaditaan vaikuttavuutta, kaupallistamista ja yhteistyötä elinkeinoelämän kanssa. Innovaatioyliopiston kannattajat korostavat, että yliopistojen on vastattava yhteiskunnan muuttuviin tarpeisiin. Tutkimusrahoitusta tulisi kohdentaa strategisesti tärkeille aloille. Kriitikot varoittavat, että tämä voi kaventaa tieteen vapautta ja johtaa perustutkimuksen laiminlyöntiin. Heidän mukaansa aidosti uraauurtavat löydöt syntyvät usein pitkäjänteisestä perustutkimuksesta.",
+      "word_count": 99
+    },
+    "questions": [
+      {
+        "id": "90a5f276-3872-5258-aa66-d3f52d26141f",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Yliopistojen rahoitusmallien vertailu",
+          "Yliopistojen rooliin liittyvä jännite perinteisen sivistysyliopiston ja innovaatioyliopiston välillä",
+          "Yliopistojen ja elinkeinoelämän yhteistyön edut",
+          "Perustutkimuksen merkitys tieteen kehitykselle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1b9b9798-689a-50fb-bc08-a827802fa010",
+        "prompt": "Tekstin mukaan mitä perinteinen sivistysyliopiston malli korostaa?",
+        "options": [
+          "Talouskasvua ja kaupallistamista",
+          "Tieteen autonomiaa, perustutkimusta ja tutkijoiden vapautta",
+          "Tiivistä yhteistyötä elinkeinoelämän kanssa",
+          "Strategista tutkimusrahoituksen kohdentamista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8aeb46a5-f4dc-5807-9a52-865ebab28984",
+        "prompt": "Mitä innovaatioyliopiston kannattajat pitävät tärkeänä?",
+        "options": [
+          "Perustutkimuksen lisäämistä ilman sovellusodotuksia",
+          "Yliopistojen vastaamista yhteiskunnan muuttuviin tarpeisiin, vaikuttavuutta ja kaupallistamista",
+          "Tieteen autonomian vahvistamista",
+          "Tutkijoiden vapautta valita tutkimusaiheensa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b672865a-e760-5a29-b028-8524e0303dcf",
+        "prompt": "Mitä kritiikkiä innovaatioyliopiston mallia kohtaan tekstissä esitetään?",
+        "options": [
+          "Se vähentää yliopistojen yhteiskunnallista merkitystä",
+          "Se voi kaventaa tieteen vapautta ja johtaa perustutkimuksen laiminlyöntiin",
+          "Se heikentää yliopistojen ja elinkeinoelämän välistä yhteistyötä",
+          "Se lisää yliopistojen byrokratiaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "630eac3c-9c45-534f-a7d3-1666a5b8543a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ilmastonmuutoksesta.",
+    "materials": {
+      "transcript": "A: Musta tuntuu, että ilmastonmuutoksesta puhutaan koko ajan, mutta kukaan ei tee mitään.\nB: Joo, se on turhauttavaa. Itse yritän tehdä pieniä tekoja: lajittelen jätteet, käytän joukkoliikennettä ja vähensin lihansyöntiä.\nA: Mutta riittääkö se? Kun isot teollisuusmaat ja Kiina päästää valtavat määrät.\nB: Ei se tietysti riitä, mutta jos kaikki tekisivät edes jotain, se auttaisi. Ja kuluttajien valinnat vaikuttavat yrityksiin.\nA: Miten niin?\nB: Jos ihmiset ostavat enemmän kotimaista ja vähemmän muovia, kaupat alkavat panostaa siihen. Ja politiikassa paine kasvaa.\nA: Ehkä sä oot oikeessa. Mutta mua väsyttää se, että aina pitää itse miettiä jokaista valintaa.\nB: Joo, se on raskasta. Mutta pikkuhiljaa niistä tulee rutiinia. Ja on tärkeää, että meistä nuorista tuntuu, että voidaan vaikuttaa.",
+      "audio_asset_id": "b41155f0-78c8-49d7-994d-7f4faa3b8a45"
+    },
+    "questions": [
+      {
+        "id": "3159ffc2-3a5e-5536-82d6-e9f4a10bc0ca",
+        "prompt": "Mitä B tekee ympäristön hyväksi?",
+        "options": [
+          "lentää vähemmän",
+          "lajittelee jätteet ja vähentää lihansyöntiä",
+          "asuu pienemmässä asunnossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1e9db45b-666b-5d47-a64a-611e2d74770c",
+        "prompt": "Mitä mieltä A on ilmastoteoista?",
+        "options": [
+          "ne ovat turhia",
+          "ne ovat tärkeitä mutta kuluttavia",
+          "ne ovat helppoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8c9b6f5f-6190-59c4-8e14-96b183db4210",
+        "prompt": "Miten B:n mukaan kuluttajat voivat vaikuttaa?",
+        "options": [
+          "äänestämällä",
+          "ostovalinnoilla",
+          "osoittamalla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "256a5bb5-61cd-5005-8b38-bbb205e348ef",
+        "prompt": "Mikä A:ta väsyttää?",
+        "options": [
+          "että pitää aina miettiä jokaista valintaa",
+          "että kukaan ei puhu ilmastosta",
+          "että pitää matkustaa vähemmän"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

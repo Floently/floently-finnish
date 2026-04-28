@@ -1,0 +1,66 @@
+{
+  "id": "2c3e17bc-7cbf-5fb8-b87b-3867637f3c57",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "AIKUISKOULUTUS MUUTOKSESSA\n\nAikuiskoulutus on murroksessa. Perinteiset iltakurssit ja pitkät tutkintokoulutukset ovat saaneet rinnalleen lyhyet, työelämälähtöiset osaamiskokonaisuudet. Opetushallitus on lanseerannut uudenlaisia osaamistodistuksia, joilla voi osoittaa osaamisensa työnantajalle nopeasti. Samalla ammatillista aikuiskoulutusta on leikattu, mikä on herättänyt kritiikkiä. Ammattiliittojen mukaan leikkaukset kohdistuvat pahiten niihin, joilla on jo valmiiksi heikko koulutustaso. Toisaalta työelämässä korostuu jatkuva oppiminen, ja monet työnantajat tarjoavat henkilöstölleen koulutusmahdollisuuksia. Työttömille suunnattu työvoimakoulutus on edelleen maksutonta, ja siihen voi hakeutua ympäri vuoden. Koulutuspolitiikan tutkijat ennustavat, että tulevaisuudessa koulutus jaksottuu yhä useammin lyhyisiin, työn ohessa suoritettaviin opintoihin.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 113
+    },
+    "questions": [
+      {
+        "id": "3627ed36-6a5d-58ac-82b4-15ecbd001413",
+        "prompt": "Mikä on uusi suuntaus aikuiskoulutuksessa?",
+        "options": [
+          "Pitkät, monivuotiset tutkinnot",
+          "Lyhyet, työelämälähtöiset osaamiskokonaisuudet",
+          "Pelkästään verkko-opinnot",
+          "Ulkomailla suoritettavat tutkinnot"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1a9de845-c4a2-51c9-9665-99f17cb6a659",
+        "prompt": "Miksi ammattiliitot kritisoivat aikuiskoulutuksen leikkauksia?",
+        "options": [
+          "Ne kohdistuvat rikkaisiin",
+          "Ne kohdistuvat niihin, joilla on heikko koulutustaso",
+          "Ne kohdistuvat nuoriin",
+          "Ne kohdistuvat kaupunkeihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b24aa582-a6ac-50f0-8ef0-48e6b0a210aa",
+        "prompt": "Kenelle työvoimakoulutus on maksutonta?",
+        "options": [
+          "Kaikille aikuisille",
+          "Työttömille",
+          "Opiskelijoille",
+          "Eläkeläisille"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

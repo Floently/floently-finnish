@@ -1,0 +1,66 @@
+{
+  "id": "df8f2fb1-4975-5b89-aa33-c3b040b5923b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.577,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kolumni ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kiertotalous on ollut viime vuosien muotisana, mutta mitä se oikeasti tarkoittaa arjessamme? Periaatteessa se on yksinkertainen ajatus: sen sijaan, että valmistamme tuotteen, käytämme sen ja heitämme pois, pyrimme pitämään materiaalit kierrossa mahdollisimman pitkään. Tämä tarkoittaa tuotteiden korjaamista, uudelleenkäyttöä ja kierrätystä.\n\nKäytännössä olemme kuitenkin vielä kaukana tästä ihannekuvasta. Elektroniikkajätteen määrä kasvaa maailmassa nopeammin kuin mikään muu jätekategoria. Vaateteollisuus tuottaa valtavia määriä tekstiilijätettä. Ja vaikka meillä Suomessa kierrätetäänkin kiitettävästi, suuri osa jätteestä päätyy silti poltettavaksi.\n\nMiksi näin on? Yksi syy on se, että uuden tuotteen valmistaminen on usein halvempaa kuin vanhan korjaaminen. Elektroniikkavalmistajat eivät halua, että kuluttajat korjaavat laitteitaan, koska silloin he myisivät vähemmän uusia tuotteita. Tämä on suunniteltu vanheneminen, josta on puhuttu paljon.\n\nToinen syy on kuluttajien asenteet. Me olemme tottuneet siihen, että kun jokin menee rikki, ostamme uuden. Korjaaminen tuntuu hankalalta ja kalliilta. Mutta tämä asenne on muutettavissa. Jos korjaaminen tehtäisiin helpommaksi ja halvemmaksi, ja jos tuotteet suunniteltaisiin korjattaviksi, monet valitsisivat korjaamisen.\n\nKolmas haaste on kierrätyksen tehokkuus. Vaikka lajittelemme jätteemme, monia materiaaleja on vaikea kierrättää uusiksi tuotteiksi. Tarvitaan lisää tutkimusta ja teknologian kehitystä, jotta kierrätys olisi kannattavaa ja tehokasta.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 212
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kiertotalous tarkoittaa?",
+        "options": [
+          "A) Materiaalit käytetään kerran ja heitetään pois",
+          "B) Materiaalit pyritään pitämään kierrossa mahdollisimman pitkään",
+          "C) Vain muovi kierrätetään",
+          "D) Tuotteet valmistetaan uudelleen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi uuden tuotteen valmistaminen on usein halvempaa kuin vanhan korjaaminen?",
+        "options": [
+          "A) Työvoima on halvempaa",
+          "B) Valmistajat eivät halua että kuluttajat korjaavat tuotteita",
+          "C) Materiaalit ovat halvempia",
+          "D) Verot ovat pienemmät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haasteita kierrätyksessä on?",
+        "options": [
+          "A) Ihmiset eivät halua kierrättää",
+          "B) Monia materiaaleja on vaikea kierrättää tehokkaasti",
+          "C) Kierrätys on liian kallista",
+          "D) Kierrätyslaitoksia ei ole tarpeeksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

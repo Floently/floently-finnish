@@ -1,0 +1,63 @@
+{
+  "id": "a5f7eefe-1fb1-518d-b6c2-62ffc64b5311",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelinkeskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "A: Haloo, täällä on Maija.\nB: Hei Maija! Tässä on Liisa. Soittelin, että nähdäänkö huomenna?\nA: Joo, mielelläni. Mennäänkö kahville?\nB: Hyvä idea. Mennään Café Esplanadille kello 14. Sopiiko?\nA: Sopii. Voitko ottaa mun leivoksen mukaan? Mulla on vähän kiire, mutta ehdin tulla.\nB: Joo, tilaan sulle saman kuin itselleni. Nähdään huomenna!\nA: Kiitos, nähdään!",
+      "audio_asset_id": "788895f4-c585-4fe5-9b4c-8d3169c09d14"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä he sopivat tekevänsä?",
+        "options": [
+          "elokuviin",
+          "kahville",
+          "kuntosalille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan he tapaavat?",
+        "options": [
+          "klo 13",
+          "klo 14",
+          "klo 15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä Maija pyytää Liisaa tekemään?",
+        "options": [
+          "maksamaan",
+          "tilaamaan leivoksen",
+          "noutamaan kotoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

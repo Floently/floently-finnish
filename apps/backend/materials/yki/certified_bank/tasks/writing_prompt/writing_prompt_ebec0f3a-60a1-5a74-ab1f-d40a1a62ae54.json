@@ -1,0 +1,37 @@
+{
+  "id": "ebec0f3a-60a1-5a74-ab1f-d40a1a62ae54",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.322,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet ostanut hänelle syntymäpäivälahjan. Kerro, mitä se on (kirja, jonka hän halusi). Kysy, milloin voisitte tavata, jotta saat annettua sen. Ehdota viikonloppua.",
+    "materials": {
+      "scenario": "Viesti ystävälle syntymäpäivälahjasta"
+    },
+    "items": [
+      {
+        "id": "61802b32-ce0c-55a8-b4df-980e830e53c7",
+        "prompt": "Kirjoita lyhyt viesti ystävälle. Kerro, että olet ostanut hänelle syntymäpäivälahjan. Kerro, mitä se on (kirja, jonka hän halusi). Kysy, milloin voisitte tavata, jotta saat annettua sen. Ehdota viikonloppua."
+      }
+    ],
+    "rubric": "Kerro, että olet ostanut lahjan\nKerro, mitä se on\nKysy tapaamista\nEhdota viikonloppua",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

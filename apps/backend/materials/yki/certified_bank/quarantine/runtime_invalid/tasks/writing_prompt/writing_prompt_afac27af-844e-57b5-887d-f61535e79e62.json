@@ -1,0 +1,37 @@
+{
+  "id": "afac27af-844e-57b5-887d-f61535e79e62",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: cultural_center. Purpose: give_feedback. Constraint: mention_a_follow_up_step.",
+    "materials": {
+      "scenario": "kulttuurista kulttuurikeskuksesta"
+    },
+    "items": [
+      {
+        "id": "cacd1e4d-787f-5a66-8fae-31095e51a60b",
+        "prompt": "Write for the receiver in this scenario: cultural_center. Purpose: give_feedback. Constraint: mention_a_follow_up_step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

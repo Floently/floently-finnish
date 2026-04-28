@@ -1,0 +1,37 @@
+{
+  "id": "bf3b3c0e-db9b-5a3d-bc25-d63a553bdcd0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.695,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita analyyttinen mielipideteksti.",
+    "materials": {
+      "scenario": "Sananvapaus"
+    },
+    "items": [
+      {
+        "id": "b675b8ae-078e-5012-a6af-daf8e60d27bc",
+        "prompt": "Onko sananvapaudella rajat digitaalisessa mediaympäristössä?"
+      }
+    ],
+    "rubric": "Onko sananvapaudella rajat digitaalisessa mediaympäristössä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

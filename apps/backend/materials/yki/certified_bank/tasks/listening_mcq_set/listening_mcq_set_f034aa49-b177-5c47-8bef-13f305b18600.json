@@ -1,0 +1,66 @@
+{
+  "id": "f034aa49-b177-5c47-8bef-13f305b18600",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.743,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele osa tulevaisuuden työtä käsittelevästä seminaarista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puhuja: Hyvät kuulijat. Tänään haluan puhua siitä, mitä tulevaisuuden työ merkitsee yksilön näkökulmasta. Me puhumme paljon automaatiosta, tekoälystä ja rakennemuutoksista, mutta unohdamme helposti inhimillisen ulottuvuuden.\n\nKeskustelussa korostetaan usein elinikäisen oppimisen tärkeyttä. Se on totta: jokaisen on varauduttava oppimaan uutta koko työuransa ajan. Mutta tämä asettaa myös vaatimuksia: kenellä on aikaa ja voimavaroja opiskella työn ohessa? Entä jos työnantaja ei tue kouluttautumista? Tämä voi lisätä eriarvoisuutta niiden välillä, joilla on mahdollisuus kehittyä, ja niiden, jotka jäävät jälkeen.\n\nToinen keskeinen kysymys on työn mielekkyys. Kun rutiinitehtävät automatisoituvat, jäljelle jää yhä enemmän asiantuntija- ja vuorovaikutustyötä. Tämä on monille motivoivaa, mutta samalla se voi lisätä henkistä kuormitusta. Työelämän vaatimukset kasvavat, rajat työn ja vapaa-ajan välillä hämärtyvät, ja uupumus lisääntyy.\n\nKolmas näkökulma on työn ja toimeentulon suhde. Jos yhä harvempi tekee kokopäivätyötä ja yhä useampi elää keikkatalouden varassa, miten turvataan toimeentulo ja sosiaaliturva? Nykyinen järjestelmämme on rakennettu vakituisen työsuhteen varaan, eikä se tunnista pirstaloituneen työuran todellisuutta.\n\nNäihin haasteisiin vastaaminen edellyttää laajaa yhteiskunnallista keskustelua ja uudenlaisia ratkaisuja. Tarvitaan paitsi koulutusjärjestelmän uudistamista, myös sosiaaliturvan ja työlainsäädännön uudelleenajattelua. Ja ennen kaikkea tarvitaan arvokeskustelua: millaista työelämää haluamme, mikä on työn merkitys elämässämme?\n\nKiitos.",
+      "audio_asset_id": "1c9f528e-3e34-44d6-aa25-99e2bae46edd"
+    },
+    "questions": [
+      {
+        "id": "31d513ef-c216-5cdf-bb93-b8be68e33383",
+        "prompt": "Mitä ongelmaa puhuja nostaa esiin elinikäisestä oppimisesta?",
+        "options": [
+          "Se on liian kallista",
+          "Kaikilla ei ole aikaa ja voimavaroja opiskella työn ohessa, mikä voi lisätä eriarvoisuutta",
+          "Se on tarpeetonta",
+          "Työnantajat eivät halua kouluttaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0bcdf72e-e677-5d43-b2d8-78ea9c3d9645",
+        "prompt": "Miten työn mielekkyys ja henkinen kuormitus liittyvät toisiinsa?",
+        "options": [
+          "Ne eivät liity toisiinsa",
+          "Asiantuntija- ja vuorovaikutustyö voi olla motivoivaa, mutta samalla vaatimukset kasvavat ja uupumus lisääntyy",
+          "Mielekäs työ ei koskaan kuormita",
+          "Rutiinityö on aina kuormittavampaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "656c0967-c3fe-5544-be4d-247a7a1abf0b",
+        "prompt": "Miksi nykyinen sosiaaliturvajärjestelmä on ongelmallinen tulevaisuuden työelämässä?",
+        "options": [
+          "Koska se on liian antelias",
+          "Koska se on rakennettu vakituisen työsuhteen varaan, eikä tunnista pirstaloituneen työuran todellisuutta",
+          "Koska se on liian byrokraattinen",
+          "Koska sitä ei ole olemassa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

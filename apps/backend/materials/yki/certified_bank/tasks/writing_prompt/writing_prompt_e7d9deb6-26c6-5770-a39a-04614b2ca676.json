@@ -1,0 +1,37 @@
+{
+  "id": "e7d9deb6-26c6-5770-a39a-04614b2ca676",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa, että lapsesi tarvitsee lääkitystä päiväkodissa. Kerro lapsen nimi, lääkkeen nimi ja annostus. Kysy, miten lääkitys järjestetään päiväkodissa.",
+    "materials": {
+      "scenario": "Ilmoitus lapsen lääkityksestä päiväkodissa"
+    },
+    "items": [
+      {
+        "id": "151d1991-ad80-532c-a23a-1779640cbc18",
+        "prompt": "Kirjoita sähköposti päiväkodin johtajalle. Haluat ilmoittaa, että lapsesi tarvitsee lääkitystä päiväkodissa. Kerro lapsen nimi, lääkkeen nimi ja annostus. Kysy, miten lääkitys järjestetään päiväkodissa."
+      }
+    ],
+    "rubric": "Lapsen tiedot\nLääkkeen kuvaus\nKäytännön järjestelyt",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

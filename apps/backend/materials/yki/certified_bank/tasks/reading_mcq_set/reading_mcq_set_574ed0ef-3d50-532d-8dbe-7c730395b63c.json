@@ -1,0 +1,99 @@
+{
+  "id": "574ed0ef-3d50-532d-8dbe-7c730395b63c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.571,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Sote-uudistus eli sosiaali- ja terveyspalvelujen uudistus on yksi lähivuosien suurimpia hallinnollisia muutoksia. Vastuu palvelujen järjestämisestä siirtyi kunnilta hyvinvointialueille. Tavoitteena on yhdenvertaistaa palveluja, hillitä kustannuksia ja parantaa saatavuutta. Uudistus on herättänyt paljon keskustelua, ja sen vaikutuksia seurataan tarkasti. Muutokset näkyvät vähitellen kansalaisten arjessa esimerkiksi terveysasemilla.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on sote-uudistus?",
+        "options": [
+          "Sosiaali- ja terveyspalvelujen uudistus",
+          "Sosiaaliturvan uudistus",
+          "Koulutusjärjestelmän uudistus",
+          "Työeläkeuudistus"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mistä sote-uudistuksessa on kyse?",
+        "options": [
+          "Palvelujen siirtymisestä valtiolle",
+          "Vastuun siirtymisestä kunnilta hyvinvointialueille",
+          "Palvelujen yksityistämisestä",
+          "Palvelujen lopettamisesta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on uudistuksen tavoite?",
+        "options": [
+          "Palvelujen heikentäminen",
+          "Palvelujen yhdenvertaistaminen, kustannusten hillitseminen ja saatavuuden parantaminen",
+          "Palvelujen kallistuminen",
+          "Palvelujen keskittäminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten uudistukseen on suhtauduttu?",
+        "options": [
+          "Se on herättänyt vähän keskustelua",
+          "Se on herättänyt paljon keskustelua",
+          "Kukaan ei ole kiinnostunut",
+          "Kaikki ovat tyytyväisiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Missä muutokset näkyvät vähitellen kansalaisten arjessa?",
+        "options": [
+          "Kaupoissa",
+          "Terveysasemilla",
+          "Kouluissa",
+          "Työpaikoilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'yhdenvertaistamisella'?",
+        "options": [
+          "Palvelujen tekemistä samanlaisiksi kaikille",
+          "Palvelujen vähentämistä",
+          "Palvelujen yksityistämistä",
+          "Palvelujen maksullisuuden lisäämistä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

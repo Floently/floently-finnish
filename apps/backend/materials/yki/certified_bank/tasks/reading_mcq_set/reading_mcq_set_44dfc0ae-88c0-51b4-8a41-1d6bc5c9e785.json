@@ -1,0 +1,99 @@
+{
+  "id": "44dfc0ae-88c0-51b4-8a41-1d6bc5c9e785",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähiruoan suosio on kasvanut viime vuosina. Kuluttajat haluavat tietää, mistä heidän ruokansa tulee, ja tukea paikallisia tuottajia. Lähiruoka on usein tuoreempaa ja sen hiilijalanjälki on pienempi, koska kuljetusmatkat ovat lyhyitä. Haasteena on kuitenkin lähiruoan saatavuus kaupoissa ja se, että se voi olla kalliimpaa. Osa viljelijöistä myy tuotteitaan suoraan tiloilta tai torilla.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on kasvanut viime vuosina?",
+        "options": [
+          "Ulkomaisen ruoan suosio",
+          "Lähiruoan suosio",
+          "Eineksien syönti",
+          "Ruoan hinta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kuluttajat haluavat tietää ruoastaan?",
+        "options": [
+          "Sen tarkan kalorimäärän",
+          "Mistä se tulee",
+          "Parasta ennen -päiväyksen",
+          "Sen brändin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hyötyä lähiruoasta mainitaan?",
+        "options": [
+          "Se on halvempaa",
+          "Se on usein tuoreempaa ja sen hiilijalanjälki on pienempi",
+          "Se säilyy pidempään",
+          "Sitä on aina saatavilla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä haasteita lähiruokaan liittyy?",
+        "options": [
+          "Se ei ole terveellistä",
+          "Sen saatavuus kaupoissa ja kalliimpi hinta",
+          "Se ei maistu hyvältä",
+          "Sitä on vaikea valmistaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Missä osa viljelijöistä myy tuotteitaan?",
+        "options": [
+          "Vain ulkomaille",
+          "Suoraan tiloilta tai torilla",
+          "Vain suurille keskusliikkeille",
+          "Verkossa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miksi lähiruoan hiilijalanjälki on pienempi?",
+        "options": [
+          "Koska se tuotetaan ilman sähköä",
+          "Koska kuljetusmatkat ovat lyhyitä",
+          "Koska se pakataan vähemmän",
+          "Koska sitä myydään vain torilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

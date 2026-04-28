@@ -1,0 +1,77 @@
+{
+  "id": "c5e755b3-7830-5e36-bc05-d38f00e430e8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.59,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysiteksti ja vastaa monivalintakysymyksiin.",
+    "materials": {
+      "text": "Keskustelu ihmisalkioiden geenimuokkauksesta etenee usein kahdessa kerroksessa, joista ensimmäinen on tekninen turvallisuus ja toinen normatiivinen oikeutus. Julkisessa debatissa kerrosten välinen ero hämärtyy helposti: jos laboratoriomenetelmä näyttää tarkalta, päätellään joskus liian nopeasti, että käyttötarkoituskin on hyväksyttävä. Tämä loikka peittää näkyvistä kysymyksen siitä, kuka määrittelee hyväksyttävän kärsimyksen rajan ja millä mandaateilla. Erityisen hankalaksi tilanne muuttuu silloin, kun hoidollinen käyttö ja ominaisuuksien parantelu sidotaan samaan sääntelykategoriaan. Sääntelyn puolustajat vetoavat usein varovaisuusperiaatteeseen, mutta periaatteen soveltaminen vaihtelee: toisinaan korostetaan peruuttamattomia riskejä, toisinaan taas mahdollisuutta ehkäistä vakavia perinnöllisiä sairauksia. Kriitikot huomauttavat, että eriarvoisuus voi kasvaa, jos kallis teknologia tulee ensin vain harvojen saataville ja muuttuu vähitellen normiksi, johon myös muut velvoitetaan sopeutumaan. Toisaalta täydellinen kielto voi siirtää tutkimuksen heikommin valvottuihin ympäristöihin, mikä heikentää sekä turvallisuutta että läpinäkyvyyttä. Näin syntyy klassinen hallinnan paradoksi: liian tiukka sääntely voi lisätä varjoriskiä, liian väljä sääntely taas normalisoida käytäntöjä ennen yhteiskunnallista harkintaa. Tekstin keskeinen väite on, että eettisen ohjauksen on oltava portaistettua ja jatkuvasti tarkistettavaa, jotta tekninen kehitys ei yksin määritä moraalista suuntaa.",
+      "word_count": 162
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tekstin mukaan yleinen virhe keskustelussa?",
+        "options": [
+          "teknisten tulosten sivuuttaminen",
+          "oletus, että tekninen tarkkuus oikeuttaa käytön automaattisesti",
+          "liian vähäinen mediahuomio",
+          "vain taloudellinen tarkastelu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi hoidollisen käytön ja parantelun yhdistäminen on ongelmallista?",
+        "options": [
+          "se hidastaa laboratoriotyötä",
+          "ne vaativat eri eettistä arviointia mutta niputetaan samaan luokkaan",
+          "potilaat eivät ymmärrä termejä",
+          "kustannukset ovat aina samat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä hallinnan paradoksilla tarkoitetaan tässä tekstissä?",
+        "options": [
+          "että sääntelyä ei tarvita lainkaan",
+          "että liian tiukka tai liian väljä sääntely voi molempi tuottaa haittaa eri tavoin",
+          "että tutkimus on aina salaista",
+          "että vain kansainvälinen laki ratkaisee kaiken"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on kirjoittajan pääjohtopäätös?",
+        "options": [
+          "geenimuokkaus tulee kieltää pysyvästi",
+          "markkinat ratkaisevat eettiset kysymykset",
+          "ohjauksen tulee olla portaistettua ja jatkuvasti tarkistettavaa",
+          "tekninen arvio riittää päätöksiin"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

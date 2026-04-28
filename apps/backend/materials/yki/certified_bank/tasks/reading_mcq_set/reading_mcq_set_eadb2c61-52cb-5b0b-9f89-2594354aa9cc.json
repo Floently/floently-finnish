@@ -1,0 +1,77 @@
+{
+  "id": "eadb2c61-52cb-5b0b-9f89-2594354aa9cc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.785,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TERVEYSPALVELUJEN TULEVAISUUS – TEKNOLOGIA, TALOUS JA TASA-ARVO\n\nTerveydenhuolto on murroksessa kautta koko länsimaailman. Väestön ikääntyminen, uusien hoitojen kalleus ja samanaikainen tarve hillitä kustannuksia luovat paineita järjestelmälle, jonka perusrakenne on monissa maissa peräisin viime vuosisadalta. Suomessa tilanne on erityisen haastava, sillä julkinen terveydenhuolto on perinteisesti ollut vahvaa, mutta samalla se kärsii resurssipulasta ja alueellisista eroista.\n\nTeknologian kehitys tarjoaa uusia ratkaisuja. Digitaaliset palvelut, etävastaanotot ja erilaiset hyvinvointisovellukset yleistyvät nopeasti. Ne voivat parantaa palvelujen saatavuutta erityisesti harvaan asutuilla alueilla ja vähentää turhia käyntejä terveysasemilla. Kansalaiset voivat mitata itse verenpainetta, verensokeria ja muita terveydentilan indikaattoreita ja jakaa tiedot suoraan hoitavalle lääkärille.\n\nTekoälyn soveltaminen terveydenhuollossa on vasta alussa, mutta sen potentiaali on valtava. Tekoäly voi auttaa diagnostiikassa, seuloa kuvausmateriaalista poikkeamia ja ennustaa sairauksien kehittymistä. Se voi myös tukea lääkäreiden päätöksentekoa tarjoamalla näyttöön perustuvia hoitosuosituksia. Tämä voi parantaa hoidon laatua ja vähentää inhimillisiä virheitä.\n\nToisaalta teknologian kehitys herättää vaikeita eettisiä ja oikeudenmukaisuuskysymyksiä. Jos kaikilla ei ole tasavertaista mahdollisuutta käyttää digitaalisia palveluita – joko digitaitojen puutteen tai laitteiden ja yhteyksien puuttumisen vuoksi – syntyy uudenlainen digitaalinen kuilu. Vanhukset, vähävaraiset ja syrjäseuduilla asuvat voivat jäädä paitsi palveluista, jotka ovat toisille itsestäänselvyys.\n\nToinen merkittävä kysymys koskee tiedon omistajuutta ja yksityisyyttä. Terveystieto on äärimmäisen arkaluonteista. Kenellä on oikeus käyttää potilastietoja ja mihin tarkoituksiin? Jos terveystietoja voidaan hyödyntää kaupallisesti tai vakuutuspäätöksissä, se voi johtaa epätasa-arvon kasvuun ja syrjintään. Siksi tarvitaan selkeää lainsäädäntöä, joka suojaa kansalaisia.\n\nTaloudellisesta näkökulmasta terveydenhuollon rahoitus on jatkuvan paineen alla. Yksityisten palveluiden rooli on kasvanut, mikä herättää kysymyksiä siitä, säilyykä julkinen terveydenhuolto jatkossakin kaikkien saatavilla olevana. Jos vain hyvätuloiset voivat ostaa itselleen nopean ja laadukkaan hoidon, yhteiskunnan eriarvoisuus lisääntyy ja yhteenkuuluvuus heikkenee.\n\nTulevaisuudessa tarvitaan todennäköisesti monikanavainen malli, jossa julkinen, yksityinen ja kolmas sektori täydentävät toisiaan. Tärkeintä on kuitenkin varmistaa, että perusperiaate – kaikille saatavilla oleva, tarpeenmukainen hoito – ei vaarannu. Teknologian tulee olla väline, joka palvelee tätä tavoitetta, ei itsetarkoitus.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 335
+    },
+    "questions": [
+      {
+        "id": "bfbe5d68-a1d7-5a69-9256-d8cb60acf5ee",
+        "prompt": "Mitä mahdollisuuksia teknologia tarjoaa terveydenhuollolle tekstin mukaan?",
+        "options": [
+          "Se korvaa kokonaan ihmistyöntekijät",
+          "Se voi parantaa palvelujen saatavuutta ja vähentää turhia käyntejä",
+          "Se tekee terveydenhuollosta täysin ilmaista",
+          "Se poistaa kaikki terveysongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1493336b-5862-5702-9ba3-1cd23c3b3411",
+        "prompt": "Mitä tarkoitetaan digitaalisella kuilulla terveydenhuollossa?",
+        "options": [
+          "Eroa kaupunkien ja maaseudun verkkoyhteyksissä",
+          "Sitä, että osa ihmisistä jää paitsi digitaalisista palveluista taitojen tai laitteiden puutteen vuoksi",
+          "Teknologian ja lääkäreiden välistä yhteistyön puutetta",
+          "Sitä, että terveystietoja ei voida siirtää järjestelmästä toiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "74e680e2-d40c-58e6-8ae7-1f0347059a07",
+        "prompt": "Mitä eettisiä huolia terveystietojen käyttöön liittyy?",
+        "options": [
+          "Tietoja voidaan käyttää kaupallisesti tai syrjivästi",
+          "Tietoja on liian vaikea suojata",
+          "Potilaat eivät halua jakaa tietojaan",
+          "Tietoja ei voida käyttää tutkimukseen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "da4711eb-623d-54bc-9bce-14b193a62518",
+        "prompt": "Mikä on tekstin mukaan tärkein periaate, joka pitää säilyttää terveydenhuollon murroksessa?",
+        "options": [
+          "Teknologian maksimaalinen käyttö",
+          "Yksityisten palveluiden lisääminen",
+          "Kaikille saatavilla oleva, tarpeenmukainen hoito",
+          "Kustannusten minimointi"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

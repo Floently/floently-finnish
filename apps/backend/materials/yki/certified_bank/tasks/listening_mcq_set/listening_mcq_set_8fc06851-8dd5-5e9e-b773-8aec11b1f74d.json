@@ -1,0 +1,88 @@
+{
+  "id": "8fc06851-8dd5-5e9e-b773-8aec11b1f74d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.705,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta harrastusmahdollisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Kaupungin kulttuuripalvelut ovat avanneet uuden harrastustilan nuorille aikuisille 18-29-vuotiaille. Tila sijaitsee keskustassa, vanhassa tehdasrakennuksessa. Siellä on studiotiloja musiikin ja äänityksen harrastajille, kuvataidetiloja ja keramiikkapaja. Lisäksi on oleskelualue, jossa voi viettää aikaa ja tavata muita harrastajia. Tilassa järjestetään myös kursseja ja työpajoja, joissa voi oppia uusia taitoja. Toiminta on maksutonta. Tila on avoinna tiistaista sunnuntaihin kello 12-20. Ohjaajia on paikalla iltaisin. Tarkoituksena on tarjota nuorille aikuisille matalan kynnyksen mahdollisuus harrastaa ja kohdata muita. Tervetuloa tutustumaan!",
+      "audio_asset_id": "04bd773b-d980-4197-9776-9b02564f7ce3"
+    },
+    "questions": [
+      {
+        "id": "l170q1",
+        "prompt": "Mille ikäryhmälle uusi harrastustila on tarkoitettu?",
+        "options": [
+          "13-17-vuotiaille.",
+          "18-29-vuotiaille.",
+          "30-50-vuotiaille.",
+          "Kaikenikäisille."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l170q2",
+        "prompt": "Mitä tiloja harrastustilassa on?",
+        "options": [
+          "Vain studiotiloja.",
+          "Vain kuvataidetiloja.",
+          "Vain oleskelualue.",
+          "Studiotiloja, kuvataidetiloja, keramiikkapaja ja oleskelualue."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l170q3",
+        "prompt": "Mitä kursseja ja työpajoja järjestetään?",
+        "options": [
+          "Uusien taitojen oppimista.",
+          "Vain musiikkia.",
+          "Vain kuvataidetta.",
+          "Ei mainita tarkemmin."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l170q4",
+        "prompt": "Mitä toiminnan käyttö maksaa?",
+        "options": [
+          "5 euroa kerta.",
+          "Se on maksutonta.",
+          "10 euroa kuukaudessa.",
+          "Kausimaksu 50 euroa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l170q5",
+        "prompt": "Mihin asti tila on auki tiistaista sunnuntaihin?",
+        "options": [
+          "Kello 18.",
+          "Kello 20.",
+          "Kello 19.",
+          "Kello 21."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

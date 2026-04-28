@@ -1,0 +1,37 @@
+{
+  "id": "ee6e57e4-6f93-5635-b59d-01b892b29562",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.714,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö päiväkotien ryhmäkokoja pienentää vaikka se lisää kustannuksia?'. Pohdi lasten hyvinvointia ja varhaiskasvatuksen laatua.",
+    "materials": {
+      "scenario": "Päiväkotien ryhmäkoot"
+    },
+    "items": [
+      {
+        "id": "797f45df-dcc6-58f0-9965-fb75e5c4ec5e",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö päiväkotien ryhmäkokoja pienentää vaikka se lisää kustannuksia?'. Pohdi lasten hyvinvointia ja varhaiskasvatuksen laatua."
+      }
+    ],
+    "rubric": "Lasten hyvinvointi\nVarhaiskasvatuksen laatu\nKustannukset\nHenkilökunnan jaksaminen",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

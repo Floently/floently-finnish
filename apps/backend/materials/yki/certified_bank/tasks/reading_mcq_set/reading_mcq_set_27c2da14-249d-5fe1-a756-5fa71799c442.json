@@ -1,0 +1,99 @@
+{
+  "id": "27c2da14-249d-5fe1-a756-5fa71799c442",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Vapaa-ajan merkitys hyvinvoinnille on suuri. Tutkimukset osoittavat, että harrastukset ja lepo vähentävät stressiä ja parantavat mielialaa. On kuitenkin tärkeää, että vapaa-aika on laadukasta: se voi olla rentoutumista, liikuntaa tai yhdessäoloa. Monet kokevat, että kiire työssä heijastuu vapaa-aikaan ja vaikeuttaa irrottautumista. Asiantuntijat muistuttavat, että rajan vetäminen työn ja vapaan välillä on tärkeää jaksamisen kannalta.",
+      "word_count": 53
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten vapaa-aika vaikuttaa hyvinvointiin?",
+        "options": [
+          "Sillä ei ole vaikutusta",
+          "Sen merkitys on suuri",
+          "Se huonontaa hyvinvointia",
+          "Se lisää stressiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tutkimukset osoittavat harrastusten ja levon vaikutuksesta?",
+        "options": [
+          "Ne lisäävät stressiä",
+          "Ne vähentävät stressiä ja parantavat mielialaa",
+          "Ne eivät vaikuta mitenkään",
+          "Ne tekevät olon väsyneeksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millaista vapaa-ajan tulisi olla, jotta se olisi hyödyllistä?",
+        "options": [
+          "Aktiivista ja urheilullista",
+          "Laadukasta: rentoutumista, liikuntaa tai yhdessäoloa",
+          "Mahdollisimman pitkää",
+          "Yksin vietettyä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä monet kokevat työn vaikutuksesta vapaa-aikaan?",
+        "options": [
+          "Työ ei vaikuta vapaa-aikaan",
+          "Kiire työssä heijastuu vapaa-aikaan",
+          "Työ auttaa rentoutumaan",
+          "Työ tekee vapaa-ajasta parempaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä asiantuntijat muistuttavat tärkeänä jaksamisen kannalta?",
+        "options": [
+          "Työtä pitää tehdä myös vapaa-ajalla",
+          "Rajan vetäminen työn ja vapaan välillä",
+          "Vapaa-ajalla pitää olla koko ajan tekemistä",
+          "Vapaa-ajalla ei saa levätä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä haittaa voi olla siitä, että työn kiire heijastuu vapaa-aikaan?",
+        "options": [
+          "Stressi vähenee",
+          "Irrottautuminen vaikeutuu",
+          "Vapaa-ajasta tulee pidempi",
+          "Työteho paranee"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

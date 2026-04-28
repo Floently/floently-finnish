@@ -1,0 +1,66 @@
+{
+  "id": "5e315f5c-131f-5dab-afc7-46c8988e74ff",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Paikallislehti: Kaupunki harkitsee uuden ulkoliikuntapaikan rakentamista vanhan parkkialueen tilalle. Kannattajat uskovat, että paikka lisää arkiaktiivisuutta ja parantaa nuorten hyvinvointia. Kriitikot pelkäävät pysäköinnin vaikeutuvan ja ehdottavat vaihtoehtoista sijaintia.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 55
+    },
+    "questions": [
+      {
+        "id": "54c2e483-8e5b-56bf-9ce5-eec54f4b36eb",
+        "prompt": "Mitä kaupunki harkitsee?",
+        "options": [
+          "Uutta parkkihallia",
+          "Ulkoliikuntapaikkaa",
+          "Uutta koulua",
+          "Uutta ostoskeskusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b5aa9007-367f-5d92-907a-8ff7e890f8ec",
+        "prompt": "Mitä kannattajat odottavat?",
+        "options": [
+          "Lisää arkiaktiivisuutta",
+          "Vähemmän nuoria",
+          "Halvempaa pysäköintiä",
+          "Lyhyempiä koulupäiviä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "07b73235-8c6e-545b-81a3-68de7d2ee12c",
+        "prompt": "Mikä huoli kriitikoilla on?",
+        "options": [
+          "Melun lisääntyminen",
+          "Pysäköinnin vaikeutuminen",
+          "Veronkorotus",
+          "Liian monta tapahtumaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

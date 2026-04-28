@@ -1,0 +1,88 @@
+{
+  "id": "be135f65-c093-5e2e-b4ce-b854ca550697",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen matkustustiedotteesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Ulkoministeriö on päivittänyt matkustustiedotteitaan useiden maiden osalta. Thaimaassa on voimassa kohonnut terrori-uhka turistikohteissa. Viranomaiset kehottavat noudattamaan erityistä varovaisuutta ja välttämään suuria yleisötapahtumia. Espanjassa taas on meneillään lakkoja, jotka saattavat vaikuttaa lentoliikenteeseen. Matkustajia kehotetaan seuraamaan lentoyhtiöiden tiedotteita ja varaamaan riittävästi aikaa lentokentälle siirtymiseen. Kreikassa on poikkeuksellisen kuumaa, ja maastopalojen riski on suuri. Matkailijoita neuvotaan noudattamaan paikallisia viranomaisohjeita ja välttämään avotulen tekoa. Ulkoministeriö suosittelee rekisteröitymään matkustusilmoitukselle ennen matkaa.",
+      "audio_asset_id": "d8209ff6-bf1a-452d-a78b-7dec8276e829"
+    },
+    "questions": [
+      {
+        "id": "l75q1",
+        "prompt": "Minkä takia Thaimaassa kehotetaan noudattamaan varovaisuutta?",
+        "options": [
+          "Maan sisäisten levottomuuksien vuoksi.",
+          "Rankkasateiden vuoksi.",
+          "Lakkojen vuoksi.",
+          "Kohonneen terrori-uhan vuoksi turistikohteissa."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l75q2",
+        "prompt": "Mitä matkustajia kehotetaan tekemään Espanjan lakkojen vuoksi?",
+        "options": [
+          "Perumaan matkansa.",
+          "Seuraamaan lentoyhtiöiden tiedotteita ja varaamaan aikaa lentokentälle.",
+          "Vaihtamaan lentoyhtiötä.",
+          "Matkustamaan junalla."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l75q3",
+        "prompt": "Mikä on Kreikassa erityinen riski tällä hetkellä?",
+        "options": [
+          "Tulvat.",
+          "Maastopalot.",
+          "Myrskyt.",
+          "Maanjäristykset."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l75q4",
+        "prompt": "Mitä matkailijoita neuvotaan välttämään Kreikassa?",
+        "options": [
+          "Uimista meressä.",
+          "Vaellusta vuorilla.",
+          "Avotulen tekoa.",
+          "Yökerhoissa käyntiä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "l75q5",
+        "prompt": "Mitä ulkoministeriö suosittelee tekemään ennen matkaa?",
+        "options": [
+          "Ottamaan matkavakuutuksen.",
+          "Tarkistamaan passin voimassaolon.",
+          "Rekisteröitymään matkustusilmoitukselle.",
+          "Varaamaan majoituksen etukäteen."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

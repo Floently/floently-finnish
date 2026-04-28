@@ -1,0 +1,77 @@
+{
+  "id": "ada8613d-f4c3-5d8b-924d-98d2e8a08051",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele bussikuskin tiedotus ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hyvää päivää! Tämä on linja-auto 42, joka kulkee keskustasta itäiseen lähiöön. Seuraava pysäkki on kauppakeskus. Kauppakeskuksen jälkeen reitti muuttuu remontin takia. Bussi kiertää seuraavat kolme pysäkkiä poikkeusreittiä. Poikkeusreitillä on kaksi väliaikaista pysäkkiä: sairaalan kohdalla ja kirjaston edessä. Pahoittelemme häiriötä.",
+      "audio_asset_id": "e051b810-c748-45e3-a01b-2938c4c0a586"
+    },
+    "questions": [
+      {
+        "id": "71c9c135-f005-583a-9654-57ca9441cac0",
+        "prompt": "Mikä on bussin numero?",
+        "options": [
+          "24",
+          "42",
+          "33",
+          "15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "344ed8d4-3f2d-5aef-b4a2-53dfc284c1cf",
+        "prompt": "Miksi bussi muuttaa reittiä?",
+        "options": [
+          "onnettomuuden takia",
+          "remontin takia",
+          "ruuhkan takia",
+          "kisan takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "82258851-18fc-5205-8ee4-a7a25f960b3e",
+        "prompt": "Montako väliaikaista pysäkkiä on?",
+        "options": [
+          "yksi",
+          "kaksi",
+          "kolme",
+          "neljä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d0f8879d-08b6-5b93-8a82-cbcbc59719c9",
+        "prompt": "Missä on toinen väliaikainen pysäkki?",
+        "options": [
+          "sairaalan kohdalla",
+          "kirjaston edessä",
+          "koulun luona",
+          "uimahallilla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

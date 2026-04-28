@@ -1,0 +1,37 @@
+{
+  "id": "8acea704-2c6a-5c7c-ac41-efbaecc069ea",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kunnan nuorisopalveluihin.",
+    "materials": {
+      "scenario": "Ehdota uutta nuorisotilaa"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti kunnan nuorisopalveluihin."
+      }
+    ],
+    "rubric": "Olet huomannut, että nuorilla ei ole paikkaa kokoontua. Kirjoita sähköposti ja ehdota, että kunta perustaisi uuden nuorisotilan. Perustele, miksi se on tarpeen ja mitä siellä voisi olla.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

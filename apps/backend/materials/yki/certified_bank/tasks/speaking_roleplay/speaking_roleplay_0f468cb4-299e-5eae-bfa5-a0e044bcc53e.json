@@ -1,0 +1,40 @@
+{
+  "id": "0f468cb4-299e-5eae-bfa5-a0e044bcc53e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.506,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "hakija",
+        "partner": "virkailija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp47_01",
+        "ai_first_turn_fi": "Päivää, miten voin auttaa?"
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

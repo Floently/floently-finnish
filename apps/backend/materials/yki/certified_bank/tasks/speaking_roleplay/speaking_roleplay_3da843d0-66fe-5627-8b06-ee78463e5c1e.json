@@ -1,0 +1,40 @@
+{
+  "id": "3da843d0-66fe-5627-8b06-ee78463e5c1e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.503,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Neuvottele autoliikkeen myyjän kanssa. Kerro, millaisen auton haluat, ja tingi hinnasta.",
+    "materials": {
+      "roles": {
+        "user": "etsimässä käytettyä autoa",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "795c5187-98d2-5645-bc7c-986365b39832",
+        "ai_first_turn_fi": "Terve, hieno auto, eikö totta? Tää on ollut tosi suosittu malli, ja tää yksilö on todella hyvässä kunnossa. Lähdetäänkö koeajolle?"
+      }
+    ],
+    "rubric": "Neuvottele autoliikkeen myyjän kanssa. Kerro, millaisen auton haluat, ja tingi hinnasta.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

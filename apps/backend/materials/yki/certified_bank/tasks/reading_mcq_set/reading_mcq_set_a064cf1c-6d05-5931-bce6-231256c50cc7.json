@@ -1,0 +1,77 @@
+{
+  "id": "a064cf1c-6d05-5931-bce6-231256c50cc7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.552,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Olen liikunnanopettaja, ja olen huolissani koulujen liikuntatuntien vähentämisestä. Viime vuosina liikuntatunteja on vähennetty monissa kouluissa, jotta muille aineille jäisi enemmän aikaa. Tämä on mielestäni iso virhe.\n\nTutkimukset osoittavat, että liikunta parantaa oppimista. Kun lapset liikkuvat, he jaksavat keskittyä paremmin ja oppivat helpommin. Liikunta myös vähentää stressiä ja parantaa mielialaa. Liikkuvat lapset ovat terveempiä ja onnellisempia.\n\nLisäksi liikuntatunneilla opitaan tärkeitä taitoja: yhteistyötä, sääntöjen noudattamista ja toisten huomioimista. Nämä ovat taitoja, joita tarvitaan elämässä. Ei voi ajatella, että vain matematiikka ja kielet ovat tärkeitä.\n\nYmmärrän, että kouluilla on paljon opetettavaa ja aika on rajallista. Mutta liikunta ei ole turhaa ajanvietettä. Se on investointi lasten terveyteen ja hyvinvointiin. Toivon, että päättäjät ymmärtäisivät tämän ja panostaisivat koululiikuntaan enemmän.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 142
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi kirjoittaja on huolissaan?",
+        "options": [
+          "A) Liikuntatunteja on liian vähän",
+          "B) Liikuntatunteja on vähennetty",
+          "C) Lapset eivät tykkää liikunnasta",
+          "D) Liikuntavälineet ovat huonoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyä liikunnasta on tutkimusten mukaan?",
+        "options": [
+          "A) Se parantaa oppimista ja vähentää stressiä",
+          "B) Se vie aikaa muilta aineilta",
+          "C) Se on kallista",
+          "D) Se aiheuttaa loukkaantumisia"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä muuta liikuntatunneilla opitaan?",
+        "options": [
+          "A) matematiikkaa",
+          "B) kieliä",
+          "C) yhteistyötä ja sääntöjen noudattamista",
+          "D) tietotekniikkaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kirjoittaja toivoo päättäjiltä?",
+        "options": [
+          "A) Lisää liikuntatunteja",
+          "B) Uusia liikuntasaleja",
+          "C) Parempia liikuntavälineitä",
+          "D) Enemmän liikunnanopettajia"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

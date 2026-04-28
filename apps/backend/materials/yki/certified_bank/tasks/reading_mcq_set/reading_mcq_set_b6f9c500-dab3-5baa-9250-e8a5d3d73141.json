@@ -1,0 +1,77 @@
+{
+  "id": "b6f9c500-dab3-5baa-9250-e8a5d3d73141",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.782,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Kulttuurinen omiminen on käsite, joka on viime vuosina noussut voimakkaasti esiin erityisesti anglosaksisessa kulttuurikeskustelussa. Sillä tarkoitetaan tilannetta, jossa valtakulttuurin edustaja omaksuu elementtejä vähemmistökulttuurista usein ilman ymmärrystä niiden alkuperäisestä merkityksestä ja kontekstista. Tämä on herättänyt laajaa keskustelua kulttuuristen vaikutteiden omaksumisen rajoista ja eettisyydestä. Kriitikot näkevät kulttuurisen omimisen ongelmallisena erityisesti silloin, kun siihen liittyy historiallinen valta-asetelma. Kun valtakulttuuri on vuosisatojen ajan alistanut ja marginalisoinut tiettyä vähemmistöä, ja sitten omaksuu tämän kulttuurin elementtejä omiin tarkoituksiinsa, kyse on heidän mukaansa uudenlaisesta hyväksikäytöstä. Esimerkiksi alkuperäiskansojen päähineiden tai uskonnollisten symboleiden käyttö muotiasusteina nähdään loukkauksena, joka vähättelee niiden alkuperäistä merkitystä. Toisaalta kulttuurisen omimisen käsitettä on myös kritisoitu. Kriitikoiden mukaan kulttuurit ovat aina eläneet vuorovaikutuksessa ja omaksuneet vaikutteita toisiltaan. Tämä kulttuurinen diffuusio on ollut luovuuden ja innovaatioiden lähde läpi ihmiskunnan historian. Heidän mukaansa liiallinen huoli omimisesta voi johtaa kulttuuriseen eristäytymiseen ja estää hedelmällisen vuoropuhelun eri kulttuurien välillä. Kolmas näkökulma korostaa, että keskeistä ei ole kieltää kulttuuristen vaikutteiden omaksumista, vaan tehdä se kunnioittavasti ja tietoisesti. Tämä tarkoittaa esimerkiksi alkuperän tunnustamista, merkitysten ymmärtämistä ja tarvittaessa luvan kysymistä. Kulttuurista omimista koskeva keskustelu heijastaa syvempiä jännitteitä kulttuurisen monimuotoisuuden, identiteettipolitiikan ja sananvapauden välillä. Se on osoitus siitä, miten monimutkaisia ja herkkiä nämä kysymykset ovat monikulttuurisissa yhteiskunnissa.",
+      "word_count": 193
+    },
+    "questions": [
+      {
+        "id": "15500dab-2f1b-50b3-b7a4-5ef12197e82b",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Alkuperäiskansojen aseman parantaminen nyky-yhteiskunnassa",
+          "Kulttuurista omimista koskeva keskustelu ja siihen liittyvät erilaiset näkökulmat",
+          "Kulttuurien välisen vuorovaikutuksen historia",
+          "Sananvapauden rajat monikulttuurisessa yhteiskunnassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "19ff47fc-1509-534b-902d-9639edea1e49",
+        "prompt": "Tekstin mukaan milloin kulttuurinen omiminen on erityisen ongelmallista?",
+        "options": [
+          "Aina kun joku omaksuu elementtejä toisesta kulttuurista",
+          "Silloin, kun siihen liittyy historiallinen valta-asetelma ja vähemmistökulttuurin elementtejä käytetään ymmärtämättä niiden merkitystä",
+          "Vain silloin, kun kyse on uskonnollisista symboleista",
+          "Vain silloin, kun valtakulttuurin edustaja tekee sitä taloudellisessa hyötymistarkoituksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "19d6d3b0-1a2c-540e-b55f-65be310fc70a",
+        "prompt": "Mitä kritiikkiä kulttuurisen omimisen käsitettä kohtaan tekstissä esitetään?",
+        "options": [
+          "Se on täysin uusi ja tarpeeton käsite, jolla ei ole todellista sisältöä",
+          "Se voi estää kulttuurien välisen hedelmällisen vuorovaikutuksen ja luovuuden, jota kulttuurien välinen diffuusio on aina tuottanut",
+          "Sitä käytetään vain vasemmistolaisten piirien vallankäyttövälineenä",
+          "Se koskee vain pientä joukkoa akateemisia keskustelijoita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "02c62391-b0ce-5707-88e2-1be7ffed3a67",
+        "prompt": "Mitä kolmas, kunnioittavaa omaksumista korostava näkemys pitää tärkeänä?",
+        "options": [
+          "Kulttuuristen vaikutteiden omaksumisen kieltämistä kokonaan",
+          "Alkuperän tunnustamista, merkitysten ymmärtämistä ja tarvittaessa luvan kysymistä",
+          "Vain taloudellisen hyödyn jakamista alkuperäiskulttuurin edustajien kanssa",
+          "Sitä, että kaikki kulttuuriset vaikutteet ovat vapaasti kaikkien käytettävissä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "d283f38c-c5e6-51d6-b11d-4cbb0f538f10",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti opettajalle.",
+    "materials": {
+      "scenario": "Pyydä suosituskirjettä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti opettajalle."
+      }
+    ],
+    "rubric": "Olet hakemassa opiskelupaikkaa ja tarvitset suosituskirjeen. Kirjoita sähköposti opettajalle ja pyydä häntä kirjoittamaan se. Kerro, mihin olet hakemassa ja miksi uskot, että hän voisi suositella sinua.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "be36ccaa-ee84-5d77-bd27-7e415afaa25a",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi neuvotella ja tehdä kauppaa.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet myyjä, joka tuntee autosi arvon ja haluaa saada siitä reilun hinnan.",
+        "partner": "Ostaja - kiinnostunut mutta haluaa tingata, saattaa keksiä vikoja hinnan alentamiseksi."
+      }
+    },
+    "items": [
+      {
+        "id": "srp41",
+        "ai_first_turn_fi": "Hei, kävin katsomassa autoa. Se vaikuttaa ihan hyvältä, mutta hinta on vähän korkea. Onko hintaa mahdollista tinkiä?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi neuvotella ja tehdä kauppaa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

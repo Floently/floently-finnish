@@ -1,0 +1,77 @@
+{
+  "id": "a3caa189-5548-5569-88ca-fece1da1c721",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele paneelikeskustelu tekoälyn etiikasta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Puheenjohtaja: Tervetuloa keskustelemaan tekoälyn etiikasta. Meillä on täällä filosofi Anna Kivelä, tekoälytutkija Juhani Mäkelä ja ihmisoikeusjuristi Sanna Nieminen.\n\nAnna: Tekoäly herättää syviä eettisiä kysymyksiä. Kenen vastuulla on tekoälyn tekemät päätökset? Jos itseajava auto joutuu valitsemaan kahden pahan välillä, kuka on vastuussa?\n\nJuhani: Teknisesti voimme ohjelmoida tekoälyn tekemään päätöksiä, mutta eettiset valinnat ovat yhteiskunnan tehtävä. Tarvitaan yhteisiä pelisääntöjä.\n\nSanna: Ihmisoikeusnäkökulma on keskeinen. Tekoäly voi syrjiä, jos se on opetettu vinoutuneella datalla. Olemme nähneet esimerkkejä, joissa tekoäly on syrjinyt naisia tai vähemmistöjä työnhaussa.\n\nAnna: Tämä on vakava ongelma. Tekoäly näyttää objektiiviselta, mutta se voi vahvistaa olemassa olevia ennakkoluuloja. Läpinäkyvyys on tärkeää – meidän on tiedettävä, miten tekoäly päätyy päätöksiinsä.\n\nJuhani: Valitettavasti monet tekoälyjärjestelmät ovat 'mustia laatikoita'. Emme tiedä, miten ne päätyvät tuloksiinsa. Tämä on ongelma, jota pyritään ratkaisemaan.\n\nSanna: Tarvitaan lainsäädäntöä, joka suojaa kansalaisia. EU on ottanut askelia tekoälyasetuksella, mutta se on vasta alkua.\n\nAnna: Entä valvonta ja valvonta? Kuka valvoo tekoälyä? Tarvitaan riippumattomia tahoja, jotka arvioivat järjestelmiä.\n\nJuhani: Tekninen kehitys on nopeaa, lainsäädäntö hidasta. Tämä on haaste. Tarvitaan myös yritysten vastuuta ja eettisiä ohjeistuksia.\n\nSanna: Lopulta kyse on vallasta. Tekoälyä kehittävät harvat suuryritykset. Tämä valta on saatava demokraattiseen kontrolliin.\n\nAnna: Tekoäly ei ole hyvä tai paha. Se on työkalu. Mutta se, miten sitä käytetään, on meidän vastuullamme.",
+      "audio_asset_id": "ab56ba93-5f6c-4e8b-aa30-ffa37408060f"
+    },
+    "questions": [
+      {
+        "id": "56564167-00ed-59e8-927a-c9add6e29054",
+        "prompt": "Mikä on keskeinen eettinen kysymys tekoälyssä Annan mukaan?",
+        "options": [
+          "Tekninen toteutus",
+          "Vastuukysymykset, kuka vastaa tekoälyn päätöksistä",
+          "Nopeus",
+          "Hinta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9650d8f9-3c0b-56a6-9a5b-dcfaca4d477b",
+        "prompt": "Miten tekoäly voi syrjiä Sannan mukaan?",
+        "options": [
+          "Se on aina oikeudenmukainen",
+          "Jos se on opetettu vinoutuneella datalla, se voi syrjiä naisia tai vähemmistöjä",
+          "Vain jos ohjelmoija haluaa",
+          "Ei voi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "985a92b5-eefb-5759-9918-3f78b18d6f50",
+        "prompt": "Mitä tarkoitetaan 'mustalla laatikolla'?",
+        "options": [
+          "Tietokoneen koteloa",
+          "Järjestelmiä, joiden päätöksentekoa ei ymmärretä",
+          "Salaisia projekteja",
+          "Vanhoja tietokoneita Tekoälyn fyysistä muotoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0ff23289-936c-56b8-931e-917fc4a802f9",
+        "prompt": "Mitä ratkaisuja ehdotetaan?",
+        "options": [
+          "Vain teknisiä",
+          "Lainsäädäntöä, läpinäkyvyyttä, valvontaa, yritysten vastuuta",
+          "Tekoälyn kieltämistä",
+          "Ei mitään"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

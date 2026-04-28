@@ -1,0 +1,77 @@
+{
+  "id": "abf7a7a7-ee10-5cf0-80fa-1adc71aa14b7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja vastaa kysymyksiin valitsemalla paras vaihtoehto.",
+    "materials": {
+      "text": "Alustatalous on muuttanut työn tekemisen tapoja nopeammin kuin lainsäädäntö on ehtinyt reagoida. Ruokalähettien, freelance-kääntäjien ja erilaisten digitaalisten asiantuntijoiden työ välittyy yhä useammin sovellusten kautta, jotka yhdistävät asiakkaan ja työn suorittajan reaaliaikaisesti. Kannattajien mielestä malli lisää joustavuutta: työntekijä voi päättää itse, milloin ottaa toimeksiantoja vastaan, ja yritykset voivat vastata kysynnän vaihteluihin ilman raskasta organisaatiota. Kriitikot huomauttavat kuitenkin, että näennäinen vapaus voi peittää alleen taloudellisen riippuvuuden, jos työntekijällä ei käytännössä ole mahdollisuutta neuvotella ehdoista tai kieltäytyä huonosti palkatuista tehtävistä. Lisäksi algoritminen ohjaus vaikuttaa siihen, kenelle tehtäviä tarjotaan, millä hinnalla työ korvataan ja kuinka läpinäkyvästi suoriutumista arvioidaan. Siksi keskustelu ei koske vain uusia ansaintamahdollisuuksia vaan myös sitä, miten sosiaaliturva, verotus ja työoikeus pitäisi sovittaa tilanteeseen, jossa yrittäjyyden ja palkkatyön välinen raja hämärtyy. Useat tutkijat ovatkin esittäneet, että sääntelyn pitäisi tunnistaa paremmin työn tosiasiallinen riippuvuussuhde eikä pelkästään sopimuksissa käytettyjä nimikkeitä.",
+      "word_count": 136
+    },
+    "questions": [
+      {
+        "id": "rq1",
+        "prompt": "Mikä on tekstin keskeinen väite alustataloudesta?",
+        "options": [
+          "Se on poistunut käytöstä hitaiden sovellusten vuoksi.",
+          "Se on muuttanut työtä nopeammin kuin sääntely on ehtinyt mukautua.",
+          "Se koskee vain ruokalähettejä eikä muita aloja.",
+          "Se on ratkaissut kaikki työmarkkinoiden ongelmat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "rq2",
+        "prompt": "Miksi kriitikot pitävät alustatyön vapautta osittain näennäisenä?",
+        "options": [
+          "Koska työntekijät voivat aina neuvotella palkkionsa vapaasti.",
+          "Koska sovelluksia käytetään vain lyhytaikaisesti.",
+          "Koska työntekijä voi olla taloudellisesti riippuvainen ilman todellista neuvotteluvaraa.",
+          "Koska asiakkaat eivät saa valita palveluntarjoajaa itse."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "rq3",
+        "prompt": "Mihin algoritminen ohjaus tekstin mukaan vaikuttaa?",
+        "options": [
+          "Vain siihen, missä kaupungissa sovellus toimii.",
+          "Tehtävien jakautumiseen, korvaukseen ja suoriutumisen arviointiin.",
+          "Ainoastaan työntekijöiden verokorttien käsittelyyn.",
+          "Siihen, kuinka monta työntekijää saa lomaa kesällä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "rq4",
+        "prompt": "Mitä useat tutkijat tekstin lopussa ehdottavat?",
+        "options": [
+          "Sääntelyn tulisi perustua paremmin työn todelliseen riippuvuussuhteeseen.",
+          "Kaikki alustatyö pitäisi kieltää välittömästi.",
+          "Yritysten ei pitäisi maksaa veroja digitaalisesta työstä.",
+          "Työntekijöiden pitäisi tehdä toimeksiantoja ilman sopimuksia."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

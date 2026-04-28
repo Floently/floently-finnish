@@ -1,0 +1,77 @@
+{
+  "id": "5956df27-adb8-58db-8b92-0b7052d81946",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kestävistä juhlista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KESTÄVÄT JUHLAT – NÄIN ONNISTUT\n\nJuhliin liittyy usein paljon kertakäyttöistä ja tuhlausta. Mutta juhlia voi viettää myös kestävästi. Tässä muutama vinkki.\n\nKUTSU: Lähetä sähköinen kutsu, älä paperista. Se säästää paperia ja postikuluja. Myös puhelimitse voi kutsua.\n\nKATTAMINEN: Käytä oikeita astioita ja aterimia, jos mahdollista. Jos ei ole tarpeeksi, lainaa ystäviltä tai vuokraa. Kertakäyttöiset biohajoavat astiat ovat toinen vaihtoehto.\n\nRUOKA: Suosi kasvisruokaa ja lähiruokaa. Liharuuan ilmastovaikutus on suuri. Tee ruokaa sopivasti, jotta ei tule hävikkiä. Ylijäämäruuan voi pakastaa tai antaa vieraille mukaan.\n\nKORISTEET: Käytä luonnonmateriaaleja, kuten oksia, kukkia ja käpyjä. Vältä muovikoristeita. Kynttilät luovat tunnelmaa.\n\nLAHJAT: Pyydä halutessasi lahjaksi elämyksiä tai itse tehtyjä asioita. Myös yhteistä hyvää, kuten lahjoitus hyväntekeväisyyteen, voi ehdottaa.\n\nJuhlien jälkeen lajittele jätteet huolellisesti. Kiitos vieraille voi olla sähköpostilla tai tekstiviestillä.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 151
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen kutsu on ympäristöystävällinen?",
+        "options": [
+          "Paperinen kutsu",
+          "Sähköinen kutsu",
+          "Puhelimitse",
+          "Mikä tahansa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ruoan kanssa kannattaa tehdä?",
+        "options": [
+          "Tehdä paljon lihaa",
+          "Suosia kasvisruokaa ja välttää hävikkiä",
+          "Heittää ylijäämä roskiin",
+          "Käyttää kertakäyttöastioita"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä koristeissa kannattaa käyttää?",
+        "options": [
+          "Muovikoristeita",
+          "Luonnonmateriaaleja",
+          "Kertakäyttöisiä",
+          "Ostaa uudet joka kerta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä lahjoiksi voi toivoa?",
+        "options": [
+          "Vain tavaroita",
+          "Elämyksiä tai itse tehtyjä asioita",
+          "Rahaa",
+          "Kalliita lahjoja"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

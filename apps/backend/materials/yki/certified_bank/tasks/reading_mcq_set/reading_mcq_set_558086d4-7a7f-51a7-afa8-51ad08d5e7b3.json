@@ -1,0 +1,77 @@
+{
+  "id": "558086d4-7a7f-51a7-afa8-51ad08d5e7b3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TERVEYDENHUOLLON TULEVAISUUS – RESURSSIT RIITTÄVÄTKÖ?\n\nSuomen terveydenhuolto on murroksessa. Väestö ikääntyy, hoitotarpeet kasvavat, samalla kun pula hoitohenkilökunnasta pahenee. Hoitotakuu pettää yhä useammalla alueella, ja jonot erikoissairaanhoitoon venyvät. Miten turvaamme terveydenhuollon tulevaisuudessa?\n\nYksi keskeisimmistä ongelmista on henkilöstöpula. Sairaanhoitajia, lääkäreitä ja lähihoitajia ei ole riittävästi. Tilannetta pahentaa se, että alalta poistutaan yhä nuorempina. Työn kuormittavuus, epätyypilliset työajat ja palkkaus eivät vastaa monen odotuksia.\n\nToinen ongelma on rahoitus. Hyvinvointialueet kamppailevat taloudellisten haasteiden kanssa. Samaan aikaan kun tarpeet kasvavat, valtion rahoitus ei seuraa perässä. Alueet joutuvat tekemään vaikeita valintoja: mistä leikataan, mitä priorisoidaan.\n\nKolmas näkökulma on teknologian hyödyntäminen. Digitaaliset palvelut, etävastaanotot ja tekoälypohjaiset työkalut voivat tuoda helpotusta. Ne voivat vapauttaa henkilökunnan aikaa vaativampaan työhön ja parantaa palvelujen saavutettavuutta syrjäseuduilla. Teknologia ei kuitenkaan ole hopealuoti. Se vaatii investointeja, koulutusta ja toimivia järjestelmiä.\n\nRatkaisut vaatisivat kokonaisvaltaista uudistusta. Tarvitaan panostuksia koulutukseen ja työolojen parantamiseen, jotta ala saadaan houkuttelevammaksi. Tarvitaan rahoitusmalli, joka kannustaa ennaltaehkäisyyn ja vaikuttavuuteen. Tarvitaan rohkeutta kokeilla uusia toimintatapoja.\n\nLopuksi on muistettava, että terveydenhuolto on investointi, ei menoerä. Sairas väestö ei tuota, ei kuluta eikä voi hyvin. Panostukset terveyteen maksavat itsensä takaisin moninkertaisesti.\n\nTulevaisuudessa tarvitaan myös uudenlaisia hoitomuotoja ja ennaltaehkäisyyn panostamista. Kansalaisten oma vastuu terveydestään korostuu, mutta yhteiskunnan on tuettava terveellisiä elämäntapoja.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 229
+    },
+    "questions": [
+      {
+        "id": "d3408b77-e468-5ba8-85b9-56a80a0b1dee",
+        "prompt": "Mitä ongelmia terveydenhuollossa on?",
+        "options": [
+          "liian paljon henkilökuntaa",
+          "henkilöstöpula, rahoitusongelmat ja teknologian hidas käyttöönotto",
+          "liian vähän potilaita",
+          "liian hyvä taloustilanne"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "bf4f58c7-9f47-54af-9a5c-d1d526d8c8f7",
+        "prompt": "Miksi henkilöstöpula on vakava ongelma?",
+        "options": [
+          "hoitajia on liikaa",
+          "hoitajia ei ole riittävästi ja alalta poistutaan nuorena",
+          "hoitajat ovat liian vanhoja",
+          "hoitajat saavat liikaa palkkaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a5d78485-cd90-589c-9b40-e302d6e2bae9",
+        "prompt": "Miten teknologia voi auttaa terveydenhuollossa?",
+        "options": [
+          "se korvaa kaiken henkilökunnan",
+          "se voi vapauttaa aikaa ja parantaa saavutettavuutta",
+          "se on liian kallista",
+          "sillä ei ole merkitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "dd68fc5f-364e-5a22-8913-63dc967d4323",
+        "prompt": "Mitä ratkaisuja tekstissä ehdotetaan?",
+        "options": [
+          "vain lisää rahaa",
+          "panostuksia koulutukseen, työolojen parantamiseen, ennaltaehkäisyyn ja uusiin toimintatapoihin",
+          "henkilökunnan vähentämistä",
+          "palveluiden keskittämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

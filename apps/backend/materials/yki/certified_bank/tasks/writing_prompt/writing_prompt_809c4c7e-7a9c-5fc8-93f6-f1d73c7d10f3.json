@@ -1,0 +1,37 @@
+{
+  "id": "809c4c7e-7a9c-5fc8-93f6-f1d73c7d10f3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti opiston rehtorille. Olet ilmoittautunut ruotsin kielen kurssille, mutta haluaisit vaihtaa toiselle saman tason kurssille, joka sopii paremmin työaikatauluusi. Kerro nykyinen kurssisi ja mihin kurssiin haluaisit vaihtaa.",
+    "materials": {
+      "scenario": "Kurssinvaihtopyyntö"
+    },
+    "items": [
+      {
+        "id": "44cb82f3-f717-567a-b398-8141136e4575",
+        "prompt": "Kirjoita sähköposti opiston rehtorille. Olet ilmoittautunut ruotsin kielen kurssille, mutta haluaisit vaihtaa toiselle saman tason kurssille, joka sopii paremmin työaikatauluusi. Kerro nykyinen kurssisi ja mihin kurssiin haluaisit vaihtaa."
+      }
+    ],
+    "rubric": "Nykyinen kurssi\nToivottu kurssi\nSyy vaihdolle",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "8819d79f-058b-5981-8dfb-50bcdca21a21",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.55,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomi on sitoutunut vähentämään kasvihuonekaasupäästöjä. Yksi keino on lisätä uusiutuvan energian käyttöä, kuten tuuli- ja aurinkovoimaa. Monet kunnat rakentavat tuulivoimapuistoja. Kotitaloudet voivat asentaa aurinkopaneeleja. Tämä vähentää riippuvuutta fossiilisista polttoaineista. Muutos vaatii kuitenkin investointeja ja aikaa. Tavoitteena on hiilineutraali Suomi.",
+      "word_count": 39
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin Suomi on sitoutunut?",
+        "options": [
+          "Lisäämään fossiilisten polttoaineiden käyttöä",
+          "Vähentämään kasvihuonekaasupäästöjä",
+          "Lopettamaan energiantuotannon",
+          "Keskittämään energiantuotannon yhteen paikkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uusiutuvaa energiaa mainitaan tekstissä?",
+        "options": [
+          "Vesivoimaa ja ydinvoimaa",
+          "Tuuli- ja aurinkovoimaa",
+          "Bioenergiaa ja turvetta",
+          "Maalämpöä ja puuta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä monet kunnat rakentavat?",
+        "options": [
+          "Uusia teitä",
+          "Tuulivoimapuistoja",
+          "Kouluja",
+          "Sairaaloita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä kotitaloudet voivat asentaa?",
+        "options": [
+          "Ilmalämpöpumppuja",
+          "Aurinkopaneeleja",
+          "Sähköautoja",
+          "Lämpömittareita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyötyä uusiutuvasta energiasta on?",
+        "options": [
+          "Se on halvempaa",
+          "Se vähentää riippuvuutta fossiilisista polttoaineista",
+          "Se tuottaa enemmän energiaa",
+          "Se on helpompaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on tavoitteena?",
+        "options": [
+          "Energian omavaraisuus",
+          "Hiilineutraali Suomi",
+          "Energian vienti",
+          "Halpa energia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

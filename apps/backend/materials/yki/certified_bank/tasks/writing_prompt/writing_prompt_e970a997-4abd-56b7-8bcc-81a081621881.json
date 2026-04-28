@@ -1,0 +1,37 @@
+{
+  "id": "e970a997-4abd-56b7-8bcc-81a081621881",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti työpaikan esihenkilölle. Kerro, että haluaisit osallistua koulutukseen. Kerro, mikä koulutus (asiakaspalvelukoulutus). Kerro, miksi se olisi hyödyllistä. Kysy, voiko työpaikka maksaa sen.",
+    "materials": {
+      "scenario": "Viesti esihenkilölle koulutuksesta"
+    },
+    "items": [
+      {
+        "id": "685bce2d-310d-5294-8599-4c0499484cd5",
+        "prompt": "Kirjoita lyhyt viesti työpaikan esihenkilölle. Kerro, että haluaisit osallistua koulutukseen. Kerro, mikä koulutus (asiakaspalvelukoulutus). Kerro, miksi se olisi hyödyllistä. Kysy, voiko työpaikka maksaa sen."
+      }
+    ],
+    "rubric": "Kerro, että haluat koulutukseen\nKerro, mikä koulutus\nKerro, miksi se olisi hyödyllistä\nKysy, voiko työpaikka maksaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "5db87dab-2388-5ce4-a752-ea3a7e9557a8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.746,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kotimainen kirjallisuus on tärkeä osa suomalaista kulttuuria ja identiteettiä. Se heijastaa yhteiskunnan muutoksia, käsittelee tärkeitä teemoja ja tarjoaa lukijoille elämyksiä ja samaistumisen kohteita. Suomalaiset lukevat paljon, ja kotimainen kirjallisuus on suosittua niin klassikoiden kuin uutuuksienkin osalta. Yksi keskeisimmistä kotimaisen kirjallisuuden klassikoista on Väinö Linnan Tuntematon sotilas, joka kuvaa suomalaisten miesten kokemuksia jatkosodassa. Teos on vaikuttanut syvästi suomalaiseen identiteettiin ja historian ymmärtämiseen. Se on myös yksi luetuimmista suomalaisista kirjoista. Toinen keskeinen klassikko on Mika Waltarin Sinuhe egyptiläinen, historiallinen romaani, joka on käännetty kymmenille kielille. Se on kiehtonut lukijoita ympäri maailmaa ja on osoitus suomalaisen kirjallisuuden kansainvälisestä potentiaalista. Kolmas klassikko on Tove Janssonin muumikirjat, jotka ovat lumonneet niin lapset kuin aikuisetkin. Muumit ovat maailmanlaajuisesti tunnettuja, ja ne ovat tärkeä osa suomalaista kulttuurivientiä. Muumikirjat käsittelevät syvällisiä teemoja, kuten ystävyyttä, yksinäisyyttä ja erilaisuutta. Neljäs tärkeä osa kotimaista kirjallisuutta ovat nykykirjailijat, kuten Sofi Oksanen, Jari Tervo ja Tommi Kinnunen. He käsittelevät ajankohtaisia aiheita, kuten historiaa, identiteettiä, sukupuolta ja yhteiskunnallisia epäkohtia. Heidän teoksensa ovat suosittuja ja herättävät keskustelua.",
+      "word_count": 162
+    },
+    "questions": [
+      {
+        "id": "c75ce712-520c-5154-8a68-0ded0f0ec9aa",
+        "prompt": "Mitä kotimainen kirjallisuus heijastaa?",
+        "options": [
+          "Vain menneisyyttä",
+          "Yhteiskunnan muutoksia ja tärkeitä teemoja",
+          "Vain tulevaisuutta",
+          "Vain yksilön kokemuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1ae6285-37ea-557a-88e7-b28f05521c60",
+        "prompt": "Mitä Väinö Linnan Tuntematon sotilas kuvaa?",
+        "options": [
+          "Suomalaisten miesten kokemuksia jatkosodassa",
+          "Elämää 1800-luvun Suomessa",
+          "Rakkautta ja ihmissuhteita",
+          "Kaupungistumista"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "00510999-9d11-549f-bb97-51d6c099e4a7",
+        "prompt": "Mistä Mika Waltarin Sinuhe egyptiläinen on osoitus?",
+        "options": [
+          "Suomalaisen kirjallisuuden kansainvälisestä potentiaalista",
+          "Suomalaisen historian tärkeydestä",
+          "Egyptiläisen kulttuurin vaikutuksesta",
+          "Historiallisten romaanien suosiosta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "4fd0d9f1-cbec-514e-b452-9ed6e45a7942",
+        "prompt": "Mitä teemoja Tove Janssonin muumikirjat käsittelevät?",
+        "options": [
+          "Vain lasten seikkailuja",
+          "Ystävyyttä, yksinäisyyttä ja erilaisuutta",
+          "Vain huumoria",
+          "Vain fantasiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1c93d50d-3367-576b-b71c-783ceeb21248",
+        "prompt": "Keitä ovat esimerkkejä suomalaisista nykykirjailijoista?",
+        "options": [
+          "Väinö Linna ja Mika Waltari",
+          "Sofi Oksanen, Jari Tervo ja Tommi Kinnunen",
+          "Tove Jansson ja Mauri Kunnas",
+          "Aleksis Kivi ja Eino Leino"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

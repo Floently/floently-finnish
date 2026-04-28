@@ -1,0 +1,77 @@
+{
+  "id": "2c77d412-cd28-5841-86f2-e7128e9ebff2",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.764,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele yliopiston luento kulttuurisesta omimisesta ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Hyvät kuulijat. Tänään käsittelemme kulttuurista omimista, joka on herättänyt vilkasta keskustelua viime vuosina. Termi viittaa tilanteisiin, joissa valtakulttuurin edustajat omaksuvat piirteitä vähemmistökulttuureista usein ymmärtämättä niiden alkuperäistä merkitystä tai historiallista kontekstia.\n\nKulttuurinen omiminen ei ole sama asia kuin kulttuurinen vaihto. Vaihdossa on kyse tasavertaisesta vuorovaikutuksesta, jossa molemmat osapuolet oppivat toisiltaan. Omimisessa taas on usein kyse vallan epätasapainosta: hallitseva kulttuuri ottaa itselleen jotain sorretulta kulttuurilta, usein kaupallisessa tarkoituksessa.\n\nEsimerkkejä on monia. Alkuperäiskansojen päähineitä käytetään muotiasusteina, uskonnollisia symboleja koristeina, perinteisiä kuvioita ilman lupaa. Tämä ei ole vain harmitonta lainaamista, sillä se voi vähätellä ja trivialisoida asioita, jotka ovat syvän pyhiä tai merkityksellisiä alkuperäiskulttuurille.\n\nKriitikot väittävät, että tämä on liioiteltua ja että kulttuuri on aina elänyt lainaamisesta. Heidän mukaansa kulttuurien välinen vuorovaikutus on rikkaus, ja rajojen asettaminen on sensuuria. Tässä onkin keskeinen jännite: missä menee lainaamisen ja omimisen raja?\n\nTutkijat korostavat, että konteksti ja valtasuhteet ovat ratkaisevia. Jos otat jotain toisesta kulttuurista, on tärkeää ymmärtää sen merkitys ja kunnioittaa alkuperää. On myös tärkeää antaa ääni niille, joiden kulttuurista on kyse.\n\nSuomessa keskustelu on liittynyt erityisesti saamelaisten kulttuuriin. Saamenpukujen käyttö muodin elementtinä, joiku-aiheiset kappaleet ja saamelaisten symbolien kaupallinen hyödyntäminen ovat herättäneet kritiikkiä. Saamelaiset ovat muistuttaneet, että heidän kulttuurinsa ei ole rekvisiittaa, vaan elävä perinne, jolla on tarkat säännöt.\n\nKulttuurinen omiminen on monimutkainen ilmiö, johon ei ole yksinkertaisia vastauksia. Se pakottaa meidät kuitenkin pohtimaan, millaisessa maailmassa haluamme elää: haluammeko kunnioittavaa vuorovaikutusta vai pinnallista lainaamista, jossa toisten kulttuurit ovat vain koristeita?",
+      "audio_asset_id": "cf9a3882-7853-50ac-af95-1c449c062bc1"
+    },
+    "questions": [
+      {
+        "id": "c1c2_listening_mcq_012_q1",
+        "prompt": "Mitä kulttuurinen omiminen tarkoittaa?",
+        "options": [
+          "kulttuurien välistä tasavertaista vaihtoa",
+          "valtakulttuurin edustajien vähemmistökulttuurien piirteiden omaksumista ilman ymmärrystä niiden merkityksestä",
+          "kaikkea lainaamista kulttuurien välillä",
+          "vain positiivista vuorovaikutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_012_q2",
+        "prompt": "Mikä ero on kulttuurisella vaihdolla ja omimisella?",
+        "options": [
+          "ei mitään eroa",
+          "vaihdossa on kyse tasavertaisesta vuorovaikutuksesta, omimisessa vallan epätasapainosta",
+          "vaihto on aina huono asia",
+          "omiminen on aina hyväksyttävää"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_012_q3",
+        "prompt": "Mitä esimerkkejä kulttuurisesta omimisesta mainitaan?",
+        "options": [
+          "kielten oppiminen",
+          "alkuperäiskansojen päähineiden ja symbolien käyttö muodissa",
+          "ruokakulttuurien yhdistäminen",
+          "musiikkityylien fuusio"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_listening_mcq_012_q4",
+        "prompt": "Miten keskustelu on näkynyt Suomessa?",
+        "options": [
+          "ei mitenkään",
+          "saamelaisten kulttuurin kaupallisessa hyödyntämisessä",
+          "suomen kielen lainasanoissa",
+          "vain pääkaupunkiseudulla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

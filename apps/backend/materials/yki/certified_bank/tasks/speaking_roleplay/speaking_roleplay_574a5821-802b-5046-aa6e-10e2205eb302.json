@@ -1,0 +1,40 @@
+{
+  "id": "574a5821-802b-5046-aa6e-10e2205eb302",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.498,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele parturi-kampaajan kanssa. Kerro, millaisen kampauksen haluat ja kysy neuvoa.",
+    "materials": {
+      "roles": {
+        "user": "kampaajalla ja kerrot toiveesi",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "37df2b78-8f6c-5932-9f10-7bd5e6bf7f54",
+        "ai_first_turn_fi": "Hei, istu vaan. Mitäs sä oot miettinyt uudeksi lookiksi?"
+      }
+    ],
+    "rubric": "Keskustele parturi-kampaajan kanssa. Kerro, millaisen kampauksen haluat ja kysy neuvoa.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

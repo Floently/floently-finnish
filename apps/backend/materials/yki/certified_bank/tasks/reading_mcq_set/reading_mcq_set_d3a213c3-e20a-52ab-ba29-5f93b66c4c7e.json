@@ -1,0 +1,77 @@
+{
+  "id": "d3a213c3-e20a-52ab-ba29-5f93b66c4c7e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.788,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Julkisen tilan käsite ja käyttö ovat olleet viime vuosina vilkkaan keskustelun kohteena. Perinteisesti julkisella tilalla on tarkoitettu paikkoja, jotka ovat periaatteessa kaikkien kansalaisten saavutettavissa ja käytettävissä: kadut, torit, puistot, kirjastot ja muut vastaavat alueet. Näiden tilojen on nähty olevan demokratian ja kansalaisyhteiskunnan keskeisiä areenoita, joissa erilaiset ihmiset voivat kohdata, keskustella ja toimia yhdessä. Viime vuosikymmeninä julkisen tilan luonne on kuitenkin muuttunut merkittävästi. Kaupalliset intressit ovat vahvistuneet, ja yhä useammat aiemmin julkisina pidetyt tilat ovat siirtyneet yksityiseen omistukseen tai hallintaan. Kauppakeskukset ovat hyvä esimerkki tästä kehityksestä: ne ovat yksityisomistuksessa olevia tiloja, jotka on suunniteltu ensisijaisesti kuluttamista varten, ja niissä liikkumista säädellään yksityisten turvallisuuspalveluiden toimesta. Tämä herättää kysymyksiä siitä, kuka todella saa käyttää näitä tiloja ja millä ehdoilla. Yksityistäminen ei ole ainoa julkista tilaa muuttava voima. Myös turvallisuuspuhe ja valvontateknologian lisääntyminen ovat muokanneet tilojen käyttöä. Kameroita, porttikieltoja ja muita kontrollin muotoja perustellaan usein turvallisuudella, mutta samalla ne voivat kaventaa erilaisten ihmisten mahdollisuuksia oleskella ja liikkua julkisissa tiloissa. Nuoret, näkyvät vähemmistöt ja muut 'epäilyttävinä' pidetyt ryhmät joutuvat helposti valvonnan kohteiksi, mikä voi johtaa heidän syrjäytymiseensä julkisesta tilasta. Toisaalta julkista tilaa voidaan myös aktiivisesti puolustaa ja kehittää. Kaupunkiliikkeet, asukasyhdistykset ja erilaiset kansalaisaktivistit pyrkivät vaalimaan ja luomaan uusia julkisia tiloja, jotka ovat aidosti kaikkien saavutettavissa. Pop-up-puistot, kaupunkiviljelyhankkeet ja tilapäiset tapahtumat ovat esimerkkejä siitä, miten ihmiset voivat ottaa tilaa haltuun ja tehdä siitä oman näköistään. Keskeinen kysymys julkisen tilan tulevaisuuden kannalta on, miten turvataan sen monimuotoisuus ja saavutettavuus kaupallisten ja turvallisuusintressien paineessa. Tarvitaan paitsi kaavoitusta ja sääntelyä myös laajempaa yhteiskunnallista keskustelua siitä, millaista julkista tilaa haluamme ja kenelle se kuuluu. Julkinen tila on liian tärkeä asia jätettäväksi vain markkinavoimien tai turvallisuusviranomaisten varaan. Se on demokratian perusedellytys, ja sen monimuotoisuuden vaaliminen on koko yhteiskunnan etu.",
+      "word_count": 278
+    },
+    "questions": [
+      {
+        "id": "140f52bc-6fb1-524f-9002-0f28422f6e04",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Kaupallisten keskusten turvallisuusjärjestelyt",
+          "Julkisen tilan muutos ja siihen liittyvät jännitteet yksityistämisen, valvonnan ja demokratian välillä",
+          "Kaupunkiliikkeiden rooli julkisen tilan puolustajina",
+          "Valvontateknologian vaikutukset kansalaisten vapauksiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "41ebcfe8-b0de-5715-a69b-fd18447b2839",
+        "prompt": "Tekstin mukaan millä tavoin kauppakeskukset eroavat perinteisestä julkisesta tilasta?",
+        "options": [
+          "Ne ovat valtion omistuksessa ja hallinnassa",
+          "Ne ovat yksityisomistuksessa ja niissä liikkumista säädellään yksityisten toimesta",
+          "Ne ovat avoimia vain tietyille väestöryhmille",
+          "Niissä ei ole minkäänlaista valvontaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d1ec3e74-5d76-559c-bdd5-443c9c2898c2",
+        "prompt": "Mitä kielteisiä vaikutuksia turvallisuuspuheella ja valvonnan lisääntymisellä voi tekstin mukaan olla?",
+        "options": [
+          "Se lisää kansalaisten turvallisuuden tunnetta kaikkialla",
+          "Se vähentää rikollisuutta merkittävästi",
+          "Se voi kaventaa tiettyjen ryhmien, kuten nuorten ja vähemmistöjen, mahdollisuuksia käyttää julkista tilaa",
+          "Se tekee julkisesta tilasta viihtyisämmän kaikille"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a0f23cfb-f269-57a1-ac9d-3058bdeb511c",
+        "prompt": "Mitä keinoja tekstissä mainitaan julkisen tilan puolustamiseksi ja kehittämiseksi?",
+        "options": [
+          "Tiukempaa lainsäädäntöä ja poliisivalvontaa",
+          "Kaupunkiliikkeiden aktiviteetteja, kuten pop-up-puistoja ja kaupunkiviljelyhankkeita",
+          "Kauppakeskusten rakentamisen kieltämistä",
+          "Julkisen tilan sulkemista yöajaksi"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

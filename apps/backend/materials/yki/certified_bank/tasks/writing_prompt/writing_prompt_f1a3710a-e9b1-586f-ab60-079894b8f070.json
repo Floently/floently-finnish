@@ -1,0 +1,37 @@
+{
+  "id": "f1a3710a-e9b1-586f-ab60-079894b8f070",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.691,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a chief conductor position in a city orchestra. Tell about your experience in conducting an orchestra, artistic work, and repertoire planning. Also describe your artistic vision and how you have developed the orchestra's sound and audience relations. Length about 360 words.",
+    "materials": {
+      "scenario": "Hakemus ylikapellimestarin tehtävään"
+    },
+    "items": [
+      {
+        "id": "ef4a6d00-3fdb-5c79-9b9d-19f5eee28ed0",
+        "prompt": "Write a job application. You are applying for a chief conductor position in a city orchestra. Tell about your experience in conducting an orchestra, artistic work, and repertoire planning. Also describe your artistic vision and how you have developed the orchestra's sound and audience relations. Length about 360 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a chief conductor position in a city orchestra. Tell about your experience in conducting an orchestra, artistic work, and repertoire planning. Also describe your artistic vision and how you have developed the orchestra's sound and audience relations. Length about 360 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

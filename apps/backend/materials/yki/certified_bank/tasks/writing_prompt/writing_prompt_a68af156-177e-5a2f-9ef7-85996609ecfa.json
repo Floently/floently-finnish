@@ -1,0 +1,37 @@
+{
+  "id": "a68af156-177e-5a2f-9ef7-85996609ecfa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute uudesta suojatiestä koulun lähellä. Onko se turvallinen? Huomaavatko autoilijat sen?",
+    "materials": {
+      "scenario": "Palaute uudesta suojatiestä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute uudesta suojatiestä koulun lähellä. Onko se turvallinen? Huomaavatko autoilijat sen?"
+      }
+    ],
+    "rubric": "Kirjoita palaute uudesta suojatiestä koulun lähellä. Onko se turvallinen? Huomaavatko autoilijat sen?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

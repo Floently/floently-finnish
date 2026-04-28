@@ -1,0 +1,66 @@
+{
+  "id": "a3a31d93-e5f1-5b8b-814c-1c67b34cb058",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue mielipidekirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Otsikko: 'Koulujen liikuntatunteja pitäisi lisätä'\n\nOlen 15-vuotias yläkoululainen ja huolissani nuorten liikkumattomuudesta. Meillä on liikuntaa vain kaksi tuntia viikossa, ja se on aivan liian vähän. Monet kaverini eivät harrasta mitään liikuntaa vapaa-ajalla, ja se näkyy jaksamisessa ja keskittymisessä. Liikuntatunneilla saisi olla enemmän valinnanvaraa, jotta jokainen löytäisi itselleen mieluisan lajin. Osa tykkää joukkuepeleistä, osa taas haluaisi tehdä yksilöliikuntaa. Myös koulujen pihoja ja liikuntatiloja pitäisi pitää auki iltaisin ja viikonloppuisin, jotta nuorilla olisi paikka kokoontua ja liikkua. Toivottavasti päättäjät heräisivät tähän.",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä mieltä kirjoittaja on liikuntatuntien määrästä?",
+        "options": [
+          "Se on sopiva",
+          "Se on liian vähän",
+          "Se on liian paljon",
+          "Sillä ei ole väliä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirjoittaja ehdottaa liikuntatunneille?",
+        "options": [
+          "Lisää kilpailua",
+          "Enemmän valinnanvaraa lajeissa",
+          "Vähemmän liikuntaa",
+          "Pakollisia joukkuepelejä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja toivoo koulujen tiloista?",
+        "options": [
+          "Niitä pitäisi myydä",
+          "Niitä pitäisi pitää auki iltaisin ja viikonloppuisin",
+          "Niitä pitäisi remontoida",
+          "Niitä pitäisi käyttää vain kouluaikaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

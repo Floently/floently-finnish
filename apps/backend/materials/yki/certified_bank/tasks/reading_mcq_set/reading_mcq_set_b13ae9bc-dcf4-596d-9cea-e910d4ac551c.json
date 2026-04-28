@@ -1,0 +1,99 @@
+{
+  "id": "b13ae9bc-dcf4-596d-9cea-e910d4ac551c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Keskustelu monikielisyydestä päiväkodeissa on ajankohtainen. Yhä useamman lapsen äidinkieli on jokin muu kuin suomi. Tämä asettaa haasteita henkilökunnalle, jonka pitäisi tukea sekä suomen kielen oppimista että lapsen oman äidinkielen kehitystä. Tutkimukset osoittavat, että vahva oman äidinkielen taito tukee myös uuden kielen oppimista. Päiväkodeissa tarvitaan lisää resursseja ja koulutusta, jotta kaikki lapset saisivat tasa-arvoisen tuen.",
+      "word_count": 54
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä keskustelu on ajankohtainen päiväkodeissa?",
+        "options": [
+          "Lapsiryhmien koosta",
+          "Monikielisyydestä",
+          "Ruokailusta",
+          "Ulkoilusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on yhä useamman lapsen tilanne päiväkodissa?",
+        "options": [
+          "He puhuvat vain englantia",
+          "Heidän äidinkielensä on jokin muu kuin suomi",
+          "He ovat kaksikielisiä",
+          "He eivät puhu ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä haastetta tämä asettaa päiväkodin henkilökunnalle?",
+        "options": [
+          "Heidän pitäisi oppia uusia kieliä",
+          "Heidän pitäisi tukea sekä suomen että lapsen oman äidinkielen kehitystä",
+          "Heidän pitäisi vähentää suomen kielen opetusta",
+          "Heidän pitäisi puhua vain englantia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tutkimukset osoittavat oman äidinkielen taidosta?",
+        "options": [
+          "Se hidastaa uuden kielen oppimista",
+          "Se tukee uuden kielen oppimista",
+          "Sillä ei ole vaikutusta",
+          "Se on tärkeää vain kotona"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä päiväkodeissa tarvitaan, jotta kaikki lapset saisivat tasa-arvoisen tuen?",
+        "options": [
+          "Lisää lapsia ryhmiin",
+          "Lisää resursseja ja koulutusta",
+          "Vähemmän kieliä",
+          "Enemmän leikkivälineitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'tasa-arvoisella tuella' tässä tekstissä?",
+        "options": [
+          "Kaikki saavat samanlaista tukea kielestä riippumatta",
+          "Vain suomea puhuvat saavat tukea",
+          "Vain vieraskieliset saavat tukea",
+          "Tukea annetaan vain tarvittaessa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

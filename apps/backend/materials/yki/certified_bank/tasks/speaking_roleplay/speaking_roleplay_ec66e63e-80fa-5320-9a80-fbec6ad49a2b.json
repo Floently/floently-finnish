@@ -1,0 +1,40 @@
+{
+  "id": "ec66e63e-80fa-5320-9a80-fbec6ad49a2b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.286,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you go to the movies and what kind of movies you like.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "5c5a746a-9c69-5d6a-8703-63bdddf7f114",
+        "ai_first_turn_fi": "Käytkö usein leffassa? Mikä on sun lempielokuva?"
+      }
+    ],
+    "rubric": "Tell if you go to the movies and what kind of movies you like.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

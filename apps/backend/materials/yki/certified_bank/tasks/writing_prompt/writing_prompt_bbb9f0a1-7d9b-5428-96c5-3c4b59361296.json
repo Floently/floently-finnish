@@ -1,0 +1,37 @@
+{
+  "id": "bbb9f0a1-7d9b-5428-96c5-3c4b59361296",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.675,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a café worker position. Tell about your previous experience in customer service, ability to work under pressure, and why you like café work. Length about 250 words.",
+    "materials": {
+      "scenario": "Hakemus kahvilan työntekijän tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a café worker position. Tell about your previous experience in customer service, ability to work under pressure, and why you like café work. Length about 250 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a café worker position. Tell about your previous experience in customer service, ability to work under pressure, and why you like café work. Length about 250 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

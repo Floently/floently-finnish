@@ -1,0 +1,77 @@
+{
+  "id": "87404cf8-e3fc-51c7-882a-fb304268fe26",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.755,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue artikkeli koulutuksen eriarvoistumisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KOULUTUKSEN ERIARVOISTUMINEN – ONKO PALUUTA TASA-ARVOON?\n\nPeruskoulujärjestelmä luotiin 1970-luvulla takaamaan kaikille suomalaislapsille yhtäläiset mahdollisuudet koulutukseen asuinpaikasta ja perhetaustasta riippumatta. Viisikymmentä vuotta myöhemmin on pakko kysyä, toteutuuko tämä tavoite enää.\n\nTuore tutkimus osoittaa karua kieltä. Erot koulujen välillä ovat kasvaneet dramaattisesti viimeisen kahdenkymmenen vuoden aikana. Hyväosaisten alueiden koulut pärjäävät, heikompiosaisten koulut jäävät jälkeen. Samalla koulujen välinen segregaatio on lisääntynyt: lapset menevät koulua yhä enemmän samanlaisten perheiden kanssa.\n\nTähän on useita syitä. Yksi on koulujen rahoitusmalli, joka perustuu osin kuntien verotuloihin. Varakkaat kunnat voivat panostaa kouluihinsa enemmän, köyhät kunnat joutuvat säästämään. Toinen syy on kouluvalinnan vapaus. Kun vanhemmat voivat valita lapselleen koulun, hakeutuvat aktiivisimmat ja hyväosaisimmat perheet tiettyihin kouluihin. Tämä jättää muut koulut entistä heikompaan asemaan.\n\nKolmas tekijä on oppilaiden tuen tarpeiden kasvu. Samalla kun tuen tarve on lisääntynyt, erityisopetuksen resurssit ovat vähentyneet. Opettajat tekevät parhaansa, mutta liian usein he joutuvat toimimaan ilman riittäviä välineitä ja tukea.\n\nTulokset näkyvät PISA-tutkimuksissa. Vaikka Suomi pärjää edelleen kansainvälisessä vertailussa hyvin, erot heikoimpien ja parhaiten pärjäävien oppilaiden välillä ovat Suomen suurimpia. Koulutus ei enää toimi liikkuvuuden väylänä – päinvastoin, se näyttää jäykistävän yhteiskunnallisia asemia.\n\nMitä pitäisi tehdä? Jotkut vaativat kouluvalinnan rajoittamista. Toiset korostavat rahoituksen tasausmekanismeja, jotka ohjaisivat lisäresursseja heikoimmassa asemassa oleville kouluille. Kolmannet muistuttavat, että koulu ei voi ratkaista kaikkia yhteiskunnan ongelmia, vaan tarvitaan laajempaa sosiaalipolitiikkaa.\n\nYksi asia on varma: jos emme toimi, eriarvoisuus vain kasvaa. Peruskoulun alkuperäinen idea oli hieno, mutta se on vaarassa rapautua. Nyt tarvitaan rohkeita päätöksiä, jotka palauttavat koulutuksen tasa-arvon suomalaisen yhteiskunnan keskeiseksi arvoksi.",
+      "word_count": 242
+    },
+    "questions": [
+      {
+        "id": "c1c2_reading_mcq_007_q1",
+        "prompt": "Mikä on kirjoittajan pääväite?",
+        "options": [
+          "peruskoulu toimii edelleen hyvin",
+          "koulutus on lisännyt eriarvoisuutta eikä tasaa sitä",
+          "kouluvalinta on paras ratkaisu",
+          "opettajat ovat huonoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_007_q2",
+        "prompt": "Mitä syitä koulujen eriarvoistumiselle mainitaan?",
+        "options": [
+          "opettajien huono koulutus",
+          "kuntien rahoituserot, kouluvalinta ja tuen resurssien väheneminen",
+          "oppilaiden laiskuus",
+          "liian pitkät lomat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_007_q3",
+        "prompt": "Miten kouluvalinta vaikuttaa kirjoittajan mukaan?",
+        "options": [
+          "se parantaa kaikkien kouluja",
+          "se saa hyväosaiset hakeutumaan tiettyihin kouluihin ja heikentää muita",
+          "sillä ei ole merkitystä",
+          "se lisää oppilaiden motivaatiota"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1c2_reading_mcq_007_q4",
+        "prompt": "Mitä ratkaisuja kirjoittaja mainitsee?",
+        "options": [
+          "koulujen lakkauttaminen",
+          "kouluvalinnan rajoittaminen, rahoituksen tasaus ja laajempi sosiaalipolitiikka",
+          "opettajien irtisanominen",
+          "oppilaiden testaaminen useammin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

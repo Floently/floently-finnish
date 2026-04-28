@@ -1,0 +1,99 @@
+{
+  "id": "080e4d75-a3db-56c6-9895-56ddeb3d0fdb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.538,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähikirjastossa on alkamassa uusi lukupiiri. Piiri kokoontuu kerran kuussa ja siellä keskustellaan ennalta sovitusta kirjasta. Kirjat valitaan yhdessä, ja mukana voi olla kuka tahansa kiinnostunut. Lukupiiriä vetää vapaaehtoinen kirjaston ystävä. Tavoitteena on jakaa lukukokemuksia ja saada uusia näkökulmia kirjoihin. Ensimmäinen tapaaminen on lokakuun alussa.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä uusi toiminta alkaa lähikirjastossa?",
+        "options": [
+          "Satutunti",
+          "Lukupiiri",
+          "Kielikurssi",
+          "Askartelukerho"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka usein piiri kokoontuu?",
+        "options": [
+          "Kerran viikossa",
+          "Kerran kuussa",
+          "Kerran vuodessa",
+          "Joka päivä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä piirissä keskustellaan?",
+        "options": [
+          "Lehdistä",
+          "Ennalta sovitusta kirjasta",
+          "Elokuvista",
+          "Omista kirjoituksista"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Kuka voi osallistua lukupiiriin?",
+        "options": [
+          "Vain kirjaston henkilökunta",
+          "Vain eläkeläiset",
+          "Kuka tahansa kiinnostunut",
+          "Vain nuoret"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q5",
+        "prompt": "Kuka vetää lukupiiriä?",
+        "options": [
+          "Kirjastonjohtaja",
+          "Vapaaehtoinen kirjaston ystävä",
+          "Kaupungin kulttuurisihteeri",
+          "Kirjailija"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on lukupiirin tavoite?",
+        "options": [
+          "Lukea mahdollisimman paljon",
+          "Jakaa lukukokemuksia ja saada uusia näkökulmia",
+          "Oppia kirjoittamaan",
+          "Kilpailla lukemisessa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "c6cfb055-6b09-531c-902d-d738f907ee32",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.769,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja valitse jokaiseen kysymykseen paras vaihtoehto.",
+    "materials": {
+      "text": "Vähemmistökielten asema julkisessa tilassa on monissa maissa kiistanalainen. Perustuslaillinen tunnustus ei itsessään takaa käytännön toteutumista: palvelut, koulutus ja viranomaisten viestintä voivat jäädä vajavaisiksi, jos resurssointia ja valvontaa ei ole linjattu. Toisaalta pelkkä resurssipohjainen lähestymistapa voi unohtaa symbolisen ulottuvuuden: kielen näkyvyys viittaa siihen, että yhteisöä pidetään arvostettuna. Tutkimus viittaa siihen, että kieliopillinen moninaisuus vähentää kielten uhanalaistumista vain, jos samalla varmistetaan käyttötilanteet ja sukupolvien välinen välittäminen. Tässä yhteydessä koulu on keskeinen, mutta ei ainoa toimija; media, viranomaisviestintä ja vapaaehtoistyö täydentävät kuvaa. Kritiikki nykyistä mallia kohtaan kohdistuu usein siihen, että päätöksenteko on keskitetty eikä paikallisten tarpeiden kuuleminen ole systemaattista. Vastaväitteenä on esitetty, että hajautettu malli johtaisi epätasa-arvoiseen palvelutason vaihteluun. Tekstin mukaan kestävä ratkaisu edellyttää sekä selkeää kansallista viitekehystä että joustavaa toteutusta, jossa kieliyhteisöt osallistuvat suunnitteluun. Tällöin oikeus ei jää pelkäksi deklaraatioksi vaan näkyy konkreettisina toimenpiteinä.",
+      "word_count": 132
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi perustuslaillinen tunnustus ei välttämättä takaa toteutumista?",
+        "options": [
+          "koska kieliä on liian vähän",
+          "palvelut ja resurssointi voivat jäädä vajavaisiksi",
+          "koska laki kieltää vähemmistökielet",
+          "ei selitetä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä symbolinen ulottuvuus tarkoittaa tekstissä?",
+        "options": [
+          "vain kustannukset",
+          "kielen näkyvyys viittaa yhteisön arvostukseen",
+          "pelkkä laki",
+          "ei mainita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tutkimus vaatii kielten uhanalaistumisen vähentämiseksi?",
+        "options": [
+          "vain koulutusta",
+          "käyttötilanteet ja sukupolvien välinen välittäminen",
+          "vain median",
+          "ei vaatimuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin kritiikki kohdistuu?",
+        "options": [
+          "vain resursseihin",
+          "keskitettyyn päätöksentekoon ja paikallisten kuulemattomuuteen",
+          "vain mediaan",
+          "ei kritiikkiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä vastaväitteenä on esitetty hajautetusta mallista?",
+        "options": [
+          "se on liian halpa",
+          "johtaisi epätasa-arvoiseen palvelutason vaihteluun",
+          "sitä ei tarvita",
+          "ei vastaväitettä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä kestävä ratkaisu edellyttää tekstin mukaan?",
+        "options": [
+          "vain kansallisen viitekehyksen",
+          "selkeä kansallinen viitekehys ja joustava toteutus kieliyhteisöjen osallistumisella",
+          "vain paikallisen päätöksenteon",
+          "ei ehdoteta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten oikeus pitää toteutua tekstin mukaan?",
+        "options": [
+          "vain laissa",
+          "konkreettisina toimenpiteinä",
+          "ei vaadita toimenpiteitä",
+          "pelkkänä deklaraationa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

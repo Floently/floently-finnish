@@ -1,0 +1,37 @@
+{
+  "id": "888488d3-6dc5-52c3-8f67-5e4b60c0c5fb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti kaupungin sosiaalitoimesta. Arvioi asioinnin sujuvuutta, päätösten selkeyttä ja ohjausta muihin palveluihin. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute kaupungin sosiaalitoimesta"
+    },
+    "items": [
+      {
+        "id": "3cb93417-a9b1-5d3f-9338-1dde492f5b65",
+        "prompt": "Kirjoita palauteteksti kaupungin sosiaalitoimesta. Arvioi asioinnin sujuvuutta, päätösten selkeyttä ja ohjausta muihin palveluihin. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Asioinnin sujuvuus\nPäätösten selkeys\nOhjaus muihin palveluihin\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

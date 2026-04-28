@@ -1,0 +1,110 @@
+{
+  "id": "066501eb-830f-57aa-98a5-de58e72ede7e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.732,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Lähiluonto ja viheralueet ovat tärkeitä kaupunkilaisten hyvinvoinnille. Ne tarjoavat paikkoja virkistäytymiseen, liikuntaan ja rentoutumiseen. Tutkimukset osoittavat, että jo lyhyt oleskelu luonnossa vähentää stressiä ja parantaa mielialaa. Viheralueet myös puhdistavat ilmaa, vähentävät melua ja tasaavat lämpötiloja kaupungeissa. Ne ovat tärkeitä myös luonnon monimuotoisuudelle, sillä ne tarjoavat elinympäristöjä monille kasvi- ja eläinlajeille. Kaupungistumisen myötä lähiluonnon merkitys on korostunut. Samalla viheralueet ovat kuitenkin uhattuina, kun kaupunkeja tiivistetään ja rakennetaan lisää asuntoja. Usein joudutaan tekemään vaikeita valintoja sen suhteen, rakennetaanko uusia asuntoja vai säilytetäänkö viheralueita. Tässä keskustelussa joudutaan punnitsemaan erilaisia arvoja ja tarpeita. Monet kaupunkilaiset pitävät tärkeänä, että lähellä on luontoa, jossa voi käydä helposti arjessa. Kaupunkisuunnittelussa pitäisikin ottaa huomioon sekä asumisen tarpeet että viheralueiden merkitys hyvinvoinnille. Riittävät ja saavutettavat viheralueet ovat osa toimivaa ja kestävää kaupunkia.",
+      "word_count": 123
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi lähiluonto on tärkeää kaupunkilaisille?",
+        "options": [
+          "Se tarjoaa paikkoja rakentamiselle.",
+          "Se tarjoaa paikkoja virkistäytymiseen, liikuntaan ja rentoutumiseen.",
+          "Se lisää melua ja saasteita.",
+          "Se vähentää asumisviihtyvyyttä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä hyötyjä viheralueilla on tutkimusten mukaan?",
+        "options": [
+          "Ne lisäävät stressiä.",
+          "Ne vähentävät stressiä ja parantavat mielialaa.",
+          "Ne heikentävät ilmanlaatua.",
+          "Ne lisäävät melua."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä muita hyötyjä viheralueilla on?",
+        "options": [
+          "Vain viihtyisyyttä.",
+          "Ne puhdistavat ilmaa, vähentävät melua ja tasaavat lämpötiloja.",
+          "Vain esteettisiä arvoja.",
+          "Ne lisäävät liikennettä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi viheralueet ovat tärkeitä luonnon monimuotoisuudelle?",
+        "options": [
+          "Ne vähentävät lajien määrää.",
+          "Ne tarjoavat elinympäristöjä monille kasvi- ja eläinlajeille.",
+          "Ne tuhoavat luontoa.",
+          "Ne estävät luonnon monimuotoisuuden."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä uhkaa viheralueita kaupungeissa?",
+        "options": [
+          "Ilmastonmuutos.",
+          "Kaupunkien tiivistäminen ja uusien asuntojen rakentaminen.",
+          "Liiallinen virkistyskäyttö.",
+          "Luonnon oma kehitys."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä kaupunkisuunnittelussa pitäisi ottaa huomioon?",
+        "options": [
+          "Vain asumisen tarpeet.",
+          "Vain viheralueiden merkitys.",
+          "Sekä asumisen tarpeet että viheralueiden merkitys hyvinvoinnille.",
+          "Vain taloudelliset tekijät."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä ovat riittävät ja saavutettavat viheralueet?",
+        "options": [
+          "Alueita, jotka ovat kaukana asutuksesta.",
+          "Alueita, joille on helppo mennä arjessa ja jotka ovat lähellä.",
+          "Alueita, jotka on suljettu yleisöltä.",
+          "Alueita, joilla on paljon rakennuksia."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

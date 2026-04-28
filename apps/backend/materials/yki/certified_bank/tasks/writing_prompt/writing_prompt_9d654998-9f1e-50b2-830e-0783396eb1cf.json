@@ -1,0 +1,37 @@
+{
+  "id": "9d654998-9f1e-50b2-830e-0783396eb1cf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat asentaa asuntoosi ilmastointilaitteen kesäksi. Kysy, tarvitaanko siihen lupa ja onko taloyhtiöllä ohjeita laitteen asennuksesta tai käytöstä.",
+    "materials": {
+      "scenario": "Lupakysymys ilmastointilaitteelle"
+    },
+    "items": [
+      {
+        "id": "bf06b0dd-2a31-501a-a660-0ed061d2029a",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat asentaa asuntoosi ilmastointilaitteen kesäksi. Kysy, tarvitaanko siihen lupa ja onko taloyhtiöllä ohjeita laitteen asennuksesta tai käytöstä."
+      }
+    ],
+    "rubric": "Asennustoive\nLupakysymys\nOhjeiden tiedustelu",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

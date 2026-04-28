@@ -1,0 +1,40 @@
+{
+  "id": "6f696b6b-9779-589d-a39e-e4d433204cf4",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele apteekin farmaseutin kanssa. Kysy neuvoa matkapahoinvointilääkkeistä.",
+    "materials": {
+      "roles": {
+        "user": "lähdössä laivamatkalle ja kärsit helposti matkapahoinvoinnista",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "fef8dee3-a56c-502a-b69e-829142af3d89",
+        "ai_first_turn_fi": "Hei, miten voin auttaa?"
+      }
+    ],
+    "rubric": "Keskustele apteekin farmaseutin kanssa. Kysy neuvoa matkapahoinvointilääkkeistä.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

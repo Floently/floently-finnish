@@ -1,0 +1,37 @@
+{
+  "id": "74c0dae4-676a-5f9c-97ec-3abd51772418",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota maksuttomia liikuntaneuvontapalveluita kaikille ikäryhmille?'. Pohdi terveysvaikutuksia, ennaltaehkäisyä ja kustannuksia.",
+    "materials": {
+      "scenario": "Maksuton liikuntaneuvonta"
+    },
+    "items": [
+      {
+        "id": "66a72653-dbc9-54db-837e-eeb15d1a3247",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kaupunkien tarjota maksuttomia liikuntaneuvontapalveluita kaikille ikäryhmille?'. Pohdi terveysvaikutuksia, ennaltaehkäisyä ja kustannuksia."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nEnnaltaehkäisy\nKustannukset\nTavoittavuus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

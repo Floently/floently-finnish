@@ -1,0 +1,77 @@
+{
+  "id": "b0955c24-3c4e-53e0-b3ff-e442c514fc90",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele info ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Opinto-ohjaaja kertoo, että orientaatioviikon pakollinen osuus kestää maanantaista keskiviikkoon. Torstaina on vapaaehtoisia työpajoja. Ryhmäohjaajan tapaaminen pitää varata viimeistään tiistaina verkkolomakkeella. Ilmoittautumatta jääneet eivät saa kurssirekisteröintiä valmiiksi ajoissa.",
+      "audio_asset_id": "e27b5f5c-7581-5964-b213-34c936686169"
+    },
+    "questions": [
+      {
+        "id": "l1",
+        "prompt": "Kuinka kauan pakollinen osuus kestää?",
+        "options": [
+          "ma-ti",
+          "ma-ke",
+          "ma-to",
+          "ma-pe"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l2",
+        "prompt": "Mitä torstaina on?",
+        "options": [
+          "tentti",
+          "vapaaehtoisia työpajoja",
+          "vain luentoja",
+          "ei ohjelmaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l3",
+        "prompt": "Mihin mennessä tapaaminen varataan?",
+        "options": [
+          "maanantaina",
+          "tiistaina",
+          "keskiviikkona",
+          "torstaina"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l4",
+        "prompt": "Mitä seuraa ilmoittautumatta jättämisestä?",
+        "options": [
+          "ei mitään",
+          "rekisteröinti viivästyy",
+          "kurssi poistuu",
+          "sakko"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "cc7fdc53-f013-5e0a-8623-d1f7a3bb4833",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.689,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a CFO position in a listed company. Tell about your experience in group financial management, investor relations, and strategic financial planning. Also describe how you have developed financial reporting and risk management. Length about 320 words.",
+    "materials": {
+      "scenario": "Hakemus talousjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a CFO position in a listed company. Tell about your experience in group financial management, investor relations, and strategic financial planning. Also describe how you have developed financial reporting and risk management. Length about 320 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a CFO position in a listed company. Tell about your experience in group financial management, investor relations, and strategic financial planning. Also describe how you have developed financial reporting and risk management. Length about 320 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

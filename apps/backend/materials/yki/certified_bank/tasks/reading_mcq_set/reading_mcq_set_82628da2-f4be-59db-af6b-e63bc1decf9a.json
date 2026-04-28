@@ -1,0 +1,77 @@
+{
+  "id": "82628da2-f4be-59db-af6b-e63bc1decf9a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.793,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Sosiaalisen median ja demokratian välinen suhde on osoittautunut huomattavasti monimutkaisemmaksi kuin internetin alkuaikojen optimistit osasivat kuvitella. Alun perin somealustojen nähtiin demokratisoivan tiedonkulkua, antavan äänen vähemmistöille ja mahdollistavan uudenlaisen kansalaisvaikuttamisen. Näitä toiveita onkin osin toteutunut: kansalaisaktivismi on saanut uusia muotoja, ja aiemmin marginaaliset äänet ovat voineet tavoittaa laajempia yleisöjä. Samalla on kuitenkin käynyt ilmi, että samat alustat voivat myös heikentää demokratiaa ja vahvistaa autoritaarisia suuntauksia. Keskeinen ongelma liittyy algoritmien toimintaan. Somealustat on suunniteltu maksimoimaan käyttäjien palvelussa viettämä aika ja sitoutuminen. Tämä tapahtuu usein tarjoamalla käyttäjille sisältöä, joka vahvistaa heidän olemassa olevia käsityksiään ja herättää voimakkaita tunnereaktioita. Seurauksena on niin sanottujen suodatinkuplien ja kaikukammioiden syntyminen, joissa käyttäjät altistuvat lähinnä omia näkemyksiään mukailevalle tiedolle ja mielipiteille. Tämä polarisoi yhteiskuntaa ja vaikeuttaa rakentavaa julkista keskustelua. Toinen merkittävä ongelma on disinformaation ja valeuutisten leviäminen. Somealustat ovat osoittautuneet hedelmälliseksi maaperäksi tahallaan harhaanjohtavalle tiedolle, jota levitetään usein poliittisessa tarkoituksessa. Algoritmit suosivat sisältöjä, jotka herättävät voimakkaita tunnereaktioita, ja disinformaatio on usein tällaisia reaktioita herättävää. Tämä on johtanut jopa yrityksiin vaikuttaa vaalien tuloksiin ja heikentää luottamusta demokraattisiin instituutioihin. Yhdysvaltojen vuoden 2016 presidentinvaalit ja Brexit-äänestys ovat usein mainittuja esimerkkejä tilanteista, joissa disinformaatiolla on saattanut olla vaikutusta lopputulokseen. Kolmas huolenaihe liittyy vihapuheeseen ja verkossa tapahtuvaan häirintään. Somealustat tarjoavat anonymiteetin tai nimimerkin suojan, mikä voi rohkaista aggressiiviseen ja vihamieliseen käyttäytymiseen. Erityisesti vähemmistöihin kuuluvat, naiset ja poliittiset toisinajattelijat joutuvat usein häirinnän kohteeksi. Tämä voi hiljentää heidät ja kaventaa julkista keskustelua. Vastauksena näihin ongelmiin on alettu vaatia somealustojen nykyistä tiukempaa sääntelyä. Keskustelua käydään siitä, miten alustojen läpinäkyvyyttä voitaisiin lisätä, miten disinformaation leviämistä voitaisiin hillitä ja miten vihapuheeseen voitaisiin puuttua tehokkaammin ilman, että samalla rajoitetaan sananvapautta. Tämä on vaikea tasapainoilu, ja eri maissa on päädytty hyvin erilaisiin ratkaisuihin. Sääntelyn ohella tarvitaan myös mediakasvatusta ja kansalaisten digitaalisten taitojen vahvistamista. Kriittinen lukutaito ja kyky arvioida tiedon luotettavuutta ovat entistä tärkeämpiä taitoja nykymaailmassa. Somealustat eivät ole pelkästään teknisiä välineitä, vaan ne muokkaavat syvällisesti tapaamme kommunikoida, hankkia tietoa ja osallistua yhteiskunnalliseen keskusteluun. Siksi niiden toimintaa ja vaikutuksia on tarkasteltava kriittisesti ja pyrittävä ohjaamaan kehitystä haluamaamme suuntaan.",
+      "word_count": 327
+    },
+    "questions": [
+      {
+        "id": "8815d9a2-eac5-5722-aa34-ce88d6443a2f",
+        "prompt": "Mikä on tekstin keskeinen väite sosiaalisen median ja demokratian suhteesta?",
+        "options": [
+          "Some on yksiselitteisesti hyvä asia demokratialle, koska se antaa äänen kaikille",
+          "Some on yksiselitteisesti huono asia demokratialle, koska se levittää valeuutisia",
+          "Somen vaikutukset ovat ristiriitaisia: se voi sekä vahvistaa että heikentää demokratiaa",
+          "Somella ei ole merkittävää vaikutusta demokratiaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "670d463f-baa0-58b6-9d52-9e84df22da9a",
+        "prompt": "Tekstin mukaan miten algoritmit voivat vahvistaa yhteiskunnallista polarisaatiota?",
+        "options": [
+          "Ne suosivat vain tiettyjen poliittisten ryhmien sisältöjä",
+          "Ne tarjoavat käyttäjille sisältöjä, jotka vahvistavat heidän olemassa olevia käsityksiään ja vähentävät altistumista eriäville näkemyksille",
+          "Ne vähentävät kaiken poliittisen sisällön näkyvyyttä",
+          "Ne suosivat sensaationhakuisia sisältöjä, jotka lisäävät eri ryhmien välistä vihaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "38479dfd-dfa0-5ef4-9196-e4d1bee12f15",
+        "prompt": "Mitä esimerkkejä tekstissä annetaan disinformaation vaikutuksista poliittisiin prosesseihin?",
+        "options": [
+          "Ranskan presidentinvaalit ja Saksan liittopäivävaalit",
+          "Yhdysvaltojen presidentinvaalit 2016 ja Brexit-äänestys",
+          "Espanjan ja Italian parlamenttivaalit",
+          "Suomen eduskuntavaalit ja kuntavaalit"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "db63c7ca-0f04-582c-a5f0-7762a9089f74",
+        "prompt": "Mitä keinoja teksti ehdottaa somealustojen demokratialle aiheuttamien ongelmien ratkaisemiseksi?",
+        "options": [
+          "Somealustojen täydellistä kieltämistä",
+          "Alustojen sääntelyä, läpinäkyvyyden lisäämistä ja mediakasvatusta",
+          "Vain vapaaehtoisia toimia alustoilta itseltään",
+          "Kansainvälisten sopimusten solmimista, jotka kieltävät somen käytön vaalien alla"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

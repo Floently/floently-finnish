@@ -1,0 +1,99 @@
+{
+  "id": "32298304-17f8-52f4-b79e-c78e2ca09889",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Julkisilla paikoilla tapahtuva vihapuhe on herättänyt huolta Suomessa. Vihapuheella tarkoitetaan esimerkiksi uhkailua, halventamista tai syrjintää, joka kohdistuu ihmiseen hänen taustansa, uskontonsa tai seksuaalisen suuntautumisensa vuoksi. Se voi tapahtua kadulla, kaupassa tai sosiaalisessa mediassa. Viranomaiset ja järjestöt ovat alkaneet kampanjoida vihapuhetta vastaan ja kannustavat ihmisiä puuttumaan siihen. Jokaisella on oikeus turvalliseen oloon.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on herättänyt huolta Suomessa?",
+        "options": [
+          "Liikenneonnettomuudet",
+          "Julkisilla paikoilla tapahtuva vihapuhe",
+          "Korkea työttömyys",
+          "Ilmastonmuutos"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä vihapuheella tarkoitetaan?",
+        "options": [
+          "Rakentavaa kritiikkiä",
+          "Uhkailua, halventamista tai syrjintää",
+          "Mielipiteiden vaihtoa",
+          "Ystävällistä keskustelua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin vihapuhe kohdistuu?",
+        "options": [
+          "Ihmisen ulkonäköön",
+          "Ihmisen taustaan, uskontoon tai seksuaaliseen suuntautumiseen",
+          "Ihmisen ammattiin",
+          "Ihmisen asuinpaikkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Missä vihapuhe voi tapahtua?",
+        "options": [
+          "Vaan työpaikoilla",
+          "Kadulla, kaupassa tai sosiaalisessa mediassa",
+          "Vaan kotona",
+          "Vaan kouluissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä viranomaiset ja järjestöt ovat alkaneet tehdä?",
+        "options": [
+          "Kampanjoida vihapuhetta vastaan ja kannustaa ihmisiä puuttumaan siihen",
+          "Kieltää sosiaalisen median",
+          "Lisätä poliisin läsnäoloa",
+          "Rajoittaa sananvapautta"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä oikeus jokaisella on?",
+        "options": [
+          "Oikeus sanoa mitä tahansa",
+          "Oikeus turvalliseen oloon",
+          "Oikeus olla välittämättä muista",
+          "Oikeus vihapuheeseen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "03ad7a1a-ee4e-58c3-a151-e77d65470241",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "LÄHIRUOKA – TRENDI VAI TULEVAISUUDEN RATKAISU?\n\nLähiruoka on ollut muotitermi jo useita vuosia. Sillä tarkoitetaan ruokaa, joka on tuotettu lähellä kuluttajaa, yleensä samalla alueella tai maakunnassa. Lähiruoan suosio on kasvanut, ja yhä useampi haluaa tietää, mistä ruoka tulee.\n\nMiksi lähiruoka kiinnostaa? Yksi syy on ympäristötietoisuus. Kun ruokaa ei tarvitse kuljettaa pitkiä matkoja, päästöt vähenevät. Myös eläinten hyvinvointi ja ruoan puhtaus kiinnostavat. Pientuottajat voivat taata, että ruoka on tuotettu eettisesti ja ilman turhia lisäaineita.\n\nToinen syy on paikallistalouden tukeminen. Kun ostaa lähiruokaa, raha jää alueelle ja auttaa paikallisia yrittäjiä. Monille kuluttajille tämä on tärkeä arvo.\n\nLähiruoalla on myös haasteensa. Se on usein kalliimpaa kuin teollisesti tuotettu ruoka. Sitä on myös vaikeampi saada, koska se ei ole yhtä laajasti saatavilla kuin teollinen ruoka. Talvella lähiruoan valikoima on suppeampi, koska pohjoisessa ei kasva kaikkea.\n\nAsiantuntijat uskovat, että lähiruoan suosio jatkaa kasvuaan. Ihmiset haluavat yhä enemmän tietää, mitä syövät, ja arvostavat laatua ja puhtautta. Lähiruoka ei ehkä koskaan korvaa teollista ruokaa, mutta se on tärkeä osa monipuolista ruokakulttuuria.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 192
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä lähiruoka tarkoittaa?",
+        "options": [
+          "Ruokaa, joka on tuotu ulkomailta",
+          "Ruokaa, joka on tuotettu lähellä kuluttajaa",
+          "Ruokaa, joka on pakastettu",
+          "Ruokaa, joka on teollisesti valmistettu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi lähiruoka kiinnostaa kuluttajia?",
+        "options": [
+          "Se on halvempaa",
+          "Ympäristötietoisuus, eläinten hyvinvointi ja paikallistalouden tukeminen",
+          "Se on paremman makuista",
+          "Sitä saa kaikkialta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on lähiruoan haaste?",
+        "options": [
+          "Se on aina huonolaatuista",
+          "Se on kalliimpaa ja vaikeammin saatavilla",
+          "Sitä ei voi syödä",
+          "Se on epäterveellistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

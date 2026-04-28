@@ -1,0 +1,73 @@
+{
+  "id": "5c727b10-097c-5bd3-80ab-48ad199ea888",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.587,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ilmastopolitiikasta ja oikeudenmukaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Ilmastopolitiikka on yksi aikamme keskeisimmistä haasteista. Samalla se herättää kysymyksiä oikeudenmukaisuudesta. Miten ilmastotoimet vaikuttavat eri ihmisryhmiin, ja miten varmistetaan, että kukaan ei jää jälkeen?\n\nEnsinnäkin on selvää, että ilmastonmuutos koettelee eniten niitä, joilla on vähiten resursseja sopeutua. Köyhät maat ja pienituloiset ihmiset kärsivät kuivuudesta, tulvista ja muista sään ääri-ilmiöistä enemmän kuin varakkaat. Tämä on globaali oikeudenmukaisuuskysymys.\n\nToiseksi ilmastopolitiikan toimet, kuten hiiliverot ja päästökaupat, voivat kohdistua epäoikeudenmukaisesti pienituloisiin. Esimerkiksi bensan hinnan nousu vaikuttaa eniten niihin, joilla ei ole varaa vaihtaa sähköautoon. Siksi tarvitaan kompensaatiomekanismeja, kuten pienituloisten tukia.\n\nKolmanneksi on kysymys työpaikoista. Ilmastotoimet voivat vähentää työpaikkoja saastuttavilla aloilla, kuten turpeen nostossa ja fossiilisessa energiassa. Samalla ne luovat uusia työpaikkoja uusiutuvalla energialla ja vihreällä teknologialla. Tarvitaan oikeudenmukaista siirtymää, jossa työntekijöitä koulutetaan uusiin tehtäviin.\n\nNeljänneksi on kysymys kulutuksesta. Varakkaat ihmiset kuluttavat enemmän ja aiheuttavat suuremmat päästöt kuin pienituloiset. Siksi on perusteltua, että ilmastotoimet kohdistuvat enemmän suuriin kuluttajiin. Esimerkiksi lentovero ja luksustuotteiden verotus voivat olla keinoja.\n\nViidenneksi on kysymys globaalista vastuusta. Teollisuusmaat ovat aiheuttaneet suurimman osan historiallisista päästöistä, mutta kehitysmaat kärsivät seurauksista. Siksi teollisuusmailla on velvollisuus tukea kehitysmaita ilmastonmuutokseen sopeutumisessa ja puhtaan energian investoinneissa.\n\nKuudenneksi on kysymys tulevista sukupolvista. Meillä on moraalinen velvollisuus jättää heille elinkelpoinen planeetta. Tämä tarkoittaa, että meidän on tehtävä uhrauksia nyt, jotta tulevaisuudessa on parempi elää.\n\nLopuksi voidaan todeta, että ilmastopolitiikka ja oikeudenmukaisuus kytkeytyvät tiiviisti toisiinsa. Ilmastotoimet eivät saa lisätä eriarvoisuutta, vaan niiden pitää olla oikeudenmukaisia. Tämä vaatii huolellista suunnittelua, kompensaatioita ja globaalia yhteistyötä.",
+      "word_count": 233
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Miten ilmastonmuutos vaikuttaa eri ihmisryhmiin?",
+        "options": [
+          "se vaikuttaa kaikkiin samalla tavalla",
+          "se koettelee eniten köyhiä ja pienituloisia",
+          "se vaikuttaa vain rikkaisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Miksi hiiliverot voivat olla ongelmallisia?",
+        "options": [
+          "ne ovat tehottomia",
+          "ne voivat kohdistua epäoikeudenmukaisesti pienituloisiin",
+          "ne vähentävät päästöjä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä tarkoitetaan oikeudenmukaisella siirtymällä?",
+        "options": [
+          "kaikki saavat saman summan rahaa",
+          "työntekijöitä koulutetaan uusiin tehtäviin",
+          "saastuttavat tehtaat suljetaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mikä on teollisuusmaiden globaali vastuu?",
+        "options": [
+          "eivät mitään",
+          "tukea kehitysmaita ilmastonmuutokseen sopeutumisessa",
+          "vähentää kulutusta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

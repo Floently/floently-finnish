@@ -1,0 +1,37 @@
+{
+  "id": "7a731363-27e7-5378-9879-a5fb0c73b1a3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt teksti viikonlopustasi.\nKerro:\n- mitä teit lauantaina\n- mitä teit sunnuntaina\n- kenen kanssa olit\n- mikä oli kivointa\n\nKirjoita 6–8 lausetta.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt teksti viikonlopustasi.\nKerro:\n- mitä teit lauantaina\n- mitä teit sunnuntaina\n- kenen kanssa olit\n- mikä oli kivointa\n\nKirjoita 6–8 lausetta."
+    },
+    "items": [
+      {
+        "id": "2762af41-45cc-5daf-9dd8-a4daa1124584",
+        "prompt": "Kirjoita lyhyt teksti viikonlopustasi.\nKerro:\n- mitä teit lauantaina\n- mitä teit sunnuntaina\n- kenen kanssa olit\n- mikä oli kivointa\n\nKirjoita 6–8 lausetta."
+      }
+    ],
+    "rubric": "Kirjoita lyhyt teksti viikonlopustasi.\nKerro:\n- mitä teit lauantaina\n- mitä teit sunnuntaina\n- kenen kanssa olit\n- mikä oli kivointa\n\nKirjoita 6–8 lausetta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

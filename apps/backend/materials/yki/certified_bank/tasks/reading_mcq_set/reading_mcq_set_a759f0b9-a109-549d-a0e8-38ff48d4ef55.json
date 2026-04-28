@@ -1,0 +1,77 @@
+{
+  "id": "a759f0b9-a109-549d-a0e8-38ff48d4ef55",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.771,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "YKSITYISYYDEN SUOJA DIGIAIKANA – UHAT JA MAHDOLLISUUDET\n\nYksityisyys on yksi keskeisimmistä ihmisoikeuksista, mutta digiaikana se on joutunut uudenlaisten haasteiden eteen. Internet, sosiaalinen media, älylaitteet ja niiden keräämä valtava tietomäärä ovat muuttaneet sen, mitä yksityisyys tarkoittaa käytännössä. Samalla kun nautimme digitaalisten palveluiden tuomasta mukavuudesta, maksamme siitä usein tiedoillamme – usein tietämättämme.\n\nYksi keskeisimmistä ongelmista on tiedon keräämisen ja käytön läpinäkymättömyys. Verkkopalveluiden taustalla toimii monimutkainen ekosysteemi mainosverkostoja, datanvälittäjiä ja analytiikkatyökaluja, jotka keräävät tietoa toiminnastamme. Harva jaksaa lukea pitkiä käyttöehtoja, ja vaikka lukisimme, niiden todellinen merkitys jää usein epäselväksi. Tämä luo epäsymmetrian palveluntarjoajan ja käyttäjän välille.\n\nToinen merkittävä haaste on kaupallisten toimijoiden vallan kasvu. Suuryritykset kuten Google ja Facebook tietävät meistä enemmän kuin läheisimmät ihmisemme: missä liikumme, keitä tapaamme, mistä pidämme, mitä pelkäämme. Tätä tietoa käytetään paitsi kohdennettuun mainontaan, myös käyttäytymisen ohjaamiseen. Tämä herättää kysymyksiä siitä, missä määrin valintamme ovat todella vapaita.\n\nKolmas ulottuvuus on valtion harjoittama valvonta. Turvallisuusviranomaiset perustelevat tiedonkeruuta tarpeella suojella kansalaisia terrorismilta. Teknologia on mahdollistanut ennennäkemättömän laajamittaisen viestinnän seurannan. Tässä jännite turvallisuuden ja yksityisyyden välillä on ilmeinen: kuinka paljon olemme valmiita luopumaan yksityisyydestä saadaksemme turvaa?\n\nEuroopan unioni on pyrkinyt vastaamaan haasteisiin yleisellä tietosuoja-asetuksella (GDPR), joka antaa kansalaisille vahvempia oikeuksia omiin tietoihinsa. Se on ollut merkittävä askel, mutta sen tehokkuudesta on ristiriitaisia näkemyksiä. Suurten teknologiayritysten valta ei ole vähentynyt, ja asetuksen noudattamisen valvonta on puutteellista.\n\nTulevaisuudessa yksityisyyden suoja tulee olemaan yhä keskeisempi yhteiskunnallinen kysymys. Tarvitaan sekä lainsäädännöllisiä että teknisiä ratkaisuja, mutta myös kulttuurista muutosta. Meidän on opittava arvostamaan yksityisyyttä ja vaatimaan sen kunnioittamista. Yksityisyys ei ole vain henkilökohtainen asia, vaan yhteiskunnallinen peruspilari, joka turvaa autonomiaa, luottamusta ja demokratiaa.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 290
+    },
+    "questions": [
+      {
+        "id": "5036580b-3d21-5902-a3e6-830a67eb5cdf",
+        "prompt": "Mitä tarkoitetaan tiedon keräämisen ja käytön läpinäkymättömyydellä?",
+        "options": [
+          "Tietoja kerätään laittomasti",
+          "Käyttäjät eivät ymmärrä tai tiedä, mihin heidän tietojaan käytetään",
+          "Yritykset eivät kerää tietoja ollenkaan",
+          "Tiedot ovat julkisia kaikille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "9a213f3b-3d88-5ff9-a891-ee8973671775",
+        "prompt": "Miten suuryritykset käyttävät keräämäänsä tietoa?",
+        "options": [
+          "Vain palveluiden kehittämiseen",
+          "Kohdennettuun mainontaan ja käyttäytymisen ohjaamiseen",
+          "Vain tutkimuskäyttöön",
+          "Eivät käytä mihinkään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "886e63b8-78b8-5851-a689-a7667600fbde",
+        "prompt": "Mitä ristiriitaa valtion harjoittamaan valvontaan liittyy?",
+        "options": [
+          "Turvallisuuden ja yksityisyyden välinen jännite",
+          "Valtio ei saa kerätä tietoja ollenkaan",
+          "Valvonta on aina tehotonta",
+          "Kansalaiset haluavat aina lisää valvontaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "09e36f86-a1d2-564b-9da6-25d36cb32ac6",
+        "prompt": "Miten teksti arvioi GDPR:n vaikutuksia?",
+        "options": [
+          "Se on täysin ratkaissut ongelman",
+          "Se on merkittävä askel, mutta sen tehokkuudesta on ristiriitaisia näkemyksiä",
+          "Se on täysin hyödytön",
+          "Se on pahentanut tilannetta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

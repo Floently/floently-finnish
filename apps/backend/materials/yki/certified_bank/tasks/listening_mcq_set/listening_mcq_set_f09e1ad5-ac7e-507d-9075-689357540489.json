@@ -1,0 +1,66 @@
+{
+  "id": "f09e1ad5-ac7e-507d-9075-689357540489",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele puhelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Työnantaja: Hei, tässä on Anna Kaupasta. Soitan työhaastattelusta. Lähetit hakemuksen kesätyöpaikasta.\n\nHakija: Aivan, hei!\n\nTyönantaja: Haluaisimme tavata sinut ensi viikolla. Sopisiko sinulle tiistai kello 14?\n\nHakija: Tiistai kello 14 käy minulle hyvin.\n\nTyönantaja: Osoite on Kauppakatu 5, toinen kerros. Ota henkilöllisyystodistus mukaan.\n\nHakija: Selvä, kiitos. Nähdään tiistaina!",
+      "audio_asset_id": "ca41ae2e-6237-495f-9eab-0e4cb86f16da"
+    },
+    "questions": [
+      {
+        "id": "286bebe2-57da-58a6-899c-3435d8763a51",
+        "prompt": "Miksi työnantaja soittaa?",
+        "options": [
+          "kertomaan että hakija sai työpaikan",
+          "kysymään työkokemuksesta",
+          "sopimaan haastatteluaikaa",
+          "kysymään kielitaidosta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9d074cc4-2ee6-50be-93ae-38ef9522d96c",
+        "prompt": "Mihin aikaan haastattelu on?",
+        "options": [
+          "maanantaina klo 13",
+          "tiistaina klo 14",
+          "keskiviikkona klo 14",
+          "torstaina klo 15"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "33e0be4e-6043-593b-92f6-d0603a321a00",
+        "prompt": "Mitä pitää ottaa mukaan haastatteluun?",
+        "options": [
+          "työtodistus",
+          "henkilöllisyystodistus",
+          "ansioluettelo",
+          "työhakemus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

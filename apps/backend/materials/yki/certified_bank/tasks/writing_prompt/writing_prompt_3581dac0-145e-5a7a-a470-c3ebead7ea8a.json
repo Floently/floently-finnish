@@ -1,0 +1,37 @@
+{
+  "id": "3581dac0-145e-5a7a-a470-c3ebead7ea8a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.321,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Asut kerrostalossa. Kirjoita palaute taloyhtiölle. Kerro yksi hyvä asia ja kaksi asiaa, jotka voisivat olla paremmin. Esimerkiksi pesutupa, hissi tai piha.",
+    "materials": {
+      "scenario": "Palaute taloyhtiölle"
+    },
+    "items": [
+      {
+        "id": "d9eb5439-47f3-5a34-97f2-e7a99a68ab7f",
+        "prompt": "Asut kerrostalossa. Kirjoita palaute taloyhtiölle. Kerro yksi hyvä asia ja kaksi asiaa, jotka voisivat olla paremmin. Esimerkiksi pesutupa, hissi tai piha."
+      }
+    ],
+    "rubric": "Asut kerrostalossa. Kirjoita palaute taloyhtiölle. Kerro yksi hyvä asia ja kaksi asiaa, jotka voisivat olla paremmin. Esimerkiksi pesutupa, hissi tai piha.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

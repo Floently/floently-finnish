@@ -1,0 +1,37 @@
+{
+  "id": "f9925769-a5c8-5927-8575-8359a40f001f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.355,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet ollut työharjoittelussa toimistossa. Kirjoita palaute työpaikalle. Arvioi perehdytyksen kattavuutta, työtehtävien mielekkyyttä ja työyhteisön tukea.",
+    "materials": {
+      "scenario": "Palaute työharjoittelusta"
+    },
+    "items": [
+      {
+        "id": "2756c9b6-ea5d-5f86-8338-6da28ae197d8",
+        "prompt": "Olet ollut työharjoittelussa toimistossa. Kirjoita palaute työpaikalle. Arvioi perehdytyksen kattavuutta, työtehtävien mielekkyyttä ja työyhteisön tukea."
+      }
+    ],
+    "rubric": "Perehdytyksen kattavuus\nTyötehtävien mielekkyys\nTyöyhteisön tuki",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

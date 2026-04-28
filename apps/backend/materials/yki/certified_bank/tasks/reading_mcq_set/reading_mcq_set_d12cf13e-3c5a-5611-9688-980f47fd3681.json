@@ -1,0 +1,77 @@
+{
+  "id": "d12cf13e-3c5a-5611-9688-980f47fd3681",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Etätyö on yleistynyt huomattavasti viime vuosien aikana. Monet yritykset ovat huomanneet, että työntekijät voivat tehdä töitä tehokkaasti myös kotona. Etätyöllä on monia etuja: se säästää aikaa ja rahaa työmatkoissa, lisää joustavuutta ja voi parantaa työntekijöiden hyvinvointia. Toisaalta etätyössä on myös haasteita. Sosiaalinen kanssakäyminen vähenee, ja työn ja vapaa-ajan raja voi hämärtyä. Monet kokevat yksinäisyyttä, jos he työskentelevät paljon yksin. Työnantajien onkin tärkeää panostaa etätyöntekijöiden jaksamiseen ja yhteisöllisyyden ylläpitämiseen. Hybridimalli, jossa yhdistyvät lähityö ja etätyö, on yleistynyt. Se tarjoaa parhaat puolet molemmista maailmoista.",
+      "word_count": 82
+    },
+    "questions": [
+      {
+        "id": "af6df038-541c-5fda-ac84-522a98ae39ad",
+        "prompt": "Mikä on etätyön etu?",
+        "options": [
+          "Enemmän sosiaalisia kontakteja",
+          "Selkeämpi raja työn ja vapaa-ajan välillä",
+          "Säästää aikaa työmatkoissa",
+          "Parempi tiimihenki"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "cad59015-1fb8-5bc6-b8e5-839022604890",
+        "prompt": "Mikä on etätyön haaste?",
+        "options": [
+          "Liian paljon työmatkoja",
+          "Sosiaalinen kanssakäyminen vähenee",
+          "Työtehtävät ovat vaikeampia",
+          "Tekniset ongelmat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1a149153-138d-59fb-9c21-35a5ee2429f5",
+        "prompt": "Mitä työnantajien tulisi tehdä?",
+        "options": [
+          "Kieltää etätyö kokonaan",
+          "Vaatia kaikkia tulemaan toimistolle",
+          "Panostaa etätyöntekijöiden jaksamiseen",
+          "Palkata lisää esimiehiä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "24465e28-65b0-5ff6-83ec-a95abc8a3242",
+        "prompt": "Mikä on hybridimalli?",
+        "options": [
+          "Työskentelyä vain kotona",
+          "Työskentelyä vain toimistolla",
+          "Lähityön ja etätyön yhdistelmä",
+          "Työskentelyä ulkomailla"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

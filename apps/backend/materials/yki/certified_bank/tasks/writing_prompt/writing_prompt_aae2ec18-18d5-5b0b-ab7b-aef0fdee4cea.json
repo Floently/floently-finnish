@@ -1,0 +1,37 @@
+{
+  "id": "aae2ec18-18d5-5b0b-ab7b-aef0fdee4cea",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.702,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a deputy director-general position at the International Atomic Energy Agency. Tell about your experience in nuclear safety, nuclear technology monitoring, and implementation of the Non-Proliferation Treaty. Also describe how you have promoted nuclear non-proliferation and peaceful use of nuclear technology. Length about 400 words.",
+    "materials": {
+      "scenario": "Hakemus IAEA:n varapääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "33f55890-13a9-51f3-a0c2-97fd9e7cf74a",
+        "prompt": "Write a job application. You are applying for a deputy director-general position at the International Atomic Energy Agency. Tell about your experience in nuclear safety, nuclear technology monitoring, and implementation of the Non-Proliferation Treaty. Also describe how you have promoted nuclear non-proliferation and peaceful use of nuclear technology. Length about 400 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a deputy director-general position at the International Atomic Energy Agency. Tell about your experience in nuclear safety, nuclear technology monitoring, and implementation of the Non-Proliferation Treaty. Also describe how you have promoted nuclear non-proliferation and peaceful use of nuclear technology. Length about 400 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

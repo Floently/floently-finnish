@@ -1,0 +1,56 @@
+# Added frontend tree
+
+```text
+apps/client/
+  app/
+    learn/
+      confidence.tsx
+      phrase-bank.tsx
+      planner.tsx
+      revision-vault.tsx
+    professional/
+      incidents.tsx
+      work-path.tsx
+    yki-exam/
+      mock-cycle.tsx
+  features/
+    shared/
+      FeatureScaffold.tsx
+      serviceClient.ts
+    learning/
+      index.ts
+      hooks/
+        useConfidenceTracker.ts
+        usePersonalPhraseBank.ts
+        useRevisionVault.ts
+        useWorkplaceIncident.ts
+        useYkiPlanner.ts
+      services/
+        confidenceTrackerService.ts
+        personalPhraseBankService.ts
+        revisionVaultService.ts
+        workplaceIncidentService.ts
+        ykiPlannerService.ts
+      screens/
+        ConfidenceTrackerScreen.tsx
+        PersonalPhraseBankScreen.tsx
+        RevisionVaultScreen.tsx
+        WorkplaceIncidentLabScreen.tsx
+        YkiPlannerScreen.tsx
+    exam/
+      index.frontend.additions.ts
+      hooks/
+        useMockExamCycle.ts
+      services/
+        mockExamCycleService.ts
+      screens/
+        MockExamCycleScreen.tsx
+    professional/
+      index.frontend.additions.ts
+      hooks/
+        useWorkFinnishPath.ts
+      services/
+        workFinnishPathService.ts
+      screens/
+        WorkFinnishPathScreen.tsx
+```

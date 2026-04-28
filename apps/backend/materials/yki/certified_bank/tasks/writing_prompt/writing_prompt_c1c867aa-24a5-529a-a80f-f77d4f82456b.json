@@ -1,0 +1,37 @@
+{
+  "id": "c1c867aa-24a5-529a-a80f-f77d4f82456b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.297,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt viesti."
+    },
+    "items": [
+      {
+        "id": "0a345f41-f9c8-5533-8794-1531ee402e36",
+        "prompt": "Naapurisi on poissa ja pyysi sinua kastelemaan kukkia. Sinulla on nyt estettä. Kirjoita viesti.\nKerro:\n- että et pääse kastelemaan kukkia\n- miksi et pääse\n- mitä voisit tehdä toisin."
+      }
+    ],
+    "rubric": "Naapurisi on poissa ja pyysi sinua kastelemaan kukkia. Sinulla on nyt estettä. Kirjoita viesti.\nKerro:\n- että et pääse kastelemaan kukkia\n- miksi et pääse\n- mitä voisit tehdä toisin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "b39555cb-3552-5646-8c69-7d46296747fc",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.282,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell what has helped you learn Finnish. Mention two things.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "909b9e7b-19ae-5bd5-aec4-2fd0a4fac943",
+        "ai_first_turn_fi": "Miten sä oot oppinut suomea? Onko jotain hyviä vinkkejä?"
+      }
+    ],
+    "rubric": "Tell what has helped you learn Finnish. Mention two things.",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

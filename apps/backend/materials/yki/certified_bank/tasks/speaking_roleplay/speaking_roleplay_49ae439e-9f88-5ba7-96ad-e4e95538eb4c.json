@@ -1,0 +1,40 @@
+{
+  "id": "49ae439e-9f88-5ba7-96ad-e4e95538eb4c",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.529,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa lämminhenkistä ja henkilökohtaista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet perheenjäsen, joka haluaa ilahduttaa ja liikuttaa juhlaväkeä puheellaan.",
+        "partner": "Juhlaväki - odottaa lämmintä ja henkilökohtaista puhetta."
+      }
+    },
+    "items": [
+      {
+        "id": "srp20",
+        "ai_first_turn_fi": "Hyvät juhlavieraat, rakkaat vanhemmat. On kunnia ja ilo olla täällä juhlistamassa tätä merkkipäivää."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa lämminhenkistä ja henkilökohtaista kieltä.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

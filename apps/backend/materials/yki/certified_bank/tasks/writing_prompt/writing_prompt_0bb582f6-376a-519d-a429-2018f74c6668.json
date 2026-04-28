@@ -1,0 +1,37 @@
+{
+  "id": "0bb582f6-376a-519d-a429-2018f74c6668",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.569,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet huolissasi koulujen oppimistulosten heikkenemisestä. Kirjoita mielipidekirjoitus paikallislehteen.",
+    "materials": {
+      "scenario": "Olet huolissasi koulujen oppimistulosten heikkenemisestä. Kirjoita mielipidekirjoitus paikallislehteen."
+    },
+    "items": [
+      {
+        "id": "1c635839-665b-57a2-b4a5-3654467f0faf",
+        "prompt": "Kirjoita noin 150 sanan mielipidekirjoitus, jossa:\n- kerrot, että oppimistulokset ovat heikentyneet\n- kerrot, mistä luulet ongelman johtuvan (liian suuret ryhmät, oppimisvaikeudet, resurssien puute, ruutuaika)\n- kerrot, mitä seurauksia tällä on (osaamattomuus, eriarvoisuus)\n- ehdotat, miten oppimistuloksia voitaisiin parantaa (pienemmät ryhmät, tukiopetus, vanhempien osallistuminen)"
+      }
+    ],
+    "rubric": "Kirjoita noin 150 sanan mielipidekirjoitus, jossa:\n- kerrot, että oppimistulokset ovat heikentyneet\n- kerrot, mistä luulet ongelman johtuvan (liian suuret ryhmät, oppimisvaikeudet, resurssien puute, ruutuaika)\n- kerrot, mitä seurauksia tällä on (osaamattomuus, eriarvoisuus)\n- ehdotat, miten oppimistuloksia voitaisiin parantaa (pienemmät ryhmät, tukiopetus, vanhempien osallistuminen)",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

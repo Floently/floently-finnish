@@ -1,0 +1,40 @@
+{
+  "id": "4d7dd1c7-c1c4-5e52-a6ec-b2263e06d756",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele lääkärin vastaanotolla. Kerro oireistasi ja vastaa lääkärin kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "varannut ajan terveyskeskukseen",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "a2454dfe-3374-5b7e-98bd-93dfdc9f05a8",
+        "ai_first_turn_fi": "Hei, olen tohtori Mäkelä. Kerrothan, millainen vaiva sinulla on ja kuinka kauan oireita on kestänyt."
+      }
+    ],
+    "rubric": "Keskustele lääkärin vastaanotolla. Kerro oireistasi ja vastaa lääkärin kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

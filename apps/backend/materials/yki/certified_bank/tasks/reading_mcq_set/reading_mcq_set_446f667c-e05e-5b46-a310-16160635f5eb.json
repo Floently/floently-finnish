@@ -1,0 +1,66 @@
+{
+  "id": "446f667c-e05e-5b46-a310-16160635f5eb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.299,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KOIRAPUISTON SÄÄNNÖT\n\n1. Sulje portti aina huolellisesti.\n2. Pidä koiraa kytkettynä puiston ulkopuolella.\n3. Kerää koiran jätökset pois.\n4. Älä tuo pentuja tai juoksussa olevia narttuja.\n5. Puisto on auki klo 7–22.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "d6dcbb38-9d39-53ae-a9d8-fde9e17245f6",
+        "prompt": "Mitä pitää tehdä portille?",
+        "options": [
+          "A) Jättää se auki",
+          "B) Sulkea se huolellisesti",
+          "C) Lukita se",
+          "D) Avata se"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "228b1260-a9e9-5860-a590-86ba635dd6c7",
+        "prompt": "Mitä pitää tehdä koiran jätöksille?",
+        "options": [
+          "A) Jättää ne maahan",
+          "B) Haudata ne",
+          "C) Kerätä ne pois",
+          "D) Ilmoittaa niistä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "ba4cd15d-8871-5f6e-b0e4-ef46608cc54a",
+        "prompt": "Mihin aikaan puisto suljetaan?",
+        "options": [
+          "A) klo 20",
+          "B) klo 21",
+          "C) klo 22",
+          "D) klo 23"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

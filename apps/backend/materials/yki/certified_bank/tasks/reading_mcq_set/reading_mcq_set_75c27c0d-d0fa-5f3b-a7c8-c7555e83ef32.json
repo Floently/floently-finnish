@@ -1,0 +1,73 @@
+{
+  "id": "75c27c0d-d0fa-5f3b-a7c8-c7555e83ef32",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.492,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue ilmoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KADONNUT KISSA\n\nHarmaa pitkäkarvainen kissa, jolla on vihreät silmät.\n\nNimi: Tassu. Erittäin kesy.\n\nKadonnut 12.7. Hervannan keskustassa.\n\nJos näet kissan, soita puh. 050 987 6543.\n\nPalkkio 100 €.",
+      "word_count": 28
+    },
+    "questions": [
+      {
+        "id": "item_004_1",
+        "prompt": "Minkä värinen kadonnut kissa on?",
+        "options": [
+          "musta",
+          "valkoinen",
+          "harmaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "item_004_2",
+        "prompt": "Mikä on kissan nimi?",
+        "options": [
+          "Mirri",
+          "Tassu",
+          "Vilma"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004_3",
+        "prompt": "Missä kissa katosi?",
+        "options": [
+          "Keskustassa",
+          "Hervannan keskustassa",
+          "Kalevassa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004_4",
+        "prompt": "Paljonko palkkio on?",
+        "options": [
+          "50 €",
+          "75 €",
+          "100 €"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

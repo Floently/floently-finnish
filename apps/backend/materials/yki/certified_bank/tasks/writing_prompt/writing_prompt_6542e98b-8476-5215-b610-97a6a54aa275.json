@@ -1,0 +1,37 @@
+{
+  "id": "6542e98b-8476-5215-b610-97a6a54aa275",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.357,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt katsomassa lapsesi urheilukilpailuja. Kirjoita palaute tapahtuman järjestäjille. Arvioi aikataulussa pysymistä, tiedotusta ja sitä, oliko paikalla riittävästi yleisöpalveluita (kioski, wc).",
+    "materials": {
+      "scenario": "Palaute lasten urheilutapahtumasta"
+    },
+    "items": [
+      {
+        "id": "eb9462f0-12f9-57c9-a600-6d102e3670d4",
+        "prompt": "Olet käynyt katsomassa lapsesi urheilukilpailuja. Kirjoita palaute tapahtuman järjestäjille. Arvioi aikataulussa pysymistä, tiedotusta ja sitä, oliko paikalla riittävästi yleisöpalveluita (kioski, wc)."
+      }
+    ],
+    "rubric": "Aikataulussa pysyminen\nTiedotus (nettisivut, opasteet)\nYleisöpalvelut (kioski, wc)",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

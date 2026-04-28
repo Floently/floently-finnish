@@ -1,0 +1,88 @@
+{
+  "id": "2cfe8661-bd1a-56c1-8980-7b8697a09168",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.715,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta koulutusjärjestelmästä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Koulutustutkija, mikä on mielestänne parasta suomalaisessa koulutusjärjestelmässä? Tutkija: Ehdottomasti tasa-arvo. Jokaisella lapsella on mahdollisuus hyvään koulutukseen asuinpaikasta tai perheen taustasta riippumatta. Toimittaja: Miten tämä tasa-arvo näkyy käytännössä? Tutkija: Koulut ovat julkisia ja maksuttomia, oppimateriaalit ja kouluruoka ovat ilmaisia. Myös erityisopetus ja oppimisen tuki ovat kaikkien saatavilla. Toimittaja: Onko järjestelmässä haasteita? Tutkija: Valitettavasti on. Viime vuosina koulujen väliset erot ovat kasvaneet. Joillakin alueilla on enemmän resursseja kuin toisilla. Myös oppilaiden hyvinvointi on huolestuttavaa. Koulukiusaaminen ja mielenterveysongelmat ovat lisääntyneet. Toimittaja: Miten näihin haasteisiin pitäisi vastata? Tutkija: Resursseja pitää kohdentaa sinne, missä tarve on suurin. Myös panostukset oppilashuoltoon ja varhaiseen tukeen ovat tärkeitä. Opettajien työhyvinvoinnista on pidettävä huolta.",
+      "audio_asset_id": "f8a9b0c1-d2e3-4f5a-6b7c-8d9e0f1a2b3c"
+    },
+    "questions": [
+      {
+        "id": "l78q1",
+        "prompt": "Mikä on tutkijan mukaan parasta suomalaisessa koulutusjärjestelmässä?",
+        "options": [
+          "Korkea taso.",
+          "Tasa-arvo.",
+          "Teknologia.",
+          "Opettajien osaaminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l78q2",
+        "prompt": "Miten tasa-arvo näkyy käytännössä?",
+        "options": [
+          "Koulut ovat yksityisiä.",
+          "Oppimateriaalit ja kouluruoka ovat ilmaisia.",
+          "Vanhemmat maksavat lukukausimaksuja.",
+          "Vain lahjakkaat saavat tukea."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l78q3",
+        "prompt": "Mikä on yksi mainituista haasteista?",
+        "options": [
+          "Liian paljon oppilaita.",
+          "Koulujen väliset erot ovat kasvaneet.",
+          "Opettajien liian korkea palkka.",
+          "Liian vähän läksyjä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l78q4",
+        "prompt": "Mitkä ongelmat oppilaiden hyvinvoinnissa ovat lisääntyneet?",
+        "options": [
+          "Ylipaino ja huono kunto.",
+          "Koulukiusaaminen ja mielenterveysongelmat.",
+          "Poissaolot ja myöhästelyt.",
+          "Kännykän liikakäyttö."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l78q5",
+        "prompt": "Mihin tutkija ehdottaa resurssien kohdentamista?",
+        "options": [
+          "Sinne, missä on eniten oppilaita.",
+          "Sinne, missä tarve on suurin.",
+          "Tasaisesti kaikkialle.",
+          "Yliopistoihin."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

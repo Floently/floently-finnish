@@ -1,0 +1,37 @@
+{
+  "id": "ee9a485b-1489-5697-9589-d8a6cc7449d0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.707,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti kansainväliselle järjestölle, joka myöntää apurahoja tutkimustyöhön. Olet kiinnostunut hakemaan apurahaa ja haluat tietää tarkemmat hakuohjeet ja kriteerit. Kerro tutkimusaiheestasi, taustastasi ja siitä, miksi apuraha olisi tärkeä työllesi. Kysy myös, milloin hakemukset tulee jättää.",
+    "materials": {
+      "scenario": "Apurahan hakeminen tutkimustyöhön"
+    },
+    "items": [
+      {
+        "id": "d2d4e045-0103-542a-a094-a7b583cfd0fe",
+        "prompt": "Kirjoita virallinen sähköposti kansainväliselle järjestölle, joka myöntää apurahoja tutkimustyöhön. Olet kiinnostunut hakemaan apurahaa ja haluat tietää tarkemmat hakuohjeet ja kriteerit. Kerro tutkimusaiheestasi, taustastasi ja siitä, miksi apuraha olisi tärkeä työllesi. Kysy myös, milloin hakemukset tulee jättää."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "073fe988-5dba-522a-a671-59e6c4aea517",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta designista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään vieraana on muotoilija Maija Lehtinen. Maija, miten kuvailisit suomalaista designia? Lehtinen: Se on hyvin funktionaalista ja selkeää. Kauneus syntyy yksinkertaisuudesta ja materiaalien aitoudesta. Toimittaja: Miten työsi on muuttunut urasi aikana? Lehtinen: Nykyään suunnittelen enemmän kokonaisuuksia kuin yksittäisiä esineitä. Esimerkiksi julkitiloja tai palvelukokonaisuuksia. Toimittaja: Mitä haasteita alalla on tällä hetkellä? Lehtinen: Yksi suuri haaste on kestävä kehitys. Miten suunnitella tuotteita, jotka kestävät aikaa ja ovat ympäristöystävällisiä. Myös kotimaisen valmistuksen väheneminen on ongelma. Toimittaja: Miten tulevaisuus näyttää? Lehtinen: Toiveikas. Suomalainen osaaminen on arvostettua maailmalla. Uskon, että pienet, laadukkaat designyritykset pärjäävät.",
+      "audio_asset_id": "e70934de-582c-42f6-8dcf-b9078f71f9df"
+    },
+    "questions": [
+      {
+        "id": "a16f852e-9402-537e-b2f1-e08bef45657b",
+        "prompt": "Miten Maija Lehtinen kuvailee suomalaista designia?",
+        "options": [
+          "Värikkääksi ja monimutkaiseksi.",
+          "Koristeelliseksi ja perinteiseksi.",
+          "Halvaksi ja massatuotetuksi.",
+          "Funktionaaliseksi, selkeäksi ja materiaaleiltaan aidoksi."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "708191bd-4b95-55c8-8927-224542233889",
+        "prompt": "Miten Lehtisen työ on muuttunut?",
+        "options": [
+          "Hän suunnittelee enemmän yksittäisiä esineitä.",
+          "Hän on siirtynyt muille aloille.",
+          "Hän suunnittelee enemmän kokonaisuuksia, kuten julkitiloja tai palveluja.",
+          "Hän suunnittelee vain huonekaluja."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "c818bbb2-1af3-5c3d-a11f-08a7e7442d20",
+        "prompt": "Mikä on yksi suuri haaste design-alalla?",
+        "options": [
+          "Liian korkeat kustannukset.",
+          "Pula muotoilijoista.",
+          "Liian vähäinen kysyntä.",
+          "Kestävä kehitys ja kotimaisen valmistuksen väheneminen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "1f001015-1232-51f7-a66e-40ee7bfd52a1",
+        "prompt": "Mitä kestävä kehitys tarkoittaa designissa?",
+        "options": [
+          "Halpojen materiaalien käyttöä.",
+          "Muodikkuutta.",
+          "Tuotteiden suunnittelua kestämään aikaa ja olemaan ympäristöystävällisiä.",
+          "Nopeaa tuotantoa."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0acc3008-2ddb-5bcb-80e2-ce09dbb44011",
+        "prompt": "Miten Lehtinen näkee tulevaisuuden?",
+        "options": [
+          "Synkkänä.",
+          "Epävarmana.",
+          "Toiveikkaana, pienet laadukkaat designyritykset pärjäävät.",
+          "Suomalainen design häviää."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

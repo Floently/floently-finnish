@@ -1,0 +1,66 @@
+{
+  "id": "5e8b4374-19d4-5807-b08f-127c9dc81f02",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Viesti on tarkoitettu arjen asiointiin. Asia alkaa torstaina 25. päivä. Ohjeet ovat lyhyet ja selkeät. Jos et pääse, ilmoita siitä etukäteen. Tämä koskee monia ihmisiä Kuopiossa. Työpaikka lähettää viestin aiheesta: päiväkodin retkikirje huoltajille. Ota mukaan henkilöllisyystodistus, jos sitä pyydetään. Tarkista aika ja paikka ennen kuin lähdet. Jos tarvitset apua, voit kysyä palvelutiskiltä. Lopussa kerrotaan yhteystiedot ja aukiolo. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä torstaina asti. Lisätieto: asiaan voi vaikuttaa myös palautteen määrä, ja sitä kerätään vielä torstaina asti.",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "a1_a2r04-q1",
+        "prompt": "Mikä on tekstin pääaihe?",
+        "options": [
+          "Matkustaminen ja sää",
+          "Ruoanlaitto kotona",
+          "Viesti ja siihen liittyvä muutos",
+          "Urheilutapahtuma"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r04-q2",
+        "prompt": "Mikä yksityiskohta mainitaan tekstissä?",
+        "options": [
+          "Uusi elokuva",
+          "Sairaalan remontti",
+          "Ohjeet tai toimintatapa kerrotaan",
+          "Lentojen peruuntuminen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "a1_a2r04-q3",
+        "prompt": "Mitä sinun pitäisi tehdä, jos et ymmärrä?",
+        "options": [
+          "Kysy neuvoa",
+          "Jätä asia kesken",
+          "Älä kerro kenellekään",
+          "Odota viikko"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

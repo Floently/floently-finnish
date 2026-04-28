@@ -1,0 +1,37 @@
+{
+  "id": "9fe53ef8-baae-5170-8bde-30a5a48456e5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.315,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti bussifirmaan. Kerro, että unohdit laukun bussiin tänään klo 8 bussissa numero 55. Laukku on musta ja siinä on läppäri. Kysy, onko laukku löytynyt.",
+    "materials": {
+      "scenario": "Viesti bussifirmaan unohtuneesta laukusta"
+    },
+    "items": [
+      {
+        "id": "e831d606-b4ec-5a13-9380-715f8ab4ad91",
+        "prompt": "Kirjoita lyhyt viesti bussifirmaan. Kerro, että unohdit laukun bussiin tänään klo 8 bussissa numero 55. Laukku on musta ja siinä on läppäri. Kysy, onko laukku löytynyt."
+      }
+    ],
+    "rubric": "Kerro, että unohdit laukun\nKerro, missä bussissa ja milloin\nKuvaile laukkua\nKysy, onko laukku löytynyt",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

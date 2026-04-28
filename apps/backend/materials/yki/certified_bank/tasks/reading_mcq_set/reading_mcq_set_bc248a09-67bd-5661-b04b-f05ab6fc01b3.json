@@ -1,0 +1,88 @@
+{
+  "id": "bc248a09-67bd-5661-b04b-f05ab6fc01b3",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen ruokakulttuuri on vahvasti sidoksissa vuodenaikoihin. Kevät on uuden alun aikaa. Ensimmäiset vihreät, kuten nokkonen, ilmestyvät. Pääsiäisenä syödään mämmiä. Kesä on runsauden aikaa. Uudet perunat, mansikat ja herneet ovat kesän herkkuja. Juhannuksena syödään uusia perunoita ja silakkaa. Syksy on sadonkorjuun aikaa. Sienet, marjat ja omenat ovat parhaimmillaan. Niistä tehdään säilykkeitä talveksi. Syksy on myös riistan aikaa. Talvi on pimeyden aikaa, mutta myös kodikkuuden aikaa. Jouluna syödään kinkkua ja laatikoita. Talvella nautitaan lämpimistä puuroista ja pataruoista. Säilötyt marjat tuovat kesän makua talveen.",
+      "word_count": 81
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten vuodenajat näkyvät suomalaisessa ruokakulttuurissa?",
+        "options": [
+          "Ne eivät näy millään tavalla",
+          "Ne vaikuttavat siihen, mitä syömme",
+          "Vain kesällä on merkitystä",
+          "Vain talvella on merkitystä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kevääseen kuuluu ruokakulttuurissa?",
+        "options": [
+          "Sadonkorjuuta",
+          "Ensimmäisiä vihreitä ja pääsiäisruokia",
+          "Grilliruokaa",
+          "Jouluruokia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kesän herkkuja tekstissä mainitaan?",
+        "options": [
+          "Sieniä ja marjoja",
+          "Uusia perunoita, mansikoita ja herneitä",
+          "Juureksia ja riistaa",
+          "Laatikoita ja kinkkua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä syksyllä tehdään ruoan suhteen?",
+        "options": [
+          "Syödään uusia perunoita",
+          "Korjataan satoa ja tehdään säilykkeitä",
+          "Grillataan",
+          "Syödään jouluruokia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä talvella syödään?",
+        "options": [
+          "Uusia perunoita ja mansikoita",
+          "Jouluruokia, puuroja ja pataruokia",
+          "Sieniä ja marjoja",
+          "Riistaa ja kalaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

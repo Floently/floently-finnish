@@ -1,0 +1,37 @@
+{
+  "id": "0dc8c665-33a6-5def-befe-b84ecd95a056",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkieläinten omistajien olla vastuussa lemmikkiensä melusta. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lemmikkieläinten omistajien vastuu melusta"
+    },
+    "items": [
+      {
+        "id": "ae0364b4-a19e-5e63-ab0d-624278870920",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkieläinten omistajien olla vastuussa lemmikkiensä melusta. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

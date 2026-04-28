@@ -1,0 +1,37 @@
+{
+  "id": "1d512ab0-82f5-5aed-8fd7-8dd40d4204e1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.324,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt kampaajalla. Kirjoita palaute. Kerro, mitä teit ja olitko tyytyväinen lopputulokseen.",
+    "materials": {
+      "scenario": "Palaute kampaajakäynnistä"
+    },
+    "items": [
+      {
+        "id": "2e78e91d-0337-5329-be91-eabdc3c12bbd",
+        "prompt": "Olet käynyt kampaajalla. Kirjoita palaute. Kerro, mitä teit ja olitko tyytyväinen lopputulokseen."
+      }
+    ],
+    "rubric": "Olet käynyt kampaajalla. Kirjoita palaute. Kerro, mitä teit ja olitko tyytyväinen lopputulokseen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

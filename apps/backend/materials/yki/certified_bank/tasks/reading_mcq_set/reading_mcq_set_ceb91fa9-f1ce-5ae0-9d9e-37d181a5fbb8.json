@@ -1,0 +1,66 @@
+{
+  "id": "ceb91fa9-f1ce-5ae0-9d9e-37d181a5fbb8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.584,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Ilmastonmuutos on aikamme suurin haaste. Se ei ole vain ympäristökysymys, vaan se koskettaa kaikkia elämän osa-alueita: taloutta, politiikkaa, terveyttä ja turvallisuutta. Silti keskustelu ilmastonmuutoksesta on usein pintapuolista ja keskittyy yksittäisiin tekoihin, kuten kierrätykseen ja lihansyönnin vähentämiseen. Nämä ovat tärkeitä, mutta ne eivät yksin riitä.\n\nTarvitaan systeemistä muutosta. Meidän on muutettava tapaa, jolla tuotamme energiaa, liikumme, rakennamme ja kulutamme. Tämä edellyttää rohkeita poliittisia päätöksiä, jotka voivat olla epäsuosittuja lyhyellä aikavälillä mutta välttämättömiä pitkällä aikavälillä. Esimerkiksi fossiilisten polttoaineiden tukien lopettaminen, liikenteen päästöjen hinnoittelu ja energiatehokkuusvaatimusten kiristäminen ovat toimia, jotka todella vaikuttavat.\n\nToinen tärkeä näkökulma on oikeudenmukaisuus. Ilmastonmuutos ei kosketa kaikkia samalla tavalla. Ne, jotka ovat vähiten vastuussa päästöistä – köyhät maat ja ihmiset – kärsivät usein eniten. Siksi ilmastopolitiikassa on otettava huomioon myös sosiaalinen oikeudenmukaisuus. Muuten vaarana on, että ilmastotoimet koetaan epäreiluina ja ne kohtaavat vastustusta.\n\nKolmas haaste on aikaperspektiivi. Ilmastonmuutos on hidas prosessi, jonka pahimmat seuraukset näkyvät vasta vuosikymmenten päästä. Poliitikot ajattelevat kuitenkin usein seuraavia vaaleja, eivät seuraavia sukupolvia. Tarvitaan pitkäjänteisyyttä ja kykyä tehdä päätöksiä, joiden hyödyt realisoituvat vasta tulevaisuudessa.\n\nLopuksi on muistettava, että vaikka tilanne on vakava, se ei ole toivoton. Teknologia kehittyy, asenteet muuttuvat ja yhä useammat ymmärtävät, että jotain on tehtävä. Tärkeintä on, että emme jää odottamaan, vaan toimimme nyt – jokainen omalla tasollaan ja yhdessä.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 241
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja tarkoittaa systeemisellä muutoksella?",
+        "options": [
+          "A) Yksittäisten ihmisten tekoja",
+          "B) Laajamittaista muutosta tavoissa tuottaa energiaa, liikkua, rakentaa ja kuluttaa",
+          "C) Uusien teknologioiden kehittämistä",
+          "D) Kansainvälisiä sopimuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi oikeudenmukaisuus on tärkeää ilmastopolitiikassa?",
+        "options": [
+          "A) Kaikkien pitää maksaa saman verran",
+          "B) Ilmastonmuutos koskettaa eri tavalla eri ihmisiä ja toimien pitää olla reiluja",
+          "C) Vain rikkaat maiden pitää vähentää päästöjä",
+          "D) Köyhät maat eivät saa päästää ollenkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on aikaperspektiivin haaste ilmastopolitiikassa?",
+        "options": [
+          "A) Ilmastonmuutos tapahtuu liian nopeasti",
+          "B) Poliitikot ajattelevat usein seuraavia vaaleja, ei seuraavia sukupolvia",
+          "C) Ilmastonmuutosta ei voi ennustaa",
+          "D) Teknologia ei kehity tarpeeksi nopeasti"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

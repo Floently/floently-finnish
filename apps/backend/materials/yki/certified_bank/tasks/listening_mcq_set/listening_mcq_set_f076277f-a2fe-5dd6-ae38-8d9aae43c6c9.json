@@ -1,0 +1,66 @@
+{
+  "id": "f076277f-a2fe-5dd6-ae38-8d9aae43c6c9",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.331,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu matkatoimistossa ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin varata matkan Lappiin helmikuussa.\nMyyjä: Hei! Mihin päin Lappia haluaisitte?\nAsiakas: Ehkä Levin alueelle. Olisi kiva päästä laskettelemaan.\nMyyjä: Levin on hyvä valinta. Meillä on hyviä tarjouksia sinne. Montako henkeä?\nAsiakas: Kaksi aikuista ja yksi lapsi.",
+      "audio_asset_id": "1f0bd537-a85b-58d6-b5b7-7a0a3d952d44"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_016_q1",
+        "prompt": "Milloin asiakas haluaa matkustaa?",
+        "options": [
+          "joulukuussa",
+          "tammikuussa",
+          "helmikuussa",
+          "maaliskuussa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_listening_mcq_016_q2",
+        "prompt": "Mihin hän haluaa matkustaa?",
+        "options": [
+          "Helsinkiin",
+          "Turkuun",
+          "Leville",
+          "Rovaniemelle"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_listening_mcq_016_q3",
+        "prompt": "Montako henkeä matkustaa?",
+        "options": [
+          "yksi",
+          "kaksi aikuista",
+          "kaksi aikuista ja yksi lapsi",
+          "kolme aikuista"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "f5e7aedb-4c9c-5bd2-a360-bd0e9aa18627",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.323,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue terveyskeskuksen ohje ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TERVEYSKESKUS PULSSI\n\nOHJEET LABORATORIOKÄYNTIÄ VARTEN\n\nVerensokeritesti:\nÄlä syö 8–12 tuntiin ennen testiä. Voit juoda vettä.\n\nRasva-arvot:\nÄlä syö 12 tuntiin ennen testiä. Vältä runsasrasvaista ruokaa edellisenä päivänä.\n\nVirtsanäyte:\nOta näyte puhtaasta astiasta. Säilytä viileässä ja toimita laboratorioon 2 tunnin sisällä.\n\nLaboratorio on avoinna ma–pe klo 7–15. Ota ajanvarausnumero odotussalista.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "81971890-7fe8-59b4-adc7-dcc96f30e394",
+        "prompt": "Kuinka kauan pitää olla syömättä ennen verensokeritestiä?",
+        "options": [
+          "4–6 tuntia",
+          "8–12 tuntia",
+          "12–14 tuntia",
+          "24 tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "424ed887-a99c-5549-a40d-eff4f66c9b47",
+        "prompt": "Voiko vettä juoda ennen testiä?",
+        "options": [
+          "Ei",
+          "Kyllä",
+          "Vain lasillisen",
+          "Vain kahvia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c1abc273-409c-5a89-a885-404daf2d1262",
+        "prompt": "Mitä pitää välttää ennen rasva-arvojen testausta?",
+        "options": [
+          "Liikuntaa",
+          "Runsasrasvaista ruokaa",
+          "Veden juontia",
+          "Lääkkeiden ottoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "cec78463-da19-5171-b3c4-a44837812931",
+        "prompt": "Milloin laboratorio on auki?",
+        "options": [
+          "ma–pe klo 7–15",
+          "ma–pe klo 8–16",
+          "ma–la klo 7–15",
+          "ma–su klo 8–14"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

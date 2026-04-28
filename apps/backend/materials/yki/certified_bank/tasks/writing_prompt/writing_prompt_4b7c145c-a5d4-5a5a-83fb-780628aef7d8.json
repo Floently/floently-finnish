@@ -1,0 +1,37 @@
+{
+  "id": "4b7c145c-a5d4-5a5a-83fb-780628aef7d8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute suomen kielen kurssin opetusmateriaalista. Onko se selkeä? Onko harjoituksia tarpeeksi? Mitä pitäisi lisätä?",
+    "materials": {
+      "scenario": "Palaute kurssimateriaalista"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita palaute suomen kielen kurssin opetusmateriaalista. Onko se selkeä? Onko harjoituksia tarpeeksi? Mitä pitäisi lisätä?"
+      }
+    ],
+    "rubric": "Kirjoita palaute suomen kielen kurssin opetusmateriaalista. Onko se selkeä? Onko harjoituksia tarpeeksi? Mitä pitäisi lisätä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

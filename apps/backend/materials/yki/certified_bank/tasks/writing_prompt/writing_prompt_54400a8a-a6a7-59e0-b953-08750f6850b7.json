@@ -1,0 +1,37 @@
+{
+  "id": "54400a8a-a6a7-59e0-b953-08750f6850b7",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.735,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti ulkoministeriön kehityspoliittisen osaston osastopäällikölle. Edustatte järjestöä, joka hakee rahoitusta laajaan kehitysyhteistyöhankkeeseen, joka keskittyy naisten oikeuksiin ja koulutukseen kehitysmaissa. Kerro hankkeesta, sen tavoitteista, kohdemaista ja yhteistyökumppaneista. Pyydä tarkempia hakuohjeita ja kysy, onko järjestöllänne mahdollisuutta saada rahoitusta. Tarjoa myös mahdollisuutta esitellä hanketta tarkemmin ja keskustella sen vaikutuksista.",
+    "materials": {
+      "scenario": "Naisten oikeuksiin keskittyvän kehitysyhteistyöhankkeen rahoitushaku"
+    },
+    "items": [
+      {
+        "id": "c9f8e317-7bc8-5020-9950-8a60286ae7a7",
+        "prompt": "Kirjoita virallinen sähköposti ulkoministeriön kehityspoliittisen osaston osastopäällikölle. Edustatte järjestöä, joka hakee rahoitusta laajaan kehitysyhteistyöhankkeeseen, joka keskittyy naisten oikeuksiin ja koulutukseen kehitysmaissa. Kerro hankkeesta, sen tavoitteista, kohdemaista ja yhteistyökumppaneista. Pyydä tarkempia hakuohjeita ja kysy, onko järjestöllänne mahdollisuutta saada rahoitusta. Tarjoa myös mahdollisuutta esitellä hanketta tarkemmin ja keskustella sen vaikutuksista."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

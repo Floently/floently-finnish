@@ -1,0 +1,60 @@
+{
+  "id": "33dd26f0-4add-5835-8637-0a0888c63e8f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet matkustajaa, joka on myöhästynyt junasta ja tarvitsee apua uuden lipun hankkimiseen. Keskustele asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Matkustaja",
+        "partner": "VR:n asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp8_1",
+        "ai_first_turn_fi": "Hei, miten voin auttaa?"
+      },
+      {
+        "id": "srp8_2",
+        "ai_first_turn_fi": "Voin auttaa uuden lipun kanssa. Mihin junaan sinulla oli lippu ja mihin olet matkalla?"
+      },
+      {
+        "id": "srp8_3",
+        "ai_first_turn_fi": "Seuraava juna Turkuun lähtee kahden tunnin päästä. Saat vaihdettua lipun tähän junaan, mutta joudut maksamaan pienen käsittelymaksun, 5 euroa. Sopiiko tämä?"
+      },
+      {
+        "id": "srp8_4",
+        "ai_first_turn_fi": "Onko sinulla alkuperäinen lippu mukana?"
+      },
+      {
+        "id": "srp8_5",
+        "ai_first_turn_fi": "Kiitos. Miten haluat maksaa käsittelymaksun? Käteisellä vai kortilla?"
+      },
+      {
+        "id": "srp8_6",
+        "ai_first_turn_fi": "Selvä. Tässä on uusi lippusi. Juna lähtee raiteelta 2. Hyvää matkaa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet matkustajaa, joka on myöhästynyt junasta ja tarvitsee apua uuden lipun hankkimiseen. Keskustele asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

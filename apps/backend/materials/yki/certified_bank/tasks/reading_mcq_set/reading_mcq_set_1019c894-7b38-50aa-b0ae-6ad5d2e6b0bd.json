@@ -1,0 +1,66 @@
+{
+  "id": "1019c894-7b38-50aa-b0ae-6ad5d2e6b0bd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen elokuva on elänyt viime vuosina vahvaa nousukautta. Kotimaiset elokuvat keräävät vuosittain miljoonia katsojia, ja useat niistä ovat saavuttaneet myös kansainvälistä menestystä. Tunnettuja suomalaisia elokuvia ovat esimerkiksi Tuntematon sotilas, Mies vailla menneisyyttä ja Joulutarina. Suomalaiset elokuvaohjaajat kuten Aki Kaurismäki, Renny Harlin ja Dome Karukoski ovat tunnettuja maailmalla. Kaurismäki on saanut useita kansainvälisiä palkintoja elokuvistaan, joissa kuvataan usein suomalaista arkea ja melankoliaa. Suomessa järjestetään vuosittain useita elokuvafestivaaleja. Tärkein niistä on Sodankylän elokuvajuhlat, joka tunnetaan myös nimellä Midnight Sun Film Festival. Muita merkittäviä festivaaleja ovat Espoo Ciné, Oulun kansainvälinen lasten- ja nuortenelokuvien festivaali ja Rakkautta & Anarkiaa -festivaali Helsingissä. Suomen elokuvasäätiö tukee kotimaista elokuvatuotantoa, ja elokuvien tekemiseen on saatavilla erilaisia avustuksia. Elokuvateatterit ovat suosittuja vapaa-ajanviettopaikkoja, ja monissa kaupungeissa on useita eri teattereita, jotka esittävät niin kotimaisia kuin ulkomaisia elokuvia. Myös suoratoistopalvelut ovat lisänneet suomalaisten elokuvien saatavuutta.",
+      "word_count": 134
+    },
+    "questions": [
+      {
+        "id": "c2d3e4f5-a6b7-4c8d-9e9f-0a1b2c3d4e5f",
+        "prompt": "Kuka on tunnettu suomalainen elokuvaohjaaja?",
+        "options": [
+          "Steven Spielberg",
+          "Aki Kaurismäki",
+          "Martin Scorsese",
+          "Quentin Tarantino"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d3e4f5a6-b7c8-4d9e-9f0a-1b2c3d4e5f6a",
+        "prompt": "Mikä on tärkein suomalainen elokuvafestivaali?",
+        "options": [
+          "Helsinki Film Festival",
+          "Sodankylän elokuvajuhlat",
+          "Tampere Film Festival",
+          "Turku Film Festival"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e4f5a6b7-c8d9-4e0f-9a1b-2c3d4e5f6a7b",
+        "prompt": "Mikä taho tukee kotimaista elokuvatuotantoa Suomessa?",
+        "options": [
+          "Yle",
+          "Suomen elokuvasäätiö",
+          "MTV",
+          "Nordisk Film"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "2f43f5a3-0585-5ead-a53c-0c1cd351c6d0",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työpaikoilla kiinnitetään yhä enemmän huomiota työergonomiaan. Huonot työasennot ja pitkäaikainen istuminen voivat aiheuttaa tuki- ja liikuntaelinsairauksia. Työnantajat ovat hankkineet säädettäviä työpöytiä ja hyviä työtuoleja. Myös taukojumppa on yleistynyt. Työntekijöitä kannustetaan pitämään pieniä taukoja ja vaihtelemaan työasentoa. Tämä parantaa sekä työhyvinvointia että työtehoa.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin työpaikoilla kiinnitetään yhä enemmän huomiota?",
+        "options": [
+          "Työmatkojen pituuteen",
+          "Työergonomiaan",
+          "Työvaatteisiin",
+          "Työpaikkaruokailuun"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä huonot työasennot ja pitkäaikainen istuminen voivat aiheuttaa?",
+        "options": [
+          "Päänsärkyä",
+          "Tuki- ja liikuntaelinsairauksia",
+          "Silmien väsymistä",
+          "Stressiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä työnantajat ovat hankkineet parantaakseen ergonomiaa?",
+        "options": [
+          "Uusia tietokoneita",
+          "Säädettäviä työpöytiä ja hyviä työtuoleja",
+          "Parempaa kahvia",
+          "Viherkasveja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on yleistynyt taukojen aikana?",
+        "options": [
+          "Tupakointi",
+          "Taukojumppa",
+          "Puhelimella pelaaminen",
+          "Uutisten lukeminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin työntekijöitä kannustetaan?",
+        "options": [
+          "Tekemään pidempää työpäivää",
+          "Pitämään pieniä taukoja ja vaihtelemaan työasentoa",
+          "Istumaan mahdollisimman paljon",
+          "Tekemään kaikki työt seisten"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä hyötyä hyvästä ergonomiasta on?",
+        "options": [
+          "Vain työhyvinvointi paranee",
+          "Vain työteho paranee",
+          "Sekä työhyvinvointi että työteho paranevat",
+          "Sairaslomat lisääntyvät"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

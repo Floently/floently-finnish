@@ -1,0 +1,37 @@
+{
+  "id": "afd1e480-6530-5bf0-b212-63abffb76a34",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.328,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti naapurille. Pyydä anteeksi, että pidit eilen myöhään juhlia. Kerro, että oli syntymäpäiväsi. Lupaa, että ensi kerralla ilmoitat etukäteen. Toivotat hyvää jatkoa.",
+    "materials": {
+      "scenario": "Viesti naapurille anteeksipyyntö juhlista"
+    },
+    "items": [
+      {
+        "id": "e4a91d9d-9595-51c0-90d3-9ac4c7711a7b",
+        "prompt": "Kirjoita lyhyt viesti naapurille. Pyydä anteeksi, että pidit eilen myöhään juhlia. Kerro, että oli syntymäpäiväsi. Lupaa, että ensi kerralla ilmoitat etukäteen. Toivotat hyvää jatkoa."
+      }
+    ],
+    "rubric": "Pyydä anteeksi melusta\nKerro syy (syntymäpäivä)\nLupaa ilmoittaa ensi kerralla\nToivota hyvää jatkoa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

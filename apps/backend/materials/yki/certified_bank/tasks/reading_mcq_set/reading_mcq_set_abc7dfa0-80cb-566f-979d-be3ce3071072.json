@@ -1,0 +1,99 @@
+{
+  "id": "abc7dfa0-80cb-566f-979d-be3ce3071072",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.559,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Teatterit kamppailevat yleisön vähenemisen kanssa. Yksi syy on viihdetarjonnan monipuolistuminen: suoratoistopalvelut ja pelit vievät aikaa. Teatterit yrittävät houkutella katsojia uudistamalla ohjelmistoaan ja tekemällä yhteistyötä muiden kulttuuritoimijoiden kanssa. Monet teatterit panostavat myös nuorisotoimintaan ja koululaisnäytöksiin. Teatterin erityisyys on live-elämys, jota ei voi saada ruudun kautta.",
+      "word_count": 44
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Minkä kanssa teatterit kamppailevat?",
+        "options": [
+          "Kalliiden lippujen kanssa",
+          "Yleisön vähenemisen kanssa",
+          "Huonojen näyttelijöiden kanssa",
+          "Pienten tilojen kanssa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on yksi syy yleisön vähenemiseen?",
+        "options": [
+          "Teatteriliput ovat liian kalliita",
+          "Viihdetarjonnan monipuolistuminen",
+          "Teatterit ovat huonosti sijoitettuja",
+          "Näytelmät ovat tylsiä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä muusta viihdetarjonnasta mainitaan?",
+        "options": [
+          "Elokuvat ja konsertit",
+          "Suoratoistopalvelut ja pelit",
+          "Urheilu ja liikunta",
+          "Lukeminen ja kirjoittaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten teatterit yrittävät houkutella katsojia?",
+        "options": [
+          "Laskemalla lippujen hintoja",
+          "Uudistamalla ohjelmistoa ja tekemällä yhteistyötä",
+          "Mainostamalla enemmän",
+          "Palkkaamalla tunnettuja näyttelijöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mihin monet teatterit panostavat?",
+        "options": [
+          "Kansainvälisiin vierailuihin",
+          "Nuorisotoimintaan ja koululaisnäytöksiin",
+          "Kalliisiin lavasteisiin",
+          "Pitkiin esityksiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on teatterin erityisyys?",
+        "options": [
+          "Edulliset liput",
+          "Live-elämys",
+          "Tunnetut näyttelijät",
+          "Helppo saavutettavuus"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

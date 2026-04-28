@@ -1,0 +1,88 @@
+{
+  "id": "ca6fa716-a87f-5e32-a0fb-06fb93c321f3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele asiantuntijan arvio digitaalisten palveluiden saavutettavuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Vaikka digitaaliset palvelut ovat monille helpottaneet arkea, on tärkeä muistaa, että ne eivät ole kaikille saavutettavia. Puhun nyt digisyrjäytymisestä. Se koskee erityisesti ikääntyneitä, mutta myös muita, joilla ei ole tarvittavia laitteita, verkkoyhteyttä tai digitaitoja. Yhteiskunta, joka siirtää kaikki palvelunsa verkkoon, jättää nämä ihmiset helposti paitsioon. Tämä ei ole vain heidän oma ongelmansa, vaan koko yhteiskunnan. Meillä on velvollisuus varmistaa, että myös ei-digitaaliset asiointikanavat säilyvät. Samalla on panostettava opastukseen ja koulutukseen, jotta yhä useampi pystyy käyttämään digipalveluita, jos he niitä haluavat käyttää. Puhumme usein teknisestä saavutettavuudesta, kuten näytönlukijoista, mutta inhimillinen saavutettavuus on aivan yhtä tärkeää.",
+      "audio_asset_id": "f7a21352-9896-4281-8c06-396cdfa9666f"
+    },
+    "questions": [
+      {
+        "id": "58372f62-06ee-51f8-9eef-f02ce1b013e7",
+        "prompt": "Mitä termiä asiantuntija käyttää digitaalisten palveluiden ulkopuolelle jäämisestä?",
+        "options": [
+          "Digitaalinen kuilu.",
+          "Teknologinen jälkeenjääneisyys.",
+          "Informaatioähky.",
+          "Digisyrjäytyminen."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "c6c7b3ff-bacf-533f-bb5f-8fdbff19aee6",
+        "prompt": "Ketkä erityisesti ovat vaarassa jäädä digipalveluiden ulkopuolelle?",
+        "options": [
+          "Lapset ja nuoret.",
+          "Ikääntyneet ja muut, joilta puuttuu laitteita tai digitaitoja.",
+          "Työssäkäyvät aikuiset.",
+          "Maahanmuuttajat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4258d3fd-a8d3-5ba6-b3fb-c663de8c35cf",
+        "prompt": "Mikä on asiantuntijan mukaan yhteiskunnan velvollisuus?",
+        "options": [
+          "Pakottaa kaikki käyttämään digipalveluita.",
+          "Luopua digitaalisista palveluista kokonaan.",
+          "Tarjota ilmaisia laitteita kaikille.",
+          "Varmistaa, että myös ei-digitaaliset asiointikanavat säilyvät."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "a60d91d6-c06e-5c2d-9e1b-54f4d2df9d1c",
+        "prompt": "Mitä asiantuntija tarkoittaa 'inhimillisellä saavutettavuudella'?",
+        "options": [
+          "Teknisiä ratkaisuja, kuten näytönlukijoita.",
+          "Opastusta, koulutusta ja ihmisten huomioimista.",
+          "Palveluiden kääntämistä eri kielille.",
+          "Matalaa hintaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "39607079-2a46-568b-ac7f-6d7bbe20732f",
+        "prompt": "Mitä asiantuntija pitää yhtä tärkeänä kuin teknistä saavutettavuutta?",
+        "options": [
+          "Inhimillistä saavutettavuutta.",
+          "Palveluiden nopeutta.",
+          "Palveluiden ulkonäköä.",
+          "Palveluiden monipuolisuutta."
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

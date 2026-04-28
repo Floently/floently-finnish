@@ -1,0 +1,77 @@
+{
+  "id": "39fde431-ae4b-5c40-b369-3cd77d77ec13",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.545,
+  "language": "fi",
+  "source": {
+    "origin": "generated",
+    "generator": "yki-generator-v5",
+    "generated_at": "2026-03-04T12:00:11Z"
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti suomalaisesta työelämästä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalainen työelämä on muuttunut viime vuosikymmeninä. Tyypillistä on nykyään joustavuus ja erilaiset työajat. Monet tekevät etätöitä tai hybridityötä, ja vuorotyö on yleistä esimerkiksi hoiva- ja kaupanalalla. Työpaikoilla arvostetaan tasa-arvoa ja yhteistyötä, ja hierarkiat ovat usein matalia. Työntekijöillä on oikeus vuosilomaan, sairauslomaan ja työterveyshuoltoon. Työhyvinvointiin panostetaan, ja monilla työpaikoilla on käytössä liikunta- ja kulttuurietuja. Haasteita tuovat työuupumus, kiire ja epävarmat työsuhteet, kuten määräaikaisuudet ja keikkatyöt. Ammattiliitot ja työttömyyskassat tarjoavat tukea ja turvaa työntekijöille.",
+      "word_count": 72
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_012",
+        "prompt": "Millaista työelämä Suomessa on nykyään?",
+        "options": [
+          "Jäykkää ja hierarkkista",
+          "Joustavaa, erilaisia työaikoja ja etätyötä",
+          "Vain kahdeksasta neljään -työtä",
+          "Työtä ilman lomaoikeuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_012",
+        "prompt": "Mitä oikeuksia työntekijöillä on?",
+        "options": [
+          "Vain palkka",
+          "Vuosiloma, sairausloma ja työterveyshuolto",
+          "Vain työterveyshuolto",
+          "Vain sairausloma"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_012",
+        "prompt": "Mitä haasteita työelämässä on?",
+        "options": [
+          "Liian paljon vapaa-aikaa",
+          "Työuupumus, kiire ja epävarmat työsuhteet",
+          "Liian matalat hierarkiat",
+          "Liian paljon lomaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_012",
+        "prompt": "Mitä ammattiliitot tarjoavat?",
+        "options": [
+          "Vain lakiapua",
+          "Tukea ja turvaa työntekijöille",
+          "Vain koulutuksia",
+          "Vain työpaikkoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

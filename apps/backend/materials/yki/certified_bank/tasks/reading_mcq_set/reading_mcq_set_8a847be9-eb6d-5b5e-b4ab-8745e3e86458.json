@@ -1,0 +1,77 @@
+{
+  "id": "8a847be9-eb6d-5b5e-b4ab-8745e3e86458",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomen väestö ikääntyy nopeammin kuin useimmissa muissa Euroopan maissa. Tilastokeskuksen ennusteen mukaan vuonna 2030 yli 65-vuotiaita on jo yli 1,5 miljoonaa, mikä on noin neljännes koko väestöstä. Eliniän piteneminen ja alhainen syntyvyys ovat tämän kehityksen taustalla.\n\nIkääntymisellä on merkittäviä taloudellisia vaikutuksia. Julkiset menot, erityisesti terveydenhuolto- ja eläkemenot, kasvavat samalla kun työikäisen väestön määrä vähenee. Tämä tarkoittaa, että pienempi joukko työssäkäyviä joutuu elättämään kasvavan määrän eläkeläisiä.\n\nHallitus on pyrkinyt vastaamaan haasteeseen useilla toimilla. Eläkeikää on nostettu vähitellen, työperäistä maahanmuuttoa halutaan lisätä ja työuria pyritään pidentämään sekä alku- että loppupäästä. Myös teknologian hyödyntäminen vanhustenhoidossa on yksi ratkaisu.\n\nToisaalta ikääntyminen tarjoaa myös mahdollisuuksia. Ikääntyneet ovat terveempiä ja aktiivisempia kuin koskaan ennen. Moni haluaa jatkaa työelämässä pidempään, ja eläkeläisillä on ostovoimaa, joka luo kysyntää erilaisille palveluille. Senioritalot, hyvinvointiteknologia ja kulttuuripalvelut ovat kasvavia aloja.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 157
+    },
+    "questions": [
+      {
+        "id": "5b90000f-da9c-5c28-9cf2-f3c75541c4bc",
+        "prompt": "Kuinka paljon yli 65-vuotiaita on ennusteen mukaan vuonna 2030?",
+        "options": [
+          "Yli 1 miljoona",
+          "Yli 1,5 miljoonaa",
+          "Yli 2 miljoonaa",
+          "Yli 2,5 miljoonaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "8501c6dc-0c69-54ec-bc43-42ea85c464f2",
+        "prompt": "Mitkä tekijät aiheuttavat väestön ikääntymistä?",
+        "options": [
+          "Sota ja taudit",
+          "Eliniän piteneminen ja alhainen syntyvyys",
+          "Maastamuutto",
+          "Huono terveydenhuolto"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "095a42f8-e172-5b9b-99a0-2803bbca1de7",
+        "prompt": "Mitä taloudellisia vaikutuksia ikääntymisellä on?",
+        "options": [
+          "Verotulot kasvavat",
+          "Julkiset menot kasvavat ja työikäisten määrä vähenee",
+          "Eläkkeet pienenevät",
+          "Kaikki saavat lisää rahaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "81286d78-9d27-568d-ab0e-1b26cd671100",
+        "prompt": "Mitä mahdollisuuksia ikääntyminen tarjoaa?",
+        "options": [
+          "Uusia työpaikkoja nuorille",
+          "Kasvavia aloja kuten senioritalot ja hyvinvointiteknologia",
+          "Halvempaa työvoimaa",
+          "Lisää verotuloja valtiolle"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

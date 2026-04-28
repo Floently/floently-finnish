@@ -1,0 +1,66 @@
+{
+  "id": "7db6adaf-20c8-5179-a9f3-d602f8523330",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.304,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kahvilassa ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Mikko: Hei Anna, kiva nähdä! Mitä kuuluu?\nAnna: Hei Mikko! Ihan hyvää, kiitos. Kiitos kutsusta kahville.\nMikko: Eipä kestä. Mitä haluat juoda?\nAnna: Otanko kahvia, kiitos. Ja lasi vettä.\nMikko: Minä otan teen.",
+      "audio_asset_id": "6c418f94-def0-574d-97eb-429381914903"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_011_q1",
+        "prompt": "Missä Mikko ja Anna tapaavat?",
+        "options": [
+          "ravintolassa",
+          "kahvilassa",
+          "puistossa",
+          "kotona"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_011_q2",
+        "prompt": "Mitä Anna haluaa juoda?",
+        "options": [
+          "teetä",
+          "kahvia ja vettä",
+          "limsaa",
+          "mehua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_011_q3",
+        "prompt": "Mitä Mikko haluaa juoda?",
+        "options": [
+          "kahvia",
+          "teetä",
+          "mehua",
+          "vettä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

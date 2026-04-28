@@ -1,0 +1,77 @@
+{
+  "id": "f25eb39c-e6e2-5945-9afb-14fd39c5ccda",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomalainen ruokakulttuuri on saanut vaikutteita muista maista, mutta perinteiset ruoat ovat yhä suosittuja. Ruisleipä kuuluu monen arkeen, ja perinneruoat kuten kalakukko, mykyrokka ja veriohukaiset tunnetaan. Uusia trendejä ovat kasvisruuan suosion kasvu ja lähiruoan arvostus. Monet suomalaiset harrastavat ruoanlaittoa ja leivontaa, ja ruokablogit ja -ohjelmat ovat suosittuja. Kotimaiset raaka-aineet, kuten peruna, kala, riista, marjat ja sienet, ovat keskeisiä. Arkena syödään usein nopeasti valmistuvia ruokia, mutta viikonloppuisin saatetaan panostaa ruoanlaittoon ja leivontaan. Suomalaiset syövät myös paljon valmisruokia ja eineksiä, erityisesti kiireisinä arkipäivinä.",
+      "word_count": 80
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_018",
+        "prompt": "Mikä perinneruoka mainitaan tekstissä?",
+        "options": [
+          "Pizza",
+          "Kalakukko",
+          "Sushi",
+          "Taco"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_018",
+        "prompt": "Mitä uusia trendejä ruokakulttuurissa on?",
+        "options": [
+          "Liharuokien lisääntyminen",
+          "Kasvisruuan suosion kasvu ja lähiruoan arvostus",
+          "Pikaruoan väheneminen",
+          "Ulkomaisten ruokien väheneminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_018",
+        "prompt": "Mitä kotimaisia raaka-aineita suomalaiset käyttävät?",
+        "options": [
+          "Riisi ja pavut",
+          "Peruna, kala, riista, marjat ja sienet",
+          "Banaani ja appelsiini",
+          "Vehnä ja sokeri"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_018",
+        "prompt": "Mitä suomalaiset syövät kiireisinä arkipäivinä?",
+        "options": [
+          "Vain salaattia",
+          "Paljon valmisruokia ja eineksiä",
+          "Vain leipää",
+          "Aina lämmintä ruokaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

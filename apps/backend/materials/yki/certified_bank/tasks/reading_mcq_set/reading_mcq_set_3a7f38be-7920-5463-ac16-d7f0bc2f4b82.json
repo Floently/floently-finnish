@@ -1,0 +1,99 @@
+{
+  "id": "3a7f38be-7920-5463-ac16-d7f0bc2f4b82",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.556,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kuluttajien luottamus talouteen vaikuttaa ostokäyttäytymiseen. Kun taloudellinen tilanne on epävarma, ihmiset saattavat lykätä suuria hankintoja, kuten asunnon ostoa tai auton vaihtoa. Toisaalta luottamuksen kasvaessa kulutus lisääntyy. Tämä heijastuu suoraan yritysten myyntiin ja koko kansantalouteen. Kuluttajien luottamusta mitataan säännöllisesti kyselyillä, ja tuloksia seurataan tarkasti. Luottamus on tärkeä talouden mittari.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin kuluttajien luottamus talouteen vaikuttaa?",
+        "options": [
+          "Vain yritysten voittoihin",
+          "Ostokäyttäytymiseen",
+          "Vain valtion budjettiin",
+          "Vain pankkien korkoihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ihmiset saattavat tehdä taloudellisen epävarmuuden aikana?",
+        "options": [
+          "Lisätä kulutusta",
+          "Lykätä suuria hankintoja",
+          "Ostaa heti uuden auton",
+          "Sijoittaa osakkeisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä tapahtuu, kun luottamus kasvaa?",
+        "options": [
+          "Kulutus vähenee",
+          "Kulutus lisääntyy",
+          "Säästäminen lisääntyy",
+          "Lainojen kysyntä laskee"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin kuluttajien käyttäytyminen heijastuu?",
+        "options": [
+          "Vaan yksittäisiin kauppoihin",
+          "Yritysten myyntiin ja koko kansantalouteen",
+          "Vaan vientiin",
+          "Vaan työllisyyteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten kuluttajien luottamusta mitataan?",
+        "options": [
+          "Myyntilukujen perusteella",
+          "Säännöllisillä kyselyillä",
+          "Pörssikurssien perusteella",
+          "Työttömyysasteen perusteella"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä luottamus on taloudessa?",
+        "options": [
+          "Merkityksetön asia",
+          "Tärkeä mittari",
+          "Ainoa mittari",
+          "Uusi ilmiö"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

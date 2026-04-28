@@ -1,0 +1,37 @@
+{
+  "id": "8dff349e-5d2b-5153-8525-42ef6abe0811",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.464,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: train_station. Purpose: agree_on_a_change. Constraint: include_two_reasons.",
+    "materials": {
+      "scenario": "food train station"
+    },
+    "items": [
+      {
+        "id": "4bdb09c8-b504-5fc9-84a7-9dbc41c4648b",
+        "prompt": "Write for the receiver in this scenario: train_station. Purpose: agree_on_a_change. Constraint: include_two_reasons."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

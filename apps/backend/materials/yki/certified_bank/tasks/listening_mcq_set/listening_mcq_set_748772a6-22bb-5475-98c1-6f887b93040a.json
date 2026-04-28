@@ -1,0 +1,77 @@
+{
+  "id": "748772a6-22bb-5475-98c1-6f887b93040a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.3,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele vuokranantajan puhelinviesti ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Hei Anna! Täällä on Mari. Soitan asunnosta. Kaksio on vapaana toukokuun alusta. Vuokra on 750 euroa kuussa, sisältää veden. Jos haluat nähdä asunnon, voimme sopia näytön ensi viikolla. Soita minulle, niin sovitaan aika. Numero on 040 123 4567. Hei hei!",
+      "audio_asset_id": "79f80a42-105b-497a-96b5-b1c528609576"
+    },
+    "questions": [
+      {
+        "id": "2d8f469f-7474-5d57-b972-ae2af8d9e2b4",
+        "prompt": "Minkä kokoinen asunto on vapaana?",
+        "options": [
+          "yksiö",
+          "kaksio",
+          "kolmio",
+          "neljä huonetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a76ccb94-7c22-532e-923f-4c32ce413603",
+        "prompt": "Paljonko vuokra on?",
+        "options": [
+          "650 €",
+          "700 €",
+          "750 €",
+          "800 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9324f909-3f9d-5f69-a0fb-cbe38ca97de2",
+        "prompt": "Mitä vuokra sisältää?",
+        "options": [
+          "sähkön",
+          "veden",
+          "saunomisen",
+          "pysäköinnin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5f0f21db-9f11-5587-8821-3522d680f517",
+        "prompt": "Mikä on Marin puhelinnumero?",
+        "options": [
+          "040 123 4567",
+          "050 123 4567",
+          "045 123 4567",
+          "044 123 4567"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "a67cb181-34d1-573e-89d2-349084831bbb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.532,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin nuorisotoimeen. Haluat ehdottaa, että nuorille järjestettäisiin maksuttomia bänditiloja tai harjoituspaikkoja. Kerro, miksi tämä olisi tärkeää nuorille ja millaisia tiloja tarvittaisiin.",
+    "materials": {
+      "scenario": "Ehdotus bänditiloista nuorille"
+    },
+    "items": [
+      {
+        "id": "2d5ef84a-8ce9-5421-bf36-5de1174509ce",
+        "prompt": "Kirjoita sähköposti kaupungin nuorisotoimeen. Haluat ehdottaa, että nuorille järjestettäisiin maksuttomia bänditiloja tai harjoituspaikkoja. Kerro, miksi tämä olisi tärkeää nuorille ja millaisia tiloja tarvittaisiin."
+      }
+    ],
+    "rubric": "Tarpeen kuvaus\nEhdotus\nPerustelut",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

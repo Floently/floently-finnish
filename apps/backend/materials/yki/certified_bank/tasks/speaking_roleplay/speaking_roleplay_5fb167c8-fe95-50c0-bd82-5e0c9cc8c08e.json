@@ -1,0 +1,40 @@
+{
+  "id": "5fb167c8-fe95-50c0-bd82-5e0c9cc8c08e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele suomeksi.",
+    "materials": {
+      "roles": {
+        "user": "asiakas",
+        "partner": "korjaamon työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp33_01",
+        "ai_first_turn_fi": "Korjaamo, päivää."
+      }
+    ],
+    "rubric": "Keskustele suomeksi.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

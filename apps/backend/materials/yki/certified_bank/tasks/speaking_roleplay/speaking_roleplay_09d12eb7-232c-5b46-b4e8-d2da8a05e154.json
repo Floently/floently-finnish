@@ -1,0 +1,40 @@
+{
+  "id": "09d12eb7-232c-5b46-b4e8-d2da8a05e154",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.289,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you use a computer for work, study or free time. What do you do with it?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "e210b54c-d96a-5a80-9051-8b30c331ee87",
+        "ai_first_turn_fi": "Käytätkö sä tietokonetta paljon? Mihin tarkoitukseen?"
+      }
+    ],
+    "rubric": "Tell if you use a computer for work, study or free time. What do you do with it?",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

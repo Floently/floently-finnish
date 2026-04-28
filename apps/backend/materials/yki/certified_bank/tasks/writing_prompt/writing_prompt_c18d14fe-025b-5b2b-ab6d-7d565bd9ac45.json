@@ -1,0 +1,37 @@
+{
+  "id": "c18d14fe-025b-5b2b-ab6d-7d565bd9ac45",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.508,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti harrastusryhmällesi.",
+    "materials": {
+      "scenario": "Ehdota uutta tapaamisaikaa"
+    },
+    "items": [
+      {
+        "id": "cbafff2b-00d1-5f06-932f-7bdeb0c37803",
+        "prompt": "Harrastusryhmällänne on tapaaminen, mutta et pääse silloin paikalle. Kirjoita sähköposti ja ehdota uutta aikaa. Kerro, miksi et pääse ja milloin sinulle sopisi paremmin."
+      }
+    ],
+    "rubric": "Harrastusryhmällänne on tapaaminen, mutta et pääse silloin paikalle. Kirjoita sähköposti ja ehdota uutta aikaa. Kerro, miksi et pääse ja milloin sinulle sopisi paremmin.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

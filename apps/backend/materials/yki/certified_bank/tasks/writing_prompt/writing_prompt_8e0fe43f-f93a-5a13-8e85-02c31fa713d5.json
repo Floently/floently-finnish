@@ -1,0 +1,37 @@
+{
+  "id": "8e0fe43f-f93a-5a13-8e85-02c31fa713d5",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.688,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a research director position in a research institute. Tell about your academic career, scientific merits, and experience leading research groups. Also describe your research vision and how you promote the impact of science. Length about 300 words.",
+    "materials": {
+      "scenario": "Hakemus tutkimusjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a research director position in a research institute. Tell about your academic career, scientific merits, and experience leading research groups. Also describe your research vision and how you promote the impact of science. Length about 300 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a research director position in a research institute. Tell about your academic career, scientific merits, and experience leading research groups. Also describe your research vision and how you promote the impact of science. Length about 300 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

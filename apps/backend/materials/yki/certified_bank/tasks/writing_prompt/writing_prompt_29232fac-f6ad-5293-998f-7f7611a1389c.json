@@ -1,0 +1,37 @@
+{
+  "id": "29232fac-f6ad-5293-998f-7f7611a1389c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti paikalliseen ympäristökeskukseen.",
+    "materials": {
+      "scenario": "Ilmoita ympäristörikkomuksesta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kirjoita sähköposti paikalliseen ympäristökeskukseen."
+      }
+    ],
+    "rubric": "Olet havainnut, että läheiseen järveen lasketaan jotain epäilyttävää. Kirjoita sähköposti ja ilmoita asiasta. Kerro, missä ja milloin havaitsit asian ja miltä se näytti. Kysy, mitä asialle voidaan tehdä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

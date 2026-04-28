@@ -1,0 +1,40 @@
+{
+  "id": "b35b36ad-8bcc-5c59-b382-44543d889f64",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.722,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kerro kokemuksistasi työhyvinvoinnin edistämisestä ja ehdota konkreettisia toimia, joilla yritys voi tukea työntekijöidensä jaksamista.",
+    "materials": {
+      "roles": {
+        "user": "työhaastattelussa yrityksessä",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "f5a305aa-932d-5fb8-96f0-e6664947eab3",
+        "ai_first_turn_fi": "Yrityksemme arvostaa työntekijöiden hyvinvointia ja jaksamista. Millaisia kokemuksia sinulla on työhyvinvoinnin edistämisestä? Mitä konkreettisia toimia ehdottaisit, jotta työntekijät voisivat hyvin ja jaksaisivat pitkään?"
+      }
+    ],
+    "rubric": "Kerro kokemuksistasi työhyvinvoinnin edistämisestä ja ehdota konkreettisia toimia, joilla yritys voi tukea työntekijöidensä jaksamista.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

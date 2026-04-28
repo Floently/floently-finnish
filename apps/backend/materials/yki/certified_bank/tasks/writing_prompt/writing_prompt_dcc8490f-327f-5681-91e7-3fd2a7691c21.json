@@ -1,0 +1,37 @@
+{
+  "id": "dcc8490f-327f-5681-91e7-3fd2a7691c21",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti serkulle. Hän tulee käymään kaupungissa ensi viikonloppuna. Kerro, että olisi kiva tavata. Ehdota, että tapaatte lauantaina lounaalla tai kahvilla. Kysy, mikä hänelle sopii ja haluaako hän nähdä jotain tiettyä paikkaa kaupungissa.",
+    "materials": {
+      "scenario": "Viesti serkulle tapaamisen sopimisesta"
+    },
+    "items": [
+      {
+        "id": "70d14d89-7d44-5604-9067-516ad93b8671",
+        "prompt": "Kirjoita lyhyt viesti serkulle. Hän tulee käymään kaupungissa ensi viikonloppuna. Kerro, että olisi kiva tavata. Ehdota, että tapaatte lauantaina lounaalla tai kahvilla. Kysy, mikä hänelle sopii ja haluaako hän nähdä jotain tiettyä paikkaa kaupungissa."
+      }
+    ],
+    "rubric": "Kerro, että olisi kiva tavata\nEhdota tapaamista lauantaina (lounas tai kahvi)\nKysy, sopiiko se serkulle\nKysy, haluaako hän nähdä jotain tiettyä paikkaa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

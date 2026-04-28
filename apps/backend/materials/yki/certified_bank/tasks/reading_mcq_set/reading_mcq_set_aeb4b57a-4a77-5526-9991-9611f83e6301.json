@@ -1,0 +1,99 @@
+{
+  "id": "aeb4b57a-4a77-5526-9991-9611f83e6301",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.513,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Koulujen kevätjuhla on perjantaina 31.5. kello 18. Juhlassa jaetaan todistukset ja esitetään musiikkia. Juhlan jälkeen on tarjolla mehua ja pullaa. Vanhemmat ja muut omaiset ovat tervetulleita. Koulun pihalla on myös myyjäiset, joissa oppilaat myyvät itse tekemiään tuotteita. Tervetuloa juhlimaan kevään päättymistä!",
+      "word_count": 41
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin koulujen kevätjuhla on?",
+        "options": [
+          "Torstaina 30.5.",
+          "Perjantaina 31.5.",
+          "Lauantaina 1.6.",
+          "Sunnuntaina 2.6."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin aikaan juhla alkaa?",
+        "options": [
+          "Kello 16",
+          "Kello 17",
+          "Kello 18",
+          "Kello 19"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä juhlassa tehdään?",
+        "options": [
+          "Jaetaan stipendejä ja pidetään puheita",
+          "Jaetaan todistukset ja esitetään musiikkia",
+          "Syödään yhdessä",
+          "Pelataan pelejä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä juhlan jälkeen on tarjolla?",
+        "options": [
+          "Kahvia ja kakkua",
+          "Mehua ja pullaa",
+          "Jäätelöä",
+          "Pizzaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Ketkä ovat tervetulleita juhlaan?",
+        "options": [
+          "Vain oppilaat",
+          "Vain opettajat",
+          "Vanhemmat ja muut omaiset",
+          "Vain koulun henkilökunta"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä koulun pihalla on juhlan yhteydessä?",
+        "options": [
+          "Urheilukilpailut",
+          "Myyjäiset",
+          "Konsertti",
+          "Näyttely"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "f2ccfbbe-1346-54a4-81e7-7d25f7bc23df",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.53,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue kirjaston tiedote ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KIRJASTO UUDISTUU – TERVETULOA!\n\nKirjasto on uudistanut palveluitaan. Tässä tärkeimmät uudistukset:\n\nOMATOIMIKIRJASTO: Kirjasto on nyt auki omatoimisesti joka päivä klo 8–22. Omatoimiaikana kirjastoon pääsee kirjastokortilla ja PIN-koodilla. Henkilökuntaa on paikalla arkisin klo 10–18.\n\nITSEPALVELULAITTEET: Uudet itsepalvelulainauslaitteet ovat käytössä. Voit lainata ja palauttaa kirjat itse. Laitteet ohjaavat vaihe vaiheelta.\n\nVARAAJILLE: Jos hakemasi kirja on hyllyssä toisessa kirjastossa, voit tilata sen omaan kirjastoosi. Varausmaksu on 2 €. Saat tekstiviestin, kun kirja on noudettavissa.\n\nTAPAHTUMAT: Kirjastossa on jatkossa enemmän tapahtumia: lukupiirejä, satutunteja ja työpajoja. Seuraa ilmoittelua!",
+      "word_count": 83
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin kirjasto on omatoimisesti auki?",
+        "options": [
+          "klo 8–18",
+          "klo 8–22",
+          "klo 10–18",
+          "klo 10–22"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten omatoimikirjastoon pääsee?",
+        "options": [
+          "Soittamalla",
+          "Kirjastokortilla ja PIN-koodilla",
+          "Varaamalla ajan",
+          "Henkilökunnan avulla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Paljonko varausmaksu on?",
+        "options": [
+          "1 €",
+          "2 €",
+          "3 €",
+          "Ilmainen"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä uusia tapahtumia kirjastossa on?",
+        "options": [
+          "Konsertteja ja teatteria",
+          "Lukupiirejä, satutunteja ja työpajoja",
+          "Urheilutapahtumia",
+          "Elokuvanäytöksiä"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

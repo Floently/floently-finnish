@@ -1,0 +1,37 @@
+{
+  "id": "6aad4e81-a8f7-5709-99c5-215bdce15c48",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.699,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a Secretary-General position at the International Civil Aviation Organization. Tell about your experience in aviation policy, flight safety, and managing aviation's environmental impacts. Describe your vision for the ICAO's role in developing global aviation and reducing emissions. Length about 450 words.",
+    "materials": {
+      "scenario": "Hakemus ICAO:n pääsihteerin tehtävään"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write a job application. You are applying for a Secretary-General position at the International Civil Aviation Organization. Tell about your experience in aviation policy, flight safety, and managing aviation's environmental impacts. Describe your vision for the ICAO's role in developing global aviation and reducing emissions. Length about 450 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a Secretary-General position at the International Civil Aviation Organization. Tell about your experience in aviation policy, flight safety, and managing aviation's environmental impacts. Describe your vision for the ICAO's role in developing global aviation and reducing emissions. Length about 450 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "3898cf5e-8fc4-5bf5-a47e-7f6d7ad9a0a0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.521,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit ravintolassa. Kirjoita palaute ravintolalle.",
+    "materials": {
+      "scenario": "Palaute ravintolasta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kävit ravintolassa. Kirjoita palaute ravintolalle."
+      }
+    ],
+    "rubric": "Kävit ravintolassa. Kirjoita palaute ravintolalle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

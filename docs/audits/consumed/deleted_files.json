@@ -1,0 +1,26 @@
+[
+  {
+    "path": "apps/backend/app/routers/v1_roleplay_voice.py",
+    "reason": "compatibility roleplay voice alias router",
+    "replaced_by": "apps/backend/app/routers/v1_voice.py",
+    "cleanup_completed": true
+  },
+  {
+    "path": "apps/backend/app/routers/voice.py",
+    "reason": "unmounted false-authority voice router",
+    "replaced_by": "apps/backend/app/routers/v1_voice.py",
+    "cleanup_completed": true
+  },
+  {
+    "path": "apps/backend/app/services/roleplay_service.py",
+    "reason": "legacy wrapper for deleted roleplay session API family",
+    "replaced_by": "apps/backend/app/runtime/roleplay.py",
+    "cleanup_completed": true
+  },
+  {
+    "path": "docs/docs/**",
+    "reason": "duplicate docs tree and false-authority source",
+    "replaced_by": "docs/**",
+    "cleanup_completed": true
+  }
+]

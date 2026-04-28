@@ -1,0 +1,37 @@
+{
+  "id": "63078d44-c0c7-52fc-990e-3e871832b752",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.347,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet osallistunut kaupungin järjestämään tapahtumaan, kuten konserttiin tai markkinoille. Kirjoita palaute. Arvioi tapahtuman tunnelmaa, järjestelyjä ja sitä, sopiko tapahtuma kaikenikäisille.",
+    "materials": {
+      "scenario": "Palaute kaupungin tapahtumasta"
+    },
+    "items": [
+      {
+        "id": "3760a075-5129-5b04-bded-d6a6dc7f07e1",
+        "prompt": "Olet osallistunut kaupungin järjestämään tapahtumaan, kuten konserttiin tai markkinoille. Kirjoita palaute. Arvioi tapahtuman tunnelmaa, järjestelyjä ja sitä, sopiko tapahtuma kaikenikäisille."
+      }
+    ],
+    "rubric": "Tunnelma\nJärjestelyt (opasteet, wc:t, jne.)\nSopivuus eri ikäisille",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

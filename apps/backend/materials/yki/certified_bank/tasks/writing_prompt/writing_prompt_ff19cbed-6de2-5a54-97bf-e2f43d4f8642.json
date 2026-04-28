@@ -1,0 +1,37 @@
+{
+  "id": "ff19cbed-6de2-5a54-97bf-e2f43d4f8642",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti matkatoimistoon. Olet varannut lomamatkan, mutta haluaisit muuttaa paluupäivää myöhemmäksi. Kerro varausnumerosi ja toivottu uusi paluupäivä. Kysy myös, tuleeko muutoksesta lisäkustannuksia.",
+    "materials": {
+      "scenario": "Matkan paluupäivän muutos"
+    },
+    "items": [
+      {
+        "id": "8f20b421-78a6-561e-b2bf-e193dd4abc0f",
+        "prompt": "Kirjoita sähköposti matkatoimistoon. Olet varannut lomamatkan, mutta haluaisit muuttaa paluupäivää myöhemmäksi. Kerro varausnumerosi ja toivottu uusi paluupäivä. Kysy myös, tuleeko muutoksesta lisäkustannuksia."
+      }
+    ],
+    "rubric": "Varausnumero\nUusi paluupäivä\nKysymys kustannuksista",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

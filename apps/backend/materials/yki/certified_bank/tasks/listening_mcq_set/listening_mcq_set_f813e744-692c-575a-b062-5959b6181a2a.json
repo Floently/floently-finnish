@@ -1,0 +1,88 @@
+{
+  "id": "f813e744-692c-575a-b062-5959b6181a2a",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.314,
+  "language": "fi",
+  "source": {
+    "origin": "imported",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Hei! Mä olen ihan hukassa. Oon tossa ison tien varrella, enkä tiedä missä bussipysäkki on. Voitko sä katsoa kartasta ja neuvoa mua?",
+      "audio_asset_id": "3decf43d-97d8-5573-8acf-8cd983c3f36a"
+    },
+    "questions": [
+      {
+        "id": "29df9ddb-8d60-54d6-8282-e1d5cac4b8f6",
+        "prompt": "Mikä on puhujan ongelma?",
+        "options": [
+          "Häneltä loppuu puhelimen akku.",
+          "Hänellä ei ole rahaa bussilippuun.",
+          "Hän on hukassa eikä löydä bussipysäkkiä.",
+          "Bussi on myöhässä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "9905df8d-c680-5580-8ce9-02b8ad9de0c5",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Ison tien varrella.",
+          "Kaupungin keskustassa.",
+          "Bussipysäkillä.",
+          "Puistossa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "9173b858-9340-5bfe-a951-01db8b89d76f",
+        "prompt": "Mitä puhuja pyytää toista tekemään?",
+        "options": [
+          "Katsomaan kartasta ja neuvomaan.",
+          "Tulemaan hakemaan hänet.",
+          "Soittamaan bussifirmaan.",
+          "Odottamaan häntä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "f4849fef-13a0-5f58-9db0-c4633d8d5b9f",
+        "prompt": "Miksi puhuja tarvitsee apua?",
+        "options": [
+          "Hän ei osaa lukea karttaa.",
+          "Hänellä on kiire.",
+          "Hän on pimeässä.",
+          "Hän ei tiedä missä on."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "7a63348f-9296-571a-aa9c-5bc823704226",
+        "prompt": "Mitä puhuja todennäköisesti etsii?",
+        "options": [
+          "Kauppaa.",
+          "Kotiaan.",
+          "Bussipysäkkiä.",
+          "Hotellia."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

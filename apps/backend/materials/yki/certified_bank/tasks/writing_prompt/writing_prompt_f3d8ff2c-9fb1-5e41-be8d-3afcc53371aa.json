@@ -1,0 +1,37 @@
+{
+  "id": "f3d8ff2c-9fb1-5e41-be8d-3afcc53371aa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti kuntosalille. Haluat tietää, onko heillä seniorialennusta. Kerro, että olet 68-vuotias. Kysy, paljonko jäsenyys maksaa ja voiko maksaa kuukausittain. Kysy myös aukioloajoista.",
+    "materials": {
+      "scenario": "Viesti kuntosalille seniorialennuksesta"
+    },
+    "items": [
+      {
+        "id": "e63d1348-b06c-550f-b067-e712be7b9f9c",
+        "prompt": "Kirjoita lyhyt viesti kuntosalille. Haluat tietää, onko heillä seniorialennusta. Kerro, että olet 68-vuotias. Kysy, paljonko jäsenyys maksaa ja voiko maksaa kuukausittain. Kysy myös aukioloajoista."
+      }
+    ],
+    "rubric": "Kysy seniorialennusta\nKerro ikäsi\nKysy hintaa\nKysy maksutavoista\nKysy aukioloajoista",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

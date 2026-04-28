@@ -1,0 +1,73 @@
+{
+  "id": "fac5ba42-59bd-5f8a-a815-9be5ef60558d",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.52,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työpaikan ilmoitus kesälomista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "TIEDOTE: KESÄLOMAT 2026\n\nHyvät työntekijät,\n\nkesälomien suunnittelu on ajankohtaista. Tässä ohjeet ja tärkeät päivämäärät.\n\nLomien suunnittelu:\n- Lomatoiveet pitää ilmoittaa esihenkilölle 15.4.2026 mennessä.\n- Lomien hyväksymisestä ilmoitetaan 30.4.2026 mennessä.\n- Kesälomia voi pitää 1.6.–31.8.2026 välisenä aikana.\n- Yhtäjaksoista kesälomaa on oltava vähintään kaksi viikkoa.\n\nLomien jakautuminen:\n- Toivomme, että lomat jakautuvat tasaisesti koko kesälle, jotta toiminta sujuu.\n- Heinäkuu on vilkkain lomakuukausi, joten silloin lomia voi olla vain osalla henkilöstöstä.\n- Jos mahdollista, suosittelemme lomia myös kesäkuussa ja elokuussa.\n\nLomarahat:\n- Lomarahat maksetaan heinäkuun palkan yhteydessä.\n- Lomarahat voi halutessaan vaihtaa vapaaksi. Ilmoitus tehdään HR-järjestelmässä 15.5.2026 mennessä.\n\nSairastuminen lomalla:\n- Jos sairastut lomalla, voit siirtää loman myöhemmäksi. Toimita lääkärintodistus HR:lle.\n\nLisätietoja: HR-järjestelmästä tai henkilöstösihteeriltä.\n\nHyvää kevättä!",
+      "word_count": 116
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mihin mennessä lomatoiveet pitää ilmoittaa?",
+        "options": [
+          "15.4.2026",
+          "30.4.2026",
+          "15.5.2026"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_002",
+        "prompt": "Milloin kesälomia voi pitää?",
+        "options": [
+          "1.5.–31.7.",
+          "1.6.–31.8.",
+          "1.6.–30.8."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mikä on vilkkain lomakuukausi?",
+        "options": [
+          "kesäkuu",
+          "heinäkuu",
+          "elokuu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä voi tehdä lomarahoille?",
+        "options": [
+          "ne maksetaan rahana tai voi vaihtaa vapaaksi",
+          "ne menetetään",
+          "ne maksetaan vain rahana"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

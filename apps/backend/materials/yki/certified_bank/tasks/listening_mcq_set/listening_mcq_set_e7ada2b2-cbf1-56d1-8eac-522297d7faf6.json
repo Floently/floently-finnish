@@ -1,0 +1,66 @@
+{
+  "id": "e7ada2b2-cbf1-56d1-8eac-522297d7faf6",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu kaupassa ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Myyjä: Hei, löytyikö kaikki mitä hait?\nAsiakas: Melkein. En löydä ruokakermaa.\nMyyjä: Se on maitotuoteosastolla, hyllyllä neljä.\nAsiakas: Kiitos! Ja onko teillä kassillista?\nMyyjä: Kyllä, niitä on kassojen vieressä.",
+      "audio_asset_id": "50eb9b90-8d78-5301-9b21-fffe0bd3e9d6"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_007_q1",
+        "prompt": "Mitä asiakas etsii?",
+        "options": [
+          "maitoa",
+          "ruokakermaa",
+          "jogurttia",
+          "juustoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_007_q2",
+        "prompt": "Missä se on?",
+        "options": [
+          "vihannesosastolla",
+          "maitotuoteosastolla, hyllyllä neljä",
+          "leipäosastolla",
+          "lihaosastolla"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_007_q3",
+        "prompt": "Mitä asiakas kysyy vielä?",
+        "options": [
+          "onko kassillista",
+          "paljonko maksaa",
+          "onko tarjouksia",
+          "voiko maksaa kortilla"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

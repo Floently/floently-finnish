@@ -1,0 +1,88 @@
+{
+  "id": "89c62026-2372-56e5-82b2-81bf28a56d06",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele tiedote uudesta verkkopankkiominaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Pankki X on ottanut käyttöön uuden tunnistautumistavan verkkopankkiin. Perinteisen pankkitunnuslukijan lisäksi asiakkaat voivat nyt käyttää biometristä tunnistautumista, kuten sormenjälkeä tai kasvojentunnistusta, jos heillä on uudempi puhelin. Uusi tapa on käytössä sekä verkkopankin kirjautumisessa että maksujen vahvistamisessa. Pankki suosittelee päivittämään pankkisovelluksen uusimpaan versioon, jotta ominaisuus toimii. Lisäksi asiakkaiden on vahvistettava uusi tunnistautumistapa käymällä pankin konttorissa tai vahvalla tunnistautumisella verkkopankissa. Tavoitteena on lisätä turvallisuutta ja nopeuttaa asiointia. Uudistus on asiakkaille vapaaehtoinen, ja perinteinen tunnistautuminen pysyy edelleen käytössä.",
+      "audio_asset_id": "5a277ab6-0074-44b5-8a84-053c60fbe186"
+    },
+    "questions": [
+      {
+        "id": "ec28f47f-1f07-5921-bf31-6f8a52f6b3eb",
+        "prompt": "Mikä uusi tunnistautumistapa on otettu käyttöön?",
+        "options": [
+          "Salasana ja käyttäjätunnus.",
+          "Uusi tunnuslukulaite.",
+          "Biometrinen tunnistautuminen, kuten sormenjälki tai kasvojentunnistus.",
+          "Tekstiviestillä lähetettävä koodi."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "053b9e00-3664-5e92-9ef0-66ba38e24c95",
+        "prompt": "Mitä pankki suosittelee asiakkaille ennen uuden ominaisuuden käyttöä?",
+        "options": [
+          "Päivittämään pankkisovelluksen uusimpaan versioon.",
+          "Ostamaan uuden puhelimen.",
+          "Soittamaan asiakaspalveluun.",
+          "Tilaamaan uudet tunnukset."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "c46fe713-65ef-58c3-ae37-e8dfd8a59af7",
+        "prompt": "Miten asiakkaat voivat vahvistaa uuden tunnistautumistavan?",
+        "options": [
+          "Vain käymällä pankin konttorissa.",
+          "Lähettämällä sähköpostia pankkiin.",
+          "Käymällä konttorissa tai vahvalla tunnistautumisella verkkopankissa.",
+          "Vastaamalla tekstiviestiin."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "af59b4a9-3903-5283-a7a7-1b05e82ec31e",
+        "prompt": "Mikä on uudistuksen tavoite?",
+        "options": [
+          "Korvata kaikki vanhat tunnistautumistavat.",
+          "Säästää pankin kustannuksissa.",
+          "Lisätä turvallisuutta ja nopeuttaa asiointia.",
+          "Vaikeuttaa verkkopankin käyttöä."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "af6ab034-a137-5977-8eab-169e5cd5bd26",
+        "prompt": "Onko uusi tunnistautumistapa pakollinen?",
+        "options": [
+          "Kyllä, kaikkien on otettava se käyttöön.",
+          "Vain uusille asiakkaille.",
+          "Vain yritysasiakkaille.",
+          "Ei, se on vapaaehtoinen."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

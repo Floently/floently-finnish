@@ -1,0 +1,66 @@
+{
+  "id": "e2034651-479c-5659-9dc6-d1e7f531a780",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.33,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele opettajan ohjeet ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Huomenta kaikki. Tänään meillä on koe kappaleista 5 ja 6. Koe alkaa kello 10 ja kestää 45 minuuttia. Muistakaa kirjoittaa nimenne paperiin. Kokeen jälkeen meillä on ruokatunti. Sitten iltapäivällä katsomme yhdessä elokuvan. Se on ranskalainen elokuva, ja siinä on suomenkielinen tekstitys. Hyvää koeonnea!",
+      "audio_asset_id": "439fe6cd-a2c2-55fd-bcfe-2718fae7395d"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä tänään on ensimmäisenä?",
+        "options": [
+          "elokuva",
+          "ruokatunti",
+          "koe",
+          "keskustelu"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuinka kauan koe kestää?",
+        "options": [
+          "30 min",
+          "45 min",
+          "60 min",
+          "90 min"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen elokuva on kyseessä?",
+        "options": [
+          "suomalainen",
+          "ranskalainen",
+          "amerikkalainen",
+          "ruotsalainen"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

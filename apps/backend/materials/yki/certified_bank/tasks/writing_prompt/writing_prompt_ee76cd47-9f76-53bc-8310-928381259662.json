@@ -1,0 +1,37 @@
+{
+  "id": "ee76cd47-9f76-53bc-8310-928381259662",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti oikeusaputoimistoon. Tarvitset oikeudellista apua riita-asiassa, joka koskee naapurin kanssa tehtyä sopimusta. Kerro, mistä sopimuksesta on kyse, mikä riita on syntynyt ja miten olet yrittänyt ratkaista asian. Kysy, voitko saada oikeusapua ja mitä asiakirjoja tarvitaan hakemukseen.",
+    "materials": {
+      "scenario": "Oikeusapu naapurin kanssa tehdyssä sopimusriidassa"
+    },
+    "items": [
+      {
+        "id": "4d2988ca-68a4-510e-9ef8-178265b9d6d8",
+        "prompt": "Kirjoita virallinen sähköposti oikeusaputoimistoon. Tarvitset oikeudellista apua riita-asiassa, joka koskee naapurin kanssa tehtyä sopimusta. Kerro, mistä sopimuksesta on kyse, mikä riita on syntynyt ja miten olet yrittänyt ratkaista asian. Kysy, voitko saada oikeusapua ja mitä asiakirjoja tarvitaan hakemukseen."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "7ffea868-2293-523d-8215-02f27c96959c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tilannut uudet verhot verkkokaupasta. Kirjoita palaute myyjälle.",
+    "materials": {
+      "scenario": "Palaute verho-ostoksesta"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet tilannut uudet verhot verkkokaupasta. Kirjoita palaute myyjälle."
+      }
+    ],
+    "rubric": "Olet tilannut uudet verhot verkkokaupasta. Kirjoita palaute myyjälle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

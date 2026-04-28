@@ -1,0 +1,99 @@
+{
+  "id": "10318f57-8366-5b63-b903-32a7dc39e7ee",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.561,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Asumisen hinta on noussut suurissa kaupungeissa, mikä on saanut nuoret aikuiset miettimään asumisratkaisujaan. Yhä useampi asuu kimppakämpässä tai harkitsee muuttoa kehyskuntiin, joissa asuminen on edullisempaa. Kaupunkien keskustoihin halutaan kuitenkin palveluiden ja työpaikkojen takia. Ratkaisuksi on ehdotettu lisää kohtuuhintaisia vuokra-asuntoja ja erilaisia asumismuotoja, kuten kämppiksiä aikuisille tai yhteisöllistä asumista.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on noussut suurissa kaupungeissa?",
+        "options": [
+          "Työttömyys",
+          "Asumisen hinta",
+          "Koulujen määrä",
+          "Ilmanlaatu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Keihin hintojen nousu on erityisesti vaikuttanut?",
+        "options": [
+          "Eläkeläisiin",
+          "Lapsiperheisiin",
+          "Nuoriin aikuisiin",
+          "Yrittäjiin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten nuoret aikuiset ovat reagoineet hintojen nousuun?",
+        "options": [
+          "He muuttavat pois Suomesta",
+          "He asuvat kimppakämpässä tai harkitsevat muuttoa kehyskuntiin",
+          "He ostavat omia asuntoja",
+          "He eivät tee mitään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi kaupunkien keskustoihin halutaan jäädä?",
+        "options": [
+          "Edullisemman asumisen takia",
+          "Palveluiden ja työpaikkojen takia",
+          "Parempien koulujen takia",
+          "Puistojen takia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ratkaisuksi on ehdotettu?",
+        "options": [
+          "Lisää omistusasuntoja",
+          "Lisää kohtuuhintaisia vuokra-asuntoja ja uusia asumismuotoja",
+          "Kieltoa muuttaa kaupunkeihin",
+          "Korkeampia palkkoja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä esimerkki uudesta asumismuodosta mainitaan?",
+        "options": [
+          "Asuntolat",
+          "Kämpnikset aikuisille tai yhteisöllinen asuminen",
+          "Hotellit",
+          "Vain omakotitalot"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "44fa317e-4eb2-57d6-9675-a009320f0e66",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt uimahallissa usein. Kirjoita palaute. Kerro, mistä pidät ja mikä on huonoa. Esimerkiksi aukioloajat, hinta tai siisteys.",
+    "materials": {
+      "scenario": "Palaute uimahallista"
+    },
+    "items": [
+      {
+        "id": "30eb1011-3c18-580e-97a8-7ceb392c482e",
+        "prompt": "Olet käynyt uimahallissa usein. Kirjoita palaute. Kerro, mistä pidät ja mikä on huonoa. Esimerkiksi aukioloajat, hinta tai siisteys."
+      }
+    ],
+    "rubric": "Olet käynyt uimahallissa usein. Kirjoita palaute. Kerro, mistä pidät ja mikä on huonoa. Esimerkiksi aukioloajat, hinta tai siisteys.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

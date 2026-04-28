@@ -1,0 +1,37 @@
+{
+  "id": "4fbb9ed9-2dbc-5b08-8674-b27c25715dc1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.337,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että muutat pois kahden kuukauden päästä. Kerro uusi osoitteesi (voit keksiä). Kysy, miten saat takuuvuokran takaisin ja milloin se maksetaan. Kysy myös, tarvitseeko tehdä jotain muuta ennen muuttoa.",
+    "materials": {
+      "scenario": "Viesti vuokranantajalle muutosta"
+    },
+    "items": [
+      {
+        "id": "85bbe801-98f1-557d-a2d7-81f4107ecfe4",
+        "prompt": "Kirjoita lyhyt viesti vuokranantajalle. Kerro, että muutat pois kahden kuukauden päästä. Kerro uusi osoitteesi (voit keksiä). Kysy, miten saat takuuvuokran takaisin ja milloin se maksetaan. Kysy myös, tarvitseeko tehdä jotain muuta ennen muuttoa."
+      }
+    ],
+    "rubric": "Kerro, että muutat pois\nKerro uusi osoite\nKysy takuuvuokran palautuksesta\nKysy muista toimista ennen muuttoa",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

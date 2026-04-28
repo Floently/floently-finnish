@@ -1,0 +1,37 @@
+{
+  "id": "54bd95f6-22b7-56cf-ac93-4716c193a2f9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.528,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan etätyöohjeista. Kerro ohjeiden selkeydestä, kattavuudesta ja ajantasaisuudesta. Ehdota yhtä uutta ohjeistusta.",
+    "materials": {
+      "scenario": "Palaute työpaikan etätyöohjeista"
+    },
+    "items": [
+      {
+        "id": "2078f2ad-3cc5-53a5-a596-2792936a6929",
+        "prompt": "Kirjoita palauteteksti työpaikan etätyöohjeista. Kerro ohjeiden selkeydestä, kattavuudesta ja ajantasaisuudesta. Ehdota yhtä uutta ohjeistusta."
+      }
+    ],
+    "rubric": "Ohjeiden selkeys\nKattavuus\nAjantasaisuus\nUusi ohjeistus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

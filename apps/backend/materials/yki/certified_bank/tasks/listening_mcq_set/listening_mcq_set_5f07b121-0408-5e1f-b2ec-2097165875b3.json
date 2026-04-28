@@ -1,0 +1,88 @@
+{
+  "id": "5f07b121-0408-5e1f-b2ec-2097165875b3",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.696,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu työpaikan etätyökäytännöistä ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Henkilö A: Miten teillä on järjestetty etätyö? Henkilö B: Meillä saa olla etänä kaksi päivää viikossa. Maanantaisin ja perjantaisin ollaan toimistolla, jotta on yhteisiä päiviä. Henkilö A: Kuulostaa hyvältä. Meillä ei ole mitään virallista käytäntöä. Jokainen sopii esihenkilön kanssa. Se on vähän epäselvää. Henkilö B: Toimiiko se teillä? Henkilö A: Vaihtelevasti. Jotkut ovat melkein aina etänä, ja sitten tiimihenki kärsii. Uudet työntekijät on vaikea saada mukaan. Henkilö B: Ymmärrän. Meillä on kerran viikossa pakollinen tiimipalaveri toimistolla, ja se auttaa. Henkilö A: Se on varmaan hyvä käytäntö. Pitää ehdottaa meidän tiimille.",
+      "audio_asset_id": "8236e58a-f5a5-4ff5-80f1-1375230a0793"
+    },
+    "questions": [
+      {
+        "id": "l76q1",
+        "prompt": "Montako päivää viikossa henkilö B saa olla etänä?",
+        "options": [
+          "Yksi päivä.",
+          "Kolme päivää.",
+          "Neljä päivää.",
+          "Kaksi päivää."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l76q2",
+        "prompt": "Mitkä päivät henkilön B työpaikalla ollaan toimistolla?",
+        "options": [
+          "Maanantait ja perjantait.",
+          "Tiistait ja torstait.",
+          "Keskiviikot ja torstait.",
+          "Vain maanantait."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "l76q3",
+        "prompt": "Miten etätyö on järjestetty henkilön A työpaikalla?",
+        "options": [
+          "Kaikki ovat aina etänä.",
+          "On tarkka virallinen käytäntö.",
+          "Etätyö on kielletty.",
+          "Ei ole virallista käytäntöä, jokainen sopii itse."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l76q4",
+        "prompt": "Mikä ongelma henkilön A mukaan etätyökäytännössä on?",
+        "options": [
+          "Ihmiset tekevät liian vähän töitä.",
+          "Tekniikka ei toimi.",
+          "Esihenkilöt eivät osaa johtaa etänä.",
+          "Tiimihenki kärsii ja uudet työntekijät on vaikea saada mukaan."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "l76q5",
+        "prompt": "Mikä käytäntö henkilön B työpaikalla auttaa tiimihengen ylläpitämisessä?",
+        "options": [
+          "Päivittäiset aamupalaverit.",
+          "Yhteiset lounaat.",
+          "Tiimipäivät kerran kuussa.",
+          "Kerran viikossa pakollinen tiimipalaveri toimistolla."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

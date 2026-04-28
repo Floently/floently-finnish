@@ -1,0 +1,37 @@
+{
+  "id": "31b559d3-00bc-5171-bb17-40d7f11bc6dd",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Sait sähköyhtiöltä laskun, joka on mielestäsi virheellinen. Laskussa on liian korkea summa, eikä se vastaa omaa kulutustasi. Kirjoita valitus sähköyhtiön asiakaspalveluun. Kerro, mikä laskussa on väärin, liitä mukaan oma arviosi kulutuksesta ja vaadi laskun oikaisua.",
+    "materials": {
+      "scenario": "Sait sähköyhtiöltä laskun, joka on mielestäsi virheellinen. Laskussa on liian korkea summa, eikä se vastaa omaa kulutustasi. Kirjoita valitus sähköyhtiön asiakaspalveluun. Kerro, mikä laskussa on väärin, liitä mukaan oma arviosi kulutuksesta ja vaadi laskun oikaisua."
+    },
+    "items": [
+      {
+        "id": "d1b23725-5496-5734-835e-9a3ae7b0ad1e",
+        "prompt": "Kirjoita noin 150–200 sanaa. Liitä mukaan asiakasnumerosi ja laskun tiedot."
+      }
+    ],
+    "rubric": "Kirjoita noin 150–200 sanaa. Liitä mukaan asiakasnumerosi ja laskun tiedot.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

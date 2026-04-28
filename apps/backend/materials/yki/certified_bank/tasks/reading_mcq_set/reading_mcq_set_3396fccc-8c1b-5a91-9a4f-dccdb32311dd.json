@@ -1,0 +1,77 @@
+{
+  "id": "3396fccc-8c1b-5a91-9a4f-dccdb32311dd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.332,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Puhelimeni meni rikki maanantaina. Näyttö oli särkynyt, eikä puhelin toiminut kunnolla. Menin torstaina puhelinliikkeeseen. Myyjä sanoi, että korjaus maksaa 120 euroa ja kestää noin viikon. Päätin korjauttaa puhelimen, koska se on melko uusi. Sain lainapuhelimen korjauksen ajaksi. Nyt puhelin on taas toimintakunnossa ja olen tyytyväinen. Seuraavalla kerralla ostan ehkä suojakuoren, ettei näyttö hajoa niin helposti.",
+      "word_count": 55
+    },
+    "questions": [
+      {
+        "id": "6f0c23f2-0650-55f4-8111-3fa733030e73",
+        "prompt": "Minä päivänä puhelin meni rikki?",
+        "options": [
+          "Maanantaina",
+          "Tiistaina",
+          "Keskiviikkona",
+          "Torstaina"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "f2d33ff5-c21f-54cb-83e1-d46246178ffe",
+        "prompt": "Mikä puhelimessa oli rikki?",
+        "options": [
+          "Akku",
+          "Näyttö",
+          "Kamera",
+          "Kaiutin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "c8950585-f81c-54eb-93f0-821d938d7539",
+        "prompt": "Paljonko korjaus maksoi?",
+        "options": [
+          "80 euroa",
+          "100 euroa",
+          "120 euroa",
+          "140 euroa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "0c08d232-2772-5ad7-98ba-6f75501ac79d",
+        "prompt": "Mitä henkilö aikoo ostaa seuraavalla kerralla?",
+        "options": [
+          "Uuden puhelimen",
+          "Suojakuoren",
+          "Näytönsuojan",
+          "Varalaturin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

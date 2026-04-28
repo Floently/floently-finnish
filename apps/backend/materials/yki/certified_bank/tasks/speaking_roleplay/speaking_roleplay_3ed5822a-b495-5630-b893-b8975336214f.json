@@ -1,0 +1,64 @@
+{
+  "id": "3ed5822a-b495-5630-b893-b8975336214f",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa muuttaa sähkösopimusta. Keskustele sähköyhtiön asiakaspalvelijan kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Sähköyhtiön asiakaspalvelija"
+      }
+    },
+    "items": [
+      {
+        "id": "srp48_1",
+        "ai_first_turn_fi": "Hei, Sähköyhtiö Virta."
+      },
+      {
+        "id": "srp48_2",
+        "ai_first_turn_fi": "Totta kai. Mikä on asiakasnumerosi?"
+      },
+      {
+        "id": "srp48_3",
+        "ai_first_turn_fi": "Kiitos. Nykyinen sopimuksesi on määräaikainen ja se päättyy kahden kuukauden päästä. Haluaisitko jo nyt tehdä uuden sopimuksen?"
+      },
+      {
+        "id": "srp48_4",
+        "ai_first_turn_fi": "Meillä on nyt tarjous: pörssisähkö tai kiinteä hintainen 12 kk sopimus. Pörssisähkö voi olla halvempaa, mutta hinta vaihtelee. Kumman haluat?"
+      },
+      {
+        "id": "srp48_5",
+        "ai_first_turn_fi": "Kiinteä hinta on tällä hetkellä 8,5 senttiä kilowattitunnilta. Haluatko tämän?"
+      },
+      {
+        "id": "srp48_6",
+        "ai_first_turn_fi": "Selvä. Uusi sopimus on voimassa, kun nykyinen päättyy. Saat vahvistuksen sähköpostitse. Tarvitsetko muuta?"
+      },
+      {
+        "id": "srp48_7",
+        "ai_first_turn_fi": "Hyvä. Kiitos soitosta ja hyvää päivänjatkoa!"
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa muuttaa sähkösopimusta. Keskustele sähköyhtiön asiakaspalvelijan kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

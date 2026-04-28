@@ -1,0 +1,77 @@
+{
+  "id": "98833043-4970-51cd-882a-ece0c5e612e4",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.769,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Työelämän murros on viime vuosina ollut yksi keskeisimmistä yhteiskunnallisista keskustelunaiheista. Digitalisaatio, automaatio ja tekoäly muuttavat työn sisältöjä ja rakenteita vauhdilla, mutta samalla myös työn tekemisen tavat ovat monipuolistuneet. Etätyö, joustavat työajat ja alustatalous ovat tulleet jäädäkseen. Tämä kehitys on kuitenkin kaksiteräinen miekka: samalla kun se tarjoaa uusia vapauksia ja mahdollisuuksia, se myös hämärtää perinteisiä rakenteita ja synnyttää uudenlaisia epävarmuuksia. Yksilön näkökulmasta joustavuus voi tarkoittaa parempaa työn ja muun elämän yhteensovittamista, mutta myös työajan venymistä ja vaikeutta irrottautua työstä. Työnantajan näkökulmasta etätyö voi lisätä tuottavuutta ja työntekijöiden tyytyväisyyttä, mutta samalla se voi heikentää yhteisöllisyyttä ja tiedonkulkua. Alustatalous puolestaan tarjoaa matalan kynnyksen mahdollisuuksia lisäansioihin, mutta tyypillisesti ilman perinteisen työsuhteen tuomia turvaverkkoja, kuten työterveyshuoltoa, lomakertymiä ja irtisanomissuojaa. Tämä asettaa uudenlaisia paineita sosiaaliturvajärjestelmälle, joka on rakennettu pitkälti vakituisen kokopäivätyön varaan. Tutkijat ovatkin esittäneet, että tarvitaan uudenlaisia sosiaaliturvan malleja, jotka tunnistavat työurien pirstaloitumisen ja yhdistelmätyön yleistymisen. Puhutaan esimerkiksi niin sanotusta hybriditurvasta, joka yhdistäisi eri lähteistä tulevia etuuksia joustavasti. Keskeinen kysymys on, miten turvataan toimeentulo ja sosiaalinen osallisuus maailmassa, jossa perinteinen palkkatyö ei enää ole itsestäänselvyys. Vastaus ei ole yksinkertainen, ja se edellyttää paitsi järjestelmien uudistamista myös laajempaa yhteiskunnallista arvokeskustelua siitä, millaista työelämää ja yhteiskuntaa haluamme rakentaa.",
+      "word_count": 191
+    },
+    "questions": [
+      {
+        "id": "eaaae6c4-cf4d-5634-91fd-9008aee6f626",
+        "prompt": "Mitä tekstissä tarkoitetaan työelämän murroksen olevan 'kaksiteräinen miekka'?",
+        "options": [
+          "Se vaikuttaa vain kielteisesti työntekijöihin",
+          "Sillä on sekä myönteisiä että kielteisiä puolia eri osapuolille",
+          "Se on väistämätön ja sitä on mahdoton hallita",
+          "Se hyödyttää vain työnantajia ja haittaa työntekijöitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "24afc549-7f20-5840-8e9b-544f34be538f",
+        "prompt": "Tekstin mukaan mikä on keskeinen ongelma alustataloudessa?",
+        "options": [
+          "Työtä on liian vähän tarjolla",
+          "Työ on liian yksitoikkoista",
+          "Työstä puuttuvat perinteisen työsuhteen turvaverkot",
+          "Työnantajat eivät luota työntekijöihin"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "26f44ae8-1970-5c82-a315-7ce0f0a3ce60",
+        "prompt": "Mitä tarkoitetaan 'hybriditurvalla' tekstin yhteydessä?",
+        "options": [
+          "Uutta sosiaaliturvan mallia, joka yhdistää eri etuuksia joustavasti",
+          "Työnantajan tarjoamaa vapaaehtoista vakuutusta",
+          "Valtion ja kuntien yhteistä työllisyyspalvelua",
+          "Ammattiliittojen neuvottelemaa työttömyyskassaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "e0d9757b-f05e-5666-aafa-618f708f4da4",
+        "prompt": "Mikä seuraavista ei ole tekstissä mainittu työelämän murrokseen liittyvä ilmiö?",
+        "options": [
+          "Etätyön yleistyminen",
+          "Työurien pirstaloituminen",
+          "Perinteisen palkkatyön aseman vahvistuminen",
+          "Alustatalouden kasvu"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

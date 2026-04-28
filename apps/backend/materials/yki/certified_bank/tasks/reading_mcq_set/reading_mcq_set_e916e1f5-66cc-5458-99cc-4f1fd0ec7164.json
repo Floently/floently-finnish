@@ -1,0 +1,77 @@
+{
+  "id": "e916e1f5-66cc-5458-99cc-4f1fd0ec7164",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.557,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "TYÖHYVINVOINTI PARANTUNUT – MUTTA HAASTEITA ON\n\nTyöterveyslaitoksen tuore tutkimus osoittaa, että suomalaisten työhyvinvointi on parantunut viime vuosina. Erityisesti etätyön lisääntyminen on vähentänyt työmatkastressiä ja lisännyt joustavuutta. Työntekijät kokevat voivansa vaikuttaa paremmin omaan työaikaansa.\n\nTutkimuksen mukaan 73 prosenttia työntekijöistä kokee työnsä mielekkääksi. Luku on noussut viisi prosenttiyksikköä edellisestä mittauksesta. Myös työpaikan ilmapiiriin ollaan aiempaa tyytyväisempiä.\n\nKuitenkin haasteitakin löytyy. Joka neljäs työntekijä kokee työuupumuksen oireita. Erityisen yleistä tämä on nuorilla naisilla ja sosiaali- ja terveysalalla. Kiire ja aikapaine ovat edelleen yleisiä, vaikka tilanne on hieman helpottanut.\n\nEsimiestyöllä on suuri merkitys. Työpaikoilla, joissa esimiehet tukevat ja kannustavat, työhyvinvointi on selvästi parempi. Myös työyhteisön tuki ja avoin keskustelukulttuuri vähentävät uupumusriskiä.\n\nTyöterveyslaitos suosittelee, että työpaikoilla panostetaan esimiestyöhön ja työyhteisön toimivuuteen. Myös työn kuormitustekijöitä tulisi arvioida säännöllisesti ja puuttua ongelmiin ajoissa.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 153
+    },
+    "questions": [
+      {
+        "id": "b91cfa07-5f92-502d-b6ff-9670ba0eb162",
+        "prompt": "Kuinka moni kokee työnsä mielekkääksi?",
+        "options": [
+          "63 %",
+          "68 %",
+          "73 %",
+          "78 %"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "805046d3-3cc2-5019-b9b5-bb1778a65abe",
+        "prompt": "Mikä on parantunut viime vuosina?",
+        "options": [
+          "Palkkaus",
+          "Työmatkastressin väheneminen",
+          "Työpaikkojen määrä",
+          "Loma-ajat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "0687910f-f50c-573e-94d5-ac62c5aa6954",
+        "prompt": "Missä ryhmässä työuupumus on yleisintä?",
+        "options": [
+          "Vanhemmat miehet",
+          "Nuoret naiset sosiaali- ja terveysalalla",
+          "Toimihenkilöt",
+          "Yrittäjät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7466d62f-b7a1-5d12-9e1a-2c557a67d321",
+        "prompt": "Mikä vähentää uupumusriskiä?",
+        "options": [
+          "Palkan korotus",
+          "Esimiesten tuki ja työyhteisön avoimuus",
+          "Pidemmät työpäivät",
+          "Enemmän vastuuta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

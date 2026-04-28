@@ -1,0 +1,37 @@
+{
+  "id": "70484677-f34e-51c5-9a7d-544774b8957b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti eduskunnan oikeusasiamiehelle. Olet saanut viranomaiselta päätöksen, joka on mielestäsi lainvastainen ja loukkaa perusoikeuksiasi. Kerro, mikä päätös on, miksi se on mielestäsi virheellinen ja miten se on vaikuttanut elämääsi. Pyydä, että oikeusasiamies tutkii asian.",
+    "materials": {
+      "scenario": "Kantelu viranomaisen lainvastaisesta päätöksestä"
+    },
+    "items": [
+      {
+        "id": "c07133c3-25dd-536d-b9f6-233e3c141903",
+        "prompt": "Kirjoita virallinen sähköposti eduskunnan oikeusasiamiehelle. Olet saanut viranomaiselta päätöksen, joka on mielestäsi lainvastainen ja loukkaa perusoikeuksiasi. Kerro, mikä päätös on, miksi se on mielestäsi virheellinen ja miten se on vaikuttanut elämääsi. Pyydä, että oikeusasiamies tutkii asian."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

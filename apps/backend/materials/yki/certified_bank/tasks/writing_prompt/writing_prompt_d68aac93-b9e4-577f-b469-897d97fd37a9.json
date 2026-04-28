@@ -1,0 +1,37 @@
+{
+  "id": "d68aac93-b9e4-577f-b469-897d97fd37a9",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt uutta kaupungin kierrätyspistettä. Kirjoita palaute. Onko lajittelu selkeää? Onko piste siisti?",
+    "materials": {
+      "scenario": "Palaute uudesta kierrätyspisteestä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt uutta kaupungin kierrätyspistettä. Kirjoita palaute. Onko lajittelu selkeää? Onko piste siisti?"
+      }
+    ],
+    "rubric": "Olet käyttänyt uutta kaupungin kierrätyspistettä. Kirjoita palaute. Onko lajittelu selkeää? Onko piste siisti?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

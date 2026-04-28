@@ -1,0 +1,37 @@
+{
+  "id": "96a40c97-39e4-5eb5-83b6-9830000f98a1",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kansalaisopistoon.",
+    "materials": {
+      "scenario": "Ehdota uutta kurssia"
+    },
+    "items": [
+      {
+        "id": "33386f31-39d0-520b-ab65-1a592a0d1f36",
+        "prompt": "Sinulla on idea kurssista, jota kansalaisopisto voisi järjestää. Kirjoita sähköposti ja kerro ideasi. Kerro, mitä kurssilla opetettaisiin, kenelle se olisi suunnattu ja miksi uskot, että sille olisi kysyntää."
+      }
+    ],
+    "rubric": "Sinulla on idea kurssista, jota kansalaisopisto voisi järjestää. Kirjoita sähköposti ja kerro ideasi. Kerro, mitä kurssilla opetettaisiin, kenelle se olisi suunnattu ja miksi uskot, että sille olisi kysyntää.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

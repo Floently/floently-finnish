@@ -1,0 +1,37 @@
+{
+  "id": "c888dbae-4466-5888-b702-31ad4c038c50",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.34,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti työpaikan kahvipöytään. Olet järjestämässä yllätyskekkereitä työkaverille, joka jää eläkkeelle. Kerro, että kekkerit ovat perjantaina klo 14. Pyydä, että kaikki toisivat jotain pientä syötävää. Kysy, kuka voi tuoda kakkua.",
+    "materials": {
+      "scenario": "Viesti työpaikalle yllätyskekkereistä"
+    },
+    "items": [
+      {
+        "id": "48a71ce1-f7a7-5a23-8c24-b9bb44fd7e98",
+        "prompt": "Kirjoita lyhyt viesti työpaikan kahvipöytään. Olet järjestämässä yllätyskekkereitä työkaverille, joka jää eläkkeelle. Kerro, että kekkerit ovat perjantaina klo 14. Pyydä, että kaikki toisivat jotain pientä syötävää. Kysy, kuka voi tuoda kakkua."
+      }
+    ],
+    "rubric": "Kerro, että on yllätyskekkerit\nKerro, milloin kekkerit ovat\nPyydä kaikkia tuomaan jotain syötävää\nKysy, kuka voi tuoda kakkua",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

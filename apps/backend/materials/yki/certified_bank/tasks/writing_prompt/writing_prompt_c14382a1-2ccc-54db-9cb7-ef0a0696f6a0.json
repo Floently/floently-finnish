@@ -1,0 +1,37 @@
+{
+  "id": "c14382a1-2ccc-54db-9cb7-ef0a0696f6a0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.351,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet hakenut työpaikkaa ja käynyt työhaastattelussa. Kirjoita palaute rekrytoijalle. Arvioi haastattelukutsun selkeyttä, itse haastattelua ja jälkihoitoa.",
+    "materials": {
+      "scenario": "Palaute työhaastattelusta"
+    },
+    "items": [
+      {
+        "id": "2710a57a-b5bb-5fd6-88c9-ab485b2619e4",
+        "prompt": "Olet hakenut työpaikkaa ja käynyt työhaastattelussa. Kirjoita palaute rekrytoijalle. Arvioi haastattelukutsun selkeyttä, itse haastattelua ja jälkihoitoa."
+      }
+    ],
+    "rubric": "Haastattelukutsun selkeys\nHaastattelutilanne\nJälkihoito",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

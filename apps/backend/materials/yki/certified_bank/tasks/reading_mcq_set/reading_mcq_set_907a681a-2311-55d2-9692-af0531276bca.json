@@ -1,0 +1,77 @@
+{
+  "id": "907a681a-2311-55d2-9692-af0531276bca",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.54,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Helsingin kaupunki aloittaa ensi kesänä useiden puistojen peruskorjauksen. Tavoitteena on parantaa puistojen viihtyisyyttä ja turvallisuutta. Työt kestävät noin kaksi vuotta.\n\nEnsimmäisenä korjataan Kaisaniemen puisto. Sinne tulee uusia penkkejä, istutuksia ja valaistusta. Myös leikkipuistoa uusitaan. Vanhat, huonokuntoiset leikkivälineet vaihdetaan uusiin ja turvallisempiin.\n\nPuistojen käyttäjät ovat tyytyväisiä suunnitelmaan. 'On hienoa, että puistoja kunnostetaan. Täällä on paljon lapsiperheitä ja vanhuksia, jotka tarvitsevat viihtyisiä ulkoilualueita', sanoo paikallinen asukas.\n\nKorjaustöistä voi olla hetkellistä haittaa. Osa puistoista on työmaan aikana kokonaan suljettu. Kaupunki pyytää asukkaita noudattamaan turvallisuusohjeita ja kiertoteitä.\n\nPuistojen kunnostus maksaa noin 2 miljoonaa euroa. Rahat on varattu kaupungin budjetista. Seuraavaksi vuorossa ovat Alppipuisto ja Kaivopuisto.  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 129
+    },
+    "questions": [
+      {
+        "id": "f717cc24-b322-588d-9a67-7efebb15791d",
+        "prompt": "Miksi puistoja kunnostetaan?",
+        "options": [
+          "A) Niihin rakennetaan taloja",
+          "B) Viihtyisyyden ja turvallisuuden parantamiseksi",
+          "C) Puistot muutetaan pysäköintialueiksi",
+          "D) Uusien kasvien istuttamiseksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "4af6a4d6-69d9-5c58-9942-d7727653f08c",
+        "prompt": "Mikä puisto kunnostetaan ensimmäisenä?",
+        "options": [
+          "A) Alppipuisto",
+          "B) Kaivopuisto",
+          "C) Kaisaniemen puisto",
+          "D) Esplanadin puisto"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "25665bb0-27c7-520f-bf8e-84abc6c7090f",
+        "prompt": "Mitä uutta Kaisaniemen puistoon tulee?",
+        "options": [
+          "A) kahvila",
+          "B) penkkejä, istutuksia ja valaistusta",
+          "C) uimapaikka",
+          "D) urheilukenttä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d35c4f77-b31f-541e-9ff1-fdae78558b6a",
+        "prompt": "Paljonko kunnostus maksaa?",
+        "options": [
+          "A) noin 1 miljoona euroa",
+          "B) noin 2 miljoonaa euroa",
+          "C) noin 3 miljoonaa euroa",
+          "D) noin 5 miljoonaa euroa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

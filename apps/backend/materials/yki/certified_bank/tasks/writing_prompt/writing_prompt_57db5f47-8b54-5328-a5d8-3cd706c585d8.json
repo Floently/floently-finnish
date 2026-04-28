@@ -1,0 +1,37 @@
+{
+  "id": "57db5f47-8b54-5328-a5d8-3cd706c585d8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lapsille antaa enemmän liikuntaa koulupäivän aikana?'. Pohdi terveysvaikutuksia ja oppimistuloksia.",
+    "materials": {
+      "scenario": "Liikunta koulupäivän aikana"
+    },
+    "items": [
+      {
+        "id": "d94e18f8-ca55-50e0-b07f-170cc9860da6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö lapsille antaa enemmän liikuntaa koulupäivän aikana?'. Pohdi terveysvaikutuksia ja oppimistuloksia."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nOppimistulokset\nKoulupäivän rakenne\nResurssit",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

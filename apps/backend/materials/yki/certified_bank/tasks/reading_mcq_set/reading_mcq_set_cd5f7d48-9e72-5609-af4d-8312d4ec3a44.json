@@ -1,0 +1,88 @@
+{
+  "id": "cd5f7d48-9e72-5609-af4d-8312d4ec3a44",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.589,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue analyysi ikäjohtamisesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "IKÄJOHTAMINEN – MONIMUOTOISUUDEN HAASTEET JA MAHDOLLISUUDET\n\nIkäjohtaminen on noussut keskeiseksi teemaksi suomalaisessa työelämässä. Työurat pitenevät, ja työpaikoilla on ennätysmäärä eri ikäisiä työntekijöitä. Tämä asettaa uudenlaisia vaatimuksia johtamiselle.\n\nTyöyhteisöissä on tänä päivänä useita sukupolvia: nuoret vastavalmistuneet, keski-ikäiset kokeneet ammattilaiset ja ikääntyvät työntekijät, joilla on vuosikymmenten kokemus. Jokaisella ryhmällä on omat vahvuutensa ja odotuksensa työn suhteen.\n\nTutkimukset osoittavat, että nuoret työntekijät arvostavat erityisesti joustavuutta, kehittymismahdollisuuksia ja palautetta. He haluavat merkityksellistä työtä ja mahdollisuuden vaikuttaa. Kokeneet työntekijät puolestaan kaipaavat usein vakautta, työn hallinnan tunnetta ja arvostusta. Heille on tärkeää, että heidän osaamistaan kunnioitetaan.\n\nIkääntyvien työntekijöiden kohdalla korostuvat työkyvyn ylläpitäminen ja jaksamisen tukeminen. Fyysisesti raskasta työtä voi olla tarpeen keventää, ja työaikoihin voi tarvita joustoja. Toisaalta heillä on valtava määrä hiljaista tietoa, jonka siirtäminen nuoremmille sukupolville on kriittisen tärkeää organisaation menestyksen kannalta.\n\nMonimuotoiset ikärakenteet parantavat tutkimusten mukaan ongelmanratkaisukykyä ja innovatiivisuutta. Eri-ikäiset täydentävät toisiaan: nuoret tuovat uusia ideoita ja teknologista osaamista, kokeneet tuovat syvällistä asiantuntemusta ja ymmärrystä organisaation toiminnasta.\n\nHaasteena on, että esihenkilöillä ei useinkaan ole koulutusta ikäjohtamiseen. Johdetaan kaikkia samalla tavalla, mikä ei toimi. Tarvitaan yksilöllistä otetta ja kykyä tunnistaa eri-ikäisten tarpeita. Myös ikäsyrjintää esiintyy edelleen, vaikka se on lainvastaista.\n\nTulevaisuudessa ikäjohtamisen merkitys vain kasvaa. Työurat venyvät, ja samanaikaisesti työelämä muuttuu yhä nopeammin. Organisaatiot, jotka onnistuvat hyödyntämään kaikenikäisten osaamisen, menestyvät parhaiten.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 240
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä ikäjohtaminen tarkoittaa?",
+        "options": [
+          "Vain vanhojen työntekijöiden johtamista",
+          "Vain nuorten työntekijöiden johtamista",
+          "Eri-ikäisten työntekijöiden huomioimista ja heidän tarpeidensa tunnistamista",
+          "Eläkeiän nostamista"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä nuoret työntekijät arvostavat?",
+        "options": [
+          "Vakautta ja arvostusta",
+          "Joustavuutta, kehittymismahdollisuuksia ja palautetta",
+          "Hiljaista tietoa",
+          "Eläkkeelle pääsyä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kokeneet työntekijät kaipaavat?",
+        "options": [
+          "Uusia haasteita koko ajan",
+          "Vakautta, työn hallintaa ja arvostusta",
+          "Mahdollisuutta vaihtaa alaa",
+          "Enemmän vapaa-aikaa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä hyötyä eri-ikäisistä työntekijöistä on?",
+        "options": [
+          "He tekevät vähemmän virheitä",
+          "He täydentävät toisiaan ja parantavat ongelmanratkaisua",
+          "He ovat aina samaa mieltä",
+          "He tekevät työtä halvemmalla"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on ikäjohtamisen suurin haaste?",
+        "options": [
+          "Liian nuoret esihenkilöt",
+          "Esihenkilöillä ei ole koulutusta ikäjohtamiseen",
+          "Työntekijät eivät halua oppia uutta",
+          "Teknologia on liian monimutkaista"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

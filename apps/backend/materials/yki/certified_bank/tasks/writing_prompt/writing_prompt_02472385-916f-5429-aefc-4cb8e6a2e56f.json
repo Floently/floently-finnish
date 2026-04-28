@@ -1,0 +1,37 @@
+{
+  "id": "02472385-916f-5429-aefc-4cb8e6a2e56f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti.",
+    "materials": {
+      "scenario": "Sosiaalinen media"
+    },
+    "items": [
+      {
+        "id": "25cd96ba-ba82-575b-a54e-b5aa527d9ab0",
+        "prompt": "Onko sosiaalinen media lisännyt vai vähentänyt ihmisten välistä yhteyttä?"
+      }
+    ],
+    "rubric": "Onko sosiaalinen media lisännyt vai vähentänyt ihmisten välistä yhteyttä?",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

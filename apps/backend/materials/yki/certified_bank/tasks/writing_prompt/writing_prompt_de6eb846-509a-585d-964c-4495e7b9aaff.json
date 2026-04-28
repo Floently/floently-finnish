@@ -1,0 +1,37 @@
+{
+  "id": "de6eb846-509a-585d-964c-4495e7b9aaff",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.703,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a director general position at the Finnish Patent and Registration Office. Tell about your experience in industrial rights administration, promoting digitalization, and developing customer service. Also describe how you have renewed the agency's operations and improved service accessibility. Length about 380 words.",
+    "materials": {
+      "scenario": "Hakemus Patentti- ja rekisterihallituksen pääjohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "cd3774e7-8090-54f1-aa91-07399bc5f7b6",
+        "prompt": "Write a job application. You are applying for a director general position at the Finnish Patent and Registration Office. Tell about your experience in industrial rights administration, promoting digitalization, and developing customer service. Also describe how you have renewed the agency's operations and improved service accessibility. Length about 380 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a director general position at the Finnish Patent and Registration Office. Tell about your experience in industrial rights administration, promoting digitalization, and developing customer service. Also describe how you have renewed the agency's operations and improved service accessibility. Length about 380 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

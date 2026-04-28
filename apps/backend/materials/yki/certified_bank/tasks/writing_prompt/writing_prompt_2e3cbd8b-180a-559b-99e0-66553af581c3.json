@@ -1,0 +1,37 @@
+{
+  "id": "2e3cbd8b-180a-559b-99e0-66553af581c3",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt viesti."
+    },
+    "items": [
+      {
+        "id": "571bd390-bd43-5ea8-9941-fb178a135a2d",
+        "prompt": "Olet tulossa myöhässä tapaamiseen. Kirjoita viesti ystävällesi.\nKerro:\n- että olet myöhässä\n- miksi olet myöhässä (esim. bussi myöhässä)\n- milloin arviolta tulet."
+      }
+    ],
+    "rubric": "Olet tulossa myöhässä tapaamiseen. Kirjoita viesti ystävällesi.\nKerro:\n- että olet myöhässä\n- miksi olet myöhässä (esim. bussi myöhässä)\n- milloin arviolta tulet.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

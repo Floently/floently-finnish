@@ -1,0 +1,37 @@
+{
+  "id": "7d6cbcc0-0170-5df4-9931-ec43fe733372",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö korkeakoulutettujen maahanmuuttoa helpottaa osaajapulan ratkaisemiseksi?'. Pohdi työmarkkinoiden tarpeita ja kotoutumista.",
+    "materials": {
+      "scenario": "Korkeakoulutettujen maahanmuutto"
+    },
+    "items": [
+      {
+        "id": "5c30df40-e1ed-55a9-a046-092da5578aa2",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö korkeakoulutettujen maahanmuuttoa helpottaa osaajapulan ratkaisemiseksi?'. Pohdi työmarkkinoiden tarpeita ja kotoutumista."
+      }
+    ],
+    "rubric": "Osaajapula\nTyömarkkinoiden tarpeet\nKotoutuminen\nKansainvälinen kilpailu osaajista",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "dd8ae623-91e1-547b-9d26-f72b42a93a42",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.523,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu osa-aikatyöstä opiskelun ohella ja vastaa.",
+    "materials": {
+      "transcript": "Laura: Hei Mikko, miten sun opinnot sujuu? Mikko: Ihan hyvin, mutta on vähän kiirettä. Käyn töissä samalla. Laura: Ai missä sä oot töissä? Mikko: Oon kaupassa kassalla. Teen kahtena iltana viikossa ja lauantaisin. Laura: Miten ehdit opiskella? Mikko: Välillä on rankkaa. Mutta työ on ihan mukavaa, ja rahaa on kivempi olla. Sä et ole töissä? Laura: En tällä hetkellä, mutta mietin että pitäiskö hakea jotain. Tuntuu, että kaikilla muilla on rahaa ja mä elän pelkällä opintotuella. Mikko: Joo, kyllä se vähän helpottaa. Mutta kannattaa miettiä, kuinka paljon jaksaa. Jos on liikaa töitä, opinnot kärsii. Laura: Kuinka monta tuntia viikossa sä teet? Mikko: Noin 15–20 tuntia. Se on ihan sopiva. Enemmän en jaksaisi. Laura: Miten löysit sen työpaikan? Mikko: Laitoin avoimen hakemuksen muutamaan kauppaan, ja sitten soitin perään. Kannattaa käydä myös itse paikan päällä kysymässä. Laura: Joo, pitää varmaan kokeilla. Mikko: Ja kannattaa hyödyntää koulun työpaikkailmoituksia. Sinne tulee usein osa-aikatyöpaikkoja opiskelijoille. Laura: Hyvä vinkki, kiitos!",
+      "audio_asset_id": "c9d54e19-4712-4e3f-9645-b193f6f64c33"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mistä Laura ja Mikko keskustelevat?",
+        "options": [
+          "Osa-aikatyöstä opiskelun ohella.",
+          "Kesätöistä.",
+          "Opintojen vaikeudesta.",
+          "Työttömyydestä."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq2",
+        "prompt": "Missä Mikko on osa-aikatöissä?",
+        "options": [
+          "Toimistossa.",
+          "Ravintolassa.",
+          "Kaupassa kassalla.",
+          "Varastolla."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq3",
+        "prompt": "Kuinka monta tuntia viikossa Mikko tekee töitä?",
+        "options": [
+          "5–10 tuntia.",
+          "10–15 tuntia.",
+          "20–25 tuntia.",
+          "15–20 tuntia."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miksi Laura harkitsee töihin menoa?",
+        "options": [
+          "Hänellä on tylsää.",
+          "Hän ei tykkää opiskella.",
+          "Hän haluaa lisää rahaa.",
+          "Hänen kaverinsa kehottivat."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Miten Mikko löysi työpaikkansa?",
+        "options": [
+          "Hän näki ilmoituksen lehdessä.",
+          "Hän sai työpaikan ystävän kautta.",
+          "Hän osallistui rekrytapahtumaan.",
+          "Hän laittoi avoimen hakemuksen ja soitti perään."
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mistä Mikko neuvoo etsimään osa-aikatöitä?",
+        "options": [
+          "Sosiaalisesta mediasta.",
+          "Työkkäristä.",
+          "Kaupungin verkkosivuilta.",
+          "Koulun työpaikkailmoituksista."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

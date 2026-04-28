@@ -1,0 +1,99 @@
+{
+  "id": "429f46c7-41ac-58a7-96b8-e0a7875be764",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Muovin käytön vähentäminen on tärkeä ympäristötavoite. EU on kieltänyt kertakäyttöisiä muovituotteita, kuten pillit ja muoviset lautaset. Suomessa monet kaupat ovat vähentäneet muovipussien käyttöä ja kannustavat asiakkaita käyttämään kasseja uudelleen. Myös kuluttajat ovat aktiivisempia: monet suosivat pakkauksettomia tuotteita ja kieltäytyvät ylimääräisestä muovista. Muovin kierrätys on tehostunut, mutta ongelmana on edelleen, että liian suuri osa muovista päätyy poltettavaksi.",
+      "word_count": 56
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tärkeä ympäristötavoite?",
+        "options": [
+          "Muovin käytön lisääminen",
+          "Muovin käytön vähentäminen",
+          "Muovin vieminen ulkomaille",
+          "Uuden muovin keksiminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä EU on kieltänyt?",
+        "options": [
+          "Kaiken muovin",
+          "Kertakäyttöisiä muovituotteita",
+          "Muovin kierrätyksen",
+          "Muovin valmistuksen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä kielletyistä tuotteista mainitaan?",
+        "options": [
+          "Muovipullot ja -kassit",
+          "Pillit ja muoviset lautaset",
+          "Lelut ja elektroniikka",
+          "Pakkausteippi ja kelmut"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten kaupat Suomessa ovat vähentäneet muovipussien käyttöä?",
+        "options": [
+          "Kieltämällä kaikki muovipussit",
+          "Kannustamalla käyttämään kasseja uudelleen",
+          "Tekemällä pusseista kalliimpia",
+          "Jakamalla kasseja ilmaiseksi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä monet kuluttajat suosivat?",
+        "options": [
+          "Muovipakkauksia",
+          "Pakkauksettomia tuotteita",
+          "Kertakäyttöastioita",
+          "Muovisia kasseja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on edelleen ongelma muovin kierrätyksessä?",
+        "options": [
+          "Muovia ei kierrätetä ollenkaan",
+          "Liian suuri osa muovista päätyy poltettavaksi",
+          "Kaikki muovi kierrätetään",
+          "Kierrätys on liian kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

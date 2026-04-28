@@ -1,0 +1,37 @@
+{
+  "id": "9c35be74-e6c1-52c3-ac8f-c10ded1aa20a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.349,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuvaile jotakin tapahtumaa, jossa olit mukana järjestämässä.",
+    "materials": {
+      "scenario": "Tapahtuman järjestäminen"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kuvaile jotakin tapahtumaa, jossa olit mukana järjestämässä."
+      }
+    ],
+    "rubric": "Kuvaile jotakin tapahtumaa, jossa olit mukana järjestämässä.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

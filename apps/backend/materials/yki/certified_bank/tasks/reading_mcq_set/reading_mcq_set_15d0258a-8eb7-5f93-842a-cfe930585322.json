@@ -1,0 +1,77 @@
+{
+  "id": "15d0258a-8eb7-5f93-842a-cfe930585322",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.787,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Luottamus on yksi yhteiskunnan peruspilareista, ja sen merkitys ulottuu kaikille elämänalueille. Ilman luottamusta ihmisten välinen yhteistyö vaikeutuu, markkinat eivät toimi tehokkaasti ja demokraattiset instituutiot menettävät legitimiteettinsä. Luottamus on kuin yhteiskunnan liima, joka pitää asiat koossa. Viime vuosina on kuitenkin herännyt huoli siitä, että luottamus on rapautumassa. Tämä näkyy esimerkiksi poliittisten instituutioiden, median ja asiantuntijoiden arvostuksen laskuna, polarisaation lisääntymisenä ja salaliittoteorioiden yleistymisenä. Mistä tässä kehityksessä on kyse, ja mitä seurauksia sillä voi olla? Luottamuksen rapautumiselle on esitetty useita selityksiä. Yksi keskeinen tekijä on taloudellinen eriarvoistuminen ja siitä seuraava turhautuminen. Ne, jotka kokevat jääneensä yhteiskunnallisen kehityksen jalkoihin, menettävät helposti luottamuksensa instituutioihin, joiden he kokevat toimivan parempiosaisten eduksi. Tämä voi johtaa vastakkainasetteluun ja populististen liikkeiden kannatuksen kasvuun. Toinen tekijä on median murros ja sosiaalisen median nousu. Perinteinen media on menettänyt sekä taloudellisia resurssejaan että yleisönsä luottamusta, ja sosiaalinen media puolestaan mahdollistaa disinformaation ja vihapuheen nopean leviämisen. Algoritmit luovat kuplia, joissa ihmiset altistuvat lähinnä omia näkemyksiään vahvistavalle tiedolle, mikä lisää polarisaatiota ja vaikeuttaa yhteisymmärryksen löytämistä. Kolmas tekijä on asiantuntijuuden kyseenalaistaminen. Perinteisesti asiantuntijoilla on ollut vahva asema tiedon tuottajina ja päätöksenteon valmistelijoina, mutta tämä asema on viime vuosina kyseenalaistettu yhä voimakkaammin. Tämä liittyy osaltaan perinteisten auktoriteettien aseman heikkenemiseen ja kansalaisten haluun osallistua itseään koskevaan päätöksentekoon, mutta se voi myös johtaa siihen, että kaikkea tietoa aletaan pitää samanarvoisena. Luottamuksen rapautumisella voi olla vakavia seurauksia yhteiskunnalle. Se voi halvaannuttaa päätöksenteon, lisätä yhteiskunnallisia jännitteitä ja jopa johtaa konflikteihin. Ilman luottamusta on vaikea tehdä pitkäjänteisiä, koko yhteiskunnan etua ajavia päätöksiä, koska eri ryhmät eivät luota toisiinsa eivätkä yhteisiin instituutioihin. Tämä on erityisen ongelmallista tilanteissa, joissa tarvitaan nopeita ja vaikuttavia toimia, kuten ilmastonmuutoksen torjunnassa tai pandemian hoidossa. Luottamuksen vahvistaminen on pitkäjänteinen prosessi, joka vaatii toimia monilla eri rintamilla. Tarvitaan toimia, jotka vähentävät eriarvoisuutta ja lisäävät osallisuuden kokemusta. Tarvitaan median ja asiantuntijuuden aseman vahvistamista sekä panostuksia mediakasvatukseen ja kriittiseen lukutaitoon. Tarvitaan myös poliittista kulttuuria, joka arvostaa avointa keskustelua, eri näkemysten huomioon ottamista ja kompromissien hakemista.",
+      "word_count": 314
+    },
+    "questions": [
+      {
+        "id": "466a0239-c758-5de9-85b2-c5ffff45d547",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Taloudellisen eriarvoisuuden vaikutukset yhteiskuntaan",
+          "Median murroksen seuraukset",
+          "Luottamuksen merkitys yhteiskunnalle ja sen rapautumisen syyt ja seuraukset",
+          "Asiantuntijuuden kyseenalaistamisen ongelmat"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b0d76ff9-42dd-53e3-afed-6f11aeda8c91",
+        "prompt": "Tekstin mukaan miten taloudellinen eriarvoisuus voi vaikuttaa luottamukseen?",
+        "options": [
+          "Se lisää luottamusta, koska ihmiset ymmärtävät toistensa asemaa paremmin",
+          "Se ei vaikuta luottamukseen millään tavalla",
+          "Ne, jotka kokevat jääneensä kehityksestä jälkeen, menettävät helposti luottamuksensa instituutioihin",
+          "Se lisää luottamusta instituutioihin, koska ihmiset tarvitsevat niitä selviytyäkseen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "1b4881a0-a0c8-5638-bc70-ed267a4fc575",
+        "prompt": "Mitä seurauksia luottamuksen rapautumisella voi tekstin mukaan olla?",
+        "options": [
+          "Se voi nopeuttaa päätöksentekoa ja lisätä tehokkuutta",
+          "Se voi halvaannuttaa päätöksenteon, lisätä yhteiskunnallisia jännitteitä ja vaikeuttaa yhteisten ongelmien ratkaisemista",
+          "Se vahvistaa demokratiaa, koska kansalaiset alkavat kyseenalaistaa auktoriteetteja",
+          "Se vähentää tarvetta julkiselle keskustelulle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "3e26c1ba-d850-56f5-aa40-10bcecf94c93",
+        "prompt": "Mitä keinoja tekstissä ehdotetaan luottamuksen vahvistamiseksi?",
+        "options": [
+          "Sosiaalisen median käytön rajoittamista ja asiantuntijoiden vallan lisäämistä",
+          "Eriarvoisuuden vähentämistä, median ja asiantuntijuuden aseman vahvistamista, mediakasvatusta ja avointa poliittista kulttuuria",
+          "Kansalaisten mielipiteiden sivuuttamista ja päätöksenteon keskittämistä harvoille",
+          "Yksityisyyden suojaa ja henkilötietojen keräämisen kieltämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

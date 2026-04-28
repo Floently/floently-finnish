@@ -1,0 +1,37 @@
+{
+  "id": "358c2989-4bc2-59a9-a2a9-ce635f03f2c4",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet tyytymätön pyöräteiden kuntoon kotikunnassasi. Kirjoita palaute kunnalle.",
+    "materials": {
+      "scenario": "Olet tyytymätön pyöräteiden kuntoon kotikunnassasi. Kirjoita palaute kunnalle."
+    },
+    "items": [
+      {
+        "id": "c0d30958-1480-5d82-95a4-8dc56e4fa937",
+        "prompt": "Kirjoita noin 130 sanan palaute, jossa:\n- kerrot, missä päin kuntaa asut ja mitä pyöräreitteä käytät\n- kuvailet ongelmia (huono kunto, kuopat, puuttuvat yhteydet, huono talvikunnossapito)\n- kerrot, miten tämä vaikuttaa pyöräilyyn ja liikkumiseen\n- ehdotat parannuksia"
+      }
+    ],
+    "rubric": "Kirjoita noin 130 sanan palaute, jossa:\n- kerrot, missä päin kuntaa asut ja mitä pyöräreitteä käytät\n- kuvailet ongelmia (huono kunto, kuopat, puuttuvat yhteydet, huono talvikunnossapito)\n- kerrot, miten tämä vaikuttaa pyöräilyyn ja liikkumiseen\n- ehdotat parannuksia",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

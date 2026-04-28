@@ -1,0 +1,37 @@
+{
+  "id": "ec2677e3-c4fa-5cdb-a9a8-4fea35d543bc",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.507,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt sähköistä reseptiä. Kirjoita palaute kehittäjille.",
+    "materials": {
+      "scenario": "Palaute sähköisestä reseptistä"
+    },
+    "items": [
+      {
+        "id": "eac25e24-0b86-5e18-8268-7998cd42da32",
+        "prompt": "Olet käyttänyt sähköistä reseptiä. Kirjoita palaute kehittäjille."
+      }
+    ],
+    "rubric": "Olet käyttänyt sähköistä reseptiä. Kirjoita palaute kehittäjille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

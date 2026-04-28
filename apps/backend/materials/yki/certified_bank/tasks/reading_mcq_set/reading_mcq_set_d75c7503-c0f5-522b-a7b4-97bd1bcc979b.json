@@ -1,0 +1,99 @@
+{
+  "id": "d75c7503-c0f5-522b-a7b4-97bd1bcc979b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.566,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Monet kunnat ovat ottaneet käyttöön osallistuvan budjetoinnin. Siinä asukkaat saavat itse ehdottaa ja äänestää, mihin tietty osa kunnan rahoista käytetään. Ideoita voi olla esimerkiksi puistojen kunnostus, nuorisotilat tai tapahtumat. Tavoitteena on lisätä asukkaiden vaikutusmahdollisuuksia ja tehdä päätöksenteosta läpinäkyvämpää. Kokemukset ovat olleet pääosin myönteisiä, vaikka kaikki ideat eivät toteutukaan.",
+      "word_count": 48
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on osallistuva budjetointi?",
+        "options": [
+          "Kunnan asukkaat maksavat budjetista",
+          "Asukkaat saavat ehdottaa ja äänestää rahojen käytöstä",
+          "Vain kunnanvaltuusto päättää rahoista",
+          "Yritykset rahoittavat kunnan toimintaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä asukkaat voivat tehdä osallistuvassa budjetoinnissa?",
+        "options": [
+          "Valittaa verotuksesta",
+          "Ehdottaa ja äänestää rahojen käyttökohteista",
+          "Päättää kunnan työntekijöiden palkoista",
+          "Kerätä rahaa kunnalle"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä esimerkkejä ideoista mainitaan?",
+        "options": [
+          "Uusia teitä ja siltoja",
+          "Puistojen kunnostus, nuorisotilat tai tapahtumat",
+          "Sairaalan laajennus",
+          "Koulujen lakkauttaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on osallistuvan budjetoinnin tavoite?",
+        "options": [
+          "Säästää rahaa",
+          "Lisätä asukkaiden vaikutusmahdollisuuksia ja läpinäkyvyyttä",
+          "Siirtää päätösvaltaa kunnanjohtajalle",
+          "Vähentää äänestysaktiivisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Millaisia kokemuksia osallistuvasta budjetoinnista on saatu?",
+        "options": [
+          "Pääosin kielteisiä",
+          "Pääosin myönteisiä",
+          "Erittäin huonoja",
+          "Kokemuksia ei ole vielä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä haittaa osallistuvassa budjetoinnissa voi olla?",
+        "options": [
+          "Kaikki ideat toteutetaan",
+          "Kaikki ideat eivät toteudu",
+          "Asukkaat eivät saa äänestää",
+          "Kunta menettää rahansa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "997ad196-da1b-558b-b107-ed1b3e6ff4c8",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt fysioterapiassa. Kirjoita palaute. Arvioi terapeutin ammattitaitoa, harjoitusten sopivuutta ja sitä, auttoiko hoito vaivaasi.",
+    "materials": {
+      "scenario": "Palaute fysioterapiasta"
+    },
+    "items": [
+      {
+        "id": "b4c09c31-a6c5-5895-afa1-cbe64faf69e8",
+        "prompt": "Olet käynyt fysioterapiassa. Kirjoita palaute. Arvioi terapeutin ammattitaitoa, harjoitusten sopivuutta ja sitä, auttoiko hoito vaivaasi."
+      }
+    ],
+    "rubric": "Terapeutin ammattitaito\nHarjoitusten sopivuus\nHoidon teho",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

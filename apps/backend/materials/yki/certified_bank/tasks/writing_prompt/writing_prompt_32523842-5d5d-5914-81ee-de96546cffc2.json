@@ -1,0 +1,37 @@
+{
+  "id": "32523842-5d5d-5914-81ee-de96546cffc2",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.543,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti työpaikan kehityskeskustelusta. Kerro keskustelun hyödyllisyydestä, tavoitteiden selkeydestä ja esimiehen palautteesta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute työpaikan kehityskeskustelusta"
+    },
+    "items": [
+      {
+        "id": "c61d6770-226b-5f83-be9c-06cdac2b7477",
+        "prompt": "Kirjoita palauteteksti työpaikan kehityskeskustelusta. Kerro keskustelun hyödyllisyydestä, tavoitteiden selkeydestä ja esimiehen palautteesta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Keskustelun hyödyllisyys\nTavoitteiden selkeys\nEsimiehen palaute\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

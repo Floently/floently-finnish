@@ -1,0 +1,99 @@
+{
+  "id": "22d77043-32d9-579f-81bc-0d3d72198ffd",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.565,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Vihreä siirtymä on käsite, joka kuvaa siirtymistä kohti kestävämpää ja ympäristöystävällisempää taloutta. Se tarkoittaa uusiutuvan energian lisäämistä, fossiilisista polttoaineista luopumista ja energiatehokkuuden parantamista. Vihreä siirtymä luo uusia työpaikkoja esimerkiksi tuulivoiman ja aurinkoenergian aloilla. Samalla se vaatii investointeja ja uudenlaista osaamista. Suomella on hyvät mahdollisuudet onnistua siirtymässä.",
+      "word_count": 46
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä vihreä siirtymä kuvaa?",
+        "options": [
+          "Siirtymistä takaisin vanhaan talouteen",
+          "Siirtymistä kohti kestävämpää ja ympäristöystävällisempää taloutta",
+          "Fossiilisten polttoaineiden lisäämistä",
+          "Energian kulutuksen kasvua"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä vihreä siirtymä tarkoittaa käytännössä?",
+        "options": [
+          "Fossiilisten polttoaineiden lisäämistä",
+          "Uusiutuvan energian lisäämistä ja fossiilisista polttoaineista luopumista",
+          "Energian tuotannon vähentämistä",
+          "Ydinvoiman lisäämistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä vihreä siirtymä luo?",
+        "options": [
+          "Työttömyyttä",
+          "Uusia työpaikkoja",
+          "Kustannuksia",
+          "Byrokratiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Millä aloilla uusia työpaikkoja syntyy?",
+        "options": [
+          "Turpeen ja öljyn tuotannossa",
+          "Tuulivoiman ja aurinkoenergian aloilla",
+          "Hiilen louhinnassa",
+          "Polttomoottoreiden valmistuksessa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä vihreä siirtymä vaatii?",
+        "options": [
+          "Investointeja ja uudenlaista osaamista",
+          "Vanhojen teollisuusalojen vahvistamista",
+          "Fossiilisten polttoaineiden tukemista",
+          "Energian kulutuksen lisäämistä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q6",
+        "prompt": "Millaiset mahdollisuudet Suomella on onnistua vihreässä siirtymässä?",
+        "options": [
+          "Huonot",
+          "Hyvät",
+          "Ei minkäänlaisia",
+          "Epävarmat"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

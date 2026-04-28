@@ -1,0 +1,77 @@
+{
+  "id": "7ac26295-9341-532c-a18f-16d57a50fccc",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.775,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "SOSIAALINEN PÄÄOMA JA YHTEISKUNNALLINEN LUOTTAMUS\n\nSosiaalinen pääoma on käsite, joka on noussut keskeiseen asemaan yhteiskuntatieteellisessä keskustelussa. Sillä tarkoitetaan yhteiskunnan sosiaalisia verkostoja, normeja ja luottamusta, jotka mahdollistavat yhteistoiminnan ja tekevät yhteiskunnasta toimivamman. Korkea sosiaalinen pääoma on yhdistetty moniin myönteisiin asioihin: matalampaan rikollisuuteen, parempaan terveyteen, taloudelliseen menestykseen ja poliittiseen vakautaan.\n\nLuottamus on sosiaalisen pääoman ydin. Luottamus tarkoittaa uskoa siihen, että toiset ihmiset toimivat rehellisesti ja ennakoitavasti, vaikka meillä ei olisi mahdollisuutta valvoa heitä. Tämä mahdollistaa monimutkaisen yhteiskunnan toiminnan: voimme käydä kauppaa, solmia sopimuksia ja tehdä yhteistyötä ilman jatkuvaa pelkoa petoksesta.\n\nLuottamus jakautuu usein kahteen tyyppiin. Erityinen luottamus kohdistuu tuttuihin ihmisiin – perheeseen, ystäviin, naapureihin. Yleinen luottamus taas on luottamusta tuntemattomiin ihmisiin ja yhteiskunnan instituutioihin. Juuri yleinen luottamus on yhteiskunnan kannalta erityisen tärkeää, ja Pohjoismaat ovat tunnetusti korkean yleisen luottamuksen maita.\n\nMutta mistä korkea luottamus syntyy? Tutkimukset osoittavat, että sillä on yhteyksiä pieniin tuloeroihin, vähäiseen korruptioon, toimiviin instituutioihin ja koulutukseen. Myös historiallisilla tekijöillä on merkitystä: yhteiset haasteet ja niistä selviytyminen voivat vahvistaa luottamusta.\n\nViime vuosina on keskusteltu siitä, onko sosiaalinen pääoma Suomessa heikentynyt. Yksilöllistyminen, kaupungistuminen ja digitaalisten viestintävälineiden yleistyminen ovat muuttaneet sosiaalisia suhteita. Jotkut pelkäävät, että ihmiset vetäytyvät omiin kupliinsa ja yhteisöllisyys heikkenee. Toisaalta uudenlaiset yhteisöt, kuten some-ryhmät ja harrastuspiirit, voivat tuottaa uudenlaista sosiaalista pääomaa.\n\nSosiaalinen pääoma ei ole vain hyvästä. Sillä on myös varjopuolensa. Vahvat yhteisöt voivat sulkea ulkopuolisia ja vahvistaa epätasa-arvoa. Rikollisjärjestöt ja ääriliikkeetkin perustuvat sosiaaliseen pääomaan – luottamukseen ja verkostoihin – mutta niiden tavoitteet ovat yhteiskunnan kannalta tuhoisia.\n\nTulevaisuudessa on tärkeää vaalia sosiaalista pääomaa. Se edellyttää panostusta koulutukseen, tasa-arvoon ja instituutioiden toimivuuteen. Se edellyttää myös kohtaamisia erilaisten ihmisten välillä – työpaikoilla, kouluissa, harrastuksissa. Luottamus ei synny tyhjiössä, vaan se rakentuu yhteisten kokemusten ja toimivien instituutioiden varaan.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 309
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä sosiaalisella pääomalla tarkoitetaan?",
+        "options": [
+          "Yksilöiden varallisuutta",
+          "Yhteiskunnan sosiaalisia verkostoja, normeja ja luottamusta",
+          "Valtion taloudellisia resursseja",
+          "Kansalaisten koulutustasoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä eroa on erityisellä ja yleisellä luottamuksella?",
+        "options": [
+          "Ei ole eroa",
+          "Erityinen luottamus kohdistuu tuttuihin, yleinen luottamus tuntemattomiin ja instituutioihin",
+          "Erityinen on tärkeämpää kuin yleinen",
+          "Yleinen luottamus koskee vain naapureita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mistä korkea luottamus syntyy?",
+        "options": [
+          "Vain kulttuurisista tekijöistä",
+          "Pienistä tuloeroista, vähäisestä korruptiosta, toimivista instituutioista ja koulutuksesta",
+          "Vain taloudellisesta vauraudesta",
+          "Sattumalta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä varjopuolia sosiaalisella pääomalla voi olla?",
+        "options": [
+          "Ei mitään",
+          "Vahvat yhteisöt voivat sulkea ulkopuolisia ja vahvistaa epätasa-arvoa",
+          "Se on aina hyvästä",
+          "Se heikentää taloutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "9bda7078-da9d-543a-bc84-135282aeb134",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "RESEPTIN UUSIMINEN\n\nJos reseptisi on vanhentunut, voit pyytää uusimista Omakannan kautta tai ottamalla yhteyttä terveyskeskukseen. Apteekki ei voi uusia reseptiä. Muista tilata uusi resepti hyvissä ajoin ennen kuin lääkkeet loppuvat. Uusiminen maksaa 20 €.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat.",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "27dc9c18-1f7b-5a02-8351-2cd8431b679e",
+        "prompt": "Voiko apteekki uusia reseptin?",
+        "options": [
+          "Kyllä, aina",
+          "Ei",
+          "Vain kiireellisissä tapauksissa",
+          "Vain reseptillä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "57d6efd6-2a1d-5ef6-b769-a29c15a50f37",
+        "prompt": "Miten reseptin voi uusia?",
+        "options": [
+          "Omakannan kautta tai terveyskeskuksesta",
+          "Soittamalla apteekkiin",
+          "Lähettämällä kirje",
+          "Tekstiviestillä"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "88942b28-c4e3-5685-b7ce-2e550eea3ba1",
+        "prompt": "Paljonko uusiminen maksaa?",
+        "options": [
+          "10 €",
+          "15 €",
+          "20 €",
+          "25 €"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

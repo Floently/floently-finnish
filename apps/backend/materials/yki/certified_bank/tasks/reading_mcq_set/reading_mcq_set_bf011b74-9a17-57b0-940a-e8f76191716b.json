@@ -1,0 +1,77 @@
+{
+  "id": "bf011b74-9a17-57b0-940a-e8f76191716b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.797,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "MAAHANMUUTTO JA YHTEISKUNNALLINEN EHEYS\n\nMaahanmuutto on yksi aikamme puhutuimmista ja polarisoivimmista aiheista. Se jakaa mielipiteitä niin poliittisella kentällä kuin arjen keskusteluissa. Toiset näkevät sen välttämättömänä väestön ikääntymisen ja työvoimapulan ratkaisuna, toiset taas uhkana kansalliselle identiteetille, turvallisuudelle ja sosiaaliturvan kestävyydelle. Keskustelun kärjistyessä on vaarana, että monisyinen ilmiö pelkistyy mustavalkoiseksi asetelmaksi, jossa tunnepuhe ohittaa faktat.\n\nTaloudellisesta näkökulmasta maahanmuuton vaikutukset ovat monitahoiset. Tutkimukset osoittavat, että työperäinen maahanmuutto vaikuttaa myönteisesti julkiseen talouteen, sillä työikäiset maahanmuuttajat maksavat veroja ja kuluttavat palveluita vähemmän kuin kantaväestö keskimäärin. Toisaalta humanitaarisen maahanmuuton alkuvaiheessa kustannukset voivat olla merkittäviä kotouttamistoimien ja sosiaaliturvan vuoksi. Pitkällä aikavälillä kuitenkin myös humanitaarisesti maahan tulleiden työllistyminen ja kotoutuminen ovat ratkaisevia sekä yksilön että yhteiskunnan kannalta.\n\nKulttuurinen moninaisuus on sekä rikkaus että haaste. Monikulttuurisuus voi tuoda uusia näkökulmia, rikastuttaa taidetta ja ruokakulttuuria sekä avartaa maailmankuvaa. Samalla se voi synnyttää jännitteitä, jos eri ryhmät elävät rinnakkain ilman vuorovaikutusta ja yhteisiä arvoja. Kotoutumisen kannalta on tärkeää, että maahanmuuttajat oppivat kielen, ymmärtävät yhteiskunnan pelisääntöjä ja kokevat kuuluvansa yhteiskuntaan. Tämä ei kuitenkaan saa tarkoittaa oman kulttuuritaustan täydellistä hylkäämistä – kyse on enemmänkin integraatiosta kuin assimilaatiosta.\n\nSosiaalinen yhteenkuuluvuus on yksi keskeisimmistä tekijöistä, joka ratkaisee, onko maahanmuutto yhteiskuntaa eheyttävä vai hajottava voima. Jos maahanmuuttajat ja kantaväestö elävät erillään toisistaan, syntyy rinnakkaisyhteiskuntia, mikä heikentää luottamusta ja yhteisöllisyyttä. Toisaalta, jos kohtaamisia on riittävästi – työpaikoilla, kouluissa, harrastuksissa – syntyy ymmärrystä ja sosiaalisia siteitä, jotka vahvistavat yhteiskuntaa.\n\nPoliittinen keskustelu maahanmuutosta on usein ongelmakeskeistä, ja maahanmuuttajat nähdään helposti joko uhrina tai uhkana. Todellisuudessa he ovat moninainen joukko ihmisiä, joilla on erilaisia taustoja, taitoja ja toiveita. Yksilöllisten erojen huomiotta jättäminen johtaa helposti stereotypioihin ja ennakkoluuloihin.\n\nTulevaisuuden kannalta on olennaista, että maahanmuuttopolitiikka on johdonmukaista, pitkäjänteistä ja inhimillistä. Tarvitaan selkeitä sääntöjä ja reittejä maahan tuloon, mutta myös panostusta kotoutumiseen ja syrjinnän ehkäisyyn. Maahanmuuttajat tulevat olemaan yhä tärkeämpi osa suomalaista yhteiskuntaa, ja heidän potentiaalinsa valjastaminen on koko yhteiskunnan etu.  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 331
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten teksti kuvaa taloudellisia vaikutuksia eri maahanmuuttotyypeillä?",
+        "options": [
+          "Kaikki maahanmuutto on taloudellisesti kannattamatonta",
+          "Työperäinen maahanmuutto on kannattavaa, humanitaarisen maahanmuuton alkuvaiheessa voi olla kustannuksia",
+          "Humanitaarinen maahanmuutto on aina kannattavampaa",
+          "Maahanmuutolla ei ole taloudellisia vaikutuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan integraation ja assimilaation erolla?",
+        "options": [
+          "Integraatio tarkoittaa oman kulttuurin säilyttämistä uuteen sopeutuen, assimilaatio täydellistä sulautumista",
+          "Integraatio ja assimilaatio ovat sama asia",
+          "Integraatio on huono ja assimilaatio hyvä asia",
+          "Integraatio koskee työperäistä, assimilaatio humanitaarista maahanmuuttoa"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä tekijä on ratkaiseva sosiaalisen yhteenkuuluvuuden kannalta?",
+        "options": [
+          "Maahanmuuttajien määrä",
+          "Riittävät kohtaamiset kantaväestön kanssa työssä, koulussa ja harrastuksissa",
+          "Maahanmuuttajien asuminen omissa asuinalueissaan",
+          "Kantaväestön asenteet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä ongelmia tekstin mukaan poliittiseen keskusteluun maahanmuutosta liittyy?",
+        "options": [
+          "Se on liian monipuolista",
+          "Se on ongelmakeskeistä ja maahanmuuttajat nähdään joko uhrina tai uhkana",
+          "Siinä ei huomioida taloudellisia näkökulmia",
+          "Se on liian teoreettista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

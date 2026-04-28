@@ -1,0 +1,25 @@
+[Unit]
+Description=Floently Finnish Backend (FastAPI/Uvicorn)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/floently/backend/apps/backend
+EnvironmentFile=/opt/floently/backend/apps/backend/.env
+ExecStart=/opt/floently/backend/apps/backend/.venv/bin/uvicorn main:app --host 127.0.0.1 --port 8080 --proxy-headers --log-level info
+Restart=always
+RestartSec=3
+TimeoutStopSec=20
+KillSignal=SIGINT
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/floently/backend/apps/backend/runtime /opt/floently/backend/apps/backend/puhis.db
+
+[Install]
+WantedBy=multi-user.target

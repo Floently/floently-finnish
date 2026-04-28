@@ -1,0 +1,37 @@
+{
+  "id": "498d0979-6061-58a0-9205-d229bf2cbe50",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.509,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnon jääkaappi on rikki. Se ei ole tarpeeksi kylmä ja ruoka pilaantuu. Kerro ongelmasta ja pyydä, että jääkaappi korjataan tai vaihdetaan.",
+    "materials": {
+      "scenario": "Vikailmoitus jääkaapista"
+    },
+    "items": [
+      {
+        "id": "bd0a3dd9-3d18-57e9-8ba7-0ea94f283012",
+        "prompt": "Kirjoita sähköposti vuokranantajalle. Haluat ilmoittaa, että asunnon jääkaappi on rikki. Se ei ole tarpeeksi kylmä ja ruoka pilaantuu. Kerro ongelmasta ja pyydä, että jääkaappi korjataan tai vaihdetaan."
+      }
+    ],
+    "rubric": "Ongelman kuvaus\nVaikutukset\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

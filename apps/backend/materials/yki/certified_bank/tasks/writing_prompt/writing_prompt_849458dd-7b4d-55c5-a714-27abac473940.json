@@ -1,0 +1,37 @@
+{
+  "id": "849458dd-7b4d-55c5-a714-27abac473940",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.706,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton liikkumisen ohjaus ikääntyville?'. Arvioi terveysvaikutuksia, itsenäisyyttä ja kustannuksia.",
+    "materials": {
+      "scenario": "Liikkumisen ohjaus ikääntyville"
+    },
+    "items": [
+      {
+        "id": "f16b81e1-61c7-543e-b6da-14a4b4b0f16b",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö kunnan tarjota maksuton liikkumisen ohjaus ikääntyville?'. Arvioi terveysvaikutuksia, itsenäisyyttä ja kustannuksia."
+      }
+    ],
+    "rubric": "Terveysvaikutukset\nItsenäisyys\nKustannukset\nEnnaltaehkäisy",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

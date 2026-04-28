@@ -1,0 +1,37 @@
+{
+  "id": "aed2e622-f5b8-558e-b4ac-ff9285ce04e6",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.711,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön malli, jossa jokaisella on oikeus viiteen sairauslomapäivään ilman lääkärintodistusta?'. Analysoi työelämää, byrokratiaa ja väärinkäytöksiä.",
+    "materials": {
+      "scenario": "Sairauslomakäytännöt"
+    },
+    "items": [
+      {
+        "id": "a07d95c7-f7c6-5acc-9ca0-45ee5e77ba30",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö Suomessa ottaa käyttöön malli, jossa jokaisella on oikeus viiteen sairauslomapäivään ilman lääkärintodistusta?'. Analysoi työelämää, byrokratiaa ja väärinkäytöksiä."
+      }
+    ],
+    "rubric": "Työelämä\nByrokratia\nVäärinkäytökset\nLuottamus",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

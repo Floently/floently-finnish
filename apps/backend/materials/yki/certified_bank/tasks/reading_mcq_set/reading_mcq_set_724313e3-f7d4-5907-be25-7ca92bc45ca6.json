@@ -1,0 +1,66 @@
+{
+  "id": "724313e3-f7d4-5907-be25-7ca92bc45ca6",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.334,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin. Valitse oikea vaihtoehto.",
+    "materials": {
+      "text": "KIRJASTO\n\nAvoinna:\nmaanantai–perjantai 10–18\nlauantai 10–15\nsunnuntai suljettu\n\nOsoite: Kauppakatu 5, 00100 Helsinki\n\nKirjastokortti maksaa 3 euroa. Kortilla voit lainata kirjoja, lehtiä ja elokuvia. Laina-aika on 28 päivää. Uusia lainoja voi tehdä netissä.  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin kirjasto on auki sunnuntaina?",
+        "options": [
+          "10–18",
+          "10–15",
+          "suljettu",
+          "ei auki ollenkaan"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko kirjastokortti maksaa?",
+        "options": [
+          "ilmainen",
+          "3 euroa",
+          "5 euroa",
+          "10 euroa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjastokortilla voi lainata?",
+        "options": [
+          "vain kirjoja",
+          "vain lehtiä",
+          "kirjoja, lehtiä ja elokuvia",
+          "vain elokuvia"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

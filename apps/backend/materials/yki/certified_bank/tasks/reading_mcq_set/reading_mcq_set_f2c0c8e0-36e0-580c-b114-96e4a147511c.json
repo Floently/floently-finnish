@@ -1,0 +1,110 @@
+{
+  "id": "f2c0c8e0-36e0-580c-b114-96e4a147511c",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.727,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen sijainti Venäjän naapurina on aina vaikuttanut maan turvallisuuspolitiikkaan. Pitkään Suomi painotti puolueettomuutta ja ystävällisiä suhteita itänaapuriin. Kylmän sodan aikana tämä oli välttämätöntä itsenäisyyden säilyttämiseksi. Neuvostoliiton hajoamisen jälkeen Suomi liittyi Euroopan unioniin, mikä toi maan lähemmäs länttä. Venäjän hyökkäys Ukrainaan vuonna 2022 oli käännekohta. Se osoitti, että Venäjä on valmis käyttämään sotilaallista voimaa naapurimaitaan vastaan. Tämä johti nopeaan mielipiteenmuutokseen Suomessa. Kansalaisten ja poliitikkojen enemmistö alkoi kannattaa Nato-jäsenyyttä. Suomi haki jäsenyyttä ja liittyi puolustusliittoon vuonna 2023. Nato-jäsenyys on historiallinen muutos. Se tuo Suomelle turvatakuut, mutta myös velvoitteita. Suomi osallistuu jatkossa Naton yhteiseen puolustukseen ja kriisinhallintaan. Jäsenyys myös vahvistaa Pohjoismaiden ja Baltian maiden turvallisuusyhteistyötä. Suhteet Venäjään ovat jäätyneet, ja rajayhteistyö on keskeytetty. Suomen on varauduttava siihen, että Venäjä voi käyttää erilaisia painostuskeinoja, kuten kyberhyökkäyksiä tai disinformaatiota. Nato-jäsenyys ei poista kaikkia uhkia, mutta se vahvistaa Suomen puolustuskykyä ja asemaa osana läntistä yhteisöä.",
+      "word_count": 139
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten Venäjän naapuruus on vaikuttanut Suomen turvallisuuspolitiikkaan?",
+        "options": [
+          "Ei mitenkään.",
+          "Se on aina vaikuttanut, ja Suomi on joutunut tasapainoilemaan idän ja lännen välillä.",
+          "Vasta nyt se on alkanut vaikuttaa.",
+          "Se on vaikuttanut vain talouteen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä politiikkaa Suomi painotti kylmän sodan aikana?",
+        "options": [
+          "Aktiivista Nato-yhteistyötä.",
+          "Puolueettomuutta ja ystävällisiä suhteita Neuvostoliittoon.",
+          "Sotilaallista liittoutumista Yhdysvaltojen kanssa.",
+          "Vihamielisyyttä itänaapuria kohtaan."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä tapahtuma oli käännekohta Suomen turvallisuuspolitiikassa?",
+        "options": [
+          "EU:hun liittyminen 1995.",
+          "Neuvostoliiton hajoaminen.",
+          "Venäjän hyökkäys Ukrainaan 2022.",
+          "Kylmän sodan päättyminen."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q4",
+        "prompt": "Milloin Suomi liittyi Natoon?",
+        "options": [
+          "2022.",
+          "2023.",
+          "2024.",
+          "2025."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä Nato-jäsenyys tuo Suomelle?",
+        "options": [
+          "Vain kustannuksia.",
+          "Turvatakuut, mutta myös velvoitteita osallistua yhteiseen puolustukseen.",
+          "Vain byrokratiaa.",
+          "Vain sotilaallista koulutusta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten suhteet Venäjään ovat muuttuneet Nato-jäsenyyden jälkeen?",
+        "options": [
+          "Ne ovat tiivistyneet.",
+          "Ne ovat jäätyneet ja rajayhteistyö on keskeytetty.",
+          "Ne ovat pysyneet ennallaan.",
+          "Ne ovat parantuneet."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä painostuskeinoja Venäjä voi käyttää Suomea vastaan?",
+        "options": [
+          "Sotilaallista hyökkäystä.",
+          "Kyberhyökkäyksiä ja disinformaatiota.",
+          "Talouspakotteita.",
+          "Diplomaattisia keinoja."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

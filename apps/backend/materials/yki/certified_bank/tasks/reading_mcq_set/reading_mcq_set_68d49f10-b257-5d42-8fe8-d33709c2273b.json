@@ -1,0 +1,77 @@
+{
+  "id": "68d49f10-b257-5d42-8fe8-d33709c2273b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.553,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KIELITESTI KIRISTYY – NÄIN SE VAIKUTTAA KANSALAISUUTTA HAKEVIIN\n\nEduskunta on hyväksynyt lakimuutoksen, jonka mukaan kansalaisuuden saaminen edellyttää jatkossa vähintään B1-tason suomen tai ruotsin taitoa. Aiemmin vaatimuksena oli A2-taso. Uudistus astuu voimaan vuoden 2026 alussa, ja se koskee kaikkia sen jälkeen hakemuksensa jättäviä.\n\nMaahanmuuttovirasto arvioi, että uusi vaatimus voi jarruttaa monen hakemuksen etenemistä. \"Suurin osa hakijoista saavuttaa B1-tason, mutta se vaatii usein enemmän opiskelua ja aikaa\", toteaa ylitarkastaja Anna Lehtinen.\n\nKieltenopettajat suhtautuvat uudistukseen kaksijakoisesti. Osa pitää sitä hyvänä, koska se edistää kotoutumista ja yhteiskuntaan kiinnittymistä. Toiset pelkäävät, että se lisää eriarvoisuutta, sillä kaikilla ei ole mahdollisuutta pitkiin kielikursseihin.\n\nMaahanmuuttaja Ali Hassan on juuri aloittanut B1-kurssin: \"Tiedän, että suomen kieli on tärkeää työpaikan ja ystävien saamiseksi. Mutta uusi vaatimus tuntuu raskaalta, koska työelämässä oppii myös kieltä.\"  Yhteenvetona voidaan sanoa, että asiayhteys ja paikalliset käytännöt voivat vaikuttaa toimenpiteisiin. Lisätietoja on usein mahdollista hakea virallisista lähteistä tai asiantuntijalta. Tämä teksti on laadittu luetun ymmärtämisen harjoitustehtävää varten.",
+      "word_count": 152
+    },
+    "questions": [
+      {
+        "id": "0f71af4f-49d6-5e66-9811-06364dfbd0ee",
+        "prompt": "Mikä oli aiempi kielitaitovaatimus kansalaisuuden saamiseksi?",
+        "options": [
+          "A1-taso",
+          "A2-taso",
+          "B1-taso",
+          "B2-taso"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e0e4a6cc-0732-5f69-9508-0d444f5eb5dc",
+        "prompt": "Milloin uusi vaatimus astuu voimaan?",
+        "options": [
+          "Heti",
+          "Vuoden 2025 alussa",
+          "Vuoden 2026 alussa",
+          "Vuoden 2027 alussa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "4af43a41-c41a-5daf-981c-e071bade0020",
+        "prompt": "Mitä Maahanmuuttovirasto arvioi uudistuksen vaikutuksista?",
+        "options": [
+          "Hakemukset nopeutuvat",
+          "Hakemusten eteneminen voi hidastua",
+          "Hakijamäärä kasvaa",
+          "Kukaan ei hae enää kansalaisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "5f8d11eb-c6fa-59b9-83ae-4bb4ddfdcb3b",
+        "prompt": "Miksi osa opettajista on huolissaan uudistuksesta?",
+        "options": [
+          "Se on liian helppo",
+          "Se voi lisätä eriarvoisuutta",
+          "Kieliä opiskellaan liikaa",
+          "Ruotsi unohtuu kokonaan"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

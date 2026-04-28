@@ -1,0 +1,37 @@
+{
+  "id": "8539c558-9936-5254-aeb0-d7f758c7e927",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.699,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisia hankintoja käyttää enemmän kotimaisen työllisyyden tukemiseen?'. Analysoi kilpailua, hintoja ja EU-sääntöjä.",
+    "materials": {
+      "scenario": "Julkiset hankinnat ja kotimainen työllisyys"
+    },
+    "items": [
+      {
+        "id": "a6c4304b-aae4-5794-97de-ee443fec7fa6",
+        "prompt": "Kirjoita mielipideteksti otsikolla 'Pitäisikö julkisia hankintoja käyttää enemmän kotimaisen työllisyyden tukemiseen?'. Analysoi kilpailua, hintoja ja EU-sääntöjä."
+      }
+    ],
+    "rubric": "Kotimainen työllisyys\nKilpailu\nHinnat\nEU-säännöt",
+    "timing": {
+      "recommended_minutes": 45
+    }
+  }
+}

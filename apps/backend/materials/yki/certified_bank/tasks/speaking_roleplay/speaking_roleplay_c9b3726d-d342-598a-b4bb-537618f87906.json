@@ -1,0 +1,64 @@
+{
+  "id": "c9b3726d-d342-598a-b4bb-537618f87906",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.522,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella jäsenyyden etuja kuntosalilla. Keskustele myyjän kanssa.",
+    "materials": {
+      "roles": {
+        "user": "Asiakas",
+        "partner": "Kuntosalin myyjä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp26_1",
+        "ai_first_turn_fi": "Hei, Kuntosali Activeen, kuinka voin auttaa?"
+      },
+      {
+        "id": "srp26_2",
+        "ai_first_turn_fi": "Hienoa! Meillä on useita erilaisia jäsenyyksiä. Haluaisitko kuukausi- vai vuosijäsenyyden?"
+      },
+      {
+        "id": "srp26_3",
+        "ai_first_turn_fi": "Kuukausijäsenyys maksaa 45 euroa ja vuosijäsenyys 399 euroa. Vuosijäsenyydellä saat kaksi kuukautta ilmaiseksi."
+      },
+      {
+        "id": "srp26_4",
+        "ai_first_turn_fi": "Hintaan sisältyy laitteiden käyttö, ryhmäliikuntatunnit ja pukuhuoneet. Meillä on myös sauna ja solarium lisämaksusta."
+      },
+      {
+        "id": "srp26_5",
+        "ai_first_turn_fi": "Kyllä, meillä on paljon erilaisia tunteja: joogaa, bodypumppia, spinningiä ja paljon muuta. Kaikki sisältyy jäsenyyteen."
+      },
+      {
+        "id": "srp26_6",
+        "ai_first_turn_fi": "Totta kai! Voit tulla tutustumaan ja kokeilemaan ilmaiseksi yhden päivän. Sopiiko sinulle huominen?"
+      },
+      {
+        "id": "srp26_7",
+        "ai_first_turn_fi": "Loistavaa. Odotamme sinua huomenna! Tervetuloa."
+      }
+    ],
+    "rubric": "Tässä tehtävässä näyttelet asiakasta, joka haluaa tiedustella jäsenyyden etuja kuntosalilla. Keskustele myyjän kanssa.",
+    "timing": {
+      "recommended_minutes": 7
+    }
+  }
+}

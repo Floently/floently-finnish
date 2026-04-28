@@ -1,0 +1,37 @@
+{
+  "id": "95d23842-a574-5fb6-b344-d1d5032f44bf",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet huolissasi roskaamisesta kotipaikkakunnallasi. Kirjoita mielipidekirjoitus paikallislehteen.",
+    "materials": {
+      "scenario": "Olet huolissasi roskaamisesta kotipaikkakunnallasi. Kirjoita mielipidekirjoitus paikallislehteen."
+    },
+    "items": [
+      {
+        "id": "f1c424f6-ae4d-52fd-a450-7fc1ddb79425",
+        "prompt": "Kirjoita noin 130 sanan mielipidekirjoitus, jossa:\n- kerrot, että roskaaminen on ongelma alueellasi\n- kuvailet, millaista roskaa näet ja missä (puistot, kadut, rannat)\n- kerrot, miksi roskaaminen on haitallista (ympäristö, eläimet, viihtyisyys)\n- ehdotat, miten asiaa voitaisiin parantaa (lisää roskiksia, valistusta, siivoustalkoita)"
+      }
+    ],
+    "rubric": "Kirjoita noin 130 sanan mielipidekirjoitus, jossa:\n- kerrot, että roskaaminen on ongelma alueellasi\n- kuvailet, millaista roskaa näet ja missä (puistot, kadut, rannat)\n- kerrot, miksi roskaaminen on haitallista (ympäristö, eläimet, viihtyisyys)\n- ehdotat, miten asiaa voitaisiin parantaa (lisää roskiksia, valistusta, siivoustalkoita)",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "563ab37d-d67a-5a7d-85eb-eb9870b751bb",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.341,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: community_center. Purpose: propose_an_improvement. Constraint: be_polite.",
+    "materials": {
+      "scenario": "consumer_rights in community_center"
+    },
+    "items": [
+      {
+        "id": "0db41dd1-7fb6-5ceb-a1b0-54ba19fa67a2",
+        "prompt": "Write for the receiver in this scenario: community_center. Purpose: propose_an_improvement. Constraint: be_polite."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

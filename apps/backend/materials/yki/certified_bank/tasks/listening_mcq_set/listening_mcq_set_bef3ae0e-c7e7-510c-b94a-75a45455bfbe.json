@@ -1,0 +1,66 @@
+{
+  "id": "bef3ae0e-c7e7-510c-b94a-75a45455bfbe",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.535,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, haluaisin avata uuden käyttötilin. Mitä asiakirjoja tarvitsen?\nPankkivirkailija: Hei, tarvitsen henkilöllisyystodistuksen, kuten passin tai ajokortin. Lisäksi tarvitaan verokortti, jos haluat tilille palkan.\nAsiakas: Entä jos minulla ei ole suomalaista henkilötunnusta?\nPankkivirkailija: Silloin tarvitaan ulkomaalainen henkilötunnus ja oleskelulupa. Prosessi voi kestää hieman kauemmin.\nAsiakas: Selvä. Onko tilin avaamisesta kuluja?\nPankkivirkailija: Peruskäyttötili on maksuton, jos käytät vain verkkopankkia. Kortista on 5 euron kuukausimaksu.\nAsiakas: Hyväksyn ehdot. Avataan tili.",
+      "audio_asset_id": "a0244185-92bc-53da-9603-0e36e4a5926f"
+    },
+    "questions": [
+      {
+        "id": "list_202",
+        "prompt": "Mitä asiakirjaa EI mainita henkilöllisyyden todistamiseen?",
+        "options": [
+          "Passia",
+          "Ajokorttia",
+          "Kela-korttia",
+          "Oleskelulupaa"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_203",
+        "prompt": "Mitä tarvitaan, jos asiakkaalla ei ole suomalaista henkilötunnusta?",
+        "options": [
+          "Ulkomaalainen henkilötunnus ja oleskelulupa",
+          "Työtodistus",
+          "Verokortti",
+          "Kansainvälinen ajokortti"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "list_204",
+        "prompt": "Paljonko kortin kuukausimaksu on?",
+        "options": [
+          "3 euroa",
+          "5 euroa",
+          "7 euroa",
+          "10 euroa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

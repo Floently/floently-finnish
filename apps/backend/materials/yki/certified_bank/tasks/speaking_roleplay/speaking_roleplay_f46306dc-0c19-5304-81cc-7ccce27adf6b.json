@@ -1,0 +1,40 @@
+{
+  "id": "f46306dc-0c19-5304-81cc-7ccce27adf6b",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.312,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell about your morning routines: what time you wake up, if you eat breakfast, what you do before leaving for work.",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "b9f688e5-d8d9-5621-8160-3079abe5b041",
+        "ai_first_turn_fi": "Mitä sä teet yleensä aamulla ennen töihin lähtöä?"
+      }
+    ],
+    "rubric": "Tell about your morning routines: what time you wake up, if you eat breakfast, what you do before leaving for work.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

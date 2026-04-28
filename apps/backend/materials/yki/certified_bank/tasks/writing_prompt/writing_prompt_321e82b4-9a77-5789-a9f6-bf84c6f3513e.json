@@ -1,0 +1,37 @@
+{
+  "id": "321e82b4-9a77-5789-a9f6-bf84c6f3513e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.537,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palauteteksti TE-toimiston palveluista. Kerro ohjauksen laadusta, työnhakuneuvojen hyödyllisyydestä ja kurssitarjonnasta. Ehdota yhtä parannusta.",
+    "materials": {
+      "scenario": "Palaute TE-toimiston palveluista"
+    },
+    "items": [
+      {
+        "id": "861ffda3-d523-5cda-8f49-a699877acf15",
+        "prompt": "Kirjoita palauteteksti TE-toimiston palveluista. Kerro ohjauksen laadusta, työnhakuneuvojen hyödyllisyydestä ja kurssitarjonnasta. Ehdota yhtä parannusta."
+      }
+    ],
+    "rubric": "Ohjauksen laatu\nTyönhakuneuvojen hyödyllisyys\nKurssitarjonta\nParannusehdotus",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

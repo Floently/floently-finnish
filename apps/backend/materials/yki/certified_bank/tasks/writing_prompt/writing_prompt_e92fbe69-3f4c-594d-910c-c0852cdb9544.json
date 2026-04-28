@@ -1,0 +1,37 @@
+{
+  "id": "e92fbe69-3f4c-594d-910c-c0852cdb9544",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti Kelaan. Olet jäänyt työttömäksi ja haluat hakea työttömyysetuutta. Kerro tilanteestasi ja kysy, mitä liitteitä tarvitaan ja miten hakemus tehdään nopeimmin.",
+    "materials": {
+      "scenario": "Tiedustelu työttömyysetuudesta"
+    },
+    "items": [
+      {
+        "id": "db3b425c-9bbc-59eb-b44d-b049dd537ccf",
+        "prompt": "Kirjoita sähköposti Kelaan. Olet jäänyt työttömäksi ja haluat hakea työttömyysetuutta. Kerro tilanteestasi ja kysy, mitä liitteitä tarvitaan ja miten hakemus tehdään nopeimmin."
+      }
+    ],
+    "rubric": "Tilanteen kuvaus\nHakeminen\nTarvittavat liitteet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

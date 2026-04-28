@@ -1,0 +1,40 @@
+{
+  "id": "6a5c7e6d-ec3a-5801-ab5e-c6b4ac76602e",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.515,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Keskustele apteekin farmaseutin kanssa. Kysy lääkkeiden yhteisvaikutuksista.",
+    "materials": {
+      "roles": {
+        "user": "huolissasi niiden yhteisvaikutuksista",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "fef8dee3-a56c-502a-b69e-829142af3d89",
+        "ai_first_turn_fi": "Hei, miten voin auttaa?"
+      }
+    ],
+    "rubric": "Keskustele apteekin farmaseutin kanssa. Kysy lääkkeiden yhteisvaikutuksista.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

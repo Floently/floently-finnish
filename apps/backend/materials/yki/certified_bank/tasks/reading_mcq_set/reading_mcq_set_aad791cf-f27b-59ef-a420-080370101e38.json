@@ -1,0 +1,66 @@
+{
+  "id": "aad791cf-f27b-59ef-a420-080370101e38",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Liikunnalla on monia myönteisiä vaikutuksia terveyteen. Se vahvistaa sydäntä ja verenkiertoa, parantaa unenlaatua ja vähentää stressiä. Liikunta myös auttaa painonhallinnassa ja ehkäisee monia sairauksia. Asiantuntijat suosittelevat vähintään 2,5 tuntia reipasta liikuntaa viikossa. Tämä voi olla esimerkiksi kävelyä, pyöräilyä tai uintia. Tärkeintä on, että liikunta on säännöllistä ja mukavaa. Liian vähäinen liikunta lisää riskiä sairastua esimerkiksi sydän- ja verisuonitauteihin.",
+      "word_count": 58
+    },
+    "questions": [
+      {
+        "id": "80b1f7ea-5a5c-5c03-bbd8-3d2493c010f9",
+        "prompt": "Mitä hyötyjä liikunnasta on?",
+        "options": [
+          "Vain painonhallinta",
+          "Monipuolisia terveyshyötyjä",
+          "Vain lihasten kasvatus",
+          "Vain nuorille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "6fff36fd-4d76-50df-95e1-c8c31603ae1d",
+        "prompt": "Paljonko asiantuntijat suosittelevat liikuntaa viikossa?",
+        "options": [
+          "1 tunti",
+          "2,5 tuntia",
+          "5 tuntia",
+          "10 tuntia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "51864aac-f8cc-5557-bd62-538768c23a5c",
+        "prompt": "Mitä liian vähäinen liikunta voi aiheuttaa?",
+        "options": [
+          "Parempaa unta",
+          "Vähemmän stressiä",
+          "Sairastumisriskin kasvua",
+          "Painon laskua"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

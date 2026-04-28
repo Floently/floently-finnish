@@ -1,0 +1,37 @@
+{
+  "id": "b776bc67-2e95-5362-ade1-5e925e5e778e",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.316,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write for the receiver in this scenario: train station. Purpose: ask for information. Constraint: mention a follow up step.",
+    "materials": {
+      "scenario": "city_services in train_station"
+    },
+    "items": [
+      {
+        "id": "bc3db953-e2a4-58ab-8bcc-426acbb64c40",
+        "prompt": "Write for the receiver in this scenario: train station. Purpose: ask for information. Constraint: mention a follow up step."
+      }
+    ],
+    "rubric": "state_background\nstate_main_request_or_claim\nadd_justification",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

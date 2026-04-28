@@ -1,0 +1,37 @@
+{
+  "id": "f3c62902-e217-57db-80bd-7e2a65237ca0",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.527,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti kaupungin kaavoitusosastolle. Haluat antaa palautetta uudesta asemakaavaluonnoksesta, joka koskee aluetta, jossa asut. Kerro, mikä luonnoksessa on hyvää ja mikä huolestuttaa sinua.",
+    "materials": {
+      "scenario": "Palaute asemakaavaluonnoksesta"
+    },
+    "items": [
+      {
+        "id": "37018c38-0f1d-5f50-9e7b-a870ab5b00ca",
+        "prompt": "Kirjoita sähköposti kaupungin kaavoitusosastolle. Haluat antaa palautetta uudesta asemakaavaluonnoksesta, joka koskee aluetta, jossa asut. Kerro, mikä luonnoksessa on hyvää ja mikä huolestuttaa sinua."
+      }
+    ],
+    "rubric": "Kaavaluonnoksen kuvaus\nPositiiviset huomiot\nHuolenaiheet",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

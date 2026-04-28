@@ -1,0 +1,77 @@
+{
+  "id": "169e6da3-10c5-513c-a13e-5e3e63c67478",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.759,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto (A, B, C tai D).",
+    "materials": {
+      "text": "Yksilön vapauden ja yhteiskunnan turvallisuuden välinen jännite on yksi länsimaisen poliittisen filosofian keskeisiä teemoja. Se on ollut ajankohtainen erityisesti keskustelussa terrorismin torjunnasta, pandemioiden aikaisista rajoituksista ja julkisen tilan valvonnasta. Kysymys siitä, missä määrin yhteiskunnalla on oikeus rajoittaa yksilön vapautta turvallisuuden nimissä, jakaa mielipiteitä ja herättää intohimoja. Yksilönvapauksien puolustajat korostavat jokaisen oikeutta päättää omasta elämästään ja ilmaista itseään vapaasti. He varoittavat, että turvallisuuteen vetoaminen voi johtaa helposti holhoavaan yhteiskuntaan, jossa yksilön oikeuksia poljetaan ja erilaisuus kaventuu. Turvallisuuden ensisijaisuutta korostavat puolestaan katsovat, että ilman perusturvallisuutta yksilönvapauksista ei voida nauttia. Heidän mukaansa valtiolla on velvollisuus suojella kansalaisiaan väkivallalta ja muilta uhkilta, tarvittaessa jopa rajoittamalla yksilön vapauksia. Monet filosofit korostavat suhteellisuusperiaatetta: rajoitusten on oltava perusteltuja, kohdistuttava todelliseen uhkaan ja oltava mahdollisimman lieviä suhteessa tavoiteltuun päämäärään.",
+      "word_count": 121
+    },
+    "questions": [
+      {
+        "id": "e126bf67-e670-58fa-be2a-fde012c9ebb4",
+        "prompt": "Mikä on tekstin keskeinen teema?",
+        "options": [
+          "Terrorismin torjunta ja kansalaisten vapaudet",
+          "Yksilönvapauden ja yhteiskunnan turvallisuuden välinen jännite",
+          "Pandemiarajoitusten vaikutukset talouteen",
+          "Julkisen tilan valvonnan lisääntyminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "7348017e-4dfc-52b5-88ba-547b1f5be1f8",
+        "prompt": "Tekstin mukaan miten yksilönvapauksien puolustajat suhtautuvat turvallisuuteen vetoamiseen?",
+        "options": [
+          "He pitävät turvallisuutta tärkeämpänä kuin yksilönvapauksia",
+          "He varoittavat, että turvallisuuteen vetoaminen voi johtaa holhoavaan yhteiskuntaan ja yksilön oikeuksien polkemiseen",
+          "He hyväksyvät rajoitukset aina",
+          "He katsovat, että turvallisuustoimet ovat aina riittäviä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "56b1cbda-107e-575f-85cd-4d070c67aa61",
+        "prompt": "Mitä turvallisuuden ensisijaisuutta korostavat painottavat?",
+        "options": [
+          "Yksilönvapaudet ovat aina etusijalla",
+          "Ilman perusturvallisuutta yksilönvapauksista ei voida nauttia, ja valtiolla on velvollisuus suojella kansalaisia",
+          "Turvallisuus on yksilön oma asia, ei valtion",
+          "Rajoitukset ovat aina tarpeettomia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "69d5dbb6-f2ee-5126-902b-404733f7487f",
+        "prompt": "Mitä tarkoitetaan suhteellisuusperiaatteella?",
+        "options": [
+          "Rajoituksia ei saa koskaan tehdä",
+          "Rajoitusten on oltava mahdollisimman ankaria",
+          "Rajoitusten on oltava perusteltuja, kohdistuttava todelliseen uhkaan ja oltava mahdollisimman lieviä",
+          "Vain yksilönvapaudet ratkaisevat"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

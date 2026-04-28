@@ -1,0 +1,237 @@
+{
+  "cards": [
+    {
+      "id": "card.grammar.doctor.elakoon-tervehtykoon-onnistukoon-leikkaus-leikkaus-onnistukoon-onnistua-complete-with-optative.ee53c9",
+      "version": 1,
+      "path": "professional/doctor/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "doctor",
+        "label": "Doctor"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.doctor.grammar.optative.0058",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.doctor.grammar.optative.0058"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.9
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "doctor",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.doctor.grammar.optative.0058",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "Eläköön! Tervehtyköön! Onnistukoon leikkaus!",
+          "usage": "Complete with optative."
+        },
+        "back": {
+          "recall_prompt": "Complete with optative.",
+          "gloss": "Complete with optative.",
+          "example_sentence": "Leikkaus onnistukoon (onnistua)!"
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Leikkaus onnistukoon (onnistua)!",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete with optative.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Complete with optative.",
+            "accepted_variants": [
+              "onnistukoon"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with optative.",
+          "example": "Leikkaus onnistukoon (onnistua)!"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      }
+    },
+    {
+      "id": "card.grammar.doctor.puhua-puhunen-puhunet-puhunee-puhunemme-puhunette-puhunevat-hoitaja-auttanee-auttaa-potilasta-pian.-complete-with-potential-mood.c496f0",
+      "version": 1,
+      "path": "professional/doctor/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "doctor",
+        "label": "Doctor"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.doctor.grammar.potential.0017",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.doctor.grammar.potential.0017"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.9
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "doctor",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.doctor.grammar.potential.0017",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "puhua → puhunen, puhunet, puhunee, puhunemme, puhunette, puhunevat",
+          "usage": "Complete with potential mood."
+        },
+        "back": {
+          "recall_prompt": "Complete with potential mood.",
+          "gloss": "Complete with potential mood.",
+          "example_sentence": "Hoitaja auttanee (auttaa) potilasta pian."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Hoitaja auttanee (auttaa) potilasta pian.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal.",
+                "explanation": null
+              },
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form.",
+                "explanation": null
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence.",
+                "explanation": null
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete with potential mood.",
+                "explanation": null
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Complete with potential mood.",
+            "accepted_variants": [
+              "auttanee"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with potential mood.",
+          "example": "Hoitaja auttanee (auttaa) potilasta pian."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      }
+    }
+  ],
+  "manifest": {
+    "track": "professional",
+    "profession": "doctor",
+    "bucket": "grammar",
+    "level_band": "C1_C2",
+    "last_promoted_source_id": "source.generated.general.sentences"
+  }
+}

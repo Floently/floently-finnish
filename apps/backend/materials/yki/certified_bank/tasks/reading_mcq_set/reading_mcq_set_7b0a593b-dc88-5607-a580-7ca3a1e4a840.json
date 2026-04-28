@@ -1,0 +1,77 @@
+{
+  "id": "7b0a593b-dc88-5607-a580-7ca3a1e4a840",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.745,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "DIGITALISAATIO – UHKA VAI MAHDOLLISUUS DEMOKRATIALLE?\n\nDigitalisaatio on muuttanut yhteiskuntaa perusteellisesti. Se on tuonut mukanaan valtavia mahdollisuuksia: tiedon saatavuus on parantunut, palvelut ovat tehostuneet ja uudenlainen vuorovaikutus on mahdollista. Mutta samalla se on herättänyt huolta demokratian tilasta.\n\nYksi keskeinen huolenaihe on disinformaatio. Some-algoritmit levittävät tehokkaasti sisältöä, joka herättää tunteita – olipa se totta tai ei. Valeuutiset ja salaliittoteoriat leviävät nopeammin kuin oikea tieto. Tämä heikentää ihmisten kykyä tehdä tietoon perustuvia päätöksiä.\n\nToinen huolenaihe on kuplautuminen. Algoritmit suosittelevat sisältöä, joka on meille mieluista. Näemme yhä vähemmän erilaisia mielipiteitä, ja oma maailmankuvamme vahvistuu. Tämä polarisoi yhteiskuntaa ja vaikeuttaa keskustelua yli rajojen.\n\nKolmas huolenaihe on vallan keskittyminen. Muutama suuri some-alusta hallitsee julkista keskustelua. Ne päättävät, mikä sisältö näkyy ja mikä ei. Tämä on valtaa, jota ei ole demokraattisesti valvottu.\n\nMutta digitalisaatio tarjoaa myös mahdollisuuksia. Se voi lisätä kansalaisten osallistumista. Kansalaisaloitteet, verkkokyselyt ja some-kampanjat ovat uusia tapoja vaikuttaa. Ne madaltavat kynnystä osallistua.\n\nTulevaisuudessa tarvitaan uudenlaista medialukutaitoa. Ihmisten on osattava arvioida kriittisesti lähteitä ja tunnistaa disinformaatio. Kouluilla ja kirjastoilla on tässä tärkeä rooli.\n\nLopuksi on muistettava, että teknologia ei ole neutraalia. Se heijastaa tekijöidensä arvoja ja valintoja. Siksi on tärkeää keskustella siitä, millaista digitalisaatiota haluamme. Haluammeko alustoja, jotka vahvistavat demokratiaa, vai alustoja, jotka heikentävät sitä?  Tarkemman analyysin kannalta on syytä huomioida konteksti ja mahdolliset rajoitteet. Asiasta voi olla useita tulkintoja, ja lähteiden luotettavuus on tärkeä. Lyhyesti ottaen tämä näkökulma täydentää aiempaa kuvailua. Lisälukemista varten aiheeseen liittyy runsaasti kirjallisuutta.",
+      "word_count": 233
+    },
+    "questions": [
+      {
+        "id": "df7af441-caca-5314-8330-82af6905991c",
+        "prompt": "Mitä huolenaiheita digitalisaatioon liittyy?",
+        "options": [
+          "liian hidas kehitys",
+          "disinformaatio, kuplautuminen ja vallan keskittyminen",
+          "liian vähän sisältöä",
+          "liian paljon valvontaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fd36901d-2cff-5abb-92d6-3b3b1d3c437e",
+        "prompt": "Miten disinformaatio leviää some-algoritmien kautta?",
+        "options": [
+          "ne suosivat tylsiä uutisia",
+          "ne levittävät tehokkaasti sisältöä, joka herättää tunteita, olipa se totta tai ei",
+          "ne suosivat asiallista journalismia",
+          "ne estävät valeuutiset"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "78c2f225-1026-5e37-84f5-8340898fc2e2",
+        "prompt": "Mitä tarkoitetaan kuplautumisella?",
+        "options": [
+          "ihmiset asuvat samalla alueella",
+          "algoritmit suosittelevat vain mieluisaa sisältöä, jolloin omat näkemykset vahvistuvat",
+          "ihmiset keskustelevat paljon",
+          "uutiset ovat monipuolisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "1a6aac58-c45d-5490-9cea-fa829bc88c30",
+        "prompt": "Mitä mahdollisuuksia digitalisaatio tarjoaa demokratialle?",
+        "options": [
+          "ei mitään",
+          "se lisää kansalaisten osallistumista uusilla tavoilla",
+          "se vähentää osallistumista",
+          "se tekee päätöksenteosta vaikeampaa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "07851633-add7-5813-96ac-882367ddfe99",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.318,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue suomen kielen kurssin tiedot.",
+    "materials": {
+      "text": "SUOMEN KIELEN KURSSI A1\n\nAlkaa: 12.9.2026\nAika: tiistaisin klo 17.30–19.30\nKesto: 10 viikkoa\nPaikka: Työväenopisto, luokka 205\nHinta: 85 €\nIlmoittautuminen: www.opisto.fi/kurssit",
+      "word_count": 22
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin kurssi alkaa?",
+        "options": [
+          "5.9.",
+          "12.9.",
+          "19.9.",
+          "26.9."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Paljonko kurssi maksaa?",
+        "options": [
+          "65 €",
+          "75 €",
+          "85 €",
+          "95 €"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten kurssille ilmoittaudutaan?",
+        "options": [
+          "Soittamalla",
+          "Sähköpostilla",
+          "Verkkosivulla",
+          "Tekstiviestillä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "b7a5d792-8ef8-5a1e-a7c6-9e192669a26a",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita palaute kahvilasta.",
+    "materials": {
+      "scenario": "Kirjoita palaute kahvilasta."
+    },
+    "items": [
+      {
+        "id": "09f305df-3042-549c-b316-9a0da74f69b2",
+        "prompt": "Kävit eilen uudessa kahvilassa. Kirjoita lyhyt palaute (4–6 lausetta). Kerro missä kahvila oli, mitä tilasit, oliko ruoka ja palvelu hyvää ja menisitkö uudelleen."
+      }
+    ],
+    "rubric": "Kävit eilen uudessa kahvilassa. Kirjoita lyhyt palaute (4–6 lausetta). Kerro missä kahvila oli, mitä tilasit, oliko ruoka ja palvelu hyvää ja menisitkö uudelleen.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

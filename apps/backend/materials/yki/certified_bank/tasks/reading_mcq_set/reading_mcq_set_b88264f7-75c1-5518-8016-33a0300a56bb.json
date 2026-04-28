@@ -1,0 +1,77 @@
+{
+  "id": "b88264f7-75c1-5518-8016-33a0300a56bb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Liikunta on tärkeä osa suomalaisten elämää. Suosituimpia lajeja ovat kävely, pyöräily, juoksu, hiihto ja uinti. Kuntosaliharjoittelu on kasvattanut suosiotaan viime vuosina. Monet harrastavat liikuntaa omatoimisesti, mutta myös ohjattu liikunta esimerkiksi urheiluseuroissa, kuntosaleilla ja liikuntakeskuksissa on suosittua. Liikunnan harrastaminen on yleisempää nuorten keskuudessa, mutta ikääntyneetkin liikkuvat yhä enemmän terveytensä vuoksi. Työikäisten liikkumiseen vaikuttavat työmatkat ja työn fyysisyys. Kunnat tarjoavat liikuntapalveluja, kuten uimahalleja, jäähalleja, liikuntapuistoja ja latuja. Liikunnalla on merkittäviä terveysvaikutuksia, ja se vähentää monien sairauksien riskiä.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_031",
+        "prompt": "Mitkä ovat suosituimpia liikuntamuotoja Suomessa?",
+        "options": [
+          "Jalkapallo ja koripallo",
+          "Kävely, pyöräily, juoksu, hiihto ja uinti",
+          "Tanssi ja jooga",
+          "Laskettelu ja lumilautailu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_031",
+        "prompt": "Missä ihmiset harrastavat ohjattua liikuntaa?",
+        "options": [
+          "Vain kotona",
+          "Urheiluseuroissa, kuntosaleilla ja liikuntakeskuksissa",
+          "Vain kouluissa",
+          "Vain puistoissa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_031",
+        "prompt": "Mitä liikuntapalveluja kunnat tarjoavat?",
+        "options": [
+          "Vain uimahalleja",
+          "Uimahalleja, jäähalleja, liikuntapuistoja ja latuja",
+          "Vain jäähalleja",
+          "Vain latuja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_031",
+        "prompt": "Mitä hyötyä liikunnasta on?",
+        "options": [
+          "Se lisää sairastumisriskiä",
+          "Sillä on terveysvaikutuksia ja se vähentää monien sairauksien riskiä",
+          "Se vie aikaa",
+          "Se on kallista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

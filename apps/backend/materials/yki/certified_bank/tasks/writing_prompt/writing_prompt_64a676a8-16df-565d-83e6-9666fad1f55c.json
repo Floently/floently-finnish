@@ -1,0 +1,37 @@
+{
+  "id": "64a676a8-16df-565d-83e6-9666fad1f55c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.526,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti, jossa pohdit väitteen paikkansapitävyyttä omassa elinpiirissäsi. Käytä esimerkkejä ja perustele.",
+    "materials": {
+      "scenario": "Kierrätys on Suomessa hyvällä tasolla, mutta parannettavaa vielä on"
+    },
+    "items": [
+      {
+        "id": "40a2d1f1-96f5-5eff-a22a-d3378ca2adb8",
+        "prompt": "Kirjoita mielipideteksti, jossa pohdit väitteen paikkansapitävyyttä omassa elinpiirissäsi. Käytä esimerkkejä ja perustele."
+      }
+    ],
+    "rubric": "Kirjoita mielipideteksti, jossa pohdit väitteen paikkansapitävyyttä omassa elinpiirissäsi. Käytä esimerkkejä ja perustele.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

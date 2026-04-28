@@ -1,0 +1,66 @@
+{
+  "id": "5b168983-d662-5a48-ac49-801ddbd67527",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.771,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Työelämän murros, jota leimaavat digitalisaatio, alustatalous ja epätyypillisten työsuhteiden lisääntyminen, on asettanut perinteiset ammattiliitot uudenlaiseen tilanteeseen. Ammattiliitot ovat historiallisesti rakentuneet vakiintuneiden työsuhteiden, toimihenkilöaseman ja teollisuuden alojen ympärille, mutta nyt ne joutuvat pohtimaan, miten tavoittaa ja edustaa uudenlaisia työntekijäryhmiä, kuten keikkatyöläisiä, itsensätyöllistäjiä ja alustatyöntekijöitä. Perinteinen ammattiyhdistysliikkeen vahvuus on ollut työehtosopimukset, jotka takaavat vähimmäispalkat ja työehdot kokonaisilla aloilla. Alustataloudessa työntekijät voivat kuitenkin olla hajallaan, työsuhteet ovat lyhyitä ja työnantaja voi olla vaikeasti määriteltävissä. Tämä tekee perinteisen sopimusmallin soveltamisesta haastavaa. Joissakin maissa onkin alettu kehittää uusia sopimusmalleja, kuten alustakohtaisia sopimuksia tai osuuskuntia, jotka neuvottelevat työntekijöiden puolesta. Ammattiliitot ovat vastanneet haasteeseen monin tavoin. Ne ovat kehittäneet jäsenyyteen uusia, joustavampia muotoja, jotka sopivat paremmin pätkätyöläisille. Ne tarjoavat neuvontapalveluita ja oikeusturvaa myös epätyypillisissä työsuhteissa oleville. Lisäksi ne ovat ottaneet kantaa alustatalouden sääntelyyn ja vaatineet esimerkiksi työntekijän aseman selkiyttämistä ja sosiaaliturvan ulottamista kaikkiin työn tekemisen muotoihin. Suomessa ay-liike on edelleen vahva, ja järjestäytymisaste on korkea. Työn murros on kuitenkin näkynyt esimerkiksi nuorten ja korkeasti koulutettujen järjestäytymisasteen laskuna. Tämä on saanut liitot uudistamaan viestintäänsä ja palveluitaan digitaalisemmiksi ja houkuttelevammiksi. Tulevaisuudessa ammattiliittojen rooli saattaa muuttua perinteisestä edunvalvonnasta kohti laajempaa työelämän asiantuntijuutta, koulutusta ja yhteisöllisyyden tarjoamista. Keskeistä on, miten ne onnistuvat uudistumaan ja vastaamaan työelämän muutoksiin.",
+      "word_count": 196
+    },
+    "questions": [
+      {
+        "id": "c6d7e8f9-a0b1-4c2d-9e3f-4a5b6c7d8e9f",
+        "prompt": "Mitä haasteita alustatalous asettaa ammattiliitoille?",
+        "options": [
+          "Työntekijät ovat liian hyvin järjestäytyneitä",
+          "Työntekijät ovat hajallaan, työsuhteet lyhyitä ja työnantaja vaikeasti määriteltävissä",
+          "Alustatyöntekijät eivät tarvitse liittoja",
+          "Alustatalous on liian pieni ilmiö"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "d7e8f9a0-b1c2-4d3e-9f4a-5b6c7d8e9f0a",
+        "prompt": "Miten ammattiliitot ovat vastanneet työn murrokseen?",
+        "options": [
+          "Kieltämällä uudet työmuodot",
+          "Kehittämällä joustavampia jäsenyyksiä ja neuvontapalveluita",
+          "Vähentämällä toimintaansa",
+          "Keskittymällä vain perinteisiin aloihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "e8f9a0b1-c2d3-4e4f-9a5b-6c7d8e9f0a1b",
+        "prompt": "Mikä on ammattiliittojen perinteinen vahvuus?",
+        "options": [
+          "Poliittinen vaikuttaminen",
+          "Työehtosopimukset",
+          "Koulutuspalvelut",
+          "Virkistystoiminta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

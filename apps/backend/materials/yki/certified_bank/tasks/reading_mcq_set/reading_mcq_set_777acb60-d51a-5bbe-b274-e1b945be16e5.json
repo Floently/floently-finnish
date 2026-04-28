@@ -1,0 +1,110 @@
+{
+  "id": "777acb60-d51a-5bbe-b274-e1b945be16e5",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.721,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomalainen ruoka on saanut viime vuosina paljon kansainvälistä huomiota. Pohjoinen luonto, puhdas vesi ja erottuvat vuodenajat antavat raaka-aineille oman leimansa. Marjat, sienet, kala ja riista ovat suomalaisen ruokakulttuurin aarteita. Myös ruisleipä ja kaura ovat saaneet mainetta terveellisinä ja maukkaina. Suomalaiset keittiömestarit ovat menestyneet kansainvälisissä kilpailuissa, ja suomalaisia ravintoloita on noteerattu maailman parhaiden listoilla. Tämä on lisännyt kiinnostusta suomalaista ruokaa kohtaan. Matkailijat tulevat maistamaan paikallisia erikoisuuksia, ja suomalaisia elintarvikkeita viedään yhä enemmän ulkomaille. Suomalaisen ruoan suosio perustuu puhtauteen, puhtaisiin makuihin ja siihen, että ruoka on tehty lähellä. Lähiruoka ja luomu ovat tärkeitä arvoja. Moni haluaa tietää, mistä ruoka tulee ja miten se on tuotettu. Tulevaisuudessa suomalaisella ruoalla on hyvät mahdollisuudet. Uudet innovaatiot, kuten kauratuotteet ja hyönteisruoka, voivat avata uusia markkinoita. Myös vastuullisuus ja hiilijalanjälki kiinnostavat kuluttajia. Suomalainen ruoka on valmis vastaamaan näihin haasteisiin.",
+      "word_count": 132
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi suomalainen ruoka on saanut kansainvälistä huomiota?",
+        "options": [
+          "Koska se on halpaa.",
+          "Pohjoisen luonnon, puhtaan veden ja vuodenaikojen antamien raaka-aineiden vuoksi.",
+          "Koska sitä on paljon.",
+          "Koska se on mausteista."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä ovat suomalaisen ruokakulttuurin aarteita?",
+        "options": [
+          "Pizza ja pasta.",
+          "Marjat, sienet, kala ja riista.",
+          "Hampurilaiset ja ranskalaiset.",
+          "Sushi ja curry."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä on lisännyt kiinnostusta suomalaista ruokaa kohtaan?",
+        "options": [
+          "Halvat hinnat.",
+          "Suomalaisten keittiömestareiden menestys ja ravintoloiden noteeraukset.",
+          "Suuri tarjonta.",
+          "Helppo saatavuus."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin suomalaisen ruoan suosio perustuu?",
+        "options": [
+          "Halpuuteen ja nopeuteen.",
+          "Puhtauteen, puhtaisiin makuihin ja lähellä tuotettuun ruokaan.",
+          "Mausteisuuteen ja rasvaisuuteen.",
+          "Ulkomaalaisiin vaikutteisiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitkä arvot ovat tärkeitä suomalaisessa ruoassa?",
+        "options": [
+          "Halpuus ja nopeus.",
+          "Lähiruoka ja luomu.",
+          "Massatuotanto ja halpatuonti.",
+          "Kertakäyttöisyys."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitkä innovaatiot voivat avata uusia markkinoita?",
+        "options": [
+          "Pikaruokaketjut.",
+          "Kauratuotteet ja hyönteisruoka.",
+          "Halpistuotteet.",
+          "Valmisruoat."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitkä asiat kiinnostavat kuluttajia tulevaisuudessa?",
+        "options": [
+          "Vain hinta.",
+          "Vastuullisuus ja hiilijalanjälki.",
+          "Vain ulkonäkö.",
+          "Vain pakkaus."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

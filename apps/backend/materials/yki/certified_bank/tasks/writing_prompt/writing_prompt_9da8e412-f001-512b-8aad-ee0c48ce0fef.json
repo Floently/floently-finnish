@@ -1,0 +1,37 @@
+{
+  "id": "9da8e412-f001-512b-8aad-ee0c48ce0fef",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kerro, millainen on tavallinen työpäiväsi.",
+    "materials": {
+      "scenario": "Tavallinen työpäiväni"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Kerro, millainen on tavallinen työpäiväsi."
+      }
+    ],
+    "rubric": "Kerro, millainen on tavallinen työpäiväsi.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

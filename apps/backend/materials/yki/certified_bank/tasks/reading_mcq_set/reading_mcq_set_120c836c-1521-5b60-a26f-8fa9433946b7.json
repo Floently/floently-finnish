@@ -1,0 +1,88 @@
+{
+  "id": "120c836c-1521-5b60-a26f-8fa9433946b7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.687,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse oikea vaihtoehto (A, B, C tai D) kysymyksiin. Vain yksi vaihtoehto on oikein.",
+    "materials": {
+      "text": "Suomalainen aamu alkaa usein rauhallisesti. Herätään ja mennään keittiöön. Keitetään kahvia tai puuroa. Syödään aamupalaa. Leivän päällä on usein juustoa ja kurkkua. Lapset laittavat koulurepun valmiiksi. Aikuiset lukevat uutiset puhelimesta. Katsotaan ikkunasta, minkälainen sää on. Jos sataa, otetaan sateenvarjo mukaan. Sitten lähdetään töihin ja kouluun. Hyvä aamu antaa energiaa koko päiväksi.",
+      "word_count": 51
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä aamulla keitetään?",
+        "options": [
+          "Mehua",
+          "Kahvia tai puuroa",
+          "Kaakaota",
+          "Tee"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä leivän päällä usein on?",
+        "options": [
+          "Hilloa",
+          "Juustoa ja kurkkua",
+          "Leikkelettä",
+          "Munaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä lapset laittavat valmiiksi?",
+        "options": [
+          "Urheiluvälineet",
+          "Koulurepun",
+          "Puhelimen",
+          "Pyörän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä aamulla katsotaan ikkunasta?",
+        "options": [
+          "Millainen sää on",
+          "Näkyykö naapureita",
+          "Onko posti tullut",
+          "Onko auto lähtenyt"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä hyvä aamu antaa?",
+        "options": [
+          "Väsymystä",
+          "Energiaa",
+          "Kiirettä",
+          "Stressiä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

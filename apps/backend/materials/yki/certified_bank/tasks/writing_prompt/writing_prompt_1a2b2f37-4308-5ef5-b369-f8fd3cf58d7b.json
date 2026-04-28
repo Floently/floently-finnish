@@ -1,0 +1,37 @@
+{
+  "id": "1a2b2f37-4308-5ef5-b369-f8fd3cf58d7b",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.31,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita ohjeet naapurille.",
+    "materials": {
+      "scenario": "Tehtävän aihe (ohjattu kirjoitus)."
+    },
+    "items": [
+      {
+        "id": "4af01a79-ce1e-5fe3-b1d9-25531971ef88",
+        "prompt": "Kirjoita ohjeet naapurille."
+      }
+    ],
+    "rubric": "Kirjoita ohjeet naapurille.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

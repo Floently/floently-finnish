@@ -1,0 +1,88 @@
+{
+  "id": "a7e56337-c8f6-594c-ab7c-f882d327801d",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.319,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Terve! Tässä on Joonas. Olen nyt siellä teidän kerhon tiloissa. Täällä on ihan pimeää. Missä se valokatkaisija on? Mä en löydä sitä.",
+      "audio_asset_id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Kuka puhuu?",
+        "options": [
+          "Joonas.",
+          "Jaakko.",
+          "Teemu.",
+          "Mikko."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Kotona.",
+          "Kerhon tiloissa.",
+          "Koululla.",
+          "Kirjastossa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Millainen siellä on?",
+        "options": [
+          "Tosi valoisaa.",
+          "Ihan pimeää.",
+          "Tosi siistiä.",
+          "Aika kylmää."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä puhuja etsii?",
+        "options": [
+          "Ovea.",
+          "Valokatkaisijaa.",
+          "Ikkunaa.",
+          "Kaukosäädintä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi puhuja soittaa?",
+        "options": [
+          "Kertoakseen, että on perillä.",
+          "Kysyäkseen neuvoa valokatkaisijan löytämiseksi.",
+          "Peruakseen tapaamisen.",
+          "Kertoakseen, että tulee myöhässä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "39a20e6f-6070-5124-8049-35ed65168dca",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.551,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue essee ja valitse oikeat vastaukset.",
+    "materials": {
+      "text": "Esseessä tarkastellaan uskonnon näkyvyyttä julkisessa tilassa ja väitetään, että neutraalisuus ymmärretään usein virheellisesti näkyvyyden poistamisena. Kirjoittaja ehdottaa, että neutraalisuus on pikemminkin menettelyperiaate: instituutioiden tulee kohdella katsomuksia yhdenmukaisin kriteerein. Tällöin keskiöön nousee päätösten perustelutapa, ei se, kuinka äänekäs jokin symboli on.",
+      "word_count": 40
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä neutraalisuus esseen mukaan ei tarkoita?",
+        "options": [
+          "yhtenäisiä kriteerejä",
+          "menettelyperiaatetta",
+          "näkyvyyden poistamista",
+          "perusteltuja päätöksiä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä kirjoittaja ehdottaa neutraalisuudeksi?",
+        "options": [
+          "hiljaisuutta",
+          "katsomusten yhdenmukaista kohtelua",
+          "enemmistön etua",
+          "symbolikieltoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mikä nousee keskiöön?",
+        "options": [
+          "symbolin äänekkyys",
+          "päätösten perustelutapa",
+          "median huomio",
+          "äänestysprosentti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miten essee suhtautuu symboleihin?",
+        "options": [
+          "ne pitää aina kieltää",
+          "ne ovat aina ratkaisevia",
+          "niitä tärkeämpi on periaatteiden soveltaminen",
+          "niitä ei saa käsitellä"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

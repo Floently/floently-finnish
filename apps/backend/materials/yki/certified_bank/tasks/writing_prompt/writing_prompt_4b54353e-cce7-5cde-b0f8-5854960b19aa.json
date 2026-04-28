@@ -1,0 +1,37 @@
+{
+  "id": "4b54353e-cce7-5cde-b0f8-5854960b19aa",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.335,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet myöhässä tapaamisesta. Kirjoita viesti ystävällesi.\n\nKerro:\n- että olet myöhässä\n- miksi olet myöhässä (esim. bussi ei tullut)\n- arvio, kuinka paljon myöhässä olet\n- ehdota, että tapaatte silti",
+    "materials": {
+      "scenario": "Olet myöhässä tapaamisesta. Kirjoita viesti ystävällesi.\n\nKerro:\n- että olet myöhässä\n- miksi olet myöhässä (esim. bussi ei tullut)\n- arvio, kuinka paljon myöhässä olet\n- ehdota, että tapaatte silti"
+    },
+    "items": [
+      {
+        "id": "88f6ef74-470f-5a3d-afd2-e7e913ce5539",
+        "prompt": "Olet myöhässä tapaamisesta. Kirjoita viesti ystävällesi.\n\nKerro:\n- että olet myöhässä\n- miksi olet myöhässä (esim. bussi ei tullut)\n- arvio, kuinka paljon myöhässä olet\n- ehdota, että tapaatte silti"
+      }
+    ],
+    "rubric": "Olet myöhässä tapaamisesta. Kirjoita viesti ystävällesi.\n\nKerro:\n- että olet myöhässä\n- miksi olet myöhässä (esim. bussi ei tullut)\n- arvio, kuinka paljon myöhässä olet\n- ehdota, että tapaatte silti",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

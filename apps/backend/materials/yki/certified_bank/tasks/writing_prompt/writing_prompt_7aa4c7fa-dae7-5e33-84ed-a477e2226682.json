@@ -1,0 +1,37 @@
+{
+  "id": "7aa4c7fa-dae7-5e33-84ed-a477e2226682",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.486,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write your opinion. Justify why you think this way. Use four justifications and give two examples.",
+    "materials": {
+      "scenario": "Pitäisikö kaupunkien viheralueita suojella rakentamiselta?"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Write your opinion. Justify why you think this way. Use four justifications and give two examples."
+      }
+    ],
+    "rubric": "Write your opinion. Justify why you think this way. Use four justifications and give two examples.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

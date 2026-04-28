@@ -1,0 +1,37 @@
+{
+  "id": "b4d43bd0-b31f-5ba9-b1c1-73d2b5f0691c",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.51,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti ohjeen mukaan.",
+    "materials": {
+      "scenario": "Korjauspyyntö"
+    },
+    "items": [
+      {
+        "id": "ab190470-80d6-5d8c-85b6-e11ac8c00983",
+        "prompt": "Kirjoita sähköposti vuokranantajalle ja pyydä korjausta asuntoon."
+      }
+    ],
+    "rubric": "Kirjoita sähköposti vuokranantajalle ja pyydä korjausta asuntoon.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

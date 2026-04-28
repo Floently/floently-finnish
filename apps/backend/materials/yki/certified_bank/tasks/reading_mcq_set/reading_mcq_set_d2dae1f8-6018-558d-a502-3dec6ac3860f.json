@@ -1,0 +1,73 @@
+{
+  "id": "d2dae1f8-6018-558d-a502-3dec6ac3860f",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.587,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti kaupunkipyöristä ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Kaupunkipyörät ovat yleistyneet Suomessa nopeasti viime vuosien aikana. Lähes jokaisessa suuremmassa kaupungissa on nykyään oma järjestelmänsä, ja käyttäjämäärät ovat kasvaneet tasaisesti. Ilmiö herättää kuitenkin monenlaisia kysymyksiä liikkumisen tulevaisuudesta ja kaupunkisuunnittelusta.\n\nEnsinnäkin kaupunkipyörien suosio kertoo muutoksesta ihmisten asenteissa. Autoilun sijaan halutaan yhä useammin käyttää kestävämpiä liikkumismuotoja. Tämä on linjassa ilmastotavoitteiden kanssa. Toisaalta herää kysymys, ovatko kaupunkipyörät todella vähentäneet autoilua vai ovatko ne vain korvanneet kävelyä ja bussimatkoja. Tutkimukset osoittavat, että osa käyttäjistä on jättänyt oman auton kotiin, mutta suurin osa käyttää pyöriä muun liikkumisen täydentämiseen.\n\nToiseksi järjestelmät ovat kaupallisesti kiinnostavia. Yksityiset operaattorit ovat tuoneet markkinoille sähköpotkulautoja ja kaupunkipyöriä, mikä on luonut uudenlaisen liiketoimintamallin. Tämä ei ole kuitenkaan ongelmatonta. Kritiikki on kohdistunut muun muassa siihen, että pyöriä jätetään minne sattuu, mikä haittaa jalankulkua ja esteettömyyttä. Kaupunkien on täytynyt puuttua asiaan ja sopia operaattorien kanssa pelisäännöistä.\n\nKolmanneksi kaupunkipyörät ovat osa laajempaa jakamistalouden kehitystä. Ne ovat esimerkki siitä, miten omistamisen sijaan halutaan käyttöoikeuksia. Tämä haastaa perinteisen käsityksen liikkumisesta: enää ei tarvitse omistaa autoa tai edes omaa pyörää, vaan liikkuminen voidaan koota eri palveluista. Visio on, että tulevaisuudessa liikkuminen on saumatonta yhdistelmää eri kulkuneuvoja, joita käytetään tarpeen mukaan.\n\nNeljänneksi on otettava huomioon eriarvoisuus. Kaupunkipyörät keskittyvät tyypillisesti keskusta-alueille ja parempiosaisille kaupunginosille. Lähiöissä ja pienituloisemmilla alueilla palvelut ovat usein heikompia. Jos jakamistalous keskittyy vain sinne, missä on maksukykyisiä asiakkaita, se voi lisätä alueellista eriarvoistumista. Tämä on poliittinen haaste, johon kaupunkien on vastattava.\n\nLopuksi voidaan todeta, että kaupunkipyörät ovat tulleet jäädäkseen. Ne ovat osa monimuotoistuvaa kaupunkiliikennettä. Tärkeintä on, että ne integroidaan osaksi julkista liikennettä ja kaupunkisuunnittelua niin, että ne palvelevat kaikkia asukkaita tasapuolisesti. Teknologia kehittyy, mutta inhimilliset tarpeet – turvallisuus, saavutettavuus ja kohtuuhintaisuus – pysyvät.",
+      "word_count": 267
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mitä kaupunkipyörien suosio tekstin mukaan kertoo?",
+        "options": [
+          "autoilu on kokonaan loppunut",
+          "ihmiset haluavat yhä useammin käyttää kestävämpiä liikkumismuotoja",
+          "kaupunkipyörät ovat ilmaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä kritiikkiä yksityisiä kaupunkipyöräoperaattoreita kohtaan on esitetty?",
+        "options": [
+          "ne ovat liian kalliita",
+          "pyöriä jätetään minne sattuu haitaten jalankulkua",
+          "niitä on liian vähän"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Miten kaupunkipyörät liittyvät jakamistalouteen?",
+        "options": [
+          "ne ovat esimerkki omistamisen sijaan käyttöoikeuksista",
+          "ne ovat kalliita omistaa",
+          "ne ovat vain turisteille"
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mikä on tekstin mukaan kaupunkipyörien eriarvoisuutta lisäävä tekijä?",
+        "options": [
+          "ne ovat vain naisille",
+          "ne keskittyvät keskusta-alueille ja maksukykyisille alueille",
+          "niitä saa vain älypuhelimella"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "1bfaedf7-5808-584e-8474-49a69aea1fbf",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen kielen asema on vahva, mutta se kohtaa haasteita globalisaation myötä. Virallisena kielenä suomi on turvattu lailla, ja sitä käytetään kaikilla yhteiskunnan aloilla. Koulutus, hallinto ja media toimivat suomeksi. Kuitenkin englannin kielen asema on vahvistunut erityisesti tieteessä, korkeakoulutuksessa ja yritysmaailmassa. Tämä on herättänyt keskustelua siitä, säilyykö suomi tulevaisuudessa täyden palvelun kielenä. Osa pelkää, että suomen kielen asema heikkenee ja että se voi pitkällä aikavälillä jäädä vain arjen kieleksi. Toiset taas katsovat, että suomen kielen asema on turvattu vahvan instituutioiden ja kieliyhteisön ansiosta. He muistuttavat, että kieli elää ja muuttuu koko ajan, ja että uudet sanat ja vaikutteet rikastuttavat sitä. Keskeistä onkin löytää tasapaino kansainvälisyyden ja oman kielen vaalimisen välillä. Tämä vaatii tietoista kielipolitiikkaa, joka tukee suomen käyttöä kaikilla aloilla, mutta ei sulje pois kansainvälisyyttä. Myös kielitaito on tärkeää: suomalaisten on osattava sekä suomea että muita kieliä pärjätäkseen kansainvälistyvässä maailmassa.",
+      "word_count": 139
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miten suomen kielen asema on turvattu?",
+        "options": [
+          "Se ei ole turvattu millään tavalla.",
+          "Lailla, ja sitä käytetään kaikilla yhteiskunnan aloilla.",
+          "Vain peruskouluissa.",
+          "Vain kotona."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Millä aloilla englannin kielen asema on vahvistunut?",
+        "options": [
+          "Peruskoulutuksessa ja päivähoidossa.",
+          "Tieteessä, korkeakoulutuksessa ja yritysmaailmassa.",
+          "Julkisessa hallinnossa ja terveydenhuollossa.",
+          "Viihteessä ja kulttuurissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä uhkakuvia suomen kielen asemasta esitetään?",
+        "options": [
+          "Suomi voi kokonaan kadota.",
+          "Suomi voi jäädä vain arjen kieleksi, kun vaativa asiantuntijatyö siirtyy englantiin.",
+          "Suomeen tulee liikaa uusia sanoja.",
+          "Suomen kielioppi muuttuu liian nopeasti."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi suomen kielen aseman uskotaan olevan turvattu?",
+        "options": [
+          "Koska kaikki suomalaiset puhuvat vain suomea.",
+          "Vahvojen instituutioiden ja kieliyhteisön ansiosta.",
+          "Koska englannin kielen käyttö on kielletty.",
+          "Koska suomi on helppo kieli."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miten kielen muutokseen tulisi suhtautua?",
+        "options": [
+          "Kaikki muutokset pitäisi kieltää.",
+          "Muutokset ovat luonnollisia ja uudet vaikutteet rikastuttavat kieltä.",
+          "Vain vanhaa suomea saa käyttää.",
+          "Kielen pitäisi pysyä täysin muuttumattomana."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Millaista kielipolitiikkaa tarvitaan?",
+        "options": [
+          "Kielipolitiikkaa, joka kieltää englannin käytön.",
+          "Kielipolitiikkaa, joka tukee suomen käyttöä kaikilla aloilla, mutta ei sulje pois kansainvälisyyttä.",
+          "Kielipolitiikkaa, joka pakottaa kaikki puhumaan englantia.",
+          "Kielipolitiikkaa, joka ei puutu kielikysymyksiin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mitä kielitaitoa suomalaiset tarvitsevat?",
+        "options": [
+          "Vain suomen kielen taitoa.",
+          "Sekä suomen että muiden kielten taitoa.",
+          "Vain englannin kielen taitoa.",
+          "Ei minkäänlaista kielitaitoa."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

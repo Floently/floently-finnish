@@ -1,0 +1,40 @@
+{
+  "id": "9c1068de-3612-5f96-8f9e-316a5e2b8826",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa empaattista ja terapeuttista kieltä.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet psykologi, ammattitaitoinen ja empaattinen.",
+        "partner": "Asiakas - ahdistunut, uupunut, hakee apua."
+      }
+    },
+    "items": [
+      {
+        "id": "srp44",
+        "ai_first_turn_fi": "Tervetuloa. Kerro, mikä sinut tänne toi ja miten voin auttaa?"
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Käytä tilanteen vaatimaa empaattista ja terapeuttista kieltä.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

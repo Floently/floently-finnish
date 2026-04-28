@@ -1,0 +1,99 @@
+{
+  "id": "70345b58-b2ad-5f1b-9fc9-8b7ca6b8d783",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Some ja somevaikuttajat ovat tulleet osaksi lasten ja nuorten arkea. Lapset seuraavat suosikki-ídoleitaan ja saavat vaikutteita heidän elämäntyylistään. Tämä voi olla sekä hyvä että huono asia. Positiivista on, että lapset voivat löytää uusia harrastuksia ja samaistua esikuviin. Huolestuttavaa on kaupallisuus, ulkonäköpaineet ja se, että some voi viedä aikaa muulta elämältä. Vanhempien on tärkeää keskustella somesta lastensa kanssa.",
+      "word_count": 57
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on tullut osaksi lasten ja nuorten arkea?",
+        "options": [
+          "Televisio",
+          "Some ja somevaikuttajat",
+          "Sanomalehdet",
+          "Radion kuuntelu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä lapset saavat seuratessaan somevaikuttajia?",
+        "options": [
+          "Rahaa ja lahjoja",
+          "Vaikutteita heidän elämäntyylistään",
+          "Kutsuja tapahtumiin",
+          "Ilmaisia tuotteita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä positiivista somevaikuttajien seuraamisessa voi olla?",
+        "options": [
+          "Ulkonäköpaineet vähenevät",
+          "Lapset voivat löytää uusia harrastuksia ja samaistua esikuviin",
+          "Kaupallisuus vähenee",
+          "Some vie vähemmän aikaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä somessa on huolestuttavaa?",
+        "options": [
+          "Se on aina ilmaista",
+          "Kaupallisuus, ulkonäköpaineet ja ajan vieminen muulta elämältä",
+          "Se on tylsää",
+          "Sitä ei voi hallita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä vanhempien on tärkeää tehdä?",
+        "options": [
+          "Kieltää some kokonaan",
+          "Keskustella somesta lastensa kanssa",
+          "Seurata lasten somea salaa",
+          "Antaa lasten käyttää somea rajoituksetta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä some voi viedä lapsilta?",
+        "options": [
+          "Rahat",
+          "Aikaa muulta elämältä",
+          "Unen",
+          "Ruokahalun"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

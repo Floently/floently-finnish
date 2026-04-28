@@ -1,0 +1,37 @@
+{
+  "id": "83012f51-c822-5d0b-a29b-4d0d64471469",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.693,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Write a job application. You are applying for a director general position in a research institute. Tell about your experience in research leadership, science policy influencing, and developing research infrastructures. Also describe your vision for the institute's future and its role in society. Length about 360 words.",
+    "materials": {
+      "scenario": "Hakemus tutkimuslaitoksen ylijohtajan tehtävään"
+    },
+    "items": [
+      {
+        "id": "f6ad8050-2f99-5e3d-ae81-2746f6d7acce",
+        "prompt": "Write a job application. You are applying for a director general position in a research institute. Tell about your experience in research leadership, science policy influencing, and developing research infrastructures. Also describe your vision for the institute's future and its role in society. Length about 360 words."
+      }
+    ],
+    "rubric": "Write a job application. You are applying for a director general position in a research institute. Tell about your experience in research leadership, science policy influencing, and developing research infrastructures. Also describe your vision for the institute's future and its role in society. Length about 360 words.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

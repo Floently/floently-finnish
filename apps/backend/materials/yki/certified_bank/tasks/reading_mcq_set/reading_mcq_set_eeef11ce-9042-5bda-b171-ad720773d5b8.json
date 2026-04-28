@@ -1,0 +1,77 @@
+{
+  "id": "eeef11ce-9042-5bda-b171-ad720773d5b8",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.752,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Suomen turvallisuuspolitiikka on kokenut merkittävän muutoksen liityttyään Natoon. Jäsenyys vahvistaa Suomen puolustusta ja integroi maata läntiseen turvallisuusyhteisöön. Se myös velvoittaa Suomea osallistumaan Naton yhteiseen puolustukseen ja kriisinhallintaan. Jäsenyys on lisännyt tarvetta panostaa tiedusteluun, kyberturvallisuuteen ja kokonaismaanpuolustukseen. Suomi on myös aktiivisesti mukana kehittämässä EU:n turvallisuus- ja puolustuspolitiikkaa. Turvallisuusympäristön muutos on nopeaa, ja Suomen on jatkuvasti arvioitava ja kehitettävä omia valmiuksiaan. Keskeisiä tavoitteita ovat kansalaisten turvallisuuden takaaminen, yhteiskunnan häiriöttömän toiminnan varmistaminen ja kansainvälisen vakauden edistäminen.",
+      "word_count": 73
+    },
+    "questions": [
+      {
+        "id": "mcq_392",
+        "prompt": "Mikä on merkittävä muutos Suomen turvallisuuspolitiikassa?",
+        "options": [
+          "EU-jäsenyys",
+          "Nato-jäsenyys",
+          "YK-jäsenyys",
+          "Pohjoismaiden neuvoston jäsenyys"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_393",
+        "prompt": "Mitä Nato-jäsenyys velvoittaa Suomea tekemään?",
+        "options": [
+          "Vain vastaanottamaan apua",
+          "Osallistumaan Naton yhteiseen puolustukseen ja kriisinhallintaan",
+          "Vain lisäämään puolustusmenoja",
+          "Vain kehittämään kyberturvallisuutta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_394",
+        "prompt": "Mitä Nato-jäsenyys on lisännyt tarvetta panostaa?",
+        "options": [
+          "Vain sotilaalliseen koulutukseen",
+          "Tiedusteluun, kyberturvallisuuteen ja kokonaismaanpuolustukseen",
+          "Vain rajavalvontaan",
+          "Vain kansainväliseen yhteistyöhön"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_395",
+        "prompt": "Mitkä ovat keskeisiä tavoitteita Suomen turvallisuuspolitiikassa?",
+        "options": [
+          "Kansalaisten turvallisuuden takaaminen, yhteiskunnan häiriöttömän toiminnan varmistaminen ja kansainvälisen vakauden edistäminen",
+          "Vain puolustusmenojen kasvattaminen",
+          "Vain asevelvollisuuden kehittäminen",
+          "Vain tiedustelutoiminnan lisääminen"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

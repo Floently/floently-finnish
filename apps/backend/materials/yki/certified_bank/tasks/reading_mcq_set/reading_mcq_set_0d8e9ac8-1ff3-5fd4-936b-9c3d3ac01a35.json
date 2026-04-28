@@ -1,0 +1,110 @@
+{
+  "id": "0d8e9ac8-1ff3-5fd4-936b-9c3d3ac01a35",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.743,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Maahanmuutto on monimuotoinen ilmiö, joka vaikuttaa yhteiskuntaan monilla tasoilla. Taloudellisesta näkökulmasta työperäinen maahanmuutto voi paikata työvoimapulaa ja tuoda osaamista, jota kotimaasta ei löydy. Samalla se lisää kulutuskysyntää ja voi luoda uusia työpaikkoja. Toisaalta maahanmuutto asettaa paineita julkisille palveluille, kuten koulutukselle ja terveydenhuollolle, erityisesti jos maahanmuutto keskittyy lyhyeen ajanjaksoon. Sosiaalisesta ja kulttuurisesta näkökulmasta maahanmuutto lisää yhteiskunnan moninaisuutta. Se tuo uusia kieliä, tapoja ja näkökulmia, mikä voi rikastuttaa kulttuuria ja lisätä avoimuutta. Samalla se voi kuitenkin herättää jännitteitä, jos eri ryhmät eivät kohtaa toisiaan arjessa tai jos koetaan, että omat perinteet ja arvot ovat uhattuina. Kotoutumisen onnistuminen onkin keskeistä. Se vaatii sekä maahanmuuttajilta aktiivisuutta uuden yhteiskunnan jäsenyyteen että vastaanottavalta yhteiskunnalta rakenteita, jotka mahdollistavat osallisuuden. Koulutus, työ ja kielitaito ovat avainasemassa, mutta myös asenteilla ja kohtaamisilla on suuri merkitys.",
+      "word_count": 126
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä taloudellisia hyötyjä maahanmuutosta voi tekstin mukaan olla?",
+        "options": [
+          "Se vähentää julkisia menoja.",
+          "Se voi paikata työvoimapulaa ja tuoda uutta osaamista.",
+          "Se nostaa automaattisesti palkkoja.",
+          "Se vähentää tarvetta koulutukselle."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä taloudellisia haasteita maahanmuutto voi aiheuttaa?",
+        "options": [
+          "Inflaation kiihtymistä.",
+          "Paineita julkisille palveluille, kuten koulutukselle ja terveydenhuollolle.",
+          "Viennin vähenemistä.",
+          "Yritysten verotuksen kiristymistä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kulttuurisia vaikutuksia maahanmuutolla voi olla?",
+        "options": [
+          "Se vähentää kulttuurista moninaisuutta.",
+          "Se tuo uusia kieliä, tapoja ja näkökulmia, mikä voi rikastuttaa kulttuuria.",
+          "Se johtaa aina kulttuurien välisiin konflikteihin.",
+          "Se heikentää paikallisia perinteitä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tarkoitetaan kotoutumisella?",
+        "options": [
+          "Maahanmuuttajien sulauttamista kokonaan valtakulttuuriin.",
+          "Maahanmuuttajien aktiivisuutta ja yhteiskunnan rakenteita, jotka mahdollistavat osallisuuden.",
+          "Maahanmuuttajien paluuta kotimaahansa.",
+          "Maahanmuuttajien eristämistä omiin yhteisöihinsä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitkä ovat avainasemassa kotoutumisessa?",
+        "options": [
+          "Vain kielitaito.",
+          "Koulutus, työ ja kielitaito.",
+          "Vain asenteet.",
+          "Vain työllistyminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä voi herättää jännitteitä maahanmuuton yhteydessä?",
+        "options": [
+          "Jos maahanmuuttajia on liian vähän.",
+          "Jos eri ryhmät eivät kohtaa toisiaan arjessa tai jos omat perinteet koetaan uhatuiksi.",
+          "Jos maahanmuuttajat oppivat nopeasti kielen.",
+          "Jos maahanmuuttajat työllistyvät hyvin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miten teksti suhtautuu maahanmuuttoon?",
+        "options": [
+          "Yksiselitteisen kielteisesti.",
+          "Yksiselitteisen myönteisesti.",
+          "Analysoiden sekä hyötyjä että haasteita.",
+          "Ei ota kantaa."
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "445ae2fe-f4a8-51e3-8eb3-c3f873b97842",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "ILTAPÄIVÄN PÄÄKIRJOITUS: Kouluruoka on tärkeämpää kuin uskommekaan\n\nMoni muistaa kouluruokailun omalta kouluajaltaan. Nykyään keskustelu kouluruuasta keskittyy usein kustannuksiin ja hävikkiin. Tämä on ymmärrettävää, mutta samalla on unohdettu ruuan laadun merkitys oppimiselle. Tutkimukset osoittavat, että ravitseva ateria parantaa keskittymiskykyä ja jaksamista. Silti monessa koulussa tarjolla on teollisesti valmistettuja puolivalmisteita, joissa kasvisten osuus on pieni. Ratkaisu ei ole palata menneeseen, vaan panostaa ammattitaitoisiin keittäjiin ja lähiruokaan. Kouluruoka on investointi tulevaisuuteen, ei menoerä.",
+      "word_count": 70
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä kirjoittaja väittää kouluruuan nykytilasta?",
+        "options": [
+          "Se on parempaa kuin ennen",
+          "Se sisältää liian vähän kasviksia",
+          "Se on usein puolivalmistetta",
+          "Sitä on liian vähän"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Miten laadukas ruoka vaikuttaa oppilaisiin?",
+        "options": [
+          "Se lisää väsymystä",
+          "Se parantaa keskittymiskykyä ja jaksamista",
+          "Se aiheuttaa levottomuutta",
+          "Se ei vaikuta mitenkään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä kirjoittaja ehdottaa parannukseksi?",
+        "options": [
+          "Palataan vanhoihin resepteihin",
+          "Lisätään kouluruuan hintaa",
+          "Panostetaan keittäjiin ja lähiruokaan",
+          "Vähennetään ruokailuun käytettyä aikaa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

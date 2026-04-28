@@ -1,0 +1,66 @@
+{
+  "id": "22ee5eb8-266a-5169-a51e-46bb9215b646",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "KULUTTAJAN VALINNAT VAIKUTTAVAT\n\nKuluttajilla on valtaa. Jokainen ostopäätös on viesti siitä, millaista tuotantoa ja millaisia arvoja tuetaan. Viime vuosina kuluttajat ovat alkaneet kiinnittää yhä enemmän huomiota siihen, mistä tuotteet tulevat ja miten ne on tehty.\n\nReilu kauppa on yksi esimerkki. Reilun kaupan tuotteissa on sertifikaatti, joka takaa, että tuottaja on saanut oikeudenmukaisen korvauksen. Suomessa reilun kaupan tuotteiden myynti on kasvanut vuosi vuodelta. Kahvi, banaanit ja suklaa ovat suosituimpia reilun kaupan tuotteita.\n\nLuomuruoka on toinen trendi. Luomutuotteissa ei käytetä keinotekoisia lannoitteita tai torjunta-aineita. Moni kokee luomun terveellisemmäksi ja ympäristöystävällisemmäksi. Luomun suosio on kasvanut, vaikka se on usein kalliimpaa.\n\nKolmas trendi on eettinen muoti. Kuluttajat haluavat tietää, missä vaatteet on valmistettu ja millaisissa oloissa. Hikipajoista ja lapsityövoimasta on uutisoitu paljon, ja moni haluaa välttää tällaisten yritysten tuotteita.\n\nHaasteena on, että vastuullisuutta on vaikea selvittää. Sertifikaatteja on monia, ja osa on luotettavampia kuin toiset. Myös hinta on este – vastuulliset tuotteet ovat usein kalliimpia, eikä kaikilla ole varaa niihin.\n\nAsiantuntijat uskovat, että vastuullisuuden merkitys kasvaa tulevaisuudessa. Yritykset joutuvat kiinnittämään siihen yhä enemmän huomiota, koska kuluttajat vaativat sitä. Samalla tarvitaan selkeitä ja luotettavia merkintöjä, jotta kuluttajat voivat tehdä tietoisia valintoja.",
+      "word_count": 186
+    },
+    "questions": [
+      {
+        "id": "30792f20-141b-5797-9bd0-03219a547659",
+        "prompt": "Mitä reilun kaupan sertifikaatti takaa?",
+        "options": [
+          "Tuote on halpa",
+          "Tuottaja on saanut oikeudenmukaisen korvauksen",
+          "Tuote on luomua",
+          "Tuote on suomalainen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "45ef5cd9-4046-5a2a-9380-6094e73acd21",
+        "prompt": "Mitä ongelmia vastuulliseen kuluttamiseen liittyy?",
+        "options": [
+          "Vastuullisia tuotteita on liikaa",
+          "Vastuullisuutta on vaikea selvittää ja tuotteet ovat usein kalliimpia",
+          "Kukaan ei halua vastuullisia tuotteita",
+          "Vastuulliset tuotteet ovat huonolaatuisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "46147f90-8d69-5f78-bc03-9f8535e93a54",
+        "prompt": "Mikä on eettinen muoti?",
+        "options": [
+          "Vaatteita, jotka on valmistettu Suomessa",
+          "Kuluttajat haluavat tietää, missä vaatteet on valmistettu ja välttää epäeettisiä tuotantotapoja",
+          "Vaatteita, jotka on tehty muovista",
+          "Vaatteita, jotka ovat halpoja"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

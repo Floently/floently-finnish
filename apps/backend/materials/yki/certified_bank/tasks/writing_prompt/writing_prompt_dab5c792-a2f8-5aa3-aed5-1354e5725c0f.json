@@ -1,0 +1,37 @@
+{
+  "id": "dab5c792-a2f8-5aa3-aed5-1354e5725c0f",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.514,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Taloyhtiön yhteisessä saunassa on ollut epäselvyyttä vuoroista ja siivouksesta. Kirjoita ehdotus uusista säännöistä.",
+    "materials": {
+      "scenario": "Taloyhtiön yhteisessä saunassa on ollut epäselvyyttä vuoroista ja siivouksesta. Kirjoita ehdotus uusista säännöistä."
+    },
+    "items": [
+      {
+        "id": "9b7a04af-83a0-59a3-8b14-f474da4d3177",
+        "prompt": "Taloyhtiön yhteisessä saunassa on ollut epäselvyyttä vuoroista ja siivouksesta. Kirjoita ehdotus uusista säännöistä."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 150, \"min\": 100}}",
+    "timing": {
+      "recommended_minutes": 30
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "d04c16f7-d16d-5894-b64e-a5ca94288af9",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.572,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Kierrätyksen tehostaminen on noussut tärkeäksi tavoitteeksi monissa kaupungeissa. Uudet jätehuoltomääräykset velvoittavat taloyhtiöitä lajittelemaan biojätteen erikseen. Osalle asukkaista tämä on tuonut muutoksia arkeen, ja aluksi lajittelu on tuntunut hankalalta. Pitkällä tähtäimellä tavoitteena on vähentää kaatopaikkajätteen määrää ja lisätä kierrätetyn materiaalin käyttöä. Asukaskyselyissä moni kuitenkin kannattaa kierrätystä, kunhan ohjeet ovat selkeät.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on noussut tärkeäksi tavoitteeksi kaupungeissa?",
+        "options": [
+          "Jätteen määrän lisääminen",
+          "Kierrätyksen tehostaminen",
+          "Uusien kaatopaikkojen rakentaminen",
+          "Roskien polttaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä uudet jätehuoltomääräykset velvoittavat taloyhtiöitä tekemään?",
+        "options": [
+          "Lajittelemaan muovin erikseen",
+          "Lajittelemaan biojätteen erikseen",
+          "Kieltämään kaiken lajittelun",
+          "Polttamaan kaiken jätteen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Miten osa asukkaista on suhtautunut muutoksiin?",
+        "options": [
+          "He ovat olleet innoissaan",
+          "Heille lajittelu on tuntunut aluksi hankalalta",
+          "He eivät ole huomanneet muutosta",
+          "He ovat muuttaneet pois taloyhtiöstä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mikä on pitkän tähtäimen tavoite kierrätyksessä?",
+        "options": [
+          "Lisätä kaatopaikkajätteen määrää",
+          "Vähentää kaatopaikkajätettä ja lisätä kierrätetyn materiaalin käyttöä",
+          "Lopettaa kierrätys kokonaan",
+          "Viedä kaikki jäte ulkomaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä asukaskyselyt paljastavat asukkaiden asenteista?",
+        "options": [
+          "Suurin osa vastustaa kierrätystä",
+          "Monet kannattavat kierrätystä, jos ohjeet ovat selkeät",
+          "Kukaan ei halua kierrättää",
+          "Asukkaat haluavat päättää itse lajittelusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä helpottaisi asukkaiden kierrätystä?",
+        "options": [
+          "Pienemmät roskikset",
+          "Selkeät ohjeet",
+          "Kierrätyksestä maksaminen",
+          "Harvempi tyhjennys"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

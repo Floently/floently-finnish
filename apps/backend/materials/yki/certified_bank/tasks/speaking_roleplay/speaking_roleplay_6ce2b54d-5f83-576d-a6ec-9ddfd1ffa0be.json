@@ -1,0 +1,40 @@
+{
+  "id": "6ce2b54d-5f83-576d-a6ec-9ddfd1ffa0be",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.499,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Puhu suomea roolisi mukaan.",
+    "materials": {
+      "roles": {
+        "user": "uusi asiakas",
+        "partner": "kuntosalin työntekijä"
+      }
+    },
+    "items": [
+      {
+        "id": "srp08_01",
+        "ai_first_turn_fi": "Tervetuloa! Oletko käynyt täällä ennen?"
+      }
+    ],
+    "rubric": "Puhu suomea roolisi mukaan.",
+    "timing": {
+      "recommended_minutes": 4
+    }
+  }
+}

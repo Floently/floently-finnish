@@ -1,0 +1,40 @@
+{
+  "id": "f38b5e8d-6e2a-5549-b650-d071aadc9d8d",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "C1_C2",
+  "skill": "speaking",
+  "difficulty": 0.719,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Osallistu roolipelikeskusteluun. Osoita kykysi neuvotella viranomaisten kanssa ja puolustaa oikeuksiasi.",
+    "materials": {
+      "roles": {
+        "user": "Sinä olet työnhakija, jolla on selkeä visio omasta yrityksestä ja joka tuntee työllistymismahdollisuudet alallasi.",
+        "partner": "TE-toimiston virkailija - byrokraattinen mutta auttavainen, noudattaa sääntöjä mutta voi joustaa perustelluista syistä."
+      }
+    },
+    "items": [
+      {
+        "id": "srp17",
+        "ai_first_turn_fi": "Päivää, olen saanut ehdotuksenne koulutuksesta. Haluaisin kuitenkin keskustella vaihtoehtoisesta suunnitelmasta."
+      }
+    ],
+    "rubric": "Osallistu roolipelikeskusteluun. Osoita kykysi neuvotella viranomaisten kanssa ja puolustaa oikeuksiasi.",
+    "timing": {
+      "recommended_minutes": 6
+    }
+  }
+}

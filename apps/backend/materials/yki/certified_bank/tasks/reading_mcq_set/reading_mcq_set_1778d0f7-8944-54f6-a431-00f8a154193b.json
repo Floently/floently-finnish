@@ -1,0 +1,99 @@
+{
+  "id": "1778d0f7-8944-54f6-a431-00f8a154193b",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.56,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Julkisen talouden kestävyys on yksi keskeisimpiä poliittisia kysymyksiä. Väestön ikääntyessä hoito- ja eläkemenot kasvavat, mikä lisää paineita valtiontaloudelle. Ratkaisuiksi on esitetty työurien pidentämistä, verotuksen kiristämistä tai julkisten palvelujen leikkauksia. Eri vaihtoehdoilla on erilaiset vaikutukset kansalaisten arkeen ja hyvinvointiin. Keskustelu on usein tunteikasta, koska kyse on ihmisten toimeentulosta ja palveluista.",
+      "word_count": 49
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mikä on keskeinen poliittinen kysymys?",
+        "options": [
+          "Kansalaisten vapaa-aika",
+          "Julkisen talouden kestävyys",
+          "Maatalouden tulevaisuus",
+          "Koulujen loma-ajat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Miksi hoito- ja eläkemenot kasvavat?",
+        "options": [
+          "Koska lapsia syntyy enemmän",
+          "Väestön ikääntyessä",
+          "Koska ihmiset muuttavat pois",
+          "Koska terveydenhuolto halpenee"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ratkaisuksi on esitetty?",
+        "options": [
+          "Työurien lyhentäminen ja verotuksen keventäminen",
+          "Työurien pidentäminen, verotuksen kiristäminen tai palvelujen leikkaukset",
+          "Kaikkien palvelujen lisääminen",
+          "Ulkomaisen lainan ottaminen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mihin eri ratkaisuvaihtoehdot vaikuttavat?",
+        "options": [
+          "Vain valtion velkaan",
+          "Kansalaisten arkeen ja hyvinvointiin",
+          "Vain yritysten toimintaan",
+          "Vain elinkeinoelämään"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Miksi keskustelu on usein tunteikasta?",
+        "options": [
+          "Koska se on tylsää",
+          "Koska kyse on ihmisten toimeentulosta ja palveluista",
+          "Koska kukaan ei ymmärrä sitä",
+          "Koska se on vain politiikkojen asia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä tarkoitetaan 'julkisella taloudella'?",
+        "options": [
+          "Yksityisten yritysten taloutta",
+          "Valtion, kuntien ja hyvinvointialueiden taloutta",
+          "Kotitalouksien taloutta",
+          "Pankkien taloutta"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

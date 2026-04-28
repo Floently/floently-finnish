@@ -1,0 +1,66 @@
+{
+  "id": "0f3ea5c0-c592-5a55-94b7-2bbadc2371f7",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "reading",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue työvuorolista ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "VIIKON 25 VUOROT\n\nMaanantai:\nKaisa 8–16\nMikko 12–20\nLaura 8–14\n\nTiistai:\nKaisa 10–18\nMikko 8–16\nLaura 12–20\n\nKeskiviikko:\nKaisa 12–20\nMikko 8–16\nLaura 8–14\n\nTorstai:\nKaisa 8–16\nMikko vapaa\nLaura 12–20",
+      "word_count": 31
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Milloin Mikko on töissä maanantaina?",
+        "options": [
+          "8–16",
+          "8–14",
+          "12–20",
+          "10–18"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "q2",
+        "prompt": "Kuka on vapaalla torstaina?",
+        "options": [
+          "Kaisa",
+          "Mikko",
+          "Laura",
+          "kaikki"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Milloin Laura on töissä keskiviikkona?",
+        "options": [
+          "8–14",
+          "8–16",
+          "12–20",
+          "10–18"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

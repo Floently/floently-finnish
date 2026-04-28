@@ -1,0 +1,98 @@
+{
+  "date": "2026-04-11",
+  "status": "completed_with_open_issues",
+  "change_groups": [
+    {
+      "group": "yki_runtime_authority",
+      "files": [
+        "engine/tools/build_task_index_v3_2.py",
+        "engine/api/engine_status_api.py",
+        "engine/registry/__init__.py",
+        "engine/registry/task_contract_registry_v3_2.py"
+      ],
+      "outcome": "YKI task index and status checks now point to internal materials roots."
+    },
+    {
+      "group": "practice_content_demotion",
+      "files": [
+        "apps/backend/src/features/practice_content/config.py",
+        "apps/backend/src/features/practice_content/pipeline/publish_to_material_bank.py"
+      ],
+      "outcome": "practice_content now writes to offline/export-import paths instead of material_inventory.json."
+    },
+    {
+      "group": "card_runtime_authority",
+      "files": [
+        "apps/backend/app/cards/publication/validated_source_repository.py",
+        "apps/backend/cards/material_bank.py"
+      ],
+      "outcome": "Canonical card loaders now read accepted canonical cards plus internal validated donor datasets."
+    },
+    {
+      "group": "kielitaika_card_import",
+      "files": [
+        "apps/backend/app/cards/importers/__init__.py",
+        "apps/backend/app/cards/importers/import_kielitaika_normalized_cards.py",
+        "apps/backend/app/cards/importers/mappers/__init__.py",
+        "apps/backend/app/cards/importers/mappers/kielitaika_to_canonical.py",
+        "apps/backend/app/cards/importers/validators/__init__.py",
+        "apps/backend/app/cards/importers/validators/normalized_card_precheck.py",
+        "apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "apps/backend/materials/cards/imports/kielitaika_normalized/import_report.json",
+        "apps/backend/materials/cards/validated/kielitaika_normalized_cards.json",
+        "apps/backend/materials/cards/published/kielitaika_normalized_cards.json",
+        "apps/backend/materials/cards/quarantine/kielitaika_normalized_quarantine.json"
+      ],
+      "outcome": "Normalized donor cards were converted into canonical validated/published envelopes with quarantine output."
+    },
+    {
+      "group": "governance_and_registry",
+      "files": [
+        "apps/backend/materials/GOVERNANCE.md",
+        "apps/backend/materials/STATUS_RULES.md",
+        "apps/backend/materials/datasets/dataset_registry.json",
+        "apps/backend/materials/datasets/provenance_registry.json"
+      ],
+      "outcome": "Material banks now have explicit statuses, provenance, and runtime authority classification."
+    },
+    {
+      "group": "card_importability_repairs",
+      "files": [
+        "apps/backend/app/core/config.py",
+        "apps/backend/app/db/database.py",
+        "apps/backend/app/audio/__init__.py",
+        "apps/backend/app/audio/card_audio_preparation.py",
+        "apps/backend/app/audio/dialogue_builder.py",
+        "apps/backend/app/cards/runtime/rate_limit.py",
+        "apps/backend/app/cards/runtime/services/card_runtime_service.py",
+        "apps/backend/app/services/audio_normalize.py",
+        "apps/backend/app/services/tts/__init__.py",
+        "apps/backend/app/services/tts/contracts.py",
+        "apps/backend/app/services/tts/runtime.py",
+        "apps/backend/app/services/tts/security.py",
+        "apps/backend/app/services/tts/voice_registry.py",
+        "apps/backend/app/services/tts/providers/__init__.py",
+        "apps/backend/app/services/tts/providers/azure.py",
+        "apps/backend/app/services/tts/providers/base.py",
+        "apps/backend/app/services/tts/providers/development_fallback.py",
+        "apps/backend/app/services/tts/providers/elevenlabs.py",
+        "apps/backend/app/services/tts/providers/openai.py"
+      ],
+      "outcome": "Publication-layer imports were restored; runtime router remains blocked by external env dependency import chain."
+    },
+    {
+      "group": "verification_gate",
+      "files": [
+        ".github/workflows/ci.yml",
+        "apps/backend/tools/verify_material_convergence.py"
+      ],
+      "outcome": "CI now runs a material-convergence verification gate."
+    }
+  ],
+  "verification": {
+    "material_convergence_script": "pass",
+    "yki_index_rebuild": "pass",
+    "publication_imports": "pass",
+    "runtime_router_import": "blocked_by_environment_dependency"
+  }
+}

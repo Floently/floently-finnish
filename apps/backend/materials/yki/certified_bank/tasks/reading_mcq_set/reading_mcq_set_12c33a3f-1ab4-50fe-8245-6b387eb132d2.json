@@ -1,0 +1,73 @@
+{
+  "id": "12c33a3f-1ab4-50fe-8245-6b387eb132d2",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.558,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue pääkirjoitus ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Yhteiskunta digitalisoituu vauhdilla. Verkossa hoidetaan pankkiasiat, varataan lääkäriaikoja, haetaan töitä ja opiskellaan. Tämä on monille helpotus, mutta osalle väestöstä se on kynnys.\n\nDigitaalisella syrjäytymisellä tarkoitetaan tilannetta, jossa ihminen jää palvelujen ulkopuolelle, koska hän ei osaa, voi tai halua käyttää digitaalisia palveluja. Kyse ei ole vain iäkkäistä, vaikka he ovatkin suurin riskiryhmä. Myös matalasti koulutetut, pitkäaikaistyöttömät ja erityisryhmät voivat olla vaarassa.\n\nSyy on usein monimutkainen. Jos ei ole koskaan käyttänyt tietokonetta työssä, kynnys on korkea. Jos ei ole varaa laitteisiin tai nettiin, se on mahdotonta. Jos digitaaliset palvelut ovat vaikeakäyttöisiä, se on turhauttavaa.\n\nSeuraukset ovat vakavia. Ihminen ei saa tarvitsemiaan palveluja, voi menettää etuuksia tai jäädä työmarkkinoiden ulkopuolelle. Pahimmillaan digisyrjäytyminen kärjistää muuta syrjäytymistä.\n\nRatkaisuja on etsittävä monesta suunnasta. Digitaalisten palvelujen pitää olla helppokäyttöisiä ja saavutettavia. Tarvitaan myös matalan kynnyksen opastusta ja tukea. On tärkeää muistaa, että digitaalisten palvelujen rinnalla on säilytettävä vaihtoehtoisia tapoja asioida. Muuten luomme kaksi Suomea: ne, jotka pysyvät mukana, ja ne, jotka jäävät jälkeen.",
+      "word_count": 156
+    },
+    "questions": [
+      {
+        "id": "item_076_1",
+        "prompt": "Mitä tarkoitetaan digitaalisella syrjäytymisellä?",
+        "options": [
+          "kaikki käyttävät digitaalisia palveluja",
+          "ihminen jää palvelujen ulkopuolelle, koska ei osaa käyttää digitaalisia palveluja",
+          "digitaaliset palvelut ovat liian nopeita"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_076_2",
+        "prompt": "Ketkä ovat suurimmassa riskissä?",
+        "options": [
+          "vain nuoret",
+          "iäkkäät, matalasti koulutetut, pitkäaikaistyöttömät ja erityisryhmät",
+          "vain työssäkäyvät"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_076_3",
+        "prompt": "Mitä seurauksia digisyrjäytymisellä voi olla?",
+        "options": [
+          "ei mitään merkittävää",
+          "ihminen ei saa palveluja, voi menettää etuuksia ja jäädä työmarkkinoiden ulkopuolelle",
+          "se on vain pieni harmi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_076_4",
+        "prompt": "Mitä ratkaisuja kirjoittaja ehdottaa?",
+        "options": [
+          "vain digitaalisia palveluja",
+          "helppokäyttöisiä palveluja, opastusta ja vaihtoehtoisia tapoja asioida",
+          "digitaalisten palvelujen lopettamista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "99dd41bf-9f15-53d7-8e2d-05cc4ef4f190",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käynyt hierojalla. Kirjoita palaute hierojalle ja kehitä toimintaa.",
+    "materials": {
+      "scenario": "Palaute hierojalle kehitysehdotuksin"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käynyt hierojalla. Kirjoita palaute hierojalle ja kehitä toimintaa."
+      }
+    ],
+    "rubric": "Olet käynyt hierojalla. Kirjoita palaute hierojalle ja kehitä toimintaa.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

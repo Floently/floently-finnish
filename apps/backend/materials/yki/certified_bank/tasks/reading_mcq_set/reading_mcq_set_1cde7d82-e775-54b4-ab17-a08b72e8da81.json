@@ -1,0 +1,77 @@
+{
+  "id": "1cde7d82-e775-54b4-ab17-a08b72e8da81",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.546,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Metsäteollisuus on yksi Suomen talouden kulmakivistä. Metsäteollisuus tuottaa sellua, paperia, kartonkia, sahatavaraa ja puutuotteita. Suomi on yksi maailman johtavista metsäteollisuusmaista, ja ala työllistää suoraan ja välillisesti kymmeniä tuhansia ihmisiä. Metsäteollisuus on myös merkittävä vientituote, ja suurin osa tuotannosta menee ulkomaille, erityisesti Eurooppaan ja Aasiaan. Uusia tuotteita kehitetään jatkuvasti, kuten biopolttoaineita, tekstiilejä ja muoveja puusta. Kestävä metsätalous on tärkeää, ja metsiä hoidetaan niin, että ne uudistuvat ja säilyvät. Digitalisaatio on vähentänyt paperin kysyntää, mutta pakkausmateriaalien ja pehmo-paperin kysyntä on kasvanut.",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_033",
+        "prompt": "Mitä metsäteollisuus tuottaa?",
+        "options": [
+          "Vain paperia",
+          "Sellua, paperia, kartonkia, sahatavaraa ja puutuotteita",
+          "Vain puutuotteita",
+          "Vain kartonkia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_033",
+        "prompt": "Minne suurin osa tuotannosta viedään?",
+        "options": [
+          "Pohjois-Amerikkaan",
+          "Eurooppaan ja Aasiaan",
+          "Etelä-Amerikkaan",
+          "Afrikkaan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_033",
+        "prompt": "Mitä uusia tuotteita puusta kehitetään?",
+        "options": [
+          "Vain paperia",
+          "Biopolttoaineita, tekstiilejä ja muoveja",
+          "Vain huonekaluja",
+          "Vain rakennusmateriaaleja"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_033",
+        "prompt": "Mikä on vähentänyt paperin kysyntää?",
+        "options": [
+          "Ilmastonmuutos",
+          "Digitalisaatio",
+          "Väestönkasvu",
+          "Luonnonkatastrofit"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

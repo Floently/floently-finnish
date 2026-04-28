@@ -1,0 +1,40 @@
+{
+  "id": "1e2325ea-c367-530a-a897-4decf72ca6a0",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "B1_B2",
+  "skill": "speaking",
+  "difficulty": 0.512,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Käy neuvottelu pankinjohtajan kanssa yrityslainasta. Perustele liikeideasi.",
+    "materials": {
+      "roles": {
+        "user": "perustamassa pientä yritystä",
+        "partner": "Keskustelukumppani"
+      }
+    },
+    "items": [
+      {
+        "id": "c04c9e5d-c715-58b3-9b3a-969fbfd3d0fc",
+        "ai_first_turn_fi": "Päivää, ole hyvä. Kertokaahan nyt tästä teidän liikeideasta. Pankin näkökulmasta meidän täytyy olla varmoja, että laina pystytään maksamaan takaisin."
+      }
+    ],
+    "rubric": "Käy neuvottelu pankinjohtajan kanssa yrityslainasta. Perustele liikeideasi.",
+    "timing": {
+      "recommended_minutes": 5
+    }
+  }
+}

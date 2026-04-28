@@ -1,0 +1,37 @@
+{
+  "id": "980e28d1-6a7c-5949-8c62-5e8c125b2e49",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.533,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkien rokotuksia valvoa tarkemmin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma.",
+    "materials": {
+      "scenario": "Lemmikkien rokotusten valvonta"
+    },
+    "items": [
+      {
+        "id": "3a136ed6-7cc1-51b6-8a64-9287ee195e6b",
+        "prompt": "Kirjoita mielipideteksti siitä, pitäisikö lemmikkien rokotuksia valvoa tarkemmin. Esitä kantasi selvästi, perustele sitä usealla syyllä ja huomioi myös vastakkainen näkökulma."
+      }
+    ],
+    "rubric": "Oma kanta\nPerustelut\nVastanäkökulma",
+    "timing": {
+      "recommended_minutes": 35
+    }
+  }
+}

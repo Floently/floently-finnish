@@ -1,0 +1,37 @@
+{
+  "id": "0d1459cb-2015-57c8-8a69-fa1a226da011",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "recovered_pool",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Haluat hakea työpaikkaa. Kirjoita työhakemus sähköpostitse.",
+    "materials": {
+      "scenario": "Haluat hakea työpaikkaa. Kirjoita työhakemus sähköpostitse."
+    },
+    "items": [
+      {
+        "id": "3baecf3c-d0a2-51cb-9c38-69aab66677a1",
+        "prompt": "Haet myyjän työpaikkaa pieneen vaatekauppaan. Työ on osa-aikaista, noin 20 tuntia viikossa. Kirjoita hakemus, jossa:\n- kerrot, mitä työpaikkaa haet ja mistä näit ilmoituksen\n- kerrot itsestäsi ja aiemmasta työkokemuksestasi\n- kerrot, miksi haluat juuri tämän työn\n- kerrot, milloin voit aloittaa ja paljonko sinulla on joustoa työajoissa\n- kerrot yhteystietosi"
+      }
+    ],
+    "rubric": "Haet myyjän työpaikkaa pieneen vaatekauppaan. Työ on osa-aikaista, noin 20 tuntia viikossa. Kirjoita hakemus, jossa:\n- kerrot, mitä työpaikkaa haet ja mistä näit ilmoituksen\n- kerrot itsestäsi ja aiemmasta työkokemuksestasi\n- kerrot, miksi haluat juuri tämän työn\n- kerrot, milloin voit aloittaa ja paljonko sinulla on joustoa työajoissa\n- kerrot yhteystietosi",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "faa7bdc7-5599-5358-960b-9acb022d8635",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.733,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Suomen julkisen talouden kestävyys on noussut keskeiseksi poliittiseksi kysymykseksi. Väestön ikääntyminen ja huoltosuhteen heikkeneminen asettavat paineita julkiselle taloudelle. Työikäisten määrä vähenee ja palvelujen tarve kasvaa. Ratkaisuiksi on esitetty monenlaisia keinoja. Työllisyysastetta halutaan nostaa, jotta verotuloja saadaan lisää. Julkisia menoja voidaan joutua leikkaamaan. Myös verotuksen kiristämistä on ehdotettu. Keskustelua vaikeuttaa se, että eri ratkaisuilla on erilaisia vaikutuksia eri väestöryhmiin. Leikkaukset voivat kohdistua pahiten heikoimmassa asemassa oleviin. Veronkorotukset saattavat vähentää työn tekemisen kannustimia. Kompromissien etsiminen on vaikeaa, koska taloudelliset ja sosiaaliset tavoitteet ovat usein ristiriidassa. Tulevaisuuden kannalta on ratkaisevaa, millaisia arvovalintoja päätöksenteossa tehdään. Tarvitaan pitkäjänteistä talouspolitiikkaa ja vaikeita päätöksiä. On löydettävä keinoja, jotka turvaavat hyvinvointiyhteiskunnan rahoituksen mutta eivät lisää eriarvoisuutta liikaa.",
+      "word_count": 109
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi julkisen talouden kestävyys on keskeinen kysymys?",
+        "options": [
+          "Väestön nuorentumisen vuoksi.",
+          "Väestön ikääntymisen ja huoltosuhteen heikkenemisen vuoksi.",
+          "Kansainvälisen kaupan vähenemisen vuoksi.",
+          "Yritysten investointien vähenemisen vuoksi."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä tarkoitetaan huoltosuhteen heikkenemisellä?",
+        "options": [
+          "Työikäisten määrä kasvaa suhteessa vanhempaan väestöön.",
+          "Työikäisten määrä vähenee suhteessa vanhempaan väestöön.",
+          "Lasten määrä kasvaa.",
+          "Eläkkeiden määrä vähenee."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä ratkaisuja julkisen talouden ongelmaan on esitetty?",
+        "options": [
+          "Vain työllisyysasteen nostaminen.",
+          "Työllisyyden nostaminen, menojen leikkaukset ja verotuksen kiristäminen.",
+          "Vain menojen leikkaaminen.",
+          "Vain verotuksen kiristäminen."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Miksi keskustelu julkisen talouden ratkaisuista on vaikeaa?",
+        "options": [
+          "Kukaan ei ymmärrä taloutta.",
+          "Eri ratkaisuilla on erilaisia vaikutuksia eri väestöryhmiin.",
+          "Politiikot eivät halua tehdä päätöksiä.",
+          "Talouskasvu on pysähtynyt."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mikä on leikkausten riski?",
+        "options": [
+          "Ne hidastavat talouskasvua.",
+          "Ne voivat kohdistua pahiten heikoimmassa asemassa oleviin.",
+          "Ne vähentävät yritysten investointeja.",
+          "Ne lisäävät byrokratiaa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mikä on veronkorotusten riski?",
+        "options": [
+          "Ne vähentävät kulutusta.",
+          "Ne saattavat vähentää työn tekemisen kannustimia.",
+          "Ne lisäävät harmaata taloutta.",
+          "Ne heikentävät kansainvälistä kilpailukykyä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Mikä on tekstin mukaan ratkaisevaa tulevaisuuden kannalta?",
+        "options": [
+          "Teknologian kehitys.",
+          "Millaisia arvovalintoja päätöksenteossa tehdään.",
+          "Kansainvälinen taloustilanne.",
+          "Luonnonvarojen riittävyys."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

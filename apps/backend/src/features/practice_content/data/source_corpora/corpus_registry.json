@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": "manual_seed",
+      "kind": "general",
+      "path": "apps/backend/src/features/practice_content/data/source_corpora/manual_seed.txt",
+      "enabled": true
+    },
+    {
+      "id": "yle",
+      "kind": "general",
+      "path": "apps/backend/src/features/practice_content/data/source_corpora/yle.txt",
+      "enabled": false
+    },
+    {
+      "id": "wiki_medical",
+      "kind": "medical",
+      "path": "apps/backend/src/features/practice_content/data/source_corpora/wiki_medical.txt",
+      "enabled": false
+    },
+    {
+      "id": "kaypa_hoito",
+      "kind": "medical",
+      "path": "apps/backend/src/features/practice_content/data/source_corpora/kaypa_hoito.txt",
+      "enabled": false
+    },
+    {
+      "id": "combined_corpus",
+      "kind": "general",
+      "path": "apps/backend/src/features/practice_content/data/source_corpora/combined_corpus.txt",
+      "enabled": false
+    },
+    {
+      "id": "final_corpus_v4",
+      "kind": "general",
+      "path": "apps/backend/src/features/practice_content/data/source_corpora/final_corpus_v4.txt",
+      "enabled": false
+    }
+  ]
+}

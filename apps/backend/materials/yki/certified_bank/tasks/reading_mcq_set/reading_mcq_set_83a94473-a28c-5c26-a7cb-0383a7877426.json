@@ -1,0 +1,77 @@
+{
+  "id": "83a94473-a28c-5c26-a7cb-0383a7877426",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "reading",
+  "difficulty": 0.336,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Kävin hammaslääkärissä viime torstaina. Minulla oli varaus kello 10. Hammaslääkäri tutki hampaat ja otti röntgenkuvan. Yhdessä hampaassa oli pieni reikä. Hammaslääkäri paikkasi hampaan. Se vähän sattui, mutta meni nopeasti ohi. Hammaslääkäri sanoi, että minun pitää pestä hampaat huolellisemmin ja käyttää hammaslankaa. Seuraava tarkastus on puolen vuoden päästä. Lasku oli 90 euroa. Kelasta sain osan takaisin.",
+      "word_count": 55
+    },
+    "questions": [
+      {
+        "id": "48f8161b-ddf9-547a-a538-b76369f0cda6",
+        "prompt": "Minä päivänä henkilö kävi hammaslääkärissä?",
+        "options": [
+          "Maanantaina",
+          "Tiistaina",
+          "Keskiviikkona",
+          "Torstaina"
+        ],
+        "correct_index": 3
+      },
+      {
+        "id": "d5572154-3c58-588c-8b23-32ba3399ff10",
+        "prompt": "Mitä hammaslääkäri teki?",
+        "options": [
+          "Poisti hampaan",
+          "Paikkasi hampaan",
+          "Valkaisi hampaat",
+          "Puhdisti hampaat"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "969bc2bd-97f6-56df-8c79-a86af3a2a590",
+        "prompt": "Mitä hammaslääkäri neuvoi?",
+        "options": [
+          "Syömään vähemmän makeaa",
+          "Pesemään hampaat huolellisemmin",
+          "Käymään useammin hammaslääkärissä",
+          "Ostamaan sähköhammasharjan"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "fd3752d5-3bfc-50fb-a502-382633d39f74",
+        "prompt": "Paljonko käynti maksoi?",
+        "options": [
+          "60 euroa",
+          "75 euroa",
+          "90 euroa",
+          "105 euroa"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

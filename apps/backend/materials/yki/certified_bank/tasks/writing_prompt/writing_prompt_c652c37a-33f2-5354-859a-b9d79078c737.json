@@ -1,0 +1,37 @@
+{
+  "id": "c652c37a-33f2-5354-859a-b9d79078c737",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.518,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla oleva leikkikenttä on huonossa kunnossa. Keinut ovat rikki ja hiekkalaatikossa on roskia. Kerro ongelmista ja pyydä, että ne korjataan.",
+    "materials": {
+      "scenario": "Ilmoitus leikkikentän huonosta kunnosta"
+    },
+    "items": [
+      {
+        "id": "0948c948-86b1-57ba-af67-98c339db8705",
+        "prompt": "Kirjoita sähköposti isännöitsijälle. Haluat ilmoittaa, että taloyhtiön pihalla oleva leikkikenttä on huonossa kunnossa. Keinut ovat rikki ja hiekkalaatikossa on roskia. Kerro ongelmista ja pyydä, että ne korjataan."
+      }
+    ],
+    "rubric": "Ongelmien kuvaus\nTurvallisuusriski\nKorjauspyyntö",
+    "timing": {
+      "recommended_minutes": 25
+    }
+  }
+}

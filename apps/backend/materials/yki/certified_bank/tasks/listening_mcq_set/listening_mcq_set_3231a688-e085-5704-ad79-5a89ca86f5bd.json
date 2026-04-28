@@ -1,0 +1,99 @@
+{
+  "id": "3231a688-e085-5704-ad79-5a89ca86f5bd",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.541,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele haastattelu suomalaisesta ruokakulttuurista ja vastaa.",
+    "materials": {
+      "transcript": "Toimittaja: Tänään puhumme suomalaisesta ruokakulttuurista. Haastattelussa on ruokakirjailija ja -toimittaja Anna Mäkelä. Anna, mitkä ovat suomalaisen ruokakulttuurin juuret? Anna: Ne ovat vahvasti luonnossa ja vuodenajoissa. Kalastus, metsästys, marjastus ja sienestys ovat aina olleet tärkeitä. Myös maatalous, kuten viljan viljely ja karjanhoito, on muovannut ruokaperinteitä. Perinteisiä ruokia ovat esimerkiksi ruisleipä, puurot, kalakeitot, lihapullat ja karjalanpaisti. Toimittaja: Miten ruokakulttuuri on muuttunut? Anna: Se on monipuolistunut ja kansainvälistynyt valtavasti. Nykyään syödään paljon enemmän kasviksia, ja erilaiset ruokavaliot, kuten kasvisruokavalio, gluteeniton ja paleo, ovat yleisiä. Ulkomaalaiset ruoat, kuten pizza, kebab ja wokit, ovat arkipäivää. Toimittaja: Mikä on tämän hetken trendi? Anna: Lähiruoka ja sesonkiruoka ovat vahvassa nousussa. Ihmiset haluavat tietää, mistä heidän ruokansa tulee ja että se on tuotettu eettisesti. Myös hävikin vähentäminen ja ruoan arvostus ovat tärkeitä. Kotimaisuus on arvossaan. Toimittaja: Entä suomalaiset erikoisuudet? Anna: Ruisleipä on ehdottomasti ykkönen. Myös salmiakki, mämmi, korvapuustit ja lihapiirakat ovat erikoisuuksia. Toimittaja: Kiitos Anna.",
+      "audio_asset_id": "760814ac-2390-48a0-9985-96abfb4be197"
+    },
+    "questions": [
+      {
+        "id": "lq1",
+        "prompt": "Mikä on haastattelun aihe?",
+        "options": [
+          "Suomalainen maatalous.",
+          "Suomalainen ruokakulttuuri.",
+          "Suomalainen kalastus.",
+          "Suomalainen leivonta."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq2",
+        "prompt": "Missä suomalaisen ruokakulttuurin juuret ovat?",
+        "options": [
+          "Ulkomaisissa vaikutteissa.",
+          "Luonnossa, vuodenajoissa, kalastuksessa ja maataloudessa.",
+          "Teollisessa ruoantuotannossa.",
+          "Pikaruoassa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq3",
+        "prompt": "Mitä ovat perinteisiä suomalaisia ruokia?",
+        "options": [
+          "Pizza ja pasta.",
+          "Ruisleipä, puurot, kalakeitot, lihapullat ja karjalanpaisti.",
+          "Sushi ja curry.",
+          "Taco ja burrito."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "lq4",
+        "prompt": "Miten ruokakulttuuri on muuttunut?",
+        "options": [
+          "Se on yksipuolistunut.",
+          "Se on kadonnut.",
+          "Se on monipuolistunut ja kansainvälistynyt.",
+          "Se on pysynyt samana."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "lq5",
+        "prompt": "Mikä on tämän hetken trendi?",
+        "options": [
+          "Lähiruoka, sesonkiruoka ja hävikin vähentäminen.",
+          "Einekset ja valmisruoat.",
+          "Ulkomainen pikaruoka.",
+          "Sokeristen herkkujen lisääminen."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "lq6",
+        "prompt": "Mikä on Annan mukaan suomalainen erikoisuus?",
+        "options": [
+          "Sushi.",
+          "Ruisleipä, salmiakki, mämmi, korvapuustit.",
+          "Kebab.",
+          "Hampurilainen."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

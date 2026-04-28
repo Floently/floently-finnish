@@ -1,0 +1,37 @@
+{
+  "id": "d21a163b-2e9c-536b-98c6-8ae03c844c40",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "C1_C2",
+  "skill": "writing",
+  "difficulty": 0.708,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita virallinen sähköposti eduskunnan lakivaliokunnalle. Olette asiantuntijoita, ja haluatte tulla kuulluiksi valmisteilla olevassa lakihankkeessa. Kerro, mitä lakiehdotusta kuuleminen koskee, mikä on asiantuntemuksenne alalta ja mitä haluatte tuoda esiin. Kysy myös, miten kuulemiskäytäntö toimii.",
+    "materials": {
+      "scenario": "Pyyntö tulla kuulluksi eduskunnassa"
+    },
+    "items": [
+      {
+        "id": "094bb7d5-6c2f-5dcc-a171-a7ae13789792",
+        "prompt": "Kirjoita virallinen sähköposti eduskunnan lakivaliokunnalle. Olette asiantuntijoita, ja haluatte tulla kuulluiksi valmisteilla olevassa lakihankkeessa. Kerro, mitä lakiehdotusta kuuleminen koskee, mikä on asiantuntemuksenne alalta ja mitä haluatte tuoda esiin. Kysy myös, miten kuulemiskäytäntö toimii."
+      }
+    ],
+    "rubric": "{\"wordCount\": {\"max\": 260, \"min\": 180}}",
+    "timing": {
+      "recommended_minutes": 40
+    }
+  }
+}

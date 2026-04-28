@@ -1,0 +1,37 @@
+{
+  "id": "691db028-0094-5c1b-aa65-aaab0902c687",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.329,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt teksti lempivuodenajastasi.",
+    "materials": {
+      "scenario": "Kirjoita lyhyt teksti lempivuodenajastasi."
+    },
+    "items": [
+      {
+        "id": "49754562-76e8-5e5a-87d7-794da0db0dd8",
+        "prompt": "Mikä on sinun lempivuodenaikasi? Kirjoita 5–8 lausetta. Kerro, miksi pidät siitä, mitä säätä silloin on ja mitä teet mielelläsi silloin. Anna esimerkki jostain kivasta muistosta tältä vuodenajalta."
+      }
+    ],
+    "rubric": "Mikä on sinun lempivuodenaikasi? Kirjoita 5–8 lausetta. Kerro, miksi pidät siitä, mitä säätä silloin on ja mitä teet mielelläsi silloin. Anna esimerkki jostain kivasta muistosta tältä vuodenajalta.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

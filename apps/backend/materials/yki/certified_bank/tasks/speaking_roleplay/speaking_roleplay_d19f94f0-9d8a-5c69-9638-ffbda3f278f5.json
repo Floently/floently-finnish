@@ -1,0 +1,40 @@
+{
+  "id": "d19f94f0-9d8a-5c69-9638-ffbda3f278f5",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.32,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Vastaa haastattelijan kysymyksiin.",
+    "materials": {
+      "roles": {
+        "user": "työhaastattelussa",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "a19deded-c4f7-5b9d-85cf-142bd89d7088",
+        "ai_first_turn_fi": "Kerro nimesi ja ikäsi. Missä asut?"
+      }
+    ],
+    "rubric": "Vastaa haastattelijan kysymyksiin.",
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

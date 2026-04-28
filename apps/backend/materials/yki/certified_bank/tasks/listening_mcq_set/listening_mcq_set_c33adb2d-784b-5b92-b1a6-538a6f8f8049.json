@@ -1,0 +1,66 @@
+{
+  "id": "c33adb2d-784b-5b92-b1a6-538a6f8f8049",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.517,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Asiakas: Hei, olen tulossa noutamaan tilaustani. Sain tekstiviestin, että se on saapunut.\nMyyjä: Hei, voitteko kertoa tilausnumeron?\nAsiakas: Kyllä, tilausnumero on 45678.\nMyyjä: Hetkinen, tarkistan. Kyllä, tilaus on täällä. Odotatteko te vai noudatteko itse?\nAsiakas: Noudan itse. Tässä on henkilöllisyystodistus.\nMyyjä: Kiitos. Tässä on teidän pakettinne. Se on pahvilaatikko, suosittelen tarkistamaan, että sisältö on ehjä ennen kuin poistutte.\nAsiakas: Selvä, avaan sen tässä. (Avaa laatikon) Kaikki näyttää olevan kunnossa.\nMyyjä: Hyvä. Hyvää päivänjatkoa!",
+      "audio_asset_id": "283f1153-f0ac-5b9a-97f4-d44138010406"
+    },
+    "questions": [
+      {
+        "id": "list_076",
+        "prompt": "Miksi asiakas tulee myymälään?",
+        "options": [
+          "Tilaamaan tuotteen",
+          "Palauttamaan tuotteen",
+          "Noutamaan tilauksen",
+          "Vaihtamaan tuotteen"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "list_077",
+        "prompt": "Mikä on asiakkaan tilausnumero?",
+        "options": [
+          "12345",
+          "45678",
+          "78901",
+          "23456"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "list_078",
+        "prompt": "Mitä myyjä suosittelee asiakasta tekemään?",
+        "options": [
+          "Maksamaan tilauksen",
+          "Tarkistamaan sisällön ennen poistumista",
+          "Soittamaan myöhemmin",
+          "Tilaamaan lisää tuotteita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "f2e175b6-8f49-54e8-9c35-08dc1231437e",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.741,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Suomen talouden rakennemuutos on ollut nopeaa viime vuosikymmeninä. Perinteinen metsä- ja metalliteollisuus ovat menettäneet merkitystään, kun taas palvelusektori ja korkean teknologian alat ovat kasvaneet. Nokia-puhelinten menestys 1990-luvulla ja 2000-luvun alussa loi Suomeen kokonaisen ICT-klusterin, mutta Nokian vaikeudet johtivat alan nopeaan rakennemuutokseen. Nykyään Suomen taloutta leimaavat monipuolistuminen ja erikoistuminen. Menestyviä aloja ovat esimerkiksi peliteollisuus, biotalous, puhdas teknologia ja terveysteknologia. Rakennemuutos on ollut kivulias monille perinteisille teollisuuspaikkakunnille, mutta se on myös luonut uusia mahdollisuuksia. Jatkuva uudistuminen ja osaamisen kehittäminen ovat avainasemassa.",
+      "word_count": 79
+    },
+    "questions": [
+      {
+        "id": "mcq_356",
+        "prompt": "Mitkä perinteiset teollisuudenalat ovat menettäneet merkitystään Suomessa?",
+        "options": [
+          "Palvelusektori ja ICT-ala",
+          "Metsä- ja metalliteollisuus",
+          "Peliteollisuus ja biotalous",
+          "Puhdas teknologia ja terveysteknologia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_357",
+        "prompt": "Mitä Nokian menestys ja vaikeudet aiheuttivat?",
+        "options": [
+          "ICT-alan vakiintumista",
+          "Alan nopean rakennemuutoksen",
+          "Teollisuuden paluuta perinteisiin aloihin",
+          "Palvelusektorin vähenemistä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_358",
+        "prompt": "Mitkä alat menestyvät nykyään Suomessa?",
+        "options": [
+          "Vain perinteinen metsäteollisuus",
+          "Vain metalliteollisuus",
+          "Peliteollisuus, biotalous, puhdas teknologia ja terveysteknologia",
+          "Vain palvelusektori"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "mcq_359",
+        "prompt": "Mitä rakennemuutos on vaatinut?",
+        "options": [
+          "Pysähtyneisyyttä ja vanhoihin aloihin nojaamista",
+          "Jatkuvaa uudistumista ja osaamisen kehittämistä",
+          "Perinteisten alojen vahvistamista",
+          "Ulkomaisen tuen lisäämistä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

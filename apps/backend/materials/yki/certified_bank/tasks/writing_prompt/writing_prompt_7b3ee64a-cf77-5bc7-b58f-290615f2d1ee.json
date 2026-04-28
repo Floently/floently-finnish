@@ -1,0 +1,37 @@
+{
+  "id": "7b3ee64a-cf77-5bc7-b58f-290615f2d1ee",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "B1_B2",
+  "skill": "writing",
+  "difficulty": 0.534,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Olet käyttänyt kaupungin kierrätyspistettä. Kirjoita palaute jätehuollolle.",
+    "materials": {
+      "scenario": "Palaute kierrätyspisteestä"
+    },
+    "items": [
+      {
+        "id": "item_1",
+        "prompt": "Olet käyttänyt kaupungin kierrätyspistettä. Kirjoita palaute jätehuollolle."
+      }
+    ],
+    "rubric": "Olet käyttänyt kaupungin kierrätyspistettä. Kirjoita palaute jätehuollolle.",
+    "timing": {
+      "recommended_minutes": 20
+    }
+  }
+}

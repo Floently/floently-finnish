@@ -1,0 +1,66 @@
+{
+  "id": "4b68ad1b-be18-536d-ba51-cf7587ccbe8b",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.333,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele keskustelu työpaikalla ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Esimies: Hei, miten projekti etenee?\nTyöntekijä: Ihan hyvin. Olen saanut puolet valmiiksi. Luulen, että saan sen valmiiksi perjantaihin mennessä.\nEsimies: Hyvä! Tarvitsetko apua?\nTyöntekijä: Ei kiitos, pärjään kyllä.",
+      "audio_asset_id": "421b3791-2bdd-5e94-8c1c-90ab1ee37e4c"
+    },
+    "questions": [
+      {
+        "id": "a1a2_listening_mcq_012_q1",
+        "prompt": "Mistä he keskustelevat?",
+        "options": [
+          "lomasta",
+          "projektista",
+          "palkasta",
+          "työajasta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a1a2_listening_mcq_012_q2",
+        "prompt": "Milloin työntekijä luulee saavansa työn valmiiksi?",
+        "options": [
+          "maanantaihin mennessä",
+          "keskiviikkoon mennessä",
+          "perjantaihin mennessä",
+          "ensi viikkoon mennessä"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "a1a2_listening_mcq_012_q3",
+        "prompt": "Tarvitseeko työntekijä apua?",
+        "options": [
+          "kyllä",
+          "ei",
+          "ehkä",
+          "ei vielä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

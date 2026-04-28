@@ -1,0 +1,37 @@
+{
+  "id": "58e8e254-145f-564a-a3b2-0b35544af306",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "legacy_migration",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti koiran trimmaajalle. Haluat varata ajan koiran turkin leikkuuseen. Kerro, että koirasi on villakoira ja tarvitsee täyden trimmauksen. Kerro, milloin sinulle sopii (iltapäivät). Kysy hintaa ja ajan saatavuutta.",
+    "materials": {
+      "scenario": "Viesti koiran trimmaajalle ajanvarauksesta"
+    },
+    "items": [
+      {
+        "id": "56054f9f-f926-5444-8adc-67e203df0308",
+        "prompt": "Kirjoita lyhyt viesti koiran trimmaajalle. Haluat varata ajan koiran turkin leikkuuseen. Kerro, että koirasi on villakoira ja tarvitsee täyden trimmauksen. Kerro, milloin sinulle sopii (iltapäivät). Kysy hintaa ja ajan saatavuutta."
+      }
+    ],
+    "rubric": "Kerro, että haluat trimmausajan\nKerro koiran rotu\nKerro, millainen trimmaus\nKerro toivotut ajat\nKysy hintaa ja saatavuutta",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

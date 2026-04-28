@@ -1,0 +1,40 @@
+{
+  "id": "e1b53a48-37ba-5d5f-ac98-735cd6683029",
+  "version": "3.2.0",
+  "task_type": "speaking_roleplay",
+  "level_band": "A1_A2",
+  "skill": "speaking",
+  "difficulty": 0.285,
+  "language": "fi",
+  "source": {
+    "origin": "speaking",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Tell if you drink coffee and how often. What is often eaten with coffee in Finland?",
+    "materials": {
+      "roles": {
+        "user": "Kokelas",
+        "partner": "Haastattelija"
+      }
+    },
+    "items": [
+      {
+        "id": "abfa4164-0e5f-5f76-850d-fb8622ce7360",
+        "ai_first_turn_fi": "Miksi suomalaiset juo niin paljon kahvia? Ootko itse tottunut tähän?"
+      }
+    ],
+    "rubric": "Tell if you drink coffee and how often. What is often eaten with coffee in Finland?",
+    "timing": {
+      "recommended_minutes": 3
+    }
+  }
+}

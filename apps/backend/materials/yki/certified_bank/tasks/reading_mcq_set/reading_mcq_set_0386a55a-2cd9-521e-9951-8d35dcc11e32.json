@@ -1,0 +1,110 @@
+{
+  "id": "0386a55a-2cd9-521e-9951-8d35dcc11e32",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.713,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Luonto on suomalaisille tärkeä arvo. Se tarjoaa paikan rentoutua ja liikkua. Jokamiehenoikeudet antavat oikeuden nauttia luonnosta. Saa liikkua metsissä, poimia marjoja ja sieniä, ja yöpyä tilapäisesti. Jokamiehenoikeudet ovat ainutlaatuinen piirre suomalaisessa kulttuurissa. Ne mahdollistavat luonnon monipuolisen käytön kaikille. Samalla ne velvoittavat toimimaan vastuullisesti. Suomalaiset viettävät paljon aikaa luonnossa. Metsät, järvet ja saaristo ovat tärkeitä virkistysalueita. Luonnossa liikkuminen on suosittu harrastus. Monet harrastavat patikointia, marjastusta ja retkeilyä. Luonto on myös tärkeä osa suomalaista identiteettiä. Se näkyy taiteessa ja kirjallisuudessa. Luonnon merkitys korostuu entisestään, kun yhteiskunta kaupungistuu. Monet kaupunkilaiset kaipaavat luontoon. Luonto on suomalaisten suuri rikkaus, jota on vaalittava ja suojeltava.",
+      "word_count": 99
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mitä luonto tarjoaa suomalaisille?",
+        "options": [
+          "Vain työtä.",
+          "Paikan rentoutua ja liikkua.",
+          "Vain raaka-aineita.",
+          "Vain esteettisiä nautintoja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä jokamiehenoikeudet tarkoittavat?",
+        "options": [
+          "Saa mennä kenen tahansa pihaan.",
+          "Saa liikkua luonnossa, poimia marjoja ja sieniä, ja yöpyä tilapäisesti.",
+          "Saa ottaa mitä tahansa luonnosta.",
+          "Saa rakentaa mitä tahansa luontoon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä velvollisuuksia jokamiehenoikeuksiin liittyy?",
+        "options": [
+          "Ei mitään velvollisuuksia.",
+          "Toimiminen vastuullisesti.",
+          "Saa tehdä mitä tahansa.",
+          "Pitää maksaa luonnon käytöstä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitkä ovat tärkeitä virkistysalueita Suomessa?",
+        "options": [
+          "Vain puistot.",
+          "Metsät, järvet ja saaristo.",
+          "Vain urheilukentät.",
+          "Vain kaupungit."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä luontoharrastuksia tekstissä mainitaan?",
+        "options": [
+          "Golf ja tennis.",
+          "Patikointi, marjastus ja retkeily.",
+          "Jalkapallo ja jääkiekko.",
+          "Uinti ja juoksu."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Miten luonto näkyy suomalaisessa kulttuurissa?",
+        "options": [
+          "Se ei näy mitenkään.",
+          "Taiteessa ja kirjallisuudessa.",
+          "Vain mainonnassa.",
+          "Vain matkailussa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q7",
+        "prompt": "Miksi luonnon merkitys korostuu kaupungistuvassa yhteiskunnassa?",
+        "options": [
+          "Koska luonto on vaarassa tuhoutua.",
+          "Koska ihmiset kaipaavat luontoon vastapainoa.",
+          "Koska kaupungit ovat rumia.",
+          "Koska luonto on ainoa paikka liikkua."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

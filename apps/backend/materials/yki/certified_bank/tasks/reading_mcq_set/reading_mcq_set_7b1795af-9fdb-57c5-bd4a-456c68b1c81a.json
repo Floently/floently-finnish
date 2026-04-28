@@ -1,0 +1,88 @@
+{
+  "id": "7b1795af-9fdb-57c5-bd4a-456c68b1c81a",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.524,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Suomalainen ruoka on usein yksinkertaista ja ravitsevaa. Perinteisiä ruokia ovat esimerkiksi ruisleipä, perunamuusi, lihakeitto ja kalaruoat. Kesäisin syödään paljon tuoreita marjoja ja sieniä. Jouluna monissa kodeissa syödään kinkkua, laatikoita ja riisipuuroa. Suomalaiset juovat paljon kahvia, noin 3-4 kuppia päivässä. Myös maitoa juodaan paljon ruoan kanssa.",
+      "word_count": 45
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Millainen on suomalainen ruoka usein?",
+        "options": [
+          "mausteinen ja tulinen",
+          "yksinkertainen ja ravitseva",
+          "makea ja raskas",
+          "monimutkainen ja kallis"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mikä on perinteinen suomalainen ruoka?",
+        "options": [
+          "pizza",
+          "ruisleipä",
+          "sushi",
+          "taco"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mitä syödään paljon kesällä?",
+        "options": [
+          "juureksia",
+          "tuoreita marjoja ja sieniä",
+          "lihapullia",
+          "makkarakeittoa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä jouluna usein syödään?",
+        "options": [
+          "kalaa ja perunoita",
+          "kinkkua, laatikoita ja riisipuuroa",
+          "broileria ja riisiä",
+          "pihvi ja ranskalaisia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Paljonko suomalaiset juovat kahvia päivässä?",
+        "options": [
+          "1-2 kuppia",
+          "3-4 kuppia",
+          "5-6 kuppia",
+          "7-8 kuppia"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

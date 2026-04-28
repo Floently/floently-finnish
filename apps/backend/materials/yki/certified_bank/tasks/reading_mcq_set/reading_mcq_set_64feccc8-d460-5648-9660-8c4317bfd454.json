@@ -1,0 +1,73 @@
+{
+  "id": "64feccc8-d460-5648-9660-8c4317bfd454",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.58,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti koulutuksen tulevaisuudesta ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "Koulutusjärjestelmät ympäri maailmaa ovat murroksessa. Kysymys siitä, mitä tulevaisuuden kansalaisen tulisi osata, jakaa mielipiteitä. Perinteinen tiedon jakamiseen perustuva malli on saanut väistyä taitojen ja osaamisen tieltä, mutta tarkkaa suuntaa ei ole vielä hahmottunut.\n\nYksi keskeinen keskustelunaihe on teknologian rooli. Digitaidot nähdään nykyään yhtä tärkeinä kuin luku- ja laskutaito. Kriitikot kuitenkin muistuttavat, että koulun tehtävä on muukin kuin työelämätaitojen opettaminen. Inhimillisyys, empatia ja kriittinen ajattelu ovat taitoja, joita koneet eivät korvaa. Liiallinen teknologiapainotus voi kaventaa käsitystä sivistyksestä.\n\nToinen jännite liittyy yksilöllistämiseen. Perinteinen malli, jossa kaikki opiskelevat samaa asiaa samaan tahtiin, on saanut osakseen kritiikkiä. Oppilaat ovat erilaisia ja oppivat eri tavoin. Teknologia mahdollistaa yksilölliset oppimispolut, mutta samalla herää kysymys yhteisöllisyydestä. Jos jokainen kulkee omaa polkuaan, miten rakennetaan yhteistä ymmärrystä ja jaettua kulttuuria?\n\nKolmas näkökulma koskee koulutuksen tarkoitusta. Onko koulu ensisijaisesti työelämää varten vai ihmiseksi kasvamista varten? Työelämän edustajat korostavat usein käytännön taitoja ja nopeaa valmistumista. Kasvattajat puolestaan puhuvat pitkäjänteisyydestä, laaja-alaisuudesta ja sivistyksestä. Nämä kaksi tavoitetta eivät välttämättä ole ristiriidassa, mutta niiden yhdistäminen käytännössä on haastavaa.\n\nKansainväliset oppimistulosten vertailut, kuten PISA, ovat lisänneet painetta muutokseen. Maat vertailevat tuloksiaan ja hakevat oppia menestyjiltä. Kriitikot varoittavat, että liiallinen mittaaminen kaventaa opetusta: opetetaan sitä, mitä testataan. Samalla unohtuvat ne asiat, joita on vaikea mitata, kuten luovuus ja yhteistyökyky.\n\nLopuksi voidaan todeta, että koulutuskeskustelu on aina arvokeskustelu. Se heijastaa käsityksiämme hyvästä elämästä ja hyvästä yhteiskunnasta. Siksi yksiselitteisiä vastauksia tuskin koskaan saavutetaan, mutta keskustelua on käytävä.",
+      "word_count": 229
+    },
+    "questions": [
+      {
+        "id": "item_001",
+        "prompt": "Mikä on kriitikoiden huoli teknologian korostamisesta koulutuksessa?",
+        "options": [
+          "Se on liian kallista",
+          "Se voi kaventaa käsitystä sivistyksestä ja inhimillisyydestä",
+          "Oppilaat eivät opi käyttämään teknologiaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_002",
+        "prompt": "Mitä ongelmaa yksilölliset oppimispolut voivat aiheuttaa?",
+        "options": [
+          "Ne ovat tehottomia",
+          "Ne voivat heikentää yhteisöllisyyttä",
+          "Ne sopivat vain lahjakkaille"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_003",
+        "prompt": "Mitä ristiriitaa työelämän ja kasvattajien näkemyksissä kuvataan?",
+        "options": [
+          "Työelämä haluaa lyhyempää koulutusta, kasvattajat pidempää",
+          "Työelämä korostaa käytännön taitoja, kasvattajat laaja-alaista sivistystä",
+          "Työelämä ei arvosta koulutusta"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "item_004",
+        "prompt": "Mitä vaaraa kansainvälisissä oppimistulosvertailuissa nähdään?",
+        "options": [
+          "Ne ovat epäluotettavia",
+          "Ne voivat kaventaa opetusta mittaamisen kapeaan osaamiseen",
+          "Ne suosivat tiettyjä maita"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "fda28235-7080-5568-b76f-57ad601953b5",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "listening",
+  "difficulty": 0.723,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen terveydenhuollon muutoksista ja vastaa kysymyksiin.",
+    "materials": {
+      "transcript": "Sosiaali- ja terveysministeriö tiedottaa uudesta hankkeesta, jonka tavoitteena on lyhentää hoitojonoja perusterveydenhuollossa. Hankkeessa kokeillaan uudenlaista työnjakoa lääkäreiden ja sairaanhoitajien välillä. Sairaanhoitajat voisivat jatkossa määrätä tiettyjä lääkkeitä ja hoitaa itsenäisesti joitakin vastaanottokäyntejä. Tämän toivotaan vapauttavan lääkäreiden aikaa vaativampiin potilastapauksiin. Hanketta kokeillaan ensin viidellä eri paikkakunnalla. Jos kokeilu onnistuu, se saatetaan laajentaa koko maahan. Tavoitteena on, että potilaat saisivat hoitoa nopeammin ja oikea-aikaisemmin. Muutosten odotetaan myös parantavan työntekijöiden työn mielekkyyttä.",
+      "audio_asset_id": "a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d"
+    },
+    "questions": [
+      {
+        "id": "l43q1",
+        "prompt": "Mikä on uuden hankkeen tavoite?",
+        "options": [
+          "Lisätä lääkäreiden määrää.",
+          "Lyhentää hoitojonoja perusterveydenhuollossa.",
+          "Sulkea terveysasemia.",
+          "Nostaa potilasmaksuja."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l43q2",
+        "prompt": "Mitä uutta työnjakoa kokeillaan?",
+        "options": [
+          "Lääkärit tekevät vain etävastaanottoja.",
+          "Sairaanhoitajat voivat määrätä tiettyjä lääkkeitä ja hoitaa itsenäisesti vastaanottokäyntejä.",
+          "Toimistotyöntekijät hoitavat potilaita.",
+          "Kaikki potilaat menevät suoraan erikoissairaanhoitoon."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l43q3",
+        "prompt": "Mihin tällä muutoksella halutaan vapauttaa lääkäreiden aikaa?",
+        "options": [
+          "Hallinnollisiin tehtäviin.",
+          "Vaativampiin potilastapauksiin.",
+          "Koulutukseen.",
+          "Taukoihin."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l43q4",
+        "prompt": "Missä hanketta kokeillaan ensimmäiseksi?",
+        "options": [
+          "Koko maassa.",
+          "Viidellä eri paikkakunnalla.",
+          "Vain Helsingissä.",
+          "Sairaaloissa."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "l43q5",
+        "prompt": "Mitä muita positiivisia vaikutuksia muutoksilta odotetaan?",
+        "options": [
+          "Työntekijöiden palkkojen nousua.",
+          "Työntekijöiden työn mielekkyyden paranemista.",
+          "Potilaiden omavastuun kasvua.",
+          "Sairaslomien vähenemistä."
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 2
+    }
+  }
+}

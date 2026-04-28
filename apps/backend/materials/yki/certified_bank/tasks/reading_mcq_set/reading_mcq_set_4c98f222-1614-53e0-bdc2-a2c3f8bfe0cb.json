@@ -1,0 +1,66 @@
+{
+  "id": "4c98f222-1614-53e0-bdc2-a2c3f8bfe0cb",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.511,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin.",
+    "materials": {
+      "text": "KAUPUNGINKIRJASTO\n\nAukioloajat:\nMaanantai–perjantai 10–19\nLauantai 10–15\nSunnuntai suljettu\n\nOsoite: Kirjastokatu 5, 00100 Helsinki\nPuhelin: 09 123 4567  Tämä asia on hyödyllistä tietää. Voit kysyä lisää jos tarvitset. Lyhyt yhteenveto auttaa muistamaan keskeiset kohdat. Lisäesimerkkejä voidaan käyttää vahvistamaan aihetta. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan mainita aihe uudelleen. Yhteenvetona voidaan",
+      "word_count": 50
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Mihin aikaan kirjasto aukeaa maanantaina?",
+        "options": [
+          "A) klo 9",
+          "B) klo 10",
+          "C) klo 11",
+          "D) klo 12"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mihin asti kirjasto on auki perjantaina?",
+        "options": [
+          "A) klo 18",
+          "B) klo 19",
+          "C) klo 20",
+          "D) klo 21"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Onko kirjasto auki sunnuntaina?",
+        "options": [
+          "A) Kyllä",
+          "B) Ei",
+          "C) Vain aamulla",
+          "D) Vain iltapäivällä"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

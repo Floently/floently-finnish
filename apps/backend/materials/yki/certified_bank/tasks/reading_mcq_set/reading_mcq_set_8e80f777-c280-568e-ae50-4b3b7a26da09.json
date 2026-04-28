@@ -1,0 +1,77 @@
+{
+  "id": "8e80f777-c280-568e-ae50-4b3b7a26da09",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.549,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomi on sitoutunut vähentämään hiilidioksidipäästöjä ja lisäämään uusiutuvan energian käyttöä. Tavoitteena on olla hiilineutraali vuoteen 2035 mennessä. Tärkeimpiä uusiutuvan energian lähteitä ovat bioenergia, tuulivoima ja vesivoima. Ydinvoimalla on edelleen merkittävä rooli sähköntuotannossa. Fossiilisten polttoaineiden, kuten kivihiilen ja turpeen, käyttöä vähennetään nopeasti. Energiatehokkuutta parannetaan rakentamisessa, teollisuudessa ja liikenteessä. Hallitus tukee vihreää siirtymää investoinneilla ja veroratkaisuilla. Energiapolitiikkaan vaikuttavat myös kansainväliset sopimukset ja EU:n ilmastotavoitteet. Kansalaisia kannustetaan säästämään energiaa arjen valinnoilla.",
+      "word_count": 68
+    },
+    "questions": [
+      {
+        "id": "q1_reading_b1_023",
+        "prompt": "Mihin vuoteen mennessä Suomi tavoittelee hiilineutraaliutta?",
+        "options": [
+          "2030",
+          "2035",
+          "2040",
+          "2045"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2_reading_b1_023",
+        "prompt": "Mitkä ovat tärkeimpiä uusiutuvan energian lähteitä Suomessa?",
+        "options": [
+          "Aurinko- ja aaltoenergia",
+          "Bioenergia, tuulivoima ja vesivoima",
+          "Maalämpö ja aurinkovoima",
+          "Fossiiliset polttoaineet"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3_reading_b1_023",
+        "prompt": "Mitä fossiilisia polttoaineita vähennetään?",
+        "options": [
+          "Öljy ja maakaasu",
+          "Kivihiili ja turve",
+          "Uraani",
+          "Puupelletti"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4_reading_b1_023",
+        "prompt": "Mihin energiapolitiikka vaikuttaa?",
+        "options": [
+          "Vain teollisuuteen",
+          "Rakentamiseen, teollisuuteen ja liikenteeseen",
+          "Vain liikenteeseen",
+          "Vain kotitalouksiin"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

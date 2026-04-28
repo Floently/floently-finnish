@@ -1,0 +1,37 @@
+{
+  "id": "4ee102f7-2b13-5a73-aa9d-c5dab0163076",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.309,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kirjoita lyhyt viesti serkulle. Kiitä häntä edellisestä tapaamisesta. Kerro, että oli kiva nähdä. Kysy, mitä hänelle kuuluu ja mitä hän on tehnyt viime aikoina.",
+    "materials": {
+      "scenario": "Viesti serkulle kuulumisten kysely"
+    },
+    "items": [
+      {
+        "id": "0524ca8e-903d-53a4-874a-98883a306842",
+        "prompt": "Kirjoita lyhyt viesti serkulle. Kiitä häntä edellisestä tapaamisesta. Kerro, että oli kiva nähdä. Kysy, mitä hänelle kuuluu ja mitä hän on tehnyt viime aikoina."
+      }
+    ],
+    "rubric": "Kiitä tapaamisesta\nKerro, että oli kiva nähdä\nKysy kuulumisia\nKysy, mitä hän on tehnyt",
+    "timing": {
+      "recommended_minutes": 10
+    }
+  }
+}

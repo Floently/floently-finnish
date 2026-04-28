@@ -1,0 +1,37 @@
+{
+  "id": "17fa8a21-59dd-5b45-a765-3d1aca1921be",
+  "version": "3.2.0",
+  "task_type": "writing_prompt",
+  "level_band": "A1_A2",
+  "skill": "writing",
+  "difficulty": 0.338,
+  "language": "fi",
+  "source": {
+    "origin": "writing",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kävit pikaruokaravintolassa. Kirjoita palaute. Arvioi ruoan laatua, jonotusaikaa ja sitä, oliko ravintola siisti. Kerro myös, oliko tilausjärjestelmä selkeä.",
+    "materials": {
+      "scenario": "Palaute pikaruokaravintolasta"
+    },
+    "items": [
+      {
+        "id": "3a94aef8-b820-54de-8f9d-bb555b385309",
+        "prompt": "Kävit pikaruokaravintolassa. Kirjoita palaute. Arvioi ruoan laatua, jonotusaikaa ja sitä, oliko ravintola siisti. Kerro myös, oliko tilausjärjestelmä selkeä."
+      }
+    ],
+    "rubric": "Ruoan laatu\nJonotusaika\nSiisteys\nTilausjärjestelmän selkeys",
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

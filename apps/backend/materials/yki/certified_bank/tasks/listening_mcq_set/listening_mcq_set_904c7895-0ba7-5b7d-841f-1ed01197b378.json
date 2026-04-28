@@ -1,0 +1,88 @@
+{
+  "id": "904c7895-0ba7-5b7d-841f-1ed01197b378",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "A1_A2",
+  "skill": "listening",
+  "difficulty": 0.299,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "transcript": "Terve! Mä olen nyt kaupassa ja täällä on tosi hyvä tarjous. Kahvi on puoleen hintaan! Ostetaanko pari pussia? Mitä mieltä sä oot?",
+      "audio_asset_id": "6f4dc5b8-4bff-4ba7-8557-f7f40335b03e"
+    },
+    "questions": [
+      {
+        "id": "71537e10-c017-5ac2-ba6b-16042e89b8a6",
+        "prompt": "Missä puhuja on?",
+        "options": [
+          "Kaupassa.",
+          "Torilla.",
+          "Kahvilassa.",
+          "Kotona."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "8cf92b7f-cf00-5796-a11d-6b9b4a673553",
+        "prompt": "Mikä on hänen mielestään hyvä tarjous?",
+        "options": [
+          "Kahvi on puoleen hintaan.",
+          "Maito on halpaa.",
+          "Leipä on tarjouksessa.",
+          "Sokeri on halpaa."
+        ],
+        "correct_index": 0
+      },
+      {
+        "id": "d173488b-044c-50a7-9f24-0808b33a7f16",
+        "prompt": "Mitä puhuja ehdottaa ostettavaksi?",
+        "options": [
+          "Yhden pussin.",
+          "Kolme pussia.",
+          "Kaksi pussia.",
+          "Neljä pussia."
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b6ccb124-2876-54d8-a461-adf3f739766c",
+        "prompt": "Mitä puhuja kysyy toiselta?",
+        "options": [
+          "Onko hänellä rahaa.",
+          "Mitä mieltä hän on.",
+          "Tuleeko hän kauppaan.",
+          "Haluaako hän teetä."
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "ff7ab847-e93c-5c60-a9cb-cdc9bda29df2",
+        "prompt": "Kenelle puhuja todennäköisesti puhuu?",
+        "options": [
+          "Myyjälle.",
+          "Naapurille.",
+          "Kaverille kaupassa.",
+          "Perheenjäsenelle tai kämppikselle."
+        ],
+        "correct_index": 3
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 1
+    }
+  }
+}

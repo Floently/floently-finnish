@@ -1,0 +1,66 @@
+{
+  "id": "564b6f30-1391-5b49-95b7-59b9e1abbf50",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.754,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Mitä tekstissä kerrotaan?",
+    "materials": {
+      "text": "Suomen alkoholipolitiikka on perinteisesti perustunut korkeaan verotukseen, vähittäismyynnin monopoliin (Alko) ja mainonnan rajoituksiin. Tavoitteena on ollut vähentää alkoholin kokonaiskulutusta ja siihen liittyviä haittoja, kuten terveysongelmia, väkivaltaa ja perheiden pahoinvointia. Alkoholin kokonaiskulutus on laskenut 2000-luvun huippuvuosista, mutta se on edelleen korkeaa kansainvälisesti verrattuna. Alkoholin matkustajatuonnin vapautuminen ja Viron matkustajatuonti ovat vaikuttaneet kulutukseen ja verotuloihin. Alkoholin haittavaikutukset kohdistuvat erityisesti nuoriin, miehiin ja matalamman sosioekonomisen aseman ryhmiin. Runsas kertajuominen on edelleen yleistä, vaikka trendi on ollut laskeva. Alkoholi aiheuttaa vuosittain tuhansia kuolemia ja on merkittävä tekijä sairauspoissaoloissa ja työkyvyttömyydessä. Päihdeongelmat eivät rajoitu alkoholiin. Huumeiden käyttö on lisääntynyt, ja huumekuolemien määrä on noussut huolestuttavasti. Erityisesti nuorten aikuisten keskuudessa kannabiksen ja muiden huumeiden kokeilu on yleistynyt. Päihdepalvelut ovat keskeinen osa haittojen vähentämistä. Ne tarjoavat hoitoa, katkaisuhoitoa, kuntoutusta ja haittojen vähentämisen palveluita, kuten neulanvaihtoa ja matalan kynnyksen palveluita. Päihdeongelmaisten hoito on usein pitkäjänteistä ja vaatii moniammatillista yhteistyötä. Ennaltaehkäisevä työ on tärkeää. Kouluissa toteutetaan päihdekasvatusta, ja nuorisotyöllä pyritään vähentämään riskikäyttäytymistä. Myös työpaikoilla on tärkeää puuttua päihdeongelmiin varhaisessa vaiheessa. Alkoholipolitiikka on jatkuvan keskustelun kohteena. Jotkut kannattavat tiukempia rajoituksia ja kontrollia, toiset taas liberaalimpaa politiikkaa, joka korostaa yksilön vastuuta. Viime vuosina on keskusteltu esimerkiksi Alkon roolista, alkoholin verotuksesta ja mainonnan rajoituksista. Päihdeongelmien ehkäisy ja hoito vaativat kokonaisvaltaista lähestymistapaa, jossa yhdistyvät terveys-, sosiaali- ja nuorisopolitiikka.",
+      "word_count": 205
+    },
+    "questions": [
+      {
+        "id": "f1a2b3c4-d5e6-4f7a-9b8c-9d0e1f2a3b4c",
+        "prompt": "Mihin suomalainen alkoholipolitiikka on perinteisesti perustunut?",
+        "options": [
+          "Alhaiseen verotukseen ja vapaaseen myyntiin",
+          "Korkeaan verotukseen, Alkon monopoliin ja mainonnan rajoituksiin",
+          "Vain vapaaehtoisiin sopimuksiin",
+          "Alkoholin täyskieltoon"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "a2b3c4d5-e6f7-4a8b-9c9d-0e1f2a3b4c5d",
+        "prompt": "Mihin ryhmiin alkoholin haittavaikutukset erityisesti kohdistuvat?",
+        "options": [
+          "Ikääntyneisiin naisiin",
+          "Nuoriin, miehiin ja matalamman sosioekonomisen aseman ryhmiin",
+          "Lapsiin",
+          "Korkeasti koulutettuihin naisiin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b3c4d5e6-f7a8-4b9c-9d0e-1f2a3b4c5d6e",
+        "prompt": "Mitä haittojen vähentämisen palveluita on olemassa?",
+        "options": [
+          "Vain katkaisuhoitoa",
+          "Neulanvaihtoa ja matalan kynnyksen palveluita",
+          "Vain lääkehoitoa",
+          "Vain sairaalahoitoa"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

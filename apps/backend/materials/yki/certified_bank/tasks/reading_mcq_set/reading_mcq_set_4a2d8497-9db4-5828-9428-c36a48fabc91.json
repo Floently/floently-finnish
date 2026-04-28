@@ -1,0 +1,99 @@
+{
+  "id": "4a2d8497-9db4-5828-9428-c36a48fabc91",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "reading",
+  "difficulty": 0.555,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti huolellisesti ja valitse jokaiseen kysymykseen yksi oikea vastaus.",
+    "materials": {
+      "text": "Työergonomia on tärkeää työhyvinvoinnin kannalta. Hyvällä ergomialla voidaan ehkäistä tuki- ja liikuntaelinsairauksia ja vähentää työperäistä väsymystä. Työnantajien kannattaa panostaa säädettäviin työpöytiin, hyviin työtuoleihin ja oikeanlaisiin työvälineisiin. Myös työntekijöiden on hyvä kiinnittää huomiota työasentoihinsa ja pitää taukoja. Ergonomia-asiantuntijat voivat antaa neuvoja työpisteen säätämiseen.",
+      "word_count": 42
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Miksi työergonomia on tärkeää?",
+        "options": [
+          "Se lisää työtehoa",
+          "Se ehkäisee sairauksia ja vähentää väsymystä",
+          "Se pidentää työpäivää",
+          "Se vähentää palkkakustannuksia"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Mitä työnantajien kannattaa panostaa?",
+        "options": [
+          "Ilmaiseen kahviin",
+          "Säädettäviin työpöytiin, hyviin työtuoleihin ja oikeanlaisiin työvälineisiin",
+          "Työpaikkaruokailuun",
+          "Työmatkakuluihin"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "Mihin työntekijöiden on hyvä kiinnittää huomiota?",
+        "options": [
+          "Työkavereiden mielipiteisiin",
+          "Työasentoihinsa ja taukojen pitämiseen",
+          "Työpuheluiden määrään",
+          "Sähköpostien lukemiseen"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "Mitä tuki- ja liikuntaelinsairaudet ovat?",
+        "options": [
+          "Silmäsairauksia",
+          "Selkä- ja niskaongelmia ym.",
+          "Allergioita",
+          "Flunssaa"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q5",
+        "prompt": "Mitä ergonomia-asiantuntijat voivat tehdä?",
+        "options": [
+          "Määrätä lääkkeitä",
+          "Antaa neuvoja työpisteen säätämiseen",
+          "Pitää taukojumppaa",
+          "Suositella uusia työvälineitä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "q6",
+        "prompt": "Mitä hyvällä ergomialla voidaan vähentää?",
+        "options": [
+          "Työperäistä väsymystä",
+          "Palkkakuluja",
+          "Työntekijöiden määrää",
+          "Työaikaa"
+        ],
+        "correct_index": 0
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

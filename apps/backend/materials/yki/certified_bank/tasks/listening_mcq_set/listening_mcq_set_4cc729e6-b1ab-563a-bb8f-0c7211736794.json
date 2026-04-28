@@ -1,0 +1,77 @@
+{
+  "id": "4cc729e6-b1ab-563a-bb8f-0c7211736794",
+  "version": "3.2.0",
+  "task_type": "listening_mcq_set",
+  "level_band": "B1_B2",
+  "skill": "listening",
+  "difficulty": 0.544,
+  "language": "fi",
+  "source": {
+    "origin": "listening",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Kuuntele uutinen lukioista ja vastaa kysymyksiin. Voit kuunnella kaksi kertaa.",
+    "materials": {
+      "transcript": "Uutisia. Lukioiden suosio on laskenut viime vuosina. Opetushallituksen tuoreen raportin mukaan yhä harvempi peruskoulun päättävä nuori hakee lukioon. Viime vuonna lukioon haki 48 prosenttia ikäluokasta, kun vielä kymmenen vuotta sitten luku oli 55 prosenttia.\n\nSamaan aikaan ammatillisen koulutuksen suosio on kasvanut. Ammattikouluun hakee nyt 42 prosenttia ikäluokasta. Opinto-ohjaaja Marika Ranta kertoo, että syitä on monia.\n\n\"Monet nuoret arvostavat käytännönläheisyyttä. He haluavat päästä tekemään ja näkemään, mitä työ oikeasti on. Ammatillinen koulutus tarjoaa nykyään myös ylioppilastutkintoon valmistavia väyliä, joten se ei sulje pois jatko-opintoja.\"\n\nMyös lukioiden vaatimustaso on noussut, mikä pelottaa osaa nuorista. \"Lukiossa pitää pärjätä itsenäisesti ja paljon on teoriaa. Kaikille se ei sovi.\"\n\nRanta kuitenkin muistuttaa, että molemmat tiet voivat viedä pitkälle. \"Tärkeintä on, että nuori valitsee itselleen sopivan polun. Sekä lukio että ammatillinen koulutus voivat johtaa korkeakouluopintoihin ja hyviin työpaikkoihin.\"",
+      "audio_asset_id": "e0591b78-bd13-5267-9bc4-43f41680b765"
+    },
+    "questions": [
+      {
+        "id": "b1b2_listening_mcq_003_q1",
+        "prompt": "Kuinka moni haki lukioon viime vuonna?",
+        "options": [
+          "42 prosenttia",
+          "45 prosenttia",
+          "48 prosenttia",
+          "52 prosenttia"
+        ],
+        "correct_index": 2
+      },
+      {
+        "id": "b1b2_listening_mcq_003_q2",
+        "prompt": "Miksi ammatillinen koulutus kiinnostaa nuoria Marika Rannan mukaan?",
+        "options": [
+          "se on helpompaa",
+          "se on käytännönläheistä ja tarjoaa väyliä jatko-opintoihin",
+          "se on halvempaa",
+          "se on lyhyempi"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_003_q3",
+        "prompt": "Miksi lukio ei sovi kaikille?",
+        "options": [
+          "se on liian kallista",
+          "vaatimustaso on noussut ja se on teoreettista",
+          "siellä ei ole kavereita",
+          "se on liian pitkä"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "b1b2_listening_mcq_003_q4",
+        "prompt": "Mitä Ranta sanoo molemmista koulutusvaihtoehdoista?",
+        "options": [
+          "lukio on ainoa oikea tie",
+          "ammattikoulu on parempi",
+          "molemmat voivat viedä pitkälle",
+          "kumpikaan ei johda mihinkään"
+        ],
+        "correct_index": 2
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}

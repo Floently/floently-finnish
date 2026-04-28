@@ -1,0 +1,77 @@
+{
+  "id": "d05b0c5a-3b1a-5005-8a43-a19afc7a2eed",
+  "version": "3.2.0",
+  "task_type": "reading_mcq_set",
+  "level_band": "C1_C2",
+  "skill": "reading",
+  "difficulty": 0.744,
+  "language": "fi",
+  "source": {
+    "origin": "recovered",
+    "generator": "engine.tools.reconstruct_salvage_to_certified_v3_2",
+    "generated_at": null
+  },
+  "quality": {
+    "certification": {
+      "status": "uncertified",
+      "certified_at": null,
+      "certified_by": null
+    }
+  },
+  "content": {
+    "instruction": "Lue teksti ja vastaa kysymyksiin valitsemalla oikea vaihtoehto.",
+    "materials": {
+      "text": "Suomen huoltovarmuuden kannalta keskeisiä toimialoja ovat energia, elintarvikehuolto, terveydenhuolto, logistiikka, tietoliikenne ja finanssiala. Näiden alojen toiminnan varmistaminen kaikissa olosuhteissa on elintärkeää yhteiskunnan toimivuuden kannalta. Huoltovarmuuskeskus ylläpitää varastoja, tekee riskiarvioita ja tukee yrityksiä varautumisessa. Viime vuosina huoltovarmuuden merkitys on korostunut pandemian ja geopoliittisen epävakauden myötä. Uhkakuvat ovat monipuolistuneet, ja ne voivat olla peräisin niin luonnosta, teknologian häiriöistä, taloudesta kuin ihmisen toiminnastakin. Siksi varautumisen on oltava kokonaisvaltaista ja monialaista. Yhteistyö julkisen ja yksityisen sektorin välillä on välttämätöntä.",
+      "word_count": 75
+    },
+    "questions": [
+      {
+        "id": "mcq_536",
+        "prompt": "Mitkä toimialat ovat keskeisiä Suomen huoltovarmuuden kannalta?",
+        "options": [
+          "Vain energia ja elintarvikehuolto",
+          "Energia, elintarvikehuolto, terveydenhuolto, logistiikka, tietoliikenne ja finanssiala",
+          "Vain terveydenhuolto ja logistiikka",
+          "Vain tietoliikenne ja finanssiala"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_537",
+        "prompt": "Mikä taho ylläpitää varastoja ja tukee yrityksiä varautumisessa?",
+        "options": [
+          "Poliisi",
+          "Huoltovarmuuskeskus",
+          "Puolustusvoimat",
+          "Sisäministeriö"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_538",
+        "prompt": "Mikä on korostanut huoltovarmuuden merkitystä viime vuosina?",
+        "options": [
+          "Teknologian kehitys",
+          "Pandemia ja geopoliittinen epävakaus",
+          "Ilmaston lämpeneminen",
+          "Väestönkasvu"
+        ],
+        "correct_index": 1
+      },
+      {
+        "id": "mcq_539",
+        "prompt": "Millaista varautumisen on oltava?",
+        "options": [
+          "Yksialaista ja kapeaa",
+          "Kokonaisvaltaista ja monialaista",
+          "Vain teknistä",
+          "Vain taloudellista"
+        ],
+        "correct_index": 1
+      }
+    ],
+    "timing": {
+      "recommended_minutes": 15
+    }
+  }
+}
