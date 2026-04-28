@@ -16,7 +16,7 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, Animated, Easing, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Animated, Easing, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { spacing } from '@ui/theme';
@@ -67,6 +67,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const language = usePreferencesStore((s) => s.language);
   const setLanguage = usePreferencesStore((s) => s.setLanguage);
+  const clockFormat = usePreferencesStore((s) => s.clockFormat);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
   const setAuth = useAuthStore((s) => s.setAuth);
@@ -81,6 +82,8 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
 
   const google = useGoogleSignIn();
   const logoFloat = useRef(new Animated.Value(0)).current;
+  const { width } = useWindowDimensions();
+  const [now, setNow] = useState(() => new Date());
 
   // Translate the union state into a flat boolean for UI loading.
   const googleLoading = google.state.status === 'launching' || google.state.status === 'configuring';
@@ -137,6 +140,11 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
       logoLoop.stop();
     };
   }, [logoFloat]);
+
+  useEffect(() => {
+    const timer = setInterval(() => setNow(new Date()), 30_000);
+    return () => clearInterval(timer);
+  }, []);
 
   const validateEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());
 
@@ -204,6 +212,11 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
   const styles = useMemo(() => buildStyles(palette, isDark), [palette, isDark]);
   const googleButtonSource = getGoogleButtonSource(tab);
   const googleButtonLabel = tab === 'signin' ? t('authSignInGoogleLabel') : t('authCreateGoogleLabel');
+  const clockLabel = clockFormat === '12h'
+    ? now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })
+    : now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+  const logoWidth = Math.min(Math.max(width * 0.72, 280), 460);
+  const logoHeight = logoWidth * (1024 / 1536);
   const logoAnimatedStyle = {
     transform: [
       {
@@ -225,14 +238,20 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
     <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
-          <View style={styles.header}>
-            <View style={styles.languageRow}>
+          <View style={styles.topBar}>
+            <View style={styles.topMeta}>
+              <View style={styles.clockPill}>
+                <Text style={styles.clockText}>{clockLabel}</Text>
+              </View>
               <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} compact />
             </View>
+          </View>
+
+          <View style={styles.header}>
             <View style={styles.logoRow}>
               <Animated.Image
                 source={LOGO}
-                style={[styles.logo, logoAnimatedStyle]}
+                style={[styles.logo, { width: logoWidth, height: logoHeight }, logoAnimatedStyle]}
                 resizeMode="contain"
                 accessibilityLabel="Floently logo"
               />
@@ -393,11 +412,21 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
 function buildStyles(palette: ReturnType<typeof getFloentlyPalette>, isDark: boolean) {
   return StyleSheet.create({
     safe: { flex: 1, backgroundColor: palette.background },
-    scroll: { paddingHorizontal: spacing.lg, paddingVertical: spacing.lg, gap: spacing.md },
+    scroll: { paddingHorizontal: spacing.lg, paddingVertical: spacing.lg, gap: spacing.md, flexGrow: 1 },
+    topBar: { alignItems: 'flex-end' },
+    topMeta: { flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end' },
+    clockPill: {
+      borderRadius: 999,
+      borderWidth: 1,
+      borderColor: palette.border,
+      backgroundColor: isDark ? palette.primarySurface : '#FFFFFF',
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+    },
+    clockText: { fontSize: 12, fontWeight: '700', color: palette.text },
     header: { gap: 6, marginBottom: spacing.sm },
-    languageRow: { alignItems: 'flex-end' },
     logoRow: { alignItems: 'center', marginBottom: 4 },
-    logo: { width: 336, height: 336 },
+    logo: { alignSelf: 'center' },
     eyebrow: {
       fontSize: 11,
       fontWeight: '800',

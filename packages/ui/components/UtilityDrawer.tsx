@@ -44,6 +44,14 @@ type Props = {
   /** Streak day count.  Hidden when 0. */
   streakDays?: number;
   onAuthAction?: () => void;
+  languageLabel?: string;
+  languageControl?: React.ReactNode;
+  themeLabel?: string;
+  sessionLabel?: string;
+  signInLabel?: string;
+  signOutLabel?: string;
+  darkModeLabel?: string;
+  lightModeLabel?: string;
 };
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -63,6 +71,14 @@ export default function UtilityDrawer({
   levelLabel,
   streakDays = 0,
   onAuthAction,
+  languageLabel = 'Language',
+  languageControl,
+  themeLabel = 'Theme',
+  sessionLabel = 'Session',
+  signInLabel = 'Log in',
+  signOutLabel = 'Log out',
+  darkModeLabel = 'Dark mode',
+  lightModeLabel = 'Light mode',
 }: Props) {
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
@@ -185,12 +201,19 @@ export default function UtilityDrawer({
             ))}
 
             {/* ── Theme + Auth utility row ──────────────────────────────── */}
+            {languageControl ? (
+              <View style={[styles.utilCard, { backgroundColor: raisedBg, borderColor: borderCol, marginBottom: 12 }]}>
+                <Text style={[styles.utilTitle, { color: textCol }]}>{languageLabel}</Text>
+                {languageControl}
+              </View>
+            ) : null}
+
             <View style={[styles.utilRow, { borderTopColor: borderCol }]}>
               <View style={[styles.utilCard, { backgroundColor: raisedBg, borderColor: borderCol }]}>
-                <Text style={[styles.utilTitle, { color: textCol }]}>Theme</Text>
+                <Text style={[styles.utilTitle, { color: textCol }]}>{themeLabel}</Text>
                 <View style={styles.themeRow}>
                   <Text style={[styles.utilHint, { color: mutedCol }]}>
-                    {isDark ? 'Dark mode' : 'Light mode'}
+                    {isDark ? darkModeLabel : lightModeLabel}
                   </Text>
                   <Pressable
                     onPress={() => onToggleTheme?.()}
@@ -205,7 +228,7 @@ export default function UtilityDrawer({
                 backgroundColor: isDark ? '#3A2E12' : palette.accentSoft,
                 borderColor: borderCol,
               }]}>
-                <Text style={[styles.utilTitle, { color: textCol }]}>Session</Text>
+                <Text style={[styles.utilTitle, { color: textCol }]}>{sessionLabel}</Text>
                 <Pressable
                   onPress={() => { onClose(); onAuthAction?.(); }}
                   style={[styles.authBtn, { backgroundColor: bg }]}
@@ -213,7 +236,7 @@ export default function UtilityDrawer({
                   <Text style={[styles.authBtnText, {
                     color: isAuthenticated ? '#FF6B6B' : primary,
                   }]}>
-                    {isAuthenticated ? 'Log out' : 'Log in'}
+                    {isAuthenticated ? signOutLabel : signInLabel}
                   </Text>
                 </Pressable>
               </View>

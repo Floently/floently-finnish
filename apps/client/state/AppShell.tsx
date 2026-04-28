@@ -46,6 +46,7 @@ import PlacementRoute from "./PlacementRoute";
 import { useAuthStore } from "./authStore";
 import { usePreferencesStore } from "./preferencesStore";
 import { useTranslator } from "../features/i18n";
+import LanguageSelector from "../features/i18n/LanguageSelector";
 import { useSubscriptionStore } from "./subscriptionStore";
 import { usePlacementStore } from "./placementStore";
 import createDrawerSections from "../config/navigation/AppShell_sidebar_sections";
@@ -148,11 +149,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const startMonitoring = useNetworkStore((state) => state.startMonitoring);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const language = usePreferencesStore((state) => state.language);
+  const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const clockFormat = usePreferencesStore((state) => state.clockFormat);
   const profilePhotoUri = usePreferencesStore((state) => state.profilePhotoUri);
   const avatarMode = usePreferencesStore((state) => state.avatarMode);
   const toggleTheme = usePreferencesStore((state) => state.toggleTheme);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [now, setNow] = useState(() => new Date());
   const placementHydrate = usePlacementStore((state) => state.hydrate);
   const placementHasHydrated = usePlacementStore((state) => state.hasHydrated);
   const placementShouldPrompt = usePlacementStore((state) => state.shouldPrompt());
@@ -201,13 +204,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     user?.email?.split('@')[0] ||
     'Learner';
 
-  const drawerClockLabel = (() => {
-    const now = new Date();
-    if (clockFormat === '12h') {
-      return now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
-    }
-    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-  })();
+  useEffect(() => {
+    const timer = setInterval(() => setNow(new Date()), 30_000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const drawerClockLabel = clockFormat === '12h'
+    ? now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })
+    : now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
 
   const drawerAvatarUri = avatarMode === 'photo' ? profilePhotoUri : null;
 
@@ -691,6 +695,20 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       userEmail={user?.email ?? ''}
       avatarUri={drawerAvatarUri}
       clockLabel={drawerClockLabel}
+      languageLabel={t('commonLanguage')}
+      languageControl={(
+        <LanguageSelector
+          language={language}
+          onChange={(next) => void setLanguage(next)}
+          compact
+        />
+      )}
+      themeLabel={t('commonTheme')}
+      sessionLabel={t('commonSession')}
+      signInLabel={t('commonLogIn')}
+      signOutLabel={t('commonLogOut')}
+      darkModeLabel={t('commonDarkMode')}
+      lightModeLabel={t('commonLightMode')}
       onToggleTheme={() => void toggleTheme()}
       onAuthAction={() => void handleLogout()}
     />
