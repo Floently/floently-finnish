@@ -12,6 +12,7 @@ from app.services.subscription_service import (
     billing_checkout_url,
     billing_portal_url,
     check_feature,
+    start_trial,
     subscription_status,
 )
 
@@ -47,6 +48,19 @@ def build_subscription_router() -> APIRouter:
                 "plan": plan,
                 "mode": "configured",
             },
+            request_id=get_request_id(request),
+        )
+
+    @router.post("/subscription/trial")
+    async def start_subscription_trial(
+        request: Request,
+        payload: dict[str, Any],
+        authorization: str | None = Header(default=None),
+    ) -> dict[str, Any]:
+        user, _ = current_user_from_authorization(authorization)
+        trial_days = int(payload.get("trial_days") or 3)
+        return success_payload(
+            data=start_trial(user=user, trial_days=trial_days),
             request_id=get_request_id(request),
         )
 

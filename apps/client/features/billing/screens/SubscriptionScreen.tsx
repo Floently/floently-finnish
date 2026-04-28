@@ -76,6 +76,7 @@ export default function SubscriptionScreen() {
 
   async function handleStartTrial(plan: PlanCatalogEntry) {
     try {
+      await paymentService.startSubscriptionTrial(3);
       const session = (await paymentService.createCheckoutSession(plan.id)) as {
         url?: string;
         checkout_url?: string;

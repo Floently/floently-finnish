@@ -24,13 +24,11 @@
  */
 
 import React from 'react';
-import { Asset } from 'expo-asset';
 import FinnishCorrectionDemo from './components/FinnishCorrectionDemo';
 
 const LOGIN_URL = '/auth/login';
 const DEMO_URL = 'mailto:pilots@floently.com?subject=Floently%20demo%20request';
-const LOGO_ASSET = Asset.fromModule(require('../components/public/logo.png'));
-const LOGO_SRC = LOGO_ASSET.uri ?? LOGO_ASSET.localUri ?? '';
+const LOGO_SRC = require('../components/public/logo.png');
 
 // ── Page data (copy unchanged from original — only structure rebuilt) ─────
 const pathwayCards = [
@@ -133,8 +131,10 @@ export default function LearnLandingPage() {
         <div className="fl-hero-bg" aria-hidden />
 
         <nav className="fl-nav">
-          <div className="fl-nav-logo">
-            <img src={LOGO_SRC} alt="Floently" className="fl-logo-img" />
+          <div className="fl-nav-actions fl-nav-actions-left">
+            <button type="button" onClick={goToDemo} className="fl-nav-cta">
+              Book a demo
+            </button>
           </div>
           <div className="fl-nav-links">
             <a href="#learners" className="fl-nav-link">For Learners</a>
@@ -144,9 +144,6 @@ export default function LearnLandingPage() {
           <div className="fl-nav-actions">
             <button type="button" onClick={goToLogin} className="fl-nav-signin">
               Sign in
-            </button>
-            <button type="button" onClick={goToDemo} className="fl-nav-cta">
-              Book a demo
             </button>
           </div>
         </nav>
@@ -319,12 +316,11 @@ export default function LearnLandingPage() {
       {/* ═══════════════ FOOTER ═══════════════ */}
       <footer className="fl-footer">
         <div className="fl-footer-inner">
-          <div className="fl-footer-brand">
-            <img src={LOGO_SRC} alt="Floently" className="fl-footer-logo" />
-            <p className="fl-footer-tag">
-              Finnish for YKI, work, and life in Finland.
-            </p>
-          </div>
+            <div className="fl-footer-brand">
+              <p className="fl-footer-tag">
+                Finnish for YKI, work, and life in Finland.
+              </p>
+            </div>
           <div className="fl-footer-cols">
             <div className="fl-footer-col">
               <div className="fl-footer-col-title">Product</div>

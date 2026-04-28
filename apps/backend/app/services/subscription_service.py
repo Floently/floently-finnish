@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from typing import Any
+from datetime import timedelta
 
 from ..core.config import SETTINGS
 from ..core.errors import AppError
+from ..core.state_store import STORE
 from ..core.utils import parse_iso, utc_now
 
 ALL_PROFESSIONS = ["doctor", "nurse", "practical_nurse"]
@@ -132,7 +134,18 @@ def _trial_active(user: dict[str, Any]) -> bool:
     return bool(trial_ends_at and trial_ends_at > utc_now())
 
 
+def _has_trial_access(user: dict[str, Any]) -> bool:
+    return str(user.get("access_choice") or "").strip().lower() == "trial" and _trial_active(user)
+
+
+def _has_paid_access(user: dict[str, Any]) -> bool:
+    tier = str(user.get("subscription_tier") or "free")
+    return tier != "free" and _is_subscription_active(user)
+
+
 def _effective_tier(user: dict[str, Any]) -> str:
+    if _has_trial_access(user):
+        return "preview_yki"
     tier = str(user.get("subscription_tier") or "free")
     return tier if _is_subscription_active(user) else "free"
 
@@ -174,6 +187,21 @@ def _professional_access_for_tier(tier: str, features: dict[str, dict[str, Any]]
 
 
 def _feature_map(user: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    if _has_trial_access(user):
+        return TIER_FEATURES["free"]
+
+    if not _has_paid_access(user):
+        return {
+            feature: {
+                **config,
+                "available": False,
+                "limit": 0,
+                "unit": "locked",
+                "message": "Start a 3-day trial or pay to unlock this feature.",
+            }
+            for feature, config in TIER_FEATURES["free"].items()
+        }
+
     def _plan_features_for_tier(tier: str) -> dict[str, dict[str, Any]]:
         normalized = str(tier or "free").strip().lower()
         if normalized in TIER_FEATURES:
@@ -226,6 +254,7 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "user_id": user["user_id"],
             "tier": "internal_all_access",
             "billing_tier": str(user.get("subscription_tier") or "internal_all_access"),
+            "access_choice": user.get("access_choice"),
             "features": features,
             "expires_at": user.get("subscription_expires_at"),
             "trial_ends_at": user.get("trial_ends_at"),
@@ -237,6 +266,26 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "accessible_professions": list(ALL_PROFESSIONS),
             "access_type": "internal",
             "plan_key": "internal_all_access",
+        }
+
+    if _has_trial_access(user):
+        features = _feature_map(user)
+        return {
+            "user_id": user["user_id"],
+            "tier": "preview_yki",
+            "billing_tier": "preview_yki",
+            "access_choice": user.get("access_choice"),
+            "features": features,
+            "expires_at": user.get("subscription_expires_at"),
+            "trial_ends_at": user.get("trial_ends_at"),
+            "is_trial": True,
+            "is_active": True,
+            "is_internal_all_access": False,
+            "yki_access": True,
+            "professional_access": False,
+            "accessible_professions": [],
+            "access_type": "individual",
+            "plan_key": "preview_yki",
         }
 
     purchased_tier = str(user.get("subscription_tier") or "free")
@@ -255,6 +304,7 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "user_id": user["user_id"],
             "tier": "professional_premium",
             "billing_tier": purchased_tier,
+            "access_choice": user.get("access_choice"),
             "features": dev_features,
             "expires_at": user.get("subscription_expires_at"),
             "trial_ends_at": user.get("trial_ends_at"),
@@ -276,11 +326,12 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
         "user_id": user["user_id"],
         "tier": effective_tier,
         "billing_tier": purchased_tier,
+        "access_choice": user.get("access_choice"),
         "features": features,
         "expires_at": user.get("subscription_expires_at"),
         "trial_ends_at": user.get("trial_ends_at"),
         "is_trial": _trial_active(user),
-        "is_active": _is_subscription_active(user),
+        "is_active": _has_paid_access(user),
         "is_internal_all_access": False,
         "yki_access": yki_access,
         "professional_access": professional_access,
@@ -288,6 +339,18 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
         "access_type": "individual",
         "plan_key": effective_tier,
     }
+
+
+def start_trial(*, user: dict[str, Any], trial_days: int = 3) -> dict[str, Any]:
+    user_id = str(user["user_id"])
+    updated = dict(user)
+    updated["access_choice"] = "trial"
+    updated["access_choice_at"] = utc_now().replace(microsecond=0).isoformat()
+    updated["trial_ends_at"] = (utc_now() + timedelta(days=max(1, trial_days))).replace(microsecond=0).isoformat()
+    with STORE.locked(("users", user_id)):
+        STORE.set("users", user_id, updated)
+    STORE.write_snapshot()
+    return subscription_status(user=updated)
 
 
 def payment_status(*, user: dict[str, Any]) -> dict[str, Any]:
@@ -299,7 +362,7 @@ def payment_status(*, user: dict[str, Any]) -> dict[str, Any]:
         "is_active": status["is_active"],
         "expires_at": status["expires_at"],
         "trial_ends_at": status["trial_ends_at"],
-        "payment_state": "free" if status["billing_tier"] == "free" else ("active" if status["is_active"] else "expired"),
+        "payment_state": "trial" if status.get("is_trial") else ("free" if status["billing_tier"] == "free" else ("active" if status["is_active"] else "expired")),
     }
 
 

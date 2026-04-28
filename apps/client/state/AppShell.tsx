@@ -276,8 +276,18 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     const entitlements = subscriptionStatus?.entitlements;
     const isPreview = Boolean(subscriptionStatus?.isPreview);
     const previewPath = subscriptionStatus?.previewPath;
+    const hasUnlockedAccess = Boolean(
+      subscriptionStatus?.isInternalAllAccess ||
+      subscriptionStatus?.isPreview ||
+      subscriptionStatus?.hasAnySubscription ||
+      subscriptionStatus?.isActive,
+    );
     if (!entitlements) {
-      return screen === 'landing' || screen === 'auth' || screen === 'home' || screen === 'billing' || screen === 'help' || screen === 'settings' || screen === 'progress';
+      return screen === 'landing' || screen === 'auth' || screen === 'billing';
+    }
+
+    if (!hasUnlockedAccess) {
+      return screen === 'landing' || screen === 'auth' || screen === 'billing';
     }
 
     if (screen === 'learning' || screen === 'daily-practice') {
@@ -444,6 +454,18 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     if (persistedNavigation.value.activeScreen === "home") {
+      const hasUnlockedAccess = Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        subscriptionStatus?.isPreview ||
+        subscriptionStatus?.hasAnySubscription ||
+        subscriptionStatus?.isActive,
+      );
+      const canShowPlacement = Boolean(user && placementHasHydrated && placementShouldPrompt);
+      if (!hasUnlockedAccess && !canShowPlacement) {
+        replaceIfNeeded("billing");
+        await resolveAndPersist("billing", "billing");
+        return;
+      }
       replaceIfNeeded("home");
       await resolveAndPersist("home", persistedNavigation.value.requestedScreen);
       return;
@@ -515,6 +537,18 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     if (target === "root") {
+      const hasUnlockedAccess = Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        subscriptionStatus?.isPreview ||
+        subscriptionStatus?.hasAnySubscription ||
+        subscriptionStatus?.isActive,
+      );
+      const canShowPlacement = Boolean(user && placementHasHydrated && placementShouldPrompt);
+      if (!hasUnlockedAccess && !canShowPlacement) {
+        replaceIfNeeded("billing");
+        await resolveAndPersist("billing", "billing");
+        return;
+      }
       await restoreFromNavigationState();
       return;
     }
@@ -944,8 +978,13 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       <>
         <PlacementRoute
           onDone={() => {
-            const hasLearnAccess = subscriptionStatus?.entitlements?.learnAccess;
-            void navigateTo(hasLearnAccess ? 'home' : 'billing');
+            const hasUnlockedAccess = Boolean(
+              subscriptionStatus?.isInternalAllAccess ||
+              subscriptionStatus?.isPreview ||
+              subscriptionStatus?.hasAnySubscription ||
+              subscriptionStatus?.isActive,
+            );
+            void navigateTo(hasUnlockedAccess ? 'home' : 'billing');
           }}
         />
         {drawer}

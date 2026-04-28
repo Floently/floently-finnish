@@ -37,6 +37,7 @@ type CompatSubscriptionStatus = {
   hasAnySubscription: boolean;
   isActive: boolean;
   isInternalAllAccess: boolean;
+  isTrial?: boolean;
   isPreview?: boolean;
   previewPath?: PreviewPath | null;
   previewLimits?: {
@@ -221,6 +222,7 @@ function buildPreviewStatus(path: PreviewPath): CompatSubscriptionStatus {
     isPreview: true,
     previewPath: path,
     previewLimits: previewLimitsFor(path),
+    isTrial: true,
   };
 }
 
@@ -283,6 +285,7 @@ function compatStatusFromValues(args: {
     hasAnySubscription: learnAccess || args.isInternalAllAccess === true,
     isActive: args.isActive ?? (learnAccess || args.isInternalAllAccess === true),
     isInternalAllAccess: Boolean(args.isInternalAllAccess),
+    isTrial: String(tier).startsWith('preview_') || String(tier).startsWith('trial_'),
     isPreview: String(tier).startsWith('preview_'),
     previewPath: String(tier).startsWith('preview_') ? (String(tier).replace('preview_', '') as PreviewPath) : null,
     previewLimits: String(tier).startsWith('preview_') ? previewLimitsFor(String(tier).replace('preview_', '') as PreviewPath) : undefined,

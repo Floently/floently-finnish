@@ -10,6 +10,7 @@ import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
 import { PLAN_CATALOG, type ProfessionKey } from '@core/api/entitlements';
+import { useTranslator } from '../features/i18n';
 
 const PREVIEW_OPTIONS: Array<{ id: 'yki' | ProfessionKey; title: string; detail: string }> = [
   { id: 'yki', title: 'Free Preview · YKI Pathway', detail: 'One YKI sampler, one guided conversation, and a limited pathway preview. The full exam stays locked.' },
@@ -22,15 +23,18 @@ type Props = { onBack: () => void; onOpenMenu: () => void };
 
 export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const [busyPlan, setBusyPlan] = useState<string | null>(null);
+  const [trialBusy, setTrialBusy] = useState(false);
   const [portalBusy, setPortalBusy] = useState(false);
   const user = useAuthStore((state) => state.user);
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
+  const refreshSubscription = useSubscriptionStore((state) => state.refresh);
   const subscription = useSubscriptionStore((state) => state.status);
   const startPreview = useSubscriptionStore((state) => state.startPreview);
   const endPreview = useSubscriptionStore((state) => state.endPreview);
+  const { t } = useTranslator();
 
   useEffect(() => {
     void hydratePreferences();
@@ -99,6 +103,23 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     }
   }
 
+  async function handleStartTrial() {
+    try {
+      setTrialBusy(true);
+      await paymentService.startSubscriptionTrial(3);
+      await refreshSubscription({
+        email: user?.email ?? null,
+        subscriptionTierHint: user?.subscriptionTier ?? null,
+      });
+      const session = await paymentService.createCheckoutSession('trial_3day') as { checkout_url?: string; url?: string } | undefined;
+      await openUrl(session?.url ?? session?.checkout_url);
+    } catch (error) {
+      Alert.alert('Trial unavailable', error instanceof Error ? error.message : 'The trial flow could not be started.');
+    } finally {
+      setTrialBusy(false);
+    }
+  }
+
   return (
     <AppScaffold
       allowScroll
@@ -116,15 +137,18 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       }
     >
       <View style={[styles.statusCard, { backgroundColor: palette.primary, shadowColor: palette.shadow }]}> 
-        <Text style={styles.statusLabel}>Current access</Text>
+        <Text style={styles.statusLabel}>{t('settingsAccessType')}</Text>
         <Text style={styles.statusTitle}>{subscription?.planLabel ?? '…'}</Text>
         <Text style={styles.statusBody}>{subscription?.accessSummary ?? ''}</Text>
-        {subscription?.accessLabel ? <Text style={styles.statusMeta}>Access type · {subscription.accessLabel}</Text> : null}
+        {subscription?.accessLabel ? <Text style={styles.statusMeta}>{t('settingsAccessType')} · {subscription.accessLabel}</Text> : null}
       </View>
 
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}> 
-        <Text style={[styles.portalTitle, { color: palette.text }]}>Free pathway preview</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Let people sample one pathway before they subscribe. Preview stays intentionally limited and does not unlock the full exam or full workplace pathway.</Text>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{trialBusy ? 'Starting 3-day trial…' : 'Start 3-day trial'}</Text>
+        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Open the limited trial first. Payment details can be added during checkout when the provider is connected.</Text>
+        <Pressable accessibilityRole="button" onPress={() => { void handleStartTrial(); }} style={({ pressed }) => [styles.organisationCta, pressed && styles.pressed]}>
+          <Text style={styles.organisationCtaText}>Activate trial</Text>
+        </Pressable>
         <View style={styles.stack}>
           {PREVIEW_OPTIONS.map((option) => (
             <Pressable key={option.id} accessibilityRole="button" onPress={() => { startPreview(option.id); Alert.alert('Preview started', `${option.title} is now active on this device session.`); }} style={({ pressed }) => [styles.planCard, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
@@ -154,8 +178,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       )}
 
       <View style={styles.sectionHeading}>
-        <Text style={[styles.sectionTitle, { color: palette.text }]}>Pathways for individuals</Text>
-        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>Choose the route that fits YKI, work, citizenship, permanent residence, and long-term life in Finland.</Text>
+        <Text style={[styles.sectionTitle, { color: palette.text }]}>Choose a paid pathway</Text>
+        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>Pick the route that fits YKI, work, citizenship, permanent residence, and long-term life in Finland.</Text>
       </View>
 
       <View style={styles.stack}>
