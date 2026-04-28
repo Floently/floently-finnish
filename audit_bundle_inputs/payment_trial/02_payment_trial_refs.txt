@@ -1,0 +1,748 @@
+apps/backend/app/db/models.py:29:    subscription_tier = Column(String, nullable=False, default="free")
+apps/backend/app/db/models.py:30:    subscription_expires_at = Column(DateTime, nullable=True)
+apps/backend/app/db/models.py:31:    trial_ends_at = Column(DateTime, nullable=True)
+apps/backend/app/db/models.py:71:    """Track feature usage for subscription limits."""
+apps/backend/app/db/auth_repository.py:117:                    "subscription_tier": "ALTER TABLE users ADD COLUMN subscription_tier VARCHAR NOT NULL DEFAULT 'free'",
+apps/backend/app/db/auth_repository.py:118:                    "subscription_expires_at": "ALTER TABLE users ADD COLUMN subscription_expires_at DATETIME",
+apps/backend/app/db/auth_repository.py:119:                    "trial_ends_at": "ALTER TABLE users ADD COLUMN trial_ends_at DATETIME",
+apps/backend/app/db/auth_repository.py:129:                        "UPDATE users SET subscription_tier = 'free' "
+apps/backend/app/db/auth_repository.py:130:                        "WHERE subscription_tier IS NULL OR subscription_tier = ''"
+apps/backend/app/db/auth_repository.py:146:            "subscription_tier": str(user.subscription_tier or "free"),
+apps/backend/app/db/auth_repository.py:147:            "subscription_expires_at": _serialize_datetime(user.subscription_expires_at),
+apps/backend/app/db/auth_repository.py:148:            "trial_ends_at": _serialize_datetime(user.trial_ends_at),
+apps/backend/app/db/auth_repository.py:165:            "subscription_tier": str(payload.get("subscription_tier") or "free").strip() or "free",
+apps/backend/app/db/auth_repository.py:166:            "subscription_expires_at": _coerce_datetime(payload.get("subscription_expires_at")),
+apps/backend/app/db/auth_repository.py:167:            "trial_ends_at": _coerce_datetime(payload.get("trial_ends_at")),
+apps/backend/app/db/auth_repository.py:234:                    subscription_tier=normalized["subscription_tier"] or "free",
+apps/backend/app/db/auth_repository.py:235:                    subscription_expires_at=normalized["subscription_expires_at"],
+apps/backend/app/db/auth_repository.py:236:                    trial_ends_at=normalized["trial_ends_at"],
+apps/backend/app/db/auth_repository.py:264:            if "subscription_tier" in raw_payload and raw_payload.get("subscription_tier") is not None:
+apps/backend/app/db/auth_repository.py:265:                existing.subscription_tier = normalized["subscription_tier"]
+apps/backend/app/db/auth_repository.py:266:            if "subscription_expires_at" in raw_payload and raw_payload.get("subscription_expires_at") is not None:
+apps/backend/app/db/auth_repository.py:267:                existing.subscription_expires_at = normalized["subscription_expires_at"]
+apps/backend/app/db/auth_repository.py:268:            if "trial_ends_at" in raw_payload and raw_payload.get("trial_ends_at") is not None:
+apps/backend/app/db/auth_repository.py:269:                existing.trial_ends_at = normalized["trial_ends_at"]
+apps/backend/app/routers/v1_payment.py:10:from app.services.subscription_service import payment_status
+apps/backend/app/routers/v1_payment.py:13:def build_payment_router() -> APIRouter:
+apps/backend/app/routers/v1_payment.py:16:    @router.get("/payments/status")
+apps/backend/app/routers/v1_payment.py:17:    async def get_payment_status(request: Request, authorization: str | None = Header(default=None)) -> dict[str, Any]:
+apps/backend/app/routers/v1_payment.py:19:        return success_payload(data=payment_status(user=user), request_id=get_request_id(request))
+apps/backend/app/routers/v1_roleplay.py:10:from app.services.subscription_service import require_feature
+apps/backend/app/routers/v1_yki.py:21:from app.services.subscription_service import require_feature
+apps/backend/app/routers/learning.py:11:    get_learning_planner,
+apps/backend/app/routers/learning.py:38:@router.get('/planner')
+apps/backend/app/routers/learning.py:39:def planner() -> dict:
+apps/backend/app/routers/learning.py:40:    return get_learning_planner()
+apps/backend/app/routers/v1_subscription.py:10:from app.services.subscription_service import (
+apps/backend/app/routers/v1_subscription.py:12:    billing_checkout_url,
+apps/backend/app/routers/v1_subscription.py:13:    billing_portal_url,
+apps/backend/app/routers/v1_subscription.py:15:    start_trial,
+apps/backend/app/routers/v1_subscription.py:16:    subscription_status,
+apps/backend/app/routers/v1_subscription.py:20:def build_subscription_router() -> APIRouter:
+apps/backend/app/routers/v1_subscription.py:23:    @router.get("/subscription/status")
+apps/backend/app/routers/v1_subscription.py:24:    async def get_subscription_status(request: Request, authorization: str | None = Header(default=None)) -> dict[str, Any]:
+apps/backend/app/routers/v1_subscription.py:26:        return success_payload(data=subscription_status(user=user), request_id=get_request_id(request))
+apps/backend/app/routers/v1_subscription.py:28:    @router.get("/subscription/plans")
+apps/backend/app/routers/v1_subscription.py:29:    async def get_subscription_plans(request: Request) -> dict[str, Any]:
+apps/backend/app/routers/v1_subscription.py:30:        return success_payload(data={"plans": PLAN_CATALOG}, request_id=get_request_id(request))
+apps/backend/app/routers/v1_subscription.py:32:    @router.get("/subscription/check-feature")
+apps/backend/app/routers/v1_subscription.py:33:    async def check_subscription_feature(request: Request, feature: str, authorization: str | None = Header(default=None)) -> dict[str, Any]:
+apps/backend/app/routers/v1_subscription.py:37:    @router.post("/subscription/checkout")
+apps/backend/app/routers/v1_subscription.py:38:    async def create_checkout_session(
+apps/backend/app/routers/v1_subscription.py:44:        plan = str(payload.get("plan") or "free")
+apps/backend/app/routers/v1_subscription.py:47:                "checkout_url": billing_checkout_url(plan_id=plan, user_id=user["user_id"]),
+apps/backend/app/routers/v1_subscription.py:48:                "plan": plan,
+apps/backend/app/routers/v1_subscription.py:54:    @router.post("/subscription/trial")
+apps/backend/app/routers/v1_subscription.py:55:    async def start_subscription_trial(
+apps/backend/app/routers/v1_subscription.py:61:        trial_days = int(payload.get("trial_days") or 3)
+apps/backend/app/routers/v1_subscription.py:63:            data=start_trial(user=user, trial_days=trial_days),
+apps/backend/app/routers/v1_subscription.py:67:    @router.post("/subscription/portal")
+apps/backend/app/routers/v1_subscription.py:68:    async def create_portal_session(request: Request, authorization: str | None = Header(default=None)) -> dict[str, Any]:
+apps/backend/app/routers/v1_subscription.py:72:                "portal_url": billing_portal_url(user_id=user["user_id"]),
+apps/backend/app/services/yki_service.py:5:from app.services.subscription_service import require_feature
+apps/backend/app/services/cards_service.py:26:            return {"correct": False, "explanation": "Korttia ei loytynyt.", "nextReviewInDays": 1}
+apps/backend/app/services/cards_service.py:27:        correct, explanation, next_review = evaluate_card_answer(bank[card_id], answer)
+apps/backend/app/services/cards_service.py:28:        return {"correct": correct, "explanation": explanation, "nextReviewInDays": next_review}
+apps/backend/app/services/learning/work_track_service.py:24:    "office": WorkTrack("office", "Office and Admin Finnish", ["calendar coordination", "status updates", "request clarification"], ["formal requests", "meeting language", "summary and follow-up phrases"], ["stand-up update", "meeting interruption repair", "handover explanation"], ["email follow-up", "meeting summary", "task update"], ["scheduling", "priorities", "documents", "stakeholder communication"]),
+apps/backend/app/services/learning/system_service.py:8:from .study_plan_service import build_study_plan
+apps/backend/app/services/learning/system_service.py:18:        'studyPlan': build_study_plan(user_id=user_id),
+apps/backend/app/services/learning/study_plan_service.py:153:def build_weekly_plan(signals: Sequence[StudySignal], preferences: StudyPreferences, today: date | None = None) -> WeeklyStudyPlan:
+apps/backend/app/services/learning/study_plan_service.py:190:def build_study_plan(user_id: str | None = None) -> dict:
+apps/backend/app/services/learning/study_plan_service.py:193:    return build_weekly_plan(signals=[], preferences=preferences).__dict__
+apps/backend/app/services/learning/revision_vault_service.py:17:    explanation: str
+apps/backend/app/services/learning/revision_vault_service.py:31:    explanation: str
+apps/backend/app/services/learning/revision_vault_service.py:66:                explanation=entry.explanation,
+apps/backend/app/services/learning/system_data.py:13:def _exercise(*, exercise_id: str, title: str, prompt: str, input_mode: str, options: list[str], expected_answer: str, explanation: str) -> LearningExercise:
+apps/backend/app/services/learning/system_data.py:21:        explanation=explanation,
+apps/backend/app/services/learning/system_data.py:51:                        explanation="Finnish uses the present tense for routines, habits, and actions that are true now.",
+apps/backend/app/services/learning/system_data.py:62:                                explanation="'Opiskelen' matches the first-person singular subject 'mina'.",
+apps/backend/app/services/learning/system_data.py:87:                        explanation="Local cases help you show location and movement.",
+apps/backend/app/services/learning/system_data.py:98:                                explanation="This is the natural question for asking where the station is.",
+apps/backend/app/services/learning/system_data.py:110:        description="Give clearer requests and explanations in work or study settings.",
+apps/backend/app/services/learning/system_data.py:114:                title="Requests and Explanations",
+apps/backend/app/services/learning/system_data.py:123:                        explanation="A useful work message has three parts: request, reason, next step.",
+apps/backend/app/services/learning/system_data.py:134:                                explanation="'Koska' introduces the reason.",
+apps/backend/app/services/learning/system_models.py:21:    explanation: str
+apps/backend/app/services/learning/system_models.py:30:    explanation: str
+apps/backend/app/services/learning/workplace_incident_service.py:32:    "retail": [IncidentScenario("retail", "Returned item has no receipt", "guided", "A customer wants to return an item but cannot find the receipt.", ["explaining policy politely", "offering alternatives", "de-escalation"], ["Say no immediately and end the conversation.", "Explain the store policy clearly, then offer exchange or account lookup if available.", "Promise a refund even though you are not sure the policy allows it."], 1, "Practise a 30-second spoken explanation of the store policy in simple Finnish.", "Retail learners need calm policy language that keeps the interaction respectful.")],
+apps/backend/app/services/learning/workplace_incident_service.py:33:    "hospitality": [IncidentScenario("hospitality", "Kitchen delay affects a guest order", "pressured", "A guest has waited too long and asks why their order is still missing.", ["apologising", "giving a brief explanation", "setting expectations"], ["Avoid the guest until the order is ready.", "Apologise, explain the delay briefly, and give a realistic wait estimate.", "Blame the kitchen staff in front of the guest."], 1, "Write a one-line internal message to the kitchen asking for an updated timing estimate.", "Hospitality Finnish often depends on short, calm repair language.")],
+apps/backend/app/services/subscription_service.py:39:        "checkout_label": "€14.90 / month",
+apps/backend/app/services/subscription_service.py:40:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:47:        "checkout_label": "€149 / year",
+apps/backend/app/services/subscription_service.py:48:        "billing_period": "yearly",
+apps/backend/app/services/subscription_service.py:55:        "description": "Build Finnish for patient interaction, explanations, documentation, teamwork, and real medical communication in Finland.",
+apps/backend/app/services/subscription_service.py:56:        "checkout_label": "€24.90 / month",
+apps/backend/app/services/subscription_service.py:57:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:65:        "checkout_label": "€24.90 / month",
+apps/backend/app/services/subscription_service.py:66:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:74:        "checkout_label": "€24.90 / month",
+apps/backend/app/services/subscription_service.py:75:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:83:        "checkout_label": "€29.90 / month",
+apps/backend/app/services/subscription_service.py:84:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:92:        "checkout_label": "€29.90 / month",
+apps/backend/app/services/subscription_service.py:93:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:101:        "checkout_label": "€29.90 / month",
+apps/backend/app/services/subscription_service.py:102:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:109:        "checkout_label": "Contact sales",
+apps/backend/app/services/subscription_service.py:110:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:117:        "checkout_label": "Contact sales",
+apps/backend/app/services/subscription_service.py:118:        "billing_period": "monthly",
+apps/backend/app/services/subscription_service.py:123:def _is_subscription_active(user: dict[str, Any]) -> bool:
+apps/backend/app/services/subscription_service.py:124:    tier = str(user.get("subscription_tier") or "free")
+apps/backend/app/services/subscription_service.py:127:    expires_at = parse_iso(user.get("subscription_expires_at"))
+apps/backend/app/services/subscription_service.py:133:def _trial_active(user: dict[str, Any]) -> bool:
+apps/backend/app/services/subscription_service.py:134:    trial_ends_at = parse_iso(user.get("trial_ends_at"))
+apps/backend/app/services/subscription_service.py:135:    return bool(trial_ends_at and trial_ends_at > utc_now())
+apps/backend/app/services/subscription_service.py:138:def _has_trial_access(user: dict[str, Any]) -> bool:
+apps/backend/app/services/subscription_service.py:139:    return str(user.get("access_choice") or "").strip().lower() == "trial" and _trial_active(user)
+apps/backend/app/services/subscription_service.py:143:    tier = str(user.get("subscription_tier") or "free")
+apps/backend/app/services/subscription_service.py:144:    return tier != "free" and _is_subscription_active(user)
+apps/backend/app/services/subscription_service.py:148:    if _has_trial_access(user):
+apps/backend/app/services/subscription_service.py:150:    tier = str(user.get("subscription_tier") or "free")
+apps/backend/app/services/subscription_service.py:151:    return tier if _is_subscription_active(user) else "free"
+apps/backend/app/services/subscription_service.py:191:    if _has_trial_access(user):
+apps/backend/app/services/subscription_service.py:201:                "message": "Start a 3-day trial or pay to unlock this feature.",
+apps/backend/app/services/subscription_service.py:206:    def _plan_features_for_tier(tier: str) -> dict[str, dict[str, Any]]:
+apps/backend/app/services/subscription_service.py:216:                "yki": {"available": False, "limit": 0, "unit": "not_available", "message": "Requires YKI or bundle plan"},
+apps/backend/app/services/subscription_service.py:221:                "workplace": {"available": False, "limit": 0, "unit": "not_available", "message": "Requires Professional or bundle plan"},
+apps/backend/app/services/subscription_service.py:227:    features = _plan_features_for_tier(effective_tier)
+apps/backend/app/services/subscription_service.py:228:    if effective_tier == str(user.get("subscription_tier") or "free"):
+apps/backend/app/services/subscription_service.py:242:def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
+apps/backend/app/services/subscription_service.py:257:            "billing_tier": str(user.get("subscription_tier") or "internal_all_access"),
+apps/backend/app/services/subscription_service.py:260:            "expires_at": user.get("subscription_expires_at"),
+apps/backend/app/services/subscription_service.py:261:            "trial_ends_at": user.get("trial_ends_at"),
+apps/backend/app/services/subscription_service.py:262:            "is_trial": _trial_active(user),
+apps/backend/app/services/subscription_service.py:269:            "plan_key": "internal_all_access",
+apps/backend/app/services/subscription_service.py:272:    if _has_trial_access(user):
+apps/backend/app/services/subscription_service.py:277:            "billing_tier": "preview_yki",
+apps/backend/app/services/subscription_service.py:280:            "expires_at": user.get("subscription_expires_at"),
+apps/backend/app/services/subscription_service.py:281:            "trial_ends_at": user.get("trial_ends_at"),
+apps/backend/app/services/subscription_service.py:282:            "is_trial": True,
+apps/backend/app/services/subscription_service.py:289:            "plan_key": "preview_yki",
+apps/backend/app/services/subscription_service.py:292:    purchased_tier = str(user.get("subscription_tier") or "free")
+apps/backend/app/services/subscription_service.py:293:    if SETTINGS.allow_dev_entitlement_override:
+apps/backend/app/services/subscription_service.py:307:            "billing_tier": purchased_tier,
+apps/backend/app/services/subscription_service.py:310:            "expires_at": user.get("subscription_expires_at"),
+apps/backend/app/services/subscription_service.py:311:            "trial_ends_at": user.get("trial_ends_at"),
+apps/backend/app/services/subscription_service.py:312:            "is_trial": _trial_active(user),
+apps/backend/app/services/subscription_service.py:319:            "plan_key": "professional_premium",
+apps/backend/app/services/subscription_service.py:329:        "billing_tier": purchased_tier,
+apps/backend/app/services/subscription_service.py:332:        "expires_at": user.get("subscription_expires_at"),
+apps/backend/app/services/subscription_service.py:333:        "trial_ends_at": user.get("trial_ends_at"),
+apps/backend/app/services/subscription_service.py:334:        "is_trial": _trial_active(user),
+apps/backend/app/services/subscription_service.py:341:        "plan_key": effective_tier,
+apps/backend/app/services/subscription_service.py:345:def start_trial(*, user: dict[str, Any], trial_days: int = 3) -> dict[str, Any]:
+apps/backend/app/services/subscription_service.py:348:    updated["access_choice"] = "trial"
+apps/backend/app/services/subscription_service.py:350:    updated["trial_ends_at"] = (utc_now() + timedelta(days=max(1, trial_days))).replace(microsecond=0).isoformat()
+apps/backend/app/services/subscription_service.py:353:    return subscription_status(user=updated)
+apps/backend/app/services/subscription_service.py:356:def payment_status(*, user: dict[str, Any]) -> dict[str, Any]:
+apps/backend/app/services/subscription_service.py:357:    status = subscription_status(user=user)
+apps/backend/app/services/subscription_service.py:360:        "billing_tier": status["billing_tier"],
+apps/backend/app/services/subscription_service.py:364:        "trial_ends_at": status["trial_ends_at"],
+apps/backend/app/services/subscription_service.py:365:        "payment_state": "trial" if status.get("is_trial") else ("free" if status["billing_tier"] == "free" else ("active" if status["is_active"] else "expired")),
+apps/backend/app/services/subscription_service.py:370:    status = subscription_status(user=user)
+apps/backend/app/services/subscription_service.py:378:        "subscription": status,
+apps/backend/app/services/subscription_service.py:383:    if SETTINGS.allow_dev_entitlement_override:
+apps/backend/app/services/subscription_service.py:396:def billing_checkout_url(*, plan_id: str, user_id: str) -> str:
+apps/backend/app/services/subscription_service.py:397:    base_url = SETTINGS.billing_checkout_base_url
+apps/backend/app/services/subscription_service.py:402:            "Billing checkout is not configured for this deployment.",
+apps/backend/app/services/subscription_service.py:404:            {"classification": "non_retryable", "plan_id": plan_id},
+apps/backend/app/services/subscription_service.py:406:    return f"{base_url.rstrip('/')}?plan={plan_id}&user={user_id}"
+apps/backend/app/services/subscription_service.py:409:def billing_portal_url(*, user_id: str) -> str:
+apps/backend/app/services/subscription_service.py:410:    base_url = SETTINGS.billing_portal_base_url
+apps/backend/app/services/subscription_service.py:415:            "Billing portal is not configured for this deployment.",
+apps/backend/app/services/auth_service.py:487:        "subscription_tier": user.get("subscription_tier", "free"),
+apps/backend/app/services/auth_service.py:488:        "subscription_expires_at": user.get("subscription_expires_at"),
+apps/backend/app/services/auth_service.py:489:        "trial_ends_at": user.get("trial_ends_at"),
+apps/backend/app/services/auth_service.py:558:        "subscription_tier": "free",
+apps/backend/app/services/auth_service.py:559:        "subscription_expires_at": None,
+apps/backend/app/services/auth_service.py:560:        "trial_ends_at": None,
+apps/backend/app/services/auth_service.py:806:        "subscription_tier": "free",
+apps/backend/app/services/auth_service.py:807:        "subscription_expires_at": None,
+apps/backend/app/services/auth_service.py:808:        "trial_ends_at": None,
+apps/backend/app/services/auth_service.py:857:        "subscription_tier": "free",
+apps/backend/app/services/auth_service.py:858:        "subscription_expires_at": None,
+apps/backend/app/services/auth_service.py:859:        "trial_ends_at": None,
+apps/backend/app/services/overview_service.py:11:from app.services.learning.study_plan_service import (
+apps/backend/app/services/overview_service.py:14:    build_weekly_plan,
+apps/backend/app/services/overview_service.py:254:    weekly_plan = build_weekly_plan(signals, preferences)
+apps/backend/app/services/overview_service.py:257:        "weeklyPlan": asdict(weekly_plan),
+apps/backend/app/services/overview_service.py:267:def get_learning_planner() -> dict:
+apps/backend/app/services/overview_service.py:269:    return asdict(build_weekly_plan(_sample_study_signals(), preferences))
+apps/backend/app/router.py:13:from app.routers.v1_payment import build_payment_router
+apps/backend/app/router.py:14:from app.routers.v1_subscription import build_subscription_router
+apps/backend/app/router.py:32:router.include_router(build_subscription_router())
+apps/backend/app/router.py:33:router.include_router(build_payment_router())
+apps/backend/app/cards/importers/mappers/kielitaika_to_canonical.py:79:    template["content"]["explanation"] = {
+apps/backend/app/cards/importers/mappers/kielitaika_to_canonical.py:108:    template["content"]["explanation"] = {
+apps/backend/app/cards/importers/mappers/kielitaika_to_canonical.py:146:    template["content"]["explanation"] = {
+apps/backend/app/cards/schemas/content.py:11:class ExplanationContent(CardsBaseModel):
+apps/backend/app/cards/schemas/content.py:102:    explanation: ExplanationContent
+apps/backend/app/cards/schemas/content.py:129:    explanation: ExplanationContent
+apps/backend/app/cards/schemas/content.py:157:    explanation: ExplanationContent
+apps/backend/app/cards/schemas/follow_ups.py:33:    explanation: str | None = Field(default=None, max_length=300)
+apps/backend/app/cards/output/accepted/accepted_cards.json:10:      "explanation": {
+apps/backend/app/cards/output/accepted/accepted_cards.json:21:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:26:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:31:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:110:      "explanation": {
+apps/backend/app/cards/output/accepted/accepted_cards.json:197:      "explanation": {
+apps/backend/app/cards/output/accepted/accepted_cards.json:209:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:214:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:219:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:298:      "explanation": {
+apps/backend/app/cards/output/accepted/accepted_cards.json:309:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:314:              "explanation": null,
+apps/backend/app/cards/output/accepted/accepted_cards.json:319:              "explanation": null,
+apps/backend/app/cards/adaptive/models/state.py:78:    explanation: str = Field(min_length=1, max_length=300)
+apps/backend/app/cards/adaptive/repetition/scheduler.py:36:            explanation = "card answered correctly with a strong streak, so it was scheduled into a long review interval"
+apps/backend/app/cards/adaptive/repetition/scheduler.py:39:            explanation = "card answered correctly, so it moved into review with a longer interval"
+apps/backend/app/cards/adaptive/repetition/scheduler.py:42:            explanation = "card answered correctly for the first rounds, so it stays in learning with a short interval"
+apps/backend/app/cards/adaptive/repetition/scheduler.py:48:        explanation = "card answered incorrectly, so it was moved earlier in the review queue"
+apps/backend/app/cards/adaptive/repetition/scheduler.py:50:    return review_state, explanation
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:8:from app.cards.adaptive.scheduler import build_adaptive_plan
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:20:    async def build_session_plan(
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:37:        plan = build_adaptive_plan(
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:45:        user_state.latest_review_queue = plan.queue_snapshot
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:51:            queue_id=plan.queue_snapshot.queue_id,
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:52:            selected_count=len(plan.ordered_card_ids),
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:53:            due_count=len(plan.queue_snapshot.due_card_ids),
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:54:            new_count=len(plan.queue_snapshot.new_card_ids),
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:55:            difficult_count=len(plan.queue_snapshot.difficult_card_ids),
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:57:        return plan
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:76:        review_state, explanation = update_review_state(
+apps/backend/app/cards/adaptive/services/adaptive_learning_service.py:99:            explanation=explanation,
+apps/backend/app/cards/adaptive/scheduler/priority.py:11:def build_adaptive_plan(
+apps/backend/app/cards/adaptive/scheduler/__init__.py:1:from .priority import build_adaptive_plan
+apps/backend/app/cards/adaptive/scheduler/__init__.py:3:__all__ = ["build_adaptive_plan"]
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:380:          { "option_id": "o1", "text": "addiction", "explanation": null },
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:381:          { "option_id": "o2", "text": "withdrawal", "explanation": null },
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:382:          { "option_id": "o3", "text": "treatment", "explanation": null },
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:383:          { "option_id": "o4", "text": "detox", "explanation": null }
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:390:    "explanation": {
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:436:- explanation summaries,
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:448:- unreliable grammar explanations,
+apps/backend/app/cards/floently_material_generation_and_certification_standard.md:503:- shard plan.
+apps/backend/app/cards/runtime/models/api_models.py:175:    explanation: str | None = Field(default=None, max_length=500)
+apps/backend/app/cards/runtime/models/api_models.py:197:    explanation: str
+apps/backend/app/cards/runtime/services/card_runtime_service.py:190:        plan = await self.adaptive_learning.build_session_plan(
+apps/backend/app/cards/runtime/services/card_runtime_service.py:201:        if not plan.ordered_card_ids:
+apps/backend/app/cards/runtime/services/card_runtime_service.py:205:        first_card = await self.repository.get_card_by_id(plan.ordered_card_ids[0])
+apps/backend/app/cards/runtime/services/card_runtime_service.py:207:        first_variant_index = plan.variant_indices[first_card.id]
+apps/backend/app/cards/runtime/services/card_runtime_service.py:211:            target_id=plan.queue_snapshot.queue_id,
+apps/backend/app/cards/runtime/services/card_runtime_service.py:212:            card_ids=plan.ordered_card_ids,
+apps/backend/app/cards/runtime/services/card_runtime_service.py:215:            variant_indices=plan.variant_indices,
+apps/backend/app/cards/runtime/services/card_runtime_service.py:216:            selection_reasons=plan.selection_reasons,
+apps/backend/app/cards/runtime/services/card_runtime_service.py:225:            review_queue_id=plan.queue_snapshot.queue_id,
+apps/backend/app/cards/runtime/services/card_runtime_service.py:226:            total_cards=len(plan.ordered_card_ids),
+apps/backend/app/cards/runtime/services/card_runtime_service.py:239:            review_queue_id=plan.queue_snapshot.queue_id,
+apps/backend/app/cards/runtime/services/card_runtime_service.py:240:            selection_reasons=[map_selection_reason(reason) for reason in plan.queue_snapshot.selection_reasons],
+apps/backend/app/cards/runtime/services/card_runtime_service.py:370:            explanation=card.content.explanation.summary,
+apps/backend/app/cards/runtime/services/card_runtime_service.py:394:                explanation=adaptive_update.explanation,
+apps/backend/app/cards/fixtures/sample_payloads.py:63:        "explanation": {"summary": "Basic everyday noun for home.", "example": "Tama on minun koti."},
+apps/backend/app/cards/fixtures/sample_payloads.py:134:        "explanation": {
+apps/backend/app/cards/fixtures/sample_payloads.py:205:        "explanation": {
+apps/backend/app/cards/fixtures/sample_payloads.py:279:        "explanation": {
+apps/backend/app/cards/ingestion/builders/card_builder.py:70:    template["content"]["explanation"] = {
+apps/backend/app/cards/ingestion/builders/card_builder.py:109:    template["content"]["explanation"] = {
+apps/backend/app/cards/ingestion/builders/card_builder.py:144:    template["content"]["explanation"] = {
+apps/backend/app/runtime/roleplay.py:696:    # a patient who needs the doctor's explanation). Previously these scenarios
+apps/backend/app/runtime/roleplay.py:823:        # ── doctor_follow_up_explanation — FIXED. AI plays the patient. ────────
+apps/backend/app/runtime/roleplay.py:828:            scenario_id="doctor_follow_up_explanation",
+apps/backend/app/runtime/cards_material_bank.py:45:    explanation: str | None = None
+apps/backend/app/runtime/cards_material_bank.py:233:        explanation = _normalized_text(back_info.get("explanation") or back_info.get("translation") or back)
+apps/backend/app/runtime/cards_material_bank.py:245:        explanation = _normalized_text(back_info.get("translation") or back_info.get("gloss") or "")
+apps/backend/app/runtime/cards_material_bank.py:258:        explanation = _normalized_text(back_info.get("explanation") or back_info.get("rule_summary") or back)
+apps/backend/app/runtime/cards_material_bank.py:275:        "explanation": explanation,
+apps/backend/app/runtime/cards_material_bank.py:320:        "explanation": _normalized_text(item.get("explanation") or answer),
+apps/backend/app/runtime/cards_material_bank.py:359:            explanation=card.get("explanation"),
+apps/backend/app/runtime/cards_logic.py:81:    explanation = card.explanation if not correct else None
+apps/backend/app/runtime/cards_logic.py:82:    return correct, explanation, 7 if correct else 1
+apps/backend/app/runtime/cards_logic.py:318:    explanation = card.get('explanation') if not correct else None
+apps/backend/app/runtime/cards_logic.py:321:        'explanation': explanation,
+apps/backend/app/core/config.py:102:    allow_dev_entitlement_override: bool = _get_bool("ALLOW_DEV_ENTITLEMENT_OVERRIDE", "false") and _is_non_production_env()
+apps/backend/app/core/config.py:170:    billing_checkout_base_url: str | None = _get_optional_str("BILLING_CHECKOUT_BASE_URL")
+apps/backend/app/core/config.py:171:    billing_portal_base_url: str | None = _get_optional_str("BILLING_PORTAL_BASE_URL")
+apps/backend/app/core/config_voice.py:8:    # STT provider per final microphone plan
+apps/client/components/ui/icon-symbol.tsx:18:  'paperplane.fill': 'send',
+apps/client/features/exam/screens/MockExamCycleScreen.tsx:33:        <Text style={styles.subtitle}>Review the weekly pressure plan before you start timed exam work.</Text>
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:850:          // explanation rather than dropping the user into a monologue
+apps/client/features/exam/screens/ExamRuntimeScreen.tsx:864:                    For now: read the prompt, plan what you'd say in Finnish,
+apps/client/features/learning/hooks/useYkiPlanner.ts:15:      setError(err instanceof Error ? err.message : 'Could not load YKI planner.');
+apps/client/features/learning/screens/YkiPlannerScreen.tsx:57:          title="No plan yet"
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:6: * SSO, or enterprise billing. We do not pretend it does. We invite pilots.
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:134:              and enterprise billing are not yet self-serve. We work directly with each pilot to
+apps/client/features/marketing/screens/ForOrganizationsScreen.tsx:172:              billing through procurement systems. We are building toward these — pilots help us prioritize.
+apps/client/features/billing/services/storeBillingService.ts:26:export async function startStorePurchase(planId: string): Promise<{ status: "pending_configuration"; productId: string; platform: BillingPlatform }> {
+apps/client/features/billing/services/storeBillingService.ts:29:    throw new Error("Store billing is only available on iOS and Android.");
+apps/client/features/billing/services/storeBillingService.ts:31:  const productId = PRODUCT_MAPPING[planId];
+apps/client/features/billing/services/storeBillingService.ts:33:    throw new Error("This plan is not available for in-app purchase.");
+apps/client/features/billing/services/paymentService.ts:2:export const paymentService = { createCheckoutSession, createPortalSession, getSubscriptionStatus, startSubscriptionTrial };
+apps/client/features/billing/screens/SubscriptionScreen.tsx:3:import { paymentService } from '../services/paymentService';
+apps/client/features/billing/screens/SubscriptionScreen.tsx:7:import { PLAN_CATALOG, type PlanCatalogEntry } from '@core/api/entitlements';
+apps/client/features/billing/screens/SubscriptionScreen.tsx:14: * and preview limits from subscriptionStore.ts (line 188). Keep this list in sync with
+apps/client/features/billing/screens/SubscriptionScreen.tsx:15: * the actual gates; misleading copy churns trials fast.
+apps/client/features/billing/screens/SubscriptionScreen.tsx:42:    void paymentService
+apps/client/features/billing/screens/SubscriptionScreen.tsx:45:        const record = (s ?? {}) as { billingTier?: string; tier?: string };
+apps/client/features/billing/screens/SubscriptionScreen.tsx:46:        setTier(record.billingTier ?? record.tier ?? 'free');
+apps/client/features/billing/screens/SubscriptionScreen.tsx:53:    return PLAN_CATALOG.filter((plan) => {
+apps/client/features/billing/screens/SubscriptionScreen.tsx:54:      if (onboardingIntent === 'YKI') return plan.category === 'yki';
+apps/client/features/billing/screens/SubscriptionScreen.tsx:56:        return (plan.category === 'professional' || plan.category === 'bundle') && plan.profession === onboardingProfession;
+apps/client/features/billing/screens/SubscriptionScreen.tsx:59:        return plan.category === 'bundle' && plan.profession === onboardingProfession;
+apps/client/features/billing/screens/SubscriptionScreen.tsx:65:  const plansForPeriod = useMemo(
+apps/client/features/billing/screens/SubscriptionScreen.tsx:66:    () => relevantPlans.filter((p) => (period === 'yearly' ? p.billingPeriod === 'yearly' : p.billingPeriod === 'monthly')),
+apps/client/features/billing/screens/SubscriptionScreen.tsx:72:      return plansForPeriod.find((p) => p.category === 'bundle')?.id;
+apps/client/features/billing/screens/SubscriptionScreen.tsx:74:    return plansForPeriod[0]?.id;
+apps/client/features/billing/screens/SubscriptionScreen.tsx:75:  }, [plansForPeriod, onboardingIntent]);
+apps/client/features/billing/screens/SubscriptionScreen.tsx:77:  async function handleStartTrial(plan: PlanCatalogEntry) {
+apps/client/features/billing/screens/SubscriptionScreen.tsx:79:      await paymentService.startSubscriptionTrial(3);
+apps/client/features/billing/screens/SubscriptionScreen.tsx:80:      const session = (await paymentService.createCheckoutSession(plan.id)) as {
+apps/client/features/billing/screens/SubscriptionScreen.tsx:82:        checkout_url?: string;
+apps/client/features/billing/screens/SubscriptionScreen.tsx:84:      const url = session?.url ?? session?.checkout_url;
+apps/client/features/billing/screens/SubscriptionScreen.tsx:87:      const message = e instanceof Error ? e.message : 'Could not start trial. Please try again.';
+apps/client/features/billing/screens/SubscriptionScreen.tsx:101:        <Text style={{ color: palette.text, ...typography.h1 }}>Pick the plan that fits your path</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:103:          3 days free on selected features, then your plan begins. Cancel anytime before day 3 and you won't be charged.
+apps/client/features/billing/screens/SubscriptionScreen.tsx:110:          <Text style={{ color: palette.textMuted, fontSize: 13 }}>Current plan</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:140:      {plansForPeriod.map((plan) => {
+apps/client/features/billing/screens/SubscriptionScreen.tsx:141:        const isRecommended = plan.id === recommendedPlanId;
+apps/client/features/billing/screens/SubscriptionScreen.tsx:144:            key={plan.id}
+apps/client/features/billing/screens/SubscriptionScreen.tsx:145:            onPress={() => void handleStartTrial(plan)}
+apps/client/features/billing/screens/SubscriptionScreen.tsx:173:            <Text style={{ color: palette.text, fontWeight: '700', fontSize: 17 }}>{plan.title}</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:174:            <Text style={{ color: palette.textMuted, fontSize: 13, lineHeight: 20 }}>{plan.description}</Text>
+apps/client/features/billing/screens/SubscriptionScreen.tsx:176:              {plan.checkoutLabel}
+apps/client/features/billing/screens/SubscriptionScreen.tsx:197:                Start 3-day free trial
+apps/client/features/billing/screens/SubscriptionScreen.tsx:207:          What you get during the 3-day trial
+apps/client/features/billing/screens/SubscriptionScreen.tsx:217:          Unlocks with your paid plan
+apps/client/features/billing/screens/SubscriptionScreen.tsx:228:        Cancel before day 3 and you won't be charged. Manage your plan anytime in Settings.
+apps/client/features/shared/EmptyState.tsx:5: * no YKI plan tasks, etc.). Provides a clear next action so the user is never
+apps/client/features/shared/EmptyState.tsx:19:  /** 1-2 sentence explanation of what this screen shows once populated */
+apps/client/features/shared/services/audioSession.ts:222:    let subscription: PlaybackSubscription = null;
+apps/client/features/shared/services/audioSession.ts:225:      subscription = player.addListener('playbackStatusUpdate', (status: AudioStatus) => {
+apps/client/features/shared/services/audioSession.ts:227:        try { subscription?.remove?.(); } catch {}
+apps/client/features/shared/services/audioSession.ts:232:      try { subscription?.remove?.(); } catch {}
+apps/client/features/cards/components/CardPracticeSession.tsx:263:                cards the front is a rule explanation or pattern — speaking
+apps/client/features/cards/components/CardPracticeSession.tsx:379:          <Text style={[styles.feedbackBody, isDark && { color: palette.text }]}>{feedback.explanation ?? `Correct answer: ${feedback.correctAnswer}`}</Text>
+apps/client/features/cards/types.ts:15:  explanation?: string | null;
+apps/client/features/cards/hooks/useCardPractice.ts:84:      const nextFeedback = { correct: result.correct, explanation: result.explanation, correctAnswer: result.correctAnswer, acceptedVariants: result.acceptedVariants };
+apps/client/features/cards/services/offlineFallback.ts:151:    explanation: correct
+apps/client/features/speaking/types.ts:43:    summary: 'Patient interviews, diagnosis framing, instructions, and follow-up explanation.',
+apps/client/features/speaking/types.ts:44:    scenarios: ['interview', 'explanation', 'follow_up'],
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:14:    'Ask for clarification politely and then confirm the plan in one sentence.',
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:21:    'Summarise the patient’s symptoms and your next recommendation in one short explanation.',
+apps/client/features/speaking/screens/RecordedResponseScreen.tsx:22:    'Explain a follow-up plan clearly and politely to a worried patient.',
+apps/client/features/speaking/data/alternativeScenarios.ts:33:    { id: 'doctor_follow_up_explanation', title: 'Explain next steps', profession: 'doctor' },
+apps/client/features/onboarding/routes.ts:4: * Value-first flow (after the defer-paywall change):
+apps/client/features/onboarding/routes.ts:13: *                                                                - else → billing (trial start)
+apps/client/features/onboarding/routes.ts:15: * `plan` is NOT in the pre-register path anymore; PlanSelectionScreen survives only as a
+apps/client/features/onboarding/routes.ts:16: * pricing-preview page reachable via deep link. The paywall surface is /billing/subscription
+apps/client/features/onboarding/routes.ts:17: * (features/billing/screens/SubscriptionScreen.tsx) which is still reached post-placement
+apps/client/features/onboarding/routes.ts:18: * via the AppShell's navigateTo('billing') handler.
+apps/client/features/onboarding/routes.ts:23:  plan: '/onboarding/plan',
+apps/client/features/onboarding/routes.ts:28:  subscription: '/billing/subscription',
+apps/client/features/onboarding/screens/WelcomeScreen.tsx:112:              Two-minute setup · 3-day free trial on selected features
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:9:import { PLAN_CATALOG, resolveProfessionalDisplayName, type PlanId } from '@core/api/entitlements';
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:19:  const plans = PLAN_CATALOG.filter((plan) => {
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:20:    if (intent === 'YKI') return plan.category === 'yki';
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:22:      return (plan.category === 'professional' || plan.category === 'bundle') && plan.profession === profession;
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:25:      return plan.category === 'bundle' && plan.profession === profession;
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:40:        Pricing preview. You'll get a 3-day free trial on selected features before any charge.
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:43:      {plans.map((plan) => (
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:45:          key={plan.id}
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:47:            setSelectedPlan(plan.id as PlanId);
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:48:            setPreferredBillingPeriod(plan.billingPeriod === 'yearly' ? 'annual' : 'monthly');
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:53:          <Text style={{ color: palette.text, fontWeight: '700' }}>{plan.title}</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:54:          <Text style={{ color: palette.textMuted }}>{plan.description}</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:55:          <Text style={{ color: palette.primary, fontWeight: '700' }}>{plan.checkoutLabel}</Text>
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:61:          What the 3-day trial covers
+apps/client/features/onboarding/screens/PlanSelectionScreen.tsx:64:          During the trial you can use the free preview mode: 1 roleplay session, 1 card session, and (for YKI) 1 YKI practice. Full Learning, Daily Practice, and YKI Exam unlock only with an active paid plan.
+apps/client/features/onboarding/screens/PracticeFrequencyScreen.tsx:49:            router.push((user ? onboardingRoutes.subscription : onboardingRoutes.register) as never);
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:9:  ['doctor', 'Doctor', 'Patient interaction, explanations, documentation, and workplace communication in healthcare settings.'],
+apps/client/features/onboarding/screens/ProfessionSelectionScreen.tsx:28:            // Value-first onboarding: plan selection is deferred until after placement.
+apps/client/features/i18n/index.ts:195:    landingFeature1Label: 'Kort och planering',
+apps/client/features/i18n/index.ts:230:    settingsBillingAndPlan: 'Fakturering och plan',
+apps/client/features/i18n/index.ts:323:    landingFeature1Label: 'Cards & planner',
+apps/client/features/i18n/index.ts:358:    settingsBillingAndPlan: 'Billing and plan',
+apps/client/state/AppShell.tsx:49:import { useSubscriptionStore } from "./subscriptionStore";
+apps/client/state/AppShell.tsx:104:): screen is "help" | "progress" | "settings" | "billing" {
+apps/client/state/AppShell.tsx:109:    screen === "billing"
+apps/client/state/AppShell.tsx:160:  const subscriptionStatus = useSubscriptionStore((state) => state.status);
+apps/client/state/AppShell.tsx:174:  // For users with multiple profession entitlements, we pick the first one.
+apps/client/state/AppShell.tsx:175:  // The strategic plan calls for a richer profession-picker hub; for now,
+apps/client/state/AppShell.tsx:176:  // first-entitlement-wins is a safe default that never shows scenarios
+apps/client/state/AppShell.tsx:179:    const professions = subscriptionStatus?.entitlements?.professions ?? [];
+apps/client/state/AppShell.tsx:180:    const activeContext = subscriptionStatus?.entitlements?.activeContext;
+apps/client/state/AppShell.tsx:197:  }, [subscriptionStatus?.entitlements]);
+apps/client/state/AppShell.tsx:238:    const subscription = AppState.addEventListener('change', (nextState) => {
+apps/client/state/AppShell.tsx:243:    return () => subscription.remove();
+apps/client/state/AppShell.tsx:276:    const entitlements = subscriptionStatus?.entitlements;
+apps/client/state/AppShell.tsx:277:    const isPreview = Boolean(subscriptionStatus?.isPreview);
+apps/client/state/AppShell.tsx:278:    const previewPath = subscriptionStatus?.previewPath;
+apps/client/state/AppShell.tsx:280:      subscriptionStatus?.isInternalAllAccess ||
+apps/client/state/AppShell.tsx:281:      subscriptionStatus?.isPreview ||
+apps/client/state/AppShell.tsx:282:      subscriptionStatus?.hasAnySubscription ||
+apps/client/state/AppShell.tsx:283:      subscriptionStatus?.isActive,
+apps/client/state/AppShell.tsx:285:    if (!entitlements) {
+apps/client/state/AppShell.tsx:286:      return screen === 'landing' || screen === 'auth' || screen === 'billing';
+apps/client/state/AppShell.tsx:290:      return screen === 'landing' || screen === 'auth' || screen === 'billing';
+apps/client/state/AppShell.tsx:294:      return !isPreview && entitlements.learnAccess;
+apps/client/state/AppShell.tsx:299:      return entitlements.learnAccess;
+apps/client/state/AppShell.tsx:304:      return entitlements.ykiAccess;
+apps/client/state/AppShell.tsx:309:      return entitlements.ykiAccess;
+apps/client/state/AppShell.tsx:314:      return entitlements.professionalAccess;
+apps/client/state/AppShell.tsx:458:        subscriptionStatus?.isInternalAllAccess ||
+apps/client/state/AppShell.tsx:459:        subscriptionStatus?.isPreview ||
+apps/client/state/AppShell.tsx:460:        subscriptionStatus?.hasAnySubscription ||
+apps/client/state/AppShell.tsx:461:        subscriptionStatus?.isActive,
+apps/client/state/AppShell.tsx:465:        replaceIfNeeded("billing");
+apps/client/state/AppShell.tsx:466:        await resolveAndPersist("billing", "billing");
+apps/client/state/AppShell.tsx:541:        subscriptionStatus?.isInternalAllAccess ||
+apps/client/state/AppShell.tsx:542:        subscriptionStatus?.isPreview ||
+apps/client/state/AppShell.tsx:543:        subscriptionStatus?.hasAnySubscription ||
+apps/client/state/AppShell.tsx:544:        subscriptionStatus?.isActive,
+apps/client/state/AppShell.tsx:548:        replaceIfNeeded("billing");
+apps/client/state/AppShell.tsx:549:        await resolveAndPersist("billing", "billing");
+apps/client/state/AppShell.tsx:557:      replaceIfNeeded('billing');
+apps/client/state/AppShell.tsx:558:      await resolveAndPersist('billing', 'billing');
+apps/client/state/AppShell.tsx:639:      replaceIfNeeded('billing');
+apps/client/state/AppShell.tsx:640:      await resolveAndPersist('billing', 'billing');
+apps/client/state/AppShell.tsx:653:      if (subscriptionStatus?.entitlements?.activeContext) setActiveContext(subscriptionStatus.entitlements.activeContext);
+apps/client/state/AppShell.tsx:670:        const firstProfession = subscriptionStatus?.entitlements?.professions?.[0];
+apps/client/state/AppShell.tsx:675:      if (screen === 'speaking-practice' && subscriptionStatus?.entitlements?.activeContext) {
+apps/client/state/AppShell.tsx:676:        setActiveContext(subscriptionStatus.entitlements.activeContext);
+apps/client/state/AppShell.tsx:717:  }, { ...(subscriptionStatus?.entitlements ?? {}), isPreview: subscriptionStatus?.isPreview, previewPath: subscriptionStatus?.previewPath ?? null }, language);
+apps/client/state/AppShell.tsx:838:          onOpenBilling={() => void navigateTo("billing")}
+apps/client/state/AppShell.tsx:852:          onOpenBilling={() => void navigateTo("billing")}
+apps/client/state/AppShell.tsx:862:  if (activeScreen === "billing") {
+apps/client/state/AppShell.tsx:972:  // Removing the learnAccess gate lets placement happen BEFORE any paywall — the user
+apps/client/state/AppShell.tsx:973:  // experiences real value (their CEFR level) before being asked to choose a plan.
+apps/client/state/AppShell.tsx:974:  // After placement completes, if they don't yet have a subscription, we route them to
+apps/client/state/AppShell.tsx:975:  // billing (now framed as "start your 7-day free trial"); otherwise they land on home.
+apps/client/state/AppShell.tsx:982:              subscriptionStatus?.isInternalAllAccess ||
+apps/client/state/AppShell.tsx:983:              subscriptionStatus?.isPreview ||
+apps/client/state/AppShell.tsx:984:              subscriptionStatus?.hasAnySubscription ||
+apps/client/state/AppShell.tsx:985:              subscriptionStatus?.isActive,
+apps/client/state/AppShell.tsx:987:            void navigateTo(hasUnlockedAccess ? 'home' : 'billing');
+apps/client/state/AppShell.tsx:998:        onOpenBilling={() => void navigateTo("billing")}
+apps/client/state/ProgressRoute.tsx:6:import { resolveProfessionalDisplayName } from '@core/api/entitlements';
+apps/client/state/ProgressRoute.tsx:9:import { useSubscriptionStore } from './subscriptionStore';
+apps/client/state/ProgressRoute.tsx:33:  const subscriptionStatus = useSubscriptionStore((state) => state.status);
+apps/client/state/ProgressRoute.tsx:42:    const entitlements = subscriptionStatus?.entitlements;
+apps/client/state/ProgressRoute.tsx:43:    const hasYki = Boolean(entitlements?.ykiAccess);
+apps/client/state/ProgressRoute.tsx:44:    const hasProfessional = Boolean(entitlements?.professionalAccess);
+apps/client/state/ProgressRoute.tsx:45:    const hasLearn = Boolean(entitlements?.learnAccess);
+apps/client/state/ProgressRoute.tsx:53:        percent: clampPercent(hasYki ? (subscriptionStatus?.plan.category === 'bundle' ? 74 : 68) : 18),
+apps/client/state/ProgressRoute.tsx:66:        summary: hasProfessional ? `Monitor how ready you are for ${professionLabel.toLowerCase()} vocabulary and interview language.` : 'Choose a profession plan to make this pillar trackable.',
+apps/client/state/ProgressRoute.tsx:70:  }, [activeContext, subscriptionStatus?.entitlements, subscriptionStatus?.plan.category]);
+apps/client/state/navigationModel.ts:14:  | "billing"
+apps/client/state/navigationModel.ts:32:  | "billing";
+apps/client/state/navigationModel.ts:64:  billing: "/billing/subscription",
+apps/client/state/SettingsRoute.tsx:12:import { useSubscriptionStore } from './subscriptionStore';
+apps/client/state/SettingsRoute.tsx:129:  const subscriptionStatus = useSubscriptionStore((state) => state.status);
+apps/client/state/SettingsRoute.tsx:157:      value: subscriptionStatus?.ykiAccess && subscriptionStatus?.professionalAccess
+apps/client/state/SettingsRoute.tsx:159:        : subscriptionStatus?.ykiAccess
+apps/client/state/SettingsRoute.tsx:161:          : subscriptionStatus?.professionalAccess
+apps/client/state/SettingsRoute.tsx:167:      value: subscriptionStatus?.professions?.length
+apps/client/state/SettingsRoute.tsx:168:        ? subscriptionStatus.professions.map((item) => item.replace('_', ' ')).join(', ')
+apps/client/state/SettingsRoute.tsx:173:      value: subscriptionStatus?.planLabel ?? (language === 'sv' ? 'Ingen aktiv väg' : language === 'en' ? 'No active pathway' : 'Ei aktiivista polkua'),
+apps/client/state/SettingsRoute.tsx:177:      value: subscriptionStatus?.accessLabel ?? (language === 'sv' ? 'Individ' : language === 'en' ? 'Individual' : 'Yksilö'),
+apps/client/state/SettingsRoute.tsx:225:      'This deletes your account and associated personal data, subject to legal retention requirements. Deletion is usually completed within 24 hours. Active subscriptions must be managed in App Store or Google Play separately.',
+apps/client/state/SettingsRoute.tsx:394:        <SettingRow label={t('settingsTermsOfUse')} hint="Read subscription and acceptable use terms." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.termsOfUse, 'terms of use'); }} palette={palette} />
+apps/client/state/HelpRoute.tsx:52:        <TaskCard themeMode={themeMode} accent="yellow" title="Plan or payment" detail="Billing is the correct secondary path for subscription and invoice work." meta="Sidebar → Billing" actionLabel="Open" onPress={onOpenBilling} />
+apps/client/state/ProfessionalRoute.tsx:7:import { resolveProfessionalDisplayName } from '@core/api/entitlements';
+apps/client/state/ProfessionalRoute.tsx:8:import { useSubscriptionStore } from './subscriptionStore';
+apps/client/state/ProfessionalRoute.tsx:33:        { title: 'Reassure and guide', summary: 'Give short explanations and supportive prompts in a natural work rhythm.' },
+apps/client/state/ProfessionalRoute.tsx:57:  const subscriptionStatus = useSubscriptionStore((state) => state.status);
+apps/client/state/ProfessionalRoute.tsx:61:    const list = subscriptionStatus?.entitlements?.professions ?? [];
+apps/client/state/ProfessionalRoute.tsx:63:  }, [subscriptionStatus?.entitlements?.professions]);
+apps/client/state/ProfessionalRoute.tsx:132:                <Text style={[styles.selectorHint, selected && styles.selectorHintActive]}>{entitled ? 'Built and accessible' : 'Locked to your plan'}</Text>
+apps/client/state/BillingRoute.tsx:7:import { paymentService } from '../features/billing/services/paymentService';
+apps/client/state/BillingRoute.tsx:8:import { startStorePurchase, supportsStoreBilling } from '../features/billing/services/storeBillingService';
+apps/client/state/BillingRoute.tsx:11:import { useSubscriptionStore } from './subscriptionStore';
+apps/client/state/BillingRoute.tsx:12:import { PLAN_CATALOG, type ProfessionKey } from '@core/api/entitlements';
+apps/client/state/BillingRoute.tsx:26:  const [trialBusy, setTrialBusy] = useState(false);
+apps/client/state/BillingRoute.tsx:27:  const [portalBusy, setPortalBusy] = useState(false);
+apps/client/state/BillingRoute.tsx:34:  const subscription = useSubscriptionStore((state) => state.status);
+apps/client/state/BillingRoute.tsx:46:      subscriptionTierHint: user?.subscriptionTier ?? null,
+apps/client/state/BillingRoute.tsx:48:  }, [hydrateSubscription, user?.email, user?.subscriptionTier]);
+apps/client/state/BillingRoute.tsx:68:      Alert.alert('Billing unavailable', 'The billing link was missing from the server response.');
+apps/client/state/BillingRoute.tsx:74:  async function handleCheckout(planId: string) {
+apps/client/state/BillingRoute.tsx:76:      setBusyPlan(planId);
+apps/client/state/BillingRoute.tsx:78:        await startStorePurchase(planId);
+apps/client/state/BillingRoute.tsx:80:          'In-app billing',
+apps/client/state/BillingRoute.tsx:81:          'Store purchase flow is enabled for release builds. If you are running a dev client, complete the purchase on a store-enabled build.',
+apps/client/state/BillingRoute.tsx:85:      const session = await paymentService.createCheckoutSession(planId) as { checkout_url?: string; url?: string } | undefined;
+apps/client/state/BillingRoute.tsx:86:      await openUrl(session?.url ?? session?.checkout_url);
+apps/client/state/BillingRoute.tsx:88:      Alert.alert('Purchase unavailable', error instanceof Error ? error.message : 'The purchase flow could not be started.');
+apps/client/state/BillingRoute.tsx:97:      const session = await paymentService.createPortalSession() as { portal_url?: string; url?: string } | undefined;
+apps/client/state/BillingRoute.tsx:98:      await openUrl(session?.url ?? session?.portal_url);
+apps/client/state/BillingRoute.tsx:100:      Alert.alert('Portal unavailable', error instanceof Error ? error.message : 'The billing portal could not be opened.');
+apps/client/state/BillingRoute.tsx:109:      await paymentService.startSubscriptionTrial(3);
+apps/client/state/BillingRoute.tsx:112:        subscriptionTierHint: user?.subscriptionTier ?? null,
+apps/client/state/BillingRoute.tsx:114:      const session = await paymentService.createCheckoutSession('trial_3day') as { checkout_url?: string; url?: string } | undefined;
+apps/client/state/BillingRoute.tsx:115:      await openUrl(session?.url ?? session?.checkout_url);
+apps/client/state/BillingRoute.tsx:117:      Alert.alert('Trial unavailable', error instanceof Error ? error.message : 'The trial flow could not be started.');
+apps/client/state/BillingRoute.tsx:141:        <Text style={styles.statusTitle}>{subscription?.planLabel ?? '…'}</Text>
+apps/client/state/BillingRoute.tsx:142:        <Text style={styles.statusBody}>{subscription?.accessSummary ?? ''}</Text>
+apps/client/state/BillingRoute.tsx:143:        {subscription?.accessLabel ? <Text style={styles.statusMeta}>{t('settingsAccessType')} · {subscription.accessLabel}</Text> : null}
+apps/client/state/BillingRoute.tsx:146:      <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}> 
+apps/client/state/BillingRoute.tsx:147:        <Text style={[styles.portalTitle, { color: palette.text }]}>{trialBusy ? 'Starting 3-day trial…' : 'Start 3-day trial'}</Text>
+apps/client/state/BillingRoute.tsx:148:        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Open the limited trial first. Payment details can be added during checkout when the provider is connected.</Text>
+apps/client/state/BillingRoute.tsx:150:          <Text style={styles.organisationCtaText}>Activate trial</Text>
+apps/client/state/BillingRoute.tsx:154:            <Pressable key={option.id} accessibilityRole="button" onPress={() => { startPreview(option.id); Alert.alert('Preview started', `${option.title} is now active on this device session.`); }} style={({ pressed }) => [styles.planCard, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:155:              <Text style={[styles.planTitle, { color: palette.text }]}>{option.title}</Text>
+apps/client/state/BillingRoute.tsx:156:              <Text style={[styles.planBody, { color: palette.textMuted }]}>{option.detail}</Text>
+apps/client/state/BillingRoute.tsx:159:          {subscription?.isPreview ? (
+apps/client/state/BillingRoute.tsx:160:            <Pressable accessibilityRole="button" onPress={() => { endPreview(); Alert.alert('Preview cleared', 'Preview mode was removed from this device session.'); }} style={({ pressed }) => [styles.planCard, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:161:              <Text style={[styles.planTitle, { color: palette.text }]}>Clear preview</Text>
+apps/client/state/BillingRoute.tsx:162:              <Text style={[styles.planBody, { color: palette.textMuted }]}>Return this device session to the locked free state.</Text>
+apps/client/state/BillingRoute.tsx:169:        <Pressable accessibilityRole="button" onPress={() => { void handlePortal(); }} style={({ pressed }) => [styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:170:          <Text style={[styles.portalTitle, { color: palette.text }]}>{portalBusy ? 'Opening portal…' : 'Manage subscription'}</Text>
+apps/client/state/BillingRoute.tsx:171:          <Text style={[styles.portalBody, { color: palette.textMuted }]}>Customer portal, invoices, payment method, and pathway access details.</Text>
+apps/client/state/BillingRoute.tsx:174:        <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+apps/client/state/BillingRoute.tsx:175:          <Text style={[styles.portalTitle, { color: palette.text }]}>Manage subscription</Text>
+apps/client/state/BillingRoute.tsx:176:          <Text style={[styles.portalBody, { color: palette.textMuted }]}>On mobile, purchases and subscription management run through Apple App Store or Google Play billing.</Text>
+apps/client/state/BillingRoute.tsx:186:        {groupedPlans.learner.map((plan) => {
+apps/client/state/BillingRoute.tsx:187:          const isBusy = busyPlan === plan.id;
+apps/client/state/BillingRoute.tsx:189:            <Pressable key={plan.id} accessibilityRole="button" onPress={() => { void handleCheckout(plan.id); }} style={({ pressed }) => [styles.planCard, { backgroundColor: palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+apps/client/state/BillingRoute.tsx:190:              <View style={styles.planTopRow}>
+apps/client/state/BillingRoute.tsx:191:                <Text style={[styles.planTitle, { color: palette.text }]}>{isBusy ? 'Opening checkout…' : plan.title}</Text>
+apps/client/state/BillingRoute.tsx:192:                <View style={[styles.planChip, { backgroundColor: palette.primarySurface }]}>
+apps/client/state/BillingRoute.tsx:193:                  <Text style={[styles.planChipText, { color: palette.primary }]}>{plan.checkoutLabel}</Text>
+apps/client/state/BillingRoute.tsx:196:              <Text style={[styles.planBody, { color: palette.textMuted }]}>{plan.description}</Text>
+apps/client/state/BillingRoute.tsx:203:        <Text style={[styles.portalTitle, { color: palette.text }]}>Need access for employees, residents, or programme participants?</Text>
+apps/client/state/BillingRoute.tsx:204:        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Floently Learn supports employer and city access models for workforce development, integration, and language-to-opportunity programmes.</Text>
+apps/client/state/BillingRoute.tsx:207:            <View key={option.id} style={[styles.planCard, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}> 
+apps/client/state/BillingRoute.tsx:208:              <Text style={[styles.planTitle, { color: palette.text }]}>{option.title}</Text>
+apps/client/state/BillingRoute.tsx:209:              <Text style={[styles.planBody, { color: palette.textMuted }]}>{option.detail}</Text>
+apps/client/state/BillingRoute.tsx:227:  portalButton: { borderRadius: 20, padding: 16, gap: 6, borderWidth: 1 },
+apps/client/state/BillingRoute.tsx:228:  portalTitle: { fontSize: 16, fontWeight: '800' },
+apps/client/state/BillingRoute.tsx:229:  portalBody: { fontSize: 13, lineHeight: 18 },
+apps/client/state/BillingRoute.tsx:234:  planCard: { borderRadius: 20, padding: 16, gap: 8, borderWidth: 1 },
+apps/client/state/BillingRoute.tsx:235:  planTopRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10 },
+apps/client/state/BillingRoute.tsx:236:  planTitle: { fontSize: 16, fontWeight: '800', flex: 1 },
+apps/client/state/BillingRoute.tsx:237:  planBody: { fontSize: 13, lineHeight: 19 },
+apps/client/state/BillingRoute.tsx:238:  planChip: { borderRadius: 999, paddingHorizontal: 10, paddingVertical: 5 },
+apps/client/state/BillingRoute.tsx:239:  planChipText: { fontSize: 11, fontWeight: '800' },
+apps/client/state/SpeakingRoute.tsx:7:import { useSubscriptionStore } from './subscriptionStore';
+apps/client/state/SpeakingRoute.tsx:10:import { resolveProfessionalDisplayName } from '@core/api/entitlements';
+apps/client/state/SpeakingRoute.tsx:73:  const subscriptionStatus = useSubscriptionStore((s) => s.status);
+apps/client/state/SpeakingRoute.tsx:92:    const professions = subscriptionStatus?.entitlements?.professions ?? [];
+apps/client/state/SpeakingRoute.tsx:98:  }, [subscriptionStatus?.entitlements?.professions]);
+apps/client/state/SpeakingRoute.tsx:167:              each other when the user had multi-profession entitlements,
+apps/client/state/subscriptionStore.ts:3:import { getSubscriptionStatus } from '@core/api/billing';
+apps/client/state/subscriptionStore.ts:15:  billingTier: string;
+apps/client/state/subscriptionStore.ts:16:  plan: {
+apps/client/state/subscriptionStore.ts:22:  planLabel: string;
+apps/client/state/subscriptionStore.ts:26:  entitlements: {
+apps/client/state/subscriptionStore.ts:57:  hydrate: (input?: AuthUser | { email?: string | null; subscriptionTierHint?: string | null } | null) => Promise<void>;
+apps/client/state/subscriptionStore.ts:58:  refresh: (input?: AuthUser | { email?: string | null; subscriptionTierHint?: string | null } | null) => Promise<void>;
+apps/client/state/subscriptionStore.ts:67:  subscriptionTier?: string | null;
+apps/client/state/subscriptionStore.ts:68:  subscriptionTierHint?: string | null;
+apps/client/state/subscriptionStore.ts:112:  if (Array.isArray(source.entitlements) || Array.isArray(source.features)) return [];
+apps/client/state/subscriptionStore.ts:117:  const nestedEntitlements = source.entitlements && typeof source.entitlements === 'object'
+apps/client/state/subscriptionStore.ts:118:    ? source.entitlements as Record<string, unknown>
+apps/client/state/subscriptionStore.ts:126:function planCategory(tier: string, ykiAccess: boolean, professionalAccess: boolean): CompatSubscriptionStatus['plan']['category'] {
+apps/client/state/subscriptionStore.ts:134:function planLabel(tier: string, professions: ProfessionCode[]) {
+apps/client/state/subscriptionStore.ts:162:      if (tier === 'free' || !tier) return 'No active subscription';
+apps/client/state/subscriptionStore.ts:211:    plan: {
+apps/client/state/subscriptionStore.ts:217:    planLabel: title,
+apps/client/state/subscriptionStore.ts:248:  const category = planCategory(tier, ykiAccess, professionalAccess);
+apps/client/state/subscriptionStore.ts:249:  const title = planLabel(tier, professions);
+apps/client/state/subscriptionStore.ts:254:    billingTier: tier,
+apps/client/state/subscriptionStore.ts:255:    plan: {
+apps/client/state/subscriptionStore.ts:261:    planLabel: title,
+apps/client/state/subscriptionStore.ts:275:    entitlements: {
+apps/client/state/subscriptionStore.ts:288:    isTrial: String(tier).startsWith('preview_') || String(tier).startsWith('trial_'),
+apps/client/state/subscriptionStore.ts:308:  const tier = String(user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free');
+apps/client/state/subscriptionStore.ts:335:  ) || String(current.tier ?? current.billing_tier ?? current.billingTier ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? '') === 'internal_all_access';
+apps/client/state/subscriptionStore.ts:349:  if (current.entitlements && typeof current.entitlements === 'object') {
+apps/client/state/subscriptionStore.ts:350:    const entitlements = current.entitlements as Record<string, unknown>;
+apps/client/state/subscriptionStore.ts:351:    const professions = Array.isArray(entitlements.professions) ? dedupeProfessions(entitlements.professions) : [];
+apps/client/state/subscriptionStore.ts:352:    const ykiAccess = Boolean(entitlements.ykiAccess);
+apps/client/state/subscriptionStore.ts:353:    const professionalAccess = Boolean(entitlements.professionalAccess);
+apps/client/state/subscriptionStore.ts:354:    const activeContextRaw = entitlements.activeContext;
+apps/client/state/subscriptionStore.ts:358:    const plan = current.plan && typeof current.plan === 'object' ? current.plan as Record<string, unknown> : null;
+apps/client/state/subscriptionStore.ts:361:      tier: String(current.tier ?? current.billingTier ?? current.billing_tier ?? plan?.id ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free'),
+apps/client/state/subscriptionStore.ts:370:    if (plan) {
+apps/client/state/subscriptionStore.ts:371:      status.plan = {
+apps/client/state/subscriptionStore.ts:372:        id: String(plan.id ?? status.plan.id),
+apps/client/state/subscriptionStore.ts:373:        title: String(plan.title ?? status.plan.title),
+apps/client/state/subscriptionStore.ts:374:        category: (plan.category as CompatSubscriptionStatus['plan']['category']) ?? status.plan.category,
+apps/client/state/subscriptionStore.ts:375:        profession: normalizeProfession(plan.profession) ?? status.plan.profession,
+apps/client/state/subscriptionStore.ts:377:      status.planLabel = status.plan.title;
+apps/client/state/subscriptionStore.ts:389:      : String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('yki_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('bundle_');
+apps/client/state/subscriptionStore.ts:396:        : professions.length > 0 || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('professional_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('bundle_');
+apps/client/state/subscriptionStore.ts:399:    tier: String(current.billing_tier ?? current.billingTier ?? current.tier ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free'),
+apps/client/state/subscriptionStore.ts:412:  const entitlements = status?.entitlements;
+apps/client/state/subscriptionStore.ts:413:  if (!entitlements) return ['none'];
+apps/client/state/subscriptionStore.ts:415:  if (entitlements.ykiAccess) contexts.push('yki');
+apps/client/state/subscriptionStore.ts:416:  for (const profession of entitlements.professions) {
+apps/client/state/subscriptionStore.ts:425:  if (contexts.includes(status.entitlements.activeContext)) return status.entitlements.activeContext;
+apps/client/state/subscriptionStore.ts:429:function toUserLike(input?: AuthUser | { email?: string | null; subscriptionTierHint?: string | null } | null): UserLike | null {
+apps/client/state/subscriptionStore.ts:433:    subscriptionTier: 'subscriptionTier' in input ? (input as AuthUser).subscriptionTier ?? null : null,
+apps/client/state/subscriptionStore.ts:434:    subscriptionTierHint: 'subscriptionTierHint' in input ? input.subscriptionTierHint ?? null : null,
+apps/client/state/subscriptionStore.ts:460:    set({ isLoading: true, status: { ...fallback, entitlements: { ...fallback.entitlements, activeContext: fallbackContext } }, activeContext: fallbackContext });
+apps/client/state/subscriptionStore.ts:471:          entitlements: {
+apps/client/state/subscriptionStore.ts:472:            ...effectiveRemote.entitlements,
+apps/client/state/subscriptionStore.ts:484:          entitlements: {
+apps/client/state/subscriptionStore.ts:485:            ...fallback.entitlements,
+apps/client/state/subscriptionStore.ts:521:            entitlements: {
+apps/client/state/subscriptionStore.ts:522:              ...state.status.entitlements,
+apps/client/state/streakStore.ts:15: * We do NOT persist this to a backend yet. When you ship server-side trial/account sync
+apps/client/state/HomeRoute.tsx:6:import { useSubscriptionStore } from './subscriptionStore';
+apps/client/state/HomeRoute.tsx:7:import { resolveProfessionalDisplayName } from '@core/api/entitlements';
+apps/client/state/HomeRoute.tsx:49:  const subscriptionStatus = useSubscriptionStore((state) => state.status);
+apps/client/state/HomeRoute.tsx:62:  const entitlements = subscriptionStatus?.entitlements;
+apps/client/state/HomeRoute.tsx:63:  const professionalLabel = professionalSummaryLabel(entitlements?.professions);
+apps/client/state/HomeRoute.tsx:64:  const bundle = subscriptionStatus?.plan.category === 'bundle';
+apps/client/state/HomeRoute.tsx:65:  const isPreview = Boolean(subscriptionStatus?.isPreview);
+apps/client/state/HomeRoute.tsx:74:        learn: Boolean(entitlements?.learnAccess),
+apps/client/state/HomeRoute.tsx:75:        yki: Boolean(entitlements?.ykiAccess),
+apps/client/state/HomeRoute.tsx:76:        professional: Boolean(entitlements?.professionalAccess),
+apps/client/state/HomeRoute.tsx:81:        previewPath: subscriptionStatus?.previewPath ?? null,
+apps/client/state/HomeRoute.tsx:92:          case 'billing':
+apps/client/state/HomeRoute.tsx:99:            if (entitlements?.learnAccess && !isPreview) onOpenLearning();
+apps/client/state/HomeRoute.tsx:109:            if (entitlements?.ykiAccess) onOpenYkiPractice();
+apps/client/state/HomeRoute.tsx:114:            if ((entitlements?.learnAccess && !isPreview) || subscriptionStatus?.previewPath === 'doctor' || subscriptionStatus?.previewPath === 'nurse' || subscriptionStatus?.previewPath === 'practical_nurse') onOpenSpeakingPractice();
+apps/client/state/HomeRoute.tsx:118:            if (entitlements?.learnAccess || entitlements?.professionalAccess) onOpenLearning();
+apps/client/state/HomeRoute.tsx:122:            if (entitlements?.ykiAccess && !isPreview) onOpenYkiExam();
+apps/client/config/navigation/AppShell_sidebar_sections.ts:9:  | 'billing';
+apps/client/config/navigation/AppShell_sidebar_sections.ts:39:  entitlements?: DrawerEntitlements,
+apps/client/config/navigation/AppShell_sidebar_sections.ts:44:  if (entitlements?.isPreview) {
+apps/client/config/navigation/AppShell_sidebar_sections.ts:46:      entitlements.previewPath === 'yki'
+apps/client/config/navigation/AppShell_sidebar_sections.ts:48:        : entitlements.previewPath === 'doctor'
+apps/client/config/navigation/AppShell_sidebar_sections.ts:50:          : entitlements.previewPath === 'nurse'
+apps/client/config/navigation/AppShell_sidebar_sections.ts:61:          onPress: () => void navigateTo(entitlements.previewPath === 'yki' ? 'yki-practice' : 'professional-finnish'),
+apps/client/config/navigation/AppShell_sidebar_sections.ts:68:          onPress: () => void navigateTo('billing'),
+apps/client/config/navigation/AppShell_sidebar_sections.ts:79:  if (entitlements?.learnAccess || entitlements?.professionalAccess) {
+apps/client/config/navigation/AppShell_sidebar_sections.ts:94:  if (entitlements?.ykiAccess) {
+apps/client/config/navigation/AppShell_sidebar_sections.ts:127:          onPress: () => void navigateTo('billing'),
+apps/client/config/navigation/AppShell_sidebar_sections.ts:141:        onPress: () => void navigateTo('billing'),
+apps/client/app/billing/subscription.tsx:4:  return <AppShell requestedScreen="billing" />;
+packages/core/speaking/finnishPersonas.json:7:    { "id": "fi-f-003", "firstName": "Marja",   "lastName": "Mäkinen",    "gender": "female", "title": "Tohtori",      "scenarios": ["doctor_patient_interview", "doctor_follow_up_explanation"],                        "professions": ["doctor"],           "voiceProfile": "yki_standard_female", "ageBand": "senior" },
+packages/core/speaking/finnishPersonas.json:13:    { "id": "fi-f-009", "firstName": "Pirjo",   "lastName": "Lehtonen",   "gender": "female", "title": "Tohtori",      "scenarios": ["doctor_patient_interview", "doctor_follow_up_explanation"],                        "professions": ["doctor"],           "voiceProfile": "yki_standard_female", "ageBand": "senior" },
+packages/core/speaking/finnishPersonas.json:33:    { "id": "fi-m-003", "firstName": "Mikko",   "lastName": "Nieminen",   "gender": "male",   "title": "Tohtori",      "scenarios": ["doctor_patient_interview", "doctor_follow_up_explanation"],                        "professions": ["doctor"],           "voiceProfile": "yki_standard_male",   "ageBand": "adult" },
+packages/core/speaking/finnishPersonas.json:46:    { "id": "fi-m-016", "firstName": "Markus",  "lastName": "Ojala",      "gender": "male",   "title": "Tohtori",      "scenarios": ["doctor_follow_up_explanation"],                                                    "professions": ["doctor"],           "voiceProfile": "yki_standard_male",   "ageBand": "adult" },
+packages/core/api/cards.ts:17:  explanation?: string;
+packages/core/api/cards.ts:58:  explanation?: string | null;
+packages/core/api/cards.ts:84:export async function submitCardAnswer(payload: { sessionId: string; userAnswer: string }): Promise<{ correct: boolean; explanation?: string | null; correctAnswer: string; acceptedVariants: string[]; nextCard: RuntimeCard | null; sessionCompleted: boolean }> {
+packages/core/api/cards.ts:87:  return { correct: res.data.correct, explanation: res.data.explanation ?? null, correctAnswer: res.data.correct_answer?.value ?? '', acceptedVariants: res.data.accepted_variants ?? [], nextCard: mapCard(res.data.next_card ?? null), sessionCompleted: res.data.session_completed };
+packages/core/api/index.ts:2:export * from './billing';
+packages/core/api/learning.ts:11:export type RevisionQueueItem = { entry_id?: string; priority_score?: number; bucket: 'urgent' | 'soon' | 'light' | string; repair_action?: string; section?: string; prompt?: string; explanation?: string };
+packages/core/api/learning.ts:27:  return getData('/api/v1/learning/planner');
+packages/core/api/governedResponseValidation.ts:447:  explanation: stringSchema,
+packages/core/api/governedResponseValidation.ts:455:  explanation: stringSchema,
+packages/core/api/governedResponseValidation.ts:499:    explanation: stringSchema,
+packages/core/api/governedResponseValidation.ts:863:  explanation: stringSchema,
+packages/core/api/governedResponseValidation.ts:898:    explanation: stringSchema,
+packages/core/api/governedResponseValidation.ts:945:      explanation: stringSchema,
+packages/core/api/governedResponseValidation.ts:1241:    explanation: nullableSchema(stringSchema),
+packages/core/api/governedResponseValidation.ts:1569:  const planMetadata = enforceGovernance(
+packages/core/api/governedResponseValidation.ts:1582:    planMetadata.governanceStatus === "legacy_uncontrolled"
+packages/core/api/governedResponseValidation.ts:1587:    payload.governanceVersion ?? traceMetadata.governanceVersion ?? planMetadata.governanceVersion;
+packages/core/api/governedResponseValidation.ts:1589:    payload.policyVersion ?? traceMetadata.policyVersion ?? planMetadata.policyVersion;
+packages/core/api/governedResponseValidation.ts:1591:    payload.changeReference ?? traceMetadata.changeReference ?? planMetadata.changeReference;
+packages/core/api/governedResponseValidation.ts:1617:          ? planMetadata.changeReference
+packages/core/api/governedResponseValidation.ts:1619:      governance_version: planMetadata.governanceVersion,
+packages/core/api/governedResponseValidation.ts:1620:      policy_version: planMetadata.policyVersion,
+packages/core/api/entitlements.ts:25:  checkoutLabel: string;
+packages/core/api/entitlements.ts:26:  billingPeriod: 'monthly' | 'yearly';
+packages/core/api/entitlements.ts:31:  { id: 'yki_monthly', category: 'yki', title: 'YKI Pathway', description: 'Prepare for YKI speaking, writing, reading, and listening with guided practice that also supports citizenship and permanent residence language goals.', checkoutLabel: '€14.90 / month', billingPeriod: 'monthly', audience: 'learner' },
+packages/core/api/entitlements.ts:32:  { id: 'yki_yearly', category: 'yki', title: 'YKI Pathway', description: 'Prepare for YKI speaking, writing, reading, and listening with guided practice that also supports citizenship and permanent residence language goals.', checkoutLabel: '€149 / year', billingPeriod: 'yearly', audience: 'learner' },
+packages/core/api/entitlements.ts:33:  { id: 'professional_doctor_monthly', category: 'professional', profession: 'doctor', title: 'Professional Pathway · Doctor', description: 'Build Finnish for patient interaction, explanations, documentation, teamwork, and real medical communication in Finland.', checkoutLabel: '€24.90 / month', billingPeriod: 'monthly', audience: 'learner' },
+packages/core/api/entitlements.ts:34:  { id: 'professional_doctor_yearly', category: 'professional', profession: 'doctor', title: 'Professional Pathway · Doctor', description: 'Build Finnish for patient interaction, explanations, documentation, teamwork, and real medical communication in Finland.', checkoutLabel: '€249 / year', billingPeriod: 'yearly', audience: 'learner' },
+packages/core/api/entitlements.ts:35:  { id: 'professional_nurse_monthly', category: 'professional', profession: 'nurse', title: 'Professional Pathway · Nurse', description: 'Build Finnish for patient care, reporting, handovers, medication communication, and everyday workplace interaction.', checkoutLabel: '€24.90 / month', billingPeriod: 'monthly', audience: 'learner' },
+packages/core/api/entitlements.ts:36:  { id: 'professional_nurse_yearly', category: 'professional', profession: 'nurse', title: 'Professional Pathway · Nurse', description: 'Build Finnish for patient care, reporting, handovers, medication communication, and everyday workplace interaction.', checkoutLabel: '€249 / year', billingPeriod: 'yearly', audience: 'learner' },
+packages/core/api/entitlements.ts:37:  { id: 'professional_practical_nurse_monthly', category: 'professional', profession: 'practical_nurse', title: 'Professional Pathway · Practical Nurse', description: 'Build Finnish for care work, routines, residents, relatives, teamwork, and practical communication in real care settings.', checkoutLabel: '€24.90 / month', billingPeriod: 'monthly', audience: 'learner' },
+packages/core/api/entitlements.ts:38:  { id: 'professional_practical_nurse_yearly', category: 'professional', profession: 'practical_nurse', title: 'Professional Pathway · Practical Nurse', description: 'Build Finnish for care work, routines, residents, relatives, teamwork, and practical communication in real care settings.', checkoutLabel: '€249 / year', billingPeriod: 'yearly', audience: 'learner' },
+packages/core/api/entitlements.ts:39:  { id: 'bundle_doctor_monthly', category: 'bundle', profession: 'doctor', title: 'Combined Pathway · YKI + Doctor', description: 'Prepare for YKI while building doctor-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€29.90 / month', billingPeriod: 'monthly', audience: 'learner' },
+packages/core/api/entitlements.ts:40:  { id: 'bundle_doctor_yearly', category: 'bundle', profession: 'doctor', title: 'Combined Pathway · YKI + Doctor', description: 'Prepare for YKI while building doctor-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€299 / year', billingPeriod: 'yearly', audience: 'learner' },
+packages/core/api/entitlements.ts:41:  { id: 'bundle_nurse_monthly', category: 'bundle', profession: 'nurse', title: 'Combined Pathway · YKI + Nurse', description: 'Prepare for YKI while building nurse-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€29.90 / month', billingPeriod: 'monthly', audience: 'learner' },
+packages/core/api/entitlements.ts:42:  { id: 'bundle_nurse_yearly', category: 'bundle', profession: 'nurse', title: 'Combined Pathway · YKI + Nurse', description: 'Prepare for YKI while building nurse-specific Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€299 / year', billingPeriod: 'yearly', audience: 'learner' },
+packages/core/api/entitlements.ts:43:  { id: 'bundle_practical_nurse_monthly', category: 'bundle', profession: 'practical_nurse', title: 'Combined Pathway · YKI + Practical Nurse', description: 'Prepare for YKI while building practical nurse Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€29.90 / month', billingPeriod: 'monthly', audience: 'learner' },
+packages/core/api/entitlements.ts:44:  { id: 'bundle_practical_nurse_yearly', category: 'bundle', profession: 'practical_nurse', title: 'Combined Pathway · YKI + Practical Nurse', description: 'Prepare for YKI while building practical nurse Finnish for work, services, and long-term life in Finland.', checkoutLabel: '€299 / year', billingPeriod: 'yearly', audience: 'learner' },
+packages/core/api/entitlements.ts:59:  billingTier: string;
+packages/core/api/entitlements.ts:60:  planKey: string;
+packages/core/api/entitlements.ts:61:  planLabel: string;
+packages/core/api/entitlements.ts:62:  planGroup: 'none' | 'yki' | 'professional' | 'bundle' | 'internal';
+packages/core/api/entitlements.ts:122:function planLabelForTier(tier: string, professions: ProfessionKey[]) {
+packages/core/api/entitlements.ts:160:      return tier === 'free' ? 'No active subscription' : tier.replaceAll('_', ' ');
+packages/core/api/entitlements.ts:164:function planGroupForTier(tier: string, ykiAccess: boolean, professionalAccess: boolean) {
+packages/core/api/entitlements.ts:210:  options?: { email?: string | null; subscriptionTierHint?: string | null },
+packages/core/api/entitlements.ts:214:  const hintedTier = String(options?.subscriptionTierHint ?? '').trim();
+packages/core/api/entitlements.ts:215:  const rawTier = String((data.billing_tier ?? data.billingTier ?? data.plan_key ?? data.planKey ?? data.tier ?? hintedTier) || 'free');
+packages/core/api/entitlements.ts:220:      billingTier: 'internal_all_access',
+packages/core/api/entitlements.ts:221:      planKey: 'internal_all_access',
+packages/core/api/entitlements.ts:222:      planLabel: 'Internal All Access',
+packages/core/api/entitlements.ts:223:      planGroup: 'internal',
+packages/core/api/entitlements.ts:242:      billingTier: "internal_all_access",
+packages/core/api/entitlements.ts:243:      planKey: "internal_all_access",
+packages/core/api/entitlements.ts:244:      planLabel: "Internal All Access",
+packages/core/api/entitlements.ts:245:      planGroup: "internal",
+packages/core/api/entitlements.ts:279:  const hasAnySubscription = typeof data.has_any_subscription === 'boolean'
+packages/core/api/entitlements.ts:280:    ? data.has_any_subscription
+packages/core/api/entitlements.ts:285:  const planLabel = planLabelForTier(rawTier || 'free', professions);
+packages/core/api/entitlements.ts:299:    billingTier: rawTier || 'free',
+packages/core/api/entitlements.ts:300:    planKey: String((data.plan_key ?? data.planKey ?? rawTier) || 'free'),
+packages/core/api/entitlements.ts:301:    planLabel,
+packages/core/api/entitlements.ts:302:    planGroup: planGroupForTier(rawTier || 'free', ykiAccess, professionalAccess),
+packages/core/api/auth.ts:10:import { isAllAccessTestEmail, normalizeSubscriptionStatus } from './entitlements';
+packages/core/api/auth.ts:17:  subscriptionTier?: string | null;
+packages/core/api/auth.ts:18:  planLabel?: string | null;
+packages/core/api/auth.ts:51:  plan: string;
+packages/core/api/auth.ts:124:          plan: normalizePlan(typeof user.plan === 'string' ? user.plan : null),
+packages/core/api/auth.ts:138:    subscriptionTier?: string | null;
+packages/core/api/auth.ts:161:      plan: normalizePlan(session.user.subscriptionTier),
+packages/core/api/auth.ts:184:  subscription_tier?: string | null;
+packages/core/api/auth.ts:186:  plan_label?: string | null;
+packages/core/api/auth.ts:198:  subscription_tier?: string | null;
+packages/core/api/auth.ts:215:  const status = normalizeSubscriptionStatus({ is_internal_all_access: flags?.isInternalAllAccess ?? undefined }, { email, subscriptionTierHint: resolveSubscriptionTier(email, tier, flags) });
+packages/core/api/auth.ts:217:    subscriptionTier: status.billingTier,
+packages/core/api/auth.ts:218:    planLabel: status.planLabel,
+packages/core/api/auth.ts:222:  } satisfies Pick<AuthUser, 'subscriptionTier' | 'planLabel' | 'ykiAccess' | 'professionalAccess' | 'professions'>;
+packages/core/api/auth.ts:228:    billing_tier: authUser.subscription_tier ?? tierHint ?? undefined,
+packages/core/api/auth.ts:229:    tier: authUser.effective_tier ?? authUser.subscription_tier ?? tierHint ?? undefined,
+packages/core/api/auth.ts:230:    plan_label: authUser.plan_label ?? undefined,
+packages/core/api/auth.ts:238:    subscriptionTierHint: resolveSubscriptionTier(authUser.email, authUser.effective_tier ?? authUser.subscription_tier ?? tierHint ?? null, {
+packages/core/api/auth.ts:243:    subscriptionTier: status.billingTier,
+packages/core/api/auth.ts:244:    planLabel: status.planLabel,
+packages/core/api/auth.ts:248:  } satisfies Pick<AuthUser, 'subscriptionTier' | 'planLabel' | 'ykiAccess' | 'professionalAccess' | 'professions'>;
+packages/core/api/auth.ts:332:      ...enrichUserFromBackend(payload.data.auth_user, payload.data.subscription_tier),
+packages/core/api/auth.ts:346:      ...enrichUserFromBackend(res.data.auth_user, res.data.subscription_tier),
+packages/core/api/auth.ts:392:      ...enrichUserFromBackend(payload.data.auth_user, payload.data.subscription_tier),
+packages/core/api/auth.ts:425:      ...enrichUserFromBackend(payload.data.auth_user, payload.data.subscription_tier),
+packages/core/api/auth.ts:508:      ...enrichUser(data.user.email, (data.user as { effectiveTier?: string; subscriptionTier?: string | null }).effectiveTier ?? data.user.subscriptionTier ?? null, { isInternalAllAccess: (data.user as { isInternalAllAccess?: boolean }).isInternalAllAccess ?? null }),
+packages/core/api/billing.ts:2:import { normalizeSubscriptionStatus, type SubscriptionStatus } from './entitlements';
+packages/core/api/billing.ts:12:  const res = await apiClient.get('/api/v1/subscription/status');
+packages/core/api/billing.ts:17:  const res = await apiClient.get('/api/v1/subscription/plans');
+packages/core/api/billing.ts:21:export async function createCheckoutSession(plan: string) {
+packages/core/api/billing.ts:22:  const res = await apiClient.post('/api/v1/subscription/checkout', { plan });
+packages/core/api/billing.ts:26:export async function startSubscriptionTrial(trialDays = 3) {
+packages/core/api/billing.ts:27:  const res = await apiClient.post('/api/v1/subscription/trial', { trial_days: trialDays });
+packages/core/api/billing.ts:32:  const res = await apiClient.post('/api/v1/subscription/portal', {});
+packages/ui/screens/HomeScreen.tsx:495:      sub: accessState?.isPreview && accessState?.previewPath !== 'yki' ? 'One guided workplace conversation is available in preview mode.' : accessState?.learn ? 'Instructions, handovers, and reporting' : 'Unlock work communication practice',
+packages/ui/screens/HomeScreen.tsx:503:      sub: accessState?.isPreview && accessState?.previewPath === 'yki' ? 'Practice sampler available. Full exam remains locked.' : accessState?.yki ? 'Practice and exam simulation' : 'Available in YKI and bundle plans',
+packages/ui/screens/HomeScreen.tsx:520:    ? `Free preview active — ${accessState?.previewPath === 'yki' ? 'YKI sampler unlocked with the full exam still locked.' : 'one profession pathway and one guided conversation are available in preview mode.'}`
+packages/ui/screens/HomeScreen.tsx:529:          : 'Choose a plan to unlock YKI Prep or a profession pathway.';
+packages/ui/screens/HomeScreen.tsx:639:                    {accessState?.learn ? 'Continue pathway' : 'Choose plan'} →
+packages/ui/screens/HomeScreen.tsx:759:        body={accessState?.yki ? 'Open the sidebar and choose YKI Prep when you want formal exam work, or use Workplace Scenarios when you want spoken work communication.' : 'YKI Prep is available in YKI and Bundle plans.'}
