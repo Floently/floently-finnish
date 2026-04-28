@@ -55,7 +55,7 @@ class AuthPersistenceTests(unittest.TestCase):
                 "name": "Obum",
             },
             {
-                "email": "testuser@learn.floently.com",
+                "email": "testuser@floently.com",
                 "password": "Testuser-Password-123",
                 "name": "Test User",
                 "force": True,
@@ -77,6 +77,28 @@ class AuthPersistenceTests(unittest.TestCase):
             obum_user = temp_store.get_ref("users", obum_user_id)
             self.assertIsNotNone(obum_user)
             self.assertTrue(obum_user["password_hash"])
+
+    def test_bootstrap_password_users_reads_runtime_file_when_env_missing(self) -> None:
+        payload = [
+            {
+                "email": "obum@learn.floently.com",
+                "password": "Obum-Password-123",
+                "name": "Obum",
+            },
+        ]
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            runtime_dir = Path(tmpdir)
+            (runtime_dir / "auth_bootstrap_password_users.json").write_text(json.dumps(payload), encoding="utf-8")
+            state_path = runtime_dir / "state.json"
+            temp_store = InMemoryStateStore(path=state_path)
+            with patch("app.services.auth_service.STORE", temp_store), patch("app.services.auth_service.RUNTIME_DIR", runtime_dir):
+                object.__setattr__(SETTINGS, "auth_bootstrap_password_users_json", None)
+                result = bootstrap_password_users()
+
+            self.assertEqual(result["created"], 1)
+            self.assertEqual(result["updated"], 0)
+            self.assertEqual(result["skipped"], 0)
 
 
 if __name__ == "__main__":

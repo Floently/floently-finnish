@@ -46,7 +46,6 @@ import PlacementRoute from "./PlacementRoute";
 import { useAuthStore } from "./authStore";
 import { usePreferencesStore } from "./preferencesStore";
 import { useTranslator } from "../features/i18n";
-import LanguageSelector from "../features/i18n/LanguageSelector";
 import { useSubscriptionStore } from "./subscriptionStore";
 import { usePlacementStore } from "./placementStore";
 import createDrawerSections from "../config/navigation/AppShell_sidebar_sections";
@@ -149,7 +148,6 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const startMonitoring = useNetworkStore((state) => state.startMonitoring);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const language = usePreferencesStore((state) => state.language);
-  const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const clockFormat = usePreferencesStore((state) => state.clockFormat);
   const profilePhotoUri = usePreferencesStore((state) => state.profilePhotoUri);
   const avatarMode = usePreferencesStore((state) => state.avatarMode);
@@ -696,13 +694,6 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       avatarUri={drawerAvatarUri}
       clockLabel={drawerClockLabel}
       languageLabel={t('commonLanguage')}
-      languageControl={(
-        <LanguageSelector
-          language={language}
-          onChange={(next) => void setLanguage(next)}
-          compact
-        />
-      )}
       themeLabel={t('commonTheme')}
       sessionLabel={t('commonSession')}
       signInLabel={t('commonLogIn')}

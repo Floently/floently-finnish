@@ -9,6 +9,7 @@ from urllib import parse, request
 
 from ..core.config import SETTINGS
 from ..core.errors import AppError
+from ..core.paths import RUNTIME_DIR
 from ..core.state_store import STORE
 from ..core.utils import PasswordHashError, hash_password, iso_now, new_id, normalize_email, parse_iso, utc_now, verify_password
 from .password_reset_email_service import build_password_reset_links, send_password_reset_email
@@ -57,6 +58,13 @@ def _persist_auth_state() -> None:
 
 def _bootstrap_password_user_payloads() -> list[dict[str, Any]]:
     raw = str(SETTINGS.auth_bootstrap_password_users_json or "").strip()
+    if not raw:
+        runtime_bootstrap_path = RUNTIME_DIR / "auth_bootstrap_password_users.json"
+        if runtime_bootstrap_path.exists():
+            try:
+                raw = runtime_bootstrap_path.read_text(encoding="utf-8").strip()
+            except Exception:
+                raw = ""
     if not raw:
         return []
     try:

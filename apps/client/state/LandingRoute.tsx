@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import {
   Animated,
   Easing,
@@ -12,7 +12,6 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
-import LanguageSelector from '../features/i18n/LanguageSelector';
 import { usePreferencesStore } from './preferencesStore';
 import { useTranslator } from '../features/i18n';
 
@@ -57,12 +56,8 @@ type Props = { onOpenAuth: () => void };
 
 export default function LandingRoute({ onOpenAuth }: Props) {
   const hydratePreferences = usePreferencesStore((s) => s.hydrate);
-  const language = usePreferencesStore((s) => s.language);
-  const setLanguage = usePreferencesStore((s) => s.setLanguage);
-  const clockFormat = usePreferencesStore((s) => s.clockFormat);
   const { t } = useTranslator();
   const { width } = useWindowDimensions();
-  const [now, setNow] = useState(() => new Date());
 
   const heroAnim = useRef(new Animated.Value(0)).current;
   const subAnim = useRef(new Animated.Value(0)).current;
@@ -162,21 +157,12 @@ export default function LandingRoute({ onOpenAuth }: Props) {
     entrance.start();
     logoLoop.start();
     blobLoop.start();
-    const clockTimer = setInterval(() => setNow(new Date()), 30_000);
 
     return () => {
       logoLoop.stop();
       blobLoop.stop();
-      clearInterval(clockTimer);
     };
   }, [authAnim, blobDrift, featureAnims, heroAnim, hydratePreferences, logoFloat, shouldAnimate, subAnim, tagsAnim]);
-
-  const clockLabel = useMemo(() => {
-    if (clockFormat === '12h') {
-      return now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
-    }
-    return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-  }, [clockFormat, now]);
 
   const makeEnterStyle = (anim: Animated.Value, distance = 22, startScale = 0.98) => ({
     opacity: shouldAnimate ? anim : 1,
@@ -271,19 +257,6 @@ export default function LandingRoute({ onOpenAuth }: Props) {
           bounces={false}
           contentContainerStyle={styles.scrollContent}
         >
-          <View style={styles.topBar}>
-            <View style={styles.topMeta}>
-              <View style={styles.clockPill}>
-                <Text style={styles.clockPillText}>{clockLabel}</Text>
-              </View>
-              <LanguageSelector
-                language={language}
-                onChange={(next) => void setLanguage(next)}
-                mode="menu"
-              />
-            </View>
-          </View>
-
           <View style={styles.logoRow}>
             <Animated.Image
               source={LOGO}
@@ -404,35 +377,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 22,
     paddingBottom: 72,
     flexGrow: 1,
-  },
-
-  topBar: {
-    alignItems: 'flex-end',
-    marginBottom: 12,
-  },
-
-  topMeta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    flexWrap: 'wrap',
-    justifyContent: 'flex-end',
-  },
-
-  clockPill: {
-    borderRadius: 999,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    backgroundColor: 'rgba(79,127,255,0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(79,127,255,0.18)',
-  },
-
-  clockPillText: {
-    color: '#D9E4FF',
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 0.6,
   },
 
   blobTop: {

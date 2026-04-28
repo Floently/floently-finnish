@@ -5,7 +5,6 @@ import { AppScaffold, PageHeader } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { authService } from '@core/api/auth';
 import { LEGAL_URLS } from '../config/legalUrls';
-import LanguageSelector from '../features/i18n/LanguageSelector';
 import { useTranslator } from '../features/i18n';
 
 import { useAuthStore } from './authStore';
@@ -120,7 +119,6 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const setTheme = usePreferencesStore((state) => state.setTheme);
   const language = usePreferencesStore((state) => state.language);
-  const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const speechRate = usePreferencesStore((state) => state.speechRate);
   const setSpeechRate = usePreferencesStore((state) => state.setSpeechRate);
   const hintsEnabled = usePreferencesStore((state) => state.hintsEnabled);
@@ -328,17 +326,6 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
               <Text style={[styles.pathwaySummaryValue, { color: palette.text }]}>{item.value}</Text>
             </View>
           ))}
-        </View>
-      </View>
-
-      <View style={styles.sectionBlock}>
-        <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}>
-          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsLanguageHeading')}</Text>
-        </View>
-        <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
-          <Text style={[styles.groupTitle, { color: palette.text }]}>{t('commonChooseLanguage')}</Text>
-          <Text style={[styles.groupHint, { color: palette.textMuted }]}>{t('settingsLanguageHint')}</Text>
-          <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} />
         </View>
       </View>
 
