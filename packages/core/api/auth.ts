@@ -394,6 +394,39 @@ export async function exchangeGoogleIdToken(idToken: string): Promise<StoredAuth
   };
 }
 
+export async function completeGoogleOAuthResult(oauthResultId: string): Promise<StoredAuthSession> {
+  const trimmed = (oauthResultId || '').trim();
+  if (!trimmed) {
+    throw new Error('Missing Google OAuth result id');
+  }
+  const rawRes = await fetch(`${getApiBaseUrl()}/api/v1/auth/google`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ oauth_result_id: trimmed }),
+  });
+  const { json, rawText } = await readResponseBody(rawRes);
+  const payload = isRecord(json) ? (json as {
+    ok?: boolean;
+    data?: BackendAuthSession | null;
+    error?: { code?: string; message?: string } | string | null;
+  }) : null;
+  if (!rawRes.ok || !payload?.ok || !payload.data) {
+    const errMsg = typeof payload?.error === 'string'
+      ? payload.error
+      : (typeof payload?.error === 'object' && payload.error !== null ? (payload.error as { message?: string }).message : undefined);
+    throw new Error(errMsg ?? extractResponseErrorMessage(json, 'Google sign-in failed', rawText));
+  }
+  return {
+    token: payload.data.tokens.access_token,
+    user: {
+      id: payload.data.auth_user.user_id,
+      email: payload.data.auth_user.email,
+      name: payload.data.auth_user.name ?? '',
+      ...enrichUserFromBackend(payload.data.auth_user, payload.data.subscription_tier),
+    },
+  };
+}
+
 export async function deleteAccount(payload?: { deletionReason?: string | null }): Promise<void> {
   const res = await apiClient.post('/api/v1/auth/account/delete', {
     confirm_delete: true,
