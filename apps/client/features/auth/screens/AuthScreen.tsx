@@ -15,8 +15,8 @@
  *   • Loading states on every async action
  */
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ActivityIndicator, Animated, Easing, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { spacing } from '@ui/theme';
@@ -27,6 +27,10 @@ import { useAuthStore } from '../../../state/authStore';
 import { authService, type StoredAuthSession } from '@core/api/auth';
 import { useGoogleSignIn } from '../services/useGoogleSignIn';
 import { getLoginEmail, saveLoginEmail } from '../../../services/authStorage';
+import LanguageSelector from '../../i18n/LanguageSelector';
+import { useTranslator } from '../../i18n';
+
+const LOGO = require('../../../components/public/logo.png');
 
 type AuthTab = 'signin' | 'create';
 
@@ -34,11 +38,39 @@ type Props = {
   initialTab?: AuthTab;
 };
 
+const GOOGLE_BUTTONS = {
+  web: {
+    signin: require('../../../components/public/google/web/signin.png'),
+    signup: require('../../../components/public/google/web/signup.png'),
+  },
+  ios: {
+    signin: require('../../../components/public/google/iOS/signin.png'),
+    signup: require('../../../components/public/google/iOS/signup.png'),
+  },
+  android: {
+    signin: require('../../../components/public/google/android/signin.png'),
+    signup: require('../../../components/public/google/android/signup.png'),
+  },
+} as const;
+
+function getGoogleButtonSource(tab: AuthTab) {
+  if (Platform.OS === 'ios') {
+    return GOOGLE_BUTTONS.ios[tab === 'create' ? 'signup' : tab];
+  }
+  if (Platform.OS === 'web') {
+    return GOOGLE_BUTTONS.web[tab === 'create' ? 'signup' : tab];
+  }
+  return GOOGLE_BUTTONS.android[tab === 'create' ? 'signup' : tab];
+}
+
 export default function AuthScreen({ initialTab = 'signin' }: Props) {
   const themeMode = usePreferencesStore((s) => s.themeMode);
+  const language = usePreferencesStore((s) => s.language);
+  const setLanguage = usePreferencesStore((s) => s.setLanguage);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
   const setAuth = useAuthStore((s) => s.setAuth);
+  const { t } = useTranslator();
 
   const [tab, setTab] = useState<AuthTab>(initialTab);
   const [email, setEmail] = useState('');
@@ -48,6 +80,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
   const [formError, setFormError] = useState<string | null>(null);
 
   const google = useGoogleSignIn();
+  const logoFloat = useRef(new Animated.Value(0)).current;
 
   // Translate the union state into a flat boolean for UI loading.
   const googleLoading = google.state.status === 'launching' || google.state.status === 'configuring';
@@ -81,16 +114,40 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
     void saveLoginEmail(email);
   }, [email]);
 
+  useEffect(() => {
+    const logoLoop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(logoFloat, {
+          toValue: 1,
+          duration: 2600,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: true,
+        }),
+        Animated.timing(logoFloat, {
+          toValue: 0,
+          duration: 2600,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: true,
+        }),
+      ])
+    );
+
+    logoLoop.start();
+    return () => {
+      logoLoop.stop();
+    };
+  }, [logoFloat]);
+
   const validateEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());
 
   const handleSubmit = useCallback(async () => {
     setFormError(null);
     if (!validateEmail(email)) {
-      setFormError('Anna kelvollinen sähköpostiosoite.');
+      setFormError(t('authInvalidEmail'));
       return;
     }
     if (password.length < 8) {
-      setFormError('Salasanan on oltava vähintään 8 merkkiä.');
+      setFormError(t('authShortPassword'));
       return;
     }
     setSubmitting(true);
@@ -124,7 +181,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
           // Fall through to the original error below.
         }
       }
-      const message = err instanceof Error ? err.message : 'Tuntematon virhe. Yritä uudelleen.';
+      const message = err instanceof Error ? err.message : t('authUnknownError');
       setFormError(message);
     } finally {
       setSubmitting(false);
@@ -145,18 +202,47 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
   }, [google, setAuth]);
 
   const styles = useMemo(() => buildStyles(palette, isDark), [palette, isDark]);
+  const googleButtonSource = getGoogleButtonSource(tab);
+  const googleButtonLabel = tab === 'signin' ? t('authSignInGoogleLabel') : t('authCreateGoogleLabel');
+  const logoAnimatedStyle = {
+    transform: [
+      {
+        translateY: logoFloat.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0, -8],
+        }),
+      },
+      {
+        scale: logoFloat.interpolate({
+          inputRange: [0, 0.5, 1],
+          outputRange: [1, 1.015, 1],
+        }),
+      },
+    ],
+  };
 
   return (
     <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           <View style={styles.header}>
-            <Text style={styles.eyebrow}>FLOENTLY</Text>
-            <Text style={styles.title}>{tab === 'signin' ? 'Tervetuloa takaisin' : 'Luo tili'}</Text>
+            <View style={styles.languageRow}>
+              <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} compact />
+            </View>
+            <View style={styles.logoRow}>
+              <Animated.Image
+                source={LOGO}
+                style={[styles.logo, logoAnimatedStyle]}
+                resizeMode="contain"
+                accessibilityLabel="Floently logo"
+              />
+            </View>
+            <Text style={styles.eyebrow}>{t('authEyebrow')}</Text>
+            <Text style={styles.title}>{tab === 'signin' ? t('authSignInTitle') : t('authCreateTitle')}</Text>
             <Text style={styles.subtitle}>
               {tab === 'signin'
-                ? 'Kirjaudu sisään jatkaaksesi YKI- ja työpaikan suomen harjoittelua.'
-                : 'Aloita YKI- ja työpaikan suomen harjoittelu Floentlyn kanssa.'}
+                ? t('authSignInSubtitle')
+                : t('authCreateSubtitle')}
             </Text>
           </View>
 
@@ -168,7 +254,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
               accessibilityRole="button"
               accessibilityState={{ selected: tab === 'signin' }}
             >
-              <Text style={[styles.tabText, tab === 'signin' && styles.tabTextActive]}>Sign in</Text>
+              <Text style={[styles.tabText, tab === 'signin' && styles.tabTextActive]}>{t('authSwitchSignIn')}</Text>
             </Pressable>
             <Pressable
               onPress={() => onSwitchTab('create')}
@@ -176,7 +262,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
               accessibilityRole="button"
               accessibilityState={{ selected: tab === 'create' }}
             >
-              <Text style={[styles.tabText, tab === 'create' && styles.tabTextActive]}>Create account</Text>
+              <Text style={[styles.tabText, tab === 'create' && styles.tabTextActive]}>{t('authSwitchCreate')}</Text>
             </Pressable>
           </View>
 
@@ -184,12 +270,12 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
           <View style={styles.form}>
             {tab === 'create' ? (
               <View style={styles.field}>
-                <Text style={styles.label}>Name (optional)</Text>
+                <Text style={styles.label}>{t('authNameOptional')}</Text>
                 <TextInput
                   style={styles.input}
                   value={name}
                   onChangeText={setName}
-                  placeholder="Etunimi"
+                  placeholder={t('authNamePlaceholder')}
                   placeholderTextColor={palette.textMuted}
                   autoCapitalize="words"
                   autoCorrect={false}
@@ -199,12 +285,12 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
             ) : null}
 
             <View style={styles.field}>
-              <Text style={styles.label}>Email</Text>
+              <Text style={styles.label}>{t('authEmail')}</Text>
               <TextInput
                 style={styles.input}
                 value={email}
                 onChangeText={setEmail}
-                placeholder="you@example.com"
+                placeholder={t('authEmailPlaceholder')}
                 placeholderTextColor={palette.textMuted}
                 autoCapitalize="none"
                 autoComplete="username"
@@ -217,12 +303,12 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
             </View>
 
             <View style={styles.field}>
-              <Text style={styles.label}>Password</Text>
+              <Text style={styles.label}>{t('authPassword')}</Text>
               <TextInput
                 style={styles.input}
                 value={password}
                 onChangeText={setPassword}
-                placeholder="••••••••"
+                placeholder={t('authPasswordPlaceholder')}
                 placeholderTextColor={palette.textMuted}
                 secureTextEntry
                 autoComplete={tab === 'signin' ? 'current-password' : 'new-password'}
@@ -247,7 +333,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
               {submitting ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-                <Text style={styles.primaryBtnText}>{tab === 'signin' ? 'Sign in' : 'Create account'}</Text>
+                <Text style={styles.primaryBtnText}>{tab === 'signin' ? t('authSignIn') : t('authCreateAccount')}</Text>
               )}
             </Pressable>
 
@@ -257,7 +343,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
                 style={styles.linkRow}
                 accessibilityRole="link"
               >
-                <Text style={styles.linkText}>Forgot password?</Text>
+                <Text style={styles.linkText}>{t('authForgotPassword')}</Text>
               </Pressable>
             ) : null}
           </View>
@@ -275,15 +361,17 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
             disabled={googleLoading || submitting}
             style={[styles.googleBtn, (googleLoading || submitting) && styles.btnDisabled]}
             accessibilityRole="button"
-            accessibilityLabel="Sign in with Google"
+            accessibilityLabel={googleButtonLabel}
           >
             {googleLoading ? (
               <ActivityIndicator color={palette.primary} />
             ) : (
-              <>
-                <Text style={styles.googleG}>G</Text>
-                <Text style={styles.googleBtnText}>Continue with Google</Text>
-              </>
+              <Animated.Image
+                source={googleButtonSource}
+                style={styles.googleButtonImage}
+                resizeMode="contain"
+                accessibilityIgnoresInvertColors
+              />
             )}
           </Pressable>
 
@@ -294,7 +382,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
           ) : null}
 
           <Text style={styles.terms}>
-            By continuing, you agree to Floently's Terms and acknowledge our Privacy Policy.
+            {t('authTerms')}
           </Text>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -307,6 +395,9 @@ function buildStyles(palette: ReturnType<typeof getFloentlyPalette>, isDark: boo
     safe: { flex: 1, backgroundColor: palette.background },
     scroll: { paddingHorizontal: spacing.lg, paddingVertical: spacing.lg, gap: spacing.md },
     header: { gap: 6, marginBottom: spacing.sm },
+    languageRow: { alignItems: 'flex-end' },
+    logoRow: { alignItems: 'center', marginBottom: 4 },
+    logo: { width: 336, height: 336 },
     eyebrow: {
       fontSize: 11,
       fontWeight: '800',
@@ -382,25 +473,13 @@ function buildStyles(palette: ReturnType<typeof getFloentlyPalette>, isDark: boo
     separatorLine: { flex: 1, height: 1, backgroundColor: palette.border },
     separatorText: { fontSize: 11, fontWeight: '700', color: palette.textMuted, letterSpacing: 1 },
     googleBtn: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 10,
       minHeight: 50,
       borderRadius: 12,
-      borderWidth: 1,
-      borderColor: palette.border,
-      backgroundColor: isDark ? palette.surface : '#FFFFFF',
+      overflow: 'hidden',
+      backgroundColor: 'transparent',
+      justifyContent: 'center',
     },
-    googleG: {
-      fontSize: 18,
-      fontWeight: '900',
-      color: '#4285F4',
-      // Approximation of the Google G — the official asset is a 4-color SVG.
-      // For a launch-quality implementation, drop in @react-native-vector-icons
-      // or an SVG component. This text fallback is acceptable pre-launch.
-    },
-    googleBtnText: { fontSize: 15, fontWeight: '700', color: palette.text },
+    googleButtonImage: { width: '100%', height: 50 },
     terms: {
       fontSize: 11,
       lineHeight: 16,

@@ -1,3 +1,5 @@
+import { translate, type AppLanguage } from '../../features/i18n';
+
 export type DrawerRoute =
   | 'learning'
   | 'yki-practice'
@@ -32,46 +34,57 @@ export type DrawerEntitlements = {
 };
 
 
-export function createDrawerSections(navigateTo: NavigateTo, entitlements?: DrawerEntitlements): DrawerSection[] {
+export function createDrawerSections(
+  navigateTo: NavigateTo,
+  entitlements?: DrawerEntitlements,
+  language: AppLanguage = 'fi',
+): DrawerSection[] {
   const sections: DrawerSection[] = [];
 
   if (entitlements?.isPreview) {
-    const previewLabel = entitlements.previewPath === 'yki' ? 'YKI pathway preview' : entitlements.previewPath === 'doctor' ? 'Doctor pathway preview' : entitlements.previewPath === 'nurse' ? 'Nurse pathway preview' : 'Practical Nurse pathway preview';
+    const previewLabel =
+      entitlements.previewPath === 'yki'
+        ? translate(language, 'drawerPreviewYki')
+        : entitlements.previewPath === 'doctor'
+          ? translate(language, 'drawerPreviewDoctor')
+          : entitlements.previewPath === 'nurse'
+            ? translate(language, 'drawerPreviewNurse')
+            : translate(language, 'drawerPreviewPracticalNurse');
     sections.push({
-      label: 'My Pathway',
+      label: translate(language, 'drawerMyPathway'),
       items: [
         {
           icon: '👀',
           label: previewLabel,
           accentColor: '#4F7FFF',
-          hint: 'Preview mode is intentionally limited so learners can sample YKI or workplace Finnish before unlocking the full pathway.',
+          hint: translate(language, 'drawerPreviewHint'),
           onPress: () => void navigateTo(entitlements.previewPath === 'yki' ? 'yki-practice' : 'professional-finnish'),
         },
         {
           icon: '💳',
-          label: 'Choose a pathway',
+          label: translate(language, 'drawerChoosePathway'),
           accentColor: '#8EA3C3',
-          hint: 'Unlock the full YKI pathway, one profession track, or a combined route for work and life in Finland.',
+          hint: translate(language, 'drawerChoosePathwayHint'),
           onPress: () => void navigateTo('billing'),
         },
       ],
     });
     sections.push({
-      label: 'Account',
-      items: [{ icon: '⚙', label: 'Settings', accentColor: '#8EA3C3', hint: 'Theme, profile, audio, and pathway preferences.', onPress: () => void navigateTo('settings') }],
+      label: translate(language, 'drawerAccount'),
+      items: [{ icon: '⚙', label: translate(language, 'drawerSettings'), accentColor: '#8EA3C3', hint: translate(language, 'drawerSettingsHint'), onPress: () => void navigateTo('settings') }],
     });
     return sections;
   }
 
   if (entitlements?.learnAccess || entitlements?.professionalAccess) {
     sections.push({
-      label: 'Workplace Readiness',
+      label: translate(language, 'drawerWorkplaceReadiness'),
       items: [
         {
           icon: '🗂',
-          label: 'Workplace Finnish',
+          label: translate(language, 'drawerWorkplaceFinnish'),
           accentColor: '#4F7FFF',
-          hint: 'Choose either Everyday Finnish or My Profession from one workplace hub.',
+          hint: translate(language, 'drawerWorkplaceFinnishHint'),
           onPress: () => void navigateTo('learning'),
         },
       ],
@@ -80,20 +93,20 @@ export function createDrawerSections(navigateTo: NavigateTo, entitlements?: Draw
 
   if (entitlements?.ykiAccess) {
     sections.push({
-      label: 'YKI and Settlement Goals',
+      label: translate(language, 'drawerYkiGoals'),
       items: [
         {
           icon: '◎',
-          label: 'YKI Prep',
+          label: translate(language, 'drawerYkiPrep'),
           accentColor: '#A78BFA',
-          hint: 'Guided, skill-by-skill YKI preparation that also supports citizenship, permanent residence, and work readiness goals.',
+          hint: translate(language, 'drawerYkiPrepHint'),
           onPress: () => void navigateTo('yki-practice'),
         },
         {
           icon: '◈',
-          label: 'YKI Exam',
+          label: translate(language, 'drawerYkiExam'),
           accentColor: '#A78BFA',
-          hint: 'Full simulation route for formal exam readiness and timing pressure.',
+          hint: translate(language, 'drawerYkiExamHint'),
           onPress: () => void navigateTo('yki-exam'),
         },
       ],
@@ -104,13 +117,13 @@ export function createDrawerSections(navigateTo: NavigateTo, entitlements?: Draw
 
   if (!sections.length) {
     sections.push({
-      label: 'My Pathway',
+      label: translate(language, 'drawerMyPathway'),
       items: [
         {
           icon: '🔒',
-          label: 'Choose a pathway',
+          label: translate(language, 'drawerChoosePathway'),
           accentColor: '#4F7FFF',
-          hint: 'Unlock YKI Prep, a profession track, or a combined pathway for work, citizenship, and life in Finland.',
+          hint: translate(language, 'drawerChoosePathwayHint'),
           onPress: () => void navigateTo('billing'),
         },
       ],
@@ -118,20 +131,20 @@ export function createDrawerSections(navigateTo: NavigateTo, entitlements?: Draw
   }
 
   sections.push({
-    label: 'Account and Access',
+    label: translate(language, 'drawerAccountAndAccess'),
     items: [
       {
         icon: '💳',
-        label: 'Plans and access',
+        label: translate(language, 'drawerPlansAndAccess'),
         accentColor: '#8EA3C3',
-        hint: 'Individual, employer, and city access options for pathways, programmes, and scaled rollout.',
+        hint: translate(language, 'drawerPlansAndAccessHint'),
         onPress: () => void navigateTo('billing'),
       },
       {
         icon: '⚙',
-        label: 'Settings',
+        label: translate(language, 'drawerSettings'),
         accentColor: '#8EA3C3',
-        hint: 'Theme, profile, pathway preferences, and study settings.',
+        hint: translate(language, 'drawerSettingsHint'),
         onPress: () => void navigateTo('settings'),
       },
     ],

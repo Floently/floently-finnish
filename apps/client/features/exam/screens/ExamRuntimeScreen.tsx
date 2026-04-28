@@ -72,6 +72,8 @@ type Section = {
 };
 
 type RuntimeTask = {
+  interaction_mode?: 'monologue' | 'conversation' | null;
+  conversation_scenario_id?: string | null;
   skill: string;
   task_type: string;
   title: string;

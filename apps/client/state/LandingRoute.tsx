@@ -12,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import { usePreferencesStore } from './preferencesStore';
+import { useTranslator } from '../features/i18n';
 
 const LOGO = require('../components/public/logo.png');
 
@@ -21,39 +22,40 @@ function getGoogleAsset() {
   return require('../components/public/google/android/continue_2x.png');
 }
 
-const FEATURES = [
-  {
-    icon: '📚',
-    label: 'Cards & planner',
-    sub: 'Spaced repetition built for YKI vocabulary and steady daily progress.',
-    accent: '#4F7FFF',
-  },
-  {
-    icon: '🎙',
-    label: 'Speaking AI',
-    sub: 'Roleplay conversations with a Finnish voice experience that feels natural.',
-    accent: '#2DD4BF',
-  },
-  {
-    icon: '📋',
-    label: 'YKI Exam simulation',
-    sub: 'Timed practice sessions that feel closer to the real exam experience.',
-    accent: '#A78BFA',
-  },
-  {
-    icon: '💼',
-    label: 'Professional Finnish',
-    sub: 'Focused language practice for healthcare and workplace situations.',
-    accent: '#F0C86D',
-  },
-];
-
-const QUICK_TAGS = ['YKI prep', 'Daily speaking', 'Work Finnish'];
+function getFeatures(t: (key: 'landingFeature1Label' | 'landingFeature1Sub' | 'landingFeature2Label' | 'landingFeature2Sub' | 'landingFeature3Label' | 'landingFeature3Sub' | 'landingFeature4Label' | 'landingFeature4Sub') => string) {
+  return [
+    {
+      icon: '📚',
+      label: t('landingFeature1Label'),
+      sub: t('landingFeature1Sub'),
+      accent: '#4F7FFF',
+    },
+    {
+      icon: '🎙',
+      label: t('landingFeature2Label'),
+      sub: t('landingFeature2Sub'),
+      accent: '#2DD4BF',
+    },
+    {
+      icon: '📋',
+      label: t('landingFeature3Label'),
+      sub: t('landingFeature3Sub'),
+      accent: '#A78BFA',
+    },
+    {
+      icon: '💼',
+      label: t('landingFeature4Label'),
+      sub: t('landingFeature4Sub'),
+      accent: '#F0C86D',
+    },
+  ];
+}
 
 type Props = { onOpenAuth: () => void };
 
 export default function LandingRoute({ onOpenAuth }: Props) {
   const hydratePreferences = usePreferencesStore((s) => s.hydrate);
+  const { t } = useTranslator();
 
   const heroAnim = useRef(new Animated.Value(0)).current;
   const subAnim = useRef(new Animated.Value(0)).current;
@@ -61,7 +63,8 @@ export default function LandingRoute({ onOpenAuth }: Props) {
   const authAnim = useRef(new Animated.Value(0)).current;
   const logoFloat = useRef(new Animated.Value(0)).current;
   const blobDrift = useRef(new Animated.Value(0)).current;
-  const featureAnims = useRef(FEATURES.map(() => new Animated.Value(0))).current;
+  const features = getFeatures(t);
+  const featureAnims = useRef(features.map(() => new Animated.Value(0))).current;
 
   useEffect(() => {
     void hydratePreferences();
@@ -251,22 +254,21 @@ export default function LandingRoute({ onOpenAuth }: Props) {
           <Animated.View style={[styles.hero, makeEnterStyle(heroAnim, 18, 0.99)]}>
             <View style={styles.tagPill}>
               <View style={styles.tagDot} />
-              <Text style={styles.tagText}>AI-AUGMENTED FINNISH</Text>
+              <Text style={styles.tagText}>{t('landingTag')}</Text>
             </View>
 
             <Text style={styles.title}>
-              Learn Finnish with{'\n'}
-              <Text style={styles.titleHighlight}>clarity and flow</Text>
+              {t('landingTitleLine1')}{'\n'}
+              <Text style={styles.titleHighlight}>{t('landingTitleHighlight')}</Text>
             </Text>
           </Animated.View>
 
           <Animated.Text style={[styles.subtitle, makeEnterStyle(subAnim, 18, 1)]}>
-            One place for YKI preparation, daily review, speaking practice, and professional Finnish
-            — guided by an AI conversation partner that feels calm, useful, and human.
+            {t('landingSubtitle')}
           </Animated.Text>
 
           <Animated.View style={[styles.quickTagRow, makeEnterStyle(tagsAnim, 18, 1)]}>
-            {QUICK_TAGS.map((item) => (
+            {[t('landingQuickTag1'), t('landingQuickTag2'), t('landingQuickTag3')].map((item) => (
               <View key={item} style={styles.quickTag}>
                 <Text style={styles.quickTagText}>{item}</Text>
               </View>
@@ -274,10 +276,10 @@ export default function LandingRoute({ onOpenAuth }: Props) {
           </Animated.View>
 
           <View style={styles.sectionCard}>
-            <Text style={styles.sectionEyebrow}>What opens inside</Text>
+            <Text style={styles.sectionEyebrow}>{t('landingSectionEyebrow')}</Text>
 
             <View style={styles.featureList}>
-              {FEATURES.map((feature, index) => {
+              {features.map((feature, index) => {
                 const anim = featureAnims[index];
                 return (
                   <Animated.View
@@ -316,31 +318,29 @@ export default function LandingRoute({ onOpenAuth }: Props) {
           </View>
 
           <Animated.View style={[styles.authBlock, makeEnterStyle(authAnim, 24, 0.985)]}>
-            <Text style={styles.authTitle}>Start with your preferred sign-in</Text>
-            <Text style={styles.authSubtitle}>
-              Continue with email or Google and pick up your Finnish journey from there.
-            </Text>
+            <Text style={styles.authTitle}>{t('landingAuthTitle')}</Text>
+            <Text style={styles.authSubtitle}>{t('landingAuthSubtitle')}</Text>
 
             <Pressable
               onPress={onOpenAuth}
               style={({ pressed }) => [styles.primaryBtn, pressed && styles.primaryBtnPressed]}
               accessibilityRole="button"
-              accessibilityLabel="Continue with email"
+              accessibilityLabel={t('landingContinueEmail')}
             >
-              <Text style={styles.primaryBtnText}>Continue with email</Text>
+              <Text style={styles.primaryBtnText}>{t('landingContinueEmail')}</Text>
             </Pressable>
 
             <Pressable
               onPress={onOpenAuth}
               style={({ pressed }) => [styles.googleBtn, pressed && styles.googleBtnPressed]}
               accessibilityRole="button"
-              accessibilityLabel="Continue with Google"
+              accessibilityLabel={t('landingContinueGoogle')}
             >
               <Image source={getGoogleAsset()} style={styles.googleImage} resizeMode="contain" />
             </Pressable>
 
             <Text style={styles.legalNote}>
-              By continuing you accept the Terms of Service and Privacy Policy.
+              {t('landingLegal')}
             </Text>
           </Animated.View>
         </ScrollView>

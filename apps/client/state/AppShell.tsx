@@ -45,6 +45,7 @@ import ProfessionalRoute from "./ProfessionalRoute";
 import PlacementRoute from "./PlacementRoute";
 import { useAuthStore } from "./authStore";
 import { usePreferencesStore } from "./preferencesStore";
+import { useTranslator } from "../features/i18n";
 import { useSubscriptionStore } from "./subscriptionStore";
 import { usePlacementStore } from "./placementStore";
 import createDrawerSections from "../config/navigation/AppShell_sidebar_sections";
@@ -146,6 +147,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const isOffline = useNetworkStore((state) => state.isOffline);
   const startMonitoring = useNetworkStore((state) => state.startMonitoring);
   const themeMode = usePreferencesStore((state) => state.themeMode);
+  const language = usePreferencesStore((state) => state.language);
   const clockFormat = usePreferencesStore((state) => state.clockFormat);
   const profilePhotoUri = usePreferencesStore((state) => state.profilePhotoUri);
   const avatarMode = usePreferencesStore((state) => state.avatarMode);
@@ -158,6 +160,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const clearSubscription = useSubscriptionStore((state) => state.clear);
   const setActiveContext = useSubscriptionStore((state) => state.setActiveContext);
+  const { t } = useTranslator();
   const lastLoggedScreenRef = useRef<string | null>(null);
   const [examPresetLevel, setExamPresetLevel] = useState<YkiLevelBand>('B1-B2');
   const [speakingPreset, setSpeakingPreset] = useState<SpeakingPreset>(null);
@@ -675,7 +678,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
   const drawerSections = createDrawerSections((route) => {
     void navigateTo(route);
-  }, { ...(subscriptionStatus?.entitlements ?? {}), isPreview: subscriptionStatus?.isPreview, previewPath: subscriptionStatus?.previewPath ?? null });
+  }, { ...(subscriptionStatus?.entitlements ?? {}), isPreview: subscriptionStatus?.isPreview, previewPath: subscriptionStatus?.previewPath ?? null }, language);
 
   const drawer = (
     <UtilityDrawer
@@ -697,14 +700,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     return (
       <ScreenContainer center>
         <Stack gap="sm">
-          <Card>
-            <Stack gap="xs">
-              <Text variant="title">KieliTaika</Text>
-              <Text tone="muted">Validating application flow...</Text>
+              <Card>
+                <Stack gap="xs">
+                  <Text variant="title">KieliTaika</Text>
+              <Text tone="muted">{t('appShellValidating')}</Text>
+                </Stack>
+              </Card>
             </Stack>
-          </Card>
-        </Stack>
-      </ScreenContainer>
+          </ScreenContainer>
     );
   }
 
@@ -723,8 +726,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               }
             : undefined
         }
-        primaryLabel={user ? "Return Home" : "Open Auth"}
-        secondaryLabel={user ? "Log Out" : undefined}
+        primaryLabel={user ? t('appShellReturnHome') : t('appShellOpenAuth')}
+        secondaryLabel={user ? t('appLogOut') : undefined}
       />
     );
   }

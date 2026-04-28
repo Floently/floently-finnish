@@ -6,10 +6,12 @@ import type { FloentlyThemeMode } from '@ui/theme/floentlyPalette';
 const STORAGE_KEY = 'floently.learn.preferences';
 
 type AvatarMode = 'logo' | 'initials' | 'photo';
+export type AppLanguage = 'fi' | 'sv' | 'en';
 
 type PreferencesState = {
   hasHydrated: boolean;
   themeMode: FloentlyThemeMode;
+  language: AppLanguage;
   speechRate: number;
   clockFormat: '12h' | '24h';
   hintsEnabled: boolean;
@@ -18,6 +20,7 @@ type PreferencesState = {
   hydrate: () => Promise<void>;
   toggleTheme: () => Promise<void>;
   setTheme: (mode: FloentlyThemeMode) => Promise<void>;
+  setLanguage: (language: AppLanguage) => Promise<void>;
   setSpeechRate: (rate: number) => Promise<void>;
   setClockFormat: (format: '12h' | '24h') => Promise<void>;
   setHintsEnabled: (value: boolean) => Promise<void>;
@@ -28,6 +31,7 @@ type PreferencesState = {
 
 type PersistedPreferences = {
   themeMode: FloentlyThemeMode;
+  language: AppLanguage;
   speechRate: number;
   clockFormat: '12h' | '24h';
   hintsEnabled: boolean;
@@ -39,6 +43,7 @@ const memoryStore = new Map<string, string>();
 
 const DEFAULTS: PersistedPreferences = {
   themeMode: 'light',
+  language: 'en',
   speechRate: 1,
   clockFormat: '24h',
   hintsEnabled: true,
@@ -61,6 +66,7 @@ async function readStorage(): Promise<PersistedPreferences | null> {
     const parsed = JSON.parse(raw) as Partial<PersistedPreferences>;
     return {
       themeMode: parsed.themeMode === 'dark' ? 'dark' : 'light',
+      language: parsed.language === 'fi' || parsed.language === 'sv' || parsed.language === 'en' ? parsed.language : 'en',
       speechRate: typeof parsed.speechRate === 'number' ? parsed.speechRate : DEFAULTS.speechRate,
       clockFormat: parsed.clockFormat === '12h' ? '12h' : '24h',
       hintsEnabled: typeof parsed.hintsEnabled === 'boolean' ? parsed.hintsEnabled : DEFAULTS.hintsEnabled,
@@ -109,6 +115,10 @@ export const usePreferencesStore = create<PreferencesState>((set, get) => ({
   async setTheme(mode) {
     await updatePersisted({ themeMode: mode });
     set({ themeMode: mode });
+  },
+  async setLanguage(language) {
+    await updatePersisted({ language });
+    set({ language });
   },
   async setSpeechRate(rate) {
     await updatePersisted({ speechRate: rate });

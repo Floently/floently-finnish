@@ -5,6 +5,8 @@ import { AppScaffold, PageHeader } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { authService } from '@core/api/auth';
 import { LEGAL_URLS } from '../config/legalUrls';
+import LanguageSelector from '../features/i18n/LanguageSelector';
+import { useTranslator } from '../features/i18n';
 
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
@@ -117,6 +119,8 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const setTheme = usePreferencesStore((state) => state.setTheme);
+  const language = usePreferencesStore((state) => state.language);
+  const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const speechRate = usePreferencesStore((state) => state.speechRate);
   const setSpeechRate = usePreferencesStore((state) => state.setSpeechRate);
   const hintsEnabled = usePreferencesStore((state) => state.hintsEnabled);
@@ -131,6 +135,7 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
   const resetAvatar = usePreferencesStore((state) => state.resetAvatar);
   const palette = getFloentlyPalette(themeMode);
   const [isPickingPhoto, setIsPickingPhoto] = useState(false);
+  const { t } = useTranslator();
 
   useEffect(() => {
     void hydratePreferences();
@@ -149,10 +154,30 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
   }, [displayName, user?.email]);
 
   const pathwaySummary = [
-    { label: 'Main goal', value: subscriptionStatus?.ykiAccess && subscriptionStatus?.professionalAccess ? 'YKI, work, and life in Finland' : subscriptionStatus?.ykiAccess ? 'Pass YKI' : subscriptionStatus?.professionalAccess ? 'Prepare for work in Finland' : 'Choose a pathway' },
-    { label: 'Current profession', value: subscriptionStatus?.professions?.length ? subscriptionStatus.professions.map((item) => item.replace('_', ' ')).join(', ') : 'Not selected yet' },
-    { label: 'Current pathway', value: subscriptionStatus?.planLabel ?? 'No active pathway' },
-    { label: 'Access type', value: subscriptionStatus?.accessLabel ?? 'Individual' },
+    {
+      label: t('settingsMainGoal'),
+      value: subscriptionStatus?.ykiAccess && subscriptionStatus?.professionalAccess
+        ? (language === 'sv' ? 'YKI, arbete och livet i Finland' : language === 'en' ? 'YKI, work, and life in Finland' : 'YKI, työ ja elämä Suomessa')
+        : subscriptionStatus?.ykiAccess
+          ? (language === 'sv' ? 'YKI-förberedelse' : language === 'en' ? 'YKI preparation' : 'YKI-valmistautuminen')
+          : subscriptionStatus?.professionalAccess
+            ? (language === 'sv' ? 'Arbetsliv i Finland' : language === 'en' ? 'Work in Finland' : 'Työelämä Suomessa')
+            : t('drawerChoosePathway'),
+    },
+    {
+      label: t('settingsCurrentProfession'),
+      value: subscriptionStatus?.professions?.length
+        ? subscriptionStatus.professions.map((item) => item.replace('_', ' ')).join(', ')
+        : language === 'sv' ? 'Inte vald ännu' : language === 'en' ? 'Not selected yet' : 'Ei vielä valittu',
+    },
+    {
+      label: t('settingsCurrentPathway'),
+      value: subscriptionStatus?.planLabel ?? (language === 'sv' ? 'Ingen aktiv väg' : language === 'en' ? 'No active pathway' : 'Ei aktiivista polkua'),
+    },
+    {
+      label: t('settingsAccessType'),
+      value: subscriptionStatus?.accessLabel ?? (language === 'sv' ? 'Individ' : language === 'en' ? 'Individual' : 'Yksilö'),
+    },
   ];
 
   const showPhoto = avatarMode === 'photo' && Boolean(profilePhotoUri);
@@ -169,13 +194,20 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
     }
 
     if (result.reason === 'permission') {
-      Alert.alert('Photo permission needed', 'Allow gallery access to choose a profile picture.');
+      Alert.alert(
+        t('settingsChooseFromGallery'),
+        language === 'sv'
+          ? 'Tillåt åtkomst till fotobiblioteket för att välja en profilbild.'
+          : language === 'en'
+            ? 'Allow gallery access to choose a profile picture.'
+            : 'Salli gallerian käyttö profiilikuvan valitsemiseksi.',
+      );
       return;
     }
 
     if (result.reason === 'unavailable') {
       Alert.alert(
-        'Gallery picker unavailable',
+        t('settingsChooseFromGallery'),
         'Photo library access is not available in this build yet. Install and configure expo-image-picker to enable gallery selection.',
       );
     }
@@ -191,19 +223,19 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
 
   function handleDeleteAccount() {
     Alert.alert(
-      'Delete Account',
+      t('commonDeleteAccount'),
       'This deletes your account and associated personal data, subject to legal retention requirements. Deletion is usually completed within 24 hours. Active subscriptions must be managed in App Store or Google Play separately.',
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('commonCancel'), style: 'cancel' },
         {
-          text: 'Delete Account',
+          text: t('commonDeleteAccount'),
           style: 'destructive',
           onPress: () => {
             Alert.alert(
               'Final confirmation',
               'This action is permanent. Do you want to continue?',
               [
-                { text: 'Cancel', style: 'cancel' },
+                { text: t('commonCancel'), style: 'cancel' },
                 {
                   text: 'Yes, delete',
                   style: 'destructive',
@@ -234,10 +266,10 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
       header={
         <PageHeader
           themeMode={themeMode}
-          eyebrow="Preferences"
-          title="Settings"
-          subtitle="Change only the things that make your learning smoother: speed, appearance, profile, and support."
-          actionLabel="Home"
+          eyebrow={t('settingsEyebrow')}
+          title={t('settingsTitle')}
+          subtitle={t('settingsSubtitle')}
+          actionLabel={t('settingsHome')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
         />
@@ -260,11 +292,11 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
             }}
             style={[styles.smallBlueButton, { backgroundColor: 'rgba(255,255,255,0.16)' }]}
           > 
-            <Text style={styles.smallBlueButtonText}>{isPickingPhoto ? 'Opening…' : 'Choose from gallery'}</Text>
+            <Text style={styles.smallBlueButtonText}>{isPickingPhoto ? t('settingsOpening') : t('settingsChooseFromGallery')}</Text>
           </Pressable>
         </View>
         <Text style={styles.profileName}>{displayName}</Text>
-        <Text style={styles.profileEmail}>{user?.email ?? 'Sign in to sync your preferences across devices.'}</Text>
+        <Text style={styles.profileEmail}>{user?.email ?? t('settingsSignedOut')}</Text>
 
         <View style={styles.avatarOptionsRow}>
           <Pressable
@@ -273,7 +305,7 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
             }}
             style={[styles.avatarOptionButton, { backgroundColor: 'rgba(255,255,255,0.15)' }]}
           >
-            <Text style={styles.avatarOptionText}>Use initials</Text>
+            <Text style={styles.avatarOptionText}>{t('settingsUseInitials')}</Text>
           </Pressable>
           <Pressable
             onPress={() => {
@@ -281,14 +313,14 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
             }}
             style={[styles.avatarOptionButton, { backgroundColor: 'rgba(255,255,255,0.15)' }]}
           >
-            <Text style={styles.avatarOptionText}>Use logo</Text>
+            <Text style={styles.avatarOptionText}>{t('settingsUseLogo')}</Text>
           </Pressable>
         </View>
       </View>
 
       <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
-        <Text style={[styles.groupTitle, { color: palette.text }]}>My pathway</Text>
-        <Text style={[styles.groupHint, { color: palette.textMuted }]}>Track your current goal, pathway, and access model. Floently Learn is designed for individual, employer-sponsored, and city-sponsored access.</Text>
+        <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsMyPathway')}</Text>
+        <Text style={[styles.groupHint, { color: palette.textMuted }]}>{t('settingsPathwayHint')}</Text>
         <View style={styles.pathwaySummaryGrid}>
           {pathwaySummary.map((item) => (
             <View key={item.label} style={[styles.pathwaySummaryCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
@@ -301,10 +333,21 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
 
       <View style={styles.sectionBlock}>
         <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}>
-          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>Audio</Text>
+          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsLanguageHeading')}</Text>
+        </View>
+        <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
+          <Text style={[styles.groupTitle, { color: palette.text }]}>{t('commonChooseLanguage')}</Text>
+          <Text style={[styles.groupHint, { color: palette.textMuted }]}>{t('settingsLanguageHint')}</Text>
+          <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} />
+        </View>
+      </View>
+
+      <View style={styles.sectionBlock}>
+        <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}>
+          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsAudio')}</Text>
         </View>
         <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}> 
-          <Text style={[styles.groupTitle, { color: palette.text }]}>Speaking speed</Text>
+          <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsSpeakingSpeed')}</Text>
           <View style={styles.speedRow}>
             {RATES.map((rate) => {
               const active = speechRate === rate;
@@ -320,26 +363,26 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
 
       <View style={styles.sectionBlock}>
         <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}> 
-          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>Appearance</Text>
+          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsAppearance')}</Text>
         </View>
         <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}> 
           <View style={styles.toggleRow}>
             <View style={styles.toggleCopy}>
-              <Text style={[styles.groupTitle, { color: palette.text }]}>Dark mode</Text>
+              <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsDarkMode')}</Text>
               <Text style={[styles.groupHint, { color: palette.textMuted }]}>Switch the shell between light and dark.</Text>
             </View>
             <Toggle value={themeMode === 'dark'} onValueChange={(value) => { void setTheme(value ? 'dark' : 'light'); }} activeColor={palette.primary} inactiveColor={palette.surface} />
           </View>
           <View style={styles.toggleRow}>
             <View style={styles.toggleCopy}>
-              <Text style={[styles.groupTitle, { color: palette.text }]}>Hint popups</Text>
+              <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsHintPopups')}</Text>
               <Text style={[styles.groupHint, { color: palette.textMuted }]}>Keep navigation help visible while you learn the app.</Text>
             </View>
             <Toggle value={hintsEnabled} onValueChange={(value) => { void setHintsEnabled(value); }} activeColor={palette.primary} inactiveColor={palette.surface} />
           </View>
           <View style={styles.toggleRow}>
             <View style={styles.toggleCopy}>
-              <Text style={[styles.groupTitle, { color: palette.text }]}>Clock format</Text>
+              <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsClockFormat')}</Text>
               <Text style={[styles.groupHint, { color: palette.textMuted }]}>Choose how the visible clock is shown in the app shell.</Text>
             </View>
             <View style={styles.clockFormatRow}>
@@ -356,20 +399,20 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
 
       <View style={styles.sectionBlock}>
         <View style={[styles.sectionHeadingChip, { backgroundColor: palette.primarySurface }]}> 
-          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>Account</Text>
+          <Text style={[styles.sectionHeadingText, { color: palette.primary }]}>{t('settingsAccount')}</Text>
         </View>
-        <SettingRow label="Billing and plan" hint="Manage subscriptions and invoices without cluttering the main learning flow." actionLabel="Open" onPress={onOpenBilling} palette={palette} />
-        <SettingRow label="Help and support" hint="Get route guidance and quick support answers." actionLabel="Open" onPress={onOpenHelp} palette={palette} />
-        <SettingRow label="Privacy Policy" hint="Review how Floently handles account, voice, and transcript data." actionLabel="Open" onPress={() => { void openExternalUrl(LEGAL_URLS.privacyPolicy, 'privacy policy'); }} palette={palette} />
-        <SettingRow label="Terms of Use" hint="Read subscription and acceptable use terms." actionLabel="Open" onPress={() => { void openExternalUrl(LEGAL_URLS.termsOfUse, 'terms of use'); }} palette={palette} />
-        <SettingRow label="Support and contact" hint="Public support page for response and escalation." actionLabel="Open" onPress={() => { void openExternalUrl(LEGAL_URLS.support, 'support page'); }} palette={palette} />
-        <SettingRow label="Account deletion page" hint="Public account deletion policy and request page." actionLabel="Open" onPress={() => { void openExternalUrl(LEGAL_URLS.accountDeletion, 'account deletion page'); }} palette={palette} />
-        <SettingRow label="Profile" value={user?.email ?? 'Signed out'} hint="Profile sync and account identity." palette={palette} />
+        <SettingRow label={t('settingsBillingAndPlan')} hint={t('drawerPlansAndAccessHint')} actionLabel={t('commonOpen')} onPress={onOpenBilling} palette={palette} />
+        <SettingRow label={t('settingsHelpAndSupport')} hint="Get route guidance and quick support answers." actionLabel={t('commonOpen')} onPress={onOpenHelp} palette={palette} />
+        <SettingRow label={t('settingsPrivacyPolicy')} hint="Review how Floently handles account, voice, and transcript data." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.privacyPolicy, 'privacy policy'); }} palette={palette} />
+        <SettingRow label={t('settingsTermsOfUse')} hint="Read subscription and acceptable use terms." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.termsOfUse, 'terms of use'); }} palette={palette} />
+        <SettingRow label={t('settingsSupportAndContact')} hint="Public support page for response and escalation." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.support, 'support page'); }} palette={palette} />
+        <SettingRow label={t('settingsAccountDeletionPage')} hint="Public account deletion policy and request page." actionLabel={t('commonOpen')} onPress={() => { void openExternalUrl(LEGAL_URLS.accountDeletion, 'account deletion page'); }} palette={palette} />
+        <SettingRow label={t('settingsProfile')} value={user?.email ?? t('settingsSignedOut')} hint={t('settingsProfileSync')} palette={palette} />
         <Pressable onPress={handleDeleteAccount} style={[styles.deleteButton, { borderColor: '#D93D3D', backgroundColor: '#FFF5F5' }]}>
-          <Text style={styles.deleteText}>Delete Account</Text>
+      <Text style={styles.deleteText}>{t('commonDeleteAccount')}</Text>
         </Pressable>
         <Pressable onPress={() => { void logout(); }} style={[styles.logoutButton, { borderColor: palette.borderStrong, backgroundColor: palette.surface }]}> 
-          <Text style={[styles.logoutText, { color: palette.text }]}>Log out</Text>
+          <Text style={[styles.logoutText, { color: palette.text }]}>{t('settingsLogout')}</Text>
         </Pressable>
       </View>
     </AppScaffold>
