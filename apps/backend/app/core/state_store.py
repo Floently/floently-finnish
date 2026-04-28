@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import json
 import threading
+import tempfile
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Iterator
@@ -62,11 +63,11 @@ class InMemoryStateStore:
         }
 
     def _load_initial_state(self) -> dict[str, dict[str, Any]]:
-        if not self.path.exists():
-            return self._default_state()
-        try:
-            payload = json.loads(self.path.read_text(encoding="utf-8"))
-        except Exception:
+        payload = self._read_state_file(self.path)
+        if payload is None:
+            backup_path = self.path.with_suffix(self.path.suffix + ".bak")
+            payload = self._read_state_file(backup_path)
+        if payload is None:
             return self._default_state()
         if not isinstance(payload, dict):
             return self._default_state()
@@ -76,6 +77,15 @@ class InMemoryStateStore:
             if isinstance(bucket_payload, dict):
                 state[bucket] = bucket_payload
         return state
+
+    def _read_state_file(self, path: Path) -> dict[str, Any] | None:
+        if not path.exists():
+            return None
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return None
+        return payload if isinstance(payload, dict) else None
 
     def _normalize(self, bucket: StateBucket, key: str) -> StateKey:
         if bucket not in self._data:
@@ -133,7 +143,32 @@ class InMemoryStateStore:
 
     def write_snapshot(self) -> None:
         payload = self.snapshot()
-        self.path.write_text(json.dumps(payload, ensure_ascii=True, indent=2, sort_keys=True), encoding="utf-8")
+        serialized = json.dumps(payload, ensure_ascii=True, indent=2, sort_keys=True)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            dir=str(self.path.parent),
+            prefix=f".{self.path.name}.",
+            suffix=".tmp",
+            delete=False,
+        ) as handle:
+            handle.write(serialized)
+            handle.flush()
+            try:
+                import os
+
+                os.fsync(handle.fileno())
+            except Exception:
+                pass
+            temp_path = Path(handle.name)
+
+        temp_path.replace(self.path)
+        backup_path = self.path.with_suffix(self.path.suffix + ".bak")
+        try:
+            backup_path.write_text(serialized, encoding="utf-8")
+        except Exception:
+            pass
 
 
 STORE = InMemoryStateStore()

@@ -55,6 +55,71 @@ def _persist_auth_state() -> None:
     STORE.write_snapshot()
 
 
+def _bootstrap_password_user_payloads() -> list[dict[str, Any]]:
+    raw = str(SETTINGS.auth_bootstrap_password_users_json or "").strip()
+    if not raw:
+        return []
+    try:
+        payload = json.loads(raw)
+    except Exception as exc:
+        raise AppError(500, "AUTH_BOOTSTRAP_INVALID", "AUTH_BOOTSTRAP_PASSWORD_USERS_JSON is invalid JSON.", False, {"classification": "terminal"}) from exc
+    if isinstance(payload, dict):
+        payload = [payload]
+    if not isinstance(payload, list):
+        raise AppError(500, "AUTH_BOOTSTRAP_INVALID", "AUTH_BOOTSTRAP_PASSWORD_USERS_JSON must be a JSON list or object.", False, {"classification": "terminal"})
+    result: list[dict[str, Any]] = []
+    for item in payload:
+        if isinstance(item, dict):
+            result.append(item)
+    return result
+
+
+def bootstrap_password_users() -> dict[str, int]:
+    created = 0
+    updated = 0
+    skipped = 0
+    for raw_item in _bootstrap_password_user_payloads():
+        email = normalize_email(raw_item.get("email"))
+        password = str(raw_item.get("password") or "").strip()
+        name = raw_item.get("name")
+        force = bool(raw_item.get("force"))
+        if not email or not password:
+            skipped += 1
+            continue
+        _validate_password_strength(password)
+        existing = _load_user_by_email(email)
+        if existing:
+            user_id = str(existing["user_id"])
+            next_user = dict(existing)
+            next_user["email"] = email
+            password_hash = str(next_user.get("password_hash") or "").strip()
+            changed = False
+            password_changed = False
+            if force or not password_hash:
+                next_user["password_hash"] = hash_password(password)
+                changed = True
+                password_changed = True
+            if isinstance(name, str) and name.strip() and (force or not str(next_user.get("name") or "").strip()):
+                next_user["name"] = name.strip()
+                changed = True
+            with STORE.locked(*_auth_lock_items(("email_index", email), ("users", user_id))):
+                STORE.set("users", user_id, next_user)
+                STORE.set("email_index", email, user_id)
+                if password_changed:
+                    _invalidate_all_auth_sessions_for_user(user_id=user_id)
+            if changed:
+                updated += 1
+            else:
+                skipped += 1
+            continue
+
+        create_user(email=email, password=password, name=str(name).strip() if isinstance(name, str) else None)
+        created += 1
+    if created or updated:
+        _persist_auth_state()
+    return {"created": created, "updated": updated, "skipped": skipped}
+
+
 def _validate_password_strength(password: str) -> None:
     if len(password) < 8 or len(password) > 128:
         raise AppError(400, "VALIDATION_ERROR", "Password must be 8-128 characters.", False, {"classification": "non_retryable"})

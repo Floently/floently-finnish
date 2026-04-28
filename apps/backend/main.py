@@ -23,6 +23,7 @@ from app.middleware.error_handlers import register_error_handlers
 from app.middleware.request_id import register_request_id_middleware
 from app.core.config import SETTINGS
 from app.core.state_store import STORE
+from app.services.auth_service import bootstrap_password_users
 from app.services.voice_service import get_tts_health_snapshot
 
 app = FastAPI(title="floently-finnish")
@@ -117,6 +118,16 @@ async def init_db_on_startup() -> None:
         logger.info("Database tables initialised.")
     except Exception as exc:
         logger.warning("Could not initialise database tables: %s", exc)
+
+
+@app.on_event("startup")
+async def bootstrap_auth_password_users_on_startup() -> None:
+    try:
+        result = bootstrap_password_users()
+        if any(result.values()):
+            logger.info("Bootstrapped auth password users: %s", json.dumps(result, ensure_ascii=False))
+    except Exception as exc:
+        logger.warning("Could not bootstrap auth password users: %s", exc)
 
 
 @app.on_event("startup")

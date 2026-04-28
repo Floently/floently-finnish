@@ -130,6 +130,7 @@ class Settings:
 
     auth_provider_ids: tuple[str, ...] = field(default_factory=lambda: _get_list("AUTH_PROVIDER_IDS"))
     auth_mode: str | None = _get_optional_str("AUTH_MODE")
+    auth_bootstrap_password_users_json: str | None = _get_optional_str("AUTH_BOOTSTRAP_PASSWORD_USERS_JSON")
     google_oauth_client_id: str = (getenv("GOOGLE_OAUTH_CLIENT_ID", _DEFAULT_GOOGLE_WEB_CLIENT_ID) or _DEFAULT_GOOGLE_WEB_CLIENT_ID).strip()
     google_oauth_web_client_id: str = (getenv("GOOGLE_OAUTH_WEB_CLIENT_ID", _DEFAULT_GOOGLE_WEB_CLIENT_ID) or _DEFAULT_GOOGLE_WEB_CLIENT_ID).strip()
     google_oauth_android_client_id: str = (getenv("GOOGLE_OAUTH_ANDROID_CLIENT_ID", _DEFAULT_GOOGLE_ANDROID_CLIENT_ID) or _DEFAULT_GOOGLE_ANDROID_CLIENT_ID).strip()
