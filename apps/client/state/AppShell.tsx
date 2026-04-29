@@ -158,6 +158,17 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const placementHasHydrated = usePlacementStore((state) => state.hasHydrated);
   const placementShouldPrompt = usePlacementStore((state) => state.shouldPrompt());
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
+  const subscriptionGuardKey = [
+    subscriptionStatus?.billingTier ?? '',
+    subscriptionStatus?.tier ?? '',
+    subscriptionStatus?.isActive ? 'active' : 'inactive',
+    subscriptionStatus?.isInternalAllAccess ? 'internal' : 'external',
+    subscriptionStatus?.hasAnySubscription ? 'subscribed' : 'free',
+    subscriptionStatus?.entitlements?.learnAccess ? 'learn' : 'no-learn',
+    subscriptionStatus?.entitlements?.ykiAccess ? 'yki' : 'no-yki',
+    subscriptionStatus?.entitlements?.professionalAccess ? 'professional' : 'no-professional',
+    (subscriptionStatus?.entitlements?.professions ?? []).join(','),
+  ].join('|');
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const clearSubscription = useSubscriptionStore((state) => state.clear);
   const setActiveContext = useSubscriptionStore((state) => state.setActiveContext);
@@ -256,14 +267,11 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   }, [activeScreen]);
 
   function replaceIfNeeded(screen: GuardedScreen) {
-    if (screen === 'learning' && typeof window !== 'undefined') {
-      const target = isLearnHost() ? '/' : 'https://learn.floently.com/';
-      const current = isLearnHost() ? window.location.pathname : window.location.href;
-      if (current !== target) {
-        goToLearn('/');
-      }
+    if (screen === 'learning' && typeof window !== 'undefined' && !isLearnHost()) {
+      goToLearn('/learn');
       return;
     }
+
     const path = getPathForScreen(screen);
     if (pathname !== path) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -283,6 +291,11 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       subscriptionStatus?.isActive,
     );
     if (!entitlements) {
+      // Do not send authenticated users to billing while subscription status is still hydrating.
+      // The backend remains the source of truth; this only prevents premature frontend redirects.
+      if (user && !subscriptionStatus && screen !== 'landing' && screen !== 'auth') {
+        return true;
+      }
       return screen === 'landing' || screen === 'auth' || screen === 'billing';
     }
 
@@ -372,14 +385,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     if (persistedLearning.status === "missing" || !persistedLearning.value) {
-      await blockNavigation(
-        {
-          code: "SESSION_INVALID",
-          message: "Learning restore is blocked because no validated stored learning session exists.",
-          requestedScreen: "learning",
-        },
-        true,
-      );
+      await clearRuntimePersistence();
+      resolveScreen("learning");
+      await persistNavigationState({
+        activeScreen: "learning",
+        navigationStack: getStackForScreen("learning"),
+        requestedScreen: "learning",
+        ykiSessionId: null,
+      });
       return;
     }
 
@@ -454,6 +467,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     if (persistedNavigation.value.activeScreen === "home") {
+      if (!subscriptionStatus) {
+        replaceIfNeeded("home");
+        await resolveAndPersist("home", persistedNavigation.value.requestedScreen);
+        return;
+      }
+
       const hasUnlockedAccess = Boolean(
         subscriptionStatus?.isInternalAllAccess ||
         subscriptionStatus?.isPreview ||
@@ -537,6 +556,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     if (target === "root") {
+      if (!subscriptionStatus) {
+        replaceIfNeeded("home");
+        await resolveAndPersist("home", "root");
+        return;
+      }
+
       const hasUnlockedAccess = Boolean(
         subscriptionStatus?.isInternalAllAccess ||
         subscriptionStatus?.isPreview ||
@@ -609,7 +634,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     void resolveRequestedRoute(requestedScreen);
-  }, [hasHydrated, requestedScreen, user?.id]);
+  }, [hasHydrated, requestedScreen, user?.id, subscriptionGuardKey]);
 
   async function navigateTo(screen: GuardedScreen) {
     beginNavigationCheck(screen);

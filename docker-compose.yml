@@ -11,6 +11,8 @@ services:
       FLOENTLY_DEV_MODE: ${FLOENTLY_DEV_MODE:-true}
     volumes:
       - ${GOOGLE_KEYS_DIR:-./ops/keys}:/keys:ro
+      - ./apps/backend/persistent/puhis.db:/app/puhis.db
+      - ./apps/backend/persistent/runtime:/app/runtime
     ports:
       - '8000:8000'
   client:

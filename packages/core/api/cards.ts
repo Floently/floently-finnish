@@ -1,6 +1,28 @@
 import { apiClient } from './client';
 import { resolveApiUrl } from './apiConfig';
 
+function friendlyCardError(error: unknown): string {
+  const raw = typeof error === 'string'
+    ? error
+    : error instanceof Error
+      ? error.message
+      : '';
+
+  const message = raw.trim();
+
+  if (
+    !message ||
+    /\{\{.*\}\}/.test(message) ||
+    /card unavailable/i.test(message) ||
+    /session_invalid/i.test(message) ||
+    /network/i.test(message)
+  ) {
+    return 'Network problem. Cards could not be loaded. Please check your connection and try again.';
+  }
+
+  return message;
+}
+
 export type CardMode = 'vocabulary' | 'grammar' | 'phrases';
 export type CardDomain = 'general' | 'professional';
 export type CardProfession = 'none' | 'general_workplace' | 'doctor' | 'nurse' | 'practical_nurse' | 'other';
@@ -77,7 +99,7 @@ function requireCard(card: BackendCard | null | undefined, context: string): Run
 export async function startCardSession(filters: CardFilters): Promise<{ session: SessionState; firstCard: RuntimeCard }> {
   const params = new URLSearchParams({ domain: filters.domain, content_type: contentTypeForMode(filters.mode), ...(filters.profession ? { profession: filters.profession } : {}), ...(filters.level ? { level: filters.level } : {}), ...(filters.source ? { source: filters.source } : {}) });
   const res = await apiClient.get<{ session: SessionState; first_card: BackendCard }>(`/cards/session/adaptive/start?${params.toString()}`);
-  if (!res.ok || !res.data) throw new Error(res.error ?? 'Card session unavailable');
+  if (!res.ok || !res.data) throw new Error(friendlyCardError(res.error));
   return { session: res.data.session, firstCard: requireCard(res.data.first_card, 'startCardSession') };
 }
 

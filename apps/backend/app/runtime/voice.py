@@ -11,7 +11,9 @@ from app.core.utils import iso_now, new_id
 
 
 def _engine_upload_path(*, session_id: str, task_id: str, turn_id: str | None, suffix: str) -> Path:
-    root = Path(SETTINGS.yki_engine_repo_root) / "uploads" / "audio" / "exam"
+    from app.core.paths import RUNTIME_DIR
+
+    root = RUNTIME_DIR / "uploads" / "audio" / "exam"
     root.mkdir(parents=True, exist_ok=True)
     safe_session = "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in str(session_id))
     safe_task = "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in str(task_id))

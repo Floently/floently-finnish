@@ -30,6 +30,18 @@ const PREVIEW_OPTIONS: Array<{ id: 'yki' | ProfessionKey; title: string; detail:
   { id: 'practical_nurse', title: 'Free Preview - Practical Nurse Pathway', detail: 'One practical nurse pathway preview with one guided conversation and limited workplace Finnish access.' },
 ];
 
+function isActiveSubscriptionStatus(status: unknown): boolean {
+  const record = (status ?? {}) as {
+    isActive?: boolean;
+    hasAnySubscription?: boolean;
+    tier?: string;
+    billingTier?: string;
+    billing_tier?: string;
+  };
+  const tier = String(record.billingTier ?? record.billing_tier ?? record.tier ?? 'free');
+  return Boolean(record.isActive || record.hasAnySubscription || (tier && tier !== 'free'));
+}
+
 const PATHWAYS: Array<{ id: CheckoutPathway; title: string; eyebrow: string; detail: string; highlights: string[] }> = [
   {
     id: 'yki',
@@ -70,6 +82,12 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const refreshSubscription = useSubscriptionStore((state) => state.refresh);
   const subscription = useSubscriptionStore((state) => state.status);
+  const hasActiveSubscription = Boolean(
+    subscription &&
+    !subscription.isPreview &&
+    String(subscription.planLabel ?? '').trim() &&
+    !String(subscription.planLabel ?? '').toLowerCase().includes('free')
+  );
   const startPreview = useSubscriptionStore((state) => state.startPreview);
   const endPreview = useSubscriptionStore((state) => state.endPreview);
   const { t } = useTranslator();
@@ -128,6 +146,11 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     };
     try {
       setBusyPlan(request.plan);
+      const latestStatus = await paymentService.getSubscriptionStatus();
+      if (isActiveSubscriptionStatus(latestStatus)) {
+        Alert.alert('Trial already active', 'Your trial or subscription is already active. You can continue learning now.');
+        return;
+      }
       if (pathway !== 'yki' && selectedProfessions.length === 0) {
         Alert.alert('Choose a profession', 'Select at least one profession before checkout.');
         return;
@@ -168,6 +191,11 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   async function handleStartTrial() {
     try {
       setTrialBusy(true);
+      const latestStatus = await paymentService.getSubscriptionStatus();
+      if (isActiveSubscriptionStatus(latestStatus)) {
+        Alert.alert('Trial already active', 'Your trial or subscription is already active. You can continue learning now.');
+        return;
+      }
       await refreshSubscription({
         email: user?.email ?? null,
         subscriptionTierHint: user?.subscriptionTier ?? null,
@@ -243,10 +271,15 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       </View>
 
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-        <Text style={[styles.portalTitle, { color: palette.text }]}>{trialBusy ? 'Starting 3-day trial...' : 'Start 3-day trial'}</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Free preview stays separate from paid Stripe access. It gives a small taste before the learner chooses a pathway.</Text>
-        <Pressable accessibilityRole="button" onPress={() => { void handleStartTrial(); }} style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary }, pressed && styles.pressed]}>
-          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>Activate trial</Text>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{hasActiveSubscription ? 'Trial already active' : trialBusy ? 'Starting 3-day trial...' : 'Start 3-day trial'}</Text>
+        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{hasActiveSubscription ? 'Your trial or subscription is active. You can continue learning now.' : 'Free preview stays separate from paid Stripe access. It gives a small taste before the learner chooses a pathway.'}</Text>
+        <Pressable
+          accessibilityRole="button"
+          disabled={hasActiveSubscription}
+          onPress={() => { void handleStartTrial(); }}
+          style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary, opacity: hasActiveSubscription ? 0.65 : 1 }, pressed && !hasActiveSubscription && styles.pressed]}
+        >
+          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{hasActiveSubscription ? 'Trial already active' : 'Activate trial'}</Text>
         </Pressable>
         <View style={styles.stack}>
           {PREVIEW_OPTIONS.map((option) => (

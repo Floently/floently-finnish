@@ -57,3 +57,7 @@ apps/backend/.venv/
 *.swp
 *.swo
 Thumbs.db
+
+# Local backend runtime/database persistence
+apps/backend/persistent/
+backups/backend-persistence-*/

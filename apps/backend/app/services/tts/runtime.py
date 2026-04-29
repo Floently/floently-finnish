@@ -8,9 +8,10 @@ from pathlib import Path
 from typing import Any
 
 from app.core.config import SETTINGS
+from app.core.paths import RUNTIME_DIR
 from app.services.tts.voice_registry import provider_voice_name
 
-_CACHE_DIR = Path(tempfile.gettempdir()) / 'floently_tts_cache'
+_CACHE_DIR = RUNTIME_DIR / 'tts_cache'
 _CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 # OpenAI voices kept here as a small lookup since the OpenAI TTS provider

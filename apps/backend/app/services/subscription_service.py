@@ -350,7 +350,7 @@ def _checkout_details_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
     profession_count = len(professions)
     extra_profession_count = max(0, profession_count - 1) if pathway in {"professional", "combined"} else 0
     raw_trial_days = payload.get("trial_days") if "trial_days" in payload else payload.get("trialDays")
-    trial_days = 0
+    trial_days = 3 if raw_trial_days is None and pathway in {"yki", "professional", "combined"} else 0
     if raw_trial_days is not None:
         try:
             trial_days = int(raw_trial_days)
@@ -416,6 +416,7 @@ def _stripe_metadata(details: dict[str, Any], price_id: str) -> dict[str, str]:
         "professions": ",".join(str(item) for item in details.get("professions", []) if str(item).strip()),
         "selected_professions": ",".join(str(item) for item in details.get("professions", []) if str(item).strip()),
         "profession_count": str(int(details.get("profession_count") or 0)),
+        "trial_days": str(int(details.get("trial_days") or 0)),
         "price_id": price_id,
     }
     return metadata
@@ -425,14 +426,46 @@ def _front_end_base_url() -> str:
     return (SETTINGS.frontend_base_url or SETTINGS.public_base_url or "https://learn.floently.com").rstrip("/")
 
 
+
+def _stripe_to_dict(value: Any) -> dict[str, Any]:
+    if value is None:
+        return {}
+    if isinstance(value, dict):
+        return value
+    if hasattr(value, "_to_dict_recursive"):
+        try:
+            return value._to_dict_recursive()
+        except Exception:
+            pass
+    if hasattr(value, "to_dict_recursive"):
+        try:
+            return value.to_dict_recursive()
+        except Exception:
+            pass
+    if hasattr(value, "to_dict"):
+        try:
+            return value.to_dict()
+        except Exception:
+            pass
+    try:
+        return dict(value)
+    except Exception:
+        return {}
+
+
 def _parse_subscription_metadata(metadata: Any) -> dict[str, Any]:
-    raw = metadata if isinstance(metadata, dict) else {}
+    raw = _stripe_to_dict(metadata)
     professions = _normalize_professions(raw.get("professions") or raw.get("selected_professions"))
     user_id = str(raw.get("user_id") or "").strip()
     plan_id = str(raw.get("plan") or raw.get("plan_id") or "").strip()
     pathway = _normalize_pathway(raw.get("pathway")) or (_parse_plan_id(plan_id)[0] if plan_id else None)
     billing_period = _normalize_billing_period(raw.get("billing_period")) or (_parse_plan_id(plan_id)[1] if plan_id else None)
     profession_count = int(raw.get("profession_count") or len(professions) or 0)
+    try:
+        trial_days = int(raw.get("trial_days") or raw.get("trialDays") or 0)
+    except (TypeError, ValueError):
+        trial_days = 0
+    trial_days = max(0, min(trial_days, 30))
     price_id = str(raw.get("price_id") or "").strip() or None
     return {
         "user_id": user_id or None,
@@ -492,10 +525,10 @@ def _update_user_subscription_from_details(
     stripe_price_id: str | None = None,
     stripe_checkout_session_id: str | None = None,
     subscription_expires_at: str | None = None,
+    trial_ends_at: str | None = None,
     access_choice: str | None = "paid",
 ) -> dict[str, Any]:
     payload: dict[str, Any] = {
-        "user_id": user["user_id"],
         "access_choice": access_choice,
         "access_choice_at": utc_now().replace(microsecond=0).isoformat(),
         "subscription_tier": _subscription_tier_from_details(details),
@@ -510,67 +543,122 @@ def _update_user_subscription_from_details(
     }
     if subscription_expires_at is not None:
         payload["subscription_expires_at"] = subscription_expires_at
+    if trial_ends_at is not None:
+        payload["trial_ends_at"] = trial_ends_at
     updated, _ = auth_repository.AUTH_USERS.update_user(user["user_id"], **payload)
     STORE.write_snapshot()
     return updated
 
 
 def _stripe_subscription_from_session(session: Any) -> dict[str, Any] | None:
-    if stripe is None or not getattr(session, "subscription", None):
-        return None
-    subscription_id = str(session.subscription).strip()
+    session_data = _stripe_to_dict(session)
+    subscription_id = str(session_data.get("subscription") or "").strip()
     if not subscription_id:
+        try:
+            subscription_id = str(getattr(session, "subscription", "") or "").strip()
+        except Exception:
+            subscription_id = ""
+    if stripe is None or not subscription_id:
         return None
     try:
         subscription = stripe.Subscription.retrieve(subscription_id)
     except Exception:
         return None
-    if isinstance(subscription, dict):
-        return subscription
-    try:
-        return subscription.to_dict()
-    except Exception:
-        return {"id": subscription_id}
-
+    data = _stripe_to_dict(subscription)
+    if data:
+        return data
+    return {"id": subscription_id}
 
 def apply_stripe_checkout_session_completed(session: Any) -> dict[str, Any]:
-    metadata = _parse_subscription_metadata(getattr(session, "metadata", None) if not isinstance(session, dict) else session.get("metadata"))
-    user = _find_user_for_subscription_event(
-        user_id=metadata.get("user_id"),
-        subscription_id=str(getattr(session, "subscription", None) or (session.get("subscription") if isinstance(session, dict) else "")).strip() or None,
-        customer_id=str(getattr(session, "customer", None) or (session.get("customer") if isinstance(session, dict) else "")).strip() or None,
-    )
-    if user is None:
-        raise AppError(404, "USER_NOT_FOUND", "Unable to match Stripe checkout session to a user.", False, {"classification": "non_retryable"})
-    subscription = _stripe_subscription_from_session(session)
-    expires_at = None
-    if isinstance(subscription, dict):
-        expires_at = _normalize_unix_timestamp(subscription.get("current_period_end"))
-    return _update_user_subscription_from_details(
-        user=user,
-        details=metadata,
-        stripe_customer_id=str(getattr(session, "customer", None) or (session.get("customer") if isinstance(session, dict) else "")).strip() or None,
-        stripe_subscription_id=str(getattr(session, "subscription", None) or (session.get("subscription") if isinstance(session, dict) else "")).strip() or None,
-        stripe_price_id=metadata.get("price_id"),
-        stripe_checkout_session_id=str(getattr(session, "id", None) or (session.get("id") if isinstance(session, dict) else "")).strip() or None,
-        subscription_expires_at=expires_at,
+    session_data = _stripe_to_dict(session)
+    metadata = _parse_subscription_metadata(session_data.get("metadata"))
+
+    subscription_id = str(session_data.get("subscription") or "").strip() or None
+    customer_id = str(session_data.get("customer") or "").strip() or None
+    checkout_session_id = str(session_data.get("id") or "").strip() or None
+
+    customer_details = session_data.get("customer_details") if isinstance(session_data.get("customer_details"), dict) else {}
+    customer_email = (
+        str(session_data.get("customer_email") or "").strip().lower()
+        or str(customer_details.get("email") or "").strip().lower()
     )
 
-
-def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> dict[str, Any]:
-    subscription_id = str(getattr(subscription, "id", None) or (subscription.get("id") if isinstance(subscription, dict) else "")).strip() or None
-    metadata = _parse_subscription_metadata(getattr(subscription, "metadata", None) if not isinstance(subscription, dict) else subscription.get("metadata"))
-    customer_id = str(getattr(subscription, "customer", None) or (subscription.get("customer") if isinstance(subscription, dict) else "")).strip() or None
     user = _find_user_for_subscription_event(
         user_id=metadata.get("user_id"),
         subscription_id=subscription_id,
         customer_id=customer_id,
     )
-    if user is None:
-        raise AppError(404, "USER_NOT_FOUND", "Unable to match Stripe subscription to a user.", False, {"classification": "non_retryable"})
 
-    status = str(getattr(subscription, "status", None) or (subscription.get("status") if isinstance(subscription, dict) else "")).strip().lower()
-    current_period_end = _normalize_unix_timestamp(getattr(subscription, "current_period_end", None) if not isinstance(subscription, dict) else subscription.get("current_period_end"))
+    if user is None and customer_email:
+        user = auth_repository.AUTH_USERS.get_user_by_email(customer_email)
+
+    if user is None:
+        raise AppError(
+            404,
+            "USER_NOT_FOUND",
+            "Unable to match Stripe checkout session to a user.",
+            False,
+            {
+                "classification": "non_retryable",
+                "session_id": checkout_session_id,
+                "metadata_user_id": metadata.get("user_id"),
+                "customer_email": customer_email,
+                "customer_id": customer_id,
+                "subscription_id": subscription_id,
+            },
+        )
+
+    subscription = _stripe_subscription_from_session(session)
+    subscription_data = _stripe_to_dict(subscription)
+
+    expires_at = _normalize_unix_timestamp(subscription_data.get("current_period_end"))
+    trial_ends_at = _normalize_unix_timestamp(subscription_data.get("trial_end"))
+    stripe_status = str(subscription_data.get("status") or "").strip().lower()
+    access_choice = "trial" if stripe_status == "trialing" or trial_ends_at else "paid"
+
+    return _update_user_subscription_from_details(
+        user=user,
+        details=metadata,
+        stripe_customer_id=customer_id,
+        stripe_subscription_id=subscription_id,
+        stripe_price_id=metadata.get("price_id"),
+        stripe_checkout_session_id=checkout_session_id,
+        subscription_expires_at=expires_at,
+        trial_ends_at=trial_ends_at,
+        access_choice=access_choice,
+    )
+
+def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> dict[str, Any]:
+    subscription_data = _stripe_to_dict(subscription)
+
+    subscription_id = str(subscription_data.get("id") or "").strip() or None
+    metadata = _parse_subscription_metadata(subscription_data.get("metadata"))
+    customer_id = str(subscription_data.get("customer") or "").strip() or None
+
+    user = _find_user_for_subscription_event(
+        user_id=metadata.get("user_id"),
+        subscription_id=subscription_id,
+        customer_id=customer_id,
+    )
+
+    if user is None:
+        raise AppError(
+            404,
+            "USER_NOT_FOUND",
+            "Unable to match Stripe subscription to a user.",
+            False,
+            {
+                "classification": "non_retryable",
+                "metadata_user_id": metadata.get("user_id"),
+                "customer_id": customer_id,
+                "subscription_id": subscription_id,
+            },
+        )
+
+    status = str(subscription_data.get("status") or "").strip().lower()
+    current_period_end = _normalize_unix_timestamp(subscription_data.get("current_period_end"))
+    trial_ends_at = _normalize_unix_timestamp(subscription_data.get("trial_end"))
+
     if event_type == "customer.subscription.deleted" or status in {"canceled", "incomplete_expired"}:
         cleared_details = dict(metadata)
         cleared_details["plan_id"] = "free"
@@ -588,6 +676,8 @@ def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> di
             access_choice="paid",
         )
 
+    access_choice = "trial" if status == "trialing" or trial_ends_at else "paid"
+
     return _update_user_subscription_from_details(
         user=user,
         details=metadata,
@@ -595,8 +685,9 @@ def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> di
         stripe_subscription_id=subscription_id or user.get("stripe_subscription_id"),
         stripe_price_id=metadata.get("price_id") or user.get("stripe_price_id"),
         subscription_expires_at=current_period_end,
+        trial_ends_at=trial_ends_at,
+        access_choice=access_choice,
     )
-
 
 def handle_stripe_event(event: Any) -> dict[str, Any]:
     event_type = str(getattr(event, "type", None) or (event.get("type") if isinstance(event, dict) else "")).strip()
@@ -987,6 +1078,23 @@ def billing_checkout_url(*, plan_id: str | None = None, user_id: str, payload: d
 
 
 def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[str, Any]:
+    existing_user = auth_repository.AUTH_USERS.get_user_by_id(user_id)
+    if existing_user:
+        current_status = subscription_status(user=existing_user)
+        if bool(current_status.get("is_active")) and str(current_status.get("billing_tier") or current_status.get("tier") or "free") != "free":
+            raise AppError(
+                409,
+                "SUBSCRIPTION_ALREADY_ACTIVE",
+                "You already have an active trial or subscription.",
+                False,
+                {
+                    "classification": "non_retryable",
+                    "billing_tier": current_status.get("billing_tier"),
+                    "trial_ends_at": current_status.get("trial_ends_at"),
+                    "stripe_subscription_id": existing_user.get("stripe_subscription_id"),
+                },
+            )
+
     details = billing_checkout_details(payload=payload, user_id=user_id)
     if _stripe_enabled():
         selected_price_id = details.get("price_id")
@@ -1014,12 +1122,16 @@ def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[s
             trial_days = int(details.get("trial_days") or 0)
             if trial_days > 0:
                 subscription_data["trial_period_days"] = trial_days
+                subscription_data["trial_settings"] = {
+                    "end_behavior": {"missing_payment_method": "cancel"}
+                }
 
             checkout_params: dict[str, Any] = {
                 "mode": "subscription",
+                "payment_method_collection": "always",
                 "line_items": [{"price": selected_price_id, "quantity": 1}],
-                "success_url": f"{front_end_base_url}/?checkout=success&session_id={{CHECKOUT_SESSION_ID}}",
-                "cancel_url": f"{front_end_base_url}/?checkout=cancelled",
+                "success_url": "https://learn.floently.com/billing/subscription?checkout=success&session_id={CHECKOUT_SESSION_ID}",
+                "cancel_url": "https://learn.floently.com/billing/subscription?checkout=cancelled",
                 "client_reference_id": user_id,
                 "metadata": metadata,
                 "subscription_data": subscription_data,

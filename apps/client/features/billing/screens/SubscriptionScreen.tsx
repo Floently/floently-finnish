@@ -61,6 +61,7 @@ export default function SubscriptionScreen() {
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+  const hasActiveSubscription = Boolean(tier && tier !== 'free');
 
   const onboardingIntent = useOnboardingSession((s) => s.intentType);
   const onboardingProfession = useOnboardingSession((s) => s.profession);
@@ -99,6 +100,10 @@ export default function SubscriptionScreen() {
 
   async function openCheckout(pathway: CheckoutPathway) {
     try {
+      if (hasActiveSubscription) {
+        Alert.alert('Trial already active', 'Your trial or subscription is already active. You can continue learning now.');
+        return;
+      }
       if (pathway !== 'yki' && selectedProfessions.length === 0) {
         Alert.alert('Choose a profession', 'Select at least one profession before starting checkout.');
         return;
@@ -236,10 +241,11 @@ export default function SubscriptionScreen() {
 
               <Pressable
                 accessibilityRole="button"
+                disabled={hasActiveSubscription}
                 onPress={() => { void openCheckout(pathway.id); }}
-                style={({ pressed }) => [styles.cta, { backgroundColor: palette.primary }, pressed && styles.pressed]}
+                style={({ pressed }) => [styles.cta, { backgroundColor: palette.primary, opacity: hasActiveSubscription ? 0.65 : 1 }, pressed && !hasActiveSubscription && styles.pressed]}
               >
-                <Text style={[styles.ctaText, { color: textOnPrimary }]}>Start 3-day free trial</Text>
+                <Text style={[styles.ctaText, { color: textOnPrimary }]}>{hasActiveSubscription ? 'Trial already active' : 'Start 3-day free trial'}</Text>
               </Pressable>
               <Text style={[styles.planFinePrint, { color: palette.textMuted }]}>{estimate.totalLabel}. Cancel before day 3.</Text>
             </View>
