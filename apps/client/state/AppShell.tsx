@@ -860,7 +860,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialLevelBand: 'B1-B2',
               initialSurface: 'conversation',
               initialProfession: 'general',
-              contextLabel: 'Everyday Finnish roleplay',
+              contextLabel: t('appShellContextEverydayRoleplay'),
             });
             void navigateTo('speaking-practice');
           }}

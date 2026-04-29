@@ -15,6 +15,7 @@ export const LANGUAGE_META: Record<AppLanguage, { flag: string; label: string; n
 
 const TRANSLATIONS = {
   fi: {
+    appShellContextEverydayRoleplay: 'Arjen suomen roolipeli',
     appLoading: 'Tarkistetaan sovelluksen tila…',
     appReturnHome: 'Siirry kotiin',
     appOpenAuth: 'Avaa kirjautuminen',
@@ -369,6 +370,7 @@ const TRANSLATIONS = {
     ykiRouteStartAnotherSession: 'Aloita uusi harjoitus',
 },
   sv: {
+    appShellContextEverydayRoleplay: 'Vardagsfinska rollspel',
     appLoading: 'Kontrollerar appens läge…',
     appReturnHome: 'Gå till startsidan',
     appOpenAuth: 'Öppna inloggning',
@@ -723,6 +725,7 @@ const TRANSLATIONS = {
     ykiRouteStartAnotherSession: 'Starta en ny övning',
 },
   en: {
+    appShellContextEverydayRoleplay: 'Everyday Finnish roleplay',
     appLoading: 'Checking app state…',
     appReturnHome: 'Go home',
     appOpenAuth: 'Open sign-in',
