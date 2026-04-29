@@ -304,7 +304,11 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     }
 
     if (screen === 'learning' || screen === 'daily-practice') {
-      return !isPreview && entitlements.learnAccess;
+      return !isPreview && Boolean(
+        entitlements.learnAccess ||
+        entitlements.ykiAccess ||
+        entitlements.professionalAccess
+      );
     }
 
     if (screen === 'speaking-practice') {
@@ -557,8 +561,10 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (target === "root") {
       if (!subscriptionStatus) {
-        replaceIfNeeded("home");
-        await resolveAndPersist("home", "root");
+        // Do not force users home while subscription status is refreshing.
+        // Restore the last known navigation state instead, especially for
+        // already-open protected feature screens such as roleplay/speaking.
+        await restoreFromNavigationState();
         return;
       }
 
@@ -633,8 +639,29 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       return;
     }
 
+    const isStableProtectedScreen =
+      activeScreen !== "landing" &&
+      activeScreen !== "auth" &&
+      activeScreen !== "home" &&
+      activeScreen !== "billing" &&
+      activeScreen !== "error";
+
+    if (
+      requestedScreen === "root" &&
+      user &&
+      isStableProtectedScreen
+    ) {
+      // A root-route refresh must not eject an already-open protected screen.
+      // During subscription refresh, subscriptionStatus can briefly be missing.
+      // In that case, keep the current feature screen stable and let backend
+      // remain the real security layer.
+      if (!subscriptionStatus || isEntitledForScreen(activeScreen)) {
+        return;
+      }
+    }
+
     void resolveRequestedRoute(requestedScreen);
-  }, [hasHydrated, requestedScreen, user?.id, subscriptionGuardKey]);
+  }, [hasHydrated, requestedScreen, user?.id, activeScreen, subscriptionGuardKey]);
 
   async function navigateTo(screen: GuardedScreen) {
     beginNavigationCheck(screen);
@@ -670,6 +697,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       clearNavigationError();
       replaceIfNeeded("home");
       await resolveAndPersist("home", "root");
+      return;
+    }
+
+    if (screen === "daily-practice") {
+      clearNavigationError();
+      setActiveContext("none");
+      replaceIfNeeded("daily-practice");
+      await resolveAndPersist("daily-practice", "daily-practice");
       return;
     }
 

@@ -2,6 +2,7 @@ import { translate, type AppLanguage } from '../../features/i18n';
 
 export type DrawerRoute =
   | 'learning'
+  | 'daily-practice'
   | 'yki-practice'
   | 'yki-exam'
   | 'professional-finnish'

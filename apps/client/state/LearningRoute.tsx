@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useMemo, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { AppScaffold, PageHeader, TaskCard } from '@ui/components';
 import { usePreferencesStore } from './preferencesStore';
-import { goToLearn, isLearnHost } from './learnRouting';
 
 type Props = {
   onBack: () => void;
@@ -24,7 +23,12 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
   }, [hydratePreferences]);
 
   const rawBranch = Array.isArray(params.branch) ? params.branch[0] : params.branch;
-  const branch: Branch = rawBranch === 'everyday' ? 'everyday' : 'hub';
+  const initialBranch = useMemo<Branch>(() => (rawBranch === 'everyday' ? 'everyday' : 'hub'), [rawBranch]);
+  const [branch, setBranch] = useState<Branch>(initialBranch);
+
+  useEffect(() => {
+    setBranch(initialBranch);
+  }, [initialBranch]);
 
   if (branch === 'everyday') {
     return (
@@ -38,11 +42,7 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
             subtitle="Choose the shared daily-language branch first, then open only the general flashcards or the YKI-linked daily roleplay from here."
             actionLabel="Workplace Finnish"
             onActionPress={() => {
-              if (typeof window !== 'undefined' && !isLearnHost()) {
-                goToLearn('/learn');
-                return;
-              }
-              router.replace('/learn' as never);
+              setBranch('hub');
             }}
             onMenuPress={onOpenMenu}
             themeMode={themeMode}
@@ -98,11 +98,7 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
           meta="Shared language"
           actionLabel="Open Everyday Finnish"
           onPress={() => {
-            if (typeof window !== 'undefined' && !isLearnHost()) {
-              goToLearn('/learn?branch=everyday');
-              return;
-            }
-            router.push('/learn?branch=everyday' as never);
+            setBranch('everyday');
           }}
         />
         <TaskCard

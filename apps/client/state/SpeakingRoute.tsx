@@ -81,7 +81,21 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
   const isDark = themeMode === 'dark';
 
   useEffect(() => { setLevelBand(initialLevelBand); }, [initialLevelBand]);
-  useEffect(() => { setSurface(initialSurface); }, [initialSurface]);
+
+  // Do not continuously force `surface` back to `initialSurface`.
+  // `initialSurface` is only the starting point from AppShell/navigation.
+  // After the user enters conversation mode, local state must own the surface.
+  // Otherwise a harmless parent route/status refresh can throw the user back
+  // to the speaking menu while the roleplay backend session is already working.
+  useEffect(() => {
+    setSurface((current) => {
+      if (current === "conversation" || current === "recorded") {
+        return current;
+      }
+      return initialSurface;
+    });
+  }, [initialSurface]);
+
   useEffect(() => { setScenarioId(initialScenarioId); }, [initialScenarioId]);
   useEffect(() => {
     const derived = initialProfession !== 'general' ? initialProfession : (activeContext === 'doctor' || activeContext === 'nurse' || activeContext === 'practical_nurse' ? activeContext : 'general');

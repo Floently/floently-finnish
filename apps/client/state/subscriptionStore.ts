@@ -467,15 +467,39 @@ export const useSubscriptionStore = create<SubscriptionState>((set, get) => ({
   },
   async refresh(input) {
     const user = toUserLike(input);
+    const currentStatus = get().status;
     const previewPath = get().previewPath;
     const previewFallback = previewPath ? buildPreviewStatus(previewPath) : null;
-    const fallback = previewFallback ?? fallbackForUser(user);
+
+    // Background feature hooks often call refresh() without passing the user.
+    // Never downgrade an already-valid subscription/all-access state to a
+    // free fallback while the remote status request is still in flight.
+    const fallback = previewFallback ?? currentStatus ?? fallbackForUser(user);
     const fallbackContext = resolveContext(fallback, get().activeContext);
     set({ isLoading: true, status: { ...fallback, entitlements: { ...fallback.entitlements, activeContext: fallbackContext } }, activeContext: fallbackContext });
     try {
       const remoteRaw = await getSubscriptionStatus();
       const remote = normalizeRemoteStatus(remoteRaw, user);
-      const effectiveRemote = (!remote.hasAnySubscription && !remote.isInternalAllAccess && previewFallback) ? previewFallback : remote;
+
+      // If a background refresh without user context returns an empty/free shape,
+      // preserve the current valid status instead of ejecting the user from a
+      // paid/internal screen. A real user-driven hydrate with input can still
+      // replace the status normally.
+      const shouldPreserveCurrent =
+        !user &&
+        currentStatus &&
+        (currentStatus.hasAnySubscription || currentStatus.isInternalAllAccess || currentStatus.isActive) &&
+        !remote.hasAnySubscription &&
+        !remote.isInternalAllAccess &&
+        !remote.isActive &&
+        !previewFallback;
+
+      const effectiveRemote = shouldPreserveCurrent
+        ? currentStatus
+        : (!remote.hasAnySubscription && !remote.isInternalAllAccess && previewFallback)
+          ? previewFallback
+          : remote;
+
       const activeContext = resolveContext(effectiveRemote, get().activeContext);
       set({
         hasLoaded: true,

@@ -59,18 +59,29 @@ def _normalized_text(value: Any) -> str:
 
 
 def _normalized_path_value(value: Any) -> str:
-    candidate = str(value or "").strip().lower()
-    return "professional" if candidate == "professional" else "general"
+    candidate = str(value or "").strip().lower().replace("\\", "/")
+    if candidate == "professional" or candidate.startswith("professional/"):
+        return "professional"
+    return "general"
 
 
-def _normalized_profession(value: Any, *, path_value: str) -> str:
+def _normalized_profession(value: Any, *, path_value: str, raw_path: Any = None) -> str:
     if path_value != "professional":
         return "none"
+
     if isinstance(value, dict):
         raw = value.get("slug") or value.get("track") or value.get("label")
     else:
         raw = value
-    profession = str(raw or "").strip().lower().replace(" ", "_") or "none"
+
+    profession = str(raw or "").strip().lower().replace(" ", "_").replace("-", "_")
+
+    if not profession or profession in {"none", "professional"}:
+        parts = str(raw_path or "").strip().lower().replace("\\", "/").split("/")
+        if len(parts) >= 2 and parts[0] == "professional":
+            profession = parts[1].replace("-", "_")
+
+    profession = profession or "none"
     return _PROFESSION_ALIASES.get(profession, profession)
 
 
@@ -204,7 +215,7 @@ def _runtime_from_aps(item: dict[str, Any], source_file: Path, index: int, parts
         return None
     raw_path = item.get("path") or (parts[0] if parts else "general")
     path_value = _normalized_path_value(raw_path)
-    profession = _normalized_profession(item.get("profession"), path_value=path_value)
+    profession = _normalized_profession(item.get("profession"), path_value=path_value, raw_path=raw_path)
     level_band = _normalize_level_band(item.get("level_band") or _level_band_from_path(parts))
     raw_content_type = str(item.get("content_type") or "").strip()
     content_type = raw_content_type if raw_content_type in SUPPORTED_CONTENT_TYPES else _content_type_from_path(parts)
@@ -290,10 +301,11 @@ def _runtime_from_aps(item: dict[str, Any], source_file: Path, index: int, parts
 
 
 def _runtime_from_compiled_card(item: dict[str, Any], source_file: Path, index: int) -> dict[str, Any] | None:
+    raw_path = item.get("path") or item.get("domain") or "general"
     raw_content_type = str(item.get("content_type") or "").strip()
     content_type = raw_content_type if raw_content_type in SUPPORTED_CONTENT_TYPES else "vocabulary_card"
     path_value = _normalized_path_value(item.get("path") or item.get("domain") or "general")
-    profession = _normalized_profession(item.get("profession"), path_value=path_value)
+    profession = _normalized_profession(item.get("profession"), path_value=path_value, raw_path=raw_path)
     level_band = _normalize_level_band(item.get("level_band") or item.get("cefr") or "B1_B2")
     front = _normalized_text(item.get("word") or item.get("front_text") or item.get("front") or item.get("term"))
     answer = _normalized_text(item.get("_answer_value") or item.get("answer") or item.get("meaning") or item.get("back"))
