@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { colors, spacing, typography } from '@ui/theme';
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
-import { resolveProfessionalDisplayName } from '@core/api/entitlements';
+import { useTranslator } from '../features/i18n';
 import { useSubscriptionStore } from './subscriptionStore';
 
 type Props = {
@@ -17,27 +17,39 @@ type Props = {
 const CORE_PROFESSIONS = ['nurse', 'doctor', 'practical_nurse'] as const;
 type Profession = typeof CORE_PROFESSIONS[number];
 
+type TFunction = ReturnType<typeof useTranslator>['t'];
 type ProfessionMission = { title: string; detail: string; cta: string; onPress?: () => void; disabled?: boolean };
 
-function buildMissions(profession: Profession): Array<{ title: string; summary: string }> {
+function professionalDisplayName(profession: Profession, t: TFunction): string {
+  switch (profession) {
+    case 'doctor':
+      return t('professionalNameDoctor');
+    case 'practical_nurse':
+      return t('professionalNamePracticalNurse');
+    default:
+      return t('professionalNameNurse');
+  }
+}
+
+function buildMissions(profession: Profession, t: TFunction): Array<{ title: string; summary: string }> {
   switch (profession) {
     case 'doctor':
       return [
-        { title: 'Interview clearly', summary: 'Ask focused questions and guide patients without losing structure.' },
-        { title: 'Explain safely', summary: 'Give next-step instructions in Finnish that are concise and calm.' },
-        { title: 'Document and report', summary: 'Summarise findings and escalation points in language that supports safe handover.' },
+        { title: t('professionalDoctorMissionInterviewTitle'), summary: t('professionalDoctorMissionInterviewSummary') },
+        { title: t('professionalDoctorMissionExplainTitle'), summary: t('professionalDoctorMissionExplainSummary') },
+        { title: t('professionalDoctorMissionDocumentTitle'), summary: t('professionalDoctorMissionDocumentSummary') },
       ];
     case 'practical_nurse':
       return [
-        { title: 'Daily-care Finnish', summary: 'Use clear routine language for support, hygiene, mobility, and observation.' },
-        { title: 'Reassure and guide', summary: 'Give short explanations and supportive prompts in a natural work rhythm.' },
-        { title: 'Report observations', summary: 'Say what changed, what you noticed, and why it should be passed on.' },
+        { title: t('professionalPracticalNurseMissionDailyCareTitle'), summary: t('professionalPracticalNurseMissionDailyCareSummary') },
+        { title: t('professionalPracticalNurseMissionReassureTitle'), summary: t('professionalPracticalNurseMissionReassureSummary') },
+        { title: t('professionalPracticalNurseMissionReportTitle'), summary: t('professionalPracticalNurseMissionReportSummary') },
       ];
     default:
       return [
-        { title: 'Shift handover', summary: 'Report essentials so the next person understands changes, risk, and priorities.' },
-        { title: 'Patient communication', summary: 'Ask, respond, and clarify in Finnish that stays calm under pressure.' },
-        { title: 'Escalation language', summary: 'State concerns early and clearly so the team can respond quickly.' },
+        { title: t('professionalNurseMissionHandoverTitle'), summary: t('professionalNurseMissionHandoverSummary') },
+        { title: t('professionalNurseMissionPatientTitle'), summary: t('professionalNurseMissionPatientSummary') },
+        { title: t('professionalNurseMissionEscalationTitle'), summary: t('professionalNurseMissionEscalationSummary') },
       ];
   }
 }
@@ -54,6 +66,7 @@ function interviewScenarioId(profession: Profession): string {
 }
 
 export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand = 'B1-B2', onOpenRoleplay }: Props) {
+  const { t } = useTranslator();
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
   const activeContext = useSubscriptionStore((state) => state.activeContext);
   const setActiveContext = useSubscriptionStore((state) => state.setActiveContext);
@@ -73,21 +86,21 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
   }, [entitledProfessions, selectedProfession, setActiveContext]);
 
   const isEntitled = (profession: Profession) => entitledProfessions.includes(profession);
-  const missions = buildMissions(selectedProfession);
-  const heading = resolveProfessionalDisplayName(selectedProfession);
+  const missions = buildMissions(selectedProfession, t);
+  const heading = professionalDisplayName(selectedProfession, t);
   const professionQuery = `/cards?mode=vocabulary&domain=professional&profession=${selectedProfession}`;
   const pathwayMissions: ProfessionMission[] = [
     {
-      title: 'Flashcards',
-      detail: 'Open the profession-specific flashcards for the pathway you paid for. General language stays under Workplace Finnish → Everyday Finnish.',
-      cta: 'Open flashcards',
+      title: t('professionalFlashcardsTitle'),
+      detail: t('professionalFlashcardsDetail'),
+      cta: t('professionalOpenFlashcards'),
       onPress: () => router.push(professionQuery as never),
       disabled: !isEntitled(selectedProfession),
     },
     {
-      title: 'Roleplay',
-      detail: 'Practice the workplace conversations that belong to this profession path without exposing other paid professions in the selector.',
-      cta: 'Open roleplay',
+      title: t('professionalRoleplayTitle'),
+      detail: t('professionalRoleplayDetail'),
+      cta: t('professionalOpenRoleplay'),
       onPress: () => {
         setActiveContext(selectedProfession);
         onOpenRoleplay?.(selectedProfession, null, 'workplace');
@@ -95,9 +108,9 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
       disabled: !isEntitled(selectedProfession),
     },
     {
-      title: 'Interview practice',
-      detail: 'Open the structured interview beta built on the same conversation engine, but with profession-specific interview scenarios.',
-      cta: 'Open interview beta',
+      title: t('professionalInterviewTitle'),
+      detail: t('professionalInterviewDetail'),
+      cta: t('professionalOpenInterview'),
       onPress: () => {
         setActiveContext(selectedProfession);
         onOpenRoleplay?.(selectedProfession, interviewScenarioId(selectedProfession), 'interview');
@@ -110,13 +123,13 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container} showsVerticalScrollIndicator={false}>
         <View style={styles.headerRow}>
-          <Pressable onPress={onBack} style={styles.smallButton}><Text style={styles.smallButtonText}>← Back</Text></Pressable>
-          <Pressable onPress={onOpenMenu} style={styles.smallButton}><Text style={styles.smallButtonText}>Menu</Text></Pressable>
+          <Pressable onPress={onBack} style={styles.smallButton}><Text style={styles.smallButtonText}>← {t('professionalBack')}</Text></Pressable>
+          <Pressable onPress={onOpenMenu} style={styles.smallButton}><Text style={styles.smallButtonText}>{t('professionalMenu')}</Text></Pressable>
         </View>
 
-        <Text style={styles.eyebrow}>My Profession</Text>
+        <Text style={styles.eyebrow}>{t('professionalEyebrow')}</Text>
         <Text style={styles.title}>{heading}</Text>
-        <Text style={styles.subtitle}>Keep this page profession-focused: flashcards, roleplay, and interview practice for the work context you paid for.</Text>
+        <Text style={styles.subtitle}>{t('professionalSubtitle')}</Text>
 
         <View style={styles.selectorRow}>
           {CORE_PROFESSIONS.map((profession) => {
@@ -128,17 +141,17 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
                 onPress={entitled ? () => setActiveContext(profession) : undefined}
                 style={[styles.selectorPill, selected && styles.selectorPillActive, !entitled && styles.selectorPillLocked]}
               >
-                <Text style={[styles.selectorText, selected && styles.selectorTextActive]}>{resolveProfessionalDisplayName(profession)}</Text>
-                <Text style={[styles.selectorHint, selected && styles.selectorHintActive]}>{entitled ? 'Built and accessible' : 'Locked to your plan'}</Text>
+                <Text style={[styles.selectorText, selected && styles.selectorTextActive]}>{professionalDisplayName(profession, t)}</Text>
+                <Text style={[styles.selectorHint, selected && styles.selectorHintActive]}>{entitled ? t('professionalEntitledHint') : t('professionalLockedHint')}</Text>
               </Pressable>
             );
           })}
         </View>
 
         <View style={styles.overviewCard}>
-          <Text style={styles.overviewLabel}>Assigned pathway</Text>
-          <Text style={styles.overviewTitle}>{heading} pathway · {initialLevelBand}</Text>
-          <Text style={styles.overviewBody}>This route should feel like one profession-specific system: flashcards for the job, roleplay from the workplace, and structured interview practice when relevant.</Text>
+          <Text style={styles.overviewLabel}>{t('professionalAssignedPathway')}</Text>
+          <Text style={styles.overviewTitle}>{heading} {t('professionalPathwayLabel')} · {initialLevelBand}</Text>
+          <Text style={styles.overviewBody}>{t('professionalOverviewBody')}</Text>
         </View>
 
         <View style={styles.missionStack}>
@@ -152,7 +165,7 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
         </View>
 
         <View style={styles.noteCard}>
-          <Text style={styles.noteTitle}>Current communication goals</Text>
+          <Text style={styles.noteTitle}>{t('professionalGoalsTitle')}</Text>
           {missions.map((mission) => (
             <View key={mission.title} style={styles.goalRow}>
               <View style={styles.goalDot} />

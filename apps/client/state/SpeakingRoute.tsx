@@ -5,6 +5,7 @@ import { router } from 'expo-router';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
+import { useTranslator } from '../features/i18n';
 import { LEVEL_BANDS, SPEAKING_TRACKS } from '../features/speaking/types';
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 import { resolveProfessionalDisplayName } from '@core/api/entitlements';
@@ -70,6 +71,7 @@ function defaultInterviewScenario(profession: RoleplayProfession): string | null
 }
 
 export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = 'B1-B2', initialSurface = 'menu', initialProfession = 'general', initialScenarioId = null, lockProfession = false, entryMode = 'workplace', contextLabel }: Props) {
+  const { t } = useTranslator();
   const subscriptionStatus = useSubscriptionStore((s) => s.status);
   const activeContext = useSubscriptionStore((s) => s.activeContext);
   const [surface, setSurface] = useState<SpeakingSurface>(initialSurface);
@@ -163,8 +165,8 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
     <SafeAreaView style={[styles.safe, { backgroundColor: bg }]}>
       <View style={styles.container}>
         <View style={styles.headerRow}>
-          <Pressable onPress={onBack} style={[styles.navBtn, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.navBtnText, { color: mutedColor }]}>← Back</Text></Pressable>
-          <Pressable onPress={onOpenMenu} style={[styles.navBtn, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.navBtnText, { color: mutedColor }]}>Menu</Text></Pressable>
+          <Pressable onPress={onBack} style={[styles.navBtn, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.navBtnText, { color: mutedColor }]}>{t('speakingBack')}</Text></Pressable>
+          <Pressable onPress={onOpenMenu} style={[styles.navBtn, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.navBtnText, { color: mutedColor }]}>{t('speakingMenu')}</Text></Pressable>
         </View>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
           <View style={styles.headingBlock}>
@@ -187,13 +189,13 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               The user sees three (or two for general) prominent entry tiles:
                 Roleplay  →  workplace dialogue scenarios
                 Interview →  structured interview practice (skipped for general)
-                Incident lab → existing work-incidence-recording feature
+                Incident workflow → existing work-incidence-recording feature
               Each tile is a dedicated flow, not a sub-section of a single
               "speaking practice" surface. This matches the user's request
               that nurse should have its own UI with separate links for
               roleplay vs interview vs other tools. */}
           <View style={styles.subnavSection}>
-            <Text style={[styles.sectionTitle, { color: softColor }]}>What do you want to do?</Text>
+            <Text style={[styles.sectionTitle, { color: softColor }]}>{t('speakingChooseActionTitle')}</Text>
             <View style={styles.subnavGrid}>
               <Pressable
                 onPress={() => {
@@ -208,25 +210,25 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                   <Text style={[styles.subnavIconText, { color: accent }]}>💬</Text>
                 </View>
                 <View style={styles.subnavTileText}>
-                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>Roleplay</Text>
+                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>{t('speakingRoleplayTitle')}</Text>
                   <Text style={[styles.subnavTileSub, { color: mutedColor }]}>
-                    Practise workplace dialogues with profession-specific scenarios.
+                    {t('speakingWorkplaceDialoguesDetail')}
                   </Text>
                 </View>
               </Pressable>
 
-              {/* ── Interview tile — Beta · Coming soon ────────────────
+              {/* ── Interview tile — beta locked ────────────────
                   The full adaptive interview engine is part of Engine B
                   (Beta), which is in development. Rather than dropping the
                   user into a scripted "interview" that doesn't deliver on
-                  the interview promise, we surface a clear "Coming soon"
+                  the interview promise, we surface a clear locked-state label
                   state. When Beta launches, this tile becomes tappable.
               */}
               {profession !== 'general' ? (
                 <View
                   style={[styles.subnavTile, styles.subnavTileLocked, { backgroundColor: surface_, borderColor: border }]}
                   accessibilityRole="text"
-                  accessibilityLabel="Interview practice — coming soon"
+                  accessibilityLabel={t('speakingInterviewComingSoonAccessibility')}
                 >
                   <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}10` }]}>
                     <Text style={[styles.subnavIconText, { color: accent, opacity: 0.55 }]}>🎯</Text>
@@ -235,11 +237,11 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                     <View style={styles.subnavTitleRow}>
                       <Text style={[styles.subnavTileTitle, { color: textColor, opacity: 0.6 }]}>Interview</Text>
                       <View style={[styles.comingSoonBadge, { backgroundColor: `${accent}18`, borderColor: `${accent}40` }]}>
-                        <Text style={[styles.comingSoonText, { color: accent }]}>Coming soon</Text>
+                        <Text style={[styles.comingSoonText, { color: accent }]}>{t('speakingComingSoon')}</Text>
                       </View>
                     </View>
                     <Text style={[styles.subnavTileSub, { color: mutedColor, opacity: 0.7 }]}>
-                      Adaptive interview practice with grammar feedback per turn — part of our Beta engine, currently in development. We'll unlock this tile when it's ready.
+                      {t('speakingInterviewBetaDetailFull')}
                     </Text>
                   </View>
                 </View>
@@ -255,9 +257,9 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                   <Text style={[styles.subnavIconText, { color: accent }]}>🎙️</Text>
                 </View>
                 <View style={styles.subnavTileText}>
-                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>Recorded speaking</Text>
+                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>{t('speakingRecordedTitle')}</Text>
                   <Text style={[styles.subnavTileSub, { color: mutedColor }]}>
-                    Record a monologue work update and review your delivery.
+                    {t('speakingRecordedDetail')}
                   </Text>
                 </View>
               </Pressable>
@@ -266,15 +268,15 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                 onPress={() => router.push('/professional/incidents' as never)}
                 style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
                 accessibilityRole="button"
-                accessibilityLabel="Incident lab"
+                accessibilityLabel={t('speakingIncidentLabTitle')}
               >
                 <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}18` }]}>
                   <Text style={[styles.subnavIconText, { color: accent }]}>🛠️</Text>
                 </View>
                 <View style={styles.subnavTileText}>
-                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>Incident lab</Text>
+                  <Text style={[styles.subnavTileTitle, { color: textColor }]}>{t('speakingIncidentLabTitle')}</Text>
                   <Text style={[styles.subnavTileSub, { color: mutedColor }]}>
-                    Document and practise reporting workplace incidents in Finnish.
+                    {t('speakingIncidentLabDetail')}
                   </Text>
                 </View>
               </Pressable>
@@ -285,7 +287,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               Kept as a non-interactive "what to expect" list, since the
               Roleplay tile above is the actual entry point. */}
           <View style={styles.scenarioSection}>
-            <Text style={[styles.sectionTitle, { color: softColor }]}>Scenarios you'll practise</Text>
+            <Text style={[styles.sectionTitle, { color: softColor }]}>{t('speakingScenariosTitle')}</Text>
             <View style={styles.scenarioList}>{scenarios.filter((c) => c.label !== 'interview' && c.label !== 'beta').map((card) => (<View key={card.title} style={[styles.scenarioCard, { backgroundColor: surface_, borderColor: border }]}><View style={[styles.scenarioBadge, { backgroundColor: `${accent}18` }]}><Text style={[styles.scenarioBadgeText, { color: accent }]}>{card.label}</Text></View><Text style={[styles.scenarioTitle, { color: textColor }]}>{card.title}</Text><Text style={[styles.scenarioText, { color: mutedColor }]}>{card.summary}</Text></View>))}</View>
           </View>
           {/* Action row: in interview entry mode, show a single CTA to
@@ -295,7 +297,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
             <View
               style={[styles.subnavTile, styles.subnavTileLocked, { backgroundColor: surface_, borderColor: border }]}
               accessibilityRole="text"
-              accessibilityLabel="Interview practice — coming soon"
+              accessibilityLabel={t('speakingInterviewComingSoonAccessibility')}
             >
               <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}10` }]}>
                 <Text style={[styles.subnavIconText, { color: accent, opacity: 0.55 }]}>🎯</Text>
@@ -304,17 +306,17 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                 <View style={styles.subnavTitleRow}>
                   <Text style={[styles.subnavTileTitle, { color: textColor, opacity: 0.6 }]}>Interview</Text>
                   <View style={[styles.comingSoonBadge, { backgroundColor: `${accent}18`, borderColor: `${accent}40` }]}>
-                    <Text style={[styles.comingSoonText, { color: accent }]}>Coming soon</Text>
+                    <Text style={[styles.comingSoonText, { color: accent }]}>{t('speakingComingSoon')}</Text>
                   </View>
                 </View>
                 <Text style={[styles.subnavTileSub, { color: mutedColor, opacity: 0.7 }]}>
-                  Adaptive interview practice with grammar feedback per turn — part of our Beta engine, currently in development.
+                  {t('speakingInterviewBetaDetailShort')}
                 </Text>
               </View>
             </View>
           ) : null}
-          <View style={[styles.grammarTip, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.grammarTipLabel, { color: softColor }]}>Why this route matters</Text><Text style={[styles.grammarTipText, { color: textColor }]}>Practice here should feel closer to working life in Finland than generic speaking drills. Keep the language short, clear, and job-relevant.</Text></View>
-          <View style={[styles.grammarTip, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.grammarTipLabel, { color: softColor }]}>Track focus</Text><Text style={[styles.grammarTipText, { color: textColor }]}>{activeTrack.scenarios.join(' · ')}</Text></View>
+          <View style={[styles.grammarTip, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.grammarTipLabel, { color: softColor }]}>{t('speakingWhyRouteMattersTitle')}</Text><Text style={[styles.grammarTipText, { color: textColor }]}>{t('speakingWhyRouteMattersText')}</Text></View>
+          <View style={[styles.grammarTip, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.grammarTipLabel, { color: softColor }]}>{t('speakingTrackFocusTitle')}</Text><Text style={[styles.grammarTipText, { color: textColor }]}>{activeTrack.scenarios.join(' · ')}</Text></View>
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -346,7 +348,7 @@ const styles = StyleSheet.create({
   subnavTileText: { flex: 1, gap: 3 },
   subnavTileTitle: { fontSize: 16, fontWeight: '800', letterSpacing: -0.2 },
   subnavTileSub: { fontSize: 12, lineHeight: 17 },
-  // ── Beta locked tile (Interview "Coming soon") ──
+  // ── Beta locked tile (Interview unavailable) ──
   subnavTileLocked: {
     opacity: 0.95, // slightly muted; main muting is on text via inline style
   },

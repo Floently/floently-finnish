@@ -178,7 +178,7 @@ export const audioSession = {
       try {
         player = createAudioPlayer(normalizeAudioSource(source), { updateInterval: 150 });
         activePlayer = player;
-        activePlaybackSubscription = player.addListener('playbackStatusUpdate', (status: AudioStatus) => {
+        activePlaybackSubscription = (player as unknown as { addListener: (event: 'playbackStatusUpdate', listener: (status: AudioStatus) => void) => { remove: () => void } }).addListener('playbackStatusUpdate', (status: AudioStatus) => {
           if (token !== activePlaybackToken) return;
           if (!status.didJustFinish) return;
           callbacks?.onEnd?.();
@@ -222,7 +222,7 @@ export const audioSession = {
     let subscription: PlaybackSubscription = null;
     try {
       player = createAudioPlayer({ uri }, { updateInterval: 150 });
-      subscription = player.addListener('playbackStatusUpdate', (status: AudioStatus) => {
+      subscription = (player as unknown as { addListener: (event: 'playbackStatusUpdate', listener: (status: AudioStatus) => void) => { remove: () => void } }).addListener('playbackStatusUpdate', (status: AudioStatus) => {
         if (!status.didJustFinish) return;
         try { subscription?.remove?.(); } catch {}
         releasePlayer(player);

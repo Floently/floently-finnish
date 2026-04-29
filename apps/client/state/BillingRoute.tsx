@@ -21,13 +21,13 @@ import {
   type CheckoutPathway,
   type ProfessionKey,
 } from '@core/api/entitlements';
-import { useTranslator } from '../features/i18n';
+import { useTranslator, type TranslationKey } from '../features/i18n';
 
-const PREVIEW_OPTIONS: Array<{ id: 'yki' | ProfessionKey; title: string; detail: string }> = [
-  { id: 'yki', title: 'Free Preview - YKI Pathway', detail: 'One YKI sampler, one guided conversation, and a limited pathway preview. The full exam stays locked.' },
-  { id: 'nurse', title: 'Free Preview - Nurse Pathway', detail: 'One nurse pathway preview with one guided conversation and limited workplace Finnish access.' },
-  { id: 'doctor', title: 'Free Preview - Doctor Pathway', detail: 'One doctor pathway preview with one guided conversation and limited workplace Finnish access.' },
-  { id: 'practical_nurse', title: 'Free Preview - Practical Nurse Pathway', detail: 'One practical nurse pathway preview with one guided conversation and limited workplace Finnish access.' },
+const PREVIEW_OPTIONS: Array<{ id: 'yki' | ProfessionKey; titleKey: TranslationKey; detailKey: TranslationKey }> = [
+  { id: 'yki', titleKey: 'billingPreviewYkiTitle', detailKey: 'billingPreviewYkiDetail' },
+  { id: 'nurse', titleKey: 'billingPreviewNurseTitle', detailKey: 'billingPreviewNurseDetail' },
+  { id: 'doctor', titleKey: 'billingPreviewDoctorTitle', detailKey: 'billingPreviewDoctorDetail' },
+  { id: 'practical_nurse', titleKey: 'billingPreviewPracticalNurseTitle', detailKey: 'billingPreviewPracticalNurseDetail' },
 ];
 
 function isActiveSubscriptionStatus(status: unknown): boolean {
@@ -42,27 +42,27 @@ function isActiveSubscriptionStatus(status: unknown): boolean {
   return Boolean(record.isActive || record.hasAnySubscription || (tier && tier !== 'free'));
 }
 
-const PATHWAYS: Array<{ id: CheckoutPathway; title: string; eyebrow: string; detail: string; highlights: string[] }> = [
+const PATHWAYS: Array<{ id: CheckoutPathway; titleKey: TranslationKey; eyebrowKey: TranslationKey; detailKey: TranslationKey; highlightKeys: TranslationKey[] }> = [
   {
     id: 'yki',
-    title: 'YKI Pathway',
-    eyebrow: 'Exam and residence route',
-    detail: 'YKI speaking, writing, reading, and listening practice for citizenship, permanent residence, study, and daily life.',
-    highlights: ['YKI practice and guided feedback', 'No profession selection needed', 'Simple individual exam route'],
+    titleKey: 'billingYkiTitle',
+    eyebrowKey: 'billingYkiEyebrow',
+    detailKey: 'billingYkiDetail',
+    highlightKeys: ['billingYkiHighlight1', 'billingYkiHighlight2', 'billingYkiHighlight3'],
   },
   {
     id: 'professional',
-    title: 'Professional Pathway',
-    eyebrow: 'Role-specific work route',
-    detail: 'Select one or more professions and unlock Finnish for workplace communication, documentation, teamwork, and real role situations.',
-    highlights: ['One profession included', 'Extra professions become extra slots', 'Extra slots get a discount'],
+    titleKey: 'billingProfessionalTitle',
+    eyebrowKey: 'billingProfessionalEyebrow',
+    detailKey: 'billingProfessionalDetail',
+    highlightKeys: ['billingProfessionalHighlight1', 'billingProfessionalHighlight2', 'billingProfessionalHighlight3'],
   },
   {
     id: 'combined',
-    title: 'Combined Pathway',
-    eyebrow: 'Best for YKI plus work',
-    detail: 'YKI preparation plus one selected profession, with the option to add more professional tracks when needed.',
-    highlights: ['YKI plus one profession included', 'Add additional profession slots', 'Best complete learner route'],
+    titleKey: 'billingCombinedTitle',
+    eyebrowKey: 'billingCombinedEyebrow',
+    detailKey: 'billingCombinedDetail',
+    highlightKeys: ['billingCombinedHighlight1', 'billingCombinedHighlight2', 'billingCombinedHighlight3'],
   },
 ];
 
@@ -112,19 +112,19 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const organisationPlans = useMemo(() => [
     {
       id: 'employer_programme',
-      title: 'Employer Programme Access',
-      detail: 'Support international employees with YKI preparation, workplace Finnish, onboarding language, and role-based communication practice.',
+      title: t('billingEmployerProgrammeTitle'),
+      detail: t('billingEmployerProgrammeDetail'),
     },
     {
       id: 'city_programme',
-      title: 'City Programme Access',
-      detail: 'Offer residents a scalable pathway for YKI, employability, integration, citizenship, and permanent residence language goals.',
+      title: t('billingCityProgrammeTitle'),
+      detail: t('billingCityProgrammeDetail'),
     },
-  ], []);
+  ], [t]);
 
   async function openUrl(url: string | undefined) {
     if (!url) {
-      Alert.alert('Billing unavailable', 'The billing link was missing from the server response.');
+      Alert.alert(t('billingUnavailableTitle'), t('billingUnavailableBody'));
       return;
     }
     await Linking.openURL(url);
@@ -148,29 +148,29 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       setBusyPlan(request.plan);
       const latestStatus = await paymentService.getSubscriptionStatus();
       if (isActiveSubscriptionStatus(latestStatus)) {
-        Alert.alert('Trial already active', 'Your trial or subscription is already active. You can continue learning now.');
+        Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
         return;
       }
       if (pathway !== 'yki' && selectedProfessions.length === 0) {
-        Alert.alert('Choose a profession', 'Select at least one profession before checkout.');
+        Alert.alert(t('billingChooseProfessionTitle'), t('billingChooseProfessionBody'));
         return;
       }
       if (supportsStoreBilling()) {
         if (pathway !== 'yki' && selectedProfessions.length > 1) {
-          Alert.alert('Use web checkout', 'Multiple profession slots need the Stripe checkout flow so the selected professions can be attached to the subscription.');
+          Alert.alert(t('billingUseWebCheckoutTitle'), t('billingUseWebCheckoutBody'));
           return;
         }
         await startStorePurchase(request.plan);
         Alert.alert(
-          'In-app billing',
-          'Store purchase flow is enabled for release builds. If you are running a dev client, complete the purchase on a store-enabled build.',
+          t('billingInAppTitle'),
+          t('billingInAppBody'),
         );
         return;
       }
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
       await openUrl(session?.url ?? session?.checkout_url);
     } catch (error) {
-      Alert.alert('Purchase unavailable', error instanceof Error ? error.message : 'The purchase flow could not be started.');
+      Alert.alert(t('billingPurchaseUnavailableTitle'), error instanceof Error ? error.message : t('billingPurchaseUnavailableBody'));
     } finally {
       setBusyPlan(null);
     }
@@ -182,7 +182,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       const session = await paymentService.createPortalSession() as { portal_url?: string; url?: string } | undefined;
       await openUrl(session?.url ?? session?.portal_url);
     } catch (error) {
-      Alert.alert('Portal unavailable', error instanceof Error ? error.message : 'The billing portal could not be opened.');
+      Alert.alert(t('billingPortalUnavailableTitle'), error instanceof Error ? error.message : t('billingPortalUnavailableBody'));
     } finally {
       setPortalBusy(false);
     }
@@ -193,7 +193,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       setTrialBusy(true);
       const latestStatus = await paymentService.getSubscriptionStatus();
       if (isActiveSubscriptionStatus(latestStatus)) {
-        Alert.alert('Trial already active', 'Your trial or subscription is already active. You can continue learning now.');
+        Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
         return;
       }
       await refreshSubscription({
@@ -208,7 +208,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
       await openUrl(session?.url ?? session?.checkout_url);
     } catch (error) {
-      Alert.alert('Trial unavailable', error instanceof Error ? error.message : 'The trial flow could not be started.');
+      Alert.alert(t('billingTrialUnavailableTitle'), error instanceof Error ? error.message : t('billingTrialUnavailableBody'));
     } finally {
       setTrialBusy(false);
     }
@@ -218,8 +218,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     return (
       <View style={styles.professionBox}>
         <View style={styles.planTopRow}>
-          <Text style={[styles.professionTitle, { color: palette.text }]}>Profession slots</Text>
-          <Text style={[styles.planChipText, { color: palette.primary }]}>{selectedProfessions.length} selected</Text>
+          <Text style={[styles.professionTitle, { color: palette.text }]}>{t('billingProfessionSlots')}</Text>
+          <Text style={[styles.planChipText, { color: palette.primary }]}>{selectedProfessions.length} {t('billingSelectedSuffix')}</Text>
         </View>
         <View style={styles.professionGrid}>
           {PROFESSION_OPTIONS.map((option) => {
@@ -241,7 +241,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           })}
         </View>
         {selectedProfessions.length > 1 ? (
-          <Text style={[styles.planBody, { color: palette.accent }]}>Extra profession slots use {ADDITIONAL_PROFESSION_DISCOUNT_PERCENT}% off.</Text>
+          <Text style={[styles.planBody, { color: palette.accent }]}>{t('billingExtraSlotsDiscountPrefix')} {ADDITIONAL_PROFESSION_DISCOUNT_PERCENT}{t('billingExtraSlotsDiscountSuffix')}</Text>
         ) : null}
       </View>
     );
@@ -254,10 +254,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       header={
         <PageHeader
           themeMode={themeMode}
-          eyebrow="Access"
-          title="Choose the pathway that fits your goals in Finland"
-          subtitle="Three individual plans stay visible. Use the billing toggle and profession slots instead of creating hundreds of payment products."
-          actionLabel="Home"
+          eyebrow={t('billingAccessEyebrow')}
+          title={t('billingHeaderTitle')}
+          subtitle={t('billingHeaderSubtitle')}
+          actionLabel={t('billingHomeAction')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
         />
@@ -271,27 +271,27 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       </View>
 
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-        <Text style={[styles.portalTitle, { color: palette.text }]}>{hasActiveSubscription ? 'Trial already active' : trialBusy ? 'Starting 3-day trial...' : 'Start 3-day trial'}</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{hasActiveSubscription ? 'Your trial or subscription is active. You can continue learning now.' : 'Free preview stays separate from paid Stripe access. It gives a small taste before the learner chooses a pathway.'}</Text>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : trialBusy ? t('billingStartingTrial') : t('billingStartTrial')}</Text>
+        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{hasActiveSubscription ? t('billingTrialActiveBody') : t('billingPreviewBody')}</Text>
         <Pressable
           accessibilityRole="button"
           disabled={hasActiveSubscription}
           onPress={() => { void handleStartTrial(); }}
           style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary, opacity: hasActiveSubscription ? 0.65 : 1 }, pressed && !hasActiveSubscription && styles.pressed]}
         >
-          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{hasActiveSubscription ? 'Trial already active' : 'Activate trial'}</Text>
+          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : t('billingActivateTrial')}</Text>
         </Pressable>
         <View style={styles.stack}>
           {PREVIEW_OPTIONS.map((option) => (
-            <Pressable key={option.id} accessibilityRole="button" onPress={() => { startPreview(option.id); Alert.alert('Preview started', `${option.title} is now active on this device session.`); }} style={({ pressed }) => [styles.planCardSmall, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
-              <Text style={[styles.planTitle, { color: palette.text }]}>{option.title}</Text>
-              <Text style={[styles.planBody, { color: palette.textMuted }]}>{option.detail}</Text>
+            <Pressable key={option.id} accessibilityRole="button" onPress={() => { startPreview(option.id); Alert.alert(t('billingPreviewStartedTitle'), t('billingPreviewStartedBody')); }} style={({ pressed }) => [styles.planCardSmall, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+              <Text style={[styles.planTitle, { color: palette.text }]}>{t(option.titleKey)}</Text>
+              <Text style={[styles.planBody, { color: palette.textMuted }]}>{t(option.detailKey)}</Text>
             </Pressable>
           ))}
           {subscription?.isPreview ? (
-            <Pressable accessibilityRole="button" onPress={() => { endPreview(); Alert.alert('Preview cleared', 'Preview mode was removed from this device session.'); }} style={({ pressed }) => [styles.planCardSmall, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
-              <Text style={[styles.planTitle, { color: palette.text }]}>Clear preview</Text>
-              <Text style={[styles.planBody, { color: palette.textMuted }]}>Return this device session to the locked free state.</Text>
+            <Pressable accessibilityRole="button" onPress={() => { endPreview(); Alert.alert(t('billingPreviewClearedTitle'), t('billingPreviewClearedBody')); }} style={({ pressed }) => [styles.planCardSmall, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
+              <Text style={[styles.planTitle, { color: palette.text }]}>{t('billingClearPreview')}</Text>
+              <Text style={[styles.planBody, { color: palette.textMuted }]}>{t('billingClearPreviewBody')}</Text>
             </Pressable>
           ) : null}
         </View>
@@ -299,19 +299,19 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
       {Platform.OS === 'web' ? (
         <Pressable accessibilityRole="button" onPress={() => { void handlePortal(); }} style={({ pressed }) => [styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
-          <Text style={[styles.portalTitle, { color: palette.text }]}>{portalBusy ? 'Opening portal...' : 'Manage subscription'}</Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>Customer portal, invoices, payment method, and pathway access details.</Text>
+          <Text style={[styles.portalTitle, { color: palette.text }]}>{portalBusy ? t('billingOpeningPortal') : t('billingManageSubscription')}</Text>
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingPortalBody')}</Text>
         </Pressable>
       ) : (
         <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-          <Text style={[styles.portalTitle, { color: palette.text }]}>Manage subscription</Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>On mobile, single-slot purchases can run through app store billing. Multi-profession subscriptions should use web checkout.</Text>
+          <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingManageSubscription')}</Text>
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingMobilePortalBody')}</Text>
         </View>
       )}
 
       <View style={styles.sectionHeading}>
-        <Text style={[styles.sectionTitle, { color: palette.text }]}>Choose a paid pathway</Text>
-        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>The Microsoft-style layout keeps only three choices visible. Billing period and profession count do the rest.</Text>
+        <Text style={[styles.sectionTitle, { color: palette.text }]}>{t('billingChoosePaidPathway')}</Text>
+        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>{t('billingPaidPathwayBody')}</Text>
       </View>
 
       <View style={[styles.segmentWrap, { backgroundColor: palette.surface, borderColor: palette.border }]}>
@@ -335,26 +335,26 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           return (
             <View key={pathway.id} style={[styles.pricingCard, { backgroundColor: palette.surface, borderColor: palette.border, shadowColor: palette.shadow }]}>
               <View style={styles.planTopRow}>
-                <Text style={[styles.planEyebrow, { color: palette.primary }]}>{pathway.eyebrow}</Text>
+                <Text style={[styles.planEyebrow, { color: palette.primary }]}>{t(pathway.eyebrowKey)}</Text>
                 <View style={[styles.planChip, { backgroundColor: palette.primarySurface }]}>
                   <Text style={[styles.planChipText, { color: palette.primary }]}>{plan.checkoutLabel}</Text>
                 </View>
               </View>
-              <Text style={[styles.pricingTitle, { color: palette.text }]}>{pathway.title}</Text>
-              <Text style={[styles.portalBody, { color: palette.textMuted }]}>{pathway.detail}</Text>
+              <Text style={[styles.pricingTitle, { color: palette.text }]}>{t(pathway.titleKey)}</Text>
+              <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t(pathway.detailKey)}</Text>
               <Text style={[styles.priceText, { color: palette.text }]}>{estimate.totalLabel}</Text>
               {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions)}</Text> : null}
               {needsProfession ? renderProfessionSelector() : null}
               <View style={styles.stackTight}>
-                {pathway.highlights.map((item) => (
+                {pathway.highlightKeys.map((item) => (
                   <View key={item} style={styles.highlightRow}>
                     <Text style={[styles.check, { color: palette.accent }]}>✓</Text>
-                    <Text style={[styles.planBody, { color: palette.textMuted }]}>{item}</Text>
+                    <Text style={[styles.planBody, { color: palette.textMuted }]}>{t(item)}</Text>
                   </View>
                 ))}
               </View>
               <Pressable accessibilityRole="button" onPress={() => { void handleCheckout(pathway.id); }} style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary }, pressed && styles.pressed]}>
-                <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{isBusy ? 'Opening checkout...' : 'Start checkout'}</Text>
+                <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{isBusy ? t('billingOpeningCheckout') : t('billingStartCheckout')}</Text>
               </Pressable>
             </View>
           );
@@ -362,8 +362,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       </View>
 
       <View style={[styles.organisationCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-        <Text style={[styles.portalTitle, { color: palette.text }]}>Need access for employees, residents, or programme participants?</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>Employer and city programme access remains separate from individual Stripe subscriptions, just as planned.</Text>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingOrgTitle')}</Text>
+        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingOrgBody')}</Text>
         <View style={styles.stack}>
           {organisationPlans.map((option) => (
             <View key={option.id} style={[styles.planCardSmall, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}>
@@ -371,8 +371,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
               <Text style={[styles.planBody, { color: palette.textMuted }]}>{option.detail}</Text>
             </View>
           ))}
-          <Pressable accessibilityRole="button" onPress={() => Alert.alert('Contact sales', 'Use the web demo flow to discuss employer or city programme access.')} style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary }, pressed && styles.pressed]}>
-            <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>Book a demo</Text>
+          <Pressable accessibilityRole="button" onPress={() => Alert.alert(t('billingContactSalesTitle'), t('billingContactSalesBody'))} style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary }, pressed && styles.pressed]}>
+            <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{t('billingBookDemo')}</Text>
           </Pressable>
         </View>
       </View>
