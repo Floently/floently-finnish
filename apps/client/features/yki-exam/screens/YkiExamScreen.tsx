@@ -5,6 +5,7 @@ import { AppScaffold, PageHeader, TaskCard } from '@ui/components';
 import { getYkiExamOverview, type YkiExamOverview, type YkiLevelBand } from '@core/api/ykiExam';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import { startExamSession } from '../services/ykiExamService';
+import { useTranslator } from '../../i18n';
 
 const LEVEL_BANDS: YkiLevelBand[] = ['A1-A2', 'B1-B2', 'C1-C2'];
 
@@ -31,6 +32,7 @@ export default function YkiExamScreen({
   onOpenCertificate,
   initialLevelBand = 'B1-B2',
 }: Props) {
+  const { t } = useTranslator();
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const [selectedLevel, setSelectedLevel] = useState<YkiLevelBand>(initialLevelBand);
   const [starting, setStarting] = useState(false);
@@ -83,10 +85,10 @@ export default function YkiExamScreen({
       allowScroll={true}
       header={
         <PageHeader
-          eyebrow="YKI Exam"
-          title="Full YKI exam simulation for real outcomes"
-          subtitle="Choose a level band and run the formal YKI flow. Use this route when you need exam-true practice that also supports work, citizenship, permanent residence, and long-term life in Finland."
-          actionLabel="Home"
+          eyebrow={t('ykiExamEyebrow')}
+          title={t('ykiExamHeaderTitle')}
+          subtitle={t('ykiExamHeaderSubtitle')}
+          actionLabel={t('commonHome')}
           onActionPress={onExit}
           onMenuPress={onOpenMenu}
           themeMode={themeMode}
@@ -114,7 +116,7 @@ export default function YkiExamScreen({
       </View>
 
       <View style={styles.sectionsCard}>
-        <Text style={styles.sectionsTitle}>Exam coverage</Text>
+        <Text style={styles.sectionsTitle}>{t('ykiExamCoverageTitle')}</Text>
         {(overview?.sections ?? []).map((section) => (
           <View key={section.key} style={styles.sectionRow}>
             <View>
@@ -127,13 +129,13 @@ export default function YkiExamScreen({
       </View>
 
       <View style={styles.grid}>
-        <TaskCard themeMode={themeMode} accent="blue" title={`Start ${selectedLevel} YKI exam`} detail="Open the full exam runtime for the selected level band." meta="Exam" actionLabel={starting ? 'Starting…' : 'Start'} onPress={() => void handleStartExam()} />
-        <TaskCard themeMode={themeMode} accent="yellow" title="Mock cycle" detail="Open a preparation cycle for timing pressure, exam confidence, and readiness for work and life in Finland." meta="Preparation" actionLabel="Open" onPress={handleOpenMockCycle} />
-        <TaskCard themeMode={themeMode} title="Recording speaking" detail="Open the recorded-speaking preparation surface for solo speaking." meta="Speaking" actionLabel="Open" onPress={() => onOpenSpeakingRecording?.(selectedLevel)} />
-        <TaskCard themeMode={themeMode} title="Conversation speaking" detail="Open the conversation-speaking surface when you want more realistic communication practice." meta="Conversation" actionLabel="Open" onPress={() => onOpenSpeakingConversation?.(selectedLevel)} />
-        <TaskCard themeMode={themeMode} title="Guided YKI practice" detail="Open the lighter practice surface when you want guided feedback before returning to the full YKI route." meta="Practice" actionLabel="Open" onPress={() => onOpenPractice?.(selectedLevel)} />
-        {onOpenResults ? <TaskCard themeMode={themeMode} title="Results" detail="Review outcomes in one clean place." meta="After practice or mock" actionLabel="Open" onPress={onOpenResults} /> : null}
-        {onOpenCertificate ? <TaskCard themeMode={themeMode} title="Certificate" detail="Open certification details only when they matter." meta="Reference" actionLabel="Open" onPress={onOpenCertificate} /> : null}
+        <TaskCard themeMode={themeMode} accent="blue" title={`Start ${selectedLevel} YKI exam`} detail={t('ykiExamRuntimeDetail')} meta={t('ykiExamRuntimeMeta')} actionLabel={starting ? 'Starting…' : 'Start'} onPress={() => void handleStartExam()} />
+        <TaskCard themeMode={themeMode} accent="yellow" title={t('ykiExamMockTitle')} detail={t('ykiExamMockDetail')} meta={t('ykiExamMockMeta')} actionLabel={t('commonOpen')} onPress={handleOpenMockCycle} />
+        <TaskCard themeMode={themeMode} title={t('ykiExamRecordingTitle')} detail={t('ykiExamRecordingDetail')} meta={t('ykiExamRecordingMeta')} actionLabel={t('commonOpen')} onPress={() => onOpenSpeakingRecording?.(selectedLevel)} />
+        <TaskCard themeMode={themeMode} title={t('ykiExamConversationTitle')} detail={t('ykiExamConversationDetail')} meta={t('ykiExamConversationMeta')} actionLabel={t('commonOpen')} onPress={() => onOpenSpeakingConversation?.(selectedLevel)} />
+        <TaskCard themeMode={themeMode} title={t('ykiExamGuidedTitle')} detail={t('ykiExamGuidedDetail')} meta={t('ykiExamGuidedMeta')} actionLabel={t('commonOpen')} onPress={() => onOpenPractice?.(selectedLevel)} />
+        {onOpenResults ? <TaskCard themeMode={themeMode} title={t('ykiExamResultsTitle')} detail={t('ykiExamResultsDetail')} meta={t('ykiExamResultsMeta')} actionLabel={t('commonOpen')} onPress={onOpenResults} /> : null}
+        {onOpenCertificate ? <TaskCard themeMode={themeMode} title={t('ykiExamCertificateTitle')} detail={t('ykiExamCertificateDetail')} meta={t('ykiExamCertificateMeta')} actionLabel={t('commonOpen')} onPress={onOpenCertificate} /> : null}
       </View>
 
       {error ? <Text style={styles.errorText}>{error}</Text> : null}

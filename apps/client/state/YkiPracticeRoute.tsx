@@ -21,6 +21,7 @@ import {
   type YkiPracticeTask,
 } from '@core/api/ykiPractice';
 import { startPracticeSession } from '../features/yki-practice/services/ykiPracticeService';
+import { useTranslator } from '../features/i18n';
 
 // ─── Design tokens ─────────────────────────────────────────────────────────
 const T = {
@@ -71,6 +72,7 @@ function McqTask({
   themeMode: 'light' | 'dark';
   onAnswered: () => void;
 }) {
+  const { t } = useTranslator();
   const isDark = themeMode === 'dark';
   const palette = getFloentlyPalette(themeMode);
   const surface  = isDark ? T.surface : palette.surface;
@@ -105,7 +107,7 @@ function McqTask({
       ) : null}
       {audio_script ? (
         <View style={[styles.passageBlock, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
-          <Text style={[styles.passageLabel, { color: isDark ? T.yki : palette.textSoft }]}>🔊 Audio transcript (practice only)</Text>
+          <Text style={[styles.passageLabel, { color: isDark ? T.yki : palette.textSoft }]}>{t('ykiRouteAudioTranscript')}</Text>
           <Text style={[styles.passageText, { color: text }]}>{audio_script}</Text>
         </View>
       ) : null}
@@ -147,15 +149,15 @@ function McqTask({
           disabled={answer.selected === null}
           style={[styles.checkBtn, { backgroundColor: T.yki }, answer.selected === null && { opacity: 0.45 }]}
         >
-          <Text style={styles.checkBtnText}>Check answer</Text>
+          <Text style={styles.checkBtnText}>{t('ykiRouteCheckAnswer')}</Text>
         </Pressable>
       ) : (
         <View style={[styles.feedbackRow, { backgroundColor: answer.correct ? 'rgba(62,197,138,0.1)' : 'rgba(255,107,107,0.1)', borderColor: answer.correct ? T.success : T.danger }]}>
           <Text style={{ color: answer.correct ? T.success : T.danger, fontWeight: '700', fontSize: 14 }}>
-            {answer.correct ? '✓ Correct!' : '✗ Not quite — the correct answer is highlighted above.'}
+            {answer.correct ? t('ykiRouteCorrectFeedback') : t('ykiRouteIncorrectFeedback')}
           </Text>
           <Pressable onPress={onAnswered} style={[styles.nextBtn, { backgroundColor: T.yki }]}>
-            <Text style={styles.nextBtnText}>Next task →</Text>
+            <Text style={styles.nextBtnText}>{t('ykiRouteNextTask')}</Text>
           </Pressable>
         </View>
       )}
@@ -175,6 +177,7 @@ function WritingTask({
   themeMode: 'light' | 'dark';
   onAnswered: () => void;
 }) {
+  const { t } = useTranslator();
   const isDark = themeMode === 'dark';
   const palette = getFloentlyPalette(themeMode);
   const border = isDark ? T.border : palette.border;
@@ -201,7 +204,7 @@ function WritingTask({
       <TextInput
         value={value}
         onChangeText={setValue}
-        placeholder="Kirjoita vastauksesi tähän…"
+        placeholder={t('ykiRouteAnswerPlaceholder')}
         placeholderTextColor={isDark ? T.soft : palette.textSoft}
         multiline
         style={[styles.writingInput, { backgroundColor: isDark ? '#0D1529' : '#F8FAFF', borderColor: border, color: text }]}
@@ -210,7 +213,7 @@ function WritingTask({
 
       <View style={styles.wordCountRow}>
         <Text style={[styles.wordCount, { color: wordCount >= target ? T.success : muted }]}>
-          {wordCount} / {target} sanaa
+          {wordCount} / {target} {t('ykiRouteWordsLabel')}
         </Text>
         {!saved ? (
           <Pressable
@@ -218,11 +221,11 @@ function WritingTask({
             disabled={wordCount < Math.round(target * 0.6)}
             style={[styles.checkBtn, { backgroundColor: T.warning }, wordCount < Math.round(target * 0.6) && { opacity: 0.45 }]}
           >
-            <Text style={styles.checkBtnText}>Tallenna vastaus</Text>
+            <Text style={styles.checkBtnText}>{t('ykiRouteSaveAnswer')}</Text>
           </Pressable>
         ) : (
           <Pressable onPress={onAnswered} style={[styles.nextBtn, { backgroundColor: T.yki }]}>
-            <Text style={styles.nextBtnText}>Next task →</Text>
+            <Text style={styles.nextBtnText}>{t('ykiRouteNextTask')}</Text>
           </Pressable>
         )}
       </View>
@@ -244,6 +247,7 @@ function SpeakingTask({
   onStartRoleplay: (config: any) => void;
   onAnswered: () => void;
 }) {
+  const { t } = useTranslator();
   const isDark = themeMode === 'dark';
   const palette = getFloentlyPalette(themeMode);
   const border = isDark ? T.border : palette.border;
@@ -269,7 +273,7 @@ function SpeakingTask({
             onPress={() => onStartRoleplay(roleplayConfig)}
             style={[styles.speakingPrimaryBtn, { backgroundColor: T.warning }]}
           >
-            <Text style={styles.speakingPrimaryBtnText}>🎙  Start conversation roleplay</Text>
+            <Text style={styles.speakingPrimaryBtnText}>{t('ykiRouteStartConversationRoleplay')}</Text>
           </Pressable>
         ) : null}
         <Pressable
@@ -277,7 +281,7 @@ function SpeakingTask({
           style={[styles.speakingSecondaryBtn, { borderColor: border }]}
         >
           <Text style={[styles.speakingSecondaryBtnText, { color: muted }]}>
-            Mark complete → Next task
+            {t('ykiRouteMarkCompleteNextTask')}
           </Text>
         </Pressable>
       </View>
@@ -289,6 +293,7 @@ function SpeakingTask({
 // Main route component
 // ---------------------------------------------------------------------------
 export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpenSpeaking }: Props) {
+  const { t } = useTranslator();
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const hydratePreferences = usePreferencesStore((s) => s.hydrate);
   const isDark = themeMode === 'dark';
@@ -323,7 +328,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
         const next = await getYkiPracticeOverview(selectedLevel);
         if (!cancelled) setOverview(next);
       } catch (e) {
-        if (!cancelled) setError('Could not load practice overview. Check your connection.');
+        if (!cancelled) setError(t('ykiRouteOverviewLoadFailed'));
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -339,7 +344,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
       setSession(started);
       setCurrentIndex(0);
     } catch (e) {
-      setError('Could not start the practice session. Check your connection and try again.');
+      setError(t('ykiRouteSessionStartFailed'));
     } finally {
       setStarting(false);
     }
@@ -377,14 +382,14 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
       {/* Header */}
       <View style={[styles.header, { borderBottomColor: border }]}>
         <Pressable onPress={onBack} style={[styles.navBtn, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
-          <Text style={[styles.navBtnText, { color: muted }]}>← Back</Text>
+          <Text style={[styles.navBtnText, { color: muted }]}>{t('ykiRouteBack')}</Text>
         </Pressable>
         <View style={styles.headerCenter}>
-          <Text style={[styles.eyebrow, { color: T.yki }]}>YKI</Text>
-          <Text style={[styles.headerTitle, { color: text }]}>YKI Exam</Text>
+          <Text style={[styles.eyebrow, { color: T.yki }]}>{t('ykiRouteYkiEyebrow')}</Text>
+          <Text style={[styles.headerTitle, { color: text }]}>{t('ykiRouteExamTitle')}</Text>
         </View>
         <Pressable onPress={onOpenMenu} style={[styles.navBtn, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
-          <Text style={[styles.navBtnText, { color: muted }]}>Menu</Text>
+          <Text style={[styles.navBtnText, { color: muted }]}>{t('ykiRouteMenu')}</Text>
         </Pressable>
       </View>
 
@@ -392,7 +397,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
 
         {/* Level selector */}
         <View>
-          <Text style={[styles.sectionLabel, { color: soft }]}>Level</Text>
+          <Text style={[styles.sectionLabel, { color: soft }]}>{t('ykiRouteLevel')}</Text>
           <View style={styles.levelRow}>
             {LEVEL_BANDS.map((band) => (
               <Pressable
@@ -438,13 +443,13 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
 
         {!loading && !session && (
           <View style={[styles.cardsCard, { backgroundColor: surface, borderColor: border }]}>
-            <Text style={[styles.cardsTitle, { color: text }]}>YKI cards</Text>
-            <Text style={[styles.cardsBody, { color: muted }]}>Open the shared general-language flashcards used by the YKI pathway. The familiar card practice screen stays the same, but the content stays clearly separate from profession-specific cards.</Text>
+            <Text style={[styles.cardsTitle, { color: text }]}>{t('ykiRouteCardsTitle')}</Text>
+            <Text style={[styles.cardsBody, { color: muted }]}>{t('ykiRouteCardsDetail')}</Text>
             <Pressable
               onPress={() => router.push('/cards?mode=vocabulary&domain=general' as never)}
               style={[styles.cardsButton, { backgroundColor: T.yki }]}
             >
-              <Text style={styles.cardsButtonText}>Open YKI cards</Text>
+              <Text style={styles.cardsButtonText}>{t('ykiRouteOpenCards')}</Text>
             </Pressable>
           </View>
         )}
@@ -453,7 +458,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
         {loading && (
           <View style={styles.centeredRow}>
             <ActivityIndicator color={T.yki} />
-            <Text style={[styles.loadingText, { color: muted }]}>Loading…</Text>
+            <Text style={[styles.loadingText, { color: muted }]}>{t('ykiRouteLoading')}</Text>
           </View>
         )}
         {error && !loading && (
@@ -472,7 +477,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
             >
               {starting
                 ? <ActivityIndicator color="#fff" />
-                : <Text style={styles.startBtnText}>Start exam block →</Text>
+                : <Text style={styles.startBtnText}>{t('ykiRouteStartExamBlock')}</Text>
               }
             </Pressable>
 
@@ -480,7 +485,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
               onPress={() => onOpenExam(selectedLevel)}
               style={[styles.examLink, { borderColor: border }]}
             >
-              <Text style={[styles.examLinkText, { color: soft }]}>Go back to guided YKI practice instead →</Text>
+              <Text style={[styles.examLinkText, { color: soft }]}>{t('ykiRouteBackToGuidedPractice')}</Text>
             </Pressable>
           </View>
         )}
@@ -530,7 +535,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
         {/* Finish screen */}
         {session && currentIndex >= session.tasks.length && (
           <View style={[styles.finishCard, { backgroundColor: surface, borderColor: border }]}>
-            <Text style={[styles.finishTitle, { color: text }]}>Session complete ✓</Text>
+            <Text style={[styles.finishTitle, { color: text }]}>{t('ykiRouteSessionComplete')}</Text>
             <Text style={[styles.finishSub, { color: muted }]}>
               You completed {session.tasks.length} tasks at {session.display_level_band} level.
               Start a new session for a fresh random selection.
@@ -539,7 +544,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
               onPress={() => void handleStart()}
               style={[styles.startBtn, { backgroundColor: T.yki, marginTop: 8 }]}
             >
-              <Text style={styles.startBtnText}>Start another session</Text>
+              <Text style={styles.startBtnText}>{t('ykiRouteStartAnotherSession')}</Text>
             </Pressable>
           </View>
         )}

@@ -12,6 +12,7 @@ import {
 } from '@core/api/ykiPractice';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import { clearPracticeSession, resumePracticeSession, startPracticeSession } from '../services/ykiPracticeService';
+import { useTranslator } from '../../i18n';
 
 const LEVEL_BANDS: YkiLevelBand[] = ['A1-A2', 'B1-B2', 'C1-C2'];
 const FOCUS_OPTIONS: Array<{ key: YkiPracticeFocus; label: string }> = [
@@ -31,6 +32,7 @@ type Props = {
 };
 
 export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOpenPractice, onOpenMockCycle }: Props) {
+  const { t } = useTranslator();
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState(false);
   const [selectedLevel, setSelectedLevel] = useState<YkiLevelBand>('B1-B2');
@@ -57,7 +59,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
       } catch (error) {
         if (!cancelled) {
           setOverview(null);
-          setErrorMessage(error instanceof Error ? error.message : 'Practice overview could not be loaded.');
+          setErrorMessage(error instanceof Error ? error.message : t('ykiPracticeOverviewLoadFailed'));
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -100,11 +102,11 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
       setSession(started);
       setCurrentIndex(started.current_task_index ?? 0);
       if (!started.tasks?.length) {
-        setErrorMessage('Practice session started but no tasks were returned.');
+        setErrorMessage(t('ykiPracticeSessionEmpty'));
       }
     } catch (error) {
       setSession(null);
-      setErrorMessage(error instanceof Error ? error.message : 'Practice session could not be started.');
+      setErrorMessage(error instanceof Error ? error.message : t('ykiPracticeStartFailed'));
     } finally {
       setStarting(false);
     }
@@ -127,10 +129,10 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
       allowScroll={true}
       header={
         <PageHeader
-          eyebrow="YKI Practice"
-          title="Guided YKI practice for work and life in Finland"
-          subtitle="Choose a level and focus. Practice stays guided and skill-based so you can strengthen the parts of YKI that also matter for work, citizenship, permanent residence, and everyday life in Finland."
-          actionLabel="Home"
+          eyebrow={t('ykiPracticeEyebrow')}
+          title={t('ykiPracticeHeaderTitle')}
+          subtitle={t('ykiPracticeHeaderSubtitle')}
+          actionLabel={t('commonHome')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
           themeMode={themeMode}
@@ -157,10 +159,10 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
         {onOpenPractice ? (
           <TaskCard
             themeMode={themeMode}
-            title="YKI pathway overview"
-            detail="Section-focused practice with clear next steps."
-            meta="2–10 min"
-            actionLabel="Open"
+            title={t('ykiPracticeOverviewTitle')}
+            detail={t('ykiPracticeOverviewDetail')}
+            meta={t('ykiPracticeOverviewMeta')}
+            actionLabel={t('commonOpen')}
             onPress={onOpenPractice}
           />
         ) : null}
@@ -176,25 +178,25 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
         <TaskCard
           themeMode={themeMode}
           accent="yellow"
-          title="Mock cycle"
-          detail="Use the mock cycle for pressure and timing preparation without entering the full exam runtime."
-          meta="Preparation"
-          actionLabel="Open"
+          title={t('ykiPracticeMockCycleTitle')}
+          detail={t('ykiPracticeMockCycleDetail')}
+          meta={t('ykiPracticeMockCycleMeta')}
+          actionLabel={t('commonOpen')}
           onPress={handleOpenMockCycle}
         />
         <TaskCard
           themeMode={themeMode}
-          title="Full YKI exam"
+          title={t('ykiPracticeFullExamTitle')}
           detail={`Open the formal ${selectedLevel} exam selection and runtime when you want the real simulation.`}
-          meta="Exam"
-          actionLabel="Open"
+          meta={t('ykiPracticeExamMeta')}
+          actionLabel={t('commonOpen')}
           onPress={() => onOpenExam(selectedLevel)}
         />
       </View>
 
       <View style={styles.infoCard}>
-        <Text style={styles.infoTitle}>How to find it later</Text>
-        <Text style={styles.infoText}>Dashboard → YKI Prep → Practice. Keep this route stable so YKI work is always easy to find.</Text>
+        <Text style={styles.infoTitle}>{t('ykiPracticeFindLaterTitle')}</Text>
+        <Text style={styles.infoText}>{t('ykiPracticeFindLaterBody')}</Text>
       </View>
 
       <View style={styles.infoCard}>
@@ -229,7 +231,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
               style={[styles.secondaryButton, currentIndex === 0 && styles.secondaryButtonDisabled]}
               disabled={currentIndex === 0}
             >
-              <Text style={styles.secondaryButtonText}>Previous</Text>
+              <Text style={styles.secondaryButtonText}>{t('ykiPracticePrevious')}</Text>
             </Pressable>
             <Pressable
               onPress={async () => {
@@ -250,8 +252,8 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
         </View>
       ) : session && !starting ? (
         <View style={styles.practiceCard}>
-          <Text style={styles.practiceEyebrow}>Practice session</Text>
-          <Text style={styles.practiceTitle}>The session started but returned no visible task.</Text>
+          <Text style={styles.practiceEyebrow}>{t('ykiPracticeSessionTitle')}</Text>
+          <Text style={styles.practiceTitle}>{t('ykiPracticeNoVisibleTask')}</Text>
           <Text style={styles.practiceGuidance}>Session id: {session.session_id}</Text>
         </View>
       ) : null}
