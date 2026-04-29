@@ -68,7 +68,7 @@ type UserLike = {
   subscriptionTierHint?: string | null;
 };
 
-const DEFAULT_ALL_ACCESS_EMAILS = ['ruka@ruka.com'];
+const DEFAULT_ALL_ACCESS_EMAILS = ['ruka@ruka.com', 'obum@learn.floently.com', 'testuser@floently.com'];
 
 function normalizeEmail(value?: string | null) {
   return (value ?? '').trim().toLowerCase();
@@ -253,15 +253,16 @@ function compatStatusFromValues(args: {
 }): CompatSubscriptionStatus {
   const tier = String(args.tier || (args.isInternalAllAccess ? 'internal_all_access' : 'free'));
   const professions = args.professions;
-  const ykiAccess = args.ykiAccess;
-  const professionalAccess = args.professionalAccess;
+  const isInternal = args.isInternalAllAccess === true || tier === 'internal_all_access';
+  const ykiAccess = isInternal ? true : args.ykiAccess;
+  const professionalAccess = isInternal ? true : args.professionalAccess;
   const activeContext = args.activeContext && (args.activeContext === 'yki' || professions.includes(args.activeContext as ProfessionCode))
     ? args.activeContext
     : ykiAccess ? 'yki' : (professions[0] ?? 'none');
   const category = planCategory(tier, ykiAccess, professionalAccess);
   const title = planLabel(tier, professions);
   const accessType = resolveAccessType((args.raw && typeof args.raw === 'object' ? args.raw as Record<string, unknown> : {}), tier);
-  const learnAccess = ykiAccess || professionalAccess || category === 'internal';
+  const learnAccess = isInternal || ykiAccess || professionalAccess || category === 'internal';
   return {
     tier,
     billingTier: tier,
@@ -295,9 +296,9 @@ function compatStatusFromValues(args: {
     ykiAccess,
     professionalAccess,
     professions,
-    hasAnySubscription: learnAccess || args.isInternalAllAccess === true,
-    isActive: args.isActive ?? (learnAccess || args.isInternalAllAccess === true),
-    isInternalAllAccess: Boolean(args.isInternalAllAccess),
+    hasAnySubscription: learnAccess || isInternal,
+    isActive: args.isActive ?? (learnAccess || isInternal),
+    isInternalAllAccess: Boolean(isInternal),
     isTrial: String(tier).startsWith('preview_') || String(tier).startsWith('trial_'),
     isPreview: String(tier).startsWith('preview_'),
     previewPath: String(tier).startsWith('preview_') ? (String(tier).replace('preview_', '') as PreviewPath) : null,

@@ -5,7 +5,6 @@ import { spacing, typography } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import {
-  ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
   BILLING_PERIOD_OPTIONS,
   PROFESSION_OPTIONS,
   buildCheckoutRequest,
@@ -33,7 +32,7 @@ const PATHWAYS: Array<{ id: CheckoutPathway; title: string; eyebrow: string; bod
     title: 'Professional Pathway',
     eyebrow: 'For role-specific Finnish',
     body: 'Choose one or more professions and build Finnish for real workplace situations, documentation, teamwork, and communication.',
-    highlights: ['One profession included', 'Add more professions anytime', 'Extra profession slots get a discount'],
+    highlights: ['One profession included', 'Add more professions anytime', 'Fixed prices for 2 or 3 profession slots'],
   },
   {
     id: 'combined',
@@ -150,7 +149,7 @@ export default function SubscriptionScreen() {
           })}
         </View>
         {selectedProfessions.length > 1 ? (
-          <Text style={[styles.discountText, { color: palette.accent }]}>Extra profession slots use {ADDITIONAL_PROFESSION_DISCOUNT_PERCENT}% off.</Text>
+          <Text style={[styles.discountText, { color: palette.accent }]}>Price updates automatically for 1, 2, or 3 selected profession slots.</Text>
         ) : null}
       </View>
     );
@@ -240,7 +239,7 @@ export default function SubscriptionScreen() {
               >
                 <Text style={[styles.ctaText, { color: textOnPrimary }]}>Start 3-day free trial</Text>
               </Pressable>
-              <Text style={[styles.planFinePrint, { color: palette.textMuted }]}>{plan.checkoutLabel}. Cancel before day 3.</Text>
+              <Text style={[styles.planFinePrint, { color: palette.textMuted }]}>{estimate.totalLabel}. Cancel before day 3.</Text>
             </View>
           );
         })}

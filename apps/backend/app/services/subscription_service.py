@@ -118,7 +118,7 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "pathway": "yki",
         "title": "YKI Pathway",
         "description": "YKI exam practice for citizenship, permanent residence, study, and life in Finland.",
-        "checkout_label": "EUR 14.90 / month",
+        "checkout_label": "EUR 19.90 / month",
         "billing_period": "monthly",
         "included_profession_slots": 0,
     },
@@ -128,7 +128,7 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "pathway": "yki",
         "title": "YKI Pathway",
         "description": "YKI exam practice for citizenship, permanent residence, study, and life in Finland.",
-        "checkout_label": "EUR 39.90 / 3 months",
+        "checkout_label": "EUR 49.90 / 3 months",
         "billing_period": "3_months",
         "included_profession_slots": 0,
     },
@@ -138,7 +138,7 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "pathway": "yki",
         "title": "YKI Pathway",
         "description": "YKI exam practice for citizenship, permanent residence, study, and life in Finland.",
-        "checkout_label": "EUR 149 / year",
+        "checkout_label": "EUR 179 / year",
         "billing_period": "yearly",
         "included_profession_slots": 0,
     },
@@ -148,10 +148,10 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "pathway": "professional",
         "title": "Professional Pathway",
         "description": "Role-specific Finnish for healthcare and other professional pathways. Choose one or more professions at checkout.",
-        "checkout_label": "EUR 24.90 / profession / month",
+        "checkout_label": "EUR 24.90 / month",
         "billing_period": "monthly",
         "included_profession_slots": 1,
-        "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+        "extra_profession_discount_percent": 0,
     },
     {
         "id": "professional_3_months",
@@ -159,10 +159,10 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "pathway": "professional",
         "title": "Professional Pathway",
         "description": "Role-specific Finnish for healthcare and other professional pathways. Choose one or more professions at checkout.",
-        "checkout_label": "EUR 67.90 / profession / 3 months",
+        "checkout_label": "EUR 64.90 / 3 months",
         "billing_period": "3_months",
         "included_profession_slots": 1,
-        "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+        "extra_profession_discount_percent": 0,
     },
     {
         "id": "professional_yearly",
@@ -170,10 +170,10 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "pathway": "professional",
         "title": "Professional Pathway",
         "description": "Role-specific Finnish for healthcare and other professional pathways. Choose one or more professions at checkout.",
-        "checkout_label": "EUR 249 / profession / year",
+        "checkout_label": "EUR 249 / year",
         "billing_period": "yearly",
         "included_profession_slots": 1,
-        "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+        "extra_profession_discount_percent": 0,
     },
     {
         "id": "combined_monthly",
@@ -184,7 +184,7 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "checkout_label": "EUR 29.90 / month",
         "billing_period": "monthly",
         "included_profession_slots": 1,
-        "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+        "extra_profession_discount_percent": 0,
     },
     {
         "id": "combined_3_months",
@@ -192,10 +192,10 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "pathway": "combined",
         "title": "Combined Pathway",
         "description": "YKI preparation plus one professional pathway. Add more professions when needed.",
-        "checkout_label": "EUR 80.90 / 3 months",
+        "checkout_label": "EUR 79.90 / 3 months",
         "billing_period": "3_months",
         "included_profession_slots": 1,
-        "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+        "extra_profession_discount_percent": 0,
     },
     {
         "id": "combined_yearly",
@@ -206,7 +206,7 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "checkout_label": "EUR 299 / year",
         "billing_period": "yearly",
         "included_profession_slots": 1,
-        "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT,
+        "extra_profession_discount_percent": 0,
     },
     {
         "id": "employer_programme",
@@ -342,19 +342,26 @@ def _checkout_details_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
         )
 
     plan_id = _plan_id_for(pathway, billing_period)
-    extra_profession_count = max(0, len(professions) - 1) if pathway in {"professional", "combined"} else 0
-    line_items: list[dict[str, Any]] = [{"plan": plan_id, "quantity": 1}]
-    if extra_profession_count:
-        line_items.append({"plan": _plan_id_for("professional", billing_period), "quantity": extra_profession_count, "discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT})
+    profession_count = len(professions)
+    extra_profession_count = max(0, profession_count - 1) if pathway in {"professional", "combined"} else 0
+    line_items: list[dict[str, Any]] = [
+        {
+            "plan": plan_id,
+            "quantity": 1,
+            "profession_count": profession_count,
+            "pricing_model": "fixed_stripe_price_tier",
+        }
+    ]
 
     return {
         "plan_id": plan_id,
         "pathway": pathway,
         "billing_period": billing_period,
         "professions": professions,
-        "profession_count": len(professions),
+        "profession_count": profession_count,
         "extra_profession_count": extra_profession_count,
-        "extra_profession_discount_percent": ADDITIONAL_PROFESSION_DISCOUNT_PERCENT if extra_profession_count else 0,
+        "extra_profession_discount_percent": 0,
+        "pricing_model": "fixed_stripe_price_tier",
         "line_items": line_items,
     }
 
@@ -613,13 +620,17 @@ def _trial_active(user: dict[str, Any]) -> bool:
     return bool(trial_ends_at and trial_ends_at > utc_now())
 
 
-def _has_trial_access(user: dict[str, Any]) -> bool:
-    return str(user.get("access_choice") or "").strip().lower() == "trial" and _trial_active(user)
-
-
 def _has_paid_access(user: dict[str, Any]) -> bool:
-    tier = str(user.get("subscription_tier") or "free")
+    tier = str(user.get("subscription_tier") or "free").strip().lower()
     return tier != "free" and _is_subscription_active(user)
+
+
+def _has_trial_access(user: dict[str, Any]) -> bool:
+    # Paid access must always win over trial access.
+    # Otherwise a user who started a trial and then paid can still be treated as trial.
+    if _has_paid_access(user):
+        return False
+    return str(user.get("access_choice") or "").strip().lower() == "trial" and _trial_active(user)
 
 
 def _effective_tier(user: dict[str, Any]) -> str:
@@ -760,7 +771,7 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "features": features,
             "expires_at": user.get("subscription_expires_at"),
             "trial_ends_at": user.get("trial_ends_at"),
-            "is_trial": _trial_active(user),
+            "is_trial": False,
             "is_active": True,
             "is_internal_all_access": True,
             "yki_access": True,
@@ -862,6 +873,10 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
 
 
 def start_trial(*, user: dict[str, Any], trial_days: int = 3) -> dict[str, Any]:
+    # Never downgrade an already-paid/internal user into trial mode.
+    if _is_internal_all_access_user(user) or _has_paid_access(user):
+        return subscription_status(user=user)
+
     user_id = str(user["user_id"])
     updated = dict(user)
     updated["access_choice"] = "trial"

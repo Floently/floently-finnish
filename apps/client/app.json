@@ -49,25 +49,10 @@
       "usesCleartextTraffic": false,
       "permissions": [
         "RECORD_AUDIO",
-        "VIBRATE",
-        "RECORD_AUDIO",
         "VIBRATE"
       ],
       "allowBackup": false,
       "intentFilters": [
-        {
-          "action": "VIEW",
-          "autoVerify": false,
-          "data": [
-            {
-              "scheme": "floently"
-            }
-          ],
-          "category": [
-            "BROWSABLE",
-            "DEFAULT"
-          ]
-        },
         {
           "action": "VIEW",
           "autoVerify": false,

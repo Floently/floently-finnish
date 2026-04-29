@@ -90,21 +90,40 @@ export const BILLING_PERIOD_OPTIONS: BillingPeriodOption[] = [
 
 const PLAN_PRICES_CENTS: Record<CheckoutPathway, Record<BillingPeriod, number>> = {
   yki: {
-    monthly: 1490,
-    '3_months': 3990,
-    yearly: 14900,
+    monthly: 1990,
+    '3_months': 4990,
+    yearly: 17900,
   },
   professional: {
     monthly: 2490,
-    '3_months': 6790,
+    '3_months': 6490,
     yearly: 24900,
   },
   combined: {
     monthly: 2990,
-    '3_months': 8090,
+    '3_months': 7990,
     yearly: 29900,
   },
 };
+
+const MULTI_PROFESSION_PRICE_CENTS: Record<'professional' | 'combined', Record<1 | 2 | 3, Record<BillingPeriod, number>>> = {
+  professional: {
+    1: { monthly: 2490, '3_months': 6490, yearly: 24900 },
+    2: { monthly: 2990, '3_months': 7990, yearly: 29990 },
+    3: { monthly: 3490, '3_months': 9490, yearly: 34900 },
+  },
+  combined: {
+    1: { monthly: 2990, '3_months': 7990, yearly: 29900 },
+    2: { monthly: 3490, '3_months': 9490, yearly: 34900 },
+    3: { monthly: 3990, '3_months': 10990, yearly: 39900 },
+  },
+};
+
+function supportedProfessionCount(count: number): 1 | 2 | 3 {
+  if (count <= 1) return 1;
+  if (count === 2) return 2;
+  return 3;
+}
 
 export const PLAN_CATALOG: PlanCatalogEntry[] = [
   {
@@ -113,7 +132,7 @@ export const PLAN_CATALOG: PlanCatalogEntry[] = [
     pathway: 'yki',
     title: 'YKI Pathway',
     description: 'Focused YKI speaking, writing, reading, and listening practice for citizenship, permanent residence, study, and life in Finland.',
-    checkoutLabel: 'EUR 14.90 / month',
+    checkoutLabel: 'EUR 19.90 / month',
     billingPeriod: 'monthly',
     audience: 'learner',
     includedProfessionSlots: 0,
@@ -124,7 +143,7 @@ export const PLAN_CATALOG: PlanCatalogEntry[] = [
     pathway: 'yki',
     title: 'YKI Pathway',
     description: 'Focused YKI speaking, writing, reading, and listening practice for citizenship, permanent residence, study, and life in Finland.',
-    checkoutLabel: 'EUR 39.90 / 3 months',
+    checkoutLabel: 'EUR 49.90 / 3 months',
     billingPeriod: '3_months',
     audience: 'learner',
     includedProfessionSlots: 0,
@@ -135,7 +154,7 @@ export const PLAN_CATALOG: PlanCatalogEntry[] = [
     pathway: 'yki',
     title: 'YKI Pathway',
     description: 'Focused YKI speaking, writing, reading, and listening practice for citizenship, permanent residence, study, and life in Finland.',
-    checkoutLabel: 'EUR 149 / year',
+    checkoutLabel: 'EUR 179 / year',
     billingPeriod: 'yearly',
     audience: 'learner',
     includedProfessionSlots: 0,
@@ -146,7 +165,7 @@ export const PLAN_CATALOG: PlanCatalogEntry[] = [
     pathway: 'professional',
     title: 'Professional Pathway',
     description: 'Choose one or more professions and unlock role-specific Finnish for real workplace communication.',
-    checkoutLabel: 'EUR 24.90 / profession / month',
+    checkoutLabel: 'EUR 24.90 / month',
     billingPeriod: 'monthly',
     audience: 'learner',
     includedProfessionSlots: 1,
@@ -158,7 +177,7 @@ export const PLAN_CATALOG: PlanCatalogEntry[] = [
     pathway: 'professional',
     title: 'Professional Pathway',
     description: 'Choose one or more professions and unlock role-specific Finnish for real workplace communication.',
-    checkoutLabel: 'EUR 67.90 / profession / 3 months',
+    checkoutLabel: 'EUR 64.90 / 3 months',
     billingPeriod: '3_months',
     audience: 'learner',
     includedProfessionSlots: 1,
@@ -170,7 +189,7 @@ export const PLAN_CATALOG: PlanCatalogEntry[] = [
     pathway: 'professional',
     title: 'Professional Pathway',
     description: 'Choose one or more professions and unlock role-specific Finnish for real workplace communication.',
-    checkoutLabel: 'EUR 249 / profession / year',
+    checkoutLabel: 'EUR 249 / year',
     billingPeriod: 'yearly',
     audience: 'learner',
     includedProfessionSlots: 1,
@@ -194,7 +213,7 @@ export const PLAN_CATALOG: PlanCatalogEntry[] = [
     pathway: 'combined',
     title: 'Combined Pathway',
     description: 'YKI preparation plus one professional pathway. Add more professions without creating a new plan.',
-    checkoutLabel: 'EUR 80.90 / 3 months',
+    checkoutLabel: 'EUR 79.90 / 3 months',
     billingPeriod: '3_months',
     audience: 'learner',
     includedProfessionSlots: 1,
@@ -274,23 +293,20 @@ export function getPlanByPathwayPeriod(pathway: CheckoutPathway, billingPeriod: 
 
 export function estimateCheckoutTotal(pathway: CheckoutPathway, billingPeriod: BillingPeriod, professions: ProfessionKey[]) {
   const professionCount = pathway === 'yki' ? 0 : Math.max(1, professions.length);
+  const supportedCount = pathway === 'yki' ? 1 : supportedProfessionCount(professionCount);
   const baseCents = PLAN_PRICES_CENTS[pathway][billingPeriod];
-  const professionalCents = PLAN_PRICES_CENTS.professional[billingPeriod];
-  const discountedExtraProfessionCents = Math.round(professionalCents * (100 - ADDITIONAL_PROFESSION_DISCOUNT_PERCENT) / 100);
-  const extraProfessionCount = pathway === 'yki' ? 0 : Math.max(0, professionCount - 1);
-  const totalCents = pathway === 'professional'
-    ? professionalCents + extraProfessionCount * discountedExtraProfessionCents
-    : pathway === 'combined'
-      ? baseCents + extraProfessionCount * discountedExtraProfessionCents
-      : baseCents;
+  const totalCents = pathway === 'yki'
+    ? baseCents
+    : MULTI_PROFESSION_PRICE_CENTS[pathway][supportedCount][billingPeriod];
+  const extraProfessionCount = pathway === 'yki' ? 0 : Math.max(0, supportedCount - 1);
 
   return {
     totalCents,
     totalLabel: `${formatCurrency(totalCents)} / ${billingPeriodDisplay(billingPeriod)}`,
     baseLabel: `${formatCurrency(baseCents)} / ${billingPeriodDisplay(billingPeriod)}`,
-    professionCount,
+    professionCount: pathway === 'yki' ? 0 : supportedCount,
     extraProfessionCount,
-    extraProfessionDiscountPercent: extraProfessionCount > 0 ? ADDITIONAL_PROFESSION_DISCOUNT_PERCENT : 0,
+    extraProfessionDiscountPercent: 0,
   };
 }
 
