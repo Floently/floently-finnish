@@ -309,14 +309,19 @@ def _parse_plan_id(plan_id: str) -> tuple[str | None, str | None, list[str]]:
 def _checkout_details_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
     raw_plan = str(payload.get("plan") or payload.get("plan_id") or payload.get("planId") or "").strip()
     if raw_plan == "trial_3day":
-        return {
-            "plan_id": "trial_3day",
-            "pathway": "trial",
-            "billing_period": "trial",
+        # Backward compatibility for older web/mobile bundles.
+        # Old clients call /subscription/trial and then checkout with plan="trial_3day".
+        # Convert that into the real Stripe YKI monthly checkout with a 3-day trial.
+        payload = {
+            **payload,
+            "plan": "yki_monthly",
+            "pathway": "yki",
+            "billing_period": "monthly",
             "professions": [],
-            "profession_count": 0,
-            "line_items": [],
+            "trial_days": payload.get("trial_days") or payload.get("trialDays") or 3,
         }
+        raw_plan = "yki_monthly"
+
 
     plan_pathway, plan_period, plan_professions = _parse_plan_id(raw_plan) if raw_plan else (None, None, [])
     pathway = _normalize_pathway(payload.get("pathway") or payload.get("plan_type") or payload.get("planType")) or plan_pathway
@@ -344,6 +349,15 @@ def _checkout_details_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
     plan_id = _plan_id_for(pathway, billing_period)
     profession_count = len(professions)
     extra_profession_count = max(0, profession_count - 1) if pathway in {"professional", "combined"} else 0
+    raw_trial_days = payload.get("trial_days") if "trial_days" in payload else payload.get("trialDays")
+    trial_days = 0
+    if raw_trial_days is not None:
+        try:
+            trial_days = int(raw_trial_days)
+        except (TypeError, ValueError):
+            trial_days = 0
+    trial_days = max(0, min(trial_days, 30))
+
     line_items: list[dict[str, Any]] = [
         {
             "plan": plan_id,
@@ -362,6 +376,7 @@ def _checkout_details_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
         "extra_profession_count": extra_profession_count,
         "extra_profession_discount_percent": 0,
         "pricing_model": "fixed_stripe_price_tier",
+        "trial_days": trial_days,
         "line_items": line_items,
     }
 
@@ -941,6 +956,7 @@ def billing_checkout_details(*, payload: dict[str, Any], user_id: str) -> dict[s
         "professions": ",".join(details["professions"]),
         "selected_professions": ",".join(details["professions"]),
         "profession_count": str(details["profession_count"]),
+        "trial_days": str(details.get("trial_days") or 0),
     }
     details["price_id"] = _stripe_price_id_for_details(details)
     return details
@@ -994,6 +1010,11 @@ def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[s
         front_end_base_url = _front_end_base_url()
         metadata = _stripe_metadata(details, selected_price_id)
         try:
+            subscription_data: dict[str, Any] = {"metadata": metadata}
+            trial_days = int(details.get("trial_days") or 0)
+            if trial_days > 0:
+                subscription_data["trial_period_days"] = trial_days
+
             checkout_params: dict[str, Any] = {
                 "mode": "subscription",
                 "line_items": [{"price": selected_price_id, "quantity": 1}],
@@ -1001,7 +1022,7 @@ def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[s
                 "cancel_url": f"{front_end_base_url}/?checkout=cancelled",
                 "client_reference_id": user_id,
                 "metadata": metadata,
-                "subscription_data": {"metadata": metadata},
+                "subscription_data": subscription_data,
             }
             customer_email = (auth_repository.AUTH_USERS.get_user_by_id(user_id) or {}).get("email") or None
             if customer_email:

@@ -12,7 +12,6 @@ from app.services.subscription_service import (
     billing_checkout_session,
     billing_portal_url,
     check_feature,
-    start_trial,
     subscription_status,
 )
 
@@ -53,9 +52,15 @@ def build_subscription_router() -> APIRouter:
         authorization: str | None = Header(default=None),
     ) -> dict[str, Any]:
         user, _ = current_user_from_authorization(authorization)
-        trial_days = int(payload.get("trial_days") or 3)
+        # Trials are now started through Stripe Checkout so users enter payment
+        # details first and are charged only after the 3-day trial ends.
+        # Keep this endpoint as a harmless 200 response for older clients.
         return success_payload(
-            data=start_trial(user=user, trial_days=trial_days),
+            data={
+                "checkout_required": True,
+                "message": "Start the 3-day trial through Stripe Checkout.",
+                "subscription": subscription_status(user=user),
+            },
             request_id=get_request_id(request),
         )
 

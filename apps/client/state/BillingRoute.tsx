@@ -122,7 +122,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   async function handleCheckout(pathway: CheckoutPathway) {
-    const request = buildCheckoutRequest(pathway, period, selectedProfessions);
+    const request = {
+      ...buildCheckoutRequest(pathway, period, selectedProfessions),
+      trial_days: 3,
+    };
     try {
       setBusyPlan(request.plan);
       if (pathway !== 'yki' && selectedProfessions.length === 0) {
@@ -165,12 +168,16 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   async function handleStartTrial() {
     try {
       setTrialBusy(true);
-      await paymentService.startSubscriptionTrial(3);
       await refreshSubscription({
         email: user?.email ?? null,
         subscriptionTierHint: user?.subscriptionTier ?? null,
       });
-      const session = await paymentService.createCheckoutSession('trial_3day') as { checkout_url?: string; url?: string } | undefined;
+      const trialPathway: CheckoutPathway = 'yki';
+      const request = {
+        ...buildCheckoutRequest(trialPathway, period, []),
+        trial_days: 3,
+      };
+      const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
       await openUrl(session?.url ?? session?.checkout_url);
     } catch (error) {
       Alert.alert('Trial unavailable', error instanceof Error ? error.message : 'The trial flow could not be started.');

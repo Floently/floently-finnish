@@ -103,8 +103,10 @@ export default function SubscriptionScreen() {
         Alert.alert('Choose a profession', 'Select at least one profession before starting checkout.');
         return;
       }
-      await paymentService.startSubscriptionTrial(3);
-      const request = buildCheckoutRequest(pathway, period, selectedProfessions);
+      const request = {
+        ...buildCheckoutRequest(pathway, period, selectedProfessions),
+        trial_days: 3,
+      };
       const session = await paymentService.createCheckoutSession(request) as { url?: string; checkout_url?: string } | null;
       const url = session?.url ?? session?.checkout_url;
       if (url) {

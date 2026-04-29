@@ -37,7 +37,10 @@ export default function PlanSelectionScreen() {
   const selectedProfessions: ProfessionKey[] = pathway === 'yki' ? [] : [selectedProfession];
   const [period, setPeriod] = useState<BillingPeriod>('yearly');
   const estimate = estimateCheckoutTotal(pathway, period, selectedProfessions);
-  const checkoutRequest = buildCheckoutRequest(pathway, period, selectedProfessions);
+  const checkoutRequest = {
+    ...buildCheckoutRequest(pathway, period, selectedProfessions),
+    trial_days: 3,
+  };
 
   const heading = intent === 'YKI'
     ? 'YKI pathway pricing'

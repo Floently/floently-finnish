@@ -16,6 +16,8 @@ export type CheckoutSessionInput = string | {
   professions?: ProfessionKey[];
   professionCount?: number;
   profession_count?: number;
+  trialDays?: number;
+  trial_days?: number;
 };
 
 export async function getSubscriptionStatus(): Promise<SubscriptionStatus> {
@@ -35,6 +37,7 @@ export async function createCheckoutSession(input: CheckoutSessionInput) {
         ...input,
         billing_period: input.billing_period ?? input.billingPeriod,
         profession_count: input.profession_count ?? input.professionCount ?? input.professions?.length ?? 0,
+        trial_days: input.trial_days ?? input.trialDays,
       };
   const res = await apiClient.post('/api/v1/subscription/checkout', payload);
   return unwrapPayload(res.data);
