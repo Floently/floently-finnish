@@ -161,7 +161,9 @@ export default function LearnLandingPage() {
             <a href="#cities" className="fl-nav-link">{t('landingNavForCities')}</a>
           </div>
           <div className="fl-nav-actions">
-            <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" compact />
+            <a href="#landing-language" className="fl-language-jump" aria-label="Jump to language selection">
+              🌐 Language
+            </a>
             <button type="button" onClick={goToLogin} className="fl-nav-signin">
               {t('landingNavSignIn')}
             </button>
@@ -356,6 +358,10 @@ export default function LearnLandingPage() {
             </div>
           </div>
         </div>
+        <div id="landing-language" className="fl-footer-language" aria-label="Language selection">
+          <div className="fl-footer-language-label">Language</div>
+          <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" compact />
+        </div>
         <div className="fl-footer-bottom">
           <span>{t('landingFooterCopyright').replace('{year}', String(new Date().getFullYear()))}</span>
         </div>
@@ -457,6 +463,26 @@ function PageStyles() {
         display: flex;
         gap: 12px;
         align-items: center;
+      }
+      .fl-language-jump {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(245, 249, 255, 0.16);
+        background: rgba(245, 249, 255, 0.08);
+        color: #F5F9FF;
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+      .fl-language-jump:hover {
+        transform: translateY(-1px);
+        background: rgba(245, 249, 255, 0.13);
+        border-color: rgba(245, 249, 255, 0.28);
       }
       .fl-nav-signin {
         background: transparent;
@@ -937,10 +963,27 @@ function PageStyles() {
         transition: color 180ms ease;
       }
       .fl-footer-link:hover { color: #F5F9FF; }
-      .fl-footer-bottom {
+      .fl-footer-language {
         max-width: 1280px;
         margin: 32px auto 0;
         padding: 24px 28px 0;
+        border-top: 1px solid rgba(245, 249, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+      .fl-footer-language-label {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: #F5F9FF;
+        text-transform: uppercase;
+      }
+      .fl-footer-bottom {
+        max-width: 1280px;
+        margin: 20px auto 0;
+        padding: 20px 28px 0;
         border-top: 1px solid rgba(245, 249, 255, 0.06);
         font-size: 12px;
         color: #7A8CAE;
