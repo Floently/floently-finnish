@@ -157,7 +157,7 @@ function buildSectionsFromTasks(tasks: RuntimeTask[], levelBand: string): Sectio
       tasks: readingTasks.map((t) => ({
         type: 'multiple_choice' as const,
         passage: t.passage,
-        question: [t.passage, t.question].filter(Boolean).join('\n\n') || t.prompt || t.title,
+        question: t.question || t.prompt || t.title,
         options: t.options ?? ['A', 'B', 'C', 'D'],
         correct: t.correct_index ?? 0,
       })),

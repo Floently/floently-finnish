@@ -1,4 +1,4 @@
-package com.vitusidi.floentlyfinnish
+package com.vitusidi.floently
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

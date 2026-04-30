@@ -1,4 +1,4 @@
-package com.vitusidi.floentlyfinnish
+package com.vitusidi.floently
 
 import android.app.Application
 import android.content.res.Configuration

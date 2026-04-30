@@ -797,7 +797,12 @@ export default function RoleplayConversationScreen({
 
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: bgColor }]}>
-      <View style={styles.container}>
+      <ScrollView
+        style={styles.screenScroll}
+        contentContainerStyle={styles.screenContent}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
         <RoleplayScenarioHeader
           currentTurn={currentTurn}
           levelBand={levelBand}
@@ -1038,7 +1043,7 @@ export default function RoleplayConversationScreen({
             </ScrollView>
           ) : null}
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -1075,6 +1080,13 @@ const scoreChipStyles = StyleSheet.create({
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: colors.bg },
+  screenScroll: { flex: 1 },
+  screenContent: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: 120,
+    gap: spacing.md,
+  },
   container: { flex: 1, paddingHorizontal: spacing.lg, paddingVertical: spacing.lg, gap: spacing.md },
   loadingWrap: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: spacing.md },
   loadingText: { color: colors.textMuted, ...typography.body },
@@ -1091,7 +1103,6 @@ const styles = StyleSheet.create({
   keyPhraseText: { color: '#D9E4FF', fontSize: 12, fontWeight: '700' },
 
   sessionCard: {
-    flex: 1,
     borderRadius: 28,
     backgroundColor: colors.panel,
     borderWidth: 1,
@@ -1112,8 +1123,8 @@ const styles = StyleSheet.create({
   // flex: 1 lets the transcript take all available vertical space inside the
   // sessionCard, while minHeight protects against collapse if siblings grow.
   transcriptListWrap: {
-    flex: 1,
-    minHeight: 220,
+    minHeight: 180,
+    maxHeight: 260,
   },
 
   manualRow: { gap: 10 },
@@ -1141,7 +1152,7 @@ const styles = StyleSheet.create({
   actionRow: { alignItems: 'center', gap: 14 },
   micPanel: {
     width: '100%',
-    minHeight: 320,
+    minHeight: 280,
     borderRadius: 16,
     borderWidth: 1,
     alignItems: 'center',
