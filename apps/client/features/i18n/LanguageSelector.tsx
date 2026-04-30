@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Dimensions, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ENABLED_LANGUAGE_CODES, LANGUAGE_META, type AppLanguage } from './languages';
 
@@ -8,7 +8,7 @@ type Props = {
   onChange: (language: AppLanguage) => void | Promise<void>;
   compact?: boolean;
   mode?: 'pills' | 'menu';
-  menuPlacement?: 'auto' | 'up' | 'down';
+  menuPlacement?: 'auto' | 'up' | 'down' | 'right';
 };
 
 export default function LanguageSelector({
@@ -21,9 +21,10 @@ export default function LanguageSelector({
   const options: AppLanguage[] = [...ENABLED_LANGUAGE_CODES];
   const wrapRef = useRef<View>(null);
   const [open, setOpen] = useState(false);
-  const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down'>('down');
+  const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down' | 'right'>('right');
   const activeMeta = LANGUAGE_META[language];
-  const menuHeight = compact ? 150 : 174;
+  const menuHeight = compact ? 320 : 360;
+  const menuWidth = compact ? 228 : 244;
 
   useEffect(() => {
     if (!open) return;
@@ -32,17 +33,29 @@ export default function LanguageSelector({
       return;
     }
 
+    if (menuPlacement === 'right') {
+      setResolvedPlacement('right');
+      return;
+    }
+
     const node = wrapRef.current;
     if (!node?.measureInWindow) return;
 
     node.measureInWindow((x, y, width, height) => {
       const windowHeight = Dimensions.get('window').height;
+      const windowWidth = Dimensions.get('window').width;
       const spaceAbove = y;
       const spaceBelow = Math.max(windowHeight - (y + height), 0);
-      const nextPlacement = spaceBelow < menuHeight + 16 && spaceAbove > spaceBelow ? 'up' : 'down';
+      const spaceRight = Math.max(windowWidth - (x + width), 0);
+      const nextPlacement =
+        spaceRight >= menuWidth + 16
+          ? 'right'
+          : spaceBelow < menuHeight + 16 && spaceAbove > spaceBelow
+            ? 'up'
+            : 'down';
       setResolvedPlacement(nextPlacement);
     });
-  }, [compact, menuHeight, menuPlacement, open]);
+  }, [compact, menuHeight, menuPlacement, menuWidth, open]);
 
   if (mode === 'menu') {
     return (
@@ -68,34 +81,44 @@ export default function LanguageSelector({
             style={[
               styles.menuPanel,
               compact && styles.menuPanelCompact,
-              resolvedPlacement === 'up' ? styles.menuPanelUp : styles.menuPanelDown,
+              resolvedPlacement === 'right' ? styles.menuPanelRight : null,
+              resolvedPlacement === 'up'
+                ? styles.menuPanelUp
+                : resolvedPlacement === 'down'
+                  ? styles.menuPanelDown
+                  : null,
             ]}
           >
-            {options.map((option) => {
-              const meta = LANGUAGE_META[option];
-              const active = option === language;
-              return (
-                <Pressable
-                  key={option}
-                  onPress={() => {
-                    void onChange(option);
-                    setOpen(false);
-                  }}
-                  style={({ pressed }) => [
-                    styles.menuItem,
-                    compact && styles.menuItemCompact,
-                    active && styles.menuItemActive,
-                    pressed && styles.menuItemPressed,
-                  ]}
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: active }}
-                  accessibilityLabel={`${meta.nativeLabel} ${meta.flag}`}
-                >
-                  <Text style={[styles.menuItemFlag, active && styles.menuItemFlagActive]}>{meta.flag}</Text>
-                  <Text style={[styles.menuItemLabel, active && styles.menuItemLabelActive]}>{meta.nativeLabel}</Text>
-                </Pressable>
-              );
-            })}
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.menuScrollContent}
+            >
+              {options.map((option) => {
+                const meta = LANGUAGE_META[option];
+                const active = option === language;
+                return (
+                  <Pressable
+                    key={option}
+                    onPress={() => {
+                      void onChange(option);
+                      setOpen(false);
+                    }}
+                    style={({ pressed }) => [
+                      styles.menuItem,
+                      compact && styles.menuItemCompact,
+                      active && styles.menuItemActive,
+                      pressed && styles.menuItemPressed,
+                    ]}
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: active }}
+                    accessibilityLabel={`${meta.nativeLabel} ${meta.flag}`}
+                  >
+                    <Text style={[styles.menuItemFlag, active && styles.menuItemFlagActive]}>{meta.flag}</Text>
+                    <Text style={[styles.menuItemLabel, active && styles.menuItemLabelActive]}>{meta.nativeLabel}</Text>
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
           </View>
         ) : null}
       </View>
@@ -171,6 +194,7 @@ const styles = StyleSheet.create({
     padding: 8,
     gap: 6,
     minWidth: 164,
+    maxHeight: 320,
     shadowColor: '#000000',
     shadowOpacity: 0.18,
     shadowRadius: 16,
@@ -180,6 +204,10 @@ const styles = StyleSheet.create({
   menuPanelDown: {
     top: 42,
   },
+  menuPanelRight: {
+    top: 0,
+    left: 42,
+  },
   menuPanelUp: {
     bottom: 42,
   },
@@ -187,6 +215,11 @@ const styles = StyleSheet.create({
     minWidth: 148,
     padding: 6,
     gap: 4,
+    maxHeight: 300,
+  },
+  menuScrollContent: {
+    gap: 6,
+    paddingRight: 2,
   },
   menuItem: {
     flexDirection: 'row',
