@@ -161,7 +161,7 @@ export default function LearnLandingPage() {
             <a href="#cities" className="fl-nav-link">{t('landingNavForCities')}</a>
           </div>
           <div className="fl-nav-actions">
-            <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="pills" compact />
+            <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" compact />
             <button type="button" onClick={goToLogin} className="fl-nav-signin">
               {t('landingNavSignIn')}
             </button>

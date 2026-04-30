@@ -790,7 +790,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       avatarUri={drawerAvatarUri}
       clockLabel={drawerClockLabel}
       languageLabel={t('commonLanguage')}
-      languageControl={<LanguageSelector language={language} onChange={setLanguage} mode="pills" compact />}
+      languageControl={<LanguageSelector language={language} onChange={setLanguage} mode="menu" compact />}
       themeLabel={t('commonTheme')}
       sessionLabel={t('commonSession')}
       signInLabel={t('commonLogIn')}
