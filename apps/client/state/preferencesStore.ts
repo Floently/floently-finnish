@@ -2,12 +2,11 @@ import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import type { FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+import { isAppLanguage, type AppLanguage } from '../features/i18n/languages';
 
 const STORAGE_KEY = 'floently.learn.preferences';
 
 type AvatarMode = 'logo' | 'initials' | 'photo';
-export type AppLanguage = 'fi' | 'sv' | 'en';
-
 type PreferencesState = {
   hasHydrated: boolean;
   themeMode: FloentlyThemeMode;
@@ -66,7 +65,7 @@ async function readStorage(): Promise<PersistedPreferences | null> {
     const parsed = JSON.parse(raw) as Partial<PersistedPreferences>;
     return {
       themeMode: parsed.themeMode === 'dark' ? 'dark' : 'light',
-      language: parsed.language === 'fi' || parsed.language === 'sv' || parsed.language === 'en' ? parsed.language : 'en',
+      language: isAppLanguage(parsed.language) ? parsed.language : 'en',
       speechRate: typeof parsed.speechRate === 'number' ? parsed.speechRate : DEFAULTS.speechRate,
       clockFormat: parsed.clockFormat === '12h' ? '12h' : '24h',
       hintsEnabled: typeof parsed.hintsEnabled === 'boolean' ? parsed.hintsEnabled : DEFAULTS.hintsEnabled,

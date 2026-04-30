@@ -1,19 +1,17 @@
 import { useMemo } from 'react';
 
-import { usePreferencesStore, type AppLanguage } from '../../state/preferencesStore';
+import { usePreferencesStore } from '../../state/preferencesStore';
+import {
+  ALL_LANGUAGE_CODES,
+  ENABLED_LANGUAGE_CODES,
+  LANGUAGE_META,
+  type AppLanguage,
+} from './languages';
 
 export type { AppLanguage };
+export { ALL_LANGUAGE_CODES, ENABLED_LANGUAGE_CODES, LANGUAGE_META } from './languages';
 
-export const LANGUAGE_META: Record<AppLanguage, { flag: string; label: string; nativeLabel: string }> = {
-  fi: { flag: '🇫🇮', label: 'Finnish', nativeLabel: 'Suomi'
-},
-  sv: { flag: '🇸🇪', label: 'Swedish', nativeLabel: 'Svenska'
-},
-  en: { flag: '🇬🇧', label: 'English', nativeLabel: 'English'
-},
-};
-
-const TRANSLATIONS = {
+const BASE_TRANSLATIONS = {
   fi: {
     appShellContextEverydayRoleplay: 'Arjen suomen roolipeli',
     appShellContextGeneralWorkplace: 'Työelämän suomi',
@@ -2443,7 +2441,22 @@ const TRANSLATIONS = {
 },
 } as const;
 
-export type TranslationKey = keyof typeof TRANSLATIONS.en;
+const ENABLED_LANGUAGE_SET = new Set<AppLanguage>(ENABLED_LANGUAGE_CODES);
+type FallbackLanguage = Exclude<AppLanguage, (typeof ENABLED_LANGUAGE_CODES)[number]>;
+// Registered for the wider-language rollout, but hidden from the normal selector until each language is translated.
+const FALLBACK_LANGUAGE_CODES = ALL_LANGUAGE_CODES.filter(
+  (language): language is FallbackLanguage => !ENABLED_LANGUAGE_SET.has(language),
+);
+const FALLBACK_TRANSLATIONS = Object.fromEntries(
+  FALLBACK_LANGUAGE_CODES.map((language) => [language, BASE_TRANSLATIONS.en]),
+) as Record<(typeof FALLBACK_LANGUAGE_CODES)[number], typeof BASE_TRANSLATIONS.en>;
+
+export const TRANSLATIONS = {
+  ...BASE_TRANSLATIONS,
+  ...FALLBACK_TRANSLATIONS,
+} as const;
+
+export type TranslationKey = keyof typeof BASE_TRANSLATIONS.en;
 
 export function translate(language: AppLanguage, key: TranslationKey): string {
   return TRANSLATIONS[language][key] ?? TRANSLATIONS.en[key];

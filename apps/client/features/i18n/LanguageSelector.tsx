@@ -1,23 +1,52 @@
-import React, { useMemo, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Dimensions, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { LANGUAGE_META, type AppLanguage } from './index';
+import { ENABLED_LANGUAGE_CODES, LANGUAGE_META, type AppLanguage } from './languages';
 
 type Props = {
   language: AppLanguage;
   onChange: (language: AppLanguage) => void | Promise<void>;
   compact?: boolean;
   mode?: 'pills' | 'menu';
+  menuPlacement?: 'auto' | 'up' | 'down';
 };
 
-export default function LanguageSelector({ language, onChange, compact = false, mode = 'pills' }: Props) {
-  const options: AppLanguage[] = ['fi', 'sv', 'en'];
+export default function LanguageSelector({
+  language,
+  onChange,
+  compact = false,
+  mode = 'pills',
+  menuPlacement = 'auto',
+}: Props) {
+  const options: AppLanguage[] = [...ENABLED_LANGUAGE_CODES];
+  const wrapRef = useRef<View>(null);
   const [open, setOpen] = useState(false);
+  const [resolvedPlacement, setResolvedPlacement] = useState<'up' | 'down'>('down');
   const activeMeta = LANGUAGE_META[language];
+  const menuHeight = compact ? 150 : 174;
+
+  useEffect(() => {
+    if (!open) return;
+    if (menuPlacement === 'up' || menuPlacement === 'down') {
+      setResolvedPlacement(menuPlacement);
+      return;
+    }
+
+    const node = wrapRef.current;
+    if (!node?.measureInWindow) return;
+
+    node.measureInWindow((x, y, width, height) => {
+      const windowHeight = Dimensions.get('window').height;
+      const spaceAbove = y;
+      const spaceBelow = Math.max(windowHeight - (y + height), 0);
+      const nextPlacement = spaceBelow < menuHeight + 16 && spaceAbove > spaceBelow ? 'up' : 'down';
+      setResolvedPlacement(nextPlacement);
+    });
+  }, [compact, menuHeight, menuPlacement, open]);
 
   if (mode === 'menu') {
     return (
-      <View style={styles.menuWrap}>
+      <View ref={wrapRef} style={styles.menuWrap}>
         <Pressable
           onPress={() => setOpen((current) => !current)}
           style={({ pressed }) => [
@@ -30,12 +59,18 @@ export default function LanguageSelector({ language, onChange, compact = false, 
           accessibilityRole="button"
           accessibilityState={{ expanded: open }}
           accessibilityLabel={`${activeMeta.nativeLabel} ${activeMeta.flag}`}
-        >
+          >
           <Text style={styles.menuFlag}>{activeMeta.flag}</Text>
         </Pressable>
 
-          {open ? (
-          <View style={[styles.menuPanel, compact && styles.menuPanelCompact]}>
+        {open ? (
+          <View
+            style={[
+              styles.menuPanel,
+              compact && styles.menuPanelCompact,
+              resolvedPlacement === 'up' ? styles.menuPanelUp : styles.menuPanelDown,
+            ]}
+          >
             {options.map((option) => {
               const meta = LANGUAGE_META[option];
               const active = option === language;
@@ -96,7 +131,7 @@ const styles = StyleSheet.create({
   menuWrap: {
     position: 'relative',
     alignItems: 'flex-end',
-    zIndex: 20,
+    zIndex: 60,
   },
   menuButton: {
     width: 36,
@@ -128,7 +163,6 @@ const styles = StyleSheet.create({
   },
   menuPanel: {
     position: 'absolute',
-    top: 42,
     right: 0,
     borderRadius: 16,
     borderWidth: 1,
@@ -143,8 +177,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 8 },
     elevation: 8,
   },
+  menuPanelDown: {
+    top: 42,
+  },
+  menuPanelUp: {
+    bottom: 42,
+  },
   menuPanelCompact: {
-    top: 38,
     minWidth: 148,
     padding: 6,
     gap: 4,
