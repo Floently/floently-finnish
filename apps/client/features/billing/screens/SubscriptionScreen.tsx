@@ -4,6 +4,7 @@ import { paymentService } from '../services/paymentService';
 import { spacing, typography } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useTranslator, type TranslationKey } from '../../i18n';
 import {
   BILLING_PERIOD_OPTIONS,
   PROFESSION_OPTIONS,
@@ -19,35 +20,35 @@ import {
 } from '@core/api/entitlements';
 import { useOnboardingSession } from '../../onboarding/state/useOnboardingSession';
 
-const PATHWAYS: Array<{ id: CheckoutPathway; title: string; eyebrow: string; body: string; highlights: string[] }> = [
+const PATHWAYS: Array<{ id: CheckoutPathway; titleKey: TranslationKey; eyebrowKey: TranslationKey; bodyKey: TranslationKey; highlightKeys: TranslationKey[] }> = [
   {
     id: 'yki',
-    title: 'YKI Pathway',
-    eyebrow: 'For exam and residence goals',
-    body: 'Practice speaking, writing, reading, and listening for YKI, citizenship, permanent residence, study, and daily life.',
-    highlights: ['YKI speaking and writing tasks', 'Guided corrections and progress', 'Best for learners who only need YKI'],
+    titleKey: 'billingYkiTitle',
+    eyebrowKey: 'billingYkiEyebrow',
+    bodyKey: 'billingYkiDetail',
+    highlightKeys: ['billingYkiHighlight1', 'billingYkiHighlight2', 'billingYkiHighlight3'],
   },
   {
     id: 'professional',
-    title: 'Professional Pathway',
-    eyebrow: 'For role-specific Finnish',
-    body: 'Choose one or more professions and build Finnish for real workplace situations, documentation, teamwork, and communication.',
-    highlights: ['One profession included', 'Add more professions anytime', 'Fixed prices for 2 or 3 profession slots'],
+    titleKey: 'billingProfessionalTitle',
+    eyebrowKey: 'billingProfessionalEyebrow',
+    bodyKey: 'billingProfessionalDetail',
+    highlightKeys: ['billingProfessionalHighlight1', 'billingProfessionalHighlight2', 'billingProfessionalHighlight3'],
   },
   {
     id: 'combined',
-    title: 'Combined Pathway',
-    eyebrow: 'Best for YKI plus work',
-    body: 'Prepare for YKI while also building professional Finnish in one or more chosen professions.',
-    highlights: ['YKI plus one profession included', 'Add extra professions as slots', 'Best long-term pathway'],
+    titleKey: 'billingCombinedTitle',
+    eyebrowKey: 'billingCombinedEyebrow',
+    bodyKey: 'billingCombinedDetail',
+    highlightKeys: ['billingCombinedHighlight1', 'billingCombinedHighlight2', 'billingCombinedHighlight3'],
   },
 ];
 
-const TRIAL_INCLUDES = [
-  '1 roleplay session with a Finnish persona',
-  '1 card practice session',
-  'YKI preview: 1 YKI practice set on the YKI path',
-  'Home, Progress, Settings, and Help',
+const TRIAL_INCLUDES: TranslationKey[] = [
+  'billingPreviewIncludesRoleplay',
+  'billingPreviewIncludesCards',
+  'billingPreviewIncludesYkiPractice',
+  'billingPreviewIncludesCoreScreens',
 ];
 
 function pathwayFromOnboarding(intent?: string): CheckoutPathway {
@@ -71,6 +72,32 @@ export default function SubscriptionScreen() {
   const [period, setPeriod] = useState<BillingPeriod>(() => normalizeBillingPeriod(onboardingBilling ?? 'yearly'));
   const [selectedProfessions, setSelectedProfessions] = useState<ProfessionKey[]>([defaultProfession]);
   const recommendedPathway = useMemo(() => pathwayFromOnboarding(onboardingIntent), [onboardingIntent]);
+  const { t } = useTranslator();
+  const billingDisplayLabels = useMemo(() => ({
+    billingPeriods: {
+      monthly: t('billingPeriodMonthlyLabel'),
+      '3_months': t('billingPeriodThreeMonthsLabel'),
+      yearly: t('billingPeriodYearlyLabel'),
+    },
+    professions: {
+      nurse: t('billingProfessionNurseLabel'),
+      doctor: t('billingProfessionDoctorLabel'),
+      practical_nurse: t('billingProfessionPracticalNurseLabel'),
+    },
+    noProfessionSelected: t('billingNoProfessionSelected'),
+  }), [t]);
+  const currentPlanTitle = useMemo(() => {
+    if (!tier || tier === 'free') return t('billingNoActiveSubscription');
+    if (tier === 'internal_all_access') return t('billingInternalAllAccess');
+    if (tier === 'preview_yki') return t('billingPreviewYkiTitle');
+    if (tier === 'preview_nurse') return t('billingPreviewNurseTitle');
+    if (tier === 'preview_doctor') return t('billingPreviewDoctorTitle');
+    if (tier === 'preview_practical_nurse') return t('billingPreviewPracticalNurseTitle');
+    if (tier.startsWith('yki_') || tier === 'general_premium') return t('billingYkiTitle');
+    if (tier.startsWith('professional_')) return t('billingProfessionalTitle');
+    if (tier.startsWith('combined_') || tier.startsWith('bundle_')) return t('billingCombinedTitle');
+    return tier.replaceAll('_', ' ');
+  }, [t, tier]);
 
   useEffect(() => {
     void paymentService
@@ -101,11 +128,11 @@ export default function SubscriptionScreen() {
   async function openCheckout(pathway: CheckoutPathway) {
     try {
       if (hasActiveSubscription) {
-        Alert.alert('Trial already active', 'Your trial or subscription is already active. You can continue learning now.');
+        Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
         return;
       }
       if (pathway !== 'yki' && selectedProfessions.length === 0) {
-        Alert.alert('Choose a profession', 'Select at least one profession before starting checkout.');
+        Alert.alert(t('billingChooseProfessionTitle'), t('billingChooseProfessionBody'));
         return;
       }
       const request = {
@@ -117,11 +144,11 @@ export default function SubscriptionScreen() {
       if (url) {
         await Linking.openURL(url);
       } else {
-        Alert.alert('Billing unavailable', 'The checkout link was missing from the server response.');
+        Alert.alert(t('billingUnavailableTitle'), t('billingUnavailableBody'));
       }
     } catch (e: unknown) {
-      const message = e instanceof Error ? e.message : 'Could not start checkout. Please try again.';
-      Alert.alert('Checkout setup failed', message);
+      const message = e instanceof Error ? e.message : t('billingPurchaseUnavailableBody');
+      Alert.alert(t('billingPurchaseUnavailableTitle'), message);
     }
   }
 
@@ -129,10 +156,10 @@ export default function SubscriptionScreen() {
     return (
       <View style={styles.professionBox}>
         <View style={styles.professionHeaderRow}>
-          <Text style={[styles.professionTitle, { color: palette.text }]}>Choose profession slots</Text>
-          <Text style={[styles.professionCount, { color: palette.primary }]}>{selectedProfessions.length} selected</Text>
+          <Text style={[styles.professionTitle, { color: palette.text }]}>{t('billingProfessionSlots')}</Text>
+          <Text style={[styles.professionCount, { color: palette.primary }]}>{selectedProfessions.length} {t('billingSelectedSuffix')}</Text>
         </View>
-        <Text style={[styles.professionHelp, { color: palette.textMuted }]}>Add two or more professions only when the learner truly needs multiple role tracks.</Text>
+        <Text style={[styles.professionHelp, { color: palette.textMuted }]}>{t('billingProfessionSlotsHelp')}</Text>
         <View style={styles.professionGrid}>
           {PROFESSION_OPTIONS.map((option) => {
             const selected = selectedProfessions.includes(option.key);
@@ -150,13 +177,13 @@ export default function SubscriptionScreen() {
                   pressed && styles.pressed,
                 ]}
               >
-                <Text style={[styles.professionPillText, { color: selected ? textOnPrimary : palette.text }]}>{option.shortLabel}</Text>
+                <Text style={[styles.professionPillText, { color: selected ? textOnPrimary : palette.text }]}>{t((option.shortLabelKey ?? option.labelKey ?? 'billingProfessionNurseShortLabel') as TranslationKey)}</Text>
               </Pressable>
             );
           })}
         </View>
         {selectedProfessions.length > 1 ? (
-          <Text style={[styles.discountText, { color: palette.accent }]}>Price updates automatically for 1, 2, or 3 selected profession slots.</Text>
+          <Text style={[styles.discountText, { color: palette.accent }]}>{t('billingExtraProfessionSlotsNotice')}</Text>
         ) : null}
       </View>
     );
@@ -168,15 +195,15 @@ export default function SubscriptionScreen() {
       style={{ backgroundColor: palette.background }}
     >
       <View style={[styles.hero, { backgroundColor: palette.primary, shadowColor: palette.shadow }]}>
-        <Text style={styles.heroEyebrow}>FLOENTLY ACCESS</Text>
-        <Text style={styles.heroTitle}>Three simple paths. No profession-specific payment maze.</Text>
-        <Text style={styles.heroBody}>Choose YKI, Professional, or Combined. Professions are selected as slots, so new professions can be added without creating new Stripe products.</Text>
+        <Text style={styles.heroEyebrow}>{t('billingAccessEyebrow')}</Text>
+        <Text style={styles.heroTitle}>{t('billingHeaderTitle')}</Text>
+        <Text style={styles.heroBody}>{t('billingHeaderSubtitle')}</Text>
       </View>
 
       {tier && tier !== 'free' ? (
         <View style={[styles.currentPlan, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-          <Text style={[styles.currentPlanLabel, { color: palette.textMuted }]}>Current plan</Text>
-          <Text style={[styles.currentPlanTitle, { color: palette.text }]}>{tier}</Text>
+          <Text style={[styles.currentPlanLabel, { color: palette.textMuted }]}>{t('billingCurrentPlanLabel')}</Text>
+          <Text style={[styles.currentPlanTitle, { color: palette.text }]}>{currentPlanTitle}</Text>
         </View>
       ) : null}
 
@@ -190,8 +217,8 @@ export default function SubscriptionScreen() {
               onPress={() => setPeriod(option.key)}
               style={[styles.segmentButton, { backgroundColor: active ? palette.primary : 'transparent' }]}
             >
-              <Text style={[styles.segmentText, { color: active ? textOnPrimary : palette.text }]}>{option.label}</Text>
-              <Text style={[styles.segmentSubtext, { color: active ? textOnPrimary : palette.textMuted }]}>{option.savingsLabel}</Text>
+              <Text style={[styles.segmentText, { color: active ? textOnPrimary : palette.text }]}>{t((option.labelKey ?? 'billingPeriodMonthlyLabel') as TranslationKey)}</Text>
+              <Text style={[styles.segmentSubtext, { color: active ? textOnPrimary : palette.textMuted }]}>{t((option.savingsLabelKey ?? 'billingPeriodMonthlySavings') as TranslationKey)}</Text>
             </Pressable>
           );
         })}
@@ -200,7 +227,7 @@ export default function SubscriptionScreen() {
       <View style={styles.planStack}>
         {PATHWAYS.map((pathway) => {
           const plan = getPlanByPathwayPeriod(pathway.id, period);
-          const estimate = estimateCheckoutTotal(pathway.id, period, selectedProfessions);
+          const estimate = estimateCheckoutTotal(pathway.id, period, selectedProfessions, billingDisplayLabels);
           const recommended = pathway.id === recommendedPathway;
           const needsProfession = pathway.id !== 'yki';
           return (
@@ -217,24 +244,24 @@ export default function SubscriptionScreen() {
             >
               {recommended ? (
                 <View style={[styles.recommendedBadge, { backgroundColor: palette.primary }]}>
-                  <Text style={[styles.recommendedText, { color: textOnPrimary }]}>RECOMMENDED</Text>
+                  <Text style={[styles.recommendedText, { color: textOnPrimary }]}>{t('commonRecommended')}</Text>
                 </View>
               ) : null}
-              <Text style={[styles.cardEyebrow, { color: palette.primary }]}>{pathway.eyebrow}</Text>
-              <Text style={[styles.cardTitle, { color: palette.text }]}>{pathway.title}</Text>
-              <Text style={[styles.cardBody, { color: palette.textMuted }]}>{pathway.body}</Text>
+              <Text style={[styles.cardEyebrow, { color: palette.primary }]}>{t(pathway.eyebrowKey)}</Text>
+              <Text style={[styles.cardTitle, { color: palette.text }]}>{t(pathway.titleKey)}</Text>
+              <Text style={[styles.cardBody, { color: palette.textMuted }]}>{t(pathway.bodyKey)}</Text>
               <View style={styles.priceRow}>
                 <Text style={[styles.priceText, { color: palette.text }]}>{estimate.totalLabel}</Text>
-                {needsProfession ? <Text style={[styles.priceMeta, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions)}</Text> : null}
+                {needsProfession ? <Text style={[styles.priceMeta, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions, billingDisplayLabels.professions, billingDisplayLabels.noProfessionSelected)}</Text> : null}
               </View>
 
               {needsProfession ? renderProfessionSelector() : null}
 
               <View style={styles.highlightList}>
-                {pathway.highlights.map((item) => (
+                {pathway.highlightKeys.map((item) => (
                   <View key={item} style={styles.highlightRow}>
                     <Text style={[styles.check, { color: palette.accent }]}>✓</Text>
-                    <Text style={[styles.highlightText, { color: palette.textMuted }]}>{item}</Text>
+                    <Text style={[styles.highlightText, { color: palette.textMuted }]}>{t(item)}</Text>
                   </View>
                 ))}
               </View>
@@ -245,20 +272,20 @@ export default function SubscriptionScreen() {
                 onPress={() => { void openCheckout(pathway.id); }}
                 style={({ pressed }) => [styles.cta, { backgroundColor: palette.primary, opacity: hasActiveSubscription ? 0.65 : 1 }, pressed && !hasActiveSubscription && styles.pressed]}
               >
-                <Text style={[styles.ctaText, { color: textOnPrimary }]}>{hasActiveSubscription ? 'Trial already active' : 'Start 3-day free trial'}</Text>
+                <Text style={[styles.ctaText, { color: textOnPrimary }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : t('billingStartFreeTrial')}</Text>
               </Pressable>
-              <Text style={[styles.planFinePrint, { color: palette.textMuted }]}>{estimate.totalLabel}. Cancel before day 3.</Text>
+              <Text style={[styles.planFinePrint, { color: palette.textMuted }]}>{estimate.totalLabel} {t('billingPlanFinePrintSuffix')}</Text>
             </View>
           );
         })}
       </View>
 
       <View style={[styles.infoCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-        <Text style={[styles.infoTitle, { color: palette.text }]}>What the free preview covers</Text>
+        <Text style={[styles.infoTitle, { color: palette.text }]}>{t('billingFreePreviewCoversTitle')}</Text>
         {TRIAL_INCLUDES.map((item) => (
           <View key={item} style={styles.highlightRow}>
             <Text style={[styles.check, { color: palette.accent }]}>✓</Text>
-            <Text style={[styles.highlightText, { color: palette.textMuted }]}>{item}</Text>
+            <Text style={[styles.highlightText, { color: palette.textMuted }]}>{t(item)}</Text>
           </View>
         ))}
       </View>
@@ -266,14 +293,14 @@ export default function SubscriptionScreen() {
       <Pressable
         onPress={() => {
           Alert.alert(
-            'For organisations',
-            'Employer and city programme access remain separate from individual Stripe subscriptions and can be configured through organisation setup.',
+            t('billingOrganisationAccessTitle'),
+            t('billingOrganisationAccessBody'),
           );
         }}
         style={{ padding: spacing.sm }}
       >
         <Text style={{ color: palette.textMuted, fontSize: 12, textAlign: 'center', textDecorationLine: 'underline' }}>
-          Employer and city programme access
+          {t('billingOrganisationAccessLinkLabel')}
         </Text>
       </Pressable>
     </ScrollView>

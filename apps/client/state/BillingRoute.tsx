@@ -15,6 +15,9 @@ import {
   PROFESSION_OPTIONS,
   buildCheckoutRequest,
   estimateCheckoutTotal,
+  formatSubscriptionAccessLabel,
+  formatSubscriptionAccessSummary,
+  formatSubscriptionPlanLabel,
   getPlanByPathwayPeriod,
   professionListLabel,
   type BillingPeriod,
@@ -91,6 +94,38 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const startPreview = useSubscriptionStore((state) => state.startPreview);
   const endPreview = useSubscriptionStore((state) => state.endPreview);
   const { t } = useTranslator();
+  const billingDisplayLabels = useMemo(() => ({
+    billingPeriods: {
+      monthly: t('billingPeriodMonthlyLabel'),
+      '3_months': t('billingPeriodThreeMonthsLabel'),
+      yearly: t('billingPeriodYearlyLabel'),
+    },
+    professions: {
+      nurse: t('billingProfessionNurseLabel'),
+      doctor: t('billingProfessionDoctorLabel'),
+      practical_nurse: t('billingProfessionPracticalNurseLabel'),
+    },
+    noProfessionSelected: t('billingNoProfessionSelected'),
+    ykiPathway: t('billingYkiTitle'),
+    professionalPathway: t('billingProfessionalTitle'),
+    combinedPathway: t('billingCombinedTitle'),
+    previewYki: t('billingPreviewYkiTitle'),
+    previewDoctor: t('billingPreviewDoctorTitle'),
+    previewNurse: t('billingPreviewNurseTitle'),
+    previewPracticalNurse: t('billingPreviewPracticalNurseTitle'),
+    internalAllAccess: t('billingInternalAllAccess'),
+    accessTypes: {
+      individual: t('billingAccessTypeIndividual'),
+      employer_programme: t('billingAccessTypeEmployerProgramme'),
+      city_programme: t('billingAccessTypeCityProgramme'),
+      internal: t('billingAccessTypeInternal'),
+    },
+    accessSummaryNoSubscription: t('billingAccessSummaryNoSubscription'),
+    accessSummaryYki: t('billingAccessSummaryYki'),
+    accessSummaryProfessional: t('billingAccessSummaryProfessional'),
+    accessSummaryCombined: t('billingAccessSummaryCombined'),
+    accessSummaryInternal: t('billingAccessSummaryInternal'),
+  }), [t]);
 
   useEffect(() => {
     void hydratePreferences();
@@ -121,6 +156,15 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       detail: t('billingCityProgrammeDetail'),
     },
   ], [t]);
+  const currentPlanLabel = subscription
+    ? formatSubscriptionPlanLabel(subscription, billingDisplayLabels)
+    : t('billingNoActiveSubscription');
+  const currentAccessSummary = subscription
+    ? formatSubscriptionAccessSummary(subscription, billingDisplayLabels)
+    : t('billingAccessSummaryNoSubscription');
+  const currentAccessLabel = subscription
+    ? formatSubscriptionAccessLabel(subscription.accessType, billingDisplayLabels)
+    : null;
 
   async function openUrl(url: string | undefined) {
     if (!url) {
@@ -235,7 +279,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
                   pressed && styles.pressed,
                 ]}
               >
-                <Text style={[styles.professionPillText, { color: selected ? textOnPrimary : palette.text }]}>{option.shortLabel}</Text>
+                <Text style={[styles.professionPillText, { color: selected ? textOnPrimary : palette.text }]}>{t((option.shortLabelKey ?? option.labelKey ?? 'billingProfessionNurseShortLabel') as TranslationKey)}</Text>
               </Pressable>
             );
           })}
@@ -265,9 +309,9 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
     >
       <View style={[styles.statusCard, { backgroundColor: palette.primary, shadowColor: palette.shadow }]}>
         <Text style={styles.statusLabel}>{t('settingsAccessType')}</Text>
-        <Text style={styles.statusTitle}>{subscription?.planLabel ?? '...'}</Text>
-        <Text style={styles.statusBody}>{subscription?.accessSummary ?? ''}</Text>
-        {subscription?.accessLabel ? <Text style={styles.statusMeta}>{t('settingsAccessType')} - {subscription.accessLabel}</Text> : null}
+        <Text style={styles.statusTitle}>{currentPlanLabel}</Text>
+        <Text style={styles.statusBody}>{currentAccessSummary}</Text>
+        {currentAccessLabel ? <Text style={styles.statusMeta}>{t('settingsAccessType')} - {currentAccessLabel}</Text> : null}
       </View>
 
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
@@ -319,8 +363,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           const active = period === option.key;
           return (
             <Pressable key={option.key} accessibilityRole="button" onPress={() => setPeriod(option.key)} style={[styles.segmentButton, { backgroundColor: active ? palette.primary : 'transparent' }]}>
-              <Text style={[styles.segmentText, { color: active ? textOnPrimary : palette.text }]}>{option.label}</Text>
-              <Text style={[styles.segmentSubtext, { color: active ? textOnPrimary : palette.textMuted }]}>{option.savingsLabel}</Text>
+              <Text style={[styles.segmentText, { color: active ? textOnPrimary : palette.text }]}>{t((option.labelKey ?? 'billingPeriodMonthlyLabel') as TranslationKey)}</Text>
+              <Text style={[styles.segmentSubtext, { color: active ? textOnPrimary : palette.textMuted }]}>{t((option.savingsLabelKey ?? 'billingPeriodMonthlySavings') as TranslationKey)}</Text>
             </Pressable>
           );
         })}
@@ -328,7 +372,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
       <View style={styles.pathwayGrid}>
         {PATHWAYS.map((pathway) => {
-          const estimate = estimateCheckoutTotal(pathway.id, period, selectedProfessions);
+          const estimate = estimateCheckoutTotal(pathway.id, period, selectedProfessions, billingDisplayLabels);
           const plan = getPlanByPathwayPeriod(pathway.id, period);
           const isBusy = busyPlan === plan.id;
           const needsProfession = pathway.id !== 'yki';
@@ -337,13 +381,13 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
               <View style={styles.planTopRow}>
                 <Text style={[styles.planEyebrow, { color: palette.primary }]}>{t(pathway.eyebrowKey)}</Text>
                 <View style={[styles.planChip, { backgroundColor: palette.primarySurface }]}>
-                  <Text style={[styles.planChipText, { color: palette.primary }]}>{plan.checkoutLabel}</Text>
+                  <Text style={[styles.planChipText, { color: palette.primary }]}>{estimate.totalLabel}</Text>
                 </View>
               </View>
               <Text style={[styles.pricingTitle, { color: palette.text }]}>{t(pathway.titleKey)}</Text>
               <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t(pathway.detailKey)}</Text>
               <Text style={[styles.priceText, { color: palette.text }]}>{estimate.totalLabel}</Text>
-              {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions)}</Text> : null}
+              {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions, billingDisplayLabels.professions, billingDisplayLabels.noProfessionSelected)}</Text> : null}
               {needsProfession ? renderProfessionSelector() : null}
               <View style={styles.stackTight}>
                 {pathway.highlightKeys.map((item) => (

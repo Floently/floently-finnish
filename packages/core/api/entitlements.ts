@@ -40,15 +40,41 @@ export type PlanCatalogEntry = {
 export type ProfessionOption = {
   key: ProfessionKey;
   label: string;
+  labelKey?: string;
   shortLabel: string;
+  shortLabelKey?: string;
   detail: string;
+  detailKey?: string;
 };
 
 export type BillingPeriodOption = {
   key: BillingPeriod;
   label: string;
+  labelKey?: string;
   shortLabel: string;
+  shortLabelKey?: string;
   savingsLabel: string;
+  savingsLabelKey?: string;
+};
+
+export type BillingDisplayLabels = {
+  billingPeriods?: Partial<Record<BillingPeriod, string>>;
+  professions?: Partial<Record<ProfessionKey, string>>;
+  noProfessionSelected?: string;
+  internalAllAccess?: string;
+  ykiPathway?: string;
+  professionalPathway?: string;
+  combinedPathway?: string;
+  previewYki?: string;
+  previewDoctor?: string;
+  previewNurse?: string;
+  previewPracticalNurse?: string;
+  accessTypes?: Partial<Record<AccessType, string>>;
+  accessSummaryNoSubscription?: string;
+  accessSummaryYki?: string;
+  accessSummaryProfessional?: string;
+  accessSummaryCombined?: string;
+  accessSummaryInternal?: string;
 };
 
 export type CheckoutRequest = {
@@ -65,27 +91,36 @@ export const PROFESSION_OPTIONS: ProfessionOption[] = [
   {
     key: 'nurse',
     label: 'Nurse',
+    labelKey: 'billingProfessionNurseLabel',
     shortLabel: 'Nurse',
+    shortLabelKey: 'billingProfessionNurseShortLabel',
     detail: 'Patient care, handovers, reporting, medication communication, and teamwork.',
+    detailKey: 'billingProfessionNurseDetail',
   },
   {
     key: 'doctor',
     label: 'Doctor',
+    labelKey: 'billingProfessionDoctorLabel',
     shortLabel: 'Doctor',
+    shortLabelKey: 'billingProfessionDoctorShortLabel',
     detail: 'Patient interaction, explanations, documentation, consultation, and medical teamwork.',
+    detailKey: 'billingProfessionDoctorDetail',
   },
   {
     key: 'practical_nurse',
     label: 'Practical Nurse',
+    labelKey: 'billingProfessionPracticalNurseLabel',
     shortLabel: 'Practical Nurse',
+    shortLabelKey: 'billingProfessionPracticalNurseShortLabel',
     detail: 'Care routines, residents, relatives, daily support, and practical care communication.',
+    detailKey: 'billingProfessionPracticalNurseDetail',
   },
 ];
 
 export const BILLING_PERIOD_OPTIONS: BillingPeriodOption[] = [
-  { key: 'monthly', label: 'Monthly', shortLabel: '1 month', savingsLabel: 'Flexible' },
-  { key: '3_months', label: '3 months', shortLabel: '3 months', savingsLabel: 'Focused sprint' },
-  { key: 'yearly', label: 'Yearly', shortLabel: '12 months', savingsLabel: 'Best value' },
+  { key: 'monthly', label: 'Monthly', labelKey: 'billingPeriodMonthlyLabel', shortLabel: '1 month', shortLabelKey: 'billingPeriodMonthlyShortLabel', savingsLabel: 'Flexible', savingsLabelKey: 'billingPeriodMonthlySavings' },
+  { key: '3_months', label: '3 months', labelKey: 'billingPeriodThreeMonthsLabel', shortLabel: '3 months', shortLabelKey: 'billingPeriodThreeMonthsShortLabel', savingsLabel: 'Focused sprint', savingsLabelKey: 'billingPeriodThreeMonthsSavings' },
+  { key: 'yearly', label: 'Yearly', labelKey: 'billingPeriodYearlyLabel', shortLabel: '12 months', shortLabelKey: 'billingPeriodYearlyShortLabel', savingsLabel: 'Best value', savingsLabelKey: 'billingPeriodYearlySavings' },
 ];
 
 const PLAN_PRICES_CENTS: Record<CheckoutPathway, Record<BillingPeriod, number>> = {
@@ -239,7 +274,8 @@ function formatCurrency(cents: number) {
   return `EUR ${display}`;
 }
 
-export function billingPeriodDisplay(period: BillingPeriod) {
+export function billingPeriodDisplay(period: BillingPeriod, labels?: BillingDisplayLabels['billingPeriods']) {
+  if (labels?.[period]) return labels[period] as string;
   if (period === 'monthly') return 'month';
   if (period === '3_months') return '3 months';
   return 'year';
@@ -271,14 +307,18 @@ export function dedupeProfessions(values: unknown[]): ProfessionKey[] {
   return result;
 }
 
-export function resolveProfessionalDisplayName(profession: string | null | undefined): string {
+export function resolveProfessionalDisplayName(profession: string | null | undefined, labels?: BillingDisplayLabels['professions']): string {
   const normalized = normalizeProfession(profession);
-  return PROFESSION_OPTIONS.find((option) => option.key === normalized)?.label ?? 'Professional';
+  return (normalized ? labels?.[normalized] : undefined) ?? PROFESSION_OPTIONS.find((option) => option.key === normalized)?.label ?? 'Professional';
 }
 
-export function professionListLabel(professions: ProfessionKey[]) {
-  if (!professions.length) return 'No profession selected';
-  return professions.map(resolveProfessionalDisplayName).join(', ');
+export function professionListLabel(
+  professions: ProfessionKey[],
+  labels?: BillingDisplayLabels['professions'],
+  noProfessionSelectedLabel?: string,
+) {
+  if (!professions.length) return noProfessionSelectedLabel ?? 'No profession selected';
+  return professions.map((profession) => resolveProfessionalDisplayName(profession, labels)).join(', ');
 }
 
 export function planIdFor(pathway: CheckoutPathway, billingPeriod: BillingPeriod): Exclude<PlanId, LegacyPlanId> {
@@ -291,7 +331,12 @@ export function getPlanByPathwayPeriod(pathway: CheckoutPathway, billingPeriod: 
   return PLAN_CATALOG.find((plan) => plan.id === id) ?? PLAN_CATALOG[0];
 }
 
-export function estimateCheckoutTotal(pathway: CheckoutPathway, billingPeriod: BillingPeriod, professions: ProfessionKey[]) {
+export function estimateCheckoutTotal(
+  pathway: CheckoutPathway,
+  billingPeriod: BillingPeriod,
+  professions: ProfessionKey[],
+  labels?: BillingDisplayLabels,
+) {
   const professionCount = pathway === 'yki' ? 0 : Math.max(1, professions.length);
   const supportedCount = pathway === 'yki' ? 1 : supportedProfessionCount(professionCount);
   const baseCents = PLAN_PRICES_CENTS[pathway][billingPeriod];
@@ -299,15 +344,103 @@ export function estimateCheckoutTotal(pathway: CheckoutPathway, billingPeriod: B
     ? baseCents
     : MULTI_PROFESSION_PRICE_CENTS[pathway][supportedCount][billingPeriod];
   const extraProfessionCount = pathway === 'yki' ? 0 : Math.max(0, supportedCount - 1);
+  const billingPeriodLabel = billingPeriodDisplay(billingPeriod, labels?.billingPeriods);
 
   return {
     totalCents,
-    totalLabel: `${formatCurrency(totalCents)} / ${billingPeriodDisplay(billingPeriod)}`,
-    baseLabel: `${formatCurrency(baseCents)} / ${billingPeriodDisplay(billingPeriod)}`,
+    totalLabel: `${formatCurrency(totalCents)} / ${billingPeriodLabel}`,
+    baseLabel: `${formatCurrency(baseCents)} / ${billingPeriodLabel}`,
     professionCount: pathway === 'yki' ? 0 : supportedCount,
     extraProfessionCount,
     extraProfessionDiscountPercent: 0,
   };
+}
+
+export function formatSubscriptionPlanLabel(
+  status: {
+    planKey?: string;
+    tier?: string;
+    billingTier?: string;
+    planLabel?: string;
+    professions?: ProfessionKey[];
+    isInternalAllAccess?: boolean;
+    ykiAccess?: boolean;
+    professionalAccess?: boolean;
+  },
+  labels?: BillingDisplayLabels,
+) {
+  const planKey = String(status.planKey ?? status.billingTier ?? status.tier ?? 'free');
+  const professionLabel = professionListLabel(status.professions ?? [], labels?.professions, labels?.noProfessionSelected);
+
+  switch (planKey) {
+    case 'internal_all_access':
+      return labels?.internalAllAccess ?? 'Internal All Access';
+    case 'preview_yki':
+      return labels?.previewYki ?? 'Free Preview - YKI Pathway';
+    case 'preview_doctor':
+      return labels?.previewDoctor ?? 'Free Preview - Doctor Pathway';
+    case 'preview_nurse':
+      return labels?.previewNurse ?? 'Free Preview - Nurse Pathway';
+    case 'preview_practical_nurse':
+      return labels?.previewPracticalNurse ?? 'Free Preview - Practical Nurse Pathway';
+    default:
+      break;
+  }
+
+  if (status.isInternalAllAccess) {
+    return labels?.internalAllAccess ?? 'Internal All Access';
+  }
+
+  if (planKey === 'general_premium' || planKey.startsWith('yki_') || (status.ykiAccess && !status.professionalAccess)) {
+    return labels?.ykiPathway ?? 'YKI Pathway';
+  }
+
+  if (planKey === 'professional_premium' || planKey.startsWith('professional_') || (status.professionalAccess && !status.ykiAccess)) {
+    const title = labels?.professionalPathway ?? 'Professional Pathway';
+    return professionLabel ? `${title} - ${professionLabel}` : title;
+  }
+
+  if (planKey.startsWith('combined_') || planKey.startsWith('bundle_') || (status.ykiAccess && status.professionalAccess)) {
+    const title = labels?.combinedPathway ?? 'Combined Pathway';
+    return professionLabel ? `${title} - ${professionLabel}` : title;
+  }
+
+  return status.planLabel ?? 'No active subscription';
+}
+
+export function formatSubscriptionAccessLabel(accessType: AccessType, labels?: BillingDisplayLabels) {
+  return labels?.accessTypes?.[accessType] ?? accessLabelForType(accessType);
+}
+
+export function formatSubscriptionAccessSummary(
+  status: Pick<NormalizedSubscriptionStatus, 'hasAnySubscription' | 'ykiAccess' | 'professionalAccess' | 'isInternalAllAccess' | 'professions'>,
+  labels?: BillingDisplayLabels,
+) {
+  const professionLabel = professionListLabel(status.professions, labels?.professions, labels?.noProfessionSelected);
+
+  if (!status.hasAnySubscription) {
+    return labels?.accessSummaryNoSubscription ?? 'Choose a YKI, professional, or combined pathway to unlock guided support for work and life in Finland.';
+  }
+
+  if (status.isInternalAllAccess) {
+    return labels?.accessSummaryInternal ?? 'YKI, workplace communication, and professional pathways are unlocked for testing.';
+  }
+
+  if (status.ykiAccess && status.professionalAccess) {
+    const summary = labels?.accessSummaryCombined ?? 'Combined pathway active';
+    return professionLabel ? `${summary} - ${professionLabel}` : summary;
+  }
+
+  if (status.ykiAccess) {
+    return labels?.accessSummaryYki ?? 'YKI pathway is active for work, citizenship, and permanent residence goals.';
+  }
+
+  if (status.professionalAccess) {
+    const summary = labels?.accessSummaryProfessional ?? 'Professional pathway is active';
+    return professionLabel ? `${summary} - ${professionLabel}` : summary;
+  }
+
+  return labels?.accessSummaryNoSubscription ?? 'Subscription detected.';
 }
 
 export function buildCheckoutRequest(pathway: CheckoutPathway, billingPeriod: BillingPeriod, professions: ProfessionKey[]): CheckoutRequest {
