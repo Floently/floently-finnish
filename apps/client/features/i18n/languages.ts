@@ -56,7 +56,7 @@ export const ALL_LANGUAGE_CODES = [
 ] as const satisfies readonly AppLanguage[];
 
 export const ENABLED_LANGUAGE_CODES = ['fi', 'sv', 'en'] as const satisfies readonly AppLanguage[];
-export const REVIEW_LANGUAGE_CODES = ['et', 'es', 'tr', 'ru', 'uk'] as const satisfies readonly AppLanguage[];
+export const REVIEW_LANGUAGE_CODES = ['et', 'es', 'tr', 'ru', 'uk', 'vi', 'sq', 'tl', 'so'] as const satisfies readonly AppLanguage[];
 
 export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
   fi: {
@@ -121,7 +121,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Soomaali',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   fa: {
     flag: '🇮🇷',
@@ -145,7 +145,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Shqip',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   ku: {
     flag: '🔶',
@@ -161,7 +161,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Tiếng Việt',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   bn: {
     flag: '🇧🇩',
@@ -185,7 +185,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Tagalog',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   th: {
     flag: '🇹🇭',
