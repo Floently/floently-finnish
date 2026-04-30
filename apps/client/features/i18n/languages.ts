@@ -56,6 +56,7 @@ export const ALL_LANGUAGE_CODES = [
 ] as const satisfies readonly AppLanguage[];
 
 export const ENABLED_LANGUAGE_CODES = ['fi', 'sv', 'en'] as const satisfies readonly AppLanguage[];
+export const REVIEW_LANGUAGE_CODES = ['et', 'es', 'tr', 'ru', 'uk'] as const satisfies readonly AppLanguage[];
 
 export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
   fi: {
@@ -80,7 +81,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Русский',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   et: {
     flag: '🇪🇪',
@@ -88,7 +89,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Eesti',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   uk: {
     flag: '🇺🇦',
@@ -96,7 +97,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Українська',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   ar: {
     flag: '🇸🇦',
@@ -176,7 +177,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Türkçe',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   tl: {
     flag: '🇵🇭',
@@ -208,7 +209,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'Español',
     direction: 'ltr',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   ur: {
     flag: '🇵🇰',

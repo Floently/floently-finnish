@@ -57,15 +57,24 @@ for (const language of ALL_LANGUAGE_CODES) {
 
 const enabledLanguages = ENABLED_LANGUAGE_CODES.filter((language) => LANGUAGE_META[language].enabled);
 const disabledLanguages = ALL_LANGUAGE_CODES.filter((language) => !LANGUAGE_META[language].enabled);
+const reviewLanguages = ALL_LANGUAGE_CODES.filter((language) => LANGUAGE_META[language].translationStatus === 'in_progress');
 const enabledStatusErrors = enabledLanguages.filter((language) => LANGUAGE_META[language].translationStatus !== 'complete');
 const disabledStatusErrors = disabledLanguages.filter((language) => LANGUAGE_META[language].translationStatus === 'complete');
+const reviewEnabledErrors = reviewLanguages.filter((language) => LANGUAGE_META[language].enabled);
+const placeholderPattern = /\bTODO\b|\bFIXME\b|\bTRANSLATE\b|translation missing|MISSING|undefined|null/;
+const hasBadValue = (translation) =>
+  Object.values(translation).some((value) => typeof value !== 'string' || value.trim().length === 0 || placeholderPattern.test(value));
+const reviewValueErrors = reviewLanguages.filter((language) => hasBadValue(TRANSLATIONS[language]));
 const rtlLanguages = ALL_LANGUAGE_CODES.filter((language) => LANGUAGE_META[language].direction === 'rtl');
 const expectedRtlLanguages = ['ar', 'fa', 'ur'];
 const rtlMismatch = rtlLanguages.length !== expectedRtlLanguages.length || expectedRtlLanguages.some((language) => !rtlLanguages.includes(language));
 const fallbackEnglishLanguages = disabledLanguages.filter((language) => JSON.stringify(TRANSLATIONS[language]) === JSON.stringify(TRANSLATIONS.en));
 
-console.log(`i18n completeness: ${issues.length === 0 && enabledStatusErrors.length === 0 && disabledStatusErrors.length === 0 && !rtlMismatch ? 'passed' : 'failed'}`);
+console.log(
+  `i18n completeness: ${issues.length === 0 && enabledStatusErrors.length === 0 && disabledStatusErrors.length === 0 && reviewEnabledErrors.length === 0 && reviewValueErrors.length === 0 && !rtlMismatch ? 'passed' : 'failed'}`,
+);
 console.log(`enabled languages: ${enabledLanguages.join(', ')}`);
+console.log(`review languages: ${reviewLanguages.join(', ')}`);
 console.log(`hidden fallback languages: ${disabledLanguages.join(', ')}`);
 console.log(`english fallback languages: ${fallbackEnglishLanguages.join(', ')}`);
 
@@ -84,10 +93,18 @@ if (disabledStatusErrors.length) {
   console.log(`\nDisabled languages incorrectly marked complete: ${disabledStatusErrors.join(', ')}`);
 }
 
+if (reviewEnabledErrors.length) {
+  console.log(`\nReview languages incorrectly enabled: ${reviewEnabledErrors.join(', ')}`);
+}
+
+if (reviewValueErrors.length) {
+  console.log(`\nReview languages with missing/placeholder values: ${reviewValueErrors.join(', ')}`);
+}
+
 if (rtlMismatch) {
   console.log(`\nRTL metadata mismatch: expected [${expectedRtlLanguages.join(', ')}], got [${rtlLanguages.join(', ')}]`);
 }
 
-if (issues.length || enabledStatusErrors.length || disabledStatusErrors.length || rtlMismatch) {
+if (issues.length || enabledStatusErrors.length || disabledStatusErrors.length || reviewEnabledErrors.length || reviewValueErrors.length || rtlMismatch) {
   process.exitCode = 1;
 }
