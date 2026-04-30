@@ -27,8 +27,10 @@ import { onboardingRoutes } from '../routes';
 import { spacing } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useTranslator } from '../../i18n';
 
 export default function WelcomeScreen() {
+  const { t } = useTranslator();
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
@@ -66,40 +68,39 @@ export default function WelcomeScreen() {
         <Animated.View style={[styles.container, enterStyle]}>
           {/* Eyebrow — quiet brand voice, no logo competing */}
           <View style={styles.eyebrowRow}>
-            <Text style={[styles.eyebrow, { color: palette.primary }]}>FLOENTLY</Text>
+            <Text style={[styles.eyebrow, { color: palette.primary }]}>{t('onboardingWelcomeEyebrow')}</Text>
             <View style={[styles.eyebrowDot, { backgroundColor: palette.accent }]} />
-            <Text style={[styles.eyebrowMeta, { color: palette.textMuted }]}>Finland</Text>
+            <Text style={[styles.eyebrowMeta, { color: palette.textMuted }]}>{t('onboardingWelcomeFinland')}</Text>
           </View>
 
           {/* Hero — editorial typography. Three lines, deliberate breaks. */}
           <View style={styles.heroBlock}>
-            <Text style={[styles.heroLine, { color: palette.text }]}>Pass YKI.</Text>
-            <Text style={[styles.heroLine, { color: palette.text }]}>Start your shift in Finnish.</Text>
-            <Text style={[styles.heroLine, { color: palette.accent }]}>Belong in Finland.</Text>
+            <Text style={[styles.heroLine, { color: palette.text }]}>{t('onboardingWelcomeHeroLine1')}</Text>
+            <Text style={[styles.heroLine, { color: palette.text }]}>{t('onboardingWelcomeHeroLine2')}</Text>
+            <Text style={[styles.heroLine, { color: palette.accent }]}>{t('onboardingWelcomeHeroLine3')}</Text>
           </View>
 
           {/* Subhead — specific positioning, names the niche directly */}
           <Text style={[styles.subhead, { color: palette.textMuted }]}>
-            Built for nurses, doctors, and practical nurses preparing for the YKI exam and a working life
-            in Finnish hospitals, clinics, and care homes. Not a generic language app.
+            {t('onboardingWelcomeSubhead')}
           </Text>
 
           {/* Three pillars — what makes this app different. Quietly stated. */}
           <View style={styles.pillarsBlock}>
             <Pillar
               palette={palette}
-              label="YKI as the gateway"
-              body="Practice aligned to the official exam — the level that opens citizenship, residence, and professional registration."
+              label={t('onboardingWelcomePillar1Title')}
+              body={t('onboardingWelcomePillar1Body')}
             />
             <Pillar
               palette={palette}
-              label="Real workplace Finnish"
-              body="Speak with Finnish patients, colleagues, and supervisors. Shift handovers, patient updates, daily care vocabulary."
+              label={t('onboardingWelcomePillar2Title')}
+              body={t('onboardingWelcomePillar2Body')}
             />
             <Pillar
               palette={palette}
-              label="Toward integration"
-              body="Past the exam, past the first day at work — the language of belonging in Finnish life."
+              label={t('onboardingWelcomePillar3Title')}
+              body={t('onboardingWelcomePillar3Body')}
             />
           </View>
 
@@ -109,7 +110,7 @@ export default function WelcomeScreen() {
           {/* Primary CTA — single, decisive */}
           <View style={styles.ctaBlock}>
             <Text style={[styles.ctaSubtext, { color: palette.textMuted }]}>
-              Two-minute setup · 3-day free trial on selected features
+              {t('onboardingWelcomeCtaSubtext')}
             </Text>
             <Pressable
               onPress={() => router.push(onboardingRoutes.intent)}
@@ -120,9 +121,9 @@ export default function WelcomeScreen() {
                 },
               ]}
               accessibilityRole="button"
-              accessibilityLabel="Get started"
+              accessibilityLabel={t('onboardingWelcomeGetStarted')}
             >
-              <Text style={[styles.primaryBtnLabel, { color: textOnPrimary }]}>Get started</Text>
+              <Text style={[styles.primaryBtnLabel, { color: textOnPrimary }]}>{t('onboardingWelcomeGetStarted')}</Text>
             </Pressable>
 
             {/* Secondary — sign-in for returning users */}
@@ -130,32 +131,26 @@ export default function WelcomeScreen() {
               onPress={() => router.push(onboardingRoutes.login as never)}
               style={styles.secondaryRow}
               accessibilityRole="link"
-              accessibilityLabel="Sign in to existing account"
-            >
+                accessibilityLabel={t('onboardingWelcomeSignIn')}
+              >
               <Text style={[styles.secondaryText, { color: palette.textMuted }]}>
-                Already have an account?{' '}
-                <Text style={[styles.secondaryStrong, { color: palette.primary }]}>Sign in</Text>
+                {t('onboardingWelcomeAlreadyHaveAccount')}{' '}
+                <Text style={[styles.secondaryStrong, { color: palette.primary }]}>{t('onboardingWelcomeSignIn')}</Text>
               </Text>
             </Pressable>
           </View>
 
           {/* Org footer — the B2B audience handshake. Quiet, single line. */}
           <View style={[styles.orgFooter, { borderColor: palette.border }]}>
-            <Text style={[styles.orgFooterTitle, { color: palette.text }]}>
-              For employers and municipalities
-            </Text>
-            <Text style={[styles.orgFooterBody, { color: palette.textMuted }]}>
-              Help your incoming international staff and residents prepare for YKI and Finnish workplaces.
-            </Text>
+            <Text style={[styles.orgFooterTitle, { color: palette.text }]}>{t('onboardingWelcomeForEmployersTitle')}</Text>
+            <Text style={[styles.orgFooterBody, { color: palette.textMuted }]}>{t('onboardingWelcomeForEmployersBody')}</Text>
             <Pressable
               onPress={() => router.push('/for-organizations' as never)}
               style={styles.orgFooterLink}
               accessibilityRole="link"
-              accessibilityLabel="Learn about organizational access"
+              accessibilityLabel={t('onboardingWelcomeOrgAccessAccessibility')}
             >
-              <Text style={[styles.orgFooterLinkText, { color: palette.accent }]}>
-                Learn about organizational access →
-              </Text>
+              <Text style={[styles.orgFooterLinkText, { color: palette.accent }]}>{t('onboardingWelcomeOrgAccessLabel')} →</Text>
             </Pressable>
           </View>
         </Animated.View>

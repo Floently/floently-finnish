@@ -104,14 +104,14 @@ export default function YkiExamScreen({
       </View>
 
       <View style={styles.summaryCard}>
-        <Text style={styles.summaryTitle}>{selectedLevel} exam overview</Text>
+        <Text style={styles.summaryTitle}>{t('ykiExamOverviewTitle')}</Text>
         <Text style={styles.summaryBody}>
           {loadingOverview
-            ? 'Loading certified YKI bank details…'
-            : `${overview?.certified_total ?? overview?.total_tasks ?? 0} tasks in the certified bank · Authority: ${overview?.material_authority ?? 'engine_v3_2_certified'}`}
+            ? t('ykiExamLoadingOverview')
+            : `${overview?.certified_total ?? overview?.total_tasks ?? 0} ${t('ykiExamTasksInCertifiedBank')} · ${t('ykiExamAuthorityLabel')}: ${overview?.material_authority ?? 'engine_v3_2_certified'}`}
         </Text>
         <Text style={styles.summaryHint}>
-          {overview?.exam_identity?.why ?? 'Use this route for the full exam-style run across the certified bank.'}
+          {overview?.exam_identity?.why ?? t('ykiExamOverviewFallback')}
         </Text>
       </View>
 
@@ -121,7 +121,7 @@ export default function YkiExamScreen({
           <View key={section.key} style={styles.sectionRow}>
             <View>
               <Text style={styles.sectionLabel}>{section.title}</Text>
-              <Text style={styles.sectionMeta}>{section.task_count} tasks · about {section.recommended_minutes} min</Text>
+              <Text style={styles.sectionMeta}>{section.task_count} {t('ykiExamSectionTasksLabel')} · {t('ykiExamAboutPrefix')} {section.recommended_minutes} {t('ykiExamMinutesShortLabel')}</Text>
             </View>
             <Text style={styles.sectionBadge}>{section.key.toUpperCase()}</Text>
           </View>
@@ -129,7 +129,7 @@ export default function YkiExamScreen({
       </View>
 
       <View style={styles.grid}>
-        <TaskCard themeMode={themeMode} accent="blue" title={`Start ${selectedLevel} YKI exam`} detail={t('ykiExamRuntimeDetail')} meta={t('ykiExamRuntimeMeta')} actionLabel={starting ? 'Starting…' : 'Start'} onPress={() => void handleStartExam()} />
+        <TaskCard themeMode={themeMode} accent="blue" title={t('ykiExamStartNow').replace('{level}', selectedLevel)} detail={t('ykiExamRuntimeDetail')} meta={t('ykiExamRuntimeMeta')} actionLabel={starting ? t('ykiExamStarting') : t('ykiExamStartLabel')} onPress={() => void handleStartExam()} />
         <TaskCard themeMode={themeMode} accent="yellow" title={t('ykiExamMockTitle')} detail={t('ykiExamMockDetail')} meta={t('ykiExamMockMeta')} actionLabel={t('commonOpen')} onPress={handleOpenMockCycle} />
         <TaskCard themeMode={themeMode} title={t('ykiExamRecordingTitle')} detail={t('ykiExamRecordingDetail')} meta={t('ykiExamRecordingMeta')} actionLabel={t('commonOpen')} onPress={() => onOpenSpeakingRecording?.(selectedLevel)} />
         <TaskCard themeMode={themeMode} title={t('ykiExamConversationTitle')} detail={t('ykiExamConversationDetail')} meta={t('ykiExamConversationMeta')} actionLabel={t('commonOpen')} onPress={() => onOpenSpeakingConversation?.(selectedLevel)} />
@@ -141,7 +141,7 @@ export default function YkiExamScreen({
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
       <Pressable onPress={() => void handleStartExam()} disabled={starting} style={[styles.primaryButton, starting && styles.primaryButtonDisabled]}>
-        {starting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>Start {selectedLevel} exam now</Text>}
+        {starting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryButtonText}>{t('ykiExamStartNow').replace('{level}', selectedLevel)}</Text>}
       </Pressable>
     </AppScaffold>
   );

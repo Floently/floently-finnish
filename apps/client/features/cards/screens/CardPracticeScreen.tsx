@@ -5,17 +5,19 @@ import { router } from 'expo-router';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import { CardPracticeSession } from '../components/CardPracticeSession';
+import { useTranslator } from '../../i18n';
 
 export default function CardPracticeScreen() {
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
+  const { t } = useTranslator();
 
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: isDark ? palette.background : '#F4F7FB' }]}>
       <View style={[styles.backBar, { backgroundColor: isDark ? palette.background : '#F4F7FB' }]}>
         <Pressable onPress={() => router.back()} style={[styles.backButton, isDark && { backgroundColor: palette.primarySurface }]}>
-          <Text style={[styles.backButtonText, isDark && { color: palette.primary }]}>← Back</Text>
+          <Text style={[styles.backButtonText, isDark && { color: palette.primary }]}>{t('commonBack')}</Text>
         </Pressable>
       </View>
       <CardPracticeSession />

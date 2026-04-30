@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { resetPasswordWithToken } from '@core/api/auth';
+import { useTranslator } from '../../i18n';
 
 const T = {
   bg: '#050811',
@@ -30,6 +31,7 @@ function firstParam(value: string | string[] | undefined): string {
 }
 
 export default function ResetPasswordScreen() {
+  const { t } = useTranslator();
   const params = useLocalSearchParams<{ token?: string | string[] }>();
   const routeToken = useMemo(() => firstParam(params.token).trim(), [params.token]);
   const [tokenInput, setTokenInput] = useState('');
@@ -44,11 +46,11 @@ export default function ResetPasswordScreen() {
     setNotice(null);
     const token = (routeToken || tokenInput).trim();
     if (!token) {
-      setError('Reset token is missing.');
+      setError(t('resetPasswordMissingToken'));
       return;
     }
     if (!password || !confirmPassword) {
-      setError('Enter and confirm your new password.');
+      setError(t('resetPasswordEnterConfirm'));
       return;
     }
     setSubmitting(true);
@@ -56,7 +58,7 @@ export default function ResetPasswordScreen() {
       const result = await resetPasswordWithToken({ token, password, confirmPassword });
       setNotice(result.message);
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Password reset failed.');
+      setError(e instanceof Error ? e.message : t('resetPasswordFailed'));
     } finally {
       setSubmitting(false);
     }
@@ -66,8 +68,8 @@ export default function ResetPasswordScreen() {
     <SafeAreaView style={styles.safe}>
       <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <View style={styles.card}>
-          <Text style={styles.title}>Reset password</Text>
-          <Text style={styles.subtitle}>Set a new password for your account.</Text>
+          <Text style={styles.title}>{t('resetPasswordTitle')}</Text>
+          <Text style={styles.subtitle}>{t('resetPasswordSubtitle')}</Text>
 
           {!routeToken ? (
             <TextInput
@@ -76,13 +78,13 @@ export default function ResetPasswordScreen() {
                 setTokenInput(value);
                 setError(null);
               }}
-              placeholder="Paste reset token"
+              placeholder={t('resetPasswordTokenPlaceholder')}
               placeholderTextColor={T.soft}
               style={styles.input}
               autoCapitalize="none"
             />
           ) : (
-            <Text style={styles.tokenHint}>Reset token loaded from link.</Text>
+            <Text style={styles.tokenHint}>{t('resetPasswordTokenLoaded')}</Text>
           )}
 
           <TextInput
@@ -93,7 +95,7 @@ export default function ResetPasswordScreen() {
             }}
             secureTextEntry
             autoComplete="password-new"
-            placeholder="New password"
+            placeholder={t('resetPasswordNewPlaceholder')}
             placeholderTextColor={T.soft}
             style={styles.input}
           />
@@ -105,7 +107,7 @@ export default function ResetPasswordScreen() {
             }}
             secureTextEntry
             autoComplete="password-new"
-            placeholder="Confirm password"
+            placeholder={t('resetPasswordConfirmPlaceholder')}
             placeholderTextColor={T.soft}
             style={styles.input}
           />
@@ -114,11 +116,11 @@ export default function ResetPasswordScreen() {
           {error ? <Text style={styles.error}>{error}</Text> : null}
 
           <Pressable onPress={() => void onSubmit()} disabled={submitting} style={styles.primaryBtn}>
-            {submitting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryText}>Reset password</Text>}
+            {submitting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryText}>{t('resetPasswordSubmit')}</Text>}
           </Pressable>
 
           <Pressable onPress={() => router.replace('/auth/login' as never)} style={styles.linkBtn}>
-            <Text style={styles.linkText}>Back to sign in</Text>
+            <Text style={styles.linkText}>{t('resetPasswordBackToSignIn')}</Text>
           </Pressable>
         </View>
       </KeyboardAvoidingView>

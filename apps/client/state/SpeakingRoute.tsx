@@ -8,7 +8,6 @@ import { useSubscriptionStore } from './subscriptionStore';
 import { useTranslator } from '../features/i18n';
 import { LEVEL_BANDS, SPEAKING_TRACKS } from '../features/speaking/types';
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
-import { resolveProfessionalDisplayName } from '@core/api/entitlements';
 import RoleplayConversationScreen from '../features/speaking/screens/RoleplayConversationScreen';
 import RecordedResponseScreen from '../features/speaking/screens/RecordedResponseScreen';
 import type { SpeakingSurface } from '../features/speaking/types';
@@ -30,33 +29,33 @@ type Props = {
   contextLabel?: string;
 };
 
-type ScenarioCard = { title: string; summary: string; label: string };
+type ScenarioCard = { title: string; summary: string; label: string; labelText: string };
 
-function scenarioCardsForProfession(profession: RoleplayProfession): ScenarioCard[] {
+function scenarioCardsForProfession(profession: RoleplayProfession, t: ReturnType<typeof useTranslator>['t']): ScenarioCard[] {
   switch (profession) {
     case 'nurse':
       return [
-        { title: 'Shift handover', summary: 'Summarise changes, priorities, and safety details clearly.', label: 'handover' },
-        { title: 'Patient update', summary: 'Describe observations, comfort, and next action in calm Finnish.', label: 'patient update' },
-        { title: 'Interview beta', summary: 'Structured nurse interview practice with profession-specific prompts.', label: 'interview' },
+        { title: t('speakingNurseShiftHandoverTitle'), summary: t('speakingNurseShiftHandoverSummary'), label: 'handover', labelText: t('speakingScenarioShiftHandoverLabel') },
+        { title: t('speakingNursePatientUpdateTitle'), summary: t('speakingNursePatientUpdateSummary'), label: 'patient update', labelText: t('speakingScenarioPatientUpdateLabel') },
+        { title: t('speakingNurseInterviewBetaTitle'), summary: t('speakingNurseInterviewBetaSummary'), label: 'interview', labelText: t('speakingScenarioInterviewBetaLabel') },
       ];
     case 'doctor':
       return [
-        { title: 'Patient interview', summary: 'Ask concise questions and check understanding before moving on.', label: 'interview' },
-        { title: 'Explain next steps', summary: 'Give instructions and follow-up language in a structured way.', label: 'follow-up' },
-        { title: 'Interview beta', summary: 'Structured doctor interview practice with profession-specific prompts.', label: 'beta' },
+        { title: t('speakingDoctorPatientInterviewTitle'), summary: t('speakingDoctorPatientInterviewSummary'), label: 'interview', labelText: t('speakingInterviewTitle') },
+        { title: t('speakingDoctorExplainNextStepsTitle'), summary: t('speakingDoctorExplainNextStepsSummary'), label: 'follow-up', labelText: t('speakingScenarioExplainNextStepsLabel') },
+        { title: t('speakingDoctorInterviewBetaTitle'), summary: t('speakingDoctorInterviewBetaSummary'), label: 'beta', labelText: t('speakingScenarioInterviewBetaLabel') },
       ];
     case 'practical_nurse':
       return [
-        { title: 'Daily-care report', summary: 'Describe routines, mobility, and observations with clear sequence.', label: 'daily care' },
-        { title: 'Support and guidance', summary: 'Use reassuring Finnish while giving simple instructions.', label: 'support' },
-        { title: 'Interview beta', summary: 'Structured practical nurse interview practice with role-specific prompts.', label: 'interview' },
+        { title: t('speakingPracticalNurseDailyCareTitle'), summary: t('speakingPracticalNurseDailyCareSummary'), label: 'daily care', labelText: t('speakingScenarioDailyCareLabel') },
+        { title: t('speakingPracticalNurseSupportTitle'), summary: t('speakingPracticalNurseSupportSummary'), label: 'support', labelText: t('speakingScenarioSupportGuidanceLabel') },
+        { title: t('speakingPracticalNurseInterviewBetaTitle'), summary: t('speakingPracticalNurseInterviewBetaSummary'), label: 'interview', labelText: t('speakingScenarioInterviewBetaLabel') },
       ];
     default:
       return [
-        { title: 'Supervisor instructions', summary: 'Check task details and repeat the key instruction back clearly.', label: 'instructions' },
-        { title: 'Shift handover', summary: 'Give a short, useful update that helps the next person start smoothly.', label: 'handover' },
-        { title: 'Issue reporting', summary: 'Explain a problem, what you did, and what help you need next.', label: 'reporting' },
+        { title: t('speakingGeneralSupervisorTitle'), summary: t('speakingGeneralSupervisorSummary'), label: 'instructions', labelText: t('speakingScenarioSupervisorInstructionsLabel') },
+        { title: t('speakingGeneralShiftHandoverTitle'), summary: t('speakingGeneralShiftHandoverSummary'), label: 'handover', labelText: t('speakingScenarioShiftHandoverLabel') },
+        { title: t('speakingGeneralIssueReportingTitle'), summary: t('speakingGeneralIssueReportingSummary'), label: 'reporting', labelText: t('speakingScenarioIssueReportingLabel') },
       ];
   }
 }
@@ -142,7 +141,24 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
   }, [lockProfession, profession]);
 
   const activeTrack = useMemo(() => availableTracks.find((t) => t.id === profession) ?? availableTracks[0] ?? SPEAKING_TRACKS[0], [availableTracks, profession]);
-  const scenarios = scenarioCardsForProfession(profession);
+  const scenarios = useMemo(() => scenarioCardsForProfession(profession, t), [profession, t]);
+  const trackFocusLabels = useMemo(() => {
+    const labelsByScenario: Record<string, string> = {
+      appointment: t('speakingTrackScenarioAppointmentLabel'),
+      clarification: t('speakingTrackScenarioClarificationLabel'),
+      'service encounter': t('speakingTrackScenarioServiceEncounterLabel'),
+      handover: t('speakingScenarioShiftHandoverLabel'),
+      patient_check: t('speakingTrackScenarioPatientCheckLabel'),
+      medication: t('speakingTrackScenarioMedicationLabel'),
+      interview: t('speakingInterviewTitle'),
+      explanation: t('speakingScenarioExplainNextStepsLabel'),
+      follow_up: t('speakingScenarioExplainNextStepsLabel'),
+      daily_care: t('speakingScenarioDailyCareLabel'),
+      mobility: t('speakingTrackScenarioMobilityLabel'),
+      reporting: t('speakingScenarioIssueReportingLabel'),
+    };
+    return activeTrack.scenarios.map((scenario) => labelsByScenario[scenario] ?? scenario);
+  }, [activeTrack.scenarios, t]);
 
   const bg = isDark ? T.bg : palette.background;
   const surface_ = isDark ? T.surface : palette.surface;
@@ -152,7 +168,14 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
   const softColor = isDark ? T.soft : palette.textSoft;
   const raisedBg = isDark ? T.surfaceRaised : palette.surfaceMuted;
   const accent = TRACK_ACCENTS[profession] ?? T.speak;
-  const heading = profession === 'general' ? 'Workplace scenarios' : `${resolveProfessionalDisplayName(profession)} workplace scenarios`;
+  const professionLabel = profession === 'doctor'
+    ? t('professionalNameDoctor')
+    : profession === 'practical_nurse'
+      ? t('professionalNamePracticalNurse')
+      : profession === 'nurse'
+        ? t('professionalNameNurse')
+        : t('roleplayGeneralFinnishLabel');
+  const heading = profession === 'general' ? t('speakingGeneralWorkplaceScenariosTitle') : t('speakingProfessionWorkplaceScenariosTitle').replace('{profession}', professionLabel);
 
   if (surface === 'conversation') {
     return <RoleplayConversationScreen profession={profession} levelBand={levelBand} scenarioId={scenarioId ?? (entryMode === 'interview' ? defaultInterviewScenario(profession) : null)} onBack={() => setSurface('menu')} entryMode={entryMode} />;
@@ -170,12 +193,12 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
         </View>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
           <View style={styles.headingBlock}>
-            <Text style={[styles.eyebrow, { color: accent }]}>{entryMode === 'interview' ? 'Interview readiness' : 'Workforce readiness'}</Text>
+            <Text style={[styles.eyebrow, { color: accent }]}>{entryMode === 'interview' ? t('roleplayInterviewReadiness') : t('roleplayWorkforceReadiness')}</Text>
             <Text style={[styles.pageTitle, { color: textColor }]}>{heading}</Text>
-            <Text style={[styles.pageSub, { color: mutedColor }]}>{contextLabel ? `${contextLabel} — practise short workplace situations that connect language directly to real tasks in Finland.` : 'Use scenario practice for supervisor instructions, handovers, issue reporting, and everyday work communication.'}</Text>
+            <Text style={[styles.pageSub, { color: mutedColor }]}>{contextLabel ? `${contextLabel} — ${t('speakingContextPracticeSuffix')}` : t('speakingDefaultPracticeSubtitle')}</Text>
           </View>
           <View style={[styles.section, { backgroundColor: surface_, borderColor: border }]}>
-            <Text style={[styles.sectionTitle, { color: softColor }]}>Level</Text>
+            <Text style={[styles.sectionTitle, { color: softColor }]}>{t('roleplayLevelLabel')}</Text>
             <View style={styles.levelRow}>{LEVEL_BANDS.map((band) => (<Pressable key={band} onPress={() => setLevelBand(band)} style={[styles.levelPill, { borderColor: border, backgroundColor: raisedBg }, levelBand === band && { backgroundColor: accent, borderColor: accent }]}><Text style={[styles.levelText, { color: mutedColor }, levelBand === band && styles.levelTextActive]}>{band}</Text></Pressable>))}</View>
           </View>
           {/* Track picker removed in the per-profession isolation refactor.
@@ -204,7 +227,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                 }}
                 style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
                 accessibilityRole="button"
-                accessibilityLabel="Open roleplay"
+                accessibilityLabel={t('commonOpenRoleplay')}
               >
                 <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}18` }]}>
                   <Text style={[styles.subnavIconText, { color: accent }]}>💬</Text>
@@ -235,7 +258,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                   </View>
                   <View style={styles.subnavTileText}>
                     <View style={styles.subnavTitleRow}>
-                      <Text style={[styles.subnavTileTitle, { color: textColor, opacity: 0.6 }]}>Interview</Text>
+                      <Text style={[styles.subnavTileTitle, { color: textColor, opacity: 0.6 }]}>{t('speakingInterviewTitle')}</Text>
                       <View style={[styles.comingSoonBadge, { backgroundColor: `${accent}18`, borderColor: `${accent}40` }]}>
                         <Text style={[styles.comingSoonText, { color: accent }]}>{t('speakingComingSoon')}</Text>
                       </View>
@@ -251,7 +274,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                 onPress={() => setSurface('recorded')}
                 style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
                 accessibilityRole="button"
-                accessibilityLabel="Record a work update"
+                accessibilityLabel={t('commonOpenRecording')}
               >
                 <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}18` }]}>
                   <Text style={[styles.subnavIconText, { color: accent }]}>🎙️</Text>
@@ -268,7 +291,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
                 onPress={() => router.push('/professional/incidents' as never)}
                 style={[styles.subnavTile, { backgroundColor: surface_, borderColor: border }]}
                 accessibilityRole="button"
-                accessibilityLabel={t('speakingIncidentLabTitle')}
+                accessibilityLabel={t('commonOpenIncidentLab')}
               >
                 <View style={[styles.subnavIconBadge, { backgroundColor: `${accent}18` }]}>
                   <Text style={[styles.subnavIconText, { color: accent }]}>🛠️</Text>
@@ -288,7 +311,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               Roleplay tile above is the actual entry point. */}
           <View style={styles.scenarioSection}>
             <Text style={[styles.sectionTitle, { color: softColor }]}>{t('speakingScenariosTitle')}</Text>
-            <View style={styles.scenarioList}>{scenarios.filter((c) => c.label !== 'interview' && c.label !== 'beta').map((card) => (<View key={card.title} style={[styles.scenarioCard, { backgroundColor: surface_, borderColor: border }]}><View style={[styles.scenarioBadge, { backgroundColor: `${accent}18` }]}><Text style={[styles.scenarioBadgeText, { color: accent }]}>{card.label}</Text></View><Text style={[styles.scenarioTitle, { color: textColor }]}>{card.title}</Text><Text style={[styles.scenarioText, { color: mutedColor }]}>{card.summary}</Text></View>))}</View>
+            <View style={styles.scenarioList}>{scenarios.filter((c) => c.label !== 'interview' && c.label !== 'beta').map((card) => (<View key={card.title} style={[styles.scenarioCard, { backgroundColor: surface_, borderColor: border }]}><View style={[styles.scenarioBadge, { backgroundColor: `${accent}18` }]}><Text style={[styles.scenarioBadgeText, { color: accent }]}>{card.labelText}</Text></View><Text style={[styles.scenarioTitle, { color: textColor }]}>{card.title}</Text><Text style={[styles.scenarioText, { color: mutedColor }]}>{card.summary}</Text></View>))}</View>
           </View>
           {/* Action row: in interview entry mode, show a single CTA to
               start. In normal workplace mode, sub-nav tiles above are the
@@ -304,7 +327,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
               </View>
               <View style={styles.subnavTileText}>
                 <View style={styles.subnavTitleRow}>
-                  <Text style={[styles.subnavTileTitle, { color: textColor, opacity: 0.6 }]}>Interview</Text>
+                  <Text style={[styles.subnavTileTitle, { color: textColor, opacity: 0.6 }]}>{t('speakingInterviewTitle')}</Text>
                   <View style={[styles.comingSoonBadge, { backgroundColor: `${accent}18`, borderColor: `${accent}40` }]}>
                     <Text style={[styles.comingSoonText, { color: accent }]}>{t('speakingComingSoon')}</Text>
                   </View>
@@ -316,7 +339,7 @@ export default function SpeakingRoute({ onBack, onOpenMenu, initialLevelBand = '
             </View>
           ) : null}
           <View style={[styles.grammarTip, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.grammarTipLabel, { color: softColor }]}>{t('speakingWhyRouteMattersTitle')}</Text><Text style={[styles.grammarTipText, { color: textColor }]}>{t('speakingWhyRouteMattersText')}</Text></View>
-          <View style={[styles.grammarTip, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.grammarTipLabel, { color: softColor }]}>{t('speakingTrackFocusTitle')}</Text><Text style={[styles.grammarTipText, { color: textColor }]}>{activeTrack.scenarios.join(' · ')}</Text></View>
+          <View style={[styles.grammarTip, { backgroundColor: raisedBg, borderColor: border }]}><Text style={[styles.grammarTipLabel, { color: softColor }]}>{t('speakingTrackFocusTitle')}</Text><Text style={[styles.grammarTipText, { color: textColor }]}>{trackFocusLabels.join(' · ')}</Text></View>
         </ScrollView>
       </View>
     </SafeAreaView>

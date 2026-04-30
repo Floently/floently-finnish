@@ -6,13 +6,13 @@ import { onboardingRoutes } from '../routes';
 import { spacing, typography } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useTranslator } from '../../i18n';
 import {
   BILLING_PERIOD_OPTIONS,
   buildCheckoutRequest,
   estimateCheckoutTotal,
   normalizeProfession,
   professionListLabel,
-  resolveProfessionalDisplayName,
   type BillingPeriod,
   type CheckoutPathway,
   type ProfessionKey,
@@ -25,6 +25,7 @@ function pathwayFromIntent(intent?: string): CheckoutPathway {
 }
 
 export default function PlanSelectionScreen() {
+  const { t } = useTranslator();
   const intent = useOnboardingSession((s) => s.intentType);
   const profession = useOnboardingSession((s) => s.profession);
   const setSelectedPlan = useOnboardingSession((s) => s.setSelectedPlan);
@@ -35,6 +36,11 @@ export default function PlanSelectionScreen() {
   const pathway = useMemo(() => pathwayFromIntent(intent), [intent]);
   const selectedProfession = normalizeProfession(profession) ?? 'nurse';
   const selectedProfessions: ProfessionKey[] = pathway === 'yki' ? [] : [selectedProfession];
+  const professionLabels = {
+    nurse: t('professionalNameNurse'),
+    doctor: t('professionalNameDoctor'),
+    practical_nurse: t('professionalNamePracticalNurse'),
+  } as const;
   const [period, setPeriod] = useState<BillingPeriod>('yearly');
   const estimate = estimateCheckoutTotal(pathway, period, selectedProfessions);
   const checkoutRequest = {
@@ -42,17 +48,17 @@ export default function PlanSelectionScreen() {
     trial_days: 3,
   };
 
-  const heading = intent === 'YKI'
-    ? 'YKI pathway pricing'
-    : intent === 'PROFESSIONAL'
-      ? `${resolveProfessionalDisplayName(profession)} pathway pricing`
-      : `Combined YKI + ${resolveProfessionalDisplayName(profession)} pricing`;
+  const heading = pathway === 'yki'
+    ? t('billingYkiTitle')
+    : pathway === 'professional'
+      ? t('billingProfessionalTitle')
+      : t('billingCombinedTitle');
 
   return (
     <View style={{ flex: 1, padding: spacing.xl, gap: spacing.lg, backgroundColor: palette.background }}>
       <Text style={{ color: palette.text, ...typography.h1 }}>{heading}</Text>
       <Text style={{ color: palette.textMuted, lineHeight: 21 }}>
-        The final payment screen always shows three simple individual plans. This step only saves your first billing preference.
+        {t('onboardingPlanSelectionSubtitle')}
       </Text>
 
       <View style={{ flexDirection: 'row', borderRadius: 999, backgroundColor: palette.surface, borderWidth: 1, borderColor: palette.border, padding: 4, gap: 4 }}>
@@ -72,10 +78,10 @@ export default function PlanSelectionScreen() {
       </View>
 
       <View style={{ padding: spacing.lg, borderRadius: 20, borderWidth: 1, borderColor: palette.primary, backgroundColor: palette.primarySurface, gap: spacing.sm }}>
-        <Text style={{ color: palette.primary, fontWeight: '900', fontSize: 11, letterSpacing: 0.6 }}>SELECTED PREVIEW</Text>
+        <Text style={{ color: palette.primary, fontWeight: '900', fontSize: 11, letterSpacing: 0.6 }}>{t('onboardingPlanSelectionSelectedPreview')}</Text>
         <Text style={{ color: palette.text, fontWeight: '900', fontSize: 22 }}>{estimate.totalLabel}</Text>
         <Text style={{ color: palette.textMuted, lineHeight: 20 }}>
-          {pathway === 'yki' ? 'YKI access only.' : `${professionListLabel(selectedProfessions)} selected. You can add more professions at checkout.`}
+          {pathway === 'yki' ? t('onboardingPlanSelectionYkiOnly') : `${professionListLabel(selectedProfessions, professionLabels, t('billingNoProfessionSelected'))} ${t('commonSelected')}. ${t('onboardingPlanSelectionAdditionalProfessions')}`}
         </Text>
         <Pressable
           onPress={() => {
@@ -85,20 +91,20 @@ export default function PlanSelectionScreen() {
           }}
           style={{ minHeight: 46, borderRadius: 999, backgroundColor: palette.primary, alignItems: 'center', justifyContent: 'center', marginTop: spacing.sm }}
         >
-          <Text style={{ color: textOnPrimary, fontWeight: '900' }}>Continue</Text>
+          <Text style={{ color: textOnPrimary, fontWeight: '900' }}>{t('onboardingPlanSelectionContinue')}</Text>
         </Pressable>
       </View>
 
       <View style={{ padding: spacing.md, borderRadius: 14, backgroundColor: palette.accentSoft, borderWidth: 1, borderColor: palette.accent, gap: spacing.xs }}>
-        <Text style={{ color: palette.accent, fontWeight: '700' }}>Multi-profession rule</Text>
+        <Text style={{ color: palette.accent, fontWeight: '700' }}>{t('onboardingPlanSelectionMultiProfessionTitle')}</Text>
         <Text style={{ color: palette.textMuted, fontSize: 13, lineHeight: 20 }}>
-          The first professional slot is included in Professional or Combined. Extra profession slots receive a small discount and are attached to the same subscription.
+          {t('onboardingPlanSelectionMultiProfessionBody')}
         </Text>
       </View>
 
       <View style={{ padding: spacing.md, borderRadius: 14, backgroundColor: palette.surfaceMuted, gap: spacing.xs }}>
-        <Text style={{ color: palette.text, fontWeight: '700' }}>Employer and city access</Text>
-        <Text style={{ color: palette.textMuted }}>Organisation programmes remain separate from individual subscriptions and can be configured through programme setup.</Text>
+        <Text style={{ color: palette.text, fontWeight: '700' }}>{t('onboardingPlanSelectionEmployerCityTitle')}</Text>
+        <Text style={{ color: palette.textMuted }}>{t('onboardingPlanSelectionEmployerCityBody')}</Text>
       </View>
     </View>
   );

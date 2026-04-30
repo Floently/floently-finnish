@@ -10,6 +10,7 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useTranslator } from '../../i18n';
 import { CardBanksPanel } from './CardBanksPanel';
 import { CardModeTabs } from './CardModeTabs';
 import { useCardPractice } from '../hooks/useCardPractice';
@@ -40,12 +41,6 @@ function toneColor(card: RuntimeCard | null) {
   if (card.state === 'difficult') return COLORS.difficult;
   if (card.state === 'learning') return COLORS.learning;
   return COLORS.primary;
-}
-
-function headerLabel(mode: CardMode) {
-  if (mode === 'phrases') return 'Sentences';
-  if (mode === 'grammar') return 'Grammar';
-  return 'Vocabulary';
 }
 
 function parseScope(params: ReturnType<typeof useLocalSearchParams>): CardDeckScope {
@@ -168,6 +163,7 @@ function renderPrompt(card: RuntimeCard | null, textColor?: string, mutedColor?:
 }
 
 export function CardPracticeSession() {
+  const { t } = useTranslator();
   const params = useLocalSearchParams();
   const requestedMode = typeof params.mode === 'string' ? params.mode : 'vocabulary';
   const normalizedRequestedMode = requestedMode === 'sentences' ? 'phrases' : requestedMode;
@@ -222,7 +218,7 @@ export function CardPracticeSession() {
   } = useCardPractice(mode, scope);
 
   const cardTone = toneColor(displayedCard ?? null);
-  const header = headerLabel(mode);
+  const header = mode === 'phrases' ? t('cardsSentencesLabel') : mode === 'grammar' ? t('cardsGrammarLabel') : t('cardsVocabularyLabel');
   const followUp = displayedCard?.served_follow_up;
   const isRecallView = recallIndex !== null;
   const isChoiceMode = Boolean(followUp?.options?.length);
@@ -242,11 +238,11 @@ export function CardPracticeSession() {
 
       <View style={styles.headerRow}>
         <Pressable onPress={recallBack} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
-          <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>↺ Recall</Text>
+          <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>{t('cardsRecallBack')}</Text>
         </Pressable>
         <Text style={[styles.headerTitle, { color: isDark ? palette.textSoft : '#5E789F' }]}>{header}</Text>
         <Pressable onPress={recallForward} style={[styles.recallButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
-          <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>Recall ↻</Text>
+          <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>{t('cardsRecallForward')}</Text>
         </Pressable>
       </View>
 
@@ -269,7 +265,7 @@ export function CardPracticeSession() {
                 onPress={() => void playAudio()}
                 style={[styles.iconButton, styles.speakerIconButton, isDark && { backgroundColor: palette.surfaceRaised }]}
                 accessibilityRole="button"
-                accessibilityLabel="Kuuntele"
+                accessibilityLabel={t('cardsListen')}
               >
                 <Text style={[styles.iconLabel, { color: isDark ? palette.primary : COLORS.primary }]}>🔊</Text>
               </Pressable>
@@ -287,14 +283,14 @@ export function CardPracticeSession() {
                 ]}
                 disabled={isRecallView || !displayedCard}
               >
-                <Text style={[styles.iconActionText, { color: isDark ? palette.textMuted : '#5B7DB1' }]}>Skip</Text>
+                <Text style={[styles.iconActionText, { color: isDark ? palette.textMuted : '#5B7DB1' }]}>{t('cardsSkip')}</Text>
               </Pressable>
             ) : null}
 
             {loading ? (
               <View style={styles.centerBlock}>
                 <ActivityIndicator color={COLORS.primary} />
-                <Text style={styles.loadingText}>Loading cards…</Text>
+                <Text style={styles.loadingText}>{t('cardsLoading')}</Text>
               </View>
             ) : displayedCard ? (
               <View style={styles.centerBlock}>
@@ -319,10 +315,10 @@ export function CardPracticeSession() {
                         })}
                       </View>
                     ) : (
-                      <TextInput
-                        value={answer}
-                        onChangeText={setAnswer}
-                        placeholder="Type your answer"
+                    <TextInput
+                      value={answer}
+                      onChangeText={setAnswer}
+                        placeholder={t('cardsTypeAnswerPlaceholder')}
                         placeholderTextColor={isDark ? palette.textSoft : '#8A9BB7'}
                         style={[styles.textInput, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border, color: palette.text }]}
                         autoCapitalize="none"
@@ -334,21 +330,21 @@ export function CardPracticeSession() {
               </View>
             ) : (
               <View style={styles.centerBlock}>
-                <Text style={styles.errorText}>No cards matched this mode yet.</Text>
+                <Text style={styles.errorText}>{t('cardsNoCardsYet')}</Text>
                 <Pressable onPress={refresh} style={styles.retryChip}>
-                  <Text style={styles.retryChipText}>Reload</Text>
+                  <Text style={styles.retryChipText}>{t('cardsReload')}</Text>
                 </Pressable>
               </View>
             )}
 
             <View style={[styles.cardFooter, isDark && { borderTopColor: palette.border }]}>
               <Pressable onPress={() => { if (showHint) hideHint(); else void revealHint(); }} style={[styles.footerGhostButton, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
-                <Text style={[styles.footerGhostText, isDark && { color: palette.textMuted }]}>{showHint ? 'Hide ?' : '?'}</Text>
+                <Text style={[styles.footerGhostText, isDark && { color: palette.textMuted }]}>{showHint ? t('cardsHideHint') : t('cardsShowHint')}</Text>
               </Pressable>
 
               {showBack ? (
                 <Pressable onPress={() => void submit()} style={[styles.primaryActionButton, (!answer || submitting || isRecallView) && styles.primaryActionDisabled]} disabled={!answer || submitting || isRecallView}>
-                  <Text style={styles.primaryActionText}>{feedback ? 'Checked' : submitting ? 'Checking…' : 'Check'}</Text>
+                  <Text style={styles.primaryActionText}>{feedback ? t('cardsChecked') : submitting ? t('cardsChecking') : t('cardsCheck')}</Text>
                 </Pressable>
               ) : (
                 <Pressable
@@ -374,12 +370,12 @@ export function CardPracticeSession() {
       {feedback ? (
         <View style={[styles.feedbackPanel, { borderColor: feedback.correct ? 'rgba(78,143,106,0.28)' : 'rgba(214,69,69,0.22)' }, isDark && { backgroundColor: palette.surfaceRaised }]}>
           <Text style={[styles.feedbackTitle, { color: feedback.correct ? COLORS.mastered : COLORS.difficult }]}>
-            {feedback.correct ? 'Correct' : 'Strengthen this one'}
+            {feedback.correct ? t('cardsCorrectFeedback') : t('cardsStrengthenThisOne')}
           </Text>
-          <Text style={[styles.feedbackBody, isDark && { color: palette.text }]}>{feedback.explanation ?? `Correct answer: ${feedback.correctAnswer}`}</Text>
-          {!feedback.correct ? <Text style={[styles.feedbackAnswer, isDark && { color: palette.textMuted }]}>Expected: {feedback.correctAnswer}</Text> : null}
+          <Text style={[styles.feedbackBody, isDark && { color: palette.text }]}>{feedback.explanation ?? `${t('cardsCorrectAnswerPrefix')} ${feedback.correctAnswer}`}</Text>
+          {!feedback.correct ? <Text style={[styles.feedbackAnswer, isDark && { color: palette.textMuted }]}>{t('cardsExpectedPrefix')} {feedback.correctAnswer}</Text> : null}
           <Pressable onPress={() => void advance()} style={[styles.nextButton, isDark && { backgroundColor: palette.primarySurface }]}>
-            <Text style={[styles.nextButtonText, isDark && { color: palette.primary }]}>{sessionCompleted ? 'Finish session' : 'Next card'}</Text>
+            <Text style={[styles.nextButtonText, isDark && { color: palette.primary }]}>{sessionCompleted ? t('cardsFinishSession') : t('cardsNextCard')}</Text>
           </Pressable>
         </View>
       ) : null}
@@ -395,14 +391,14 @@ export function CardPracticeSession() {
 
       <View style={styles.bottomBar}>
         <Pressable onPress={() => setBanksVisible(true)} style={[styles.bankButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
-          <Text style={[styles.bankButtonText, isDark && { color: palette.textMuted }]}>Review banks</Text>
+          <Text style={[styles.bankButtonText, isDark && { color: palette.textMuted }]}>{t('cardsReviewBanks')}</Text>
         </Pressable>
         <Pressable
           onPress={sessionCompleted ? refresh : () => router.back()}
           style={[styles.endSessionButton, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}
         >
           <Text style={[styles.endSessionText, isDark && { color: palette.textMuted }]}>
-            {sessionCompleted ? 'Restart Session' : 'End Session'}
+            {sessionCompleted ? t('cardsRestartSession') : t('cardsEndSession')}
           </Text>
         </Pressable>
       </View>

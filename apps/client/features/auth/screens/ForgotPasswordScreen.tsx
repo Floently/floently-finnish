@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import { requestPasswordReset } from '@core/api/auth';
+import { useTranslator } from '../../i18n';
 
 const T = {
   bg: '#050811',
@@ -27,6 +28,7 @@ const T = {
 };
 
 export default function ForgotPasswordScreen() {
+  const { t } = useTranslator();
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -38,7 +40,7 @@ export default function ForgotPasswordScreen() {
     setNotice(null);
     const trimmed = email.trim().toLowerCase();
     if (!trimmed) {
-      setError('Enter your email address.');
+      setError(t('forgotPasswordEmailRequired'));
       return;
     }
     setSubmitting(true);
@@ -46,7 +48,7 @@ export default function ForgotPasswordScreen() {
       const result = await requestPasswordReset(trimmed);
       setNotice(result.message);
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Unable to process request.');
+      setError(e instanceof Error ? e.message : t('forgotPasswordRequestFailed'));
     } finally {
       setSubmitting(false);
     }
@@ -56,8 +58,8 @@ export default function ForgotPasswordScreen() {
     <SafeAreaView style={styles.safe}>
       <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <View style={styles.card}>
-          <Text style={styles.title}>Forgot password?</Text>
-          <Text style={styles.subtitle}>Enter your email and we’ll send reset instructions.</Text>
+          <Text style={styles.title}>{t('forgotPasswordTitle')}</Text>
+          <Text style={styles.subtitle}>{t('forgotPasswordSubtitle')}</Text>
           <TextInput
             value={email}
             onChangeText={(value) => {
@@ -70,7 +72,7 @@ export default function ForgotPasswordScreen() {
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
-            placeholder="you@email.com"
+            placeholder={t('authEmailPlaceholder')}
             placeholderTextColor={T.soft}
             style={[styles.input, focused && styles.inputFocused]}
           />
@@ -79,11 +81,11 @@ export default function ForgotPasswordScreen() {
           {error ? <Text style={styles.error}>{error}</Text> : null}
 
           <Pressable onPress={() => void onSubmit()} disabled={submitting} style={styles.primaryBtn}>
-            {submitting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryText}>Send reset instructions</Text>}
+            {submitting ? <ActivityIndicator color="#FFFFFF" /> : <Text style={styles.primaryText}>{t('forgotPasswordSendButton')}</Text>}
           </Pressable>
 
           <Pressable onPress={() => router.replace('/auth/login' as never)} style={styles.linkBtn}>
-            <Text style={styles.linkText}>Back to sign in</Text>
+            <Text style={styles.linkText}>{t('forgotPasswordBackToSignIn')}</Text>
           </Pressable>
         </View>
       </KeyboardAvoidingView>

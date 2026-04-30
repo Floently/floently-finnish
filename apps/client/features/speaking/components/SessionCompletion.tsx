@@ -22,6 +22,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, Share, StyleSheet, Text, View } from 'react-native';
 import { useStreakStore, type StreakUpdateResult } from '../../../state/streakStore';
 import { pickAlternativeScenario, type ScenarioOption } from '../data/alternativeScenarios';
+import { useTranslator } from '../../i18n';
 
 export type SessionCompletionProps = {
   /** Name shown in copy — e.g. "Tohtori Mikko Nieminen" or "AI" fallback. */
@@ -63,6 +64,7 @@ export function SessionCompletion({
   onDownloadReport,
   palette,
 }: SessionCompletionProps) {
+  const { t } = useTranslator();
   const hasHydrated = useStreakStore((s) => s.hasHydrated);
   const hydrate = useStreakStore((s) => s.hydrate);
   const recordPractice = useStreakStore((s) => s.recordPractice);
@@ -97,18 +99,20 @@ export function SessionCompletion({
   const streakHeadline = useMemo(() => {
     if (!streakResult) return null;
     const { currentStreak, change } = streakResult;
-    if (change === 'first_ever') return { big: 'Day 1', sub: 'First session done — start of your streak.' };
-    if (change === 'new_record') return { big: `Day ${currentStreak}`, sub: 'New personal best streak!' };
-    if (change === 'extended') return { big: `Day ${currentStreak}`, sub: `${currentStreak} days in a row.` };
-    if (change === 'resumed_after_gap') return { big: 'Back at it', sub: 'Streak restarted from today.' };
+    if (change === 'first_ever') return { big: t('roleplayDay1Label'), sub: t('roleplayFirstSessionDoneSub') };
+    if (change === 'new_record') return { big: t('roleplayDayLabel').replace('{count}', String(currentStreak)), sub: t('roleplayNewRecordSub') };
+    if (change === 'extended') return { big: t('roleplayDayLabel').replace('{count}', String(currentStreak)), sub: t('roleplayExtendedStreakSub').replace('{count}', String(currentStreak)) };
+    if (change === 'resumed_after_gap') return { big: t('roleplayBackAtItLabel'), sub: t('roleplayResumedSub') };
     // same_day
-    return { big: `Day ${currentStreak}`, sub: 'Keeping the streak going.' };
-  }, [streakResult]);
+    return { big: t('roleplayDayLabel').replace('{count}', String(currentStreak)), sub: t('roleplayKeepingStreakSub') };
+  }, [streakResult, t]);
 
   const handleShare = async () => {
     const speakerName = personaName && personaName !== 'AI' ? personaName : 'a Finnish conversation partner';
     const scenarioText = completedScenarioTitle ? ` (${completedScenarioTitle})` : '';
-    const message = `I had a Finnish conversation with ${speakerName}${scenarioText} on Floently today.`;
+    const message = t('roleplayShareMessage')
+      .replace('{speakerName}', speakerName)
+      .replace('{scenarioText}', scenarioText);
     try {
       await Share.share({ message });
     } catch {
@@ -117,10 +121,10 @@ export function SessionCompletion({
   };
 
   const primaryLabel = alternative
-    ? `Next: ${alternative.title}`
-    : 'Another round';
+    ? `${t('roleplayNextPrefix')} ${alternative.title}`
+    : t('roleplayAnotherRoundLabel');
   const primaryHint = alternative
-    ? `A different scenario for ${profession.replace('_', ' ')}`
+    ? t('roleplayDifferentScenarioHint').replace('{profession}', profession.replace('_', ' '))
     : undefined;
   const primaryOnPress = () => onStartSession(alternative?.id);
 
@@ -136,7 +140,7 @@ export function SessionCompletion({
           {streakResult ? (
             <View style={[styles.streakRecord, { borderColor: palette.border }]}>
               <Text style={[styles.streakRecordValue, { color: palette.text }]}>{streakResult.longestStreak}</Text>
-              <Text style={[styles.streakRecordLabel, { color: palette.muted }]}>Best</Text>
+              <Text style={[styles.streakRecordLabel, { color: palette.muted }]}>{t('roleplayBestLabel')}</Text>
             </View>
           ) : null}
         </View>
@@ -165,9 +169,9 @@ export function SessionCompletion({
             { borderColor: palette.border, opacity: pressed ? 0.85 : 1 },
           ]}
           accessibilityRole="button"
-          accessibilityLabel="Share your session"
+          accessibilityLabel={t('roleplayShareSession')}
         >
-          <Text style={[styles.secondaryLabel, { color: palette.text }]}>Share</Text>
+          <Text style={[styles.secondaryLabel, { color: palette.text }]}>{t('commonShare')}</Text>
         </Pressable>
 
         <Pressable
@@ -177,9 +181,9 @@ export function SessionCompletion({
             { borderColor: palette.border, opacity: pressed ? 0.85 : 1 },
           ]}
           accessibilityRole="button"
-          accessibilityLabel="Practice the same scenario again"
+          accessibilityLabel={t('roleplayReplaySession')}
         >
-          <Text style={[styles.secondaryLabel, { color: palette.text }]}>Replay</Text>
+          <Text style={[styles.secondaryLabel, { color: palette.text }]}>{t('commonReplay')}</Text>
         </Pressable>
 
         <Pressable
@@ -189,9 +193,9 @@ export function SessionCompletion({
             { borderColor: palette.border, opacity: pressed ? 0.85 : 1 },
           ]}
           accessibilityRole="button"
-          accessibilityLabel="Download report"
+          accessibilityLabel={t('roleplayDownloadReport')}
         >
-          <Text style={[styles.secondaryLabel, { color: palette.text }]}>Report</Text>
+          <Text style={[styles.secondaryLabel, { color: palette.text }]}>{t('commonReport')}</Text>
         </Pressable>
       </View>
     </View>

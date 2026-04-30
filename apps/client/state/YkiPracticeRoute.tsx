@@ -21,7 +21,7 @@ import {
   type YkiPracticeTask,
 } from '@core/api/ykiPractice';
 import { startPracticeSession } from '../features/yki-practice/services/ykiPracticeService';
-import { useTranslator } from '../features/i18n';
+import { useTranslator, type TranslationKey } from '../features/i18n';
 
 // ─── Design tokens ─────────────────────────────────────────────────────────
 const T = {
@@ -42,11 +42,11 @@ const T = {
 
 const LEVEL_BANDS: YkiLevelBand[] = ['A1-A2', 'B1-B2', 'C1-C2'];
 
-const SKILL_META: Record<string, { icon: string; color: string; label: string }> = {
-  reading:   { icon: '📖', color: '#4F7FFF', label: 'Reading' },
-  listening: { icon: '👂', color: '#A78BFA', label: 'Listening' },
-  writing:   { icon: '✍',  color: '#F0C86D', label: 'Writing'  },
-  speaking:  { icon: '🎙', color: '#F0A436', label: 'Speaking'  },
+const SKILL_META: Record<string, { icon: string; color: string; labelKey: TranslationKey }> = {
+  reading:   { icon: '📖', color: '#4F7FFF', labelKey: 'ykiRouteSkillReading' },
+  listening: { icon: '👂', color: '#A78BFA', labelKey: 'ykiRouteSkillListening' },
+  writing:   { icon: '✍',  color: '#F0C86D', labelKey: 'ykiRouteSkillWriting'  },
+  speaking:  { icon: '🎙', color: '#F0A436', labelKey: 'ykiRouteSkillSpeaking'  },
 };
 
 type Props = {
@@ -421,7 +421,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
         {!loading && overview && !session && (
           <View style={[styles.overviewCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.overviewTitle, { color: text }]}>
-              {overview.display_level_band} exam block
+              {t('ykiRouteExamBlockTitle').replace('{level}', overview.display_level_band)}
             </Text>
             <View style={styles.skillCountRow}>
               {Object.entries(overview.countsBySkill).map(([skill, count]) => {
@@ -430,13 +430,13 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
                 return (
                   <View key={skill} style={[styles.skillChip, { backgroundColor: `${meta.color}18`, borderColor: `${meta.color}40` }]}>
                     <Text style={{ fontSize: 12 }}>{meta.icon}</Text>
-                    <Text style={[styles.skillChipText, { color: meta.color }]}>{skill} {count}</Text>
+                    <Text style={[styles.skillChipText, { color: meta.color }]}>{t(meta.labelKey)} {count}</Text>
                   </View>
                 );
               })}
             </View>
             <Text style={[styles.overviewNote, { color: muted }]}>
-              Each exam block gives you 1 reading · 1 listening · 1 writing · 1 speaking task in one continuous run.
+              {t('ykiRouteExamBlockInfo')}
             </Text>
           </View>
         )}
@@ -498,7 +498,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
               <View style={[styles.skillBadge, { backgroundColor: `${skillMeta!.color}18`, borderColor: `${skillMeta!.color}40` }]}>
                 <Text style={{ fontSize: 13 }}>{skillMeta!.icon}</Text>
                 <Text style={[styles.skillBadgeText, { color: skillMeta!.color }]}>
-                  {skillMeta!.label}
+                  {t(skillMeta!.labelKey)}
                 </Text>
               </View>
               <Text style={[styles.taskCounter, { color: soft }]}>{taskCounter}</Text>
@@ -537,8 +537,7 @@ export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpe
           <View style={[styles.finishCard, { backgroundColor: surface, borderColor: border }]}>
             <Text style={[styles.finishTitle, { color: text }]}>{t('ykiRouteSessionComplete')}</Text>
             <Text style={[styles.finishSub, { color: muted }]}>
-              You completed {session.tasks.length} tasks at {session.display_level_band} level.
-              Start a new session for a fresh random selection.
+              {t('ykiRouteSessionCompleteBody').replace('{count}', String(session.tasks.length)).replace('{level}', session.display_level_band)}
             </Text>
             <Pressable
               onPress={() => void handleStart()}

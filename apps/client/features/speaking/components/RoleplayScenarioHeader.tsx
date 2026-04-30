@@ -2,14 +2,8 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useTranslator } from '../../i18n';
 import type { RoleplayLevelBand, RoleplayProfession, RoleplayScenarioSummary } from '@core/api/roleplay';
-
-const PROFESSION_LABELS: Record<RoleplayProfession, string> = {
-  general: 'General Finnish',
-  nurse: 'Nurse',
-  doctor: 'Doctor',
-  practical_nurse: 'Practical Nurse',
-};
 
 const PROFESSION_ACCENTS: Record<RoleplayProfession, string> = {
   general: '#F0A436',
@@ -40,6 +34,7 @@ export default function RoleplayScenarioHeader({
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
+  const { t } = useTranslator();
 
   const accent = PROFESSION_ACCENTS[profession] ?? '#4F7FFF';
   const textColor = isDark ? '#F0F5FF' : palette.text;
@@ -56,7 +51,7 @@ export default function RoleplayScenarioHeader({
       {/* Nav row */}
       <View style={styles.navRow}>
         <Pressable onPress={onBack} style={[styles.backBtn, { backgroundColor: raisedBg, borderColor }]}>
-          <Text style={[styles.backText, { color: mutedColor }]}>← Back</Text>
+          <Text style={[styles.backText, { color: mutedColor }]}>← {t('commonBack')}</Text>
         </Pressable>
 
         <View style={styles.badgeRow}>
@@ -68,7 +63,7 @@ export default function RoleplayScenarioHeader({
           )}
           <View style={[styles.levelBadge, { backgroundColor: raisedBg, borderColor }]}>
             <Text style={[styles.levelText, { color: softColor }]}>
-              {PROFESSION_LABELS[profession]} · {levelBand}
+              {profession === 'general' ? t('roleplayGeneralFinnishLabel') : profession === 'doctor' ? t('professionalNameDoctor') : profession === 'practical_nurse' ? t('professionalNamePracticalNurse') : t('professionalNameNurse')} · {levelBand}
             </Text>
           </View>
         </View>
@@ -77,10 +72,10 @@ export default function RoleplayScenarioHeader({
       {/* Scenario info */}
       <View>
         <Text style={[styles.scenarioTitle, { color: textColor }]}>
-          {scenario?.title ?? 'Roleplay'}
+          {scenario?.title ?? t('roleplayScenarioFallbackTitle')}
         </Text>
         <Text style={[styles.scenarioSub, { color: mutedColor }]}>
-          {scenario?.prompt ?? 'The AI will set up a short situation. Reply naturally.'}
+          {scenario?.prompt ?? t('roleplayScenarioFallbackPrompt')}
         </Text>
       </View>
 
@@ -90,14 +85,14 @@ export default function RoleplayScenarioHeader({
           <View style={[styles.progressFill, { width: `${progressPct}%`, backgroundColor: accent }]} />
         </View>
         <Text style={[styles.progressLabel, { color: softColor }]}>
-          Turn {Math.min(currentTurn + 1, maxTurns)} / {maxTurns}
+          {t('roleplayTurnLabel').replace('{current}', String(Math.min(currentTurn + 1, maxTurns))).replace('{max}', String(maxTurns))}
         </Text>
       </View>
 
       {/* Grammar tip */}
       {scenario?.grammarTip && (
         <View style={[styles.grammarTip, { backgroundColor: surfaceBg, borderColor }]}>
-          <Text style={[styles.grammarLabel, { color: softColor }]}>Grammar tip</Text>
+          <Text style={[styles.grammarLabel, { color: softColor }]}>{t('roleplayGrammarTipLabel')}</Text>
           <Text style={[styles.grammarText, { color: mutedColor }]}>{scenario.grammarTip}</Text>
         </View>
       )}

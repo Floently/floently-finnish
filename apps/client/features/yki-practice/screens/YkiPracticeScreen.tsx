@@ -15,12 +15,12 @@ import { clearPracticeSession, resumePracticeSession, startPracticeSession } fro
 import { useTranslator } from '../../i18n';
 
 const LEVEL_BANDS: YkiLevelBand[] = ['A1-A2', 'B1-B2', 'C1-C2'];
-const FOCUS_OPTIONS: Array<{ key: YkiPracticeFocus; label: string }> = [
-  { key: 'mixed', label: 'Mixed' },
-  { key: 'reading', label: 'Reading' },
-  { key: 'listening', label: 'Listening' },
-  { key: 'writing', label: 'Writing' },
-  { key: 'speaking', label: 'Speaking' },
+const FOCUS_OPTIONS: Array<{ key: YkiPracticeFocus; labelKey: 'ykiPracticeFocusMixed' | 'ykiPracticeFocusReading' | 'ykiPracticeFocusListening' | 'ykiPracticeFocusWriting' | 'ykiPracticeFocusSpeaking' }> = [
+  { key: 'mixed', labelKey: 'ykiPracticeFocusMixed' },
+  { key: 'reading', labelKey: 'ykiPracticeFocusReading' },
+  { key: 'listening', labelKey: 'ykiPracticeFocusListening' },
+  { key: 'writing', labelKey: 'ykiPracticeFocusWriting' },
+  { key: 'speaking', labelKey: 'ykiPracticeFocusSpeaking' },
 ];
 
 type Props = {
@@ -119,7 +119,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
 
   const recommendedSections = overview?.recommendedSections?.length
     ? overview.recommendedSections.join(' • ')
-    : 'Reading • Listening • Writing • Speaking';
+    : [t('ykiPracticeFocusReading'), t('ykiPracticeFocusListening'), t('ykiPracticeFocusWriting'), t('ykiPracticeFocusSpeaking')].join(' • ');
   const counts = overview?.countsBySkill;
   const taskCounter = session ? `${currentIndex + 1}/${session.tasks.length}` : null;
 
@@ -150,7 +150,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
       <View style={styles.focusRow}>
         {FOCUS_OPTIONS.map((option) => (
           <Pressable key={option.key} onPress={() => setSelectedFocus(option.key)} style={[styles.focusPill, selectedFocus === option.key && styles.activeFocusPill]}>
-            <Text style={[styles.focusText, selectedFocus === option.key && styles.activeFocusText]}>{option.label}</Text>
+            <Text style={[styles.focusText, selectedFocus === option.key && styles.activeFocusText]}>{t(option.labelKey)}</Text>
           </Pressable>
         ))}
       </View>
@@ -169,10 +169,10 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
         <TaskCard
           themeMode={themeMode}
           accent="blue"
-          title="Guided YKI pathway"
-          detail={overview?.nextTask ?? `Start a governed ${selectedLevel} practice block.`}
-          meta={loading ? 'Loading…' : `${overview?.dailyPractice?.minutes ?? 15} min`}
-          actionLabel={starting ? 'Starting…' : 'Start'}
+          title={t('ykiPracticeGuidedPathwayTitle')}
+          detail={overview?.nextTask ?? t('ykiPracticeGuidedPathwayDetail').replace('{level}', selectedLevel)}
+          meta={loading ? t('commonLoading') : `${overview?.dailyPractice?.minutes ?? 15} ${t('ykiPracticeMinutesShortLabel')}`}
+          actionLabel={starting ? t('ykiPracticeStarting') : t('ykiPracticeStart')}
           onPress={() => void handleStartPractice()}
         />
         <TaskCard
@@ -187,7 +187,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
         <TaskCard
           themeMode={themeMode}
           title={t('ykiPracticeFullExamTitle')}
-          detail={`Open the formal ${selectedLevel} exam selection and runtime when you want the real simulation.`}
+          detail={t('ykiPracticeFullExamDetail').replace('{level}', selectedLevel)}
           meta={t('ykiPracticeExamMeta')}
           actionLabel={t('commonOpen')}
           onPress={() => onOpenExam(selectedLevel)}
@@ -200,18 +200,18 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
       </View>
 
       <View style={styles.infoCard}>
-        <Text style={styles.infoTitle}>Bank coverage for {selectedLevel}</Text>
+        <Text style={styles.infoTitle}>{t('ykiPracticeBankCoverageTitle').replace('{level}', selectedLevel)}</Text>
         <Text style={styles.infoText}>
           {loading
-            ? 'Loading the certified bank overview…'
-            : `${overview?.total_tasks ?? 0} tasks available · Recommended focus: ${overview?.nextFocus ?? 'mixed'} · Sections: ${recommendedSections}`}
+            ? t('ykiPracticeLoadingBankOverview')
+            : `${overview?.total_tasks ?? 0} ${t('ykiPracticeTasksAvailable')} · ${t('ykiPracticeRecommendedFocus')} ${overview?.nextFocus ?? t('ykiPracticeFocusMixed')} · ${t('ykiPracticeSectionsLabel')}: ${recommendedSections}`}
         </Text>
         {counts ? (
           <View style={styles.metricsRow}>
-            <Text style={styles.metric}>Reading {counts.reading}</Text>
-            <Text style={styles.metric}>Listening {counts.listening}</Text>
-            <Text style={styles.metric}>Writing {counts.writing}</Text>
-            <Text style={styles.metric}>Speaking {counts.speaking}</Text>
+            <Text style={styles.metric}>{t('ykiPracticeFocusReading')} {counts.reading}</Text>
+            <Text style={styles.metric}>{t('ykiPracticeFocusListening')} {counts.listening}</Text>
+            <Text style={styles.metric}>{t('ykiPracticeFocusWriting')} {counts.writing}</Text>
+            <Text style={styles.metric}>{t('ykiPracticeFocusSpeaking')} {counts.speaking}</Text>
           </View>
         ) : null}
       </View>
@@ -220,11 +220,11 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
 
       {currentTask ? (
         <View style={styles.practiceCard}>
-          <Text style={styles.practiceEyebrow}>Guided practice · {session?.display_level_band} · {taskCounter}</Text>
+          <Text style={styles.practiceEyebrow}>{t('ykiPracticeGuidedPracticeLabel')} · {session?.display_level_band} · {taskCounter}</Text>
           <Text style={styles.practiceTitle}>{currentTask.title}</Text>
           <Text style={styles.practicePrompt}>{currentTask.prompt}</Text>
           <Text style={styles.practiceGuidance}>{currentTask.guidance}</Text>
-          <Text style={styles.debugText}>Task id: {currentTask.task_id}</Text>
+          <Text style={styles.debugText}>{t('ykiPracticeTaskIdLabel')}: {currentTask.task_id}</Text>
           <View style={styles.practiceActions}>
             <Pressable
               onPress={() => setCurrentIndex((value) => Math.max(0, value - 1))}
@@ -246,7 +246,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
               }}
               style={styles.primaryButton}
             >
-              <Text style={styles.primaryButtonText}>{currentIndex >= (session?.tasks.length ?? 1) - 1 ? 'Finish block' : 'Next task'}</Text>
+              <Text style={styles.primaryButtonText}>{currentIndex >= (session?.tasks.length ?? 1) - 1 ? t('ykiPracticeFinishBlock') : t('ykiPracticeNextTask')}</Text>
             </Pressable>
           </View>
         </View>
@@ -254,7 +254,7 @@ export default function YkiPracticeScreen({ onBack, onOpenMenu, onOpenExam, onOp
         <View style={styles.practiceCard}>
           <Text style={styles.practiceEyebrow}>{t('ykiPracticeSessionTitle')}</Text>
           <Text style={styles.practiceTitle}>{t('ykiPracticeNoVisibleTask')}</Text>
-          <Text style={styles.practiceGuidance}>Session id: {session.session_id}</Text>
+          <Text style={styles.practiceGuidance}>{t('ykiPracticeSessionIdLabel')}: {session.session_id}</Text>
         </View>
       ) : null}
 

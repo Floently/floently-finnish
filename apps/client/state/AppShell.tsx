@@ -202,16 +202,16 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       initialScenarioId: null,
       lockProfession: primaryProfession !== 'general',
       entryMode: 'workplace',
-      contextLabel: primaryProfession === 'general' ? 'General workplace Finnish' : 'Professional workplace roleplay',
+      contextLabel: primaryProfession === 'general' ? t('appShellContextGeneralWorkplace') : t('appShellContextProfessionalRoleplay'),
       ...overrides,
     };
-  }, [subscriptionStatus?.entitlements]);
+  }, [subscriptionStatus?.entitlements, t]);
 
   const displayName =
     (user as { displayName?: string; name?: string; email?: string } | null)?.displayName?.trim() ||
     (user as { displayName?: string; name?: string; email?: string } | null)?.name?.trim() ||
     user?.email?.split('@')[0] ||
-    'Learner';
+    t('homeLearnerFallbackName');
 
   useEffect(() => {
     const timer = setInterval(() => setNow(new Date()), 30_000);
@@ -379,8 +379,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           code: persistedLearning.reason === "corrupted" ? "SESSION_CORRUPTED" : "SESSION_OUTDATED",
           message:
             persistedLearning.reason === "corrupted"
-              ? "Stored learning session state is corrupted and cannot be trusted."
-              : "Stored learning session state is outdated and cannot be restored.",
+              ? t('appShellLearningRestoreCorrupted')
+              : t('appShellLearningRestoreOutdated'),
           requestedScreen: "learning",
         },
         true,
@@ -403,7 +403,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     if (isOffline) {
       await blockNavigation({
         code: "NAVIGATION_BLOCKED",
-        message: "Learning restore requires backend revalidation and is blocked while offline.",
+        message: t('appShellLearningRestoreOffline'),
         requestedScreen: "learning",
       });
       return;
@@ -416,8 +416,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         {
           code: isTransportError(learningGuard.code) ? "NAVIGATION_BLOCKED" : "SESSION_INVALID",
           message: isTransportError(learningGuard.code)
-            ? "Learning restore requires backend revalidation and is currently unavailable."
-            : "Learning restore is blocked because the current backend state does not validate.",
+            ? t('appShellLearningRestoreUnavailable')
+            : t('appShellLearningRestoreRejected'),
           requestedScreen: "learning",
         },
         !isTransportError(learningGuard.code),
@@ -434,7 +434,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       await blockNavigation(
         {
           code: "SESSION_OUTDATED",
-          message: "Learning restore was rejected because stored governed versions no longer match the backend.",
+          message: t('appShellLearningRestoreRejected'),
           requestedScreen: "learning",
         },
         true,
@@ -456,8 +456,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
             persistedNavigation.reason === "corrupted" ? "SESSION_CORRUPTED" : "SESSION_OUTDATED",
           message:
             persistedNavigation.reason === "corrupted"
-              ? "Stored navigation state is corrupted and cannot be trusted."
-              : "Stored navigation state is outdated and cannot be restored.",
+              ? t('appShellNavigationStateCorrupted')
+              : t('appShellNavigationStateOutdated'),
           requestedScreen: "root",
         },
         true,
@@ -553,7 +553,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
       await blockNavigation({
         code: "AUTH_REQUIRED",
-        message: `Access to ${target} requires an authenticated session.`,
+        message: t('appShellAccessRequiresAuth').replace('{target}', target),
         requestedScreen: target,
       });
       return;
@@ -601,7 +601,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       if (isOffline) {
         await blockNavigation({
           code: "NAVIGATION_BLOCKED",
-          message: "Learning navigation requires backend validation and is blocked while offline.",
+          message: t('appShellLearningNavigationOffline'),
           requestedScreen: target,
         });
         return;
@@ -681,7 +681,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     if (!user) {
       await blockNavigation({
         code: "AUTH_REQUIRED",
-        message: `Access to ${screen} requires an authenticated session.`,
+        message: t('appShellAccessRequiresAuth').replace('{target}', screen),
         requestedScreen: screen,
       });
       return;
@@ -964,7 +964,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialScenarioId: scenarioId ?? null,
               lockProfession: true,
               entryMode,
-              contextLabel: entryMode === 'interview' ? 'Structured interview practice' : 'Professional workplace roleplay',
+              contextLabel: entryMode === 'interview' ? t('appShellContextStructuredInterview') : t('appShellContextProfessionalRoleplay'),
             });
             void navigateTo('speaking-practice');
           }}
@@ -998,8 +998,8 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           onOpenMenu={openSidebar}
           initialLevelBand={examPresetLevel}
           onOpenPractice={(levelBand) => { if (levelBand) setExamPresetLevel(levelBand); void navigateTo("yki-practice"); }}
-          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', contextLabel: 'YKI recorded speaking prep' }); void navigateTo("speaking-practice"); }}
-          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', contextLabel: 'YKI conversation speaking prep' }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingRecording={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'recorded', initialProfession: 'general', contextLabel: t('appShellYkiRecordedSpeakingContext') }); void navigateTo("speaking-practice"); }}
+          onOpenSpeakingConversation={(levelBand) => { setSpeakingPreset({ initialLevelBand: levelBand, initialSurface: 'conversation', initialProfession: 'general', contextLabel: t('appShellYkiConversationSpeakingContext') }); void navigateTo("speaking-practice"); }}
         />
         {drawer}
       </>
@@ -1018,7 +1018,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
               initialLevelBand: config.levelBand ?? 'B1-B2',
               initialSurface: 'conversation',
               initialProfession: (config.profession ?? 'general') as NonNullable<SpeakingPreset>['initialProfession'],
-              contextLabel: 'YKI speaking practice',
+              contextLabel: t('appShellYkiSpeakingPracticeContext'),
             });
             void navigateTo("speaking-practice");
           }}

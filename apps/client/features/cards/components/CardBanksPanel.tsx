@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useTranslator } from '../../i18n';
 import type { CardBankBuckets, RuntimeCard } from '../types';
 
 type Props = {
@@ -17,7 +18,31 @@ function toneColor(card: RuntimeCard) {
   return '#3A5FA0';
 }
 
-function Section({ title, subtitle, items, textColor, mutedColor }: { title: string; subtitle: string; items: RuntimeCard[]; textColor?: string; mutedColor?: string }) {
+function Section({
+  title,
+  subtitle,
+  items,
+  textColor,
+  mutedColor,
+  seenLabel,
+  accuracyLabel,
+  emptyLabel,
+  stateLabelMastered,
+  stateLabelDifficult,
+  stateLabelLearning,
+}: {
+  title: string;
+  subtitle: string;
+  items: RuntimeCard[];
+  textColor?: string;
+  mutedColor?: string;
+  seenLabel: string;
+  accuracyLabel: string;
+  emptyLabel: string;
+  stateLabelMastered: string;
+  stateLabelDifficult: string;
+  stateLabelLearning: string;
+}) {
   return (
     <View style={styles.section}>
       <View style={styles.sectionHeader}>
@@ -30,12 +55,14 @@ function Section({ title, subtitle, items, textColor, mutedColor }: { title: str
           <View style={styles.textBlock}>
             <Text numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.88} style={[styles.primaryText, textColor ? { color: textColor } : undefined]}>{item.front_text}</Text>
             <Text numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.9} style={[styles.secondaryText, mutedColor ? { color: mutedColor } : undefined]}>
-              Seen {item.seen_count} • accuracy {Math.round(item.correct_rate * 100)}%
+              {`${seenLabel} ${item.seen_count} • ${accuracyLabel} ${Math.round(item.correct_rate * 100)}%`}
             </Text>
           </View>
-          <Text style={[styles.stateTag, { color: toneColor(item) }]}>{item.state}</Text>
+          <Text style={[styles.stateTag, { color: toneColor(item) }]}>
+            {item.state === 'mastered' ? stateLabelMastered : item.state === 'difficult' ? stateLabelDifficult : item.state === 'learning' ? stateLabelLearning : item.state}
+          </Text>
         </View>
-      )) : <Text style={[styles.empty, mutedColor ? { color: mutedColor } : undefined]}>No items yet.</Text>}
+      )) : <Text style={[styles.empty, mutedColor ? { color: mutedColor } : undefined]}>{emptyLabel}</Text>}
     </View>
   );
 }
@@ -44,6 +71,7 @@ export function CardBanksPanel({ visible, onClose, banks }: Props) {
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
+  const { t } = useTranslator();
 
   return (
     <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
@@ -51,17 +79,53 @@ export function CardBanksPanel({ visible, onClose, banks }: Props) {
         <View style={[styles.sheet, isDark && { backgroundColor: palette.surfaceRaised }]}>
           <View style={styles.topBar}>
             <View>
-              <Text style={[styles.title, isDark && { color: palette.text }]}>Review banks</Text>
-              <Text style={[styles.subtitle, isDark && { color: palette.textMuted }]}>Use colour-coded recall to revisit difficult and easy items.</Text>
+              <Text style={[styles.title, isDark && { color: palette.text }]}>{t('cardsReviewBanks')}</Text>
+              <Text style={[styles.subtitle, isDark && { color: palette.textMuted }]}>{t('cardsUseColourCodedRecall')}</Text>
             </View>
             <Pressable onPress={onClose} style={[styles.closeButton, isDark && { backgroundColor: palette.primarySurface, borderColor: palette.border }]}>
-              <Text style={[styles.closeLabel, isDark && { color: palette.primary }]}>Close</Text>
+              <Text style={[styles.closeLabel, isDark && { color: palette.primary }]}>{t('cardsClose')}</Text>
             </Pressable>
           </View>
           <ScrollView contentContainerStyle={styles.content}>
-            <Section title="Difficult" subtitle="Repeatedly wrong or still unstable." items={banks.difficult} textColor={isDark ? palette.text : undefined} mutedColor={isDark ? palette.textMuted : undefined} />
-            <Section title="Learned" subtitle="Repeatedly correct and ready for lighter review." items={banks.learned} textColor={isDark ? palette.text : undefined} mutedColor={isDark ? palette.textMuted : undefined} />
-            <Section title="Learning" subtitle="Seen and improving, but not yet stable." items={banks.learning} textColor={isDark ? palette.text : undefined} mutedColor={isDark ? palette.textMuted : undefined} />
+            <Section
+              title={t('cardsDifficult')}
+              subtitle={t('cardsReviewBankDifficultSubtitle')}
+              items={banks.difficult}
+              textColor={isDark ? palette.text : undefined}
+              mutedColor={isDark ? palette.textMuted : undefined}
+              seenLabel={t('cardsSeenLabel')}
+              accuracyLabel={t('cardsAccuracyLabel')}
+              emptyLabel={t('cardsNoItemsYet')}
+              stateLabelMastered={t('cardsMasteredLabel')}
+              stateLabelDifficult={t('cardsDifficult')}
+              stateLabelLearning={t('cardsLearning')}
+            />
+            <Section
+              title={t('cardsLearned')}
+              subtitle={t('cardsReviewBankLearnedSubtitle')}
+              items={banks.learned}
+              textColor={isDark ? palette.text : undefined}
+              mutedColor={isDark ? palette.textMuted : undefined}
+              seenLabel={t('cardsSeenLabel')}
+              accuracyLabel={t('cardsAccuracyLabel')}
+              emptyLabel={t('cardsNoItemsYet')}
+              stateLabelMastered={t('cardsMasteredLabel')}
+              stateLabelDifficult={t('cardsDifficult')}
+              stateLabelLearning={t('cardsLearning')}
+            />
+            <Section
+              title={t('cardsLearning')}
+              subtitle={t('cardsReviewBankLearningSubtitle')}
+              items={banks.learning}
+              textColor={isDark ? palette.text : undefined}
+              mutedColor={isDark ? palette.textMuted : undefined}
+              seenLabel={t('cardsSeenLabel')}
+              accuracyLabel={t('cardsAccuracyLabel')}
+              emptyLabel={t('cardsNoItemsYet')}
+              stateLabelMastered={t('cardsMasteredLabel')}
+              stateLabelDifficult={t('cardsDifficult')}
+              stateLabelLearning={t('cardsLearning')}
+            />
           </ScrollView>
         </View>
       </View>

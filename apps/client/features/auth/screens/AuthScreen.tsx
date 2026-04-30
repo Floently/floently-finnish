@@ -231,7 +231,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
                 source={LOGO}
                 style={[styles.logo, { width: logoWidth, height: logoHeight }, logoAnimatedStyle]}
                 resizeMode="contain"
-                accessibilityLabel="Floently logo"
+                accessibilityLabel={t('authLogoAccessibilityLabel')}
               />
             </View>
             <Text style={styles.eyebrow}>{t('authEyebrow')}</Text>

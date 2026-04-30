@@ -4,7 +4,7 @@ import HomeScreen from '@ui/screens/HomeScreen';
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
-import { resolveProfessionalDisplayName } from '@core/api/entitlements';
+import { useTranslator } from '../features/i18n';
 
 type Props = {
   onOpenBilling: () => void;
@@ -20,13 +20,20 @@ type Props = {
   onOpenMenu: () => void;
 };
 
-function professionalSummaryLabel(professions: string[] | undefined) {
+function professionalSummaryLabel(professions: string[] | undefined, t: ReturnType<typeof useTranslator>['t']) {
   if (!professions?.length) return undefined;
-  if (professions.length > 1) return 'All professions';
+  if (professions.length > 1) return t('commonAllProfessions');
   const [first] = professions;
-  return resolveProfessionalDisplayName(
-    first === 'doctor' || first === 'nurse' || first === 'practical_nurse' ? first : null,
-  );
+  switch (first) {
+    case 'doctor':
+      return t('professionalNameDoctor');
+    case 'nurse':
+      return t('professionalNameNurse');
+    case 'practical_nurse':
+      return t('professionalNamePracticalNurse');
+    default:
+      return t('commonProfessionSpecific');
+  }
 }
 
 export default function HomeRoute({
@@ -41,6 +48,7 @@ export default function HomeRoute({
   onOpenYkiPractice,
   onOpenMenu,
 }: Props) {
+  const { t } = useTranslator();
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
@@ -57,10 +65,10 @@ export default function HomeRoute({
     (user as { displayName?: string; name?: string; email?: string } | null)?.displayName?.trim() ||
     (user as { displayName?: string; name?: string; email?: string } | null)?.name?.trim() ||
     user?.email?.split('@')[0] ||
-    'Learner';
+    t('homeLearnerFallbackName');
 
   const entitlements = subscriptionStatus?.entitlements;
-  const professionalLabel = professionalSummaryLabel(entitlements?.professions);
+  const professionalLabel = professionalSummaryLabel(entitlements?.professions, t);
   const bundle = subscriptionStatus?.plan.category === 'bundle';
   const isPreview = Boolean(subscriptionStatus?.isPreview);
 
@@ -68,7 +76,7 @@ export default function HomeRoute({
     <HomeScreen
       isAuthenticated={Boolean(user)}
       userName={displayName}
-      userEmail={user?.email ?? 'Use the sidebar for all routes'}
+      userEmail={user?.email ?? t('homeSidebarRoutesHint')}
       themeMode={themeMode}
       accessState={{
         learn: Boolean(entitlements?.learnAccess),

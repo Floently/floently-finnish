@@ -80,14 +80,14 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
       themeMode={themeMode}
       allowScroll
       header={
-        <PageHeader
-          eyebrow={translate(language, 'learningHubEyebrow')}
-          title={translate(language, 'learningHubTitle')}
-          subtitle={translate(language, 'learningHubSubtitle')}
-          actionLabel="Home"
-          onActionPress={onBack}
-          onMenuPress={onOpenMenu}
-          themeMode={themeMode}
+          <PageHeader
+            eyebrow={translate(language, 'learningHubEyebrow')}
+            title={translate(language, 'learningHubTitle')}
+            subtitle={translate(language, 'learningHubSubtitle')}
+            actionLabel={translate(language, 'commonHome')}
+            onActionPress={onBack}
+            onMenuPress={onOpenMenu}
+            themeMode={themeMode}
         />
       }
     >
@@ -103,15 +103,15 @@ export default function LearningRoute({ onBack, onOpenMenu, onOpenEverydayRolepl
             setBranch('everyday');
           }}
         />
-        <TaskCard
-          themeMode={themeMode}
-          accent="blue"
-          title={translate(language, 'learningMyProfessionTitle')}
-          detail={translate(language, 'learningMyProfessionDetail')}
-          meta="Profession-specific"
-          actionLabel={translate(language, 'learningOpenMyProfession')}
-          onPress={onOpenProfessionalHub}
-        />
+          <TaskCard
+            themeMode={themeMode}
+            accent="blue"
+            title={translate(language, 'learningMyProfessionTitle')}
+            detail={translate(language, 'learningMyProfessionDetail')}
+            meta={translate(language, 'commonProfessionSpecific')}
+            actionLabel={translate(language, 'learningOpenMyProfession')}
+            onPress={onOpenProfessionalHub}
+          />
       </View>
     </AppScaffold>
   );
