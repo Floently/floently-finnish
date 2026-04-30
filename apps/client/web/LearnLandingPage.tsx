@@ -25,100 +25,119 @@
 
 import React from 'react';
 import FinnishCorrectionDemo from './components/FinnishCorrectionDemo';
+import LanguageSelector from '../features/i18n/LanguageSelector';
+import { usePreferencesStore } from '../state/preferencesStore';
+import { useTranslator } from '../features/i18n';
 
 const LOGIN_URL = '/auth/login';
 const DEMO_URL = 'mailto:pilots@floently.com?subject=Floently%20demo%20request';
 const LOGO_SRC = require('../components/public/logo.png');
 
-// ── Page data (copy unchanged from original — only structure rebuilt) ─────
-const pathwayCards = [
-  {
-    id: 'learners',
-    eyebrow: 'For learners',
-    title: 'Pass YKI, prepare for work, build long-term Finnish.',
-    body: 'Guided practice across reading, listening, writing, and speaking — built around YKI goals and the Finnish you actually need at work and in everyday life.',
-    accent: '#5A85FF',     // brand-blue
-    accentSoft: 'rgba(90, 133, 255, 0.10)',
-    icon: '👤',
-    cta: 'Start learning',
-    href: LOGIN_URL,
-  },
-  {
-    id: 'employers',
-    eyebrow: 'For employers',
-    title: 'Onboard, retain, and protect international staff.',
-    body: 'Workplace-specific Finnish for safer communication, faster onboarding, and stronger long-term retention. Profession-specific paths for healthcare and beyond.',
-    accent: '#3EC5A8',     // teal
-    accentSoft: 'rgba(62, 197, 168, 0.10)',
-    icon: '🏢',
-    cta: 'Book employer demo',
-    href: DEMO_URL,
-  },
-  {
-    id: 'cities',
-    eyebrow: 'For cities & municipalities',
-    title: 'A scalable language pathway, residents to citizens.',
-    body: 'Connect language learning to employability, integration, and long-term participation. Programmes that scale from individual residents to city-wide rollouts.',
-    accent: '#7A9FFF',     // lighter blue
-    accentSoft: 'rgba(122, 159, 255, 0.10)',
-    icon: '🏛️',
-    cta: 'Talk to us',
-    href: DEMO_URL,
-  },
-];
+type Translator = ReturnType<typeof useTranslator>;
 
-const outcomeCards = [
-  {
-    title: 'YKI is a wall, not a finish line',
-    body: 'Many learners need more than general language lessons. They need Finnish for the YKI exam itself, for work, for daily communication — and for the long climb to citizenship and permanent residence.',
-  },
-  {
-    title: 'Workplace Finnish is a different skill',
-    body: 'International employees need practical Finnish for safer communication on shift, smoother onboarding, and language confidence that supports retention rather than friction.',
-  },
-  {
-    title: 'Cities own the integration outcome',
-    body: 'Residents need language support that connects learning to employability, inclusion, and meaningful participation in Finnish society — not just classroom completion certificates.',
-  },
-];
+function getPathwayCards(t: Translator['t']) {
+  return [
+    {
+      id: 'learners',
+      eyebrow: t('landingPathwayLearnersEyebrow'),
+      title: t('landingPathwayLearnersTitle'),
+      body: t('landingPathwayLearnersBody'),
+      accent: '#5A85FF',
+      accentSoft: 'rgba(90, 133, 255, 0.10)',
+      icon: '👤',
+      cta: t('landingPathwayLearnersCta'),
+      href: LOGIN_URL,
+    },
+    {
+      id: 'employers',
+      eyebrow: t('landingPathwayEmployersEyebrow'),
+      title: t('landingPathwayEmployersTitle'),
+      body: t('landingPathwayEmployersBody'),
+      accent: '#3EC5A8',
+      accentSoft: 'rgba(62, 197, 168, 0.10)',
+      icon: '🏢',
+      cta: t('landingPathwayEmployersCta'),
+      href: DEMO_URL,
+    },
+    {
+      id: 'cities',
+      eyebrow: t('landingPathwayCitiesEyebrow'),
+      title: t('landingPathwayCitiesTitle'),
+      body: t('landingPathwayCitiesBody'),
+      accent: '#7A9FFF',
+      accentSoft: 'rgba(122, 159, 255, 0.10)',
+      icon: '🏛️',
+      cta: t('landingPathwayCitiesCta'),
+      href: DEMO_URL,
+    },
+  ];
+}
 
-const platformPathways = [
-  {
-    eyebrow: 'YKI Preparation',
-    title: 'Built around the four exam skills.',
-    body: 'Speaking, writing, reading, listening — guided practice with feedback that maps to YKI scoring rubrics for work, citizenship, and permanent residence.',
-    accent: '#5A85FF',
-  },
-  {
-    eyebrow: 'Professional Finnish',
-    title: 'For doctors, nurses, practical nurses.',
-    body: 'Profession-specific scenarios, vocabulary, and dialogues. Patient handovers, clinical documentation, daily teamwork — language for the real job, not textbook situations.',
-    accent: '#3EC5A8',
-  },
-  {
-    eyebrow: 'Life in Finland Readiness',
-    title: 'Daily services, official communication.',
-    body: 'The Finnish you need for KELA, Migri, healthcare, schools, banks, and the long-term goals of citizenship and permanent residence.',
-    accent: '#7A9FFF',
-  },
-];
+function getOutcomeCards(t: Translator['t']) {
+  return [
+    {
+      title: t('landingOutcomeWallTitle'),
+      body: t('landingOutcomeWallBody'),
+    },
+    {
+      title: t('landingOutcomeWorkplaceTitle'),
+      body: t('landingOutcomeWorkplaceBody'),
+    },
+    {
+      title: t('landingOutcomeCitiesTitle'),
+      body: t('landingOutcomeCitiesBody'),
+    },
+  ];
+}
 
-const trustPoints = [
-  'YKI-aligned',
-  'Profession-specific',
-  'Workplace communication',
-  'Settlement support',
-  'Programme-scalable',
-];
+function getPlatformPathways(t: Translator['t']) {
+  return [
+    {
+      eyebrow: t('landingPlatformYkiEyebrow'),
+      title: t('landingPlatformYkiTitle'),
+      body: t('landingPlatformYkiBody'),
+      accent: '#5A85FF',
+    },
+    {
+      eyebrow: t('landingPlatformProfessionalEyebrow'),
+      title: t('landingPlatformProfessionalTitle'),
+      body: t('landingPlatformProfessionalBody'),
+      accent: '#3EC5A8',
+    },
+    {
+      eyebrow: t('landingPlatformLifeEyebrow'),
+      title: t('landingPlatformLifeTitle'),
+      body: t('landingPlatformLifeBody'),
+      accent: '#7A9FFF',
+    },
+  ];
+}
+
+function getTrustPoints(t: Translator['t']) {
+  return [
+    t('landingTrustYkiAligned'),
+    t('landingTrustProfessionSpecific'),
+    t('landingTrustWorkplaceCommunication'),
+    t('landingTrustSettlementSupport'),
+    t('landingTrustProgrammeScalable'),
+  ];
+}
 
 // ── Component ─────────────────────────────────────────────────────────────
 export default function LearnLandingPage() {
+  const { t } = useTranslator();
+  const language = usePreferencesStore((state) => state.language);
+  const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const goToLogin = () => {
     if (typeof window !== 'undefined') window.location.assign(LOGIN_URL);
   };
   const goToDemo = () => {
     if (typeof window !== 'undefined') window.location.assign(DEMO_URL);
   };
+  const pathwayCards = getPathwayCards(t);
+  const outcomeCards = getOutcomeCards(t);
+  const platformPathways = getPlatformPathways(t);
+  const trustPoints = getTrustPoints(t);
 
   return (
     <div className="floently-landing-shell">
@@ -133,17 +152,18 @@ export default function LearnLandingPage() {
         <nav className="fl-nav">
           <div className="fl-nav-actions fl-nav-actions-left">
             <button type="button" onClick={goToDemo} className="fl-nav-cta">
-              Book a demo
+              {t('landingNavBookDemo')}
             </button>
           </div>
           <div className="fl-nav-links">
-            <a href="#learners" className="fl-nav-link">For Learners</a>
-            <a href="#employers" className="fl-nav-link">For Employers</a>
-            <a href="#cities" className="fl-nav-link">For Cities</a>
+            <a href="#learners" className="fl-nav-link">{t('landingNavForLearners')}</a>
+            <a href="#employers" className="fl-nav-link">{t('landingNavForEmployers')}</a>
+            <a href="#cities" className="fl-nav-link">{t('landingNavForCities')}</a>
           </div>
           <div className="fl-nav-actions">
+            <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="pills" compact />
             <button type="button" onClick={goToLogin} className="fl-nav-signin">
-              Sign in
+              {t('landingNavSignIn')}
             </button>
           </div>
         </nav>
@@ -156,29 +176,29 @@ export default function LearnLandingPage() {
           <div className="fl-hero-text">
             <div className="fl-eyebrow">
               <span className="fl-eyebrow-dot" />
-              FINNISH FOR WORK, SETTLEMENT, AND REAL OUTCOMES
+              {t('landingHeroEyebrow')}
             </div>
             <h1 className="fl-h1">
-              Pass YKI.
+              {t('landingHeroPassYki')}
               <br />
-              <span className="fl-h1-accent">Succeed in work and life </span>
-              in Finland.
+              <span className="fl-h1-accent">{t('landingHeroSucceedInWorkAndLife')} </span>
+              {t('landingHeroInFinland')}
             </h1>
             <p className="fl-hero-lede">
-              A Finnish language platform built for the YKI exam, workplace communication, and the long path to citizenship — for learners, employers, and cities.
+              {t('landingHeroLede')}
             </p>
             <div className="fl-hero-actions">
               <button type="button" onClick={goToDemo} className="fl-cta-primary">
-                Book a demo
+                {t('landingNavBookDemo')}
                 <span className="fl-cta-arrow">→</span>
               </button>
               <button type="button" onClick={goToLogin} className="fl-cta-link">
-                Already have an account? <span className="fl-cta-link-emphasis">Sign in</span>
+                {t('landingAlreadyHaveAccount')} <span className="fl-cta-link-emphasis">{t('landingNavSignIn')}</span>
               </button>
             </div>
             <div className="fl-trust-row">
-              {trustPoints.map((t) => (
-                <span key={t} className="fl-trust-pill">{t}</span>
+              {trustPoints.map((point) => (
+                <span key={point} className="fl-trust-pill">{point}</span>
               ))}
             </div>
           </div>
@@ -186,7 +206,7 @@ export default function LearnLandingPage() {
           <div className="fl-hero-demo">
             <FinnishCorrectionDemo theme="dark" />
             <div className="fl-hero-demo-caption">
-              Watch the loop: type Finnish → get corrected → learn the rule.
+              {t('landingHeroDemoCaption')}
             </div>
           </div>
         </div>
@@ -196,12 +216,12 @@ export default function LearnLandingPage() {
       <section className="fl-section fl-section-light" id="outcomes">
         <div className="fl-section-inner">
           <div className="fl-section-head">
-            <div className="fl-section-eyebrow">THE PROBLEM</div>
+            <div className="fl-section-eyebrow">{t('landingProblemEyebrow')}</div>
             <h2 className="fl-h2">
-              General Finnish study<br />isn't enough for real outcomes.
+              {t('landingProblemTitleLine1')}<br />{t('landingProblemTitleLine2')}
             </h2>
             <p className="fl-section-lede">
-              Generic language apps teach Finnish in the abstract. Floently teaches the Finnish you actually need for the things that change your life: passing YKI, getting hired, becoming a citizen.
+              {t('landingProblemBody')}
             </p>
           </div>
 
@@ -221,13 +241,13 @@ export default function LearnLandingPage() {
       <section className="fl-section fl-section-dark" id="pathways">
         <div className="fl-section-inner">
           <div className="fl-section-head fl-section-head-dark">
-            <div className="fl-section-eyebrow fl-section-eyebrow-dark">ONE PLATFORM, THREE PATHWAYS</div>
+            <div className="fl-section-eyebrow fl-section-eyebrow-dark">{t('landingPlatformEyebrow')}</div>
             <h2 className="fl-h2 fl-h2-dark">
-              YKI, workplace,<br />
-              <span className="fl-h2-accent">and life in Finland.</span>
+              {t('landingPlatformTitleLine1')}<br />
+              <span className="fl-h2-accent">{t('landingPlatformTitleHighlight')}</span>
             </h2>
             <p className="fl-section-lede fl-section-lede-dark">
-              Three pathways under one platform. Pick the one that matches your goal — or run all three for an institution.
+              {t('landingPlatformBody')}
             </p>
           </div>
 
@@ -259,12 +279,12 @@ export default function LearnLandingPage() {
       <section className="fl-section fl-section-light">
         <div className="fl-section-inner">
           <div className="fl-section-head">
-            <div className="fl-section-eyebrow">WHAT'S INSIDE</div>
+            <div className="fl-section-eyebrow">{t('landingInsideEyebrow')}</div>
             <h2 className="fl-h2">
-              One platform connecting<br />YKI, work, and settlement.
+              {t('landingInsideTitleLine1')}<br />{t('landingInsideTitleLine2')}
             </h2>
             <p className="fl-section-lede">
-              Every learner moves between exam preparation, professional Finnish, and daily life Finnish. Floently keeps them in one continuous track.
+              {t('landingInsideBody')}
             </p>
           </div>
 
@@ -290,23 +310,23 @@ export default function LearnLandingPage() {
         <div className="fl-section-inner">
           <div className="fl-final-grid">
             <div>
-              <div className="fl-section-eyebrow fl-section-eyebrow-dark">READY WHEN YOU ARE</div>
+              <div className="fl-section-eyebrow fl-section-eyebrow-dark">{t('landingFinalEyebrow')}</div>
               <h2 className="fl-h2 fl-h2-dark">
-                Bring Finnish learning closer<br />to work, settlement, and opportunity.
+                {t('landingFinalTitleLine1')}<br />{t('landingFinalTitleLine2')}
               </h2>
               <p className="fl-section-lede fl-section-lede-dark">
-                Whether you're preparing for YKI, supporting international staff, or running a city programme — Floently is built for real outcomes, not generic textbook Finnish.
+                {t('landingFinalBody')}
               </p>
             </div>
             <div className="fl-final-actions">
               <button type="button" onClick={goToDemo} className="fl-cta-primary fl-cta-primary-large">
-                Book a demo <span className="fl-cta-arrow">→</span>
+                {t('landingNavBookDemo')} <span className="fl-cta-arrow">→</span>
               </button>
               <button type="button" onClick={goToLogin} className="fl-cta-secondary-dark">
-                Continue to sign in
+                {t('landingFinalSignIn')}
               </button>
               <a href={DEMO_URL} className="fl-cta-link fl-cta-link-dark">
-                Talk to us about programme access →
+                {t('landingFinalContact')} →
               </a>
             </div>
           </div>
@@ -318,26 +338,26 @@ export default function LearnLandingPage() {
         <div className="fl-footer-inner">
             <div className="fl-footer-brand">
               <p className="fl-footer-tag">
-                Finnish for YKI, work, and life in Finland.
+                {t('landingFooterBrand')}
               </p>
             </div>
           <div className="fl-footer-cols">
             <div className="fl-footer-col">
-              <div className="fl-footer-col-title">Product</div>
-              <a href={LOGIN_URL} className="fl-footer-link">Sign in</a>
-              <a href="#learners" className="fl-footer-link">For learners</a>
-              <a href="#employers" className="fl-footer-link">For employers</a>
-              <a href="#cities" className="fl-footer-link">For cities</a>
+              <div className="fl-footer-col-title">{t('landingFooterProduct')}</div>
+              <a href={LOGIN_URL} className="fl-footer-link">{t('landingFooterSignIn')}</a>
+              <a href="#learners" className="fl-footer-link">{t('landingFooterForLearners')}</a>
+              <a href="#employers" className="fl-footer-link">{t('landingFooterForEmployers')}</a>
+              <a href="#cities" className="fl-footer-link">{t('landingFooterForCities')}</a>
             </div>
             <div className="fl-footer-col">
-              <div className="fl-footer-col-title">Company</div>
-              <a href={DEMO_URL} className="fl-footer-link">Book a demo</a>
-              <a href={DEMO_URL} className="fl-footer-link">Contact</a>
+              <div className="fl-footer-col-title">{t('landingFooterCompany')}</div>
+              <a href={DEMO_URL} className="fl-footer-link">{t('landingNavBookDemo')}</a>
+              <a href={DEMO_URL} className="fl-footer-link">{t('landingFooterContact')}</a>
             </div>
           </div>
         </div>
         <div className="fl-footer-bottom">
-          <span>© {new Date().getFullYear()} Floently. Made for Finland.</span>
+          <span>{t('landingFooterCopyright').replace('{year}', String(new Date().getFullYear()))}</span>
         </div>
       </footer>
       </div>

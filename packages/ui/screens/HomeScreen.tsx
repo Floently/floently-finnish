@@ -3,8 +3,8 @@ import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-nativ
 
 import AppScaffold from '../components/AppScaffold';
 import PageHeader from '../components/PageHeader';
-import SmartHintPopup from '../components/SmartHintPopup';
 import { getFloentlyPalette, type FloentlyThemeMode } from '../theme/floentlyPalette';
+import { useTranslator } from '../../../apps/client/features/i18n';
 
 const D = {
   bg: '#0C1222',
@@ -23,13 +23,6 @@ const D = {
   speak: '#F0A436',
   pro: '#2DD4BF',
 };
-
-function formatGreeting() {
-  const h = new Date().getHours();
-  if (h < 12) return 'Hyvää huomenta';
-  if (h < 17) return 'Hyvää päivää';
-  return 'Hyvää iltaa';
-}
 
 type Skill = { label: string; pct: number; color: string };
 
@@ -59,13 +52,6 @@ type Props = {
   estimatedLevel?: string;
   skills?: Skill[];
 };
-
-const DEFAULT_SKILLS: Skill[] = [
-  { label: 'Listening', pct: 72, color: D.primary },
-  { label: 'Reading', pct: 65, color: D.yki },
-  { label: 'Writing', pct: 48, color: D.accent },
-  { label: 'Speaking', pct: 55, color: D.speak },
-];
 
 type EmberSpec = {
   left: `${number}%`;
@@ -390,6 +376,66 @@ function SkillMeter({
   );
 }
 
+function HintPopup({
+  visible,
+  themeMode,
+  badgeLabel,
+  title,
+  body,
+  primaryLabel,
+  secondaryLabel,
+  onPrimary,
+  onSecondary,
+}: {
+  visible: boolean;
+  themeMode: FloentlyThemeMode;
+  badgeLabel: string;
+  title: string;
+  body: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  onPrimary?: () => void;
+  onSecondary?: () => void;
+}) {
+  const palette = getFloentlyPalette(themeMode);
+
+  if (!visible) return null;
+
+  return (
+    <View style={[StyleSheet.absoluteFill, styles.hintOverlay, { backgroundColor: palette.overlay }]}>
+      <View style={[styles.hintCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+        <View style={[styles.hintBadge, { backgroundColor: palette.primarySurface }]}>
+          <Text style={[styles.hintBadgeText, { color: palette.primary }]}>{badgeLabel}</Text>
+        </View>
+        <Text style={[styles.hintTitle, { color: palette.text }]}>{title}</Text>
+        <Text style={[styles.hintBody, { color: palette.textMuted }]}>{body}</Text>
+        <View style={styles.hintActions}>
+          <Pressable
+            onPress={onSecondary}
+            style={({ pressed }) => [
+              styles.hintSecondary,
+              { borderColor: palette.borderStrong, backgroundColor: palette.surface },
+              pressed && styles.hintPressed,
+            ]}
+          >
+            <Text style={[styles.hintSecondaryText, { color: palette.text }]}>{secondaryLabel}</Text>
+          </Pressable>
+          <Pressable
+            onPress={onPrimary}
+            style={({ pressed }) => [
+              styles.hintPrimary,
+              { backgroundColor: palette.primary },
+              pressed && styles.hintPressed,
+            ]}
+          >
+            <Text style={styles.hintPrimaryText}>{primaryLabel}</Text>
+          </Pressable>
+        </View>
+      </View>
+    </View>
+  );
+}
+
 export default function HomeScreen({
   isAuthenticated = false,
   userName = 'Learner',
@@ -401,13 +447,14 @@ export default function HomeScreen({
   cardsDue = 0,
   totalCards = 0,
   estimatedLevel = 'B1',
-  skills = DEFAULT_SKILLS,
+  skills,
 }: Props) {
+  const { t } = useTranslator();
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
 
   const [showHint, setShowHint] = useState(true);
-  const [greeting, setGreeting] = useState(formatGreeting());
+  const [currentHour, setCurrentHour] = useState(() => new Date().getHours());
 
   const heroAnim = useRef(new Animated.Value(0)).current;
   const quickAnim = useRef(new Animated.Value(0)).current;
@@ -418,7 +465,7 @@ export default function HomeScreen({
   const livePulse = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    const id = setInterval(() => setGreeting(formatGreeting()), 60_000);
+    const id = setInterval(() => setCurrentHour(new Date().getHours()), 60_000);
     return () => clearInterval(id);
   }, []);
 
@@ -480,36 +527,48 @@ export default function HomeScreen({
   const muted = isDark ? D.muted : palette.textMuted;
   const soft = isDark ? D.soft : palette.textSoft;
   const primary = isDark ? D.primary : palette.primary;
+  const greeting = currentHour < 12
+    ? t('homeGreetingMorning')
+    : currentHour < 17
+      ? t('homeGreetingDay')
+      : t('homeGreetingEvening');
+  const defaultSkills = [
+    { label: t('ykiPracticeFocusListening'), pct: 72, color: D.primary },
+    { label: t('ykiPracticeFocusReading'), pct: 65, color: D.yki },
+    { label: t('ykiPracticeFocusWriting'), pct: 48, color: D.accent },
+    { label: t('ykiPracticeFocusSpeaking'), pct: 55, color: D.speak },
+  ];
+  const visibleSkills = skills ?? defaultSkills;
 
   const quickActions = [
     {
-      label: 'Vocabulary & roleplay',
-      sub: accessState?.isPreview ? 'Locked during preview — upgrade to open the full learning loop.' : accessState?.learn ? 'Cards, phrase support, and guided practice' : 'Unlock core learning tools',
-      tag: accessState?.isPreview ? 'Preview' : accessState?.learn ? 'Learn' : '🔒 Locked',
+      label: t('homeVocabularyRoleplay'),
+      sub: accessState?.isPreview ? t('homeVocabularyRoleplayPreviewLocked') : accessState?.learn ? t('homeVocabularyRoleplayLearn') : t('homeVocabularyRoleplayUnlock'),
+      tag: accessState?.isPreview ? t('homePreviewTag') : accessState?.learn ? t('homeLearnTag') : t('homeLockedTag'),
       color: D.primary,
       mode: 'learn',
       locked: !accessState?.learn,
     },
     {
-      label: 'Workplace scenarios',
-      sub: accessState?.isPreview && accessState?.previewPath !== 'yki' ? 'One guided workplace conversation is available in preview mode.' : accessState?.learn ? 'Instructions, handovers, and reporting' : 'Unlock work communication practice',
-      tag: accessState?.isPreview && accessState?.previewPath !== 'yki' ? 'Preview' : accessState?.learn ? 'Scenarios' : '🔒 Locked',
+      label: t('homeWorkplaceScenarios'),
+      sub: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homeWorkplaceScenariosPreview') : accessState?.learn ? t('homeWorkplaceScenariosLearn') : t('homeWorkplaceScenariosUnlock'),
+      tag: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homePreviewTag') : accessState?.learn ? t('homeScenariosTag') : t('homeLockedTag'),
       color: D.speak,
       mode: 'scenarios',
       locked: !accessState?.learn,
     },
     {
-      label: 'YKI Prep',
-      sub: accessState?.isPreview && accessState?.previewPath === 'yki' ? 'Practice sampler available. Full exam remains locked.' : accessState?.yki ? 'Practice and exam simulation' : 'Available in YKI and bundle plans',
-      tag: accessState?.isPreview && accessState?.previewPath === 'yki' ? 'Preview' : accessState?.yki ? 'YKI' : '🔒 Locked',
+      label: t('homeYkiPrep'),
+      sub: accessState?.isPreview && accessState?.previewPath === 'yki' ? t('homeYkiPrepPreview') : accessState?.yki ? t('homeYkiPrepActive') : t('homeYkiPrepAvailable'),
+      tag: accessState?.isPreview && accessState?.previewPath === 'yki' ? t('homePreviewTag') : accessState?.yki ? t('homeYkiTag') : t('homeLockedTag'),
       color: D.yki,
       mode: 'yki',
       locked: !accessState?.yki,
     },
     {
-      label: accessState?.professionalLabel ?? 'My Profession',
-      sub: accessState?.isPreview && accessState?.previewPath && accessState?.previewPath !== 'yki' ? 'One profession sampler is available. Upgrade to unlock the full pathway.' : accessState?.professional ? 'Vocabulary, interview, and work-ready Finnish' : 'Choose Doctor, Nurse, or Practical Nurse',
-      tag: accessState?.isPreview && accessState?.previewPath && accessState?.previewPath !== 'yki' ? 'Preview' : accessState?.professional ? 'Profession' : '🔒 Locked',
+      label: accessState?.professionalLabel ?? t('homeMyProfession'),
+      sub: accessState?.isPreview && accessState?.previewPath && accessState?.previewPath !== 'yki' ? t('homeMyProfessionPreview') : accessState?.professional ? t('homeMyProfessionActive') : t('homeMyProfessionLocked'),
+      tag: accessState?.isPreview && accessState?.previewPath && accessState?.previewPath !== 'yki' ? t('homePreviewTag') : accessState?.professional ? t('homeProfessionTag') : t('homeLockedTag'),
       color: D.pro,
       mode: 'work',
       locked: !accessState?.professional,
@@ -517,16 +576,18 @@ export default function HomeScreen({
   ];
 
   const pathwayStatus = accessState?.isPreview
-    ? `Free preview active — ${accessState?.previewPath === 'yki' ? 'YKI sampler unlocked with the full exam still locked.' : 'one profession pathway and one guided conversation are available in preview mode.'}`
+    ? accessState?.previewPath === 'yki'
+      ? t('homeFreePreviewYki')
+      : t('homeFreePreviewOther')
     : accessState?.bundle
-    ? 'Bundle pathway active — continue YKI Prep or your profession track today.'
+    ? t('homeBundlePathwayActive')
     : accessState?.yki && accessState?.professional
-      ? 'YKI and profession access are both active. Choose the pathway that needs attention most.'
+      ? t('homeBothAccessActive')
       : accessState?.yki
-        ? 'YKI pathway active — keep exam readiness moving with short daily work.'
+        ? t('homeYkiPathwayActive')
         : accessState?.professional
-          ? `${accessState.professionalLabel ?? 'Professional'} pathway active — keep work-ready Finnish moving today.`
-          : 'Choose a plan to unlock YKI Prep or a profession pathway.';
+          ? t('homeProfessionalPathwayActive').replace('{profession}', accessState.professionalLabel ?? t('homeMyProfession'))
+          : t('homeChoosePlanToUnlock');
 
   const completedPct =
     totalCards > 0 ? Math.round(((totalCards - cardsDue) / totalCards) * 100) : 100;
@@ -545,8 +606,10 @@ export default function HomeScreen({
             title={`${greeting}, ${userName}`}
             subtitle={
               cardsDue > 0
-                ? `${cardsDue} review item${cardsDue !== 1 ? 's' : ''} waiting. Keep the language-to-work pathway moving with one focused task.`
-                : 'All caught up! Choose the pathway that needs attention next.'
+                ? (cardsDue === 1
+                  ? t('homeReviewItemWaiting').replace('{count}', String(cardsDue))
+                  : t('homeReviewItemsWaiting').replace('{count}', String(cardsDue)))
+                : t('homeAllCaughtUp')
             }
             pulseMenu
             onMenuPress={onOpenMenu}
@@ -592,7 +655,7 @@ export default function HomeScreen({
 
               <View style={styles.heroLeft}>
                 <View style={styles.heroTopRow}>
-                  <Text style={[styles.heroEyebrow, { color: primary }]}>Language to work</Text>
+                  <Text style={[styles.heroEyebrow, { color: primary }]}>{t('homeLanguageToWork')}</Text>
 
                   <Animated.View
                     style={[
@@ -622,11 +685,11 @@ export default function HomeScreen({
                         },
                       ]}
                     />
-                    <Text style={styles.liveText}>Momentum live</Text>
+                    <Text style={styles.liveText}>{t('homeMomentumLive')}</Text>
                   </Animated.View>
                 </View>
 
-                <Text style={[styles.heroTitle, { color: text }]}>Next best step</Text>
+                <Text style={[styles.heroTitle, { color: text }]}>{t('homeNextBestStep')}</Text>
                 <Text style={[styles.heroSub, { color: muted }]}>
                   {pathwayStatus}
                 </Text>
@@ -636,7 +699,7 @@ export default function HomeScreen({
                   style={[styles.heroCta, { backgroundColor: primary }]}
                 >
                   <Text style={styles.heroCtaText}>
-                    {accessState?.learn ? 'Continue pathway' : 'Choose plan'} →
+                    {accessState?.learn ? t('homeContinuePathway') : t('homeChoosePlan')} →
                   </Text>
                 </Pressable>
               </View>
@@ -667,7 +730,7 @@ export default function HomeScreen({
 
           <AnimatedSection animation={quickAnim}>
             <View>
-              <Text style={[styles.sectionLabel, { color: soft }]}>Pathways</Text>
+              <Text style={[styles.sectionLabel, { color: soft }]}>{t('homePathways')}</Text>
               <View style={styles.quickGrid}>
                 {quickActions.map((qa) => (
                   <Pressable
@@ -696,14 +759,14 @@ export default function HomeScreen({
           <AnimatedSection animation={skillsAnim}>
             <View style={[styles.skillsCard, { backgroundColor: surface, borderColor: border }]}>
               <View style={styles.skillsHeader}>
-                <Text style={[styles.skillsTitle, { color: text }]}>Readiness pillars</Text>
+                <Text style={[styles.skillsTitle, { color: text }]}>{t('homeReadinessPillars')}</Text>
                 <View style={[styles.levelBadge, { backgroundColor: raised, borderColor: border }]}>
-                  <Text style={[styles.levelText, { color: primary }]}>Est. {estimatedLevel}</Text>
+                  <Text style={[styles.levelText, { color: primary }]}>{t('homeEstLevel')} {estimatedLevel}</Text>
                 </View>
               </View>
 
               <View style={styles.skillList}>
-                {skills.map((skill) => (
+                {visibleSkills.map((skill) => (
                   <SkillMeter
                     key={skill.label}
                     label={skill.label}
@@ -721,9 +784,9 @@ export default function HomeScreen({
           <AnimatedSection animation={statsAnim}>
             <View style={styles.statsRow}>
               {[
-                { val: String(totalCards), label: 'Vocabulary items' },
-                { val: String(streakDays), label: 'Day streak' },
-                { val: estimatedLevel, label: 'Est. level' },
+                { val: String(totalCards), label: t('homeVocabularyItems') },
+                { val: String(streakDays), label: t('homeDayStreak') },
+                { val: estimatedLevel, label: t('homeEstLevel') },
               ].map((s) => (
                 <View
                   key={s.label}
@@ -743,20 +806,23 @@ export default function HomeScreen({
                 { backgroundColor: isDark ? D.raised : palette.primarySurface, borderColor: border },
               ]}
             >
-              <Text style={[styles.sidebarGuideTitle, { color: text }]}>Deployment-ready flow</Text>
+              <Text style={[styles.sidebarGuideTitle, { color: text }]}>{t('homeDeploymentReadyFlow')}</Text>
               <Text style={[styles.sidebarGuideText, { color: muted }]}>
-                Navigation follows paid access, while Home and Billing still show the locked pathways clearly. That keeps upgrades understandable during deployment and later organisation rollout.
+                {t('homeNavigationFollowsPaidAccess')}
               </Text>
             </View>
           </AnimatedSection>
         </View>
       </AppScaffold>
 
-      <SmartHintPopup
+      <HintPopup
         visible={showHint && isAuthenticated}
         themeMode={themeMode}
-        title="Looking for YKI Prep?"
-        body={accessState?.yki ? 'Open the sidebar and choose YKI Prep when you want formal exam work, or use Workplace Scenarios when you want spoken work communication.' : 'YKI Prep is available in YKI and Bundle plans.'}
+        badgeLabel={t('homeHelpfulHint')}
+        title={t('homeLookingForYkiPrepTitle')}
+        body={accessState?.yki ? t('homeLookingForYkiPrepActiveBody') : t('homeLookingForYkiPrepLockedBody')}
+        primaryLabel={t('homeHintTakeMeThere')}
+        secondaryLabel={t('homeHintDismiss')}
         onPrimary={() => {
           setShowHint(false);
           onSelectMode?.('yki');
@@ -772,6 +838,69 @@ const styles = StyleSheet.create({
     position: 'relative',
     gap: 14,
     paddingTop: 2,
+  },
+  hintOverlay: {
+    justifyContent: 'flex-end',
+    padding: 16,
+    zIndex: 2000,
+  },
+  hintCard: {
+    borderRadius: 24,
+    padding: 18,
+    gap: 12,
+    borderWidth: 1,
+  },
+  hintBadge: {
+    alignSelf: 'flex-start',
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  hintBadgeText: {
+    fontSize: 11,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+  },
+  hintTitle: {
+    fontSize: 20,
+    fontWeight: '800',
+  },
+  hintBody: {
+    fontSize: 14,
+    lineHeight: 21,
+  },
+  hintActions: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 4,
+  },
+  hintSecondary: {
+    flex: 1,
+    minHeight: 42,
+    borderRadius: 999,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  hintPrimary: {
+    flex: 1.1,
+    minHeight: 42,
+    borderRadius: 999,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  hintSecondaryText: {
+    fontWeight: '700',
+    fontSize: 12,
+  },
+  hintPrimaryText: {
+    color: '#FFFFFF',
+    fontWeight: '800',
+    fontSize: 12,
+  },
+  hintPressed: {
+    opacity: 0.92,
   },
 
   emberLayer: {

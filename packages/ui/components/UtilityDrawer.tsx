@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { getFloentlyPalette, type FloentlyThemeMode } from '@ui/theme/floentlyPalette';
+import { useTranslator } from '../../../apps/client/features/i18n';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -80,6 +81,7 @@ export default function UtilityDrawer({
   darkModeLabel = 'Dark mode',
   lightModeLabel = 'Light mode',
 }: Props) {
+  const { t } = useTranslator();
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
 
@@ -87,8 +89,15 @@ export default function UtilityDrawer({
   const sections: DrawerSection[] = sectionsProp && sectionsProp.length > 0
     ? sectionsProp
     : itemsProp && itemsProp.length > 0
-      ? [{ label: 'Main paths', items: itemsProp }]
+      ? [{ label: t('drawerMainPaths'), items: itemsProp }]
       : [];
+  const resolvedLanguageLabel = languageLabel ?? t('commonLanguage');
+  const resolvedThemeLabel = themeLabel ?? t('commonTheme');
+  const resolvedSessionLabel = sessionLabel ?? t('commonSession');
+  const resolvedSignInLabel = signInLabel ?? t('commonLogIn');
+  const resolvedSignOutLabel = signOutLabel ?? t('commonLogOut');
+  const resolvedDarkModeLabel = darkModeLabel ?? t('commonDarkMode');
+  const resolvedLightModeLabel = lightModeLabel ?? t('commonLightMode');
 
   const initials = userName.trim().slice(0, 1).toUpperCase() || 'K';
 
@@ -161,7 +170,7 @@ export default function UtilityDrawer({
               }]}>
                 <Text style={styles.streakFire}>🔥</Text>
                 <Text style={[styles.streakLabel, { color: isDark ? '#F0C86D' : '#8A5A00' }]}>
-                  Day streak
+                  {t('drawerDayStreak')}
                 </Text>
                 <Text style={[styles.streakNum, { color: isDark ? '#F0C86D' : '#8A5A00' }]}>
                   {streakDays}
@@ -203,17 +212,17 @@ export default function UtilityDrawer({
             {/* ── Theme + Auth utility row ──────────────────────────────── */}
             {languageControl ? (
               <View style={[styles.utilCard, { backgroundColor: raisedBg, borderColor: borderCol, marginBottom: 12 }]}>
-                <Text style={[styles.utilTitle, { color: textCol }]}>{languageLabel}</Text>
+                <Text style={[styles.utilTitle, { color: textCol }]}>{resolvedLanguageLabel}</Text>
                 {languageControl}
               </View>
             ) : null}
 
             <View style={[styles.utilRow, { borderTopColor: borderCol }]}>
               <View style={[styles.utilCard, { backgroundColor: raisedBg, borderColor: borderCol }]}>
-                <Text style={[styles.utilTitle, { color: textCol }]}>{themeLabel}</Text>
+                <Text style={[styles.utilTitle, { color: textCol }]}>{resolvedThemeLabel}</Text>
                 <View style={styles.themeRow}>
                   <Text style={[styles.utilHint, { color: mutedCol }]}>
-                    {isDark ? darkModeLabel : lightModeLabel}
+                    {isDark ? resolvedDarkModeLabel : resolvedLightModeLabel}
                   </Text>
                   <Pressable
                     onPress={() => onToggleTheme?.()}
@@ -228,7 +237,7 @@ export default function UtilityDrawer({
                 backgroundColor: isDark ? '#3A2E12' : palette.accentSoft,
                 borderColor: borderCol,
               }]}>
-                <Text style={[styles.utilTitle, { color: textCol }]}>{sessionLabel}</Text>
+                <Text style={[styles.utilTitle, { color: textCol }]}>{resolvedSessionLabel}</Text>
                 <Pressable
                   onPress={() => { onClose(); onAuthAction?.(); }}
                   style={[styles.authBtn, { backgroundColor: bg }]}
@@ -236,7 +245,7 @@ export default function UtilityDrawer({
                   <Text style={[styles.authBtnText, {
                     color: isAuthenticated ? '#FF6B6B' : primary,
                   }]}>
-                    {isAuthenticated ? signOutLabel : signInLabel}
+                    {isAuthenticated ? resolvedSignOutLabel : resolvedSignInLabel}
                   </Text>
                 </Pressable>
               </View>

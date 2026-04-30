@@ -45,13 +45,14 @@ import ProfessionalRoute from "./ProfessionalRoute";
 import PlacementRoute from "./PlacementRoute";
 import { useAuthStore } from "./authStore";
 import { usePreferencesStore } from "./preferencesStore";
-import { useTranslator } from "../features/i18n";
 import { useSubscriptionStore } from "./subscriptionStore";
 import { usePlacementStore } from "./placementStore";
 import createDrawerSections from "../config/navigation/AppShell_sidebar_sections";
 import { UtilityDrawer } from "@ui/components";
 import { audioSession } from "../features/shared/services/audioSession";
 import { goToLearn, isLearnHost } from "./learnRouting";
+import { useTranslator } from "../features/i18n";
+import LanguageSelector from "../features/i18n/LanguageSelector";
 
 type YkiLevelBand = 'A1-A2' | 'B1-B2' | 'C1-C2';
 type SpeakingPreset = {
@@ -148,6 +149,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const startMonitoring = useNetworkStore((state) => state.startMonitoring);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const language = usePreferencesStore((state) => state.language);
+  const setLanguage = usePreferencesStore((state) => state.setLanguage);
   const clockFormat = usePreferencesStore((state) => state.clockFormat);
   const profilePhotoUri = usePreferencesStore((state) => state.profilePhotoUri);
   const avatarMode = usePreferencesStore((state) => state.avatarMode);
@@ -788,6 +790,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       avatarUri={drawerAvatarUri}
       clockLabel={drawerClockLabel}
       languageLabel={t('commonLanguage')}
+      languageControl={<LanguageSelector language={language} onChange={setLanguage} mode="pills" compact />}
       themeLabel={t('commonTheme')}
       sessionLabel={t('commonSession')}
       signInLabel={t('commonLogIn')}

@@ -5,6 +5,7 @@ import { AppScaffold, PageHeader, TaskCard } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { resolveProfessionalDisplayName } from '@core/api/entitlements';
 
+import { useTranslator } from '../features/i18n';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
 
@@ -28,6 +29,7 @@ function clampPercent(value: number) {
 }
 
 export default function ProgressRoute({ onBack, onOpenLearning, onOpenSpeaking, onOpenYki, onOpenMenu }: Props) {
+  const { t } = useTranslator();
   const hydratePreferences = usePreferencesStore((state) => state.hydrate);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
@@ -45,52 +47,60 @@ export default function ProgressRoute({ onBack, onOpenLearning, onOpenSpeaking, 
     const hasLearn = Boolean(entitlements?.learnAccess);
     const professionLabel = activeContext === 'doctor' || activeContext === 'nurse' || activeContext === 'practical_nurse'
       ? resolveProfessionalDisplayName(activeContext)
-      : 'Your profession';
+      : t('progressYourProfession');
 
     return [
       {
-        title: 'YKI progress',
+        title: t('progressYkiProgressTitle'),
         percent: clampPercent(hasYki ? (subscriptionStatus?.plan.category === 'bundle' ? 74 : 68) : 18),
-        summary: hasYki ? 'Track exam readiness and section confidence instead of only counting sessions.' : 'Unlock YKI Prep to measure formal exam readiness here.',
-        routeLabel: 'Open YKI Prep',
+        summary: hasYki ? t('progressYkiProgressSummaryActive') : t('progressYkiProgressSummaryLocked'),
+        routeLabel: t('progressOpenYkiPrep'),
       },
       {
-        title: 'Workplace communication',
+        title: t('progressWorkplaceCommunicationTitle'),
         percent: clampPercent(hasLearn ? (hasProfessional ? 71 : 56) : 20),
-        summary: hasProfessional ? `Scenario fluency, instructions, and repair language for ${professionLabel.toLowerCase()}.` : 'Use workplace scenarios to turn vocabulary into real work communication.',
-        routeLabel: 'Open workplace scenarios',
+        summary: hasProfessional
+          ? t('progressWorkplaceCommunicationSummaryActive').replace('{profession}', professionLabel.toLowerCase())
+          : t('progressWorkplaceCommunicationSummaryLocked'),
+        routeLabel: t('progressOpenWorkplaceScenarios'),
       },
       {
-        title: 'Profession vocabulary',
+        title: t('progressProfessionVocabularyTitle'),
         percent: clampPercent(hasProfessional ? 76 : 24),
-        summary: hasProfessional ? `Monitor how ready you are for ${professionLabel.toLowerCase()} vocabulary and interview language.` : 'Choose a profession plan to make this pillar trackable.',
-        routeLabel: 'Open vocabulary',
+        summary: hasProfessional
+          ? t('progressProfessionVocabularySummaryActive').replace('{profession}', professionLabel.toLowerCase())
+          : t('progressProfessionVocabularySummaryLocked'),
+        routeLabel: t('progressOpenVocabulary'),
       },
     ];
-  }, [activeContext, subscriptionStatus?.entitlements, subscriptionStatus?.plan.category]);
+  }, [activeContext, subscriptionStatus?.entitlements, subscriptionStatus?.plan.category, t]);
 
   const readinessScore = Math.round(pillars.reduce((sum, pillar) => sum + pillar.percent, 0) / pillars.length);
-  const readinessLabel = readinessScore >= 75 ? 'Work-ready momentum' : readinessScore >= 55 ? 'Building readiness' : 'Early pathway stage';
+  const readinessLabel = readinessScore >= 75
+    ? t('progressWorkReadyMomentum')
+    : readinessScore >= 55
+      ? t('progressBuildingReadiness')
+      : t('progressEarlyPathwayStage');
 
   return (
     <AppScaffold
       themeMode={themeMode}
       header={
-        <PageHeader
+          <PageHeader
           themeMode={themeMode}
-          eyebrow="Readiness"
-          title="Progress"
-          subtitle="Track exam readiness, workplace communication, and profession vocabulary in one view."
-          actionLabel="Home"
+          eyebrow={t('progressEyebrow')}
+          title={t('progressTitle')}
+          subtitle={t('progressSubtitle')}
+          actionLabel={t('commonHome')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
         />
       }
     >
       <View style={[styles.summaryCard, { backgroundColor: palette.surface, borderColor: palette.border }]}> 
-        <Text style={[styles.summaryLabel, { color: palette.primary }]}>Overall readiness</Text>
+        <Text style={[styles.summaryLabel, { color: palette.primary }]}>{t('progressOverallReadiness')}</Text>
         <Text style={[styles.summaryTitle, { color: palette.text }]}>{readinessScore}% · {readinessLabel}</Text>
-        <Text style={[styles.summaryBody, { color: palette.textMuted }]}>Use this page to decide the next useful action. The goal is not to admire a dashboard — it is to remove the next barrier between language learning and working life in Finland.</Text>
+        <Text style={[styles.summaryBody, { color: palette.textMuted }]}>{t('progressSummaryBody')}</Text>
       </View>
 
       <View style={styles.pillarStack}>
@@ -109,9 +119,9 @@ export default function ProgressRoute({ onBack, onOpenLearning, onOpenSpeaking, 
       </View>
 
       <View style={styles.stack}>
-        <TaskCard themeMode={themeMode} title="Strengthen vocabulary and roleplay" detail="Use learning tools when retrieval, recall, or phrase flexibility starts to weaken." meta="Vocabulary & roleplay" actionLabel="Open" onPress={onOpenLearning} />
-        <TaskCard themeMode={themeMode} title="Practise workplace scenarios" detail="Use scenario practice when hesitation grows in spoken work situations, handovers, or issue reporting." meta="Workplace scenarios" actionLabel="Open" onPress={onOpenSpeaking} />
-        <TaskCard themeMode={themeMode} accent="yellow" title="Check YKI readiness" detail="Go back to YKI Prep when you need section-based repair or formal exam confidence." meta="YKI Prep" actionLabel="Open" onPress={onOpenYki} />
+        <TaskCard themeMode={themeMode} title={t('progressStrengthenVocabularyAndRoleplay')} detail={t('progressStrengthenVocabularyAndRoleplayDetail')} meta={t('homeVocabularyRoleplay')} actionLabel={t('commonOpen')} onPress={onOpenLearning} />
+        <TaskCard themeMode={themeMode} title={t('progressPracticeWorkplaceScenarios')} detail={t('progressPracticeWorkplaceScenariosDetail')} meta={t('homeWorkplaceScenarios')} actionLabel={t('commonOpen')} onPress={onOpenSpeaking} />
+        <TaskCard themeMode={themeMode} accent="yellow" title={t('progressCheckYkiReadiness')} detail={t('progressCheckYkiReadinessDetail')} meta={t('homeYkiPrep')} actionLabel={t('commonOpen')} onPress={onOpenYki} />
       </View>
     </AppScaffold>
   );
