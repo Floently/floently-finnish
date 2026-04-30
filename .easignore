@@ -1,9 +1,9 @@
 # Never upload Git history to EAS
 .git
 
-# Backend and engine are not needed for mobile build
+# Backend and root engine are not needed for mobile build
 apps/backend
-engine
+/engine
 
 # Docs/reports are not needed for mobile build
 docs
