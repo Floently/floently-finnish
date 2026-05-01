@@ -808,7 +808,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
         <Stack gap="sm">
               <Card>
                 <Stack gap="xs">
-                  <Text variant="title">KieliTaika</Text>
+                  <Text variant="title">Floently</Text>
               <Text tone="muted">{t('appShellValidating')}</Text>
                 </Stack>
               </Card>
