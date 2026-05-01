@@ -10,6 +10,7 @@ from app.core.errors import AppError
 from app.core.state_store import STORE
 from app.core.utils import iso_now, new_id, parse_iso, utc_now
 from app.runtime.finnish_personas import pick_persona
+from app.services.roleplay_ai_service import generate_ai_roleplay_reply
 
 ROLEPLAY_STAGE_BY_TURN = {0: "OPENING", 1: "ACTIVE_1", 2: "ACTIVE_2", 3: "ACTIVE_3", 4: "ACTIVE_4", 5: "COMPLETE"}
 
@@ -1392,13 +1393,42 @@ def _submit_session_turn(*, user_id: str, session_id: str, user_message: str) ->
         missing = _missing_key_phrases(spec, message)
         feedback_line = _feedback_line(spec, message, missing, completed)
         _append_turn(session, speaker="USER", text=message, stage=stage if not terminal_turn else "FINAL_USER_TURN", extra={"evaluation": {"intent": "response", "grammar_signals": [], "fluency_signal": "stable", "missing_phrases": missing}})
-        ai_text = scripted_closing if terminal_turn else scripted_turns[completed - 1]
-        ai_entry = _append_turn(session, speaker="AI", text=ai_text, stage="COMPLETE" if terminal_turn else stage)
+        scripted_fallback_text = scripted_closing if terminal_turn else scripted_turns[completed - 1]
+        engine_mode = "scripted_fallback"
+
+        ai_result = generate_ai_roleplay_reply(
+            session=session,
+            spec=spec,
+            user_message=message,
+            missing_phrases=missing,
+            fallback_text=scripted_fallback_text,
+            feedback_fallback=feedback_line,
+            terminal_turn=terminal_turn,
+        )
+
+        if ai_result and ai_result.get("ai_text"):
+            ai_text = str(ai_result["ai_text"]).strip()
+            feedback_line = str(ai_result.get("feedback_line") or feedback_line).strip()
+            returned_missing = ai_result.get("missing_phrases")
+            if isinstance(returned_missing, list):
+                missing = [str(item).strip() for item in returned_missing if str(item).strip()]
+            engine_mode = str(ai_result.get("engine_mode") or "openai_b_lite")
+        else:
+            ai_text = scripted_fallback_text
+
+        ai_entry = _append_turn(
+            session,
+            speaker="AI",
+            text=ai_text,
+            stage="COMPLETE" if terminal_turn else stage,
+            extra={"engine_mode": engine_mode},
+        )
         session["feedback_lines"].append(feedback_line)
+        session["last_engine_mode"] = engine_mode
         session["progress"] = {"user_turns_completed": completed, "user_turns_total": len(scripted_turns), "stage": "COMPLETE" if terminal_turn else stage}
         session["status"] = "COMPLETE" if terminal_turn else "ACTIVE"
         session["ui"] = {"show_input": not terminal_turn, "allow_submit": not terminal_turn, "allow_restart": terminal_turn, "show_review": terminal_turn}
-        return {"session_id": session["session_id"], "created_at": session["created_at"], "expires_at": session["expires_at"], "status": _external_status(session["status"]), "progress": session["progress"], "appended_messages": [session["messages"][-2], ai_entry], "ui": session["ui"], "feedback_line": feedback_line, "missing_phrases": missing}
+        return {"session_id": session["session_id"], "created_at": session["created_at"], "expires_at": session["expires_at"], "status": _external_status(session["status"]), "progress": session["progress"], "appended_messages": [session["messages"][-2], ai_entry], "ui": session["ui"], "feedback_line": feedback_line, "missing_phrases": missing, "engine_mode": engine_mode}
 
 
 def _get_session(*, user_id: str, session_id: str) -> dict[str, Any]:
@@ -1535,6 +1565,7 @@ def submit_turn(*, session_id: str, transcript: str) -> dict[str, Any]:
         "currentUserTurn": result.get("progress", {}).get("user_turns_completed", 0),
         "feedbackLine": result.get("feedback_line"),
         "missingPhrases": result.get("missing_phrases") or [],
+        "engineMode": result.get("engine_mode") or session.get("last_engine_mode") or "unknown",
     }
 
 
