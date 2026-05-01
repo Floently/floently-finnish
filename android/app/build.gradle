@@ -1,7 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
-
 def projectRoot = new File(rootDir.getAbsoluteFile().getParentFile(), "apps/client").getAbsolutePath()
 
 /**
@@ -9,6 +8,8 @@ def projectRoot = new File(rootDir.getAbsoluteFile().getParentFile(), "apps/clie
  * By default you don't need to apply any configuration, just uncomment the lines you need.
  */
 react {
+    // Floently monorepo app root. Expo Router routes live in apps/client/app.
+    root = file("../../apps/client")
     entryFile = file(["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute(null, rootDir).text.trim())
     reactNativeDir = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
     hermesCommand = new File(["node", "--print", "require.resolve('hermes-compiler/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim()).getParentFile().getAbsolutePath() + "/hermesc/%OS-BIN%/hermesc"
@@ -98,8 +99,8 @@ android {
         applicationId 'com.vitusidi.floently'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 8
-        versionName "1.0.2"
+        versionCode 9
+        versionName "1.0.3"
 
         buildConfigField "String", "REACT_NATIVE_RELEASE_LEVEL", "\"${findProperty('reactNativeReleaseLevel') ?: 'stable'}\""
     }
