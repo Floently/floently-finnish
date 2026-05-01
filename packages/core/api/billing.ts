@@ -48,6 +48,30 @@ export async function startSubscriptionTrial(trialDays = 3) {
   return unwrapPayload(res.data);
 }
 
+export async function cancelSubscriptionTrial() {
+  const res = await apiClient.post('/api/v1/subscription/cancel-trial', {});
+  return unwrapPayload(res.data);
+}
+
+export async function reactivateSubscription() {
+  const res = await apiClient.post('/api/v1/subscription/reactivate', {});
+  return unwrapPayload(res.data);
+}
+
+export async function trackUsageEvent(payload: {
+  event_type?: string;
+  eventType?: string;
+  feature?: string;
+  screen?: string;
+  profession?: string;
+  session_id?: string;
+  sessionId?: string;
+  metadata?: Record<string, unknown>;
+}) {
+  const res = await apiClient.post('/api/v1/tracking/event', payload);
+  return unwrapPayload(res.data);
+}
+
 export async function createPortalSession() {
   const res = await apiClient.post('/api/v1/subscription/portal', {});
   return unwrapPayload(res.data);

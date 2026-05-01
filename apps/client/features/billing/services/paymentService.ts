@@ -1,2 +1,17 @@
-import { createCheckoutSession, createPortalSession, getSubscriptionStatus } from '@core/api';
-export const paymentService = { createCheckoutSession, createPortalSession, getSubscriptionStatus };
+import {
+  cancelSubscriptionTrial,
+  createCheckoutSession,
+  createPortalSession,
+  getSubscriptionStatus,
+  reactivateSubscription,
+  trackUsageEvent,
+} from '@core/api';
+
+export const paymentService = {
+  cancelSubscriptionTrial,
+  createCheckoutSession,
+  createPortalSession,
+  getSubscriptionStatus,
+  reactivateSubscription,
+  trackUsageEvent,
+};

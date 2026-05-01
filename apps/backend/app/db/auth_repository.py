@@ -3,7 +3,9 @@ from __future__ import annotations
 import json
 import threading
 from contextlib import contextmanager
-from datetime import UTC, datetime
+from datetime import datetime, timezone
+
+UTC = timezone.utc
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -106,6 +108,19 @@ def _normalize_int(value: Any, default: int = 0) -> int:
         return default
 
 
+def _normalize_bool(value: Any, default: bool = False) -> bool:
+    if value in (None, ""):
+        return default
+    if isinstance(value, bool):
+        return value
+    text = str(value).strip().lower()
+    if text in {"1", "true", "yes", "y", "on"}:
+        return True
+    if text in {"0", "false", "no", "n", "off"}:
+        return False
+    return default
+
+
 class AuthUserRepository:
     def __init__(self, database_path: Path | None = None) -> None:
         self.database_path = _resolve_database_path(database_path)
@@ -161,6 +176,18 @@ class AuthUserRepository:
                     "stripe_checkout_session_id": "ALTER TABLE users ADD COLUMN stripe_checkout_session_id VARCHAR",
                     "subscription_expires_at": "ALTER TABLE users ADD COLUMN subscription_expires_at DATETIME",
                     "trial_ends_at": "ALTER TABLE users ADD COLUMN trial_ends_at DATETIME",
+                    "subscription_provider": "ALTER TABLE users ADD COLUMN subscription_provider VARCHAR NOT NULL DEFAULT 'stripe'",
+                    "subscription_status": "ALTER TABLE users ADD COLUMN subscription_status VARCHAR",
+                    "access_source": "ALTER TABLE users ADD COLUMN access_source VARCHAR NOT NULL DEFAULT 'b2c_direct'",
+                    "cancel_at_period_end": "ALTER TABLE users ADD COLUMN cancel_at_period_end BOOLEAN NOT NULL DEFAULT 0",
+                    "canceled_at": "ALTER TABLE users ADD COLUMN canceled_at DATETIME",
+                    "current_period_start": "ALTER TABLE users ADD COLUMN current_period_start DATETIME",
+                    "current_period_end": "ALTER TABLE users ADD COLUMN current_period_end DATETIME",
+                    "trial_started_at": "ALTER TABLE users ADD COLUMN trial_started_at DATETIME",
+                    "access_ends_at": "ALTER TABLE users ADD COLUMN access_ends_at DATETIME",
+                    "role": "ALTER TABLE users ADD COLUMN role VARCHAR NOT NULL DEFAULT 'user'",
+                    "organization_id": "ALTER TABLE users ADD COLUMN organization_id VARCHAR",
+                    "cohort_id": "ALTER TABLE users ADD COLUMN cohort_id VARCHAR",
                     "email_verified_at": "ALTER TABLE users ADD COLUMN email_verified_at DATETIME",
                     "provider_links": "ALTER TABLE users ADD COLUMN provider_links JSON NOT NULL DEFAULT '{}'",
                     "updated_at": "ALTER TABLE users ADD COLUMN updated_at DATETIME",
@@ -192,6 +219,30 @@ class AuthUserRepository:
                         "WHERE provider_links IS NULL OR provider_links = ''"
                     )
                 )
+                connection.execute(
+                    text(
+                        "UPDATE users SET subscription_provider = 'stripe' "
+                        "WHERE subscription_provider IS NULL OR subscription_provider = ''"
+                    )
+                )
+                connection.execute(
+                    text(
+                        "UPDATE users SET access_source = 'b2c_direct' "
+                        "WHERE access_source IS NULL OR access_source = ''"
+                    )
+                )
+                connection.execute(
+                    text(
+                        "UPDATE users SET cancel_at_period_end = 0 "
+                        "WHERE cancel_at_period_end IS NULL"
+                    )
+                )
+                connection.execute(
+                    text(
+                        "UPDATE users SET role = 'user' "
+                        "WHERE role IS NULL OR role = ''"
+                    )
+                )
 
     def _serialize_user(self, user: User) -> dict[str, Any]:
         return {
@@ -210,6 +261,18 @@ class AuthUserRepository:
             "stripe_checkout_session_id": user.stripe_checkout_session_id,
             "subscription_expires_at": _serialize_datetime(user.subscription_expires_at),
             "trial_ends_at": _serialize_datetime(user.trial_ends_at),
+            "subscription_provider": user.subscription_provider or "stripe",
+            "subscription_status": user.subscription_status,
+            "access_source": user.access_source or "b2c_direct",
+            "cancel_at_period_end": bool(user.cancel_at_period_end),
+            "canceled_at": _serialize_datetime(user.canceled_at),
+            "current_period_start": _serialize_datetime(user.current_period_start),
+            "current_period_end": _serialize_datetime(user.current_period_end),
+            "trial_started_at": _serialize_datetime(user.trial_started_at),
+            "access_ends_at": _serialize_datetime(user.access_ends_at),
+            "role": user.role or "user",
+            "organization_id": user.organization_id,
+            "cohort_id": user.cohort_id,
             "access_choice": user.access_choice,
             "access_choice_at": _serialize_datetime(user.access_choice_at),
             "email_verified_at": _serialize_datetime(user.email_verified_at),
@@ -240,6 +303,18 @@ class AuthUserRepository:
             "stripe_checkout_session_id": str(payload.get("stripe_checkout_session_id") or "").strip() or None,
             "subscription_expires_at": _coerce_datetime(payload.get("subscription_expires_at")),
             "trial_ends_at": _coerce_datetime(payload.get("trial_ends_at")),
+            "subscription_provider": str(payload.get("subscription_provider") or "stripe").strip() or "stripe",
+            "subscription_status": str(payload.get("subscription_status") or "").strip() or None,
+            "access_source": str(payload.get("access_source") or "b2c_direct").strip() or "b2c_direct",
+            "cancel_at_period_end": _normalize_bool(payload.get("cancel_at_period_end"), False),
+            "canceled_at": _coerce_datetime(payload.get("canceled_at")),
+            "current_period_start": _coerce_datetime(payload.get("current_period_start")),
+            "current_period_end": _coerce_datetime(payload.get("current_period_end")),
+            "trial_started_at": _coerce_datetime(payload.get("trial_started_at")),
+            "access_ends_at": _coerce_datetime(payload.get("access_ends_at")),
+            "role": str(payload.get("role") or "user").strip() or "user",
+            "organization_id": str(payload.get("organization_id") or "").strip() or None,
+            "cohort_id": str(payload.get("cohort_id") or "").strip() or None,
             "access_choice": str(payload.get("access_choice") or "").strip() or None,
             "access_choice_at": _coerce_datetime(payload.get("access_choice_at")),
             "email_verified_at": _coerce_datetime(payload.get("email_verified_at")),
@@ -317,6 +392,18 @@ class AuthUserRepository:
                     stripe_checkout_session_id=normalized["stripe_checkout_session_id"],
                     subscription_expires_at=normalized["subscription_expires_at"],
                     trial_ends_at=normalized["trial_ends_at"],
+                    subscription_provider=normalized["subscription_provider"],
+                    subscription_status=normalized["subscription_status"],
+                    access_source=normalized["access_source"],
+                    cancel_at_period_end=normalized["cancel_at_period_end"],
+                    canceled_at=normalized["canceled_at"],
+                    current_period_start=normalized["current_period_start"],
+                    current_period_end=normalized["current_period_end"],
+                    trial_started_at=normalized["trial_started_at"],
+                    access_ends_at=normalized["access_ends_at"],
+                    role=normalized["role"],
+                    organization_id=normalized["organization_id"],
+                    cohort_id=normalized["cohort_id"],
                     access_choice=normalized["access_choice"],
                     access_choice_at=normalized["access_choice_at"],
                     email_verified_at=normalized["email_verified_at"],
@@ -366,6 +453,30 @@ class AuthUserRepository:
                 existing.subscription_expires_at = normalized["subscription_expires_at"]
             if "trial_ends_at" in raw_payload and raw_payload.get("trial_ends_at") is not None:
                 existing.trial_ends_at = normalized["trial_ends_at"]
+            if "subscription_provider" in raw_payload and raw_payload.get("subscription_provider") is not None:
+                existing.subscription_provider = normalized["subscription_provider"]
+            if "subscription_status" in raw_payload:
+                existing.subscription_status = normalized["subscription_status"]
+            if "access_source" in raw_payload and raw_payload.get("access_source") is not None:
+                existing.access_source = normalized["access_source"]
+            if "cancel_at_period_end" in raw_payload and raw_payload.get("cancel_at_period_end") is not None:
+                existing.cancel_at_period_end = normalized["cancel_at_period_end"]
+            if "canceled_at" in raw_payload:
+                existing.canceled_at = normalized["canceled_at"]
+            if "current_period_start" in raw_payload:
+                existing.current_period_start = normalized["current_period_start"]
+            if "current_period_end" in raw_payload:
+                existing.current_period_end = normalized["current_period_end"]
+            if "trial_started_at" in raw_payload:
+                existing.trial_started_at = normalized["trial_started_at"]
+            if "access_ends_at" in raw_payload:
+                existing.access_ends_at = normalized["access_ends_at"]
+            if "role" in raw_payload and raw_payload.get("role") is not None:
+                existing.role = normalized["role"]
+            if "organization_id" in raw_payload:
+                existing.organization_id = normalized["organization_id"]
+            if "cohort_id" in raw_payload:
+                existing.cohort_id = normalized["cohort_id"]
             if "access_choice" in raw_payload and raw_payload.get("access_choice") is not None:
                 existing.access_choice = normalized["access_choice"]
             if "access_choice_at" in raw_payload and raw_payload.get("access_choice_at") is not None:

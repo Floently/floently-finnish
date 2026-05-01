@@ -1,6 +1,8 @@
 """ORM models placeholder."""
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
+
+UTC = timezone.utc
 import uuid
 import json
 from sqlalchemy import Column, DateTime, String, Text, ForeignKey, Integer, Float, JSON, Boolean
@@ -37,10 +39,221 @@ class User(Base):
     stripe_checkout_session_id = Column(String, nullable=True)
     subscription_expires_at = Column(DateTime, nullable=True)
     trial_ends_at = Column(DateTime, nullable=True)
+
+    # Durable access/subscription foundation.
+    # Stripe remains the payment source of truth, but the app DB is the
+    # access source of truth so users do not lose trial/subscription state
+    # after idle, refresh, or token reuse.
+    subscription_provider = Column(String, nullable=False, default="stripe")
+    subscription_status = Column(String, nullable=True)
+    access_source = Column(String, nullable=False, default="b2c_direct")
+    cancel_at_period_end = Column(Boolean, nullable=False, default=False)
+    canceled_at = Column(DateTime, nullable=True)
+    current_period_start = Column(DateTime, nullable=True)
+    current_period_end = Column(DateTime, nullable=True)
+    trial_started_at = Column(DateTime, nullable=True)
+    access_ends_at = Column(DateTime, nullable=True)
+
+    # IAM / future admin foundation.
+    role = Column(String, nullable=False, default="user")
+    organization_id = Column(String, nullable=True, index=True)
+    cohort_id = Column(String, nullable=True, index=True)
+
     email_verified_at = Column(DateTime, nullable=True)
     provider_links = Column(JSON, nullable=False, default=dict)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=True)
+
+
+class Organization(Base):
+    """Payer / buyer entity for B2B2C, B2M2C, schools, and pilots."""
+
+    __tablename__ = "organizations"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    name = Column(String, nullable=False, index=True)
+    type = Column(String, nullable=False, default="business", index=True)
+    billing_contact_email = Column(String, nullable=True, index=True)
+    stripe_customer_id = Column(String, nullable=True, index=True)
+    contract_status = Column(String, nullable=False, default="pilot", index=True)
+    contract_start = Column(DateTime, nullable=True, index=True)
+    contract_end = Column(DateTime, nullable=True, index=True)
+    seat_limit = Column(Integer, nullable=False, default=0)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    updated_at = Column(DateTime, nullable=True)
+
+
+class OrganizationSubscription(Base):
+    """Provider-neutral organization/contract subscription record."""
+
+    __tablename__ = "organization_subscriptions"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    organization_id = Column(String, ForeignKey("organizations.id"), nullable=False, index=True)
+    provider = Column(String, nullable=False, default="contract", index=True)
+    provider_customer_id = Column(String, nullable=True, index=True)
+    provider_subscription_id = Column(String, nullable=True, index=True)
+    plan_key = Column(String, nullable=True, index=True)
+    plan_category = Column(String, nullable=True, index=True)
+    billing_period = Column(String, nullable=True, index=True)
+    seat_limit = Column(Integer, nullable=False, default=0)
+    included_professions = Column(JSON, nullable=False, default=list)
+    status = Column(String, nullable=False, default="active", index=True)
+    trial_start = Column(DateTime, nullable=True, index=True)
+    trial_end = Column(DateTime, nullable=True, index=True)
+    current_period_start = Column(DateTime, nullable=True, index=True)
+    current_period_end = Column(DateTime, nullable=True, index=True)
+    cancel_at_period_end = Column(Boolean, nullable=False, default=False)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    updated_at = Column(DateTime, nullable=True)
+
+    organization = relationship("Organization", backref="subscriptions")
+
+
+class AccessGrant(Base):
+    """Learner access source independent from direct payment.
+
+    This supports B2C, B2B2C, B2M2C, schools, training providers, pilots,
+    manual grants, and internal access without assuming the learner paid.
+    """
+
+    __tablename__ = "access_grants"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String, ForeignKey("users.id"), nullable=True, index=True)
+    email = Column(String, nullable=True, index=True)
+    organization_id = Column(String, ForeignKey("organizations.id"), nullable=True, index=True)
+    cohort_id = Column(String, nullable=True, index=True)
+    source = Column(String, nullable=False, default="manual_grant", index=True)
+    grant_type = Column(String, nullable=False, default="seat", index=True)
+    plan_key = Column(String, nullable=True, index=True)
+    learn_access = Column(Boolean, nullable=False, default=True)
+    yki_access = Column(Boolean, nullable=False, default=False)
+    professional_access = Column(Boolean, nullable=False, default=False)
+    professions = Column(JSON, nullable=False, default=list)
+    starts_at = Column(DateTime, nullable=True, index=True)
+    ends_at = Column(DateTime, nullable=True, index=True)
+    status = Column(String, nullable=False, default="active", index=True)
+    created_by = Column(String, nullable=True)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    updated_at = Column(DateTime, nullable=True)
+
+    user = relationship("User", backref="access_grants")
+    organization = relationship("Organization", backref="access_grants")
+
+
+class SubscriptionEvent(Base):
+    """Raw subscription/payment/access event ledger."""
+
+    __tablename__ = "subscription_events"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String, ForeignKey("users.id"), nullable=True, index=True)
+    email = Column(String, nullable=True, index=True)
+    organization_id = Column(String, nullable=True, index=True)
+    cohort_id = Column(String, nullable=True, index=True)
+    access_source = Column(String, nullable=True, index=True)
+    provider = Column(String, nullable=True, index=True)
+    provider_event_id = Column(String, nullable=True, index=True)
+    provider_customer_id = Column(String, nullable=True, index=True)
+    provider_subscription_id = Column(String, nullable=True, index=True)
+    plan_key = Column(String, nullable=True, index=True)
+    status_before = Column(String, nullable=True)
+    status_after = Column(String, nullable=True, index=True)
+    event_type = Column(String, nullable=False, index=True)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+
+    user = relationship("User", backref="subscription_events")
+
+
+class TrackingEvent(Base):
+    """Raw product/business tracking event ledger."""
+
+    __tablename__ = "tracking_events"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String, ForeignKey("users.id"), nullable=True, index=True)
+    email = Column(String, nullable=True, index=True)
+    organization_id = Column(String, nullable=True, index=True)
+    cohort_id = Column(String, nullable=True, index=True)
+    access_source = Column(String, nullable=True, index=True)
+    event_type = Column(String, nullable=False, index=True)
+    feature = Column(String, nullable=True, index=True)
+    screen = Column(String, nullable=True, index=True)
+    plan_key = Column(String, nullable=True, index=True)
+    profession = Column(String, nullable=True, index=True)
+    session_id = Column(String, nullable=True, index=True)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+
+    user = relationship("User", backref="tracking_events")
+
+
+class AnalyticsDailyUserSummary(Base):
+    __tablename__ = "analytics_daily_user_summary"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    date = Column(String, nullable=False, index=True)
+    user_id = Column(String, ForeignKey("users.id"), nullable=False, index=True)
+    email = Column(String, nullable=True, index=True)
+    organization_id = Column(String, nullable=True, index=True)
+    cohort_id = Column(String, nullable=True, index=True)
+    access_source = Column(String, nullable=True, index=True)
+    plan_key = Column(String, nullable=True, index=True)
+    sessions_count = Column(Integer, nullable=False, default=0)
+    roleplay_started_count = Column(Integer, nullable=False, default=0)
+    roleplay_completed_count = Column(Integer, nullable=False, default=0)
+    yki_started_count = Column(Integer, nullable=False, default=0)
+    card_session_started_count = Column(Integer, nullable=False, default=0)
+    card_session_completed_count = Column(Integer, nullable=False, default=0)
+    last_seen_at = Column(DateTime, nullable=True, index=True)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    updated_at = Column(DateTime, nullable=True)
+
+    user = relationship("User", backref="analytics_daily_rows")
+
+
+class AnalyticsDailySubscriptionSummary(Base):
+    __tablename__ = "analytics_daily_subscription_summary"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    date = Column(String, nullable=False, index=True)
+    trials_started = Column(Integer, nullable=False, default=0)
+    trials_cancelled = Column(Integer, nullable=False, default=0)
+    trials_converted = Column(Integer, nullable=False, default=0)
+    active_subscriptions = Column(Integer, nullable=False, default=0)
+    payment_succeeded_count = Column(Integer, nullable=False, default=0)
+    payment_failed_count = Column(Integer, nullable=False, default=0)
+    subscription_cancelled_count = Column(Integer, nullable=False, default=0)
+    mrr_estimate_cents = Column(Integer, nullable=False, default=0)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    updated_at = Column(DateTime, nullable=True)
+
+
+class AnalyticsDailyOrganizationSummary(Base):
+    __tablename__ = "analytics_daily_organization_summary"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    date = Column(String, nullable=False, index=True)
+    organization_id = Column(String, ForeignKey("organizations.id"), nullable=False, index=True)
+    organization_type = Column(String, nullable=True, index=True)
+    seat_limit = Column(Integer, nullable=False, default=0)
+    seats_assigned = Column(Integer, nullable=False, default=0)
+    seats_activated = Column(Integer, nullable=False, default=0)
+    active_learners_7d = Column(Integer, nullable=False, default=0)
+    roleplay_users_7d = Column(Integer, nullable=False, default=0)
+    yki_users_7d = Column(Integer, nullable=False, default=0)
+    metadata_json = Column("metadata", JSON, nullable=False, default=dict)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+    updated_at = Column(DateTime, nullable=True)
+
+    organization = relationship("Organization", backref="daily_summaries")
 
 
 class GrammarLog(Base):

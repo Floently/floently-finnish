@@ -11,8 +11,11 @@ from app.services.subscription_service import (
     PLAN_CATALOG,
     billing_checkout_session,
     billing_portal_url,
+    cancel_trial_at_period_end,
     check_feature,
+    resume_subscription_renewal,
     subscription_status,
+    track_usage_event,
 )
 
 
@@ -61,6 +64,42 @@ def build_subscription_router() -> APIRouter:
                 "message": "Start the 3-day trial through Stripe Checkout.",
                 "subscription": subscription_status(user=user),
             },
+            request_id=get_request_id(request),
+        )
+
+    @router.post("/subscription/cancel-trial")
+    async def cancel_subscription_trial(request: Request, authorization: str | None = Header(default=None)) -> dict[str, Any]:
+        user, _ = current_user_from_authorization(authorization)
+        return success_payload(
+            data=cancel_trial_at_period_end(user=user),
+            request_id=get_request_id(request),
+        )
+
+    @router.post("/subscription/reactivate")
+    async def reactivate_subscription(request: Request, authorization: str | None = Header(default=None)) -> dict[str, Any]:
+        user, _ = current_user_from_authorization(authorization)
+        return success_payload(
+            data=resume_subscription_renewal(user=user),
+            request_id=get_request_id(request),
+        )
+
+    @router.post("/tracking/event")
+    async def create_tracking_event(
+        request: Request,
+        payload: dict[str, Any],
+        authorization: str | None = Header(default=None),
+    ) -> dict[str, Any]:
+        user, _ = current_user_from_authorization(authorization)
+        return success_payload(
+            data=track_usage_event(
+                user=user,
+                event_type=str(payload.get("event_type") or payload.get("eventType") or "event"),
+                feature=payload.get("feature"),
+                screen=payload.get("screen"),
+                profession=payload.get("profession"),
+                session_id=payload.get("session_id") or payload.get("sessionId"),
+                metadata=payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {},
+            ),
             request_id=get_request_id(request),
         )
 

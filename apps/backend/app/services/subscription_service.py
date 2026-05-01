@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta, timezone
+
+UTC = timezone.utc
 from typing import Any
 from urllib.parse import urlencode
 
@@ -14,6 +16,14 @@ from ..core.errors import AppError
 from ..core.state_store import STORE
 from ..core.utils import parse_iso, utc_now
 from ..db import auth_repository
+from ..db.models import (
+    AccessGrant,
+    AnalyticsDailyOrganizationSummary,
+    AnalyticsDailySubscriptionSummary,
+    AnalyticsDailyUserSummary,
+    SubscriptionEvent,
+    TrackingEvent,
+)
 
 ALL_PROFESSIONS = ["doctor", "nurse", "practical_nurse"]
 PROFESSION_LABELS = {
@@ -226,6 +236,24 @@ PLAN_CATALOG: list[dict[str, Any]] = [
         "checkout_label": "Contact sales",
         "billing_period": "monthly",
     },
+    {
+        "id": "school_programme",
+        "category": "organisation",
+        "pathway": "school_programme",
+        "title": "School & Training Provider Access",
+        "description": "Support students, language learners, and programme cohorts with structured Finnish, YKI preparation, and workplace communication practice.",
+        "checkout_label": "Contact sales",
+        "billing_period": "monthly",
+    },
+    {
+        "id": "healthcare_organisation_programme",
+        "category": "organisation",
+        "pathway": "healthcare_organisation_programme",
+        "title": "Healthcare Organisation Access",
+        "description": "Support internationally trained healthcare professionals with role-based Finnish and communication practice.",
+        "checkout_label": "Contact sales",
+        "billing_period": "monthly",
+    },
 ]
 
 PLAN_BY_ID = {str(plan["id"]): plan for plan in PLAN_CATALOG}
@@ -427,6 +455,298 @@ def _front_end_base_url() -> str:
 
 
 
+ACCESS_SOURCES = {
+    "b2c_direct",
+    "b2b2c_business",
+    "b2m2c_municipality",
+    "school",
+    "training_provider",
+    "healthcare_provider",
+    "manual_grant",
+    "pilot_grant",
+    "internal_admin",
+    "preview",
+}
+
+ORGANIZATION_TYPES = {
+    "business",
+    "municipality",
+    "school",
+    "training_provider",
+    "healthcare_provider",
+    "other",
+}
+
+SUBSCRIPTION_PROVIDERS = {"stripe", "google_play", "apple", "contract", "manual", "internal"}
+
+
+def _normalize_access_source(value: Any, default: str = "b2c_direct") -> str:
+    normalized = str(value or "").strip().lower().replace("-", "_")
+    aliases = {
+        "individual": "b2c_direct",
+        "direct": "b2c_direct",
+        "employer": "b2b2c_business",
+        "employer_programme": "b2b2c_business",
+        "organization": "b2b2c_business",
+        "organisation": "b2b2c_business",
+        "business": "b2b2c_business",
+        "city": "b2m2c_municipality",
+        "city_programme": "b2m2c_municipality",
+        "municipality": "b2m2c_municipality",
+        "municipality_programme": "b2m2c_municipality",
+        "school_programme": "school",
+        "education": "school",
+        "training": "training_provider",
+        "training_programme": "training_provider",
+        "pilot": "pilot_grant",
+        "admin": "internal_admin",
+        "internal": "internal_admin",
+    }
+    normalized = aliases.get(normalized, normalized)
+    return normalized if normalized in ACCESS_SOURCES else default
+
+
+def _normalize_provider(value: Any, default: str = "stripe") -> str:
+    normalized = str(value or "").strip().lower().replace("-", "_")
+    return normalized if normalized in SUBSCRIPTION_PROVIDERS else default
+
+
+def _fresh_user_record(user: dict[str, Any]) -> dict[str, Any]:
+    user_id = str(user.get("user_id") or "").strip()
+    if not user_id:
+        return user
+    try:
+        fresh = auth_repository.AUTH_USERS.get_user_by_id(user_id)
+    except Exception:
+        return user
+    return fresh or user
+
+
+def _safe_metadata(value: Any) -> dict[str, Any]:
+    if isinstance(value, dict):
+        result: dict[str, Any] = {}
+        for key, item in value.items():
+            key_text = str(key)
+            if isinstance(item, (str, int, float, bool)) or item is None:
+                result[key_text] = item
+            elif isinstance(item, (list, tuple)):
+                result[key_text] = [str(x) if not isinstance(x, (str, int, float, bool)) else x for x in item[:50]]
+            elif isinstance(item, dict):
+                result[key_text] = _safe_metadata(item)
+            else:
+                result[key_text] = str(item)
+        return result
+    return {}
+
+
+def _daily_key(moment: datetime | None = None) -> str:
+    current = moment or utc_now()
+    if current.tzinfo is None:
+        current = current.replace(tzinfo=UTC)
+    return current.astimezone(UTC).strftime("%Y-%m-%d")
+
+
+def _summary_for_date(session: Any, model: Any, date: str, **filters: Any) -> Any:
+    query = session.query(model).filter(model.date == date)
+    for field, value in filters.items():
+        query = query.filter(getattr(model, field) == value)
+    row = query.first()
+    if row is None:
+        row = model(date=date, **filters)
+        session.add(row)
+    return row
+
+
+def _log_subscription_event(
+    event_type: str,
+    *,
+    user: dict[str, Any] | None = None,
+    metadata: dict[str, Any] | None = None,
+    provider_event_id: str | None = None,
+    status_before: str | None = None,
+    status_after: str | None = None,
+) -> None:
+    try:
+        auth_repository.AUTH_USERS.ensure_schema()
+        current = _fresh_user_record(user or {}) if user else {}
+        now = utc_now().replace(microsecond=0)
+        plan_key = str(current.get("subscription_tier") or current.get("plan_key") or "").strip() or None
+        access_source = _normalize_access_source(current.get("access_source") or current.get("access_type"))
+        provider = _normalize_provider(current.get("subscription_provider") or "stripe")
+        meta = _safe_metadata(metadata or {})
+        with auth_repository.AUTH_USERS.session() as session:
+            session.add(
+                SubscriptionEvent(
+                    user_id=current.get("user_id"),
+                    email=current.get("email"),
+                    organization_id=current.get("organization_id"),
+                    cohort_id=current.get("cohort_id"),
+                    access_source=access_source,
+                    provider=provider,
+                    provider_event_id=provider_event_id,
+                    provider_customer_id=current.get("stripe_customer_id"),
+                    provider_subscription_id=current.get("stripe_subscription_id"),
+                    plan_key=plan_key,
+                    status_before=status_before,
+                    status_after=status_after or current.get("subscription_status"),
+                    event_type=event_type,
+                    metadata_json=meta,
+                    created_at=now,
+                )
+            )
+            session.add(
+                TrackingEvent(
+                    user_id=current.get("user_id"),
+                    email=current.get("email"),
+                    organization_id=current.get("organization_id"),
+                    cohort_id=current.get("cohort_id"),
+                    access_source=access_source,
+                    event_type=event_type,
+                    feature="subscription",
+                    screen=None,
+                    plan_key=plan_key,
+                    profession=None,
+                    session_id=str(meta.get("checkout_session_id") or meta.get("session_id") or "") or None,
+                    metadata_json=meta,
+                    created_at=now,
+                )
+            )
+            daily = _summary_for_date(session, AnalyticsDailySubscriptionSummary, _daily_key(now))
+            if event_type in {"trial_started", "checkout_trial_started"}:
+                daily.trials_started = int(daily.trials_started or 0) + 1
+            if event_type in {"trial_cancel_requested", "cancel_at_period_end_enabled"}:
+                daily.trials_cancelled = int(daily.trials_cancelled or 0) + 1
+            if event_type in {"invoice_paid", "payment_succeeded", "trial_converted_to_paid"}:
+                daily.payment_succeeded_count = int(daily.payment_succeeded_count or 0) + 1
+            if event_type in {"invoice_payment_failed", "payment_failed"}:
+                daily.payment_failed_count = int(daily.payment_failed_count or 0) + 1
+            if event_type in {"subscription_active", "customer_subscription_created", "customer_subscription_updated"}:
+                daily.active_subscriptions = int(daily.active_subscriptions or 0) + 1
+            if event_type in {"customer_subscription_deleted", "subscription_expired", "subscription_cancelled"}:
+                daily.subscription_cancelled_count = int(daily.subscription_cancelled_count or 0) + 1
+            daily.updated_at = now
+            session.commit()
+    except Exception:
+        # Tracking must never break billing/access.
+        return
+
+
+def track_usage_event(
+    *,
+    user: dict[str, Any],
+    event_type: str,
+    feature: str | None = None,
+    screen: str | None = None,
+    profession: str | None = None,
+    session_id: str | None = None,
+    metadata: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    current = _fresh_user_record(user)
+    now = utc_now().replace(microsecond=0)
+    access_source = _normalize_access_source(current.get("access_source") or current.get("access_type"))
+    plan_key = str(current.get("subscription_tier") or "free")
+    meta = _safe_metadata(metadata or {})
+    auth_repository.AUTH_USERS.ensure_schema()
+    with auth_repository.AUTH_USERS.session() as session:
+        session.add(
+            TrackingEvent(
+                user_id=current.get("user_id"),
+                email=current.get("email"),
+                organization_id=current.get("organization_id"),
+                cohort_id=current.get("cohort_id"),
+                access_source=access_source,
+                event_type=str(event_type or "event").strip() or "event",
+                feature=str(feature or "").strip() or None,
+                screen=str(screen or "").strip() or None,
+                plan_key=plan_key,
+                profession=str(profession or "").strip() or None,
+                session_id=str(session_id or "").strip() or None,
+                metadata_json=meta,
+                created_at=now,
+            )
+        )
+        daily = _summary_for_date(
+            session,
+            AnalyticsDailyUserSummary,
+            _daily_key(now),
+            user_id=str(current.get("user_id")),
+        )
+        daily.email = current.get("email")
+        daily.organization_id = current.get("organization_id")
+        daily.cohort_id = current.get("cohort_id")
+        daily.access_source = access_source
+        daily.plan_key = plan_key
+        daily.sessions_count = int(daily.sessions_count or 0) + (1 if event_type in {"session_started", "login", "app_opened"} else 0)
+        if event_type == "roleplay_started":
+            daily.roleplay_started_count = int(daily.roleplay_started_count or 0) + 1
+        if event_type == "roleplay_completed":
+            daily.roleplay_completed_count = int(daily.roleplay_completed_count or 0) + 1
+        if event_type in {"yki_started", "yki_exam_started", "yki_practice_started"}:
+            daily.yki_started_count = int(daily.yki_started_count or 0) + 1
+        if event_type == "card_session_started":
+            daily.card_session_started_count = int(daily.card_session_started_count or 0) + 1
+        if event_type == "card_session_completed":
+            daily.card_session_completed_count = int(daily.card_session_completed_count or 0) + 1
+        daily.last_seen_at = now
+        daily.updated_at = now
+        session.commit()
+    return {"tracked": True}
+
+
+def _active_access_grant_for_user(user: dict[str, Any]) -> dict[str, Any] | None:
+    user_id = str(user.get("user_id") or "").strip()
+    email = str(user.get("email") or "").strip().lower()
+    if not user_id and not email:
+        return None
+    now = utc_now()
+    try:
+        auth_repository.AUTH_USERS.ensure_schema()
+        with auth_repository.AUTH_USERS.session() as session:
+            rows = session.query(AccessGrant).filter(AccessGrant.status == "active").all()
+            for row in rows:
+                if row.user_id and user_id and str(row.user_id) != user_id:
+                    continue
+                if not row.user_id and row.email and email and str(row.email).strip().lower() != email:
+                    continue
+                if not row.user_id and not row.email:
+                    continue
+                starts_at = row.starts_at
+                ends_at = row.ends_at
+                if starts_at and starts_at > now.replace(tzinfo=None):
+                    continue
+                if ends_at and ends_at <= now.replace(tzinfo=None):
+                    continue
+                return {
+                    "id": row.id,
+                    "user_id": row.user_id,
+                    "email": row.email,
+                    "organization_id": row.organization_id,
+                    "cohort_id": row.cohort_id,
+                    "source": row.source,
+                    "grant_type": row.grant_type,
+                    "plan_key": row.plan_key,
+                    "learn_access": bool(row.learn_access),
+                    "yki_access": bool(row.yki_access),
+                    "professional_access": bool(row.professional_access),
+                    "professions": list(row.professions or []),
+                    "starts_at": row.starts_at.isoformat() if row.starts_at else None,
+                    "ends_at": row.ends_at.isoformat() if row.ends_at else None,
+                    "status": row.status,
+                }
+    except Exception:
+        return None
+    return None
+
+
+def _access_ends_at_for_user(user: dict[str, Any]) -> str | None:
+    return (
+        user.get("access_ends_at")
+        or user.get("current_period_end")
+        or user.get("subscription_expires_at")
+        or user.get("trial_ends_at")
+    )
+
+
 def _stripe_to_dict(value: Any) -> dict[str, Any]:
     if value is None:
         return {}
@@ -526,12 +846,24 @@ def _update_user_subscription_from_details(
     stripe_checkout_session_id: str | None = None,
     subscription_expires_at: str | None = None,
     trial_ends_at: str | None = None,
+    current_period_start: str | None = None,
+    current_period_end: str | None = None,
+    trial_started_at: str | None = None,
+    cancel_at_period_end: bool | None = None,
+    canceled_at: str | None = None,
+    subscription_status: str | None = None,
+    subscription_provider: str | None = "stripe",
+    access_source: str | None = "b2c_direct",
     access_choice: str | None = "paid",
 ) -> dict[str, Any]:
+    tier = _subscription_tier_from_details(details)
+    now_iso = utc_now().replace(microsecond=0).isoformat()
+    access_ends_at = current_period_end or subscription_expires_at or trial_ends_at
+    status = subscription_status or ("trialing" if access_choice == "trial" else ("active" if tier != "free" else "free"))
     payload: dict[str, Any] = {
         "access_choice": access_choice,
-        "access_choice_at": utc_now().replace(microsecond=0).isoformat(),
-        "subscription_tier": _subscription_tier_from_details(details),
+        "access_choice_at": now_iso,
+        "subscription_tier": tier,
         "subscription_pathway": details.get("pathway"),
         "subscription_billing_period": details.get("billing_period"),
         "profession_slot_count": int(details.get("profession_count") or 0),
@@ -540,11 +872,27 @@ def _update_user_subscription_from_details(
         "stripe_subscription_id": stripe_subscription_id or user.get("stripe_subscription_id"),
         "stripe_price_id": stripe_price_id or user.get("stripe_price_id"),
         "stripe_checkout_session_id": stripe_checkout_session_id or user.get("stripe_checkout_session_id"),
+        "subscription_provider": _normalize_provider(subscription_provider),
+        "subscription_status": status,
+        "access_source": _normalize_access_source(access_source),
+        "access_ends_at": access_ends_at,
     }
+    if cancel_at_period_end is not None:
+        payload["cancel_at_period_end"] = bool(cancel_at_period_end)
+    if canceled_at is not None:
+        payload["canceled_at"] = canceled_at
     if subscription_expires_at is not None:
         payload["subscription_expires_at"] = subscription_expires_at
     if trial_ends_at is not None:
         payload["trial_ends_at"] = trial_ends_at
+    if current_period_start is not None:
+        payload["current_period_start"] = current_period_start
+    if current_period_end is not None:
+        payload["current_period_end"] = current_period_end
+    if trial_started_at is not None:
+        payload["trial_started_at"] = trial_started_at
+    elif trial_ends_at is not None and not user.get("trial_started_at"):
+        payload["trial_started_at"] = now_iso
     updated, _ = auth_repository.AUTH_USERS.update_user(user["user_id"], **payload)
     STORE.write_snapshot()
     return updated
@@ -613,10 +961,13 @@ def apply_stripe_checkout_session_completed(session: Any) -> dict[str, Any]:
 
     expires_at = _normalize_unix_timestamp(subscription_data.get("current_period_end"))
     trial_ends_at = _normalize_unix_timestamp(subscription_data.get("trial_end"))
+    trial_started_at = _normalize_unix_timestamp(subscription_data.get("trial_start"))
+    current_period_start = _normalize_unix_timestamp(subscription_data.get("current_period_start"))
+    current_period_end = _normalize_unix_timestamp(subscription_data.get("current_period_end"))
     stripe_status = str(subscription_data.get("status") or "").strip().lower()
     access_choice = "trial" if stripe_status == "trialing" or trial_ends_at else "paid"
 
-    return _update_user_subscription_from_details(
+    updated = _update_user_subscription_from_details(
         user=user,
         details=metadata,
         stripe_customer_id=customer_id,
@@ -625,8 +976,22 @@ def apply_stripe_checkout_session_completed(session: Any) -> dict[str, Any]:
         stripe_checkout_session_id=checkout_session_id,
         subscription_expires_at=expires_at,
         trial_ends_at=trial_ends_at,
+        current_period_start=current_period_start,
+        current_period_end=current_period_end,
+        trial_started_at=trial_started_at,
+        cancel_at_period_end=bool(subscription_data.get("cancel_at_period_end")),
+        subscription_status=stripe_status or None,
+        access_source="b2c_direct",
         access_choice=access_choice,
     )
+    _log_subscription_event(
+        "checkout_completed",
+        user=updated,
+        metadata={"checkout_session_id": checkout_session_id, "subscription_id": subscription_id, "stripe_status": stripe_status, **metadata},
+    )
+    if access_choice == "trial":
+        _log_subscription_event("checkout_trial_started", user=updated, metadata={"trial_ends_at": trial_ends_at, **metadata})
+    return updated
 
 def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> dict[str, Any]:
     subscription_data = _stripe_to_dict(subscription)
@@ -656,8 +1021,11 @@ def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> di
         )
 
     status = str(subscription_data.get("status") or "").strip().lower()
+    current_period_start = _normalize_unix_timestamp(subscription_data.get("current_period_start"))
     current_period_end = _normalize_unix_timestamp(subscription_data.get("current_period_end"))
+    trial_started_at = _normalize_unix_timestamp(subscription_data.get("trial_start"))
     trial_ends_at = _normalize_unix_timestamp(subscription_data.get("trial_end"))
+    cancel_at_period_end = bool(subscription_data.get("cancel_at_period_end"))
 
     if event_type == "customer.subscription.deleted" or status in {"canceled", "incomplete_expired"}:
         cleared_details = dict(metadata)
@@ -666,19 +1034,25 @@ def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> di
         cleared_details["billing_period"] = None
         cleared_details["professions"] = []
         cleared_details["profession_count"] = 0
-        return _update_user_subscription_from_details(
+        updated = _update_user_subscription_from_details(
             user=user,
             details=cleared_details,
             stripe_customer_id=customer_id or user.get("stripe_customer_id"),
             stripe_subscription_id=subscription_id or user.get("stripe_subscription_id"),
             stripe_price_id=metadata.get("price_id") or user.get("stripe_price_id"),
             subscription_expires_at=current_period_end or utc_now().replace(microsecond=0).isoformat(),
+            current_period_start=current_period_start,
+            current_period_end=current_period_end,
+            cancel_at_period_end=cancel_at_period_end,
+            subscription_status=status or "canceled",
             access_choice="paid",
         )
+        _log_subscription_event(event_type.replace(".", "_"), user=updated, metadata={"stripe_status": status, **metadata})
+        return updated
 
     access_choice = "trial" if status == "trialing" or trial_ends_at else "paid"
 
-    return _update_user_subscription_from_details(
+    updated = _update_user_subscription_from_details(
         user=user,
         details=metadata,
         stripe_customer_id=customer_id or user.get("stripe_customer_id"),
@@ -686,17 +1060,40 @@ def apply_stripe_subscription_event(subscription: Any, *, event_type: str) -> di
         stripe_price_id=metadata.get("price_id") or user.get("stripe_price_id"),
         subscription_expires_at=current_period_end,
         trial_ends_at=trial_ends_at,
+        current_period_start=current_period_start,
+        current_period_end=current_period_end,
+        trial_started_at=trial_started_at,
+        cancel_at_period_end=cancel_at_period_end,
+        subscription_status=status or None,
         access_choice=access_choice,
     )
+    _log_subscription_event(event_type.replace(".", "_"), user=updated, metadata={"stripe_status": status, "cancel_at_period_end": cancel_at_period_end, **metadata})
+    if status == "active":
+        _log_subscription_event("subscription_active", user=updated, metadata=metadata)
+    if cancel_at_period_end:
+        _log_subscription_event("cancel_at_period_end_enabled", user=updated, metadata=metadata)
+    return updated
 
 def handle_stripe_event(event: Any) -> dict[str, Any]:
     event_type = str(getattr(event, "type", None) or (event.get("type") if isinstance(event, dict) else "")).strip()
+    event_id = str(getattr(event, "id", None) or (event.get("id") if isinstance(event, dict) else "") or "").strip() or None
     payload = getattr(event, "data", None) if not isinstance(event, dict) else event.get("data")
     obj = getattr(payload, "object", None) if payload is not None and not isinstance(payload, dict) else (payload.get("object") if isinstance(payload, dict) else None)
     if event_type == "checkout.session.completed":
-        return {"event_type": event_type, "user": apply_stripe_checkout_session_completed(obj)}
+        user = apply_stripe_checkout_session_completed(obj)
+        _log_subscription_event("stripe_checkout_session_completed", user=user, provider_event_id=event_id, metadata={"stripe_event_type": event_type})
+        return {"event_type": event_type, "user": user}
     if event_type in {"customer.subscription.created", "customer.subscription.updated", "customer.subscription.deleted"}:
-        return {"event_type": event_type, "user": apply_stripe_subscription_event(obj, event_type=event_type)}
+        user = apply_stripe_subscription_event(obj, event_type=event_type)
+        _log_subscription_event(event_type.replace(".", "_"), user=user, provider_event_id=event_id, metadata={"stripe_event_type": event_type})
+        return {"event_type": event_type, "user": user}
+    if event_type in {"invoice.payment_failed", "invoice.payment_action_required"}:
+        obj_data = _stripe_to_dict(obj)
+        subscription_id = str(obj_data.get("subscription") or "").strip() or None
+        user = _find_user_for_subscription_event(subscription_id=subscription_id)
+        if user:
+            _log_subscription_event("invoice_payment_failed", user=user, provider_event_id=event_id, metadata={"stripe_event_type": event_type, "subscription_id": subscription_id})
+        return {"event_type": event_type, "handled": bool(user)}
     if event_type == "invoice.paid":
         subscription_id = str(getattr(obj, "subscription", None) or (obj.get("subscription") if isinstance(obj, dict) else "")).strip() or None
         subscription = None
@@ -706,7 +1103,9 @@ def handle_stripe_event(event: Any) -> dict[str, Any]:
             except Exception:
                 subscription = None
         if subscription is not None:
-            return {"event_type": event_type, "user": apply_stripe_subscription_event(subscription, event_type="customer.subscription.updated")}
+            user = apply_stripe_subscription_event(subscription, event_type="customer.subscription.updated")
+            _log_subscription_event("invoice_paid", user=user, provider_event_id=event_id, metadata={"stripe_event_type": event_type, "subscription_id": subscription_id})
+            return {"event_type": event_type, "user": user}
         return {"event_type": event_type, "handled": False}
     return {"event_type": event_type, "handled": False}
 
@@ -858,6 +1257,8 @@ def _pathway_for_tier(tier: str, yki_access: bool, professional_access: bool) ->
 
 
 def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
+    user = _fresh_user_record(user)
+
     if _is_internal_all_access_user(user):
         features = {
             feature: {
@@ -887,8 +1288,62 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "profession_labels": _profession_labels(list(ALL_PROFESSIONS)),
             "profession_slot_count": len(ALL_PROFESSIONS),
             "access_type": "internal",
+            "access_source": "internal_admin",
+            "subscription_provider": "internal",
+            "subscription_status": "active",
+            "cancel_at_period_end": False,
+            "canceled_at": None,
+            "current_period_start": user.get("current_period_start"),
+            "current_period_end": user.get("current_period_end"),
+            "access_ends_at": None,
+            "organization_id": user.get("organization_id"),
+            "cohort_id": user.get("cohort_id"),
+            "role": user.get("role") or "admin",
             "pathway": "internal",
             "plan_key": "internal_all_access",
+        }
+
+    grant = _active_access_grant_for_user(user)
+    if grant:
+        professions = _normalize_professions(grant.get("professions"))
+        yki_access = bool(grant.get("yki_access"))
+        professional_access = bool(grant.get("professional_access"))
+        features = {
+            "general_finnish": {"available": bool(grant.get("learn_access")), "limit": -1, "unit": "granted", "message": "Access granted by programme."},
+            "workplace": {"available": professional_access, "limit": -1 if professional_access else 0, "unit": "granted" if professional_access else "not_available", "message": "Programme access." if professional_access else "Not included in this programme."},
+            "yki": {"available": yki_access, "limit": -1 if yki_access else 0, "unit": "granted" if yki_access else "not_available", "message": "Programme access." if yki_access else "Not included in this programme."},
+        }
+        return {
+            "user_id": user["user_id"],
+            "tier": grant.get("plan_key") or "programme_access",
+            "billing_tier": grant.get("plan_key") or "programme_access",
+            "access_choice": "programme",
+            "features": features,
+            "expires_at": grant.get("ends_at"),
+            "trial_ends_at": None,
+            "is_trial": False,
+            "is_active": True,
+            "is_internal_all_access": False,
+            "yki_access": yki_access,
+            "professional_access": professional_access,
+            "accessible_professions": professions,
+            "selected_professions": professions,
+            "profession_labels": _profession_labels(professions),
+            "profession_slot_count": len(professions),
+            "access_type": grant.get("source"),
+            "access_source": grant.get("source"),
+            "subscription_provider": "contract",
+            "subscription_status": "active",
+            "cancel_at_period_end": False,
+            "canceled_at": None,
+            "current_period_start": grant.get("starts_at"),
+            "current_period_end": grant.get("ends_at"),
+            "access_ends_at": grant.get("ends_at"),
+            "organization_id": grant.get("organization_id"),
+            "cohort_id": grant.get("cohort_id"),
+            "role": user.get("role") or "user",
+            "pathway": "combined" if yki_access and professional_access else ("professional" if professional_access else ("yki" if yki_access else "programme")),
+            "plan_key": grant.get("plan_key") or "programme_access",
         }
 
     if _has_trial_access(user):
@@ -910,7 +1365,18 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "selected_professions": [],
             "profession_labels": [],
             "profession_slot_count": 0,
-            "access_type": "individual",
+            "access_type": _normalize_access_source(user.get("access_source") or "b2c_direct"),
+            "access_source": _normalize_access_source(user.get("access_source") or "b2c_direct"),
+            "subscription_provider": _normalize_provider(user.get("subscription_provider") or "stripe"),
+            "subscription_status": user.get("subscription_status") or "trialing",
+            "cancel_at_period_end": bool(user.get("cancel_at_period_end")),
+            "canceled_at": user.get("canceled_at"),
+            "current_period_start": user.get("current_period_start"),
+            "current_period_end": user.get("current_period_end"),
+            "access_ends_at": _access_ends_at_for_user(user),
+            "organization_id": user.get("organization_id"),
+            "cohort_id": user.get("cohort_id"),
+            "role": user.get("role") or "user",
             "pathway": "yki",
             "plan_key": "preview_yki",
         }
@@ -944,7 +1410,18 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "selected_professions": list(ALL_PROFESSIONS),
             "profession_labels": _profession_labels(list(ALL_PROFESSIONS)),
             "profession_slot_count": len(ALL_PROFESSIONS),
-            "access_type": "individual",
+            "access_type": _normalize_access_source(user.get("access_source") or "b2c_direct"),
+            "access_source": _normalize_access_source(user.get("access_source") or "b2c_direct"),
+            "subscription_provider": _normalize_provider(user.get("subscription_provider") or "stripe"),
+            "subscription_status": user.get("subscription_status") or "active",
+            "cancel_at_period_end": bool(user.get("cancel_at_period_end")),
+            "canceled_at": user.get("canceled_at"),
+            "current_period_start": user.get("current_period_start"),
+            "current_period_end": user.get("current_period_end"),
+            "access_ends_at": _access_ends_at_for_user(user),
+            "organization_id": user.get("organization_id"),
+            "cohort_id": user.get("cohort_id"),
+            "role": user.get("role") or "user",
             "pathway": "combined",
             "plan_key": "professional_premium",
         }
@@ -972,7 +1449,18 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
         "selected_professions": professions,
         "profession_labels": _profession_labels(professions),
         "profession_slot_count": len(professions),
-        "access_type": str(user.get("access_type") or "individual"),
+        "access_type": _normalize_access_source(user.get("access_source") or user.get("access_type") or "b2c_direct"),
+        "access_source": _normalize_access_source(user.get("access_source") or user.get("access_type") or "b2c_direct"),
+        "subscription_provider": _normalize_provider(user.get("subscription_provider") or "stripe"),
+        "subscription_status": user.get("subscription_status") or ("active" if _has_paid_access(user) else "free"),
+        "cancel_at_period_end": bool(user.get("cancel_at_period_end")),
+        "canceled_at": user.get("canceled_at"),
+        "current_period_start": user.get("current_period_start"),
+        "current_period_end": user.get("current_period_end"),
+        "access_ends_at": _access_ends_at_for_user(user),
+        "organization_id": user.get("organization_id"),
+        "cohort_id": user.get("cohort_id"),
+        "role": user.get("role") or "user",
         "pathway": pathway,
         "plan_key": effective_tier,
     }
@@ -985,12 +1473,151 @@ def start_trial(*, user: dict[str, Any], trial_days: int = 3) -> dict[str, Any]:
 
     user_id = str(user["user_id"])
     updated = dict(user)
+    now_iso = utc_now().replace(microsecond=0).isoformat()
     updated["access_choice"] = "trial"
-    updated["access_choice_at"] = utc_now().replace(microsecond=0).isoformat()
+    updated["access_choice_at"] = now_iso
+    updated["trial_started_at"] = now_iso
     updated["trial_ends_at"] = (utc_now() + timedelta(days=max(1, trial_days))).replace(microsecond=0).isoformat()
-    auth_repository.AUTH_USERS.save_user(updated, overwrite_password=False)
+    updated["subscription_status"] = "trialing"
+    updated["subscription_provider"] = "manual"
+    updated["access_source"] = "preview"
+    updated["cancel_at_period_end"] = False
+    updated["access_ends_at"] = updated["trial_ends_at"]
+    saved, _ = auth_repository.AUTH_USERS.save_user(updated, overwrite_password=False)
     STORE.write_snapshot()
-    return subscription_status(user=updated)
+    _log_subscription_event("trial_started", user=saved, metadata={"trial_days": max(1, trial_days), "mode": "legacy_local_trial"})
+    return subscription_status(user=saved)
+
+
+
+
+def _details_from_user(user: dict[str, Any]) -> dict[str, Any]:
+    tier = str(user.get("subscription_tier") or "free")
+    pathway, billing_period, tier_professions = _parse_plan_id(tier)
+    professions = _normalize_professions(user.get("selected_professions")) or tier_professions
+    return {
+        "plan_id": tier,
+        "pathway": pathway,
+        "billing_period": billing_period,
+        "professions": professions,
+        "profession_count": len(professions),
+        "price_id": user.get("stripe_price_id"),
+    }
+
+
+def cancel_trial_at_period_end(*, user: dict[str, Any]) -> dict[str, Any]:
+    current = _fresh_user_record(user)
+    if _is_internal_all_access_user(current):
+        raise AppError(409, "CANNOT_CANCEL_INTERNAL_ACCESS", "Internal access cannot be cancelled from billing.", False, {"classification": "non_retryable"})
+
+    status_before = subscription_status(user=current)
+    if not status_before.get("is_trial") and not status_before.get("is_active"):
+        raise AppError(409, "NO_ACTIVE_SUBSCRIPTION", "There is no active trial or subscription to cancel.", False, {"classification": "non_retryable"})
+
+    now_iso = utc_now().replace(microsecond=0).isoformat()
+    subscription_id = str(current.get("stripe_subscription_id") or "").strip()
+    updated = current
+
+    if _stripe_enabled() and subscription_id:
+        if stripe is None:
+            raise AppError(503, "BILLING_NOT_CONFIGURED", "Stripe is not available in this deployment.", False, {"classification": "non_retryable"})
+        stripe.api_key = SETTINGS.stripe_secret_key
+        try:
+            subscription = stripe.Subscription.modify(subscription_id, cancel_at_period_end=True)
+        except Exception as exc:
+            raise AppError(503, "STRIPE_CANCEL_FAILED", "Could not cancel renewal for this trial/subscription.", True, {"classification": "retryable"}) from exc
+        data = _stripe_to_dict(subscription)
+        metadata = _parse_subscription_metadata(data.get("metadata"))
+        if not metadata.get("plan_id"):
+            metadata = _details_from_user(current)
+        updated = _update_user_subscription_from_details(
+            user=current,
+            details=metadata,
+            stripe_customer_id=str(data.get("customer") or current.get("stripe_customer_id") or "").strip() or None,
+            stripe_subscription_id=str(data.get("id") or subscription_id).strip() or subscription_id,
+            stripe_price_id=metadata.get("price_id") or current.get("stripe_price_id"),
+            stripe_checkout_session_id=current.get("stripe_checkout_session_id"),
+            subscription_expires_at=_normalize_unix_timestamp(data.get("current_period_end")) or current.get("subscription_expires_at"),
+            trial_ends_at=_normalize_unix_timestamp(data.get("trial_end")) or current.get("trial_ends_at"),
+            current_period_start=_normalize_unix_timestamp(data.get("current_period_start")) or current.get("current_period_start"),
+            current_period_end=_normalize_unix_timestamp(data.get("current_period_end")) or current.get("current_period_end"),
+            trial_started_at=_normalize_unix_timestamp(data.get("trial_start")) or current.get("trial_started_at"),
+            cancel_at_period_end=True,
+            canceled_at=now_iso,
+            subscription_status=str(data.get("status") or current.get("subscription_status") or "").strip() or None,
+            access_choice=current.get("access_choice") or ("trial" if status_before.get("is_trial") else "paid"),
+        )
+    else:
+        access_ends_at = current.get("trial_ends_at") or current.get("subscription_expires_at") or current.get("current_period_end")
+        updated, _ = auth_repository.AUTH_USERS.update_user(
+            current["user_id"],
+            cancel_at_period_end=True,
+            canceled_at=now_iso,
+            subscription_status=current.get("subscription_status") or ("trialing" if status_before.get("is_trial") else "active"),
+            access_ends_at=access_ends_at,
+        )
+        STORE.write_snapshot()
+
+    _log_subscription_event(
+        "trial_cancel_requested" if status_before.get("is_trial") else "subscription_cancel_requested",
+        user=updated,
+        status_before=str(status_before.get("subscription_status") or status_before.get("tier") or ""),
+        status_after=str(updated.get("subscription_status") or ""),
+        metadata={"cancel_at_period_end": True, "access_ends_at": _access_ends_at_for_user(updated)},
+    )
+    return {
+        "cancelled": True,
+        "cancel_at_period_end": True,
+        "access_ends_at": _access_ends_at_for_user(updated),
+        "subscription": subscription_status(user=updated),
+    }
+
+
+def resume_subscription_renewal(*, user: dict[str, Any]) -> dict[str, Any]:
+    current = _fresh_user_record(user)
+    subscription_id = str(current.get("stripe_subscription_id") or "").strip()
+    now_status = subscription_status(user=current)
+    if not bool(now_status.get("cancel_at_period_end")):
+        return {"resumed": False, "subscription": now_status}
+
+    if _stripe_enabled() and subscription_id:
+        if stripe is None:
+            raise AppError(503, "BILLING_NOT_CONFIGURED", "Stripe is not available in this deployment.", False, {"classification": "non_retryable"})
+        stripe.api_key = SETTINGS.stripe_secret_key
+        try:
+            subscription = stripe.Subscription.modify(subscription_id, cancel_at_period_end=False)
+        except Exception as exc:
+            raise AppError(503, "STRIPE_RESUME_FAILED", "Could not resume this subscription.", True, {"classification": "retryable"}) from exc
+        data = _stripe_to_dict(subscription)
+        metadata = _parse_subscription_metadata(data.get("metadata"))
+        if not metadata.get("plan_id"):
+            metadata = _details_from_user(current)
+        updated = _update_user_subscription_from_details(
+            user=current,
+            details=metadata,
+            stripe_customer_id=str(data.get("customer") or current.get("stripe_customer_id") or "").strip() or None,
+            stripe_subscription_id=str(data.get("id") or subscription_id).strip() or subscription_id,
+            stripe_price_id=metadata.get("price_id") or current.get("stripe_price_id"),
+            subscription_expires_at=_normalize_unix_timestamp(data.get("current_period_end")) or current.get("subscription_expires_at"),
+            trial_ends_at=_normalize_unix_timestamp(data.get("trial_end")) or current.get("trial_ends_at"),
+            current_period_start=_normalize_unix_timestamp(data.get("current_period_start")) or current.get("current_period_start"),
+            current_period_end=_normalize_unix_timestamp(data.get("current_period_end")) or current.get("current_period_end"),
+            trial_started_at=_normalize_unix_timestamp(data.get("trial_start")) or current.get("trial_started_at"),
+            cancel_at_period_end=False,
+            canceled_at=None,
+            subscription_status=str(data.get("status") or current.get("subscription_status") or "").strip() or None,
+            access_choice=current.get("access_choice") or ("trial" if now_status.get("is_trial") else "paid"),
+        )
+    else:
+        updated, _ = auth_repository.AUTH_USERS.update_user(
+            current["user_id"],
+            cancel_at_period_end=False,
+            canceled_at=None,
+        )
+        STORE.write_snapshot()
+
+    _log_subscription_event("subscription_reactivated", user=updated, metadata={"cancel_at_period_end": False})
+    return {"resumed": True, "subscription": subscription_status(user=updated)}
 
 
 def payment_status(*, user: dict[str, Any]) -> dict[str, Any]:
@@ -1154,6 +1781,13 @@ def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[s
         else:
             checkout_url = str(getattr(session, "url", "") or "").strip() or billing_checkout_url(user_id=user_id, payload=payload)
             checkout_session_id = str(getattr(session, "id", "") or "").strip() or None
+        user_for_event = auth_repository.AUTH_USERS.get_user_by_id(user_id)
+        if user_for_event:
+            _log_subscription_event(
+                "checkout_started",
+                user=user_for_event,
+                metadata={"checkout_session_id": checkout_session_id, "plan": details["plan_id"], "pathway": details["pathway"], "billing_period": details["billing_period"], "professions": details["professions"]},
+            )
         return {
             "checkout_url": checkout_url,
             "checkout_session_id": checkout_session_id,

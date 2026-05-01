@@ -1,642 +1,590 @@
-import React, { useEffect, useMemo, useRef } from 'react';
-import {
-  Animated,
-  Easing,
-  Image,
-  Platform,
-  Pressable,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  useWindowDimensions,
-  View,
-} from 'react-native';
-import { usePreferencesStore } from './preferencesStore';
-import { useTranslator } from '../features/i18n';
+import React, { useMemo, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
 
-const LOGO = require('../components/public/logo.png');
+type Props = Record<string, any>;
+type LandingTheme = 'dark' | 'light';
 
-function getGoogleAsset() {
-  if (Platform.OS === 'ios') return require('../components/public/google/iOS/continue.png');
-  if (Platform.OS === 'web') return require('../components/public/google/web/continue.png');
-  return require('../components/public/google/android/continue_2x.png');
-}
-
-function getFeatures(t: (key: 'landingFeature1Label' | 'landingFeature1Sub' | 'landingFeature2Label' | 'landingFeature2Sub' | 'landingFeature3Label' | 'landingFeature3Sub' | 'landingFeature4Label' | 'landingFeature4Sub') => string) {
-  return [
-    {
-      icon: '📚',
-      label: t('landingFeature1Label'),
-      sub: t('landingFeature1Sub'),
-      accent: '#4F7FFF',
-    },
-    {
-      icon: '🎙',
-      label: t('landingFeature2Label'),
-      sub: t('landingFeature2Sub'),
-      accent: '#2DD4BF',
-    },
-    {
-      icon: '📋',
-      label: t('landingFeature3Label'),
-      sub: t('landingFeature3Sub'),
-      accent: '#A78BFA',
-    },
-    {
-      icon: '💼',
-      label: t('landingFeature4Label'),
-      sub: t('landingFeature4Sub'),
-      accent: '#F0C86D',
-    },
-  ];
-}
-
-type Props = { onOpenAuth: () => void };
-
-export default function LandingRoute({ onOpenAuth }: Props) {
-  const hydratePreferences = usePreferencesStore((s) => s.hydrate);
-  const { t } = useTranslator();
-  const { width } = useWindowDimensions();
-
-  const heroAnim = useRef(new Animated.Value(0)).current;
-  const subAnim = useRef(new Animated.Value(0)).current;
-  const tagsAnim = useRef(new Animated.Value(0)).current;
-  const authAnim = useRef(new Animated.Value(0)).current;
-  const logoFloat = useRef(new Animated.Value(0)).current;
-  const blobDrift = useRef(new Animated.Value(0)).current;
-  const features = getFeatures(t);
-  const featureAnims = useRef(features.map(() => new Animated.Value(0))).current;
-  const shouldAnimate = Platform.OS !== 'web';
-  const logoWidth = Math.min(Math.max(width * 0.82, 320), 540);
-  const logoHeight = logoWidth * (1024 / 1536);
-  const logoStyle = useMemo(() => ({
-    width: logoWidth,
-    height: logoHeight,
-    marginLeft: -(logoWidth / 2),
-  }), [logoHeight, logoWidth]);
-
-  useEffect(() => {
-    void hydratePreferences();
-
-    if (!shouldAnimate) {
-      return;
+function useLandingNav(props: Props) {
+  return useMemo(() => {
+    function callAny(names: string[], fallback: () => void) {
+      for (const name of names) {
+        if (typeof props[name] === 'function') {
+          props[name]();
+          return;
+        }
+      }
+      fallback();
     }
 
-    const entranceAnimations = [
-      Animated.timing(heroAnim, {
-        toValue: 1,
-        duration: 650,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }),
-      Animated.timing(subAnim, {
-        toValue: 1,
-        duration: 650,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }),
-      Animated.timing(tagsAnim, {
-        toValue: 1,
-        duration: 520,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }),
-      ...featureAnims.map((anim) =>
-        Animated.timing(anim, {
-          toValue: 1,
-          duration: 520,
-          easing: Easing.out(Easing.cubic),
-          useNativeDriver: true,
-        })
-      ),
-      Animated.timing(authAnim, {
-        toValue: 1,
-        duration: 560,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }),
-    ];
-
-    const entrance = Animated.stagger(110, entranceAnimations);
-
-    const logoLoop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(logoFloat, {
-          toValue: 1,
-          duration: 2600,
-          easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
-        }),
-        Animated.timing(logoFloat, {
-          toValue: 0,
-          duration: 2600,
-          easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
-        }),
-      ])
-    );
-
-    const blobLoop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(blobDrift, {
-          toValue: 1,
-          duration: 9000,
-          easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
-        }),
-        Animated.timing(blobDrift, {
-          toValue: 0,
-          duration: 9000,
-          easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
-        }),
-      ])
-    );
-
-    entrance.start();
-    logoLoop.start();
-    blobLoop.start();
-
-    return () => {
-      logoLoop.stop();
-      blobLoop.stop();
+    return {
+      start: () => callAny(['onGetStarted', 'onStart', 'onOpenAuth', 'onOpenRegister'], () => router.push('/auth/register' as never)),
+      login: () => callAny(['onLogin', 'onOpenLogin', 'onOpenAuth'], () => router.push('/auth/login' as never)),
+      pricing: () => callAny(['onOpenBilling', 'onPricing'], () => router.push('/billing/subscription' as never)),
+      yki: () => callAny(['onOpenYki', 'onOpenYkiExam'], () => router.push('/yki-exam' as never)),
+      professional: () => callAny(['onOpenProfessional', 'onOpenProfessionalFinnish'], () => router.push('/professional' as never)),
+      organizations: () => callAny(['onOpenOrganizations'], () => router.push('/for-organizations' as never)),
     };
-  }, [authAnim, blobDrift, featureAnims, heroAnim, hydratePreferences, logoFloat, shouldAnimate, subAnim, tagsAnim]);
+  }, [props]);
+}
 
-  const makeEnterStyle = (anim: Animated.Value, distance = 22, startScale = 0.98) => ({
-    opacity: shouldAnimate ? anim : 1,
-    transform: [
-      {
-        translateY: shouldAnimate ? anim.interpolate({
-          inputRange: [0, 1],
-          outputRange: [distance, 0],
-        }) : 0,
-      },
-      {
-        scale: shouldAnimate ? anim.interpolate({
-          inputRange: [0, 1],
-          outputRange: [startScale, 1],
-        }) : 1,
-      },
-    ],
-  });
+export default function LandingRoute(props: Props) {
+  const [theme, setTheme] = useState<LandingTheme>('dark');
+  const isDark = theme === 'dark';
+  const nav = useLandingNav(props);
 
-  const logoAnimatedStyle = {
-    transform: [
-      {
-        translateY: logoFloat.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, -8],
-        }),
-      },
-      {
-        scale: logoFloat.interpolate({
-          inputRange: [0, 0.5, 1],
-          outputRange: [1, 1.015, 1],
-        }),
-      },
-    ],
-  };
-
-  const blobTopAnimatedStyle = {
-    transform: [
-      {
-        translateX: blobDrift.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, 14],
-        }),
-      },
-      {
-        translateY: blobDrift.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, -10],
-        }),
-      },
-      {
-        scale: blobDrift.interpolate({
-          inputRange: [0, 1],
-          outputRange: [1, 1.06],
-        }),
-      },
-    ],
-  };
-
-  const blobBottomAnimatedStyle = {
-    transform: [
-      {
-        translateX: blobDrift.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, -16],
-        }),
-      },
-      {
-        translateY: blobDrift.interpolate({
-          inputRange: [0, 1],
-          outputRange: [0, 12],
-        }),
-      },
-      {
-        scale: blobDrift.interpolate({
-          inputRange: [0, 1],
-          outputRange: [1, 1.04],
-        }),
-      },
-    ],
-  };
+  const colors = isDark
+    ? {
+        page: '#071124',
+        hero: '#08183A',
+        heroSoft: '#10285A',
+        card: '#FFFFFF',
+        cardMuted: '#EEF4FF',
+        text: '#F7FAFF',
+        textMuted: '#B8C6E6',
+        cardText: '#071124',
+        cardSub: '#5B6472',
+        border: 'rgba(255,255,255,0.14)',
+        primary: '#6387FF',
+        accent: '#2DD4BF',
+        yellow: '#F0C86D',
+        toggleBg: 'rgba(255,255,255,0.13)',
+        toggleText: '#FFE8A3',
+      }
+    : {
+        page: '#EFF4FF',
+        hero: '#FFFFFF',
+        heroSoft: '#E8EEFF',
+        card: '#FFFFFF',
+        cardMuted: '#F3F7FF',
+        text: '#071124',
+        textMuted: '#526079',
+        cardText: '#071124',
+        cardSub: '#5B6472',
+        border: '#D8E3F2',
+        primary: '#2453D4',
+        accent: '#0E9F8C',
+        yellow: '#BA7A00',
+        toggleBg: '#FFF7DF',
+        toggleText: '#BA7A00',
+      };
 
   return (
-    <View style={styles.screen}>
-      <Animated.View style={[styles.blobTop, blobTopAnimatedStyle]} pointerEvents="none" />
-      <Animated.View style={[styles.blobBottom, blobBottomAnimatedStyle]} pointerEvents="none" />
-      <View style={styles.centerGlow} pointerEvents="none" />
-
-      <SafeAreaView style={styles.safe}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          bounces={false}
-          contentContainerStyle={styles.scrollContent}
+    <ScrollView
+      style={[styles.page, { backgroundColor: colors.page }]}
+      contentContainerStyle={styles.pageContent}
+      showsVerticalScrollIndicator={false}
+    >
+      <View style={[styles.heroShell, { backgroundColor: colors.hero, borderColor: colors.border }]}>
+        <Pressable
+          onPress={() => setTheme(isDark ? 'light' : 'dark')}
+          style={[
+            styles.heroThemeToggle,
+            {
+              backgroundColor: colors.toggleBg,
+              borderColor: colors.border,
+            },
+          ]}
+          accessibilityRole="button"
+          accessibilityLabel="Toggle landing page light and dark mode"
         >
-          <View style={styles.logoRow}>
-            <Animated.Image
-              source={LOGO}
-              style={[styles.logo, logoStyle, logoAnimatedStyle]}
-              resizeMode="contain"
-            />
+          <Text style={[styles.heroThemeToggleText, { color: colors.toggleText }]}>
+            {isDark ? '☀' : '☾'}
+          </Text>
+        </Pressable>
+
+        <View style={styles.backdropWordWrap} pointerEvents="none">
+          <Text style={[styles.backdropWord, { color: isDark ? 'rgba(255,255,255,0.055)' : 'rgba(36,83,212,0.06)' }]}>
+            FLOENTLY
+          </Text>
+        </View>
+
+        <View style={styles.navbar}>
+          <Pressable onPress={nav.start} style={styles.brandRow}>
+            <View style={[styles.logoMark, { backgroundColor: colors.primary }]}>
+              <Text style={styles.logoText}>F</Text>
+            </View>
+            <Text style={[styles.brandText, { color: colors.text }]}>Floently</Text>
+          </Pressable>
+
+          <View style={styles.navLinks}>
+            <Pressable onPress={nav.yki}>
+              <Text style={[styles.navLink, { color: colors.textMuted }]}>YKI Prep</Text>
+            </Pressable>
+            <Pressable onPress={nav.professional}>
+              <Text style={[styles.navLink, { color: colors.textMuted }]}>Professional Finnish</Text>
+            </Pressable>
+            <Pressable onPress={nav.organizations}>
+              <Text style={[styles.navLink, { color: colors.textMuted }]}>Organizations</Text>
+            </Pressable>
+            <Pressable onPress={nav.pricing}>
+              <Text style={[styles.navLink, { color: colors.textMuted }]}>Pricing</Text>
+            </Pressable>
           </View>
 
-          <Animated.View style={[styles.hero, makeEnterStyle(heroAnim, 18, 0.99)]}>
-            <View style={styles.tagPill}>
-              <View style={styles.tagDot} />
-              <Text style={styles.tagText}>{t('landingTag')}</Text>
+          <View style={styles.navActions}>
+            <Pressable onPress={nav.login}>
+              <Text style={[styles.loginText, { color: colors.text }]}>Log in</Text>
+            </Pressable>
+            <Pressable onPress={nav.start} style={[styles.navCta, { backgroundColor: colors.primary }]}>
+              <Text style={styles.navCtaText}>Start free</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={styles.heroGrid}>
+          <View style={styles.heroCopy}>
+            <View style={[styles.eyebrowPill, { backgroundColor: isDark ? 'rgba(99,135,255,0.18)' : '#E8EEFF' }]}>
+              <Text style={[styles.eyebrowText, { color: colors.primary }]}>AI-powered Finnish practice</Text>
             </View>
 
-            <Text style={styles.title}>
-              {t('landingTitleLine1')}{'\n'}
-              <Text style={styles.titleHighlight}>{t('landingTitleHighlight')}</Text>
+            <Text style={[styles.heroTitle, { color: colors.text }]}>
+              Build Finnish confidence for work, daily life, and YKI
             </Text>
-          </Animated.View>
 
-          <Animated.Text style={[styles.subtitle, makeEnterStyle(subAnim, 18, 1)]}>
-            {t('landingSubtitle')}
-          </Animated.Text>
+            <Text style={[styles.heroSubtitle, { color: colors.textMuted }]}>
+              Practise realistic roleplays, prepare for the YKI exam, improve speaking, and revise the exact phrases you need in Finland.
+            </Text>
 
-          <Animated.View style={[styles.quickTagRow, makeEnterStyle(tagsAnim, 18, 1)]}>
-            {[t('landingQuickTag1'), t('landingQuickTag2'), t('landingQuickTag3')].map((item) => (
-              <View key={item} style={styles.quickTag}>
-                <Text style={styles.quickTagText}>{item}</Text>
+            <View style={styles.ctaRow}>
+              <Pressable onPress={nav.start} style={[styles.primaryCta, { backgroundColor: colors.primary }]}>
+                <Text style={styles.primaryCtaText}>Start practising</Text>
+                <Text style={styles.primaryCtaArrow}>→</Text>
+              </Pressable>
+
+              <Pressable onPress={nav.yki} style={[styles.secondaryCta, { borderColor: colors.border }]}>
+                <Text style={[styles.secondaryCtaText, { color: colors.text }]}>Explore YKI prep</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.proofRow}>
+              {['Roleplays', 'YKI simulation', 'Speaking feedback', 'Phrase bank'].map((item) => (
+                <View
+                  key={item}
+                  style={[
+                    styles.proofPill,
+                    {
+                      backgroundColor: isDark ? 'rgba(255,255,255,0.07)' : '#FFFFFF',
+                      borderColor: colors.border,
+                    },
+                  ]}
+                >
+                  <Text style={[styles.proofText, { color: colors.textMuted }]}>{item}</Text>
+                </View>
+              ))}
+            </View>
+          </View>
+
+          <View style={styles.heroVisual}>
+            <View style={[styles.glowOne, { backgroundColor: colors.primary }]} />
+            <View style={[styles.glowTwo, { backgroundColor: colors.accent }]} />
+
+            <View style={[styles.roleplayCard, styles.floatCard, { backgroundColor: colors.card }]}>
+              <View style={styles.cardTopRow}>
+                <View>
+                  <Text style={[styles.cardKicker, { color: colors.primary }]}>Live roleplay</Text>
+                  <Text style={[styles.cardTitle, { color: colors.cardText }]}>Patient interview</Text>
+                </View>
+                <View style={[styles.statusDot, { backgroundColor: colors.accent }]} />
               </View>
-            ))}
-          </Animated.View>
+              <Text style={[styles.dialogueBubble, { backgroundColor: colors.cardMuted, color: colors.cardText }]}>
+                Hyvää päivää. Miten voin auttaa?
+              </Text>
+              <View style={styles.waveRow}>
+                {[28, 44, 34, 58, 40, 66, 36, 50].map((h, index) => (
+                  <View key={index} style={[styles.waveBar, { height: h, backgroundColor: colors.primary }]} />
+                ))}
+              </View>
+            </View>
 
-          <View style={styles.sectionCard}>
-            <Text style={styles.sectionEyebrow}>{t('landingSectionEyebrow')}</Text>
+            <View style={[styles.ykiCard, styles.floatCard, { backgroundColor: colors.card }]}>
+              <Text style={[styles.cardKicker, { color: colors.yellow }]}>YKI readiness</Text>
+              <Text style={[styles.bigMetric, { color: colors.cardText }]}>B1–B2</Text>
+              <Text style={[styles.cardSmall, { color: colors.cardSub }]}>Reading · Writing · Listening · Speaking</Text>
+              <View style={[styles.progressTrack, { backgroundColor: colors.cardMuted }]}>
+                <View style={[styles.progressFill, { backgroundColor: colors.primary }]} />
+              </View>
+            </View>
 
-            <View style={styles.featureList}>
-              {features.map((feature, index) => {
-                const anim = featureAnims[index];
-                return (
-                  <Animated.View
-                    key={feature.label}
-                    style={[
-                      styles.featureCard,
-                      makeEnterStyle(anim, 24, 0.97),
-                      {
-                        borderColor: `${feature.accent}22`,
-                        backgroundColor: 'rgba(255,255,255,0.045)',
-                      },
-                    ]}
-                  >
-                    <View
-                      style={[
-                        styles.featureIconWrap,
-                        {
-                          backgroundColor: `${feature.accent}18`,
-                          borderColor: `${feature.accent}34`,
-                        },
-                      ]}
-                    >
-                      <Text style={styles.featureIcon}>{feature.icon}</Text>
-                    </View>
+            <View style={[styles.phraseCard, styles.floatCard, { backgroundColor: colors.card }]}>
+              <Text style={[styles.cardKicker, { color: colors.accent }]}>Phrase bank</Text>
+              <Text style={[styles.cardTitle, { color: colors.cardText }]}>Work-ready Finnish</Text>
+              <Text style={[styles.cardSmall, { color: colors.cardSub }]}>Save difficult expressions and review them later.</Text>
+            </View>
 
-                    <View style={styles.featureBody}>
-                      <Text style={styles.featureLabel}>{feature.label}</Text>
-                      <Text style={styles.featureSub}>{feature.sub}</Text>
-                    </View>
-
-                    <Text style={[styles.featureAccentMark, { color: feature.accent }]}>•</Text>
-                  </Animated.View>
-                );
-              })}
+            <View style={[styles.miniStatsCard, { backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : '#FFFFFF', borderColor: colors.border }]}>
+              <Text style={[styles.statNumber, { color: colors.text }]}>12</Text>
+              <Text style={[styles.statLabel, { color: colors.textMuted }]}>sessions this week</Text>
             </View>
           </View>
+        </View>
+      </View>
 
-          <Animated.View style={[styles.authBlock, makeEnterStyle(authAnim, 24, 0.985)]}>
-            <Text style={styles.authTitle}>{t('landingAuthTitle')}</Text>
-            <Text style={styles.authSubtitle}>{t('landingAuthSubtitle')}</Text>
-
-            <Pressable
-              onPress={onOpenAuth}
-              style={({ pressed }) => [styles.primaryBtn, pressed && styles.primaryBtnPressed]}
-              accessibilityRole="button"
-              accessibilityLabel={t('landingContinueSignIn')}
-            >
-              <Text style={styles.primaryBtnText}>{t('landingContinueSignIn')}</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={onOpenAuth}
-              style={({ pressed }) => [styles.googleBtn, pressed && styles.googleBtnPressed]}
-              accessibilityRole="button"
-              accessibilityLabel={t('landingContinueGoogle')}
-            >
-              <Image source={getGoogleAsset()} style={styles.googleImage} resizeMode="contain" />
-            </Pressable>
-
-            <Text style={styles.legalNote}>
-              {t('landingLegal')}
-            </Text>
-          </Animated.View>
-        </ScrollView>
-      </SafeAreaView>
-    </View>
+      <View style={styles.belowGrid}>
+        {[
+          ['For YKI learners', 'Build exam confidence with realistic tasks and guided practice.'],
+          ['For professionals', 'Practise healthcare, service, and workplace conversations.'],
+          ['For organizations', 'Support employees, residents, and programme learners with scalable Finnish practice.'],
+        ].map(([title, body]) => (
+          <View key={title} style={[styles.infoCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Text style={[styles.infoTitle, { color: colors.cardText }]}>{title}</Text>
+            <Text style={[styles.infoBody, { color: colors.cardSub }]}>{body}</Text>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: '#0B1121',
-  },
-
-  safe: {
+  page: {
     flex: 1,
   },
-
-  scrollContent: {
-    paddingHorizontal: 22,
-    paddingBottom: 72,
-    flexGrow: 1,
+  pageContent: {
+    padding: 18,
+    gap: 18,
+    paddingBottom: 42,
   },
-
-  blobTop: {
-    position: 'absolute',
-    top: -80,
-    left: -90,
-    width: 280,
-    height: 280,
-    borderRadius: 140,
-    backgroundColor: 'rgba(79,127,255,0.12)',
-  },
-
-  blobBottom: {
-    position: 'absolute',
-    bottom: 40,
-    right: -120,
-    width: 320,
-    height: 320,
-    borderRadius: 160,
-    backgroundColor: 'rgba(167,139,250,0.10)',
-  },
-
-  centerGlow: {
-    position: 'absolute',
-    top: 210,
-    left: 30,
-    right: 30,
-    height: 240,
-    borderRadius: 120,
-    backgroundColor: 'rgba(79,127,255,0.05)',
-  },
-
-  logoRow: {
-    minHeight: 220,
+  heroShell: {
     position: 'relative',
-    overflow: 'visible',
-    marginBottom: 4,
+    overflow: 'hidden',
+    borderRadius: 34,
+    borderWidth: 1,
+    padding: 18,
+    minHeight: 640,
   },
-
-  logo: {
+  heroThemeToggle: {
     position: 'absolute',
-    left: '50%',
-    top: 0,
-    width: 460,
-    height: 300,
-    marginLeft: -230,
+    top: 16,
+    right: 16,
+    zIndex: 50,
+    elevation: 20,
+    width: 36,
+    height: 36,
+    borderRadius: 999,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000000',
+    shadowOpacity: 0.16,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
   },
-
-  hero: {
-    marginTop: 6,
+  heroThemeToggleText: {
+    fontSize: 18,
+    fontWeight: '900',
+    lineHeight: 22,
   },
-
-  tagPill: {
+  backdropWordWrap: {
+    position: 'absolute',
+    top: 88,
+    left: -22,
+    right: -22,
+    alignItems: 'center',
+  },
+  backdropWord: {
+    fontSize: 82,
+    fontWeight: '900',
+    letterSpacing: 4,
+  },
+  navbar: {
+    minHeight: 48,
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'flex-start',
-    borderWidth: 1,
-    borderColor: 'rgba(79,127,255,0.34)',
-    backgroundColor: 'rgba(79,127,255,0.08)',
-    borderRadius: 999,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    marginBottom: 16,
+    justifyContent: 'space-between',
+    gap: 14,
+    paddingRight: 44,
   },
-
-  tagDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: '#4F7FFF',
-    marginRight: 7,
-  },
-
-  tagText: {
-    color: '#9AAEFF',
-    fontSize: 11,
-    fontWeight: '700',
-    letterSpacing: 1.05,
-  },
-
-  title: {
-    color: '#FFFFFF',
-    fontSize: 39,
-    lineHeight: 45,
-    fontWeight: '700',
-    letterSpacing: -1.15,
-  },
-
-  titleHighlight: {
-    color: '#79A0FF',
-  },
-
-  subtitle: {
-    marginTop: 14,
-    color: 'rgba(232,238,255,0.72)',
-    fontSize: 15,
-    lineHeight: 24,
-    maxWidth: 620,
-  },
-
-  quickTagRow: {
+  brandRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: 18,
-    marginBottom: 24,
-  },
-
-  quickTag: {
-    borderRadius: 999,
-    backgroundColor: 'rgba(255,255,255,0.05)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
-    paddingHorizontal: 12,
-    paddingVertical: 7,
-    marginRight: 8,
-    marginBottom: 8,
-  },
-
-  quickTagText: {
-    color: '#D9E4FF',
-    fontSize: 12,
-    fontWeight: '600',
-  },
-
-  sectionCard: {
-    marginTop: 4,
-    borderRadius: 24,
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
-    backgroundColor: 'rgba(13,20,38,0.72)',
-    padding: 16,
-  },
-
-  sectionEyebrow: {
-    color: 'rgba(232,238,255,0.52)',
-    fontSize: 11,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    letterSpacing: 0.9,
-    marginBottom: 14,
-  },
-
-  featureList: {
+    alignItems: 'center',
     gap: 10,
   },
-
-  featureCard: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    borderWidth: 1,
-    borderRadius: 18,
-    padding: 14,
-  },
-
-  featureIconWrap: {
-    width: 48,
-    height: 48,
-    borderRadius: 15,
-    borderWidth: 1,
+  logoMark: {
+    width: 34,
+    height: 34,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 12,
   },
-
-  featureIcon: {
-    fontSize: 20,
-  },
-
-  featureBody: {
-    flex: 1,
-    paddingTop: 2,
-  },
-
-  featureLabel: {
-    color: '#F4F7FF',
-    fontSize: 14,
-    fontWeight: '700',
-    marginBottom: 4,
-  },
-
-  featureSub: {
-    color: 'rgba(232,238,255,0.56)',
-    fontSize: 12.5,
-    lineHeight: 18,
-  },
-
-  featureAccentMark: {
-    fontSize: 24,
-    lineHeight: 24,
-    paddingLeft: 8,
-    opacity: 0.9,
-  },
-
-  authBlock: {
-    marginTop: 18,
-    borderRadius: 24,
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
-    backgroundColor: 'rgba(255,255,255,0.05)',
-    padding: 16,
-  },
-
-  authTitle: {
+  logoText: {
     color: '#FFFFFF',
     fontSize: 17,
-    fontWeight: '700',
-    marginBottom: 6,
+    fontWeight: '900',
   },
-
-  authSubtitle: {
-    color: 'rgba(232,238,255,0.62)',
+  brandText: {
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  navLinks: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 18,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  navLink: {
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  navActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  loginText: {
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  navCta: {
+    minHeight: 36,
+    borderRadius: 999,
+    paddingHorizontal: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  navCtaText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  heroGrid: {
+    flexDirection: 'row',
+    gap: 20,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: 58,
+  },
+  heroCopy: {
+    flex: 1,
+    minWidth: 280,
+    maxWidth: 590,
+    gap: 18,
+  },
+  eyebrowPill: {
+    alignSelf: 'flex-start',
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  eyebrowText: {
+    fontSize: 11,
+    fontWeight: '900',
+    letterSpacing: 0.7,
+    textTransform: 'uppercase',
+  },
+  heroTitle: {
+    fontSize: 52,
+    lineHeight: 58,
+    fontWeight: '900',
+    letterSpacing: -1.3,
+  },
+  heroSubtitle: {
+    maxWidth: 560,
+    fontSize: 17,
+    lineHeight: 27,
+    fontWeight: '600',
+  },
+  ctaRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+    alignItems: 'center',
+  },
+  primaryCta: {
+    minHeight: 50,
+    borderRadius: 999,
+    paddingHorizontal: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  primaryCtaText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  primaryCtaArrow: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  secondaryCta: {
+    minHeight: 50,
+    borderRadius: 999,
+    borderWidth: 1,
+    paddingHorizontal: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  secondaryCtaText: {
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  proofRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  proofPill: {
+    borderWidth: 1,
+    borderRadius: 999,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+  },
+  proofText: {
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  heroVisual: {
+    flex: 1,
+    minWidth: 310,
+    minHeight: 430,
+    position: 'relative',
+  },
+  glowOne: {
+    position: 'absolute',
+    top: 30,
+    right: 50,
+    width: 220,
+    height: 220,
+    borderRadius: 999,
+    opacity: 0.22,
+  },
+  glowTwo: {
+    position: 'absolute',
+    bottom: 24,
+    left: 28,
+    width: 180,
+    height: 180,
+    borderRadius: 999,
+    opacity: 0.18,
+  },
+  floatCard: {
+    position: 'absolute',
+    borderRadius: 24,
+    padding: 18,
+    shadowColor: '#000000',
+    shadowOpacity: 0.18,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 14 },
+    elevation: 4,
+  },
+  roleplayCard: {
+    top: 28,
+    right: 28,
+    width: 280,
+    gap: 14,
+  },
+  ykiCard: {
+    left: 12,
+    bottom: 58,
+    width: 220,
+    gap: 8,
+  },
+  phraseCard: {
+    right: 12,
+    bottom: 8,
+    width: 230,
+    gap: 7,
+  },
+  cardTopRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  cardKicker: {
+    fontSize: 11,
+    fontWeight: '900',
+    letterSpacing: 0.7,
+    textTransform: 'uppercase',
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: '900',
+    marginTop: 2,
+  },
+  statusDot: {
+    width: 12,
+    height: 12,
+    borderRadius: 999,
+  },
+  dialogueBubble: {
+    borderRadius: 16,
+    padding: 12,
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '700',
+  },
+  waveRow: {
+    height: 72,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+  },
+  waveBar: {
+    width: 12,
+    borderRadius: 999,
+    opacity: 0.86,
+  },
+  bigMetric: {
+    fontSize: 34,
+    fontWeight: '900',
+  },
+  cardSmall: {
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '700',
+  },
+  progressTrack: {
+    height: 8,
+    borderRadius: 999,
+    overflow: 'hidden',
+    marginTop: 4,
+  },
+  progressFill: {
+    width: '72%',
+    height: '100%',
+    borderRadius: 999,
+  },
+  miniStatsCard: {
+    position: 'absolute',
+    top: 210,
+    left: 38,
+    borderWidth: 1,
+    borderRadius: 20,
+    padding: 14,
+    minWidth: 150,
+  },
+  statNumber: {
+    fontSize: 28,
+    fontWeight: '900',
+  },
+  statLabel: {
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  belowGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 14,
+  },
+  infoCard: {
+    flex: 1,
+    minWidth: 220,
+    borderWidth: 1,
+    borderRadius: 22,
+    padding: 18,
+    gap: 8,
+  },
+  infoTitle: {
+    fontSize: 17,
+    fontWeight: '900',
+  },
+  infoBody: {
     fontSize: 13,
     lineHeight: 20,
-    marginBottom: 14,
-  },
-
-  primaryBtn: {
-    minHeight: 56,
-    borderRadius: 17,
-    backgroundColor: '#4F7FFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 10,
-  },
-
-  primaryBtnPressed: {
-    opacity: 0.9,
-    transform: [{ scale: 0.995 }],
-  },
-
-  primaryBtnText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '700',
-  },
-
-  googleBtn: {
-    minHeight: 56,
-    borderRadius: 17,
-    backgroundColor: '#FFFFFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-  },
-
-  googleBtnPressed: {
-    opacity: 0.95,
-    transform: [{ scale: 0.995 }],
-  },
-
-  googleImage: {
-    width: 200,
-    height: 44,
-  },
-
-  legalNote: {
-    color: 'rgba(232,238,255,0.38)',
-    fontSize: 11,
-    textAlign: 'center',
-    lineHeight: 17,
-    paddingTop: 12,
+    fontWeight: '600',
   },
 });

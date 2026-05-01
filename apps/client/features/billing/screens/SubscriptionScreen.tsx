@@ -57,11 +57,71 @@ function pathwayFromOnboarding(intent?: string): CheckoutPathway {
   return 'yki';
 }
 
+type BillingStatusSnapshot = {
+  tier?: string;
+  billingTier?: string;
+  plan_key?: string;
+  planKey?: string;
+  is_trial?: boolean;
+  isTrial?: boolean;
+  is_active?: boolean;
+  isActive?: boolean;
+  cancel_at_period_end?: boolean;
+  cancelAtPeriodEnd?: boolean;
+  access_ends_at?: string | null;
+  accessEndsAt?: string | null;
+  trial_ends_at?: string | null;
+  trialEndsAt?: string | null;
+  expires_at?: string | null;
+  expiresAt?: string | null;
+  subscription_status?: string | null;
+  subscriptionStatus?: string | null;
+  access_source?: string | null;
+  accessSource?: string | null;
+};
+
+function unwrapStatusPayload(value: unknown): BillingStatusSnapshot {
+  const root = value && typeof value === 'object' ? value as Record<string, unknown> : {};
+  const data = root.data && typeof root.data === 'object' ? root.data as Record<string, unknown> : root;
+  const subscription = data.subscription && typeof data.subscription === 'object'
+    ? data.subscription as Record<string, unknown>
+    : data;
+  return subscription as BillingStatusSnapshot;
+}
+
+function firstText(...values: Array<unknown>): string | null {
+  for (const value of values) {
+    const text = String(value ?? '').trim();
+    if (text) return text;
+  }
+  return null;
+}
+
+function formatAccessDate(value?: string | null) {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
 export default function SubscriptionScreen() {
   const [tier, setTier] = useState<string>('free');
+  const [billingStatus, setBillingStatus] = useState<BillingStatusSnapshot | null>(null);
+  const [billingActionBusy, setBillingActionBusy] = useState(false);
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+  const isTrial = Boolean(billingStatus?.is_trial ?? billingStatus?.isTrial);
+  const cancelAtPeriodEnd = Boolean(billingStatus?.cancel_at_period_end ?? billingStatus?.cancelAtPeriodEnd);
+  const accessEndsAtRaw = firstText(
+    billingStatus?.access_ends_at,
+    billingStatus?.accessEndsAt,
+    billingStatus?.trial_ends_at,
+    billingStatus?.trialEndsAt,
+    billingStatus?.expires_at,
+    billingStatus?.expiresAt,
+  );
+  const accessEndsAtLabel = formatAccessDate(accessEndsAtRaw);
   const hasActiveSubscription = Boolean(tier && tier !== 'free');
 
   const onboardingIntent = useOnboardingSession((s) => s.intentType);
@@ -99,14 +159,19 @@ export default function SubscriptionScreen() {
     return tier.replaceAll('_', ' ');
   }, [t, tier]);
 
+  async function refreshBillingStatus() {
+    try {
+      const raw = await paymentService.getSubscriptionStatus();
+      const record = unwrapStatusPayload(raw);
+      setBillingStatus(record);
+      setTier(record.billingTier ?? record.billingTier ?? record.tier ?? record.plan_key ?? record.planKey ?? 'free');
+    } catch {
+      // Keep the previous UI state if refresh fails.
+    }
+  }
+
   useEffect(() => {
-    void paymentService
-      .getSubscriptionStatus()
-      .then((s: unknown) => {
-        const record = (s ?? {}) as { billingTier?: string; tier?: string };
-        setTier(record.billingTier ?? record.tier ?? 'free');
-      })
-      .catch(() => undefined);
+    void refreshBillingStatus();
   }, []);
 
   useEffect(() => {
@@ -149,6 +214,66 @@ export default function SubscriptionScreen() {
     } catch (e: unknown) {
       const message = e instanceof Error ? e.message : t('billingPurchaseUnavailableBody');
       Alert.alert(t('billingPurchaseUnavailableTitle'), message);
+    }
+  }
+
+  async function handleCancelTrial() {
+    if (billingActionBusy) return;
+    Alert.alert(
+      'Cancel trial?',
+      accessEndsAtLabel
+        ? `You will keep access until ${accessEndsAtLabel}. You will not be charged after the trial ends.`
+        : 'You will keep access until the trial or billing period ends. You will not be charged after cancellation takes effect.',
+      [
+        { text: 'Keep trial active', style: 'cancel' },
+        {
+          text: 'Cancel trial',
+          style: 'destructive',
+          onPress: () => {
+            void (async () => {
+              try {
+                setBillingActionBusy(true);
+                const raw = await paymentService.cancelSubscriptionTrial();
+                const record = unwrapStatusPayload(raw);
+                setBillingStatus(record);
+                const nextTier = record.billingTier ?? record.tier ?? record.plan_key ?? record.planKey ?? tier;
+                setTier(nextTier || 'free');
+                await refreshBillingStatus();
+                Alert.alert(
+                  'Trial cancelled',
+                  accessEndsAtLabel
+                    ? `You keep access until ${accessEndsAtLabel}. You will not be charged.`
+                    : 'You keep access until the trial or billing period ends. You will not be charged.',
+                );
+              } catch (e: unknown) {
+                const message = e instanceof Error ? e.message : 'Could not cancel the trial right now.';
+                Alert.alert('Cancellation failed', message);
+              } finally {
+                setBillingActionBusy(false);
+              }
+            })();
+          },
+        },
+      ],
+    );
+  }
+
+  async function handleReactivateSubscription() {
+    if (billingActionBusy) return;
+    try {
+      setBillingActionBusy(true);
+      const raw = await paymentService.reactivateSubscription();
+      const record = unwrapStatusPayload(raw);
+      setBillingStatus(record);
+      const nextTier = record.billingTier ?? record.tier ?? record.plan_key ?? record.planKey ?? tier;
+      setTier(nextTier || 'free');
+      await refreshBillingStatus();
+      Alert.alert('Trial active', 'Your trial or subscription renewal is active again.');
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : 'Could not reactivate the trial right now.';
+      Alert.alert('Reactivation failed', message);
+    } finally {
+      setBillingActionBusy(false);
     }
   }
 
@@ -204,6 +329,43 @@ export default function SubscriptionScreen() {
         <View style={[styles.currentPlan, { backgroundColor: palette.surface, borderColor: palette.border }]}>
           <Text style={[styles.currentPlanLabel, { color: palette.textMuted }]}>{t('billingCurrentPlanLabel')}</Text>
           <Text style={[styles.currentPlanTitle, { color: palette.text }]}>{currentPlanTitle}</Text>
+          {isTrial ? (
+            <Text style={[styles.currentPlanMeta, { color: palette.textMuted }]}>
+              {cancelAtPeriodEnd
+                ? `Trial cancelled${accessEndsAtLabel ? ` · Access until ${accessEndsAtLabel}` : ''}`
+                : `3-day trial active${accessEndsAtLabel ? ` · Renews after ${accessEndsAtLabel}` : ''}`}
+            </Text>
+          ) : accessEndsAtLabel ? (
+            <Text style={[styles.currentPlanMeta, { color: palette.textMuted }]}>
+              {cancelAtPeriodEnd ? `Renewal cancelled · Access until ${accessEndsAtLabel}` : `Access active until ${accessEndsAtLabel}`}
+            </Text>
+          ) : null}
+
+          {isTrial && !cancelAtPeriodEnd ? (
+            <Pressable
+              accessibilityRole="button"
+              disabled={billingActionBusy}
+              onPress={handleCancelTrial}
+              style={[styles.cancelButton, { borderColor: palette.border, opacity: billingActionBusy ? 0.6 : 1 }]}
+            >
+              <Text style={[styles.cancelButtonText, { color: palette.text }]}>
+                {billingActionBusy ? 'Updating…' : 'Cancel trial'}
+              </Text>
+            </Pressable>
+          ) : null}
+
+          {cancelAtPeriodEnd ? (
+            <Pressable
+              accessibilityRole="button"
+              disabled={billingActionBusy}
+              onPress={() => { void handleReactivateSubscription(); }}
+              style={[styles.reactivateButton, { backgroundColor: palette.primary, opacity: billingActionBusy ? 0.6 : 1 }]}
+            >
+              <Text style={[styles.reactivateButtonText, { color: textOnPrimary }]}>
+                {billingActionBusy ? 'Updating…' : 'Keep trial / reactivate'}
+              </Text>
+            </Pressable>
+          ) : null}
         </View>
       ) : null}
 
@@ -312,9 +474,14 @@ const styles = StyleSheet.create({
   heroEyebrow: { color: 'rgba(255,255,255,0.78)', fontSize: 11, fontWeight: '900', letterSpacing: 0.8 },
   heroTitle: { color: '#FFFFFF', fontSize: 26, fontWeight: '900', lineHeight: 32 },
   heroBody: { color: 'rgba(255,255,255,0.86)', fontSize: 14, lineHeight: 21 },
-  currentPlan: { borderRadius: 16, borderWidth: 1, padding: 14, gap: 3 },
+  currentPlan: { borderRadius: 16, borderWidth: 1, padding: 14, gap: 8 },
   currentPlanLabel: { fontSize: 12, fontWeight: '700' },
   currentPlanTitle: { fontSize: 15, fontWeight: '800' },
+  currentPlanMeta: { fontSize: 12, lineHeight: 17, fontWeight: '700' },
+  cancelButton: { alignSelf: 'flex-start', borderRadius: 999, borderWidth: 1, minHeight: 38, paddingHorizontal: 14, justifyContent: 'center' },
+  cancelButtonText: { fontSize: 13, fontWeight: '900' },
+  reactivateButton: { alignSelf: 'flex-start', borderRadius: 999, minHeight: 38, paddingHorizontal: 14, justifyContent: 'center' },
+  reactivateButtonText: { fontSize: 13, fontWeight: '900' },
   segmentWrap: { flexDirection: 'row', borderRadius: 999, borderWidth: 1, padding: 4, gap: 4 },
   segmentButton: { flex: 1, borderRadius: 999, paddingVertical: 10, alignItems: 'center', justifyContent: 'center', gap: 2 },
   segmentText: { fontSize: 13, fontWeight: '900' },
