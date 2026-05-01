@@ -1273,11 +1273,15 @@ def _build_session(*, user_id: str, spec: ScenarioSpec, level_band: str, display
 
     # Resolve a Finnish persona for this session. Deterministic per (user, session) so
     # a mid-session reload keeps the same name.
+    # Do not infer persona gender from spec.voice_profile here.
+    # Most scenario specs use yki_standard_female as a safe default, and using
+    # that as a gender preference forced nearly every roleplay to female.
+    # Persona selection should choose the speaker first; the selected persona
+    # then supplies the matching voice_profile.
     prefer_gender = None
-    if "male" in (spec.voice_profile or "").lower():
-        prefer_gender = "male"
-    elif "female" in (spec.voice_profile or "").lower():
-        prefer_gender = "female"
+    explicit_persona_gender = getattr(spec, "persona_gender", None)
+    if isinstance(explicit_persona_gender, str) and explicit_persona_gender.lower() in {"male", "female"}:
+        prefer_gender = explicit_persona_gender.lower()
     persona = pick_persona(
         scenario_id=spec.scenario_id,
         profession=spec.profession,

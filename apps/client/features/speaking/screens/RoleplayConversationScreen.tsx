@@ -33,6 +33,8 @@ import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import { SessionCompletion } from '../components/SessionCompletion';
 import type { TranscriptMessage } from '../types';
 
+const AUTO_PLAY_ROLEPLAY_OPENING_AUDIO = true;
+
 function messageId(prefix: string) {
   return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 }
@@ -495,6 +497,12 @@ export default function RoleplayConversationScreen({
   const [messages, setMessages] = useState<TranscriptMessage[]>([]);
   const [voiceProfile, setVoiceProfile] = useState('yki_standard_female');
   const [loading, setLoading] = useState(true);
+  const [pendingOpeningAudio, setPendingOpeningAudio] = useState<{
+    sessionId: string;
+    text: string;
+    voiceProfile?: string;
+  } | null>(null);
+  const openingAudioPlayedRef = useRef<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [currentTurn, setCurrentTurn] = useState(0);
   const [maxTurns, setMaxTurns] = useState(5);
@@ -522,6 +530,8 @@ export default function RoleplayConversationScreen({
 
   // ---- session start ----
   const startSession = useCallback(async (overrideScenarioId?: string) => {
+    await stopRoleplayAudioPlayback();
+
     setLoading(true);
     setError(null);
     setFeedbackReport(null);
@@ -530,6 +540,8 @@ export default function RoleplayConversationScreen({
     setCurrentTurn(0);
     setManualText('');
     setMessages([]);
+    setPendingOpeningAudio(null);
+    openingAudioPlayedRef.current = null;
     setShowTranscriptReport(false);
     try {
       // ── Issue #9 fix ────────────────────────────────────────────────────
@@ -560,10 +572,10 @@ export default function RoleplayConversationScreen({
         { id: messageId('assistant'), speaker: 'assistant', text: payload.openingText },
       ];
       setMessages(openingMessages);
-      await speakRoleplayText({
+      setPendingOpeningAudio({
+        sessionId: payload.sessionId,
         text: payload.openingText,
         voiceProfile: payload.voiceProfile,
-        onUnavailable: () => setRemoteAudioAvailable(false),
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to start roleplay');
@@ -572,6 +584,28 @@ export default function RoleplayConversationScreen({
       setLoading(false);
     }
   }, [contextLabel, entryMode, levelBand, profession, scenarioId]);
+
+  useEffect(() => {
+    if (!AUTO_PLAY_ROLEPLAY_OPENING_AUDIO) return;
+    if (loading) return;
+    if (!pendingOpeningAudio) return;
+    if (feedbackReport) return;
+
+    const key = `${pendingOpeningAudio.sessionId}:${pendingOpeningAudio.text}`;
+    if (openingAudioPlayedRef.current === key) return;
+    openingAudioPlayedRef.current = key;
+
+    const timer = setTimeout(() => {
+      void speakRoleplayText({
+        text: pendingOpeningAudio.text,
+        voiceProfile: pendingOpeningAudio.voiceProfile,
+        onUnavailable: () => setRemoteAudioAvailable(false),
+      });
+    }, 350);
+
+    return () => clearTimeout(timer);
+  }, [feedbackReport, loading, pendingOpeningAudio]);
+
 
   useEffect(() => {
     void startSession();

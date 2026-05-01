@@ -196,7 +196,16 @@ def _voice_profile_for_speaker(speaker_id: str) -> str:
 
 
 def _voice_hint_for_profile(voice_profile: str) -> str:
-    return "male" if "male" in voice_profile else "female"
+    normalized = (voice_profile or "").lower()
+
+    # Important: check female before male because "female" contains "male".
+    if "female" in normalized or "standard_female" in normalized or "-f-" in normalized or "_f_" in normalized:
+        return "female"
+
+    if "male" in normalized or "standard_male" in normalized or "-m-" in normalized or "_m_" in normalized:
+        return "male"
+
+    return "female"
 
 
 def _build_text_hash(
