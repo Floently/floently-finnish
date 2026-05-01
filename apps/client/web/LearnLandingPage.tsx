@@ -161,9 +161,6 @@ export default function LearnLandingPage() {
             <a href="#cities" className="fl-nav-link">{t('landingNavForCities')}</a>
           </div>
           <div className="fl-nav-actions">
-            <a href="#landing-language" className="fl-language-jump" aria-label="Jump to language selection">
-              🌐 Language
-            </a>
             <button type="button" onClick={goToLogin} className="fl-nav-signin">
               {t('landingNavSignIn')}
             </button>
@@ -330,6 +327,10 @@ export default function LearnLandingPage() {
               <a href={DEMO_URL} className="fl-cta-link fl-cta-link-dark">
                 {t('landingFinalContact')} →
               </a>
+              <div id="landing-language" className="fl-final-language" aria-label="Language selection">
+                <div className="fl-final-language-label">Language</div>
+                <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" compact />
+              </div>
             </div>
           </div>
         </div>
@@ -357,10 +358,6 @@ export default function LearnLandingPage() {
               <a href={DEMO_URL} className="fl-footer-link">{t('landingFooterContact')}</a>
             </div>
           </div>
-        </div>
-        <div id="landing-language" className="fl-footer-language" aria-label="Language selection">
-          <div className="fl-footer-language-label">Language</div>
-          <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" compact />
         </div>
         <div className="fl-footer-bottom">
           <span>{t('landingFooterCopyright').replace('{year}', String(new Date().getFullYear()))}</span>
@@ -911,6 +908,20 @@ function PageStyles() {
         gap: 12px;
         align-items: flex-start;
       }
+      .fl-final-language {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+      }
+      .fl-final-language-label {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: #5C7299;
+        text-transform: uppercase;
+      }
 
       /* ──── Footer ──── */
       .fl-footer {
@@ -963,23 +974,6 @@ function PageStyles() {
         transition: color 180ms ease;
       }
       .fl-footer-link:hover { color: #F5F9FF; }
-      .fl-footer-language {
-        max-width: 1280px;
-        margin: 32px auto 0;
-        padding: 24px 28px 0;
-        border-top: 1px solid rgba(245, 249, 255, 0.06);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-      }
-      .fl-footer-language-label {
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1.2px;
-        color: #F5F9FF;
-        text-transform: uppercase;
-      }
       .fl-footer-bottom {
         max-width: 1280px;
         margin: 20px auto 0;
@@ -1039,6 +1033,7 @@ function PageStyles() {
         .fl-trust-row { gap: 6px; }
         .fl-trust-pill { font-size: 11px; padding: 5px 10px; }
         .fl-footer-cols { grid-template-columns: 1fr; gap: 24px; }
+        .fl-final-language { justify-content: flex-start; }
       }
 
       /* Reduced motion */
