@@ -18,10 +18,12 @@
     "@react-navigation/elements": "^2.9.14",
     "@react-navigation/native": "^7.2.2",
     "expo": "~55.0.12",
+    "expo-application": "~7.0.8",
     "expo-asset": "^55.0.0",
     "expo-audio": "^55.0.0",
     "expo-auth-session": "~7.0.8",
     "expo-constants": "~55.0.14",
+    "expo-crypto": "~55.0.14",
     "expo-file-system": "~55.0.16",
     "expo-font": "~55.0.6",
     "expo-haptics": "~55.0.14",
@@ -57,5 +59,13 @@
     "eslint-config-expo": "~10.0.0",
     "typescript": "~5.9.3"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "autolinking": {
+      "searchPaths": [
+        "../../node_modules",
+        "./node_modules"
+      ]
+    }
+  }
 }

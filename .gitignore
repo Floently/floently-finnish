@@ -61,3 +61,6 @@ Thumbs.db
 # Local backend runtime/database persistence
 apps/backend/persistent/
 backups/backend-persistence-*/
+apps/backend/.env
+apps/backend/.env.backup.*
+*.backup.*
