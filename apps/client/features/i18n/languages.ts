@@ -55,7 +55,7 @@ export const ALL_LANGUAGE_CODES = [
   'ur',
 ] as const satisfies readonly AppLanguage[];
 
-export const ENABLED_LANGUAGE_CODES = ['fi', 'sv', 'en'] as const satisfies readonly AppLanguage[];
+export const ENABLED_LANGUAGE_CODES = ['fi', 'sv', 'ru', 'et', 'uk', 'ar', 'en', 'so', 'fa', 'zh', 'sq', 'ku', 'vi', 'bn', 'tr', 'tl', 'th', 'ne', 'es', 'ur'] as const satisfies readonly AppLanguage[];
 export const REVIEW_LANGUAGE_CODES = ['et', 'es', 'tr', 'ru', 'uk', 'ar', 'zh', 'ku', 'vi', 'bn', 'sq', 'tl', 'th', 'so', 'ne', 'fa', 'ur'] as const satisfies readonly AppLanguage[];
 
 export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
@@ -80,7 +80,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Russian',
     nativeLabel: 'Русский',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   et: {
@@ -88,7 +88,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Estonian',
     nativeLabel: 'Eesti',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   uk: {
@@ -96,7 +96,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Ukrainian',
     nativeLabel: 'Українська',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   ar: {
@@ -104,7 +104,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Arabic',
     nativeLabel: 'العربية',
     direction: 'rtl',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   en: {
@@ -120,7 +120,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Somali',
     nativeLabel: 'Soomaali',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   fa: {
@@ -128,7 +128,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Persian',
     nativeLabel: 'فارسی',
     direction: 'rtl',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   zh: {
@@ -136,7 +136,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Chinese',
     nativeLabel: '中文',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   sq: {
@@ -144,7 +144,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Albanian',
     nativeLabel: 'Shqip',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   ku: {
@@ -152,7 +152,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Kurdish',
     nativeLabel: 'Kurdî',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   vi: {
@@ -160,7 +160,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Vietnamese',
     nativeLabel: 'Tiếng Việt',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   bn: {
@@ -168,7 +168,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Bengali',
     nativeLabel: 'বাংলা',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   tr: {
@@ -176,7 +176,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Turkish',
     nativeLabel: 'Türkçe',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   tl: {
@@ -184,7 +184,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Tagalog',
     nativeLabel: 'Tagalog',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   th: {
@@ -192,7 +192,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Thai',
     nativeLabel: 'ไทย',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   ne: {
@@ -200,7 +200,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Nepali',
     nativeLabel: 'नेपाली',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   es: {
@@ -208,7 +208,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Spanish',
     nativeLabel: 'Español',
     direction: 'ltr',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
   ur: {
@@ -216,7 +216,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     label: 'Urdu',
     nativeLabel: 'اردو',
     direction: 'rtl',
-    enabled: false,
+    enabled: true,
     translationStatus: 'in_progress',
   },
 };
