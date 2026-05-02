@@ -56,7 +56,7 @@ export const ALL_LANGUAGE_CODES = [
 ] as const satisfies readonly AppLanguage[];
 
 export const ENABLED_LANGUAGE_CODES = ['fi', 'sv', 'en'] as const satisfies readonly AppLanguage[];
-export const REVIEW_LANGUAGE_CODES = ['et', 'es', 'tr', 'ru', 'uk', 'vi', 'sq', 'tl', 'so'] as const satisfies readonly AppLanguage[];
+export const REVIEW_LANGUAGE_CODES = ['et', 'es', 'tr', 'ru', 'uk', 'ar', 'vi', 'sq', 'tl', 'so', 'fa'] as const satisfies readonly AppLanguage[];
 
 export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
   fi: {
@@ -105,7 +105,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'العربية',
     direction: 'rtl',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   en: {
     flag: '🇬🇧',
@@ -129,7 +129,7 @@ export const LANGUAGE_META: Record<AppLanguage, LanguageMeta> = {
     nativeLabel: 'فارسی',
     direction: 'rtl',
     enabled: false,
-    translationStatus: 'fallback',
+    translationStatus: 'in_progress',
   },
   zh: {
     flag: '🇨🇳',
