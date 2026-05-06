@@ -13,6 +13,7 @@ services:
       - ${GOOGLE_KEYS_DIR:-./ops/keys}:/keys:ro
       - ./apps/backend/persistent/puhis.db:/app/puhis.db
       - ./apps/backend/persistent/runtime:/app/runtime
+      - ./apps/backend/card_bank/canonical_bank:/app/card_bank/canonical_bank:ro
     ports:
       - '8000:8000'
   client:

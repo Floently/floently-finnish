@@ -47,6 +47,7 @@ export type CardFilters = {
   level?: string | null;
   adaptive?: boolean;
   source?: string | null;
+  language?: string | null;
 };
 
 function contentTypeForMode(mode: CardMode): 'vocabulary_card' | 'sentence_card' | 'grammar_card' {
@@ -79,6 +80,10 @@ export type RuntimeCard = {
   served_follow_up: ServedFollowUp;
   explanation?: string | null;
   hint?: string | null;
+  ui_language?: string | null;
+  overlay_applied?: boolean;
+  overlay_language?: string | null;
+  overlay_item_count?: number;
 };
 
 type SessionState = { session_id: string; status: string; total_cards: number };
@@ -97,7 +102,14 @@ function mapCard(card: BackendCard | null | undefined): RuntimeCard | null {
 function requireCard(card: BackendCard | null | undefined, context: string): RuntimeCard { const mapped = mapCard(card); if (!mapped) throw new Error(`${context}: no card data returned`); return mapped; }
 
 export async function startCardSession(filters: CardFilters): Promise<{ session: SessionState; firstCard: RuntimeCard }> {
-  const params = new URLSearchParams({ domain: filters.domain, content_type: contentTypeForMode(filters.mode), ...(filters.profession ? { profession: filters.profession } : {}), ...(filters.level ? { level: filters.level } : {}), ...(filters.source ? { source: filters.source } : {}) });
+  const params = new URLSearchParams({
+    domain: filters.domain,
+    content_type: contentTypeForMode(filters.mode),
+    ...(filters.profession ? { profession: filters.profession } : {}),
+    ...(filters.level ? { level: filters.level } : {}),
+    ...(filters.source ? { source: filters.source } : {}),
+    ...(filters.language ? { ui_language: filters.language } : {}),
+  });
   const res = await apiClient.get<{ session: SessionState; first_card: BackendCard }>(`/cards/session/adaptive/start?${params.toString()}`);
   if (!res.ok || !res.data) throw new Error(friendlyCardError(res.error));
   return { session: res.data.session, firstCard: requireCard(res.data.first_card, 'startCardSession') };
@@ -116,7 +128,14 @@ export async function skipCard(sessionId: string): Promise<{ nextCard: RuntimeCa
 }
 
 export async function getDeckCards(filters: CardFilters): Promise<RuntimeCard[]> {
-  const params = new URLSearchParams({ domain: filters.domain, content_type: contentTypeForMode(filters.mode), ...(filters.profession ? { profession: filters.profession } : {}), ...(filters.level ? { level: filters.level } : {}), ...(filters.source ? { source: filters.source } : {}) });
+  const params = new URLSearchParams({
+    domain: filters.domain,
+    content_type: contentTypeForMode(filters.mode),
+    ...(filters.profession ? { profession: filters.profession } : {}),
+    ...(filters.level ? { level: filters.level } : {}),
+    ...(filters.source ? { source: filters.source } : {}),
+    ...(filters.language ? { ui_language: filters.language } : {}),
+  });
   const res = await apiClient.get<{ cards: BackendCard[] }>(`/cards/deck?${params.toString()}`);
   if (!res.ok || !res.data) return [];
   return (res.data.cards ?? []).map((c) => mapCard(c)).filter((c): c is RuntimeCard => c !== null);
@@ -136,8 +155,24 @@ function fallbackCoachHint(card: RuntimeCard): string {
 }
 
 export async function requestCardCoachHint(card: RuntimeCard): Promise<string> {
-  const res = await apiClient.post<any>('/cards/coach/hint', { card_id: card.id, front_text: card.front_text, prompt: card.back_prompt, content_type: card.served_follow_up?.variant_type || null });
-  if (res.ok && typeof res.data?.hint === 'string' && res.data.hint.trim()) return res.data.hint.trim();
+  const options = (card.served_follow_up?.options ?? [])
+    .map((option) => option.text)
+    .filter((text): text is string => typeof text === 'string' && text.trim().length > 0);
+
+  const res = await apiClient.post<any>('/cards/coach/hint', {
+    card_id: card.id,
+    front_text: card.front_text,
+    prompt: card.back_prompt || card.served_follow_up?.prompt || '',
+    content_type: card.served_follow_up?.variant_type || null,
+    ui_language: card.ui_language || card.overlay_language || null,
+    existing_hint: card.hint || null,
+    options,
+  });
+
+  if (res.ok && typeof res.data?.hint === 'string' && res.data.hint.trim()) {
+    return res.data.hint.trim();
+  }
+
   return fallbackCoachHint(card);
 }
 

@@ -47,10 +47,17 @@ def _candidate_paths() -> Iterable[Path]:
         pass
 
 
-_FALLBACK_REGISTRY: list[dict[str, Any]] = [
-    # Minimal fallback so the app works even if the JSON isn't found at runtime.
+_FALLBACK_REGISTRY: list[dict[str, Any]]= [
     {"id": "fi-f-001", "firstName": "Liisa", "lastName": "Korhonen", "gender": "female", "title": None, "scenarios": [], "professions": ["general"], "voiceProfile": "yki_standard_female", "ageBand": "senior"},
     {"id": "fi-m-001", "firstName": "Matti", "lastName": "Virtanen", "gender": "male", "title": None, "scenarios": [], "professions": ["general"], "voiceProfile": "yki_standard_male", "ageBand": "adult"},
+    {"id": "fi-f-002", "firstName": "Aino", "lastName": "Nieminen", "gender": "female", "title": None, "scenarios": [], "professions": ["general", "nurse", "practical_nurse"], "voiceProfile": "yki_warm_female", "ageBand": "adult"},
+    {"id": "fi-m-002", "firstName": "Jari", "lastName": "Lahtinen", "gender": "male", "title": None, "scenarios": [], "professions": ["general", "doctor"], "voiceProfile": "yki_standard_male", "ageBand": "adult"},
+    {"id": "fi-f-003", "firstName": "Sari", "lastName": "Mäkinen", "gender": "female", "title": None, "scenarios": [], "professions": ["general", "recruiter"], "voiceProfile": "yki_standard_female", "ageBand": "adult"},
+    {"id": "fi-m-003", "firstName": "Antti", "lastName": "Salonen", "gender": "male", "title": None, "scenarios": [], "professions": ["general", "workplace"], "voiceProfile": "yki_warm_male", "ageBand": "adult"},
+    {"id": "fi-f-004", "firstName": "Laura", "lastName": "Heikkinen", "gender": "female", "title": None, "scenarios": [], "professions": ["general", "doctor", "nurse"], "voiceProfile": "yki_young_female", "ageBand": "young_adult"},
+    {"id": "fi-m-004", "firstName": "Pekka", "lastName": "Hämäläinen", "gender": "male", "title": None, "scenarios": [], "professions": ["general"], "voiceProfile": "yki_senior_male", "ageBand": "senior"},
+    {"id": "fi-f-005", "firstName": "Elina", "lastName": "Koskinen", "gender": "female", "title": None, "scenarios": [], "professions": ["general", "customer_service"], "voiceProfile": "yki_warm_female", "ageBand": "adult"},
+    {"id": "fi-m-005", "firstName": "Mikko", "lastName": "Rantanen", "gender": "male", "title": None, "scenarios": [], "professions": ["general", "customer_service"], "voiceProfile": "yki_standard_male", "ageBand": "adult"},
 ]
 
 

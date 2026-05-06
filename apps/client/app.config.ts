@@ -1,6 +1,6 @@
 import type { ExpoConfig, ConfigContext } from 'expo/config';
 
-const appJson = require('./app.json');
+const appJson = require('./app.base.json');
 
 function getGoogleIosScheme(clientId?: string) {
   if (!clientId) {
@@ -18,6 +18,9 @@ export default function config(_: ConfigContext): ExpoConfig {
     };
   };
 
+  const apiBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL?.trim() || 'https://learn-api.floently.com';
+  const audioBaseUrl = process.env.EXPO_PUBLIC_AUDIO_BASE_URL?.trim() || apiBaseUrl;
+
   const googleOAuth = {
     iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID?.trim() || undefined,
     androidClientId: process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID?.trim() || undefined,
@@ -28,12 +31,23 @@ export default function config(_: ConfigContext): ExpoConfig {
     (entry) => entry?.CFBundleURLName !== 'GoogleSignIn',
   );
 
+  const basePlugins = baseExpo.plugins ?? [];
+  const plugins = basePlugins.some(
+    (plugin) => plugin === 'expo-image' || (Array.isArray(plugin) && plugin[0] === 'expo-image'),
+  )
+    ? basePlugins
+    : [...basePlugins, 'expo-image'];
+
   return {
     ...baseExpo,
+    plugins,
     extra: {
       ...(baseExpo.extra ?? {}),
+      apiBaseUrl,
+      audioBaseUrl,
       googleOAuth,
     },
+
     ios: {
       ...(baseExpo.ios ?? {}),
       infoPlist: {

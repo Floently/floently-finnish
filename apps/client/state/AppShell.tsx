@@ -307,6 +307,9 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === 'learning' || screen === 'daily-practice') {
       return !isPreview && Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        subscriptionStatus?.hasAnySubscription ||
+        subscriptionStatus?.isActive ||
         entitlements.learnAccess ||
         entitlements.ykiAccess ||
         entitlements.professionalAccess
@@ -315,7 +318,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === 'speaking-practice') {
       if (isPreview) return previewPath === 'doctor' || previewPath === 'nurse' || previewPath === 'practical_nurse';
-      return entitlements.learnAccess;
+      return Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        subscriptionStatus?.hasAnySubscription ||
+        subscriptionStatus?.isActive ||
+        entitlements.learnAccess ||
+        entitlements.ykiAccess ||
+        entitlements.professionalAccess
+      );
     }
 
     if (screen === 'yki-practice') {
@@ -330,7 +340,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
     if (screen === 'professional-finnish') {
       if (isPreview) return previewPath === 'doctor' || previewPath === 'nurse' || previewPath === 'practical_nurse';
-      return entitlements.professionalAccess;
+      return Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        subscriptionStatus?.hasAnySubscription ||
+        subscriptionStatus?.isActive ||
+        entitlements.professionalAccess
+      );
     }
 
     return true;

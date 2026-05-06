@@ -11,7 +11,7 @@ try:
 except Exception:  # pragma: no cover - fallback for older path modules
     CARD_BANK_CANONICAL_DIR = Path(__file__).resolve().parents[2] / "card_bank" / "canonical_bank"
 
-PUBLISHED_DIR = CARD_BANK_CANONICAL_DIR / "published"
+PUBLISHED_DIR = CARD_BANK_CANONICAL_DIR / "validated"
 ACCEPTED_ITEMS_PATH = CARD_BANK_CANONICAL_DIR / "reports" / "accepted_items.jsonl"
 
 SUPPORTED_CONTENT_TYPES = {"vocabulary_card", "sentence_card", "phrase_card", "grammar_card"}

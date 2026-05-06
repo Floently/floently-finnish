@@ -69,12 +69,80 @@ const PATHWAYS: Array<{ id: CheckoutPathway; titleKey: TranslationKey; eyebrowKe
   },
 ];
 
+
+type BillingStatusSnapshot = {
+  subscription_status?: string | null;
+  subscriptionStatus?: string | null;
+  access_expired?: boolean;
+  accessExpired?: boolean;
+  has_any_subscription?: boolean;
+  hasAnySubscription?: boolean;
+  has_payment_issue?: boolean;
+  hasPaymentIssue?: boolean;
+  payment_issue_message?: string | null;
+  paymentIssueMessage?: string | null;
+  trial_used?: boolean;
+  trialUsed?: boolean;
+  can_start_trial?: boolean;
+  canStartTrial?: boolean;
+  trial_already_used?: boolean;
+  trialAlreadyUsed?: boolean;
+  tier?: string;
+  billingTier?: string;
+  billing_tier?: string;
+  plan_key?: string;
+  planKey?: string;
+  is_trial?: boolean;
+  isTrial?: boolean;
+  is_active?: boolean;
+  isActive?: boolean;
+  cancel_at_period_end?: boolean;
+  cancelAtPeriodEnd?: boolean;
+  access_ends_at?: string | null;
+  accessEndsAt?: string | null;
+  trial_ends_at?: string | null;
+  trialEndsAt?: string | null;
+  expires_at?: string | null;
+  expiresAt?: string | null;
+};
+
+function unwrapStatusPayload(value: unknown): BillingStatusSnapshot {
+  const root = value && typeof value === 'object' ? value as Record<string, unknown> : {};
+  const data = root.data && typeof root.data === 'object' ? root.data as Record<string, unknown> : root;
+  const subscription = data.subscription && typeof data.subscription === 'object'
+    ? data.subscription as Record<string, unknown>
+    : data;
+  return subscription as BillingStatusSnapshot;
+}
+
+function firstText(...values: Array<unknown>): string | null {
+  for (const value of values) {
+    const text = String(value ?? '').trim();
+    if (text) return text;
+  }
+  return null;
+}
+
+function isTrialAlreadyUsedError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error ?? '');
+  return /TRIAL_ALREADY_USED|trial already used|already used your trial|already used the free trial/i.test(message);
+}
+
+function formatAccessDate(value?: string | null) {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
 type Props = { onBack: () => void; onOpenMenu: () => void };
 
 export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const [busyPlan, setBusyPlan] = useState<string | null>(null);
   const [trialBusy, setTrialBusy] = useState(false);
   const [portalBusy, setPortalBusy] = useState(false);
+  const [billingStatusSnapshot, setBillingStatusSnapshot] = useState<BillingStatusSnapshot | null>(null);
+  const [billingActionBusy, setBillingActionBusy] = useState(false);
   const [period, setPeriod] = useState<BillingPeriod>('yearly');
   const [selectedProfessions, setSelectedProfessions] = useState<ProfessionKey[]>(['nurse']);
   const user = useAuthStore((state) => state.user);
@@ -82,18 +150,136 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const textOnPrimary = themeMode === 'dark' ? palette.background : '#FFFFFF';
+  const { t } = useTranslator();
   const hydrateSubscription = useSubscriptionStore((state) => state.hydrate);
   const refreshSubscription = useSubscriptionStore((state) => state.refresh);
   const subscription = useSubscriptionStore((state) => state.status);
-  const hasActiveSubscription = Boolean(
-    subscription &&
-    !subscription.isPreview &&
-    String(subscription.planLabel ?? '').trim() &&
-    !String(subscription.planLabel ?? '').toLowerCase().includes('free')
+  const statusForBillingUi = billingStatusSnapshot ?? (subscription as unknown as BillingStatusSnapshot | null);
+  const isTrial = Boolean(statusForBillingUi?.is_trial ?? statusForBillingUi?.isTrial);
+  const cancelAtPeriodEnd = Boolean(statusForBillingUi?.cancel_at_period_end ?? statusForBillingUi?.cancelAtPeriodEnd);
+  const rawSubscriptionStatus = String(
+    statusForBillingUi?.subscription_status ??
+      statusForBillingUi?.subscriptionStatus ??
+      '',
+  ).toLowerCase();
+  const hasPaymentIssue = Boolean(
+    statusForBillingUi?.has_payment_issue ??
+      statusForBillingUi?.hasPaymentIssue ??
+      ['past_due', 'unpaid', 'incomplete', 'incomplete_expired', 'canceled'].includes(rawSubscriptionStatus),
   );
+  const paymentIssueMessage =
+    statusForBillingUi?.payment_issue_message ??
+    statusForBillingUi?.paymentIssueMessage ??
+    t('billingPaymentFailedBody');
+  const accessEndsAtRaw = firstText(
+    statusForBillingUi?.access_ends_at,
+    statusForBillingUi?.accessEndsAt,
+    statusForBillingUi?.trial_ends_at,
+    statusForBillingUi?.trialEndsAt,
+    statusForBillingUi?.expires_at,
+    statusForBillingUi?.expiresAt,
+  );
+  const accessEndsAtLabel = formatAccessDate(accessEndsAtRaw);
+  const accessExpired = Boolean(
+    statusForBillingUi?.access_expired ??
+      statusForBillingUi?.accessExpired ??
+      (accessEndsAtRaw ? new Date(accessEndsAtRaw).getTime() <= Date.now() : false)
+  );
+
+  const hasActiveSubscription = Boolean(
+    (statusForBillingUi?.is_active ??
+      statusForBillingUi?.isActive ??
+      statusForBillingUi?.has_any_subscription ??
+      statusForBillingUi?.hasAnySubscription) &&
+      !hasPaymentIssue &&
+      !accessExpired &&
+      !['expired', 'past_due', 'unpaid', 'incomplete', 'incomplete_expired', 'canceled'].includes(rawSubscriptionStatus)
+  );
+
+  const trialAlreadyUsed = Boolean(
+    statusForBillingUi?.trial_already_used ??
+      statusForBillingUi?.trialAlreadyUsed ??
+      statusForBillingUi?.trial_used ??
+      statusForBillingUi?.trialUsed
+  );
+  const canStartTrial = Boolean(
+    statusForBillingUi?.can_start_trial ??
+      statusForBillingUi?.canStartTrial ??
+      !trialAlreadyUsed
+  );
+  const trialActionDisabled = Boolean(hasActiveSubscription || trialAlreadyUsed || !canStartTrial || trialBusy);
+  const showTrialStartCard = Boolean(!hasPaymentIssue && !trialAlreadyUsed && canStartTrial && !hasActiveSubscription);
+
+  const trialEndRawForManagement =
+    statusForBillingUi?.trial_ends_at ??
+    statusForBillingUi?.trialEndsAt ??
+    accessEndsAtRaw;
+
+  const trialEndsAtLabel = formatAccessDate(trialEndRawForManagement);
+  const trialDaysLeft = (() => {
+    const raw = trialEndRawForManagement;
+    if (!raw) return null;
+    const end = new Date(raw);
+    if (Number.isNaN(end.getTime())) return null;
+    const diffMs = end.getTime() - Date.now();
+    return Math.max(0, Math.ceil(diffMs / 86400000));
+  })();
+
+  const subscriptionManagementStatus = hasPaymentIssue
+    ? t('billingPaymentFailedTitle')
+    : trialAlreadyUsed && !hasActiveSubscription
+      ? t('billingTrialAlreadyUsedTitle')
+      : accessExpired && !hasActiveSubscription
+        ? t('billingAccessExpiredTitle')
+        : isTrial
+          ? cancelAtPeriodEnd
+            ? t('billingTrialCancelledStatus')
+            : t('billingTrialActiveStatus')
+          : cancelAtPeriodEnd
+            ? t('billingRenewalCancelledStatus')
+            : hasActiveSubscription
+              ? t('billingStatusSubscriptionActive')
+              : t('billingStatusNoActiveSubscription');
+
+  const subscriptionManagementBody = hasPaymentIssue
+    ? t('billingManagementPaymentFailedBody')
+    : trialAlreadyUsed && !hasActiveSubscription
+      ? t('billingTrialAlreadyUsedBody')
+      : accessExpired && !hasActiveSubscription
+        ? t('billingAccessExpiredBody')
+        : isTrial
+          ? cancelAtPeriodEnd
+            ? t('billingManagementTrialCancelledBody')
+            : t('billingManagementTrialActiveBody')
+          : cancelAtPeriodEnd
+            ? t('billingManagementRenewalCancelledBody')
+            : hasActiveSubscription
+              ? t('billingManagementSubscriptionActiveBody')
+              : t('billingManagementNoActiveBody');
+
+
+  const trialCardTitle = trialAlreadyUsed
+    ? t('billingTrialAlreadyUsedTitle')
+    : hasActiveSubscription
+      ? t('billingTrialAlreadyActiveTitle')
+      : trialBusy
+        ? t('billingStartingTrial')
+        : t('billingStartTrial');
+
+  const trialCardBody = trialAlreadyUsed
+    ? t('billingTrialAlreadyUsedBody')
+    : hasActiveSubscription
+      ? t('billingTrialActiveBody')
+      : t('billingPreviewBody');
+
+  const trialCardActionLabel = trialAlreadyUsed
+    ? t('billingTrialAlreadyUsedCta')
+    : hasActiveSubscription
+      ? t('billingTrialAlreadyActiveTitle')
+      : t('billingActivateTrial');
+
   const startPreview = useSubscriptionStore((state) => state.startPreview);
   const endPreview = useSubscriptionStore((state) => state.endPreview);
-  const { t } = useTranslator();
   const billingDisplayLabels = useMemo(() => ({
     billingPeriods: {
       monthly: t('billingPeriodMonthlyLabel'),
@@ -139,6 +325,11 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }, [hydrateSubscription, user?.email, user?.subscriptionTier]);
 
   useEffect(() => {
+    void refreshBillingSnapshot();
+  }, [user?.email, user?.subscriptionTier]);
+
+
+  useEffect(() => {
     if (subscription?.professions?.length) {
       setSelectedProfessions(subscription.professions);
     }
@@ -165,6 +356,71 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   const currentAccessLabel = subscription
     ? formatSubscriptionAccessLabel(subscription.accessType, billingDisplayLabels)
     : null;
+
+  async function refreshBillingSnapshot() {
+    try {
+      const raw = await paymentService.getSubscriptionStatus();
+      setBillingStatusSnapshot(unwrapStatusPayload(raw));
+      await refreshSubscription({
+        email: user?.email ?? null,
+        subscriptionTierHint: user?.subscriptionTier ?? null,
+      });
+    } catch {
+      // Keep existing subscription UI if the status refresh fails.
+    }
+  }
+
+  async function handleCancelTrial() {
+    if (billingActionBusy) return;
+    Alert.alert(
+      t('billingCancelTrialTitle'),
+      accessEndsAtLabel
+        ? t('billingCancelTrialBodyWithDate').replace('{date}', accessEndsAtLabel)
+        : t('billingCancelTrialBodyNoDate'),
+      [
+        { text: t('billingKeepTrialActive'), style: 'cancel' },
+        {
+          text: t('billingCancelTrialAction'),
+          style: 'destructive',
+          onPress: () => {
+            void (async () => {
+              try {
+                setBillingActionBusy(true);
+                const raw = await paymentService.cancelSubscriptionTrial();
+                setBillingStatusSnapshot(unwrapStatusPayload(raw));
+                await refreshBillingSnapshot();
+                Alert.alert(
+                  t('billingTrialCancelledTitle'),
+                  accessEndsAtLabel
+                    ? t('billingTrialCancelledBodyWithDate').replace('{date}', accessEndsAtLabel)
+                    : t('billingTrialCancelledBodyNoDate'),
+                );
+              } catch (error) {
+                Alert.alert(t('billingCancellationFailedTitle'), error instanceof Error ? error.message : t('billingCouldNotCancelTrial'));
+              } finally {
+                setBillingActionBusy(false);
+              }
+            })();
+          },
+        },
+      ],
+    );
+  }
+
+  async function handleReactivateSubscription() {
+    if (billingActionBusy) return;
+    try {
+      setBillingActionBusy(true);
+      const raw = await paymentService.reactivateSubscription();
+      setBillingStatusSnapshot(unwrapStatusPayload(raw));
+      await refreshBillingSnapshot();
+      Alert.alert(t('billingTrialActiveTitle'), t('billingTrialReactivatedBody'));
+    } catch (error) {
+      Alert.alert(t('billingReactivationFailedTitle'), error instanceof Error ? error.message : t('billingCouldNotReactivateTrial'));
+    } finally {
+      setBillingActionBusy(false);
+    }
+  }
 
   async function openUrl(url: string | undefined) {
     if (!url) {
@@ -233,6 +489,11 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   async function handleStartTrial() {
+    if (trialAlreadyUsed || !canStartTrial) {
+      Alert.alert(t('billingTrialAlreadyUsedRetryTitle'), t('billingTrialAlreadyUsedRetryBody'));
+      return;
+    }
+
     try {
       setTrialBusy(true);
       const latestStatus = await paymentService.getSubscriptionStatus();
@@ -252,7 +513,12 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
       await openUrl(session?.url ?? session?.checkout_url);
     } catch (error) {
-      Alert.alert(t('billingTrialUnavailableTitle'), error instanceof Error ? error.message : t('billingTrialUnavailableBody'));
+      if (isTrialAlreadyUsedError(error)) {
+        Alert.alert(t('billingTrialAlreadyUsedRetryTitle'), t('billingTrialAlreadyUsedRetryBody'));
+      } else {
+        const message = error instanceof Error ? error.message : t('billingPurchaseUnavailableBody');
+        Alert.alert(t('billingPurchaseUnavailableTitle'), message);
+      }
     } finally {
       setTrialBusy(false);
     }
@@ -299,8 +565,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         <PageHeader
           themeMode={themeMode}
           eyebrow={t('billingAccessEyebrow')}
-          title={t('billingHeaderTitle')}
-          subtitle={t('billingHeaderSubtitle')}
+          title={t('billingManagementPageTitle')}
+          subtitle={t('billingManagementPageSubtitle')}
           actionLabel={t('billingHomeAction')}
           onActionPress={onBack}
           onMenuPress={onOpenMenu}
@@ -312,18 +578,62 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         <Text style={styles.statusTitle}>{currentPlanLabel}</Text>
         <Text style={styles.statusBody}>{currentAccessSummary}</Text>
         {currentAccessLabel ? <Text style={styles.statusMeta}>{t('settingsAccessType')} - {currentAccessLabel}</Text> : null}
+        {hasPaymentIssue ? (
+          <View style={styles.paymentIssueCard}>
+            <Text style={styles.paymentIssueTitle}>{t('billingPaymentFailedTitle')}</Text>
+            <Text style={styles.paymentIssueBody}>{paymentIssueMessage}</Text>
+            <Text style={styles.paymentIssueBody}>{t('billingPaymentFailedBody')}</Text>
+          </View>
+        ) : null}
+
+        {!hasPaymentIssue && accessEndsAtLabel ? (
+          <Text style={styles.statusMeta}>
+            {isTrial
+              ? cancelAtPeriodEnd
+                ? `${t('billingTrialCancelledStatus')} — ${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}`
+                : `${t('billingTrialActiveStatus')} — ${t('billingRenewsAfterStatus')} ${accessEndsAtLabel}`
+              : cancelAtPeriodEnd
+                ? `${t('billingRenewalCancelledStatus')} — ${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}`
+                : `${t('billingAccessActiveUntilStatus')} ${accessEndsAtLabel}`}
+          </Text>
+        ) : null}
+        {!hasPaymentIssue && isTrial && !cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={handleCancelTrial}
+            style={[styles.billingTrialLifecycleButton, { opacity: billingActionBusy ? 0.6 : 1 }]}
+          >
+            <Text style={styles.billingTrialLifecycleText}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingCancelTrialAction')}
+            </Text>
+          </Pressable>
+        ) : null}
+        {!hasPaymentIssue && cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={() => { void handleReactivateSubscription(); }}
+            style={[styles.billingTrialLifecycleButton, { opacity: billingActionBusy ? 0.6 : 1 }]}
+          >
+            <Text style={styles.billingTrialLifecycleText}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingKeepTrialReactivate')}
+            </Text>
+          </Pressable>
+        ) : null}
       </View>
 
+      {showTrialStartCard ? (
       <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-        <Text style={[styles.portalTitle, { color: palette.text }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : trialBusy ? t('billingStartingTrial') : t('billingStartTrial')}</Text>
-        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{hasActiveSubscription ? t('billingTrialActiveBody') : t('billingPreviewBody')}</Text>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{trialCardTitle}</Text>
+        <Text style={[styles.portalBody, { color: palette.textMuted }]}>{trialCardBody}</Text>
         <Pressable
           accessibilityRole="button"
-          disabled={hasActiveSubscription}
+          disabled={trialActionDisabled}
           onPress={() => { void handleStartTrial(); }}
-          style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary, opacity: hasActiveSubscription ? 0.65 : 1 }, pressed && !hasActiveSubscription && styles.pressed]}
+          style={({ pressed }) => [styles.organisationCta, { backgroundColor: palette.primary, opacity: trialActionDisabled ? 0.65 : 1 }, pressed && !trialActionDisabled && styles.pressed]}
         >
-          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{hasActiveSubscription ? t('billingTrialAlreadyActiveTitle') : t('billingActivateTrial')}</Text>
+          <Text style={[styles.organisationCtaText, { color: textOnPrimary }]}>{trialCardActionLabel}</Text>
         </Pressable>
         <View style={styles.stack}>
           {PREVIEW_OPTIONS.map((option) => (
@@ -340,22 +650,90 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           ) : null}
         </View>
       </View>
+      ) : null}
 
-      {Platform.OS === 'web' ? (
-        <Pressable accessibilityRole="button" onPress={() => { void handlePortal(); }} style={({ pressed }) => [styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }, pressed && styles.pressed]}>
-          <Text style={[styles.portalTitle, { color: palette.text }]}>{portalBusy ? t('billingOpeningPortal') : t('billingManageSubscription')}</Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingPortalBody')}</Text>
-        </Pressable>
-      ) : (
-        <View style={[styles.portalButton, { backgroundColor: palette.surface, borderColor: palette.border }]}>
-          <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingManageSubscription')}</Text>
-          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingMobilePortalBody')}</Text>
+      <View style={[styles.subscriptionManagementCard, { backgroundColor: palette.surface, borderColor: palette.border }]}>
+        <Text style={[styles.portalTitle, { color: palette.text }]}>{t('billingSubscriptionManagementTitle')}</Text>
+        <Text style={[styles.portalBody, { color: palette.textMuted }]}>
+          {t('billingSubscriptionManagementBody')}
+        </Text>
+
+        <View style={[styles.subscriptionManagementSummary, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}>
+          <Text style={[styles.subscriptionManagementLabel, { color: palette.textMuted }]}>{t('billingCurrentStatusLabel')}</Text>
+          <Text style={[styles.subscriptionManagementValue, { color: hasPaymentIssue ? '#991B1B' : palette.text }]}>
+            {subscriptionManagementStatus}
+          </Text>
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>{subscriptionManagementBody}</Text>
         </View>
-      )}
+
+        {isTrial ? (
+          <View style={[styles.subscriptionManagementSummary, { backgroundColor: palette.surfaceMuted ?? palette.surface, borderColor: palette.border }]}>
+            <Text style={[styles.subscriptionManagementLabel, { color: palette.textMuted }]}>{t('billingTrialLabel')}</Text>
+            <Text style={[styles.subscriptionManagementValue, { color: palette.text }]}>
+              {trialDaysLeft === null ? t('billingTrialEndUnavailable') : trialDaysLeft === 1 ? t('billingTrialDayLeftLabel') : t('billingTrialDaysLeftLabel').replace('{count}', String(trialDaysLeft))}
+            </Text>
+            {trialEndsAtLabel ? (
+              <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t('billingTrialEndsOnLabel').replace('{date}', trialEndsAtLabel)}</Text>
+            ) : null}
+          </View>
+        ) : null}
+
+        {!hasPaymentIssue && isTrial && !cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={handleCancelTrial}
+            style={({ pressed }) => [
+              styles.subscriptionManagementAction,
+              { borderColor: '#FCA5A5', backgroundColor: '#FEF2F2', opacity: billingActionBusy ? 0.6 : 1 },
+              pressed && !billingActionBusy && styles.pressed,
+            ]}
+          >
+            <Text style={[styles.subscriptionManagementActionText, { color: '#991B1B' }]}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingCancelTrialAction')}
+            </Text>
+          </Pressable>
+        ) : null}
+
+        {!hasPaymentIssue && cancelAtPeriodEnd ? (
+          <Pressable
+            accessibilityRole="button"
+            disabled={billingActionBusy}
+            onPress={() => { void handleReactivateSubscription(); }}
+            style={({ pressed }) => [
+              styles.subscriptionManagementAction,
+              { borderColor: palette.border, backgroundColor: palette.primary, opacity: billingActionBusy ? 0.6 : 1 },
+              pressed && !billingActionBusy && styles.pressed,
+            ]}
+          >
+            <Text style={[styles.subscriptionManagementActionText, { color: textOnPrimary }]}>
+              {billingActionBusy ? t('billingUpdatingLabel') : t('billingKeepTrialReactivate')}
+            </Text>
+          </Pressable>
+        ) : null}
+
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => { void handlePortal(); }}
+          disabled={portalBusy}
+          style={({ pressed }) => [
+            styles.subscriptionManagementAction,
+            { borderColor: palette.border, backgroundColor: palette.surfaceMuted ?? palette.surface, opacity: portalBusy ? 0.65 : 1 },
+            pressed && !portalBusy && styles.pressed,
+          ]}
+        >
+          <Text style={[styles.subscriptionManagementActionText, { color: palette.text }]}>
+            {portalBusy ? t('billingOpeningPortal') : t('billingPaymentMethodStripeAction')}
+          </Text>
+          <Text style={[styles.portalBody, { color: palette.textMuted }]}>
+            {t('billingPaymentMethodStripeBody')}
+          </Text>
+        </Pressable>
+      </View>
 
       <View style={styles.sectionHeading}>
-        <Text style={[styles.sectionTitle, { color: palette.text }]}>{t('billingChoosePaidPathway')}</Text>
-        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>{t('billingPaidPathwayBody')}</Text>
+        <Text style={[styles.sectionTitle, { color: palette.text }]}>{t('billingChoosePlanAfterStatusTitle')}</Text>
+        <Text style={[styles.sectionBody, { color: palette.textMuted }]}>{t('billingChoosePlanAfterStatusBody')}</Text>
       </View>
 
       <View style={[styles.segmentWrap, { backgroundColor: palette.surface, borderColor: palette.border }]}>
@@ -425,6 +803,21 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 }
 
 const styles = StyleSheet.create({
+  billingTrialLifecycleButton: {
+    alignSelf: 'flex-start',
+    marginTop: 14,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.55)',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    backgroundColor: 'rgba(255,255,255,0.16)',
+  },
+  billingTrialLifecycleText: {
+    color: '#FFFFFF',
+    fontWeight: '800',
+    fontSize: 13,
+  },
   statusCard: { borderRadius: 24, padding: 18, gap: 8, shadowOpacity: 1, shadowRadius: 16, shadowOffset: { width: 0, height: 8 }, elevation: 2 },
   statusLabel: { color: 'rgba(255,255,255,0.82)', fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.7 },
   statusTitle: { color: '#FFFFFF', fontSize: 24, fontWeight: '800' },
@@ -464,4 +857,57 @@ const styles = StyleSheet.create({
   organisationCta: { minHeight: 42, borderRadius: 999, alignItems: 'center', justifyContent: 'center' },
   organisationCtaText: { fontWeight: '800' },
   pressed: { opacity: 0.92 },
+  subscriptionManagementCard: {
+    borderRadius: 22,
+    padding: 16,
+    gap: 12,
+    borderWidth: 1,
+  },
+  subscriptionManagementSummary: {
+    borderRadius: 18,
+    padding: 14,
+    gap: 6,
+    borderWidth: 1,
+  },
+  subscriptionManagementLabel: {
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+  },
+  subscriptionManagementValue: {
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  subscriptionManagementAction: {
+    borderRadius: 18,
+    borderWidth: 1,
+    padding: 14,
+    gap: 6,
+  },
+  subscriptionManagementActionText: {
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  paymentIssueCard: {
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: '#FCA5A5',
+    backgroundColor: '#FEF2F2',
+    padding: 14,
+    gap: 6,
+    marginTop: 10,
+  },
+  paymentIssueTitle: {
+    color: '#991B1B',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  paymentIssueBody: {
+    color: '#7F1D1D',
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+
 });

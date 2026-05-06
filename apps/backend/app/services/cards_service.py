@@ -7,6 +7,7 @@ from app.runtime.cards_logic import (
     answer_card as answer_card_logic,
     evaluate_card_answer,
     get_card_session,
+    get_card_hint_context as get_card_hint_context_logic,
     list_cards as list_cards_logic,
     next_card as next_card_logic,
     start_cards_session as start_cards_session_logic,
@@ -37,6 +38,7 @@ class CardsService:
         level: str | None,
         adaptive: bool = False,
         limit: int = 10,
+        ui_language: str | None = None,
     ) -> dict[str, Any]:
         return start_cards_session_logic(
             user_id=user_id,
@@ -46,6 +48,7 @@ class CardsService:
             level=level,
             adaptive=adaptive,
             limit=limit,
+            ui_language=ui_language,
         )
 
     def next_runtime_card(self, *, user_id: str, session_id: str) -> dict[str, Any]:
@@ -63,6 +66,7 @@ class CardsService:
         profession: str | None,
         level: str | None,
         source: str | None = None,
+        ui_language: str | None = None,
     ) -> dict[str, Any]:
         return list_cards_logic(
             user_id=user_id,
@@ -71,7 +75,12 @@ class CardsService:
             profession=profession,
             level=level,
             source=source,
+            ui_language=ui_language,
         )
+
+
+    def get_card_hint_context(self, *, card_id: str, ui_language: str | None = None) -> dict[str, Any] | None:
+        return get_card_hint_context_logic(card_id=card_id, ui_language=ui_language)
 
 
     def report_card_issue(self, *, user_id: str, card_id: str, reason: str, note: str | None = None, session_id: str | None = None) -> dict[str, Any]:

@@ -71,6 +71,14 @@ export default function HomeRoute({
   const professionalLabel = professionalSummaryLabel(entitlements?.professions, t);
   const bundle = subscriptionStatus?.plan.category === 'bundle';
   const isPreview = Boolean(subscriptionStatus?.isPreview);
+  const hasLearningAccess = Boolean(
+    subscriptionStatus?.isInternalAllAccess ||
+    subscriptionStatus?.hasAnySubscription ||
+    subscriptionStatus?.isActive ||
+    entitlements?.learnAccess ||
+    entitlements?.ykiAccess ||
+    entitlements?.professionalAccess,
+  );
 
   return (
     <HomeScreen
@@ -81,7 +89,12 @@ export default function HomeRoute({
       accessState={{
         learn: Boolean(entitlements?.learnAccess),
         yki: Boolean(entitlements?.ykiAccess),
-        professional: Boolean(entitlements?.professionalAccess),
+        professional: Boolean(
+          entitlements?.professionalAccess ||
+          subscriptionStatus?.isInternalAllAccess ||
+          subscriptionStatus?.hasAnySubscription ||
+          subscriptionStatus?.isActive
+        ),
         professionalLabel,
         activeContext,
         bundle,
@@ -96,6 +109,17 @@ export default function HomeRoute({
       }}
       onOpenMenu={onOpenMenu}
       onSelectMode={(mode) => {
+        console.info('[floently-nav] HomeRoute.onSelectMode', {
+          mode,
+          learnAccess: Boolean(entitlements?.learnAccess),
+          ykiAccess: Boolean(entitlements?.ykiAccess),
+          professionalAccess: Boolean(entitlements?.professionalAccess),
+          isInternalAllAccess: Boolean(subscriptionStatus?.isInternalAllAccess),
+          hasAnySubscription: Boolean(subscriptionStatus?.hasAnySubscription),
+          isActive: Boolean(subscriptionStatus?.isActive),
+          isPreview,
+          hasLearningAccess,
+        });
         switch (mode) {
           case 'billing':
             onOpenBilling();
@@ -104,7 +128,7 @@ export default function HomeRoute({
             onOpenHelp();
             break;
           case 'learn':
-            if (entitlements?.learnAccess && !isPreview) onOpenLearning();
+            if (hasLearningAccess) onOpenLearning();
             else onOpenBilling();
             break;
           case 'progress':
@@ -123,7 +147,8 @@ export default function HomeRoute({
             else onOpenBilling();
             break;
           case 'work':
-            if (entitlements?.learnAccess || entitlements?.professionalAccess) onOpenLearning();
+            if (entitlements?.professionalAccess || subscriptionStatus?.isInternalAllAccess || subscriptionStatus?.hasAnySubscription || subscriptionStatus?.isActive) onOpenProfessionalFinnish();
+            else if (hasLearningAccess) onOpenLearning();
             else onOpenBilling();
             break;
           case 'exam':

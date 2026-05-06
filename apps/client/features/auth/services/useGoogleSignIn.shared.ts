@@ -14,6 +14,14 @@ type GoogleConfig = {
   webClientId?: string;
 };
 
+function logGoogleAuthDebug(label: string, data: Record<string, unknown> = {}) {
+  try {
+    console.info(`[floently-google-auth] ${label}`, data);
+  } catch {
+    // no-op
+  }
+}
+
 function normalizeGoogleAuthError(message: string): string {
   const trimmed = message.trim();
   if (/access blocked/i.test(trimmed)) {
@@ -59,6 +67,12 @@ export type UseGoogleSignInResult = {
 export function useGoogleSignIn(): UseGoogleSignInResult {
   const [state, setState] = useState<GoogleSignInState>({ status: 'idle' });
   const config = readGoogleConfig();
+  logGoogleAuthDebug('config_loaded', {
+    platform: Platform.OS,
+    hasAndroidClientId: Boolean(config.androidClientId),
+    hasWebClientId: Boolean(config.webClientId),
+    hasIosClientId: Boolean(config.iosClientId),
+  });
 
   const platformClientId = Platform.select({
     ios: config.iosClientId,
@@ -92,7 +106,17 @@ export function useGoogleSignIn(): UseGoogleSignInResult {
 
     setState({ status: 'launching' });
     try {
+      logGoogleAuthDebug('prompt_start');
       const result = await promptAsync();
+      logGoogleAuthDebug('prompt_result', {
+        type: result.type,
+        paramsKeys: (result as any).params ? Object.keys((result as any).params) : [],
+        hasIdTokenParam: Boolean((result as any).params?.id_token),
+        hasAuthIdToken: Boolean((result as any).authentication?.idToken),
+        hasAccessToken: Boolean((result as any).authentication?.accessToken),
+        error: (result as any).error?.message ?? (result as any).params?.error ?? null,
+        errorDescription: (result as any).error?.description ?? (result as any).params?.error_description ?? null,
+      });
       if (result.type === 'cancel' || result.type === 'dismiss') {
         setState({ status: 'cancelled' });
         return null;
@@ -105,14 +129,18 @@ export function useGoogleSignIn(): UseGoogleSignInResult {
       const successResult = result as any;
       const idToken = successResult.params?.id_token ?? successResult.authentication?.idToken;
       if (!idToken) {
+        logGoogleAuthDebug('missing_id_token');
         setState({ status: 'failed', error: 'Google did not return an id_token. Check the OAuth client configuration.' });
         return null;
       }
+      logGoogleAuthDebug('exchange_start');
       const session = await exchangeGoogleIdToken(idToken);
+      logGoogleAuthDebug('exchange_success', { email: session.user.email });
       setState({ status: 'success', session });
       return session;
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
+      logGoogleAuthDebug('exception', { message });
       setState({ status: 'failed', error: normalizeGoogleAuthError(message) });
       return null;
     }

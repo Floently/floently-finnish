@@ -7,7 +7,7 @@ import tempfile
 import uuid
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from starlette.background import BackgroundTask
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.trustedhost import TrustedHostMiddleware
@@ -18,6 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
+from app.core.request_context import reset_request_headers, reset_request_path, set_request_headers, set_request_path
 from app.router import router as api_router
 from app.middleware.error_handlers import register_error_handlers
 from app.middleware.request_id import register_request_id_middleware
@@ -28,6 +29,17 @@ from app.services.auth_service import bootstrap_password_users
 from app.services.voice_service import get_tts_health_snapshot
 
 app = FastAPI(title="floently-finnish")
+
+@app.middleware("http")
+async def floently_request_context_middleware(request: Request, call_next):
+    headers_token = set_request_headers(dict(request.headers))
+    path_tokens = set_request_path(request.url.path, request.method)
+    try:
+        return await call_next(request)
+    finally:
+        reset_request_path(path_tokens)
+        reset_request_headers(headers_token)
+
 logger = logging.getLogger("floently.backend")
 app.add_middleware(
     CORSMiddleware,

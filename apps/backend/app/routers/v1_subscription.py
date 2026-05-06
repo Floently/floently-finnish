@@ -6,6 +6,7 @@ from fastapi import APIRouter, Header, Request
 
 from app.middleware.request_id import get_request_id
 from app.core.responses import success_payload
+from app.core.errors import AppError
 from app.services.auth_service import current_user_from_authorization
 from app.services.subscription_service import (
     PLAN_CATALOG,
@@ -55,6 +56,23 @@ def build_subscription_router() -> APIRouter:
         authorization: str | None = Header(default=None),
     ) -> dict[str, Any]:
         user, _ = current_user_from_authorization(authorization)
+        current_status = subscription_status(user=user)
+        if current_status.get("trial_used") or current_status.get("trialUsed"):
+            raise AppError(
+                409,
+                "TRIAL_ALREADY_USED",
+                "Trial already used. Choose a paid subscription to continue.",
+                False,
+                {
+                    "classification": "non_retryable",
+                    "trial_used": True,
+                    "trialUsed": True,
+                    "can_start_trial": False,
+                    "canStartTrial": False,
+                    "trial_already_used": True,
+                    "trialAlreadyUsed": True,
+                },
+            )
         # Trials are now started through Stripe Checkout so users enter payment
         # details first and are charged only after the 3-day trial ends.
         # Keep this endpoint as a harmless 200 response for older clients.
@@ -108,7 +126,8 @@ def build_subscription_router() -> APIRouter:
         user, _ = current_user_from_authorization(authorization)
         return success_payload(
             data={
-                "portal_url": billing_portal_url(user_id=user["user_id"]),
+                "url": billing_portal_url(user_id=user["user_id"]),
+                "portal_url": None,
                 "mode": "configured",
             },
             request_id=get_request_id(request),

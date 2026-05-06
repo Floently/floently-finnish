@@ -739,6 +739,9 @@ def _active_access_grant_for_user(user: dict[str, Any]) -> dict[str, Any] | None
 
 
 def _access_ends_at_for_user(user: dict[str, Any]) -> str | None:
+    status = _normalized_subscription_status(user)
+    if _is_payment_blocked_status(status):
+        return _safe_access_ends_at_for_user(user)
     return (
         user.get("access_ends_at")
         or user.get("current_period_end")
@@ -858,8 +861,13 @@ def _update_user_subscription_from_details(
 ) -> dict[str, Any]:
     tier = _subscription_tier_from_details(details)
     now_iso = utc_now().replace(microsecond=0).isoformat()
-    access_ends_at = current_period_end or subscription_expires_at or trial_ends_at
     status = subscription_status or ("trialing" if access_choice == "trial" else ("active" if tier != "free" else "free"))
+    if str(status or "").strip().lower() == "trialing":
+        access_ends_at = trial_ends_at or subscription_expires_at or current_period_end
+    elif _is_payment_blocked_status(status):
+        access_ends_at = None
+    else:
+        access_ends_at = subscription_expires_at or current_period_end or trial_ends_at
     payload: dict[str, Any] = {
         "access_choice": access_choice,
         "access_choice_at": now_iso,
@@ -1092,7 +1100,17 @@ def handle_stripe_event(event: Any) -> dict[str, Any]:
         subscription_id = str(obj_data.get("subscription") or "").strip() or None
         user = _find_user_for_subscription_event(subscription_id=subscription_id)
         if user:
-            _log_subscription_event("invoice_payment_failed", user=user, provider_event_id=event_id, metadata={"stripe_event_type": event_type, "subscription_id": subscription_id})
+            updated = dict(user)
+            updated["subscription_status"] = "past_due"
+            updated["access_ends_at"] = _safe_access_ends_at_for_user(updated)
+            saved, _ = auth_repository.AUTH_USERS.save_user(updated, overwrite_password=False)
+            STORE.write_snapshot()
+            _log_subscription_event(
+                "invoice_payment_failed",
+                user=saved,
+                provider_event_id=event_id,
+                metadata={"stripe_event_type": event_type, "subscription_id": subscription_id},
+            )
         return {"event_type": event_type, "handled": bool(user)}
     if event_type == "invoice.paid":
         subscription_id = str(getattr(obj, "subscription", None) or (obj.get("subscription") if isinstance(obj, dict) else "")).strip() or None
@@ -1125,12 +1143,130 @@ def _trial_active(user: dict[str, Any]) -> bool:
     return bool(trial_ends_at and trial_ends_at > utc_now())
 
 
+def _trial_used(user: dict[str, Any]) -> bool:
+    """True once a user has ever started or received a trial.
+
+    This is intentionally stricter than _trial_active. A used/expired/cancelled
+    trial still counts as used and must not be granted again.
+    """
+    if not isinstance(user, dict):
+        return False
+    return bool(
+        user.get("trial_started_at")
+        or user.get("trial_ends_at")
+        or str(user.get("access_choice") or "").strip().lower() == "trial"
+        or str(user.get("subscription_status") or "").strip().lower() == "trialing"
+    )
+
+
+def _can_start_trial(user: dict[str, Any]) -> bool:
+    return not _trial_used(user)
+
+
+def _trial_reuse_payload(user: dict[str, Any]) -> dict[str, Any]:
+    used = _trial_used(user)
+    can_start = not used
+    return {
+        "trial_used": used,
+        "trialUsed": used,
+        "can_start_trial": can_start,
+        "canStartTrial": can_start,
+        "trial_already_used": used,
+        "trialAlreadyUsed": used,
+    }
+
+
+def _raise_trial_already_used(user: dict[str, Any], *, context: str = "trial") -> None:
+    raise AppError(
+        409,
+        "TRIAL_ALREADY_USED",
+        "Trial already used. Choose a paid subscription to continue.",
+        False,
+        {
+            "classification": "non_retryable",
+            "context": context,
+            **_trial_reuse_payload(user),
+        },
+    )
+
+
 def _has_paid_access(user: dict[str, Any]) -> bool:
+    status = _normalized_subscription_status(user)
+    if _is_payment_blocked_status(status):
+        return False
     tier = str(user.get("subscription_tier") or "free").strip().lower()
     return tier != "free" and _is_subscription_active(user)
 
 
+PAYMENT_BLOCKED_STATUSES = {"past_due", "unpaid", "incomplete", "incomplete_expired", "canceled"}
+PAYMENT_WARNING_STATUSES = {"past_due", "unpaid", "incomplete", "incomplete_expired"}
+
+def _normalized_subscription_status(user: dict[str, Any]) -> str:
+    return str(user.get("subscription_status") or "").strip().lower()
+
+
+def _access_expired_for_user(user: dict[str, Any]) -> bool:
+    ends_at = (
+        parse_iso(user.get("current_period_end"))
+        or parse_iso(user.get("subscription_ends_at"))
+        or parse_iso(user.get("access_ends_at"))
+        or parse_iso(user.get("trial_ends_at"))
+    )
+    return bool(ends_at and ends_at <= utc_now())
+
+
+def _subscription_truth_flags(user: dict[str, Any]) -> dict[str, Any]:
+    raw_status = str(user.get("subscription_status") or "").strip().lower()
+    payment_blocked = _is_payment_blocked_status(raw_status)
+    expired = _access_expired_for_user(user)
+
+    paid_access = _has_paid_access(user)
+    trial_access = _has_trial_access(user)
+    active = bool((paid_access or trial_access) and not payment_blocked and not expired)
+
+    return {
+        "is_active": active,
+        "isActive": active,
+        "has_any_subscription": active,
+        "hasAnySubscription": active,
+        "access_expired": expired,
+        "accessExpired": expired,
+        "has_payment_issue": payment_blocked,
+        "hasPaymentIssue": payment_blocked,
+        "effective_tier": _effective_tier(user) if active else "free",
+        "effectiveTier": _effective_tier(user) if active else "free",
+    }
+
+
+def _is_payment_blocked_status(status: str | None) -> bool:
+    return str(status or "").strip().lower() in PAYMENT_BLOCKED_STATUSES
+
+def _is_payment_warning_status(status: str | None) -> bool:
+    return str(status or "").strip().lower() in PAYMENT_WARNING_STATUSES
+
+def _safe_access_ends_at_for_user(user: dict[str, Any]) -> str | None:
+    status = _normalized_subscription_status(user)
+    trial_ends_at = user.get("trial_ends_at")
+    if status == "trialing" and trial_ends_at:
+        return trial_ends_at
+    if _is_payment_blocked_status(status):
+        return trial_ends_at if status == "past_due" and trial_ends_at else None
+    if user.get("cancel_at_period_end") and trial_ends_at and status == "trialing":
+        return trial_ends_at
+    return user.get("subscription_expires_at") or user.get("current_period_end") or trial_ends_at
+
+def _payment_issue_payload(user: dict[str, Any]) -> dict[str, Any]:
+    status = _normalized_subscription_status(user)
+    return {
+        "has_payment_issue": _is_payment_warning_status(status),
+        "payment_status": status or None,
+        "payment_issue_message": "Payment failed. Please update your payment method to keep access." if _is_payment_warning_status(status) else None,
+    }
+
 def _has_trial_access(user: dict[str, Any]) -> bool:
+    status = _normalized_subscription_status(user)
+    if _is_payment_blocked_status(status):
+        return False
     # Paid access must always win over trial access.
     # Otherwise a user who started a trial and then paid can still be treated as trial.
     if _has_paid_access(user):
@@ -1139,6 +1275,9 @@ def _has_trial_access(user: dict[str, Any]) -> bool:
 
 
 def _effective_tier(user: dict[str, Any]) -> str:
+    status = _normalized_subscription_status(user)
+    if _is_payment_blocked_status(status):
+        return "free"
     if _has_trial_access(user):
         return "preview_yki"
     tier = str(user.get("subscription_tier") or "free")
@@ -1256,7 +1395,7 @@ def _pathway_for_tier(tier: str, yki_access: bool, professional_access: bool) ->
     return "free"
 
 
-def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
+def _subscription_status_base(*, user: dict[str, Any]) -> dict[str, Any]:
     user = _fresh_user_record(user)
 
     if _is_internal_all_access_user(user):
@@ -1379,6 +1518,7 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "role": user.get("role") or "user",
             "pathway": "yki",
             "plan_key": "preview_yki",
+            **_payment_issue_payload(user),
         }
 
     purchased_tier = str(user.get("subscription_tier") or "free")
@@ -1424,6 +1564,7 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
             "role": user.get("role") or "user",
             "pathway": "combined",
             "plan_key": "professional_premium",
+            **_payment_issue_payload(user),
         }
 
     effective_tier = _effective_tier(user)
@@ -1463,10 +1604,39 @@ def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
         "role": user.get("role") or "user",
         "pathway": pathway,
         "plan_key": effective_tier,
+        **_payment_issue_payload(user),
     }
 
 
+
+def subscription_status(*, user: dict[str, Any]) -> dict[str, Any]:
+    payload = _subscription_status_base(user=user)
+    trial_payload = _trial_reuse_payload(user)
+    truth_payload = _subscription_truth_flags(user)
+
+    payload.update(trial_payload)
+    payload.update(truth_payload)
+
+    nested = payload.get("subscription")
+    if isinstance(nested, dict):
+        nested.update(trial_payload)
+        nested.update(truth_payload)
+
+    if truth_payload.get("access_expired") and not truth_payload.get("is_active"):
+        payload["subscription_status"] = "expired"
+        payload["subscriptionStatus"] = "expired"
+        if isinstance(nested, dict):
+            nested["subscription_status"] = "expired"
+            nested["subscriptionStatus"] = "expired"
+
+    return payload
+
+
+
 def start_trial(*, user: dict[str, Any], trial_days: int = 3) -> dict[str, Any]:
+    if _trial_used(user):
+        _raise_trial_already_used(user, context="legacy_local_trial")
+
     # Never downgrade an already-paid/internal user into trial mode.
     if _is_internal_all_access_user(user) or _has_paid_access(user):
         return subscription_status(user=user)
@@ -1723,6 +1893,30 @@ def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[s
             )
 
     details = billing_checkout_details(payload=payload, user_id=user_id)
+    # trial_already_used_checkout_guard
+    user_for_trial_guard = auth_repository.AUTH_USERS.get_user_by_id(user_id) or {}
+    raw_checkout_payload = payload or {}
+    raw_plan_for_trial_guard = str(
+        raw_checkout_payload.get("plan")
+        or raw_checkout_payload.get("plan_id")
+        or raw_checkout_payload.get("planId")
+        or ""
+    ).strip()
+    explicit_trial_request = (
+        raw_plan_for_trial_guard == "trial_3day"
+        or "trial_days" in raw_checkout_payload
+        or "trialDays" in raw_checkout_payload
+    )
+    try:
+        requested_trial_days = int(details.get("trial_days") or 0)
+    except (TypeError, ValueError):
+        requested_trial_days = 0
+
+    if requested_trial_days > 0 and _trial_used(user_for_trial_guard):
+        if explicit_trial_request:
+            _raise_trial_already_used(user_for_trial_guard, context="stripe_checkout")
+        details = {**details, "trial_days": 0, "trial_already_used": True}
+
     if _stripe_enabled():
         selected_price_id = details.get("price_id")
         if not selected_price_id:
@@ -1821,13 +2015,36 @@ def billing_checkout_session(*, payload: dict[str, Any], user_id: str) -> dict[s
 
 
 def billing_portal_url(*, user_id: str) -> str:
-    base_url = SETTINGS.billing_portal_base_url
-    if not base_url:
+    if not _stripe_enabled():
         raise AppError(
             503,
             "BILLING_NOT_CONFIGURED",
-            "Billing portal is not configured for this deployment.",
+            "Stripe is not available in this deployment.",
             False,
             {"classification": "non_retryable"},
         )
-    return f"{base_url.rstrip('/')}?user={user_id}"
+    user = auth_repository.AUTH_USERS.get_user_by_id(user_id)
+    stripe_customer_id = (user or {}).get("stripe_customer_id") or None
+    if not stripe_customer_id:
+        raise AppError(
+            409,
+            "STRIPE_CUSTOMER_MISSING",
+            "No Stripe subscription is linked to this account yet. Please complete checkout first.",
+            False,
+            {"classification": "non_retryable"},
+        )
+    stripe.api_key = SETTINGS.stripe_secret_key
+    try:
+        session = stripe.billing_portal.Session.create(
+            customer=stripe_customer_id,
+            return_url="https://learn.floently.com/billing/subscription",
+        )
+    except Exception as exc:
+        raise AppError(
+            503,
+            "STRIPE_PORTAL_FAILED",
+            "Failed to create Stripe billing portal session.",
+            True,
+            {"classification": "retryable"},
+        ) from exc
+    return str(getattr(session, "url", "") or session.get("url", ""))

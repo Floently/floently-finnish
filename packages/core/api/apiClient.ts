@@ -1,5 +1,6 @@
 import type { ApiResponse } from "../models/apiTypes";
 import { getApiBaseUrl } from "./apiConfig";
+import { getClientDeviceHeaders } from "./deviceIdentity";
 import {
   ControlledUiValidationError,
   REQUIRED_BACKEND_VERSION,
@@ -431,6 +432,13 @@ export async function apiClient<T>(
 
   if (authToken) {
     headers.set("Authorization", `Bearer ${authToken}`);
+  }
+
+  const deviceHeaders = await getClientDeviceHeaders();
+  for (const [key, value] of Object.entries(deviceHeaders)) {
+    if (!headers.has(key)) {
+      headers.set(key, value);
+    }
   }
 
   const actionType = inferActionType(path, method);

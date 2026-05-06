@@ -35,6 +35,19 @@ const COLORS = {
   accentEdge: '#F4D38A',
 };
 
+const CARD_REPORT_REASONS = [
+  { code: 'wrong_answer', label: 'Wrong answer' },
+  { code: 'options_mismatch', label: 'Options do not match question' },
+  { code: 'duplicate_options', label: 'Duplicate options' },
+  { code: 'bad_finnish', label: 'Bad Finnish' },
+  { code: 'fake_or_bad_idiom', label: 'Not a real Finnish idiom' },
+  { code: 'bad_grammar_explanation', label: 'Bad grammar explanation' },
+  { code: 'bad_example_sentence', label: 'Bad example sentence' },
+  { code: 'audio_problem', label: 'Audio problem' },
+  { code: 'translation_overlay_problem', label: 'Translation/language problem' },
+  { code: 'other', label: 'Other problem' },
+] as const;
+
 function toneColor(card: RuntimeCard | null) {
   if (!card) return COLORS.primary;
   if (card.state === 'mastered') return COLORS.mastered;
@@ -170,6 +183,8 @@ export function CardPracticeSession() {
   const initialMode: CardMode = normalizedRequestedMode === 'grammar' || normalizedRequestedMode === 'phrases' ? normalizedRequestedMode : 'vocabulary';
   const [mode, setMode] = useState<CardMode>(initialMode);
   const [banksVisible, setBanksVisible] = useState(false);
+  const [reportPanelVisible, setReportPanelVisible] = useState(false);
+  const [reportSubmitting, setReportSubmitting] = useState(false);
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
@@ -215,6 +230,8 @@ export function CardPracticeSession() {
     refresh,
     error,
     currentLabel,
+    flagCurrent,
+    flagged,
   } = useCardPractice(mode, scope);
 
   const cardTone = toneColor(displayedCard ?? null);
@@ -224,6 +241,17 @@ export function CardPracticeSession() {
   const isChoiceMode = Boolean(followUp?.options?.length);
   const indicatorCount = 4;
   const activeIndicator = Math.min(indicatorCount - 1, Math.floor(progress.ratio * indicatorCount));
+
+  const reportCurrentCard = async (reason: string) => {
+    if (!displayedCard || flagged || reportSubmitting) return;
+    setReportSubmitting(true);
+    try {
+      await flagCurrent(reason);
+      setReportPanelVisible(false);
+    } finally {
+      setReportSubmitting(false);
+    }
+  };
 
   return (
     <View style={[styles.screen, { backgroundColor: isDark ? palette.background : COLORS.backgroundTop }]}>
@@ -350,16 +378,15 @@ export function CardPracticeSession() {
                 <Pressable
                   onPress={flip}
                   style={[
-                    styles.skipButton,
-                    styles.reverseButton,
-                    isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border },
+                    styles.flipIconButtonFilled,
+                    isDark && { backgroundColor: palette.primary, shadowColor: 'rgba(0,0,0,0.35)' },
                     (isRecallView || !displayedCard) && styles.primaryActionDisabled,
                   ]}
                   disabled={isRecallView || !displayedCard}
+                  accessibilityRole="button"
+                  accessibilityLabel="Flip card"
                 >
-                  <Text style={[styles.skipText, styles.reverseButtonText, isDark && { color: palette.textMuted }]}>
-                    {showBack ? '↻' : '⟳'}
-                  </Text>
+                  <Text style={styles.flipIconText}>{String.fromCharCode(8635)}</Text>
                 </Pressable>
               )}
             </View>
@@ -381,6 +408,52 @@ export function CardPracticeSession() {
       ) : null}
 
       {error ? <Text style={styles.inlineError}>{error}</Text> : null}
+
+      {displayedCard ? (
+        <View style={styles.reportLauncherRow}>
+          <Pressable
+            onPress={() => setReportPanelVisible((visible) => !visible)}
+            style={[
+              styles.reportInfoButton,
+              isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border },
+              flagged && styles.reportInfoButtonDone,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel="Report card problem"
+          >
+            <Text style={[styles.reportInfoText, isDark && { color: palette.text }]}>i</Text>
+          </Pressable>
+          {flagged ? (
+            <Text style={[styles.reportStatusText, isDark && { color: palette.textMuted }]}>Reported</Text>
+          ) : null}
+        </View>
+      ) : null}
+
+      {reportPanelVisible && displayedCard && !flagged ? (
+        <View style={[styles.reportPanel, isDark && { backgroundColor: palette.surfaceRaised, borderColor: palette.border }]}>
+          {/* Report issue info button */}
+          <Text style={[styles.reportTitle, isDark && { color: palette.text }]}>Report a card problem</Text>
+          <Text style={[styles.reportHelpText, isDark && { color: palette.textMuted }]}>
+            Help us clean the card bank. Choose the closest problem type.
+          </Text>
+          <View style={styles.reportReasonGrid}>
+            {CARD_REPORT_REASONS.map((reason) => (
+              <Pressable
+                key={reason.code}
+                onPress={() => void reportCurrentCard(reason.code)}
+                style={[
+                  styles.reportReasonChip,
+                  isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border },
+                  reportSubmitting && styles.reportReasonChipDisabled,
+                ]}
+                disabled={reportSubmitting}
+              >
+                <Text style={[styles.reportReasonText, isDark && { color: palette.textMuted }]}>{reason.label}</Text>
+              </Pressable>
+            ))}
+          </View>
+        </View>
+      ) : null}
 
       <View style={styles.dotsRow}>
         {Array.from({ length: indicatorCount }).map((_, index) => {
@@ -696,6 +769,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0,
     elevation: 0,
   },
+  flipIconButtonFilled: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2F8F7B',
+    borderWidth: 0,
+    shadowColor: '#1C3D89',
+    shadowOpacity: 0.24,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 8,
+  },
+  flipIconText: {
+    color: '#FFFFFF',
+    fontSize: 30,
+    lineHeight: 34,
+    fontWeight: '900',
+  },
   reverseButtonText: {
     color: '#5A78AB',
     fontSize: 20,
@@ -776,6 +869,99 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: COLORS.difficult,
     textAlign: 'center',
+  },
+  reportLauncherRow: {
+    width: '86%',
+    alignSelf: 'center',
+    minHeight: 30,
+    marginTop: 6,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    gap: 8,
+  },
+  reportInfoButton: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#F7FAFF',
+    borderWidth: 1,
+    borderColor: 'rgba(87,116,176,0.18)',
+  },
+  reportInfoButtonDone: {
+    backgroundColor: '#E7F5EF',
+    borderColor: 'rgba(78,143,106,0.32)',
+  },
+  reportInfoText: {
+    fontSize: 17,
+    lineHeight: 20,
+    fontWeight: '800',
+    fontStyle: 'italic',
+    color: '#5E78A6',
+  },
+  reportStatusText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: COLORS.muted,
+  },
+  reportPanel: {
+    width: '86%',
+    alignSelf: 'center',
+    marginTop: 6,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: 'rgba(83,110,167,0.12)',
+    backgroundColor: 'rgba(255,255,255,0.86)',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    gap: 8,
+  },
+  reportPanelHeader: {
+    minHeight: 32,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  reportTitle: {
+    flex: 1,
+    fontSize: 13,
+    fontWeight: '800',
+    color: COLORS.text,
+  },
+  reportToggle: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#5D7BAB',
+  },
+  reportHelpText: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: COLORS.muted,
+  },
+  reportReasonGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  reportReasonChip: {
+    minHeight: 34,
+    borderRadius: 17,
+    paddingHorizontal: 10,
+    justifyContent: 'center',
+    backgroundColor: '#F7FAFF',
+    borderWidth: 1,
+    borderColor: 'rgba(87,116,176,0.12)',
+  },
+  reportReasonChipDisabled: {
+    opacity: 0.55,
+  },
+  reportReasonText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#5E78A6',
   },
   dotsRow: {
     flexDirection: 'row',

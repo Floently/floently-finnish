@@ -1,4 +1,5 @@
 import { getAuthToken } from './apiClient';
+import { getClientDeviceHeaders } from './deviceIdentity';
 import { getApiBaseUrl, resolveApiUrl } from './apiConfig';
 
 export type VoiceProvider = 'google' | 'openai' | 'azure' | 'elevenlabs';
@@ -79,6 +80,10 @@ export async function requestVoiceTts(input: VoiceTtsRequest): Promise<VoiceTtsR
   };
 
   const headers = new Headers({ 'Content-Type': 'application/json' });
+  const deviceHeaders = await getClientDeviceHeaders();
+  for (const [key, value] of Object.entries(deviceHeaders)) {
+    headers.set(key, value);
+  }
   const token = getAuthToken();
   if (token) headers.set('Authorization', `Bearer ${token}`);
 
@@ -148,6 +153,10 @@ export async function transcribeVoiceAudio(input: {
   form.append('speaking_session_id', input.speakingSessionId ?? input.sessionId ?? 'voice-session');
 
   const headers = new Headers();
+  const deviceHeaders = await getClientDeviceHeaders();
+  for (const [key, value] of Object.entries(deviceHeaders)) {
+    headers.set(key, value);
+  }
   const token = getAuthToken();
   if (token) headers.set('Authorization', `Bearer ${token}`);
 
@@ -202,6 +211,10 @@ export async function transcribeVoiceAudio(input: {
 
 export async function getVoiceHealth(): Promise<Record<string, unknown> | null> {
   const headers = new Headers();
+  const deviceHeaders = await getClientDeviceHeaders();
+  for (const [key, value] of Object.entries(deviceHeaders)) {
+    headers.set(key, value);
+  }
   const token = getAuthToken();
   if (token) headers.set('Authorization', `Bearer ${token}`);
   try {

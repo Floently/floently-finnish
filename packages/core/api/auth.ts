@@ -6,6 +6,7 @@
 // This file ties the client side to that endpoint via expo-auth-session.
 
 import { apiClient } from './client';
+import { getClientDeviceHeaders } from './deviceIdentity';
 import { getApiBaseUrl } from './apiConfig';
 import { isAllAccessTestEmail, normalizeSubscriptionStatus } from './entitlements';
 import { extractResponseErrorMessage, isRecord, readResponseBody } from './response';
@@ -255,8 +256,10 @@ export async function restoreSessionFromToken(token: string): Promise<StoredAuth
     throw new Error('Missing auth token');
   }
 
+  const deviceHeaders = await getClientDeviceHeaders();
   const response = await fetch(`${getApiBaseUrl()}/api/v1/auth/session`, {
     headers: {
+      ...deviceHeaders,
       Authorization: `Bearer ${trimmedToken}`,
     },
   });

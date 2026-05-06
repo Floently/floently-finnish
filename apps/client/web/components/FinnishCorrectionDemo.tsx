@@ -4,9 +4,9 @@
  * Sequence (8 phases, ~14s total before loop):
  *   1. CURSOR        — blinking cursor in an empty input
  *   2. TYPING        — sentence types in character-by-character with the
- *                      common B1 mistake "menny" (should be "mennyt")
+ *                      common case error "apteekkiin" (should be "apteekissa")
  *   3. PAUSE         — full sentence visible, brief settle
- *   4. ERROR_FLAG    — "menny" gets a red wavy underline
+ *   4. ERROR_FLAG    — "apteekkiin" gets a red wavy underline
  *   5. TOOLTIP       — small floating card explains the rule and the fix
  *   6. CORRECTING    — wrong word fades out, correct word fades in
  *   7. SUCCESS       — green checkmark + brief subtle glow
@@ -45,9 +45,9 @@ type Theme = 'dark' | 'light';
 //   2. Healthcare-adjacent enough to feel relevant ("went to the pharmacy")
 //   3. Uses a single classic Finnish error (past participle ending) that's
 //      cleanly demonstrable with one word swap
-const SENTENCE = 'Olen menny apteekkiin eilen.';
-const WRONG_WORD = 'menny';
-const RIGHT_WORD = 'mennyt';
+const SENTENCE = 'Kävin apteekkiin eilen.';
+const WRONG_WORD = 'apteekkiin';
+const RIGHT_WORD = 'apteekissa';
 const SENTENCE_CORRECT = SENTENCE.replace(WRONG_WORD, RIGHT_WORD);
 
 // ── Phase timings (ms) ──────────────────────────────────────────────────────
@@ -235,9 +235,9 @@ export default function FinnishCorrectionDemo({ theme = 'dark', compact = false 
           aria-live="polite"
         >
           <div className="floently-demo-tooltip-arrow" />
-          <div className="floently-demo-tooltip-title">Past participle needs the <strong>-t</strong></div>
+          <div className="floently-demo-tooltip-title">Location case: <strong>apteekissa</strong>, not apteekkiin</div>
           <div className="floently-demo-tooltip-body">
-            "Olen mennyt" — perfekti uses the past participle, not the colloquial -ny ending.
+            After käydä, use the inessive (-ssa/-ssä) to say where you visited: apteekissa, kaupassa, töissä.
           </div>
         </div>
 

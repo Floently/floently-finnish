@@ -110,7 +110,7 @@ async def resolve_tts_audio(
                 cached=True,
             )
 
-    provider_order = _ordered_providers(provider, voice)
+    provider_order = _ordered_providers(provider, voice, voice_profile=voice_profile)
     if not provider_order:
         raise TTSRouterError('No TTS provider is configured for this deployment.')
 
@@ -157,17 +157,18 @@ async def resolve_tts_audio(
     )
 
 
-def _ordered_providers(requested_provider: str | None, voice_hint: str) -> list[tuple]:
+def _ordered_providers(requested_provider: str | None, voice_hint: str, voice_profile: str | None = None) -> list[tuple]:
     """Return list of (provider_instance, voice_id) tuples in try order, configured-only."""
     from app.services.tts.providers.google import GoogleTTSProvider
     from app.services.tts.providers.openai import OpenAIProvider
     from app.services.tts.providers.development_fallback import DevelopmentFallbackProvider
 
     hint = str(voice_hint or "female").strip().lower()
+    resolved_profile = str(voice_profile or f"yki_standard_{hint}").strip()
     google_voice = (
-        provider_voice_name("google", voice_profile=f"yki_standard_{hint}", voice_hint=hint)
+        provider_voice_name("google", voice_profile=resolved_profile, voice_hint=hint)
         or SETTINGS.google_tts_default_voice
-        or "fi-FI-Standard-A"
+        or ("fi-FI-Standard-B" if hint == "male" else "fi-FI-Standard-A")
     )
     registry = {
         "google": (GoogleTTSProvider(SETTINGS), google_voice),

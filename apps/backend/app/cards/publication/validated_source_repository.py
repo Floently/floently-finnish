@@ -64,7 +64,7 @@ def _payload_items(payload: Any) -> list[dict[str, Any]]:
 
 
 def _iter_canonical_payloads(canonical_root: Path) -> Iterable[tuple[Path, Any]]:
-    published_root = canonical_root / "published"
+    published_root = canonical_root / "validated"
     if published_root.exists():
         for source_path in sorted(published_root.rglob("*.json")):
             try:

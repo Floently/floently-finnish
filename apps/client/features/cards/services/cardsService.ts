@@ -1,5 +1,10 @@
 import { flagCardIssue, getDeckCards, requestCardCoachHint, skipCard, startCardSession, submitCardAnswer, type CardFilters, type RuntimeCard } from '@core/api/cards';
+import { usePreferencesStore } from '../../../state/preferencesStore';
 import type { CardBankBuckets, CardDeckScope, CardMode } from '../types';
+
+function currentUiLanguage(): string {
+  return usePreferencesStore.getState().language || 'en';
+}
 
 function toFilters(mode: CardMode, scope?: CardDeckScope): CardFilters {
   return {
@@ -9,6 +14,7 @@ function toFilters(mode: CardMode, scope?: CardDeckScope): CardFilters {
     level: scope?.level ?? null,
     adaptive: scope?.adaptive ?? true,
     source: scope?.source ?? undefined,
+    language: currentUiLanguage(),
   };
 }
 
