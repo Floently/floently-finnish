@@ -535,22 +535,29 @@ export default function HomeScreen({
   const hasRealDashboardData = totalCards > 0 || cardsDue > 0 || streakDays > 0 || Boolean(skills?.length);
   const visibleSkills = skills ?? [];
 
+  const hasCoreLearningAccess = Boolean(accessState?.learn || accessState?.professional || accessState?.yki);
+  const hasScenarioAccess = Boolean(
+    accessState?.professional ||
+    accessState?.learn ||
+    (accessState?.isPreview && accessState?.previewPath !== 'yki')
+  );
+
   const quickActions = [
     {
       label: t('homeVocabularyRoleplay'),
-      sub: accessState?.isPreview ? t('homeVocabularyRoleplayPreviewLocked') : accessState?.learn ? t('homeVocabularyRoleplayLearn') : t('homeVocabularyRoleplayUnlock'),
-      tag: accessState?.isPreview ? t('homePreviewTag') : accessState?.learn ? t('homeLearnTag') : t('homeLockedTag'),
+      sub: accessState?.isPreview ? t('homeVocabularyRoleplayPreviewLocked') : hasCoreLearningAccess ? t('homeVocabularyRoleplayLearn') : t('homeVocabularyRoleplayUnlock'),
+      tag: accessState?.isPreview ? t('homePreviewTag') : hasCoreLearningAccess ? t('homeLearnTag') : t('homeLockedTag'),
       color: D.primary,
       mode: 'learn',
-      locked: !accessState?.learn,
+      locked: !hasCoreLearningAccess,
     },
     {
       label: t('homeWorkplaceScenarios'),
-      sub: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homeWorkplaceScenariosPreview') : accessState?.learn ? t('homeWorkplaceScenariosLearn') : t('homeWorkplaceScenariosUnlock'),
-      tag: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homePreviewTag') : accessState?.learn ? t('homeScenariosTag') : t('homeLockedTag'),
+      sub: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homeWorkplaceScenariosPreview') : hasScenarioAccess ? t('homeWorkplaceScenariosLearn') : t('homeWorkplaceScenariosUnlock'),
+      tag: accessState?.isPreview && accessState?.previewPath !== 'yki' ? t('homePreviewTag') : hasScenarioAccess ? t('homeScenariosTag') : t('homeLockedTag'),
       color: D.speak,
       mode: 'scenarios',
-      locked: !accessState?.learn,
+      locked: !hasScenarioAccess,
     },
     {
       label: t('homeYkiPrep'),
