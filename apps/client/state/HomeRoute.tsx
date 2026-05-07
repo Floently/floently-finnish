@@ -87,7 +87,7 @@ export default function HomeRoute({
       userEmail={user?.email ?? t('homeSidebarRoutesHint')}
       themeMode={themeMode}
       accessState={{
-        learn: Boolean(entitlements?.learnAccess),
+        learn: hasLearningAccess,
         yki: Boolean(entitlements?.ykiAccess),
         professional: Boolean(
           entitlements?.professionalAccess ||
@@ -143,7 +143,7 @@ export default function HomeRoute({
             break;
           case 'speak':
           case 'scenarios':
-            if ((entitlements?.learnAccess && !isPreview) || subscriptionStatus?.previewPath === 'doctor' || subscriptionStatus?.previewPath === 'nurse' || subscriptionStatus?.previewPath === 'practical_nurse') onOpenSpeakingPractice();
+            if ((hasLearningAccess && !isPreview) || subscriptionStatus?.previewPath === 'doctor' || subscriptionStatus?.previewPath === 'nurse' || subscriptionStatus?.previewPath === 'practical_nurse') onOpenSpeakingPractice();
             else onOpenBilling();
             break;
           case 'work':

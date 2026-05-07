@@ -791,7 +791,14 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
   const drawerSections = createDrawerSections((route) => {
     void navigateTo(route);
-  }, { ...(subscriptionStatus?.entitlements ?? {}), isPreview: subscriptionStatus?.isPreview, previewPath: subscriptionStatus?.previewPath ?? null }, language);
+  }, {
+    ...(subscriptionStatus?.entitlements ?? {}),
+    isPreview: subscriptionStatus?.isPreview,
+    previewPath: subscriptionStatus?.previewPath ?? null,
+    isInternalAllAccess: subscriptionStatus?.isInternalAllAccess,
+    hasAnySubscription: subscriptionStatus?.hasAnySubscription,
+    isActive: subscriptionStatus?.isActive,
+  }, language);
 
   const drawer = (
     <UtilityDrawer

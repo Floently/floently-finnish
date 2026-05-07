@@ -32,6 +32,9 @@ export type DrawerEntitlements = {
   professionalAccess?: boolean;
   professions?: string[];
   activeContext?: string;
+  isInternalAllAccess?: boolean;
+  hasAnySubscription?: boolean;
+  isActive?: boolean;
 };
 
 
@@ -41,6 +44,13 @@ export function createDrawerSections(
   language: AppLanguage = 'fi',
 ): DrawerSection[] {
   const sections: DrawerSection[] = [];
+  const hasSubscriptionAccess = Boolean(
+    entitlements?.isInternalAllAccess ||
+    entitlements?.hasAnySubscription ||
+    entitlements?.isActive
+  );
+  const hasLearnAccess = Boolean(entitlements?.learnAccess || hasSubscriptionAccess);
+  const hasProfessionalAccess = Boolean(entitlements?.professionalAccess || hasSubscriptionAccess);
 
   if (entitlements?.isPreview) {
     const previewLabel =
@@ -77,7 +87,7 @@ export function createDrawerSections(
     return sections;
   }
 
-  if (entitlements?.learnAccess || entitlements?.professionalAccess) {
+  if (hasLearnAccess || hasProfessionalAccess) {
     sections.push({
       label: translate(language, 'drawerWorkplaceReadiness'),
       items: [
@@ -86,7 +96,7 @@ export function createDrawerSections(
           label: translate(language, 'drawerWorkplaceFinnish'),
           accentColor: '#4F7FFF',
           hint: translate(language, 'drawerWorkplaceFinnishHint'),
-          onPress: () => void navigateTo('learning'),
+          onPress: () => void navigateTo(hasProfessionalAccess ? 'professional-finnish' : 'learning'),
         },
       ],
     });
