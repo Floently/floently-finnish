@@ -91,13 +91,31 @@ export function createDrawerSections(
     sections.push({
       label: translate(language, 'drawerWorkplaceReadiness'),
       items: [
-        {
-          icon: '🗂',
-          label: translate(language, 'drawerWorkplaceFinnish'),
-          accentColor: '#4F7FFF',
-          hint: translate(language, 'drawerWorkplaceFinnishHint'),
-          onPress: () => void navigateTo(hasProfessionalAccess ? 'professional-finnish' : 'learning'),
-        },
+        ...(hasLearnAccess
+          ? [
+              {
+                icon: '📘',
+                label: language === 'fi' ? 'Arjen suomi' : 'Everyday Finnish',
+                accentColor: '#4F7FFF',
+                hint:
+                  language === 'fi'
+                    ? 'Yleiset kortit, sanasto ja rooliharjoittelu.'
+                    : 'General cards, vocabulary and roleplay.',
+                onPress: () => void navigateTo('daily-practice'),
+              },
+            ]
+          : []),
+        ...(hasProfessionalAccess
+          ? [
+              {
+                icon: '🗂',
+                label: translate(language, 'drawerWorkplaceFinnish'),
+                accentColor: '#4F7FFF',
+                hint: translate(language, 'drawerWorkplaceFinnishHint'),
+                onPress: () => void navigateTo('professional-finnish'),
+              },
+            ]
+          : []),
       ],
     });
   }
