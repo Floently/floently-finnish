@@ -901,7 +901,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       <>
         <ProgressRoute
           onBack={() => void navigateTo("home")}
-          onOpenLearning={() => void navigateTo("daily-practice")}
+          onOpenLearning={() => void navigateTo("learning")}
           onOpenSpeaking={() => {
             // Roleplay UX restructuring: lock to user's primary profession
             setSpeakingPreset(buildProfessionLockedPreset());
@@ -1006,7 +1006,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           screen="daily-practice"
           onBack={() => navigateBack()}
           onOpenMenu={openSidebar}
-          onOpenLearning={() => void navigateTo("daily-practice")}
+          onOpenLearning={() => void navigateTo("learning")}
           onOpenYkiPractice={() => void navigateTo("yki-practice")}
           onOpenTarget={() => void navigateTo("learning")}
         />
@@ -1081,7 +1081,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
     <>
       <HomeRoute
         onOpenBilling={() => void navigateTo("billing")}
-        onOpenDailyPractice={() => void navigateTo("daily-practice")}
+        onOpenDailyPractice={() => void navigateTo("learning")}
         onOpenHelp={() => void navigateTo("help")}
         onOpenProfessionalFinnish={() => void navigateTo("professional-finnish")}
         onOpenProgress={() => void navigateTo("progress")}
@@ -1090,7 +1090,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
           void navigateTo("speaking-practice");
         }}
         onOpenSettings={() => void navigateTo("settings")}
-        onOpenLearning={() => void navigateTo("daily-practice")}
+        onOpenLearning={() => void navigateTo("learning")}
         onOpenYkiExam={() => { setExamPresetLevel('B1-B2'); void navigateTo("yki-exam"); }}
         onOpenYkiPractice={() => void navigateTo("yki-practice")}
         onOpenMenu={openSidebar}

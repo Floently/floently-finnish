@@ -101,7 +101,7 @@ export function createDrawerSections(
                   language === 'fi'
                     ? 'Yleiset kortit, sanasto ja rooliharjoittelu.'
                     : 'General cards, vocabulary and roleplay.',
-                onPress: () => void navigateTo('daily-practice'),
+                onPress: () => void navigateTo('learning'),
               },
             ]
           : []),
