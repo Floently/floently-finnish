@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
 import Constants from 'expo-constants';
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
 import { exchangeGoogleIdToken, type StoredAuthSession } from '@core/api/auth';
 
@@ -47,6 +48,31 @@ function readGoogleConfig(): GoogleConfig {
     androidClientId: process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID,
     webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
   };
+}
+
+async function signInWithNativeGoogle(config: GoogleConfig): Promise<StoredAuthSession | null> {
+  if (!config.webClientId) {
+    throw new Error('Google sign-in is missing the web client ID required by native Google Sign-In.');
+  }
+
+  GoogleSignin.configure({
+    webClientId: config.webClientId,
+    offlineAccess: false,
+    forceCodeForRefreshToken: false,
+  });
+
+  await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+  const userInfo = await GoogleSignin.signIn();
+  const idToken =
+    (userInfo as any)?.data?.idToken ??
+    (userInfo as any)?.idToken ??
+    (await GoogleSignin.getTokens()).idToken;
+
+  if (!idToken) {
+    throw new Error('Google native sign-in did not return an id_token.');
+  }
+
+  return exchangeGoogleIdToken(idToken);
 }
 
 export type GoogleSignInState =
@@ -106,6 +132,18 @@ export function useGoogleSignIn(): UseGoogleSignInResult {
 
     setState({ status: 'launching' });
     try {
+      if (Platform.OS === 'android') {
+        logGoogleAuthDebug('native_android_start');
+        const session = await signInWithNativeGoogle(config);
+        if (!session) {
+          setState({ status: 'cancelled' });
+          return null;
+        }
+        logGoogleAuthDebug('native_android_success', { email: session.user.email });
+        setState({ status: 'success', session });
+        return session;
+      }
+
       logGoogleAuthDebug('prompt_start');
       const result = await promptAsync();
       logGoogleAuthDebug('prompt_result', {
@@ -139,12 +177,18 @@ export function useGoogleSignIn(): UseGoogleSignInResult {
       setState({ status: 'success', session });
       return session;
     } catch (err) {
+      const code = (err as any)?.code;
+      if (code === statusCodes.SIGN_IN_CANCELLED) {
+        logGoogleAuthDebug('native_android_cancelled');
+        setState({ status: 'cancelled' });
+        return null;
+      }
       const message = err instanceof Error ? err.message : String(err);
-      logGoogleAuthDebug('exception', { message });
+      logGoogleAuthDebug('exception', { code, message });
       setState({ status: 'failed', error: normalizeGoogleAuthError(message) });
       return null;
     }
-  }, [platformClientId, request, promptAsync]);
+  }, [platformClientId, request, promptAsync, config]);
 
   const reset = useCallback(() => setState({ status: 'idle' }), []);
 

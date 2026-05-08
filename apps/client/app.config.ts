@@ -32,11 +32,19 @@ export default function config(_: ConfigContext): ExpoConfig {
   );
 
   const basePlugins = baseExpo.plugins ?? [];
-  const plugins = basePlugins.some(
+  let plugins = basePlugins.some(
     (plugin) => plugin === 'expo-image' || (Array.isArray(plugin) && plugin[0] === 'expo-image'),
   )
     ? basePlugins
     : [...basePlugins, 'expo-image'];
+
+  plugins = plugins.some(
+    (plugin) =>
+      plugin === '@react-native-google-signin/google-signin' ||
+      (Array.isArray(plugin) && plugin[0] === '@react-native-google-signin/google-signin'),
+  )
+    ? plugins
+    : [...plugins, '@react-native-google-signin/google-signin'];
 
   return {
     ...baseExpo,
