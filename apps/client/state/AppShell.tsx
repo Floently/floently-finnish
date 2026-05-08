@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { AppState } from "react-native";
+import { AppState, Platform } from "react-native";
 import { usePathname, useRouter } from "expo-router";
 
 import { setAuthToken } from "@core/api/apiClient";
@@ -269,7 +269,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   }, [activeScreen]);
 
   function replaceIfNeeded(screen: GuardedScreen) {
-    if (screen === 'learning' && typeof window !== 'undefined' && !isLearnHost()) {
+    if (Platform.OS === 'web' && screen === 'learning' && typeof window !== 'undefined' && !isLearnHost()) {
       goToLearn('/learn');
       return;
     }
