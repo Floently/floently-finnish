@@ -13,6 +13,7 @@ type GoogleConfig = {
   iosClientId?: string;
   androidClientId?: string;
   webClientId?: string;
+  nativeWebClientId?: string;
 };
 
 function logGoogleAuthDebug(label: string, data: Record<string, unknown> = {}) {
@@ -47,16 +48,18 @@ function readGoogleConfig(): GoogleConfig {
     iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
     androidClientId: process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID,
     webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
+    nativeWebClientId: process.env.EXPO_PUBLIC_GOOGLE_NATIVE_WEB_CLIENT_ID,
   };
 }
 
 async function signInWithNativeGoogle(config: GoogleConfig): Promise<StoredAuthSession | null> {
-  if (!config.webClientId) {
-    throw new Error('Google sign-in is missing the web client ID required by native Google Sign-In.');
+  const nativeWebClientId = config.nativeWebClientId || config.webClientId;
+  if (!nativeWebClientId) {
+    throw new Error('Google sign-in is missing the native web client ID required by native Google Sign-In.');
   }
 
   GoogleSignin.configure({
-    webClientId: config.webClientId,
+    webClientId: nativeWebClientId,
     offlineAccess: false,
     forceCodeForRefreshToken: false,
   });

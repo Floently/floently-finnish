@@ -25,6 +25,7 @@ export default function config(_: ConfigContext): ExpoConfig {
     iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID?.trim() || undefined,
     androidClientId: process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID?.trim() || undefined,
     webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID?.trim() || undefined,
+    nativeWebClientId: process.env.EXPO_PUBLIC_GOOGLE_NATIVE_WEB_CLIENT_ID?.trim() || undefined,
   };
 
   const existingUrlTypes = (baseExpo.ios?.infoPlist?.CFBundleURLTypes ?? []).filter(
