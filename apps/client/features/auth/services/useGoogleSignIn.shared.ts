@@ -60,11 +60,15 @@ async function signInWithNativeGoogle(config: GoogleConfig): Promise<StoredAuthS
 
   GoogleSignin.configure({
     webClientId: nativeWebClientId,
+    iosClientId: config.iosClientId,
     offlineAccess: false,
     forceCodeForRefreshToken: false,
   });
 
-  await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+  if (Platform.OS === 'android') {
+    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+  }
+
   const userInfo = await GoogleSignin.signIn();
   const idToken =
     (userInfo as any)?.data?.idToken ??
@@ -128,23 +132,23 @@ export function useGoogleSignIn(): UseGoogleSignInResult {
       });
       return null;
     }
-    if (!request) {
-      setState({ status: 'configuring' });
-      return null;
-    }
-
     setState({ status: 'launching' });
     try {
-      if (Platform.OS === 'android') {
-        logGoogleAuthDebug('native_android_start');
+      if (Platform.OS === 'android' || Platform.OS === 'ios') {
+        logGoogleAuthDebug('native_mobile_start', { platform: Platform.OS });
         const session = await signInWithNativeGoogle(config);
         if (!session) {
           setState({ status: 'cancelled' });
           return null;
         }
-        logGoogleAuthDebug('native_android_success', { email: session.user.email });
+        logGoogleAuthDebug('native_mobile_success', { platform: Platform.OS, email: session.user.email });
         setState({ status: 'success', session });
         return session;
+      }
+
+      if (!request) {
+        setState({ status: 'configuring' });
+        return null;
       }
 
       logGoogleAuthDebug('prompt_start');
@@ -182,7 +186,7 @@ export function useGoogleSignIn(): UseGoogleSignInResult {
     } catch (err) {
       const code = (err as any)?.code;
       if (code === statusCodes.SIGN_IN_CANCELLED) {
-        logGoogleAuthDebug('native_android_cancelled');
+        logGoogleAuthDebug('native_mobile_cancelled', { platform: Platform.OS });
         setState({ status: 'cancelled' });
         return null;
       }
