@@ -5,7 +5,7 @@ import { AppScaffold, PageHeader } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 
 import { paymentService } from '../features/billing/services/paymentService';
-import { startStorePurchase, supportsStoreBilling } from '../features/billing/services/storeBillingService';
+import { supportsStoreBilling } from '../features/billing/services/storeBillingService';
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
@@ -456,15 +456,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         return;
       }
       if (supportsStoreBilling()) {
-        if (pathway !== 'yki' && selectedProfessions.length > 1) {
-          Alert.alert(t('billingUseWebCheckoutTitle'), t('billingUseWebCheckoutBody'));
-          return;
-        }
-        await startStorePurchase(request.plan);
-        Alert.alert(
-          t('billingInAppTitle'),
-          t('billingInAppBody'),
-        );
+        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
         return;
       }
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
@@ -477,6 +469,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   async function handlePortal() {
+    if (supportsStoreBilling()) {
+      Alert.alert(t('billingPortalUnavailableTitle'), t('billingPortalUnavailableBody'));
+      return;
+    }
     try {
       setPortalBusy(true);
       const session = await paymentService.createPortalSession() as { portal_url?: string; url?: string } | undefined;
@@ -505,6 +501,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         email: user?.email ?? null,
         subscriptionTierHint: user?.subscriptionTier ?? null,
       });
+      if (supportsStoreBilling()) {
+        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+        return;
+      }
       const trialPathway: CheckoutPathway = 'yki';
       const request = {
         ...buildCheckoutRequest(trialPathway, period, []),
