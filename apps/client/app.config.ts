@@ -59,7 +59,13 @@ export default function config(_: ConfigContext): ExpoConfig {
 
     ios: {
       ...(baseExpo.ios ?? {}),
+      config: {
+        ...(baseExpo.ios?.config ?? {}),
+        usesNonExemptEncryption: false,
+      },
       infoPlist: {
+        ...(baseExpo.ios?.infoPlist ?? {}),
+        ITSAppUsesNonExemptEncryption: false,
         ...(baseExpo.ios?.infoPlist ?? {}),
         CFBundleURLTypes: [
           ...existingUrlTypes,
