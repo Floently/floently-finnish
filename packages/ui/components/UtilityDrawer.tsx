@@ -125,6 +125,8 @@ export default function UtilityDrawer({
           <ScrollView
             contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}
+            nestedScrollEnabled
+            keyboardShouldPersistTaps="handled"
           >
             {/* ── Hero / profile ────────────────────────────────────────── */}
             <View style={[styles.hero, { backgroundColor: primary }]}>

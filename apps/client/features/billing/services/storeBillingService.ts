@@ -1,17 +1,28 @@
 import { Platform } from 'react-native';
 
+import {
+  purchaseRevenueCatPackage,
+  restoreRevenueCatPurchases,
+  type RevenueCatPurchaseResult,
+} from './revenueCatService';
+
 type BillingPlatform = 'ios' | 'android';
 
-const PRODUCT_MAPPING: Record<string, string> = {
-  yki_monthly: 'com.vitusidi.floentlyfinnish.yki.monthly',
-  yki_3_months: 'com.vitusidi.floentlyfinnish.yki.3months',
-  yki_yearly: 'com.vitusidi.floentlyfinnish.yki.yearly',
-  professional_monthly: 'com.vitusidi.floentlyfinnish.professional.monthly',
-  professional_3_months: 'com.vitusidi.floentlyfinnish.professional.3months',
-  professional_yearly: 'com.vitusidi.floentlyfinnish.professional.yearly',
-  combined_monthly: 'com.vitusidi.floentlyfinnish.combined.monthly',
-  combined_3_months: 'com.vitusidi.floentlyfinnish.combined.3months',
-  combined_yearly: 'com.vitusidi.floentlyfinnish.combined.yearly',
+const PACKAGE_MAPPING: Record<string, string> = {
+  yki_monthly: 'yki_monthly',
+  yki_3_months: 'yki_3months',
+  yki_3months: 'yki_3months',
+  yki_yearly: 'yki_yearly',
+
+  professional_monthly: 'professional_monthly',
+  professional_3_months: 'professional_3months',
+  professional_3months: 'professional_3months',
+  professional_yearly: 'professional_yearly',
+
+  combined_monthly: 'combined_monthly',
+  combined_3_months: 'combined_3months',
+  combined_3months: 'combined_3months',
+  combined_yearly: 'combined_yearly',
 };
 
 function mobilePlatform(): BillingPlatform | null {
@@ -24,18 +35,47 @@ export function supportsStoreBilling(): boolean {
   return mobilePlatform() !== null;
 }
 
-export async function startStorePurchase(planId: string): Promise<{ status: 'pending_configuration'; productId: string; platform: BillingPlatform }> {
+export function revenueCatPackageForPlan(planId: string): string | null {
+  return PACKAGE_MAPPING[planId] ?? null;
+}
+
+export async function startStorePurchase(
+  planId: string,
+  userId?: string | null,
+): Promise<RevenueCatPurchaseResult & { status: 'purchased'; packageId: string; platform: BillingPlatform }> {
   const platform = mobilePlatform();
   if (!platform) {
     throw new Error('Store billing is only available on iOS and Android.');
   }
-  const productId = PRODUCT_MAPPING[planId];
-  if (!productId) {
-    throw new Error('This plan is not available for in-app purchase.');
+
+  const packageId = revenueCatPackageForPlan(planId);
+  if (!packageId) {
+    throw new Error(`This plan is not available for in-app purchase: ${planId}`);
   }
+
+  const result = await purchaseRevenueCatPackage(packageId, userId);
+
   return {
-    status: 'pending_configuration',
-    productId,
+    ...result,
+    status: 'purchased',
+    packageId,
+    platform,
+  };
+}
+
+export async function restoreStorePurchases(
+  userId?: string | null,
+): Promise<RevenueCatPurchaseResult & { status: 'restored'; platform: BillingPlatform }> {
+  const platform = mobilePlatform();
+  if (!platform) {
+    throw new Error('Store billing is only available on iOS and Android.');
+  }
+
+  const result = await restoreRevenueCatPurchases(userId);
+
+  return {
+    ...result,
+    status: 'restored',
     platform,
   };
 }

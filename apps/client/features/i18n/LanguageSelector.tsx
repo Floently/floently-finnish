@@ -90,7 +90,10 @@ export default function LanguageSelector({
             ]}
           >
             <ScrollView
-              showsVerticalScrollIndicator={false}
+              style={styles.menuScroll}
+              showsVerticalScrollIndicator
+              nestedScrollEnabled
+              keyboardShouldPersistTaps="handled"
               contentContainerStyle={styles.menuScrollContent}
             >
               {options.map((option) => {
@@ -217,9 +220,13 @@ const styles = StyleSheet.create({
     gap: 4,
     maxHeight: 300,
   },
+  menuScroll: {
+    maxHeight: 260,
+  },
   menuScrollContent: {
     gap: 6,
     paddingRight: 2,
+    paddingBottom: 8,
   },
   menuItem: {
     flexDirection: 'row',

@@ -95,12 +95,9 @@ export function createDrawerSections(
           ? [
               {
                 icon: '📘',
-                label: language === 'fi' ? 'Arjen suomi' : 'Everyday Finnish',
+                label: translate(language, 'drawerEverydayFinnish'),
                 accentColor: '#4F7FFF',
-                hint:
-                  language === 'fi'
-                    ? 'Yleiset kortit, sanasto ja rooliharjoittelu.'
-                    : 'General cards, vocabulary and roleplay.',
+                hint: translate(language, 'drawerEverydayFinnishHint'),
                 onPress: () => void navigateTo('learning'),
               },
             ]

@@ -5,7 +5,7 @@ import { AppScaffold, PageHeader } from '@ui/components';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 
 import { paymentService } from '../features/billing/services/paymentService';
-import { supportsStoreBilling } from '../features/billing/services/storeBillingService';
+import { restoreStorePurchases, startStorePurchase, supportsStoreBilling } from '../features/billing/services/storeBillingService';
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
@@ -257,6 +257,17 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
               ? t('billingManagementSubscriptionActiveBody')
               : t('billingManagementNoActiveBody');
 
+  const isMobileStoreBilling = supportsStoreBilling();
+  const billingManagementActionLabel = isMobileStoreBilling
+    ? t('billingRestorePurchasesAction')
+    : t('billingPaymentMethodStripeAction');
+  const billingManagementActionBody = isMobileStoreBilling
+    ? t('billingRestorePurchasesBody')
+    : t('billingPaymentMethodStripeBody');
+  const billingManagementBusyLabel = isMobileStoreBilling
+    ? t('billingRestorePurchasesBusy')
+    : t('billingOpeningPortal');
+
 
   const trialCardTitle = trialAlreadyUsed
     ? t('billingTrialAlreadyUsedTitle')
@@ -456,7 +467,18 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         return;
       }
       if (supportsStoreBilling()) {
-        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
+        const result = await startStorePurchase(request.plan, user?.id ?? user?.email ?? null);
+        await refreshSubscription({
+          email: user?.email ?? null,
+          subscriptionTierHint: user?.subscriptionTier ?? null,
+        });
+        const activeEntitlements = result.activeEntitlements.length
+          ? result.activeEntitlements.join(', ')
+          : 'none yet';
+        Alert.alert(
+          'Purchase complete',
+          `Store purchase completed. RevenueCat active entitlements: ${activeEntitlements}. Backend access sync will be connected next.`,
+        );
         return;
       }
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
@@ -470,7 +492,22 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
   async function handlePortal() {
     if (supportsStoreBilling()) {
-      Alert.alert(t('billingPortalUnavailableTitle'), t('billingPortalUnavailableBody'));
+      try {
+        setPortalBusy(true);
+        const result = await restoreStorePurchases(user?.id ?? user?.email ?? null);
+        await refreshSubscription({
+          email: user?.email ?? null,
+          subscriptionTierHint: user?.subscriptionTier ?? null,
+        });
+        const activeEntitlements = result.activeEntitlements.length
+          ? result.activeEntitlements.join(', ')
+          : 'none';
+        Alert.alert('Purchases restored', `RevenueCat active entitlements: ${activeEntitlements}.`);
+      } catch (error) {
+        Alert.alert(t('billingPortalUnavailableTitle'), error instanceof Error ? error.message : t('billingPortalUnavailableBody'));
+      } finally {
+        setPortalBusy(false);
+      }
       return;
     }
     try {
@@ -723,10 +760,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
           ]}
         >
           <Text style={[styles.subscriptionManagementActionText, { color: palette.text }]}>
-            {portalBusy ? t('billingOpeningPortal') : t('billingPaymentMethodStripeAction')}
+            {portalBusy ? billingManagementBusyLabel : billingManagementActionLabel}
           </Text>
           <Text style={[styles.portalBody, { color: palette.textMuted }]}>
-            {t('billingPaymentMethodStripeBody')}
+            {billingManagementActionBody}
           </Text>
         </Pressable>
       </View>
