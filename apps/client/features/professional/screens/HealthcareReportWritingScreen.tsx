@@ -104,6 +104,62 @@ function scenarioTaskInstruction(scenario: HealthcareReportScenario, t: TFunctio
   }
 }
 
+function scenarioKeyFacts(scenario: HealthcareReportScenario, t: TFunction): string[] {
+  switch (scenario.id) {
+    case 'nurse_shift_handover_post_op_pain':
+      return [
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainFact1'),
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainFact2'),
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainFact3'),
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainFact4'),
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainFact5'),
+      ];
+    case 'practical_nurse_shift_handover_evening_care':
+      return [
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareFact1'),
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareFact2'),
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareFact3'),
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareFact4'),
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareFact5'),
+      ];
+    case 'doctor_shift_handover_observation_plan':
+      return [
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanFact1'),
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanFact2'),
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanFact3'),
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanFact4'),
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanFact5'),
+      ];
+    case 'nurse_ed_to_ward_tachycardia':
+      return [
+        t('professionalReportScenarioNurseEdToWardTachycardiaFact1'),
+        t('professionalReportScenarioNurseEdToWardTachycardiaFact2'),
+        t('professionalReportScenarioNurseEdToWardTachycardiaFact3'),
+        t('professionalReportScenarioNurseEdToWardTachycardiaFact4'),
+        t('professionalReportScenarioNurseEdToWardTachycardiaFact5'),
+      ];
+    case 'practical_nurse_during_shift_mobility':
+      return [
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityFact1'),
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityFact2'),
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityFact3'),
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityFact4'),
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityFact5'),
+      ];
+    case 'doctor_interim_assessment_chest_pain':
+      return [
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainFact1'),
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainFact2'),
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainFact3'),
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainFact4'),
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainFact5'),
+      ];
+    default:
+      return scenario.keyFacts;
+  }
+}
+
+
 
 
 function containsAny(text: string, terms: string[]): boolean {
@@ -230,7 +286,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
           <Text style={styles.taskText}>{scenarioTaskInstruction(selectedScenario, t)}</Text>
 
           <Text style={styles.listTitle}>{t('professionalReportWritingKeyFacts')}</Text>
-          {selectedScenario.keyFacts.map((fact) => (
+          {scenarioKeyFacts(selectedScenario, t).map((fact) => (
             <Text key={fact} style={styles.bullet}>• {fact}</Text>
           ))}
         </View>
