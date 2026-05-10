@@ -67,6 +67,120 @@ export const HEALTHCARE_REPORT_TYPES: Array<{
 
 export const HEALTHCARE_REPORT_SCENARIOS: HealthcareReportScenario[] = [
   {
+    id: 'nurse_shift_handover_post_op_pain',
+    profession: 'nurse',
+    reportType: 'shift_handover',
+    title: 'Vuoronvaihtoraportti leikkauksen jälkeisestä kivusta',
+    workplaceContext:
+      'Olet sairaanhoitaja kirurgisella osastolla. Potilas on palannut leikkauksesta ja kipua on seurattu iltavuoron aikana. Sinun pitää kirjoittaa vuoronvaihtoraportti yövuorolle.',
+    taskInstruction:
+      'Kirjoita lyhyt vuoronvaihtoraportti. Kerro potilaan tämänhetkinen vointi, kiputilanne, annettu lääkitys ja mitä yövuoron pitää seurata.',
+    keyFacts: [
+      'Potilas palasi osastolle leikkauksen jälkeen iltapäivällä.',
+      'Kipu oli aluksi 7/10, lääkityksen jälkeen 3/10.',
+      'Haavasidos on siisti ja kuiva.',
+      'Potilas on käynyt avustettuna wc:ssä.',
+      'Yövuorossa seurataan kipua, haavaa, virtsaamista ja yleisvointia.',
+    ],
+    checklist: [
+      'Kerrottinko miksi raportti annetaan seuraavalle vuorolle?',
+      'Mainitsitko kiputilanteen ja lääkityksen vaikutuksen?',
+      'Kirjoititko haavan tai muun olennaisen havainnon?',
+      'Annoitko yövuorolle selkeät seuranta-asiat?',
+      'Onko teksti lyhyt, neutraali ja hyödyllinen seuraavalle työntekijälle?',
+    ],
+    usefulPhrases: [
+      'Vuoron aikana kipu oli aluksi ...',
+      'Lääkityksen jälkeen kipu helpottui.',
+      'Haavasidos on siisti ja kuiva.',
+      'Potilas liikkui avustettuna.',
+      'Yövuorossa seurataan kipua, haavaa ja yleisvointia.',
+    ],
+    modelAnswer:
+      'Potilas palasi osastolle leikkauksen jälkeen iltapäivällä. Kipu oli aluksi 7/10, mutta lääkityksen jälkeen kipu helpottui tasolle 3/10. Haavasidos on siisti ja kuiva. Potilas on käynyt avustettuna wc:ssä. Yövuorossa seurataan kipua, haavaa, virtsaamista ja yleisvointia.',
+    commonMistakes: [
+      'Älä kirjoita vain “kaikki ok”, vaan kerro mikä on seurattu ja mitä pitää seurata seuraavaksi.',
+      'Älä jätä lääkityksen vaikutusta pois, jos kipu on keskeinen asia.',
+      'Pidä raportti hyödyllisenä seuraavalle vuorolle: nykytilanne + riskit + seuranta.',
+    ],
+  },
+  {
+    id: 'practical_nurse_shift_handover_evening_care',
+    profession: 'practical_nurse',
+    reportType: 'shift_handover',
+    title: 'Vuoronvaihtoraportti iltavuoron hoivasta',
+    workplaceContext:
+      'Työskentelet lähihoitajana palveluasumisessa. Asukkaalla on ollut iltavuorossa väsymystä ja liikkuminen on ollut tavallista hitaampaa.',
+    taskInstruction:
+      'Kirjoita raportti seuraavalle vuorolle. Kerro arjen havainnot, avun tarve, ruokailu ja mitä pitää seurata.',
+    keyFacts: [
+      'Asukas oli iltavuorossa tavallista väsyneempi.',
+      'Liikkuminen rollaattorin kanssa oli hitaampaa kuin yleensä.',
+      'Iltapala maistui huonosti.',
+      'Lääkkeet otettu ohjatusti.',
+      'Yövuorossa seurataan vireystilaa, liikkumista ja mahdollista avuntarvetta.',
+    ],
+    checklist: [
+      'Kerrottinko konkreettinen muutos arjessa?',
+      'Mainitsitko liikkumisen ja turvallisuuden?',
+      'Kirjoititko ruokailusta tai lääkkeistä, jos ne ovat olennaisia?',
+      'Annoitko seuraavalle vuorolle seurantaohjeen?',
+      'Onko teksti kunnioittava ja havaintoihin perustuva?',
+    ],
+    usefulPhrases: [
+      'Asukas oli tavallista väsyneempi.',
+      'Liikkuminen oli hitaampaa kuin yleensä.',
+      'Lääkkeet otettu ohjatusti.',
+      'Seurataan vointia ja avuntarvetta.',
+      'Tarvittaessa avustetaan siirtymisissä.',
+    ],
+    modelAnswer:
+      'Asukas oli iltavuorossa tavallista väsyneempi. Liikkuminen rollaattorin kanssa oli hitaampaa kuin yleensä, ja siirtymisissä tarvittiin rauhallista ohjausta. Iltapala maistui huonosti. Lääkkeet otettu ohjatusti. Yövuorossa seurataan vireystilaa, liikkumista ja mahdollista lisäavun tarvetta.',
+    commonMistakes: [
+      'Älä kirjoita arvottavia kuvauksia, vaan konkreettisia havaintoja.',
+      'Älä jätä seuraavan vuoron tehtävää epäselväksi.',
+      'Kirjaa tieto ajoissa, jos muutos vaikuttaa turvallisuuteen.',
+    ],
+  },
+  {
+    id: 'doctor_shift_handover_observation_plan',
+    profession: 'doctor',
+    reportType: 'shift_handover',
+    title: 'Lääkärin vuoronvaihtoraportti seurannassa olevasta potilaasta',
+    workplaceContext:
+      'Olet lääkäri osastolla ja annat raporttia päivystävälle lääkärille potilaasta, joka on seurannassa voinnin muutoksen vuoksi.',
+    taskInstruction:
+      'Kirjoita tiivis lääkärin vuoronvaihtoraportti. Kerro tulosyy, nykytila, suunnitelma ja milloin pitää reagoida.',
+    keyFacts: [
+      'Potilas on seurannassa voinnin muutoksen vuoksi.',
+      'Vitaalit ovat tällä hetkellä vakaat.',
+      'Laboratoriokokeiden vastauksia odotetaan.',
+      'Jatketaan seurantaa osastolla.',
+      'Päivystävää lääkäriä konsultoidaan, jos vointi heikkenee tai vitaalit muuttuvat.',
+    ],
+    checklist: [
+      'Mainitsitko miksi potilas on seurannassa?',
+      'Kerrottinko nykytila lyhyesti?',
+      'Kirjoititko jatkosuunnitelman?',
+      'Mainitsitko milloin pitää konsultoida tai reagoida?',
+      'Onko raportti riittävän tiivis päivystävälle lääkärille?',
+    ],
+    usefulPhrases: [
+      'Potilas on seurannassa ... vuoksi.',
+      'Vitaalit ovat tällä hetkellä vakaat.',
+      'Laboratoriovastauksia odotetaan.',
+      'Jatketaan osastoseurantaa.',
+      'Konsultoidaan päivystävää lääkäriä, jos vointi heikkenee.',
+    ],
+    modelAnswer:
+      'Potilas on seurannassa voinnin muutoksen vuoksi. Vitaalit ovat tällä hetkellä vakaat ja laboratoriovastauksia odotetaan. Jatketaan osastoseurantaa. Päivystävää lääkäriä konsultoidaan, jos vointi heikkenee, kipu lisääntyy tai vitaaleissa ilmenee muutoksia.',
+    commonMistakes: [
+      'Älä jätä reagointirajaa epäselväksi.',
+      'Älä kirjoita liian pitkästi vuoronvaihtoraporttiin.',
+      'Erota nykytila, suunnitelma ja konsultointitarve selkeästi.',
+    ],
+  },
+  {
     id: 'nurse_ed_to_ward_tachycardia',
     profession: 'nurse',
     reportType: 'ed_to_ward_transfer',
