@@ -222,6 +222,49 @@ function buildFeedback(answer: string, scenario: HealthcareReportScenario, t: TF
   };
 }
 
+function scenarioCommonMistakes(scenario: HealthcareReportScenario, t: TFunction): string[] {
+  switch (scenario.id) {
+    case 'nurse_shift_handover_post_op_pain':
+      return [
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainMistake1'),
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainMistake2'),
+        t('professionalReportScenarioNurseShiftHandoverPostOpPainMistake3'),
+      ];
+    case 'practical_nurse_shift_handover_evening_care':
+      return [
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareMistake1'),
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareMistake2'),
+        t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareMistake3'),
+      ];
+    case 'doctor_shift_handover_observation_plan':
+      return [
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanMistake1'),
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanMistake2'),
+        t('professionalReportScenarioDoctorShiftHandoverObservationPlanMistake3'),
+      ];
+    case 'nurse_ed_to_ward_tachycardia':
+      return [
+        t('professionalReportScenarioNurseEdToWardTachycardiaMistake1'),
+        t('professionalReportScenarioNurseEdToWardTachycardiaMistake2'),
+        t('professionalReportScenarioNurseEdToWardTachycardiaMistake3'),
+      ];
+    case 'practical_nurse_during_shift_mobility':
+      return [
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityMistake1'),
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityMistake2'),
+        t('professionalReportScenarioPracticalNurseDuringShiftMobilityMistake3'),
+      ];
+    case 'doctor_interim_assessment_chest_pain':
+      return [
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainMistake1'),
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainMistake2'),
+        t('professionalReportScenarioDoctorInterimAssessmentChestPainMistake3'),
+      ];
+    default:
+      return scenario.commonMistakes;
+  }
+}
+
 export default function HealthcareReportWritingScreen({ profession, onBack }: Props) {
   const { t } = useTranslator();
   const scenarios = useMemo(() => scenariosForProfession(profession), [profession]);
@@ -334,7 +377,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
           {selectedScenario.usefulPhrases.map((phrase) => <Text key={phrase} style={styles.bullet}>• {phrase}</Text>)}
 
           <Text style={styles.listTitle}>{t('professionalReportWritingCommonMistakes')}</Text>
-          {selectedScenario.commonMistakes.map((mistake) => <Text key={mistake} style={styles.bullet}>• {mistake}</Text>)}
+          {scenarioCommonMistakes(selectedScenario, t).map((mistake) => <Text key={mistake} style={styles.bullet}>• {mistake}</Text>)}
         </View>
       </ScrollView>
     </SafeAreaView>
