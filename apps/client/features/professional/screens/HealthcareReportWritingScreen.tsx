@@ -47,6 +47,26 @@ function reportTypeTitle(reportType: HealthcareReportType, t: TFunction): string
   }
 }
 
+function scenarioTitle(scenario: HealthcareReportScenario, t: TFunction): string {
+  switch (scenario.id) {
+    case 'nurse_shift_handover_post_op_pain':
+      return t('professionalReportScenarioNurseShiftHandoverPostOpPainTitle');
+    case 'practical_nurse_shift_handover_evening_care':
+      return t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareTitle');
+    case 'doctor_shift_handover_observation_plan':
+      return t('professionalReportScenarioDoctorShiftHandoverObservationPlanTitle');
+    case 'nurse_ed_to_ward_tachycardia':
+      return t('professionalReportScenarioNurseEdToWardTachycardiaTitle');
+    case 'practical_nurse_during_shift_mobility':
+      return t('professionalReportScenarioPracticalNurseDuringShiftMobilityTitle');
+    case 'doctor_interim_assessment_chest_pain':
+      return t('professionalReportScenarioDoctorInterimAssessmentChestPainTitle');
+    default:
+      return scenario.title;
+  }
+}
+
+
 function containsAny(text: string, terms: string[]): boolean {
   const lower = text.toLowerCase();
   return terms.some((term) => lower.includes(term.toLowerCase()));
@@ -154,7 +174,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
                   }}
                   style={[styles.scenarioButton, selected && styles.scenarioButtonActive]}
                 >
-                  <Text style={[styles.scenarioButtonTitle, selected && styles.scenarioButtonTitleActive]}>{scenario.title}</Text>
+                  <Text style={[styles.scenarioButtonTitle, selected && styles.scenarioButtonTitleActive]}>{scenarioTitle(scenario, t)}</Text>
                   <Text style={styles.scenarioButtonType}>
                     {reportTypeTitle(scenario.reportType, t)}
                   </Text>
@@ -166,7 +186,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
 
         <View style={styles.sectionCard}>
           <Text style={styles.badge}>{selectedTypeTitle}</Text>
-          <Text style={styles.sectionTitle}>{selectedScenario.title}</Text>
+          <Text style={styles.sectionTitle}>{scenarioTitle(selectedScenario, t)}</Text>
           <Text style={styles.bodyText}>{selectedScenario.workplaceContext}</Text>
           <Text style={styles.taskText}>{selectedScenario.taskInstruction}</Text>
 
