@@ -29,7 +29,7 @@ function containsAny(text: string, terms: string[]): boolean {
   return terms.some((term) => lower.includes(term.toLowerCase()));
 }
 
-function buildFeedback(answer: string, scenario: HealthcareReportScenario): FeedbackResult {
+function buildFeedback(answer: string, scenario: HealthcareReportScenario, t: ReturnType<typeof useTranslator>['t']): FeedbackResult {
   const trimmed = answer.trim();
   const strengths: string[] = [];
   const missing: string[] = [];
@@ -38,23 +38,23 @@ function buildFeedback(answer: string, scenario: HealthcareReportScenario): Feed
   const checks = [
     {
       ok: containsAny(trimmed, ['siirrettiin', 'siirtyi', 'tuli', 'otettiin', 'seurannassa']),
-      strength: 'Kerroit tilanteen tai siirtymisen selkeästi.',
-      missing: 'Lisää alkuun mitä tapahtui tai miksi potilas/asukas on hoidossa.',
+      strength: t('professionalReportFeedbackSituationStrength'),
+      missing: t('professionalReportFeedbackSituationMissing'),
     },
     {
       ok: containsAny(trimmed, ['vointi', 'vitaalit', 'syke', 'verenpaine', 'hengitys', 'kipu', 'väsynyt', 'liikkuminen']),
-      strength: 'Mainitsit voinnin tai havaittavan muutoksen.',
-      missing: 'Lisää konkreettinen havainto voinnista, kivusta, vitaaleista tai toimintakyvystä.',
+      strength: t('professionalReportFeedbackConditionStrength'),
+      missing: t('professionalReportFeedbackConditionMissing'),
     },
     {
       ok: containsAny(trimmed, ['seurataan', 'jatketaan', 'ohjeistettu', 'konsultoidaan', 'avustettiin', 'varmistettiin']),
-      strength: 'Kirjoitit jatkotoimen tai seurannan.',
-      missing: 'Lisää mitä tehdään seuraavaksi tai mitä seuraavan vuoron pitää seurata.',
+      strength: t('professionalReportFeedbackFollowUpStrength'),
+      missing: t('professionalReportFeedbackFollowUpMissing'),
     },
     {
       ok: trimmed.length >= 120,
-      strength: 'Vastauksessa on tarpeeksi sisältöä harjoitusta varten.',
-      missing: 'Kirjoita hieman pidempi kirjaus: 3–5 selkeää virkettä riittää.',
+      strength: t('professionalReportFeedbackLengthStrength'),
+      missing: t('professionalReportFeedbackLengthMissing'),
     },
   ];
 
@@ -64,16 +64,16 @@ function buildFeedback(answer: string, scenario: HealthcareReportScenario): Feed
   });
 
   if (trimmed.includes('sirrettiin')) {
-    languageTips.push('Korjaa kirjoitusasu: “sirrettiin” → “siirrettiin”.');
+    languageTips.push(t('professionalReportFeedbackSpellingTip'));
   }
   if (containsAny(trimmed, ['tosi huono', 'hankala', 'sekava tyyppi'])) {
-    languageTips.push('Vaihda arvottava ilmaus neutraaliksi havainnoksi: kuvaa mitä näit, kuulit tai teit.');
+    languageTips.push(t('professionalReportFeedbackNeutralToneTip'));
   }
   if (!containsAny(trimmed, ['vuoksi', 'takia', 'seurataan', 'jatkohoitoon', 'ohjeistettu'])) {
-    languageTips.push('Käytä ammatillisia sidossanoja: “vuoksi”, “stabiloinnin jälkeen”, “jatketaan seurantaa”.');
+    languageTips.push(t('professionalReportFeedbackLinkingWordsTip'));
   }
   if (languageTips.length === 0) {
-    languageTips.push('Pidä tyyli jatkossakin neutraalina, tiiviinä ja havaintoihin perustuvana.');
+    languageTips.push(t('professionalReportFeedbackGoodStyleTip'));
   }
 
   return {
@@ -95,7 +95,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
   const selectedType = HEALTHCARE_REPORT_TYPES.find((type) => type.id === selectedScenario.reportType);
 
   function submit() {
-    setFeedback(buildFeedback(answer, selectedScenario));
+    setFeedback(buildFeedback(answer, selectedScenario, t));
   }
 
   return (
