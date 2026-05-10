@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { colors, spacing, typography } from '@ui/theme';
 import type { RoleplayLevelBand, RoleplayProfession } from '@core/api/roleplay';
 import { useTranslator } from '../features/i18n';
+import HealthcareReportWritingScreen from '../features/professional/screens/HealthcareReportWritingScreen';
 import { useSubscriptionStore } from './subscriptionStore';
 
 type Props = {
@@ -74,6 +75,8 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
     const list = subscriptionStatus?.entitlements?.professions ?? [];
     return list.filter((profession): profession is Profession => profession === 'doctor' || profession === 'nurse' || profession === 'practical_nurse');
   }, [subscriptionStatus?.entitlements?.professions]);
+  const [reportWritingOpen, setReportWritingOpen] = useState(false);
+
   const selectedProfession = useMemo<Profession>(() => {
     if (activeContext === 'doctor' || activeContext === 'nurse' || activeContext === 'practical_nurse') return activeContext;
     return entitledProfessions[0] ?? 'nurse';
@@ -117,7 +120,26 @@ export default function ProfessionalRoute({ onBack, onOpenMenu, initialLevelBand
       },
       disabled: !isEntitled(selectedProfession),
     },
+    {
+      title: t('professionalReportWritingTitle'),
+      detail: t('professionalReportWritingSubtitle'),
+      cta: t('commonOpen'),
+      onPress: () => {
+        setActiveContext(selectedProfession);
+        setReportWritingOpen(true);
+      },
+      disabled: !isEntitled(selectedProfession),
+    },
   ];
+
+  if (reportWritingOpen) {
+    return (
+      <HealthcareReportWritingScreen
+        profession={selectedProfession}
+        onBack={() => setReportWritingOpen(false)}
+      />
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
