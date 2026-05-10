@@ -66,6 +66,45 @@ function scenarioTitle(scenario: HealthcareReportScenario, t: TFunction): string
   }
 }
 
+function scenarioWorkplaceContext(scenario: HealthcareReportScenario, t: TFunction): string {
+  switch (scenario.id) {
+    case 'nurse_shift_handover_post_op_pain':
+      return t('professionalReportScenarioNurseShiftHandoverPostOpPainContext');
+    case 'practical_nurse_shift_handover_evening_care':
+      return t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareContext');
+    case 'doctor_shift_handover_observation_plan':
+      return t('professionalReportScenarioDoctorShiftHandoverObservationPlanContext');
+    case 'nurse_ed_to_ward_tachycardia':
+      return t('professionalReportScenarioNurseEdToWardTachycardiaContext');
+    case 'practical_nurse_during_shift_mobility':
+      return t('professionalReportScenarioPracticalNurseDuringShiftMobilityContext');
+    case 'doctor_interim_assessment_chest_pain':
+      return t('professionalReportScenarioDoctorInterimAssessmentChestPainContext');
+    default:
+      return scenario.workplaceContext;
+  }
+}
+
+function scenarioTaskInstruction(scenario: HealthcareReportScenario, t: TFunction): string {
+  switch (scenario.id) {
+    case 'nurse_shift_handover_post_op_pain':
+      return t('professionalReportScenarioNurseShiftHandoverPostOpPainTask');
+    case 'practical_nurse_shift_handover_evening_care':
+      return t('professionalReportScenarioPracticalNurseShiftHandoverEveningCareTask');
+    case 'doctor_shift_handover_observation_plan':
+      return t('professionalReportScenarioDoctorShiftHandoverObservationPlanTask');
+    case 'nurse_ed_to_ward_tachycardia':
+      return t('professionalReportScenarioNurseEdToWardTachycardiaTask');
+    case 'practical_nurse_during_shift_mobility':
+      return t('professionalReportScenarioPracticalNurseDuringShiftMobilityTask');
+    case 'doctor_interim_assessment_chest_pain':
+      return t('professionalReportScenarioDoctorInterimAssessmentChestPainTask');
+    default:
+      return scenario.taskInstruction;
+  }
+}
+
+
 
 function containsAny(text: string, terms: string[]): boolean {
   const lower = text.toLowerCase();
@@ -187,8 +226,8 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
         <View style={styles.sectionCard}>
           <Text style={styles.badge}>{selectedTypeTitle}</Text>
           <Text style={styles.sectionTitle}>{scenarioTitle(selectedScenario, t)}</Text>
-          <Text style={styles.bodyText}>{selectedScenario.workplaceContext}</Text>
-          <Text style={styles.taskText}>{selectedScenario.taskInstruction}</Text>
+          <Text style={styles.bodyText}>{scenarioWorkplaceContext(selectedScenario, t)}</Text>
+          <Text style={styles.taskText}>{scenarioTaskInstruction(selectedScenario, t)}</Text>
 
           <Text style={styles.listTitle}>{t('professionalReportWritingKeyFacts')}</Text>
           {selectedScenario.keyFacts.map((fact) => (
