@@ -4,11 +4,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors, spacing, typography } from '@ui/theme';
 
 import {
-  HEALTHCARE_REPORT_TYPES,
   firstScenarioForProfession,
   scenariosForProfession,
   type HealthcareProfession,
   type HealthcareReportScenario,
+  type HealthcareReportType,
 } from '../data/healthcareReportWriting';
 import { useTranslator } from '../../i18n';
 
@@ -24,12 +24,35 @@ type FeedbackResult = {
   languageTips: string[];
 };
 
+type TFunction = ReturnType<typeof useTranslator>['t'];
+
+function reportTypeTitle(reportType: HealthcareReportType, t: TFunction): string {
+  switch (reportType) {
+    case 'during_shift':
+      return t('professionalReportTypeDuringShift');
+    case 'shift_handover':
+      return t('professionalReportTypeShiftHandover');
+    case 'interim_assessment':
+      return t('professionalReportTypeInterimAssessment');
+    case 'final_assessment':
+      return t('professionalReportTypeFinalAssessment');
+    case 'discharge':
+      return t('professionalReportTypeDischarge');
+    case 'ed_to_ward_transfer':
+      return t('professionalReportTypeEdToWardTransfer');
+    case 'condition_change':
+      return t('professionalReportTypeConditionChange');
+    default:
+      return t('professionalReportWritingTitle');
+  }
+}
+
 function containsAny(text: string, terms: string[]): boolean {
   const lower = text.toLowerCase();
   return terms.some((term) => lower.includes(term.toLowerCase()));
 }
 
-function buildFeedback(answer: string, scenario: HealthcareReportScenario, t: ReturnType<typeof useTranslator>['t']): FeedbackResult {
+function buildFeedback(answer: string, scenario: HealthcareReportScenario, t: TFunction): FeedbackResult {
   const trimmed = answer.trim();
   const strengths: string[] = [];
   const missing: string[] = [];
@@ -92,7 +115,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
   const [feedback, setFeedback] = useState<FeedbackResult | null>(null);
 
   const selectedScenario = scenarios.find((scenario) => scenario.id === selectedScenarioId) ?? firstScenarioForProfession(profession);
-  const selectedType = HEALTHCARE_REPORT_TYPES.find((type) => type.id === selectedScenario.reportType);
+  const selectedTypeTitle = reportTypeTitle(selectedScenario.reportType, t);
 
   function submit() {
     setFeedback(buildFeedback(answer, selectedScenario, t));
@@ -133,7 +156,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
                 >
                   <Text style={[styles.scenarioButtonTitle, selected && styles.scenarioButtonTitleActive]}>{scenario.title}</Text>
                   <Text style={styles.scenarioButtonType}>
-                    {HEALTHCARE_REPORT_TYPES.find((type) => type.id === scenario.reportType)?.title}
+                    {reportTypeTitle(scenario.reportType, t)}
                   </Text>
                 </Pressable>
               );
@@ -142,7 +165,7 @@ export default function HealthcareReportWritingScreen({ profession, onBack }: Pr
         </View>
 
         <View style={styles.sectionCard}>
-          <Text style={styles.badge}>{selectedType?.title}</Text>
+          <Text style={styles.badge}>{selectedTypeTitle}</Text>
           <Text style={styles.sectionTitle}>{selectedScenario.title}</Text>
           <Text style={styles.bodyText}>{selectedScenario.workplaceContext}</Text>
           <Text style={styles.taskText}>{selectedScenario.taskInstruction}</Text>
