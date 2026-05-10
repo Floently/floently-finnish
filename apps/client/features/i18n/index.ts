@@ -5,11 +5,68 @@ import { usePreferencesStore, type AppLanguage } from '../../state/preferencesSt
 export type { AppLanguage };
 
 export const LANGUAGE_META: Record<AppLanguage, { flag: string; label: string; nativeLabel: string }> = {
-  fi: { flag: '🇫🇮', label: 'Finnish', nativeLabel: 'Suomi'
+  fi: {
+    professionalReportWritingEyebrow: 'Kirjaaminen ja raportointi',
+    professionalReportWritingTitle: 'Terveydenhuollon raporttikirjoittelu',
+    professionalReportWritingSubtitle: 'Harjoittele potilastyön ja hoivatyön kirjauksia: mitä tapahtui, mitä havaitsit, mitä teit ja mitä seuraavaksi seurataan.',
+    professionalReportWritingWorkplaceRuleTitle: 'Tärkeä työelämän sääntö',
+    professionalReportWritingWorkplaceRuleBody: 'Kirjaamista tehdään vuoron aikana, ei vain vuoron lopussa. Kun vointi muuttuu, jotain tehdään tai tieto pitää välittää eteenpäin, se kirjataan selkeästi ja ajoissa.',
+    professionalReportWritingScenarioTitle: 'Valitse harjoitustilanne',
+    professionalReportWritingKeyFacts: 'Sisällytettävät faktat',
+    professionalReportWritingYourText: 'Oma kirjauksesi',
+    professionalReportWritingPlaceholder: 'Kirjoita 3–5 virkettä ammatillisella suomella. Kerro mitä tapahtui, mikä on nykytilanne ja mitä seurataan seuraavaksi.',
+    professionalReportWritingCheck: 'Tarkista kirjaus',
+    professionalReportWritingFeedbackTitle: 'Palaute',
+    professionalReportWritingScore: 'Tulos',
+    professionalReportWritingStrengths: 'Vahvuudet',
+    professionalReportWritingMissing: 'Lisättävää',
+    professionalReportWritingNothingMajorMissing: 'Ei merkittäviä puutteita.',
+    professionalReportWritingLanguageTips: 'Kielivinkit',
+    professionalReportWritingModelAnswer: 'Mallikirjaus',
+    professionalReportWritingUsefulPhrases: 'Hyödyllisiä ilmauksia',
+    professionalReportWritingCommonMistakes: 'Yleisiä virheitä', flag: '🇫🇮', label: 'Finnish', nativeLabel: 'Suomi'
 },
-  sv: { flag: '🇸🇪', label: 'Swedish', nativeLabel: 'Svenska'
+  sv: {
+    professionalReportWritingEyebrow: 'Documentation and reporting',
+    professionalReportWritingTitle: 'Healthcare report writing',
+    professionalReportWritingSubtitle: 'Practise workplace documentation for patient and care situations: what happened, what you observed, what you did, and what should be followed next.',
+    professionalReportWritingWorkplaceRuleTitle: 'Important workplace rule',
+    professionalReportWritingWorkplaceRuleBody: 'Documentation is done during the shift, not only at the end. When a condition changes, an action is taken, or information must be passed on, write it clearly and in time.',
+    professionalReportWritingScenarioTitle: 'Choose a practice scenario',
+    professionalReportWritingKeyFacts: 'Key facts to include',
+    professionalReportWritingYourText: 'Your report text',
+    professionalReportWritingPlaceholder: 'Write 3–5 sentences in professional Finnish. Say what happened, what the current situation is, and what should be followed next.',
+    professionalReportWritingCheck: 'Check report',
+    professionalReportWritingFeedbackTitle: 'Feedback',
+    professionalReportWritingScore: 'Score',
+    professionalReportWritingStrengths: 'Strengths',
+    professionalReportWritingMissing: 'Missing or unclear',
+    professionalReportWritingNothingMajorMissing: 'No major missing points.',
+    professionalReportWritingLanguageTips: 'Language tips',
+    professionalReportWritingModelAnswer: 'Model report',
+    professionalReportWritingUsefulPhrases: 'Useful phrases',
+    professionalReportWritingCommonMistakes: 'Common mistakes', flag: '🇸🇪', label: 'Swedish', nativeLabel: 'Svenska'
 },
-  en: { flag: '🇬🇧', label: 'English', nativeLabel: 'English'
+  en: {
+    professionalReportWritingEyebrow: 'Documentation and reporting',
+    professionalReportWritingTitle: 'Healthcare report writing',
+    professionalReportWritingSubtitle: 'Practise workplace documentation for patient and care situations: what happened, what you observed, what you did, and what should be followed next.',
+    professionalReportWritingWorkplaceRuleTitle: 'Important workplace rule',
+    professionalReportWritingWorkplaceRuleBody: 'Documentation is done during the shift, not only at the end. When a condition changes, an action is taken, or information must be passed on, write it clearly and in time.',
+    professionalReportWritingScenarioTitle: 'Choose a practice scenario',
+    professionalReportWritingKeyFacts: 'Key facts to include',
+    professionalReportWritingYourText: 'Your report text',
+    professionalReportWritingPlaceholder: 'Write 3–5 sentences in professional Finnish. Say what happened, what the current situation is, and what should be followed next.',
+    professionalReportWritingCheck: 'Check report',
+    professionalReportWritingFeedbackTitle: 'Feedback',
+    professionalReportWritingScore: 'Score',
+    professionalReportWritingStrengths: 'Strengths',
+    professionalReportWritingMissing: 'Missing or unclear',
+    professionalReportWritingNothingMajorMissing: 'No major missing points.',
+    professionalReportWritingLanguageTips: 'Language tips',
+    professionalReportWritingModelAnswer: 'Model report',
+    professionalReportWritingUsefulPhrases: 'Useful phrases',
+    professionalReportWritingCommonMistakes: 'Common mistakes', flag: '🇬🇧', label: 'English', nativeLabel: 'English'
 },
 };
 
