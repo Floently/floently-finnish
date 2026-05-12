@@ -48,14 +48,13 @@ export default function IndexRoute() {
   const pathname = isWeb ? window.location.pathname.replace(/\/+$/, '') || '/' : '/';
   const isLearnHost = isWeb && hostname === 'learn.floently.com';
   const isReadHost = isWeb && hostname === 'read.floently.com';
-  const learnPath = pathname === '/learn' ? '/' : pathname;
+  const learnPath = pathname === '/learn' ? '/' : pathname.startsWith('/learn/') ? pathname.slice('/learn'.length) || '/' : pathname;
 
   if (isLearnHost) {
-    if (learnPath === '/learn/privacy') return <LegalPage page="privacy-policy" />;
-    if (learnPath === '/learn/terms') return <LegalPage page="terms-of-use" />;
-    if (learnPath === '/learn/support') return <LegalPage page="support" />;
-    if (learnPath === '/learn/delete-account') return <LegalPage page="account-deletion" />;
-    if (learnPath === '/learn/teams') return <LegalPage page="terms-of-use" />;
+    if (learnPath === '/privacy' || learnPath === '/privacy-policy') return <LegalPage page="privacy-policy" />;
+    if (learnPath === '/terms' || learnPath === '/terms-of-use' || learnPath === '/teams') return <LegalPage page="terms-of-use" />;
+    if (learnPath === '/support') return <LegalPage page="support" />;
+    if (learnPath === '/account-deletion' || learnPath === '/delete-account') return <LegalPage page="account-deletion" />;
 
     if (hasHydrated && user) {
       return <AppShell requestedScreen="root" />;

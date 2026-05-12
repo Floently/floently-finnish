@@ -52,12 +52,12 @@ const PAGE_CONTENT: Record<LegalPageKind, { title: string; updatedAt: string; se
       },
       {
         title: '6. User Rights',
-        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at /learn/delete-account',
+        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at https://learn.floently.com/account-deletion',
       },
       {
         title: '7. Contact',
         bullets: [
-          'Support: /learn/support',
+          'Support: https://learn.floently.com/support',
           'Privacy contact (owner fill): [OWNER_FILL_PRIVACY_CONTACT_EMAIL]',
         ],
       },
@@ -110,7 +110,7 @@ const PAGE_CONTENT: Record<LegalPageKind, { title: string; updatedAt: string; se
     sections: [
       {
         title: 'Support URL for store listings',
-        body: '/learn/support',
+        body: 'https://learn.floently.com/support',
       },
       {
         title: 'Support Scope',
@@ -163,7 +163,7 @@ const PAGE_CONTENT: Record<LegalPageKind, { title: string; updatedAt: string; se
       },
       {
         title: 'Contact',
-        body: 'Support: /learn/support',
+        body: 'Support: https://learn.floently.com/support',
       },
     ],
   },
