@@ -1,0 +1,935 @@
+{
+  "cards": [
+    {
+      "id": "card.grammar.practical_nurse.asettua-pukeutua-totuttua-potilas-tottuu-totuttaa-uuteen-laakkeeseen.-complete-with-curative-verb.2b90b8",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.curative",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.curative"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.93
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.curative",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "asettua, pukeutua, totuttua",
+          "usage": "Complete with curative verb."
+        },
+        "back": {
+          "recall_prompt": "Complete with curative verb.",
+          "gloss": "Complete with curative verb.",
+          "example_sentence": "Potilas tottuu (totuttaa) uuteen lääkkeeseen."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas tottuu (totuttaa) uuteen lääkkeeseen.",
+            "options": [
+              {
+                "option_id": "o4",
+                "text": "Complete with curative verb."
+              },
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal."
+              },
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form."
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Complete with curative verb.",
+            "accepted_variants": [
+              "tottuu"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with curative verb.",
+          "example": "Potilas tottuu (totuttaa) uuteen lääkkeeseen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.grammar.practical_nurse.auttanee-mennee-puhunee-hoitaja-tullee-tulla-pian.-complete-with-potential-mood.6edf2b",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.potential",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.potential"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.93
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.potential",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "auttanee, mennee, puhunee",
+          "usage": "Complete with potential mood."
+        },
+        "back": {
+          "recall_prompt": "Complete with potential mood.",
+          "gloss": "Complete with potential mood.",
+          "example_sentence": "Hoitaja tullee (tulla) pian."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Hoitaja tullee (tulla) pian.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal."
+              },
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form."
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence."
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete with potential mood."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Complete with potential mood.",
+            "accepted_variants": [
+              "tullee"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with potential mood.",
+          "example": "Hoitaja tullee (tulla) pian."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.grammar.practical_nurse.hoitajan-antama-laakarin-tekema-hoitajan-kirjoittama-hoitaja-kirjoittaa-raportti-on-tarkka.-complete-with-agent-participle.8e445a",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.agent_participle",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.agent_participle"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.agent_participle",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "hoitajan antama, lääkärin tekemä",
+          "usage": "Complete with agent participle."
+        },
+        "back": {
+          "recall_prompt": "Complete with agent participle.",
+          "gloss": "Complete with agent participle.",
+          "example_sentence": "hoitajan kirjoittama (hoitaja + kirjoittaa) raportti on tarkka."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? hoitajan kirjoittama (hoitaja + kirjoittaa) raportti on tarkka.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Agent participle (the action is done by the noun)"
+              },
+              {
+                "option_id": "o2",
+                "text": "Passive participle (the action is done to the noun)"
+              },
+              {
+                "option_id": "o3",
+                "text": "Temporal participle (when the action happens)"
+              },
+              {
+                "option_id": "o4",
+                "text": "Instructive case (how something is done)"
+              }
+            ],
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with agent participle.",
+          "example": "hoitajan kirjoittama (hoitaja + kirjoittaa) raportti on tarkka."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.grammar.practical_nurse.kysella-kayskennella-istuskella-potilas-kyseli-kysya-koko-ajan-laakkeistaan.-complete-with-frequentative-verb.2e094f",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.frequentative",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.frequentative"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.94
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.frequentative",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "kysellä, käyskennellä, istuskella",
+          "usage": "Complete with frequentative verb."
+        },
+        "back": {
+          "recall_prompt": "Complete with frequentative verb.",
+          "gloss": "Complete with frequentative verb.",
+          "example_sentence": "Potilas kyseli (kysyä) koko ajan lääkkeistään."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas kyseli (kysyä) koko ajan lääkkeistään.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal."
+              },
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form."
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete with frequentative verb."
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Complete with frequentative verb.",
+            "accepted_variants": [
+              "kyseli"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with frequentative verb.",
+          "example": "Potilas kyseli (kysyä) koko ajan lääkkeistään."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Frequentative verb"
+            },
+            {
+              "option_id": "o2",
+              "text": "Momentane verb (indicates a single action)"
+            },
+            {
+              "option_id": "o3",
+              "text": "Causative verb (indicates causing an action)"
+            },
+            {
+              "option_id": "o4",
+              "text": "Reflexive verb (indicates an action done to oneself)"
+            }
+          ],
+          "answer_key": "o1"
+        }
+      ]
+    },
+    {
+      "id": "card.grammar.practical_nurse.laakkeineen-hoitajineen-potilaineen-laakari-saapui-avustajineen-avustaja-.-complete-with-comitative.8446a1",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.comitative",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.comitative"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.94
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.comitative",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "lääkkeineen, hoitajineen, potilaineen",
+          "usage": "Complete with comitative."
+        },
+        "back": {
+          "recall_prompt": "Complete with comitative.",
+          "gloss": "Complete with comitative.",
+          "example_sentence": "Lääkäri saapui avustajineen (avustaja)."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Lääkäri saapui avustajineen (avustaja).",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Comitative case (accompanied by)"
+              },
+              {
+                "option_id": "o2",
+                "text": "Adessive case (on the surface of)"
+              },
+              {
+                "option_id": "o3",
+                "text": "Ablative case (from the surface of)"
+              },
+              {
+                "option_id": "o4",
+                "text": "Genitive case (possession)"
+              }
+            ],
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with comitative.",
+          "example": "Lääkäri saapui avustajineen (avustaja)."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.grammar.practical_nurse.nousta-nostaa-syoda-syottaa-istua-potilas-istuttaa-istua-sankyyn-form-the-causative.c8329e",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.derivation",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.derivation"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.94
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.derivation",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "nousta → nostaa, syödä → syöttää",
+          "usage": "Form the causative."
+        },
+        "back": {
+          "recall_prompt": "Form the causative.",
+          "gloss": "Form the causative.",
+          "example_sentence": "istua → potilas istuttaa (istua) sänkyyn"
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? istua → potilas istuttaa (istua) sänkyyn",
+            "options": [
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form."
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence."
+              },
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal."
+              },
+              {
+                "option_id": "o4",
+                "text": "Form the causative."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Form the causative.",
+            "accepted_variants": [
+              "istuttaa"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Form the causative.",
+          "example": "istua → potilas istuttaa (istua) sänkyyn"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.grammar.practical_nurse.omin-silmin-kasin-jalan-potilas-tuli-sairaalaan-jalan-jalka-.-complete-with-instructive.45d1bf",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.instructive",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.instructive"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.93
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.instructive",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "omin silmin, käsin, jalan",
+          "usage": "Complete with instructive."
+        },
+        "back": {
+          "recall_prompt": "Complete with instructive.",
+          "gloss": "Complete with instructive.",
+          "example_sentence": "Potilas tuli sairaalaan jalan (jalka)."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas tuli sairaalaan jalan (jalka).",
+            "options": [
+              {
+                "option_id": "o4",
+                "text": "Complete with instructive."
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence."
+              },
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form."
+              },
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Complete with instructive.",
+            "accepted_variants": [
+              "jalan"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with instructive.",
+          "example": "Potilas tuli sairaalaan jalan (jalka)."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Instructive case (indicates the means or method)"
+            },
+            {
+              "option_id": "o2",
+              "text": "Adessive case (indicates location or possession)"
+            },
+            {
+              "option_id": "o3",
+              "text": "Ablative case (indicates separation or movement away)"
+            },
+            {
+              "option_id": "o4",
+              "text": "Essive case (indicates a state or condition)"
+            }
+          ],
+          "answer_key": "o1"
+        }
+      ]
+    },
+    {
+      "id": "card.grammar.practical_nurse.vilkaista-huudahtaa-kipaista-potilas-vilkaisi-katsoa-nopeasti-kelloa.-complete-with-momentane-verb.993d27",
+      "version": 1,
+      "path": "professional/practical_nurse/grammar",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "C1_C2",
+      "difficulty": "stretch",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.grammar.momentane",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.grammar.momentane"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.94
+      },
+      "tags": [
+        "c1_c2",
+        "healthcare",
+        "practical_nurse",
+        "grammar_pattern"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.grammar.momentane",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "grammar_card",
+      "content": {
+        "front": {
+          "pattern": "vilkaista, huudahtaa, kipaista",
+          "usage": "Complete with momentane verb."
+        },
+        "back": {
+          "recall_prompt": "Complete with momentane verb.",
+          "gloss": "Complete with momentane verb.",
+          "example_sentence": "Potilas vilkaisi (katsoa) nopeasti kelloa."
+        },
+        "prompt_family": "grammar_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "What does this example express? Potilas vilkaisi (katsoa) nopeasti kelloa.",
+            "options": [
+              {
+                "option_id": "o2",
+                "text": "Complete the correct verb form."
+              },
+              {
+                "option_id": "o1",
+                "text": "Complete with ordinal."
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete the existential sentence."
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete with momentane verb."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Describe the meaning or function in English.",
+            "answer_key": "Complete with momentane verb.",
+            "accepted_variants": [
+              "vilkaisi"
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Complete with momentane verb.",
+          "example": "Potilas vilkaisi (katsoa) nopeasti kelloa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "grammar",
+        "level_file": "c1_c2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    }
+  ],
+  "manifest": {
+    "track": "professional",
+    "profession": "practical_nurse",
+    "bucket": "grammar",
+    "level_band": "C1_C2",
+    "last_promoted_source_id": "source.generated.general.sentences"
+  }
+}
