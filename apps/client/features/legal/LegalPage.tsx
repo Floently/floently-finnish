@@ -67,7 +67,7 @@ const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
         title: '4. Processors and Infrastructure',
         bullets: [
           'Hosting: Hetzner-based backend infrastructure.',
-          'Additional processor details (owner fill): [OWNER_FILL_PROCESSOR_LIST].',
+          'Additional processor details are available on request.',
         ],
       },
       {
@@ -79,13 +79,13 @@ const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
       },
       {
         title: '6. User Rights',
-        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at https://learn.floently.com/account-deletion',
+        body: 'Users can request account deletion in-app through Settings and the Delete Account option. Public account deletion information is available at https://learn.floently.com/account-deletion.',
       },
       {
         title: '7. Contact',
         bullets: [
           'Support: https://learn.floently.com/support',
-          'Privacy contact (owner fill): [OWNER_FILL_PRIVACY_CONTACT_EMAIL]',
+          'Privacy contact: https://learn.floently.com/support',
         ],
       },
       {
@@ -231,11 +231,9 @@ export default function LegalPage({ page }: Props) {
   }
 
   return (
-    <ScrollView style={styles.page} contentContainerStyle={styles.documentContent}>
+    <ScrollView style={styles.documentPage} contentContainerStyle={styles.documentContent}>
       <View style={styles.documentShell}>
         <View style={styles.documentHeader}>
-          <Image source={LOGO} style={styles.documentLogo} resizeMode="contain" accessibilityIgnoresInvertColors />
-          <Text style={styles.documentEyebrow}>LEGAL</Text>
           <Text style={styles.documentTitle}>{content.title}</Text>
           <Text style={styles.documentUpdatedAt}>{content.updatedAt}</Text>
         </View>
@@ -264,6 +262,10 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: '#050811',
+  },
+  documentPage: {
+    flex: 1,
+    backgroundColor: '#F6F8FD',
   },
   spotlightContent: {
     flexGrow: 1,
@@ -437,43 +439,28 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   documentHeader: {
-    alignItems: 'center',
-    gap: 8,
-    paddingTop: 4,
-  },
-  documentLogo: {
-    width: 220,
-    height: 146,
-  },
-  documentEyebrow: {
-    fontSize: 11,
-    lineHeight: 16,
-    fontWeight: '800',
-    color: '#5A85FF',
-    letterSpacing: 1.6,
+    gap: 6,
   },
   documentTitle: {
     fontSize: 28,
     lineHeight: 34,
     fontWeight: '800',
-    color: '#F3F7FF',
-    textAlign: 'center',
+    color: '#0A1838',
   },
   documentCard: {
-    backgroundColor: '#0A0F1C',
-    borderRadius: 20,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
     padding: 24,
     borderWidth: 1,
-    borderColor: '#182235',
+    borderColor: '#DCE5F2',
     gap: 18,
   },
   documentUpdatedAt: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#95A7C6',
+    color: '#5C7299',
     textTransform: 'uppercase',
     letterSpacing: 0.6,
-    textAlign: 'center',
   },
   section: {
     gap: 8,
@@ -483,12 +470,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     fontWeight: '800',
-    color: '#F3F7FF',
+    color: '#0A1838',
   },
   body: {
     fontSize: 15,
     lineHeight: 23,
-    color: '#C4D1E8',
+    color: '#31415F',
   },
   bullets: {
     gap: 6,
@@ -496,6 +483,6 @@ const styles = StyleSheet.create({
   bullet: {
     fontSize: 15,
     lineHeight: 23,
-    color: '#C4D1E8',
+    color: '#31415F',
   },
 });
