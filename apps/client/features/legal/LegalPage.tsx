@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 type LegalPageKind = 'privacy-policy' | 'terms-of-use' | 'support' | 'account-deletion';
 
@@ -173,27 +173,36 @@ type Props = {
   page: LegalPageKind;
 };
 
+const LOGO = require('../../components/public/logo.png');
+
 export default function LegalPage({ page }: Props) {
   const content = PAGE_CONTENT[page];
 
   return (
     <ScrollView style={styles.page} contentContainerStyle={styles.content}>
-      <View style={styles.card}>
-        <Text style={styles.title}>{content.title}</Text>
-        <Text style={styles.updatedAt}>{content.updatedAt}</Text>
-        {content.sections.map((section) => (
-          <View key={section.title} style={styles.section}>
-            <Text style={styles.sectionTitle}>{section.title}</Text>
-            {section.body ? <Text style={styles.body}>{section.body}</Text> : null}
-            {section.bullets ? (
-              <View style={styles.bullets}>
-                {section.bullets.map((bullet) => (
-                  <Text key={bullet} style={styles.bullet}>• {bullet}</Text>
-                ))}
-              </View>
-            ) : null}
-          </View>
-        ))}
+      <View style={styles.shell}>
+        <View style={styles.header}>
+          <Image source={LOGO} style={styles.logo} resizeMode="contain" accessibilityIgnoresInvertColors />
+          <Text style={styles.eyebrow}>LEGAL</Text>
+          <Text style={styles.title}>{content.title}</Text>
+          <Text style={styles.updatedAt}>{content.updatedAt}</Text>
+        </View>
+
+        <View style={styles.card}>
+          {content.sections.map((section) => (
+            <View key={section.title} style={styles.section}>
+              <Text style={styles.sectionTitle}>{section.title}</Text>
+              {section.body ? <Text style={styles.body}>{section.body}</Text> : null}
+              {section.bullets ? (
+                <View style={styles.bullets}>
+                  {section.bullets.map((bullet) => (
+                    <Text key={bullet} style={styles.bullet}>• {bullet}</Text>
+                  ))}
+                </View>
+              ) : null}
+            </View>
+          ))}
+        </View>
       </View>
     </ScrollView>
   );
@@ -202,49 +211,72 @@ export default function LegalPage({ page }: Props) {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: '#F6F8FD',
+    backgroundColor: '#050811',
   },
   content: {
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 28,
     paddingBottom: 40,
   },
-  card: {
-    maxWidth: 920,
+  shell: {
     width: '100%',
+    maxWidth: 920,
     alignSelf: 'center',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 24,
-    padding: 24,
-    borderWidth: 1,
-    borderColor: '#DCE5F2',
-    gap: 18,
+    gap: 20,
+  },
+  header: {
+    alignItems: 'center',
+    gap: 8,
+    paddingTop: 4,
+  },
+  logo: {
+    width: 220,
+    height: 146,
+  },
+  eyebrow: {
+    fontSize: 11,
+    lineHeight: 16,
+    fontWeight: '800',
+    color: '#5A85FF',
+    letterSpacing: 1.6,
   },
   title: {
     fontSize: 28,
     lineHeight: 34,
     fontWeight: '800',
-    color: '#0A1838',
+    color: '#F3F7FF',
+    textAlign: 'center',
+  },
+  card: {
+    backgroundColor: '#0A0F1C',
+    borderRadius: 20,
+    padding: 24,
+    borderWidth: 1,
+    borderColor: '#182235',
+    gap: 18,
   },
   updatedAt: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#5C7299',
+    color: '#95A7C6',
     textTransform: 'uppercase',
     letterSpacing: 0.6,
+    textAlign: 'center',
   },
   section: {
     gap: 8,
+    paddingBottom: 4,
   },
   sectionTitle: {
     fontSize: 18,
     lineHeight: 24,
     fontWeight: '800',
-    color: '#0A1838',
+    color: '#F3F7FF',
   },
   body: {
     fontSize: 15,
     lineHeight: 23,
-    color: '#31415F',
+    color: '#C4D1E8',
   },
   bullets: {
     gap: 6,
@@ -252,6 +284,6 @@ const styles = StyleSheet.create({
   bullet: {
     fontSize: 15,
     lineHeight: 23,
-    color: '#31415F',
+    color: '#C4D1E8',
   },
 });
