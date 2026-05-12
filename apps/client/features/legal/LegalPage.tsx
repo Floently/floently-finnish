@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Asset } from 'expo-asset';
+import { Image, Linking, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LEGAL_URLS } from '../../config/legalUrls';
 
 type LegalPageKind = 'privacy-policy' | 'terms-of-use' | 'support' | 'account-deletion';
@@ -30,6 +31,7 @@ type SpotlightPageContent = {
 type PageContent = DocumentPageContent | SpotlightPageContent;
 
 const LOGO = require('../../components/public/logo.png');
+const LOGO_ASSET = Asset.fromModule(LOGO);
 const FLOENTLY_HOME_URL = 'https://floently.com/';
 const LEARN_HOME_URL = 'https://learn.floently.com/';
 const SUPPORT_CONTACT_URL = 'mailto:pilots@floently.com?subject=Floently%20support%20request';
@@ -188,7 +190,13 @@ function TopBar() {
   return (
     <View style={styles.topBar}>
       <Pressable onPress={() => { void Linking.openURL(LEARN_HOME_URL); }} style={styles.logoButton}>
-        <Image source={LOGO} style={styles.topLogo} resizeMode="contain" accessibilityIgnoresInvertColors />
+        {Platform.OS === 'web'
+          ? React.createElement('img', {
+              src: LOGO_ASSET.uri,
+              alt: 'Floently',
+              style: styles.webLogo as unknown as React.CSSProperties,
+            })
+          : <Image source={LOGO} style={styles.topLogo} resizeMode="contain" accessibilityIgnoresInvertColors />}
       </Pressable>
       <View style={styles.topActions}>
         <Pressable onPress={() => { void Linking.openURL(LEARN_HOME_URL); }} style={styles.ghostButton}>
@@ -306,6 +314,12 @@ const styles = StyleSheet.create({
   topLogo: {
     width: 128,
     height: 84,
+  },
+  webLogo: {
+    width: 128,
+    height: 84,
+    objectFit: 'contain',
+    display: 'block',
   },
   logoButton: {
     borderRadius: 12,
