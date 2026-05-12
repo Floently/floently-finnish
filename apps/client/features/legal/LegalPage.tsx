@@ -67,7 +67,7 @@ const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
         title: '4. Processors and Infrastructure',
         bullets: [
           'Hosting: Hetzner-based backend infrastructure.',
-          'Additional processor details are available on request.',
+          'Additional processor details (owner fill): [OWNER_FILL_PROCESSOR_LIST].',
         ],
       },
       {
@@ -79,13 +79,13 @@ const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
       },
       {
         title: '6. User Rights',
-        body: 'Users can request account deletion in-app through Settings and the Delete Account option. Public account deletion information is available at https://learn.floently.com/account-deletion.',
+        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at https://learn.floently.com/account-deletion',
       },
       {
         title: '7. Contact',
         bullets: [
           'Support: https://learn.floently.com/support',
-          'Privacy contact: https://learn.floently.com/support',
+          'Privacy contact (owner fill): [OWNER_FILL_PRIVACY_CONTACT_EMAIL]',
         ],
       },
       {
@@ -184,6 +184,24 @@ function FooterLink({ label, href }: { label: string; href: string }) {
   );
 }
 
+function TopBar() {
+  return (
+    <View style={styles.topBar}>
+      <Pressable onPress={() => { void Linking.openURL(LEARN_HOME_URL); }} style={styles.logoButton}>
+        <Image source={LOGO} style={styles.topLogo} resizeMode="contain" accessibilityIgnoresInvertColors />
+      </Pressable>
+      <View style={styles.topActions}>
+        <Pressable onPress={() => { void Linking.openURL(LEARN_HOME_URL); }} style={styles.ghostButton}>
+          <Text style={styles.ghostButtonText}>Back to Learn</Text>
+        </Pressable>
+        <Pressable onPress={() => { void Linking.openURL(FLOENTLY_HOME_URL); }} style={styles.primaryButton}>
+          <Text style={styles.primaryButtonText}>Floently Home</Text>
+        </Pressable>
+      </View>
+    </View>
+  );
+}
+
 export default function LegalPage({ page }: Props) {
   const content = PAGE_CONTENT[page];
 
@@ -191,17 +209,7 @@ export default function LegalPage({ page }: Props) {
     return (
       <ScrollView style={styles.page} contentContainerStyle={styles.spotlightContent}>
         <View style={styles.spotlightShell}>
-          <View style={styles.topBar}>
-            <Image source={LOGO} style={styles.topLogo} resizeMode="contain" accessibilityIgnoresInvertColors />
-            <View style={styles.topActions}>
-              <Pressable onPress={() => { void Linking.openURL(LEARN_HOME_URL); }} style={styles.ghostButton}>
-                <Text style={styles.ghostButtonText}>Back to Learn</Text>
-              </Pressable>
-              <Pressable onPress={() => { void Linking.openURL(FLOENTLY_HOME_URL); }} style={styles.primaryButton}>
-                <Text style={styles.primaryButtonText}>Floently Home</Text>
-              </Pressable>
-            </View>
-          </View>
+          <TopBar />
 
           <View style={styles.heroCard}>
             <Text style={styles.heroBadge}>{content.badge}</Text>
@@ -231,27 +239,37 @@ export default function LegalPage({ page }: Props) {
   }
 
   return (
-    <ScrollView style={styles.documentPage} contentContainerStyle={styles.documentContent}>
-      <View style={styles.documentShell}>
-        <View style={styles.documentHeader}>
-          <Text style={styles.documentTitle}>{content.title}</Text>
-          <Text style={styles.documentUpdatedAt}>{content.updatedAt}</Text>
+    <ScrollView style={styles.page} contentContainerStyle={styles.spotlightContent}>
+      <View style={styles.spotlightShell}>
+        <TopBar />
+
+        <View style={styles.heroCard}>
+          <Text style={styles.heroBadge}>FLOENTLY FINNISH • LEGAL READINESS</Text>
+          <View style={styles.documentHeader}>
+            <Text style={styles.documentTitle}>{content.title}</Text>
+            <Text style={styles.documentUpdatedAt}>{content.updatedAt}</Text>
+          </View>
+
+          <View style={styles.documentPanel}>
+            {content.sections.map((section) => (
+              <View key={section.title} style={styles.section}>
+                <Text style={styles.sectionTitle}>{section.title}</Text>
+                {section.body ? <Text style={styles.body}>{section.body}</Text> : null}
+                {section.bullets ? (
+                  <View style={styles.bullets}>
+                    {section.bullets.map((bullet) => (
+                      <Text key={bullet} style={styles.bullet}>• {bullet}</Text>
+                    ))}
+                  </View>
+                ) : null}
+              </View>
+            ))}
+          </View>
         </View>
 
-        <View style={styles.documentCard}>
-          {content.sections.map((section) => (
-            <View key={section.title} style={styles.section}>
-              <Text style={styles.sectionTitle}>{section.title}</Text>
-              {section.body ? <Text style={styles.body}>{section.body}</Text> : null}
-              {section.bullets ? (
-                <View style={styles.bullets}>
-                  {section.bullets.map((bullet) => (
-                    <Text key={bullet} style={styles.bullet}>• {bullet}</Text>
-                  ))}
-                </View>
-              ) : null}
-            </View>
-          ))}
+        <View style={styles.footer}>
+          <Text style={styles.footerCopy}>© 2026 Floently · Floently Finnish</Text>
+          <FooterLinks />
         </View>
       </View>
     </ScrollView>
@@ -262,10 +280,6 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: '#050811',
-  },
-  documentPage: {
-    flex: 1,
-    backgroundColor: '#F6F8FD',
   },
   spotlightContent: {
     flexGrow: 1,
@@ -292,6 +306,9 @@ const styles = StyleSheet.create({
   topLogo: {
     width: 128,
     height: 84,
+  },
+  logoButton: {
+    borderRadius: 12,
   },
   topActions: {
     flexDirection: 'row',
@@ -440,25 +457,26 @@ const styles = StyleSheet.create({
   },
   documentHeader: {
     gap: 6,
+    marginBottom: 20,
   },
   documentTitle: {
     fontSize: 28,
     lineHeight: 34,
     fontWeight: '800',
-    color: '#0A1838',
+    color: '#F5F7FF',
   },
-  documentCard: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 24,
+  documentPanel: {
+    backgroundColor: '#081028',
+    borderRadius: 20,
     padding: 24,
     borderWidth: 1,
-    borderColor: '#DCE5F2',
+    borderColor: '#0C1636',
     gap: 18,
   },
   documentUpdatedAt: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#5C7299',
+    color: '#95A7C6',
     textTransform: 'uppercase',
     letterSpacing: 0.6,
   },
@@ -470,12 +488,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     fontWeight: '800',
-    color: '#0A1838',
+    color: '#F3F7FF',
   },
   body: {
     fontSize: 15,
     lineHeight: 23,
-    color: '#31415F',
+    color: '#C4D1E8',
   },
   bullets: {
     gap: 6,
@@ -483,6 +501,6 @@ const styles = StyleSheet.create({
   bullet: {
     fontSize: 15,
     lineHeight: 23,
-    color: '#31415F',
+    color: '#C4D1E8',
   },
 });
