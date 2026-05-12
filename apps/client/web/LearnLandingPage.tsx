@@ -25,6 +25,7 @@
 
 import React from 'react';
 import FinnishCorrectionDemo from './components/FinnishCorrectionDemo';
+import { LEGAL_URLS } from '../config/legalUrls';
 import LanguageSelector from '../features/i18n/LanguageSelector';
 import { usePreferencesStore } from '../state/preferencesStore';
 import { useTranslator } from '../features/i18n';
@@ -327,8 +328,8 @@ export default function LearnLandingPage() {
               <a href={DEMO_URL} className="fl-cta-link fl-cta-link-dark">
                 {t('landingFinalContact')} →
               </a>
-              <div id="landing-language" className="fl-final-language" aria-label="Language selection">
-                <div className="fl-final-language-label">Language</div>
+              <div id="landing-language" className="fl-final-language" aria-label={t('commonChooseLanguage')}>
+                <div className="fl-final-language-label">{t('commonLanguage')}</div>
                 <LanguageSelector language={language} onChange={(next) => void setLanguage(next)} mode="menu" compact />
               </div>
             </div>
@@ -356,6 +357,13 @@ export default function LearnLandingPage() {
               <div className="fl-footer-col-title">{t('landingFooterCompany')}</div>
               <a href={DEMO_URL} className="fl-footer-link">{t('landingNavBookDemo')}</a>
               <a href={DEMO_URL} className="fl-footer-link">{t('landingFooterContact')}</a>
+            </div>
+            <div className="fl-footer-col">
+              <div className="fl-footer-col-title">Legal</div>
+              <a href={LEGAL_URLS.privacyPolicy} className="fl-footer-link">{t('settingsPrivacyPolicy')}</a>
+              <a href={LEGAL_URLS.termsOfUse} className="fl-footer-link">{t('settingsTermsOfUse')}</a>
+              <a href={LEGAL_URLS.support} className="fl-footer-link">{t('settingsSupportAndContact')}</a>
+              <a href={LEGAL_URLS.accountDeletion} className="fl-footer-link">{t('settingsDeleteAccount')}</a>
             </div>
           </div>
         </div>

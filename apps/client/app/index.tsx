@@ -42,13 +42,20 @@ export default function IndexRoute() {
     };
   }, [setAuth]);
 
-  const isLearnHost = Platform.OS === 'web' && typeof window !== 'undefined' && window.location.hostname === 'learn.floently.com';
+  const isWeb = Platform.OS === 'web' && typeof window !== 'undefined';
+  const hostname = isWeb ? window.location.hostname : '';
+  const isLearnHost = isWeb && hostname === 'learn.floently.com';
+  const isReadHost = isWeb && hostname === 'read.floently.com';
 
   if (isLearnHost) {
     if (hasHydrated && user) {
       return <AppShell requestedScreen="root" />;
     }
     return <LearnLandingPage />;
+  }
+
+  if (isReadHost) {
+    return <AppShell />;
   }
 
   return <AppShell />;
