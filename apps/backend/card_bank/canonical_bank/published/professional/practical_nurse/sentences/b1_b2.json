@@ -607,36 +607,29 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "option_id": "o4",
+                "text": "I'll help you to the toilet."
               },
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "I'll help you to the bed."
+              },
+              {
+                "option_id": "o2",
+                "text": "I'll help you with eating."
               },
               {
                 "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o4",
-                "text": "I'll help you to the toilet."
+                "text": "I'll help you to the shower."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "I'll help you to the toilet.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "This sentence is used to offer assistance to a patient in moving to the toilet, a common task in practical nursing.",
           "example": "Autan sinut wc:hen."
         },
         "audio": null,
@@ -2671,7 +2664,7 @@
           "gloss": "Let's brush teeth.",
           "example_sentence": "Harjataan hampaat."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -2707,7 +2700,7 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence comprehension card.",
           "example": "Harjataan hampaat."
         },
         "audio": null,
@@ -2927,115 +2920,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Nousetko ylös?"
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "b1_b2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.phrase.practical nurse.ota-askel-eteenpain.26ceb3",
-      "version": 1,
-      "path": "professional/practical_nurse/sentences",
-      "domain": "medical_work_finnish",
-      "profession": {
-        "track": "professional",
-        "slug": "practical_nurse",
-        "label": "Practical Nurse"
-      },
-      "level_band": "B1_B2",
-      "difficulty": "core",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.professional.practical.nurse.sentences",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/practical_nurse_sentence.json",
-        "authoring_note": "source.generated.professional.practical.nurse.sentences"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "b1_b2",
-        "medical_work_finnish",
-        "practical nurse",
-        "communicative_phrase"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.professional.practical.nurse.sentences",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "phrase_card",
-      "content": {
-        "front": {
-          "sentence": "Ota askel eteenpäin."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "Take a step forward.",
-          "example_sentence": "Ota askel eteenpäin."
-        },
-        "prompt_family": "phrase_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o4",
-                "text": "Take a step forward."
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
-              },
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Take a step forward.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Ota askel eteenpäin."
         },
         "audio": null,
         "validation": {
@@ -4408,12 +4292,12 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Oletko huimauksen tunnetta?"
+          "sentence": "Tunnetko huimausta?"
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Do you feel dizzy?",
-          "example_sentence": "Oletko huimauksen tunnetta?"
+          "example_sentence": "Tunnetko huimausta?"
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -6915,12 +6799,12 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Ota suihku tänään?"
+          "sentence": "Otatteko suihkun tänään?"
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Will you take a shower today?",
-          "example_sentence": "Ota suihku tänään?"
+          "example_sentence": "Otatteko suihkun tänään?"
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -6929,32 +6813,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Do you want breakfast?"
+              },
+              {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Please sit down."
+              },
+              {
+                "option_id": "o3",
+                "text": "I will change your bandage."
               },
               {
                 "option_id": "o4",
                 "text": "Will you take a shower today?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Will you take a shower today?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -8659,12 +8536,12 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Suu limakalvot ovat punaiset."
+          "sentence": "Suun limakalvot ovat punaiset."
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "The oral mucous membranes are red.",
-          "example_sentence": "Suu limakalvot ovat punaiset."
+          "example_sentence": "Suun limakalvot ovat punaiset."
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -8703,7 +8580,7 @@
         ],
         "explanation": {
           "summary": "Communicative phrase card.",
-          "example": "Suu limakalvot ovat punaiset."
+          "example": "Suun limakalvot ovat punaiset."
         },
         "audio": null,
         "validation": {
@@ -8877,12 +8754,12 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Annetaan kuume lääkettä."
+          "sentence": "Annetaan kuumelääkettä."
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "We'll give fever medication.",
-          "example_sentence": "Annetaan kuume lääkettä."
+          "example_sentence": "Annetaan kuumelääkettä."
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -8895,12 +8772,12 @@
                 "text": "Good morning, how are you?"
               },
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
                 "option_id": "o2",
                 "text": "Let's take blood pressure."
+              },
+              {
+                "option_id": "o3",
+                "text": "Now it's time for the medicine."
               },
               {
                 "option_id": "o4",
@@ -8908,20 +8785,13 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "We'll give fever medication.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
           "summary": "Communicative phrase card.",
-          "example": "Annetaan kuume lääkettä."
+          "example": "Annetaan kuumelääkettä."
         },
         "audio": null,
         "validation": {
@@ -9756,7 +9626,7 @@
           "gloss": "Be careful not to choke.",
           "example_sentence": "Varo tukehtumasta."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -9792,7 +9662,7 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence card for a practical nurse context.",
           "example": "Varo tukehtumasta."
         },
         "audio": null,
@@ -10636,24 +10506,24 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
-              },
-              {
-                "option_id": "o4",
                 "text": "Will you blow into this tube?"
               },
               {
+                "option_id": "o2",
+                "text": "Will you take this test?"
+              },
+              {
                 "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "Will you help me with this?"
+              },
+              {
+                "option_id": "o4",
+                "text": "Will you blow into this balloon?"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -12424,7 +12294,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Good morning, how are you?"
+            },
+            {
+              "option_id": "o2",
+              "text": "The wound is clean"
+            },
+            {
+              "option_id": "o3",
+              "text": "Now it's time for the medicine."
+            },
+            {
+              "option_id": "o4",
+              "text": "This prevents pressure sores."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.phrase.practical nurse.kaannetaan-kahden-tunnin-valein.0b0a1c",
@@ -13251,25 +13145,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "Let's fasten the safety belt."
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "Let's check the brakes."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Let's adjust the footrests."
+              },
+              {
+                "option_id": "o3",
+                "text": "Let's take a break."
+              },
+              {
+                "option_id": "o4",
+                "text": "Let's fasten the safety belt."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -15806,115 +15700,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.phrase.practical nurse.kallista-paata-sivulle.e56669",
-      "version": 1,
-      "path": "professional/practical_nurse/sentences",
-      "domain": "medical_work_finnish",
-      "profession": {
-        "track": "professional",
-        "slug": "practical_nurse",
-        "label": "Practical Nurse"
-      },
-      "level_band": "B1_B2",
-      "difficulty": "core",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.professional.practical.nurse.sentences",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/practical_nurse_sentence.json",
-        "authoring_note": "source.generated.professional.practical.nurse.sentences"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "b1_b2",
-        "medical_work_finnish",
-        "practical nurse",
-        "communicative_phrase"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.professional.practical.nurse.sentences",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "phrase_card",
-      "content": {
-        "front": {
-          "sentence": "Kallista päätä sivulle."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "Tilt your head to the side.",
-          "example_sentence": "Kallista päätä sivulle."
-        },
-        "prompt_family": "phrase_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o4",
-                "text": "Tilt your head to the side."
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Tilt your head to the side.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Kallista päätä sivulle."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "b1_b2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.phrase.practical nurse.hiero-niskaa-kevyesti.64b364",
       "version": 1,
       "path": "professional/practical_nurse/sentences",
@@ -15976,16 +15761,16 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "option_id": "o1",
+                "text": "Apply a cold pack to your neck."
               },
               {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "option_id": "o2",
+                "text": "Stretch your shoulders slowly."
               },
               {
                 "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "Take a painkiller for your headache."
               },
               {
                 "option_id": "o4",
@@ -15993,15 +15778,8 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Massage your neck lightly.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -17070,28 +16848,28 @@
                 "text": "Rinse thoroughly."
               },
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "Apply pressure to the wound."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Dry the wound thoroughly."
+              },
+              {
+                "option_id": "o3",
+                "text": "Cover the wound with a bandage."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Rinse thoroughly.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -17284,25 +17062,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
-              },
-              {
                 "option_id": "o4",
                 "text": "Skin folds must be dried well."
               },
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "The skin must be moisturized daily."
+              },
+              {
+                "option_id": "o2",
+                "text": "The wound must be cleaned regularly."
               },
               {
                 "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "The patient must avoid scratching."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -17502,32 +17280,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "Let's change the incontinence pad."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
-              },
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "Let's change the dressing."
               },
               {
                 "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "Let's take the vitals."
+              },
+              {
+                "option_id": "o4",
+                "text": "Let's give the medicine."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Let's change the incontinence pad.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -18701,32 +18472,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The patient is conscious and talking."
+              },
+              {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "The patient needs to be woken up."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient is in pain and needs medication."
               },
               {
                 "option_id": "o4",
                 "text": "The patient is unconscious, breathing."
-              },
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "The patient is unconscious, breathing.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -19777,46 +19548,46 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Puhdistetaan oksennus hengitystiet."
+          "sentence": "Puhdistetaan oksennus hengitysteistä."
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "Clear vomit from the airway.",
-          "example_sentence": "Puhdistetaan oksennus hengitystiet."
+          "gloss": "Clear vomit from the airways.",
+          "example_sentence": "Puhdistetaan oksennus hengitysteistä."
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
             "options": [
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
-              },
               {
                 "option_id": "o1",
                 "text": "Good morning, how are you?"
               },
               {
-                "option_id": "o4",
-                "text": "Clear vomit from the airway."
+                "option_id": "o2",
+                "text": "Let's take blood pressure."
               },
               {
                 "option_id": "o3",
                 "text": "Now it's time for the medicine."
+              },
+              {
+                "option_id": "o4",
+                "text": "Clear vomit from the airways."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "prompt": "Choose the best meaning.",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
+            "answer_key": "Clear vomit from the airways.",
             "prompt": "Type the meaning in English.",
-            "answer_key": "Clear vomit from the airway.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -23283,32 +23054,25 @@
                 "text": "A safety visit will be made to the apartment."
               },
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "The apartment needs a safety check."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "The safety visit is cancelled."
+              },
+              {
+                "option_id": "o3",
+                "text": "The tenant requests a safety visit."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "A safety visit will be made to the apartment.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "This sentence informs about a scheduled safety visit to an apartment, common in practical nurse work to ensure living safety.",
           "example": "Asuntoon tehdään turvallisuuskäynti."
         },
         "audio": null,
@@ -27080,27 +26844,18 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Valmistan verensiirtoa varten."
+          "sentence": "Valmistaudun verensiirtoon."
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "I'll prepare for blood transfusion.",
-          "example_sentence": "Valmistan verensiirtoa varten."
+          "gloss": "I prepare for blood transfusion.",
+          "example_sentence": "Valmistaudun verensiirtoon."
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
             "options": [
-              {
-                "option_id": "o4",
-                "text": "I'll prepare for blood transfusion."
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
               {
                 "option_id": "o1",
                 "text": "Good morning, how are you?"
@@ -27108,23 +26863,32 @@
               {
                 "option_id": "o2",
                 "text": "Let's take blood pressure."
+              },
+              {
+                "option_id": "o3",
+                "text": "Now it's time for the medicine."
+              },
+              {
+                "option_id": "o4",
+                "text": "I prepare for blood transfusion."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "prompt": "Choose the best meaning.",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
+            "answer_key": "I prepare for blood transfusion.",
             "prompt": "Type the meaning in English.",
-            "answer_key": "I'll prepare for blood transfusion.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
           "summary": "Communicative phrase card.",
-          "example": "Valmistan verensiirtoa varten."
+          "example": "Valmistaudun verensiirtoon."
         },
         "audio": null,
         "validation": {
@@ -27422,15 +27186,15 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "Confusion is always caused by dementia."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Infection cannot lead to confusion."
+              },
+              {
+                "option_id": "o3",
+                "text": "Confusion is only a symptom of psychiatric disorders."
               },
               {
                 "option_id": "o4",
@@ -27438,15 +27202,15 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Confusion may be due to infection.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -28722,7 +28486,7 @@
           "gloss": "I'll prepare for the dialysis unit.",
           "example_sentence": "Valmistelen dialyysiyksikköä varten."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -28758,7 +28522,7 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence comprehension card.",
           "example": "Valmistelen dialyysiyksikköä varten."
         },
         "audio": null,
@@ -29496,32 +29260,32 @@
                 "text": "Give nifedipine sublingually."
               },
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "Give insulin subcutaneously."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Give medication orally."
+              },
+              {
+                "option_id": "o3",
+                "text": "Check the patient's blood pressure."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Give nifedipine sublingually.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "This phrase instructs to administer nifedipine sublingually.",
           "example": "Annetaan nifedipiiniä kielen alle."
         },
         "audio": null,
@@ -30146,32 +29910,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The patient is speaking clearly."
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient has a sore throat."
+              },
+              {
                 "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "The patient has lost their voice."
               },
               {
                 "option_id": "o4",
                 "text": "Speech is slurred."
-              },
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Speech is slurred.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -32872,31 +32636,24 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "I set the oxygen flow to 2 liters."
+              },
+              {
+                "option_id": "o2",
+                "text": "I set the extra oxygen flow to 5 liters."
+              },
+              {
+                "option_id": "o3",
+                "text": "I set the main oxygen flow to 4 liters."
               },
               {
                 "option_id": "o4",
                 "text": "I set the extra oxygen flow to 4 liters."
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "I set the extra oxygen flow to 4 liters.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -33308,24 +33065,24 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "Increased crackles suggest fluid accumulation."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Lung sounds indicate a healthy patient."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient is breathing normally."
               },
               {
                 "option_id": "o4",
-                "text": "Increased crackles suggest fluid accumulation."
+                "text": "Decreased breath sounds suggest a problem."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -34987,7 +34744,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Good morning, how are you?"
+            },
+            {
+              "option_id": "o2",
+              "text": "The patient is stable"
+            },
+            {
+              "option_id": "o3",
+              "text": "Now it's time for the medicine."
+            },
+            {
+              "option_id": "o4",
+              "text": "Noradrenaline is titrated according to blood pressure."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.phrase.practical nurse.tavoite-map-yli-65-mmhg.c9c578",
@@ -35052,24 +34833,24 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o4",
                 "text": "Target MAP above 65 mmHg."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Target heart rate above 100 bpm."
+              },
+              {
+                "option_id": "o3",
+                "text": "Target blood pressure below 120/80."
+              },
+              {
+                "option_id": "o4",
+                "text": "Target oxygen saturation above 95%."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -35270,15 +35051,15 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "The insertion must be done in a specific position."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Sterility must be maintained after insertion."
+              },
+              {
+                "option_id": "o3",
+                "text": "The equipment must be sterile before use."
               },
               {
                 "option_id": "o4",
@@ -35286,15 +35067,8 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Sterility must be ensured during insertion.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -37449,16 +37223,16 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "option_id": "o1",
+                "text": "Dosage: 5 mg, once daily."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Symptoms: fever, cough, headache."
               },
               {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "option_id": "o3",
+                "text": "Treatment: rest and fluids."
               },
               {
                 "option_id": "o4",
@@ -37466,15 +37240,8 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Side effects: nausea, constipation, sedation.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -39738,25 +39505,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "Insulin injection: check patient, dose, time, and meal."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Insulin injection: monitor blood sugar levels."
+              },
+              {
+                "option_id": "o3",
+                "text": "Insulin injection: prepare the syringe."
               },
               {
                 "option_id": "o4",
-                "text": "Insulin injection: check patient, dose, time, and meal."
+                "text": "Insulin injection: ensure patient is comfortable."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -41155,25 +40922,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "option_id": "o1",
+                "text": "The patient's diet is planned in advance."
               },
               {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "option_id": "o2",
+                "text": "Medication is given before discharge."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient's family is notified of the discharge."
               },
               {
                 "option_id": "o4",
                 "text": "Discharge planning is started early."
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -43321,7 +43088,7 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Älä koskaan oikotie turvallisuusmekanismeja."
+          "sentence": "Älä koskaan ohita turvallisuusmekanismeja."
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
@@ -43332,7 +43099,6 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
             "options": [
               {
                 "option_id": "o3",
@@ -43352,15 +43118,9 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Never bypass safety mechanisms.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "prompt": "Choose the best meaning.",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -45399,7 +45159,7 @@
           "gloss": "If you suspect abuse, make a child welfare report or equivalent.",
           "example_sentence": "Jos epäilet kaltoinkohtelua, tee lastensuojeluilmoitus tai vastaava."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -45435,7 +45195,7 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence comprehension card.",
           "example": "Jos epäilet kaltoinkohtelua, tee lastensuojeluilmoitus tai vastaava."
         },
         "audio": null,
@@ -45835,7 +45595,7 @@
           "gloss": "You learn from a mistake; covering it up worsens the situation.",
           "example_sentence": "Virheestä oppii, peittely pahentaa tilannetta."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -45871,7 +45631,7 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence comprehension card.",
           "example": "Virheestä oppii, peittely pahentaa tilannetta."
         },
         "audio": null,
@@ -46497,31 +46257,31 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "The patient must follow all treatment instructions without exception."
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient has no right to appeal medical decisions."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient can only contact a relative, not a representative."
               },
               {
                 "option_id": "o4",
                 "text": "The patient has the right to use a representative."
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "The patient has the right to use a representative.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -48350,31 +48110,31 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "Patient documents are destroyed after use."
+              },
+              {
+                "option_id": "o2",
+                "text": "Patient documents are accessible to all staff."
+              },
+              {
+                "option_id": "o3",
+                "text": "Patient documents are stored in a public area."
               },
               {
                 "option_id": "o4",
                 "text": "Patient documents are stored in a locked space."
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Patient documents are stored in a locked space.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -48669,7 +48429,7 @@
           "gloss": "Work clothes must not be worn outside the workplace.",
           "example_sentence": "Työvaatteita ei saa käyttää työpaikan ulkopuolella."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -48705,7 +48465,7 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence card for a practical nurse context.",
           "example": "Työvaatteita ei saa käyttää työpaikan ulkopuolella."
         },
         "audio": null,
@@ -49548,32 +49308,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "Vaccination protection is checked during the pre-employment health examination."
-              },
-              {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "Vaccination protection is not required for employment."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Pre-employment health examination is optional."
+              },
+              {
+                "option_id": "o3",
+                "text": "Vaccination records are checked by the patient's own doctor."
+              },
+              {
+                "option_id": "o4",
+                "text": "Vaccination protection is checked during the pre-employment health examination."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Vaccination protection is checked during the pre-employment health examination.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -50311,25 +50071,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "A sedative is given on doctor's order."
               },
               {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "option_id": "o2",
+                "text": "The patient needs to rest."
               },
               {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "option_id": "o3",
+                "text": "Medication should be taken with food."
+              },
+              {
+                "option_id": "o4",
+                "text": "The doctor will check the patient."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -50747,32 +50507,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "option_id": "o1",
+                "text": "Report any equipment malfunction immediately."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Ignore the workload and continue working normally."
+              },
+              {
+                "option_id": "o3",
+                "text": "Every nurse is expected to handle any workload alone."
               },
               {
                 "option_id": "o4",
                 "text": "Talk to your supervisor if the workload is too heavy."
-              },
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Talk to your supervisor if the workload is too heavy.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -52491,32 +52251,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The handover report is written by the patient."
+              },
+              {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "Changes in patient condition are not mentioned in the handover."
+              },
+              {
+                "option_id": "o3",
+                "text": "Special observations are only verbal, not written."
               },
               {
                 "option_id": "o4",
                 "text": "The handover mentions changes and special observations."
-              },
-              {
-                "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "The handover mentions changes and special observations.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -53473,15 +53233,15 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Now it's time for the medicine."
+                "text": "A mentor can assign work shifts."
               },
               {
                 "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "text": "A mentor can evaluate clinical skills."
+              },
+              {
+                "option_id": "o3",
+                "text": "A mentor can prescribe medication."
               },
               {
                 "option_id": "o4",
@@ -53489,15 +53249,8 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "A mentor can support you in the early stages of your career.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -53792,7 +53545,7 @@
           "gloss": "The trade union advises on collective agreement matters.",
           "example_sentence": "Ammattiliitto neuvoo työehtosopimusasioissa."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -53828,7 +53581,7 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence comprehension card.",
           "example": "Ammattiliitto neuvoo työehtosopimusasioissa."
         },
         "audio": null,
@@ -54562,36 +54315,36 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Let's take blood pressure."
+                "option_id": "o4",
+                "text": "You can apply to a university of applied sciences while working."
               },
               {
                 "option_id": "o1",
-                "text": "Good morning, how are you?"
+                "text": "You can study at the university while working full-time."
+              },
+              {
+                "option_id": "o2",
+                "text": "You need a recommendation letter to apply."
               },
               {
                 "option_id": "o3",
-                "text": "Now it's time for the medicine."
-              },
-              {
-                "option_id": "o4",
-                "text": "You can apply to a university of applied sciences while working."
+                "text": "The program is only available in the evening."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "You can apply to a university of applied sciences while working.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "This sentence describes the possibility of applying to a university of applied sciences while still working.",
           "example": "Ammattikorkeakouluun voi hakea työn ohessa."
         },
         "audio": null,
@@ -91558,6 +91311,339 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Varmistan aina asiakkaan henkilöllisyyden ennen lääkkeiden antamista."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "b1_b2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.sentence.practical_nurse.mittaan-potilaalta-kuumeen-ja-ilmoitan-siita-laakarille.-i-measure-the-patient-s-fever-and-report-it-to-the-doctor.9ddfbf",
+      "version": 1,
+      "path": "professional/practical_nurse/sentences",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "B1",
+      "difficulty": "foundation",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.92
+      },
+      "tags": [
+        "b1",
+        "healthcare",
+        "practical_nurse",
+        "communicative_sentence"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "sentence_card",
+      "content": {
+        "front": {
+          "sentence": "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
+        },
+        "back": {
+          "recall_prompt": "I measure the patient's fever and report it to the doctor. -> ?",
+          "gloss": "I measure the patient's fever and report it to the doctor.",
+          "example_sentence": "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
+        },
+        "prompt_family": "sentence_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o2",
+                "text": "I do handicrafts and often knit wool socks as gifts for friends."
+              },
+              {
+                "option_id": "o1",
+                "text": "There was a big rush in the morning, and I forgot to take my lunch with me."
+              },
+              {
+                "option_id": "o4",
+                "text": "I measure the patient's fever and report it to the doctor."
+              },
+              {
+                "option_id": "o3",
+                "text": "On Midsummer, many Finns gather at summer cottages and light bonfires."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "I measure the patient's fever and report it to the doctor.",
+            "accepted_variants": [
+              "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "b1_b2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.sentence.practical_nurse.puhun-ikaihmisen-kanssa-ja-kysyn-haluaisiko-han-keskustella-vertaistuen-kanssa.-i-talk-with-the-elderly-person-and-ask-if-they-would-like-to-talk-with-peer-support.ceefda",
+      "version": 1,
+      "path": "professional/practical_nurse/sentences",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "foundation",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.92
+      },
+      "tags": [
+        "b1_b2",
+        "healthcare",
+        "practical_nurse",
+        "communicative_sentence"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "sentence_card",
+      "content": {
+        "front": {
+          "sentence": "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
+        },
+        "back": {
+          "recall_prompt": "I talk with the elderly person and ask if they would like to talk with peer support. -> ?",
+          "gloss": "I talk with the elderly person and ask if they would like to talk with peer support.",
+          "example_sentence": "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
+        },
+        "prompt_family": "sentence_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o4",
+                "text": "I talk with the elderly person and ask if they would like to talk with peer support."
+              },
+              {
+                "option_id": "o1",
+                "text": "There was a big rush in the morning, and I forgot to take my lunch with me."
+              },
+              {
+                "option_id": "o3",
+                "text": "On Midsummer, many Finns gather at summer cottages and light bonfires."
+              },
+              {
+                "option_id": "o2",
+                "text": "I do handicrafts and often knit wool socks as gifts for friends."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "I talk with the elderly person and ask if they would like to talk with peer support.",
+            "accepted_variants": [
+              "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "b1_b2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.sentence.practical_nurse.lapsi-saa-rokotukset-neuvolassa-kansallisen-rokotusohjelman-mukaisesti.-the-child-receives-vaccinations-at-the-clinic-according-to-the-national-vaccination-program.afa913",
+      "version": 1,
+      "path": "professional/practical_nurse/sentences",
+      "domain": "healthcare",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "B1_B2",
+      "difficulty": "foundation",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.nurse.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
+        "authoring_note": "source.generated.nurse.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.92
+      },
+      "tags": [
+        "b1_b2",
+        "healthcare",
+        "practical_nurse",
+        "communicative_sentence"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.nurse.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "sentence_card",
+      "content": {
+        "front": {
+          "sentence": "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
+        },
+        "back": {
+          "recall_prompt": "The child receives vaccinations at the clinic according to the national vaccination program. -> ?",
+          "gloss": "The child receives vaccinations at the clinic according to the national vaccination program.",
+          "example_sentence": "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
+        },
+        "prompt_family": "sentence_memory",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "There was a big rush in the morning, and I forgot to take my lunch with me."
+              },
+              {
+                "option_id": "o2",
+                "text": "I do handicrafts and often knit wool socks as gifts for friends."
+              },
+              {
+                "option_id": "o3",
+                "text": "On Midsummer, many Finns gather at summer cottages and light bonfires."
+              },
+              {
+                "option_id": "o4",
+                "text": "The child receives vaccinations at the clinic according to the national vaccination program."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "The child receives vaccinations at the clinic according to the national vaccination program.",
+            "accepted_variants": [
+              "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
+            ],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
         },
         "audio": null,
         "validation": {

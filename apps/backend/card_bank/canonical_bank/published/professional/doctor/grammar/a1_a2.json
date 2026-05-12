@@ -399,34 +399,24 @@
             "prompt": "What does this example express? Potilas makaa vuodeosastolla (vuodeosasto).",
             "options": [
               {
-                "option_id": "o4",
-                "text": "Complete the correct form."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Form the inessive case."
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Form the adessive case."
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Form the elative case."
+              },
+              {
+                "option_id": "o4",
+                "text": "Form the illative case."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete the correct form.",
-            "accepted_variants": [
-              "vuodeosastolla"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {

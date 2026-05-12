@@ -1197,7 +1197,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Adequate staffing levels alone ensure ethically sustainable nursing."
+            },
+            {
+              "option_id": "o2",
+              "text": "Investment in work well-being is secondary to patient safety."
+            },
+            {
+              "option_id": "o3",
+              "text": "Ethical nursing requires focusing solely on patient outcomes."
+            },
+            {
+              "option_id": "o4",
+              "text": "Ethically sustainable nursing cannot be implemented without adequate staffing levels and investment in work well-being."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.hoidon-jatkuvuuden-turvaamiseksi-on-raportoinnin-oltava-systemaattista-tasmallista-ja-ymmarrettavaa-vastaanottajalle.cd7c3b",
@@ -2941,7 +2967,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "Working with a patient in an acute crisis requires the ability to maintain one's own functioning under emotional pressure."
+            },
+            {
+              "option_id": "o1",
+              "text": "In an acute crisis, the patient must maintain their own functioning independently."
+            },
+            {
+              "option_id": "o2",
+              "text": "Working with a patient in a crisis requires suppressing all emotional responses."
+            },
+            {
+              "option_id": "o3",
+              "text": "Maintaining one's own functioning in a crisis is irrelevant to effective patient care."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.havaintojen-dokumentointi-on-sita-arvokkaampaa-mita-tarkemmin-siina-kuvataan-ajallista-kulkua-ja-potilaan-oireilua.9a8e40",
@@ -3595,7 +3647,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Respectful encounters are only necessary for difficult patients."
+            },
+            {
+              "option_id": "o2",
+              "text": "A trusting care relationship is based primarily on medical expertise."
+            },
+            {
+              "option_id": "o3",
+              "text": "Cooperation with patients is unnecessary if the treatment plan is clear."
+            },
+            {
+              "option_id": "o4",
+              "text": "Encountering the patient respectfully and appreciatively creates the foundation for a trusting care relationship and cooperation."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.toimintakyvyn-arvioinnissa-on-syyta-kiinnittaa-huomiota-paitsi-fyysisiin-rajoitteisiin-myos-kognitiiviseen-suoriutumisee.71b665",
@@ -3659,32 +3737,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "In assessing functional capacity, attention should be paid not only to physical limitations but also to cognitive performance."
-              },
-              {
                 "option_id": "o1",
-                "text": "The patient's subjective perception of their own condition is often more reliable than mere objective measurements."
+                "text": "Functional capacity assessment should focus solely on physical abilities."
               },
               {
                 "option_id": "o2",
-                "text": "In nursing, it is essential to be able to prioritize urgency without compromising patient safety."
+                "text": "Cognitive performance is irrelevant in functional capacity assessment."
               },
               {
                 "option_id": "o3",
-                "text": "If the patient refuses treatment, the benefits and potential risks of the procedure must be thoroughly explained to them."
+                "text": "Physical limitations are the only important factor in functional capacity assessment."
+              },
+              {
+                "option_id": "o4",
+                "text": "In assessing functional capacity, attention should be paid not only to physical limitations but also to cognitive performance."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "In assessing functional capacity, attention should be paid not only to physical limitations but also to cognitive performance.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -3922,7 +4000,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o2",
+              "text": "A nurse's ability to empathize is crucial in end-of-life care."
+            },
+            {
+              "option_id": "o4",
+              "text": "A patient in a difficult life situation may need repeated discussions about the same issue before the matter becomes clear."
+            },
+            {
+              "option_id": "o1",
+              "text": "Clear documentation of care decisions is legally required."
+            },
+            {
+              "option_id": "o3",
+              "text": "Regular team meetings improve coordination of care."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "A patient in a difficult life situation may need repeated discussions about the same issue before the matter becomes clear.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.hoitotyon-johtamisessa-on-tarkeaa-luoda-kulttuuri-jossa-virheista-voidaan-puhua-avoimesti-ja-niista-voidaan-oppia.55a57e",
@@ -4031,7 +4141,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Nursing management should focus on avoiding mistakes altogether."
+            },
+            {
+              "option_id": "o2",
+              "text": "Mistakes in nursing should be documented but not discussed openly."
+            },
+            {
+              "option_id": "o3",
+              "text": "Learning from mistakes is less important than following procedures."
+            },
+            {
+              "option_id": "o4",
+              "text": "In nursing management, it is important to create a culture where mistakes can be discussed openly and learned from."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.eettisten-ongelmien-ratkaiseminen-edellyttaa-kykya-tunnistaa-arvoristiriidat-ja-etsia-kompromisseja-osapuolten-valilla.97084f",
@@ -4249,7 +4385,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "The nurse must always follow doctors' orders without questioning them."
+            },
+            {
+              "option_id": "o2",
+              "text": "The nurse should avoid explaining decisions to patients to maintain authority."
+            },
+            {
+              "option_id": "o3",
+              "text": "The nurse's main responsibility is to complete documentation on time."
+            },
+            {
+              "option_id": "o4",
+              "text": "The nurse must be able to justify their own actions and decisions clearly and convincingly to both the patient and the work community."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.nopeasti-muuttuvassa-tilanteessa-on-tarkeaa-pystya-viestimaan-tiimin-jasenille-olennaiset-tiedot-tiiviisti-ja-systemaatt.1742d2",
@@ -4358,7 +4520,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "In an emergency, it is best to communicate with the team using long detailed reports."
+            },
+            {
+              "option_id": "o2",
+              "text": "Essential information should only be shared with senior staff."
+            },
+            {
+              "option_id": "o3",
+              "text": "Systematic communication is less important than speed."
+            },
+            {
+              "option_id": "o4",
+              "text": "In a rapidly changing situation, it is important to be able to communicate essential information to team members concisely and systematically."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.potilaan-nakokulman-ymmartaminen-ei-ole-mahdollista-ilman-aktiivista-kuuntelua-ja-kykya-asettua-toisen-asemaan.e87a5d",
@@ -4467,7 +4655,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Understanding the patient's perspective requires only clinical experience, not empathy."
+            },
+            {
+              "option_id": "o2",
+              "text": "Active listening is unnecessary if the nurse already knows the patient's condition."
+            },
+            {
+              "option_id": "o3",
+              "text": "Putting oneself in another's position is not appropriate in a professional healthcare setting."
+            },
+            {
+              "option_id": "o4",
+              "text": "Understanding the patient's perspective is not possible without active listening and the ability to put oneself in another's position."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.kroonista-sairautta-sairastavan-potilaan-hoitoon-sitoutumista-voidaan-edistaa-raataloimalla-ohjaus-yksilollisten-tarpeid.409569",
@@ -5230,7 +5442,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Patient guidance should use technical medical terms to ensure accuracy."
+            },
+            {
+              "option_id": "o2",
+              "text": "Understanding can be assumed if the patient nods, without asking them to repeat."
+            },
+            {
+              "option_id": "o3",
+              "text": "Key points should be documented but not necessarily repeated by the patient."
+            },
+            {
+              "option_id": "o4",
+              "text": "In a patient guidance situation, plain language should be used and understanding ensured by asking the patient to repeat the key points."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.vaikeasti-sairaan-potilaan-kanssa-on-tarkeaa-puhua-myos-toivosta-mutta-toivoa-ei-saa-lietsoa-eparealistiseksi.b5c8df",
@@ -5339,7 +5577,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "With a severely ill patient, all discussion should focus on potential treatments, not hope."
+            },
+            {
+              "option_id": "o2",
+              "text": "Nurses should always emphasize realistic outcomes and avoid any mention of hope."
+            },
+            {
+              "option_id": "o3",
+              "text": "Giving false hope to a severely ill patient is sometimes acceptable to keep them positive."
+            },
+            {
+              "option_id": "o4",
+              "text": "With a severely ill patient, it is important to also talk about hope, but hope must not be fanned into something unrealistic."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.elvytystilanteessa-toimiminen-vaatii-nopeaa-paatoksentekoa-selkeaa-roolitusta-ja-kykya-toimia-paineen-alla.09a1df",
@@ -5557,7 +5819,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "When a patient has multiple chronic diseases, a comprehensive medication review must be performed regularly to avoid polypharmacy."
+            },
+            {
+              "option_id": "o1",
+              "text": "A comprehensive nutritional assessment is required for all surgical candidates."
+            },
+            {
+              "option_id": "o3",
+              "text": "Correct identification of the surgical site is a priority before any procedure."
+            },
+            {
+              "option_id": "o2",
+              "text": "Antibiotic prophylaxis should be administered within one hour before incision."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "When a patient has multiple chronic diseases, a comprehensive medication review must be performed regularly to avoid polypharmacy.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.potilaan-kieltaytyessa-hoidosta-jota-pidamme-tarpeellisena-meidan-on-kunnioitettava-hanen-itsemaaraamisoikeuttaan-vaikka.5c80cf",
@@ -5666,7 +5960,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "When a patient refuses treatment we consider necessary, we must respect their autonomy, even if it is difficult."
+            },
+            {
+              "option_id": "o2",
+              "text": "All staff must wear proper protective equipment when handling chemicals."
+            },
+            {
+              "option_id": "o1",
+              "text": "Emergency procedures should be reviewed regularly."
+            },
+            {
+              "option_id": "o3",
+              "text": "The department's infection control policies apply to everyone."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "When a patient refuses treatment we consider necessary, we must respect their autonomy, even if it is difficult.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.kivun-hoitoon-on-tarjolla-monia-menetelmia-eika-laakehoito-ole-aina-ensisijainen-vaihtoehto-vaan-myos-fysikaaliset-ja-ps.efb4b4",
@@ -5993,7 +6319,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o3",
+              "text": "The treatment of chronic pain should focus on eliminating pain completely."
+            },
+            {
+              "option_id": "o2",
+              "text": "Chronic pain patients are typically prescribed strong painkillers immediately."
+            },
+            {
+              "option_id": "o1",
+              "text": "Physical therapy is the only effective treatment for chronic pain."
+            },
+            {
+              "option_id": "o4",
+              "text": "In the care of a patient with chronic pain, the goal is not always complete elimination of pain, but improvement of functional capacity."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "In the care of a patient with chronic pain, the goal is not always complete elimination of pain, but improvement of functional capacity.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.kun-potilas-siirtyy-osastolta-toiselle-on-varmistettava-etta-kaikki-kriittinen-tieto-siirtyy-mukana-erityisesti-laakitys.059d9a",
@@ -6756,7 +7114,32 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "First aid requires staying calm and acting quickly."
+            },
+            {
+              "option_id": "o2",
+              "text": "The nurse must know how to use various medical devices."
+            },
+            {
+              "option_id": "o3",
+              "text": "Moving a patient from bed to wheelchair requires good ergonomics."
+            },
+            {
+              "option_id": "o4",
+              "text": "Communicating with a patient on a ventilator requires ingenuity, patience, and often various aids, such as a writing board."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.ennen-invasiivista-toimenpidetta-on-tarkeaa-varmistaa-etta-potilas-on-antanut-tietoon-perustuvan-suostumuksen-ja-ymmarta.020ae7",
@@ -6865,7 +7248,32 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "Before an invasive procedure, it is important to ensure that the patient has given informed consent and understands the benefits and risks of the procedure."
+            },
+            {
+              "option_id": "o1",
+              "text": "The patient should be informed about the procedure and its risks."
+            },
+            {
+              "option_id": "o2",
+              "text": "Patients must always trust their healthcare providers."
+            },
+            {
+              "option_id": "o3",
+              "text": "Invasive procedures are always safe for patients."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.jos-potilaalla-on-vakava-verenvuoto-on-aloitettava-valittomasti-vuodon-tyrehdytys-nesteytys-ja-tarvittaessa-verensiirto.f87aea",
@@ -7192,7 +7600,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "The nurse should always check the patient's skin for any rashes or bruises."
+            },
+            {
+              "option_id": "o3",
+              "text": "It is important to measure the patient's temperature and blood pressure regularly."
+            },
+            {
+              "option_id": "o2",
+              "text": "The patient's level of consciousness should be assessed every shift."
+            },
+            {
+              "option_id": "o4",
+              "text": "When monitoring a patient's condition, attention should also be paid to indirect signs, such as sweating, skin color, and changes in speech."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "When monitoring a patient's condition, attention should also be paid to indirect signs, such as sweating, skin color, and changes in speech.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.kun-potilas-on-syoma-ja-juomakyvyton-on-aloitettava-suonensisainen-tai-letkuravitsemus-viiveetta-aliravitsemuksen-ehkais.1b788d",
@@ -7911,15 +8351,15 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "The patient's subjective perception of their own condition is often more reliable than mere objective measurements."
-              },
-              {
-                "option_id": "o3",
-                "text": "If the patient refuses treatment, the benefits and potential risks of the procedure must be thoroughly explained to them."
+                "text": "Adverse effect reports are only necessary for serious side effects."
               },
               {
                 "option_id": "o2",
-                "text": "In nursing, it is essential to be able to prioritize urgency without compromising patient safety."
+                "text": "Making an adverse effect report is optional and depends on the doctor."
+              },
+              {
+                "option_id": "o3",
+                "text": "Patients are responsible for reporting their own adverse effects."
               },
               {
                 "option_id": "o4",
@@ -7927,15 +8367,15 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Making an adverse effect report is not only required by law but also ethically justified because it promotes drug safety.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -8064,7 +8504,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Behavioral changes in dementia are always due to the progression of the disease, not physical illness."
+            },
+            {
+              "option_id": "o2",
+              "text": "If a dementia patient is agitated, they should be sedated immediately to prevent harm."
+            },
+            {
+              "option_id": "o3",
+              "text": "Dementia patients rarely experience pain, so physical causes need not be considered."
+            },
+            {
+              "option_id": "o4",
+              "text": "Behavioral changes in a patient with progressing dementia can be a sign of physical illness, such as infection or pain, and not merely progression of the disease."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.kun-potilas-saa-huonon-uutisen-hoitajan-on-tarkeaa-olla-lasna-ja-tarjota-tukea-mutta-samalla-kunnioittaa-potilaan-tapaa-.a35c36",
@@ -8173,7 +8639,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "When a patient gets bad news, the nurse should immediately encourage them to stay positive and look on the bright side."
+            },
+            {
+              "option_id": "o2",
+              "text": "When a patient gets bad news, the nurse should give them privacy and leave the room to avoid intruding."
+            },
+            {
+              "option_id": "o3",
+              "text": "When a patient gets bad news, the nurse should focus on explaining all medical details thoroughly."
+            },
+            {
+              "option_id": "o4",
+              "text": "When a patient receives bad news, it is important for the nurse to be present and offer support, while also respecting the patient's way of processing the matter."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.potilaan-nakemyksen-huomioiminen-hoidon-suunnittelussa-lisaa-sitoutumista-ja-parantaa-hoitotuloksia-pitkalla-aikavalilla.b7aa45",
@@ -8282,7 +8774,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Nurses should prioritize medical protocols over patient preferences."
+            },
+            {
+              "option_id": "o2",
+              "text": "Patient involvement in care planning is optional and varies by situation."
+            },
+            {
+              "option_id": "o3",
+              "text": "The patient's cultural background does not affect the effectiveness of care planning."
+            },
+            {
+              "option_id": "o4",
+              "text": "Taking the patient's perspective into account in care planning increases adherence and improves treatment outcomes in the long term."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "Taking the patient's perspective into account in care planning increases adherence and improves treatment outcomes in the long term.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.phrase.nurse.elvytyksen-jalkeisessa-hoidossa-on-tarkeaa-valttaa-hyperoksiaa-ja-hypotension-yllapitamiseksi-kayttaa-tarvittaessa-vasop.cc9f5f",

@@ -1071,34 +1071,23 @@
             "prompt": "What does this example express? Jos (jos) lääke ei auta, soita uudelleen.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "Complete with jos."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Expresses a condition."
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Expresses a time sequence."
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Expresses a reason."
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete with jos."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with jos.",
-            "accepted_variants": [
-              "Jos"
-            ],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -1407,24 +1396,23 @@
             "prompt": "What does this example express? Kun (kun) lääkäri tulee, potilas odottaa.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Expresses when something happens (temporal)"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Expresses if something happens (conditional)"
+              },
+              {
+                "option_id": "o3",
+                "text": "Expresses because something happens (causal)"
               },
               {
                 "option_id": "o4",
-                "text": "Complete with kun."
+                "text": "Expresses although something happens (concessive)"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
           },
           {
@@ -1632,23 +1620,22 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Expresses a deadline (by)"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
-              },
-              {
-                "option_id": "o4",
-                "text": "Complete with correct time case."
+                "text": "Expresses a point in time (on/at)"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Expresses duration (for)"
+              },
+              {
+                "option_id": "o4",
+                "text": "Expresses a starting point (from/since)"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
           },
           {
@@ -1967,34 +1954,24 @@
             "prompt": "What does this example express? Potilas tulee (tulla) vastaanotolle.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Complete the correct verb form."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Expresses present tense (third person singular)"
               },
               {
-                "option_id": "o4",
-                "text": "Complete the verb form."
+                "option_id": "o2",
+                "text": "Expresses past tense"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Expresses infinitive"
+              },
+              {
+                "option_id": "o4",
+                "text": "Expresses imperative"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete the verb form.",
-            "accepted_variants": [
-              "tulee"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -2192,33 +2169,22 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Expresses comparison."
+              },
+              {
+                "option_id": "o2",
+                "text": "Expresses superlative."
+              },
+              {
+                "option_id": "o3",
+                "text": "Expresses positive degree."
               },
               {
                 "option_id": "o4",
                 "text": "Complete with comparative."
-              },
-              {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
-              },
-              {
-                "option_id": "o2",
-                "text": "Complete the correct verb form."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with comparative.",
-            "accepted_variants": [
-              "tehokkaampi"
-            ],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -2300,37 +2266,27 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Tämä on tehokkain (tehokas) lääke.",
+            "prompt": "What does this example express?",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Superlative form"
+              },
+              {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Comparative form"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Positive form"
               },
               {
                 "option_id": "o4",
-                "text": "Complete with superlative."
-              },
-              {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Ordinal number"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with superlative.",
-            "accepted_variants": [
-              "tehokkain"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {

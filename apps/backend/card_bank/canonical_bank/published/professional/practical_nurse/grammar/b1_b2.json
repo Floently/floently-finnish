@@ -12393,34 +12393,24 @@
             "prompt": "What does this example express? nukkuva (nukkua) potilas on rauhallinen.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "It describes an action that has already happened."
+              },
+              {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "It expresses a necessity."
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "It indicates a command."
               },
               {
                 "option_id": "o4",
-                "text": "Complete with participle."
-              },
-              {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "It describes a patient who is sleeping (present participle)."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with participle.",
-            "accepted_variants": [
-              "nukkuva"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -12618,23 +12608,22 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Complete patient care note"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Complete medication administration record"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Complete discharge summary"
               },
               {
                 "option_id": "o4",
-                "text": "Complete forensic nursing phrase."
+                "text": "Complete forensic nursing phrase"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
@@ -12838,37 +12827,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Lähetän sinulle linkin (linkki) videopuheluun.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
-              },
-              {
-                "option_id": "o4",
-                "text": "Complete telehealth phrase."
+                "option_id": "o1",
+                "text": "Asking for a phone number"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Confirming an appointment"
               },
               {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "option_id": "o3",
+                "text": "Complete telehealth phrase."
+              },
+              {
+                "option_id": "o4",
+                "text": "Giving medication instructions"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete telehealth phrase.",
-            "accepted_variants": [
-              "linkin"
-            ],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o3"
           }
         ],
         "explanation": {
@@ -17322,34 +17299,24 @@
             "prompt": "What does this example express? Minä olen nähnyt (nähdä) tämän potilaan ennen.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "option_id": "o1",
+                "text": "Perfect tense (present perfect)"
               },
               {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "option_id": "o2",
+                "text": "Past tense (imperfect)"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Conditional mood"
               },
               {
                 "option_id": "o4",
-                "text": "Complete with perfect tense."
+                "text": "Present tense"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with perfect tense.",
-            "accepted_variants": [
-              "olen nähnyt"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -17883,33 +17850,23 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Passive perfect tense (present perfect passive)"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Active present tense"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Conditional passive"
               },
               {
                 "option_id": "o4",
-                "text": "Complete documentation entry."
+                "text": "Imperative form"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete documentation entry.",
-            "accepted_variants": [
-              "on mitattu"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -18107,34 +18064,24 @@
             "prompt": "What does this example express? Hoitaja antaa lääkkeen (lääke).",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
-              },
-              {
-                "option_id": "o4",
-                "text": "Complete with correct object case."
+                "text": "Total object (accusative/genitive) – complete action"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Partitive object – partial or negative"
+              },
+              {
+                "option_id": "o3",
+                "text": "Illative case (movement into)"
+              },
+              {
+                "option_id": "o4",
+                "text": "Elative case (movement out of)"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with correct object case.",
-            "accepted_variants": [
-              "lääkkeen"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -18888,37 +18835,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Potilaan itsemääräämisoikeutta (itsemääräämisoikeus) on kunnioitettava.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "Complete ethical discussion phrase."
-              },
-              {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "option_id": "o1",
+                "text": "Describing treatment consent"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Explaining confidentiality"
               },
               {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "option_id": "o3",
+                "text": "Complete ethical discussion phrase."
+              },
+              {
+                "option_id": "o4",
+                "text": "Requesting patient history"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete ethical discussion phrase.",
-            "accepted_variants": [
-              "itsemääräämisoikeutta"
-            ],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o3"
           }
         ],
         "explanation": {
@@ -19008,29 +18943,19 @@
               },
               {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Permission to give medication."
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Patient's condition report."
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Dosage instruction."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete handover phrase.",
-            "accepted_variants": [
-              "saa"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -19115,24 +19040,23 @@
             "prompt": "What does this example express? Miten olet selvinnyt (selviytyä) tästä?",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Complete the correct verb form."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Complete crisis intervention phrase"
               },
               {
-                "option_id": "o4",
-                "text": "Complete psychological support phrase."
+                "option_id": "o2",
+                "text": "Complete emotional support plan"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Complete coping strategies assessment"
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete psychological support phrase"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
@@ -19224,37 +19148,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Käytämme kuvia (kuva) kommunikoinnin tukena.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "option_id": "o1",
+                "text": "Pronunciation practice."
               },
               {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "option_id": "o2",
+                "text": "Communication technique."
+              },
+              {
+                "option_id": "o3",
+                "text": "Articulation exercise."
               },
               {
                 "option_id": "o4",
                 "text": "Complete speech therapy phrase."
-              },
-              {
-                "option_id": "o2",
-                "text": "Complete the correct verb form."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete speech therapy phrase.",
-            "accepted_variants": [
-              "kuvia"
-            ],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -19339,24 +19251,23 @@
             "prompt": "What does this example express? Voit keskustella korvaushoidon (korvaushoito) mahdollisuudesta.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Complete the correct verb form."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Complete withdrawal management phrase"
               },
               {
-                "option_id": "o4",
-                "text": "Complete addiction care phrase."
+                "option_id": "o2",
+                "text": "Complete relapse prevention plan"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Complete medication-assisted treatment note"
+              },
+              {
+                "option_id": "o4",
+                "text": "Complete addiction care phrase"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
@@ -21915,34 +21826,23 @@
             "prompt": "What does this example express? Haluatteko käyttää alusastiaa (alusastia)?",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "option_id": "o1",
+                "text": "Haluatteko käyttää alusastiaa?"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Miksi tarvitset alusastiaa?"
               },
               {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "option_id": "o3",
+                "text": "Miten käytetään alusastiaa?"
               },
               {
                 "option_id": "o4",
-                "text": "Complete toileting question."
+                "text": "Haluatteko apua alusastian käytössä?"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete toileting question.",
-            "accepted_variants": [
-              "alusastiaa"
-            ],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1"
           }
         ],
         "explanation": {

@@ -287,34 +287,24 @@
             "prompt": "What does this example express? hoitajan kirjoittama (hoitaja + kirjoittaa) raportti on tarkka.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Complete the correct verb form."
-              },
-              {
-                "option_id": "o4",
-                "text": "Complete with agent participle."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Agent participle (the action is done by the noun)"
+              },
+              {
+                "option_id": "o2",
+                "text": "Passive participle (the action is done to the noun)"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Temporal participle (when the action happens)"
+              },
+              {
+                "option_id": "o4",
+                "text": "Instructive case (how something is done)"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with agent participle.",
-            "accepted_variants": [
-              "hoitajan kirjoittama"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -446,7 +436,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Frequentative verb"
+            },
+            {
+              "option_id": "o2",
+              "text": "Momentane verb (indicates a single action)"
+            },
+            {
+              "option_id": "o3",
+              "text": "Causative verb (indicates causing an action)"
+            },
+            {
+              "option_id": "o4",
+              "text": "Reflexive verb (indicates an action done to oneself)"
+            }
+          ],
+          "answer_key": "o1"
+        }
+      ]
     },
     {
       "id": "card.grammar.practical_nurse.laakkeineen-hoitajineen-potilaineen-laakari-saapui-avustajineen-avustaja-.-complete-with-comitative.8446a1",
@@ -511,34 +525,24 @@
             "prompt": "What does this example express? Lääkäri saapui avustajineen (avustaja).",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "option_id": "o1",
+                "text": "Comitative case (accompanied by)"
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Adessive case (on the surface of)"
               },
               {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "option_id": "o3",
+                "text": "Ablative case (from the surface of)"
               },
               {
                 "option_id": "o4",
-                "text": "Complete with comitative."
+                "text": "Genitive case (possession)"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with comitative.",
-            "accepted_variants": [
-              "avustajineen"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -782,7 +786,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Instructive case (indicates the means or method)"
+            },
+            {
+              "option_id": "o2",
+              "text": "Adessive case (indicates location or possession)"
+            },
+            {
+              "option_id": "o3",
+              "text": "Ablative case (indicates separation or movement away)"
+            },
+            {
+              "option_id": "o4",
+              "text": "Essive case (indicates a state or condition)"
+            }
+          ],
+          "answer_key": "o1"
+        }
+      ]
     },
     {
       "id": "card.grammar.practical_nurse.vilkaista-huudahtaa-kipaista-potilas-vilkaisi-katsoa-nopeasti-kelloa.-complete-with-momentane-verb.993d27",

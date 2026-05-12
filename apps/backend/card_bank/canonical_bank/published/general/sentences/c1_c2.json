@@ -144502,7 +144502,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "The defendant was found guilty of the crime."
+            },
+            {
+              "option_id": "o2",
+              "text": "The solution was based on the law and good governance."
+            },
+            {
+              "option_id": "o3",
+              "text": "It is important to recognize one's own limitations."
+            },
+            {
+              "option_id": "o4",
+              "text": "A witness also has the right to refuse to testify if it would reveal a professional secret."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "A witness also has the right to refuse to testify if it would reveal a professional secret.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.ammattisalaisuus-koskee-esimerkiksi-laakareita-juristeja-ja-pappeja.-professional-secrecy-applies-to-for-example-doctors-lawyers-and-clergy.71f341",
@@ -263842,7 +263874,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "Planning is important in both the private and public sectors."
+            },
+            {
+              "option_id": "o3",
+              "text": "The library is open until 9 PM."
+            },
+            {
+              "option_id": "o1",
+              "text": "He demonstrated considerable professional skill in the task."
+            },
+            {
+              "option_id": "o2",
+              "text": "The solution was based on the law and good governance."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "Planning is important in both the private and public sectors.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.suunnittelu-vahentaa-epavarmuutta.-planning-reduces-uncertainty.a5cffa",

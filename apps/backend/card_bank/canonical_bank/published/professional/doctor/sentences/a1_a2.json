@@ -707,7 +707,7 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "How can I help?",
-          "example_sentence": "Miten voin auttaa?"
+          "example_sentence": "Potilas kysyy: 'Miten voin auttaa?' Lääkäri vastaa: 'Tarvitsen apua.'"
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -716,32 +716,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "What do you need?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "Can you help me?"
+              },
+              {
+                "option_id": "o3",
+                "text": "How are you?"
               },
               {
                 "option_id": "o4",
                 "text": "How can I help?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "How can I help?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -1034,46 +1027,46 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Do you have pain?",
-          "example_sentence": "Onko teillä kipua?"
+          "example_sentence": "Potilaalla on kipua. Lääkäri kysyy: Onko teillä kipua?"
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o1",
+                "text": "Do you have a fever?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "Do you have a headache?"
+              },
+              {
+                "option_id": "o3",
+                "text": "Do you have a cough?"
               },
               {
                 "option_id": "o4",
                 "text": "Do you have pain?"
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Do you have pain?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Onko teillä kipua?"
+          "summary": "Doctor's question: asking about pain.",
+          "example": "Potilaalla on kipua. Lääkäri kysyy: Onko teillä kipua?"
         },
         "audio": null,
         "validation": {
@@ -1152,32 +1145,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Is the pain mild?"
+              },
+              {
+                "option_id": "o2",
+                "text": "Is the pain constant?"
+              },
+              {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Is the pain sharp?"
               },
               {
                 "option_id": "o4",
                 "text": "Is the pain severe?"
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Is the pain severe?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -2778,46 +2771,46 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Do you have a stomachache?",
-          "example_sentence": "Onko teillä vatsakipua?"
+          "example_sentence": "Potilaalla on vatsakipua. Lääkäri kysyy: Onko teillä vatsakipua?"
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Do you have back pain?"
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Do you have a headache?"
+              },
+              {
+                "option_id": "o3",
+                "text": "Do you have chest pain?"
               },
               {
                 "option_id": "o4",
                 "text": "Do you have a stomachache?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Do you have a stomachache?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Onko teillä vatsakipua?"
+          "summary": "Doctor's question: asking about stomach pain.",
+          "example": "Potilaalla on vatsakipua. Lääkäri kysyy: Onko teillä vatsakipua?"
         },
         "audio": null,
         "validation": {
@@ -2887,25 +2880,25 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Do you have nausea?",
-          "example_sentence": "Onko teillä pahoinvointia?"
+          "example_sentence": "Potilaalla on pahoinvointia. Lääkäri kysyy: Onko teillä pahoinvointia?"
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "Do you have a headache?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "Do you have a fever?"
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Do you have a stomachache?"
               },
               {
                 "option_id": "o4",
@@ -2913,20 +2906,20 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Do you have nausea?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Onko teillä pahoinvointia?"
+          "summary": "Doctor's question: asking about nausea.",
+          "example": "Potilaalla on pahoinvointia. Lääkäri kysyy: Onko teillä pahoinvointia?"
         },
         "audio": null,
         "validation": {
@@ -3114,32 +3107,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Is your leg sore?"
+              },
+              {
+                "option_id": "o2",
+                "text": "Do you have pain?"
+              },
+              {
                 "option_id": "o3",
                 "text": "Good morning."
               },
               {
-                "option_id": "o2",
-                "text": "Hi."
-              },
-              {
                 "option_id": "o4",
                 "text": "Is your stomach bloated?"
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Is your stomach bloated?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -3881,16 +3874,16 @@
                 "text": "Do you have leg pain?"
               },
               {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o2",
+                "text": "Do you have a headache?"
               },
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o3",
+                "text": "Do you have a fever?"
               },
               {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "Good morning."
               }
             ],
             "answer_key": "o4",
@@ -4205,31 +4198,24 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "Can you stand?"
+              },
+              {
+                "option_id": "o2",
+                "text": "Can you breathe?"
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Can you see clearly?"
               },
               {
                 "option_id": "o4",
                 "text": "Can you walk?"
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Can you walk?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -4313,36 +4299,29 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Do you have a cold?"
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Do you have a rash?"
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
-                "option_id": "o4",
                 "text": "Do you have trouble breathing?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o4",
+                "text": "Do you have a headache?"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Do you have trouble breathing?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Doctor’s question: asking about breathing difficulties.",
           "example": "Onko teillä hengitysvaikeuksia?"
         },
         "audio": null,
@@ -5607,12 +5586,12 @@
       "content_type": "phrase_card",
       "content": {
         "front": {
-          "sentence": "Mittaan sykenne."
+          "sentence": "Mittaan sykkeen."
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "I will measure your pulse.",
-          "example_sentence": "Mittaan sykenne."
+          "example_sentence": "Mittaan sykkeen."
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -6384,32 +6363,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "This medicine is for pain."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o1",
+                "text": "The medicine is for headache."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "This is a pharmacy."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o3",
+                "text": "The doctor is here."
+              },
+              {
+                "option_id": "o4",
+                "text": "This medicine is for pain."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "This medicine is for pain.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -6493,25 +6472,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "This medicine is for headache."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "This medicine is for cough."
+              },
+              {
+                "option_id": "o3",
+                "text": "This medicine is for stomachache."
               },
               {
                 "option_id": "o4",
                 "text": "This medicine is for fever."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -6602,32 +6581,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Take one pill."
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Take two tablets."
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Take one capsule."
               },
               {
                 "option_id": "o4",
                 "text": "Take one tablet."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Take one tablet.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -6929,25 +6908,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "Take in the evening."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "Is it time for dinner?"
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Should I take it now?"
               },
               {
                 "option_id": "o4",
-                "text": "Take in the evening."
+                "text": "Is it evening already?"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -7038,16 +7017,16 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "Take without food."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "Take with milk."
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Take twice a day."
               },
               {
                 "option_id": "o4",
@@ -7055,15 +7034,15 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Take with food.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -8237,32 +8216,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "Rest at home."
+                "option_id": "o1",
+                "text": "Stay at home."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
+                "text": "Sleep at home."
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Work at home."
+              },
+              {
+                "option_id": "o4",
+                "text": "Rest at home."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Rest at home.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -8347,15 +8319,15 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Hello."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
+                "text": "Go to work."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Don't go home."
+              },
+              {
+                "option_id": "o3",
+                "text": "Take a break."
               },
               {
                 "option_id": "o4",
@@ -8363,15 +8335,8 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Do not go to work.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -8702,8 +8667,8 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Onko teillä univaikeuksia?"
+          "summary": "Communicative phrase card used in a doctor-patient dialogue.",
+          "example": "Lääkäri: Onko teillä univaikeuksia? Potilas: Kyllä, nukun huonosti."
         },
         "audio": null,
         "validation": {
@@ -9433,19 +9398,18 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
             "options": [
               {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "Do you smoke?"
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Do you exercise?"
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Do you drink coffee?"
               },
               {
                 "option_id": "o4",
@@ -9453,15 +9417,9 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Do you drink alcohol?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "prompt": "Choose the best meaning.",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -9645,7 +9603,7 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Are you allergic to any medicine?",
-          "example_sentence": "Oletteko allerginen jollekin lääkkeelle?"
+          "example_sentence": "Lääkäri kysyy: 'Oletteko allerginen jollekin lääkkeelle?' Potilas vastaa: 'En ole allerginen millekään.'"
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -9654,32 +9612,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Do you have allergies?"
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Are you allergic to penicillin?"
               },
               {
                 "option_id": "o4",
                 "text": "Are you allergic to any medicine?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
-              },
-              {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Do you take any medicine?"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Are you allergic to any medicine?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -9763,23 +9714,23 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
-              },
-              {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "Do you take any medicine?"
               },
               {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o2",
+                "text": "Are you feeling well?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o3",
+                "text": "Do you have a prescription?"
+              },
+              {
+                "option_id": "o4",
+                "text": "Do you need a doctor?"
               }
             ],
-            "answer_key": "o4",
+            "answer_key": "o1",
             "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
@@ -9981,32 +9932,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Do you have low blood pressure?"
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Do you have diabetes?"
+              },
+              {
+                "option_id": "o3",
+                "text": "Do you have asthma?"
               },
               {
                 "option_id": "o4",
                 "text": "Do you have high blood pressure?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Do you have high blood pressure?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -10091,31 +10042,31 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "Do you have kidney disease?"
+              },
+              {
+                "option_id": "o2",
+                "text": "Do you have asthma?"
+              },
+              {
+                "option_id": "o3",
+                "text": "Do you have diabetes?"
               },
               {
                 "option_id": "o4",
                 "text": "Do you have heart disease?"
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Do you have heart disease?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -10199,16 +10150,16 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "Are there allergies in the family?"
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Are there surgeries in the family?"
+              },
+              {
+                "option_id": "o3",
+                "text": "Are there chronic diseases in the family?"
               },
               {
                 "option_id": "o4",
@@ -10216,15 +10167,15 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Are there illnesses in the family?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -10626,25 +10577,25 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "We need an X-ray.",
-          "example_sentence": "Tarvitsemme röntgenkuvan."
+          "example_sentence": "Lääkäri sanoo: Tarvitsemme röntgenkuvan, jotta näemme luun."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "We need a blood test."
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "We need an MRI."
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
+                "text": "We need a stethoscope."
               },
               {
                 "option_id": "o4",
@@ -10652,20 +10603,20 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "We need an X-ray.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Tarvitsemme röntgenkuvan."
+          "summary": "Doctor's statement: about needing an X-ray.",
+          "example": "Lääkäri sanoo: Tarvitsemme röntgenkuvan, jotta näemme luun."
         },
         "audio": null,
         "validation": {
@@ -10953,7 +10904,7 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "I will do an ECG.",
-          "example_sentence": "Teen EKG:n."
+          "example_sentence": "Lääkäri: Teen EKG:n nyt."
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -10991,8 +10942,8 @@
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Teen EKG:n."
+          "summary": "Medical sentence: doctor performing an ECG.",
+          "example": "Lääkäri: Teen EKG:n nyt."
         },
         "audio": null,
         "validation": {
@@ -11180,7 +11131,7 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "Do not move."
               },
               {
@@ -11188,24 +11139,17 @@
                 "text": "Hi."
               },
               {
-                "option_id": "o1",
+                "option_id": "o3",
                 "text": "Hello."
               },
               {
-                "option_id": "o3",
+                "option_id": "o4",
                 "text": "Good morning."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Do not move.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -11389,9 +11333,9 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "This might pinch a little.",
-          "example_sentence": "Tämä saattaa vähän nipistää."
+          "example_sentence": "Lääkäri sanoo ennen pistosta: Tämä saattaa vähän nipistää."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
@@ -11399,36 +11343,36 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "This will hurt a lot."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "This might sting."
+              },
+              {
+                "option_id": "o3",
+                "text": "This is a small pinch."
               },
               {
                 "option_id": "o4",
                 "text": "This might pinch a little."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "This might pinch a little.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Tämä saattaa vähän nipistää."
+          "summary": "Doctor's reassurance: about a small pinch.",
+          "example": "Lääkäri sanoo ennen pistosta: Tämä saattaa vähän nipistää."
         },
         "audio": null,
         "validation": {
@@ -11498,7 +11442,7 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Are you pregnant?",
-          "example_sentence": "Oletteko raskaana?"
+          "example_sentence": "Lääkäri kysyy: 'Oletteko raskaana?' Potilas vastaa: 'Kyllä, olen raskaana.'"
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -11507,32 +11451,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "Are you having a baby?"
               },
               {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o2",
+                "text": "Do you have children?"
               },
               {
                 "option_id": "o4",
                 "text": "Are you pregnant?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o3",
+                "text": "Are you expecting?"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Are you pregnant?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -11934,7 +11871,7 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "Does the child have a fever?",
-          "example_sentence": "Onko lapsella kuumetta?"
+          "example_sentence": "Lääkäri kysyy: Onko lapsella kuumetta?"
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -11943,37 +11880,30 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Is the child warm?"
+              },
+              {
+                "option_id": "o2",
+                "text": "Does the child have a cold?"
+              },
+              {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Is the child sick?"
               },
               {
                 "option_id": "o4",
                 "text": "Does the child have a fever?"
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Does the child have a fever?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Onko lapsella kuumetta?"
+          "summary": "Doctor's question: asking about fever.",
+          "example": "Lääkäri kysyy: Onko lapsella kuumetta?"
         },
         "audio": null,
         "validation": {
@@ -12052,32 +11982,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "Does the child eat normally?"
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Is the child sleeping well?"
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "Is the child active?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o4",
+                "text": "Is the child healthy?"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Does the child eat normally?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -12165,28 +12088,28 @@
                 "text": "Does the child drink normally?"
               },
               {
+                "option_id": "o1",
+                "text": "Does the child eat normally?"
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "Does the child sleep well?"
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
+                "text": "Does the child cough?"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Does the child drink normally?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -12492,28 +12415,28 @@
                 "text": "I will look at the ears."
               },
               {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o1",
+                "text": "I will look at the throat."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "I will look at the nose."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o3",
+                "text": "I will look at the eyes."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "I will look at the ears.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -12588,7 +12511,7 @@
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
           "gloss": "A small prick.",
-          "example_sentence": "Pieni pistos."
+          "example_sentence": "Rokotus on vain pieni pistos."
         },
         "prompt_family": "phrase_comprehension",
         "follow_ups": [
@@ -12627,7 +12550,7 @@
         ],
         "explanation": {
           "summary": "Communicative phrase card.",
-          "example": "Pieni pistos."
+          "example": "Rokotus on vain pieni pistos."
         },
         "audio": null,
         "validation": {
@@ -12706,32 +12629,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "It will be over soon."
-              },
-              {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "It will start soon."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "It is over now."
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "It might be over."
+              },
+              {
+                "option_id": "o4",
+                "text": "It will be over soon."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "It will be over soon.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -12924,37 +12840,30 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
-              },
-              {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "What vaccine have you received?"
               },
               {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o2",
+                "text": "What is the vaccine?"
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o3",
+                "text": "Have you received a vaccine?"
+              },
+              {
+                "option_id": "o4",
+                "text": "What kind of vaccine did you get?"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "What vaccine have you received?",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           }
         ],
         "explanation": {
           "summary": "Communicative phrase card.",
-          "example": "Millaista rokotetta olette saanut?"
+          "example": "Millaista rokotetta olette saanut? Tämä on tärkeä kysymys lääkärin vastaanotolla."
         },
         "audio": null,
         "validation": {
@@ -13142,16 +13051,16 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "The vaccine is effective."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "The medicine is safe."
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "The vaccine is new."
               },
               {
                 "option_id": "o4",
@@ -13159,15 +13068,15 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "The vaccine is safe.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -13251,25 +13160,25 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The leg may be sore."
+              },
+              {
+                "option_id": "o2",
+                "text": "The arm is broken."
+              },
+              {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "The patient is fine."
               },
               {
                 "option_id": "o4",
                 "text": "The arm may be sore."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
@@ -13470,31 +13379,31 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "You have the flu."
+              },
+              {
+                "option_id": "o2",
+                "text": "You have a headache."
+              },
+              {
+                "option_id": "o3",
+                "text": "You have a broken leg."
               },
               {
                 "option_id": "o4",
                 "text": "You have a cold."
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "You have a cold.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -13578,32 +13487,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "You have a lung infection."
+              },
+              {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "You have a sinus infection."
+              },
+              {
+                "option_id": "o3",
+                "text": "You have pneumonia."
               },
               {
                 "option_id": "o4",
                 "text": "You have bronchitis."
-              },
-              {
-                "option_id": "o1",
-                "text": "Hello."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "You have bronchitis.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -13789,23 +13698,23 @@
           "gloss": "You have otitis media.",
           "example_sentence": "Teillä on välikorvatulehdus."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "You have a sinus infection."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "You need to take antibiotics."
+              },
+              {
+                "option_id": "o3",
+                "text": "You should drink plenty of fluids."
               },
               {
                 "option_id": "o4",
@@ -13813,19 +13722,19 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "You have otitis media.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence comprehension: medical diagnosis.",
           "example": "Teillä on välikorvatulehdus."
         },
         "audio": null,
@@ -14123,32 +14032,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "You have a stomach flu."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "You have a headache."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "You have a cold."
+              },
+              {
+                "option_id": "o3",
+                "text": "You need a check-up."
+              },
+              {
+                "option_id": "o4",
+                "text": "You have a stomach flu."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "You have a stomach flu.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -14232,16 +14141,16 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "You have a fever."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "You have a cough."
+              },
+              {
+                "option_id": "o3",
+                "text": "You have a headache."
               },
               {
                 "option_id": "o4",
@@ -14249,15 +14158,15 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "You have a rash.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -14341,32 +14250,32 @@
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "You have a sprain."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
+                "option_id": "o1",
+                "text": "You have a fracture."
               },
               {
                 "option_id": "o2",
-                "text": "Hi."
+                "text": "You have a strain."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o3",
+                "text": "You have a dislocation."
+              },
+              {
+                "option_id": "o4",
+                "text": "You have a sprain."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "You have a sprain.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -14563,28 +14472,28 @@
                 "text": "The wound is clean."
               },
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "The wound is infected."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "The wound is swollen."
               },
               {
                 "option_id": "o3",
-                "text": "Good morning."
+                "text": "The wound is red."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "The wound is clean.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -14770,43 +14679,43 @@
           "gloss": "There will be three stitches.",
           "example_sentence": "Tikkiä tulee kolme."
         },
-        "prompt_family": "phrase_comprehension",
+        "prompt_family": "sentence_comprehension",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
             "prompt": "Choose the best meaning.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "Hi."
+                "option_id": "o1",
+                "text": "You will need a bandage."
               },
               {
-                "option_id": "o1",
-                "text": "Hello."
+                "option_id": "o2",
+                "text": "The wound will heal quickly."
+              },
+              {
+                "option_id": "o3",
+                "text": "You will need a tetanus shot."
               },
               {
                 "option_id": "o4",
                 "text": "There will be three stitches."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "There will be three stitches.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
-          "summary": "Communicative phrase card.",
+          "summary": "Sentence comprehension: medical procedure statement.",
           "example": "Tikkiä tulee kolme."
         },
         "audio": null,
@@ -15105,31 +15014,31 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Hello."
+                "text": "Come for a check-up tomorrow."
+              },
+              {
+                "option_id": "o2",
+                "text": "Come for blood test in two days."
+              },
+              {
+                "option_id": "o3",
+                "text": "Come for vaccination next week."
               },
               {
                 "option_id": "o4",
                 "text": "Come for suture removal in a week."
-              },
-              {
-                "option_id": "o3",
-                "text": "Good morning."
-              },
-              {
-                "option_id": "o2",
-                "text": "Hi."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "accepted_variants": []
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
             "answer_key": "Come for suture removal in a week.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "evaluation_mode": "normalized_text",
+            "accepted_variants": []
           }
         ],
         "explanation": {
@@ -15597,7 +15506,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Lääkäri sanoo, että juna myöhästyy kaksikymmentä minuuttia, joten joudun odottamaan asemalla."
+      },
+      "back": {
+        "gloss": "The doctor says that the train is twenty minutes late, so I have to wait at the station."
+      }
     },
     {
       "id": "card.sentence.doctor.jarjestamme-pihajuhlat-kesalla-jolloin-kutsutut-voivat-viettaa-aikaa-ulkona.-we-organize-a-garden-party-in-the-summer-when-guests-can-spend-time-outdoors.d2abd0",
@@ -20517,6 +20432,224 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Tarvitsetko kääntäjän vastaanotolle?"
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.doctor.pidata-hengitysta-hetki.1f5d69",
+      "version": 1,
+      "path": "professional/doctor/sentences",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "doctor",
+        "label": "Doctor"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.doctor.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/doctor_sentence.json",
+        "authoring_note": "source.generated.professional.doctor.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "medical_work_finnish",
+        "doctor",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.doctor.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Pidätä hengitystä hetki."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "Hold your breath for a moment.",
+          "example_sentence": "Pidätä hengitystä hetki."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o3",
+                "text": "Do you have any pain?"
+              },
+              {
+                "option_id": "o2",
+                "text": "When did the symptoms start?"
+              },
+              {
+                "option_id": "o4",
+                "text": "Hold your breath for a moment."
+              },
+              {
+                "option_id": "o1",
+                "text": "What is your main complaint today?"
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "Hold your breath for a moment.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Pidätä hengitystä hetki."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.doctor.lisakustannus-on-yleensa-pieni.9a8ea9",
+      "version": 1,
+      "path": "professional/doctor/sentences",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "doctor",
+        "label": "Doctor"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.recovered.doctor_sentence",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/doctor_sentence.json",
+        "authoring_note": "source.recovered.doctor_sentence"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "medical_work_finnish",
+        "doctor",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.recovered.doctor_sentence",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Lisäkustannus on yleensä pieni."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "The extra cost is usually small.",
+          "example_sentence": "Lisäkustannus on yleensä pieni."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Research visits can be tiring."
+              },
+              {
+                "option_id": "o3",
+                "text": "The research doctor will tell you the results."
+              },
+              {
+                "option_id": "o4",
+                "text": "The extra cost is usually small."
+              },
+              {
+                "option_id": "o2",
+                "text": "Ask for an escort and transport help if needed."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "The extra cost is usually small.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Lisäkustannus on yleensä pieni."
         },
         "audio": null,
         "validation": {

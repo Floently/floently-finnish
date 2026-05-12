@@ -5564,30 +5564,28 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "The patient received the medicine."
+              },
+              {
+                "option_id": "o2",
+                "text": "The patient will receive the medicine."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient receives the medicine."
               },
               {
                 "option_id": "o4",
                 "text": "The patient had already received the medicine before my arrival."
-              },
-              {
-                "option_id": "o2",
-                "text": "patients"
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "The patient had already received the medicine before my arrival.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -8534,15 +8532,15 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "without the patient"
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "with the doctor"
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "for the patient"
               },
               {
                 "option_id": "o4",
@@ -8550,15 +8548,7 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "with the patient",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -10400,35 +10390,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? paitsi tämä potilas",
             "options": [
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "paitsi tämä potilas"
               },
               {
-                "option_id": "o4",
-                "text": "except this patient"
+                "option_id": "o1",
+                "text": "potilas"
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "potilaat"
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "veri (jotakin verta)"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "except this patient",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -12603,32 +12583,24 @@
             "prompt": "What does this example express? Oireileva potilas.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "patients"
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
                 "option_id": "o4",
                 "text": "The patient who has symptoms."
               },
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "The patient who is in pain"
+              },
+              {
+                "option_id": "o2",
+                "text": "The symptom-free patient"
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient who had symptoms"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient who has symptoms.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -16673,32 +16645,24 @@
             "prompt": "What does this example express? Potilas ohjataan odotushuoneeseen.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The patients are guided to the waiting room."
+              },
+              {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The patient is taken to the waiting room."
+              },
+              {
+                "option_id": "o3",
+                "text": "The doctor guides the patient to the waiting room."
               },
               {
                 "option_id": "o4",
                 "text": "The patient is guided to the waiting room."
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient is guided to the waiting room.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -16828,7 +16792,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "What does this example express? Potilas leikattiin kiireellisesti.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "The patient was operated on calmly."
+            },
+            {
+              "option_id": "o2",
+              "text": "The patient will be operated on urgently."
+            },
+            {
+              "option_id": "o3",
+              "text": "The patient has been operated on urgently."
+            },
+            {
+              "option_id": "o4",
+              "text": "The patient was operated urgently."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.grammar.doctor.passive-perfect.37ff3a",
@@ -17598,7 +17588,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "What does this example express? Potilas saattaa tulla myöhemmin.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "The patient must come later."
+            },
+            {
+              "option_id": "o2",
+              "text": "The patient will come later."
+            },
+            {
+              "option_id": "o3",
+              "text": "The patient may not come later."
+            },
+            {
+              "option_id": "o4",
+              "text": "The patient may come later."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.grammar.doctor.potential-passive.4c4e93",
@@ -18213,31 +18229,29 @@
             "prompt": "What does this example express? kaksi tablettia potilasta kohden",
             "options": [
               {
-                "option_id": "o3",
-                "text": "blood (some blood)"
+                "option_id": "o1",
+                "text": "two tablets per day"
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "two tablets per dose"
+              },
+              {
+                "option_id": "o3",
+                "text": "two tablets per kilogram"
               },
               {
                 "option_id": "o4",
                 "text": "two tablets per patient"
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "two tablets per patient",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -18323,32 +18337,24 @@
             "prompt": "What does this example express? Kun potilas on tutkittu, hän saa lähetteen.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "When the patient has been discharged, he goes home."
+              },
+              {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "When the medicine has been taken, the symptoms subside."
+              },
+              {
+                "option_id": "o3",
+                "text": "When the surgery has been performed, the patient is monitored."
               },
               {
                 "option_id": "o4",
                 "text": "When the patient has been examined, he gets a referral."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "When the patient has been examined, he gets a referral.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -19203,32 +19209,24 @@
             "prompt": "What does this example express? En nähnyt potilaita.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "I didn't see the patients."
+                "option_id": "o1",
+                "text": "I saw the patients."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "I didn't see the patient."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "He didn't see the patients."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "I didn't see the patients."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "I didn't see the patients.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -19310,19 +19308,19 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Lääkäri tarkisti potilaiden nimet.",
+            "prompt": "What does the following Finnish sentence mean? Lääkäri tarkisti potilaiden nimet.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "patients"
+                "option_id": "o1",
+                "text": "The doctor checked the patient's name."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o2",
+                "text": "The doctor examined the patients' names."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The doctor checked the patients' records."
               },
               {
                 "option_id": "o4",
@@ -19330,15 +19328,7 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The doctor checked the patients' names.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -22834,30 +22824,28 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "I asked where the patient is."
+              },
+              {
+                "option_id": "o2",
+                "text": "I know where the patient is."
+              },
+              {
+                "option_id": "o3",
+                "text": "I ask what the patient is."
               },
               {
                 "option_id": "o4",
                 "text": "I ask where the patient is."
-              },
-              {
-                "option_id": "o2",
-                "text": "patients"
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "I ask where the patient is.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -23273,31 +23261,29 @@
             "prompt": "What does this example express? Tutkittakoon potilas.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "patients"
+                "option_id": "o1",
+                "text": "The patient is examined."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o2",
+                "text": "Examine the patient!"
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient must be examined."
               },
               {
                 "option_id": "o4",
                 "text": "Let the patient be examined."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "Let the patient be examined.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -23933,31 +23919,29 @@
             "prompt": "What does this example express? Lääkäri tutkiskeli potilasta usein.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "The doctor kept examining the patient often."
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The doctor examined the patient once."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The doctor will examine the patient often."
+              },
+              {
+                "option_id": "o3",
+                "text": "The doctor kept waiting for the patient often."
+              },
+              {
+                "option_id": "o4",
+                "text": "The doctor kept examining the patient often."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "The doctor kept examining the patient often.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -24043,32 +24027,23 @@
             "prompt": "What does this example express? Lääke nukutti potilaan.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The injection made the patient recover."
+              },
+              {
+                "option_id": "o2",
+                "text": "The surgeon caused the wound to heal."
+              },
+              {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The medication made the symptoms disappear."
               },
               {
                 "option_id": "o4",
                 "text": "The medicine made the patient sleep."
-              },
-              {
-                "option_id": "o2",
-                "text": "patients"
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The medicine made the patient sleep.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -29650,35 +29625,27 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Potilasta tutkiskeltiin.",
+            "prompt": "What does the following Finnish sentence mean? Potilasta tutkiskeltiin.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The patient was examined."
+              },
+              {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The patient was being examined."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The patient was kept waiting."
               },
               {
                 "option_id": "o4",
                 "text": "The patient was kept being examined."
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient was kept being examined.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -29980,35 +29947,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Liian suuri annos potilaalle.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
-              },
-              {
-                "option_id": "o4",
-                "text": "Too large a dose for the patient."
+                "text": "Liian suuri annos potilaalle."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "Potilaalle annettiin liian suuri annos."
+              },
+              {
+                "option_id": "o3",
+                "text": "Potilas sai liian suuren annoksen."
+              },
+              {
+                "option_id": "o4",
+                "text": "Annos oli liian suuri potilaalle."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Too large a dose for the patient.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1"
           }
         ],
         "explanation": {
@@ -30863,32 +30820,24 @@
             "prompt": "What does this example express? Tiedän, että potilas tutkitaan.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "patients"
+                "option_id": "o1",
+                "text": "I think that the patient is examined."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o2",
+                "text": "I know that the doctor is examined."
+              },
+              {
+                "option_id": "o3",
+                "text": "I know that the patient is treated."
               },
               {
                 "option_id": "o4",
                 "text": "I know that the patient is examined."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "I know that the patient is examined.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -31084,31 +31033,23 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "Although the patient has been examined, symptoms disappear."
+              },
+              {
+                "option_id": "o2",
+                "text": "Because the patient has been examined, symptoms continue."
+              },
+              {
+                "option_id": "o3",
+                "text": "Although the doctor has been examined, symptoms continue."
               },
               {
                 "option_id": "o4",
                 "text": "Although the patient has been examined, symptoms continue."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
-                "option_id": "o2",
-                "text": "patients"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Although the patient has been examined, symptoms continue.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -31193,31 +31134,29 @@
             "prompt": "What does this example express? Annan ohjeet, jotta potilas tutkittaisiin nopeasti.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "I give instructions so that the patient would be examined quickly."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "I give instructions so that the patient examines quickly."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "I give instructions so that the patient was examined quickly."
+              },
+              {
+                "option_id": "o3",
+                "text": "I give instructions so that the patients would be examined quickly."
+              },
+              {
+                "option_id": "o4",
+                "text": "I give instructions so that the patient would be examined quickly."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "I give instructions so that the patient would be examined quickly.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -31303,16 +31242,16 @@
             "prompt": "What does this example express? Potilaan siirto tehtiin.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "patients"
+                "option_id": "o1",
+                "text": "The patient transferred the documents."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o2",
+                "text": "The patient was transferred carefully."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The transfer procedure began."
               },
               {
                 "option_id": "o4",
@@ -31320,14 +31259,12 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "The patient's transfer was done.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -31414,30 +31351,28 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "The blood was taken."
+              },
+              {
+                "option_id": "o2",
+                "text": "Blood was taken."
+              },
+              {
+                "option_id": "o3",
+                "text": "Some water was taken."
               },
               {
                 "option_id": "o4",
                 "text": "Some blood was taken."
-              },
-              {
-                "option_id": "o2",
-                "text": "patients"
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "Some blood was taken.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -31523,31 +31458,29 @@
             "prompt": "What does this example express? Potilas siirretään.",
             "options": [
               {
-                "option_id": "o4",
+                "option_id": "o1",
+                "text": "The patient transfers."
+              },
+              {
+                "option_id": "o2",
                 "text": "The patient is transferred."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The patient is transferring."
               },
               {
-                "option_id": "o2",
-                "text": "patients"
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "The patient transferred."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o2",
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "The patient is transferred.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -31630,35 +31563,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Kivusta potilas itki.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Because of fever, the patient shivered."
+              },
+              {
+                "option_id": "o2",
+                "text": "Because of worry, the patient sighed."
+              },
+              {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "Because of happiness, the patient smiled."
               },
               {
                 "option_id": "o4",
                 "text": "Because of pain, the patient cried."
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
-              },
-              {
-                "option_id": "o2",
-                "text": "patients"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Because of pain, the patient cried.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -34160,35 +34083,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Potilas, jolla on kipua.",
             "options": [
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
-              },
               {
                 "option_id": "o4",
                 "text": "The patient who has pain."
               },
               {
+                "option_id": "o1",
+                "text": "The patient who has fever."
+              },
+              {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The doctor who has pain."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient who has no pain."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient who has pain.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -34273,32 +34186,23 @@
             "prompt": "What does this example express? Potilas, jota tutkin.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The patient whom I examine."
+              },
+              {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The doctor examines the patient."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
+                "text": "The patient is in the hospital."
               },
               {
                 "option_id": "o4",
-                "text": "The patient whom I examine."
+                "text": "The patient is waiting for treatment."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient whom I examine.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1"
           }
         ],
         "explanation": {
@@ -34714,31 +34618,23 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "Before the patient was examined, he got a referral."
+              },
+              {
+                "option_id": "o2",
+                "text": "While the patient was being examined, he got a referral."
+              },
+              {
+                "option_id": "o3",
+                "text": "After the patient was examined, he got a referral."
               },
               {
                 "option_id": "o4",
                 "text": "When the patient had been examined, he got a referral."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
-                "option_id": "o2",
-                "text": "patients"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "When the patient had been examined, he got a referral.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -35703,32 +35599,24 @@
             "prompt": "What does this example express? Ennen kuin potilas tulisi, siivoamme huoneen.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "Before the patient would come, we clean the room."
+                "option_id": "o1",
+                "text": "After the patient comes, we clean the room."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "When the patient comes, we clean the room."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "If the patient comes, we clean the room."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "Before the patient would come, we clean the room."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Before the patient would come, we clean the room.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -36913,32 +36801,23 @@
             "prompt": "What does this example express? Kysyin, eikö potilas ole täällä.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "I asked if the patient is not here."
+              },
+              {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "I asked if the patient is here."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
+                "text": "I asked if the doctor is not here."
               },
               {
                 "option_id": "o4",
-                "text": "I asked if the patient is not here."
+                "text": "I asked if the patient is absent."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "I asked if the patient is not here.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1"
           }
         ],
         "explanation": {
@@ -37133,16 +37012,16 @@
             "prompt": "What does this example express? Tutkimisen jälkeen potilas lepää.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "Before examining, the patient exercises."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "During the examination, the patient is awake."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient rests before the examination."
               },
               {
                 "option_id": "o4",
@@ -37150,15 +37029,7 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "After examining, the patient rests.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -42413,32 +42284,23 @@
             "prompt": "What does this example express? Lääkärin tutkimaton potilas.",
             "options": [
               {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "The patient not examined by the doctor."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The doctor did not examine the patient."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The patient was not seen by the doctor."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "The patient is waiting for examination."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient not examined by the doctor.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o1"
           }
         ],
         "explanation": {
@@ -42523,8 +42385,8 @@
             "prompt": "What does this example express? Tutkittava potilas.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "The patient to be examined."
+                "option_id": "o1",
+                "text": "patient"
               },
               {
                 "option_id": "o2",
@@ -42535,20 +42397,11 @@
                 "text": "blood (some blood)"
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "The patient to be examined."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient to be examined.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -42633,32 +42486,24 @@
             "prompt": "What does this example express? Potilas on tutkittava.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
-              },
-              {
-                "option_id": "o4",
                 "text": "The patient must be examined."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The patient is being checked."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient is not allowed to be seen."
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient is waiting for examination."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient must be examined.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -42743,8 +42588,8 @@
             "prompt": "What does this example express? Tutkittu potilas.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "The examined patient."
+                "option_id": "o1",
+                "text": "the examining doctor"
               },
               {
                 "option_id": "o2",
@@ -42755,19 +42600,17 @@
                 "text": "blood (some blood)"
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "The examined patient."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "The examined patient.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -43293,32 +43136,24 @@
             "prompt": "What does this example express? Tutkittamaton potilas.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "The patient is not examined."
+              },
+              {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The patient is being ignored."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient is not allowed to be seen."
               },
               {
                 "option_id": "o4",
                 "text": "The patient not to be examined."
-              },
-              {
-                "option_id": "o1",
-                "text": "patient"
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient not to be examined.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -43404,15 +43239,15 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "The patient was examined, and then the doctor left."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "After being examined by the patient, the doctor left."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "While examining the patient, the doctor left."
               },
               {
                 "option_id": "o4",
@@ -43420,14 +43255,12 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "After examining the patient, the doctor left.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -43623,32 +43456,23 @@
             "prompt": "What does this example express? Lääkärin tutkima potilas lepäsi.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "After being examined by the doctor, the patient rested."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "The patient was examined by the doctor and then rested."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The doctor examined the patient and they felt tired."
+              },
+              {
+                "option_id": "o3",
+                "text": "The patient rested after the doctor's examination."
+              },
+              {
+                "option_id": "o4",
+                "text": "The doctor found the patient to be in good health."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "After being examined by the doctor, the patient rested.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o3"
           }
         ],
         "explanation": {
@@ -45648,7 +45472,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "The patient must be examined."
+            },
+            {
+              "option_id": "o1",
+              "text": "The patient must examine."
+            },
+            {
+              "option_id": "o2",
+              "text": "The patient can be examined."
+            },
+            {
+              "option_id": "o3",
+              "text": "The patient is being examined."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.grammar.doctor.taytya-epasuora-kielto.a05b7b",
@@ -45713,31 +45561,29 @@
             "prompt": "What does this example express? Potilasta ei saa tutkia väärin.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "The patient must not be examined wrongly."
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "The patient must be examined correctly."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The patient may be examined wrongly."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The patient is not examined at all."
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient must not be examined wrongly."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "The patient must not be examined wrongly.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -47033,32 +46879,23 @@
             "prompt": "What does this example express? Potilas taitaisi olla tyytyväinen.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "blood (some blood)"
+                "option_id": "o1",
+                "text": "The patient might be satisfied."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The doctor might likely be satisfied."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o3",
+                "text": "The patient is probably satisfied."
               },
               {
                 "option_id": "o4",
                 "text": "The patient might likely be satisfied."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient might likely be satisfied.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -47188,7 +47025,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "What does this example express? Potilas näyttää olevan kipeä.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "The patient is definitely ill."
+            },
+            {
+              "option_id": "o2",
+              "text": "The patient appears to be a doctor."
+            },
+            {
+              "option_id": "o3",
+              "text": "The patient was ill yesterday."
+            },
+            {
+              "option_id": "o4",
+              "text": "The patient seems to be ill."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Describe the meaning or function in English.",
+          "answer_key": "The patient seems to be ill.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.grammar.doctor.nayttaa-partisiippi.51701b",
@@ -47253,31 +47122,29 @@
             "prompt": "What does this example express? Potilas näyttää sairastaneen.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "The patient seems to have been ill."
-              },
-              {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "The patient seems to be ill."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The patient appears to become ill."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The patient is seen to have been ill."
+              },
+              {
+                "option_id": "o4",
+                "text": "The patient seems to have been ill."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "The patient seems to have been ill.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -47738,7 +47605,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "The patient appears to have recovered."
+            },
+            {
+              "option_id": "o1",
+              "text": "The patient appears to be recovering."
+            },
+            {
+              "option_id": "o2",
+              "text": "The patient is recovering."
+            },
+            {
+              "option_id": "o3",
+              "text": "The patient recovered."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.grammar.doctor.olla-partisiippi-tila.f6daf1",
@@ -47914,31 +47805,23 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "patient"
+                "text": "I examined the patient."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "I was examining the patient."
+              },
+              {
+                "option_id": "o3",
+                "text": "I had been examining the patient."
               },
               {
                 "option_id": "o4",
                 "text": "I had examined the patient."
-              },
-              {
-                "option_id": "o3",
-                "text": "blood (some blood)"
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "I had examined the patient.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -48243,32 +48126,24 @@
             "prompt": "What does this example express? Potilas jäi tutkimatta.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "The patient remained unexamined."
+                "option_id": "o1",
+                "text": "The patient was examined thoroughly."
               },
               {
                 "option_id": "o2",
-                "text": "patients"
+                "text": "The test results were clear."
               },
               {
                 "option_id": "o3",
-                "text": "blood (some blood)"
+                "text": "The doctor wrote a prescription."
               },
               {
-                "option_id": "o1",
-                "text": "patient"
+                "option_id": "o4",
+                "text": "The patient remained unexamined."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The patient remained unexamined.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -59291,34 +59166,24 @@
             "prompt": "What does this example express? Tämä on meidän potilaamme (potilas).",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "option_id": "o1",
+                "text": "This is my patient."
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "This is the patient's."
               },
               {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "option_id": "o3",
+                "text": "These are our patients."
               },
               {
                 "option_id": "o4",
-                "text": "Complete with correct possessive suffix."
+                "text": "This is our patient."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with correct possessive suffix.",
-            "accepted_variants": [
-              "potilaamme"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -59627,24 +59492,23 @@
             "prompt": "What does this example express? Minä haluaisin (haluta) auttaa, jos osaisin.",
             "options": [
               {
-                "option_id": "o3",
-                "text": "Complete the existential sentence."
-              },
-              {
                 "option_id": "o1",
-                "text": "Complete with ordinal."
-              },
-              {
-                "option_id": "o4",
-                "text": "Complete with conditional."
+                "text": "I want to help if I can."
               },
               {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "I liked to help if I could."
+              },
+              {
+                "option_id": "o3",
+                "text": "I will like to help if I can."
+              },
+              {
+                "option_id": "o4",
+                "text": "I would like to help if I could."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {

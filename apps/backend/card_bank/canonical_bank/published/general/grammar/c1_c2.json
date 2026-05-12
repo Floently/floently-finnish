@@ -3877,32 +3877,23 @@
             "prompt": "What does this example express? Ollessaan jatkuvasti ylitöissä hän alkoi kärsiä unettomuudesta.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "After having eaten lunch, he returned to the meeting."
-              },
-              {
                 "option_id": "o1",
                 "text": "Considering the situation, the decision was to be expected."
               },
               {
+                "option_id": "o2",
+                "text": "After having eaten lunch, he returned to the meeting."
+              },
+              {
                 "option_id": "o3",
-                "text": "Because he was late, he apologized."
+                "text": "Because he was constantly working overtime, he began to suffer from insomnia."
               },
               {
                 "option_id": "o4",
-                "text": "Because he was constantly working overtime, he began to suffer from insomnia."
+                "text": "He decided to take a break from work."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Because he was constantly working overtime, he began to suffer from insomnia.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o3"
           }
         ],
         "explanation": {
@@ -3986,7 +3977,7 @@
             "prompt": "What does this example express? Saavuttuaan ajoissa hän olisi ehtinyt tapaamiseen.",
             "options": [
               {
-                "option_id": "o4",
+                "option_id": "o1",
                 "text": "If he had arrived on time, he would have made it to the meeting."
               },
               {
@@ -3998,20 +3989,12 @@
                 "text": "Because he was late, he apologized."
               },
               {
-                "option_id": "o1",
+                "option_id": "o4",
                 "text": "Considering the situation, the decision was to be expected."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "If he had arrived on time, he would have made it to the meeting.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -5952,27 +5935,25 @@
                 "text": "Considering the situation, the decision was to be expected."
               },
               {
-                "option_id": "o4",
-                "text": "Apparently the meeting has been canceled, as the hall is empty."
+                "option_id": "o2",
+                "text": "The team won the championship last year."
               },
               {
                 "option_id": "o3",
                 "text": "Because he was late, he apologized."
               },
               {
-                "option_id": "o2",
-                "text": "After having eaten lunch, he returned to the meeting."
+                "option_id": "o4",
+                "text": "Apparently the meeting has been canceled, as the hall is empty."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "Apparently the meeting has been canceled, as the hall is empty.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -6166,32 +6147,24 @@
             "prompt": "What does this example express? Toki ymmärrän huolesi, mutta emme voi muuttaa päätöstä.",
             "options": [
               {
-                "option_id": "o2",
+                "option_id": "o1",
                 "text": "After having eaten lunch, he returned to the meeting."
               },
               {
-                "option_id": "o3",
+                "option_id": "o2",
                 "text": "Because he was late, he apologized."
               },
               {
-                "option_id": "o4",
+                "option_id": "o3",
                 "text": "Of course I understand your concern, but we cannot change the decision."
               },
               {
-                "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "option_id": "o4",
+                "text": "Having finished his work, he left the office."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o3",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Of course I understand your concern, but we cannot change the decision.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -7805,11 +7778,11 @@
                 "text": "Considering the situation, the decision was to be expected."
               },
               {
-                "option_id": "o3",
-                "text": "Because he was late, he apologized."
+                "option_id": "o2",
+                "text": "In order to finish on time, they worked overtime."
               },
               {
-                "option_id": "o2",
+                "option_id": "o3",
                 "text": "After having eaten lunch, he returned to the meeting."
               },
               {
@@ -7818,14 +7791,12 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "Because of illness he stayed home; as a result of the research, new information was obtained.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -8129,30 +8100,28 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "text": "He continued working despite the noise."
               },
               {
                 "option_id": "o2",
                 "text": "After having eaten lunch, he returned to the meeting."
               },
               {
-                "option_id": "o4",
-                "text": "He stopped complaining after accepting the situation."
+                "option_id": "o3",
+                "text": "She forgot to call her mother."
               },
               {
-                "option_id": "o3",
-                "text": "Because he was late, he apologized."
+                "option_id": "o4",
+                "text": "He stopped complaining after accepting the situation."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "He stopped complaining after accepting the situation.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -8346,15 +8315,15 @@
             "prompt": "What does this example express? Tapaamisen jälkeen lähdimme kotiin. Kymmenen minuutin jälkeen lääke alkoi vaikuttaa.",
             "options": [
               {
-                "option_id": "o3",
+                "option_id": "o1",
                 "text": "Because he was late, he apologized."
               },
               {
-                "option_id": "o1",
+                "option_id": "o2",
                 "text": "Considering the situation, the decision was to be expected."
               },
               {
-                "option_id": "o2",
+                "option_id": "o3",
                 "text": "After having eaten lunch, he returned to the meeting."
               },
               {
@@ -8362,16 +8331,7 @@
                 "text": "After the meeting we left home. After ten minutes, the medicine started to work."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "After the meeting we left home. After ten minutes, the medicine started to work.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -8779,35 +8739,25 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Ilmeisesti kokous on siirretty, koska huone on varattu toiseen tarkoitukseen.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Considering the situation, the decision was to be expected."
+              },
+              {
                 "option_id": "o2",
-                "text": "After having eaten lunch, he returned to the meeting."
+                "text": "She went to the library to study."
               },
               {
                 "option_id": "o3",
-                "text": "Because he was late, he apologized."
+                "text": "He enjoys listening to classical music."
               },
               {
                 "option_id": "o4",
                 "text": "Apparently the meeting has been moved, because the room is reserved for another purpose."
-              },
-              {
-                "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Apparently the meeting has been moved, because the room is reserved for another purpose.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -9546,10 +9496,6 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
-              },
-              {
-                "option_id": "o3",
                 "text": "Because he was late, he apologized."
               },
               {
@@ -9557,20 +9503,15 @@
                 "text": "After having eaten lunch, he returned to the meeting."
               },
               {
+                "option_id": "o3",
+                "text": "Before you could say anything, he had already left."
+              },
+              {
                 "option_id": "o4",
-                "text": "Before you could say anything, he had already left. We arrived earlier than we expected."
+                "text": "We arrived earlier than we anticipated."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Before you could say anything, he had already left. We arrived earlier than we expected.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o3"
           }
         ],
         "explanation": {
@@ -10853,16 +10794,16 @@
             "prompt": "What does this example express? Hänen myöhästymisensä takia kokous venyi.",
             "options": [
               {
-                "option_id": "o2",
-                "text": "After having eaten lunch, he returned to the meeting."
+                "option_id": "o1",
+                "text": "After finishing the work, he left."
               },
               {
-                "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "option_id": "o2",
+                "text": "In order to catch the bus, he ran."
               },
               {
                 "option_id": "o3",
-                "text": "Because he was late, he apologized."
+                "text": "Despite the rain, the event continued."
               },
               {
                 "option_id": "o4",
@@ -10870,15 +10811,7 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Because of his being late, the meeting ran long.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -11443,7 +11376,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "What does this example express? Kahden viikon kuluttua tilanne rauhoittui. Lounaan jälkeen aloitimme työt.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "She arrived late because of traffic."
+            },
+            {
+              "option_id": "o2",
+              "text": "He will finish the report by tomorrow."
+            },
+            {
+              "option_id": "o3",
+              "text": "They went swimming after breakfast."
+            },
+            {
+              "option_id": "o4",
+              "text": "Two weeks later the situation calmed down. After lunch we started work."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.grammar.general.spatial-metaphor-in-abstract-lahestya-asiaa-etaantya-totuudesta-emme-saa-etaantya-alkuperaisesta-tavoitteesta.-we-must-not-distance-ourselves-from-the-original-goal.e5bed1",
@@ -12489,31 +12448,23 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "text": "A decision made with sufficient research is safe."
               },
               {
                 "option_id": "o2",
-                "text": "After having eaten lunch, he returned to the meeting."
+                "text": "A decision made despite sufficient research is dangerous."
+              },
+              {
+                "option_id": "o3",
+                "text": "A decision made after sufficient research is safe."
               },
               {
                 "option_id": "o4",
                 "text": "A decision made without sufficient research is dangerous."
-              },
-              {
-                "option_id": "o3",
-                "text": "Because he was late, he apologized."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "A decision made without sufficient research is dangerous.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -12925,7 +12876,11 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "text": "During the meeting, questions were answered."
+              },
+              {
+                "option_id": "o2",
+                "text": "After having eaten lunch, he returned to the meeting."
               },
               {
                 "option_id": "o3",
@@ -12934,21 +12889,15 @@
               {
                 "option_id": "o4",
                 "text": "Before making the decision, we will hear all parties."
-              },
-              {
-                "option_id": "o2",
-                "text": "After having eaten lunch, he returned to the meeting."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "Before making the decision, we will hear all parties.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -15867,32 +15816,24 @@
             "prompt": "What does this example express? Hän jäi odottamaan päätöstä seuraavaan päivään.",
             "options": [
               {
-                "option_id": "o3",
+                "option_id": "o1",
                 "text": "Because he was late, he apologized."
-              },
-              {
-                "option_id": "o4",
-                "text": "He remained waiting for the decision until the next day."
               },
               {
                 "option_id": "o2",
                 "text": "After having eaten lunch, he returned to the meeting."
               },
               {
-                "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "option_id": "o3",
+                "text": "He remained waiting for the decision until the next day."
+              },
+              {
+                "option_id": "o4",
+                "text": "Having finished his work, he left the office."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o3",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "He remained waiting for the decision until the next day.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -16530,7 +16471,7 @@
               },
               {
                 "option_id": "o3",
-                "text": "Because he was late, he apologized."
+                "text": "Although the budget was tight, the project continued."
               },
               {
                 "option_id": "o4",
@@ -16538,15 +16479,7 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Because it was the market leader, the company was able to dictate prices.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -21439,19 +21372,11 @@
               },
               {
                 "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "text": "He finished his work before the deadline."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Every decision carries responsibility together with its consequences.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
@@ -21750,11 +21675,10 @@
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Sääntöjä huomioimatta hän toimi omavaltaisesti.",
             "options": [
               {
                 "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "text": "He decided to take a walk in the park."
               },
               {
                 "option_id": "o3",
@@ -21769,16 +21693,7 @@
                 "text": "After having eaten lunch, he returned to the meeting."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Without considering the rules, he acted arbitrarily.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -22407,31 +22322,29 @@
             "prompt": "What does this example express? Olimme juuri aloittamassa kokousta, kun palohälytys soi.",
             "options": [
               {
-                "option_id": "o4",
-                "text": "We were just starting the meeting when the fire alarm went off."
-              },
-              {
-                "option_id": "o3",
-                "text": "Because he was late, he apologized."
+                "option_id": "o1",
+                "text": "We had just finished the meeting when the fire alarm went off."
               },
               {
                 "option_id": "o2",
-                "text": "After having eaten lunch, he returned to the meeting."
+                "text": "We were about to start the meeting when the fire alarm went off."
               },
               {
-                "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "option_id": "o3",
+                "text": "We never started the meeting because of the fire alarm."
+              },
+              {
+                "option_id": "o4",
+                "text": "We were just starting the meeting when the fire alarm went off."
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
             "answer_key": "We were just starting the meeting when the fire alarm went off.",
-            "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
         ],
@@ -22848,7 +22761,7 @@
               },
               {
                 "option_id": "o1",
-                "text": "Considering the situation, the decision was to be expected."
+                "text": "Although it was raining, they went for a walk."
               },
               {
                 "option_id": "o4",
@@ -22860,15 +22773,7 @@
               }
             ],
             "answer_key": "o4",
-            "accepted_variants": [],
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "He proceeded cautiously, considering matters carefully.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
