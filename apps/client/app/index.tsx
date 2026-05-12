@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Platform } from 'react-native';
 import AppShell from '../state/AppShell';
 import LearnLandingPage from '../web/LearnLandingPage';
+import LegalPage from '../features/legal/LegalPage';
 import { useAuthStore } from '../state/authStore';
 import { completeGoogleOAuthResult } from '@core/api/auth';
 
@@ -44,10 +45,18 @@ export default function IndexRoute() {
 
   const isWeb = Platform.OS === 'web' && typeof window !== 'undefined';
   const hostname = isWeb ? window.location.hostname : '';
+  const pathname = isWeb ? window.location.pathname.replace(/\/+$/, '') || '/' : '/';
   const isLearnHost = isWeb && hostname === 'learn.floently.com';
   const isReadHost = isWeb && hostname === 'read.floently.com';
+  const learnPath = pathname === '/learn' ? '/' : pathname;
 
   if (isLearnHost) {
+    if (learnPath === '/learn/privacy') return <LegalPage page="privacy-policy" />;
+    if (learnPath === '/learn/terms') return <LegalPage page="terms-of-use" />;
+    if (learnPath === '/learn/support') return <LegalPage page="support" />;
+    if (learnPath === '/learn/delete-account') return <LegalPage page="account-deletion" />;
+    if (learnPath === '/learn/teams') return <LegalPage page="terms-of-use" />;
+
     if (hasHydrated && user) {
       return <AppShell requestedScreen="root" />;
     }
