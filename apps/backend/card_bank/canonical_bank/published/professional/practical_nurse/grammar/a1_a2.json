@@ -287,34 +287,23 @@
             "prompt": "What does this example express? Tämä on lääkärini (lääkäri + ni).",
             "options": [
               {
-                "option_id": "o2",
+                "option_id": "o1",
                 "text": "Complete the correct verb form."
               },
               {
-                "option_id": "o3",
+                "option_id": "o2",
                 "text": "Complete the existential sentence."
+              },
+              {
+                "option_id": "o3",
+                "text": "Complete with ordinal."
               },
               {
                 "option_id": "o4",
                 "text": "Complete with possessive suffix."
-              },
-              {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete with possessive suffix.",
-            "accepted_variants": [
-              "lääkärini"
-            ],
-            "evaluation_mode": "normalized_text"
+            "answer_key": "o4"
           }
         ],
         "explanation": {
@@ -1071,34 +1060,24 @@
             "prompt": "What does this example express? Minä tulen (tulla) töihin.",
             "options": [
               {
+                "option_id": "o1",
+                "text": "Verb conjugation (minä form)"
+              },
+              {
                 "option_id": "o2",
-                "text": "Complete the correct verb form."
+                "text": "Existential sentence"
               },
               {
                 "option_id": "o3",
-                "text": "Complete the existential sentence."
+                "text": "Plural noun"
               },
               {
                 "option_id": "o4",
-                "text": "Complete the verb form."
-              },
-              {
-                "option_id": "o1",
-                "text": "Complete with ordinal."
+                "text": "Ordinal number"
               }
             ],
-            "answer_key": "o4",
-            "accepted_variants": [],
+            "answer_key": "o1",
             "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Describe the meaning or function in English.",
-            "answer_key": "Complete the verb form.",
-            "accepted_variants": [
-              "tulen"
-            ],
-            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {

@@ -2346,117 +2346,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.practical_nurse.lapsi-saa-rokotukset-neuvolassa-kansallisen-rokotusohjelman-mukaisesti.-the-child-receives-vaccinations-at-the-clinic-according-to-the-national-vaccination-program.afa913",
-      "version": 1,
-      "path": "professional/practical_nurse/sentences",
-      "domain": "healthcare",
-      "profession": {
-        "track": "professional",
-        "slug": "practical_nurse",
-        "label": "Practical Nurse"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.nurse.sentences",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
-        "authoring_note": "source.generated.nurse.sentences"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.92
-      },
-      "tags": [
-        "a1_a2",
-        "healthcare",
-        "practical_nurse",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.nurse.sentences",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
-        },
-        "back": {
-          "recall_prompt": "The child receives vaccinations at the clinic according to the national vaccination program. -> ?",
-          "gloss": "The child receives vaccinations at the clinic according to the national vaccination program.",
-          "example_sentence": "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
-        },
-        "prompt_family": "sentence_memory",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o1",
-                "text": "There was a big rush in the morning, and I forgot to take my lunch with me."
-              },
-              {
-                "option_id": "o2",
-                "text": "I do handicrafts and often knit wool socks as gifts for friends."
-              },
-              {
-                "option_id": "o3",
-                "text": "On Midsummer, many Finns gather at summer cottages and light bonfires."
-              },
-              {
-                "option_id": "o4",
-                "text": "The child receives vaccinations at the clinic according to the national vaccination program."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "The child receives vaccinations at the clinic according to the national vaccination program.",
-            "accepted_variants": [
-              "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
-            ],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Lapsi saa rokotukset neuvolassa kansallisen rokotusohjelman mukaisesti."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.practical_nurse.lastenneuvolassa-seurataan-lapsen-kasvua-ja-kehitysta-saannollisesti.-at-the-child-health-clinic-the-child-s-growth-and-development-are-monitored-regularly.dc5933",
       "version": 1,
       "path": "professional/practical_nurse/sentences",
@@ -2551,117 +2440,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Lastenneuvolassa seurataan lapsen kasvua ja kehitystä säännöllisesti."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.sentence.practical_nurse.mittaan-potilaalta-kuumeen-ja-ilmoitan-siita-laakarille.-i-measure-the-patient-s-fever-and-report-it-to-the-doctor.9ddfbf",
-      "version": 1,
-      "path": "professional/practical_nurse/sentences",
-      "domain": "healthcare",
-      "profession": {
-        "track": "professional",
-        "slug": "practical_nurse",
-        "label": "Practical Nurse"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.nurse.sentences",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
-        "authoring_note": "source.generated.nurse.sentences"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.92
-      },
-      "tags": [
-        "a1_a2",
-        "healthcare",
-        "practical_nurse",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.nurse.sentences",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
-        },
-        "back": {
-          "recall_prompt": "I measure the patient's fever and report it to the doctor. -> ?",
-          "gloss": "I measure the patient's fever and report it to the doctor.",
-          "example_sentence": "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
-        },
-        "prompt_family": "sentence_memory",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o2",
-                "text": "I do handicrafts and often knit wool socks as gifts for friends."
-              },
-              {
-                "option_id": "o1",
-                "text": "There was a big rush in the morning, and I forgot to take my lunch with me."
-              },
-              {
-                "option_id": "o4",
-                "text": "I measure the patient's fever and report it to the doctor."
-              },
-              {
-                "option_id": "o3",
-                "text": "On Midsummer, many Finns gather at summer cottages and light bonfires."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "I measure the patient's fever and report it to the doctor.",
-            "accepted_variants": [
-              "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
-            ],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Mittaan potilaalta kuumeen ja ilmoitan siitä lääkärille."
         },
         "audio": null,
         "validation": {
@@ -6034,117 +5812,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.practical_nurse.puhun-ikaihmisen-kanssa-ja-kysyn-haluaisiko-han-keskustella-vertaistuen-kanssa.-i-talk-with-the-elderly-person-and-ask-if-they-would-like-to-talk-with-peer-support.ceefda",
-      "version": 1,
-      "path": "professional/practical_nurse/sentences",
-      "domain": "healthcare",
-      "profession": {
-        "track": "professional",
-        "slug": "practical_nurse",
-        "label": "Practical Nurse"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.nurse.sentences",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/floently-finnish/apps/backend/materials/cards/imports/kielitaika_normalized/cards_authority.json",
-        "authoring_note": "source.generated.nurse.sentences"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.92
-      },
-      "tags": [
-        "a1_a2",
-        "healthcare",
-        "practical_nurse",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.nurse.sentences",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
-        },
-        "back": {
-          "recall_prompt": "I talk with the elderly person and ask if they would like to talk with peer support. -> ?",
-          "gloss": "I talk with the elderly person and ask if they would like to talk with peer support.",
-          "example_sentence": "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
-        },
-        "prompt_family": "sentence_memory",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o4",
-                "text": "I talk with the elderly person and ask if they would like to talk with peer support."
-              },
-              {
-                "option_id": "o1",
-                "text": "There was a big rush in the morning, and I forgot to take my lunch with me."
-              },
-              {
-                "option_id": "o3",
-                "text": "On Midsummer, many Finns gather at summer cottages and light bonfires."
-              },
-              {
-                "option_id": "o2",
-                "text": "I do handicrafts and often knit wool socks as gifts for friends."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "I talk with the elderly person and ask if they would like to talk with peer support.",
-            "accepted_variants": [
-              "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
-            ],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Puhun ikäihmisen kanssa ja kysyn, haluaisiko hän keskustella vertaistuen kanssa."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.practical_nurse.rokotus-annetaan-olkavarteen-ja-se-suojaa-vakavalta-taudilta.-the-vaccination-is-given-in-the-upper-arm-and-it-protects-against-a-serious-disease.89b7f1",
       "version": 1,
       "path": "professional/practical_nurse/sentences",
@@ -6253,7 +5920,42 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "The patient is sleeping in the bed."
+            },
+            {
+              "option_id": "o2",
+              "text": "The doctor writes a prescription for the patient."
+            },
+            {
+              "option_id": "o3",
+              "text": "The vaccination is given in the upper arm, and it protects against a serious disease."
+            },
+            {
+              "option_id": "o4",
+              "text": "The nurse helps the patient to walk."
+            }
+          ],
+          "answer_key": "o3",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "The vaccination is given in the upper arm, and it protects against a serious disease.",
+          "accepted_variants": [
+            "Rokotus annetaan olkavarteen, ja se suojaa vakavalta taudilta."
+          ],
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.practical_nurse.tarkistan-kotikaynnilla-mattojen-liukuesteet-ja-kylpyhuoneen-turvallisuuden.-during-the-home-visit-i-check-the-non-slip-backing-of-rugs-and-the-safety-of-the-bathroom.2c6d03",
@@ -6476,7 +6178,43 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Welcome to the ward, here is the menu and a pen."
+            },
+            {
+              "option_id": "o2",
+              "text": "Your bed is here and the call button is on the table."
+            },
+            {
+              "option_id": "o3",
+              "text": "The nurse will show you your bed and the call button."
+            },
+            {
+              "option_id": "o4",
+              "text": "Welcome to the ward, here is your bed and the call button is next to it."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "Welcome to the ward, here is your bed and the call button is next to it.",
+          "accepted_variants": [
+            "Tervetuloa osastolle, tässä on teidän sänkynne ja soittonappi vieressä.",
+            "Tervetuloa osastolle, tässä on teidän sänkynne ja soittonappi vieressä"
+          ],
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.practical_nurse.voitte-pyytaa-perhetta-tai-ystavia-kaymaan-seura-auttaa-jaksamaan.-you-can-ask-family-or-friends-to-visit-company-helps-you-cope.553d0c",
@@ -6700,7 +6438,43 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "Try first by yourself, but call if you need help."
+            },
+            {
+              "option_id": "o1",
+              "text": "You must always ask for help before trying anything."
+            },
+            {
+              "option_id": "o2",
+              "text": "Do not attempt anything without supervision."
+            },
+            {
+              "option_id": "o3",
+              "text": "If you need help, call me immediately."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "Try first by yourself, but call if you need help.",
+          "accepted_variants": [
+            "Yritä ensin itse, mutta soita, jos tarvitset apua.",
+            "Yritä ensin itse, mutta soita, jos tarvitset apua"
+          ],
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.practical_nurse.yrita-nyt-levata-sammutan-valot-ja-tulen-myohemmin-katsomaan.-try-to-rest-now-i-ll-turn-off-the-lights-and-come-check-on-you-later.3b88de",
@@ -8268,7 +8042,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I wash my hands before eating."
+            },
+            {
+              "option_id": "o2",
+              "text": "I take my medicine every morning."
+            },
+            {
+              "option_id": "o4",
+              "text": "I use hand sanitizer always before meeting the patient."
+            },
+            {
+              "option_id": "o3",
+              "text": "I check the patient's temperature."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.practical_nurse.mittaan-asiakkaan-verenpaineen-ennen-laakarin-tapaamista.-i-measure-the-patient-s-blood-pressure-before-the-doctor-s-appointment.9f7e7b",
@@ -8380,7 +8180,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I check the patient's temperature before the doctor's appointment."
+            },
+            {
+              "option_id": "o2",
+              "text": "I give the patient medicine before the doctor's appointment."
+            },
+            {
+              "option_id": "o3",
+              "text": "I help the patient walk to the doctor's appointment."
+            },
+            {
+              "option_id": "o4",
+              "text": "I measure the patient's blood pressure before the doctor's appointment."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.sentence.practical_nurse.nostan-asiakkaan-sangysta-pyoratuoliin-turvallisesti.-i-lift-the-patient-from-the-bed-to-the-wheelchair-safely.eccc7a",
@@ -8814,6 +8638,224 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Tarkistan hoitotarvikkeiden saatavuuden ja tilaan puuttuvat tuotteet varastosta."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.practical nurse.kallista-paata-sivulle.e56669",
+      "version": 1,
+      "path": "professional/practical_nurse/sentences",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.practical.nurse.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/practical_nurse_sentence.json",
+        "authoring_note": "source.generated.professional.practical.nurse.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "medical_work_finnish",
+        "practical nurse",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.practical.nurse.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Kallista päätä sivulle."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "Tilt your head to the side.",
+          "example_sentence": "Kallista päätä sivulle."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "Good morning, how are you?"
+              },
+              {
+                "option_id": "o4",
+                "text": "Tilt your head to the side."
+              },
+              {
+                "option_id": "o2",
+                "text": "Let's take blood pressure."
+              },
+              {
+                "option_id": "o3",
+                "text": "Now it's time for the medicine."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "Tilt your head to the side.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Kallista päätä sivulle."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.practical nurse.ota-askel-eteenpain.26ceb3",
+      "version": 1,
+      "path": "professional/practical_nurse/sentences",
+      "domain": "medical_work_finnish",
+      "profession": {
+        "track": "professional",
+        "slug": "practical_nurse",
+        "label": "Practical Nurse"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.professional.practical.nurse.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/practical_nurse_sentence.json",
+        "authoring_note": "source.generated.professional.practical.nurse.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "medical_work_finnish",
+        "practical nurse",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.professional.practical.nurse.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Ota askel eteenpäin."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "Take a step forward.",
+          "example_sentence": "Ota askel eteenpäin."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o4",
+                "text": "Take a step forward."
+              },
+              {
+                "option_id": "o3",
+                "text": "Now it's time for the medicine."
+              },
+              {
+                "option_id": "o2",
+                "text": "Let's take blood pressure."
+              },
+              {
+                "option_id": "o1",
+                "text": "Good morning, how are you?"
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "Take a step forward.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Ota askel eteenpäin."
         },
         "audio": null,
         "validation": {

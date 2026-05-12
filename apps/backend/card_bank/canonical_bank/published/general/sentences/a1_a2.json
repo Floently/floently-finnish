@@ -322,7 +322,37 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hän on kotona."
+      },
+      "back": {
+        "gloss": "He/she is home."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o3",
+              "text": "We are friends."
+            },
+            {
+              "option_id": "o4",
+              "text": "I am Matti."
+            }
+          ],
+          "answer_key": "o2"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.me-olemme-ystavia.-we-are-friends.105b7e",
@@ -44710,7 +44740,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "He testaavat kuuloa."
+      },
+      "back": {
+        "example_sentence": "He testaavat kuuloa."
+      },
+      "explanation": {
+        "example": "He testaavat kuuloa."
+      }
     },
     {
       "id": "card.sentence.general.mina-menen-naimisiin.-i-get-married.8c15a2",
@@ -46100,114 +46139,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Hän leikkaa napanuoran."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.sentence.general.me-punnitsemme-vauvan.-we-weigh-the-baby.7eccf6",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Me punnitsemme vauvan."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "We weigh the baby.",
-          "example_sentence": "Me punnitsemme vauvan."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              },
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o4",
-                "text": "We weigh the baby."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "We weigh the baby.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Me punnitsemme vauvan."
         },
         "audio": null,
         "validation": {
@@ -48598,7 +48529,17 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Minä teen nuotion."
+      },
+      "back": {
+        "gloss": "I make a campfire.",
+        "example_sentence": "Minä teen nuotion."
+      },
+      "explanation": {
+        "example": "Minä teen nuotion."
+      }
     },
     {
       "id": "card.sentence.general.sina-paistat-makkaraa.-you-fry-sausage.ef09b2",
@@ -49786,7 +49727,37 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä soudat veneellä."
+      },
+      "back": {
+        "example_sentence": "Sinä soudat veneellä."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o2",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o4",
+              "text": "You row a boat."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-uidaan-jarvessa.-he-she-swims-in-the-lake.df4e0c",
@@ -49894,7 +49865,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hän ui järvessä."
+      },
+      "back": {
+        "example_sentence": "Hän ui järvessä."
+      },
+      "explanation": {
+        "example": "Hän ui järvessä."
+      }
     },
     {
       "id": "card.sentence.general.me-saunomme.-we-go-to-sauna.4c8dce",
@@ -50218,7 +50198,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Minä vihtoan."
+      },
+      "back": {
+        "example_sentence": "Minä vihtoan."
+      },
+      "explanation": {
+        "example": "Minä vihtoan."
+      }
     },
     {
       "id": "card.sentence.general.sina-jaahdyttelet-terassilla.-you-cool-down-on-the-terrace.dae680",
@@ -50434,7 +50423,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hän juo saunakaljaa."
+      },
+      "back": {
+        "example_sentence": "Hän juo saunakaljaa."
+      }
     },
     {
       "id": "card.sentence.general.me-heitamme-loylya.-we-throw-water-on-sauna-stove.e893e3",
@@ -63613,114 +63608,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.general.me-saamme-veronpalautusta.-we-get-a-tax-refund.64a2bd",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Me saamme veronpalautusta."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "We get a tax refund.",
-          "example_sentence": "Me saamme veronpalautusta."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              },
-              {
-                "option_id": "o4",
-                "text": "We get a tax refund."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "We get a tax refund.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Me saamme veronpalautusta."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.general.he-maksavat-jaannosveroa.-they-pay-residual-tax.805fb9",
       "version": 1,
       "path": "general/sentences",
@@ -73438,7 +73325,45 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "back": {
+        "gloss": "You evaluate your own performance."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "You evaluate your own work."
+            },
+            {
+              "option_id": "o2",
+              "text": "You evaluate his performance."
+            },
+            {
+              "option_id": "o3",
+              "text": "You evaluate our performance."
+            },
+            {
+              "option_id": "o4",
+              "text": "You evaluate your own performance."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "You evaluate your own performance.",
+          "accepted_variants": [
+            "You evaluate own performance."
+          ],
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-saa-tulokset-postitse.-he-she-receives-results-by-mail.45f1f8",
@@ -74518,7 +74443,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "You watch a Swedish movie."
+            },
+            {
+              "option_id": "o2",
+              "text": "You see a Finnish film."
+            },
+            {
+              "option_id": "o3",
+              "text": "You watch a movie in English."
+            },
+            {
+              "option_id": "o4",
+              "text": "You watch a Finnish movie."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-kuuntelee-suomenkielista-musiikkia.-he-she-listens-to-finnish-music.1cb351",
@@ -84670,7 +84621,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Minä leivon gluteenittoman kakun."
+      },
+      "back": {
+        "example_sentence": "Minä leivon gluteenittoman kakun."
+      },
+      "explanation": {
+        "example": "Minä leivon gluteenittoman kakun."
+      }
     },
     {
       "id": "card.sentence.general.sina-kaytat-kaurajuomaa.-you-use-oat-drink.37038b",
@@ -88666,7 +88626,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hän pakkaa eväitä koko päiväksi."
+      },
+      "back": {
+        "example_sentence": "Hän pakkaa eväitä koko päiväksi."
+      },
+      "explanation": {
+        "example": "Hän pakkaa eväitä koko päiväksi."
+      }
     },
     {
       "id": "card.sentence.general.me-syomme-evaat-puistossa.-we-eat-snacks-in-the-park.293114",
@@ -89314,7 +89283,38 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Me emme syö makeisia."
+      },
+      "back": {
+        "gloss": "We don't eat candy."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            },
+            {
+              "option_id": "o2",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o3",
+              "text": "We eat candy."
+            },
+            {
+              "option_id": "o4",
+              "text": "We don't eat candy."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.he-eivat-koskaan-syo-eineksia.-they-never-eat-ready-meals.184965",
@@ -92446,7 +92446,37 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hän käyttää jalkatukea."
+      },
+      "back": {
+        "gloss": "He/she uses a foot support."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            },
+            {
+              "option_id": "o2",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she uses a foot support."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.me-kaytamme-kainalosauvoja.-we-use-crutches.b54980",
@@ -95686,7 +95716,37 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hän lyhentää housuja."
+      },
+      "back": {
+        "gloss": "He/she shortens trousers."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            },
+            {
+              "option_id": "o2",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she shortens trousers."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.me-vaihdamme-lahkeet.-we-change-the-hems.e450aa",
@@ -102058,7 +102118,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä maalaat akvarellilla."
+      },
+      "back": {
+        "example_sentence": "Sinä maalaat akvarellilla."
+      }
     },
     {
       "id": "card.sentence.general.han-piirtaa-hiilella.-he-she-draws-with-charcoal.3a2061",
@@ -103138,7 +103204,37 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä otat soittotunteja."
+      },
+      "back": {
+        "example_sentence": "Sinä otat soittotunteja."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "You take music lessons."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            },
+            {
+              "option_id": "o2",
+              "text": "You are a teacher."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-lukee-nuotteja.-he-she-reads-sheet-music.1502b5",
@@ -108538,7 +108634,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä kopioit paperit."
+      },
+      "back": {
+        "example_sentence": "Sinä kopioit paperit."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "You print papers."
+            },
+            {
+              "option_id": "o2",
+              "text": "You scan papers."
+            },
+            {
+              "option_id": "o3",
+              "text": "You read papers."
+            },
+            {
+              "option_id": "o4",
+              "text": "You copy papers."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-skannaa-asiakirjan.-he-she-scans-a-document.ad21ef",
@@ -113401,114 +113529,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.general.me-otamme-henkilollisyystodistuksen-mukaan.-we-take-an-id-with-us.890ad1",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Me otamme henkilöllisyystodistuksen mukaan."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "We take an ID with us.",
-          "example_sentence": "Me otamme henkilöllisyystodistuksen mukaan."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              },
-              {
-                "option_id": "o4",
-                "text": "We take an ID with us."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "We take an ID with us.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Me otamme henkilöllisyystodistuksen mukaan."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.general.he-nayttavat-aanestyskutsun.-they-show-the-voting-invitation.9de3bb",
       "version": 1,
       "path": "general/sentences",
@@ -114032,114 +114052,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "He leimaavat käden."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.sentence.general.mina-olen-ylpea-voidessani-aanestaa.-i-am-proud-to-be-able-to-vote.572db4",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Minä olen ylpeä voidessani äänestää."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "I am proud to be able to vote.",
-          "example_sentence": "Minä olen ylpeä voidessani äänestää."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              },
-              {
-                "option_id": "o4",
-                "text": "I am proud to be able to vote."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "I am proud to be able to vote.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Minä olen ylpeä voidessani äänestää."
         },
         "audio": null,
         "validation": {
@@ -117934,7 +117846,31 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "We delete the work history."
+            },
+            {
+              "option_id": "o2",
+              "text": "We read the work history."
+            },
+            {
+              "option_id": "o3",
+              "text": "We update the work history."
+            },
+            {
+              "option_id": "o4",
+              "text": "We attach work history."
+            }
+          ],
+          "answer_key": "o4"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.he-saavat-elakepaatoksen.-they-receive-pension-decision.89a546",
@@ -118150,7 +118086,43 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I start working at age 65."
+            },
+            {
+              "option_id": "o2",
+              "text": "I go to school at age 65."
+            },
+            {
+              "option_id": "o3",
+              "text": "I travel at age 65."
+            },
+            {
+              "option_id": "o4",
+              "text": "I retire at age 65."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "I retire at age 65.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "This sentence describes retiring at a specific age.",
+        "example": "Minä jään eläkkeelle 65-vuotiaana."
+      }
     },
     {
       "id": "card.sentence.general.sina-haet-osa-aikaelaketta.-you-apply-for-part-time-pension.d1cf70",
@@ -127978,7 +127950,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä myyt vanhoja vaatteita."
+      },
+      "back": {
+        "example_sentence": "Sinä myyt vanhoja vaatteita."
+      },
+      "explanation": {
+        "example": "Sinä myyt vanhoja vaatteita."
+      }
     },
     {
       "id": "card.sentence.general.han-ostaa-kaytetyn-kirjan.-he-she-buys-a-used-book.7e038d",
@@ -131974,7 +131955,17 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Me vaihdamme rahaa."
+      },
+      "back": {
+        "gloss": "We exchange currency.",
+        "example_sentence": "Me vaihdamme rahaa."
+      },
+      "explanation": {
+        "example": "Me vaihdamme rahaa."
+      }
     },
     {
       "id": "card.sentence.general.he-ostavat-matkasovittimen-paikalliseen-pistorasiaan.-they-buy-a-travel-adapter-for-the-local-plug.487ded",
@@ -135646,7 +135637,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "He/she tries local crafts."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she buys local crafts."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she makes local crafts."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she sells local crafts."
+            }
+          ],
+          "answer_key": "o1",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "He/she tries local crafts.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.me-osallistumme-ruoanlaittokurssille.-we-participate-in-a-cooking-class.abe1a2",
@@ -135754,7 +135777,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "We attend a gym class."
+            },
+            {
+              "option_id": "o2",
+              "text": "We skip a cooking class."
+            },
+            {
+              "option_id": "o3",
+              "text": "We participate in a dance class."
+            },
+            {
+              "option_id": "o4",
+              "text": "We participate in a cooking class."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "We participate in a cooking class.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.he-tanssivat-kansantanssia.-they-dance-folk-dance.ed0e2e",
@@ -135862,7 +135917,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "They dance pop dance."
+            },
+            {
+              "option_id": "o2",
+              "text": "They dance ballet."
+            },
+            {
+              "option_id": "o3",
+              "text": "They dance alone."
+            },
+            {
+              "option_id": "o4",
+              "text": "They dance folk dance."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "They dance folk dance.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.mina-kuuntelen-paikallista-musiikkia.-i-listen-to-local-music.ae0610",
@@ -135970,7 +136057,43 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I listen to classical music."
+            },
+            {
+              "option_id": "o2",
+              "text": "I play local music."
+            },
+            {
+              "option_id": "o3",
+              "text": "I buy local music."
+            },
+            {
+              "option_id": "o4",
+              "text": "I listen to local music."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "I listen to local music.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "This sentence states listening to local music.",
+        "example": "Minä kuuntelen paikallista musiikkia."
+      }
     },
     {
       "id": "card.sentence.general.sina-katsot-perinne-esityksen.-you-watch-a-traditional-performance.bfdd12",
@@ -136078,7 +136201,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "You watch a film."
+            },
+            {
+              "option_id": "o2",
+              "text": "You watch a concert."
+            },
+            {
+              "option_id": "o3",
+              "text": "You watch a play."
+            },
+            {
+              "option_id": "o4",
+              "text": "You watch a traditional performance."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-oppii-muutaman-sanan-paikallisella-kielella.-he-she-learns-a-few-words-in-the-local-language.9ded99",
@@ -137374,7 +137523,36 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "We extend the trip because of injury."
+            },
+            {
+              "option_id": "o2",
+              "text": "We cancel the trip because of injury."
+            },
+            {
+              "option_id": "o3",
+              "text": "We shorten the trip because of injury."
+            },
+            {
+              "option_id": "o4",
+              "text": "We enjoy the trip despite injury."
+            }
+          ],
+          "answer_key": "o3",
+          "evaluation_mode": "option_id"
+        }
+      ],
+      "explanation": {
+        "summary": "The verb 'lyhentää' means 'to shorten', and the sentence expresses a change of plans due to an injury."
+      }
     },
     {
       "id": "card.sentence.general.he-soittavat-matkavakuutusyhtioon.-they-call-the-travel-insurance-company.a95bd1",
@@ -137468,114 +137646,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "He soittavat matkavakuutusyhtiöön."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.sentence.general.mina-haen-korvausta-peruutetusta-lennosta.-i-claim-compensation-for-a-canceled-flight.d89d1b",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Minä haen korvausta peruutetusta lennosta."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "I claim compensation for a canceled flight.",
-          "example_sentence": "Minä haen korvausta peruutetusta lennosta."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o4",
-                "text": "I claim compensation for a canceled flight."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "I claim compensation for a canceled flight.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Minä haen korvausta peruutetusta lennosta."
         },
         "audio": null,
         "validation": {
@@ -142558,7 +142628,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä lainaat kiikareita."
+      },
+      "back": {
+        "example_sentence": "Sinä lainaat kiikareita."
+      }
     },
     {
       "id": "card.sentence.general.han-tunnistaa-tahdiston.-he-she-identifies-a-constellation.e6a0ad",
@@ -143209,114 +143285,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.general.me-opimme-galakseista.-we-learn-about-galaxies.a442f0",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Me opimme galakseista."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "We learn about galaxies.",
-          "example_sentence": "Me opimme galakseista."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o4",
-                "text": "We learn about galaxies."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "We learn about galaxies.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Me opimme galakseista."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.general.he-ovat-kiinnostuneita-tahtitieteesta.-they-are-interested-in-astronomy.9a67fd",
       "version": 1,
       "path": "general/sentences",
@@ -143530,7 +143498,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I participate in a competition."
+            },
+            {
+              "option_id": "o2",
+              "text": "I go on a fishing trip."
+            },
+            {
+              "option_id": "o3",
+              "text": "I take a language class."
+            },
+            {
+              "option_id": "o4",
+              "text": "I participate in a bird watching trip."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.sina-bongailet-harvinaisia-lintuja.-you-spot-rare-birds.55518e",
@@ -144826,7 +144820,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "He/she lights the fire quickly."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she extinguishes the fire carelessly."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she opens the window carefully."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she puts out the fire carefully."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.me-viemme-roskat-mennessamme.-we-take-rubbish-with-us-when-leaving.4cfd32",
@@ -145150,7 +145170,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I rent a bicycle."
+            },
+            {
+              "option_id": "o2",
+              "text": "I buy a canoe."
+            },
+            {
+              "option_id": "o3",
+              "text": "I drive a car."
+            },
+            {
+              "option_id": "o4",
+              "text": "I rent a canoe."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.sina-laitat-pelastusliivit.-you-put-on-a-life-jacket.631e2e",
@@ -145258,7 +145304,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o4",
+              "text": "You put on a life jacket."
+            },
+            {
+              "option_id": "o1",
+              "text": "You take off a life jacket."
+            },
+            {
+              "option_id": "o2",
+              "text": "You put on a coat."
+            },
+            {
+              "option_id": "o3",
+              "text": "You put on shoes."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "You put on a life jacket.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-meloo-jarvella.-he-she-paddles-on-the-lake.701e69",
@@ -151198,7 +151276,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä liimaat postimerkin."
+      },
+      "back": {
+        "example_sentence": "Sinä liimaat postimerkin."
+      },
+      "explanation": {
+        "example": "Sinä liimaat postimerkin."
+      }
     },
     {
       "id": "card.sentence.general.han-kirjoittaa-osoitteen-kuoreen.-he-she-writes-the-address-on-the-envelope.e89672",
@@ -152170,7 +152257,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Minä paketoin lahjan kauniisti."
+      },
+      "explanation": {
+        "example": "Minä paketoin lahjan kauniisti."
+      }
     },
     {
       "id": "card.sentence.general.sina-laitat-rusetin.-you-put-a-ribbon.fcd0bf",
@@ -162970,7 +163063,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I eat lunch."
+            },
+            {
+              "option_id": "o2",
+              "text": "She drinks coffee."
+            },
+            {
+              "option_id": "o3",
+              "text": "He reads a book."
+            },
+            {
+              "option_id": "o4",
+              "text": "I take time off work for a parent-teacher meeting."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "I take time off work for a parent-teacher meeting.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.sina-keskustelet-opettajan-kanssa.-you-talk-with-the-teacher.a41285",
@@ -163078,7 +163203,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o3",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o4",
+              "text": "You talk with the teacher."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she reads a book."
+            },
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "You talk with the teacher.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-seuraa-lapsen-edistymista.-he-she-follows-the-child-s-progress.b58583",
@@ -177658,7 +177815,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä olet työskennellyt samassa yrityksessä viisi vuotta."
+      },
+      "back": {
+        "example_sentence": "Sinä olet työskennellyt samassa yrityksessä viisi vuotta."
+      }
     },
     {
       "id": "card.sentence.general.han-on-opettanut-englantia-kaksikymmenta-vuotta.-he-she-has-taught-english-for-twenty-years.eb8385",
@@ -186409,114 +186572,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.general.me-olimme-juuri-ostamassa-taloa-kun-pankki-kieltaytyi-lainasta.-we-were-just-about-to-buy-a-house-when-the-bank-refused-the-loan.715056",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Me olimme juuri ostamassa taloa, kun pankki kieltäytyi lainasta."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "We were just about to buy a house when the bank refused the loan.",
-          "example_sentence": "Me olimme juuri ostamassa taloa, kun pankki kieltäytyi lainasta."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o4",
-                "text": "We were just about to buy a house when the bank refused the loan."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              },
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "We were just about to buy a house when the bank refused the loan.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Me olimme juuri ostamassa taloa, kun pankki kieltäytyi lainasta."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.general.he-olivat-juuri-lahdossa-lentokentalle-kun-he-saivat-tiedon-peruutuksesta.-they-were-just-about-to-leave-for-the-airport-when-they-got-the-cancellation-notice.78fa0d",
       "version": 1,
       "path": "general/sentences",
@@ -194938,7 +194993,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "You succeed without trying."
+            },
+            {
+              "option_id": "o2",
+              "text": "You will succeed if you try."
+            },
+            {
+              "option_id": "o3",
+              "text": "You won't succeed even if you try."
+            },
+            {
+              "option_id": "o4",
+              "text": "You won't succeed unless you try."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.han-ei-opi-ellet-han-harjoittele.-he-she-won-t-learn-unless-he-she-practices.1336e2",
@@ -199042,7 +199123,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I am sad that he/she is leaving."
+            },
+            {
+              "option_id": "o2",
+              "text": "I hope that he/she will stay."
+            },
+            {
+              "option_id": "o3",
+              "text": "I think that he/she is tired."
+            },
+            {
+              "option_id": "o4",
+              "text": "I am afraid that he/she will leave me."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.sina-pelkaat-etta-myohastyt-junasta.-you-are-afraid-that-you-will-miss-the-train.6c45ef",
@@ -222910,7 +223017,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "We avoid a risk."
+            },
+            {
+              "option_id": "o2",
+              "text": "We take a chance."
+            },
+            {
+              "option_id": "o3",
+              "text": "We calculate a risk."
+            },
+            {
+              "option_id": "o4",
+              "text": "We take a risk."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "We take a risk.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.he-hajauttavat-salkun.-they-diversify-the-portfolio.938297",
@@ -223342,7 +223481,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hänellä on säästötili lapsia varten."
+      },
+      "back": {
+        "example_sentence": "Hänellä on säästötili lapsia varten."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "He/she has a savings account for children."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she has a checking account."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she has a loan."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she has no savings account."
+            }
+          ],
+          "answer_key": "o1",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.meilla-on-yhteinen-talous.-we-have-joint-finances.649c41",
@@ -224530,7 +224701,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Meillä on hyvät luottotiedot."
+      },
+      "back": {
+        "example_sentence": "Meillä on hyvät luottotiedot."
+      },
+      "explanation": {
+        "example": "Meillä on hyvät luottotiedot."
+      }
     },
     {
       "id": "card.sentence.general.heilla-on-maksuhairiomerkinta.-they-have-a-default-entry.769cf2",
@@ -225502,7 +225682,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hänellä on autovakuutus."
+      },
+      "back": {
+        "example_sentence": "Hänellä on autovakuutus."
+      },
+      "explanation": {
+        "example": "Hänellä on autovakuutus."
+      }
     },
     {
       "id": "card.sentence.general.meilla-on-matkavakuutus.-we-have-travel-insurance.c512a5",
@@ -227554,7 +227743,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä käyt työhyvinvointitunnilla."
+      },
+      "back": {
+        "example_sentence": "Sinä käyt työhyvinvointitunnilla."
+      }
     },
     {
       "id": "card.sentence.general.han-pitaa-etapalaverin.-he-she-holds-a-remote-meeting.795735",
@@ -233389,114 +233584,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.general.sina-jaat-elakkeelle-68-vuotiaana.-you-retire-at-age-68.a1eade",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Sinä jäät eläkkeelle 68-vuotiaana."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "You retire at age 68.",
-          "example_sentence": "Sinä jäät eläkkeelle 68-vuotiaana."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o4",
-                "text": "You retire at age 68."
-              },
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "You retire at age 68.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Sinä jäät eläkkeelle 68-vuotiaana."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.general.han-siirtyy-osa-aikaelakkeelle.-he-she-moves-to-part-time-pension.a001ed",
       "version": 1,
       "path": "general/sentences",
@@ -233696,114 +233783,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Me suunnittelemme eläkevuosia."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.sentence.general.he-nauttivat-elakkeesta-ja-matkustelevat.-they-enjoy-retirement-and-travel.78dafe",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "He nauttivat eläkkeestä ja matkustelevat."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "They enjoy retirement and travel.",
-          "example_sentence": "He nauttivat eläkkeestä ja matkustelevat."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o4",
-                "text": "They enjoy retirement and travel."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "They enjoy retirement and travel.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "He nauttivat eläkkeestä ja matkustelevat."
         },
         "audio": null,
         "validation": {
@@ -234034,7 +234013,13 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sinä teet vapaaehtoistyötä eläkkeellä."
+      },
+      "explanation": {
+        "example": "Sinä teet vapaaehtoistyötä eläkkeellä."
+      }
     },
     {
       "id": "card.sentence.general.han-tapaa-ystavia-useammin-elakkeella.-he-she-meets-friends-more-often-in-retirement.c59fc4",
@@ -247642,7 +247627,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Häntä surettavat menetykset."
+      },
+      "back": {
+        "example_sentence": "Häntä surettavat menetykset."
+      },
+      "explanation": {
+        "example": "Häntä surettavat menetykset."
+      }
     },
     {
       "id": "card.sentence.general.meita-surettaa-etta-emme-voi-auttaa-enempaa.-we-feel-sad-that-we-can-t-help-more.30cc88",
@@ -249586,7 +249580,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Minua inhottavat matot, jotka eivät ole puhtaita."
+      },
+      "back": {
+        "example_sentence": "Minua inhottavat matot, jotka eivät ole puhtaita."
+      },
+      "explanation": {
+        "example": "Minua inhottavat matot, jotka eivät ole puhtaita."
+      }
     },
     {
       "id": "card.sentence.general.sinua-inhottaa-hiki.-you-are-disgusted-by-sweat.ba473b",
@@ -249802,7 +249805,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "He/she enjoys certain foods."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she is cold with certain foods."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she hates certain foods."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she is disgusted by certain foods."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.meita-inhottaa-likaiset-julkiset-wc-t.-we-are-disgusted-by-dirty-public-toilets.04b512",
@@ -255313,114 +255342,6 @@
       "published_at": "2026-04-22T16:39:41.137340+00:00"
     },
     {
-      "id": "card.sentence.general.heita-kirvelee-desinfiointiaine.-disinfectant-stings-sharply-on-them.5a469f",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Heitä kirvelee desinfiointiaine."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "Disinfectant stings sharply on them.",
-          "example_sentence": "Heitä kirvelee desinfiointiaine."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              },
-              {
-                "option_id": "o4",
-                "text": "Disinfectant stings sharply on them."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "Disinfectant stings sharply on them.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Heitä kirvelee desinfiointiaine."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
       "id": "card.sentence.general.minua-polttaa-aurinko-ihoa.-the-sun-burns-my-skin.cd9039",
       "version": 1,
       "path": "general/sentences",
@@ -255742,7 +255663,50 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Nokkonen polttaa häntä."
+      },
+      "back": {
+        "gloss": "A nettle burns him/her.",
+        "example_sentence": "Nokkonen polttaa häntä."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            },
+            {
+              "option_id": "o2",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o4",
+              "text": "A nettle burns him/her."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "A nettle burns him/her.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "Communicative phrase card.",
+        "example": "Nokkonen polttaa häntä."
+      }
     },
     {
       "id": "card.sentence.general.meita-polttaa-hiki-silmissa.-sweat-burns-our-eyes.9203a9",
@@ -288250,7 +288214,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "They cancel the meeting."
+            },
+            {
+              "option_id": "o2",
+              "text": "They confirm the subscription."
+            },
+            {
+              "option_id": "o3",
+              "text": "They postpone the order."
+            },
+            {
+              "option_id": "o4",
+              "text": "They cancel the subscription."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.mina-vaihdan-tilausta.-i-change-the-subscription.5da852",
@@ -295904,114 +295894,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "Hän odottaa päätöstä."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.sentence.general.me-valitamme-paatoksesta.-we-appeal-the-decision.d6c70d",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Me valitamme päätöksestä."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "We appeal the decision.",
-          "example_sentence": "Me valitamme päätöksestä."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o4",
-                "text": "We appeal the decision."
-              },
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "We appeal the decision.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Me valitamme päätöksestä."
         },
         "audio": null,
         "validation": {
@@ -304666,7 +304548,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "He/she leaves a hobby group."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she starts a new job."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she joins a sports club."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she joins a hobby group."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.me-ilmoittaudumme-suomen-kurssille.-we-sign-up-for-a-finnish-course.9cfccc",
@@ -304774,7 +304682,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "We sign up for a Swedish course."
+            },
+            {
+              "option_id": "o2",
+              "text": "We start a Finnish course."
+            },
+            {
+              "option_id": "o3",
+              "text": "They sign up for a Finnish course."
+            },
+            {
+              "option_id": "o4",
+              "text": "We sign up for a Finnish course."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "We sign up for a Finnish course.",
+          "evaluation_mode": "normalized_text"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.te-teette-kielitestin.-you-take-a-language-test.00d968",
@@ -304882,7 +304822,33 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o3",
+              "text": "You take a math test."
+            },
+            {
+              "option_id": "o1",
+              "text": "You take a driving test."
+            },
+            {
+              "option_id": "o2",
+              "text": "You go to school."
+            },
+            {
+              "option_id": "o4",
+              "text": "You take a language test."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.he-saavat-todistuksen-suorituksesta.-they-receive-a-certificate-of-completion.7a8474",
@@ -304990,7 +304956,32 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "They receive a certificate of attendance."
+            },
+            {
+              "option_id": "o2",
+              "text": "They receive a diploma for completion."
+            },
+            {
+              "option_id": "o3",
+              "text": "They receive a certificate for the course."
+            },
+            {
+              "option_id": "o4",
+              "text": "They receive a certificate of completion."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.mina-juhlistan-edistymistani.-i-celebrate-my-progress.98f786",
@@ -305098,7 +305089,43 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I celebrate my birthday."
+            },
+            {
+              "option_id": "o2",
+              "text": "I regret my progress."
+            },
+            {
+              "option_id": "o3",
+              "text": "I enjoy my success."
+            },
+            {
+              "option_id": "o4",
+              "text": "I celebrate my progress."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "I celebrate my progress.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "This sentence expresses celebrating one's own progress.",
+        "example": "Minä juhlistan edistymistäni."
+      }
     },
     {
       "id": "card.sentence.general.sina-kiitat-opettajaa.-you-thank-the-teacher.9d1d7c",
@@ -320974,7 +321001,40 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Paljonko se maksaa?"
+      },
+      "back": {
+        "gloss": "How much does it cost?",
+        "example_sentence": "Paljonko se maksaa?"
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "How much does it cost?"
+            },
+            {
+              "option_id": "o2",
+              "text": "What is your name?"
+            },
+            {
+              "option_id": "o3",
+              "text": "Where are you from?"
+            },
+            {
+              "option_id": "o4",
+              "text": "What time is it?"
+            }
+          ],
+          "answer_key": "o1",
+          "evaluation_mode": "option_id"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.he-sanovat-millainen-suomeksi.-they-say-what-kind-of-in-finnish.0dabae",
@@ -321190,7 +321250,50 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Kumpi on parempi, tämä vai tuo?"
+      },
+      "back": {
+        "recall_prompt": "What does this Finnish sentence mean?",
+        "gloss": "Which one is better, this or that?",
+        "example_sentence": "Kumpi on parempi, tämä vai tuo?"
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Which is bigger, this or that?"
+            },
+            {
+              "option_id": "o2",
+              "text": "What is better, this or that?"
+            },
+            {
+              "option_id": "o3",
+              "text": "Which one is the best?"
+            },
+            {
+              "option_id": "o4",
+              "text": "Which one is better, this or that?"
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "Which one is better, this or that?",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "The word 'kumpi' is used to ask 'which one' when choosing between two options. This is a common question structure in Finnish."
+      }
     },
     {
       "id": "card.sentence.general.sina-sanot-missa-suomeksi.-you-say-where-in-finnish.55fa17",
@@ -322918,7 +323021,39 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "He sanovat sanan \"kolmas\" suomeksi."
+      },
+      "back": {
+        "gloss": "They say the word \"third\" in Finnish.",
+        "example_sentence": "He sanovat sanan \"kolmas\" suomeksi."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "They say the word \"third\" in Finnish."
+            },
+            {
+              "option_id": "o2",
+              "text": "They say the word \"three\" in Finnish."
+            },
+            {
+              "option_id": "o3",
+              "text": "They say the word \"third\" in English."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she says the word \"third\" in Finnish."
+            }
+          ],
+          "answer_key": "o1"
+        }
+      ]
     },
     {
       "id": "card.sentence.general.mina-sanon-viimeinen-suomeksi.-i-say-last-in-finnish.decb58",
@@ -324214,7 +324349,16 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "He sanovat \"prosentti\" suomeksi."
+      },
+      "back": {
+        "example_sentence": "He sanovat \"prosentti\" suomeksi."
+      },
+      "explanation": {
+        "example": "He sanovat \"prosentti\" suomeksi."
+      }
     },
     {
       "id": "card.sentence.general.mina-sanon-plus-suomeksi.-i-say-plus-in-finnish.118de9",
@@ -324848,114 +324992,6 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "He sanovat \"noin\" suomeksi."
-        },
-        "audio": null,
-        "validation": {
-          "case_sensitive": false,
-          "normalize_whitespace": true,
-          "allow_partial_credit": false
-        }
-      },
-      "promotion": {
-        "bucket": "sentences",
-        "level_file": "a1_a2.json"
-      },
-      "state": "published",
-      "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
-    },
-    {
-      "id": "card.sentence.general.mina-sanon-vahemman-kuin-suomeksi.-i-say-less-than-in-finnish.c3b07a",
-      "version": 1,
-      "path": "general/sentences",
-      "domain": "general_finnish",
-      "profession": {
-        "track": "none",
-        "slug": "general",
-        "label": "General"
-      },
-      "level_band": "A1_A2",
-      "difficulty": "foundation",
-      "language": "fi",
-      "source": {
-        "source_id": "source.generated.general.sentences.a1_a2",
-        "kind": "generated_or_recovered_batch",
-        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/22.4.2026/fix_two_inputs/A1_A2_general_Finnish_sentences.fixed.json",
-        "authoring_note": "source.generated.general.sentences.a1_a2"
-      },
-      "quality": {
-        "status": "prevalidated",
-        "reviewer": null,
-        "validation_checks": [
-          "manifest_detection",
-          "item_extraction",
-          "normalization",
-          "dedupe",
-          "validation"
-        ],
-        "quality_score": 0.95
-      },
-      "tags": [
-        "a1_a2",
-        "general_finnish",
-        "communicative_sentence"
-      ],
-      "publication": {
-        "state": "candidate",
-        "version_tag": null,
-        "manifest_ref": "source.generated.general.sentences.a1_a2",
-        "validation_passed": true,
-        "published_at": null,
-        "archived_at": null
-      },
-      "content_type": "sentence_card",
-      "content": {
-        "front": {
-          "sentence": "Minä sanon \"vähemmän kuin\" suomeksi."
-        },
-        "back": {
-          "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "I say \"less than\" in Finnish.",
-          "example_sentence": "Minä sanon \"vähemmän kuin\" suomeksi."
-        },
-        "prompt_family": "sentence_comprehension",
-        "follow_ups": [
-          {
-            "variant_type": "recognition_mcq",
-            "prompt": "Choose the best meaning.",
-            "options": [
-              {
-                "option_id": "o3",
-                "text": "He/she is home."
-              },
-              {
-                "option_id": "o4",
-                "text": "I say \"less than\" in Finnish."
-              },
-              {
-                "option_id": "o1",
-                "text": "I am Matti."
-              },
-              {
-                "option_id": "o2",
-                "text": "You are a teacher."
-              }
-            ],
-            "answer_key": "o4",
-            "accepted_variants": [],
-            "evaluation_mode": "option_id"
-          },
-          {
-            "variant_type": "typed_recall",
-            "prompt": "Type the meaning in English.",
-            "answer_key": "I say \"less than\" in Finnish.",
-            "accepted_variants": [],
-            "evaluation_mode": "normalized_text"
-          }
-        ],
-        "explanation": {
-          "summary": "Communicative phrase card.",
-          "example": "Minä sanon \"vähemmän kuin\" suomeksi."
         },
         "audio": null,
         "validation": {
@@ -326806,7 +326842,49 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "He ovat nuoria."
+      },
+      "back": {
+        "gloss": "They are young.",
+        "example_sentence": "He ovat nuoria."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "I am young."
+            },
+            {
+              "option_id": "o2",
+              "text": "He is young."
+            },
+            {
+              "option_id": "o3",
+              "text": "They are old."
+            },
+            {
+              "option_id": "o4",
+              "text": "They are young."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "They are young.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "Adjective agreement with plural subject."
+      }
     },
     {
       "id": "card.sentence.general.mina-sanon-terve-suomeksi.-i-say-healthy-in-finnish.777767",
@@ -326914,7 +326992,44 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Minä sanon \"terve\" suomeksi."
+      },
+      "back": {
+        "gloss": "I say \"hi\" in Finnish.",
+        "example_sentence": "Minä sanon \"terve\" suomeksi."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o2",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o4",
+              "text": "I say \"hi\" in Finnish."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is home."
+            },
+            {
+              "option_id": "o1",
+              "text": "I am Matti."
+            }
+          ],
+          "answer_key": "o4"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "I say \"hi\" in Finnish."
+        }
+      ]
     },
     {
       "id": "card.sentence.general.sina-sanot-sairas-suomeksi.-you-say-sick-in-finnish.349d4e",
@@ -327022,7 +327137,51 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Sairas on suomeksi 'sick'."
+      },
+      "back": {
+        "recall_prompt": "What does this Finnish sentence mean?",
+        "gloss": "Sairas is 'sick' in Finnish.",
+        "example_sentence": "Sairas on suomeksi 'sick'."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "Sairas means 'healthy' in Finnish."
+            },
+            {
+              "option_id": "o2",
+              "text": "Sairas means 'tired' in Finnish."
+            },
+            {
+              "option_id": "o3",
+              "text": "Sairas means 'cold' in Finnish."
+            },
+            {
+              "option_id": "o4",
+              "text": "Sairas is 'sick' in Finnish."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "Sairas is 'sick' in Finnish.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "Communicative phrase card: learning how to express the meaning of a Finnish word.",
+        "example": "Sairas on suomeksi 'sick'."
+      }
     },
     {
       "id": "card.sentence.general.han-sanoo-vahva-suomeksi.-he-she-says-strong-in-finnish.0b7fbe",
@@ -327130,7 +327289,51 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Hän on vahva."
+      },
+      "back": {
+        "recall_prompt": "What does this Finnish sentence mean?",
+        "gloss": "He/she is strong.",
+        "example_sentence": "Hän on vahva."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "He/she is weak."
+            },
+            {
+              "option_id": "o2",
+              "text": "He/she is old."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is young."
+            },
+            {
+              "option_id": "o4",
+              "text": "He/she is strong."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "He/she is strong.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "Communicative phrase card.",
+        "example": "Hän on vahva."
+      }
     },
     {
       "id": "card.sentence.general.me-sanomme-heikko-suomeksi.-we-say-weak-in-finnish.76e360",
@@ -330586,7 +330789,51 @@
       },
       "state": "published",
       "validation_passed": true,
-      "published_at": "2026-04-22T16:39:41.137340+00:00"
+      "published_at": "2026-04-22T16:39:41.137340+00:00",
+      "front": {
+        "sentence": "Te asutte Suomessa."
+      },
+      "back": {
+        "recall_prompt": "What does this Finnish sentence mean?",
+        "gloss": "You live in Finland.",
+        "example_sentence": "Te asutte Suomessa."
+      },
+      "follow_ups": [
+        {
+          "variant_type": "recognition_mcq",
+          "prompt": "Choose the best meaning.",
+          "options": [
+            {
+              "option_id": "o1",
+              "text": "You are a teacher."
+            },
+            {
+              "option_id": "o2",
+              "text": "I am Matti."
+            },
+            {
+              "option_id": "o3",
+              "text": "He/she is at home."
+            },
+            {
+              "option_id": "o4",
+              "text": "You live in Finland."
+            }
+          ],
+          "answer_key": "o4",
+          "evaluation_mode": "option_id"
+        },
+        {
+          "variant_type": "typed_recall",
+          "prompt": "Type the meaning in English.",
+          "answer_key": "You live in Finland.",
+          "evaluation_mode": "normalized_text"
+        }
+      ],
+      "explanation": {
+        "summary": "Communicative phrase card.",
+        "example": "Te asutte Suomessa."
+      }
     },
     {
       "id": "card.sentence.general.he-sanovat-rento-suomeksi.-they-say-relaxed-in-finnish.67771e",
@@ -330680,6 +330927,1856 @@
         "explanation": {
           "summary": "Communicative phrase card.",
           "example": "He sanovat \"rento\" suomeksi."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.han-kirjoittaa-paivakirjaa.9ff1f0",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Hän kirjoittaa päiväkirjaa."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "He/She writes a diary.",
+          "example_sentence": "Hän kirjoittaa päiväkirjaa."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o4",
+                "text": "He/She writes a diary."
+              },
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "He/She writes a diary.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Hän kirjoittaa päiväkirjaa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.han-ostaa-tukkuhintaan.78f7bd",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_life_work",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/yki_sentences.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_life_work",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Hän ostaa tukkuhintaan."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "He buys at wholesale price.",
+          "example_sentence": "Hän ostaa tukkuhintaan."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o3",
+                "text": "We have a meeting at nine o'clock."
+              },
+              {
+                "option_id": "o1",
+                "text": "I try to cope alone at home."
+              },
+              {
+                "option_id": "o4",
+                "text": "He buys at wholesale price."
+              },
+              {
+                "option_id": "o2",
+                "text": "He buys milk from the store."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "He buys at wholesale price.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Hän ostaa tukkuhintaan."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.haluaisin-tilata-pizzaa.d83d37",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_life_work",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/yki_sentences.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_life_work",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Haluaisin tilata pizzaa."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "I would like to order pizza.",
+          "example_sentence": "Haluaisin tilata pizzaa."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o2",
+                "text": "He buys milk from the store."
+              },
+              {
+                "option_id": "o1",
+                "text": "I try to cope alone at home."
+              },
+              {
+                "option_id": "o4",
+                "text": "I would like to order pizza."
+              },
+              {
+                "option_id": "o3",
+                "text": "We have a meeting at nine o'clock."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "I would like to order pizza.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Haluaisin tilata pizzaa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.mina-jatkan-kuuntelua-myohemmin.0a8dda",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Minä jatkan kuuntelua myöhemmin."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "I continue listening later.",
+          "example_sentence": "Minä jatkan kuuntelua myöhemmin."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o4",
+                "text": "I continue listening later."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "I continue listening later.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Minä jatkan kuuntelua myöhemmin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.han-hymyilee-leveasti.1b3f2c",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Hän hymyilee leveästi."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "He/She smiles widely.",
+          "example_sentence": "Hän hymyilee leveästi."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o4",
+                "text": "He/She smiles widely."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "He/She smiles widely.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Hän hymyilee leveästi."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.han-tekee-virheita.894649",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_life_work",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A1_A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/yki_sentences.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a1_a2",
+        "general_daily_life_work",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Hän tekee virheitä."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "He makes mistakes.",
+          "example_sentence": "Hän tekee virheitä."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o2",
+                "text": "He buys milk from the store."
+              },
+              {
+                "option_id": "o4",
+                "text": "He makes mistakes."
+              },
+              {
+                "option_id": "o1",
+                "text": "I try to cope alone at home."
+              },
+              {
+                "option_id": "o3",
+                "text": "We have a meeting at nine o'clock."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "He makes mistakes.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Hän tekee virheitä."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.han-rakensi-talon.1aeab2",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_life_work",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/yki_sentences.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_life_work",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Hän rakensi talon."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "He built the house.",
+          "example_sentence": "Hän rakensi talon."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o4",
+                "text": "He built the house."
+              },
+              {
+                "option_id": "o3",
+                "text": "We have a meeting at nine o'clock."
+              },
+              {
+                "option_id": "o2",
+                "text": "He buys milk from the store."
+              },
+              {
+                "option_id": "o1",
+                "text": "I try to cope alone at home."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "He built the house.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Hän rakensi talon."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.he-laittavat-kukkia-maljakkoon.95881f",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A1_A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a1",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "He laittavat kukkia maljakkoon."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "They put flowers in the vase.",
+          "example_sentence": "He laittavat kukkia maljakkoon."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o4",
+                "text": "They put flowers in the vase."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "They put flowers in the vase.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "He laittavat kukkia maljakkoon."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.kello-on-kahdeksan.9c9323",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A1",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a1",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Kello on kahdeksan."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "It is eight o’clock.",
+          "example_sentence": "Kello on kahdeksan."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o4",
+                "text": "It is eight o’clock."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "It is eight o’clock.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Kello on kahdeksan."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.me-suojaamme-tietomme.5441ad",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_life_work",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/yki_sentences.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_life_work",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Me suojaamme tietomme."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "We protect our data.",
+          "example_sentence": "Me suojaamme tietomme."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o3",
+                "text": "We have a meeting at nine o'clock."
+              },
+              {
+                "option_id": "o1",
+                "text": "I try to cope alone at home."
+              },
+              {
+                "option_id": "o2",
+                "text": "He buys milk from the store."
+              },
+              {
+                "option_id": "o4",
+                "text": "We protect our data."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "We protect our data.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Me suojaamme tietomme."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.me-tuuletamme-huoneet.442c59",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Me tuuletamme huoneet."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "We air out the rooms.",
+          "example_sentence": "Me tuuletamme huoneet."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o4",
+                "text": "We air out the rooms."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "We air out the rooms.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Me tuuletamme huoneet."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.mina-soitan-taksin.6eba9e",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Minä soitan taksin."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "I call a taxi.",
+          "example_sentence": "Minä soitan taksin."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o4",
+                "text": "I call a taxi."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "I call a taxi.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Minä soitan taksin."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.mina-olen-rehellinen.f968ce",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A1",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a1",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Minä olen rehellinen."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "I am honest.",
+          "example_sentence": "Minä olen rehellinen."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o4",
+                "text": "I am honest."
+              },
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "I am honest.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Minä olen rehellinen."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.sina-halaat-heita-heti.538457",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_work_yki",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Sinä halaat heitä heti."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "You hug them immediately.",
+          "example_sentence": "Sinä halaat heitä heti."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o4",
+                "text": "You hug them immediately."
+              },
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "You hug them immediately.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Sinä halaat heitä heti."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.han-koskettaa-lasia.93205a",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_life_work",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/yki_sentences.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_life_work",
+        "yki_exam",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Hän koskettaa lasia."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "He touches the glass.",
+          "example_sentence": "Hän koskettaa lasia."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o2",
+                "text": "He buys milk from the store."
+              },
+              {
+                "option_id": "o1",
+                "text": "I try to cope alone at home."
+              },
+              {
+                "option_id": "o4",
+                "text": "He touches the glass."
+              },
+              {
+                "option_id": "o3",
+                "text": "We have a meeting at nine o'clock."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "He touches the glass.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Hän koskettaa lasia."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.sina-kirjoitat-paivakirjaa.5e1152",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A1",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a1",
+        "general_daily_work_yki",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Sinä kirjoitat päiväkirjaa."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "You write a diary.",
+          "example_sentence": "Sinä kirjoitat päiväkirjaa."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o4",
+                "text": "You write a diary."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              },
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "You write a diary.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Sinä kirjoitat päiväkirjaa."
+        },
+        "audio": null,
+        "validation": {
+          "case_sensitive": false,
+          "normalize_whitespace": true,
+          "allow_partial_credit": false
+        }
+      },
+      "promotion": {
+        "bucket": "sentences",
+        "level_file": "a1_a2.json"
+      },
+      "state": "published",
+      "validation_passed": true,
+      "published_at": "2026-04-22T16:39:41.137340+00:00"
+    },
+    {
+      "id": "card.phrase.yki_exam.me-kommentoimme-elokuvaa.9aceac",
+      "version": 1,
+      "path": "general/sentences",
+      "domain": "general_daily_work_yki",
+      "profession": {
+        "track": "none",
+        "slug": "general",
+        "label": "General"
+      },
+      "level_band": "A2",
+      "difficulty": "core",
+      "language": "fi",
+      "source": {
+        "source_id": "source.generated.yki.exam.sentences",
+        "kind": "generated_or_recovered_batch",
+        "origin_path": "/home/vitus/Asiakirjat/project_documents/floently-finnish/generated_material_bank/edit.json",
+        "authoring_note": "source.generated.yki.exam.sentences"
+      },
+      "quality": {
+        "status": "prevalidated",
+        "reviewer": null,
+        "validation_checks": [
+          "manifest_detection",
+          "item_extraction",
+          "normalization",
+          "dedupe",
+          "validation"
+        ],
+        "quality_score": 0.95
+      },
+      "tags": [
+        "a2",
+        "general_daily_work_yki",
+        "communicative_phrase"
+      ],
+      "publication": {
+        "state": "candidate",
+        "version_tag": null,
+        "manifest_ref": "source.generated.yki.exam.sentences",
+        "validation_passed": true,
+        "published_at": null,
+        "archived_at": null
+      },
+      "content_type": "phrase_card",
+      "content": {
+        "front": {
+          "sentence": "Me kommentoimme elokuvaa."
+        },
+        "back": {
+          "recall_prompt": "What does this Finnish sentence mean?",
+          "gloss": "We comment on the movie.",
+          "example_sentence": "Me kommentoimme elokuvaa."
+        },
+        "prompt_family": "phrase_comprehension",
+        "follow_ups": [
+          {
+            "variant_type": "recognition_mcq",
+            "prompt": "Choose the best meaning.",
+            "options": [
+              {
+                "option_id": "o4",
+                "text": "We comment on the movie."
+              },
+              {
+                "option_id": "o1",
+                "text": "I am happy."
+              },
+              {
+                "option_id": "o3",
+                "text": "He/She is at work."
+              },
+              {
+                "option_id": "o2",
+                "text": "You are at home."
+              }
+            ],
+            "answer_key": "o4",
+            "accepted_variants": [],
+            "evaluation_mode": "option_id"
+          },
+          {
+            "variant_type": "typed_recall",
+            "prompt": "Type the meaning in English.",
+            "answer_key": "We comment on the movie.",
+            "accepted_variants": [],
+            "evaluation_mode": "normalized_text"
+          }
+        ],
+        "explanation": {
+          "summary": "Communicative phrase card.",
+          "example": "Me kommentoimme elokuvaa."
         },
         "audio": null,
         "validation": {
