@@ -31,6 +31,86 @@ type AuditTrailEntry = {
 };
 
 let authToken: string | null = null;
+
+function extractTokenFromStoredValue(raw: string | null): string | null {
+  const value = String(raw ?? '').trim();
+  if (!value) return null;
+  if (/^(atk_|eyJ)[A-Za-z0-9._-]+$/.test(value)) return value;
+
+  try {
+    const parsed = JSON.parse(value);
+    const stack: unknown[] = [parsed];
+
+    while (stack.length) {
+      const item = stack.pop();
+      if (!item || typeof item !== 'object') continue;
+
+      if (Array.isArray(item)) {
+        stack.push(...item);
+        continue;
+      }
+
+      const record = item as Record<string, unknown>;
+      for (const key of ['token', 'access_token', 'accessToken', 'apiKey']) {
+        const candidate = record[key];
+        if (typeof candidate === 'string') {
+          const token = candidate.trim();
+          if (/^(atk_|eyJ)[A-Za-z0-9._-]+$/.test(token)) return token;
+        }
+      }
+
+      for (const candidate of Object.values(record)) {
+        if (candidate && typeof candidate === 'object') stack.push(candidate);
+      }
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+function readWebPersistedAuthToken(): string | null {
+  if (authToken) return authToken;
+  if (typeof window === 'undefined') return null;
+
+  try {
+    const local = window.localStorage;
+    if (!local) return null;
+
+    const preferredKeys = [
+      'floently.auth.session.v1',
+      'floently.auth.token.v1',
+      'floently.session.v1',
+      'flow-reader-api-key',
+      'flowReaderApiKey',
+    ];
+
+    for (const key of preferredKeys) {
+      const token = extractTokenFromStoredValue(local.getItem(key));
+      if (token) {
+        authToken = token;
+        return token;
+      }
+    }
+
+    for (let i = 0; i < local.length; i += 1) {
+      const key = local.key(i) ?? '';
+      if (!/floently|flow/i.test(key)) continue;
+
+      const token = extractTokenFromStoredValue(local.getItem(key));
+      if (token) {
+        authToken = token;
+        return token;
+      }
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
 let expectedDecisionVersion: string | null = null;
 let expectedYkiExamSessionId: string | null = null;
 let expectedYkiPracticeSessionId: string | null = null;
@@ -218,7 +298,7 @@ export function setAuthToken(token: string | null) {
 }
 
 export function getAuthToken(): string | null {
-  return authToken;
+  return authToken ?? readWebPersistedAuthToken();
 }
 
 export function resetRuntimeContractState() {
