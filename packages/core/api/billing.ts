@@ -1,4 +1,4 @@
-import { apiClient } from './client';
+import { apiClient, postData } from './client';
 import { normalizeSubscriptionStatus, type BillingPeriod, type CheckoutPathway, type ProfessionKey, type SubscriptionStatus } from './entitlements';
 
 function unwrapPayload<T = unknown>(value: unknown): T {
@@ -73,6 +73,5 @@ export async function trackUsageEvent(payload: {
 }
 
 export async function createPortalSession() {
-  const res = await apiClient.post('/api/v1/subscription/portal', {});
-  return unwrapPayload(res.data);
+  return postData<{ url: string | null; portal_url: string | null }>('/api/v1/subscription/portal', {});
 }

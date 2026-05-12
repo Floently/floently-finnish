@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { LEGAL_URLS } from '../../config/legalUrls';
 
 type LegalPageKind = 'privacy-policy' | 'terms-of-use' | 'support' | 'account-deletion';
 
@@ -9,8 +10,34 @@ type Section = {
   bullets?: string[];
 };
 
-const PAGE_CONTENT: Record<LegalPageKind, { title: string; updatedAt: string; sections: Section[] }> = {
+type DocumentPageContent = {
+  variant: 'document';
+  title: string;
+  updatedAt: string;
+  sections: Section[];
+};
+
+type SpotlightPageContent = {
+  variant: 'spotlight';
+  title: string;
+  badge: string;
+  subtitle: string;
+  rows: string[];
+  primaryLabel: string;
+  primaryHref: string;
+};
+
+type PageContent = DocumentPageContent | SpotlightPageContent;
+
+const LOGO = require('../../components/public/logo.png');
+const FLOENTLY_HOME_URL = 'https://floently.com/';
+const LEARN_HOME_URL = 'https://learn.floently.com/';
+const SUPPORT_CONTACT_URL = 'mailto:pilots@floently.com?subject=Floently%20support%20request';
+const ACCOUNT_DELETION_CONTACT_URL = 'mailto:pilots@floently.com?subject=Floently%20account%20deletion%20request';
+
+const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
   'privacy-policy': {
+    variant: 'document',
     title: 'Floently Finnish Privacy Policy',
     updatedAt: 'Last updated: 2026-04-24',
     sections: [
@@ -68,6 +95,7 @@ const PAGE_CONTENT: Record<LegalPageKind, { title: string; updatedAt: string; se
     ],
   },
   'terms-of-use': {
+    variant: 'document',
     title: 'Floently Finnish Terms of Use',
     updatedAt: 'Last updated: 2026-04-24',
     sections: [
@@ -105,67 +133,31 @@ const PAGE_CONTENT: Record<LegalPageKind, { title: string; updatedAt: string; se
     ],
   },
   support: {
+    variant: 'spotlight',
+    badge: 'FLOENTLY FINNISH • LEGAL READINESS',
     title: 'Floently Finnish Support',
-    updatedAt: 'Last updated: 2026-04-24',
-    sections: [
-      {
-        title: 'Support URL for store listings',
-        body: 'https://learn.floently.com/support',
-      },
-      {
-        title: 'Support Scope',
-        bullets: [
-          'Account and login issues',
-          'Subscription access issues',
-          'Speaking/recording issues',
-          'Account deletion confirmation and status',
-        ],
-      },
-      {
-        title: 'Contact',
-        bullets: [
-          'Support email (owner fill): [OWNER_FILL_SUPPORT_EMAIL]',
-          'Response target (owner fill): [OWNER_FILL_SUPPORT_SLA]',
-        ],
-      },
-      {
-        title: 'Account Deletion',
-        body: 'Deletion can be initiated directly inside the app at Settings -> Delete Account.',
-      },
+    subtitle: 'Support for YKI readiness, workplace Finnish pathways, and account access issues.',
+    rows: [
+      'Use this route as the public support destination for product and account questions.',
+      'Support scope includes sign-in issues, billing access questions, and guidance for learn pathways.',
+      'Final support email and response-time commitments will be published here before launch.',
     ],
+    primaryLabel: 'Contact Floently',
+    primaryHref: SUPPORT_CONTACT_URL,
   },
   'account-deletion': {
-    title: 'Account Deletion Information',
-    updatedAt: 'Last updated: 2026-04-24',
-    sections: [
-      {
-        title: 'How to delete your account',
-        bullets: ['Open the app.', 'Go to Settings.', 'Tap Delete Account.', 'Confirm deletion.'],
-      },
-      {
-        title: 'What happens after deletion',
-        bullets: [
-          'Account access tokens and sessions are invalidated.',
-          'Account-linked personal data is removed from active application stores and linked tables where applicable.',
-          'Some records may be retained when required by law, fraud prevention, or accounting obligations.',
-        ],
-      },
-      {
-        title: 'Timeline',
-        body: 'Deletion requests are normally completed within 24 hours.',
-      },
-      {
-        title: 'Subscriptions',
-        bullets: [
-          'Deleting your account does not automatically cancel an active store subscription.',
-          'Manage cancellations in Apple App Store subscriptions (iOS) or Google Play subscriptions (Android).',
-        ],
-      },
-      {
-        title: 'Contact',
-        body: 'Support: https://learn.floently.com/support',
-      },
+    variant: 'spotlight',
+    badge: 'FLOENTLY FINNISH • LEGAL READINESS',
+    title: 'Floently Finnish Account Deletion',
+    subtitle: 'Account deletion details for learners who need the same public legal surface and support path as the support page.',
+    rows: [
+      'Open the Floently app, go to Settings, tap Delete Account, and confirm the deletion request.',
+      'Active sessions and account-linked access are invalidated, and personal data is removed from active application stores where applicable.',
+      'Deletion requests are normally completed within 24 hours, subject to legal retention, fraud prevention, and accounting obligations.',
+      'Deleting your account does not cancel an active App Store or Google Play subscription. Store subscription management must be handled separately.',
     ],
+    primaryLabel: 'Contact Floently',
+    primaryHref: ACCOUNT_DELETION_CONTACT_URL,
   },
 };
 
@@ -173,22 +165,82 @@ type Props = {
   page: LegalPageKind;
 };
 
-const LOGO = require('../../components/public/logo.png');
+function FooterLinks() {
+  return (
+    <View style={styles.footerLinks}>
+      <FooterLink label="Privacy" href={LEGAL_URLS.privacyPolicy} />
+      <FooterLink label="Terms" href={LEGAL_URLS.termsOfUse} />
+      <FooterLink label="Support" href={LEGAL_URLS.support} />
+      <FooterLink label="Account Deletion" href={LEGAL_URLS.accountDeletion} />
+    </View>
+  );
+}
+
+function FooterLink({ label, href }: { label: string; href: string }) {
+  return (
+    <Pressable onPress={() => { void Linking.openURL(href); }} style={styles.footerLinkButton}>
+      <Text style={styles.footerLinkText}>{label}</Text>
+    </Pressable>
+  );
+}
 
 export default function LegalPage({ page }: Props) {
   const content = PAGE_CONTENT[page];
 
+  if (content.variant === 'spotlight') {
+    return (
+      <ScrollView style={styles.page} contentContainerStyle={styles.spotlightContent}>
+        <View style={styles.spotlightShell}>
+          <View style={styles.topBar}>
+            <Image source={LOGO} style={styles.topLogo} resizeMode="contain" accessibilityIgnoresInvertColors />
+            <View style={styles.topActions}>
+              <Pressable onPress={() => { void Linking.openURL(LEARN_HOME_URL); }} style={styles.ghostButton}>
+                <Text style={styles.ghostButtonText}>Back to Learn</Text>
+              </Pressable>
+              <Pressable onPress={() => { void Linking.openURL(FLOENTLY_HOME_URL); }} style={styles.primaryButton}>
+                <Text style={styles.primaryButtonText}>Floently Home</Text>
+              </Pressable>
+            </View>
+          </View>
+
+          <View style={styles.heroCard}>
+            <Text style={styles.heroBadge}>{content.badge}</Text>
+            <Text style={styles.heroTitle}>{content.title}</Text>
+            <Text style={styles.heroSubtitle}>{content.subtitle}</Text>
+
+            <View style={styles.heroRows}>
+              {content.rows.map((row) => (
+                <View key={row} style={styles.heroRow}>
+                  <Text style={styles.heroRowText}>{row}</Text>
+                </View>
+              ))}
+            </View>
+
+            <Pressable onPress={() => { void Linking.openURL(content.primaryHref); }} style={styles.ctaButton}>
+              <Text style={styles.ctaButtonText}>{content.primaryLabel}</Text>
+            </Pressable>
+          </View>
+
+          <View style={styles.footer}>
+            <Text style={styles.footerCopy}>© 2026 Floently · Floently Finnish</Text>
+            <FooterLinks />
+          </View>
+        </View>
+      </ScrollView>
+    );
+  }
+
   return (
-    <ScrollView style={styles.page} contentContainerStyle={styles.content}>
-      <View style={styles.shell}>
-        <View style={styles.header}>
-          <Image source={LOGO} style={styles.logo} resizeMode="contain" accessibilityIgnoresInvertColors />
-          <Text style={styles.eyebrow}>LEGAL</Text>
-          <Text style={styles.title}>{content.title}</Text>
-          <Text style={styles.updatedAt}>{content.updatedAt}</Text>
+    <ScrollView style={styles.page} contentContainerStyle={styles.documentContent}>
+      <View style={styles.documentShell}>
+        <View style={styles.documentHeader}>
+          <Image source={LOGO} style={styles.documentLogo} resizeMode="contain" accessibilityIgnoresInvertColors />
+          <Text style={styles.documentEyebrow}>LEGAL</Text>
+          <Text style={styles.documentTitle}>{content.title}</Text>
+          <Text style={styles.documentUpdatedAt}>{content.updatedAt}</Text>
         </View>
 
-        <View style={styles.card}>
+        <View style={styles.documentCard}>
           {content.sections.map((section) => (
             <View key={section.title} style={styles.section}>
               <Text style={styles.sectionTitle}>{section.title}</Text>
@@ -213,41 +265,201 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#050811',
   },
-  content: {
+  spotlightContent: {
+    flexGrow: 1,
+    paddingHorizontal: 36,
+    paddingTop: 48,
+    paddingBottom: 64,
+  },
+  spotlightShell: {
+    flex: 1,
+    width: '100%',
+    maxWidth: 1500,
+    alignSelf: 'center',
+    minHeight: 920,
+    justifyContent: 'space-between',
+  },
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: 20,
+    marginBottom: 96,
+  },
+  topLogo: {
+    width: 128,
+    height: 84,
+  },
+  topActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 14,
+  },
+  ghostButton: {
+    minHeight: 46,
+    paddingHorizontal: 24,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: '#111A33',
+    backgroundColor: '#060B1A',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ghostButtonText: {
+    color: '#E5ECFF',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  primaryButton: {
+    minHeight: 46,
+    paddingHorizontal: 24,
+    borderRadius: 999,
+    backgroundColor: '#2A1CE6',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  primaryButtonText: {
+    color: '#F7F8FF',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  heroCard: {
+    width: '100%',
+    maxWidth: 980,
+    alignSelf: 'center',
+    backgroundColor: '#070C20',
+    borderRadius: 28,
+    borderWidth: 1,
+    borderColor: '#0D1530',
+    paddingHorizontal: 36,
+    paddingVertical: 34,
+  },
+  heroBadge: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 999,
+    backgroundColor: '#07144A',
+    borderWidth: 1,
+    borderColor: '#11236D',
+    color: '#7EA7FF',
+    fontSize: 11,
+    lineHeight: 14,
+    fontWeight: '800',
+    letterSpacing: 0.8,
+    marginBottom: 18,
+  },
+  heroTitle: {
+    color: '#F5F7FF',
+    fontSize: 42,
+    lineHeight: 50,
+    fontWeight: '800',
+    marginBottom: 18,
+  },
+  heroSubtitle: {
+    color: '#93A0C3',
+    fontSize: 16,
+    lineHeight: 26,
+    marginBottom: 28,
+    maxWidth: 760,
+  },
+  heroRows: {
+    gap: 14,
+    marginBottom: 24,
+  },
+  heroRow: {
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: '#0C1636',
+    backgroundColor: '#081028',
+    paddingHorizontal: 16,
+    paddingVertical: 15,
+  },
+  heroRowText: {
+    color: '#A9B4CF',
+    fontSize: 15,
+    lineHeight: 24,
+  },
+  ctaButton: {
+    alignSelf: 'flex-start',
+    minHeight: 44,
+    paddingHorizontal: 26,
+    borderRadius: 999,
+    backgroundColor: '#2A1CE6',
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#2A1CE6',
+    shadowOpacity: 0.25,
+    shadowRadius: 18,
+  },
+  ctaButtonText: {
+    color: '#F7F8FF',
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  footer: {
+    paddingTop: 120,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    gap: 20,
+  },
+  footerCopy: {
+    color: '#59627D',
+    fontSize: 13,
+  },
+  footerLinks: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+  },
+  footerLinkButton: {
+    paddingVertical: 4,
+  },
+  footerLinkText: {
+    color: '#7D86A2',
+    fontSize: 13,
+  },
+  documentContent: {
     paddingHorizontal: 20,
     paddingTop: 28,
     paddingBottom: 40,
   },
-  shell: {
+  documentShell: {
     width: '100%',
     maxWidth: 920,
     alignSelf: 'center',
     gap: 20,
   },
-  header: {
+  documentHeader: {
     alignItems: 'center',
     gap: 8,
     paddingTop: 4,
   },
-  logo: {
+  documentLogo: {
     width: 220,
     height: 146,
   },
-  eyebrow: {
+  documentEyebrow: {
     fontSize: 11,
     lineHeight: 16,
     fontWeight: '800',
     color: '#5A85FF',
     letterSpacing: 1.6,
   },
-  title: {
+  documentTitle: {
     fontSize: 28,
     lineHeight: 34,
     fontWeight: '800',
     color: '#F3F7FF',
     textAlign: 'center',
   },
-  card: {
+  documentCard: {
     backgroundColor: '#0A0F1C',
     borderRadius: 20,
     padding: 24,
@@ -255,7 +467,7 @@ const styles = StyleSheet.create({
     borderColor: '#182235',
     gap: 18,
   },
-  updatedAt: {
+  documentUpdatedAt: {
     fontSize: 12,
     fontWeight: '700',
     color: '#95A7C6',

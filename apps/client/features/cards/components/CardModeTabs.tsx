@@ -1,22 +1,23 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
+import { useTranslator } from '../../i18n';
 import type { CardMode } from '../types';
-
-const MODES: Array<{ label: string; value: CardMode }> = [
-  { label: 'Vocabulary', value: 'vocabulary' },
-  { label: 'Sentences', value: 'phrases' },
-  { label: 'Grammar', value: 'grammar' },
-];
 
 export function CardModeTabs({ value, onChange }: { value: CardMode; onChange: (m: CardMode) => void }) {
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';
+  const { t } = useTranslator();
+  const modes: Array<{ label: string; value: CardMode }> = [
+    { label: t('cardsVocabularyLabel'), value: 'vocabulary' },
+    { label: t('cardsSentencesLabel'), value: 'phrases' },
+    { label: t('cardsGrammarLabel'), value: 'grammar' },
+  ];
 
   return (
     <View style={styles.row}>
-      {MODES.map((mode) => {
+      {modes.map((mode) => {
         const active = value === mode.value;
         return (
           <Pressable key={mode.value} onPress={() => onChange(mode.value)} style={[styles.pill, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }, active && styles.pillActive, active && isDark && { backgroundColor: palette.primarySurface, borderColor: palette.primary }]}>

@@ -26,6 +26,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslator } from '../../features/i18n';
 
 type Phase =
   | 'cursor'
@@ -45,9 +46,9 @@ type Theme = 'dark' | 'light';
 //   2. Healthcare-adjacent enough to feel relevant ("went to the pharmacy")
 //   3. Uses a single classic Finnish error (past participle ending) that's
 //      cleanly demonstrable with one word swap
-const SENTENCE = 'Olen menny apteekkiin eilen.';
-const WRONG_WORD = 'menny';
-const RIGHT_WORD = 'mennyt';
+const SENTENCE = 'Kävin apteekkiin eilen.';
+const WRONG_WORD = 'apteekkiin';
+const RIGHT_WORD = 'apteekissa';
 const SENTENCE_CORRECT = SENTENCE.replace(WRONG_WORD, RIGHT_WORD);
 
 // ── Phase timings (ms) ──────────────────────────────────────────────────────
@@ -84,6 +85,7 @@ type Props = {
 export default function FinnishCorrectionDemo({ theme = 'dark', compact = false }: Props) {
   const [phase, setPhase] = useState<Phase>('cursor');
   const [typedChars, setTypedChars] = useState(0);
+  const { t } = useTranslator();
   const phaseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const typeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -199,12 +201,18 @@ export default function FinnishCorrectionDemo({ theme = 'dark', compact = false 
       {/* Top label — gives it document-feel */}
       <div className="floently-demo-label">
         <span className="floently-demo-dot" />
-        <span>Floently · Live correction</span>
+        <span>{t('landingLiveCorrectionLabel')}</span>
       </div>
 
       {/* Input pane */}
       <div className={`floently-demo-input ${showCheck ? 'is-success' : ''}`}>
-        <div className="floently-demo-prompt">Your answer in Finnish</div>
+        <div className="floently-demo-prompt">{t('landingDraftLabel')}</div>
+        <div className="floently-demo-stage-row" aria-hidden="true">
+          <span className="floently-demo-stage-pill">{t('landingPracticeLabel')}</span>
+          <span className="floently-demo-stage-pill">{t('landingFeedbackLabel')}</span>
+          <span className="floently-demo-stage-pill">{t('landingCorrectionLabel')}</span>
+        </div>
+        <div className="floently-demo-subtitle">{t('landingCorrectionNaturalWorkplaceFinnish')}</div>
         <div className="floently-demo-text">
           {/* Render the sentence with the wrong word in a span we can style.
               When typing, we show character-by-character.
@@ -235,9 +243,9 @@ export default function FinnishCorrectionDemo({ theme = 'dark', compact = false 
           aria-live="polite"
         >
           <div className="floently-demo-tooltip-arrow" />
-          <div className="floently-demo-tooltip-title">Past participle needs the <strong>-t</strong></div>
+          <div className="floently-demo-tooltip-title">{t('landingCorrectionVerbCaseEndingCorrected')}</div>
           <div className="floently-demo-tooltip-body">
-            "Olen mennyt" — perfekti uses the past participle, not the colloquial -ny ending.
+            {t('landingCorrectionLocationCaseExplanation')}
           </div>
         </div>
 
@@ -248,7 +256,7 @@ export default function FinnishCorrectionDemo({ theme = 'dark', compact = false 
           aria-live="polite"
         >
           <span className="floently-demo-check">✓</span>
-          <span>Looks right now. One step closer to YKI.</span>
+          <span>{t('landingCorrectionPartitiveImproved')}</span>
         </div>
       </div>
     </div>
@@ -377,6 +385,29 @@ function DemoStyles() {
         font-weight: 700;
         letter-spacing: 0.4px;
         text-transform: uppercase;
+        color: var(--demo-text-muted);
+        margin-bottom: 10px;
+      }
+      .floently-demo-stage-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .floently-demo-stage-pill {
+        padding: 4px 9px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.35px;
+        text-transform: uppercase;
+        color: var(--demo-label);
+        border: 1px solid var(--demo-input-border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .floently-demo-subtitle {
+        font-size: 12px;
+        font-weight: 600;
         color: var(--demo-text-muted);
         margin-bottom: 10px;
       }
