@@ -199,6 +199,14 @@ def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str
     materialized['served_follow_up'] = _make_served_follow_up(card, option_shuffle_seed=option_shuffle_seed)
     materialized['_accepted_variants'] = list(card.get('accepted_answers') or [])
     materialized['_answer_value'] = card.get('answer_value') or (card.get('accepted_answers') or [''])[0]
+    # Preserve canonical text for release gates before any UI-language overlay mutates display fields.
+    canonical_follow_up = card.get('follow_up') if isinstance(card.get('follow_up'), dict) else {}
+    materialized['_canonical_release_gate_prompt'] = str(
+        card.get('prompt')
+        or card.get('back_prompt')
+        or canonical_follow_up.get('prompt')
+        or ''
+    )
     # ── Hint quality (#7.2) ────────────────────────────────────────────────
     # Surface a structured Finnish hint to the client. Authored hints (from
     # the card's `hint` field) take priority; for cards without authored
@@ -215,7 +223,8 @@ def _is_runtime_card_visible(card: dict, ui_language: str | None = None) -> bool
     We prefer failing loudly / hiding unsafe cards over showing a false-success card.
     """
     prompt = str(
-        card.get("prompt")
+        card.get("_canonical_release_gate_prompt")
+        or card.get("prompt")
         or card.get("back_prompt")
         or (card.get("served_follow_up") or {}).get("prompt")
         or ""
