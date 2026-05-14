@@ -103,32 +103,91 @@ def _overlay_file_for(card: dict[str, Any], language: str) -> Path:
     return OVERLAY_ROOT / "general" / bucket / level / f"{language}.json"
 
 
+def _iter_overlay_rows(value: Any, inherited_card_id: str | None = None):
+    """Yield overlay row dictionaries from list-root or object-root overlay JSON.
+
+    Supports:
+    - [row, row, ...]
+    - {"items": [row, ...]} / {"rows": [row, ...]} / {"translations": [row, ...]}
+    - {"card.id": [row, ...]}
+    - nested object roots used by generated overlay artifacts
+    """
+    if isinstance(value, list):
+        for item in value:
+            yield from _iter_overlay_rows(item, inherited_card_id)
+        return
+
+    if not isinstance(value, dict):
+        return
+
+    card_id = str(value.get("card_id") or value.get("id") or inherited_card_id or "").strip()
+
+    # This is already a row-like overlay record.
+    if (
+        ("field_path" in value or "field_role" in value)
+        and ("localized_text" in value or "source_text" in value or "source_hash" in value)
+    ):
+        row = dict(value)
+        if card_id and not row.get("card_id"):
+            row["card_id"] = card_id
+        yield row
+        return
+
+    # Common wrapper keys.
+    for key in ("items", "rows", "entries", "translations", "overlays", "data", "records"):
+        child = value.get(key)
+        if isinstance(child, (list, dict)):
+            yield from _iter_overlay_rows(child, card_id or inherited_card_id)
+
+    # Card-id keyed dicts and other nested structures.
+    skip_keys = {
+        "language",
+        "target_language",
+        "catalog_rel",
+        "source_file",
+        "created_at_utc",
+        "stage",
+        "summary",
+        "counts",
+        "metadata",
+    }
+    for key, child in value.items():
+        if key in skip_keys:
+            continue
+        next_card_id = card_id or inherited_card_id
+        if isinstance(key, str) and key.startswith("card."):
+            next_card_id = key
+        if isinstance(child, (list, dict)):
+            yield from _iter_overlay_rows(child, next_card_id)
+
+
 @lru_cache(maxsize=512)
-def _load_overlay_by_file(path_text: str) -> dict[str, list[dict[str, Any]]]:
-    path = Path(path_text)
+def _load_overlay_by_file(path_str: str) -> dict[str, list[dict[str, Any]]]:
+    path = Path(path_str)
     if not path.exists():
         return {}
 
     try:
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        raw = json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return {}
 
-    items = payload.get("items") if isinstance(payload, dict) else None
-    if not isinstance(items, list):
-        return {}
+    grouped: dict[str, list[dict[str, Any]]] = {}
 
-    by_card: dict[str, list[dict[str, Any]]] = {}
-    for item in items:
+    for item in _iter_overlay_rows(raw):
         if not isinstance(item, dict):
             continue
-        card_id = str(item.get("card_id") or "").strip()
+
+        card_id = str(item.get("card_id") or item.get("id") or "").strip()
         localized_text = str(item.get("localized_text") or "").strip()
+
         if not card_id or not localized_text:
             continue
-        by_card.setdefault(card_id, []).append(item)
 
-    return by_card
+        grouped.setdefault(card_id, []).append(item)
+
+    return grouped
+
 
 
 def _set_follow_up_prompt(card: dict[str, Any], text: str) -> None:
