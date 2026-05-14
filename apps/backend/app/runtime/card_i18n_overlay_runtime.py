@@ -203,7 +203,10 @@ def apply_runtime_card_overlay(card: dict[str, Any], *, ui_language: Any) -> dic
         return card
 
     overlay_path = _overlay_file_for(card, language)
-    card["overlay_catalog_path"] = str(overlay_path.relative_to(CARD_BANK_CANONICAL_DIR)) if overlay_path.exists() else str(overlay_path)
+    try:
+        card["overlay_catalog_path"] = str(overlay_path.relative_to(CARD_BANK_CANONICAL_DIR.parent))
+    except ValueError:
+        card["overlay_catalog_path"] = str(overlay_path)
 
     entries = _load_overlay_by_file(str(overlay_path)).get(str(card.get("id") or "").strip(), [])
     if not entries:
