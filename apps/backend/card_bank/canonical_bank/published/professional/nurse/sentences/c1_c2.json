@@ -5764,7 +5764,7 @@
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "When a patient has multiple chronic diseases, a comprehensive medication review must be performed regularly to avoid polypharmacy.",
+          "gloss": "When a patient has multiple chronic diseases, a comprehensive medication must be performed regularly to avoid polypharmacy.",
           "example_sentence": "Kun potilaalla on useita pitkäaikaissairauksia, lääkityksen kokonaisarvio on tehtävä säännöllisesti polyfarmasian välttämiseksi."
         },
         "prompt_family": "phrase_comprehension",
@@ -5775,7 +5775,7 @@
             "options": [
               {
                 "option_id": "o4",
-                "text": "When a patient has multiple chronic diseases, a comprehensive medication review must be performed regularly to avoid polypharmacy."
+                "text": "When a patient has multiple chronic diseases, a comprehensive medication must be performed regularly to avoid polypharmacy."
               },
               {
                 "option_id": "o1",
@@ -5797,7 +5797,7 @@
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
-            "answer_key": "When a patient has multiple chronic diseases, a comprehensive medication review must be performed regularly to avoid polypharmacy.",
+            "answer_key": "When a patient has multiple chronic diseases, a comprehensive medication must be performed regularly to avoid polypharmacy.",
             "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
@@ -5827,7 +5827,7 @@
           "options": [
             {
               "option_id": "o4",
-              "text": "When a patient has multiple chronic diseases, a comprehensive medication review must be performed regularly to avoid polypharmacy."
+              "text": "When a patient has multiple chronic diseases, a comprehensive medication must be performed regularly to avoid polypharmacy."
             },
             {
               "option_id": "o1",
@@ -5848,7 +5848,7 @@
         {
           "variant_type": "typed_recall",
           "prompt": "Type the meaning in English.",
-          "answer_key": "When a patient has multiple chronic diseases, a comprehensive medication review must be performed regularly to avoid polypharmacy.",
+          "answer_key": "When a patient has multiple chronic diseases, a comprehensive medication must be performed regularly to avoid polypharmacy.",
           "evaluation_mode": "normalized_text"
         }
       ]

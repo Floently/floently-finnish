@@ -3893,7 +3893,8 @@
                 "text": "He decided to take a break from work."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -8331,7 +8332,8 @@
                 "text": "After the meeting we left home. After ten minutes, the medicine started to work."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -8757,7 +8759,9 @@
                 "text": "Apparently the meeting has been moved, because the room is reserved for another purpose."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Ilmeisesti kokous on siirretty, koska huone on varattu toiseen tarkoitukseen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -9511,7 +9515,8 @@
                 "text": "We arrived earlier than we anticipated."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -20036,11 +20041,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive abessive (tekemättä) as formal negative condition",
+          "pattern": "3rd infinitive abessive (tekemättä) as formal negative condition",
           "usage": "Without doing (more formal than MA-abessive)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive abessive (tekemättä) as formal negative condition'?",
+          "recall_prompt": "What is the function of '3rd infinitive abessive (tekemättä) as formal negative condition'?",
           "gloss": "Without asking for permission, one may not use the equipment.",
           "example_sentence": "Lupaa kysymättä ei saa käyttää laitteistoa."
         },
@@ -20145,11 +20150,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: instruktiivi in frozen forms (tavallaan, muuten, toisaalta) — advanced connectors",
+          "pattern": "instruktiivi in frozen forms (tavallaan, muuten, toisaalta) — advanced connectors",
           "usage": "Discourse markers in argumentation."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: instruktiivi in frozen forms (tavallaan, muuten, toisaalta) — advanced connectors'?",
+          "recall_prompt": "What is the function of 'instruktiivi in frozen forms (tavallaan, muuten, toisaalta) — advanced connectors'?",
           "gloss": "In a way I agree; on the other hand, I also see risks.",
           "example_sentence": "Tavallaan olen samaa mieltä; toisaalta näen myös riskejä."
         },
@@ -20254,11 +20259,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: eksessiivi (mä-muoto dialectal but in standard as fixed: siltä, tältä, tuolta)",
+          "pattern": "eksessiivi (mä-muoto dialectal but in standard as fixed: siltä, tältä, tuolta)",
           "usage": "Expresses 'from that state' in abstract."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: eksessiivi (mä-muoto dialectal but in standard as fixed: siltä, tältä, tuolta)'?",
+          "recall_prompt": "What is the function of 'eksessiivi (mä-muoto dialectal but in standard as fixed: siltä, tältä, tuolta)'?",
           "gloss": "Things look good at this moment.",
           "example_sentence": "Asiat näyttävät hyvältä tältä hetkellä."
         },
@@ -20363,11 +20368,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: prolative with -tse in modern abstract (tietä, reittiä, puhelimitse)",
+          "pattern": "prolative with -tse in modern abstract (tietä, reittiä, puhelimitse)",
           "usage": "Via a route/medium."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: prolative with -tse in modern abstract (tietä, reittiä, puhelimitse)'?",
+          "recall_prompt": "What is the function of 'prolative with -tse in modern abstract (tietä, reittiä, puhelimitse)'?",
           "gloss": "The experts communicated with each other via a secure channel.",
           "example_sentence": "Asiantuntijat viestivät keskenään salatietä."
         },
@@ -20472,11 +20477,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative in abstract adverbial (parhaimmillaan, pahimmillaan)",
+          "pattern": "superlative in abstract adverbial (parhaimmillaan, pahimmillaan)",
           "usage": "At best, at worst."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative in abstract adverbial (parhaimmillaan, pahimmillaan)'?",
+          "recall_prompt": "What is the function of 'superlative in abstract adverbial (parhaimmillaan, pahimmillaan)'?",
           "gloss": "At best, the new method saves 30% of the time.",
           "example_sentence": "Parhaimmillaan uusi menetelmä säästää 30 % ajasta."
         },
@@ -20581,11 +20586,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: komparatiivi + possessive (isommallaan, nuoremmillaan)",
+          "pattern": "komparatiivi + possessive (isommallaan, nuoremmillaan)",
           "usage": "At his/her bigger/younger etc."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: komparatiivi + possessive (isommallaan, nuoremmillaan)'?",
+          "recall_prompt": "What is the function of 'komparatiivi + possessive (isommallaan, nuoremmillaan)'?",
           "gloss": "At his best, he speaks five languages.",
           "example_sentence": "Parhaimmillaan hän puhuu viittä kieltä."
         },
@@ -21235,11 +21240,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: prolative in time expressions (keskitse, päivitse, öitse)",
+          "pattern": "prolative in time expressions (keskitse, päivitse, öitse)",
           "usage": "Through the night, via days."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: prolative in time expressions (keskitse, päivitse, öitse)'?",
+          "recall_prompt": "What is the function of 'prolative in time expressions (keskitse, päivitse, öitse)'?",
           "gloss": "They traveled through the night to avoid traffic jams.",
           "example_sentence": "He matkustivat öitse välttääkseen ruuhkat."
         },
@@ -21344,11 +21349,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comitative plural in abstract (vaatimuksineen, seurauksineen)",
+          "pattern": "comitative plural in abstract (vaatimuksineen, seurauksineen)",
           "usage": "Together with its requirements/consequences."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comitative plural in abstract (vaatimuksineen, seurauksineen)'?",
+          "recall_prompt": "What is the function of 'comitative plural in abstract (vaatimuksineen, seurauksineen)'?",
           "gloss": "Every decision carries responsibility together with its consequences.",
           "example_sentence": "Jokaisella päätöksellä on seurauksineen vastuu."
         },
@@ -21445,11 +21450,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: abessive in legal text (syyttä, tuomitta)",
+          "pattern": "abessive in legal text (syyttä, tuomitta)",
           "usage": "Without a prosecutor, without a judge (fixed legal terms)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: abessive in legal text (syyttä, tuomitta)'?",
+          "recall_prompt": "What is the function of 'abessive in legal text (syyttä, tuomitta)'?",
           "gloss": "The trial cannot begin without a prosecutor.",
           "example_sentence": "Oikeudenkäynti ei voi alkaa syyttä."
         },
@@ -21554,11 +21559,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive instructive in fixed phrases (lukien, mukaan lukien)",
+          "pattern": "3rd infinitive instructive in fixed phrases (lukien, mukaan lukien)",
           "usage": "Including."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive instructive in fixed phrases (lukien, mukaan lukien)'?",
+          "recall_prompt": "What is the function of '3rd infinitive instructive in fixed phrases (lukien, mukaan lukien)'?",
           "gloss": "All departments, including sales, participated in the training.",
           "example_sentence": "Kaikki osastot, mukaan lukien myynti, osallistuivat koulutukseen."
         },
@@ -21663,11 +21668,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive abessive in fixed phrases (huomioimatta, välittämättä)",
+          "pattern": "3rd infinitive abessive in fixed phrases (huomioimatta, välittämättä)",
           "usage": "Without considering, regardless of."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive abessive in fixed phrases (huomioimatta, välittämättä)'?",
+          "recall_prompt": "What is the function of '3rd infinitive abessive in fixed phrases (huomioimatta, välittämättä)'?",
           "gloss": "Without considering the rules, he acted arbitrarily.",
           "example_sentence": "Sääntöjä huomioimatta hän toimi omavaltaisesti."
         },
@@ -21693,7 +21698,9 @@
                 "text": "After having eaten lunch, he returned to the meeting."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Sääntöjä huomioimatta hän toimi omavaltaisesti.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -21762,11 +21769,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive genitive in time (noustessa, laskiessa) - simultaneous change",
+          "pattern": "2nd infinitive genitive in time (noustessa, laskiessa) - simultaneous change",
           "usage": "As something rises/falls."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive genitive in time (noustessa, laskiessa) - simultaneous change'?",
+          "recall_prompt": "What is the function of '2nd infinitive genitive in time (noustessa, laskiessa) - simultaneous change'?",
           "gloss": "As the temperature rises, the rate of ice melting increases.",
           "example_sentence": "Lämpötilan noustessa jään sulamisnopeus kasvaa."
         },
@@ -21871,11 +21878,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: agent participle in passive meaning (hänen kerrottavan)",
+          "pattern": "agent participle in passive meaning (hänen kerrottavan)",
           "usage": "That which is to be told by him (future passive obligation)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: agent participle in passive meaning (hänen kerrottavan)'?",
+          "recall_prompt": "What is the function of 'agent participle in passive meaning (hänen kerrottavan)'?",
           "gloss": "The proposal to be presented by him was well justified.",
           "example_sentence": "Hänen esitettävänsä ehdotus oli hyvin perusteltu."
         },
@@ -21980,11 +21987,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: potential passive (lienee tehty, lienee tultu)",
+          "pattern": "potential passive (lienee tehty, lienee tultu)",
           "usage": "Has probably been done."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: potential passive (lienee tehty, lienee tultu)'?",
+          "recall_prompt": "What is the function of 'potential passive (lienee tehty, lienee tultu)'?",
           "gloss": "The contract has probably already been signed last week.",
           "example_sentence": "Sopimus lienee allekirjoitettu jo viime viikolla."
         },
@@ -22089,11 +22096,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive long form in conditional (tehdäkseen olisi pitänyt)",
+          "pattern": "1st infinitive long form in conditional (tehdäkseen olisi pitänyt)",
           "usage": "In order to have done, one should have."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive long form in conditional (tehdäkseen olisi pitänyt)'?",
+          "recall_prompt": "What is the function of '1st infinitive long form in conditional (tehdäkseen olisi pitänyt)'?",
           "gloss": "In order to avoid losses, one should have reacted earlier.",
           "example_sentence": "Välttääkseen tappiot olisi pitänyt reagoida aiemmin."
         },
@@ -22198,11 +22205,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive illative of necessity (on mentävä, on tehtävä) already covered, but with nuance",
+          "pattern": "3rd infinitive illative of necessity (on mentävä, on tehtävä) already covered, but with nuance",
           "usage": "Must go, must do (personal necessity in formal)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive illative of necessity (on mentävä, on tehtävä) already covered, but with nuance'?",
+          "recall_prompt": "What is the function of '3rd infinitive illative of necessity (on mentävä, on tehtävä) already covered, but with nuance'?",
           "gloss": "Every employee must participate in safety training.",
           "example_sentence": "Jokaisen työntekijän on osallistuttava turvallisuuskoulutukseen."
         },
@@ -22307,11 +22314,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive inessive of ongoing process (olla tekemässä)",
+          "pattern": "3rd infinitive inessive of ongoing process (olla tekemässä)",
           "usage": "To be in the middle of doing."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive inessive of ongoing process (olla tekemässä)'?",
+          "recall_prompt": "What is the function of '3rd infinitive inessive of ongoing process (olla tekemässä)'?",
           "gloss": "We were just starting the meeting when the fire alarm went off.",
           "example_sentence": "Olimme juuri aloittamassa kokousta, kun palohälytys soi."
         },
@@ -22414,11 +22421,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive elative of finishing (lopettaa tekemästä) - revisited",
+          "pattern": "3rd infinitive elative of finishing (lopettaa tekemästä) - revisited",
           "usage": "Stop doing."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive elative of finishing (lopettaa tekemästä) - revisited'?",
+          "recall_prompt": "What is the function of '3rd infinitive elative of finishing (lopettaa tekemästä) - revisited'?",
           "gloss": "He stopped complaining when he got a raise.",
           "example_sentence": "Hän lopetti valittamasta kun sai korotuksen."
         },
@@ -22523,11 +22530,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive translative of purpose (tehdäkseen) - revisited with complexity",
+          "pattern": "3rd infinitive translative of purpose (tehdäkseen) - revisited with complexity",
           "usage": "In order to do (purpose)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive translative of purpose (tehdäkseen) - revisited with complexity'?",
+          "recall_prompt": "What is the function of '3rd infinitive translative of purpose (tehdäkseen) - revisited with complexity'?",
           "gloss": "In order to ensure quality, the company introduced a new certification.",
           "example_sentence": "Varmistaakseen laadun yritys otti käyttöön uuden sertifikaatin."
         },
@@ -22632,11 +22639,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive inessive of simultaneity (tehdessä, puhuessa) with abstract subject",
+          "pattern": "2nd infinitive inessive of simultaneity (tehdessä, puhuessa) with abstract subject",
           "usage": "When doing, when speaking (impersonal)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive inessive of simultaneity (tehdessä, puhuessa) with abstract subject'?",
+          "recall_prompt": "What is the function of '2nd infinitive inessive of simultaneity (tehdessä, puhuessa) with abstract subject'?",
           "gloss": "When reading this report, the question of reliability arises.",
           "example_sentence": "Tätä raporttia lukiessa herää kysymys luotettavuudesta."
         },
@@ -22741,11 +22748,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive instructive (tehden) as manner",
+          "pattern": "2nd infinitive instructive (tehden) as manner",
           "usage": "By doing, in a doing manner."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive instructive (tehden) as manner'?",
+          "recall_prompt": "What is the function of '2nd infinitive instructive (tehden) as manner'?",
           "gloss": "He proceeded cautiously, considering matters carefully.",
           "example_sentence": "Hän eteni varoen, asioita harkiten."
         },
@@ -22842,11 +22849,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive translative (tehdäkseen) expressing purpose with negation",
+          "pattern": "1st infinitive translative (tehdäkseen) expressing purpose with negation",
           "usage": "In order not to do."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive translative (tehdäkseen) expressing purpose with negation'?",
+          "recall_prompt": "What is the function of '1st infinitive translative (tehdäkseen) expressing purpose with negation'?",
           "gloss": "In order to avoid conflicts, he remained silent.",
           "example_sentence": "Välttääkseen konflikteja hän pysyi vaiti."
         },
@@ -22951,11 +22958,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: passive + genitive agent (toimittajan toimesta)",
+          "pattern": "passive + genitive agent (toimittajan toimesta)",
           "usage": "By the supplier (formal passive agent)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: passive + genitive agent (toimittajan toimesta)'?",
+          "recall_prompt": "What is the function of 'passive + genitive agent (toimittajan toimesta)'?",
           "gloss": "The report has been prepared by the consulting firm.",
           "example_sentence": "Raportti on laadittu konsulttitoimiston toimesta."
         },
@@ -23060,11 +23067,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: passive + ablative agent (toimittajalta)",
+          "pattern": "passive + ablative agent (toimittajalta)",
           "usage": "By the supplier (less formal passive agent)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: passive + ablative agent (toimittajalta)'?",
+          "recall_prompt": "What is the function of 'passive + ablative agent (toimittajalta)'?",
           "gloss": "The order has been confirmed by the supplier.",
           "example_sentence": "Tilaus on vahvistettu toimittajalta."
         },
@@ -23169,11 +23176,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: necessity passive + genitive agent (omistajan on ilmoitettava)",
+          "pattern": "necessity passive + genitive agent (omistajan on ilmoitettava)",
           "usage": "The owner must report (obligation passive with agent)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: necessity passive + genitive agent (omistajan on ilmoitettava)'?",
+          "recall_prompt": "What is the function of 'necessity passive + genitive agent (omistajan on ilmoitettava)'?",
           "gloss": "The tenant must keep the apartment tidy.",
           "example_sentence": "Vuokralaisen on pidettävä huoneisto siistinä."
         },
@@ -23278,11 +23285,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: double passive in complex sentences (voitaisiin sanoa olevan)",
+          "pattern": "double passive in complex sentences (voitaisiin sanoa olevan)",
           "usage": "It could be said to be."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: double passive in complex sentences (voitaisiin sanoa olevan)'?",
+          "recall_prompt": "What is the function of 'double passive in complex sentences (voitaisiin sanoa olevan)'?",
           "gloss": "It can be claimed to be obvious that the climate is changing.",
           "example_sentence": "Voidaan väittää olevan ilmeistä, että ilmasto muuttuu."
         },
@@ -23387,11 +23394,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative clause with ikään kuin + conditional (ikään kuin olisi)",
+          "pattern": "comparative clause with ikään kuin + conditional (ikään kuin olisi)",
           "usage": "As if (hypothetical comparison)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative clause with ikään kuin + conditional (ikään kuin olisi)'?",
+          "recall_prompt": "What is the function of 'comparative clause with ikään kuin + conditional (ikään kuin olisi)'?",
           "gloss": "He spoke as if he had full knowledge of the matter.",
           "example_sentence": "Hän puhui ikään kuin hänellä olisi asiasta täysi tieto."
         },
@@ -23496,11 +23503,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative clause with aivan kuin + indicative (aivan kuin on)",
+          "pattern": "comparative clause with aivan kuin + indicative (aivan kuin on)",
           "usage": "Just as if (real comparison)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative clause with aivan kuin + indicative (aivan kuin on)'?",
+          "recall_prompt": "What is the function of 'comparative clause with aivan kuin + indicative (aivan kuin on)'?",
           "gloss": "It was just as if he already knew the answer.",
           "example_sentence": "Se oli aivan kuin hän olisi jo tiennyt vastauksen."
         },
@@ -23605,11 +23612,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: concessive -kin with verb in conditional + -pa (tekipä hän mitä tahansa)",
+          "pattern": "concessive -kin with verb in conditional + -pa (tekipä hän mitä tahansa)",
           "usage": "Whatever he does (concessive)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: concessive -kin with verb in conditional + -pa (tekipä hän mitä tahansa)'?",
+          "recall_prompt": "What is the function of 'concessive -kin with verb in conditional + -pa (tekipä hän mitä tahansa)'?",
           "gloss": "Whatever he does, he never admits his mistake.",
           "example_sentence": "Teitpä hän mitä tahansa, hän ei koskaan myönnä virhettään."
         },
@@ -23714,11 +23721,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: rhetorical -han + interrogative (eikö hänellä olekaan)",
+          "pattern": "rhetorical -han + interrogative (eikö hänellä olekaan)",
           "usage": "Doesn't he have after all?"
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: rhetorical -han + interrogative (eikö hänellä olekaan)'?",
+          "recall_prompt": "What is the function of 'rhetorical -han + interrogative (eikö hänellä olekaan)'?",
           "gloss": "Doesn't he have the right to claim compensation after all?",
           "example_sentence": "Eikö hänellä olekaan oikeutta vaatia korvausta?"
         },
@@ -23823,11 +23830,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -pa in imperative (tulkaapa, katsokaapa)",
+          "pattern": "-pa in imperative (tulkaapa, katsokaapa)",
           "usage": "Please come, please look (softened command)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -pa in imperative (tulkaapa, katsokaapa)'?",
+          "recall_prompt": "What is the function of '-pa in imperative (tulkaapa, katsokaapa)'?",
           "gloss": "Please think about the matter again.",
           "example_sentence": "Ajatelkaapa asiaa uudelleen."
         },
@@ -23932,11 +23939,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -han in imperative (menehän, olkaahan)",
+          "pattern": "-han in imperative (menehän, olkaahan)",
           "usage": "Do go (friendly suggestion)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -han in imperative (menehän, olkaahan)'?",
+          "recall_prompt": "What is the function of '-han in imperative (menehän, olkaahan)'?",
           "gloss": "Do be careful on the journey.",
           "example_sentence": "Olethan varovainen matkalla."
         },
@@ -24041,11 +24048,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -s in question (onkos, eikös)",
+          "pattern": "-s in question (onkos, eikös)",
           "usage": "Isn't it so? (softened question)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -s in question (onkos, eikös)'?",
+          "recall_prompt": "What is the function of '-s in question (onkos, eikös)'?",
           "gloss": "Do you have anything against it?",
           "example_sentence": "Onkos sinulla mitään sitä vastaan?"
         },
@@ -24150,11 +24157,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -pa in exclamation (sepä, tuopas)",
+          "pattern": "-pa in exclamation (sepä, tuopas)",
           "usage": "That's surprising."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -pa in exclamation (sepä, tuopas)'?",
+          "recall_prompt": "What is the function of '-pa in exclamation (sepä, tuopas)'?",
           "gloss": "That is surprising!",
           "example_sentence": "Sepä yllättävää!"
         },
@@ -24259,11 +24266,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative adverb + possessive (parhaimmillaan, huonoimmillaan)",
+          "pattern": "superlative adverb + possessive (parhaimmillaan, huonoimmillaan)",
           "usage": "At its best, at its worst."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative adverb + possessive (parhaimmillaan, huonoimmillaan)'?",
+          "recall_prompt": "What is the function of 'superlative adverb + possessive (parhaimmillaan, huonoimmillaan)'?",
           "gloss": "At best, the forecast is uncertain.",
           "example_sentence": "Ennuste on parhaimmillaankin epävarma."
         },
@@ -24368,11 +24375,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative + postposition (parempi kuin, huonompi kuin)",
+          "pattern": "comparative + postposition (parempi kuin, huonompi kuin)",
           "usage": "Better than, worse than."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative + postposition (parempi kuin, huonompi kuin)'?",
+          "recall_prompt": "What is the function of 'comparative + postposition (parempi kuin, huonompi kuin)'?",
           "gloss": "This solution is more reliable than the previous one.",
           "example_sentence": "Tämä ratkaisu on edellistä luotettavampi."
         },
@@ -24477,11 +24484,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: equative (yhtä hyvä kuin, samanlainen kuin)",
+          "pattern": "equative (yhtä hyvä kuin, samanlainen kuin)",
           "usage": "As good as, similar to."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: equative (yhtä hyvä kuin, samanlainen kuin)'?",
+          "recall_prompt": "What is the function of 'equative (yhtä hyvä kuin, samanlainen kuin)'?",
           "gloss": "The new model is as efficient as the old one.",
           "example_sentence": "Uusi malli on yhtä tehokas kuin vanhakin."
         },
@@ -24586,11 +24593,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: partitive in comparison (isompi kuin vs. isompi jotakin)",
+          "pattern": "partitive in comparison (isompi kuin vs. isompi jotakin)",
           "usage": "Bigger than vs. bigger in terms of something."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: partitive in comparison (isompi kuin vs. isompi jotakin)'?",
+          "recall_prompt": "What is the function of 'partitive in comparison (isompi kuin vs. isompi jotakin)'?",
           "gloss": "This house is larger in size than the previous one.",
           "example_sentence": "Tämä talo on kooltaan edellistä isompi."
         },
@@ -24695,11 +24702,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative in abstract (paras mahdollinen, huonoin mahdollinen)",
+          "pattern": "superlative in abstract (paras mahdollinen, huonoin mahdollinen)",
           "usage": "The best possible, the worst possible."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative in abstract (paras mahdollinen, huonoin mahdollinen)'?",
+          "recall_prompt": "What is the function of 'superlative in abstract (paras mahdollinen, huonoin mahdollinen)'?",
           "gloss": "This is the best possible solution given the resources.",
           "example_sentence": "Tämä on paras mahdollinen ratkaisu annetuilla resursseilla."
         },
@@ -24804,11 +24811,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive long form with kielto (tekemättä, olematta)",
+          "pattern": "1st infinitive long form with kielto (tekemättä, olematta)",
           "usage": "Without doing, without being."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive long form with kielto (tekemättä, olematta)'?",
+          "recall_prompt": "What is the function of '1st infinitive long form with kielto (tekemättä, olematta)'?",
           "gloss": "Without being an expert, he still dared to comment.",
           "example_sentence": "Olematta asiantuntija hän silti uskalsi kommentoida."
         },
@@ -24913,11 +24920,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive adessive with kielto (tekemättä) already covered, but nuance with negative",
+          "pattern": "3rd infinitive adessive with kielto (tekemättä) already covered, but nuance with negative",
           "usage": "Without doing (negative method)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive adessive with kielto (tekemättä) already covered, but nuance with negative'?",
+          "recall_prompt": "What is the function of '3rd infinitive adessive with kielto (tekemättä) already covered, but nuance with negative'?",
           "gloss": "Without asking permission, you cannot use the device.",
           "example_sentence": "Lupaa kysymättä et voi käyttää laitetta."
         },
@@ -25022,11 +25029,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: agent participle in negative (hänen tekemättömänsä työ)",
+          "pattern": "agent participle in negative (hänen tekemättömänsä työ)",
           "usage": "The work not done by him."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: agent participle in negative (hänen tekemättömänsä työ)'?",
+          "recall_prompt": "What is the function of 'agent participle in negative (hänen tekemättömänsä työ)'?",
           "gloss": "The tasks not done by him piled up on the desk.",
           "example_sentence": "Hänen tekemättömänsä tehtävät kasaantuivat pöydälle."
         },
@@ -25131,11 +25138,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: temporal clause with ennen kuin + conditional (ennen kuin olisi ehtinyt)",
+          "pattern": "temporal clause with ennen kuin + conditional (ennen kuin olisi ehtinyt)",
           "usage": "Before one would have had time."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: temporal clause with ennen kuin + conditional (ennen kuin olisi ehtinyt)'?",
+          "recall_prompt": "What is the function of 'temporal clause with ennen kuin + conditional (ennen kuin olisi ehtinyt)'?",
           "gloss": "Before anyone would have had time to react, he had already left.",
           "example_sentence": "Ennen kuin kukaan olisi ehtinyt reagoida, hän oli jo lähtenyt."
         },
@@ -25240,11 +25247,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: temporal clause with heti kun (as soon as) + perfect",
+          "pattern": "temporal clause with heti kun (as soon as) + perfect",
           "usage": "As soon as something has happened."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: temporal clause with heti kun (as soon as) + perfect'?",
+          "recall_prompt": "What is the function of 'temporal clause with heti kun (as soon as) + perfect'?",
           "gloss": "He left as soon as he had received permission.",
           "example_sentence": "Hän lähti heti kun oli saanut luvan."
         },
@@ -25349,11 +25356,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: temporal clause with siitä lähtien kun (since)",
+          "pattern": "temporal clause with siitä lähtien kun (since)",
           "usage": "Since something happened."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: temporal clause with siitä lähtien kun (since)'?",
+          "recall_prompt": "What is the function of 'temporal clause with siitä lähtien kun (since)'?",
           "gloss": "Since he moved abroad, we haven't met.",
           "example_sentence": "Siitä lähtien kun hän muutti ulkomaille, emme ole tavanneet."
         },
@@ -25458,11 +25465,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: causal conjunction johdosta siitä että (formal written) - revisited",
+          "pattern": "causal conjunction johdosta siitä että (formal written) - revisited",
           "usage": "Due to the fact that."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: causal conjunction johdosta siitä että (formal written) - revisited'?",
+          "recall_prompt": "What is the function of 'causal conjunction johdosta siitä että (formal written) - revisited'?",
           "gloss": "Due to the fact that funding was canceled, the project was interrupted.",
           "example_sentence": "Johtuen siitä että rahoitus peruttiin, hanke keskeytyi."
         },
@@ -25567,11 +25574,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: final conjunction jotta + conditional (jotta hän voisi)",
+          "pattern": "final conjunction jotta + conditional (jotta hän voisi)",
           "usage": "So that he could (purpose)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: final conjunction jotta + conditional (jotta hän voisi)'?",
+          "recall_prompt": "What is the function of 'final conjunction jotta + conditional (jotta hän voisi)'?",
           "gloss": "I gave him instructions so that he could act independently.",
           "example_sentence": "Annoin hänelle ohjeet jotta hän voisi toimia itsenäisesti."
         },
@@ -25676,11 +25683,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: conditional conjunction mikäli (if, formal)",
+          "pattern": "conditional conjunction mikäli (if, formal)",
           "usage": "If (formal condition)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: conditional conjunction mikäli (if, formal)'?",
+          "recall_prompt": "What is the function of 'conditional conjunction mikäli (if, formal)'?",
           "gloss": "If you need help, contact customer service.",
           "example_sentence": "Mikäli tarvitset apua, ota yhteyttä asiakaspalveluun."
         },
@@ -25785,11 +25792,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: conditional conjunction jollei (if not, unless) - formal",
+          "pattern": "conditional conjunction jollei (if not, unless) - formal",
           "usage": "Unless (formal)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: conditional conjunction jollei (if not, unless) - formal'?",
+          "recall_prompt": "What is the function of 'conditional conjunction jollei (if not, unless) - formal'?",
           "gloss": "Unless the contract is signed within a week, the offer will lapse.",
           "example_sentence": "Jollei sopimusta allekirjoiteta viikon sisällä, tarjous raukeaa."
         },
@@ -25894,11 +25901,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: concessive conjunction vaikka kuinka (no matter how) - revisited",
+          "pattern": "concessive conjunction vaikka kuinka (no matter how) - revisited",
           "usage": "No matter how much."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: concessive conjunction vaikka kuinka (no matter how) - revisited'?",
+          "recall_prompt": "What is the function of 'concessive conjunction vaikka kuinka (no matter how) - revisited'?",
           "gloss": "No matter how much he tried, he couldn't get through.",
           "example_sentence": "Vaikka kuinka hän yritti, hän ei saanut yhteyttä."
         },
@@ -26003,11 +26010,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: concessive conjunction siitä huolimatta että (despite the fact that) - revisited",
+          "pattern": "concessive conjunction siitä huolimatta että (despite the fact that) - revisited",
           "usage": "Despite the fact that."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: concessive conjunction siitä huolimatta että (despite the fact that) - revisited'?",
+          "recall_prompt": "What is the function of 'concessive conjunction siitä huolimatta että (despite the fact that) - revisited'?",
           "gloss": "Despite the fact that he was sick, he came to work.",
           "example_sentence": "Siitä huolimatta että hän oli sairas, hän tuli töihin."
         },
@@ -26112,11 +26119,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative conjunction aivan kuin (just as if) - revisited",
+          "pattern": "comparative conjunction aivan kuin (just as if) - revisited",
           "usage": "Just as if."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative conjunction aivan kuin (just as if) - revisited'?",
+          "recall_prompt": "What is the function of 'comparative conjunction aivan kuin (just as if) - revisited'?",
           "gloss": "He behaved just as if he hadn't heard anything.",
           "example_sentence": "Hän käyttäytyi aivan kuin ei olisi kuullut mitään."
         },
@@ -26221,11 +26228,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: result clause niin että (actual result) - revisited with nuance",
+          "pattern": "result clause niin että (actual result) - revisited with nuance",
           "usage": "So that (actual result)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: result clause niin että (actual result) - revisited with nuance'?",
+          "recall_prompt": "What is the function of 'result clause niin että (actual result) - revisited with nuance'?",
           "gloss": "He spoke so fast that no one could keep up.",
           "example_sentence": "Hän puhui niin nopeasti, että kukaan ei pysynyt perässä."
         },
@@ -28729,7 +28736,7 @@
       "content": {
         "front": {
           "pattern": "modal particle toki — academic context",
-          "usage": "Emphatic concession in peer review."
+          "usage": "Emphatic concession in peer."
         },
         "back": {
           "recall_prompt": "What is the function of 'modal particle toki — academic context'?",
@@ -28772,7 +28779,7 @@
           }
         ],
         "explanation": {
-          "summary": "Emphatic concession in peer review.",
+          "summary": "Emphatic concession in peer.",
           "example": "Toki aineisto on rajallinen, mutta johtopäätökset ovat silti päteviä."
         },
         "audio": null,
@@ -30908,11 +30915,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: prolative in time expressions — literary context",
+          "pattern": "prolative in time expressions — literary context",
           "usage": "Through the night, via days."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: prolative in time expressions — literary context'?",
+          "recall_prompt": "What is the function of 'prolative in time expressions — literary context'?",
           "gloss": "They wandered through the night across the wilderness.",
           "example_sentence": "He vaelsivat öitse läpi erämaan."
         },
@@ -31017,11 +31024,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comitative plural in abstract — legal context",
+          "pattern": "comitative plural in abstract — legal context",
           "usage": "Together with its consequences."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comitative plural in abstract — legal context'?",
+          "recall_prompt": "What is the function of 'comitative plural in abstract — legal context'?",
           "gloss": "Every decision, together with its consequences, binds all parties.",
           "example_sentence": "Jokainen päätös sitoo seurauksineen kaikkia osapuolia."
         },
@@ -31126,11 +31133,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: abessive in legal text — fixed forms",
+          "pattern": "abessive in legal text — fixed forms",
           "usage": "Without a judge (legal)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: abessive in legal text — fixed forms'?",
+          "recall_prompt": "What is the function of 'abessive in legal text — fixed forms'?",
           "gloss": "Without a judge, a verdict cannot be given.",
           "example_sentence": "Tuomitta ei voi antaa tuomiota."
         },
@@ -31235,11 +31242,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive instructive in fixed phrases — academic context",
+          "pattern": "3rd infinitive instructive in fixed phrases — academic context",
           "usage": "Including in scholarly lists."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive instructive in fixed phrases — academic context'?",
+          "recall_prompt": "What is the function of '3rd infinitive instructive in fixed phrases — academic context'?",
           "gloss": "All contributors, including assistants, are mentioned in the acknowledgements.",
           "example_sentence": "Kaikki tekijät, mukaan lukien assistentit, mainitaan kiitoksissa."
         },
@@ -31344,11 +31351,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive abessive in fixed phrases — journalistic context",
+          "pattern": "3rd infinitive abessive in fixed phrases — journalistic context",
           "usage": "Without considering, regardless of."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive abessive in fixed phrases — journalistic context'?",
+          "recall_prompt": "What is the function of '3rd infinitive abessive in fixed phrases — journalistic context'?",
           "gloss": "Without following the rules, he proceeded arbitrarily.",
           "example_sentence": "Sääntöjä noudattamatta hän eteni omavaltaisesti."
         },
@@ -31453,11 +31460,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive genitive in time — scientific context",
+          "pattern": "2nd infinitive genitive in time — scientific context",
           "usage": "As something rises/falls (simultaneous change)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive genitive in time — scientific context'?",
+          "recall_prompt": "What is the function of '2nd infinitive genitive in time — scientific context'?",
           "gloss": "As pressure decreases, the boiling point of the liquid decreases.",
           "example_sentence": "Paineen laskiessa nesteen kiehumispiste laskee."
         },
@@ -31562,11 +31569,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: agent participle in passive meaning — legal context",
+          "pattern": "agent participle in passive meaning — legal context",
           "usage": "That which is to be presented by him (future passive obligation)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: agent participle in passive meaning — legal context'?",
+          "recall_prompt": "What is the function of 'agent participle in passive meaning — legal context'?",
           "gloss": "The evidence to be presented by the lawyer has been submitted to the court.",
           "example_sentence": "Asianajajan esitettävät todisteet on toimitettu oikeudelle."
         },
@@ -31671,11 +31678,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: potential passive — journalistic context",
+          "pattern": "potential passive — journalistic context",
           "usage": "Has probably been done in news summaries."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: potential passive — journalistic context'?",
+          "recall_prompt": "What is the function of 'potential passive — journalistic context'?",
           "gloss": "The report has probably already been submitted yesterday.",
           "example_sentence": "Raportti lienee toimitettu jo eilen."
         },
@@ -31780,11 +31787,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive long form in conditional — academic context",
+          "pattern": "1st infinitive long form in conditional — academic context",
           "usage": "In order to have done, one should have."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive long form in conditional — academic context'?",
+          "recall_prompt": "What is the function of '1st infinitive long form in conditional — academic context'?",
           "gloss": "In order to avoid contradictions, one should have defined the concepts more precisely.",
           "example_sentence": "Välttääkseen ristiriidat olisi pitänyt määritellä käsitteet tarkemmin."
         },
@@ -31889,11 +31896,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive inessive of ongoing process — journalistic context",
+          "pattern": "3rd infinitive inessive of ongoing process — journalistic context",
           "usage": "To be in the middle of doing in live reporting."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive inessive of ongoing process — journalistic context'?",
+          "recall_prompt": "What is the function of '3rd infinitive inessive of ongoing process — journalistic context'?",
           "gloss": "The police were just about to arrest the suspect when he fled.",
           "example_sentence": "Poliisi oli juuri pidättämässä epäiltyä, kun tämä pakeni."
         },
@@ -31998,11 +32005,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive translative of purpose — technical context",
+          "pattern": "3rd infinitive translative of purpose — technical context",
           "usage": "In order to do (purpose) in engineering."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive translative of purpose — technical context'?",
+          "recall_prompt": "What is the function of '3rd infinitive translative of purpose — technical context'?",
           "gloss": "In order to ensure safety, the designer added a backup system.",
           "example_sentence": "Varmistaakseen turvallisuuden suunnittelija lisäsi varojärjestelmän."
         },
@@ -32107,11 +32114,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive inessive of simultaneity — academic context",
+          "pattern": "2nd infinitive inessive of simultaneity — academic context",
           "usage": "When doing (impersonal) in scholarly writing."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive inessive of simultaneity — academic context'?",
+          "recall_prompt": "What is the function of '2nd infinitive inessive of simultaneity — academic context'?",
           "gloss": "When testing this hypothesis, several variables must be taken into account.",
           "example_sentence": "Tätä hypoteesia testatessa on otettava huomioon useita muuttujia."
         },
@@ -32216,11 +32223,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: passive + genitive agent — journalistic context",
+          "pattern": "passive + genitive agent — journalistic context",
           "usage": "By the (formal passive agent) in official statements."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: passive + genitive agent — journalistic context'?",
+          "recall_prompt": "What is the function of 'passive + genitive agent — journalistic context'?",
           "gloss": "The press release has been prepared by the ministry.",
           "example_sentence": "Tiedote on laadittu ministeriön toimesta."
         },
@@ -32325,11 +32332,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: double passive in complex sentences — academic context",
+          "pattern": "double passive in complex sentences — academic context",
           "usage": "It could be claimed to be."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: double passive in complex sentences — academic context'?",
+          "recall_prompt": "What is the function of 'double passive in complex sentences — academic context'?",
           "gloss": "It can be assumed to be probable that the result will be repeated.",
           "example_sentence": "Voidaan olettaa olevan todennäköistä, että tulos toistuu."
         },
@@ -32434,11 +32441,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative clause with ikään kuin + conditional — literary context",
+          "pattern": "comparative clause with ikään kuin + conditional — literary context",
           "usage": "As if (hypothetical comparison)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative clause with ikään kuin + conditional — literary context'?",
+          "recall_prompt": "What is the function of 'comparative clause with ikään kuin + conditional — literary context'?",
           "gloss": "He smiled as if he had not heard the news.",
           "example_sentence": "Hän hymyili ikään kuin ei olisi kuullut uutisia."
         },
@@ -32543,11 +32550,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: concessive -kin with verb in conditional + -pa — literary context",
+          "pattern": "concessive -kin with verb in conditional + -pa — literary context",
           "usage": "Whatever he does (concessive)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: concessive -kin with verb in conditional + -pa — literary context'?",
+          "recall_prompt": "What is the function of 'concessive -kin with verb in conditional + -pa — literary context'?",
           "gloss": "Whatever he did, he never received recognition.",
           "example_sentence": "Tekipä hän mitä hyvänsä, hän ei koskaan saanut tunnustusta."
         },
@@ -32652,11 +32659,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -pa in imperative — medical context",
+          "pattern": "-pa in imperative — medical context",
           "usage": "Please come, please do (softened command)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -pa in imperative — medical context'?",
+          "recall_prompt": "What is the function of '-pa in imperative — medical context'?",
           "gloss": "Please sit down and wait calmly.",
           "example_sentence": "Istukaa ja odottakaa rauhassa."
         },
@@ -32761,19 +32768,19 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -han in imperative — journalistic context",
+          "pattern": "-han in imperative — journalistic context",
           "usage": "Do (friendly suggestion)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -han in imperative — journalistic context'?",
+          "recall_prompt": "What is the function of '-han in imperative — journalistic context'?",
           "gloss": "Do read the article before commenting.",
-          "example_sentence": "Lukekaa han artikkeli ennen kommentointia."
+          "example_sentence": "Lukekaahan artikkeli ennen kommentointia."
         },
         "prompt_family": "grammar_pattern",
         "follow_ups": [
           {
             "variant_type": "recognition_mcq",
-            "prompt": "What does this example express? Lukekaa han artikkeli ennen kommentointia.",
+            "prompt": "What does this example express? Lukekaahan artikkeli ennen kommentointia.",
             "options": [
               {
                 "option_id": "o2",
@@ -32806,7 +32813,7 @@
         ],
         "explanation": {
           "summary": "Do (friendly suggestion).",
-          "example": "Lukekaa han artikkeli ennen kommentointia."
+          "example": "Lukekaahan artikkeli ennen kommentointia."
         },
         "audio": null,
         "validation": {
@@ -32870,11 +32877,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -s in question — spoken formal variant",
+          "pattern": "-s in question — spoken formal variant",
           "usage": "Isn't it so? (softened question)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -s in question — spoken formal variant'?",
+          "recall_prompt": "What is the function of '-s in question — spoken formal variant'?",
           "gloss": "Hasn't this already been dealt with?",
           "example_sentence": "Eikös tämä ole jo käsitelty?"
         },
@@ -32979,11 +32986,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: -pa in exclamation — journalistic context",
+          "pattern": "-pa in exclamation — journalistic context",
           "usage": "That's surprising."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: -pa in exclamation — journalistic context'?",
+          "recall_prompt": "What is the function of '-pa in exclamation — journalistic context'?",
           "gloss": "That's a surprising turn in the trial.",
           "example_sentence": "Sepä yllättävä käänne oikeudenkäynnissä."
         },
@@ -33088,11 +33095,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative adverb + possessive — journalistic context",
+          "pattern": "superlative adverb + possessive — journalistic context",
           "usage": "At its best, at its worst."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative adverb + possessive — journalistic context'?",
+          "recall_prompt": "What is the function of 'superlative adverb + possessive — journalistic context'?",
           "gloss": "The economy is at its worst in a downturn.",
           "example_sentence": "Talous on pahimmillaan laskusuhdanteessa."
         },
@@ -33197,11 +33204,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: equative — technical context",
+          "pattern": "equative — technical context",
           "usage": "As good as, similar to."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: equative — technical context'?",
+          "recall_prompt": "What is the function of 'equative — technical context'?",
           "gloss": "The new processor is as fast as its predecessor.",
           "example_sentence": "Uusi prosessori on yhtä nopea kuin edeltäjänsä."
         },
@@ -33306,11 +33313,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: partitive in comparison — academic context",
+          "pattern": "partitive in comparison — academic context",
           "usage": "Bigger in terms of."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: partitive in comparison — academic context'?",
+          "recall_prompt": "What is the function of 'partitive in comparison — academic context'?",
           "gloss": "This sample is larger in scope than the previous one.",
           "example_sentence": "Tämä otos on laajuudeltaan edellistä suurempi."
         },
@@ -33415,11 +33422,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative in abstract — journalistic context",
+          "pattern": "superlative in abstract — journalistic context",
           "usage": "The best possible, the worst possible."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative in abstract — journalistic context'?",
+          "recall_prompt": "What is the function of 'superlative in abstract — journalistic context'?",
           "gloss": "It was the worst possible timing for the announcement.",
           "example_sentence": "Se oli huonoin mahdollinen ajoitus ilmoitukselle."
         },
@@ -33524,11 +33531,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive long form with kielto — literary context",
+          "pattern": "1st infinitive long form with kielto — literary context",
           "usage": "Without doing, without being."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive long form with kielto — literary context'?",
+          "recall_prompt": "What is the function of '1st infinitive long form with kielto — literary context'?",
           "gloss": "Without ever having seen the sea, he described it accurately.",
           "example_sentence": "Olematta koskaan nähnyt merta hän kuvaili sitä tarkasti."
         },
@@ -33633,11 +33640,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: agent participle in negative — legal context",
+          "pattern": "agent participle in negative — legal context",
           "usage": "The work not done by him."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: agent participle in negative — legal context'?",
+          "recall_prompt": "What is the function of 'agent participle in negative — legal context'?",
           "gloss": "The tasks not done by the contractor were transferred to another.",
           "example_sentence": "Urakoitsijan tekemättömät työt siirrettiin toiselle."
         },
@@ -33742,11 +33749,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: temporal clause with ennen kuin + conditional — narrative context",
+          "pattern": "temporal clause with ennen kuin + conditional — narrative context",
           "usage": "Before one would have had time."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: temporal clause with ennen kuin + conditional — narrative context'?",
+          "recall_prompt": "What is the function of 'temporal clause with ennen kuin + conditional — narrative context'?",
           "gloss": "Before anyone would have had time to answer, he had already left.",
           "example_sentence": "Ennen kuin kukaan ehtisi vastata, hän oli jo poistunut."
         },
@@ -33851,11 +33858,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: temporal clause with heti kun — legal context",
+          "pattern": "temporal clause with heti kun — legal context",
           "usage": "As soon as something has happened."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: temporal clause with heti kun — legal context'?",
+          "recall_prompt": "What is the function of 'temporal clause with heti kun — legal context'?",
           "gloss": "The contract is terminated as soon as a final judgment has been given.",
           "example_sentence": "Sopimus irtisanotaan heti kun lainvoimainen tuomio on annettu."
         },
@@ -33960,11 +33967,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: temporal clause with siitä lähtien kun — narrative context",
+          "pattern": "temporal clause with siitä lähtien kun — narrative context",
           "usage": "Since something happened."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: temporal clause with siitä lähtien kun — narrative context'?",
+          "recall_prompt": "What is the function of 'temporal clause with siitä lähtien kun — narrative context'?",
           "gloss": "Since he moved to the city, he has felt better.",
           "example_sentence": "Siitä lähtien kun hän muutti kaupunkiin, hän on voinut paremmin."
         },
@@ -34069,11 +34076,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: final conjunction jotta + conditional — legal context",
+          "pattern": "final conjunction jotta + conditional — legal context",
           "usage": "So that he could (purpose)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: final conjunction jotta + conditional — legal context'?",
+          "recall_prompt": "What is the function of 'final conjunction jotta + conditional — legal context'?",
           "gloss": "The law was enacted so that citizens could invoke it.",
           "example_sentence": "Laki asetettiin jotta kansalaiset voisivat vedota siihen."
         },
@@ -34178,11 +34185,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: conditional conjunction mikäli — legal context",
+          "pattern": "conditional conjunction mikäli — legal context",
           "usage": "If (formal condition)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: conditional conjunction mikäli — legal context'?",
+          "recall_prompt": "What is the function of 'conditional conjunction mikäli — legal context'?",
           "gloss": "If the terms are violated, the contract will be terminated.",
           "example_sentence": "Mikäli ehtoja rikotaan, sopimus purkautuu."
         },
@@ -34287,11 +34294,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: conditional conjunction jollei — legal context",
+          "pattern": "conditional conjunction jollei — legal context",
           "usage": "Unless (formal)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: conditional conjunction jollei — legal context'?",
+          "recall_prompt": "What is the function of 'conditional conjunction jollei — legal context'?",
           "gloss": "Unless payment is made on the due date, default interest will be charged.",
           "example_sentence": "Jollei maksua suoriteta eräpäivänä, peritään viivästyskorko."
         },
@@ -36903,11 +36910,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive genitive with postposition (noustessa, laskiessa) — advanced temporal",
+          "pattern": "2nd infinitive genitive with postposition (noustessa, laskiessa) — advanced temporal",
           "usage": "Expresses 'as X happens' with simultaneous change."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive genitive with postposition (noustessa, laskiessa) — advanced temporal'?",
+          "recall_prompt": "What is the function of '2nd infinitive genitive with postposition (noustessa, laskiessa) — advanced temporal'?",
           "gloss": "As the sun rose, the landscape changed completely.",
           "example_sentence": "Auringon noustessa maisema muuttui täysin."
         },
@@ -37012,11 +37019,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive partitive with postposition (noustua, laskettua) — advanced temporal posteriority",
+          "pattern": "2nd infinitive partitive with postposition (noustua, laskettua) — advanced temporal posteriority",
           "usage": "Expresses 'after X has happened' (perfective aspect)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive partitive with postposition (noustua, laskettua) — advanced temporal posteriority'?",
+          "recall_prompt": "What is the function of '2nd infinitive partitive with postposition (noustua, laskettua) — advanced temporal posteriority'?",
           "gloss": "After the sun had risen, we left for the trip.",
           "example_sentence": "Auringon noustua lähdimme retkelle."
         },
@@ -37121,11 +37128,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive long form abessive (tekemättä) as formal condition",
+          "pattern": "1st infinitive long form abessive (tekemättä) as formal condition",
           "usage": "Without doing X (formal conditional)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive long form abessive (tekemättä) as formal condition'?",
+          "recall_prompt": "What is the function of '1st infinitive long form abessive (tekemättä) as formal condition'?",
           "gloss": "Without asking for permission, you cannot use this software.",
           "example_sentence": "Lupaa kysymättä et voi käyttää tätä ohjelmistoa."
         },
@@ -37230,11 +37237,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive abessive + possessive suffix (tekemättään) — formal without him doing",
+          "pattern": "3rd infinitive abessive + possessive suffix (tekemättään) — formal without him doing",
           "usage": "Without his doing (formal)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive abessive + possessive suffix (tekemättään) — formal without him doing'?",
+          "recall_prompt": "What is the function of '3rd infinitive abessive + possessive suffix (tekemättään) — formal without him doing'?",
           "gloss": "Without his knowing about it, the contract was signed.",
           "example_sentence": "Hänen siitä tietämättään sopimus allekirjoitettiin."
         },
@@ -37339,11 +37346,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive inessive + possessive suffix for simultaneous action — revisited with abstract subject",
+          "pattern": "2nd infinitive inessive + possessive suffix for simultaneous action — revisited with abstract subject",
           "usage": "While X happens (impersonal)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive inessive + possessive suffix for simultaneous action — revisited with abstract subject'?",
+          "recall_prompt": "What is the function of '2nd infinitive inessive + possessive suffix for simultaneous action — revisited with abstract subject'?",
           "gloss": "During processing, new problems emerged.",
           "example_sentence": "Käsittelyn aikana ilmeni uusia ongelmia."
         },
@@ -37448,11 +37455,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive illative of purpose (nukkumaan, syömään) — basic but advanced nuance",
+          "pattern": "1st infinitive illative of purpose (nukkumaan, syömään) — basic but advanced nuance",
           "usage": "Expresses purpose of movement (to go to sleep, to eat)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive illative of purpose (nukkumaan, syömään) — basic but advanced nuance'?",
+          "recall_prompt": "What is the function of '1st infinitive illative of purpose (nukkumaan, syömään) — basic but advanced nuance'?",
           "gloss": "The children went to sleep at nine o'clock.",
           "example_sentence": "Lapset menivät nukkumaan kello yhdeksän."
         },
@@ -37557,11 +37564,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive translative (lukeakseen, oppiakseen) — formal purpose",
+          "pattern": "1st infinitive translative (lukeakseen, oppiakseen) — formal purpose",
           "usage": "In order to read, in order to learn."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive translative (lukeakseen, oppiakseen) — formal purpose'?",
+          "recall_prompt": "What is the function of '1st infinitive translative (lukeakseen, oppiakseen) — formal purpose'?",
           "gloss": "In order to learn Finnish, he read newspapers daily.",
           "example_sentence": "Oppiakseen suomea hän luki sanomalehtiä päivittäin."
         },
@@ -37666,11 +37673,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: agent participle in elative (hänen tekemästään) — about something done by him",
+          "pattern": "agent participle in elative (hänen tekemästään) — about something done by him",
           "usage": "About/from the thing done by him."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: agent participle in elative (hänen tekemästään) — about something done by him'?",
+          "recall_prompt": "What is the function of 'agent participle in elative (hänen tekemästään) — about something done by him'?",
           "gloss": "From the mistake made by him, big problems followed.",
           "example_sentence": "Hänen tekemästään virheestä seurasi suuria ongelmia."
         },
@@ -37775,11 +37782,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: agent participle in adessive (hänen tekemällään) — by means of something done by him",
+          "pattern": "agent participle in adessive (hänen tekemällään) — by means of something done by him",
           "usage": "By means of the thing done by him."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: agent participle in adessive (hänen tekemällään) — by means of something done by him'?",
+          "recall_prompt": "What is the function of 'agent participle in adessive (hänen tekemällään) — by means of something done by him'?",
           "gloss": "The report prepared by him had a great impact.",
           "example_sentence": "Hänen laatimallaan raportilla oli suuri vaikutus."
         },
@@ -37884,11 +37891,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: negative participle in adessive (hänen tekemättömällään) — by means of something not done by him",
+          "pattern": "negative participle in adessive (hänen tekemättömällään) — by means of something not done by him",
           "usage": "By means of the thing not done by him."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: negative participle in adessive (hänen tekemättömällään) — by means of something not done by him'?",
+          "recall_prompt": "What is the function of 'negative participle in adessive (hänen tekemättömällään) — by means of something not done by him'?",
           "gloss": "However, the work not done by him had consequences.",
           "example_sentence": "Hänen tekemättömällään työllä oli kuitenkin seurauksia."
         },
@@ -37993,11 +38000,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative adverb + possessive in comparative (suurimmillaan, pienimmillään)",
+          "pattern": "superlative adverb + possessive in comparative (suurimmillaan, pienimmillään)",
           "usage": "At its largest, at its smallest (range)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative adverb + possessive in comparative (suurimmillaan, pienimmillään)'?",
+          "recall_prompt": "What is the function of 'superlative adverb + possessive in comparative (suurimmillaan, pienimmillään)'?",
           "gloss": "The variations were at their largest in spring.",
           "example_sentence": "Vaihtelut olivat suurimmillaan keväällä."
         },
@@ -38102,11 +38109,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: instructive plural in fixed expressions (parhain päin, huonoin päin)",
+          "pattern": "instructive plural in fixed expressions (parhain päin, huonoin päin)",
           "usage": "At best, at worst (manner)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: instructive plural in fixed expressions (parhain päin, huonoin päin)'?",
+          "recall_prompt": "What is the function of 'instructive plural in fixed expressions (parhain päin, huonoin päin)'?",
           "gloss": "Things are at their worst, but we hope for better.",
           "example_sentence": "Asiat ovat huonoin päin, mutta toivomme parempaa."
         },
@@ -38211,11 +38218,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: abessive in proverbial expressions (syyttä, tuomitta) — revisited",
+          "pattern": "abessive in proverbial expressions (syyttä, tuomitta) — revisited",
           "usage": "Without a prosecutor, without a judge (legal proverbs)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: abessive in proverbial expressions (syyttä, tuomitta) — revisited'?",
+          "recall_prompt": "What is the function of 'abessive in proverbial expressions (syyttä, tuomitta) — revisited'?",
           "gloss": "No one is judged without a judge, no one accused without a prosecutor.",
           "example_sentence": "Ei tuomitta tuomita, ei syyttä syytetä."
         },
@@ -38320,11 +38327,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: prolative in time expressions (päivittäin, viikoittain) — frequency",
+          "pattern": "prolative in time expressions (päivittäin, viikoittain) — frequency",
           "usage": "Daily, weekly (adverbs of frequency)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: prolative in time expressions (päivittäin, viikoittain) — frequency'?",
+          "recall_prompt": "What is the function of 'prolative in time expressions (päivittäin, viikoittain) — frequency'?",
           "gloss": "The report is updated daily.",
           "example_sentence": "Raportti päivitetään päivittäin."
         },
@@ -38429,11 +38436,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: prolative in manner expressions (kirjeitse, sähköpostitse) — revisited",
+          "pattern": "prolative in manner expressions (kirjeitse, sähköpostitse) — revisited",
           "usage": "Via letter, via email."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: prolative in manner expressions (kirjeitse, sähköpostitse) — revisited'?",
+          "recall_prompt": "What is the function of 'prolative in manner expressions (kirjeitse, sähköpostitse) — revisited'?",
           "gloss": "Reply promptly via email.",
           "example_sentence": "Vastaa viipymättä sähköpostitse."
         },
@@ -38538,11 +38545,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive inessive expressing cause (tehdessä, puhuessa) — advanced nuance",
+          "pattern": "2nd infinitive inessive expressing cause (tehdessä, puhuessa) — advanced nuance",
           "usage": "By doing, when doing (causal nuance)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive inessive expressing cause (tehdessä, puhuessa) — advanced nuance'?",
+          "recall_prompt": "What is the function of '2nd infinitive inessive expressing cause (tehdessä, puhuessa) — advanced nuance'?",
           "gloss": "By doing this, you avoid mistakes.",
           "example_sentence": "Näin tehdessä vältät virheet."
         },
@@ -38647,11 +38654,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive instructive expressing method (tehden, puhuen) — revisited",
+          "pattern": "2nd infinitive instructive expressing method (tehden, puhuen) — revisited",
           "usage": "By doing, by speaking (method)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive instructive expressing method (tehden, puhuen) — revisited'?",
+          "recall_prompt": "What is the function of '2nd infinitive instructive expressing method (tehden, puhuen) — revisited'?",
           "gloss": "He proceeded cautiously, avoiding mistakes.",
           "example_sentence": "Hän eteni harkiten, virheitä välttäen."
         },
@@ -38756,11 +38763,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive inessive expressing simultaneous ongoing action (olemassa, tehtävänä)",
+          "pattern": "3rd infinitive inessive expressing simultaneous ongoing action (olemassa, tehtävänä)",
           "usage": "Being in existence, being as a task."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive inessive expressing simultaneous ongoing action (olemassa, tehtävänä)'?",
+          "recall_prompt": "What is the function of '3rd infinitive inessive expressing simultaneous ongoing action (olemassa, tehtävänä)'?",
           "gloss": "The task is to solve the problem.",
           "example_sentence": "Tehtävänä on ratkaista ongelma."
         },
@@ -38865,11 +38872,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive elative expressing cessation of state (lakata olemasta)",
+          "pattern": "3rd infinitive elative expressing cessation of state (lakata olemasta)",
           "usage": "To cease being, to stop existing."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive elative expressing cessation of state (lakata olemasta)'?",
+          "recall_prompt": "What is the function of '3rd infinitive elative expressing cessation of state (lakata olemasta)'?",
           "gloss": "The company ceased to exist in 2020.",
           "example_sentence": "Yritys lakkasi olemasta vuonna 2020."
         },
@@ -38974,11 +38981,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive translative expressing change of state (tulla tehdyksi, tulla nähdyksi)",
+          "pattern": "3rd infinitive translative expressing change of state (tulla tehdyksi, tulla nähdyksi)",
           "usage": "To become done, to become seen."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive translative expressing change of state (tulla tehdyksi, tulla nähdyksi)'?",
+          "recall_prompt": "What is the function of '3rd infinitive translative expressing change of state (tulla tehdyksi, tulla nähdyksi)'?",
           "gloss": "He wants to be seen and heard.",
           "example_sentence": "Hän tahtoo tulla nähdyksi ja kuulluksi."
         },
@@ -39083,11 +39090,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative of equality with possessive (yhtä hyvä kuin minun)",
+          "pattern": "comparative of equality with possessive (yhtä hyvä kuin minun)",
           "usage": "As good as mine."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative of equality with possessive (yhtä hyvä kuin minun)'?",
+          "recall_prompt": "What is the function of 'comparative of equality with possessive (yhtä hyvä kuin minun)'?",
           "gloss": "Your results are as good as mine.",
           "example_sentence": "Sinun tuloksesi ovat yhtä hyvät kuin minun."
         },
@@ -39192,11 +39199,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative of inequality with possessive (parempi kuin minun)",
+          "pattern": "comparative of inequality with possessive (parempi kuin minun)",
           "usage": "Better than mine."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative of inequality with possessive (parempi kuin minun)'?",
+          "recall_prompt": "What is the function of 'comparative of inequality with possessive (parempi kuin minun)'?",
           "gloss": "His proposal is better than ours.",
           "example_sentence": "Hänen ehdotuksensa on parempi kuin meidän."
         },
@@ -39301,11 +39308,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative with possessive (paras minun, huonoin hänen)",
+          "pattern": "superlative with possessive (paras minun, huonoin hänen)",
           "usage": "The best of mine, the worst of his."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative with possessive (paras minun, huonoin hänen)'?",
+          "recall_prompt": "What is the function of 'superlative with possessive (paras minun, huonoin hänen)'?",
           "gloss": "This is my best. That was your worst.",
           "example_sentence": "Tämä on parastani. Se oli huonoimpaasi."
         },
@@ -39410,11 +39417,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: partitive in negative existential (ei ole mitään tekemistä) — advanced",
+          "pattern": "partitive in negative existential (ei ole mitään tekemistä) — advanced",
           "usage": "There is nothing to do (idiomatic)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: partitive in negative existential (ei ole mitään tekemistä) — advanced'?",
+          "recall_prompt": "What is the function of 'partitive in negative existential (ei ole mitään tekemistä) — advanced'?",
           "gloss": "This has nothing to do with the matter.",
           "example_sentence": "Tällä ei ole mitään tekemistä asian kanssa."
         },
@@ -39519,11 +39526,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: partitive in comparison of quantity (enemmän aikaa, vähemmän rahaa)",
+          "pattern": "partitive in comparison of quantity (enemmän aikaa, vähemmän rahaa)",
           "usage": "More time, less money."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: partitive in comparison of quantity (enemmän aikaa, vähemmän rahaa)'?",
+          "recall_prompt": "What is the function of 'partitive in comparison of quantity (enemmän aikaa, vähemmän rahaa)'?",
           "gloss": "We need more time and less bureaucracy.",
           "example_sentence": "Tarvitsemme enemmän aikaa ja vähemmän byrokratiaa."
         },
@@ -39628,11 +39635,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: genitive in expressions of possession without olla (minun täytyy, minun on pakko)",
+          "pattern": "genitive in expressions of possession without olla (minun täytyy, minun on pakko)",
           "usage": "I must, I have to (genitive + necessity verb)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: genitive in expressions of possession without olla (minun täytyy, minun on pakko)'?",
+          "recall_prompt": "What is the function of 'genitive in expressions of possession without olla (minun täytyy, minun on pakko)'?",
           "gloss": "I have to leave now.",
           "example_sentence": "Minun on pakko lähteä nyt."
         },
@@ -39737,11 +39744,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: genitive in expressions of obligation (on sinun tehtäväsi)",
+          "pattern": "genitive in expressions of obligation (on sinun tehtäväsi)",
           "usage": "It is your task."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: genitive in expressions of obligation (on sinun tehtäväsi)'?",
+          "recall_prompt": "What is the function of 'genitive in expressions of obligation (on sinun tehtäväsi)'?",
           "gloss": "It is your duty to report the matter.",
           "example_sentence": "On sinun velvollisuutesi ilmoittaa asiasta."
         },
@@ -39846,11 +39853,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: accusative in total object (näen hänet, tapaan hänet)",
+          "pattern": "accusative in total object (näen hänet, tapaan hänet)",
           "usage": "I see him, I meet him (total object)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: accusative in total object (näen hänet, tapaan hänet)'?",
+          "recall_prompt": "What is the function of 'accusative in total object (näen hänet, tapaan hänet)'?",
           "gloss": "I met him yesterday. I saw him on the street.",
           "example_sentence": "Tapasin hänet eilen. Näin hänet kadulla."
         },
@@ -39955,11 +39962,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: partitive in partial object (näen häntä, tapaan häntä) — ongoing aspect",
+          "pattern": "partitive in partial object (näen häntä, tapaan häntä) — ongoing aspect",
           "usage": "I see him (partially), I meet him (ongoing)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: partitive in partial object (näen häntä, tapaan häntä) — ongoing aspect'?",
+          "recall_prompt": "What is the function of 'partitive in partial object (näen häntä, tapaan häntä) — ongoing aspect'?",
           "gloss": "I see him often (but not totally). I meet him regularly.",
           "example_sentence": "Näen häntä usein. Tapaan häntä säännöllisesti."
         },
@@ -40064,11 +40071,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: passive + partitive object (rakennetaan taloa) — ongoing passive",
+          "pattern": "passive + partitive object (rakennetaan taloa) — ongoing passive",
           "usage": "A house is being built (ongoing, incomplete)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: passive + partitive object (rakennetaan taloa) — ongoing passive'?",
+          "recall_prompt": "What is the function of 'passive + partitive object (rakennetaan taloa) — ongoing passive'?",
           "gloss": "A new school is being built over there (ongoing).",
           "example_sentence": "Tuolla rakennetaan uutta koulua."
         },
@@ -40173,11 +40180,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: passive + accusative object (rakennetaan talo) — completed passive",
+          "pattern": "passive + accusative object (rakennetaan talo) — completed passive",
           "usage": "The house will be built (complete, total)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: passive + accusative object (rakennetaan talo) — completed passive'?",
+          "recall_prompt": "What is the function of 'passive + accusative object (rakennetaan talo) — completed passive'?",
           "gloss": "This house will be built next year (complete).",
           "example_sentence": "Tämä talo rakennetaan ensi vuonna."
         },
@@ -40282,11 +40289,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 1st infinitive abessive in fixed expressions (hukkaamatta aikaa)",
+          "pattern": "1st infinitive abessive in fixed expressions (hukkaamatta aikaa)",
           "usage": "Without wasting time."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 1st infinitive abessive in fixed expressions (hukkaamatta aikaa)'?",
+          "recall_prompt": "What is the function of '1st infinitive abessive in fixed expressions (hukkaamatta aikaa)'?",
           "gloss": "Without wasting time, he started working.",
           "example_sentence": "Aikaa hukkaamatta hän ryhtyi töihin."
         },
@@ -40391,11 +40398,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 3rd infinitive abessive in fixed expressions (sitä sanomatta)",
+          "pattern": "3rd infinitive abessive in fixed expressions (sitä sanomatta)",
           "usage": "Without saying it."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 3rd infinitive abessive in fixed expressions (sitä sanomatta)'?",
+          "recall_prompt": "What is the function of '3rd infinitive abessive in fixed expressions (sitä sanomatta)'?",
           "gloss": "Without saying it, he left the room.",
           "example_sentence": "Sitä sanomatta hän poistui huoneesta."
         },
@@ -40500,11 +40507,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: instructive in exclamations (hyvää päivää! — hyvää instructive)",
+          "pattern": "instructive in exclamations (hyvää päivää! — hyvää instructive)",
           "usage": "Good day! (frozen instructive in greetings)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: instructive in exclamations (hyvää päivää! — hyvää instructive)'?",
+          "recall_prompt": "What is the function of 'instructive in exclamations (hyvää päivää! — hyvää instructive)'?",
           "gloss": "Good day! All the best!",
           "example_sentence": "Hyvää päivää! Hyvää jatkoa!"
         },
@@ -40609,11 +40616,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comitative in greetings (hyvine toivotuksineen)",
+          "pattern": "comitative in greetings (hyvine toivotuksineen)",
           "usage": "With best wishes."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comitative in greetings (hyvine toivotuksineen)'?",
+          "recall_prompt": "What is the function of 'comitative in greetings (hyvine toivotuksineen)'?",
           "gloss": "He sent a letter with his best wishes.",
           "example_sentence": "Hän lähetti kirjeen hyvine toivotuksineen."
         },
@@ -40718,11 +40725,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: abessive in warnings (vastuutta kantamatta)",
+          "pattern": "abessive in warnings (vastuutta kantamatta)",
           "usage": "Without taking responsibility."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: abessive in warnings (vastuutta kantamatta)'?",
+          "recall_prompt": "What is the function of 'abessive in warnings (vastuutta kantamatta)'?",
           "gloss": "Without taking responsibility, you cannot make decisions.",
           "example_sentence": "Vastuuta kantamatta et voi tehdä päätöksiä."
         },
@@ -40827,11 +40834,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive inessive expressing condition (näin tehdessä, asia ratkeaa)",
+          "pattern": "2nd infinitive inessive expressing condition (näin tehdessä, asia ratkeaa)",
           "usage": "If you do this, the matter will be resolved (conditional nuance)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive inessive expressing condition (näin tehdessä, asia ratkeaa)'?",
+          "recall_prompt": "What is the function of '2nd infinitive inessive expressing condition (näin tehdessä, asia ratkeaa)'?",
           "gloss": "If you do this, you avoid problems.",
           "example_sentence": "Näin tehdessä vältät ongelmat."
         },
@@ -40936,11 +40943,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive genitive expressing time frame (päivän noustessa)",
+          "pattern": "2nd infinitive genitive expressing time frame (päivän noustessa)",
           "usage": "At daybreak, as the day rises."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive genitive expressing time frame (päivän noustessa)'?",
+          "recall_prompt": "What is the function of '2nd infinitive genitive expressing time frame (päivän noustessa)'?",
           "gloss": "At daybreak, the birds began to sing.",
           "example_sentence": "Päivän noustessa linnut alkoivat laulaa."
         },
@@ -41045,11 +41052,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: 2nd infinitive partitive expressing posteriority (päivän noustua)",
+          "pattern": "2nd infinitive partitive expressing posteriority (päivän noustua)",
           "usage": "After daybreak, after the day has risen."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: 2nd infinitive partitive expressing posteriority (päivän noustua)'?",
+          "recall_prompt": "What is the function of '2nd infinitive partitive expressing posteriority (päivän noustua)'?",
           "gloss": "After daybreak, we left for the trip.",
           "example_sentence": "Päivän noustua lähdimme retkelle."
         },
@@ -41154,11 +41161,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: agent participle in instructive (hänen tekemällään tavalla)",
+          "pattern": "agent participle in instructive (hänen tekemällään tavalla)",
           "usage": "In the way done by him."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: agent participle in instructive (hänen tekemällään tavalla)'?",
+          "recall_prompt": "What is the function of 'agent participle in instructive (hänen tekemällään tavalla)'?",
           "gloss": "In the way taught by him, it is easy to learn.",
           "example_sentence": "Hänen opettamallaan tavalla on helppo oppia."
         },
@@ -41263,11 +41270,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: negative participle in instructive (hänen tekemättömällään tavalla)",
+          "pattern": "negative participle in instructive (hänen tekemättömällään tavalla)",
           "usage": "In the way not done by him."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: negative participle in instructive (hänen tekemättömällään tavalla)'?",
+          "recall_prompt": "What is the function of 'negative participle in instructive (hänen tekemättömällään tavalla)'?",
           "gloss": "In the way not done by him, you cannot succeed.",
           "example_sentence": "Hänen tekemättömällään tavalla et voi onnistua."
         },
@@ -41372,11 +41379,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: superlative in instructive (parhaimmillaan, huonoimmillaan) — revisited",
+          "pattern": "superlative in instructive (parhaimmillaan, huonoimmillaan) — revisited",
           "usage": "At its best, at its worst."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: superlative in instructive (parhaimmillaan, huonoimmillaan) — revisited'?",
+          "recall_prompt": "What is the function of 'superlative in instructive (parhaimmillaan, huonoimmillaan) — revisited'?",
           "gloss": "The device works at its best under optimal conditions.",
           "example_sentence": "Laite toimii parhaimmillaan optimiolosuhteissa."
         },
@@ -41481,11 +41488,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "rare: comparative in instructive (paremmillaan, huonommillaan)",
+          "pattern": "comparative in instructive (paremmillaan, huonommillaan)",
           "usage": "At its better, at its worse (comparative range)."
         },
         "back": {
-          "recall_prompt": "What is the function of 'rare: comparative in instructive (paremmillaan, huonommillaan)'?",
+          "recall_prompt": "What is the function of 'comparative in instructive (paremmillaan, huonommillaan)'?",
           "gloss": "He was at his better when young.",
           "example_sentence": "Hän oli paremmillaan nuorena."
         },

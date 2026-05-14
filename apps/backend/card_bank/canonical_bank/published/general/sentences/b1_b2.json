@@ -63209,7 +63209,7 @@
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "I write my own review.",
+          "gloss": "I write my own.",
           "example_sentence": "Minä kirjoitan oman arvion."
         },
         "prompt_family": "phrase_comprehension",
@@ -63220,7 +63220,7 @@
             "options": [
               {
                 "option_id": "o4",
-                "text": "I write my own review."
+                "text": "I write my own."
               },
               {
                 "option_id": "o1",
@@ -63242,7 +63242,7 @@
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
-            "answer_key": "I write my own review.",
+            "answer_key": "I write my own.",
             "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
@@ -66806,7 +66806,7 @@
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "They review during the weekend.",
+          "gloss": "They during the weekend.",
           "example_sentence": "He kertaavat viikonlopun aikana."
         },
         "prompt_family": "phrase_comprehension",
@@ -66825,7 +66825,7 @@
               },
               {
                 "option_id": "o4",
-                "text": "They review during the weekend."
+                "text": "They during the weekend."
               },
               {
                 "option_id": "o1",
@@ -66839,7 +66839,7 @@
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
-            "answer_key": "They review during the weekend.",
+            "answer_key": "They during the weekend.",
             "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
@@ -70942,7 +70942,7 @@
               },
               {
                 "option_id": "o3",
-                "text": "We review tasks."
+                "text": "We tasks."
               },
               {
                 "option_id": "o4",
@@ -80720,7 +80720,7 @@
               },
               {
                 "option_id": "o2",
-                "text": "They review the material."
+                "text": "They the material."
               },
               {
                 "option_id": "o3",
@@ -119727,7 +119727,7 @@
               },
               {
                 "option_id": "o2",
-                "text": "We review the second part."
+                "text": "We the second part."
               },
               {
                 "option_id": "o1",
@@ -120795,7 +120795,7 @@
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "We send the photos to them for review.",
+          "gloss": "We send the photos to them for.",
           "example_sentence": "Me lähetämme kuvat heille tarkistettavaksi."
         },
         "prompt_family": "phrase_comprehension",
@@ -120806,7 +120806,7 @@
             "options": [
               {
                 "option_id": "o4",
-                "text": "We send the photos to them for review."
+                "text": "We send the photos to them for."
               },
               {
                 "option_id": "o2",
@@ -120828,7 +120828,7 @@
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
-            "answer_key": "We send the photos to them for review.",
+            "answer_key": "We send the photos to them for.",
             "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
@@ -190498,7 +190498,7 @@
               "Be heavy as lead. E.g. Suru on raskasta kuin lyijyä."
             ],
             "prompt": "Choose the best meaning.",
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {

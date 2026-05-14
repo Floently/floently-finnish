@@ -7308,11 +7308,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "possessive suffix (minun ...ni)",
+          "pattern": "possessive suffix (minun...ni)",
           "usage": "my"
         },
         "back": {
-          "recall_prompt": "What is the function of 'possessive suffix (minun ...ni)'?",
+          "recall_prompt": "What is the function of 'possessive suffix (minun...ni)'?",
           "gloss": "my nurse",
           "example_sentence": "minun hoitajani"
         },
@@ -7418,11 +7418,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "possessive suffix (sinun ...si)",
+          "pattern": "possessive suffix (sinun...si)",
           "usage": "your (sg.)"
         },
         "back": {
-          "recall_prompt": "What is the function of 'possessive suffix (sinun ...si)'?",
+          "recall_prompt": "What is the function of 'possessive suffix (sinun...si)'?",
           "gloss": "your medicine",
           "example_sentence": "sinun lääkkeesi"
         },
@@ -7528,11 +7528,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "possessive suffix (hänen ...nsa)",
+          "pattern": "possessive suffix (hänen...nsa)",
           "usage": "his/her"
         },
         "back": {
-          "recall_prompt": "What is the function of 'possessive suffix (hänen ...nsa)'?",
+          "recall_prompt": "What is the function of 'possessive suffix (hänen...nsa)'?",
           "gloss": "his/her blood pressure",
           "example_sentence": "hänen verenpaineensa"
         },
@@ -7638,11 +7638,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "possessive suffix (meidän ...mme)",
+          "pattern": "possessive suffix (meidän...mme)",
           "usage": "our"
         },
         "back": {
-          "recall_prompt": "What is the function of 'possessive suffix (meidän ...mme)'?",
+          "recall_prompt": "What is the function of 'possessive suffix (meidän...mme)'?",
           "gloss": "our ward",
           "example_sentence": "meidän osastomme"
         },
@@ -7748,11 +7748,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "possessive suffix (teidän ...nne)",
+          "pattern": "possessive suffix (teidän...nne)",
           "usage": "your (pl.)"
         },
         "back": {
-          "recall_prompt": "What is the function of 'possessive suffix (teidän ...nne)'?",
+          "recall_prompt": "What is the function of 'possessive suffix (teidän...nne)'?",
           "gloss": "your task",
           "example_sentence": "teidän tehtävänne"
         },
@@ -7858,11 +7858,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "possessive suffix (heidän ...nsa)",
+          "pattern": "possessive suffix (heidän...nsa)",
           "usage": "their"
         },
         "back": {
-          "recall_prompt": "What is the function of 'possessive suffix (heidän ...nsa)'?",
+          "recall_prompt": "What is the function of 'possessive suffix (heidän...nsa)'?",
           "gloss": "their relative",
           "example_sentence": "heidän omaisensa"
         },
@@ -12845,7 +12845,9 @@
                 "text": "Giving medication instructions"
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "prompt": "What does this example express? Lähetän sinulle linkin (linkki) videopuheluun.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -18853,7 +18855,9 @@
                 "text": "Requesting patient history"
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "prompt": "What does this example express? Potilaan itsemääräämisoikeutta (itsemääräämisoikeus) on kunnioitettava.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -19166,7 +19170,9 @@
                 "text": "Complete speech therapy phrase."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Käytämme kuvia (kuva) kommunikoinnin tukena.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -21842,7 +21848,8 @@
                 "text": "Haluatteko apua alusastian käytössä?"
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
