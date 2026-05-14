@@ -10,7 +10,7 @@ try:
 except Exception:
     CARD_BANK_CANONICAL_DIR = Path(__file__).resolve().parents[2] / "card_bank" / "canonical_bank"
 
-OVERLAY_ROOT = CARD_BANK_CANONICAL_DIR / "validated-overlayed" / "overlays_split_by_catalog"
+OVERLAY_ROOT = CARD_BANK_CANONICAL_DIR.parent / "overlays"
 
 LANGUAGE_FILE_ALIASES = {
     "zh": "zh-Hans",
