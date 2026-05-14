@@ -10,6 +10,7 @@ from app.core.errors import AppError
 from app.core.state_store import STORE
 from app.core.utils import new_id
 from app.runtime.cards_material_bank import load_authority_cards, load_runtime_bank, CardRecord
+from app.runtime.card_i18n_overlay_runtime import apply_runtime_card_overlay
 
 CARD_CONTENT_TYPES = {'vocabulary_card', 'sentence_card', 'grammar_card'}
 LEVEL_EXPANSION = {
@@ -204,8 +205,7 @@ def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str
     # hints we synthesize a structurally correct fallback that points at
     # the type of answer expected, not a generic platitude.
     materialized['hint'] = _resolve_card_hint(card)
-    # multilingual overlay disabled: serve restored canonical cards only
-    return materialized
+    return apply_runtime_card_overlay(materialized, ui_language=ui_language)
 
 
 
@@ -237,12 +237,12 @@ def _is_runtime_card_visible(card: dict, ui_language: str | None = None) -> bool
         card["release_block_reason"] = "semantic_pair_opposite_cards_quarantined"
         return False
 
-    lang = str(ui_language or card.get("ui_language") or "").strip().lower()
-    if lang and lang not in {"en", "eng", "english"} and card.get("overlay_incomplete"):
-        card["release_blocked"] = True
-        card["release_block_reason"] = "localized_overlay_incomplete"
-        return False
-
+    # Canonical release safety and overlay completeness are intentionally separate.
+    #
+    # If the canonical card is unsafe, block it for every language above.
+    # If a localized overlay is partial, do not hide the whole card here.
+    # The overlay runtime applies safe translated fields and falls back to the
+    # canonical field for missing/stale/incomplete overlay rows.
     return True
 
 
