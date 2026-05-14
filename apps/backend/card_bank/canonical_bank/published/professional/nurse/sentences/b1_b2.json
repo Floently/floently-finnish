@@ -50228,7 +50228,7 @@
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "The chief physician holds a situation review.",
+          "gloss": "The chief physician holds a situation.",
           "example_sentence": "Ylilääkäri pitää tilannekatsauksen."
         },
         "prompt_family": "phrase_comprehension",
@@ -50251,7 +50251,7 @@
               },
               {
                 "option_id": "o4",
-                "text": "The chief physician holds a situation review."
+                "text": "The chief physician holds a situation."
               }
             ],
             "answer_key": "o4",
@@ -50261,7 +50261,7 @@
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
-            "answer_key": "The chief physician holds a situation review.",
+            "answer_key": "The chief physician holds a situation.",
             "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
@@ -107041,7 +107041,7 @@
         },
         "back": {
           "recall_prompt": "What does this Finnish sentence mean?",
-          "gloss": "Medication review in the elderly is important during every hospital stay.",
+          "gloss": "Medication in the elderly is important during every hospital stay.",
           "example_sentence": "Lääkityksen tarkistus iäkkäällä on tärkeää jokaisella osastojaksolla."
         },
         "prompt_family": "phrase_comprehension",
@@ -107064,7 +107064,7 @@
               },
               {
                 "option_id": "o4",
-                "text": "Medication review in the elderly is important during every hospital stay."
+                "text": "Medication in the elderly is important during every hospital stay."
               }
             ],
             "answer_key": "o4",
@@ -107074,7 +107074,7 @@
           {
             "variant_type": "typed_recall",
             "prompt": "Type the meaning in English.",
-            "answer_key": "Medication review in the elderly is important during every hospital stay.",
+            "answer_key": "Medication in the elderly is important during every hospital stay.",
             "accepted_variants": [],
             "evaluation_mode": "normalized_text"
           }
@@ -308362,7 +308362,7 @@
               },
               {
                 "option_id": "o4",
-                "text": "We need to review the patient's history."
+                "text": "We need to the patient's history."
               }
             ],
             "answer_key": "o1",
@@ -327295,7 +327295,7 @@
               },
               {
                 "option_id": "o3",
-                "text": "The manager will review the incident."
+                "text": "The manager will the incident."
               },
               {
                 "option_id": "o4",
@@ -402833,7 +402833,7 @@
               },
               {
                 "option_id": "o2",
-                "text": "Now let's review the post-operative care plan."
+                "text": "Now let's the post-operative care plan."
               },
               {
                 "option_id": "o3",
@@ -461891,7 +461891,7 @@
           "options": [
             {
               "option_id": "o1",
-              "text": "We should review the patient's blood test results."
+              "text": "We should the patient's blood test results."
             },
             {
               "option_id": "o2",
@@ -490434,7 +490434,7 @@
           "sentence": "Hoitaja keskustelee potilaan omaisten kanssa potilaan voinnista."
         },
         "back": {
-          "recall_prompt": "The nurse discusses the patient's condition with the patient's family. -> ?",
+          "recall_prompt": "The nurse discusses the patient's condition with the patient's family. ->?",
           "gloss": "The nurse discusses the patient's condition with the patient's family.",
           "example_sentence": "Hoitaja keskustelee potilaan omaisten kanssa potilaan voinnista."
         },
@@ -490546,7 +490546,7 @@
           "sentence": "Hoitaja kirjaa potilastiedot tietojärjestelmään."
         },
         "back": {
-          "recall_prompt": "The nurse records patient information in the system. -> ?",
+          "recall_prompt": "The nurse records patient information in the system. ->?",
           "gloss": "The nurse records patient information in the system.",
           "example_sentence": "Hoitaja kirjaa potilastiedot tietojärjestelmään."
         },
@@ -490658,7 +490658,7 @@
           "sentence": "Hoitaja laittaa potilaalle kestokatetrin."
         },
         "back": {
-          "recall_prompt": "The nurse inserts a urinary catheter for the patient. -> ?",
+          "recall_prompt": "The nurse inserts a urinary catheter for the patient. ->?",
           "gloss": "The nurse inserts a urinary catheter for the patient.",
           "example_sentence": "Hoitaja laittaa potilaalle kestokatetrin."
         },
@@ -490770,7 +490770,7 @@
           "sentence": "Hoitaja laittaa potilaalle tippakanyylin."
         },
         "back": {
-          "recall_prompt": "The nurse inserts an IV cannula for the patient. -> ?",
+          "recall_prompt": "The nurse inserts an IV cannula for the patient. ->?",
           "gloss": "The nurse inserts an IV cannula for the patient.",
           "example_sentence": "Hoitaja laittaa potilaalle tippakanyylin."
         },
@@ -490882,7 +490882,7 @@
           "sentence": "Hoitaja laskee infuusion tippumisnopeuden potilaan nestetarpeen mukaan."
         },
         "back": {
-          "recall_prompt": "The nurse calculates the infusion drip rate according to the patient's fluid needs. -> ?",
+          "recall_prompt": "The nurse calculates the infusion drip rate according to the patient's fluid needs. ->?",
           "gloss": "The nurse calculates the infusion drip rate according to the patient's fluid needs.",
           "example_sentence": "Hoitaja laskee infuusion tippumisnopeuden potilaan nestetarpeen mukaan."
         },
@@ -490994,7 +490994,7 @@
           "sentence": "Hoitaja neuvoo potilasta ottamaan yhteyttä sairaalaan kiireellisissä tapauksissa."
         },
         "back": {
-          "recall_prompt": "The nurse advises the patient to contact the hospital in urgent cases. -> ?",
+          "recall_prompt": "The nurse advises the patient to contact the hospital in urgent cases. ->?",
           "gloss": "The nurse advises the patient to contact the hospital in urgent cases.",
           "example_sentence": "Hoitaja neuvoo potilasta ottamaan yhteyttä sairaalaan kiireellisissä tapauksissa."
         },
@@ -491106,7 +491106,7 @@
           "sentence": "Hoitaja ohjaa potilasta hengitysharjoituksissa."
         },
         "back": {
-          "recall_prompt": "The nurse guides the patient in breathing exercises. -> ?",
+          "recall_prompt": "The nurse guides the patient in breathing exercises. ->?",
           "gloss": "The nurse guides the patient in breathing exercises.",
           "example_sentence": "Hoitaja ohjaa potilasta hengitysharjoituksissa."
         },
@@ -491218,7 +491218,7 @@
           "sentence": "Hoitaja ohjaa potilasta itsenäisessä selviytymisessä päivittäisistä toiminnoista."
         },
         "back": {
-          "recall_prompt": "The nurse guides the patient in independent coping with daily activities. -> ?",
+          "recall_prompt": "The nurse guides the patient in independent coping with daily activities. ->?",
           "gloss": "The nurse guides the patient in independent coping with daily activities.",
           "example_sentence": "Hoitaja ohjaa potilasta itsenäisessä selviytymisessä päivittäisistä toiminnoista."
         },
@@ -491330,7 +491330,7 @@
           "sentence": "Hoitaja ohjeistaa potilasta lääkkeiden oikeassa käytössä."
         },
         "back": {
-          "recall_prompt": "The nurse instructs the patient on proper medication use. -> ?",
+          "recall_prompt": "The nurse instructs the patient on proper medication use. ->?",
           "gloss": "The nurse instructs the patient on proper medication use.",
           "example_sentence": "Hoitaja ohjeistaa potilasta lääkkeiden oikeassa käytössä."
         },
@@ -491442,7 +491442,7 @@
           "sentence": "Hoitaja puhdistaa potilaan tracheostomian ja vaihtaa sidokset."
         },
         "back": {
-          "recall_prompt": "The nurse cleans the patient's tracheostomy and changes the dressings. -> ?",
+          "recall_prompt": "The nurse cleans the patient's tracheostomy and changes the dressings. ->?",
           "gloss": "The nurse cleans the patient's tracheostomy and changes the dressings.",
           "example_sentence": "Hoitaja puhdistaa potilaan tracheostomian ja vaihtaa sidokset."
         },
@@ -491554,7 +491554,7 @@
           "sentence": "Hoitaja raportoi potilaan voinnista seuraavalle vuorolle."
         },
         "back": {
-          "recall_prompt": "The nurse reports the patient's condition to the next shift. -> ?",
+          "recall_prompt": "The nurse reports the patient's condition to the next shift. ->?",
           "gloss": "The nurse reports the patient's condition to the next shift.",
           "example_sentence": "Hoitaja raportoi potilaan voinnista seuraavalle vuorolle."
         },
@@ -491666,7 +491666,7 @@
           "sentence": "Hoitaja suorittaa elvytystä potilaalle, jonka sydän on pysähtynyt."
         },
         "back": {
-          "recall_prompt": "The nurse performs CPR on a patient whose heart has stopped. -> ?",
+          "recall_prompt": "The nurse performs CPR on a patient whose heart has stopped. ->?",
           "gloss": "The nurse performs CPR on a patient whose heart has stopped.",
           "example_sentence": "Hoitaja suorittaa elvytystä potilaalle, jonka sydän on pysähtynyt."
         },
@@ -491778,7 +491778,7 @@
           "sentence": "Hoitaja tarkistaa lääkkeiden yhteisvaikutukset ennen uuden lääkkeen antamista."
         },
         "back": {
-          "recall_prompt": "The nurse checks for drug interactions before administering a new medication. -> ?",
+          "recall_prompt": "The nurse checks for drug interactions before administering a new medication. ->?",
           "gloss": "The nurse checks for drug interactions before administering a new medication.",
           "example_sentence": "Hoitaja tarkistaa lääkkeiden yhteisvaikutukset ennen uuden lääkkeen antamista."
         },
@@ -491890,7 +491890,7 @@
           "sentence": "Hoitaja tarkistaa potilaan refleksit neurologisessa tutkimuksessa."
         },
         "back": {
-          "recall_prompt": "The nurse checks the patient's reflexes during a neurological examination. -> ?",
+          "recall_prompt": "The nurse checks the patient's reflexes during a neurological examination. ->?",
           "gloss": "The nurse checks the patient's reflexes during a neurological examination.",
           "example_sentence": "Hoitaja tarkistaa potilaan refleksit neurologisessa tutkimuksessa."
         },
@@ -492002,7 +492002,7 @@
           "sentence": "Hoitaja tarkistaa potilaan tajunnantason."
         },
         "back": {
-          "recall_prompt": "The nurse checks the patient's level of consciousness. -> ?",
+          "recall_prompt": "The nurse checks the patient's level of consciousness. ->?",
           "gloss": "The nurse checks the patient's level of consciousness.",
           "example_sentence": "Hoitaja tarkistaa potilaan tajunnantason."
         },
@@ -492114,7 +492114,7 @@
           "sentence": "Hoitaja tarkistaa, että infuusio tippuu oikein."
         },
         "back": {
-          "recall_prompt": "The nurse checks that the IV is dripping correctly. -> ?",
+          "recall_prompt": "The nurse checks that the IV is dripping correctly. ->?",
           "gloss": "The nurse checks that the IV is dripping correctly.",
           "example_sentence": "Hoitaja tarkistaa, että infuusio tippuu oikein."
         },
@@ -492226,7 +492226,7 @@
           "sentence": "Hoitaja toteuttaa potilaan kivunhoitoa lääkärin määräysten mukaisesti."
         },
         "back": {
-          "recall_prompt": "The nurse implements the patient's pain management according to the doctor's orders. -> ?",
+          "recall_prompt": "The nurse implements the patient's pain management according to the doctor's orders. ->?",
           "gloss": "The nurse implements the patient's pain management according to the doctor's orders.",
           "example_sentence": "Hoitaja toteuttaa potilaan kivunhoitoa lääkärin määräysten mukaisesti."
         },
@@ -492338,7 +492338,7 @@
           "sentence": "Hoitaja tutkii potilaan reagointia kipuun."
         },
         "back": {
-          "recall_prompt": "The nurse assesses the patient's response to pain. -> ?",
+          "recall_prompt": "The nurse assesses the patient's response to pain. ->?",
           "gloss": "The nurse assesses the patient's response to pain.",
           "example_sentence": "Hoitaja tutkii potilaan reagointia kipuun."
         },
@@ -492450,7 +492450,7 @@
           "sentence": "Hoitaja valmistelee potilaan leikkausta varten."
         },
         "back": {
-          "recall_prompt": "The nurse prepares the patient for surgery. -> ?",
+          "recall_prompt": "The nurse prepares the patient for surgery. ->?",
           "gloss": "The nurse prepares the patient for surgery.",
           "example_sentence": "Hoitaja valmistelee potilaan leikkausta varten."
         },
@@ -492562,7 +492562,7 @@
           "sentence": "Potilaalla on painehaava ristiluun alueella."
         },
         "back": {
-          "recall_prompt": "The patient has a pressure ulcer on the sacral area. -> ?",
+          "recall_prompt": "The patient has a pressure ulcer on the sacral area. ->?",
           "gloss": "The patient has a pressure ulcer on the sacral area.",
           "example_sentence": "Potilaalla on painehaava ristiluun alueella."
         },
@@ -492674,7 +492674,7 @@
           "sentence": "Potilaalle annetaan saattohoitoa, kun parantavaa hoitoa ei ole enää saatavilla."
         },
         "back": {
-          "recall_prompt": "Palliative care is given to the patient when curative treatment is no longer available. -> ?",
+          "recall_prompt": "Palliative care is given to the patient when curative treatment is no longer available. ->?",
           "gloss": "Palliative care is given to the patient when curative treatment is no longer available.",
           "example_sentence": "Potilaalle annetaan saattohoitoa, kun parantavaa hoitoa ei ole enää saatavilla."
         },
@@ -492786,7 +492786,7 @@
           "sentence": "Potilaalle annetaan verensiirto."
         },
         "back": {
-          "recall_prompt": "The patient is given a blood transfusion. -> ?",
+          "recall_prompt": "The patient is given a blood transfusion. ->?",
           "gloss": "The patient is given a blood transfusion.",
           "example_sentence": "Potilaalle annetaan verensiirto."
         },
@@ -492898,7 +492898,7 @@
           "sentence": "Potilaan hengitys on vaikeutunut."
         },
         "back": {
-          "recall_prompt": "The patient's breathing has become difficult. -> ?",
+          "recall_prompt": "The patient's breathing has become difficult. ->?",
           "gloss": "The patient's breathing has become difficult.",
           "example_sentence": "Potilaan hengitys on vaikeutunut."
         },
@@ -493010,7 +493010,7 @@
           "sentence": "Potilas herätetään yöllä lääkityksen vuoksi."
         },
         "back": {
-          "recall_prompt": "The patient is woken up at night because of medication. -> ?",
+          "recall_prompt": "The patient is woken up at night because of medication. ->?",
           "gloss": "The patient is woken up at night because of medication.",
           "example_sentence": "Potilas herätetään yöllä lääkityksen vuoksi."
         },
@@ -493122,7 +493122,7 @@
           "sentence": "Potilas rauhoitetaan lääkkeellisesti ennen toimenpidettä."
         },
         "back": {
-          "recall_prompt": "The patient is calmed with medication before the procedure. -> ?",
+          "recall_prompt": "The patient is calmed with medication before the procedure. ->?",
           "gloss": "The patient is calmed with medication before the procedure.",
           "example_sentence": "Potilas rauhoitetaan lääkkeellisesti ennen toimenpidettä."
         },
@@ -493234,7 +493234,7 @@
           "sentence": "Potilas saa suonensisäisesti nesteytystä."
         },
         "back": {
-          "recall_prompt": "The patient is receiving intravenous hydration. -> ?",
+          "recall_prompt": "The patient is receiving intravenous hydration. ->?",
           "gloss": "The patient is receiving intravenous hydration.",
           "example_sentence": "Potilas saa suonensisäisesti nesteytystä."
         },
@@ -493346,7 +493346,7 @@
           "sentence": "Potilas siirtyy teho-osastolta vuodeosastolle."
         },
         "back": {
-          "recall_prompt": "The patient is moving from the ICU to the general ward. -> ?",
+          "recall_prompt": "The patient is moving from the ICU to the general ward. ->?",
           "gloss": "The patient is moving from the ICU to the general ward.",
           "example_sentence": "Potilas siirtyy teho-osastolta vuodeosastolle."
         },
@@ -493458,7 +493458,7 @@
           "sentence": "Potilas voidaan kotiuttaa huomenna."
         },
         "back": {
-          "recall_prompt": "The patient can be discharged tomorrow. -> ?",
+          "recall_prompt": "The patient can be discharged tomorrow. ->?",
           "gloss": "The patient can be discharged tomorrow.",
           "example_sentence": "Potilas voidaan kotiuttaa huomenna."
         },
@@ -493570,7 +493570,7 @@
           "sentence": "Voitko auttaa potilaan käymään?"
         },
         "back": {
-          "recall_prompt": "Can you help the patient to the toilet? -> ?",
+          "recall_prompt": "Can you help the patient to the toilet? ->?",
           "gloss": "Can you help the patient to the toilet?",
           "example_sentence": "Voitko auttaa potilaan käymään?"
         },
@@ -493792,7 +493792,7 @@
           "sentence": "Potilas kipuilee leikkaushaavan alueella."
         },
         "back": {
-          "recall_prompt": "The patient has pain in the area of the surgical wound. -> ?",
+          "recall_prompt": "The patient has pain in the area of the surgical wound. ->?",
           "gloss": "The patient has pain in the area of the surgical wound.",
           "example_sentence": "Potilas kipuilee leikkaushaavan alueella."
         },
@@ -493904,7 +493904,7 @@
           "sentence": "Potilas arvioi kipunsa asteikolla 0-10."
         },
         "back": {
-          "recall_prompt": "The patient rates their pain on a scale of 0-10. -> ?",
+          "recall_prompt": "The patient rates their pain on a scale of 0-10. ->?",
           "gloss": "The patient rates their pain on a scale of 0-10.",
           "example_sentence": "Potilas arvioi kipunsa asteikolla 0-10."
         },

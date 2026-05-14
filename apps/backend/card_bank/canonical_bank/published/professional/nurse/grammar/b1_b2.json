@@ -7229,7 +7229,8 @@
                 "text": "A sitting patient is easier to examine."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -8084,7 +8085,8 @@
                 "text": "I remind the patient about taking the medicine."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -10807,7 +10809,8 @@
               }
             ],
             "answer_key": "o4",
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "prompt": "What does this example express? Potilas saattaa nukkua."
           }
         ],
         "explanation": {
@@ -11995,7 +11998,9 @@
                 "text": "The patient went into shock."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas meni shokkiin.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -14507,7 +14512,9 @@
                 "text": "After taking the medicine, the patient rests."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Lääkkeen ottamisen jälkeen potilas lepää.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -16676,7 +16683,8 @@
                 "text": "The patient does not eat anything, not even water."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -16777,7 +16785,8 @@
               }
             ],
             "answer_key": "o4",
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "prompt": "What does this example express? Potilaalla on myös kuumetta."
           }
         ],
         "explanation": {
@@ -18204,7 +18213,8 @@
                 "text": "While checking the wound."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -18414,7 +18424,9 @@
                 "text": "The patient is taken to be operated on."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas viedään leikattavaksi.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -20789,7 +20801,8 @@
                 "text": "The patient is taken to be operated on."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -26044,7 +26057,9 @@
                 "text": "The patient sleeps enough because of the medicine."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas nukkuu liikaa lääkkeen takia.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -26560,7 +26575,9 @@
                 "text": "The patient is recovering well."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "prompt": "What does this example express? Mitä sille potilaalle kuuluu?",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -29935,7 +29952,8 @@
                 "text": "The patient refuses treatment from the doctor."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -30288,7 +30306,8 @@
                 "text": "The patient is in good enough condition for surgery."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -33764,7 +33783,9 @@
                 "text": "Treatment was started quickly because the patient was in poor condition."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Hoidon aloitettiin nopeasti siksi, että potilas oli huonossa kunnossa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -34085,7 +34106,8 @@
                 "text": "The nurse is monitoring the patient's condition closely."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -39105,7 +39127,9 @@
                 "text": "The patient tries to get up alone."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas yrittää nousta ylös itse.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -39417,7 +39441,9 @@
                 "text": "The patient claims to have taken the medicine."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas väittää ottaneensa lääkkeen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -40065,7 +40091,9 @@
                 "text": "I check breathing before giving the medicine."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Tarkistan hengityksen ennen lääkkeen antoa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -40151,7 +40179,7 @@
             "options": [
               {
                 "option_id": "o1",
-                "text": "I review the lab results."
+                "text": "I the lab results."
               },
               {
                 "option_id": "o2",
@@ -40711,7 +40739,9 @@
                 "text": "I turn the patient to the side to prevent pressure sores."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Käännän potilaan kyljelleen painohaavan estämiseksi.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -42902,7 +42932,8 @@
                 "text": "When the doctor arrived, the patient was already stable."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -43325,7 +43356,8 @@
                 "text": "The patient feels better after treatment."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -48605,7 +48637,9 @@
                 "text": "The appointment was scheduled with the patient for Monday at 10 AM."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Tutkimusajankohta sovittu potilaan kanssa maanantaiksi kello 10.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -48705,7 +48739,9 @@
                 "text": "Treatment response is good, the patient's symptoms have decreased significantly."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Hoitovaste on hyvä, potilaan oireet ovat vähentyneet merkittävästi.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -51106,7 +51142,8 @@
                 "text": "The doctor prescribed the treatment."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -51317,7 +51354,8 @@
                 "text": "Patient instructions given in writing and verbally to the patient and relatives."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -57135,7 +57173,9 @@
                 "text": "The patient is motivated to go home and follows instructions well."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas on motivoitunut kotiutumaan ja noudattaa hyvin ohjeita.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -58665,7 +58705,9 @@
                 "text": "I hope you recover soon."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "prompt": "What does this example express? Sinun kannattaisi levätä.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -59205,7 +59247,9 @@
                 "text": "I see the patient. I see blood."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Näen potilaan (whole). Näen verta (partitive).",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -59306,7 +59350,8 @@
                 "text": "The patient is eating."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -65126,7 +65171,9 @@
                 "text": "How often does the patient go to the toilet?"
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Kuinka usein potilas käy vessassa?",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -79187,7 +79234,8 @@
                 "text": "The patient needs help."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -79499,7 +79547,9 @@
                 "text": "I give the patient the medicines ready."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Annan potilaalle lääkkeet valmiiksi.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -80480,7 +80530,8 @@
                 "text": "The nurse must administer the treatment."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -82103,7 +82154,8 @@
                 "text": "Potilas oksentaa, anna pahoinvointilääke laskimoon."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -83208,7 +83260,9 @@
                 "text": "The patient hasn’t urinated in 12 hours, measure fluid balance."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas ei ole virtsannut 12 tuntiin, mittaa nestetasapaino.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -85269,7 +85323,8 @@
                 "text": "Keep a list of the patient’s belongings during transfer."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -85370,7 +85425,8 @@
                 "text": "The patient is confused and needs help."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -85902,7 +85958,9 @@
                 "text": "The patient’s speech is slurred, do a FAST test."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaan puhe on puuroutunutta, tee FAST-testi.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -86104,7 +86162,9 @@
                 "text": "Measure the wound size without a photo."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Ota valokuva haavasta potilaan suostumuksella kirjaukseen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -88288,7 +88348,8 @@
                 "text": "This medicine is not effective."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -88358,11 +88419,11 @@
       "content_type": "grammar_card",
       "content": {
         "front": {
-          "pattern": "superlative with definite article (se ... -in)",
-          "usage": "the ...-est"
+          "pattern": "superlative with definite article (se... -in)",
+          "usage": "the...-est"
         },
         "back": {
-          "recall_prompt": "What is the function of 'superlative with definite article (se ... -in)'?",
+          "recall_prompt": "What is the function of 'superlative with definite article (se... -in)'?",
           "gloss": "The fastest recovery was a surprise.",
           "example_sentence": "Se nopein toipuminen oli yllätys."
         },
@@ -88394,7 +88455,7 @@
           }
         ],
         "explanation": {
-          "summary": "the ...-est",
+          "summary": "the...-est",
           "example": "Se nopein toipuminen oli yllätys."
         },
         "audio": null,
@@ -90665,7 +90726,9 @@
                 "text": "The patient has a seizure, protect the head and time it."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalla on kouristuskohtaus, suojaa pää ja kelloita.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -91088,7 +91151,8 @@
                 "text": "Do pain assessment on 0–10 scale before and after medicine."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -91723,7 +91787,8 @@
                 "text": "The patient should rest."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -91933,7 +91998,9 @@
                 "text": "Explain the inhaler side effects to the patient."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Näytä potilaalle kuinka käyttää inhalaattoria oikein.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -92033,7 +92100,9 @@
                 "text": "The patient refuses a blood test, document the refusal."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas ei suostu verikokeeseen, kirjaa kieltäytyminen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -93225,7 +93294,9 @@
                 "text": "The patient should rest."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Katso potilaan pupillit taskulampulla, ovatko ne tasasuuret.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -96728,7 +96799,8 @@
                 "text": "The medicine has not been given yet."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -98988,7 +99060,9 @@
                 "text": "Even if the patient refused, we must try."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Vaikka potilas kieltäytyisi, meidän täytyy yrittää.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -102043,7 +102117,8 @@
                 "text": "I believe in recovery."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -103641,7 +103716,9 @@
                 "text": "The patient needs a blood transfusion."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Lääke maksaa paljon sairaalalle.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -103953,7 +104030,9 @@
                 "text": "I have to give the medicine."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Uskon lääkäriä.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -104599,7 +104678,9 @@
                 "text": "The patient went home with family."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas meni kotiin perheineen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -114969,7 +115050,9 @@
                 "text": "The patient is under anesthesia during the procedure, monitor vital signs."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas on nukutuksessa toimenpiteen ajan, seuraa elintoimintoja.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -115069,7 +115152,9 @@
                 "text": "The patient wakes slowly from anesthesia, give time."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas herää nukutuksesta hitaasti, anna aikaa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -115390,7 +115475,8 @@
               }
             ],
             "answer_key": "o4",
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "prompt": "What does this example express? Potilas sai paikallispuudutuksen ennen tikitystä."
           }
         ],
         "explanation": {
@@ -115702,7 +115788,9 @@
                 "text": "The patient got a pacemaker yesterday, check the wound."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalle asennettiin sydämentahdistin eilen, tarkista haava.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -115803,7 +115891,8 @@
                 "text": "The patient needs a check-up."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -119076,7 +119165,8 @@
                 "text": "The patient is not responding."
               }
             ],
-            "answer_key": "o2"
+            "answer_key": "o2",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -119278,7 +119368,9 @@
                 "text": "The patient is given oxygen with mask 8 liters per minute."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalle annetaan happea maskilla 8 litraa minuutissa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -120411,7 +120503,7 @@
               },
               {
                 "option_id": "o3",
-                "text": "The patient takes medication, review side effects."
+                "text": "The patient takes medication, side effects."
               },
               {
                 "option_id": "o4",
@@ -121514,7 +121606,8 @@
                 "text": "The patient uses sedatives, monitor drowsiness."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -122961,7 +123054,8 @@
                 "text": "The patient is experiencing a mild episode."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -126405,7 +126499,9 @@
                 "text": "The patient participates in drug trial, follow protocol."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas osallistuu lääketutkimukseen, noudata protokollaa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -128992,7 +129088,8 @@
                 "text": "The patient has blood in stool, take stool sample."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -129561,7 +129658,8 @@
                 "text": "The patient is bruising without cause, I suspect clotting disorder."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What is the function of 'sentence: potilas on mustelmilla ilman syytä'?"
           }
         ],
         "explanation": {
@@ -129771,7 +129869,9 @@
                 "text": "The patient has large bruises, I suspect violence."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalla on laajoja mustelmia, epäilen väkivaltaa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -130985,7 +131085,9 @@
                 "text": "I believe in recovery."
               }
             ],
-            "answer_key": "o2"
+            "answer_key": "o2",
+            "prompt": "What does this example express? Arvioni mukaan potilas on menossa sokkiin.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -131304,7 +131406,8 @@
                 "text": "The patient is waiting for a doctor."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -132591,7 +132694,8 @@
                 "text": "The patient needs more medication."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -134350,7 +134454,8 @@
                 "text": "The patient is feeling better."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -134770,7 +134875,9 @@
                 "text": "The patient needs IV access for fluids and medications."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas tarvitsee suoniyhteyden nesteitä ja lääkkeitä varten.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -134978,7 +135085,9 @@
                 "text": "The patient has a PICC line, flush regularly."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalla on PICC-linja, huuhtele säännöllisesti.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -136288,7 +136397,9 @@
                 "text": "The patient has allergy signs, contact the pharmacist."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalla on hyljintäoireita, soita elinsiirtokoordinaattorille.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -136499,7 +136610,8 @@
               }
             ],
             "answer_key": "o4",
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "prompt": "What does this example express? Potilas saa sytostaattihoitoa suonensisäisesti kolmen viikon välein."
           }
         ],
         "explanation": {
@@ -137674,7 +137786,8 @@
                 "text": "Potilas tarvitsee lepoa."
               }
             ],
-            "answer_key": "o2"
+            "answer_key": "o2",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -140524,7 +140637,9 @@
                 "text": "The patient has a referral to rehab clinic after stroke."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas on lähete kuntoutuspoliklinikalle aivohalvauksen jälkeen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -140735,7 +140850,8 @@
                 "text": "The patient is being discharged."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -142593,7 +142709,9 @@
                 "text": "The medicine is given as an injection."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Lääke sekoitetaan tiputukseen ja annetaaan puolessa tunnissa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -142693,7 +142811,9 @@
                 "text": "The medicine is given as IV bolus in five minutes."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Lääke annetaan boluksena suoneen viidessä minuutissa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -146416,7 +146536,8 @@
                 "text": "Administer medication as needed."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -147267,7 +147388,8 @@
                 "text": "Follow-up appointment is booked for the patient in two weeks."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -147714,7 +147836,9 @@
                 "text": "Patient's religion is considered in care: meals, washing, and prayer."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaan uskonto huomioidaan hoidossa: ruokailu, peseytyminen ja rukous.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -147814,7 +147938,9 @@
                 "text": "Patient needs a quiet space for prayer, arrange it."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas tarvitsee hiljaisen tilan rukousta varten, järjestä se.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -147914,7 +148040,9 @@
                 "text": "I have to give the medicine."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "prompt": "What does this example express? Potilas paastoaa uskonnollisista syistä, sovita lääkkeet paaston mukaan.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -150317,7 +150445,8 @@
                 "text": "Patient needs bedpan because cannot get to toilet."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -150527,7 +150656,9 @@
                 "text": "Patient needs new pillow because old one is flattened."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas tarvitsee uuden tyynyn, koska vanha on litistynyt.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -157092,7 +157223,8 @@
                 "text": "Monitor the patient's heart rate."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -157303,7 +157435,8 @@
                 "text": "Patient is on telemetry monitoring due to arrhythmia, set alarm limits."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -158924,7 +159057,7 @@
               },
               {
                 "option_id": "o2",
-                "text": "The doctor will review the lab results."
+                "text": "The doctor will the lab results."
               },
               {
                 "option_id": "o3",
@@ -158935,7 +159068,9 @@
                 "text": "Colonoscopy is performed to examine bowel, patient fasts."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalle tehdään kolonoskopia suoliston tutkimiseksi, potilas paastoaa.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -164486,7 +164621,8 @@
                 "text": "Patient has tumor, receives chemotherapy every three weeks."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -165315,7 +165451,7 @@
         },
         "back": {
           "recall_prompt": "What is the function of 'sentence: potilaalla on polyfarmasia, tarkista lääkkeet'?",
-          "gloss": "Patient has polypharmacy, review medications and remove unnecessary ones with doctor.",
+          "gloss": "Patient has polypharmacy, medications and remove unnecessary ones with doctor.",
           "example_sentence": "Potilaalla on polyfarmasia, tarkista lääkkeet ja poista tarpeettomat lääkärin kanssa."
         },
         "prompt_family": "grammar_pattern",
@@ -165326,7 +165462,7 @@
             "options": [
               {
                 "option_id": "o4",
-                "text": "Patient has polypharmacy, review medications and remove unnecessary ones with doctor."
+                "text": "Patient has polypharmacy, medications and remove unnecessary ones with doctor."
               },
               {
                 "option_id": "o1",
@@ -165341,7 +165477,8 @@
                 "text": "The patient should rest."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -165659,7 +165796,9 @@
                 "text": "Patient has constipation, give laxative and increase fiber in diet."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalla on ummetusta, anna laksatiivia ja lisää kuitua ruokavalioon.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -165759,7 +165898,9 @@
                 "text": "Patient has obesity, consult dietitian."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilaalla on aliravitsemus, konsultoi ravitsemusterapeuttia ja aloita täydennysravinto.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -167925,7 +168066,9 @@
                 "text": "The patient should rest."
               }
             ],
-            "answer_key": "o3"
+            "answer_key": "o3",
+            "prompt": "What does this example express? Potilaalla on serotoniinioireyhtymä, lopeta lääkkeet ja anna tukea.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -169125,7 +169268,9 @@
                 "text": "Patient is hypothermic, warm slowly with blankets and heat pack."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Potilas on hypoterminen, lämmitä hitaasti peitoilla ja lämpötyynyllä.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -172310,7 +172455,8 @@
               }
             ],
             "answer_key": "o4",
-            "evaluation_mode": "option_id"
+            "evaluation_mode": "option_id",
+            "prompt": "What does this example express? Annan lääkkeen."
           }
         ],
         "explanation": {
@@ -179216,7 +179362,9 @@
                 "text": "Wash your hands before you touch the patient."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Pese kädet ennen kuin kosket potilasta.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -180290,7 +180438,9 @@
                 "text": "I went to help the patient."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Menin auttamaan potilasta.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -183801,7 +183951,8 @@
                 "text": "I came to work even though I was tired."
               }
             ],
-            "answer_key": "o1"
+            "answer_key": "o1",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -194398,7 +194549,9 @@
                 "text": "That patient sleeps."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Sä otat lääkkeen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -194608,7 +194761,9 @@
                 "text": "That patient sleeps."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Me tarkistetaan haavat.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -194928,7 +195083,9 @@
                 "text": "I measure the blood pressure (spoken, no final -n)"
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Mä mittaa verenpaineen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -195028,7 +195185,9 @@
                 "text": "We go to the ward (spoken, lit. 'one goes')."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Me mennään osastolle.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -196884,7 +197043,9 @@
                 "text": "I help the patient (ongoing/partial)."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Autan potilasta.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -197095,7 +197256,8 @@
                 "text": "The patient needs help."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -197769,7 +197931,9 @@
                 "text": "The medicine influences the blood pressure."
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? Lääke vaikuttaa verenpaineeseen.",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -221425,7 +221589,9 @@
                 "text": "All case forms of the pronoun 'sinä' (you singular)"
               }
             ],
-            "answer_key": "o4"
+            "answer_key": "o4",
+            "prompt": "What does this example express? sinä, sinun, sinua, sinussa, sinusta, sinuun, sinulla, sinulta, sinulle, sinuna, sinuksi, sinutta, sinun (comit).",
+            "evaluation_mode": "option_id"
           }
         ],
         "explanation": {
@@ -228022,12 +228188,14 @@
                 "text": "The doctor operates on the patient."
               }
             ],
-            "answer_key": "o2"
+            "answer_key": "o2",
+            "evaluation_mode": "option_id"
           },
           {
             "variant_type": "typed_recall",
             "prompt": "Describe the meaning or function in English.",
-            "answer_key": "The doctor medicates the patient."
+            "answer_key": "The doctor medicates the patient.",
+            "evaluation_mode": "normalized_text"
           }
         ],
         "explanation": {
