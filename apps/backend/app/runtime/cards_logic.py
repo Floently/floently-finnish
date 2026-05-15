@@ -8,6 +8,8 @@ from app.core.errors import AppError
 from app.core.state_store import STORE
 from app.core.utils import new_id
 from app.runtime.cards_material_bank import load_authority_cards, load_runtime_bank, CardRecord
+from app.runtime.card_i18n_overlay_runtime import apply_runtime_card_overlay
+from app.runtime.card_i18n_option_cache_runtime import apply_runtime_option_translations
 
 CARD_CONTENT_TYPES = {'vocabulary_card', 'sentence_card', 'grammar_card'}
 LEVEL_EXPANSION = {
@@ -182,7 +184,7 @@ def _make_served_follow_up(card: dict, *, option_shuffle_seed: str | None = None
     }
 
 
-def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str | None = None) -> dict:
+def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str | None = None, ui_language: str | None = None) -> dict:
     materialized = dict(card)
     materialized['state'] = 'new'
     materialized['seen_count'] = 0
@@ -199,7 +201,18 @@ def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str
     # hints we synthesize a structurally correct fallback that points at
     # the type of answer expected, not a generic platitude.
     materialized['hint'] = _resolve_card_hint(card)
-    return materialized
+    # Preserve canonical text for release gates before UI-language overlays mutate display fields.
+    canonical_follow_up = card.get("follow_up") if isinstance(card.get("follow_up"), dict) else {}
+    materialized["_canonical_release_gate_prompt"] = str(
+        card.get("_canonical_release_gate_prompt")
+        or card.get("prompt")
+        or card.get("back_prompt")
+        or canonical_follow_up.get("prompt")
+        or ""
+    )
+
+    materialized = apply_runtime_card_overlay(materialized, ui_language=ui_language)
+    return apply_runtime_option_translations(materialized, ui_language=ui_language)
 
 
 def _resolve_card_hint(card: dict) -> str:
@@ -234,7 +247,6 @@ def _resolve_card_hint(card: dict) -> str:
             return 'Mieti perussääntöä: subjekti, verbi, objekti — mikä taivutusmuoto?'
         return 'Tunnista lauseen rakenne ja tarvittava taivutusmuoto.'
     return 'Lue kortti ääneen ja mieti, mikä rakenne tähän sopii.'
-    return materialized
 
 
 def _rank_cards(cards: list[dict], *, user_id: str, domain: str, content_type: str | None, profession: str | None, level_band: str) -> list[dict]:
@@ -266,7 +278,7 @@ def _session_state(session: dict) -> dict:
     return {'session_id': session['session_id'], 'status': session['status'].lower(), 'current_card_index': session['current_card_index'], 'total_cards': len(session['cards']), 'answered_count': session['answered_count'], 'created_at': session['created_at'], 'updated_at': session['updated_at']}
 
 
-def start_cards_session(*, user_id: str, domain: str, content_type: str | None, profession: str | None, level: str | None, adaptive: bool = False, limit: int = 10) -> dict:
+def start_cards_session(*, user_id: str, domain: str, content_type: str | None, profession: str | None, level: str | None, ui_language: str | None = None, adaptive: bool = False, limit: int = 10) -> dict:
     authority_cards = _filtered_cards(domain=domain, content_type=content_type, profession=profession)
     level_band = _normalized_level(level)
     ranked = _rank_cards(authority_cards, user_id=user_id, domain=domain, content_type=content_type, profession=profession, level_band=level_band)
@@ -276,6 +288,7 @@ def start_cards_session(*, user_id: str, domain: str, content_type: str | None, 
             card,
             order_index=index,
             option_shuffle_seed=f'{option_seed_base}|{card.get("id")}|{index}',
+            ui_language=ui_language,
         )
         for index, card in enumerate(ranked[: max(1, limit)])
     ]
@@ -330,7 +343,7 @@ def list_cards(*, user_id: str, domain: str, content_type: str | None, professio
     cards = _filtered_cards(domain=domain, content_type=content_type, profession=profession, source=source)
     level_band = _normalized_level(level)
     filtered = [card for card in cards if card['level_band'] in LEVEL_EXPANSION[level_band]]
-    materialized = [_public_card(_materialized_card(card, order_index=i)) for i, card in enumerate(filtered)]
+    materialized = [_public_card(_materialized_card(card, order_index=i, ui_language=ui_language)) for i, card in enumerate(filtered)]
     return {'cards': materialized}
 
 
