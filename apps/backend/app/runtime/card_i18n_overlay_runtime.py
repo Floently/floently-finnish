@@ -452,4 +452,9 @@ def apply_runtime_card_overlay(card: dict[str, Any], *, ui_language: Any) -> dic
     card["overlay_option_count"] = option_count
     card["overlay_localized_option_count"] = localized_option_count
     card["overlay_incomplete"] = bool(language and option_count > 0 and localized_option_count < option_count)
+    # If an overlay file exists but does not localize a generic prompt wrapper,
+    # still localize common built-in prompt templates.
+    if not card.get("generic_prompt_fallback_applied"):
+        _apply_generic_prompt_fallback(card, language)
+
     return card
