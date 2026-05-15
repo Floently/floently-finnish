@@ -250,6 +250,123 @@ def _set_option_text(card: dict[str, Any], option_id: str | None, option_index: 
     return changed
 
 
+
+GRAMMAR_EXAMPLE_PROMPTS = {
+    "ar": "ماذا يعبّر هذا المثال؟",
+    "bn": "এই উদাহরণটি কী প্রকাশ করে?",
+    "en": "What does this example express?",
+    "es": "¿Qué expresa este ejemplo?",
+    "et": "Mida see näide väljendab?",
+    "fa": "این مثال چه چیزی را بیان می‌کند؟",
+    "fi": "Mitä tämä esimerkki ilmaisee?",
+    "fil": "Ano ang ipinapahayag ng halimbawang ito?",
+    "ku": "Ev mînak çi diyar dike?",
+    "ne": "यो उदाहरणले के जनाउँछ?",
+    "ru": "Что выражает этот пример?",
+    "so": "Muxuu tusaalahan muujinayaa?",
+    "sq": "Çfarë shpreh ky shembull?",
+    "sv": "Vad uttrycker det här exemplet?",
+    "th": "ตัวอย่างนี้แสดงความหมายว่าอะไร?",
+    "tr": "Bu örnek ne ifade ediyor?",
+    "uk": "Що виражає цей приклад?",
+    "ur": "یہ مثال کیا ظاہر کرتی ہے؟",
+    "vi": "Ví dụ này thể hiện điều gì?",
+    "zh-Hans": "这个例子表达什么意思？",
+}
+
+BEST_MEANING_PROMPTS = {
+    "ar": "اختر أفضل معنى.",
+    "bn": "সেরা অর্থটি বেছে নিন।",
+    "en": "Choose the best meaning.",
+    "es": "Elige el mejor significado.",
+    "et": "Vali parim tähendus.",
+    "fa": "بهترین معنی را انتخاب کنید.",
+    "fi": "Valitse paras merkitys.",
+    "fil": "Piliin ang pinakaangkop na kahulugan.",
+    "ku": "Wateya herî baş hilbijêre.",
+    "ne": "सबैभन्दा राम्रो अर्थ छान्नुहोस्।",
+    "ru": "Выберите наиболее подходящее значение.",
+    "so": "Dooro macnaha ugu habboon.",
+    "sq": "Zgjidh kuptimin më të përshtatshëm.",
+    "sv": "Välj den bästa betydelsen.",
+    "th": "เลือกความหมายที่เหมาะสมที่สุด",
+    "tr": "En uygun anlamı seç.",
+    "uk": "Виберіть найкраще значення.",
+    "ur": "سب سے مناسب معنی منتخب کریں۔",
+    "vi": "Chọn nghĩa phù hợp nhất.",
+    "zh-Hans": "选择最合适的意思。",
+}
+
+FINNISH_SENTENCE_PROMPTS = {
+    "ar": "ماذا تعني هذه الجملة الفنلندية؟",
+    "bn": "এই ফিনিশ বাক্যটির অর্থ কী?",
+    "en": "What does this Finnish sentence mean?",
+    "es": "¿Qué significa esta oración en finés?",
+    "et": "Mida see soomekeelne lause tähendab?",
+    "fa": "این جمله فنلاندی چه معنی دارد؟",
+    "fi": "Mitä tämä suomenkielinen lause tarkoittaa?",
+    "fil": "Ano ang ibig sabihin ng pangungusap na ito sa Finnish?",
+    "ku": "Ev hevoka fînî çi tê wateyê?",
+    "ne": "यो फिनिश वाक्यको अर्थ के हो?",
+    "ru": "Что означает это финское предложение?",
+    "so": "Waa maxay macnaha jumladdan Finnish-ka ah?",
+    "sq": "Çfarë do të thotë kjo fjali në finlandisht?",
+    "sv": "Vad betyder den här finska meningen?",
+    "th": "ประโยคภาษาฟินแลนด์นี้หมายความว่าอะไร?",
+    "tr": "Bu Fince cümle ne anlama geliyor?",
+    "uk": "Що означає це фінське речення?",
+    "ur": "اس فِنّش جملے کا کیا مطلب ہے؟",
+    "vi": "Câu tiếng Phần Lan này có nghĩa là gì?",
+    "zh-Hans": "这个芬兰语句子是什么意思？",
+}
+
+
+def _localize_generic_prompt_text(prompt: Any, language: str) -> str | None:
+    text = str(prompt or "").strip()
+    if not text or language == "en":
+        return None
+
+    grammar_prefix = "What does this example express?"
+    if text == grammar_prefix:
+        return GRAMMAR_EXAMPLE_PROMPTS.get(language)
+
+    if text.startswith(grammar_prefix + " "):
+        example = text[len(grammar_prefix):].strip()
+        template = GRAMMAR_EXAMPLE_PROMPTS.get(language)
+        if template:
+            return f"{template} {example}".strip()
+
+    best = "Choose the best meaning."
+    if text == best:
+        return BEST_MEANING_PROMPTS.get(language)
+
+    sentence = "What does this Finnish sentence mean?"
+    if text == sentence:
+        return FINNISH_SENTENCE_PROMPTS.get(language)
+
+    return None
+
+
+def _apply_generic_prompt_fallback(card: dict[str, Any], language: str) -> bool:
+    served = card.get("served_follow_up")
+    current = ""
+
+    if isinstance(served, dict):
+        current = str(served.get("prompt") or "").strip()
+
+    if not current:
+        current = str(card.get("prompt") or "").strip()
+
+    localized = _localize_generic_prompt_text(current, language)
+
+    if not localized or localized == current:
+        return False
+
+    _set_follow_up_prompt(card, localized)
+    card["generic_prompt_fallback_applied"] = True
+    card["generic_prompt_fallback_language"] = language
+    return True
+
 def apply_runtime_card_overlay(card: dict[str, Any], *, ui_language: Any) -> dict[str, Any]:
     language = normalize_ui_language(ui_language)
 
@@ -269,6 +386,7 @@ def apply_runtime_card_overlay(card: dict[str, Any], *, ui_language: Any) -> dic
 
     entries = _load_overlay_by_file(str(overlay_path)).get(str(card.get("id") or "").strip(), [])
     if not entries:
+        _apply_generic_prompt_fallback(card, language)
         return card
 
     applied = 0
