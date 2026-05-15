@@ -11,6 +11,7 @@ from app.core.state_store import STORE
 from app.core.utils import new_id
 from app.runtime.cards_material_bank import load_authority_cards, load_runtime_bank, CardRecord
 from app.runtime.card_i18n_overlay_runtime import apply_runtime_card_overlay
+from app.runtime.card_i18n_option_cache_runtime import apply_runtime_option_translations
 
 CARD_CONTENT_TYPES = {'vocabulary_card', 'sentence_card', 'grammar_card'}
 LEVEL_EXPANSION = {
@@ -213,7 +214,8 @@ def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str
     # hints we synthesize a structurally correct fallback that points at
     # the type of answer expected, not a generic platitude.
     materialized['hint'] = _resolve_card_hint(card)
-    return apply_runtime_card_overlay(materialized, ui_language=ui_language)
+    materialized = apply_runtime_card_overlay(materialized, ui_language=ui_language)
+    return apply_runtime_option_translations(materialized, ui_language=ui_language)
 
 
 
