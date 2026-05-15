@@ -321,6 +321,53 @@ FINNISH_SENTENCE_PROMPTS = {
 }
 
 
+
+DESCRIBE_MEANING_FUNCTION_PROMPTS = {
+    "ar": "صِف المعنى أو الوظيفة.",
+    "bn": "অর্থ বা কাজটি বর্ণনা করুন।",
+    "en": "Describe the meaning or function in English.",
+    "es": "Describe el significado o la función.",
+    "et": "Kirjelda tähendust või funktsiooni.",
+    "fa": "معنی یا کاربرد را توضیح دهید.",
+    "fi": "Kuvaile merkitys tai tehtävä.",
+    "fil": "Ilarawan ang kahulugan o gamit nito.",
+    "ku": "Wate an jî erkê wê rave bike.",
+    "ne": "अर्थ वा काम वर्णन गर्नुहोस्।",
+    "ru": "Опишите значение или функцию.",
+    "so": "Sharax macnaha ama shaqada.",
+    "sq": "Përshkruaj kuptimin ose funksionin.",
+    "sv": "Beskriv betydelsen eller funktionen.",
+    "th": "อธิบายความหมายหรือหน้าที่",
+    "tr": "Anlamı veya işlevi açıklayın.",
+    "uk": "Опишіть значення або функцію.",
+    "ur": "معنی یا استعمال کی وضاحت کریں۔",
+    "vi": "Mô tả ý nghĩa hoặc chức năng.",
+    "zh-Hans": "描述其含义或功能。",
+}
+
+TYPE_MEANING_PROMPTS = {
+    "ar": "اكتب المعنى.",
+    "bn": "অর্থটি লিখুন।",
+    "en": "Type the meaning in English.",
+    "es": "Escribe el significado.",
+    "et": "Kirjuta tähendus.",
+    "fa": "معنی را بنویسید.",
+    "fi": "Kirjoita merkitys.",
+    "fil": "Isulat ang kahulugan.",
+    "ku": "Wateyê binivîse.",
+    "ne": "अर्थ लेख्नुहोस्।",
+    "ru": "Введите значение.",
+    "so": "Qor macnaha.",
+    "sq": "Shkruaj kuptimin.",
+    "sv": "Skriv betydelsen.",
+    "th": "พิมพ์ความหมาย",
+    "tr": "Anlamı yazın.",
+    "uk": "Напишіть значення.",
+    "ur": "معنی لکھیں۔",
+    "vi": "Nhập nghĩa.",
+    "zh-Hans": "输入意思。",
+}
+
 def _localize_generic_prompt_text(prompt: Any, language: str) -> str | None:
     text = str(prompt or "").strip()
     if not text or language == "en":
@@ -343,6 +390,14 @@ def _localize_generic_prompt_text(prompt: Any, language: str) -> str | None:
     sentence = "What does this Finnish sentence mean?"
     if text == sentence:
         return FINNISH_SENTENCE_PROMPTS.get(language)
+
+    describe = "Describe the meaning or function in English."
+    if text == describe:
+        return DESCRIBE_MEANING_FUNCTION_PROMPTS.get(language)
+
+    type_meaning = "Type the meaning in English."
+    if text == type_meaning:
+        return TYPE_MEANING_PROMPTS.get(language)
 
     return None
 
