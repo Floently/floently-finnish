@@ -144,7 +144,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
       setFormError(t('authInvalidEmail'));
       return;
     }
-    if (password.length < 8) {
+    if (tab === 'create' && password.length < 8) {
       setFormError(t('authShortPassword'));
       return;
     }

@@ -57,9 +57,11 @@ async function removeProtectedValue(key: string): Promise<void> {
 }
 
 export async function clearLegacyAuthStorage() {
+  // Keep current auth/session keys intact.
+  // On web, `writeProtectedValue` uses localStorage for SESSION_KEY and
+  // AUTH_SESSION_KEY, so removing them here would wipe active sign-in state
+  // during every hydration pass.
   await Promise.all([
-    AsyncStorage.removeItem(SESSION_KEY),
-    AsyncStorage.removeItem(AUTH_SESSION_KEY),
     AsyncStorage.removeItem(LOGIN_EMAIL_KEY),
   ]);
 }
