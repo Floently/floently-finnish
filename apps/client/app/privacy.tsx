@@ -1,5 +1,6 @@
-import LegalPage from '../features/legal/LegalPage';
+import { Redirect } from 'expo-router';
+import { getCanonicalLegalPath } from '../config/legalRoutes';
 
 export default function PrivacyRoute() {
-  return <LegalPage page="privacy-policy" />;
+  return <Redirect href={getCanonicalLegalPath('privacy-policy') as never} />;
 }

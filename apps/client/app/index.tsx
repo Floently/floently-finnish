@@ -5,6 +5,7 @@ import LearnLandingPage from '../web/LearnLandingPage';
 import LegalPage from '../features/legal/LegalPage';
 import { useAuthStore } from '../state/authStore';
 import { completeGoogleOAuthResult } from '@core/api/auth';
+import { resolveLegalPageFromPath } from '../config/legalRoutes';
 
 export default function IndexRoute() {
   const hydrateSession = useAuthStore((state) => state.hydrateSession);
@@ -48,14 +49,20 @@ export default function IndexRoute() {
   const pathname = isWeb ? window.location.pathname.replace(/\/+$/, '') || '/' : '/';
   const isLearnHost = isWeb && hostname === 'learn.floently.com';
   const isReadHost = isWeb && hostname === 'read.floently.com';
-  const learnPath = pathname === '/learn' ? '/' : pathname.startsWith('/learn/') ? pathname.slice('/learn'.length) || '/' : pathname;
+  const legalRoute = isWeb ? resolveLegalPageFromPath(pathname) : null;
+
+  useEffect(() => {
+    if (!isWeb || !legalRoute || legalRoute.isCanonical) {
+      return;
+    }
+    window.history.replaceState({}, document.title, legalRoute.canonicalPath);
+  }, [isWeb, legalRoute]);
+
+  if (legalRoute) {
+    return <LegalPage page={legalRoute.page} />;
+  }
 
   if (isLearnHost) {
-    if (learnPath === '/privacy' || learnPath === '/privacy-policy') return <LegalPage page="privacy-policy" />;
-    if (learnPath === '/terms' || learnPath === '/terms-of-use' || learnPath === '/teams') return <LegalPage page="terms-of-use" />;
-    if (learnPath === '/support') return <LegalPage page="support" />;
-    if (learnPath === '/account-deletion' || learnPath === '/delete-account') return <LegalPage page="account-deletion" />;
-
     if (hasHydrated && user) {
       return <AppShell requestedScreen="root" />;
     }

@@ -2,8 +2,7 @@ import React from 'react';
 import { Asset } from 'expo-asset';
 import { Image, Linking, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { LEGAL_URLS } from '../../config/legalUrls';
-
-type LegalPageKind = 'privacy-policy' | 'terms-of-use' | 'support' | 'account-deletion';
+import type { LegalPageKind } from '../../config/legalRoutes';
 
 type Section = {
   title: string;
@@ -36,6 +35,12 @@ const FLOENTLY_HOME_URL = 'https://floently.com/';
 const LEARN_HOME_URL = 'https://learn.floently.com/';
 const SUPPORT_CONTACT_URL = 'mailto:pilots@floently.com?subject=Floently%20support%20request';
 const ACCOUNT_DELETION_CONTACT_URL = 'mailto:pilots@floently.com?subject=Floently%20account%20deletion%20request';
+const WEB_LOGO_STYLE: React.CSSProperties = {
+  width: 128,
+  height: 84,
+  objectFit: 'contain',
+  display: 'block',
+};
 
 const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
   'privacy-policy': {
@@ -81,7 +86,7 @@ const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
       },
       {
         title: '6. User Rights',
-        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at https://learn.floently.com/account-deletion',
+        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at https://learn.floently.com/legal/account-deletion',
       },
       {
         title: '7. Contact',
@@ -194,7 +199,7 @@ function TopBar() {
           ? React.createElement('img', {
               src: LOGO_ASSET.uri,
               alt: 'Floently',
-              style: styles.webLogo as unknown as React.CSSProperties,
+              style: WEB_LOGO_STYLE,
             })
           : <Image source={LOGO} style={styles.topLogo} resizeMode="contain" accessibilityIgnoresInvertColors />}
       </Pressable>
@@ -314,12 +319,6 @@ const styles = StyleSheet.create({
   topLogo: {
     width: 128,
     height: 84,
-  },
-  webLogo: {
-    width: 128,
-    height: 84,
-    objectFit: 'contain',
-    display: 'block',
   },
   logoButton: {
     borderRadius: 12,

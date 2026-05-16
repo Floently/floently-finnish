@@ -1,5 +1,6 @@
-import LegalPage from '../../features/legal/LegalPage';
+import { Redirect } from 'expo-router';
+import { getCanonicalLegalPath } from '../../config/legalRoutes';
 
 export default function LearnSupportRoute() {
-  return <LegalPage page="support" />;
+  return <Redirect href={getCanonicalLegalPath('support') as never} />;
 }

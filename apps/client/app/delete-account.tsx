@@ -1,5 +1,6 @@
-import LegalPage from '../features/legal/LegalPage';
+import { Redirect } from 'expo-router';
+import { getCanonicalLegalPath } from '../config/legalRoutes';
 
 export default function DeleteAccountRoute() {
-  return <LegalPage page="account-deletion" />;
+  return <Redirect href={getCanonicalLegalPath('account-deletion') as never} />;
 }
