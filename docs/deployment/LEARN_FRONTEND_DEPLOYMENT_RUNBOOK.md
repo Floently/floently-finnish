@@ -5,6 +5,7 @@ Date: 2026-05-16
 ## Purpose
 - Publish the Expo static web export for `learn.floently.com`.
 - Ensure direct legal URLs render real exported HTML instead of falling through to an unmatched client route.
+- Ensure direct auth URLs like `/auth/login` and `/auth/register` render their exported HTML instead of falling through to the root shell.
 - Make the deployment path reproducible inside this repo.
 
 ## Source Of Truth
@@ -27,11 +28,14 @@ Date: 2026-05-16
    - `apps/client/dist/terms.html`
    - `apps/client/dist/support.html`
    - `apps/client/dist/account-deletion.html`
+   - `apps/client/dist/auth/login.html`
+   - `apps/client/dist/auth/register.html`
    - `apps/client/dist/legal/privacy-policy.html`
    - `apps/client/dist/legal/terms-of-use.html`
    - `apps/client/dist/legal/account-deletion.html`
 3. Install or update nginx using `apps/client/deploy/nginx/learn.floently.com.conf`.
    The critical behavior is `try_files $uri $uri.html $uri/index.html /index.html;`.
+   Without `$uri.html`, direct requests like `/auth/login` and `/privacy` will incorrectly receive `/index.html`.
 4. Deploy the export atomically:
    - `LEARN_WEB_HOST=deploy@learn.floently.com LEARN_WEB_ROOT=/var/www/learn.floently.com bash apps/client/scripts/deploy_learn_web.sh`
 5. Verify live routes:

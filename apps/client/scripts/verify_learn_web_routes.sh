@@ -12,6 +12,8 @@ ROUTES=(
   "/support"
   "/account-deletion"
   "/delete-account"
+  "/auth/login"
+  "/auth/register"
   "/legal/privacy-policy"
   "/legal/terms-of-use"
   "/legal/account-deletion"
@@ -36,6 +38,21 @@ for route in "${ROUTES[@]}"; do
     echo "FAIL $url rendered unmatched-route content" >&2
     exit 1
   fi
+
+  case "$route" in
+    "/auth/login")
+      if ! rg -q "Welcome back|Forgot password|Sign in to continue" /tmp/floently-legal-check.html; then
+        echo "FAIL $url did not render login page content" >&2
+        exit 1
+      fi
+      ;;
+    "/auth/register")
+      if ! rg -q "Create your account|Create account|Start your Finnish journey" /tmp/floently-legal-check.html; then
+        echo "FAIL $url did not render registration page content" >&2
+        exit 1
+      fi
+      ;;
+  esac
 
   echo "OK   $url"
 done
