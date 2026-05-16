@@ -3,22 +3,22 @@ export type LegalPageKind = 'privacy-policy' | 'terms-of-use' | 'support' | 'acc
 const LEARN_ORIGIN = 'https://learn.floently.com';
 
 export const LEGAL_PATHS: Record<LegalPageKind, string> = {
-  'privacy-policy': '/legal/privacy-policy',
-  'terms-of-use': '/legal/terms-of-use',
+  'privacy-policy': '/privacy',
+  'terms-of-use': '/terms',
   support: '/support',
-  'account-deletion': '/legal/account-deletion',
+  'account-deletion': '/account-deletion',
 };
 
 const LEGAL_ALIASES: Record<LegalPageKind, string[]> = {
   'privacy-policy': [
-    '/privacy',
     '/privacy-policy',
+    '/legal/privacy-policy',
     '/learn/privacy',
     '/learn/privacy-policy',
   ],
   'terms-of-use': [
-    '/terms',
     '/terms-of-use',
+    '/legal/terms-of-use',
     '/teams',
     '/learn/terms',
     '/learn/terms-of-use',
@@ -28,8 +28,8 @@ const LEGAL_ALIASES: Record<LegalPageKind, string[]> = {
     '/learn/support',
   ],
   'account-deletion': [
-    '/account-deletion',
     '/delete-account',
+    '/legal/account-deletion',
     '/learn/account-deletion',
     '/learn/delete-account',
   ],

@@ -1,6 +1,5 @@
-import { Redirect } from 'expo-router';
-import { getCanonicalLegalPath } from '../../config/legalRoutes';
+import LegalPage from '../../features/legal/LegalPage';
 
 export default function LearnTeamsRoute() {
-  return <Redirect href={getCanonicalLegalPath('terms-of-use') as never} />;
+  return <LegalPage page="terms-of-use" />;
 }

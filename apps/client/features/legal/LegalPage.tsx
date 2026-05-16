@@ -86,7 +86,7 @@ const PAGE_CONTENT: Record<LegalPageKind, PageContent> = {
       },
       {
         title: '6. User Rights',
-        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at https://learn.floently.com/legal/account-deletion',
+        body: 'Users can request account deletion in-app through Settings -> Delete Account. Public account deletion information is available at https://learn.floently.com/account-deletion',
       },
       {
         title: '7. Contact',

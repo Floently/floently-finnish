@@ -1,6 +1,7 @@
-import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect } from 'react';
-import { getCanonicalLegalPath, resolveLegalPageFromPath } from '../../config/legalRoutes';
+import LegalPage from '../../features/legal/LegalPage';
+import { resolveLegalPageFromPath } from '../../config/legalRoutes';
 
 function normalizeSlug(slug: string | string[] | undefined): string {
   if (Array.isArray(slug)) return slug.join('/').trim().toLowerCase();
@@ -18,5 +19,5 @@ export default function LearnAliasRoute() {
     }
   }, [route]);
 
-  return route ? <Redirect href={getCanonicalLegalPath(route.page) as never} /> : null;
+  return route ? <LegalPage page={route.page} /> : null;
 }
