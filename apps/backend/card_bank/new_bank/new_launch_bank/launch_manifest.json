@@ -1,0 +1,108 @@
+{
+  "schema": "floently_launch_bank_summary_v1",
+  "selector_version": "1.0.0",
+  "status": "completed",
+  "canonical_root": "/home/vitus/fleontly-finnish-bank-pipeline/floently-finnish/apps/backend/card_bank/new_bank/new_canonical",
+  "enriched_root": "/home/vitus/fleontly-finnish-bank-pipeline/floently-finnish/apps/backend/card_bank/new_bank/new_enriched",
+  "output": "/home/vitus/fleontly-finnish-bank-pipeline/floently-finnish/apps/backend/card_bank/new_bank/new_launch_bank",
+  "config": {
+    "quality_bands": [
+      "gold",
+      "good"
+    ],
+    "required_languages": [
+      "sv",
+      "en",
+      "ru",
+      "et",
+      "uk",
+      "ar",
+      "so",
+      "fa",
+      "zh",
+      "sq",
+      "ku",
+      "vi",
+      "bn",
+      "tr",
+      "tl",
+      "th",
+      "ne",
+      "es",
+      "ur"
+    ],
+    "overlay_policy": "complete_only",
+    "require_hash_match": true,
+    "require_all_overlays": true,
+    "include_usable": false,
+    "minimum_overall_score": null,
+    "write_runtime_indexes": true,
+    "write_overlay_lookup": false,
+    "copy_mode": "filtered_copy",
+    "compact_json": true,
+    "max_overlay_warnings_allowed": 0,
+    "minimum_per_bucket": 0,
+    "coverage_topup_enabled": true,
+    "coverage_topup_types": [
+      "sentence_card",
+      "grammar_card",
+      "idiom_card"
+    ],
+    "coverage_topup_per_bucket": {
+      "sentence_card": 500,
+      "grammar_card": 300,
+      "idiom_card": 250
+    },
+    "coverage_topup_allowed_blockers": [
+      "missing_finnish_source",
+      "missing_source_for_semantic"
+    ]
+  },
+  "selected_initial": 42417,
+  "selected_final": 42409,
+  "rejected_or_excluded": 27219,
+  "overlay_warnings": 0,
+  "elapsed_seconds": 131.58,
+  "by_bank": {
+    "yki.exam.vocabulary": 8216,
+    "professional.nurse.vocabulary": 7234,
+    "professional.practical_nurse.vocabulary": 6537,
+    "professional.doctor.vocabulary": 5358,
+    "yki.exam.word_opposite_in_meaning": 2684,
+    "yki.exam.word_similar_in_meaning": 2597,
+    "professional.practical_nurse.sentences": 1500,
+    "professional.doctor.sentences": 1500,
+    "yki.exam.sentences": 1500,
+    "professional.nurse.sentences": 1492,
+    "yki.exam.slang": 1115,
+    "yki.exam.idioms": 750,
+    "professional.nurse.grammar": 718,
+    "professional.practical_nurse.grammar": 608,
+    "professional.doctor.grammar": 600
+  },
+  "by_type": {
+    "vocabulary_card": 27345,
+    "sentence_card": 5992,
+    "word_opposite_in_meaning_card": 2684,
+    "word_similar_in_meaning_card": 2597,
+    "grammar_card": 1926,
+    "slang_card": 1115,
+    "idiom_card": 750
+  },
+  "by_level": {
+    "C1_C2": 15276,
+    "B1_B2": 14226,
+    "A1_A2": 12907
+  },
+  "by_profession": {
+    "yki": 16862,
+    "nurse": 9444,
+    "practical_nurse": 8645,
+    "doctor": 7458
+  },
+  "by_quality": {
+    "good": 33699,
+    "coverage_topup": 8668,
+    "gold": 42
+  }
+}
