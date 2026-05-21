@@ -29,6 +29,7 @@ if [[ -n "${LEARN_WEB_SSH_KEY:-}" ]]; then
 fi
 
 bash "$SCRIPT_DIR/export_learn_web.sh"
+node "$SCRIPT_DIR/legal_route_contract_check.mjs" --check-dist
 
 if [[ ! -d "$DIST_DIR" ]]; then
   echo "ERROR: expected export output at $DIST_DIR" >&2

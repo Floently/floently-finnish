@@ -3,28 +3,8 @@
 set -euo pipefail
 
 BASE_URL="${1:-https://learn.floently.com}"
-ROUTES=(
-  "/"
-  "/privacy"
-  "/privacy-policy"
-  "/terms"
-  "/terms-of-use"
-  "/support"
-  "/account-deletion"
-  "/delete-account"
-  "/auth/login"
-  "/auth/register"
-  "/legal/privacy-policy"
-  "/legal/terms-of-use"
-  "/legal/account-deletion"
-  "/learn/privacy"
-  "/learn/privacy-policy"
-  "/learn/terms"
-  "/learn/terms-of-use"
-  "/learn/support"
-  "/learn/account-deletion"
-  "/learn/delete-account"
-)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+mapfile -t ROUTES < <(node "$SCRIPT_DIR/legal_route_contract_check.mjs" --print-http-routes)
 
 for route in "${ROUTES[@]}"; do
   url="${BASE_URL%/}${route}"
