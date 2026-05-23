@@ -39,13 +39,25 @@ export default function config(_: ConfigContext): ExpoConfig {
     ? basePlugins
     : [...basePlugins, 'expo-image'];
 
-  plugins = plugins.some(
-    (plugin) =>
-      plugin === '@react-native-google-signin/google-signin' ||
-      (Array.isArray(plugin) && plugin[0] === '@react-native-google-signin/google-signin'),
-  )
-    ? plugins
-    : [...plugins, '@react-native-google-signin/google-signin'];
+  const googleIosUrlScheme = getGoogleIosScheme(googleOAuth.iosClientId);
+
+  const googleSignInPlugin: [string, { iosUrlScheme: string }] = [
+    '@react-native-google-signin/google-signin',
+    {
+      iosUrlScheme: googleIosUrlScheme,
+    },
+  ];
+
+  plugins = [
+    ...plugins.filter(
+      (plugin) =>
+        !(
+          plugin === '@react-native-google-signin/google-signin' ||
+          (Array.isArray(plugin) && plugin[0] === '@react-native-google-signin/google-signin')
+        ),
+    ),
+    googleSignInPlugin,
+  ];
 
   return {
     ...baseExpo,
@@ -71,7 +83,7 @@ export default function config(_: ConfigContext): ExpoConfig {
           ...existingUrlTypes,
           {
             CFBundleURLName: 'GoogleSignIn',
-            CFBundleURLSchemes: [getGoogleIosScheme(googleOAuth.iosClientId)],
+            CFBundleURLSchemes: [googleIosUrlScheme],
           },
         ],
       },

@@ -34,14 +34,14 @@
           }
         ],
         "CFBundleDisplayName": "Floently"
-      }
+      },
+      "icon": "./assets/images/icon.png",
+      "buildNumber": "11"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#FFFFFF"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.vitusidi.floently",
@@ -64,7 +64,8 @@
             "DEFAULT"
           ]
         }
-      ]
+      ],
+      "icon": "./assets/images/icon.png"
     },
     "web": {
       "output": "static",
@@ -106,9 +107,10 @@
       }
     },
     "owner": "vitus-idi",
-    "runtimeVersion": "1.0.0",
+    "runtimeVersion": "1.0.2",
     "updates": {
-      "url": "https://u.expo.dev/fa02c141-0a3b-4dbc-9122-7c1cf31ba42c"
-    }
+      "enabled": false
+    },
+    "favicon": "./assets/images/favicon.png"
   }
 }
