@@ -28,7 +28,7 @@ import { usePreferencesStore } from '../../../state/preferencesStore';
 import { WaveformMicRing } from '../components/WaveformMicRing';
 import RoleplayScenarioHeader from '../components/RoleplayScenarioHeader';
 import RoleplayTranscriptList from '../components/RoleplayTranscriptList';
-import { speakRoleplayText, stopRoleplayAudioPlayback, uiSounds } from '../services/roleplayAudio';
+import { primeRoleplayAudioPlayback, speakRoleplayText, stopRoleplayAudioPlayback, uiSounds } from '../services/roleplayAudio';
 import { useRoleplayRecorder } from '../hooks/useRoleplayRecorder';
 import { SessionCompletion } from '../components/SessionCompletion';
 import type { TranscriptMessage } from '../types';
@@ -446,6 +446,10 @@ type ExportFormat = 'md' | 'txt' | 'pdf';
 
 /** Generic web download (any text format). */
 function downloadOnWeb(content: string, filename: string, mimeType: string) {
+  if (Platform.OS !== 'web' || typeof document === 'undefined' || typeof URL === 'undefined') {
+    throw new Error('Web download is only available in the browser.');
+  }
+
   const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -644,11 +648,23 @@ export default function RoleplayConversationScreen({
       };
       setMessages((cur) => [...cur, aiMessage]);
 
-      await speakRoleplayText({
+      setRemoteAudioAvailable(true);
+      await stopRoleplayAudioPlayback();
+      await new Promise((resolve) => setTimeout(resolve, 120));
+      let ttsCreated = true;
+      const playedReplyAudio = await speakRoleplayText({
         text: response.aiText,
         voiceProfile: response.voiceProfile,
-        onUnavailable: () => setRemoteAudioAvailable(false),
+        onUnavailable: () => {
+          ttsCreated = false;
+          setRemoteAudioAvailable(false);
+          setFeedbackLine((current) => current ?? 'TTS audio could not be created. Text reply is still shown.');
+        },
       });
+
+      if (!playedReplyAudio && ttsCreated) {
+        setFeedbackLine((current) => current ?? 'Audio playback was blocked by iOS browser audio rules. Continuing with text.');
+      }
 
       if (response.completed) {
         const finished = await finishRoleplaySession(sessionId);
@@ -698,6 +714,7 @@ export default function RoleplayConversationScreen({
   );
 
   const handleMicTap = useCallback(() => {
+    void primeRoleplayAudioPlayback();
     if (submitting || feedbackReport || micBusy || recorder.phase === 'uploading') return;
     void (async () => {
       setMicBusy(true);
@@ -705,8 +722,8 @@ export default function RoleplayConversationScreen({
         if (recorder.phase === 'recording') {
           const transcript = await recorder.stopRecording();
           if (transcript) {
-            await submitTranscript(transcript);
-          }
+              await submitTranscript(transcript);
+            }
         } else {
           await stopRoleplayAudioPlayback();
           await uiSounds.tap();

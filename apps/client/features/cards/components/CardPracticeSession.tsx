@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -120,8 +121,10 @@ function adaptiveTypography(
     return { fontSize: 18, lineHeight: 24, maxLines: 5, minimumFontScale: 0.88 };
   }
   if (variant === 'option') {
-    if (length > 110) return { fontSize: 13, lineHeight: 18, maxLines: 4, minimumFontScale: 0.86 };
-    return { fontSize: 15, lineHeight: 20, maxLines: 3, minimumFontScale: 0.9 };
+    if (length > 220) return { fontSize: 13, lineHeight: 19, maxLines: 0, minimumFontScale: 1 };
+    if (length > 150) return { fontSize: 13, lineHeight: 19, maxLines: 0, minimumFontScale: 1 };
+    if (length > 90) return { fontSize: 14, lineHeight: 20, maxLines: 0, minimumFontScale: 1 };
+    return { fontSize: 15, lineHeight: 21, maxLines: 0, minimumFontScale: 1 };
   }
   if (variant === 'hint') {
     if (length > 180) return { fontSize: 12, lineHeight: 17, maxLines: 5, minimumFontScale: 0.9 };
@@ -131,8 +134,37 @@ function adaptiveTypography(
   return { fontSize: 14, lineHeight: 20, maxLines: 5, minimumFontScale: 0.92 };
 }
 
+function isUnsafeDisplayText(value: string | null | undefined) {
+  const text = String(value ?? '').trim();
+  return /<html|<\/html|<head|<\/head|<body|<\/body|502 Bad Gateway|nginx\/|Internal server error/i.test(text);
+}
+
+function sanitizeDisplayText(value: string | null | undefined, fallback = '') {
+  const text = String(value ?? '').replace(/\s+/g, ' ').trim();
+  if (!text || isUnsafeDisplayText(text)) return fallback;
+  return text;
+}
+
+function safeOptions(options: Array<{ option_id: string; text: string }> | null | undefined) {
+  return (options ?? [])
+    .map((option, index) => ({
+      ...option,
+      option_id: option.option_id || String.fromCharCode(65 + index),
+      text: sanitizeDisplayText(option.text),
+    }))
+    .filter((option) => option.text.length > 0)
+    .slice(0, 4);
+}
+
 function AdaptiveCardCopy({ text, variant, color, mode }: AdaptiveCardCopyProps) {
-  const metrics = adaptiveTypography(text, variant, mode);
+  const cleanedText = sanitizeDisplayText(
+    text,
+    variant === 'option' ? '' : 'Yhteysvirhe. Yritä uudelleen.',
+  );
+
+  if (!cleanedText) return null;
+
+  const metrics = adaptiveTypography(cleanedText, variant, mode);
   const baseStyle = variant === 'front'
     ? styles.mainWord
     : variant === 'prompt'
@@ -143,11 +175,14 @@ function AdaptiveCardCopy({ text, variant, color, mode }: AdaptiveCardCopyProps)
           ? styles.hintText
           : styles.contextText;
 
+  const lineClamp = variant === 'option' ? undefined : metrics.maxLines;
+
   return (
     <Text
-      adjustsFontSizeToFit
-      minimumFontScale={metrics.minimumFontScale}
-      numberOfLines={metrics.maxLines}
+      adjustsFontSizeToFit={variant !== 'option'}
+      minimumFontScale={variant === 'option' ? 1 : metrics.minimumFontScale}
+      numberOfLines={lineClamp}
+      allowFontScaling
       style={[
         baseStyle,
         {
@@ -157,7 +192,7 @@ function AdaptiveCardCopy({ text, variant, color, mode }: AdaptiveCardCopyProps)
         },
       ]}
     >
-      {text}
+      {cleanedText}
     </Text>
   );
 }
@@ -238,7 +273,8 @@ export function CardPracticeSession() {
   const header = mode === 'phrases' ? t('cardsSentencesLabel') : mode === 'grammar' ? t('cardsGrammarLabel') : t('cardsVocabularyLabel');
   const followUp = displayedCard?.served_follow_up;
   const isRecallView = recallIndex !== null;
-  const isChoiceMode = Boolean(followUp?.options?.length);
+  const visibleOptions = safeOptions(followUp?.options);
+  const isChoiceMode = Boolean(visibleOptions.length);
   const indicatorCount = 4;
   const activeIndicator = Math.min(indicatorCount - 1, Math.floor(progress.ratio * indicatorCount));
 
@@ -262,6 +298,9 @@ export function CardPracticeSession() {
 
       <CardBanksPanel visible={banksVisible} onClose={() => setBanksVisible(false)} banks={banks} />
 
+
+
+
       <CardModeTabs value={mode} onChange={(nextMode) => setMode(nextMode)} />
 
       <View style={styles.headerRow}>
@@ -273,11 +312,15 @@ export function CardPracticeSession() {
           <Text style={[styles.recallText, isDark && { color: palette.textMuted }]}>{t('cardsRecallForward')}</Text>
         </Pressable>
       </View>
-
       <View style={styles.progressLineTrack}>
         <View style={[styles.progressLineFill, { width: `${Math.max(10, progress.ratio * 100)}%` }]} />
       </View>
 
+      <ScrollView
+        style={styles.practiceScroll}
+        contentContainerStyle={styles.practiceScrollContent}
+        showsVerticalScrollIndicator={false}
+      >
       <View style={styles.cardShell}>
         <View style={[styles.cardOuter, isDark && { backgroundColor: palette.surfaceMuted, shadowColor: 'rgba(0,0,0,0.5)' }]}>
           <View style={[styles.cardInner, isDark && { backgroundColor: palette.surface, borderColor: palette.border }]}>
@@ -315,6 +358,13 @@ export function CardPracticeSession() {
               </Pressable>
             ) : null}
 
+            <View style={styles.cardContentFrame}>
+              <ScrollView
+                style={styles.cardContentScroll}
+                contentContainerStyle={styles.cardContentContainer}
+                nestedScrollEnabled
+                showsVerticalScrollIndicator={false}
+              >
             {loading ? (
               <View style={styles.centerBlock}>
                 <ActivityIndicator color={COLORS.primary} />
@@ -333,7 +383,7 @@ export function CardPracticeSession() {
                     {renderPrompt(displayedCard, isDark ? palette.text : undefined, isDark ? palette.textMuted : undefined, mode)}
                     {isChoiceMode ? (
                       <View style={styles.optionList}>
-                        {followUp?.options.map((option) => {
+                        {visibleOptions.map((option) => {
                           const selected = answer === option.option_id;
                           return (
                             <Pressable key={option.option_id} onPress={() => setAnswer(option.option_id)} style={[styles.optionButton, selected && styles.optionButtonSelected, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }, isDark && selected && { backgroundColor: palette.primarySurface, borderColor: palette.primary }]}>
@@ -364,6 +414,9 @@ export function CardPracticeSession() {
                 </Pressable>
               </View>
             )}
+
+              </ScrollView>
+            </View>
 
             <View style={[styles.cardFooter, isDark && { borderTopColor: palette.border }]}>
               <Pressable onPress={() => { if (showHint) hideHint(); else void revealHint(); }} style={[styles.footerGhostButton, isDark && { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}>
@@ -475,11 +528,14 @@ export function CardPracticeSession() {
           </Text>
         </Pressable>
       </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  practiceScroll: { flex: 1, width: '100%' },
+  practiceScrollContent: { paddingBottom: 130, alignItems: 'center', flexGrow: 1 },
   screen: {
     flex: 1,
     backgroundColor: COLORS.backgroundTop,
@@ -535,6 +591,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
     gap: 10,
   },
+
+
+
   recallButton: {
     minHeight: 40,
     paddingHorizontal: 14,
@@ -569,14 +628,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#BFD3F8',
   },
   cardShell: {
-    flex: 1,
+    width: '100%',
+    alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 18,
+    marginBottom: 12,
+    flexShrink: 0,
   },
   cardOuter: {
     alignSelf: 'center',
-    width: '86%',
-    minHeight: 430,
+    width: '92%',
+    height: 520,
+    maxHeight: 560,
     borderRadius: 30,
     padding: 8,
     backgroundColor: '#F2F6FD',
@@ -593,14 +656,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.paleBorder,
     paddingHorizontal: 18,
-    paddingTop: 16,
+    paddingTop: 14,
     paddingBottom: 14,
+    overflow: 'hidden',
   },
   iconButton: {
     position: 'absolute',
     top: 16,
     width: 42,
-    height: 42,
+    height: 44,
     borderRadius: 21,
     alignItems: 'center',
     justifyContent: 'center',
@@ -635,10 +699,29 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   centerBlock: {
-    flex: 1,
+    flexGrow: 1,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 26,
+    paddingTop: 4,
+    paddingBottom: 12,
+    gap: 14,
+  },
+  cardContentFrame: {
+    flex: 1,
+    minHeight: 0,
+    width: '100%',
+    paddingTop: 56,
+  },
+  cardContentScroll: {
+    flex: 1,
+    minHeight: 0,
+    width: '100%',
+  },
+  cardContentContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingBottom: 18,
     gap: 14,
   },
   mainWord: {
@@ -669,42 +752,54 @@ const styles = StyleSheet.create({
   promptBlock: {
     width: '100%',
     gap: 10,
+    flexShrink: 1,
+    paddingHorizontal: 2,
   },
   promptLabel: {
     fontWeight: '700',
     color: COLORS.text,
     textAlign: 'center',
     width: '100%',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   contextText: {
     color: COLORS.muted,
     textAlign: 'center',
     width: '100%',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   optionList: {
     width: '100%',
     gap: 10,
+    flexShrink: 1,
   },
   optionButton: {
-    minHeight: 54,
+    minHeight: 58,
     borderRadius: 18,
     paddingHorizontal: 14,
-    paddingVertical: 10,
+    paddingVertical: 12,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#F8FBFF',
     borderWidth: 1,
-    borderColor: 'rgba(83,110,167,0.14)',
+    borderColor: 'rgba(83,110,167,0.18)',
+    flexShrink: 0,
+    overflow: 'hidden',
   },
   optionButtonSelected: {
     backgroundColor: '#E6EEFF',
     borderColor: '#88A7E8',
   },
   optionText: {
-    fontWeight: '600',
+    fontWeight: '700',
     color: COLORS.text,
     textAlign: 'center',
     width: '100%',
+    flexShrink: 1,
+    flexWrap: 'wrap',
+    letterSpacing: 0.1,
   },
   optionTextSelected: {
     color: '#3158AC',
@@ -721,7 +816,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   cardFooter: {
-    minHeight: 68,
+    minHeight: 76,
     borderTopWidth: 1,
     borderTopColor: 'rgba(82,111,171,0.12)',
     flexDirection: 'row',
@@ -729,6 +824,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: 12,
     paddingTop: 12,
+    flexShrink: 0,
   },
   footerGhostButton: {
     minHeight: 34,
@@ -795,11 +891,14 @@ const styles = StyleSheet.create({
   },
   primaryActionButton: {
     minWidth: 118,
-    minHeight: 54,
+    
     borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.primary,
+    minHeight: 48,
+    flexShrink: 0,
+    alignSelf: 'stretch',
   },
   primaryActionDisabled: {
     opacity: 0.45,
@@ -816,6 +915,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.88)',
     padding: 14,
     gap: 8,
+    maxWidth: 720,
+    width: '92%',
+    flexShrink: 0,
   },
   feedbackTitle: {
     fontSize: 17,
@@ -825,18 +927,27 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
     color: COLORS.text,
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   feedbackAnswer: {
     fontSize: 13,
     color: COLORS.muted,
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   nextButton: {
-    alignSelf: 'flex-start',
-    minHeight: 40,
+    
+    
     paddingHorizontal: 16,
     borderRadius: 20,
-    justifyContent: 'center',
+    
     backgroundColor: COLORS.softBlueStrong,
+    minHeight: 48,
+    flexShrink: 0,
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   nextButtonText: {
     fontSize: 13,
