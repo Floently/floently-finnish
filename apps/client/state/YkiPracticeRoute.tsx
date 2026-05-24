@@ -21,6 +21,7 @@ import {
   type YkiPracticeTask,
 } from '@core/api/ykiPractice';
 import { startPracticeSession } from '../features/yki-practice/services/ykiPracticeService';
+import { audioPlayer } from '../features/exam/services/audioPlayer';
 import { useTranslator, type TranslationKey } from '../features/i18n';
 
 // ─── Design tokens ─────────────────────────────────────────────────────────
@@ -59,6 +60,94 @@ type Props = {
 
 type MCQOption = { text: string; index: number };
 type AnswerState = { selected: number | null; submitted: boolean; correct: boolean | null };
+
+function ListeningAudioPractice({
+  audioScript,
+  themeMode,
+  revealed,
+}: {
+  audioScript: string;
+  themeMode: 'light' | 'dark';
+  revealed: boolean;
+}) {
+  const isDark = themeMode === 'dark';
+  const palette = getFloentlyPalette(themeMode);
+  const border = isDark ? T.border : palette.border;
+  const raised = isDark ? T.raised : palette.surfaceMuted;
+  const text = isDark ? T.text : palette.text;
+  const muted = isDark ? T.muted : palette.textMuted;
+
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [audioUnavailable, setAudioUnavailable] = useState(false);
+  const [transcriptVisible, setTranscriptVisible] = useState(false);
+
+  function handlePlayAudio() {
+    if (audioPlaying) return;
+
+    setAudioUnavailable(false);
+    void audioPlayer.playTextAsync(audioScript, {
+      onStart: () => setAudioPlaying(true),
+      onEnd: () => setAudioPlaying(false),
+      onFail: () => {
+        setAudioPlaying(false);
+        setAudioUnavailable(true);
+      },
+    });
+  }
+
+  const shouldShowTranscript = transcriptVisible;
+
+  return (
+    <View style={[styles.listeningAudioBlock, { backgroundColor: raised, borderColor: border }]}>
+      <Text style={[styles.passageLabel, { color: isDark ? T.yki : palette.textSoft }]}>
+        Listening audio
+      </Text>
+
+      <Pressable
+        onPress={handlePlayAudio}
+        disabled={audioPlaying}
+        style={[styles.audioPlayBtn, { backgroundColor: T.yki }, audioPlaying && { opacity: 0.65 }]}
+        accessibilityRole="button"
+        accessibilityLabel="Play listening audio"
+      >
+        <Text style={styles.audioPlayBtnText}>
+          {audioPlaying ? 'Playing audio...' : 'Play audio'}
+        </Text>
+      </Pressable>
+
+      {audioUnavailable ? (
+        <Text style={[styles.audioStatusText, { color: T.danger }]}>
+          Audio could not be played. Try again.
+        </Text>
+      ) : (
+        <Text style={[styles.audioStatusText, { color: muted }]}>
+          Listen first, then choose the best answer.
+        </Text>
+      )}
+
+      {revealed && !transcriptVisible ? (
+        <Pressable
+          onPress={() => setTranscriptVisible(true)}
+          style={[styles.transcriptToggleBtn, { borderColor: border }]}
+          accessibilityRole="button"
+          accessibilityLabel="Show transcript"
+        >
+          <Text style={[styles.transcriptToggleText, { color: muted }]}>Show transcript</Text>
+        </Pressable>
+      ) : null}
+
+      {shouldShowTranscript ? (
+        <View style={[styles.audioTranscriptBox, { borderColor: border }]}>
+          <Text style={[styles.passageLabel, { color: isDark ? T.yki : palette.textSoft }]}>
+            Audio transcript
+          </Text>
+          <Text style={[styles.passageText, { color: text }]}>{audioScript}</Text>
+        </View>
+      ) : null}
+    </View>
+  );
+}
+
 
 // ---------------------------------------------------------------------------
 // Sub-component: MCQ task renderer
@@ -105,12 +194,13 @@ function McqTask({
           <Text style={[styles.passageText, { color: text }]}>{passage}</Text>
         </View>
       ) : null}
-      {audio_script ? (
-        <View style={[styles.passageBlock, { backgroundColor: isDark ? T.raised : palette.surfaceMuted, borderColor: border }]}>
-          <Text style={[styles.passageLabel, { color: isDark ? T.yki : palette.textSoft }]}>{t('ykiRouteAudioTranscript')}</Text>
-          <Text style={[styles.passageText, { color: text }]}>{audio_script}</Text>
-        </View>
-      ) : null}
+        {audio_script && task.skill === 'listening' ? (
+          <ListeningAudioPractice
+            audioScript={audio_script}
+            themeMode={themeMode}
+            revealed={answer.submitted}
+          />
+        ) : null}
 
       {/* Question */}
       <Text style={[styles.questionText, { color: text }]}>{(task as any).question}</Text>
@@ -564,7 +654,7 @@ const styles = StyleSheet.create({
   headerTitle: { fontSize: 15, fontWeight: '700' },
   navBtn: { minHeight: 34, borderRadius: 999, paddingHorizontal: 12, justifyContent: 'center', borderWidth: 1 },
   navBtnText: { fontSize: 12, fontWeight: '600' },
-  scroll: { padding: 16, gap: 16, paddingBottom: 40 },
+  scroll: { padding: 14, gap: 14, paddingBottom: 180, flexGrow: 1 },
   sectionLabel: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.6, marginBottom: 8 },
   levelRow: { flexDirection: 'row', gap: 8 },
   levelPill: { flex: 1, minHeight: 38, borderRadius: 999, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
@@ -589,29 +679,36 @@ const styles = StyleSheet.create({
   startBtnText: { color: '#fff', fontSize: 15, fontWeight: '700' },
   examLink: { minHeight: 42, borderRadius: 12, alignItems: 'center', justifyContent: 'center', borderWidth: 1 },
   examLinkText: { fontSize: 13, fontWeight: '600' },
-  taskCard: { borderRadius: 18, borderWidth: 1, padding: 16, gap: 12 },
+  taskCard: { borderRadius: 18, borderWidth: 1, padding: 14, gap: 10, flexShrink: 1 },
   taskHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   skillBadge: { flexDirection: 'row', alignItems: 'center', gap: 5, borderRadius: 999, paddingHorizontal: 10, paddingVertical: 4, borderWidth: 1 },
   skillBadgeText: { fontSize: 12, fontWeight: '700' },
   taskCounter: { fontSize: 12, fontWeight: '600' },
-  taskTitle: { fontSize: 17, fontWeight: '700', lineHeight: 24 },
+  taskTitle: { fontSize: 16, fontWeight: '700', lineHeight: 22, flexShrink: 1, flexWrap: 'wrap' },
   cefrTag: { fontSize: 11, fontStyle: 'italic', lineHeight: 16 },
-  taskInner: { gap: 12 },
-  passageBlock: { borderRadius: 12, borderWidth: 1, padding: 14 },
+  taskInner: { gap: 10, flexShrink: 1 },
+  passageBlock: { borderRadius: 12, borderWidth: 1, padding: 12, flexShrink: 1 },
+  listeningAudioBlock: { borderRadius: 12, borderWidth: 1, padding: 12, gap: 10, flexShrink: 1 },
+  audioPlayBtn: { minHeight: 44, borderRadius: 999, paddingHorizontal: 16, justifyContent: 'center', alignItems: 'center', alignSelf: 'flex-start' },
+  audioPlayBtnText: { color: '#fff', fontSize: 14, fontWeight: '800' },
+  audioStatusText: { fontSize: 12, lineHeight: 18 },
+  transcriptToggleBtn: { minHeight: 36, borderRadius: 999, paddingHorizontal: 14, justifyContent: 'center', alignItems: 'center', borderWidth: 1, alignSelf: 'flex-start' },
+  transcriptToggleText: { fontSize: 12, fontWeight: '700' },
+  audioTranscriptBox: { borderTopWidth: 1, paddingTop: 10, gap: 6 },
   passageLabel: { fontSize: 11, fontWeight: '700', marginBottom: 6 },
-  passageText: { fontSize: 14, lineHeight: 22 },
-  questionText: { fontSize: 15, fontWeight: '600', lineHeight: 22 },
-  optionBtn: { borderRadius: 12, borderWidth: 1, padding: 13 },
-  optionText: { fontSize: 14, lineHeight: 20 },
-  checkBtn: { minHeight: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 16 },
+  passageText: { fontSize: 13, lineHeight: 19, flexShrink: 1, flexWrap: 'wrap' },
+  questionText: { fontSize: 14, fontWeight: '600', lineHeight: 20, flexShrink: 1, flexWrap: 'wrap' },
+  optionBtn: { borderRadius: 12, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 10, minHeight: 44, flexShrink: 1 },
+  optionText: { fontSize: 13, lineHeight: 18, flexShrink: 1, flexWrap: 'wrap' },
+  checkBtn: { minHeight: 46, borderRadius: 12, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 16, marginTop: 4, flexShrink: 0 },
   checkBtnText: { color: '#fff', fontSize: 14, fontWeight: '700' },
-  feedbackRow: { borderRadius: 12, borderWidth: 1, padding: 14, gap: 10 },
-  nextBtn: { alignSelf: 'flex-start', minHeight: 38, borderRadius: 999, paddingHorizontal: 14, justifyContent: 'center' },
+  feedbackRow: { borderRadius: 12, borderWidth: 1, padding: 12, gap: 10, flexShrink: 0 },
+  nextBtn: { alignSelf: 'stretch', minHeight: 46, borderRadius: 999, paddingHorizontal: 14, justifyContent: 'center', alignItems: 'center', flexShrink: 0 },
   nextBtnText: { color: '#fff', fontSize: 13, fontWeight: '700' },
   writingGuidanceRow: { borderLeftWidth: 3, borderColor: '#A78BFA', paddingLeft: 12 },
   guidanceText: { fontSize: 13, lineHeight: 19 },
-  writingInput: { minHeight: 160, borderRadius: 14, borderWidth: 1, padding: 14, fontSize: 14, lineHeight: 22, textAlignVertical: 'top' },
-  wordCountRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  writingInput: { minHeight: 140, borderRadius: 14, borderWidth: 1, padding: 12, fontSize: 13, lineHeight: 20, textAlignVertical: 'top' },
+  wordCountRow: { gap: 10 },
   wordCount: { fontSize: 13, fontWeight: '600' },
   speakingActions: { gap: 10 },
   speakingPrimaryBtn: { minHeight: 50, borderRadius: 14, alignItems: 'center', justifyContent: 'center' },

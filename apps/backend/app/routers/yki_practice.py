@@ -32,6 +32,7 @@ What changed from v1
 from __future__ import annotations
 
 import random
+import hashlib
 import uuid
 from typing import Any, Literal
 
@@ -757,6 +758,45 @@ def _bank_for_level(level_band: str) -> dict[str, list[dict[str, Any]]]:
     return bank
 
 
+
+def _stable_shuffle_mcq_options(task: dict[str, Any], *, session_id: str, position: int) -> dict[str, Any]:
+    """Shuffle MCQ options and update correct_index without changing the correct answer text."""
+    options = task.get("options")
+    correct_index = task.get("correct_index")
+
+    if not isinstance(options, list) or len(options) < 2 or not isinstance(correct_index, int):
+        return dict(task)
+
+    if correct_index < 0 or correct_index >= len(options):
+        return dict(task)
+
+    correct_value = options[correct_index]
+    pairs = list(enumerate(options))
+
+    seed_text = f"{session_id}|{position}|{task.get('id', '')}|{task.get('skill', '')}|{task.get('question', '')}"
+    seed = int(hashlib.sha256(seed_text.encode("utf-8")).hexdigest()[:16], 16)
+    rng = random.Random(seed)
+
+    shuffled = pairs[:]
+    rng.shuffle(shuffled)
+
+    new_options = [value for _, value in shuffled]
+    new_correct_index = next((i for i, value in enumerate(new_options) if value == correct_value), correct_index)
+
+    updated = dict(task)
+    updated["options"] = new_options
+    updated["correct_index"] = new_correct_index
+    updated["option_shuffle_seed"] = hashlib.sha256(seed_text.encode("utf-8")).hexdigest()[:12]
+    return updated
+
+
+def _shuffle_session_mcq_options(tasks: list[dict[str, Any]], *, session_id: str) -> list[dict[str, Any]]:
+    return [
+        _stable_shuffle_mcq_options(task, session_id=session_id, position=index)
+        for index, task in enumerate(tasks)
+    ]
+
+
 def _counts_by_skill(level_band: str) -> dict[str, int]:
     bank = TASK_BANK.get(level_band, {})
     return {skill: len(tasks) for skill, tasks in bank.items()}
@@ -838,6 +878,8 @@ def start(payload: StartPracticeRequest) -> dict[str, Any]:
         tasks = _select_focused_tasks(level_band, focus, count=4)
 
     session_id = f"yki_practice_{uuid.uuid4().hex[:12]}"
+    tasks = _shuffle_session_mcq_options(tasks, session_id=session_id)
+
     session: dict[str, Any] = {
         "session_id": session_id,
         "level_band": level_band,
