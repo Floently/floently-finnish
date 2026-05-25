@@ -15,6 +15,7 @@ from app.services.subscription_service import (
     cancel_trial_at_period_end,
     check_feature,
     resume_subscription_renewal,
+    apply_store_subscription_sync,
     subscription_status,
     track_usage_event,
 )
@@ -98,6 +99,19 @@ def build_subscription_router() -> APIRouter:
         user, _ = current_user_from_authorization(authorization)
         return success_payload(
             data=resume_subscription_renewal(user=user),
+            request_id=get_request_id(request),
+        )
+
+
+    @router.post("/subscription/store/sync")
+    async def sync_store_subscription(
+        request: Request,
+        payload: dict[str, Any],
+        authorization: str | None = Header(default=None),
+    ) -> dict[str, Any]:
+        user, _ = current_user_from_authorization(authorization)
+        return success_payload(
+            data=apply_store_subscription_sync(user=user, payload=payload),
             request_id=get_request_id(request),
         )
 

@@ -1790,6 +1790,202 @@ def resume_subscription_renewal(*, user: dict[str, Any]) -> dict[str, Any]:
     return {"resumed": True, "subscription": subscription_status(user=updated)}
 
 
+
+def _store_payload_text(payload: dict[str, Any], *keys: str) -> str | None:
+    for key in keys:
+        value = payload.get(key)
+        text = str(value or "").strip()
+        if text:
+            return text
+    return None
+
+
+def _store_active_entitlements(payload: dict[str, Any]) -> list[str]:
+    raw = payload.get("active_entitlements")
+    if raw is None:
+        raw = payload.get("activeEntitlements")
+
+    found: list[str] = []
+    if isinstance(raw, list):
+        found.extend(str(x).strip() for x in raw if str(x or "").strip())
+
+    customer_info = payload.get("customer_info") or payload.get("customerInfo")
+    if isinstance(customer_info, dict):
+        entitlements = customer_info.get("entitlements")
+        if isinstance(entitlements, dict):
+            active = entitlements.get("active")
+            if isinstance(active, dict):
+                found.extend(str(k).strip() for k in active.keys() if str(k or "").strip())
+
+    return sorted(dict.fromkeys(found))
+
+
+def _store_expiration_from_customer_info(payload: dict[str, Any], active_entitlements: list[str]) -> str | None:
+    customer_info = payload.get("customer_info") or payload.get("customerInfo")
+    if not isinstance(customer_info, dict):
+        return None
+
+    entitlements = customer_info.get("entitlements")
+    if not isinstance(entitlements, dict):
+        return None
+
+    active = entitlements.get("active")
+    if not isinstance(active, dict):
+        return None
+
+    expirations: list[str] = []
+    for entitlement_id in active_entitlements:
+        item = active.get(entitlement_id)
+        if not isinstance(item, dict):
+            continue
+        for key in ("expirationDate", "expiration_date", "expiresDate", "expires_date", "latestExpirationDate"):
+            value = item.get(key)
+            text = str(value or "").strip()
+            if text:
+                expirations.append(text)
+
+    if not expirations:
+        return None
+
+    return sorted(expirations)[-1]
+
+
+def _store_pathway_from_entitlements(active_entitlements: list[str], plan_id: str | None) -> str:
+    normalized = {str(x or "").strip().lower() for x in active_entitlements}
+
+    if "combined_access" in normalized:
+        return "combined"
+    if "professional_access" in normalized:
+        return "professional"
+    if "yki_access" in normalized:
+        return "yki"
+
+    plan = str(plan_id or "").lower()
+    if plan.startswith(("combined_", "combo_", "bundle_")):
+        return "combined"
+    if plan.startswith(("professional_", "prof_")):
+        return "professional"
+    return "yki"
+
+
+def _store_plan_id_from_payload(payload: dict[str, Any], pathway: str) -> str:
+    plan_id = _store_payload_text(payload, "plan", "plan_id", "planId")
+    if plan_id:
+        return plan_id
+
+    if pathway == "combined":
+        return "combined_yearly"
+    if pathway == "professional":
+        return "professional_yearly"
+    return "yki_yearly"
+
+
+def _store_billing_period_from_plan(plan_id: str) -> str:
+    plan = str(plan_id or "").lower()
+    if "3_month" in plan or "3months" in plan or "three" in plan:
+        return "3_months"
+    if "month" in plan and "3" not in plan:
+        return "monthly"
+    return "yearly"
+
+
+def apply_store_subscription_sync(*, user: dict[str, Any], payload: dict[str, Any]) -> dict[str, Any]:
+    current = _fresh_user_record(user)
+    platform = str(payload.get("platform") or "").strip().lower()
+    provider = "apple" if platform == "ios" else "google_play" if platform == "android" else "manual"
+
+    active_entitlements = _store_active_entitlements(payload)
+    if not active_entitlements:
+        raise AppError(
+            409,
+            "NO_ACTIVE_STORE_ENTITLEMENT",
+            "The store purchase completed, but no active RevenueCat entitlement was found yet.",
+            True,
+            {"classification": "retryable", "provider": provider},
+        )
+
+    raw_plan_id = _store_payload_text(payload, "plan", "plan_id", "planId")
+    pathway = _store_pathway_from_entitlements(active_entitlements, raw_plan_id)
+    plan_id = _store_plan_id_from_payload(payload, pathway)
+    billing_period = str(payload.get("billing_period") or payload.get("billingPeriod") or _store_billing_period_from_plan(plan_id))
+
+    raw_professions = payload.get("selected_professions")
+    if raw_professions is None:
+        raw_professions = payload.get("selectedProfessions")
+    if raw_professions is None:
+        raw_professions = payload.get("professions")
+
+    professions = _normalize_professions(raw_professions) or _normalize_professions(current.get("selected_professions"))
+    if pathway in {"professional", "combined"} and not professions:
+        professions = ["nurse"]
+
+    package_id = _store_payload_text(payload, "package_id", "packageId")
+    customer_info = payload.get("customer_info") or payload.get("customerInfo")
+    revenuecat_app_user_id = None
+    original_app_user_id = None
+    transaction_id = None
+
+    if isinstance(customer_info, dict):
+        revenuecat_app_user_id = _store_payload_text(customer_info, "appUserID", "app_user_id", "appUserId")
+        original_app_user_id = _store_payload_text(customer_info, "originalAppUserId", "original_app_user_id")
+        transaction_id = _store_payload_text(customer_info, "originalPurchaseDate", "original_purchase_date")
+
+    expires_at = _store_expiration_from_customer_info(payload, active_entitlements)
+    now_iso = utc_now().replace(microsecond=0).isoformat()
+
+    details = {
+        "plan_id": plan_id,
+        "pathway": pathway,
+        "billing_period": billing_period,
+        "professions": professions,
+        "profession_count": len(professions),
+        "price_id": package_id,
+    }
+
+    updated = _update_user_subscription_from_details(
+        user=current,
+        details=details,
+        stripe_customer_id=revenuecat_app_user_id or original_app_user_id or current.get("stripe_customer_id"),
+        stripe_subscription_id=transaction_id or package_id or current.get("stripe_subscription_id"),
+        stripe_price_id=package_id or current.get("stripe_price_id"),
+        subscription_expires_at=expires_at or current.get("subscription_expires_at"),
+        trial_ends_at=None,
+        current_period_start=current.get("current_period_start") or now_iso,
+        current_period_end=expires_at or current.get("current_period_end"),
+        trial_started_at=None,
+        cancel_at_period_end=False,
+        canceled_at=None,
+        subscription_status="active",
+        access_choice="paid",
+        subscription_provider=provider,
+    )
+
+    _log_subscription_event(
+        "store_subscription_synced",
+        user=updated,
+        metadata={
+            "provider": provider,
+            "platform": platform,
+            "plan_id": plan_id,
+            "package_id": package_id,
+            "pathway": pathway,
+            "active_entitlements": active_entitlements,
+            "professions": professions,
+            "expires_at": expires_at,
+        },
+    )
+
+    return {
+        "synced": True,
+        "provider": provider,
+        "platform": platform,
+        "plan_id": plan_id,
+        "package_id": package_id,
+        "active_entitlements": active_entitlements,
+        "subscription": subscription_status(user=updated),
+    }
+
+
 def payment_status(*, user: dict[str, Any]) -> dict[str, Any]:
     status = subscription_status(user=user)
     return {

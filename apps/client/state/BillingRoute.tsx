@@ -443,6 +443,9 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
   function toggleProfession(profession: ProfessionKey) {
     setSelectedProfessions((current) => {
+      if (isMobileStoreBilling) {
+        return [profession];
+      }
       if (current.includes(profession)) {
         return current.length === 1 ? current : current.filter((item) => item !== profession);
       }
@@ -451,8 +454,9 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   async function handleCheckout(pathway: CheckoutPathway) {
+    const checkoutProfessions = isMobileStoreBilling ? selectedProfessions.slice(0, 1) : selectedProfessions;
     const request = {
-      ...buildCheckoutRequest(pathway, period, selectedProfessions),
+      ...buildCheckoutRequest(pathway, period, checkoutProfessions),
       trial_days: 3,
     };
     try {
@@ -462,12 +466,35 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         Alert.alert(t('billingTrialAlreadyActiveTitle'), t('billingTrialAlreadyActiveBody'));
         return;
       }
-      if (pathway !== 'yki' && selectedProfessions.length === 0) {
+      if (pathway !== 'yki' && checkoutProfessions.length === 0) {
         Alert.alert(t('billingChooseProfessionTitle'), t('billingChooseProfessionBody'));
         return;
       }
       if (supportsStoreBilling()) {
         const result = await startStorePurchase(request.plan, user?.id ?? user?.email ?? null);
+        try {
+          await paymentService.syncStoreSubscription({
+            platform: result.platform,
+            plan: request.plan,
+            package_id: result.packageId,
+            packageId: result.packageId,
+            billing_period: period,
+            billingPeriod: period,
+            selected_professions: checkoutProfessions,
+            selectedProfessions: checkoutProfessions,
+            active_entitlements: result.activeEntitlements,
+            activeEntitlements: result.activeEntitlements,
+          });
+        } catch (syncError) {
+          Alert.alert(
+            'Purchase complete',
+            syncError instanceof Error
+              ? `Payment completed, but access sync failed: ${syncError.message}. Use Restore Purchases after reopening the app.`
+              : 'Payment completed, but access sync failed. Use Restore Purchases after reopening the app.',
+          );
+          return;
+        }
+        await refreshBillingSnapshot();
         await refreshSubscription({
           email: user?.email ?? null,
           subscriptionTierHint: user?.subscriptionTier ?? null,
@@ -475,10 +502,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         const activeEntitlements = result.activeEntitlements.length
           ? result.activeEntitlements.join(', ')
           : 'none yet';
-        Alert.alert(
-          'Purchase complete',
-          `Store purchase completed. RevenueCat active entitlements: ${activeEntitlements}. Backend access sync will be connected next.`,
-        );
+        Alert.alert('Purchase complete', `Store purchase completed and access synced: ${activeEntitlements}.`);
         return;
       }
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
@@ -495,6 +519,22 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
       try {
         setPortalBusy(true);
         const result = await restoreStorePurchases(user?.id ?? user?.email ?? null);
+        try {
+          await paymentService.syncStoreSubscription({
+            platform: result.platform,
+            active_entitlements: result.activeEntitlements,
+            activeEntitlements: result.activeEntitlements,
+          });
+        } catch (syncError) {
+          Alert.alert(
+            'Restore completed',
+            syncError instanceof Error
+              ? `Purchases were restored, but access sync failed: ${syncError.message}.`
+              : 'Purchases were restored, but access sync failed.',
+          );
+          return;
+        }
+        await refreshBillingSnapshot();
         await refreshSubscription({
           email: user?.email ?? null,
           subscriptionTierHint: user?.subscriptionTier ?? null,
@@ -502,7 +542,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         const activeEntitlements = result.activeEntitlements.length
           ? result.activeEntitlements.join(', ')
           : 'none';
-        Alert.alert('Purchases restored', `RevenueCat active entitlements: ${activeEntitlements}.`);
+        Alert.alert('Purchases restored', `RevenueCat active entitlements synced: ${activeEntitlements}.`);
       } catch (error) {
         Alert.alert(t('billingPortalUnavailableTitle'), error instanceof Error ? error.message : t('billingPortalUnavailableBody'));
       } finally {
@@ -562,15 +602,16 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
   }
 
   function renderProfessionSelector() {
+    const visibleSelectedProfessions = isMobileStoreBilling ? selectedProfessions.slice(0, 1) : selectedProfessions;
     return (
       <View style={styles.professionBox}>
         <View style={styles.planTopRow}>
           <Text style={[styles.professionTitle, { color: palette.text }]}>{t('billingProfessionSlots')}</Text>
-          <Text style={[styles.planChipText, { color: palette.primary }]}>{selectedProfessions.length} {t('billingSelectedSuffix')}</Text>
+          <Text style={[styles.planChipText, { color: palette.primary }]}>{visibleSelectedProfessions.length} {t('billingSelectedSuffix')}</Text>
         </View>
         <View style={styles.professionGrid}>
           {PROFESSION_OPTIONS.map((option) => {
-            const selected = selectedProfessions.includes(option.key);
+            const selected = visibleSelectedProfessions.includes(option.key);
             return (
               <Pressable
                 key={option.key}
@@ -587,7 +628,7 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
             );
           })}
         </View>
-        {selectedProfessions.length > 1 ? (
+        {!isMobileStoreBilling && selectedProfessions.length > 1 ? (
           <Text style={[styles.planBody, { color: palette.accent }]}>{t('billingExtraSlotsDiscountPrefix')} {ADDITIONAL_PROFESSION_DISCOUNT_PERCENT}{t('billingExtraSlotsDiscountSuffix')}</Text>
         ) : null}
       </View>
@@ -787,7 +828,8 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
 
       <View style={styles.pathwayGrid}>
         {PATHWAYS.map((pathway) => {
-          const estimate = estimateCheckoutTotal(pathway.id, period, selectedProfessions, billingDisplayLabels);
+          const billingProfessions = isMobileStoreBilling ? selectedProfessions.slice(0, 1) : selectedProfessions;
+          const estimate = estimateCheckoutTotal(pathway.id, period, billingProfessions, billingDisplayLabels);
           const plan = getPlanByPathwayPeriod(pathway.id, period);
           const isBusy = busyPlan === plan.id;
           const needsProfession = pathway.id !== 'yki';
@@ -802,10 +844,10 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
               <Text style={[styles.pricingTitle, { color: palette.text }]}>{t(pathway.titleKey)}</Text>
               <Text style={[styles.portalBody, { color: palette.textMuted }]}>{t(pathway.detailKey)}</Text>
               <Text style={[styles.priceText, { color: palette.text }]}>{estimate.totalLabel}</Text>
-              {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(selectedProfessions, billingDisplayLabels.professions, billingDisplayLabels.noProfessionSelected)}</Text> : null}
+              {needsProfession ? <Text style={[styles.portalBody, { color: palette.textMuted }]}>{professionListLabel(billingProfessions, billingDisplayLabels.professions, billingDisplayLabels.noProfessionSelected)}</Text> : null}
               {needsProfession ? renderProfessionSelector() : null}
               <View style={styles.stackTight}>
-                {pathway.highlightKeys.map((item) => (
+                {pathway.highlightKeys.filter((item) => !(isMobileStoreBilling && (item === 'billingProfessionalHighlight2' || item === 'billingCombinedHighlight2'))).map((item) => (
                   <View key={item} style={styles.highlightRow}>
                     <Text style={[styles.check, { color: palette.accent }]}>✓</Text>
                     <Text style={[styles.planBody, { color: palette.textMuted }]}>{t(item)}</Text>

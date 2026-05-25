@@ -104,6 +104,64 @@ export async function getRevenueCatOfferings(userId?: string | null) {
   return Purchases.getOfferings();
 }
 
+
+function packageIdentifierAliases(packageIdentifier: string): string[] {
+  const raw = String(packageIdentifier || '').trim();
+  const aliases = new Set<string>();
+
+  function add(value: string | null | undefined) {
+    const text = String(value || '').trim();
+    if (text) aliases.add(text);
+  }
+
+  add(raw);
+
+  const normalized = raw
+    .replace(/-/g, '_')
+    .replace(/three_months/g, '3months')
+    .replace(/3_months/g, '3months');
+
+  add(normalized);
+  add(normalized.replace(/^professional_/, 'prof_'));
+  add(normalized.replace(/^prof_/, 'professional_'));
+  add(normalized.replace(/^combined_/, 'combo_'));
+  add(normalized.replace(/^combo_/, 'combined_'));
+
+  for (const item of Array.from(aliases)) {
+    if (!item.startsWith('floently_')) {
+      add(`floently_${item}`);
+    }
+  }
+
+  return Array.from(aliases);
+}
+
+function packageCandidateIdentifiers(item: unknown): string[] {
+  const pkg = item && typeof item === 'object' ? item as Record<string, unknown> : {};
+  const values: string[] = [];
+
+  function collect(value: unknown) {
+    const text = String(value || '').trim();
+    if (text) values.push(text);
+  }
+
+  collect(pkg.identifier);
+  collect(pkg.packageIdentifier);
+
+  for (const key of ['product', 'storeProduct']) {
+    const product = pkg[key];
+    if (product && typeof product === 'object') {
+      const record = product as Record<string, unknown>;
+      collect(record.identifier);
+      collect(record.productIdentifier);
+      collect(record.productId);
+      collect(record.id);
+    }
+  }
+
+  return Array.from(new Set(values));
+}
+
 export async function purchaseRevenueCatPackage(
   packageIdentifier: string,
   userId?: string | null,
@@ -121,13 +179,22 @@ export async function purchaseRevenueCatPackage(
     ? currentOffering.availablePackages
     : [];
 
+  const wantedAliases = packageIdentifierAliases(packageIdentifier);
+
   const packageToPurchase = availablePackages.find((item: unknown) => {
-    const pkg = item && typeof item === 'object' ? item as Record<string, unknown> : {};
-    return pkg.identifier === packageIdentifier;
+    const candidates = packageCandidateIdentifiers(item);
+    return candidates.some((candidate) => wantedAliases.includes(candidate));
   });
 
   if (!packageToPurchase) {
-    throw new Error(`RevenueCat package not found: ${packageIdentifier}`);
+    const available = availablePackages
+      .map((item: unknown) => packageCandidateIdentifiers(item).join(' / '))
+      .filter(Boolean)
+      .join(', ');
+
+    throw new Error(
+      `RevenueCat package not found: ${packageIdentifier}. Tried: ${wantedAliases.join(', ')}. Available: ${available || 'none'}`,
+    );
   }
 
   const purchaseResult = await Purchases.purchasePackage(packageToPurchase as never);

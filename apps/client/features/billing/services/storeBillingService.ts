@@ -14,15 +14,30 @@ const PACKAGE_MAPPING: Record<string, string> = {
   yki_3months: 'yki_3months',
   yki_yearly: 'yki_yearly',
 
-  professional_monthly: 'professional_monthly',
-  professional_3_months: 'professional_3months',
-  professional_3months: 'professional_3months',
-  professional_yearly: 'professional_yearly',
+  professional_monthly: 'prof_monthly',
+  professional_3_months: 'prof_3months',
+  professional_3months: 'prof_3months',
+  professional_yearly: 'prof_yearly',
 
-  combined_monthly: 'combined_monthly',
-  combined_3_months: 'combined_3months',
-  combined_3months: 'combined_3months',
-  combined_yearly: 'combined_yearly',
+  prof_monthly: 'prof_monthly',
+  prof_3_months: 'prof_3months',
+  prof_3months: 'prof_3months',
+  prof_yearly: 'prof_yearly',
+
+  combined_monthly: 'combo_monthly',
+  combined_3_months: 'combo_3months',
+  combined_3months: 'combo_3months',
+  combined_yearly: 'combo_yearly',
+
+  combo_monthly: 'combo_monthly',
+  combo_3_months: 'combo_3months',
+  combo_3months: 'combo_3months',
+  combo_yearly: 'combo_yearly',
+
+  combined_1_monthly: 'combo_monthly',
+  combined_1_3_months: 'combo_3months',
+  combined_1_3months: 'combo_3months',
+  combined_1_yearly: 'combo_yearly',
 };
 
 function mobilePlatform(): BillingPlatform | null {
