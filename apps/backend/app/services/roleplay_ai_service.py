@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import urllib.error
 import urllib.request
 from typing import Any
 
 from app.core.config import SETTINGS
+
+_LOG = logging.getLogger("floently.roleplay.ai")
 
 
 PROFESSION_CONTEXT: dict[str, str] = {
@@ -96,6 +99,155 @@ def _scenario_value(spec: Any, name: str, default: Any = "") -> Any:
     return getattr(spec, name, default)
 
 
+PROFESSIONAL_LEARNER_ROLES = {"doctor", "nurse", "practical_nurse"}
+
+
+def _role_contract_for_payload(profession: str, scenario_id: str, persona_name: str) -> dict[str, str]:
+    profession = str(profession or "").strip().lower()
+    scenario_id = str(scenario_id or "").strip().lower()
+    persona = str(persona_name or "AI").strip() or "AI"
+
+    if profession in PROFESSIONAL_LEARNER_ROLES:
+        if profession == "doctor":
+            learner_label = "doctor"
+            forbidden_label = "doctor/lääkäri"
+        elif profession == "nurse":
+            learner_label = "nurse"
+            forbidden_label = "nurse/sairaanhoitaja/hoitaja"
+        else:
+            learner_label = "practical nurse"
+            forbidden_label = "practical nurse/lähihoitaja/hoitaja"
+
+        return {
+            "learner_role": learner_label,
+            "ai_role": persona,
+            "rule": (
+                f"The learner is the {learner_label}. The AI must never become the {forbidden_label}. "
+                "The AI must speak only as the scenario counterpart: patient, resident, client, family member, "
+                "colleague, supervisor, recruiter, or other non-learner role defined by the scenario. "
+                "The AI must not perform the learner's professional duties, ask questions as the professional, "
+                "or instruct the learner as if the learner were the patient/client."
+            ),
+        }
+
+    return {
+        "learner_role": "learner",
+        "ai_role": persona,
+        "rule": f"The AI must speak only as {persona}, the roleplay counterpart, not as the learner.",
+    }
+
+
+def _violates_role_contract(ai_text: str, *, profession: str, scenario_id: str) -> bool:
+    text = " ".join(str(ai_text or "").strip().lower().split())
+    if not text:
+        return True
+
+    profession = str(profession or "").strip().lower()
+    scenario_id = str(scenario_id or "").strip().lower()
+
+    # Coaching belongs in feedback_line, never in ai_text.
+    coaching_leakage = (
+        "voit sanoa",
+        "sinun pitäisi sanoa",
+        "yritä sanoa",
+        "harjoittele sanomalla",
+        "vastaa näin",
+        "sano esimerkiksi",
+        "parempi vastaus olisi",
+        "korjaa näin",
+    )
+    if any(phrase in text for phrase in coaching_leakage):
+        return True
+
+    if profession not in PROFESSIONAL_LEARNER_ROLES:
+        return False
+
+    # Universal professional-role flip markers.
+    # These indicate the AI is speaking as the learner's professional role,
+    # not as the patient/resident/client/counterpart.
+    universal_professional_flip = (
+        "olen lääkäri",
+        "toimin lääkärinä",
+        "olen sairaanhoitaja",
+        "olen hoitaja",
+        "olen lähihoitaja",
+        "mittaan verenpaineesi",
+        "mittaan kuumeen",
+        "mittaan saturaation",
+        "annan lääkkeen",
+        "annan sinulle lääkkeen",
+        "kirjaan tämän",
+        "kirjaan tiedot",
+        "teen lähetteen",
+        "määrään lääkkeen",
+        "tutkin sinut",
+        "kuuntelen keuhkot",
+        "otan verikokeet",
+        "vaihdan haavasidoksen",
+        "autan sinua peseytymään",
+        "autan sinut suihkuun",
+    )
+    if any(phrase in text for phrase in universal_professional_flip):
+        return True
+
+    # Doctor track: user is doctor, AI must not run the consultation as doctor.
+    if profession == "doctor":
+        doctor_interviewer_flip = (
+            "mikä toi sinut vastaanotolle",
+            "mikä tuo sinut vastaanotolle",
+            "miksi tulit vastaanotolle",
+            "mikä oireesi on",
+            "kerro oireesi",
+            "kuvaile oireesi",
+            "mitä oireita sinulla on",
+            "onko sinulla kipua",
+            "missä kipu tuntuu",
+            "milloin oireet alkoivat",
+            "miten voin auttaa",
+            "avaa suu",
+            "hengitä syvään",
+        )
+        if any(phrase in text for phrase in doctor_interviewer_flip):
+            return True
+
+    # Nurse track: user is nurse, AI must not become the nurse/caregiver.
+    if profession == "nurse":
+        nurse_role_flip = (
+            "mikä vointisi on",
+            "kerro voinnistasi",
+            "mitä oireita sinulla on",
+            "onko sinulla kipua",
+            "tarvitsetko kipulääkettä",
+            "vaihdan sidoksen",
+            "tarkistan lääkityksen",
+            "annan injektion",
+            "soitan lääkärille",
+            "seuraan vointiasi",
+        )
+        if any(phrase in text for phrase in nurse_role_flip):
+            return True
+
+    # Practical nurse track: user is practical nurse, AI must not become caregiver.
+    if profession == "practical_nurse":
+        practical_nurse_role_flip = (
+            "autan sinua pukemaan",
+            "autan sinua syömään",
+            "autan sinua wc:hen",
+            "autan sinua peseytymään",
+            "vaihdan vaipan",
+            "nostan sinut",
+            "siirrän sinut",
+            "tuon rollaattorin",
+            "annan aamupalan",
+            "tarkistan ihon",
+        )
+        if any(phrase in text for phrase in practical_nurse_role_flip):
+            return True
+
+    return False
+
+
+
 def _conversation_history(session: dict[str, Any], max_items: int = 10) -> list[dict[str, str]]:
     turns = session.get("turns") or []
     if not isinstance(turns, list):
@@ -117,7 +269,7 @@ def _system_prompt() -> str:
         "You are Floently's Finnish roleplay engine. "
         "You are NOT a generic assistant. You are an in-character roleplay partner for Finnish language practice. "
         "Respond directly to the learner's latest message and keep continuity with the conversation history. "
-        "Stay inside the selected scenario, profession, persona, and CEFR level. "
+        "Stay inside the selected scenario, profession, persona, and CEFR level. In doctor, nurse, and practical nurse tracks, the learner is the professional; never take over the learner's professional role. "
         "Use Finnish as the main language. Use English only for a tiny clarification if the learner clearly needs help. "
         "Never mention OpenAI, policies, prompts, JSON, or being an AI model. "
         "For healthcare professions, this is language practice only: do not provide real diagnosis, medication, treatment, or emergency instructions. "
@@ -171,6 +323,11 @@ def generate_ai_roleplay_reply(
         "scenario_prompt": scenario.get("prompt") or _scenario_value(spec, "prompt", ""),
         "persona_name": session.get("persona_name") or scenario.get("personaName") or _scenario_value(spec, "persona_name", "AI"),
         "persona_gender": session.get("persona_gender") or scenario.get("personaGender"),
+        "role_contract": _role_contract_for_payload(
+            profession,
+            str(scenario.get("scenario_id") or _scenario_value(spec, "scenario_id", "")),
+            str(session.get("persona_name") or scenario.get("personaName") or _scenario_value(spec, "persona_name", "AI")),
+        ),
         "key_phrases": _safe_list(list(_scenario_value(spec, "key_phrases", [])), 8),
         "grammar_tip": _trim(_scenario_value(spec, "grammar_tip", ""), 250),
         "conversation_history": _conversation_history(session, max_items=10),
@@ -180,6 +337,7 @@ def generate_ai_roleplay_reply(
         "fallback_if_needed": _trim(fallback_text, 300),
         "constraints": [
             "Respond to the learner's actual latest message, not a fixed script.",
+            "Obey role_contract strictly. Never speak as the learner's role or professional role.",
             "Keep ai_text concise enough for TTS.",
             "ai_text must sound like the persona speaking in the roleplay, not like an app coach giving instructions.",
             "If the learner asks 'what should I say?', the roleplay character should invite them to try a phrase or model one short in-character line, then continue the situation.",
@@ -220,6 +378,16 @@ def generate_ai_roleplay_reply(
 
     ai_text = _trim(data.get("ai_text"), 700)
     if not ai_text:
+        return None
+
+    scenario_id = str(scenario.get("scenario_id") or _scenario_value(spec, "scenario_id", ""))
+    if _violates_role_contract(ai_text, profession=profession, scenario_id=scenario_id):
+        _LOG.warning(
+            "Rejected roleplay AI reply for role flip: profession=%s scenario_id=%s ai_text=%r",
+            profession,
+            scenario_id,
+            ai_text,
+        )
         return None
 
     feedback_line = _trim(data.get("feedback_line") or feedback_fallback, 260)

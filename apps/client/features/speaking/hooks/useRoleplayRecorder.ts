@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Platform } from 'react-native';
-import { RecordingPresets, requestRecordingPermissionsAsync, useAudioRecorder as useExpoAudioRecorder } from 'expo-audio';
+import {
+  RecordingPresets,
+  requestRecordingPermissionsAsync,
+  useAudioRecorder as useExpoAudioRecorder,
+  useAudioRecorderState,
+} from 'expo-audio';
 import { transcribeVoiceAudio } from '@core/api/voice';
 import { audioSession } from '../../shared/services/audioSession';
 import { uiSounds } from '../services/roleplayAudio';
@@ -8,20 +13,85 @@ import type { RecorderPhase } from '../types';
 
 function inferNativeAudioAttempts(uri: string) {
   const lower = String(uri || '').toLowerCase();
-  if (lower.endsWith('.mp4')) {
-    return [
-      { mimeType: 'audio/mp4', fileName: 'roleplay.mp4' },
-      { mimeType: 'audio/m4a', fileName: 'roleplay.m4a' },
-    ];
-  }
   if (lower.endsWith('.wav')) {
     return [{ mimeType: 'audio/wav', fileName: 'roleplay.wav' }];
   }
-  return [
-    { mimeType: 'audio/m4a', fileName: 'roleplay.m4a' },
-    { mimeType: 'audio/mp4', fileName: 'roleplay.mp4' },
-  ];
+  if (lower.endsWith('.mp4')) {
+    return [{ mimeType: 'audio/mp4', fileName: 'roleplay.mp4' }];
+  }
+  return [{ mimeType: 'audio/m4a', fileName: 'roleplay.m4a' }];
 }
+
+function browserMicErrorMessage(error: unknown, details?: string): string {
+  const name =
+    error && typeof error === 'object' && 'name' in error
+      ? String((error as { name?: unknown }).name || '')
+      : '';
+  const rawMessage = error instanceof Error ? error.message : String(error || '');
+  const suffix = details ? ` (${details})` : '';
+
+  if (/NotAllowedError|PermissionDeniedError/i.test(name)) {
+    return `Microphone permission was denied. Allow microphone access for this site, then try again.${suffix}`;
+  }
+
+  if (/NotFoundError|DevicesNotFoundError/i.test(name) || /requested device is not available/i.test(rawMessage)) {
+    return `No available microphone was found by the browser. Check that a microphone is connected, not blocked by the browser, and not disabled in system settings.${suffix}`;
+  }
+
+  if (/NotReadableError|TrackStartError/i.test(name)) {
+    return `The microphone is already in use or cannot be started. Close other apps using the microphone and try again.${suffix}`;
+  }
+
+  if (/OverconstrainedError|ConstraintNotSatisfiedError/i.test(name)) {
+    return `The selected microphone settings are not supported. Trying a simpler microphone mode may help.${suffix}`;
+  }
+
+  if (/SecurityError/i.test(name)) {
+    return `Microphone access requires a secure HTTPS page. Open the live HTTPS site and try again.${suffix}`;
+  }
+
+  return rawMessage
+    ? `Microphone could not be started: ${rawMessage}${suffix}`
+    : `Microphone could not be started.${suffix}`;
+}
+
+async function getWebMicrophoneStream(): Promise<MediaStream> {
+  if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
+    throw new Error('Microphone recording is not supported in this browser.');
+  }
+
+  let audioInputCount = 0;
+  try {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    audioInputCount = devices.filter((device) => device.kind === 'audioinput').length;
+  } catch {
+    audioInputCount = -1;
+  }
+
+  const attempts: MediaStreamConstraints[] = [
+    {
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        autoGainControl: true,
+      },
+    },
+    { audio: true },
+  ];
+
+  let lastError: unknown = null;
+
+  for (const constraints of attempts) {
+    try {
+      return await navigator.mediaDevices.getUserMedia(constraints);
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw new Error(browserMicErrorMessage(lastError, `audioInputs=${audioInputCount}`));
+}
+
 
 function normalizeRecorderError(error: unknown): string {
   const message = error instanceof Error ? error.message.trim() : '';
@@ -39,6 +109,7 @@ async function transcribeRoleplayRecording(input: {
   uriOrBlob: Blob | string;
   attempts: Array<{ mimeType: string; fileName: string }>;
   locale: string;
+  durationMs?: number;
 }): Promise<string> {
   let lastError: unknown = null;
   for (const attempt of input.attempts) {
@@ -51,6 +122,7 @@ async function transcribeRoleplayRecording(input: {
         sessionId: 'roleplay-session',
         speakingSessionId: 'roleplay-session',
         mode: 'roleplay',
+        durationMs: input.durationMs,
       })) ?? '';
     } catch (error) {
       lastError = error;
@@ -58,6 +130,8 @@ async function transcribeRoleplayRecording(input: {
   }
   throw lastError ?? new Error('Voice transcription failed.');
 }
+
+const MIN_ROLEPLAY_RECORDING_MS = 1200;
 
 const nativeRecordingOptions = {
   ...RecordingPresets.HIGH_QUALITY,
@@ -78,6 +152,9 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
     setAmplitude(normalized);
   });
 
+  const nativeRecorderState = useAudioRecorderState(nativeRecorder, 100);
+  const nativeDurationMsRef = useRef(0);
+
   const recordingRef = useRef<typeof nativeRecorder | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunkRef = useRef<Blob[]>([]);
@@ -86,6 +163,14 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
   const pendingStopRef = useRef(false);
   const stopRecordingRef = useRef<() => Promise<string | null>>(async () => null);
   const amplitudePollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    const duration = Number(nativeRecorderState?.durationMillis ?? 0);
+    if (Number.isFinite(duration) && duration > 0) {
+      nativeDurationMsRef.current = duration;
+      setElapsedMs(duration);
+    }
+  }, [nativeRecorderState?.durationMillis]);
 
   useEffect(() => {
     if (phase !== 'recording') {
@@ -107,14 +192,15 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
     if (phaseRef.current === 'recording' || phaseRef.current === 'uploading') return;
     pendingStopRef.current = false;
     startedAtRef.current = Date.now();
+    nativeDurationMsRef.current = 0;
     await uiSounds.micOn();
 
     try {
       if (Platform.OS === 'web') {
-        if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === 'undefined') {
-          throw new Error('Microphone recording is not supported on this device/browser');
+        if (typeof MediaRecorder === 'undefined') {
+          throw new Error('Microphone recording is not supported in this browser.');
         }
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const stream = await getWebMicrophoneStream();
         const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
           ? 'audio/webm;codecs=opus'
           : MediaRecorder.isTypeSupported('audio/mp4')
@@ -204,9 +290,9 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         });
         mediaRecorderRef.current = null;
         await uiSounds.micOff();
-        if (durationMs < 700) {
+        if (durationMs < MIN_ROLEPLAY_RECORDING_MS) {
           setPhaseSafe('idle');
-          setError('Hold the mic a little longer, then speak clearly.');
+          setError('I could not hear enough speech. Speak clearly for about 1–2 seconds, then tap the mic again.');
           return null;
         }
         const apiMimeType = mimeType.split(';')[0];
@@ -214,6 +300,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
           uriOrBlob: blob,
           attempts: [{ mimeType: apiMimeType, fileName: apiMimeType.includes('mp4') ? 'roleplay.mp4' : 'roleplay.webm' }],
           locale,
+          durationMs,
         });
         setPhaseSafe('idle');
         if (!transcript) {
@@ -236,9 +323,15 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
       }
       await uiSounds.micOff();
       if (!uri) throw new Error('No recording URI returned');
-      if (durationMs < 700) {
+      const nativeDurationMs = Math.max(
+        durationMs,
+        nativeDurationMsRef.current,
+        Math.round(Number((recording as { currentTime?: number }).currentTime ?? 0) * 1000),
+      );
+
+      if (nativeDurationMs < MIN_ROLEPLAY_RECORDING_MS) {
         setPhaseSafe('idle');
-        setError('Hold the mic a little longer, then speak clearly.');
+        setError(`I only captured ${(nativeDurationMs / 1000).toFixed(1)}s of speech. Speak clearly for about 1–2 seconds, then tap the mic again.`);
         return null;
       }
 
@@ -246,6 +339,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         uriOrBlob: uri,
         attempts: inferNativeAudioAttempts(uri),
         locale,
+        durationMs: nativeDurationMs,
       });
 
       setPhaseSafe('idle');

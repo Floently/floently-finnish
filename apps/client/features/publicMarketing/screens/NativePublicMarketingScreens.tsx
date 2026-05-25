@@ -137,7 +137,7 @@ function BrandHeader({ light = false }: { light?: boolean }) {
       <View style={styles.headerLinks}>
         <Pressable onPress={() => router.push('/for-organizations' as never)}>
           <Text style={[styles.headerLink, light && styles.headerLinkDark]}>
-            {common.forOrganizations ?? common.forOrganizationsArrow ?? 'For organizations'}
+            {common.forOrganizations ?? common.forOrganizationsArrow ?? ''}
           </Text>
         </Pressable>
         <Pressable onPress={() => router.push('/auth/login' as never)} style={[styles.signInPill, light && styles.signInPillLight]}>
@@ -201,45 +201,22 @@ export function NativeLandingScreen() {
   const title2 = firstString(
     landing,
     ['title2', 'headlineGradient', 'heroTitleGradient', 'heroLine2'],
-    'Speak Finnish at work.',
+    '',
   );
 
   const subtitle = firstString(
     landing,
     ['subtitle', 'heroBody', 'body', 'lede'],
-    'Real Finnish for YKI and work — built for professionals preparing to live and work in Finland.',
+    '',
   );
 
   const trustItems = firstArray<string>(
     landing,
     ['trustItems', 'trust', 'badges'],
-    ['Built for YKI', 'For professionals', 'Free to start'],
+    [],
   );
 
-  const pathways = firstArray<AnyRecord>(
-    landing,
-    ['pathways', 'cards', 'routes'],
-    [
-      {
-        eyebrow: 'For learners',
-        title: 'Pass YKI and start profession.',
-        body: 'Reading, listening, writing and speaking — built around YKI and the Finnish you need at work.',
-        cta: common.startLearning ?? 'Start learning',
-      },
-      {
-        eyebrow: 'For employers',
-        title: 'Onboard and retain international staff.',
-        body: 'Workplace Finnish for safer communication, faster onboarding, and stronger retention.',
-        cta: common.bookDemo ?? 'Book a pilot',
-      },
-      {
-        eyebrow: 'For cities',
-        title: 'A scalable language pathway.',
-        body: 'Connect language learning to employability and long-term participation in Finnish society.',
-        cta: common.contact ?? 'Talk to us',
-      },
-    ],
-  );
+  const pathways = firstArray<AnyRecord>(landing, ['pathways', 'cards', 'routes'], []);
 
   return (
     <SafeAreaView style={styles.darkSafe} edges={['top', 'bottom']}>
@@ -253,7 +230,7 @@ export function NativeLandingScreen() {
           <Text style={styles.heroSubtitle}>{subtitle}</Text>
 
           <Pressable style={styles.primaryButton} onPress={() => router.push('/auth/register' as never)}>
-            <Text style={styles.primaryButtonText}>{common.startLearning ?? 'Start learning'} →</Text>
+            <Text style={styles.primaryButtonText}>{common.startLearning ?? ''} →</Text>
           </Pressable>
 
           <Pressable style={styles.secondaryButton} onPress={() => router.push('/auth/login' as never)}>
@@ -344,49 +321,11 @@ export function NativeForOrganizationsScreen() {
     ],
   );
 
-  const audiences = firstArray<AnyRecord>(
-    org,
-    ['audiences', 'audienceCards'],
-    [
-      {
-        eyebrow: 'Employers',
-        title: 'Onboard international staff with safer Finnish communication.',
-        body: 'Give employees a structured path from everyday Finnish to role-specific workplace situations.',
-      },
-      {
-        eyebrow: 'Cities and municipalities',
-        title: 'Connect language learning to integration and employment.',
-        body: 'Support newcomers with Finnish practice tied to YKI readiness and work life.',
-      },
-      {
-        eyebrow: 'Training providers',
-        title: 'Add AI-supported speaking practice around your programme.',
-        body: 'Use Floently as a practice layer between lessons.',
-      },
-    ],
-  );
+  const audiences = firstArray<AnyRecord>(org, ['audiences', 'audienceCards'], []);
 
-  const pillars = firstArray<AnyRecord>(
-    org,
-    ['pillars', 'platformCards'],
-    [
-      { eyebrow: 'YKI pathway', title: 'Exam readiness with real skill practice', body: 'Reading, listening, writing and speaking practice are structured around the skills learners need.' },
-      { eyebrow: 'Professional Finnish', title: 'Role-specific communication', body: 'Profession tracks help learners practise phrases, decisions and misunderstandings from work.' },
-      { eyebrow: 'Speaking and roleplay', title: 'Confidence before real conversations', body: 'Learners practise with AI roleplay and correction loops.' },
-      { eyebrow: 'Programme visibility', title: 'A clearer view of learner progress', body: 'Support learning with clearer progress signals.' },
-    ],
-  );
+  const pillars = firstArray<AnyRecord>(org, ['pillars', 'platformCards'], []);
 
-  const pilotSteps = firstArray<string | AnyRecord>(
-    org,
-    ['pilotSteps', 'steps'],
-    [
-      'Choose the target group.',
-      'Pick the training goal.',
-      'Run a small pilot and collect feedback.',
-      'Decide whether Floently should scale.',
-    ],
-  );
+  const pilotSteps = firstArray<string | AnyRecord>(org, ['pilotSteps', 'steps'], []);
 
   return (
     <SafeAreaView style={styles.lightSafe} edges={['top', 'bottom']}>
@@ -396,40 +335,40 @@ export function NativeForOrganizationsScreen() {
         <View style={styles.orgHero}>
           <View style={styles.orgHeroText}>
             <Text style={styles.lightEyebrow}>
-              {firstString(org, ['eyebrow', 'heroEyebrow'], 'For organizations')}
+              {firstString(org, ['eyebrow', 'heroEyebrow'], '')}
             </Text>
             <Text style={styles.lightTitle}>
-              {firstString(org, ['heroTitle', 'title'], 'Finnish language support for work, integration and retention.')}
+              {firstString(org, ['heroTitle', 'title'], '')}
             </Text>
             <Text style={styles.lightBody}>
               {firstString(
                 org,
                 ['heroBody', 'body'],
-                'Floently helps organizations support international talent with practical Finnish.',
+                '',
               )}
             </Text>
             <View style={styles.rowButtons}>
               <Pressable style={styles.lightPrimaryButton} onPress={() => router.push('/contact' as never)}>
-                <Text style={styles.lightPrimaryText}>{common.bookDemo ?? 'Book demo'} →</Text>
+                <Text style={styles.lightPrimaryText}>{common.bookDemo ?? ''} →</Text>
               </Pressable>
               <Pressable style={styles.lightSecondaryButton} onPress={() => router.push('/' as never)}>
-                <Text style={styles.lightSecondaryText}>{common.learnerPage ?? 'Learner page'}</Text>
+                <Text style={styles.lightSecondaryText}>{common.learnerPage ?? ''}</Text>
               </Pressable>
             </View>
           </View>
 
           <View style={styles.whyCard}>
             <Text style={styles.cardEyebrow}>
-              {firstString(org, ['whyEyebrow'], 'Why it matters')}
+              {firstString(org, ['whyEyebrow'], '')}
             </Text>
             <Text style={styles.whyTitle}>
-              {firstString(org, ['whyTitle'], 'Language is not only an exam problem.')}
+              {firstString(org, ['whyTitle'], '')}
             </Text>
             <Text style={styles.whyBody}>
               {firstString(
                 org,
                 ['whyBody'],
-                'It affects onboarding, safety, confidence, customer communication and whether people feel they can build a future in Finland.',
+                '',
               )}
             </Text>
             {rows.slice(0, 3).map((row, index) => (
@@ -443,16 +382,16 @@ export function NativeForOrganizationsScreen() {
 
         <View style={styles.whiteSection}>
           <Text style={styles.lightEyebrow}>
-            {firstString(org, ['audienceEyebrow'], 'Who it serves')}
+            {firstString(org, ['audienceEyebrow'], '')}
           </Text>
           <Text style={styles.lightSectionTitle}>
-            {firstString(org, ['audienceTitle'], 'Built for the organizations helping people succeed in Finland.')}
+            {firstString(org, ['audienceTitle'], '')}
           </Text>
           <Text style={styles.lightBody}>
             {firstString(
               org,
               ['audienceBody'],
-              'This page explains why an organization would use Floently and what kind of pilot makes sense.',
+              '',
             )}
           </Text>
 
@@ -469,16 +408,16 @@ export function NativeForOrganizationsScreen() {
 
         <View style={styles.navySection}>
           <Text style={styles.cardEyebrow}>
-            {firstString(org, ['platformEyebrow'], 'What Floently provides')}
+            {firstString(org, ['platformEyebrow'], '')}
           </Text>
           <Text style={styles.navyTitle}>
-            {firstString(org, ['platformTitle'], 'A learning layer for YKI, work and real conversations.')}
+            {firstString(org, ['platformTitle'], '')}
           </Text>
           <Text style={styles.navyBody}>
             {firstString(
               org,
               ['platformBody'],
-              'Floently gives learners repeated practice and gives organizations a clearer way to support language development.',
+              '',
             )}
           </Text>
 
@@ -563,7 +502,7 @@ export function NativeContactScreen() {
         <View style={styles.contactCard}>
           <Text style={styles.lightEyebrow}>{firstString(contact, ['eyebrow'], 'Contact')}</Text>
           <Text style={styles.lightTitle}>
-            {firstString(contact, ['title'], common.bookDemo ?? 'Book demo')}
+            {firstString(contact, ['title'], common.bookDemo ?? '')}
           </Text>
           <Text style={styles.lightBody}>
             {firstString(
@@ -580,7 +519,7 @@ export function NativeContactScreen() {
             style={styles.lightPrimaryButtonWide}
             onPress={() => Linking.openURL(`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`)}
           >
-            <Text style={styles.lightPrimaryText}>{common.bookDemo ?? 'Book demo'} →</Text>
+            <Text style={styles.lightPrimaryText}>{common.bookDemo ?? ''} →</Text>
           </Pressable>
 
           <Text style={styles.contactEmail}>{CONTACT_EMAIL}</Text>

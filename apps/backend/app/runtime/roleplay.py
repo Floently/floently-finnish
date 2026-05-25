@@ -10,7 +10,7 @@ from app.core.errors import AppError
 from app.core.state_store import STORE
 from app.core.utils import iso_now, new_id, parse_iso, utc_now
 from app.runtime.finnish_personas import pick_persona
-from app.services.roleplay_ai_service import generate_ai_roleplay_reply
+from app.services.roleplay_ai_service import generate_ai_roleplay_reply, _violates_role_contract
 
 ROLEPLAY_STAGE_BY_TURN = {0: "OPENING", 1: "ACTIVE_1", 2: "ACTIVE_2", 3: "ACTIVE_3", 4: "ACTIVE_4", 5: "COMPLETE"}
 
@@ -1368,6 +1368,40 @@ def _append_turn(session: dict[str, Any], *, speaker: str, text: str, stage: str
     return entry
 
 
+def _safe_professional_counterpart_fallback(*, session: dict[str, Any], spec: ScenarioSpec, user_message: str, terminal_turn: bool) -> str:
+    """Safe in-character fallback when generated/scripted text would flip roles.
+
+    In professional tracks the learner is the doctor/nurse/practical nurse.
+    The fallback must therefore speak as patient/resident/client/counterpart,
+    never as the professional.
+    """
+    profession = str(session.get("profession") or _scenario_value(spec, "profession", "general")).strip().lower()
+    message = " ".join(str(user_message or "").strip().lower().split())
+
+    if terminal_turn:
+        if profession == "practical_nurse":
+            return "Kiitos avusta. Minusta tuntuu nyt rauhallisemmalta."
+        if profession in {"doctor", "nurse"}:
+            return "Kiitos. Tämä keskustelu auttoi minua kertomaan tilanteestani paremmin."
+        return "Kiitos keskustelusta. Tämä oli hyvä harjoitus."
+
+    if profession == "doctor":
+        if message in {"i don't know", "i dont know", "en tiedä", "mä en tiedä", "mina en tieda", "minä en tiedä"}:
+            return "Ymmärrän. Minua huolestuttaa tämä oire, koska se alkoi eilen illalla."
+        return "Minua huolestuttaa tämä vaiva. Voinko kertoa tarkemmin, miltä se tuntuu?"
+
+    if profession == "nurse":
+        if message in {"i don't know", "i dont know", "en tiedä", "mä en tiedä", "mina en tieda", "minä en tiedä"}:
+            return "Ymmärrän. Vointini on vähän epävarma, ja haluaisin kertoa siitä rauhassa."
+        return "Minulla on vähän huono olo. Voinko kertoa, mitä tunnen juuri nyt?"
+
+    if profession == "practical_nurse":
+        if message in {"i don't know", "i dont know", "en tiedä", "mä en tiedä", "mina en tieda", "minä en tiedä"}:
+            return "Ymmärrän. Tarvitsen hetken aikaa, mutta voin yrittää kertoa, mitä tarvitsen."
+        return "Voisitko auttaa minua hetken? Haluaisin kertoa, mikä minua vaivaa."
+
+    return "Ymmärrän. Voit jatkaa lyhyesti suomeksi, ja minä vastaan tilanteen mukaan."
+
 def _submit_session_turn(*, user_id: str, session_id: str, user_message: str) -> dict[str, Any]:
     message = str(user_message or "").strip()
     if not message:
@@ -1415,6 +1449,17 @@ def _submit_session_turn(*, user_id: str, session_id: str, user_message: str) ->
             engine_mode = str(ai_result.get("engine_mode") or "openai_b_lite")
         else:
             ai_text = scripted_fallback_text
+
+        profession = str(session.get("profession") or _scenario_value(spec, "profession", "general")).strip().lower()
+        scenario_id = str((session.get("scenario") or {}).get("scenario_id") or _scenario_value(spec, "scenario_id", ""))
+        if _violates_role_contract(ai_text, profession=profession, scenario_id=scenario_id):
+            ai_text = _safe_professional_counterpart_fallback(
+                session=session,
+                spec=spec,
+                user_message=message,
+                terminal_turn=terminal_turn,
+            )
+            engine_mode = f"{engine_mode}_role_guard"
 
         ai_entry = _append_turn(
             session,

@@ -175,12 +175,12 @@ function AdaptiveCardCopy({ text, variant, color, mode }: AdaptiveCardCopyProps)
           ? styles.hintText
           : styles.contextText;
 
-  const lineClamp = variant === 'option' ? undefined : metrics.maxLines;
+  const lineClamp = undefined;
 
   return (
     <Text
-      adjustsFontSizeToFit={variant !== 'option'}
-      minimumFontScale={variant === 'option' ? 1 : metrics.minimumFontScale}
+      adjustsFontSizeToFit={false}
+      minimumFontScale={1}
       numberOfLines={lineClamp}
       allowFontScaling
       style={[
@@ -542,7 +542,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 10,
     paddingBottom: 20,
-    overflow: 'hidden',
   },
   backgroundGlowOne: {
     position: 'absolute',
@@ -625,7 +624,6 @@ const styles = StyleSheet.create({
     height: 4,
     borderRadius: 999,
     backgroundColor: '#DCE3EE',
-    overflow: 'hidden',
     marginTop: 18,
   },
   progressLineFill: {
@@ -664,7 +662,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingTop: 14,
     paddingBottom: 14,
-    overflow: 'hidden',
   },
   iconButton: {
     position: 'absolute',
@@ -798,7 +795,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
-    overflow: 'hidden',
 
     borderRadius: 20,
     borderWidth: 1,

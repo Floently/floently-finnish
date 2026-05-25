@@ -143,6 +143,7 @@ export async function transcribeVoiceAudio(input: {
   mode?: string;
   sessionId?: string;
   speakingSessionId?: string;
+  durationMs?: number;
 }): Promise<string | null> {
   const form = new FormData();
   form.append('file', buildFilePart(input.uriOrBlob, input.fileName, input.mimeType));
@@ -151,6 +152,9 @@ export async function transcribeVoiceAudio(input: {
   form.append('mode', input.mode ?? 'speaking_practice');
   form.append('session_id', input.sessionId ?? 'voice-session');
   form.append('speaking_session_id', input.speakingSessionId ?? input.sessionId ?? 'voice-session');
+  if (typeof input.durationMs === 'number' && Number.isFinite(input.durationMs)) {
+    form.append('duration_ms', String(Math.max(0, Math.round(input.durationMs))));
+  }
 
   const headers = new Headers();
   const deviceHeaders = await getClientDeviceHeaders();
