@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { AppState, Platform } from "react-native";
-import { usePathname, useRouter } from "expo-router";
+import { AppState, Platform, Pressable } from 'react-native';
+import { useLocalSearchParams, usePathname, useRouter } from "expo-router";
 
 import { setAuthToken } from "@core/api/apiClient";
 import { logger } from "@core/logging/logger";
@@ -133,6 +133,7 @@ async function validateLearningGuard(): Promise<LearningGuardResult> {
 export default function AppShell({ requestedScreen = "root" }: Props) {
   const pathname = usePathname();
   const router = useRouter();
+  const openMenuParam = useLocalSearchParams<{ openMenu?: string }>().openMenu;
   const hydrateSession = useAuthStore((state) => state.hydrateSession);
   const hasHydrated = useAuthStore((state) => state.hasHydrated);
   const user = useAuthStore((state) => state.user);
@@ -227,6 +228,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const drawerAvatarUri = avatarMode === 'photo' ? profilePhotoUri : null;
 
   const openSidebar = () => setDrawerOpen(true);
+
+  useEffect(() => {
+    if (openMenuParam === '1') {
+      setDrawerOpen(true);
+    }
+  }, [openMenuParam]);
 
   useEffect(() => {
     void hydrateSession();
