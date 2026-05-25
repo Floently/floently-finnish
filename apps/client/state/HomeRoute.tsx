@@ -4,6 +4,7 @@ import HomeScreen from '@ui/screens/HomeScreen';
 import { useAuthStore } from './authStore';
 import { usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
+import { useStreakStore } from './streakStore';
 import { useTranslator } from '../features/i18n';
 
 type Props = {
@@ -56,10 +57,17 @@ export default function HomeRoute({
   const toggleTheme = usePreferencesStore((state) => state.toggleTheme);
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
   const activeContext = useSubscriptionStore((state) => state.activeContext);
+  const streakHasHydrated = useStreakStore((state) => state.hasHydrated);
+  const hydrateStreak = useStreakStore((state) => state.hydrate);
+  const currentStreak = useStreakStore((state) => state.currentStreak);
 
   useEffect(() => {
     void hydratePreferences();
   }, [hydratePreferences]);
+
+  useEffect(() => {
+    if (!streakHasHydrated) void hydrateStreak();
+  }, [hydrateStreak, streakHasHydrated]);
 
   const displayName =
     (user as { displayName?: string; name?: string; email?: string } | null)?.displayName?.trim() ||
@@ -85,6 +93,7 @@ export default function HomeRoute({
       isAuthenticated={Boolean(user)}
       userName={displayName}
       userEmail={user?.email ?? t('homeSidebarRoutesHint')}
+      streakDays={currentStreak}
       themeMode={themeMode}
       accessState={{
         learn: hasLearningAccess,

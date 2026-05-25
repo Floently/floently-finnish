@@ -47,6 +47,7 @@ import { useAuthStore } from "./authStore";
 import { usePreferencesStore } from "./preferencesStore";
 import { useSubscriptionStore } from "./subscriptionStore";
 import { usePlacementStore } from "./placementStore";
+import { useStreakStore } from "./streakStore";
 import createDrawerSections from "../config/navigation/AppShell_sidebar_sections";
 import { UtilityDrawer } from "@ui/components";
 import { audioSession } from "../features/shared/services/audioSession";
@@ -160,6 +161,15 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   const placementHydrate = usePlacementStore((state) => state.hydrate);
   const placementHasHydrated = usePlacementStore((state) => state.hasHydrated);
   const placementShouldPrompt = usePlacementStore((state) => state.shouldPrompt());
+  const placementUserKey = (
+    (user as { id?: string; userId?: string; email?: string } | null)?.id ||
+    (user as { id?: string; userId?: string; email?: string } | null)?.userId ||
+    (user as { id?: string; userId?: string; email?: string } | null)?.email ||
+    null
+  );
+  const streakHasHydrated = useStreakStore((state) => state.hasHydrated);
+  const hydrateStreak = useStreakStore((state) => state.hydrate);
+  const currentStreak = useStreakStore((state) => state.currentStreak);
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
   const subscriptionGuardKey = [
     subscriptionStatus?.billingTier ?? '',
@@ -249,8 +259,12 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
   }, [clearSubscription, hasHydrated, hydrateSubscription, user]);
 
   useEffect(() => {
-    void placementHydrate();
-  }, [placementHydrate]);
+    void placementHydrate(placementUserKey);
+  }, [placementHydrate, placementUserKey]);
+
+  useEffect(() => {
+    if (!streakHasHydrated) void hydrateStreak();
+  }, [hydrateStreak, streakHasHydrated]);
 
   useEffect(() => startMonitoring(), [startMonitoring]);
 
@@ -809,6 +823,7 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
 
   const drawer = (
     <UtilityDrawer
+      streakDays={currentStreak}
       visible={drawerOpen}
       onClose={() => setDrawerOpen(false)}
       sections={drawerSections}

@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { audioPlayer } from '../../exam/services/audioPlayer';
 import { cardsService } from '../services/cardsService';
 import type { CardBankBuckets, CardDeckScope, CardFeedback, CardMode, RuntimeCard } from '../types';
+import { useStreakStore } from '../../../state/streakStore';
 
 function defaultBanks(): CardBankBuckets { return { difficult: [], learned: [], learning: [] }; }
 function nextReviewLabel(card: RuntimeCard | null) { if (!card) return null; if (card.state === 'mastered') return 'Strong recall'; if (card.state === 'difficult') return 'Needs extra repetition'; if (card.state === 'learning' && card.seen_count >= 2) return 'Still consolidating'; return 'Fresh card'; }
@@ -26,6 +27,10 @@ export function useCardPractice(mode: CardMode, scope?: CardDeckScope) {
   const [refreshKey, setRefreshKey] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [flagged, setFlagged] = useState(false);
+  const streakHasHydrated = useStreakStore((state) => state.hasHydrated);
+  const hydrateStreak = useStreakStore((state) => state.hydrate);
+  const recordPractice = useStreakStore((state) => state.recordPractice);
+  const streakRecordedRef = useRef(false);
 
   const loadBanks = useCallback(async () => { try { setBanks(await cardsService.banks(mode, scope)); } catch { setBanks(defaultBanks()); } }, [mode, scope]);
 
@@ -33,12 +38,21 @@ export function useCardPractice(mode: CardMode, scope?: CardDeckScope) {
     setLoading(true); setError(null);
     try {
       const payload = await cardsService.start(mode, scope);
-      setSessionId(payload.session.session_id); setCurrent(payload.firstCard); setQueuedNext(null); setFeedback(null); setAnswer(''); setShowBack(false); setShowHint(false); setCoachHint(null); setSessionCompleted(false); setHistory([]); setRecallIndex(null); setFlagged(false); await loadBanks();
+      setSessionId(payload.session.session_id); setCurrent(payload.firstCard); setQueuedNext(null); setFeedback(null); setAnswer(''); setShowBack(false); setShowHint(false); setCoachHint(null); setSessionCompleted(false); setHistory([]); setRecallIndex(null); setFlagged(false); streakRecordedRef.current = false; await loadBanks();
     } catch (err) { setError(err instanceof Error ? err.message : 'Card session failed to start'); setCurrent(null); setSessionId(null); }
     finally { setLoading(false); }
   }, [loadBanks, mode, scope]);
 
   useEffect(() => { void load(); }, [load, refreshKey]);
+
+  useEffect(() => {
+    if (!sessionCompleted || streakRecordedRef.current) return;
+    streakRecordedRef.current = true;
+    void (async () => {
+      if (!streakHasHydrated) await hydrateStreak();
+      await recordPractice();
+    })();
+  }, [hydrateStreak, recordPractice, sessionCompleted, streakHasHydrated]);
   const displayedCard = useMemo(() => recallIndex === null ? current : history[recallIndex] ?? current, [current, history, recallIndex]);
   const progress = useMemo(() => { if (!current) return { current: 0, total: 0, ratio: 0 }; const total = Math.max(current.order_index + 4, history.length + 1, 4); const currentPosition = current.order_index + 1; return { current: currentPosition, total, ratio: Math.min(1, currentPosition / total) }; }, [current, history.length]);
   const visibleHint = useMemo(() => showHint ? coachHint : null, [coachHint, showHint]);

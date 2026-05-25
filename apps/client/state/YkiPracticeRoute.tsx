@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
@@ -23,6 +23,7 @@ import {
 import { startPracticeSession } from '../features/yki-practice/services/ykiPracticeService';
 import { audioPlayer } from '../features/exam/services/audioPlayer';
 import { useTranslator, type TranslationKey } from '../features/i18n';
+import { useStreakStore } from './streakStore';
 
 // ─── Design tokens ─────────────────────────────────────────────────────────
 const T = {
@@ -60,6 +61,20 @@ type Props = {
 
 type MCQOption = { text: string; index: number };
 type AnswerState = { selected: number | null; submitted: boolean; correct: boolean | null };
+
+function useRecordPracticeOnce() {
+  const hasHydrated = useStreakStore((state) => state.hasHydrated);
+  const hydrate = useStreakStore((state) => state.hydrate);
+  const recordPractice = useStreakStore((state) => state.recordPractice);
+  const recordedRef = useRef(false);
+
+  return useCallback(async () => {
+    if (recordedRef.current) return;
+    recordedRef.current = true;
+    if (!hasHydrated) await hydrate();
+    await recordPractice();
+  }, [hasHydrated, hydrate, recordPractice]);
+}
 
 function ListeningAudioPractice({
   audioScript,
@@ -162,6 +177,7 @@ function McqTask({
   onAnswered: () => void;
 }) {
   const { t } = useTranslator();
+  const recordPracticeOnce = useRecordPracticeOnce();
   const isDark = themeMode === 'dark';
   const palette = getFloentlyPalette(themeMode);
   const surface  = isDark ? T.surface : palette.surface;
@@ -183,6 +199,7 @@ function McqTask({
   function handleSubmit() {
     if (answer.selected === null) return;
     const isCorrect = answer.selected === correct_index;
+    void recordPracticeOnce();
     setAnswer((prev) => ({ ...prev, submitted: true, correct: isCorrect }));
   }
 
@@ -268,6 +285,7 @@ function WritingTask({
   onAnswered: () => void;
 }) {
   const { t } = useTranslator();
+  const recordPracticeOnce = useRecordPracticeOnce();
   const isDark = themeMode === 'dark';
   const palette = getFloentlyPalette(themeMode);
   const border = isDark ? T.border : palette.border;
@@ -307,7 +325,7 @@ function WritingTask({
         </Text>
         {!saved ? (
           <Pressable
-            onPress={() => setSaved(true)}
+            onPress={() => { setSaved(true); void recordPracticeOnce(); }}
             disabled={wordCount < Math.round(target * 0.6)}
             style={[styles.checkBtn, { backgroundColor: T.warning }, wordCount < Math.round(target * 0.6) && { opacity: 0.45 }]}
           >
@@ -338,6 +356,7 @@ function SpeakingTask({
   onAnswered: () => void;
 }) {
   const { t } = useTranslator();
+  const recordPracticeOnce = useRecordPracticeOnce();
   const isDark = themeMode === 'dark';
   const palette = getFloentlyPalette(themeMode);
   const border = isDark ? T.border : palette.border;
@@ -360,14 +379,14 @@ function SpeakingTask({
       <View style={styles.speakingActions}>
         {roleplayConfig ? (
           <Pressable
-            onPress={() => onStartRoleplay(roleplayConfig)}
+            onPress={() => { void recordPracticeOnce(); onStartRoleplay(roleplayConfig); }}
             style={[styles.speakingPrimaryBtn, { backgroundColor: T.warning }]}
           >
             <Text style={styles.speakingPrimaryBtnText}>{t('ykiRouteStartConversationRoleplay')}</Text>
           </Pressable>
         ) : null}
         <Pressable
-          onPress={onAnswered}
+          onPress={() => { void recordPracticeOnce(); onAnswered(); }}
           style={[styles.speakingSecondaryBtn, { borderColor: border }]}
         >
           <Text style={[styles.speakingSecondaryBtnText, { color: muted }]}>
