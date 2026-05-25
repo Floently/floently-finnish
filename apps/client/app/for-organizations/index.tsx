@@ -1,3 +1,3 @@
-import ForOrganizationsScreen from '../../web/ForOrganizationsScreen';
+import { NativeForOrganizationsScreen } from '../../features/publicMarketing/screens/NativePublicMarketingScreens';
 
-export default ForOrganizationsScreen;
+export default NativeForOrganizationsScreen;

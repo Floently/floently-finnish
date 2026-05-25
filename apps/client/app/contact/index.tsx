@@ -1,3 +1,3 @@
-import ContactScreen from '../../web/ContactScreen';
+import { NativeContactScreen } from '../../features/publicMarketing/screens/NativePublicMarketingScreens';
 
-export default ContactScreen;
+export default NativeContactScreen;
