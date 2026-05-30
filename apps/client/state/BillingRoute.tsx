@@ -578,15 +578,50 @@ export default function BillingRoute({ onBack, onOpenMenu }: Props) {
         email: user?.email ?? null,
         subscriptionTierHint: user?.subscriptionTier ?? null,
       });
-      if (supportsStoreBilling()) {
-        Alert.alert(t('billingPurchaseUnavailableTitle'), t('billingPurchaseUnavailableBody'));
-        return;
-      }
       const trialPathway: CheckoutPathway = 'yki';
       const request = {
         ...buildCheckoutRequest(trialPathway, period, []),
         trial_days: 3,
       };
+
+      if (supportsStoreBilling()) {
+        const result = await startStorePurchase(request.plan, user?.id ?? user?.email ?? null);
+        try {
+          await paymentService.syncStoreSubscription({
+            platform: result.platform,
+            plan: request.plan,
+            package_id: result.packageId,
+            packageId: result.packageId,
+            billing_period: period,
+            billingPeriod: period,
+            selected_professions: [],
+            selectedProfessions: [],
+            active_entitlements: result.activeEntitlements,
+            activeEntitlements: result.activeEntitlements,
+          });
+        } catch (syncError) {
+          Alert.alert(
+            'Trial started',
+            syncError instanceof Error
+              ? `Store trial/purchase completed, but access sync failed: ${syncError.message}. Use Restore Purchases after reopening the app.`
+              : 'Store trial/purchase completed, but access sync failed. Use Restore Purchases after reopening the app.',
+          );
+          return;
+        }
+
+        await refreshBillingSnapshot();
+        await refreshSubscription({
+          email: user?.email ?? null,
+          subscriptionTierHint: user?.subscriptionTier ?? null,
+        });
+
+        const activeEntitlements = result.activeEntitlements.length
+          ? result.activeEntitlements.join(', ')
+          : 'pending store entitlement sync';
+        Alert.alert('Trial started', `Store trial/purchase completed and access synced: ${activeEntitlements}.`);
+        return;
+      }
+
       const session = await paymentService.createCheckoutSession(request) as { checkout_url?: string; url?: string } | undefined;
       await openUrl(session?.url ?? session?.checkout_url);
     } catch (error) {

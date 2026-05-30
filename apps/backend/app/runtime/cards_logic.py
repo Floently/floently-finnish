@@ -197,7 +197,6 @@ def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str
     materialized['order_index'] = order_index
     materialized['front_text'] = card.get('front') or ''
     materialized['back_prompt'] = card.get('back_prompt') or (card.get('accepted_answers') or [''])[0]
-    materialized['served_follow_up'] = _make_served_follow_up(card, option_shuffle_seed=option_shuffle_seed)
     materialized['_accepted_variants'] = list(card.get('accepted_answers') or [])
     materialized['_answer_value'] = card.get('answer_value') or (card.get('accepted_answers') or [''])[0]
     # Preserve canonical text for release gates before any UI-language overlay mutates display fields.
@@ -214,8 +213,138 @@ def _materialized_card(card: dict, *, order_index: int, option_shuffle_seed: str
     # hints we synthesize a structurally correct fallback that points at
     # the type of answer expected, not a generic platitude.
     materialized['hint'] = _resolve_card_hint(card)
-    materialized = apply_runtime_card_overlay(materialized, ui_language=ui_language)
-    return apply_runtime_option_translations(materialized, ui_language=ui_language)
+
+    # Apply UI-language overlays before served options are shuffled.
+    # Overlay option rows may be index-based in the authored/original option order.
+    # If we apply them after _make_served_follow_up(), the served options have
+    # already been shuffled, so index-based overlay rows can land on the wrong
+    # option and create duplicate/wrong visible choices.
+    #
+    # Finnish is the target learning language. If the app UI language is Finnish,
+    # the visible app shell/buttons can still be Finnish, but card learning
+    # content must not use the Finnish overlay. Otherwise meaning-recognition
+    # cards become self-translation or pseudo-Finnish cards such as:
+    #   "Mitä ovi tarkoittaa?" -> "ovi"
+    #   "Minä want vesi"
+    # Therefore fi UI uses English effective card content for prompts/options.
+    raw_ui_language = str(ui_language or '').strip().lower()
+    is_fi_ui = raw_ui_language.split('-')[0] == 'fi'
+    effective_card_ui_language = 'en' if is_fi_ui else ui_language
+
+    materialized = apply_runtime_card_overlay(materialized, ui_language=effective_card_ui_language)
+    materialized['served_follow_up'] = _make_served_follow_up(materialized, option_shuffle_seed=option_shuffle_seed)
+    materialized = apply_runtime_option_translations(materialized, ui_language=effective_card_ui_language)
+
+    if is_fi_ui:
+        materialized['ui_language'] = 'fi'
+        materialized['learning_content_language'] = 'en'
+        materialized['overlay_effective_language'] = 'en'
+
+    return materialized
+
+
+
+def _visible_option_texts(card: dict) -> list[str]:
+    follow_up = card.get('served_follow_up')
+    if not isinstance(follow_up, dict):
+        return []
+    options = follow_up.get('options')
+    if not isinstance(options, list):
+        return []
+    texts: list[str] = []
+    for option in options:
+        if not isinstance(option, dict):
+            continue
+        text = str(option.get('text') or '').strip()
+        if text:
+            texts.append(text)
+    return texts
+
+
+def _served_answer_key_exists(card: dict) -> bool:
+    follow_up = card.get('served_follow_up')
+    if not isinstance(follow_up, dict):
+        return True
+    options = follow_up.get('options')
+    if not isinstance(options, list) or not options:
+        return True
+
+    answer_key = str(follow_up.get('answer_key') or '').strip()
+    if not answer_key:
+        return False
+
+    for option in options:
+        if not isinstance(option, dict):
+            continue
+        option_id = str(option.get('option_id') or option.get('id') or '').strip()
+        if option_id == answer_key:
+            return True
+
+    return False
+
+
+def _normalized_option_text_for_safety(value: str) -> str:
+    text = _normalized_text(value)
+    # Treat punctuation-only wrappers as the same visible answer.
+    # Examples:
+    #   ", ei kuitenkaan heti" / "; ei kuitenkaan heti" / ": ei kuitenkaan heti"
+    #   "Odotan tässä." / "“Odotan tässä.”" / "Odotan tässä"
+    # These are effectively duplicate choices for the learner.
+    text = text.replace('“', '"').replace('”', '"').replace('„', '"')
+    text = text.replace('‘', "'").replace('’', "'")
+    text = text.replace('«', '"').replace('»', '"')
+    text = text.replace('–', '-').replace('—', '-')
+    text = text.strip()
+    text = text.strip(' .,!?:;"\'()[]{}<>')
+    text = text.lstrip('-').strip()
+    text = text.strip(' .,!?:;"\'()[]{}<>')
+    return text
+
+
+
+def _option_text_safety_issue(card: dict) -> str | None:
+    texts = _visible_option_texts(card)
+    if not texts:
+        return None
+
+    normalized = [
+        _normalized_option_text_for_safety(text)
+        for text in texts
+        if _normalized_option_text_for_safety(text)
+    ]
+    if len(normalized) != len(set(normalized)):
+        return 'duplicate_visible_options'
+
+    follow_up = card.get('served_follow_up')
+    answer_text = ''
+    if isinstance(follow_up, dict):
+        answer_text = str(follow_up.get('answer_text') or '').strip()
+
+    answer_norm = _normalized_option_text_for_safety(answer_text)
+    if answer_norm and normalized.count(answer_norm) > 1:
+        return 'answer_text_appears_multiple_times'
+
+    if not _served_answer_key_exists(card):
+        return 'missing_answer_key_in_visible_options'
+
+    content_type = str(card.get('content_type') or '').strip().lower()
+    weak_vocab_distractors = {'jutella', 'nätti', 'suuri'}
+    if content_type == 'vocabulary_card':
+        weak_seen = weak_vocab_distractors & set(normalized)
+        if len(weak_seen) >= 2:
+            return 'weak_repeated_vocabulary_distractors'
+
+    giveaway_markers = (
+        'e.g.',
+        'example:',
+        'esim.',
+        'esimerkiksi',
+    )
+    lowered_options = [text.lower() for text in texts]
+    if any(any(marker in text for marker in giveaway_markers) for text in lowered_options):
+        return 'option_contains_answer_giving_example'
+
+    return None
 
 
 
@@ -246,6 +375,12 @@ def _is_runtime_card_visible(card: dict, ui_language: str | None = None) -> bool
     if any(marker in prompt for marker in bad_semantic_prompt_markers):
         card["release_blocked"] = True
         card["release_block_reason"] = "semantic_pair_opposite_cards_quarantined"
+        return False
+
+    option_issue = _option_text_safety_issue(card)
+    if option_issue:
+        card["release_blocked"] = True
+        card["release_block_reason"] = option_issue
         return False
 
     # Canonical release safety and overlay completeness are intentionally separate.

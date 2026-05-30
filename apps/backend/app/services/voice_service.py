@@ -410,12 +410,54 @@ def get_stt_runtime_snapshot() -> dict[str, Any]:
     }
 
 
+def _looks_like_roleplay_stt_hallucination(
+    transcript: str | None,
+    *,
+    duration_ms: int | None,
+    decoded_duration_ms: int | None,
+) -> bool:
+    """Reject likely roleplay STT hallucinations before they reach AI conversation."""
+    clean = " ".join(str(transcript or "").strip().lower().split())
+    if not clean:
+        return False
+
+    effective_duration = decoded_duration_ms if isinstance(decoded_duration_ms, int) else duration_ms
+    if not isinstance(effective_duration, int) or effective_duration < 3000:
+        return False
+
+    compact = clean.strip(" .,!?:;\"'“”’")
+    suspicious_exact = {
+        "hey",
+        "hei",
+        "hi",
+        "hello",
+        "jari",
+        "lahtinen",
+        "jari lahtinen",
+        "kiitos",
+        "thank you",
+        "thanks",
+        "okay",
+        "ok",
+    }
+
+    if compact in suspicious_exact:
+        return True
+
+    words = [part for part in compact.replace("-", " ").split() if part]
+    if len(words) <= 1 and len(compact) <= 12:
+        return True
+
+    return False
+
+
 def transcribe_audio(
     *,
     raw_bytes: bytes,
     filename: str,
     mime_type: str,
     duration_ms: int | None,
+    client_file_size_bytes: int | None = None,
     session_id: str,
     speaking_session_id: str | None,
     turn_id: str | None,
@@ -429,7 +471,7 @@ def transcribe_audio(
         raise AppError(
             400,
             "AUDIO_TOO_SHORT",
-            "Recording is too short. Please hold the microphone for at least one second and try again.",
+            "Recording is too short. Please record at least 3 seconds and speak one full sentence.",
             False,
             {"classification": "non_retryable", "byte_count": len(raw_bytes)},
         )
@@ -440,6 +482,8 @@ def transcribe_audio(
         raise AppError(400, "VALIDATION_ERROR", "Unsupported audio mime type.", False, {"classification": "non_retryable", "mime_type": mime_type})
     if duration_ms is not None and duration_ms < 0:
         raise AppError(400, "VALIDATION_ERROR", "duration_ms must be zero or greater.", False, {"classification": "non_retryable"})
+    if client_file_size_bytes is not None and client_file_size_bytes < 0:
+        raise AppError(400, "VALIDATION_ERROR", "client_file_size_bytes must be zero or greater.", False, {"classification": "non_retryable"})
 
     effective_speaking_session_id = speaking_session_id or session_id
     audio_ref, audio_path = save_voice_file(
@@ -453,10 +497,34 @@ def transcribe_audio(
     )
 
     debug_metrics = _audio_debug_metrics(raw_bytes, filename, mime_type)
+
+    if mode == "roleplay" and len(raw_bytes) < 2048:
+        _LOG.warning(
+            "Rejected roleplay STT upload: file too small bytes=%s client_file_size_bytes=%s duration_ms=%s filename=%s mime_type=%s",
+            len(raw_bytes),
+            client_file_size_bytes,
+            duration_ms,
+            filename,
+            mime_type,
+        )
+        return {
+            "transcript": "",
+            "text": "",
+            "provider": None,
+            "stt_available": True,
+            "stored_audio_path": audio_path,
+            "voice_ref": audio_ref,
+            "duration_ms": duration_ms,
+            "debug_metrics": debug_metrics,
+            "client_file_size_bytes": client_file_size_bytes,
+            "server_file_size_bytes": len(raw_bytes),
+            "failure_reasons": ["roleplay_audio_file_too_small"],
+            "provider_results": [],
+        }
     _LOG.warning("STT input audio metrics: %s", debug_metrics)
 
     decoded_duration_ms = debug_metrics.get("duration_ms")
-    if mode == "roleplay" and isinstance(decoded_duration_ms, int) and decoded_duration_ms < 900:
+    if mode == "roleplay" and isinstance(decoded_duration_ms, int) and decoded_duration_ms < 2500:
         return {
             "stt_available": True,
             "transcript": None,
@@ -464,11 +532,22 @@ def transcribe_audio(
             "audio_ref": audio_ref,
             "provider": None,
             "error_code": "AUDIO_TOO_SHORT",
-            "error_message": "I could not hear enough speech. Please speak clearly and try again.",
+            "error_message": "I could not hear enough speech. Please record at least 3 seconds, speak clearly, and try again.",
             "failure_reasons": [f"decoded_audio_too_short:{decoded_duration_ms}ms"],
             "provider_results": [],
             "debug_metrics": debug_metrics,
         }
+
+    if mode == "roleplay":
+        _LOG.info(
+            "Roleplay STT upload metrics: bytes=%s client_file_size_bytes=%s duration_ms=%s decoded_duration_ms=%s filename=%s mime_type=%s",
+            len(raw_bytes),
+            client_file_size_bytes,
+            duration_ms,
+            decoded_duration_ms,
+            filename,
+            mime_type,
+        )
 
     transcript, provider, stt_available, failures, provider_results = _transcribe_best_effort(
         raw_bytes,
@@ -478,6 +557,43 @@ def transcribe_audio(
         mode,
         duration_ms,
     )
+
+    if mode == "roleplay" and _looks_like_roleplay_stt_hallucination(
+        transcript,
+        duration_ms=duration_ms,
+        decoded_duration_ms=decoded_duration_ms,
+    ):
+        _LOG.warning(
+            "Rejected suspicious roleplay STT transcript: transcript=%r bytes=%s client_file_size_bytes=%s duration_ms=%s decoded_duration_ms=%s filename=%s mime_type=%s",
+            transcript,
+            len(raw_bytes),
+            client_file_size_bytes,
+            duration_ms,
+            decoded_duration_ms,
+            filename,
+            mime_type,
+        )
+        return {
+            "ok": True,
+            "audio_ref": audio_ref,
+            "transcript": None,
+            "text": None,
+            "stt_available": True,
+            "mode": mode,
+            "locale": locale,
+            "duration_ms": duration_ms,
+            "provider": provider,
+            "provider_attempt_order": ["openai", "google"],
+            "provider_results": provider_results,
+            "session_id": session_id,
+            "speaking_session_id": effective_speaking_session_id,
+            "client_file_size_bytes": client_file_size_bytes,
+            "server_file_size_bytes": len(raw_bytes),
+            "error_code": "STT_TRANSCRIPT_UNCERTAIN",
+            "error_message": "I could not understand enough clear speech. Please record at least 3 seconds and say one full sentence.",
+            "failure_reasons": failures + ["roleplay_stt_suspicious_short_transcript"],
+            "debug_metrics": debug_metrics,
+        }
 
     if transcript:
         _LOG.info(

@@ -1548,6 +1548,68 @@ def list_scenarios(*, profession: str = "general", level_band: str = "B1-B2") ->
     return [_scenario_payload(spec, band) for spec in (_ROLEPLAY_REGISTRY.get(profession) or _ROLEPLAY_REGISTRY["general"])]
 
 
+
+def _is_a1_a2_level(level_band: str | None) -> bool:
+    normalized = str(level_band or "").upper().replace("_", "-")
+    return "A1" in normalized or "A2" in normalized
+
+
+def _a1_beginner_phrase_from_opening(opening_text: str, profession: str) -> str:
+    text = str(opening_text or "").strip()
+    low = text.lower()
+    profession = str(profession or "").strip().lower()
+
+    if "väsynyt" in low or "väsym" in low or "nukkua" in low:
+        phrase = "Minulla on väsymystä."
+    elif "rinnassa" in low:
+        phrase = "Minulla on kipu rinnassa."
+    elif "pään" in low or "pää" in low:
+        phrase = "Minulla on päänsärky."
+    elif "yskä" in low:
+        phrase = "Minulla on yskä."
+    elif "kuume" in low:
+        phrase = "Minulla on kuumetta."
+    elif "kipu" in low or "kipua" in low:
+        phrase = "Minulla on kipua."
+    elif profession == "practical_nurse":
+        if "ruoka" in low or "söi" in low or "syö" in low:
+            phrase = "Asiakas söi hyvin."
+        elif "liikku" in low:
+            phrase = "Asiakas liikkui vähän."
+        elif "aamu" in low:
+            phrase = "Aamu meni hyvin."
+        else:
+            phrase = "Asiakas voi hyvin."
+    elif profession == "nurse":
+        if "lääke" in low:
+            phrase = "Annoin lääkkeen."
+        elif "yö" in low:
+            phrase = "Yö meni rauhallisesti."
+        elif "potilas" in low:
+            phrase = "Potilas voi paremmin."
+        else:
+            phrase = "Potilas voi hyvin."
+    elif profession == "general":
+        if "ongelma" in low or "vika" in low or "pieleen" in low:
+            phrase = "Tässä on ongelma."
+        elif "tehtävä" in low or "työ" in low:
+            phrase = "Teen tämän tehtävän."
+        else:
+            phrase = "Kerron lyhyesti."
+    else:
+        phrase = "Kerron lyhyesti."
+
+    return f"Kuuntele ensin. {phrase} Sano perässä: {phrase}"
+
+
+def _doctor_a1_beginner_opening(opening_text: str) -> str:
+    return _a1_beginner_phrase_from_opening(opening_text, "doctor")
+
+
+def _a1_beginner_opening(opening_text: str, profession: str) -> str:
+    return _a1_beginner_phrase_from_opening(opening_text, profession)
+
+
 def start_session(*, profession: str, level_band: str, scenario_id: str | None = None, context_label: str | None = None) -> dict[str, Any]:
     normalized_profession = _normalize_profession(profession)
     band = _normalize_level(level_band)
@@ -1571,6 +1633,9 @@ def start_session(*, profession: str, level_band: str, scenario_id: str | None =
         chosen_opening_text = str(created_messages[0].get("text") or "")
     if not chosen_opening_text:
         chosen_opening_text = spec.opener  # safety fallback
+
+    if _is_a1_a2_level(level_band):
+        chosen_opening_text = _a1_beginner_opening(chosen_opening_text, spec.profession)
     # Same for max user turns — read from the session's progress total which was
     # populated from the chosen variant, not from the spec's legacy length.
     chosen_max_turns = int(((created.get("progress") or {}).get("user_turns_total")) or len(spec.assistant_turns))

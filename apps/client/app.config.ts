@@ -20,6 +20,7 @@ export default function config(_: ConfigContext): ExpoConfig {
 
   const apiBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL?.trim() || 'https://learn-api.floently.com';
   const audioBaseUrl = process.env.EXPO_PUBLIC_AUDIO_BASE_URL?.trim() || apiBaseUrl;
+  const easProjectId = 'fa02c141-0a3b-4dbc-9122-7c1cf31ba42c';
 
   const googleOAuth = {
     iosClientId: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID?.trim() || undefined,
@@ -62,6 +63,13 @@ export default function config(_: ConfigContext): ExpoConfig {
   return {
     ...baseExpo,
     plugins,
+    updates: {
+      ...(baseExpo.updates ?? {}),
+      enabled: true,
+      url: `https://u.expo.dev/${easProjectId}`,
+      checkAutomatically: 'ON_LOAD',
+      fallbackToCacheTimeout: 0,
+    },
     extra: {
       ...(baseExpo.extra ?? {}),
       apiBaseUrl,

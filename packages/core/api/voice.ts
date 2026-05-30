@@ -144,6 +144,7 @@ export async function transcribeVoiceAudio(input: {
   sessionId?: string;
   speakingSessionId?: string;
   durationMs?: number;
+  fileSizeBytes?: number;
 }): Promise<string | null> {
   const form = new FormData();
   form.append('file', buildFilePart(input.uriOrBlob, input.fileName, input.mimeType));
@@ -154,6 +155,9 @@ export async function transcribeVoiceAudio(input: {
   form.append('speaking_session_id', input.speakingSessionId ?? input.sessionId ?? 'voice-session');
   if (typeof input.durationMs === 'number' && Number.isFinite(input.durationMs)) {
     form.append('duration_ms', String(Math.max(0, Math.round(input.durationMs))));
+  }
+  if (typeof input.fileSizeBytes === 'number' && Number.isFinite(input.fileSizeBytes)) {
+    form.append('client_file_size_bytes', String(Math.max(0, Math.round(input.fileSizeBytes))));
   }
 
   const headers = new Headers();

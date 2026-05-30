@@ -3,6 +3,7 @@ from __future__ import annotations
 from functools import lru_cache
 from pathlib import Path
 import json
+import copy
 from typing import Any
 
 try:
@@ -423,6 +424,11 @@ def _apply_generic_prompt_fallback(card: dict[str, Any], language: str) -> bool:
     return True
 
 def apply_runtime_card_overlay(card: dict[str, Any], *, ui_language: Any) -> dict[str, Any]:
+    # Language overlays must never mutate shared runtime/card-bank objects.
+    # Runtime cards are often shallow-copied before this function, so nested
+    # served_follow_up/options can otherwise leak one UI language into another.
+    card = copy.deepcopy(card)
+
     language = normalize_ui_language(ui_language)
 
     card["ui_language"] = language or None

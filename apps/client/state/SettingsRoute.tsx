@@ -8,11 +8,10 @@ import { LEGAL_URLS } from '../config/legalUrls';
 import { useTranslator } from '../features/i18n';
 
 import { useAuthStore } from './authStore';
-import { usePreferencesStore } from './preferencesStore';
+import { SPEECH_RATE_PRESETS, usePreferencesStore } from './preferencesStore';
 import { useSubscriptionStore } from './subscriptionStore';
 
 const LOGO = require('../components/public/logo.png');
-const RATES = [0.8, 1, 1.2, 1.4] as const;
 
 type ImagePickerModule = {
   MediaTypeOptions?: { Images?: unknown };
@@ -72,6 +71,26 @@ function SettingRow({
       ) : null}
     </View>
   );
+}
+
+function speechRateLabel(id: string, language: string) {
+  const labels: Record<string, Record<string, string>> = {
+    very_slow: { en: 'Very slow', fi: 'Erittäin hidas', sv: 'Mycket långsam' },
+    slow: { en: 'Slow', fi: 'Hidas', sv: 'Långsam' },
+    normal: { en: 'Normal', fi: 'Normaali', sv: 'Normal' },
+    natural: { en: 'Natural', fi: 'Luonnollinen', sv: 'Naturlig' },
+  };
+  return labels[id]?.[language] ?? labels[id]?.en ?? id;
+}
+
+function speechRateHint(language: string) {
+  if (language === 'fi') {
+    return 'Erittäin hidas sopii aloittelijan roolipeliin. Luonnollinen sopii vapaampaan keskusteluun.';
+  }
+  if (language === 'sv') {
+    return 'Mycket långsam passar nybörjarrollspel. Naturlig passar friare samtal.';
+  }
+  return 'Very slow is best for beginner roleplay. Natural is better for freer conversations.';
 }
 
 function resolveMediaTypes(ImagePicker: ImagePickerModule) {
@@ -335,12 +354,18 @@ export default function SettingsRoute({ onBack, onOpenBilling, onOpenHelp, onOpe
         </View>
         <View style={[styles.groupCard, { backgroundColor: palette.surfaceMuted, borderColor: palette.border }]}> 
           <Text style={[styles.groupTitle, { color: palette.text }]}>{t('settingsSpeakingSpeed')}</Text>
+          <Text style={[styles.groupHint, { color: palette.textMuted }]}>{speechRateHint(language)}</Text>
           <View style={styles.speedRow}>
-            {RATES.map((rate) => {
-              const active = speechRate === rate;
+            {SPEECH_RATE_PRESETS.map((preset) => {
+              const active = speechRate === preset.value;
               return (
-                <Pressable key={rate} onPress={() => { void setSpeechRate(rate); }} style={[styles.ratePill, { backgroundColor: active ? palette.primary : palette.surface, borderColor: active ? palette.primary : palette.border }]}> 
-                  <Text style={[styles.ratePillText, { color: active ? '#FFFFFF' : palette.text }]}>{rate.toFixed(1)}×</Text>
+                <Pressable
+                  key={preset.id}
+                  onPress={() => { void setSpeechRate(preset.value); }}
+                  style={[styles.ratePill, { backgroundColor: active ? palette.primary : palette.surface, borderColor: active ? palette.primary : palette.border }]}
+                >
+                  <Text style={[styles.ratePillText, { color: active ? '#FFFFFF' : palette.text }]}>{speechRateLabel(preset.id, language)}</Text>
+                  <Text style={[styles.ratePillMetaText, { color: active ? '#FFFFFF' : palette.textMuted }]}>{preset.value.toFixed(preset.value === 1 ? 0 : 2)}×</Text>
                 </Pressable>
               );
             })}
@@ -440,6 +465,7 @@ const styles = StyleSheet.create({
   speedRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
   ratePill: { minHeight: 34, borderRadius: 999, borderWidth: 1, paddingHorizontal: 12, alignItems: 'center', justifyContent: 'center' },
   ratePillText: { fontSize: 12, fontWeight: '800' },
+  ratePillMetaText: { fontSize: 11, fontWeight: '700', marginTop: 2 },
   toggleRow: { flexDirection: 'row', justifyContent: 'space-between', gap: 12, alignItems: 'center' },
   toggleCopy: { flex: 1, minWidth: 0 },
   clockFormatRow: { flexDirection: 'row', gap: 8, flexShrink: 0, width: 126, justifyContent: 'flex-end' },

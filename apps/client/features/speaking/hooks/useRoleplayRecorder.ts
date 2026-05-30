@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Platform } from 'react-native';
+import * as FileSystem from 'expo-file-system';
 import {
   RecordingPresets,
   requestRecordingPermissionsAsync,
@@ -17,9 +18,15 @@ function inferNativeAudioAttempts(uri: string) {
     return [{ mimeType: 'audio/wav', fileName: 'roleplay.wav' }];
   }
   if (lower.endsWith('.mp4')) {
-    return [{ mimeType: 'audio/mp4', fileName: 'roleplay.mp4' }];
+    return [
+      { mimeType: 'audio/mp4', fileName: 'roleplay.mp4' },
+      { mimeType: 'audio/m4a', fileName: 'roleplay.m4a' },
+    ];
   }
-  return [{ mimeType: 'audio/m4a', fileName: 'roleplay.m4a' }];
+  return [
+    { mimeType: 'audio/m4a', fileName: 'roleplay.m4a' },
+    { mimeType: 'audio/mp4', fileName: 'roleplay.mp4' },
+  ];
 }
 
 function browserMicErrorMessage(error: unknown, details?: string): string {
@@ -97,6 +104,7 @@ function normalizeRecorderError(error: unknown): string {
   const message = error instanceof Error ? error.message.trim() : '';
   if (!message) return 'Voice transcription failed.';
   if (/permission/i.test(message)) return message;
+  if (/too short|hold the microphone|at least one second|3 seconds/i.test(message)) return 'I could not hear enough clear speech. Record at least 3 seconds, speak close to the microphone, or type your response.';
   if (/unsupported audio mime type/i.test(message)) return 'This recording format is not supported.';
   if (/authentication failed|invalid api key|provider auth/i.test(message)) return 'Transcription provider authentication failed.';
   if (/missing permissions|api enablement|permission/i.test(message)) return 'Transcription service is not enabled for the current backend project.';
@@ -110,6 +118,7 @@ async function transcribeRoleplayRecording(input: {
   attempts: Array<{ mimeType: string; fileName: string }>;
   locale: string;
   durationMs?: number;
+    fileSizeBytes?: number;
 }): Promise<string> {
   let lastError: unknown = null;
   for (const attempt of input.attempts) {
@@ -123,6 +132,7 @@ async function transcribeRoleplayRecording(input: {
         speakingSessionId: 'roleplay-session',
         mode: 'roleplay',
         durationMs: input.durationMs,
+          fileSizeBytes: input.fileSizeBytes,
       })) ?? '';
     } catch (error) {
       lastError = error;
@@ -131,7 +141,28 @@ async function transcribeRoleplayRecording(input: {
   throw lastError ?? new Error('Voice transcription failed.');
 }
 
-const MIN_ROLEPLAY_RECORDING_MS = 1200;
+const MIN_ROLEPLAY_RECORDING_MS = 3000;
+
+const MIN_ROLEPLAY_AUDIO_BYTES = 2048;
+
+function pause(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function nativeAudioFileInfo(uri: string): Promise<{ exists: boolean; size?: number }> {
+  if (Platform.OS === 'web') return { exists: true };
+  try {
+    const info = await FileSystem.getInfoAsync(uri);
+    const record = info as { exists?: boolean; size?: number };
+    return {
+      exists: Boolean(record.exists),
+      size: typeof record.size === 'number' ? record.size : undefined,
+    };
+  } catch {
+    return { exists: false };
+  }
+}
+
 
 const nativeRecordingOptions = {
   ...RecordingPresets.HIGH_QUALITY,
@@ -247,6 +278,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         await nativeRecorder.prepareToRecordAsync();
         nativeRecorder.record();
         recordingRef.current = nativeRecorder;
+          await pause(120);
       }
       setPhaseSafe('recording');
       if (pendingStopRef.current) {
@@ -292,7 +324,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         await uiSounds.micOff();
         if (durationMs < MIN_ROLEPLAY_RECORDING_MS) {
           setPhaseSafe('idle');
-          setError('I could not hear enough speech. Speak clearly for about 1–2 seconds, then tap the mic again.');
+          setError('Record at least 3 seconds. Speak one full sentence, then tap the mic again. You can also type your answer.');
           return null;
         }
         const apiMimeType = mimeType.split(';')[0];
@@ -301,6 +333,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
           attempts: [{ mimeType: apiMimeType, fileName: apiMimeType.includes('mp4') ? 'roleplay.mp4' : 'roleplay.webm' }],
           locale,
           durationMs,
+            fileSizeBytes: blob.size,
         });
         setPhaseSafe('idle');
         if (!transcript) {
@@ -323,6 +356,20 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
       }
       await uiSounds.micOff();
       if (!uri) throw new Error('No recording URI returned');
+
+        // iOS can report a long UI duration even when the saved native file is
+        // missing, tiny, or not fully finalized yet. Wait briefly, then verify
+        // the actual file before sending it to STT.
+        await pause(350);
+        const fileInfo = await nativeAudioFileInfo(uri);
+        const fileSizeBytes = typeof fileInfo.size === 'number' ? fileInfo.size : 0;
+
+        if (!fileInfo.exists || fileSizeBytes < MIN_ROLEPLAY_AUDIO_BYTES) {
+          setPhaseSafe('idle');
+          setError('The recording was not saved correctly. Try once more, speak close to the microphone, or type your response.');
+          return null;
+        }
+
       const nativeDurationMs = Math.max(
         durationMs,
         nativeDurationMsRef.current,
@@ -331,7 +378,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
 
       if (nativeDurationMs < MIN_ROLEPLAY_RECORDING_MS) {
         setPhaseSafe('idle');
-        setError(`I only captured ${(nativeDurationMs / 1000).toFixed(1)}s of speech. Speak clearly for about 1–2 seconds, then tap the mic again.`);
+        setError(`I only captured ${(nativeDurationMs / 1000).toFixed(1)}s of speech. Record at least 3 seconds, speak one full sentence, then tap the mic again. You can also type your answer.`);
         return null;
       }
 
@@ -340,6 +387,7 @@ export function useRoleplayRecorder(locale = 'fi-FI') {
         attempts: inferNativeAudioAttempts(uri),
         locale,
         durationMs: nativeDurationMs,
+          fileSizeBytes,
       });
 
       setPhaseSafe('idle');

@@ -4,6 +4,7 @@ import gzip
 import hashlib
 import json
 import re
+import copy
 from functools import lru_cache
 from typing import Any
 
@@ -292,6 +293,12 @@ def apply_runtime_option_translations(card: dict[str, Any], *, ui_language: Any)
 
     served = card.get("served_follow_up")
     if isinstance(served, dict):
+        # Never mutate the cached/runtime follow-up object in place.
+        # A shallow card copy can share served_follow_up/options across requests;
+        # mutating it can leak one UI language's options into another language.
+        served = copy.deepcopy(served)
+        card["served_follow_up"] = served
+
         changed, fallbacks, answer_text = _patch_options(
             served.get("options"),
             cache,
@@ -314,6 +321,10 @@ def apply_runtime_option_translations(card: dict[str, Any], *, ui_language: Any)
 
     follow_up = card.get("follow_up")
     if isinstance(follow_up, dict):
+        # Same safety rule for authored follow_up options.
+        follow_up = copy.deepcopy(follow_up)
+        card["follow_up"] = follow_up
+
         changed, fallbacks, answer_text = _patch_options(
             follow_up.get("options"),
             cache,

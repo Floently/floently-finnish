@@ -402,6 +402,20 @@ function SpeakingTask({
 // Main route component
 // ---------------------------------------------------------------------------
 export default function YkiPracticeRoute({ onBack, onOpenMenu, onOpenExam, onOpenSpeaking }: Props) {
+  // YKI_AUDIO_STOP_ON_EXIT_GUARD
+  useEffect(() => {
+    return () => {
+      void audioPlayer.stopAsync();
+    };
+  }, []);
+
+
+  useEffect(() => {
+    return () => {
+      void audioPlayer.stopAsync();
+    };
+  }, []);
+
   const { t } = useTranslator();
   const themeMode = usePreferencesStore((s) => s.themeMode);
   const hydratePreferences = usePreferencesStore((s) => s.hydrate);

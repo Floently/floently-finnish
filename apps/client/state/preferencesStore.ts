@@ -7,6 +7,32 @@ import { isAppLanguage, type AppLanguage } from '../features/i18n/languages';
 const STORAGE_KEY = 'floently.learn.preferences';
 
 type AvatarMode = 'logo' | 'initials' | 'photo';
+
+export type SpeechRatePresetId = 'very_slow' | 'slow' | 'normal' | 'natural';
+
+export type SpeechRatePreset = {
+  id: SpeechRatePresetId;
+  value: number;
+};
+
+export const SPEECH_RATE_PRESETS: SpeechRatePreset[] = [
+  { id: 'very_slow', value: 0.55 },
+  { id: 'slow', value: 0.7 },
+  { id: 'normal', value: 0.8 },
+  { id: 'natural', value: 1.15 },
+];
+
+export function normalizeSpeechRate(value: unknown): number {
+  const numeric = typeof value === 'number' && Number.isFinite(value) ? value : 1;
+  let closest = SPEECH_RATE_PRESETS[2];
+  for (const preset of SPEECH_RATE_PRESETS) {
+    if (Math.abs(preset.value - numeric) < Math.abs(closest.value - numeric)) {
+      closest = preset;
+    }
+  }
+  return closest.value;
+}
+
 type PreferencesState = {
   hasHydrated: boolean;
   themeMode: FloentlyThemeMode;
@@ -43,7 +69,7 @@ const memoryStore = new Map<string, string>();
 const DEFAULTS: PersistedPreferences = {
   themeMode: 'light',
   language: 'en',
-  speechRate: 1,
+  speechRate: 0.8,
   clockFormat: '24h',
   hintsEnabled: true,
   profilePhotoUri: null,
@@ -66,7 +92,7 @@ async function readStorage(): Promise<PersistedPreferences | null> {
     return {
       themeMode: parsed.themeMode === 'dark' ? 'dark' : 'light',
       language: isAppLanguage(parsed.language) ? parsed.language : 'en',
-      speechRate: typeof parsed.speechRate === 'number' ? parsed.speechRate : DEFAULTS.speechRate,
+      speechRate: normalizeSpeechRate(parsed.speechRate),
       clockFormat: parsed.clockFormat === '12h' ? '12h' : '24h',
       hintsEnabled: typeof parsed.hintsEnabled === 'boolean' ? parsed.hintsEnabled : DEFAULTS.hintsEnabled,
       profilePhotoUri: typeof parsed.profilePhotoUri === 'string' && parsed.profilePhotoUri.trim().length ? parsed.profilePhotoUri : null,
@@ -120,8 +146,9 @@ export const usePreferencesStore = create<PreferencesState>((set, get) => ({
     set({ language });
   },
   async setSpeechRate(rate) {
-    await updatePersisted({ speechRate: rate });
-    set({ speechRate: rate });
+    const nextRate = normalizeSpeechRate(rate);
+    await updatePersisted({ speechRate: nextRate });
+    set({ speechRate: nextRate });
   },
   async setClockFormat(format) {
     await updatePersisted({ clockFormat: format });

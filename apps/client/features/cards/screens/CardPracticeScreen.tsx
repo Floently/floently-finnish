@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
@@ -6,8 +6,16 @@ import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { usePreferencesStore } from '../../../state/preferencesStore';
 import { CardPracticeSession } from '../components/CardPracticeSession';
 import { useTranslator } from '../../i18n';
+import { audioPlayer } from '../../exam/services/audioPlayer';
 
 export default function CardPracticeScreen() {
+  // YKI_AUDIO_STOP_ON_EXIT_GUARD
+  useEffect(() => {
+    return () => {
+      void audioPlayer.stopAsync();
+    };
+  }, []);
+
   const themeMode = usePreferencesStore((state) => state.themeMode);
   const palette = getFloentlyPalette(themeMode);
   const isDark = themeMode === 'dark';

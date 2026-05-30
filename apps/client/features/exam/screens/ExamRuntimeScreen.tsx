@@ -476,6 +476,20 @@ function defaultTaskState(): TaskState {
 // ─── Main screen ──────────────────────────────────────────────────────────────
 
 export default function ExamRuntimeScreen() {
+  // YKI_AUDIO_STOP_ON_EXIT_GUARD
+  useEffect(() => {
+    return () => {
+      void audioPlayer.stopAsync();
+    };
+  }, []);
+
+
+  useEffect(() => {
+    return () => {
+      void audioPlayer.stopAsync();
+    };
+  }, []);
+
   const [started, setStarted] = useState(false);
   const [sections, setSections] = useState<Section[]>(FALLBACK_SECTIONS);
   const [loadingTasks, setLoadingTasks] = useState(true);

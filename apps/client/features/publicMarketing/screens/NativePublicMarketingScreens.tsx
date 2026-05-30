@@ -1,5 +1,7 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
+  Easing,
   Image,
   Linking,
   Modal,
@@ -153,33 +155,504 @@ function BrandHeader({ light = false }: { light?: boolean }) {
 function CorrectionPreview() {
   const { copy } = useNativePublicCopy();
   const landing = copy.landing ?? {};
+  const demo = copy.demo ?? {};
 
   const label = firstString(
-    landing,
-    ['correction.kicker', 'demo.kicker', 'liveCorrectionLabel', 'correctionEyebrow'],
+    { landing, demo },
+    ['demo.label', 'landing.correction.kicker', 'landing.demo.kicker', 'landing.liveCorrectionLabel', 'landing.correctionEyebrow'],
     'Floently · live correction',
   );
 
+  const prompt = firstString(
+    { demo },
+    ['demo.prompt'],
+    'Your answer in Finnish',
+  );
+
+  const sentence = firstString(
+    { demo },
+    ['demo.sentence'],
+    'Kävin apteekkiin eilen.',
+  );
+
+  const wrongWord = firstString(
+    { demo },
+    ['demo.wrongWord'],
+    '',
+  );
+
+  const success = firstString(
+    { demo },
+    ['demo.success'],
+    'Now it sounds Finnish. One step closer to YKI.',
+  );
+
   const note = firstString(
-    landing,
-    ['correction.note', 'demo.note', 'demoCaption', 'correctionBody'],
+    { landing, demo },
+    ['landing.demoCaption', 'landing.correction.note', 'landing.demo.note', 'landing.correctionBody', 'demo.tooltipBody'],
     'Practice Finnish, get corrected, and learn the rule.',
   );
+
+  const parts = wrongWord && sentence.includes(wrongWord) ? sentence.split(wrongWord) : null;
 
   return (
     <View style={styles.correctionCard}>
       <Text style={styles.correctionKicker}>{label}</Text>
       <View style={styles.correctionBox}>
-        <Text style={styles.correctionSmall}>YOUR ANSWER IN FINNISH</Text>
+        <Text style={styles.correctionSmall}>{prompt}</Text>
         <Text style={styles.correctionText}>
-          Kävin <Text style={styles.correctionBad}>apteekkiin</Text> eilen.
+          {parts ? (
+            <>
+              {parts[0]}
+              <Text style={styles.correctionBad}>{wrongWord}</Text>
+              {parts.slice(1).join(wrongWord)}
+            </>
+          ) : (
+            sentence
+          )}
         </Text>
-        <Text style={styles.correctionGood}>Now it sounds Finnish. One step closer to YKI.</Text>
+        <Text style={styles.correctionGood}>{success}</Text>
       </View>
       <Text style={styles.correctionNote}>{note}</Text>
     </View>
   );
 }
+
+type FloentlyGatewayProps = {
+  onOpenLearn: () => void;
+  onOpenRead: () => void;
+};
+
+type FloentlyReadPreviewProps = {
+  onOpenGateway: () => void;
+  onOpenLearn: () => void;
+};
+
+function ReadComingSoonModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
+  return (
+    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
+      <Pressable
+        onPress={onClose}
+        style={{
+          flex: 1,
+          backgroundColor: 'rgba(2, 8, 23, 0.72)',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 24,
+        }}
+      >
+        <Pressable
+          onPress={() => {}}
+          style={{
+            width: '100%',
+            maxWidth: 420,
+            borderRadius: 28,
+            padding: 24,
+            backgroundColor: '#111B3D',
+            borderWidth: 1,
+            borderColor: 'rgba(139, 160, 255, 0.28)',
+          }}
+        >
+          <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: '900', marginBottom: 10 }}>
+            Coming soon
+          </Text>
+          <Text style={{ color: '#B8C5E8', fontSize: 15, lineHeight: 22, marginBottom: 20 }}>
+            Floently Read sign-in and access will be added later. For now, Read has its own product space but is not active inside the app yet.
+          </Text>
+          <Pressable
+            onPress={onClose}
+            style={{
+              minHeight: 48,
+              borderRadius: 18,
+              backgroundColor: '#6C63FF',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>OK</Text>
+          </Pressable>
+        </Pressable>
+      </Pressable>
+    </Modal>
+  );
+}
+
+export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: FloentlyGatewayProps) {
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#07122F' }} edges={['top', 'bottom']}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingHorizontal: 24,
+          paddingTop: 28,
+          paddingBottom: 32,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={{ minHeight: 54, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Image source={LOGO} style={{ width: 92, height: 54 }} resizeMode="contain" />
+          <View style={{ flexDirection: 'row', gap: 10 }}>
+            <Pressable
+              onPress={() => router.push('/auth/login' as never)}
+              style={{
+                minHeight: 38,
+                paddingHorizontal: 16,
+                borderRadius: 999,
+                borderWidth: 1,
+                borderColor: 'rgba(255,255,255,0.24)',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Text style={{ color: '#FFFFFF', fontSize: 13, fontWeight: '900' }}>Sign In</Text>
+            </Pressable>
+            <Pressable
+              onPress={onOpenLearn}
+              style={{
+                minHeight: 38,
+                paddingHorizontal: 16,
+                borderRadius: 999,
+                backgroundColor: '#7470FF',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Text style={{ color: '#FFFFFF', fontSize: 13, fontWeight: '900' }}>Open App</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={{ flex: 1, justifyContent: 'center', paddingVertical: 52 }}>
+          <View style={{ alignItems: 'center', marginBottom: 34 }}>
+            <Text
+              style={{
+                color: '#CBD6FF',
+                fontSize: 11,
+                fontWeight: '900',
+                letterSpacing: 1.4,
+                textTransform: 'uppercase',
+                paddingHorizontal: 14,
+                paddingVertical: 8,
+                borderRadius: 999,
+                overflow: 'hidden',
+                backgroundColor: 'rgba(255,255,255,0.10)',
+                marginBottom: 20,
+              }}
+            >
+              Floently Product Gateway
+            </Text>
+            <Text
+              style={{
+                color: '#FFFFFF',
+                fontSize: 38,
+                lineHeight: 44,
+                fontWeight: '900',
+                textAlign: 'center',
+                letterSpacing: -1.2,
+              }}
+            >
+              Choose Your Floently Product
+            </Text>
+            <Text
+              style={{
+                color: '#B8C5E8',
+                fontSize: 16,
+                lineHeight: 24,
+                textAlign: 'center',
+                marginTop: 14,
+                maxWidth: 760,
+              }}
+            >
+              Floently includes Learn for Finnish readiness and Read for premium text-to-speech. Pick the product that fits your current goal.
+            </Text>
+          </View>
+
+          <View style={{ gap: 16 }}>
+            <Pressable
+              onPress={onOpenLearn}
+              style={{
+                borderRadius: 26,
+                borderWidth: 1,
+                borderColor: 'rgba(123, 157, 255, 0.35)',
+                backgroundColor: 'rgba(34, 67, 157, 0.62)',
+                padding: 24,
+                minHeight: 250,
+              }}
+            >
+              <Text
+                style={{
+                  alignSelf: 'flex-start',
+                  color: '#D9E5FF',
+                  fontSize: 11,
+                  fontWeight: '900',
+                  letterSpacing: 1,
+                  textTransform: 'uppercase',
+                  borderRadius: 999,
+                  paddingHorizontal: 12,
+                  paddingVertical: 6,
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  overflow: 'hidden',
+                  marginBottom: 18,
+                }}
+              >
+                Floently Learn
+              </Text>
+              <Text style={{ color: '#FFFFFF', fontSize: 34, fontWeight: '900', marginBottom: 10 }}>Learn</Text>
+              <Text style={{ color: '#CAD6F3', fontSize: 15, lineHeight: 23, marginBottom: 18 }}>
+                A serious Finnish progression system for adults building YKI readiness and confidence for working life in Finland.
+              </Text>
+              <Text style={{ color: '#E8EFFF', lineHeight: 22 }}>
+                - Prepare for YKI speaking readiness{'\n'}
+                - Train workplace communication for Finland{'\n'}
+                - Practice with roleplay, flashcards, and placement
+              </Text>
+              <View
+                style={{
+                  marginTop: 22,
+                  alignSelf: 'flex-start',
+                  minHeight: 44,
+                  borderRadius: 999,
+                  paddingHorizontal: 18,
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Go to Learn</Text>
+              </View>
+            </Pressable>
+
+            <Pressable
+              onPress={onOpenRead}
+              style={{
+                borderRadius: 26,
+                borderWidth: 1,
+                borderColor: 'rgba(77, 197, 255, 0.28)',
+                backgroundColor: 'rgba(18, 83, 130, 0.58)',
+                padding: 24,
+                minHeight: 250,
+              }}
+            >
+              <Text
+                style={{
+                  alignSelf: 'flex-start',
+                  color: '#D9E5FF',
+                  fontSize: 11,
+                  fontWeight: '900',
+                  letterSpacing: 1,
+                  textTransform: 'uppercase',
+                  borderRadius: 999,
+                  paddingHorizontal: 12,
+                  paddingVertical: 6,
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  overflow: 'hidden',
+                  marginBottom: 18,
+                }}
+              >
+                Floently Read
+              </Text>
+              <Text style={{ color: '#FFFFFF', fontSize: 34, fontWeight: '900', marginBottom: 10 }}>Read</Text>
+              <Text style={{ color: '#CAD6F3', fontSize: 15, lineHeight: 23, marginBottom: 18 }}>
+                A focused reading and listening workspace for turning long-form text into clear, high-quality audio playback.
+              </Text>
+              <Text style={{ color: '#E8EFFF', lineHeight: 22 }}>
+                - Listen to text in natural AI voices{'\n'}
+                - Import web pages, PDFs, and direct text{'\n'}
+                - Control voice, speed, and reading mode
+              </Text>
+              <View
+                style={{
+                  marginTop: 22,
+                  alignSelf: 'flex-start',
+                  minHeight: 44,
+                  borderRadius: 999,
+                  paddingHorizontal: 18,
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Go to Read</Text>
+              </View>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={{ borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.08)', paddingTop: 18 }}>
+          <Text style={{ color: '#66789F', fontSize: 12 }}>© 2026 Floently</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: FloentlyReadPreviewProps) {
+  const [comingSoon, setComingSoon] = useState(false);
+
+  const showComingSoon = () => setComingSoon(true);
+
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#070B2B' }} edges={['top', 'bottom']}>
+      <ReadComingSoonModal visible={comingSoon} onClose={() => setComingSoon(false)} />
+
+      <ScrollView
+        contentContainerStyle={{
+          paddingHorizontal: 24,
+          paddingTop: 26,
+          paddingBottom: 44,
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={{ minHeight: 52, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Pressable onPress={onOpenGateway}>
+            <Image source={LOGO} style={{ width: 82, height: 48 }} resizeMode="contain" />
+          </Pressable>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <Pressable onPress={onOpenLearn}>
+              <Text style={{ color: '#C9D4FF', fontSize: 12, fontWeight: '800' }}>Floently Finnish</Text>
+            </Pressable>
+            <Pressable onPress={showComingSoon}>
+              <Text style={{ color: '#C9D4FF', fontSize: 12, fontWeight: '800' }}>Sign In</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={{ paddingTop: 58, alignItems: 'center' }}>
+          <Text
+            style={{
+              color: '#AFC0FF',
+              fontSize: 11,
+              fontWeight: '900',
+              letterSpacing: 1,
+              textTransform: 'uppercase',
+              paddingHorizontal: 12,
+              paddingVertical: 7,
+              borderRadius: 999,
+              overflow: 'hidden',
+              backgroundColor: 'rgba(117, 116, 255, 0.20)',
+              marginBottom: 16,
+            }}
+          >
+            AI-powered text to speech
+          </Text>
+
+          <Text
+            style={{
+              color: '#FFFFFF',
+              fontSize: 36,
+              lineHeight: 42,
+              fontWeight: '900',
+              textAlign: 'center',
+              letterSpacing: -1,
+            }}
+          >
+            Listen to any text,{'\n'}
+            <Text style={{ color: '#8C72FF' }}>anytime, anywhere</Text>
+          </Text>
+
+          <Text
+            style={{
+              color: '#AEB9DD',
+              textAlign: 'center',
+              fontSize: 15,
+              lineHeight: 23,
+              marginTop: 16,
+              maxWidth: 560,
+            }}
+          >
+            Floently Read transforms your text into natural-sounding audio. Read articles, books, and notes without reading every word.
+          </Text>
+
+          <View style={{ flexDirection: 'row', gap: 12, marginTop: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Pressable
+              onPress={showComingSoon}
+              style={{
+                minHeight: 46,
+                borderRadius: 999,
+                paddingHorizontal: 20,
+                backgroundColor: '#7568FF',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Get Started For Free</Text>
+            </Pressable>
+            <Pressable
+              onPress={showComingSoon}
+              style={{
+                minHeight: 46,
+                borderRadius: 999,
+                paddingHorizontal: 20,
+                borderWidth: 1,
+                borderColor: 'rgba(255,255,255,0.18)',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>View Plans</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        <View style={{ marginTop: 58 }}>
+          <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: '900', textAlign: 'center' }}>
+            Transform text into lifelike speech
+          </Text>
+          <Text style={{ color: '#8794BE', textAlign: 'center', marginTop: 8, marginBottom: 22 }}>
+            Everything you need to listen smarter
+          </Text>
+
+          <View style={{ gap: 14 }}>
+            {[
+              ['Lifelike Voices', 'Natural-sounding AI voices that read your content like a human would.'],
+              ['Easy Import', 'Paste text, drop a URL, or upload a PDF. Floently handles the rest.'],
+              ['Customizable', 'Control speed, voice, and reading mode to match how you learn.'],
+            ].map(([title, body]) => (
+              <View
+                key={title}
+                style={{
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  borderColor: 'rgba(255,255,255,0.10)',
+                  backgroundColor: 'rgba(255,255,255,0.045)',
+                  padding: 18,
+                }}
+              >
+                <Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '900', marginBottom: 8 }}>{title}</Text>
+                <Text style={{ color: '#AEB9DD', lineHeight: 21 }}>{body}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <View style={{ alignItems: 'center', marginTop: 54 }}>
+          <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: '900' }}>Start listening today</Text>
+          <Text style={{ color: '#8D99C0', marginTop: 8, marginBottom: 18 }}>Your text. Your voice. Your pace.</Text>
+          <Pressable
+            onPress={showComingSoon}
+            style={{
+              minHeight: 48,
+              borderRadius: 999,
+              paddingHorizontal: 22,
+              backgroundColor: '#7568FF',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Get Started For Free</Text>
+          </Pressable>
+        </View>
+
+        <View style={{ marginTop: 54, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.08)', paddingTop: 20, alignItems: 'center' }}>
+          <Pressable onPress={onOpenGateway}>
+            <Text style={{ color: '#8FA0D0', fontWeight: '800' }}>Back to Floently products</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
 
 export function NativeLandingScreen() {
   const { copy } = useNativePublicCopy();
@@ -194,29 +667,86 @@ export function NativeLandingScreen() {
 
   const title1 = firstString(
     landing,
-    ['title1', 'headlineTop', 'heroTitleTop', 'heroLine1'],
+    ['h1Line1', 'title1', 'headlineTop', 'heroTitleTop', 'heroLine1'],
     'Pass YKI.',
   );
 
   const title2 = firstString(
     landing,
-    ['title2', 'headlineGradient', 'heroTitleGradient', 'heroLine2'],
+    ['h1Line2', 'title2', 'headlineGradient', 'heroTitleGradient', 'heroLine2'],
     '',
   );
 
   const subtitle = firstString(
     landing,
-    ['subtitle', 'heroBody', 'body', 'lede'],
+    ['heroSub', 'subtitle', 'heroBody', 'body', 'lede'],
     '',
   );
 
-  const trustItems = firstArray<string>(
+  const explicitTrustItems = firstArray<string>(
     landing,
     ['trustItems', 'trust', 'badges'],
     [],
   );
+  const trustItems = explicitTrustItems.length
+    ? explicitTrustItems
+    : [
+        landing.trustBuiltForYki,
+        landing.trustForProfessionals,
+        landing.trustFreeToStart,
+      ].filter((item): item is string => typeof item === 'string' && item.trim().length > 0);
 
-  const pathways = firstArray<AnyRecord>(landing, ['pathways', 'cards', 'routes'], []);
+  const explicitPathways = firstArray<AnyRecord>(landing, ['pathways', 'cards', 'routes'], []);
+  const pathways = explicitPathways.length
+    ? explicitPathways
+    : [landing.learnerPath, landing.employerPath, landing.cityPath].filter(
+        (item): item is AnyRecord => item && typeof item === 'object' && typeof item.title === 'string',
+      );
+
+  const heroPulse = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(heroPulse, {
+          toValue: 1,
+          duration: 1600,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+        Animated.timing(heroPulse, {
+          toValue: 0,
+          duration: 1600,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+
+    loop.start();
+    return () => loop.stop();
+  }, [heroPulse]);
+
+  const heroPulseStyle = {
+    opacity: heroPulse.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0.9, 1],
+    }),
+    transform: [
+      {
+        translateY: heroPulse.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0, -12],
+        }),
+      },
+      {
+        scale: heroPulse.interpolate({
+          inputRange: [0, 1],
+          outputRange: [1, 1.06],
+        }),
+      },
+    ],
+  };
 
   return (
     <SafeAreaView style={styles.darkSafe} edges={['top', 'bottom']}>
@@ -224,10 +754,12 @@ export function NativeLandingScreen() {
         <BrandHeader />
 
         <View style={styles.hero}>
-          <Text style={styles.heroBadge}>{eyebrow}</Text>
-          <Text style={styles.heroTitle}>{title1}</Text>
-          <Text style={styles.heroGradient}>{title2}</Text>
-          <Text style={styles.heroSubtitle}>{subtitle}</Text>
+            <Animated.View style={[styles.heroMotionWrap, heroPulseStyle]}>
+            <Text style={styles.heroBadge}>{eyebrow}</Text>
+            <Text style={styles.heroTitle}>{title1}</Text>
+            <Text style={styles.heroGradient}>{title2}</Text>
+            <Text style={styles.heroSubtitle}>{subtitle}</Text>
+            </Animated.View>
 
           <Pressable style={styles.primaryButton} onPress={() => router.push('/auth/register' as never)}>
             <Text style={styles.primaryButtonText}>{common.startLearning ?? ''} →</Text>
@@ -287,7 +819,7 @@ export function NativeLandingScreen() {
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>
-            {firstString(copy.common ?? {}, ['footerMade', 'footerBuilt'], '© 2026 Floently. Built for Finland.')}
+            {firstString(landing, ['footerMade'], firstString(copy.common ?? {}, ['footerMade', 'footerBuilt'], '© 2026 Floently. Built for Finland.'))}
           </Text>
           <View style={styles.footerLinks}>
             <Pressable onPress={() => router.push('/for-organizations' as never)}>
@@ -615,6 +1147,10 @@ const styles: Record<string, any> = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 10,
     paddingBottom: 22,
+  },
+  heroMotionWrap: {
+    width: '100%',
+    alignItems: 'center',
   },
   heroBadge: {
     color: '#77E6D8',
