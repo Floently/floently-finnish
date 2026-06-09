@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
@@ -66,8 +66,15 @@ function DocumentCard({ document }: { document: ReadDocument }) {
 
 export function ReadHomeScreen() {
   const documents = useReadMobileStore((state) => state.documents);
+  const syncStatus = useReadMobileStore((state) => state.syncStatus);
+  const syncError = useReadMobileStore((state) => state.syncError);
+  const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
   const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
+
+  useEffect(() => {
+    void refreshLibrary();
+  }, [refreshLibrary]);
 
   return (
     <ScreenFrame eyebrow="Floently Read" title="Read, listen, and continue anywhere">
@@ -303,6 +310,12 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: '900',
     lineHeight: 36,
+  },
+  syncNote: {
+    color: '#94A3B8',
+    fontSize: 12,
+    fontWeight: '700',
+    marginBottom: 8,
   },
   subtitle: {
     marginTop: 10,
