@@ -326,6 +326,22 @@ export default function AppShell({ requestedScreen = "root" }: Props) {
       return screen === 'landing' || screen === 'auth' || screen === 'billing';
     }
 
+    if (screen === 'read') {
+      const productEntitlements = entitlements as typeof entitlements & { readAccess?: boolean };
+      return Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        productEntitlements?.readAccess
+      );
+    }
+
+    if (screen === 'create') {
+      const productEntitlements = entitlements as typeof entitlements & { createAccess?: boolean };
+      return Boolean(
+        subscriptionStatus?.isInternalAllAccess ||
+        productEntitlements?.createAccess
+      );
+    }
+
     if (screen === 'learning' || screen === 'daily-practice') {
       return !isPreview && Boolean(
         subscriptionStatus?.isInternalAllAccess ||
