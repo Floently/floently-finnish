@@ -1,13 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
 
 import { useActiveReadDocument, useReadMobileStore, type ReadDocument } from './readMobileStore';
+import { readTtsApi, type ReadTtsResult } from './readTtsApi';
 
 type ButtonTone = 'primary' | 'secondary' | 'ghost';
 type ImportMode = 'paste' | 'file' | 'url';
 type SyncStatus = 'idle' | 'loading' | 'syncing' | 'offline' | 'error';
+type AudioPlaybackState = 'idle' | 'preparing' | 'ready' | 'playing' | 'paused' | 'error';
 
 const sampleText = 'This is a short Floently Read test. I want to check that reading, saving, and listening work correctly.';
 
@@ -382,15 +385,97 @@ export function ReadReaderScreen() {
   const document = useActiveReadDocument();
   const updateProgress = useReadMobileStore((state) => state.updateProgress);
   const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
-  const [isReading, setIsReading] = useState(false);
+  const player = useAudioPlayer(null, { updateInterval: 500 });
+  const playbackStatus = useAudioPlayerStatus(player);
+  const [audioState, setAudioState] = useState<AudioPlaybackState>('idle');
+  const [audioError, setAudioError] = useState<string | null>(null);
+  const [audioResult, setAudioResult] = useState<ReadTtsResult | null>(null);
+
+  useEffect(() => {
+    void setAudioModeAsync({ playsInSilentMode: true });
+  }, []);
+
+  useEffect(() => {
+    if (!document) return;
+    player.playbackRate = document.playbackSpeed;
+  }, [document, player]);
+
+  useEffect(() => {
+    if (!document || !playbackStatus.duration || playbackStatus.duration <= 0) return;
+    const nextProgress = Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
+    if (Math.abs(nextProgress - document.readingProgress) >= 0.01) {
+      updateProgress(document.id, nextProgress);
+    }
+  }, [document, playbackStatus.currentTime, playbackStatus.duration, updateProgress]);
+
+  useEffect(() => {
+    if (playbackStatus.playing) {
+      setAudioState('playing');
+    } else if (audioResult && audioState === 'playing') {
+      setAudioState('paused');
+    }
+  }, [audioResult, audioState, playbackStatus.playing]);
 
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
-    const totalSeconds = Math.max(20, Math.ceil(document.generatedText.length / 12));
-    const currentSeconds = Math.floor(totalSeconds * document.readingProgress);
+    const estimatedTotalSeconds = Math.max(20, Math.ceil(document.generatedText.length / 12));
+    const totalSeconds = playbackStatus.duration > 0 ? Math.ceil(playbackStatus.duration) : estimatedTotalSeconds;
+    const currentSeconds = playbackStatus.duration > 0
+      ? Math.floor(playbackStatus.currentTime)
+      : Math.floor(totalSeconds * document.readingProgress);
     const format = (seconds: number) => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
     return `${format(currentSeconds)} / ${format(totalSeconds)}`;
-  }, [document]);
+  }, [document, playbackStatus.currentTime, playbackStatus.duration]);
+
+  const displayedProgress = useMemo(() => {
+    if (!document) return 0;
+    if (playbackStatus.duration > 0) {
+      return Math.max(0, Math.min(1, playbackStatus.currentTime / playbackStatus.duration));
+    }
+    return document.readingProgress;
+  }, [document, playbackStatus.currentTime, playbackStatus.duration]);
+
+  async function generateAndPlayAudio() {
+    if (!document) return;
+
+    if (audioResult?.audioUrl) {
+      player.playbackRate = document.playbackSpeed;
+      player.play();
+      setAudioState('playing');
+      return;
+    }
+
+    setAudioState('preparing');
+    setAudioError(null);
+
+    try {
+      const result = await readTtsApi.prerenderReading({
+        text: document.generatedText,
+        language: document.language,
+      });
+      setAudioResult(result);
+      player.replace(result.audioUrl);
+      player.playbackRate = document.playbackSpeed;
+      player.play();
+      setAudioState('playing');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      setAudioState('error');
+      setAudioError(message);
+    }
+  }
+
+  function pauseAudio() {
+    player.pause();
+    setAudioState('paused');
+  }
+
+  function replayAudio() {
+    void player.seekTo(0);
+    player.playbackRate = document?.playbackSpeed ?? 1;
+    player.play();
+    setAudioState('playing');
+  }
 
   if (!document) {
     return (
@@ -407,19 +492,30 @@ export function ReadReaderScreen() {
     );
   }
 
+  const isPreparing = audioState === 'preparing' || playbackStatus.isBuffering;
+  const isPlaying = audioState === 'playing' || playbackStatus.playing;
+
   return (
     <ScreenFrame eyebrow="Native reader" title={document.title}>
       <View style={styles.readerHero}>
-        <CircularProgress progress={document.readingProgress} />
+        <CircularProgress progress={displayedProgress} />
         <View style={styles.playerMetaBlock}>
           <Text style={styles.compactMeta}>{timeLabel} · {document.playbackSpeed.toFixed(1)}x</Text>
           <Text style={styles.bodyText}>Language: {document.detectedLanguageLabel}</Text>
-          <Pill label={isReading ? 'Reading mode on' : 'Ready to continue'} tone={isReading ? 'read' : 'neutral'} />
+          <Pill
+            label={isPreparing ? 'Generating audio' : isPlaying ? 'Listening now' : audioResult ? 'Audio ready' : 'Ready to listen'}
+            tone={audioState === 'error' ? 'warning' : isPlaying || audioResult ? 'read' : 'neutral'}
+          />
         </View>
       </View>
 
       <View style={styles.playerActions}>
-        <PrimaryButton label={isReading ? 'Pause reading' : 'Continue reading'} onPress={() => setIsReading((value) => !value)} />
+        <PrimaryButton
+          label={isPreparing ? 'Preparing audio…' : isPlaying ? 'Pause listening' : audioResult ? 'Play audio' : 'Generate and listen'}
+          onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
+          disabled={isPreparing}
+        />
+        <SecondaryButton label="Replay" onPress={replayAudio} disabled={!audioResult || isPreparing} />
         <SecondaryButton label="Back to library" onPress={() => navigate('/read/library')} />
       </View>
 
@@ -436,8 +532,13 @@ export function ReadReaderScreen() {
       </View>
 
       <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Listening comes next</Text>
-        <Text style={styles.bodyText}>M18-R6 will connect this reader to Render TTS. This pass keeps the playback controls safe while progress and speed are already native.</Text>
+        <Text style={styles.cardTitle}>Listening connected</Text>
+        <Text style={styles.bodyText}>
+          Render TTS prerenders audio for this reading and the native player uses expo-audio for playback.
+          {audioResult?.cacheHit ? ' This audio was served from cache.' : audioResult ? ' This audio is ready for replay.' : ' Tap Generate and listen to start.'}
+        </Text>
+        {audioResult?.duration ? <Text style={styles.helpText}>Audio duration: {Math.round(audioResult.duration)} seconds</Text> : null}
+        {audioError ? <Text style={styles.errorText}>{audioError}</Text> : null}
       </View>
 
       <View style={styles.card}>
@@ -843,6 +944,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '800',
     lineHeight: 18,
+  },
+  errorText: {
+    color: '#ffb4a6',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 19,
   },
   playerActions: {
     flexDirection: 'row',
