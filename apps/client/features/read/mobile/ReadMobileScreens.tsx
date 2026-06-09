@@ -1,9 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
 
 import { useActiveReadDocument, useReadMobileStore, type ReadDocument } from './readMobileStore';
+
+type ButtonTone = 'primary' | 'secondary' | 'ghost';
+type ImportMode = 'paste' | 'file' | 'url';
+type SyncStatus = 'idle' | 'loading' | 'syncing' | 'offline' | 'error';
 
 const sampleText = 'This is a short Floently Read test. I want to check that reading, saving, and listening work correctly.';
 
@@ -11,8 +15,19 @@ function navigate(path: string) {
   router.push(path as never);
 }
 
-function Pill({ label, tone = 'neutral' }: { label: string; tone?: 'neutral' | 'read' | 'create' }) {
-  return <Text style={[styles.pill, tone === 'read' && styles.readPill, tone === 'create' && styles.createPill]}>{label}</Text>;
+function Pill({ label, tone = 'neutral' }: { label: string; tone?: 'neutral' | 'read' | 'create' | 'warning' }) {
+  return (
+    <Text
+      style={[
+        styles.pill,
+        tone === 'read' && styles.readPill,
+        tone === 'create' && styles.createPill,
+        tone === 'warning' && styles.warningPill,
+      ]}
+    >
+      {label}
+    </Text>
+  );
 }
 
 function ScreenFrame({ title, eyebrow, children }: { title: string; eyebrow: string; children: React.ReactNode }) {
@@ -21,30 +36,95 @@ function ScreenFrame({ title, eyebrow, children }: { title: string; eyebrow: str
       <View style={styles.headerCard}>
         <Text style={styles.eyebrow}>{eyebrow}</Text>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>Native Floently Read screen built directly inside the mobile app.</Text>
+        <Text style={styles.subtitle}>Real native Floently Read screen built directly inside the mobile app.</Text>
       </View>
       {children}
     </ScrollView>
   );
 }
 
-function PrimaryButton({ label, onPress }: { label: string; onPress: () => void }) {
+function AppButton({
+  label,
+  onPress,
+  tone = 'secondary',
+  disabled = false,
+}: {
+  label: string;
+  onPress: () => void;
+  tone?: ButtonTone;
+  disabled?: boolean;
+}) {
+  const buttonStyle = tone === 'primary' ? styles.primaryButton : tone === 'ghost' ? styles.ghostButton : styles.secondaryButton;
+  const textStyle = tone === 'primary' ? styles.primaryButtonText : tone === 'ghost' ? styles.ghostButtonText : styles.secondaryButtonText;
+
   return (
-    <Pressable accessibilityRole="button" onPress={onPress} style={styles.primaryButton}>
-      <Text style={styles.primaryButtonText}>{label}</Text>
+    <Pressable
+      accessibilityRole="button"
+      disabled={disabled}
+      onPress={onPress}
+      style={[buttonStyle, disabled && styles.buttonDisabled]}
+    >
+      <Text style={[textStyle, disabled && styles.buttonTextDisabled]}>{label}</Text>
     </Pressable>
   );
 }
 
-function SecondaryButton({ label, onPress }: { label: string; onPress: () => void }) {
+function PrimaryButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
+  return <AppButton label={label} onPress={onPress} tone="primary" disabled={disabled} />;
+}
+
+function SecondaryButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
+  return <AppButton label={label} onPress={onPress} tone="secondary" disabled={disabled} />;
+}
+
+function GhostButton({ label, onPress, disabled = false }: { label: string; onPress: () => void; disabled?: boolean }) {
+  return <AppButton label={label} onPress={onPress} tone="ghost" disabled={disabled} />;
+}
+
+function SyncBanner({ status, error, onRefresh }: { status: SyncStatus; error: string | null; onRefresh?: () => void }) {
+  const isBusy = status === 'loading' || status === 'syncing';
+  const isOffline = status === 'offline' || status === 'error';
+
   return (
-    <Pressable accessibilityRole="button" onPress={onPress} style={styles.secondaryButton}>
-      <Text style={styles.secondaryButtonText}>{label}</Text>
-    </Pressable>
+    <View style={[styles.syncBanner, isOffline && styles.syncBannerWarning]}>
+      <View style={styles.syncBannerTextBlock}>
+        <Text style={styles.syncTitle}>{isBusy ? 'Syncing Read library' : isOffline ? 'Read is using local fallback' : 'Read library connected'}</Text>
+        <Text style={styles.syncText} numberOfLines={2}>
+          {isBusy
+            ? 'Connecting to the Render Read API and keeping the native library up to date.'
+            : isOffline
+              ? error || 'Render is unavailable or the session needs refresh. Your local reading still stays open.'
+              : 'Learn login token is shared with Render Read. Imported readings sync when the API is available.'}
+        </Text>
+      </View>
+      {isBusy ? <ActivityIndicator color="#f6b66d" /> : onRefresh ? <GhostButton label="Refresh" onPress={onRefresh} /> : null}
+    </View>
+  );
+}
+
+function MetricCard({ value, label }: { value: string; label: string }) {
+  return (
+    <View style={styles.metricCard}>
+      <Text style={styles.metricValue}>{value}</Text>
+      <Text style={styles.metricLabel}>{label}</Text>
+    </View>
+  );
+}
+
+function EmptyState({ title, body, actionLabel, onAction }: { title: string; body: string; actionLabel: string; onAction: () => void }) {
+  return (
+    <View style={styles.emptyState}>
+      <Text style={styles.emptyTitle}>{title}</Text>
+      <Text style={styles.bodyText}>{body}</Text>
+      <PrimaryButton label={actionLabel} onPress={onAction} />
+    </View>
   );
 }
 
 function DocumentCard({ document }: { document: ReadDocument }) {
+  const progressLabel = `${Math.round(document.readingProgress * 100)}% read`;
+  const created = Number.isNaN(Date.parse(document.createdAtIso)) ? 'Saved reading' : new Date(document.createdAtIso).toLocaleDateString();
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -59,7 +139,10 @@ function DocumentCard({ document }: { document: ReadDocument }) {
         <Pill label={document.detectedLanguageLabel} tone="read" />
       </View>
       <Text numberOfLines={3} style={styles.documentPreview}>{document.generatedText}</Text>
-      <Text style={styles.documentMeta}>{Math.round(document.readingProgress * 100)}% read</Text>
+      <View style={styles.documentFooter}>
+        <Text style={styles.documentMeta}>{progressLabel}</Text>
+        <Text style={styles.documentMetaMuted}>{created}</Text>
+      </View>
     </Pressable>
   );
 }
@@ -76,16 +159,32 @@ export function ReadHomeScreen() {
     void refreshLibrary();
   }, [refreshLibrary]);
 
+  const activeReading = documents.find((document) => document.readingProgress > 0 && document.readingProgress < 1) ?? documents[0] ?? null;
+  const completedCount = documents.filter((document) => document.readingProgress >= 1).length;
+
   return (
     <ScreenFrame eyebrow="Floently Read" title="Read, listen, and continue anywhere">
-      <View style={styles.card}>
+      <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
+
+      <View style={styles.cardHero}>
         <View style={styles.settingRow}>
           <View style={styles.settingTextBlock}>
             <Text style={styles.cardTitle}>Read automatically</Text>
-            <Text style={styles.bodyText}>Default on. New uploads should detect language, generate, and start reading unless you turn this off.</Text>
+            <Text style={styles.bodyText}>New imports detect language, create a reading, and open the reader by default.</Text>
           </View>
           <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
         </View>
+        <View style={styles.inlinePills}>
+          <Pill label="Native app" tone="read" />
+          <Pill label="Render API" tone="read" />
+          <Pill label={readAutomatically ? 'Auto-read on' : 'Manual start'} tone={readAutomatically ? 'read' : 'warning'} />
+        </View>
+      </View>
+
+      <View style={styles.metricsRow}>
+        <MetricCard value={String(documents.length)} label="Saved" />
+        <MetricCard value={String(completedCount)} label="Finished" />
+        <MetricCard value={activeReading ? `${Math.round(activeReading.readingProgress * 100)}%` : '0%'} label="Current" />
       </View>
 
       <View style={styles.actionGrid}>
@@ -96,25 +195,52 @@ export function ReadHomeScreen() {
       </View>
 
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Recent reading</Text>
-        {documents.length ? (
-          documents.slice(0, 3).map((document) => <DocumentCard key={document.id} document={document} />)
+        <View style={styles.cardHeaderRow}>
+          <Text style={styles.cardTitle}>Continue reading</Text>
+          <GhostButton label="Refresh" onPress={() => void refreshLibrary()} />
+        </View>
+        {activeReading ? (
+          <DocumentCard document={activeReading} />
         ) : (
-          <Text style={styles.bodyText}>No saved readings yet. Import text to create your first native Read item.</Text>
+          <EmptyState
+            title="No readings yet"
+            body="Paste text or prepare a book import to create your first native Read item."
+            actionLabel="Import reading"
+            onAction={() => navigate('/read/import')}
+          />
         )}
       </View>
     </ScreenFrame>
   );
 }
 
+function ImportModeButton({ mode, activeMode, label, onPress }: { mode: ImportMode; activeMode: ImportMode; label: string; onPress: () => void }) {
+  const isActive = mode === activeMode;
+  return (
+    <Pressable accessibilityRole="button" onPress={onPress} style={[styles.modeButton, isActive && styles.modeButtonActive]}>
+      <Text style={[styles.modeButtonText, isActive && styles.modeButtonTextActive]}>{label}</Text>
+    </Pressable>
+  );
+}
+
 export function ReadImportScreen() {
   const createFromText = useReadMobileStore((state) => state.createFromText);
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
+  const syncStatus = useReadMobileStore((state) => state.syncStatus);
+  const syncError = useReadMobileStore((state) => state.syncError);
   const [title, setTitle] = useState('Floently Read test');
   const [text, setText] = useState(sampleText);
+  const [mode, setMode] = useState<ImportMode>('paste');
+
+  const trimmedText = text.trim();
+  const wordCount = useMemo(() => trimmedText ? trimmedText.split(/\s+/).length : 0, [trimmedText]);
+  const estimatedMinutes = Math.max(1, Math.ceil(wordCount / 170));
+  const canGenerate = trimmedText.length >= 8;
 
   function generate() {
-    createFromText({ title, text, language: 'auto' });
+    if (!canGenerate) return;
+    const document = createFromText({ title, text: trimmedText, language: 'auto' });
+    useReadMobileStore.getState().openDocument(document.id);
     if (readAutomatically) {
       navigate('/read/reader');
       return;
@@ -124,50 +250,92 @@ export function ReadImportScreen() {
 
   return (
     <ScreenFrame eyebrow="Native import" title="Import reading material">
+      <SyncBanner status={syncStatus} error={syncError} />
+
+      <View style={styles.modeTabs}>
+        <ImportModeButton mode="paste" activeMode={mode} label="Paste text" onPress={() => setMode('paste')} />
+        <ImportModeButton mode="file" activeMode={mode} label="Book file" onPress={() => setMode('file')} />
+        <ImportModeButton mode="url" activeMode={mode} label="Web link" onPress={() => setMode('url')} />
+      </View>
+
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Book upload behavior</Text>
-        <Text style={styles.bodyText}>Target behavior: detect language automatically, generate reading output, then start reading by default.</Text>
+        <Text style={styles.cardTitle}>Import behavior</Text>
+        <Text style={styles.bodyText}>Read will detect the language, create a clean reading, save it to your library, and open the reader automatically when the setting is on.</Text>
         <View style={styles.inlinePills}>
           <Pill label="Auto language" tone="read" />
-          <Pill label={readAutomatically ? 'Auto read on' : 'Manual read'} tone="read" />
+          <Pill label={`${wordCount} words`} tone="read" />
+          <Pill label={`About ${estimatedMinutes} min`} tone="read" />
+          <Pill label={readAutomatically ? 'Auto-open reader' : 'Save to library'} tone={readAutomatically ? 'read' : 'warning'} />
         </View>
       </View>
 
-      <View style={styles.card}>
-        <Text style={styles.label}>Title</Text>
-        <TextInput value={title} onChangeText={setTitle} style={styles.input} placeholder="Reading title" placeholderTextColor="#8b7c70" />
-        <Text style={styles.label}>Text</Text>
-        <TextInput
-          value={text}
-          onChangeText={setText}
-          multiline
-          style={[styles.input, styles.textArea]}
-          placeholder="Paste text here"
-          placeholderTextColor="#8b7c70"
-        />
-        <PrimaryButton label={readAutomatically ? 'Generate and start reading' : 'Generate and save'} onPress={generate} />
-      </View>
+      {mode === 'paste' ? (
+        <View style={styles.card}>
+          <Text style={styles.label}>Title</Text>
+          <TextInput value={title} onChangeText={setTitle} style={styles.input} placeholder="Reading title" placeholderTextColor="#8b7c70" />
+          <Text style={styles.label}>Text</Text>
+          <TextInput
+            value={text}
+            onChangeText={setText}
+            multiline
+            style={[styles.input, styles.textArea]}
+            placeholder="Paste text here"
+            placeholderTextColor="#8b7c70"
+            textAlignVertical="top"
+          />
+          <PrimaryButton label={readAutomatically ? 'Generate and start reading' : 'Generate and save'} onPress={generate} disabled={!canGenerate} />
+          {!canGenerate ? <Text style={styles.helpText}>Paste at least a short paragraph to generate a reading.</Text> : null}
+        </View>
+      ) : null}
 
-      <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Native file picker</Text>
-        <Text style={styles.bodyText}>The app frame is ready for a native book picker. The next implementation pass should connect file selection and backend extraction.</Text>
-      </View>
+      {mode === 'file' ? (
+        <View style={styles.cardMuted}>
+          <Text style={styles.cardTitle}>Native book picker</Text>
+          <Text style={styles.bodyText}>This screen is ready for native PDF, EPUB, DOCX, and text-file selection. The button is intentionally safe until the file picker and extraction endpoint are connected.</Text>
+          <View style={styles.inlinePills}>
+            <Pill label="PDF" tone="read" />
+            <Pill label="EPUB" tone="read" />
+            <Pill label="DOCX" tone="read" />
+            <Pill label="TXT" tone="read" />
+          </View>
+          <SecondaryButton label="File picker coming next" onPress={() => undefined} disabled />
+        </View>
+      ) : null}
+
+      {mode === 'url' ? (
+        <View style={styles.cardMuted}>
+          <Text style={styles.cardTitle}>Import from web link</Text>
+          <Text style={styles.bodyText}>Render already has a from-url route. The native input is kept disabled until URL extraction, content safety, and loading states are wired fully.</Text>
+          <SecondaryButton label="URL import coming next" onPress={() => undefined} disabled />
+        </View>
+      ) : null}
     </ScreenFrame>
   );
 }
 
 export function ReadLibraryScreen() {
   const documents = useReadMobileStore((state) => state.documents);
+  const syncStatus = useReadMobileStore((state) => state.syncStatus);
+  const syncError = useReadMobileStore((state) => state.syncError);
+  const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
+
   return (
     <ScreenFrame eyebrow="Read library" title="Saved readings">
+      <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
       <View style={styles.card}>
+        <View style={styles.cardHeaderRow}>
+          <Text style={styles.cardTitle}>Library</Text>
+          <GhostButton label="Refresh" onPress={() => void refreshLibrary()} />
+        </View>
         {documents.length ? (
           documents.map((document) => <DocumentCard key={document.id} document={document} />)
         ) : (
-          <>
-            <Text style={styles.bodyText}>Your native Read library is empty.</Text>
-            <PrimaryButton label="Import first reading" onPress={() => navigate('/read/import')} />
-          </>
+          <EmptyState
+            title="Your native Read library is empty"
+            body="Import text now. Later, this same screen will hold books, files, and web articles."
+            actionLabel="Import first reading"
+            onAction={() => navigate('/read/import')}
+          />
         )}
       </View>
     </ScreenFrame>
@@ -214,6 +382,7 @@ export function ReadReaderScreen() {
   const document = useActiveReadDocument();
   const updateProgress = useReadMobileStore((state) => state.updateProgress);
   const setPlaybackSpeed = useReadMobileStore((state) => state.setPlaybackSpeed);
+  const [isReading, setIsReading] = useState(false);
 
   const timeLabel = useMemo(() => {
     if (!document) return '00:00 / 00:00';
@@ -227,8 +396,12 @@ export function ReadReaderScreen() {
     return (
       <ScreenFrame eyebrow="Reader" title="Nothing open yet">
         <View style={styles.card}>
-          <Text style={styles.bodyText}>Import or paste text to open the native reader.</Text>
-          <PrimaryButton label="Import reading" onPress={() => navigate('/read/import')} />
+          <EmptyState
+            title="No active reading"
+            body="Import or paste text to open the native reader."
+            actionLabel="Import reading"
+            onAction={() => navigate('/read/import')}
+          />
         </View>
       </ScreenFrame>
     );
@@ -239,22 +412,32 @@ export function ReadReaderScreen() {
       <View style={styles.readerHero}>
         <CircularProgress progress={document.readingProgress} />
         <View style={styles.playerMetaBlock}>
-          <Text style={styles.compactMeta}>{timeLabel}</Text>
-          <Text style={styles.compactMeta}>{document.playbackSpeed.toFixed(1)}x speed</Text>
+          <Text style={styles.compactMeta}>{timeLabel} · {document.playbackSpeed.toFixed(1)}x</Text>
           <Text style={styles.bodyText}>Language: {document.detectedLanguageLabel}</Text>
+          <Pill label={isReading ? 'Reading mode on' : 'Ready to continue'} tone={isReading ? 'read' : 'neutral'} />
         </View>
+      </View>
+
+      <View style={styles.playerActions}>
+        <PrimaryButton label={isReading ? 'Pause reading' : 'Continue reading'} onPress={() => setIsReading((value) => !value)} />
+        <SecondaryButton label="Back to library" onPress={() => navigate('/read/library')} />
       </View>
 
       <View style={styles.playerActions}>
         <SecondaryButton label="25%" onPress={() => updateProgress(document.id, 0.25)} />
         <SecondaryButton label="50%" onPress={() => updateProgress(document.id, 0.5)} />
-        <SecondaryButton label="100%" onPress={() => updateProgress(document.id, 1)} />
+        <SecondaryButton label="Done" onPress={() => updateProgress(document.id, 1)} />
       </View>
 
       <View style={styles.playerActions}>
         <SecondaryButton label="0.8x" onPress={() => setPlaybackSpeed(document.id, 0.8)} />
         <SecondaryButton label="1.0x" onPress={() => setPlaybackSpeed(document.id, 1)} />
         <SecondaryButton label="1.2x" onPress={() => setPlaybackSpeed(document.id, 1.2)} />
+      </View>
+
+      <View style={styles.cardMuted}>
+        <Text style={styles.cardTitle}>Listening comes next</Text>
+        <Text style={styles.bodyText}>M18-R6 will connect this reader to Render TTS. This pass keeps the playback controls safe while progress and speed are already native.</Text>
       </View>
 
       <View style={styles.card}>
@@ -267,17 +450,25 @@ export function ReadReaderScreen() {
 export function ReadSettingsScreen() {
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
   const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
+  const syncStatus = useReadMobileStore((state) => state.syncStatus);
+  const syncError = useReadMobileStore((state) => state.syncError);
+  const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
 
   return (
     <ScreenFrame eyebrow="Read settings" title="Reading preferences">
+      <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
       <View style={styles.card}>
         <View style={styles.settingRow}>
           <View style={styles.settingTextBlock}>
             <Text style={styles.cardTitle}>Read automatically</Text>
-            <Text style={styles.bodyText}>When enabled, new uploads should detect language, generate, and start reading automatically.</Text>
+            <Text style={styles.bodyText}>When enabled, new uploads detect language, create a reading, and open the reader automatically.</Text>
           </View>
           <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
         </View>
+      </View>
+      <View style={styles.cardMuted}>
+        <Text style={styles.cardTitle}>Product boundary</Text>
+        <Text style={styles.bodyText}>Floently Read stays separate from Learn billing unless a bundle is created. This native app frame keeps the products clearly separated.</Text>
       </View>
     </ScreenFrame>
   );
@@ -311,17 +502,40 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     lineHeight: 36,
   },
-  syncNote: {
-    color: '#94A3B8',
-    fontSize: 12,
-    fontWeight: '700',
-    marginBottom: 8,
-  },
   subtitle: {
     marginTop: 10,
     color: '#d0b8a3',
     fontSize: 15,
     lineHeight: 22,
+  },
+  syncBanner: {
+    borderRadius: 22,
+    padding: 14,
+    backgroundColor: '#182016',
+    borderWidth: 1,
+    borderColor: '#2f4b2b',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  syncBannerWarning: {
+    backgroundColor: '#24170f',
+    borderColor: '#704d2c',
+  },
+  syncBannerTextBlock: {
+    flex: 1,
+    gap: 3,
+  },
+  syncTitle: {
+    color: '#fff7ef',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  syncText: {
+    color: '#ccb5a2',
+    fontSize: 12,
+    lineHeight: 17,
   },
   card: {
     borderRadius: 24,
@@ -331,6 +545,14 @@ const styles = StyleSheet.create({
     borderColor: '#34261d',
     gap: 14,
   },
+  cardHero: {
+    borderRadius: 26,
+    padding: 18,
+    backgroundColor: '#21150d',
+    borderWidth: 1,
+    borderColor: '#5b3b22',
+    gap: 14,
+  },
   cardMuted: {
     borderRadius: 24,
     padding: 18,
@@ -338,6 +560,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#2a2019',
     gap: 10,
+  },
+  cardHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 12,
   },
   cardTitle: {
     color: '#fff7ef',
@@ -349,6 +577,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 21,
   },
+  helpText: {
+    color: '#9f8a78',
+    fontSize: 12,
+    lineHeight: 18,
+  },
   settingRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -358,6 +591,31 @@ const styles = StyleSheet.create({
   settingTextBlock: {
     flex: 1,
     gap: 6,
+  },
+  metricsRow: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  metricCard: {
+    flex: 1,
+    borderRadius: 18,
+    padding: 14,
+    backgroundColor: '#1a120d',
+    borderWidth: 1,
+    borderColor: '#34261d',
+    alignItems: 'center',
+  },
+  metricValue: {
+    color: '#fff7ef',
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  metricLabel: {
+    color: '#f6b66d',
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.7,
   },
   actionGrid: {
     gap: 10,
@@ -388,6 +646,51 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     fontSize: 14,
   },
+  ghostButton: {
+    backgroundColor: '#201710',
+    borderColor: '#3f2c20',
+    borderWidth: 1,
+    borderRadius: 999,
+    paddingVertical: 9,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+  },
+  ghostButtonText: {
+    color: '#f6b66d',
+    fontWeight: '900',
+    fontSize: 12,
+  },
+  buttonDisabled: {
+    opacity: 0.45,
+  },
+  buttonTextDisabled: {
+    color: '#9e8975',
+  },
+  modeTabs: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  modeButton: {
+    flex: 1,
+    borderRadius: 16,
+    paddingVertical: 12,
+    alignItems: 'center',
+    backgroundColor: '#1a120d',
+    borderWidth: 1,
+    borderColor: '#34261d',
+  },
+  modeButtonActive: {
+    backgroundColor: '#f6b66d',
+    borderColor: '#f6b66d',
+  },
+  modeButtonText: {
+    color: '#ccb5a2',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  modeButtonTextActive: {
+    color: '#21150d',
+  },
   inlinePills: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -411,6 +714,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#241d33',
     color: '#c7b7ff',
   },
+  warningPill: {
+    backgroundColor: '#35210f',
+    color: '#ffcf91',
+  },
   label: {
     color: '#f6b66d',
     fontSize: 12,
@@ -429,7 +736,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   textArea: {
-    minHeight: 180,
+    minHeight: 190,
     textAlignVertical: 'top',
   },
   documentCard: {
@@ -457,10 +764,34 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 19,
   },
+  documentFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 10,
+  },
   documentMeta: {
     color: '#f6b66d',
     fontSize: 12,
     fontWeight: '800',
+  },
+  documentMetaMuted: {
+    color: '#9f8a78',
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  emptyState: {
+    borderRadius: 20,
+    padding: 16,
+    backgroundColor: '#120d0a',
+    borderWidth: 1,
+    borderColor: '#2d2119',
+    gap: 12,
+  },
+  emptyTitle: {
+    color: '#fff7ef',
+    fontSize: 17,
+    fontWeight: '900',
   },
   readerHero: {
     borderRadius: 26,
@@ -505,7 +836,7 @@ const styles = StyleSheet.create({
   },
   playerMetaBlock: {
     alignItems: 'center',
-    gap: 4,
+    gap: 6,
   },
   compactMeta: {
     color: '#fff7ef',
@@ -515,6 +846,7 @@ const styles = StyleSheet.create({
   },
   playerActions: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 10,
   },
   readerText: {
