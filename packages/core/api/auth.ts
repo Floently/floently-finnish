@@ -19,6 +19,8 @@ export type AuthUser = {
   planLabel?: string | null;
   ykiAccess?: boolean;
   professionalAccess?: boolean;
+  readAccess?: boolean;
+  createAccess?: boolean;
   professions?: Array<'doctor' | 'nurse' | 'practical_nurse'>;
 };
 
@@ -187,6 +189,8 @@ type BackendAuthUser = {
   plan_label?: string | null;
   yki_access?: boolean | null;
   professional_access?: boolean | null;
+  read_access?: boolean | null;
+  create_access?: boolean | null;
   accessible_professions?: Array<'doctor' | 'nurse' | 'practical_nurse'> | null;
   is_internal_all_access?: boolean | null;
 };
@@ -219,8 +223,10 @@ function enrichUser(email: string, tier?: string | null, flags?: { isInternalAll
     planLabel: status.planLabel,
     ykiAccess: status.ykiAccess,
     professionalAccess: status.professionalAccess,
+    readAccess: status.readAccess,
+    createAccess: status.createAccess,
     professions: status.professions,
-  } satisfies Pick<AuthUser, 'subscriptionTier' | 'planLabel' | 'ykiAccess' | 'professionalAccess' | 'professions'>;
+  } satisfies Pick<AuthUser, 'subscriptionTier' | 'planLabel' | 'ykiAccess' | 'professionalAccess' | 'readAccess' | 'createAccess' | 'professions'>;
 }
 
 
@@ -231,6 +237,8 @@ function enrichUserFromBackend(authUser: BackendAuthUser, tierHint?: string | nu
     plan_label: authUser.plan_label ?? undefined,
     yki_access: authUser.yki_access ?? undefined,
     professional_access: authUser.professional_access ?? undefined,
+    read_access: authUser.read_access ?? undefined,
+    create_access: authUser.create_access ?? undefined,
     professions: authUser.accessible_professions ?? undefined,
     is_internal_all_access: authUser.is_internal_all_access ?? undefined,
   };
@@ -245,8 +253,10 @@ function enrichUserFromBackend(authUser: BackendAuthUser, tierHint?: string | nu
     planLabel: status.planLabel,
     ykiAccess: status.ykiAccess,
     professionalAccess: status.professionalAccess,
+    readAccess: status.readAccess,
+    createAccess: status.createAccess,
     professions: status.professions,
-  } satisfies Pick<AuthUser, 'subscriptionTier' | 'planLabel' | 'ykiAccess' | 'professionalAccess' | 'professions'>;
+  } satisfies Pick<AuthUser, 'subscriptionTier' | 'planLabel' | 'ykiAccess' | 'professionalAccess' | 'readAccess' | 'createAccess' | 'professions'>;
 }
 
 

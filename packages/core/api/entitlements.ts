@@ -465,6 +465,8 @@ export type NormalizedSubscriptionStatus = {
   professions: ProfessionKey[];
   ykiAccess: boolean;
   professionalAccess: boolean;
+  readAccess: boolean;
+  createAccess: boolean;
   hasAnySubscription: boolean;
   isActive: boolean;
   isInternalAllAccess: boolean;
@@ -494,6 +496,63 @@ export function getAllAccessTestEmails() {
   return Array.from(new Set(configured));
 }
 
+export function getReadAccessTestEmails() {
+  const configured = typeof process !== 'undefined'
+    ? parseCsvList(process.env?.EXPO_PUBLIC_READ_ACCESS_TEST_EMAILS)
+    : [];
+  return Array.from(new Set(['vitus.idi@floently.com', 'testuser@floently.com', ...configured]));
+}
+
+export function isReadAccessTestEmail(email?: string | null) {
+  const normalized = normalizeEmail(email);
+  return normalized.length > 0 && getReadAccessTestEmails().includes(normalized);
+}
+
+function tierHasReadAccess(tier: string) {
+  const normalized = String(tier || '').trim().toLowerCase();
+  return (
+    normalized === 'reader' ||
+    normalized === 'read' ||
+    normalized === 'read_premium' ||
+    normalized === 'reader_premium' ||
+    normalized.startsWith('read_') ||
+    normalized.startsWith('reader_') ||
+    normalized.includes('floently_read')
+  );
+}
+
+function readBoolean(data: Record<string, unknown>, keys: string[]): boolean | null {
+  for (const key of keys) {
+    const value = data[key];
+    if (typeof value === 'boolean') return value;
+  }
+  return null;
+}
+
+function nestedEntitlements(data: Record<string, unknown>): Record<string, unknown> {
+  return data.entitlements && typeof data.entitlements === 'object' && !Array.isArray(data.entitlements)
+    ? data.entitlements as Record<string, unknown>
+    : {};
+}
+
+function resolveReadAccess(data: Record<string, unknown>, tier: string, email?: string | null) {
+  const nested = nestedEntitlements(data);
+  const explicit = readBoolean(data, ['read_access', 'readAccess', 'reader_access', 'readerAccess']);
+  const nestedExplicit = readBoolean(nested, ['read_access', 'readAccess', 'reader_access', 'readerAccess']);
+  if (explicit !== null) return explicit;
+  if (nestedExplicit !== null) return nestedExplicit;
+  return tierHasReadAccess(tier) || isReadAccessTestEmail(email);
+}
+
+function resolveCreateAccess(data: Record<string, unknown>) {
+  const nested = nestedEntitlements(data);
+  const explicit = readBoolean(data, ['create_access', 'createAccess']);
+  const nestedExplicit = readBoolean(nested, ['create_access', 'createAccess']);
+  if (explicit !== null) return explicit;
+  if (nestedExplicit !== null) return nestedExplicit;
+  return false;
+}
+
 export function isAllAccessTestEmail(email?: string | null) {
   const normalized = normalizeEmail(email);
   return normalized.length > 0 && getAllAccessTestEmails().includes(normalized);
@@ -517,6 +576,15 @@ function planLabelForTier(tier: string, professions: ProfessionKey[]) {
     case 'yki_yearly':
     case 'general_premium':
       return 'YKI Pathway';
+    case 'read':
+    case 'reader':
+    case 'read_monthly':
+    case 'read_yearly':
+    case 'reader_monthly':
+    case 'reader_yearly':
+    case 'read_premium':
+    case 'reader_premium':
+      return 'Floently Read';
     case 'professional_monthly':
     case 'professional_3_months':
     case 'professional_yearly':
@@ -616,6 +684,8 @@ export function normalizeSubscriptionStatus(
       professions: ['doctor', 'nurse', 'practical_nurse'],
       ykiAccess: true,
       professionalAccess: true,
+      readAccess: true,
+      createAccess: true,
       hasAnySubscription: true,
       isActive: true,
       isInternalAllAccess: true,
@@ -637,6 +707,8 @@ export function normalizeSubscriptionStatus(
       professions: ['doctor', 'nurse', 'practical_nurse'],
       ykiAccess: true,
       professionalAccess: true,
+      readAccess: true,
+      createAccess: true,
       hasAnySubscription: true,
       isActive: true,
       isInternalAllAccess: true,
@@ -667,11 +739,13 @@ export function normalizeSubscriptionStatus(
           : typeof features.workplace?.available === 'boolean'
             ? Boolean(features.workplace.available)
             : professions.length > 0 || rawTier.startsWith('professional_') || rawTier.startsWith('combined_') || rawTier.startsWith('bundle_') || rawTier === 'professional_premium';
+  const readAccess = resolveReadAccess(data, rawTier || 'free', email);
+  const createAccess = resolveCreateAccess(data);
   const hasAnySubscription = typeof data.has_any_subscription === 'boolean'
     ? data.has_any_subscription
     : typeof data.hasAnySubscription === 'boolean'
       ? data.hasAnySubscription
-      : rawTier.length > 0 && rawTier !== 'free';
+      : (rawTier.length > 0 && rawTier !== 'free') || readAccess || createAccess;
   const isActive = Boolean(data.is_active ?? data.isActive ?? hasAnySubscription);
   const planLabel = planLabelForTier(rawTier || 'free', professions);
   const accessType = inferAccessType(data, rawTier || 'free', email);
@@ -684,7 +758,9 @@ export function normalizeSubscriptionStatus(
         ? 'YKI pathway is active for work, citizenship, and permanent residence goals.'
         : professionalAccess
           ? `Professional pathway is active${professions.length ? ` - ${professionLabel}` : ''}.`
-          : 'Subscription detected.';
+          : readAccess
+            ? 'Floently Read access is active. Learn remains separate unless a Learn plan or bundle is added.'
+            : 'Subscription detected.';
 
   return {
     tier: rawTier || 'free',
@@ -695,6 +771,8 @@ export function normalizeSubscriptionStatus(
     professions,
     ykiAccess,
     professionalAccess,
+    readAccess,
+    createAccess,
     hasAnySubscription,
     isActive,
     isInternalAllAccess: rawTier === 'internal_all_access',

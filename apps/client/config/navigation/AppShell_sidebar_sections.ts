@@ -48,13 +48,13 @@ export function createDrawerSections(
   language: AppLanguage = 'fi',
 ): DrawerSection[] {
   const sections: DrawerSection[] = [];
-  const hasSubscriptionAccess = Boolean(
+  const hasLearnAccess = Boolean(
     entitlements?.isInternalAllAccess ||
-    entitlements?.hasAnySubscription ||
-    entitlements?.isActive
+    entitlements?.learnAccess ||
+    entitlements?.ykiAccess ||
+    entitlements?.professionalAccess
   );
-  const hasLearnAccess = Boolean(entitlements?.learnAccess || hasSubscriptionAccess);
-  const hasProfessionalAccess = Boolean(entitlements?.professionalAccess || hasSubscriptionAccess);
+  const hasProfessionalAccess = Boolean(entitlements?.isInternalAllAccess || entitlements?.professionalAccess);
   const hasReadAccess = Boolean(entitlements?.readAccess || entitlements?.isInternalAllAccess);
   const hasCreateAccess = Boolean(entitlements?.createAccess || entitlements?.isInternalAllAccess);
 

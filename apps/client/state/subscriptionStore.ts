@@ -29,10 +29,14 @@ type CompatSubscriptionStatus = {
     professionalAccess: boolean;
     professions: ProfessionCode[];
     activeContext: LearningContext;
+    readAccess: boolean;
+    createAccess: boolean;
   };
   // Flat aliases for newer screens/patches
   ykiAccess: boolean;
   professionalAccess: boolean;
+  readAccess: boolean;
+  createAccess: boolean;
   professions: ProfessionCode[];
   hasAnySubscription: boolean;
   isActive: boolean;
@@ -69,6 +73,8 @@ type UserLike = {
 };
 
 const DEFAULT_ALL_ACCESS_EMAILS = ['ruka@ruka.com', 'obum@learn.floently.com', 'testuser@floently.com'];
+const DEFAULT_READ_ACCESS_EMAILS = ['vitus.idi@floently.com', 'testuser@floently.com'];
+const DEFAULT_CREATE_ACCESS_EMAILS: string[] = [];
 
 function normalizeEmail(value?: string | null) {
   return (value ?? '').trim().toLowerCase();
@@ -86,9 +92,74 @@ function allAccessEmails() {
   return Array.from(new Set([...DEFAULT_ALL_ACCESS_EMAILS, ...configured]));
 }
 
+function readAccessEmails() {
+  const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_READ_ACCESS_TEST_EMAILS) : [];
+  return Array.from(new Set([...DEFAULT_READ_ACCESS_EMAILS, ...configured]));
+}
+
+function createAccessEmails() {
+  const configured = typeof process !== 'undefined' ? parseCsvList(process.env?.EXPO_PUBLIC_CREATE_ACCESS_TEST_EMAILS) : [];
+  return Array.from(new Set([...DEFAULT_CREATE_ACCESS_EMAILS, ...configured]));
+}
+
 function isAllAccessEmail(email?: string | null) {
   const normalized = normalizeEmail(email);
   return Boolean(normalized && allAccessEmails().includes(normalized));
+}
+
+function isReadAccessEmail(email?: string | null) {
+  const normalized = normalizeEmail(email);
+  return Boolean(normalized && readAccessEmails().includes(normalized));
+}
+
+function isCreateAccessEmail(email?: string | null) {
+  const normalized = normalizeEmail(email);
+  return Boolean(normalized && createAccessEmails().includes(normalized));
+}
+
+function tierHasReadAccess(tier: string) {
+  const normalized = String(tier || '').trim().toLowerCase();
+  return (
+    normalized === 'reader' ||
+    normalized === 'read' ||
+    normalized === 'read_premium' ||
+    normalized === 'reader_premium' ||
+    normalized.startsWith('read_') ||
+    normalized.startsWith('reader_') ||
+    normalized.includes('floently_read')
+  );
+}
+
+function readBoolean(source: Record<string, unknown>, keys: string[]): boolean | null {
+  for (const key of keys) {
+    const value = source[key];
+    if (typeof value === 'boolean') return value;
+  }
+  return null;
+}
+
+function nestedEntitlements(source: Record<string, unknown>): Record<string, unknown> {
+  return source.entitlements && typeof source.entitlements === 'object' && !Array.isArray(source.entitlements)
+    ? source.entitlements as Record<string, unknown>
+    : {};
+}
+
+function resolveReadAccess(source: Record<string, unknown>, tier: string, email?: string | null): boolean {
+  const nested = nestedEntitlements(source);
+  const explicit = readBoolean(source, ['readAccess', 'read_access', 'readerAccess', 'reader_access']);
+  const nestedExplicit = readBoolean(nested, ['readAccess', 'read_access', 'readerAccess', 'reader_access']);
+  if (explicit !== null) return explicit;
+  if (nestedExplicit !== null) return nestedExplicit;
+  return tierHasReadAccess(tier) || isReadAccessEmail(email);
+}
+
+function resolveCreateAccess(source: Record<string, unknown>, email?: string | null): boolean {
+  const nested = nestedEntitlements(source);
+  const explicit = readBoolean(source, ['createAccess', 'create_access']);
+  const nestedExplicit = readBoolean(nested, ['createAccess', 'create_access']);
+  if (explicit !== null) return explicit;
+  if (nestedExplicit !== null) return nestedExplicit;
+  return isCreateAccessEmail(email);
 }
 
 function normalizeProfession(value: unknown): ProfessionCode | null {
@@ -145,6 +216,15 @@ function planLabel(tier: string, professions: ProfessionCode[]) {
     case 'yki_yearly':
     case 'general_premium':
       return 'YKI Pathway';
+    case 'read':
+    case 'reader':
+    case 'read_monthly':
+    case 'read_yearly':
+    case 'reader_monthly':
+    case 'reader_yearly':
+    case 'read_premium':
+    case 'reader_premium':
+      return 'Floently Read';
     case 'combined_monthly':
     case 'combined_3_months':
     case 'combined_yearly':
@@ -246,6 +326,8 @@ function compatStatusFromValues(args: {
   professionalAccess: boolean;
   professions: ProfessionCode[];
   isInternalAllAccess?: boolean;
+  readAccess?: boolean;
+  createAccess?: boolean;
   isActive?: boolean;
   accessSummary?: string;
   activeContext?: LearningContext;
@@ -261,8 +343,12 @@ function compatStatusFromValues(args: {
     : ykiAccess ? 'yki' : (professions[0] ?? 'none');
   const category = planCategory(tier, ykiAccess, professionalAccess);
   const title = planLabel(tier, professions);
-  const accessType = resolveAccessType((args.raw && typeof args.raw === 'object' ? args.raw as Record<string, unknown> : {}), tier);
+  const rawSource = args.raw && typeof args.raw === 'object' ? args.raw as Record<string, unknown> : {};
+  const accessType = resolveAccessType(rawSource, tier);
+  const readAccess = isInternal ? true : Boolean(args.readAccess ?? resolveReadAccess(rawSource, tier, args.email));
+  const createAccess = isInternal ? true : Boolean(args.createAccess ?? resolveCreateAccess(rawSource, args.email));
   const learnAccess = isInternal || ykiAccess || professionalAccess || category === 'internal';
+  const hasAnyProductAccess = learnAccess || readAccess || createAccess || isInternal;
   return {
     tier,
     billingTier: tier,
@@ -276,9 +362,11 @@ function compatStatusFromValues(args: {
     accessSummary: args.accessSummary ?? (
       args.isInternalAllAccess
         ? 'YKI, workplace communication, and professional pathways are unlocked for testing.'
-        : !learnAccess
-          ? 'Choose a YKI, professional, or combined pathway to unlock guided support for work and life in Finland.'
-          : ykiAccess && professionalAccess
+        : !learnAccess && readAccess
+          ? 'Floently Read access is active. Learn remains separate unless a Learn plan or bundle is added.'
+          : !learnAccess
+            ? 'Choose a YKI, professional, combined, or Read plan to unlock the right Floently product.'
+            : ykiAccess && professionalAccess
             ? 'Combined pathway access is active.'
             : ykiAccess
               ? 'YKI pathway is active.'
@@ -292,12 +380,16 @@ function compatStatusFromValues(args: {
       professionalAccess,
       professions,
       activeContext,
+      readAccess,
+      createAccess,
     },
     ykiAccess,
     professionalAccess,
+    readAccess,
+    createAccess,
     professions,
-    hasAnySubscription: learnAccess || isInternal,
-    isActive: args.isActive ?? (learnAccess || isInternal),
+    hasAnySubscription: hasAnyProductAccess,
+    isActive: args.isActive ?? hasAnyProductAccess,
     isInternalAllAccess: Boolean(isInternal),
     isTrial: String(tier).startsWith('preview_') || String(tier).startsWith('trial_'),
     isPreview: String(tier).startsWith('preview_'),
@@ -335,7 +427,15 @@ function fallbackForUser(user?: UserLike | null): CompatSubscriptionStatus {
       return buildPreviewStatus(path);
     }
   }
-  return compatStatusFromValues({ email, tier, ykiAccess, professionalAccess, professions });
+  return compatStatusFromValues({
+    email,
+    tier,
+    ykiAccess,
+    professionalAccess,
+    readAccess: tierHasReadAccess(tier) || isReadAccessEmail(email),
+    createAccess: isCreateAccessEmail(email),
+    professions,
+  });
 }
 
 function normalizeRemoteStatus(payload: unknown, user?: UserLike | null): CompatSubscriptionStatus {
@@ -375,6 +475,8 @@ function normalizeRemoteStatus(payload: unknown, user?: UserLike | null): Compat
       tier: String(current.tier ?? current.billingTier ?? current.billing_tier ?? plan?.id ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free'),
       ykiAccess,
       professionalAccess,
+      readAccess: resolveReadAccess(current, String(current.tier ?? current.billingTier ?? current.billing_tier ?? plan?.id ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free'), email),
+      createAccess: resolveCreateAccess(current, email),
       professions,
       isInternalAllAccess: false,
       accessSummary: typeof current.accessSummary === 'string' ? current.accessSummary : undefined,
@@ -408,11 +510,14 @@ function normalizeRemoteStatus(payload: unknown, user?: UserLike | null): Compat
       : typeof current.workplace_access === 'boolean'
         ? current.workplace_access
         : professions.length > 0 || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('professional_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('combined_') || String(current.tier ?? current.billing_tier ?? current.billingTier ?? '').startsWith('bundle_');
+  const tier = String(current.billing_tier ?? current.billingTier ?? current.tier ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free');
   return compatStatusFromValues({
     email,
-    tier: String(current.billing_tier ?? current.billingTier ?? current.tier ?? user?.subscriptionTier ?? user?.subscriptionTierHint ?? 'free'),
+    tier,
     ykiAccess,
     professionalAccess,
+    readAccess: resolveReadAccess(current, tier, email),
+    createAccess: resolveCreateAccess(current, email),
     professions,
     isInternalAllAccess: false,
     accessSummary: typeof current.accessSummary === 'string' ? current.accessSummary : typeof current.access_summary === 'string' ? current.access_summary : undefined,
