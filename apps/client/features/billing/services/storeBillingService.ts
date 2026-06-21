@@ -8,6 +8,8 @@ import {
 
 type BillingPlatform = 'ios' | 'android';
 
+const READ_OFFERING_ID = 'read_default';
+
 const PACKAGE_MAPPING: Record<string, string> = {
   yki_monthly: 'yki_monthly',
   yki_3_months: 'yki_3months',
@@ -38,6 +40,15 @@ const PACKAGE_MAPPING: Record<string, string> = {
   combined_1_3_months: 'combo_3months',
   combined_1_3months: 'combo_3months',
   combined_1_yearly: 'combo_yearly',
+
+  reader_monthly: 'reader_monthly',
+  reader_yearly: 'reader_yearly',
+  creator_monthly: 'creator_monthly',
+  creator_yearly: 'creator_yearly',
+  read_reader_monthly: 'reader_monthly',
+  read_reader_yearly: 'reader_yearly',
+  read_creator_monthly: 'creator_monthly',
+  read_creator_yearly: 'creator_yearly',
 };
 
 function mobilePlatform(): BillingPlatform | null {
@@ -90,6 +101,76 @@ export async function restoreStorePurchases(
 
   return {
     ...result,
+    status: 'restored',
+    platform,
+  };
+}
+
+
+export type ReadStorePlanId = 'reader_monthly' | 'reader_yearly' | 'creator_monthly' | 'creator_yearly';
+
+export function revenueCatPackageForReadPlan(planId: ReadStorePlanId): string {
+  return planId;
+}
+
+function activeEntitlementSet(result: RevenueCatPurchaseResult): Set<string> {
+  return new Set(result.activeEntitlements.map((item) => String(item).trim()).filter(Boolean));
+}
+
+export function readAccessFromRevenueCatResult(result: RevenueCatPurchaseResult) {
+  const active = activeEntitlementSet(result);
+  const creatorAccess = active.has('creator_access');
+  const readAccess = creatorAccess || active.has('read_access');
+  return { readAccess, creatorAccess };
+}
+
+export async function startReadStorePurchase(
+  planId: ReadStorePlanId,
+  userId?: string | null,
+): Promise<RevenueCatPurchaseResult & {
+  status: 'purchased';
+  packageId: string;
+  platform: BillingPlatform;
+  readAccess: boolean;
+  creatorAccess: boolean;
+}> {
+  const platform = mobilePlatform();
+  if (!platform) {
+    throw new Error('Store billing is only available on iOS and Android.');
+  }
+
+  const packageId = revenueCatPackageForReadPlan(planId);
+  const result = await purchaseRevenueCatPackage(packageId, userId, READ_OFFERING_ID);
+  const access = readAccessFromRevenueCatResult(result);
+
+  return {
+    ...result,
+    ...access,
+    status: 'purchased',
+    packageId,
+    platform,
+  };
+}
+
+export async function restoreReadStorePurchases(
+  userId?: string | null,
+): Promise<RevenueCatPurchaseResult & {
+  status: 'restored';
+  platform: BillingPlatform;
+  readAccess: boolean;
+  creatorAccess: boolean;
+}> {
+  const platform = mobilePlatform();
+  if (!platform) {
+    throw new Error('Store billing is only available on iOS and Android.');
+  }
+
+  const result = await restoreRevenueCatPurchases(userId);
+  const access = readAccessFromRevenueCatResult(result);
+
+  return {
+    ...result,
+    ...access,
     status: 'restored',
     platform,
   };

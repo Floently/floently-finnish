@@ -6,6 +6,8 @@ import { router } from 'expo-router';
 
 import { useActiveReadDocument, useReadMobileStore, type ReadDocument } from './readMobileStore';
 import { readTtsApi, type ReadTtsResult } from './readTtsApi';
+import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
+import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
 type ButtonTone = 'primary' | 'secondary' | 'ghost';
 type ImportMode = 'paste' | 'file' | 'url';
@@ -195,6 +197,7 @@ export function ReadHomeScreen() {
         <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
         <SecondaryButton label="Reader" onPress={() => navigate('/read/reader')} />
         <SecondaryButton label="Read settings" onPress={() => navigate('/read/settings')} />
+        <SecondaryButton label="Read subscription" onPress={() => navigate('/read/subscribe')} />
       </View>
 
       <View style={styles.card}>
@@ -548,6 +551,139 @@ export function ReadReaderScreen() {
   );
 }
 
+
+const READ_PLANS: Array<{
+  id: ReadStorePlanId;
+  title: string;
+  priceHint: string;
+  body: string;
+  platformNote?: string;
+}> = [
+  {
+    id: 'reader_monthly',
+    title: 'Reader Monthly',
+    priceHint: '11.99 EUR / month',
+    body: 'Read, listen, import text, and continue your library across sessions.',
+  },
+  {
+    id: 'reader_yearly',
+    title: 'Reader Yearly',
+    priceHint: '119.90 EUR / year',
+    body: 'Annual Reader access for reading, listening, and document practice.',
+    platformNote: 'Android yearly is added after the RevenueCat compatibility warning is cleared; iOS yearly is ready.',
+  },
+  {
+    id: 'creator_monthly',
+    title: 'Creator Monthly',
+    priceHint: '29.99 EUR / month',
+    body: 'Creator-tier access for Read content tools, summaries, captions, and hooks as they are enabled.',
+  },
+  {
+    id: 'creator_yearly',
+    title: 'Creator Yearly',
+    priceHint: '299.90 EUR / year',
+    body: 'Annual Creator access for Read content tools and richer creator workflows.',
+    platformNote: 'Android yearly is added after the RevenueCat compatibility warning is cleared; iOS yearly is ready.',
+  },
+];
+
+export function ReadSubscriptionScreen() {
+  const subscriptionStatus = useSubscriptionStore((state) => state.status);
+  const applyStoreReadAccess = useSubscriptionStore((state) => state.applyStoreReadAccess);
+  const refreshSubscription = useSubscriptionStore((state) => state.refresh);
+  const [busyPlan, setBusyPlan] = useState<ReadStorePlanId | 'restore' | null>(null);
+  const [purchaseMessage, setPurchaseMessage] = useState<string | null>(null);
+  const [purchaseError, setPurchaseError] = useState<string | null>(null);
+
+  const hasReadAccess = Boolean(subscriptionStatus?.readAccess || subscriptionStatus?.entitlements.readAccess);
+  const hasCreatorAccess = Boolean(subscriptionStatus?.createAccess || subscriptionStatus?.entitlements.createAccess);
+
+  async function purchase(planId: ReadStorePlanId) {
+    setBusyPlan(planId);
+    setPurchaseMessage(null);
+    setPurchaseError(null);
+
+    try {
+      const result = await startReadStorePurchase(planId);
+      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      await refreshSubscription();
+      setPurchaseMessage(
+        result.creatorAccess
+          ? 'Creator access is active. Read Creator purchases now unlock the Read Creator tier in this app.'
+          : result.readAccess
+            ? 'Read access is active. Your app-store subscription has been restored in the app.'
+            : 'Purchase completed. If access does not update immediately, tap Restore purchases.',
+      );
+    } catch (error) {
+      setPurchaseError(error instanceof Error ? error.message : String(error));
+    } finally {
+      setBusyPlan(null);
+    }
+  }
+
+  async function restorePurchases() {
+    setBusyPlan('restore');
+    setPurchaseMessage(null);
+    setPurchaseError(null);
+
+    try {
+      const result = await restoreReadStorePurchases();
+      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      await refreshSubscription();
+      setPurchaseMessage(
+        result.creatorAccess
+          ? 'Creator access restored.'
+          : result.readAccess
+            ? 'Read access restored.'
+            : 'No active Read purchase was found for this app-store account.',
+      );
+    } catch (error) {
+      setPurchaseError(error instanceof Error ? error.message : String(error));
+    } finally {
+      setBusyPlan(null);
+    }
+  }
+
+  return (
+    <ScreenFrame eyebrow="Read subscription" title="Choose your Read access">
+      <View style={styles.cardHero}>
+        <Text style={styles.cardTitle}>Mobile subscriptions use RevenueCat</Text>
+        <Text style={styles.bodyText}>
+          Stripe remains for web checkout. Native iOS and Android purchases use App Store / Google Play products through RevenueCat offering read_default.
+        </Text>
+        <View style={styles.inlinePills}>
+          <Pill label={hasReadAccess ? 'Read active' : 'Read locked'} tone={hasReadAccess ? 'read' : 'warning'} />
+          <Pill label={hasCreatorAccess ? 'Creator active' : 'Creator separate'} tone={hasCreatorAccess ? 'create' : 'neutral'} />
+        </View>
+      </View>
+
+      {READ_PLANS.map((plan) => (
+        <View key={plan.id} style={styles.documentCard}>
+          <View style={styles.documentTitleRow}>
+            <Text style={styles.documentTitle}>{plan.title}</Text>
+            <Pill label={plan.priceHint} tone={plan.id.includes('creator') ? 'create' : 'read'} />
+          </View>
+          <Text style={styles.bodyText}>{plan.body}</Text>
+          {plan.platformNote ? <Text style={styles.helpText}>{plan.platformNote}</Text> : null}
+          <PrimaryButton
+            label={busyPlan === plan.id ? 'Opening store…' : `Choose ${plan.title}`}
+            onPress={() => void purchase(plan.id)}
+            disabled={busyPlan !== null}
+          />
+        </View>
+      ))}
+
+      <View style={styles.cardMuted}>
+        <Text style={styles.cardTitle}>Already purchased?</Text>
+        <Text style={styles.bodyText}>Restore purchases to refresh RevenueCat entitlements for this device.</Text>
+        <SecondaryButton label={busyPlan === 'restore' ? 'Restoring…' : 'Restore purchases'} onPress={() => void restorePurchases()} disabled={busyPlan !== null} />
+        {purchaseMessage ? <Text style={styles.helpText}>{purchaseMessage}</Text> : null}
+        {purchaseError ? <Text style={styles.errorText}>{purchaseError}</Text> : null}
+      </View>
+    </ScreenFrame>
+  );
+}
+
 export function ReadSettingsScreen() {
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
   const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
@@ -566,6 +702,11 @@ export function ReadSettingsScreen() {
           </View>
           <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
         </View>
+      </View>
+      <View style={styles.cardMuted}>
+        <Text style={styles.cardTitle}>Read subscription</Text>
+        <Text style={styles.bodyText}>Manage mobile Read purchases through RevenueCat. Reader and Creator stay separate from Learn.</Text>
+        <PrimaryButton label="Manage Read subscription" onPress={() => navigate('/read/subscribe')} />
       </View>
       <View style={styles.cardMuted}>
         <Text style={styles.cardTitle}>Product boundary</Text>

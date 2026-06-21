@@ -138,10 +138,12 @@ export const readRenderApi = {
   },
 
   async updateProgress(id: string, input: UpdateReadProgressInput): Promise<void> {
+    const progressPercent = Math.max(0, Math.min(100, input.progress <= 1 ? input.progress * 100 : input.progress));
     await requestReadApi<unknown>(`/api/v1/documents/${encodeURIComponent(id)}/progress`, {
       method: 'PUT',
       body: JSON.stringify({
-        progress: input.progress,
+        progressPercent,
+        progress_percent: progressPercent,
         playback_speed: input.playbackSpeed,
         playbackSpeed: input.playbackSpeed,
       }),

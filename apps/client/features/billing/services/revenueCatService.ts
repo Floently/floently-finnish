@@ -104,6 +104,23 @@ export async function getRevenueCatOfferings(userId?: string | null) {
   return Purchases.getOfferings();
 }
 
+function offeringByIdentifier(offerings: Awaited<ReturnType<typeof Purchases.getOfferings>>, offeringIdentifier?: string | null) {
+  const wanted = String(offeringIdentifier ?? '').trim();
+  if (wanted && offerings.all && typeof offerings.all === 'object') {
+    const explicit = offerings.all[wanted];
+    if (explicit) return explicit;
+  }
+
+  if (wanted === 'read_default') {
+    return null;
+  }
+
+  return (
+    offerings.current ??
+    (offerings.all && typeof offerings.all === 'object' ? offerings.all.default : null)
+  );
+}
+
 
 function packageIdentifierAliases(packageIdentifier: string): string[] {
   const raw = String(packageIdentifier || '').trim();
@@ -165,15 +182,14 @@ function packageCandidateIdentifiers(item: unknown): string[] {
 export async function purchaseRevenueCatPackage(
   packageIdentifier: string,
   userId?: string | null,
+  offeringIdentifier?: string | null,
 ): Promise<RevenueCatPurchaseResult> {
   if (!(await ensureRevenueCatConfigured(userId))) {
     throw new Error('Store billing is not configured for this platform.');
   }
 
   const offerings = await Purchases.getOfferings();
-  const currentOffering =
-    offerings.current ??
-    (offerings.all && typeof offerings.all === 'object' ? offerings.all.default : null);
+  const currentOffering = offeringByIdentifier(offerings, offeringIdentifier);
 
   const availablePackages = Array.isArray(currentOffering?.availablePackages)
     ? currentOffering.availablePackages
@@ -193,7 +209,7 @@ export async function purchaseRevenueCatPackage(
       .join(', ');
 
     throw new Error(
-      `RevenueCat package not found: ${packageIdentifier}. Tried: ${wantedAliases.join(', ')}. Available: ${available || 'none'}`,
+      `RevenueCat package not found: ${packageIdentifier} in offering ${offeringIdentifier || 'default'}. Tried: ${wantedAliases.join(', ')}. Available: ${available || 'none'}`,
     );
   }
 
