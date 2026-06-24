@@ -40,6 +40,14 @@ function Pill({ label, tone = 'neutral' }: { label: string; tone?: 'neutral' | '
 function ScreenFrame({ title, eyebrow, children }: { title: string; eyebrow: string; children: React.ReactNode }) {
   return (
     <ScrollView contentContainerStyle={styles.screen}>
+      <View style={styles.productNavRow}>
+        <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={styles.productNavButton}>
+          <Text style={styles.productNavButtonText}>← Floently Home</Text>
+        </Pressable>
+        <Pressable accessibilityRole="button" onPress={() => navigate('/read')} style={styles.productNavButton}>
+          <Text style={styles.productNavButtonText}>Read landing</Text>
+        </Pressable>
+      </View>
       <View style={styles.headerCard}>
         <Text style={styles.eyebrow}>{eyebrow}</Text>
         <Text style={styles.title}>{title}</Text>
@@ -853,6 +861,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#07111F',
     padding: 20,
     gap: 16,
+  },
+  productNavRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  productNavButton: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: '#244A7D',
+    backgroundColor: '#0B1728',
+    paddingVertical: 9,
+    paddingHorizontal: 12,
+  },
+  productNavButtonText: {
+    color: '#65AEFF',
+    fontSize: 13,
+    fontWeight: '900',
   },
   headerCard: {
     borderRadius: 28,

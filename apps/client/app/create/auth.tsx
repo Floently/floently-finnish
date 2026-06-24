@@ -1,5 +1,5 @@
 import CreateAuthScreen from '../../features/create/mobile/CreateAuthScreen';
 
-export default function CreateRouteEntry() {
+export default function CreateAuthRoute() {
   return <CreateAuthScreen />;
 }

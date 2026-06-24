@@ -39,3 +39,12 @@ Next implementation target:
 - Removed the disabled file-upload placeholder button.
 - Kept Create as coming soon and did not touch Learn routing.
 - Still required before release: run app build, manually test file upload on iOS, confirm Render backend deploy includes upload endpoint.
+
+## M20-D completed
+- Read product entry now opens the Read landing page first.
+- Read landing CTA routes to Read auth instead of directly opening the app.
+- Read app workspace is available at `/read/app` and is gated behind an auth fallback.
+- Read auth screen routes to existing app login and then allows continuing to Read.
+- Create has a native auth entry screen even though Create Studio remains coming soon.
+- Read app screens now include navigation back to Floently Home and Read landing.
+- Build 20 remains invalid for release because it lacked the correct Read/Auth/Create flow.

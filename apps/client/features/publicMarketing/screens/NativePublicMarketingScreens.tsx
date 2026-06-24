@@ -443,7 +443,7 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
 
 export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: FloentlyReadPreviewProps) {
 
-  const showReadApp = () => router.push('/read' as never);
+  const showReadApp = () => router.push('/read/auth' as never);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#070B2B' }} edges={['top', 'bottom']}>

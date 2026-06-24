@@ -1,5 +1,12 @@
-import { ReadHomeScreen } from '../../features/read/mobile/ReadMobileScreens';
+import { router } from 'expo-router';
 
-export default function ReadRouteEntry() {
-  return <ReadHomeScreen />;
+import { NativeReadPreviewScreen } from '../../features/publicMarketing/screens/NativePublicMarketingScreens';
+
+export default function ReadLandingRoute() {
+  return (
+    <NativeReadPreviewScreen
+      onOpenGateway={() => router.push('/' as never)}
+      onOpenLearn={() => router.push('/' as never)}
+    />
+  );
 }
