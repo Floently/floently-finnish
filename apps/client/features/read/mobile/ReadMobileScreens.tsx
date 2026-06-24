@@ -6,6 +6,7 @@ import { router } from 'expo-router';
 
 import { useActiveReadDocument, useReadMobileStore, type ReadDocument } from './readMobileStore';
 import { readTtsApi, type ReadTtsResult } from './readTtsApi';
+import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
@@ -587,6 +588,41 @@ const READ_PLANS: Array<{
   },
 ];
 
+
+type ReadRevenueCatSyncSource = {
+  readAccess: boolean;
+  creatorAccess: boolean;
+  activeEntitlements: string[];
+  packageId?: string | null;
+  platform?: string | null;
+  status?: string | null;
+};
+
+async function syncReadPurchaseToBackend(
+  result: ReadRevenueCatSyncSource,
+  planId?: ReadStorePlanId | null,
+): Promise<boolean> {
+  const activeEntitlements = Array.isArray(result.activeEntitlements) ? result.activeEntitlements : [];
+  const shouldSync = result.readAccess || result.creatorAccess || activeEntitlements.length > 0;
+  if (!shouldSync) return false;
+
+  try {
+    await readRenderApi.syncRevenueCatEntitlements({
+      readAccess: result.readAccess,
+      creatorAccess: result.creatorAccess,
+      activeEntitlements,
+      packageId: result.packageId ?? planId ?? null,
+      planId: planId ?? result.packageId ?? null,
+      platform: result.platform ?? null,
+      status: result.status ?? null,
+    });
+    return true;
+  } catch (error) {
+    console.warn('Read RevenueCat backend sync failed', error);
+    return false;
+  }
+}
+
 export function ReadSubscriptionScreen() {
   const subscriptionStatus = useSubscriptionStore((state) => state.status);
   const applyStoreReadAccess = useSubscriptionStore((state) => state.applyStoreReadAccess);
@@ -606,12 +642,15 @@ export function ReadSubscriptionScreen() {
     try {
       const result = await startReadStorePurchase(planId);
       applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      const backendSynced = await syncReadPurchaseToBackend(result, planId);
       await refreshSubscription();
+      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      const syncSuffix = backendSynced ? ' Backend access is synced.' : '';
       setPurchaseMessage(
         result.creatorAccess
-          ? 'Creator access is active. Read Creator purchases now unlock the Read Creator tier in this app.'
+          ? `Creator access is active. Read Creator purchases now unlock the Read Creator tier in this app.${syncSuffix}`
           : result.readAccess
-            ? 'Read access is active. Your app-store subscription has been restored in the app.'
+            ? `Read access is active. Your app-store subscription has been restored in the app.${syncSuffix}`
             : 'Purchase completed. If access does not update immediately, tap Restore purchases.',
       );
     } catch (error) {
@@ -629,12 +668,15 @@ export function ReadSubscriptionScreen() {
     try {
       const result = await restoreReadStorePurchases();
       applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      const backendSynced = await syncReadPurchaseToBackend(result, null);
       await refreshSubscription();
+      applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
+      const syncSuffix = backendSynced ? ' Backend access is synced.' : '';
       setPurchaseMessage(
         result.creatorAccess
-          ? 'Creator access restored.'
+          ? `Creator access restored.${syncSuffix}`
           : result.readAccess
-            ? 'Read access restored.'
+            ? `Read access restored.${syncSuffix}`
             : 'No active Read purchase was found for this app-store account.',
       );
     } catch (error) {
