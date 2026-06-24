@@ -11,6 +11,8 @@ export type ReadDocument = {
   detectedLanguageLabel: string;
   sourceText: string;
   generatedText: string;
+  sourceType?: string | null;
+  sourceUrl?: string | null;
   createdAtIso: string;
   readingProgress: number;
   playbackSpeed: number;
@@ -24,7 +26,9 @@ type ReadMobileState = {
   documents: ReadDocument[];
   activeDocumentId: string | null;
   setReadAutomatically: (enabled: boolean) => void;
-  createFromText: (input: { title?: string; text: string; language?: ReadLanguage }) => ReadDocument;
+  createFromText: (input: { title?: string; text: string; language?: ReadLanguage; sourceType?: string | null }) => ReadDocument;
+  createFromUrl: (input: { title?: string; url: string }) => Promise<ReadDocument>;
+  deleteDocument: (id: string) => Promise<void>;
   openDocument: (id: string) => void;
   updateProgress: (id: string, progress: number) => void;
   setPlaybackSpeed: (id: string, speed: number) => void;
@@ -58,12 +62,12 @@ function normalizeReadLanguage(value: unknown): ReadLanguage {
 }
 
 function detectLanguage(text: string): ReadLanguage {
-  const lower = text.toLowerCase();
-  const finnishSignals = [' ja ', ' että ', ' minä ', ' sinä ', ' tämä ', ' koska ', ' suomi', ' hän '];
-  const swedishSignals = [' och ', ' att ', ' inte ', ' jag ', ' du ', ' svenska'];
-  const spanishSignals = [' el ', ' la ', ' que ', ' una ', ' para ', ' español'];
-  const frenchSignals = [' le ', ' la ', ' que ', ' une ', ' pour ', ' français'];
-  const germanSignals = [' der ', ' die ', ' und ', ' nicht ', ' ich ', ' deutsch'];
+  const lower = ` ${text.toLowerCase()} `;
+  const finnishSignals = [' ja ', ' että ', ' minä ', ' sinä ', ' tämä ', ' koska ', ' suomi ', ' hän '];
+  const swedishSignals = [' och ', ' att ', ' inte ', ' jag ', ' du ', ' svenska '];
+  const spanishSignals = [' el ', ' la ', ' que ', ' una ', ' para ', ' español '];
+  const frenchSignals = [' le ', ' la ', ' que ', ' une ', ' pour ', ' français '];
+  const germanSignals = [' der ', ' die ', ' und ', ' nicht ', ' ich ', ' deutsch '];
 
   const score = (signals: string[]) => signals.reduce((total, signal) => total + (lower.includes(signal) ? 1 : 0), 0);
   const candidates: Array<[ReadLanguage, number]> = [
@@ -98,14 +102,18 @@ function progressToRatio(value: unknown): number {
 
 function toLocalDocument(remote: ReadRenderDocument): ReadDocument {
   const language = normalizeReadLanguage(remote.language);
-  const sourceText = cleanForReading(String(remote.text ?? remote.content ?? ''));
+  const sourceText = cleanForReading(String(remote.rawText ?? remote.raw_text ?? remote.text ?? remote.content ?? ''));
+  const detected = language === 'auto' ? detectLanguage(sourceText) : language;
+
   return {
     id: String(remote.id || makeId()),
     title: String(remote.title || 'Untitled reading'),
-    language,
-    detectedLanguageLabel: LANGUAGE_LABELS[language] ?? LANGUAGE_LABELS.other,
+    language: detected,
+    detectedLanguageLabel: LANGUAGE_LABELS[detected] ?? LANGUAGE_LABELS.other,
     sourceText,
     generatedText: sourceText || 'No readable text was found yet.',
+    sourceType: remote.sourceType ?? remote.source_type ?? null,
+    sourceUrl: remote.sourceUrl ?? remote.source_url ?? null,
     createdAtIso: String(remote.createdAt ?? remote.created_at ?? new Date().toISOString()),
     readingProgress: progressToRatio(remote.progress ?? remote.progressPercent ?? remote.progress_percent),
     playbackSpeed: Number(remote.playbackSpeed ?? remote.playback_speed ?? 1) || 1,
@@ -133,17 +141,18 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
 
   setReadAutomatically: (enabled) => set({ readAutomatically: enabled }),
 
-  createFromText: ({ title, text, language = 'auto' }) => {
+  createFromText: ({ title, text, language = 'auto', sourceType = 'text' }) => {
     const sourceText = cleanForReading(text);
     const detected = language === 'auto' ? detectLanguage(sourceText) : language;
-    const generatedText = sourceText || 'No readable text was found yet.';
     const localDocument: ReadDocument = {
       id: makeId(),
       title: title?.trim() || 'Untitled reading',
       language: detected,
       detectedLanguageLabel: LANGUAGE_LABELS[detected] ?? LANGUAGE_LABELS.other,
       sourceText,
-      generatedText,
+      generatedText: sourceText || 'No readable text was found yet.',
+      sourceType,
+      sourceUrl: null,
       createdAtIso: new Date().toISOString(),
       readingProgress: 0,
       playbackSpeed: 1,
@@ -160,6 +169,7 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
       title: localDocument.title,
       text: localDocument.sourceText,
       language: localDocument.language,
+      sourceType,
     }).then((remoteDocument) => {
       const syncedDocument = toLocalDocument(remoteDocument);
       set((state) => ({
@@ -177,6 +187,52 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
     });
 
     return localDocument;
+  },
+
+  async createFromUrl({ title, url }) {
+    const cleanUrl = url.trim();
+    if (!/^https?:\/\//i.test(cleanUrl)) {
+      throw new Error('Enter a valid web link starting with http:// or https://.');
+    }
+
+    set({ syncStatus: 'syncing', syncError: null });
+    try {
+      const remoteDocument = await readRenderApi.createFromUrl({ title, url: cleanUrl });
+      const document = toLocalDocument(remoteDocument);
+      set((state) => ({
+        documents: [
+          document,
+          ...state.documents.filter((item) => item.id !== document.id),
+        ],
+        activeDocumentId: document.id,
+        syncStatus: 'idle',
+        syncError: null,
+      }));
+      return document;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      set({ syncStatus: 'error', syncError: message });
+      throw error;
+    }
+  },
+
+  async deleteDocument(id) {
+    const previous = get().documents;
+    set((state) => ({
+      documents: state.documents.filter((document) => document.id !== id),
+      activeDocumentId: state.activeDocumentId === id ? null : state.activeDocumentId,
+      syncStatus: 'syncing',
+      syncError: null,
+    }));
+
+    try {
+      await readRenderApi.deleteDocument(id);
+      set({ syncStatus: 'idle', syncError: null });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      set({ documents: previous, syncStatus: 'error', syncError: message });
+      throw error;
+    }
   },
 
   openDocument: (id) => set({ activeDocumentId: id }),

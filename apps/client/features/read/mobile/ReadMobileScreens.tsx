@@ -42,7 +42,7 @@ function ScreenFrame({ title, eyebrow, children }: { title: string; eyebrow: str
       <View style={styles.headerCard}>
         <Text style={styles.eyebrow}>{eyebrow}</Text>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>Real native Floently Read screen built directly inside the mobile app.</Text>
+        <Text style={styles.subtitle}>Turn text, articles, and study material into a calm reading and listening library.</Text>
       </View>
       {children}
     </ScrollView>
@@ -97,10 +97,10 @@ function SyncBanner({ status, error, onRefresh }: { status: SyncStatus; error: s
         <Text style={styles.syncTitle}>{isBusy ? 'Syncing Read library' : isOffline ? 'Read is using local fallback' : 'Read library connected'}</Text>
         <Text style={styles.syncText} numberOfLines={2}>
           {isBusy
-            ? 'Connecting to the Render Read API and keeping the native library up to date.'
+            ? 'Syncing your readings and progress.'
             : isOffline
-              ? error || 'Render is unavailable or the session needs refresh. Your local reading still stays open.'
-              : 'Learn login token is shared with Render Read. Imported readings sync when the API is available.'}
+              ? error || 'Your online library is temporarily unavailable. Local readings stay open.'
+              : 'Your readings and progress sync when you are signed in.'}
         </Text>
       </View>
       {isBusy ? <ActivityIndicator color="#f6b66d" /> : onRefresh ? <GhostButton label="Refresh" onPress={onRefresh} /> : null}
@@ -182,7 +182,7 @@ export function ReadHomeScreen() {
         </View>
         <View style={styles.inlinePills}>
           <Pill label="Native app" tone="read" />
-          <Pill label="Render API" tone="read" />
+          <Pill label="Synced library" tone="read" />
           <Pill label={readAutomatically ? 'Auto-read on' : 'Manual start'} tone={readAutomatically ? 'read' : 'warning'} />
         </View>
       </View>
@@ -232,12 +232,16 @@ function ImportModeButton({ mode, activeMode, label, onPress }: { mode: ImportMo
 
 export function ReadImportScreen() {
   const createFromText = useReadMobileStore((state) => state.createFromText);
+  const createFromUrl = useReadMobileStore((state) => state.createFromUrl);
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
   const syncStatus = useReadMobileStore((state) => state.syncStatus);
   const syncError = useReadMobileStore((state) => state.syncError);
   const [title, setTitle] = useState('Floently Read test');
   const [text, setText] = useState(sampleText);
   const [mode, setMode] = useState<ImportMode>('paste');
+  const [url, setUrl] = useState('');
+  const [importError, setImportError] = useState<string | null>(null);
+  const [isImporting, setIsImporting] = useState(false);
 
   const trimmedText = text.trim();
   const wordCount = useMemo(() => trimmedText ? trimmedText.split(/\s+/).length : 0, [trimmedText]);
@@ -246,6 +250,7 @@ export function ReadImportScreen() {
 
   function generate() {
     if (!canGenerate) return;
+    setImportError(null);
     const document = createFromText({ title, text: trimmedText, language: 'auto' });
     useReadMobileStore.getState().openDocument(document.id);
     if (readAutomatically) {
@@ -253,6 +258,25 @@ export function ReadImportScreen() {
       return;
     }
     navigate('/read/library');
+  }
+
+  async function importUrl() {
+    if (!url.trim()) return;
+    setIsImporting(true);
+    setImportError(null);
+    try {
+      const document = await createFromUrl({ title, url });
+      useReadMobileStore.getState().openDocument(document.id);
+      if (readAutomatically) {
+        navigate('/read/reader');
+        return;
+      }
+      navigate('/read/library');
+    } catch (error) {
+      setImportError(error instanceof Error ? error.message : String(error));
+    } finally {
+      setIsImporting(false);
+    }
   }
 
   return (
@@ -298,22 +322,33 @@ export function ReadImportScreen() {
       {mode === 'file' ? (
         <View style={styles.cardMuted}>
           <Text style={styles.cardTitle}>Native book picker</Text>
-          <Text style={styles.bodyText}>This screen is ready for native PDF, EPUB, DOCX, and text-file selection. The button is intentionally safe until the file picker and extraction endpoint are connected.</Text>
+          <Text style={styles.bodyText}>Device upload is the next rebuild patch. Text paste and web-link import are active now, and file import will be connected to native file selection plus extraction before the next app build.</Text>
           <View style={styles.inlinePills}>
             <Pill label="PDF" tone="read" />
             <Pill label="EPUB" tone="read" />
             <Pill label="DOCX" tone="read" />
             <Pill label="TXT" tone="read" />
           </View>
-          <SecondaryButton label="File picker coming next" onPress={() => undefined} disabled />
+          <SecondaryButton label="File upload next patch" onPress={() => undefined} disabled />
         </View>
       ) : null}
 
       {mode === 'url' ? (
-        <View style={styles.cardMuted}>
+        <View style={styles.card}>
           <Text style={styles.cardTitle}>Import from web link</Text>
-          <Text style={styles.bodyText}>Render already has a from-url route. The native input is kept disabled until URL extraction, content safety, and loading states are wired fully.</Text>
-          <SecondaryButton label="URL import coming next" onPress={() => undefined} disabled />
+          <Text style={styles.bodyText}>Paste a public article or web page link. Floently saves the readable text to your Read library.</Text>
+          <Text style={styles.label}>Web link</Text>
+          <TextInput
+            value={url}
+            onChangeText={setUrl}
+            autoCapitalize="none"
+            keyboardType="url"
+            style={styles.input}
+            placeholder="https://example.com/article"
+            placeholderTextColor="#8FA0D0"
+          />
+          <PrimaryButton label={isImporting ? 'Importing…' : readAutomatically ? 'Import and start reading' : 'Import to library'} onPress={() => void importUrl()} disabled={isImporting || !url.trim()} />
+          {importError ? <Text style={styles.errorText}>{importError}</Text> : null}
         </View>
       ) : null}
     </ScreenFrame>
@@ -538,7 +573,7 @@ export function ReadReaderScreen() {
       <View style={styles.cardMuted}>
         <Text style={styles.cardTitle}>Listening connected</Text>
         <Text style={styles.bodyText}>
-          Render TTS prerenders audio for this reading and the native player uses expo-audio for playback.
+          Floently prepares natural audio for this reading and plays it directly in the app.
           {audioResult?.cacheHit ? ' This audio was served from cache.' : audioResult ? ' This audio is ready for replay.' : ' Tap Generate and listen to start.'}
         </Text>
         {audioResult?.duration ? <Text style={styles.helpText}>Audio duration: {Math.round(audioResult.duration)} seconds</Text> : null}

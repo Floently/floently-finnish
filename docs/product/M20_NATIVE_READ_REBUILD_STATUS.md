@@ -24,3 +24,10 @@ Next implementation target:
 - Real TTS/player flow using the Read backend as infrastructure.
 - Mobile RevenueCat subscription screen for Read.
 - No placeholder behavior except Create.
+
+## M20-B completed
+- Repaired native Read API contract so backend `project/projects` responses map correctly.
+- Added real native Read URL import through `/api/v1/documents/from-url`.
+- Added delete support in the Read store/API client.
+- Removed user-facing technical API wording from native Read screens.
+- This is not final yet: native file upload and full Read visual rebuild still continue before any new iOS/Android release build.

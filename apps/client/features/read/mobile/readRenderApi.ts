@@ -7,12 +7,22 @@ export type ReadRenderDocument = {
   title?: string | null;
   text?: string | null;
   content?: string | null;
+  rawText?: string | null;
+  raw_text?: string | null;
   language?: string | null;
   sourceType?: string | null;
   source_type?: string | null;
+  sourceUrl?: string | null;
+  source_url?: string | null;
   createdAt?: string | null;
   created_at?: string | null;
-  progress?: number | null;
+  updatedAt?: string | null;
+  updated_at?: string | null;
+  lastOpenedAt?: string | null;
+  last_opened_at?: string | null;
+  wordCount?: number | null;
+  word_count?: number | null;
+  progress?: unknown;
   progressPercent?: number | null;
   progress_percent?: number | null;
   playbackSpeed?: number | null;
@@ -20,9 +30,15 @@ export type ReadRenderDocument = {
 };
 
 export type CreateReadDocumentInput = {
-  title: string;
+  title?: string;
   text: string;
   language?: string | null;
+  sourceType?: string | null;
+};
+
+export type CreateReadUrlInput = {
+  title?: string;
+  url: string;
 };
 
 export type UpdateReadProgressInput = {
@@ -64,6 +80,28 @@ function unwrapData(value: unknown): unknown {
   return value;
 }
 
+function unwrapProject(value: unknown): ReadRenderDocument {
+  const data = unwrapData(value);
+  const record = asRecord(data);
+  const project = asRecord(record.project);
+  const document = asRecord(record.document);
+  if (Object.keys(project).length) return project as ReadRenderDocument;
+  if (Object.keys(document).length) return document as ReadRenderDocument;
+  return record as ReadRenderDocument;
+}
+
+function unwrapProjectList(value: unknown): ReadRenderDocument[] {
+  const data = unwrapData(value);
+  const record = asRecord(data);
+
+  if (Array.isArray(data)) return data.map((item) => asRecord(item) as ReadRenderDocument);
+  if (Array.isArray(record.projects)) return record.projects.map((item) => asRecord(item) as ReadRenderDocument);
+  if (Array.isArray(record.documents)) return record.documents.map((item) => asRecord(item) as ReadRenderDocument);
+  if (Array.isArray(record.items)) return record.items.map((item) => asRecord(item) as ReadRenderDocument);
+
+  return [];
+}
+
 async function readJson(response: Response): Promise<unknown> {
   const text = await response.text();
   if (!text.trim()) return null;
@@ -75,10 +113,7 @@ async function readJson(response: Response): Promise<unknown> {
   }
 }
 
-async function requestReadApi<T>(
-  path: string,
-  options: RequestInit = {},
-): Promise<T> {
+async function requestReadApi<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = getAuthToken();
   const headers = new Headers(options.headers);
 
@@ -105,23 +140,61 @@ async function requestReadApi<T>(
     const message =
       typeof errorRecord.message === 'string'
         ? errorRecord.message
-        : typeof record.message === 'string'
-          ? record.message
-          : `Read API request failed with ${response.status}`;
+        : typeof record.detail === 'string'
+          ? record.detail
+          : typeof record.message === 'string'
+            ? record.message
+            : `Read request failed with ${response.status}`;
     throw new Error(message);
   }
 
-  return unwrapData(payload) as T;
+  return payload as T;
+}
+
+function progressValue(input: ReadRenderDocument): number {
+  const progressRecord = asRecord(input.progress);
+  const raw =
+    progressRecord.progressPercent ??
+    progressRecord.progress_percent ??
+    input.progressPercent ??
+    input.progress_percent ??
+    (typeof input.progress === 'number' ? input.progress : 0);
+
+  const value = Number(raw ?? 0);
+  if (!Number.isFinite(value)) return 0;
+  return value;
+}
+
+function playbackRateValue(input: ReadRenderDocument): number {
+  const progressRecord = asRecord(input.progress);
+  const raw =
+    progressRecord.playbackRate ??
+    progressRecord.playback_rate ??
+    input.playbackSpeed ??
+    input.playback_speed ??
+    1;
+
+  const value = Number(raw ?? 1);
+  if (!Number.isFinite(value) || value <= 0) return 1;
+  return value;
 }
 
 function normalizeDocument(input: ReadRenderDocument): ReadRenderDocument {
+  const rawText = input.rawText ?? input.raw_text ?? input.text ?? input.content ?? '';
+
   return {
     ...input,
+    id: String(input.id || ''),
     title: input.title || 'Untitled reading',
-    text: input.text ?? input.content ?? '',
-    createdAt: input.createdAt ?? input.created_at ?? new Date().toISOString(),
-    progress: input.progress ?? input.progressPercent ?? input.progress_percent ?? 0,
-    playbackSpeed: input.playbackSpeed ?? input.playback_speed ?? 1,
+    text: rawText,
+    content: rawText,
+    rawText,
+    sourceType: input.sourceType ?? input.source_type ?? null,
+    sourceUrl: input.sourceUrl ?? input.source_url ?? null,
+    createdAt: input.createdAt ?? input.created_at ?? input.updatedAt ?? input.updated_at ?? new Date().toISOString(),
+    progress: progressValue(input),
+    progressPercent: progressValue(input),
+    playbackSpeed: playbackRateValue(input),
   };
 }
 
@@ -129,37 +202,52 @@ export const readRenderApi = {
   baseUrl: getReadApiBaseUrl,
 
   async listDocuments(): Promise<ReadRenderDocument[]> {
-    const data = await requestReadApi<unknown>('/api/v1/documents');
-    const documents: unknown[] =
-      Array.isArray(data)
-        ? data
-        : Array.isArray(asRecord(data).documents)
-          ? (asRecord(data).documents as unknown[])
-          : [];
-    return documents.map((item: unknown) => normalizeDocument(asRecord(item) as ReadRenderDocument));
+    const payload = await requestReadApi<unknown>('/api/v1/documents');
+    return unwrapProjectList(payload).map(normalizeDocument).filter((item) => item.id);
   },
 
   async getDocument(id: string): Promise<ReadRenderDocument> {
-    const data = await requestReadApi<unknown>(`/api/v1/documents/${encodeURIComponent(id)}`);
-    return normalizeDocument(asRecord(data) as ReadRenderDocument);
+    const payload = await requestReadApi<unknown>(`/api/v1/documents/${encodeURIComponent(id)}`);
+    return normalizeDocument(unwrapProject(payload));
   },
 
   async createFromText(input: CreateReadDocumentInput): Promise<ReadRenderDocument> {
-    const data = await requestReadApi<unknown>('/api/v1/documents/from-text', {
+    const payload = await requestReadApi<unknown>('/api/v1/documents/from-text', {
       method: 'POST',
       body: JSON.stringify({
         title: input.title,
         text: input.text,
+        content: input.text,
         language: input.language ?? 'auto',
+        sourceType: input.sourceType ?? 'text',
+        source_type: input.sourceType ?? 'text',
       }),
     });
-    return normalizeDocument(asRecord(data) as ReadRenderDocument);
+
+    return normalizeDocument(unwrapProject(payload));
   },
 
+  async createFromUrl(input: CreateReadUrlInput): Promise<ReadRenderDocument> {
+    const payload = await requestReadApi<unknown>('/api/v1/documents/from-url', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: input.title,
+        url: input.url,
+      }),
+    });
+
+    return normalizeDocument(unwrapProject(payload));
+  },
+
+  async deleteDocument(id: string): Promise<void> {
+    await requestReadApi<unknown>(`/api/v1/documents/${encodeURIComponent(id)}`, {
+      method: 'DELETE',
+    });
+  },
 
   async syncRevenueCatEntitlements(input: SyncReadRevenueCatInput): Promise<SyncReadRevenueCatResult> {
     const activeEntitlements = Array.isArray(input.activeEntitlements) ? input.activeEntitlements : [];
-    const data = await requestReadApi<unknown>('/api/v1/billing/revenuecat/sync', {
+    const payload = await requestReadApi<unknown>('/api/v1/billing/revenuecat/sync', {
       method: 'POST',
       body: JSON.stringify({
         readAccess: Boolean(input.readAccess || input.creatorAccess),
@@ -178,7 +266,8 @@ export const readRenderApi = {
         status: input.status ?? null,
       }),
     });
-    const record = asRecord(data);
+
+    const record = asRecord(unwrapData(payload));
     return {
       changed: typeof record.changed === 'boolean' ? record.changed : null,
       ignoredReason: typeof record.ignoredReason === 'string' ? record.ignoredReason : null,
@@ -195,6 +284,8 @@ export const readRenderApi = {
       body: JSON.stringify({
         progressPercent,
         progress_percent: progressPercent,
+        playback_rate: input.playbackSpeed,
+        playbackRate: input.playbackSpeed,
         playback_speed: input.playbackSpeed,
         playbackSpeed: input.playbackSpeed,
       }),
