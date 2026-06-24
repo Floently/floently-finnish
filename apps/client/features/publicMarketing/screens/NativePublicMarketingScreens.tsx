@@ -228,53 +228,8 @@ type FloentlyReadPreviewProps = {
   onOpenLearn: () => void;
 };
 
-function ReadComingSoonModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
-  return (
-    <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
-      <Pressable
-        onPress={onClose}
-        style={{
-          flex: 1,
-          backgroundColor: 'rgba(2, 8, 23, 0.72)',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: 24,
-        }}
-      >
-        <Pressable
-          onPress={() => {}}
-          style={{
-            width: '100%',
-            maxWidth: 420,
-            borderRadius: 28,
-            padding: 24,
-            backgroundColor: '#111B3D',
-            borderWidth: 1,
-            borderColor: 'rgba(139, 160, 255, 0.28)',
-          }}
-        >
-          <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: '900', marginBottom: 10 }}>
-            Coming soon
-          </Text>
-          <Text style={{ color: '#B8C5E8', fontSize: 15, lineHeight: 22, marginBottom: 20 }}>
-            Floently Read sign-in and access will be added later. For now, Read has its own product space but is not active inside the app yet.
-          </Text>
-          <Pressable
-            onPress={onClose}
-            style={{
-              minHeight: 48,
-              borderRadius: 18,
-              backgroundColor: '#6C63FF',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>OK</Text>
-          </Pressable>
-        </Pressable>
-      </Pressable>
-    </Modal>
-  );
+function ReadComingSoonModal(_: { visible: boolean; onClose: () => void }) {
+  return null;
 }
 
 export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: FloentlyGatewayProps) {
@@ -423,7 +378,7 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
             </Pressable>
 
             <Pressable
-              onPress={onOpenRead}
+              onPress={() => router.push('/read' as never)}
               style={{
                 borderRadius: 26,
                 borderWidth: 1,
@@ -453,7 +408,7 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
               </Text>
               <Text style={{ color: '#FFFFFF', fontSize: 34, fontWeight: '900', marginBottom: 10 }}>Read</Text>
               <Text style={{ color: '#CAD6F3', fontSize: 15, lineHeight: 23, marginBottom: 18 }}>
-                A focused reading and listening workspace for turning long-form text into clear, high-quality audio playback.
+                A working reading and listening workspace for importing text, saving readings, generating audio, and continuing your library.
               </Text>
               <Text style={{ color: '#E8EFFF', lineHeight: 22 }}>
                 - Listen to text in natural AI voices{'\n'}
@@ -487,13 +442,11 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
 }
 
 export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: FloentlyReadPreviewProps) {
-  const [comingSoon, setComingSoon] = useState(false);
 
-  const showComingSoon = () => setComingSoon(true);
+  const showReadApp = () => router.push('/read' as never);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#070B2B' }} edges={['top', 'bottom']}>
-      <ReadComingSoonModal visible={comingSoon} onClose={() => setComingSoon(false)} />
 
       <ScrollView
         contentContainerStyle={{
@@ -511,7 +464,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
             <Pressable onPress={onOpenLearn}>
               <Text style={{ color: '#C9D4FF', fontSize: 12, fontWeight: '800' }}>Floently Finnish</Text>
             </Pressable>
-            <Pressable onPress={showComingSoon}>
+            <Pressable onPress={showReadApp}>
               <Text style={{ color: '#C9D4FF', fontSize: 12, fontWeight: '800' }}>Sign In</Text>
             </Pressable>
           </View>
@@ -565,7 +518,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
 
           <View style={{ flexDirection: 'row', gap: 12, marginTop: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
             <Pressable
-              onPress={showComingSoon}
+              onPress={showReadApp}
               style={{
                 minHeight: 46,
                 borderRadius: 999,
@@ -578,7 +531,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
               <Text style={{ color: '#FFFFFF', fontWeight: '900' }}>Get Started For Free</Text>
             </Pressable>
             <Pressable
-              onPress={showComingSoon}
+              onPress={showReadApp}
               style={{
                 minHeight: 46,
                 borderRadius: 999,
@@ -629,7 +582,7 @@ export function NativeReadPreviewScreen({ onOpenGateway, onOpenLearn }: Floently
           <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: '900' }}>Start listening today</Text>
           <Text style={{ color: '#8D99C0', marginTop: 8, marginBottom: 18 }}>Your text. Your voice. Your pace.</Text>
           <Pressable
-            onPress={showComingSoon}
+            onPress={showReadApp}
             style={{
               minHeight: 48,
               borderRadius: 999,
