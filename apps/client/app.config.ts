@@ -57,6 +57,7 @@ export default function config(_: ConfigContext): ExpoConfig {
           (Array.isArray(plugin) && plugin[0] === '@react-native-google-signin/google-signin')
         ),
     ),
+    "./plugins/withIosSwiftPodModularHeaders",
     googleSignInPlugin,
   ];
 
