@@ -28,6 +28,7 @@ type ReadMobileState = {
   setReadAutomatically: (enabled: boolean) => void;
   createFromText: (input: { title?: string; text: string; language?: ReadLanguage; sourceType?: string | null }) => ReadDocument;
   createFromUrl: (input: { title?: string; url: string }) => Promise<ReadDocument>;
+  createFromFile: (input: { uri: string; name: string; mimeType?: string | null; title?: string }) => Promise<ReadDocument>;
   deleteDocument: (id: string) => Promise<void>;
   openDocument: (id: string) => void;
   updateProgress: (id: string, progress: number) => void;
@@ -198,6 +199,39 @@ export const useReadMobileStore = create<ReadMobileState>((set, get) => ({
     set({ syncStatus: 'syncing', syncError: null });
     try {
       const remoteDocument = await readRenderApi.createFromUrl({ title, url: cleanUrl });
+      const document = toLocalDocument(remoteDocument);
+      set((state) => ({
+        documents: [
+          document,
+          ...state.documents.filter((item) => item.id !== document.id),
+        ],
+        activeDocumentId: document.id,
+        syncStatus: 'idle',
+        syncError: null,
+      }));
+      return document;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      set({ syncStatus: 'error', syncError: message });
+      throw error;
+    }
+  },
+
+  async createFromFile({ uri, name, mimeType, title }) {
+    if (!uri) {
+      throw new Error('Choose a readable file to import.');
+    }
+
+    const safeName = name?.trim() || 'Imported document.txt';
+    set({ syncStatus: 'syncing', syncError: null });
+
+    try {
+      const remoteDocument = await readRenderApi.uploadDocument({
+        uri,
+        name: safeName,
+        mimeType: mimeType ?? null,
+        title: title?.trim() || safeName.replace(/\.[^/.]+$/, '') || 'Imported document',
+      });
       const document = toLocalDocument(remoteDocument);
       set((state) => ({
         documents: [

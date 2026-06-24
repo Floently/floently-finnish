@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import * as DocumentPicker from 'expo-document-picker';
 import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import Svg, { Circle } from 'react-native-svg';
 import { router } from 'expo-router';
@@ -103,7 +104,7 @@ function SyncBanner({ status, error, onRefresh }: { status: SyncStatus; error: s
               : 'Your readings and progress sync when you are signed in.'}
         </Text>
       </View>
-      {isBusy ? <ActivityIndicator color="#f6b66d" /> : onRefresh ? <GhostButton label="Refresh" onPress={onRefresh} /> : null}
+      {isBusy ? <ActivityIndicator color="#5EA8FF" /> : onRefresh ? <GhostButton label="Refresh" onPress={onRefresh} /> : null}
     </View>
   );
 }
@@ -175,14 +176,14 @@ export function ReadHomeScreen() {
       <View style={styles.cardHero}>
         <View style={styles.settingRow}>
           <View style={styles.settingTextBlock}>
-            <Text style={styles.cardTitle}>Read automatically</Text>
+            <Text style={styles.cardTitle}>Start reading automatically</Text>
             <Text style={styles.bodyText}>New imports detect language, create a reading, and open the reader by default.</Text>
           </View>
           <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
         </View>
         <View style={styles.inlinePills}>
-          <Pill label="Native app" tone="read" />
-          <Pill label="Synced library" tone="read" />
+          <Pill label="Floently Read" tone="read" />
+          <Pill label="Cloud library" tone="read" />
           <Pill label={readAutomatically ? 'Auto-read on' : 'Manual start'} tone={readAutomatically ? 'read' : 'warning'} />
         </View>
       </View>
@@ -233,6 +234,7 @@ function ImportModeButton({ mode, activeMode, label, onPress }: { mode: ImportMo
 export function ReadImportScreen() {
   const createFromText = useReadMobileStore((state) => state.createFromText);
   const createFromUrl = useReadMobileStore((state) => state.createFromUrl);
+  const createFromFile = useReadMobileStore((state) => state.createFromFile);
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
   const syncStatus = useReadMobileStore((state) => state.syncStatus);
   const syncError = useReadMobileStore((state) => state.syncError);
@@ -240,6 +242,7 @@ export function ReadImportScreen() {
   const [text, setText] = useState(sampleText);
   const [mode, setMode] = useState<ImportMode>('paste');
   const [url, setUrl] = useState('');
+  const [fileName, setFileName] = useState<string | null>(null);
   const [importError, setImportError] = useState<string | null>(null);
   const [isImporting, setIsImporting] = useState(false);
 
@@ -258,6 +261,55 @@ export function ReadImportScreen() {
       return;
     }
     navigate('/read/library');
+  }
+
+  async function importFile() {
+    setIsImporting(true);
+    setImportError(null);
+
+    try {
+      const result = await DocumentPicker.getDocumentAsync({
+        copyToCacheDirectory: true,
+        multiple: false,
+        type: [
+          'text/plain',
+          'text/markdown',
+          'text/html',
+          'application/pdf',
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          'application/epub+zip',
+        ],
+      });
+
+      if (result.canceled) {
+        return;
+      }
+
+      const asset = result.assets?.[0];
+      if (!asset?.uri) {
+        throw new Error('No readable file was selected.');
+      }
+
+      const selectedName = asset.name || 'Imported document.txt';
+      setFileName(selectedName);
+      const document = await createFromFile({
+        uri: asset.uri,
+        name: selectedName,
+        mimeType: asset.mimeType ?? null,
+        title: title?.trim() || selectedName.replace(/\.[^/.]+$/, ''),
+      });
+      useReadMobileStore.getState().openDocument(document.id);
+
+      if (readAutomatically) {
+        navigate('/read/reader');
+        return;
+      }
+      navigate('/read/library');
+    } catch (error) {
+      setImportError(error instanceof Error ? error.message : String(error));
+    } finally {
+      setIsImporting(false);
+    }
   }
 
   async function importUrl() {
@@ -280,7 +332,7 @@ export function ReadImportScreen() {
   }
 
   return (
-    <ScreenFrame eyebrow="Native import" title="Import reading material">
+    <ScreenFrame eyebrow="Floently Read" title="Import text, links, and files">
       <SyncBanner status={syncStatus} error={syncError} />
 
       <View style={styles.modeTabs}>
@@ -303,7 +355,7 @@ export function ReadImportScreen() {
       {mode === 'paste' ? (
         <View style={styles.card}>
           <Text style={styles.label}>Title</Text>
-          <TextInput value={title} onChangeText={setTitle} style={styles.input} placeholder="Reading title" placeholderTextColor="#8b7c70" />
+          <TextInput value={title} onChangeText={setTitle} style={styles.input} placeholder="Reading title" placeholderTextColor="#7F96BE" />
           <Text style={styles.label}>Text</Text>
           <TextInput
             value={text}
@@ -311,7 +363,7 @@ export function ReadImportScreen() {
             multiline
             style={[styles.input, styles.textArea]}
             placeholder="Paste text here"
-            placeholderTextColor="#8b7c70"
+            placeholderTextColor="#7F96BE"
             textAlignVertical="top"
           />
           <PrimaryButton label={readAutomatically ? 'Generate and start reading' : 'Generate and save'} onPress={generate} disabled={!canGenerate} />
@@ -320,16 +372,18 @@ export function ReadImportScreen() {
       ) : null}
 
       {mode === 'file' ? (
-        <View style={styles.cardMuted}>
-          <Text style={styles.cardTitle}>Native book picker</Text>
-          <Text style={styles.bodyText}>Device upload is the next rebuild patch. Text paste and web-link import are active now, and file import will be connected to native file selection plus extraction before the next app build.</Text>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Upload a book or document</Text>
+          <Text style={styles.bodyText}>Choose TXT, Markdown, HTML, PDF, DOCX, or EPUB. Floently extracts readable text and saves it to your Read library.</Text>
           <View style={styles.inlinePills}>
             <Pill label="PDF" tone="read" />
             <Pill label="EPUB" tone="read" />
             <Pill label="DOCX" tone="read" />
             <Pill label="TXT" tone="read" />
           </View>
-          <SecondaryButton label="File upload next patch" onPress={() => undefined} disabled />
+          {fileName ? <Text style={styles.helpText}>Selected: {fileName}</Text> : null}
+          <PrimaryButton label={isImporting ? 'Importing…' : readAutomatically ? 'Choose file and start reading' : 'Choose file and save'} onPress={() => void importFile()} disabled={isImporting} />
+          {importError ? <Text style={styles.errorText}>{importError}</Text> : null}
         </View>
       ) : null}
 
@@ -396,12 +450,12 @@ function CircularProgress({ progress }: { progress: number }) {
     <View style={styles.progressWrap}>
       <View style={styles.progressGlow} />
       <Svg width={size} height={size} style={styles.progressSvg}>
-        <Circle cx={size / 2} cy={size / 2} r={radius} stroke="#3a2b22" strokeWidth={stroke} fill="none" />
+        <Circle cx={size / 2} cy={size / 2} r={radius} stroke="#1D3B66" strokeWidth={stroke} fill="none" />
         <Circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#f6b66d"
+          stroke="#5EA8FF"
           strokeWidth={stroke}
           fill="none"
           strokeDasharray={`${circumference} ${circumference}`}
@@ -774,7 +828,7 @@ export function ReadSettingsScreen() {
       <View style={styles.card}>
         <View style={styles.settingRow}>
           <View style={styles.settingTextBlock}>
-            <Text style={styles.cardTitle}>Read automatically</Text>
+            <Text style={styles.cardTitle}>Start reading automatically</Text>
             <Text style={styles.bodyText}>When enabled, new uploads detect language, create a reading, and open the reader automatically.</Text>
           </View>
           <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
@@ -786,8 +840,8 @@ export function ReadSettingsScreen() {
         <PrimaryButton label="Manage Read subscription" onPress={() => navigate('/read/subscribe')} />
       </View>
       <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Product boundary</Text>
-        <Text style={styles.bodyText}>Floently Read stays separate from Learn billing unless a bundle is created. This native app frame keeps the products clearly separated.</Text>
+        <Text style={styles.cardTitle}>Floently products</Text>
+        <Text style={styles.bodyText}>Floently Read stays separate from Learn billing unless a bundle is created. Read and Learn remain separate subscriptions unless a bundle is created.</Text>
       </View>
     </ScreenFrame>
   );
@@ -796,19 +850,19 @@ export function ReadSettingsScreen() {
 const styles = StyleSheet.create({
   screen: {
     flexGrow: 1,
-    backgroundColor: '#120d0a',
+    backgroundColor: '#07111F',
     padding: 20,
     gap: 16,
   },
   headerCard: {
     borderRadius: 28,
     padding: 22,
-    backgroundColor: '#211811',
+    backgroundColor: '#0E1A2F',
     borderWidth: 1,
-    borderColor: '#3a2b22',
+    borderColor: '#1D3B66',
   },
   eyebrow: {
-    color: '#f6b66d',
+    color: '#5EA8FF',
     fontSize: 12,
     fontWeight: '800',
     letterSpacing: 1.2,
@@ -816,68 +870,68 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   title: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 30,
     fontWeight: '900',
     lineHeight: 36,
   },
   subtitle: {
     marginTop: 10,
-    color: '#d0b8a3',
+    color: '#AFC4E8',
     fontSize: 15,
     lineHeight: 22,
   },
   syncBanner: {
     borderRadius: 22,
     padding: 14,
-    backgroundColor: '#182016',
+    backgroundColor: '#092236',
     borderWidth: 1,
-    borderColor: '#2f4b2b',
+    borderColor: '#1A6FA8',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 12,
   },
   syncBannerWarning: {
-    backgroundColor: '#24170f',
-    borderColor: '#704d2c',
+    backgroundColor: '#251A34',
+    borderColor: '#7C4DFF',
   },
   syncBannerTextBlock: {
     flex: 1,
     gap: 3,
   },
   syncTitle: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 13,
     fontWeight: '900',
   },
   syncText: {
-    color: '#ccb5a2',
+    color: '#AFC4E8',
     fontSize: 12,
     lineHeight: 17,
   },
   card: {
     borderRadius: 24,
     padding: 18,
-    backgroundColor: '#1a120d',
+    backgroundColor: '#0B1628',
     borderWidth: 1,
-    borderColor: '#34261d',
+    borderColor: '#203B64',
     gap: 14,
   },
   cardHero: {
     borderRadius: 26,
     padding: 18,
-    backgroundColor: '#21150d',
+    backgroundColor: '#081425',
     borderWidth: 1,
-    borderColor: '#5b3b22',
+    borderColor: '#2B6DFF',
     gap: 14,
   },
   cardMuted: {
     borderRadius: 24,
     padding: 18,
-    backgroundColor: '#17110d',
+    backgroundColor: '#0A1424',
     borderWidth: 1,
-    borderColor: '#2a2019',
+    borderColor: '#172A46',
     gap: 10,
   },
   cardHeaderRow: {
@@ -887,17 +941,17 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   cardTitle: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 18,
     fontWeight: '800',
   },
   bodyText: {
-    color: '#ccb5a2',
+    color: '#AFC4E8',
     fontSize: 14,
     lineHeight: 21,
   },
   helpText: {
-    color: '#9f8a78',
+    color: '#7F96BE',
     fontSize: 12,
     lineHeight: 18,
   },
@@ -919,18 +973,18 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 18,
     padding: 14,
-    backgroundColor: '#1a120d',
+    backgroundColor: '#0B1628',
     borderWidth: 1,
-    borderColor: '#34261d',
+    borderColor: '#203B64',
     alignItems: 'center',
   },
   metricValue: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 20,
     fontWeight: '900',
   },
   metricLabel: {
-    color: '#f6b66d',
+    color: '#5EA8FF',
     fontSize: 11,
     fontWeight: '900',
     textTransform: 'uppercase',
@@ -940,20 +994,20 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   primaryButton: {
-    backgroundColor: '#f6b66d',
+    backgroundColor: '#5EA8FF',
     borderRadius: 18,
     paddingVertical: 15,
     paddingHorizontal: 18,
     alignItems: 'center',
   },
   primaryButtonText: {
-    color: '#21150d',
+    color: '#081425',
     fontWeight: '900',
     fontSize: 15,
   },
   secondaryButton: {
-    backgroundColor: '#2a1e17',
-    borderColor: '#473426',
+    backgroundColor: '#10213A',
+    borderColor: '#25466F',
     borderWidth: 1,
     borderRadius: 18,
     paddingVertical: 14,
@@ -961,13 +1015,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   secondaryButtonText: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontWeight: '800',
     fontSize: 14,
   },
   ghostButton: {
-    backgroundColor: '#201710',
-    borderColor: '#3f2c20',
+    backgroundColor: '#0C1A2E',
+    borderColor: '#244469',
     borderWidth: 1,
     borderRadius: 999,
     paddingVertical: 9,
@@ -975,7 +1029,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ghostButtonText: {
-    color: '#f6b66d',
+    color: '#5EA8FF',
     fontWeight: '900',
     fontSize: 12,
   },
@@ -983,7 +1037,7 @@ const styles = StyleSheet.create({
     opacity: 0.45,
   },
   buttonTextDisabled: {
-    color: '#9e8975',
+    color: '#6F83A8',
   },
   modeTabs: {
     flexDirection: 'row',
@@ -994,21 +1048,21 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingVertical: 12,
     alignItems: 'center',
-    backgroundColor: '#1a120d',
+    backgroundColor: '#0B1628',
     borderWidth: 1,
-    borderColor: '#34261d',
+    borderColor: '#203B64',
   },
   modeButtonActive: {
-    backgroundColor: '#f6b66d',
-    borderColor: '#f6b66d',
+    backgroundColor: '#5EA8FF',
+    borderColor: '#5EA8FF',
   },
   modeButtonText: {
-    color: '#ccb5a2',
+    color: '#AFC4E8',
     fontSize: 12,
     fontWeight: '900',
   },
   modeButtonTextActive: {
-    color: '#21150d',
+    color: '#081425',
   },
   inlinePills: {
     flexDirection: 'row',
@@ -1020,25 +1074,25 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     paddingVertical: 6,
     paddingHorizontal: 10,
-    backgroundColor: '#2a1e17',
-    color: '#d6c1ad',
+    backgroundColor: '#10213A',
+    color: '#D8E7FF',
     fontSize: 12,
     fontWeight: '800',
   },
   readPill: {
-    backgroundColor: '#3a2418',
-    color: '#f6b66d',
+    backgroundColor: '#123A63',
+    color: '#5EA8FF',
   },
   createPill: {
-    backgroundColor: '#241d33',
-    color: '#c7b7ff',
+    backgroundColor: '#17213F',
+    color: '#BFD0FF',
   },
   warningPill: {
-    backgroundColor: '#35210f',
-    color: '#ffcf91',
+    backgroundColor: '#2A2138',
+    color: '#FFD28A',
   },
   label: {
-    color: '#f6b66d',
+    color: '#5EA8FF',
     fontSize: 12,
     fontWeight: '800',
     letterSpacing: 0.8,
@@ -1047,9 +1101,9 @@ const styles = StyleSheet.create({
   input: {
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: '#3b2d23',
-    backgroundColor: '#120d0a',
-    color: '#fff7ef',
+    borderColor: '#25466F',
+    backgroundColor: '#07111F',
+    color: '#F8FBFF',
     paddingHorizontal: 14,
     paddingVertical: 12,
     fontSize: 15,
@@ -1060,8 +1114,8 @@ const styles = StyleSheet.create({
   },
   documentCard: {
     borderRadius: 18,
-    backgroundColor: '#120d0a',
-    borderColor: '#30231a',
+    backgroundColor: '#07111F',
+    borderColor: '#1C365C',
     borderWidth: 1,
     padding: 14,
     gap: 8,
@@ -1074,12 +1128,12 @@ const styles = StyleSheet.create({
   },
   documentTitle: {
     flex: 1,
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 16,
     fontWeight: '800',
   },
   documentPreview: {
-    color: '#cbb3a0',
+    color: '#BBD0EF',
     fontSize: 13,
     lineHeight: 19,
   },
@@ -1090,33 +1144,33 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   documentMeta: {
-    color: '#f6b66d',
+    color: '#5EA8FF',
     fontSize: 12,
     fontWeight: '800',
   },
   documentMetaMuted: {
-    color: '#9f8a78',
+    color: '#7F96BE',
     fontSize: 12,
     fontWeight: '700',
   },
   emptyState: {
     borderRadius: 20,
     padding: 16,
-    backgroundColor: '#120d0a',
+    backgroundColor: '#07111F',
     borderWidth: 1,
-    borderColor: '#2d2119',
+    borderColor: '#1A314F',
     gap: 12,
   },
   emptyTitle: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 17,
     fontWeight: '900',
   },
   readerHero: {
     borderRadius: 26,
-    backgroundColor: '#1d140f',
+    backgroundColor: '#0B1B36',
     borderWidth: 1,
-    borderColor: '#3b2b20',
+    borderColor: '#255B91',
     padding: 18,
     alignItems: 'center',
     gap: 14,
@@ -1132,7 +1186,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#f6b66d',
+    backgroundColor: '#5EA8FF',
     opacity: 0.16,
   },
   progressSvg: {
@@ -1142,12 +1196,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   progressNumber: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 24,
     fontWeight: '900',
   },
   progressLabel: {
-    color: '#f6b66d',
+    color: '#5EA8FF',
     fontSize: 11,
     fontWeight: '900',
     letterSpacing: 1,
@@ -1158,13 +1212,13 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   compactMeta: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 13,
     fontWeight: '800',
     lineHeight: 18,
   },
   errorText: {
-    color: '#ffb4a6',
+    color: '#FFB8D2',
     fontSize: 13,
     fontWeight: '700',
     lineHeight: 19,
@@ -1175,7 +1229,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   readerText: {
-    color: '#fff7ef',
+    color: '#F8FBFF',
     fontSize: 18,
     lineHeight: 30,
   },

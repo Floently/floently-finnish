@@ -31,3 +31,11 @@ Next implementation target:
 - Added delete support in the Read store/API client.
 - Removed user-facing technical API wording from native Read screens.
 - This is not final yet: native file upload and full Read visual rebuild still continue before any new iOS/Android release build.
+
+## M20-C package patch
+- Recolored native Read from the temporary brown shell to the real Read dark navy/blue direction.
+- Added native document picker support with expo-document-picker.
+- Connected file upload to the Read backend `/api/v1/documents/upload` endpoint.
+- Removed the disabled file-upload placeholder button.
+- Kept Create as coming soon and did not touch Learn routing.
+- Still required before release: run app build, manually test file upload on iOS, confirm Render backend deploy includes upload endpoint.

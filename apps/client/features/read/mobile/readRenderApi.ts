@@ -41,6 +41,13 @@ export type CreateReadUrlInput = {
   url: string;
 };
 
+export type UploadReadDocumentInput = {
+  uri: string;
+  name: string;
+  mimeType?: string | null;
+  title?: string | null;
+};
+
 export type UpdateReadProgressInput = {
   progress: number;
   playbackSpeed?: number;
@@ -119,7 +126,7 @@ async function requestReadApi<T>(path: string, options: RequestInit = {}): Promi
 
   headers.set('Accept', 'application/json');
 
-  if (options.body && !headers.has('Content-Type')) {
+  if (options.body && !(options.body instanceof FormData) && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json');
   }
 
@@ -243,6 +250,25 @@ export const readRenderApi = {
     await requestReadApi<unknown>(`/api/v1/documents/${encodeURIComponent(id)}`, {
       method: 'DELETE',
     });
+  },
+
+  async uploadDocument(input: UploadReadDocumentInput): Promise<ReadRenderDocument> {
+    const formData = new FormData();
+    const title = (input.title || input.name.replace(/\.[^/.]+$/, '') || 'Imported document').trim();
+
+    formData.append('title', title);
+    formData.append('file', {
+      uri: input.uri,
+      name: input.name,
+      type: input.mimeType || 'application/octet-stream',
+    } as unknown as Blob);
+
+    const payload = await requestReadApi<unknown>('/api/v1/documents/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    return normalizeDocument(unwrapProject(payload));
   },
 
   async syncRevenueCatEntitlements(input: SyncReadRevenueCatInput): Promise<SyncReadRevenueCatResult> {
