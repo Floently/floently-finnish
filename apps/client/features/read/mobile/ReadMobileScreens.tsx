@@ -1,5 +1,15 @@
-import { useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  ActivityIndicator,
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Switch,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
 import { setAudioModeAsync, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import Svg, { Circle } from 'react-native-svg';
@@ -11,15 +21,115 @@ import { readRenderApi } from './readRenderApi';
 import { restoreReadStorePurchases, startReadStorePurchase, type ReadStorePlanId } from '../../billing/services/storeBillingService';
 import { useSubscriptionStore } from '../../../state/subscriptionStore';
 
-type ButtonTone = 'primary' | 'secondary' | 'ghost';
+type ButtonTone = 'primary' | 'secondary' | 'ghost' | 'warm';
+type ReadTab = 'home' | 'import' | 'library' | 'reader' | 'settings' | 'subscribe';
 type ImportMode = 'paste' | 'file' | 'url';
 type SyncStatus = 'idle' | 'loading' | 'syncing' | 'offline' | 'error';
 type AudioPlaybackState = 'idle' | 'preparing' | 'ready' | 'playing' | 'paused' | 'error';
 
+const READ_LOGO = require('./assets/floently_read.png');
+
 const sampleText = 'This is a short Floently Read test. I want to check that reading, saving, and listening work correctly.';
+
+const importChannels = [
+  { label: 'Paste text', detail: 'Paste notes, lessons, articles, or drafts.', route: '/read/import' },
+  { label: 'Upload file', detail: 'PDF, EPUB, DOCX, TXT, Markdown, or HTML.', route: '/read/import' },
+  { label: 'Web link', detail: 'Import a public article or readable web page.', route: '/read/import' },
+  { label: 'Google Drive', detail: 'Native Drive picker is kept as a product slot.', route: '/read/import' },
+  { label: 'OneDrive', detail: 'Native OneDrive import is kept as a product slot.', route: '/read/import' },
+];
 
 function navigate(path: string) {
   router.push(path as never);
+}
+
+function formatDate(value: string) {
+  const parsed = Date.parse(value);
+  if (Number.isNaN(parsed)) return 'Saved reading';
+  return new Date(parsed).toLocaleDateString();
+}
+
+function ProductLogo() {
+  return <Image source={READ_LOGO} resizeMode="contain" style={styles.productLogo} />;
+}
+
+function TopNav({ active = 'home' }: { active?: ReadTab }) {
+  const items: Array<{ key: ReadTab; label: string; route: string }> = [
+    { key: 'home', label: 'Home', route: '/read/app' },
+    { key: 'import', label: 'Import', route: '/read/import' },
+    { key: 'library', label: 'Library', route: '/read/library' },
+    { key: 'reader', label: 'Reader', route: '/read/reader' },
+    { key: 'settings', label: 'Preferences', route: '/read/settings' },
+  ];
+
+  return (
+    <View style={styles.topNavWrap}>
+      <View style={styles.topNavMain}>
+        <Pressable accessibilityRole="button" onPress={() => navigate('/read')} style={styles.logoButton}>
+          <ProductLogo />
+        </Pressable>
+        <View style={styles.topNavActions}>
+          <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={styles.navTextButton}>
+            <Text style={styles.navTextButtonText}>Floently Home</Text>
+          </Pressable>
+          <Pressable accessibilityRole="button" onPress={() => navigate('/read')} style={styles.navTextButton}>
+            <Text style={styles.navTextButtonText}>Read landing</Text>
+          </Pressable>
+        </View>
+      </View>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabRail}>
+        {items.map((item) => (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: item.key === active }}
+            key={item.key}
+            onPress={() => navigate(item.route)}
+            style={[styles.tabPill, item.key === active && styles.tabPillActive]}
+          >
+            <Text style={[styles.tabPillText, item.key === active && styles.tabPillTextActive]}>{item.label}</Text>
+          </Pressable>
+        ))}
+        <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: active === 'subscribe' }}
+          onPress={() => navigate('/read/subscribe')}
+          style={[styles.tabPill, styles.tabPillPlan, active === 'subscribe' && styles.tabPillActive]}
+        >
+          <Text style={[styles.tabPillText, active === 'subscribe' && styles.tabPillTextActive]}>Plans</Text>
+        </Pressable>
+      </ScrollView>
+    </View>
+  );
+}
+
+function ReadAppFrame({
+  active,
+  eyebrow,
+  title,
+  subtitle,
+  children,
+}: {
+  active?: ReadTab;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  children: ReactNode;
+}) {
+  return (
+    <ScrollView contentContainerStyle={styles.screen} showsVerticalScrollIndicator={false}>
+      <TopNav active={active} />
+      <View style={styles.heroShell}>
+        <View style={styles.heroGlowOne} />
+        <View style={styles.heroGlowTwo} />
+        <View style={styles.heroCopy}>
+          <Text style={styles.eyebrow}>{eyebrow}</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subtitle}>{subtitle}</Text>
+        </View>
+      </View>
+      {children}
+    </ScrollView>
+  );
 }
 
 function Pill({ label, tone = 'neutral' }: { label: string; tone?: 'neutral' | 'read' | 'create' | 'warning' }) {
@@ -37,27 +147,6 @@ function Pill({ label, tone = 'neutral' }: { label: string; tone?: 'neutral' | '
   );
 }
 
-function ScreenFrame({ title, eyebrow, children }: { title: string; eyebrow: string; children: React.ReactNode }) {
-  return (
-    <ScrollView contentContainerStyle={styles.screen}>
-      <View style={styles.productNavRow}>
-        <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={styles.productNavButton}>
-          <Text style={styles.productNavButtonText}>← Floently Home</Text>
-        </Pressable>
-        <Pressable accessibilityRole="button" onPress={() => navigate('/read')} style={styles.productNavButton}>
-          <Text style={styles.productNavButtonText}>Read landing</Text>
-        </Pressable>
-      </View>
-      <View style={styles.headerCard}>
-        <Text style={styles.eyebrow}>{eyebrow}</Text>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>Turn text, articles, and study material into a calm reading and listening library.</Text>
-      </View>
-      {children}
-    </ScrollView>
-  );
-}
-
 function AppButton({
   label,
   onPress,
@@ -69,8 +158,22 @@ function AppButton({
   tone?: ButtonTone;
   disabled?: boolean;
 }) {
-  const buttonStyle = tone === 'primary' ? styles.primaryButton : tone === 'ghost' ? styles.ghostButton : styles.secondaryButton;
-  const textStyle = tone === 'primary' ? styles.primaryButtonText : tone === 'ghost' ? styles.ghostButtonText : styles.secondaryButtonText;
+  const buttonStyle =
+    tone === 'primary'
+      ? styles.primaryButton
+      : tone === 'ghost'
+        ? styles.ghostButton
+        : tone === 'warm'
+          ? styles.warmButton
+          : styles.secondaryButton;
+  const textStyle =
+    tone === 'primary'
+      ? styles.primaryButtonText
+      : tone === 'ghost'
+        ? styles.ghostButtonText
+        : tone === 'warm'
+          ? styles.warmButtonText
+          : styles.secondaryButtonText;
 
   return (
     <Pressable
@@ -112,7 +215,7 @@ function SyncBanner({ status, error, onRefresh }: { status: SyncStatus; error: s
               : 'Your readings and progress sync when you are signed in.'}
         </Text>
       </View>
-      {isBusy ? <ActivityIndicator color="#5EA8FF" /> : onRefresh ? <GhostButton label="Refresh" onPress={onRefresh} /> : null}
+      {isBusy ? <ActivityIndicator color="#8FA8FF" /> : onRefresh ? <GhostButton label="Refresh" onPress={onRefresh} /> : null}
     </View>
   );
 }
@@ -138,7 +241,6 @@ function EmptyState({ title, body, actionLabel, onAction }: { title: string; bod
 
 function DocumentCard({ document }: { document: ReadDocument }) {
   const progressLabel = `${Math.round(document.readingProgress * 100)}% read`;
-  const created = Number.isNaN(Date.parse(document.createdAtIso)) ? 'Saved reading' : new Date(document.createdAtIso).toLocaleDateString();
 
   return (
     <Pressable
@@ -156,7 +258,21 @@ function DocumentCard({ document }: { document: ReadDocument }) {
       <Text numberOfLines={3} style={styles.documentPreview}>{document.generatedText}</Text>
       <View style={styles.documentFooter}>
         <Text style={styles.documentMeta}>{progressLabel}</Text>
-        <Text style={styles.documentMetaMuted}>{created}</Text>
+        <Text style={styles.documentMetaMuted}>{formatDate(document.createdAtIso)}</Text>
+      </View>
+    </Pressable>
+  );
+}
+
+function ImportChannelCard({ label, detail, onPress }: { label: string; detail: string; onPress: () => void }) {
+  return (
+    <Pressable accessibilityRole="button" onPress={onPress} style={styles.importChannelCard}>
+      <View style={styles.importIconBadge}>
+        <Text style={styles.importIconText}>{label.slice(0, 1)}</Text>
+      </View>
+      <View style={styles.importChannelText}>
+        <Text style={styles.importChannelTitle}>{label}</Text>
+        <Text style={styles.importChannelDetail}>{detail}</Text>
       </View>
     </Pressable>
   );
@@ -178,21 +294,39 @@ export function ReadHomeScreen() {
   const completedCount = documents.filter((document) => document.readingProgress >= 1).length;
 
   return (
-    <ScreenFrame eyebrow="Floently Read" title="Read, listen, and continue anywhere">
+    <ReadAppFrame
+      active="home"
+      eyebrow="Floently Read"
+      title="Listen to any text, anytime, anywhere"
+      subtitle="A native Read workspace for importing text, saving readings, generating audio, and continuing your library across sessions."
+    >
       <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
 
-      <View style={styles.cardHero}>
-        <View style={styles.settingRow}>
-          <View style={styles.settingTextBlock}>
-            <Text style={styles.cardTitle}>Start reading automatically</Text>
-            <Text style={styles.bodyText}>New imports detect language, create a reading, and open the reader by default.</Text>
+      <View style={styles.webDashboardGrid}>
+        <View style={styles.webPanelLarge}>
+          <Text style={styles.panelKicker}>Start here</Text>
+          <Text style={styles.panelTitle}>Import once. Read or listen immediately.</Text>
+          <Text style={styles.bodyText}>The mobile app now follows the same product flow as Read on web: landing, auth, app, import, library, reader, preferences, and plans.</Text>
+          <View style={styles.buttonRow}>
+            <PrimaryButton label="Import text or book" onPress={() => navigate('/read/import')} />
+            <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
           </View>
-          <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
+          <View style={styles.inlinePills}>
+            <Pill label="Auto language" tone="read" />
+            <Pill label="Cloud library" tone="read" />
+            <Pill label={readAutomatically ? 'Auto-read on' : 'Manual start'} tone={readAutomatically ? 'read' : 'warning'} />
+          </View>
         </View>
-        <View style={styles.inlinePills}>
-          <Pill label="Floently Read" tone="read" />
-          <Pill label="Cloud library" tone="read" />
-          <Pill label={readAutomatically ? 'Auto-read on' : 'Manual start'} tone={readAutomatically ? 'read' : 'warning'} />
+
+        <View style={styles.webPanelSmall}>
+          <Text style={styles.panelKicker}>Preferences</Text>
+          <View style={styles.settingRow}>
+            <View style={styles.settingTextBlock}>
+              <Text style={styles.cardTitle}>Read automatically</Text>
+              <Text style={styles.bodyText}>New imports detect language, save, and open the reader by default.</Text>
+            </View>
+            <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
+          </View>
         </View>
       </View>
 
@@ -202,17 +336,27 @@ export function ReadHomeScreen() {
         <MetricCard value={activeReading ? `${Math.round(activeReading.readingProgress * 100)}%` : '0%'} label="Current" />
       </View>
 
-      <View style={styles.actionGrid}>
-        <PrimaryButton label="Import text or book" onPress={() => navigate('/read/import')} />
-        <SecondaryButton label="Open library" onPress={() => navigate('/read/library')} />
-        <SecondaryButton label="Reader" onPress={() => navigate('/read/reader')} />
-        <SecondaryButton label="Read settings" onPress={() => navigate('/read/settings')} />
-        <SecondaryButton label="Read subscription" onPress={() => navigate('/read/subscribe')} />
+      <View style={styles.sectionBlock}>
+        <View style={styles.sectionHeaderRow}>
+          <View>
+            <Text style={styles.sectionTitle}>Import choices</Text>
+            <Text style={styles.sectionSubtitle}>Same product slots as the web app, implemented natively.</Text>
+          </View>
+          <GhostButton label="Import" onPress={() => navigate('/read/import')} />
+        </View>
+        <View style={styles.importGrid}>
+          {importChannels.map((channel) => (
+            <ImportChannelCard key={channel.label} label={channel.label} detail={channel.detail} onPress={() => navigate(channel.route)} />
+          ))}
+        </View>
       </View>
 
-      <View style={styles.card}>
-        <View style={styles.cardHeaderRow}>
-          <Text style={styles.cardTitle}>Continue reading</Text>
+      <View style={styles.sectionBlock}>
+        <View style={styles.sectionHeaderRow}>
+          <View>
+            <Text style={styles.sectionTitle}>Continue reading</Text>
+            <Text style={styles.sectionSubtitle}>Saved readings, progress, and listening state.</Text>
+          </View>
           <GhostButton label="Refresh" onPress={() => void refreshLibrary()} />
         </View>
         {activeReading ? (
@@ -220,13 +364,13 @@ export function ReadHomeScreen() {
         ) : (
           <EmptyState
             title="No readings yet"
-            body="Paste text or prepare a book import to create your first native Read item."
+            body="Paste text, import a web link, or upload a document to create your first Read item."
             actionLabel="Import reading"
             onAction={() => navigate('/read/import')}
           />
         )}
       </View>
-    </ScreenFrame>
+    </ReadAppFrame>
   );
 }
 
@@ -264,11 +408,7 @@ export function ReadImportScreen() {
     setImportError(null);
     const document = createFromText({ title, text: trimmedText, language: 'auto' });
     useReadMobileStore.getState().openDocument(document.id);
-    if (readAutomatically) {
-      navigate('/read/reader');
-      return;
-    }
-    navigate('/read/library');
+    navigate(readAutomatically ? '/read/reader' : '/read/library');
   }
 
   async function importFile() {
@@ -289,14 +429,10 @@ export function ReadImportScreen() {
         ],
       });
 
-      if (result.canceled) {
-        return;
-      }
+      if (result.canceled) return;
 
       const asset = result.assets?.[0];
-      if (!asset?.uri) {
-        throw new Error('No readable file was selected.');
-      }
+      if (!asset?.uri) throw new Error('No readable file was selected.');
 
       const selectedName = asset.name || 'Imported document.txt';
       setFileName(selectedName);
@@ -307,12 +443,7 @@ export function ReadImportScreen() {
         title: title?.trim() || selectedName.replace(/\.[^/.]+$/, ''),
       });
       useReadMobileStore.getState().openDocument(document.id);
-
-      if (readAutomatically) {
-        navigate('/read/reader');
-        return;
-      }
-      navigate('/read/library');
+      navigate(readAutomatically ? '/read/reader' : '/read/library');
     } catch (error) {
       setImportError(error instanceof Error ? error.message : String(error));
     } finally {
@@ -327,11 +458,7 @@ export function ReadImportScreen() {
     try {
       const document = await createFromUrl({ title, url });
       useReadMobileStore.getState().openDocument(document.id);
-      if (readAutomatically) {
-        navigate('/read/reader');
-        return;
-      }
-      navigate('/read/library');
+      navigate(readAutomatically ? '/read/reader' : '/read/library');
     } catch (error) {
       setImportError(error instanceof Error ? error.message : String(error));
     } finally {
@@ -340,7 +467,12 @@ export function ReadImportScreen() {
   }
 
   return (
-    <ScreenFrame eyebrow="Floently Read" title="Import text, links, and files">
+    <ReadAppFrame
+      active="import"
+      eyebrow="Import"
+      title="Bring text, links, and files into Read"
+      subtitle="The native import flow mirrors the web product: paste, upload, URL import, and reserved Drive slots."
+    >
       <SyncBanner status={syncStatus} error={syncError} />
 
       <View style={styles.modeTabs}>
@@ -349,9 +481,9 @@ export function ReadImportScreen() {
         <ImportModeButton mode="url" activeMode={mode} label="Web link" onPress={() => setMode('url')} />
       </View>
 
-      <View style={styles.card}>
+      <View style={styles.cardMuted}>
         <Text style={styles.cardTitle}>Import behavior</Text>
-        <Text style={styles.bodyText}>Read will detect the language, create a clean reading, save it to your library, and open the reader automatically when the setting is on.</Text>
+        <Text style={styles.bodyText}>Read detects language, creates a clean reading, saves it to your library, and opens the reader automatically when the preference is on.</Text>
         <View style={styles.inlinePills}>
           <Pill label="Auto language" tone="read" />
           <Pill label={`${wordCount} words`} tone="read" />
@@ -390,7 +522,7 @@ export function ReadImportScreen() {
             <Pill label="TXT" tone="read" />
           </View>
           {fileName ? <Text style={styles.helpText}>Selected: {fileName}</Text> : null}
-          <PrimaryButton label={isImporting ? 'Importing…' : readAutomatically ? 'Choose file and start reading' : 'Choose file and save'} onPress={() => void importFile()} disabled={isImporting} />
+          <PrimaryButton label={isImporting ? 'Importing...' : readAutomatically ? 'Choose file and start reading' : 'Choose file and save'} onPress={() => void importFile()} disabled={isImporting} />
           {importError ? <Text style={styles.errorText}>{importError}</Text> : null}
         </View>
       ) : null}
@@ -409,11 +541,11 @@ export function ReadImportScreen() {
             placeholder="https://example.com/article"
             placeholderTextColor="#8FA0D0"
           />
-          <PrimaryButton label={isImporting ? 'Importing…' : readAutomatically ? 'Import and start reading' : 'Import to library'} onPress={() => void importUrl()} disabled={isImporting || !url.trim()} />
+          <PrimaryButton label={isImporting ? 'Importing...' : readAutomatically ? 'Import and start reading' : 'Import to library'} onPress={() => void importUrl()} disabled={isImporting || !url.trim()} />
           {importError ? <Text style={styles.errorText}>{importError}</Text> : null}
         </View>
       ) : null}
-    </ScreenFrame>
+    </ReadAppFrame>
   );
 }
 
@@ -424,25 +556,28 @@ export function ReadLibraryScreen() {
   const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
 
   return (
-    <ScreenFrame eyebrow="Read library" title="Saved readings">
+    <ReadAppFrame active="library" eyebrow="Library" title="Saved readings" subtitle="The native library keeps the web Read structure: saved items, progress, language, and direct reader entry.">
       <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
-      <View style={styles.card}>
-        <View style={styles.cardHeaderRow}>
-          <Text style={styles.cardTitle}>Library</Text>
+      <View style={styles.sectionBlock}>
+        <View style={styles.sectionHeaderRow}>
+          <View>
+            <Text style={styles.sectionTitle}>Library</Text>
+            <Text style={styles.sectionSubtitle}>{documents.length ? `${documents.length} saved item${documents.length === 1 ? '' : 's'}` : 'No saved items yet'}</Text>
+          </View>
           <GhostButton label="Refresh" onPress={() => void refreshLibrary()} />
         </View>
         {documents.length ? (
-          documents.map((document) => <DocumentCard key={document.id} document={document} />)
+          <View style={styles.documentList}>{documents.map((document) => <DocumentCard key={document.id} document={document} />)}</View>
         ) : (
           <EmptyState
-            title="Your native Read library is empty"
-            body="Import text now. Later, this same screen will hold books, files, and web articles."
+            title="Your Read library is empty"
+            body="Import text now. This screen holds books, files, and web articles after they are saved."
             actionLabel="Import first reading"
             onAction={() => navigate('/read/import')}
           />
         )}
       </View>
-    </ScreenFrame>
+    </ReadAppFrame>
   );
 }
 
@@ -458,12 +593,12 @@ function CircularProgress({ progress }: { progress: number }) {
     <View style={styles.progressWrap}>
       <View style={styles.progressGlow} />
       <Svg width={size} height={size} style={styles.progressSvg}>
-        <Circle cx={size / 2} cy={size / 2} r={radius} stroke="#1D3B66" strokeWidth={stroke} fill="none" />
+        <Circle cx={size / 2} cy={size / 2} r={radius} stroke="#252D61" strokeWidth={stroke} fill="none" />
         <Circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#5EA8FF"
+          stroke="#8FA8FF"
           strokeWidth={stroke}
           fill="none"
           strokeDasharray={`${circumference} ${circumference}`}
@@ -580,16 +715,16 @@ export function ReadReaderScreen() {
 
   if (!document) {
     return (
-      <ScreenFrame eyebrow="Reader" title="Nothing open yet">
+      <ReadAppFrame active="reader" eyebrow="Reader" title="Nothing open yet" subtitle="Import or select a saved reading to open the native reader.">
         <View style={styles.card}>
           <EmptyState
             title="No active reading"
-            body="Import or paste text to open the native reader."
+            body="Import or paste text to open the reader."
             actionLabel="Import reading"
             onAction={() => navigate('/read/import')}
           />
         </View>
-      </ScreenFrame>
+      </ReadAppFrame>
     );
   }
 
@@ -597,11 +732,11 @@ export function ReadReaderScreen() {
   const isPlaying = audioState === 'playing' || playbackStatus.playing;
 
   return (
-    <ScreenFrame eyebrow="Native reader" title={document.title}>
+    <ReadAppFrame active="reader" eyebrow="Reader" title={document.title} subtitle="Read text and audio stay in one calm reader surface, matching the web product flow.">
       <View style={styles.readerHero}>
         <CircularProgress progress={displayedProgress} />
         <View style={styles.playerMetaBlock}>
-          <Text style={styles.compactMeta}>{timeLabel} · {document.playbackSpeed.toFixed(1)}x</Text>
+          <Text style={styles.compactMeta}>{timeLabel} - {document.playbackSpeed.toFixed(1)}x</Text>
           <Text style={styles.bodyText}>Language: {document.detectedLanguageLabel}</Text>
           <Pill
             label={isPreparing ? 'Generating audio' : isPlaying ? 'Listening now' : audioResult ? 'Audio ready' : 'Ready to listen'}
@@ -610,23 +745,23 @@ export function ReadReaderScreen() {
         </View>
       </View>
 
-      <View style={styles.playerActions}>
+      <View style={styles.playerDock}>
         <PrimaryButton
-          label={isPreparing ? 'Preparing audio…' : isPlaying ? 'Pause listening' : audioResult ? 'Play audio' : 'Generate and listen'}
+          label={isPreparing ? 'Preparing audio...' : isPlaying ? 'Pause listening' : audioResult ? 'Play audio' : 'Generate and listen'}
           onPress={isPlaying ? pauseAudio : generateAndPlayAudio}
           disabled={isPreparing}
         />
         <SecondaryButton label="Replay" onPress={replayAudio} disabled={!audioResult || isPreparing} />
-        <SecondaryButton label="Back to library" onPress={() => navigate('/read/library')} />
+        <SecondaryButton label="Library" onPress={() => navigate('/read/library')} />
       </View>
 
-      <View style={styles.playerActions}>
+      <View style={styles.playerDock}>
         <SecondaryButton label="25%" onPress={() => updateProgress(document.id, 0.25)} />
         <SecondaryButton label="50%" onPress={() => updateProgress(document.id, 0.5)} />
         <SecondaryButton label="Done" onPress={() => updateProgress(document.id, 1)} />
       </View>
 
-      <View style={styles.playerActions}>
+      <View style={styles.playerDock}>
         <SecondaryButton label="0.8x" onPress={() => setPlaybackSpeed(document.id, 0.8)} />
         <SecondaryButton label="1.0x" onPress={() => setPlaybackSpeed(document.id, 1)} />
         <SecondaryButton label="1.2x" onPress={() => setPlaybackSpeed(document.id, 1.2)} />
@@ -642,13 +777,12 @@ export function ReadReaderScreen() {
         {audioError ? <Text style={styles.errorText}>{audioError}</Text> : null}
       </View>
 
-      <View style={styles.card}>
+      <View style={styles.readerTextCard}>
         <Text style={styles.readerText}>{document.generatedText}</Text>
       </View>
-    </ScreenFrame>
+    </ReadAppFrame>
   );
 }
-
 
 const READ_PLANS: Array<{
   id: ReadStorePlanId;
@@ -685,7 +819,6 @@ const READ_PLANS: Array<{
   },
 ];
 
-
 type ReadRevenueCatSyncSource = {
   readAccess: boolean;
   creatorAccess: boolean;
@@ -694,6 +827,24 @@ type ReadRevenueCatSyncSource = {
   platform?: string | null;
   status?: string | null;
 };
+
+
+function getReadPurchasePackageId(value: unknown): ReadStorePlanId | null {
+  if (!value || typeof value !== 'object') return null;
+  const record = value as { packageId?: unknown; productId?: unknown; planId?: unknown };
+  const raw = record.packageId ?? record.productId ?? record.planId;
+  if (typeof raw !== 'string') return null;
+  const normalized = raw.trim();
+  if (
+    normalized === 'reader_monthly' ||
+    normalized === 'reader_yearly' ||
+    normalized === 'creator_monthly' ||
+    normalized === 'creator_yearly'
+  ) {
+    return normalized;
+  }
+  return null;
+}
 
 async function syncReadPurchaseToBackend(
   result: ReadRevenueCatSyncSource,
@@ -765,7 +916,7 @@ export function ReadSubscriptionScreen() {
     try {
       const result = await restoreReadStorePurchases();
       applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
-      const backendSynced = await syncReadPurchaseToBackend(result, null);
+      const backendSynced = await syncReadPurchaseToBackend(result, getReadPurchasePackageId(result));
       await refreshSubscription();
       applyStoreReadAccess({ readAccess: result.readAccess, creatorAccess: result.creatorAccess });
       const syncSuffix = backendSynced ? ' Backend access is synced.' : '';
@@ -774,7 +925,7 @@ export function ReadSubscriptionScreen() {
           ? `Creator access restored.${syncSuffix}`
           : result.readAccess
             ? `Read access restored.${syncSuffix}`
-            : 'No active Read purchase was found for this app-store account.',
+            : 'No active Read purchase was found for this store account.',
       );
     } catch (error) {
       setPurchaseError(error instanceof Error ? error.message : String(error));
@@ -784,480 +935,625 @@ export function ReadSubscriptionScreen() {
   }
 
   return (
-    <ScreenFrame eyebrow="Read subscription" title="Choose your Read access">
-      <View style={styles.cardHero}>
-        <Text style={styles.cardTitle}>Mobile subscriptions use RevenueCat</Text>
-        <Text style={styles.bodyText}>
-          Stripe remains for web checkout. Native iOS and Android purchases use App Store / Google Play products through RevenueCat offering read_default.
-        </Text>
-        <View style={styles.inlinePills}>
-          <Pill label={hasReadAccess ? 'Read active' : 'Read locked'} tone={hasReadAccess ? 'read' : 'warning'} />
-          <Pill label={hasCreatorAccess ? 'Creator active' : 'Creator separate'} tone={hasCreatorAccess ? 'create' : 'neutral'} />
-        </View>
-      </View>
-
-      {READ_PLANS.map((plan) => (
-        <View key={plan.id} style={styles.documentCard}>
-          <View style={styles.documentTitleRow}>
-            <Text style={styles.documentTitle}>{plan.title}</Text>
-            <Pill label={plan.priceHint} tone={plan.id.includes('creator') ? 'create' : 'read'} />
-          </View>
-          <Text style={styles.bodyText}>{plan.body}</Text>
-          {plan.platformNote ? <Text style={styles.helpText}>{plan.platformNote}</Text> : null}
-          <PrimaryButton
-            label={busyPlan === plan.id ? 'Opening store…' : `Choose ${plan.title}`}
-            onPress={() => void purchase(plan.id)}
-            disabled={busyPlan !== null}
-          />
-        </View>
-      ))}
-
+    <ReadAppFrame active="subscribe" eyebrow="Plans" title="Floently Read access" subtitle="Native mobile plans stay connected to RevenueCat and backend Read entitlements.">
       <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Already purchased?</Text>
-        <Text style={styles.bodyText}>Restore purchases to refresh RevenueCat entitlements for this device.</Text>
-        <SecondaryButton label={busyPlan === 'restore' ? 'Restoring…' : 'Restore purchases'} onPress={() => void restorePurchases()} disabled={busyPlan !== null} />
-        {purchaseMessage ? <Text style={styles.helpText}>{purchaseMessage}</Text> : null}
-        {purchaseError ? <Text style={styles.errorText}>{purchaseError}</Text> : null}
+        <Text style={styles.cardTitle}>Current access</Text>
+        <Text style={styles.bodyText}>{hasCreatorAccess ? 'Creator access active.' : hasReadAccess ? 'Read access active.' : 'No active Read access detected yet.'}</Text>
       </View>
-    </ScreenFrame>
+      <View style={styles.planList}>
+        {READ_PLANS.map((plan) => (
+          <View key={plan.id} style={styles.planCard}>
+            <View style={styles.planHeaderRow}>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.planTitle}>{plan.title}</Text>
+                <Text style={styles.planPrice}>{plan.priceHint}</Text>
+              </View>
+              <Pill label={plan.id.includes('creator') ? 'Creator' : 'Read'} tone={plan.id.includes('creator') ? 'create' : 'read'} />
+            </View>
+            <Text style={styles.bodyText}>{plan.body}</Text>
+            {plan.platformNote ? <Text style={styles.helpText}>{plan.platformNote}</Text> : null}
+            <PrimaryButton label={busyPlan === plan.id ? 'Processing...' : 'Choose plan'} onPress={() => void purchase(plan.id)} disabled={Boolean(busyPlan)} />
+          </View>
+        ))}
+      </View>
+      <SecondaryButton label={busyPlan === 'restore' ? 'Restoring...' : 'Restore purchases'} onPress={() => void restorePurchases()} disabled={Boolean(busyPlan)} />
+      {purchaseMessage ? <Text style={styles.successText}>{purchaseMessage}</Text> : null}
+      {purchaseError ? <Text style={styles.errorText}>{purchaseError}</Text> : null}
+    </ReadAppFrame>
   );
 }
 
 export function ReadSettingsScreen() {
   const readAutomatically = useReadMobileStore((state) => state.readAutomatically);
   const setReadAutomatically = useReadMobileStore((state) => state.setReadAutomatically);
-  const syncStatus = useReadMobileStore((state) => state.syncStatus);
-  const syncError = useReadMobileStore((state) => state.syncError);
-  const refreshLibrary = useReadMobileStore((state) => state.refreshLibrary);
 
   return (
-    <ScreenFrame eyebrow="Read settings" title="Reading preferences">
-      <SyncBanner status={syncStatus} error={syncError} onRefresh={() => void refreshLibrary()} />
+    <ReadAppFrame active="settings" eyebrow="Preferences" title="Read preferences" subtitle="Mobile preferences now match the web product categories instead of using the old generic settings surface.">
       <View style={styles.card}>
         <View style={styles.settingRow}>
           <View style={styles.settingTextBlock}>
-            <Text style={styles.cardTitle}>Start reading automatically</Text>
-            <Text style={styles.bodyText}>When enabled, new uploads detect language, create a reading, and open the reader automatically.</Text>
+            <Text style={styles.cardTitle}>Read automatically after import</Text>
+            <Text style={styles.bodyText}>When enabled, new readings open directly in the reader after text, URL, or file import.</Text>
           </View>
           <Switch value={readAutomatically} onValueChange={setReadAutomatically} />
         </View>
       </View>
       <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Read subscription</Text>
-        <Text style={styles.bodyText}>Manage mobile Read purchases through RevenueCat. Reader and Creator stay separate from Learn.</Text>
-        <PrimaryButton label="Manage Read subscription" onPress={() => navigate('/read/subscribe')} />
+        <Text style={styles.cardTitle}>More web-parity preferences</Text>
+        <Text style={styles.bodyText}>Voice, reading mode, account, analytics, and cloud import preferences are preserved as native product slots while the app remains a real iOS and Android app.</Text>
       </View>
-      <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Floently products</Text>
-        <Text style={styles.bodyText}>Floently Read stays separate from Learn billing unless a bundle is created. Read and Learn remain separate subscriptions unless a bundle is created.</Text>
-      </View>
-    </ScreenFrame>
+    </ReadAppFrame>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
     flexGrow: 1,
-    backgroundColor: '#07111F',
-    padding: 20,
-    gap: 16,
+    backgroundColor: '#0B0F24',
+    paddingHorizontal: 20,
+    paddingTop: 18,
+    paddingBottom: 42,
+    gap: 18,
   },
-  productNavRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    gap: 10,
+  topNavWrap: {
+    gap: 12,
   },
-  productNavButton: {
-    borderRadius: 999,
-    borderWidth: 1,
-    borderColor: '#244A7D',
-    backgroundColor: '#0B1728',
-    paddingVertical: 9,
-    paddingHorizontal: 12,
-  },
-  productNavButtonText: {
-    color: '#65AEFF',
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  headerCard: {
-    borderRadius: 28,
-    padding: 22,
-    backgroundColor: '#0E1A2F',
-    borderWidth: 1,
-    borderColor: '#1D3B66',
-  },
-  eyebrow: {
-    color: '#5EA8FF',
-    fontSize: 12,
-    fontWeight: '800',
-    letterSpacing: 1.2,
-    textTransform: 'uppercase',
-    marginBottom: 8,
-  },
-  title: {
-    color: '#F8FBFF',
-    fontSize: 30,
-    fontWeight: '900',
-    lineHeight: 36,
-  },
-  subtitle: {
-    marginTop: 10,
-    color: '#AFC4E8',
-    fontSize: 15,
-    lineHeight: 22,
-  },
-  syncBanner: {
-    borderRadius: 22,
-    padding: 14,
-    backgroundColor: '#092236',
-    borderWidth: 1,
-    borderColor: '#1A6FA8',
+  topNavMain: {
+    minHeight: 74,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 12,
   },
-  syncBannerWarning: {
-    backgroundColor: '#251A34',
-    borderColor: '#7C4DFF',
+  logoButton: {
+    minHeight: 68,
+    justifyContent: 'center',
   },
-  syncBannerTextBlock: {
+  productLogo: {
+    width: 158,
+    height: 82,
+  },
+  topNavActions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+    gap: 8,
     flex: 1,
-    gap: 3,
   },
-  syncTitle: {
-    color: '#F8FBFF',
-    fontSize: 13,
-    fontWeight: '900',
+  navTextButton: {
+    borderRadius: 999,
+    paddingVertical: 9,
+    paddingHorizontal: 11,
+    backgroundColor: 'rgba(255,255,255,0.055)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
   },
-  syncText: {
-    color: '#AFC4E8',
+  navTextButtonText: {
+    color: 'rgba(255,255,255,0.76)',
+    fontWeight: '800',
     fontSize: 12,
-    lineHeight: 17,
+  },
+  tabRail: {
+    gap: 8,
+    paddingRight: 8,
+  },
+  tabPill: {
+    minHeight: 38,
+    borderRadius: 999,
+    paddingHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
+    backgroundColor: 'rgba(255,255,255,0.045)',
+  },
+  tabPillPlan: {
+    borderColor: 'rgba(143,168,255,0.35)',
+  },
+  tabPillActive: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#FFFFFF',
+  },
+  tabPillText: {
+    color: 'rgba(255,255,255,0.70)',
+    fontSize: 13,
+    fontWeight: '800',
+  },
+  tabPillTextActive: {
+    color: '#11152B',
+  },
+  heroShell: {
+    borderRadius: 34,
+    padding: 24,
+    minHeight: 230,
+    overflow: 'hidden',
+    backgroundColor: '#101838',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+  },
+  heroGlowOne: {
+    position: 'absolute',
+    width: 260,
+    height: 260,
+    borderRadius: 130,
+    backgroundColor: 'rgba(79,107,255,0.18)',
+    left: -90,
+    top: -80,
+  },
+  heroGlowTwo: {
+    position: 'absolute',
+    width: 220,
+    height: 220,
+    borderRadius: 110,
+    backgroundColor: 'rgba(155,107,255,0.14)',
+    right: -70,
+    top: -40,
+  },
+  heroCopy: {
+    gap: 14,
+    position: 'relative',
+  },
+  eyebrow: {
+    alignSelf: 'flex-start',
+    color: '#8FA8FF',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 999,
+    backgroundColor: 'rgba(79,107,255,0.16)',
+    borderWidth: 1,
+    borderColor: 'rgba(79,107,255,0.30)',
+    overflow: 'hidden',
+  },
+  title: {
+    color: '#FFFFFF',
+    fontSize: 40,
+    lineHeight: 45,
+    fontWeight: '900',
+    letterSpacing: -1.2,
+  },
+  subtitle: {
+    color: 'rgba(255,255,255,0.64)',
+    fontSize: 16,
+    lineHeight: 25,
+  },
+  webDashboardGrid: {
+    gap: 14,
+  },
+  webPanelLarge: {
+    borderRadius: 26,
+    padding: 22,
+    gap: 14,
+    backgroundColor: 'rgba(255,255,255,0.055)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
+  },
+  webPanelSmall: {
+    borderRadius: 24,
+    padding: 20,
+    gap: 12,
+    backgroundColor: 'rgba(255,255,255,0.035)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+  },
+  panelKicker: {
+    color: '#8FA8FF',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+  },
+  panelTitle: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    lineHeight: 30,
+    fontWeight: '900',
   },
   card: {
     borderRadius: 24,
-    padding: 18,
-    backgroundColor: '#0B1628',
-    borderWidth: 1,
-    borderColor: '#203B64',
+    padding: 20,
     gap: 14,
-  },
-  cardHero: {
-    borderRadius: 26,
-    padding: 18,
-    backgroundColor: '#081425',
+    backgroundColor: 'rgba(255,255,255,0.055)',
     borderWidth: 1,
-    borderColor: '#2B6DFF',
-    gap: 14,
+    borderColor: 'rgba(255,255,255,0.10)',
   },
   cardMuted: {
-    borderRadius: 24,
+    borderRadius: 22,
     padding: 18,
-    backgroundColor: '#0A1424',
-    borderWidth: 1,
-    borderColor: '#172A46',
-    gap: 10,
-  },
-  cardHeaderRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     gap: 12,
+    backgroundColor: 'rgba(255,255,255,0.035)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
   },
   cardTitle: {
-    color: '#F8FBFF',
+    color: '#FFFFFF',
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: '900',
   },
   bodyText: {
-    color: '#AFC4E8',
+    color: 'rgba(255,255,255,0.64)',
     fontSize: 14,
-    lineHeight: 21,
+    lineHeight: 22,
   },
-  helpText: {
-    color: '#7F96BE',
-    fontSize: 12,
-    lineHeight: 18,
-  },
-  settingRow: {
+  buttonRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 14,
-  },
-  settingTextBlock: {
-    flex: 1,
-    gap: 6,
-  },
-  metricsRow: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  metricCard: {
-    flex: 1,
-    borderRadius: 18,
-    padding: 14,
-    backgroundColor: '#0B1628',
-    borderWidth: 1,
-    borderColor: '#203B64',
-    alignItems: 'center',
-  },
-  metricValue: {
-    color: '#F8FBFF',
-    fontSize: 20,
-    fontWeight: '900',
-  },
-  metricLabel: {
-    color: '#5EA8FF',
-    fontSize: 11,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.7,
-  },
-  actionGrid: {
+    flexWrap: 'wrap',
     gap: 10,
   },
   primaryButton: {
-    backgroundColor: '#5EA8FF',
-    borderRadius: 18,
-    paddingVertical: 15,
-    paddingHorizontal: 18,
+    minHeight: 50,
+    borderRadius: 999,
+    backgroundColor: '#6F77FF',
     alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 19,
   },
   primaryButtonText: {
-    color: '#081425',
-    fontWeight: '900',
+    color: '#FFFFFF',
     fontSize: 15,
+    fontWeight: '900',
   },
   secondaryButton: {
-    backgroundColor: '#10213A',
-    borderColor: '#25466F',
+    minHeight: 48,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255,255,255,0.07)',
     borderWidth: 1,
-    borderRadius: 18,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    borderColor: 'rgba(255,255,255,0.14)',
     alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 18,
   },
   secondaryButtonText: {
-    color: '#F8FBFF',
-    fontWeight: '800',
+    color: '#FFFFFF',
     fontSize: 14,
+    fontWeight: '900',
   },
   ghostButton: {
-    backgroundColor: '#0C1A2E',
-    borderColor: '#244469',
-    borderWidth: 1,
+    minHeight: 38,
     borderRadius: 999,
-    paddingVertical: 9,
-    paddingHorizontal: 12,
+    backgroundColor: 'rgba(255,255,255,0.045)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.09)',
     alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 14,
   },
   ghostButtonText: {
-    color: '#5EA8FF',
+    color: 'rgba(255,255,255,0.82)',
+    fontSize: 13,
     fontWeight: '900',
-    fontSize: 12,
   },
-  buttonDisabled: {
-    opacity: 0.45,
-  },
-  buttonTextDisabled: {
-    color: '#6F83A8',
-  },
-  modeTabs: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  modeButton: {
-    flex: 1,
-    borderRadius: 16,
-    paddingVertical: 12,
+  warmButton: {
+    minHeight: 50,
+    borderRadius: 999,
+    backgroundColor: '#E2AA62',
     alignItems: 'center',
-    backgroundColor: '#0B1628',
-    borderWidth: 1,
-    borderColor: '#203B64',
+    justifyContent: 'center',
+    paddingHorizontal: 19,
   },
-  modeButtonActive: {
-    backgroundColor: '#5EA8FF',
-    borderColor: '#5EA8FF',
-  },
-  modeButtonText: {
-    color: '#AFC4E8',
-    fontSize: 12,
+  warmButtonText: {
+    color: '#120804',
+    fontSize: 15,
     fontWeight: '900',
   },
-  modeButtonTextActive: {
-    color: '#081425',
-  },
+  buttonDisabled: { opacity: 0.55 },
+  buttonTextDisabled: { opacity: 0.7 },
   inlinePills: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
   },
   pill: {
-    overflow: 'hidden',
+    alignSelf: 'flex-start',
     borderRadius: 999,
     paddingVertical: 6,
     paddingHorizontal: 10,
-    backgroundColor: '#10213A',
-    color: '#D8E7FF',
-    fontSize: 12,
-    fontWeight: '800',
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
+    color: 'rgba(255,255,255,0.76)',
+    fontSize: 11,
+    fontWeight: '900',
+    overflow: 'hidden',
   },
   readPill: {
-    backgroundColor: '#123A63',
-    color: '#5EA8FF',
-  },
-  createPill: {
-    backgroundColor: '#17213F',
+    backgroundColor: 'rgba(79,107,255,0.16)',
+    borderColor: 'rgba(143,168,255,0.35)',
     color: '#BFD0FF',
   },
-  warningPill: {
-    backgroundColor: '#2A2138',
-    color: '#FFD28A',
+  createPill: {
+    backgroundColor: 'rgba(226,170,98,0.16)',
+    borderColor: 'rgba(226,170,98,0.32)',
+    color: '#F2CA8C',
   },
-  label: {
-    color: '#5EA8FF',
+  warningPill: {
+    backgroundColor: 'rgba(255,190,92,0.12)',
+    borderColor: 'rgba(255,190,92,0.28)',
+    color: '#FFD79A',
+  },
+  settingRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 16,
+  },
+  settingTextBlock: { flex: 1, gap: 6 },
+  metricsRow: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  metricCard: {
+    flex: 1,
+    borderRadius: 20,
+    padding: 16,
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+  },
+  metricValue: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: '900',
+  },
+  metricLabel: {
+    color: 'rgba(255,255,255,0.50)',
     fontSize: 12,
     fontWeight: '800',
-    letterSpacing: 0.8,
-    textTransform: 'uppercase',
+    marginTop: 3,
   },
-  input: {
-    borderRadius: 16,
+  sectionBlock: {
+    borderRadius: 26,
+    padding: 18,
+    gap: 14,
+    backgroundColor: 'rgba(255,255,255,0.04)',
     borderWidth: 1,
-    borderColor: '#25466F',
-    backgroundColor: '#07111F',
-    color: '#F8FBFF',
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 15,
+    borderColor: 'rgba(255,255,255,0.08)',
   },
-  textArea: {
-    minHeight: 190,
-    textAlignVertical: 'top',
+  sectionHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: 12,
   },
-  documentCard: {
-    borderRadius: 18,
-    backgroundColor: '#07111F',
-    borderColor: '#1C365C',
-    borderWidth: 1,
+  sectionTitle: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  sectionSubtitle: {
+    color: 'rgba(255,255,255,0.48)',
+    fontSize: 13,
+    lineHeight: 20,
+    marginTop: 4,
+  },
+  importGrid: {
+    gap: 10,
+  },
+  importChannelCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderRadius: 20,
     padding: 14,
-    gap: 8,
+    backgroundColor: 'rgba(255,255,255,0.045)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+  },
+  importIconBadge: {
+    width: 42,
+    height: 42,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(79,107,255,0.18)',
+    borderWidth: 1,
+    borderColor: 'rgba(143,168,255,0.25)',
+  },
+  importIconText: {
+    color: '#C7D5FF',
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  importChannelText: { flex: 1, gap: 3 },
+  importChannelTitle: { color: '#FFFFFF', fontSize: 15, fontWeight: '900' },
+  importChannelDetail: { color: 'rgba(255,255,255,0.52)', fontSize: 12, lineHeight: 18 },
+  emptyState: {
+    gap: 12,
+    alignItems: 'flex-start',
+    borderRadius: 20,
+    padding: 18,
+    backgroundColor: 'rgba(255,255,255,0.035)',
+  },
+  emptyTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  documentList: { gap: 10 },
+  documentCard: {
+    borderRadius: 20,
+    padding: 16,
+    gap: 10,
+    backgroundColor: 'rgba(255,255,255,0.055)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.09)',
   },
   documentTitleRow: {
     flexDirection: 'row',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: 10,
-    alignItems: 'center',
   },
   documentTitle: {
+    color: '#FFFFFF',
+    fontSize: 17,
+    fontWeight: '900',
     flex: 1,
-    color: '#F8FBFF',
-    fontSize: 16,
-    fontWeight: '800',
   },
   documentPreview: {
-    color: '#BBD0EF',
-    fontSize: 13,
-    lineHeight: 19,
+    color: 'rgba(255,255,255,0.60)',
+    lineHeight: 20,
   },
   documentFooter: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
     gap: 10,
   },
   documentMeta: {
-    color: '#5EA8FF',
+    color: '#BFD0FF',
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: '900',
   },
   documentMetaMuted: {
-    color: '#7F96BE',
+    color: 'rgba(255,255,255,0.42)',
     fontSize: 12,
     fontWeight: '700',
   },
-  emptyState: {
+  syncBanner: {
     borderRadius: 20,
-    padding: 16,
-    backgroundColor: '#07111F',
-    borderWidth: 1,
-    borderColor: '#1A314F',
-    gap: 12,
-  },
-  emptyTitle: {
-    color: '#F8FBFF',
-    fontSize: 17,
-    fontWeight: '900',
-  },
-  readerHero: {
-    borderRadius: 26,
-    backgroundColor: '#0B1B36',
-    borderWidth: 1,
-    borderColor: '#255B91',
-    padding: 18,
+    padding: 14,
+    flexDirection: 'row',
     alignItems: 'center',
-    gap: 14,
+    justifyContent: 'space-between',
+    gap: 12,
+    backgroundColor: 'rgba(79,107,255,0.11)',
+    borderWidth: 1,
+    borderColor: 'rgba(143,168,255,0.22)',
+  },
+  syncBannerWarning: {
+    backgroundColor: 'rgba(255,190,92,0.10)',
+    borderColor: 'rgba(255,190,92,0.24)',
+  },
+  syncBannerTextBlock: { flex: 1, gap: 3 },
+  syncTitle: { color: '#FFFFFF', fontSize: 14, fontWeight: '900' },
+  syncText: { color: 'rgba(255,255,255,0.58)', fontSize: 12, lineHeight: 17 },
+  modeTabs: {
+    flexDirection: 'row',
+    gap: 8,
+    padding: 5,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255,255,255,0.055)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
+  },
+  modeButton: {
+    flex: 1,
+    minHeight: 42,
+    borderRadius: 999,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 8,
+  },
+  modeButtonActive: {
+    backgroundColor: '#FFFFFF',
+  },
+  modeButtonText: {
+    color: 'rgba(255,255,255,0.66)',
+    fontWeight: '900',
+    fontSize: 12,
+  },
+  modeButtonTextActive: {
+    color: '#11152B',
+  },
+  label: {
+    color: '#BFD0FF',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 0.4,
+    textTransform: 'uppercase',
+  },
+  input: {
+    minHeight: 50,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.12)',
+    backgroundColor: 'rgba(255,255,255,0.06)',
+    color: '#FFFFFF',
+    paddingHorizontal: 14,
+    fontSize: 15,
+  },
+  textArea: {
+    minHeight: 170,
+    paddingTop: 14,
+  },
+  helpText: {
+    color: 'rgba(255,255,255,0.48)',
+    fontSize: 12,
+    lineHeight: 18,
+  },
+  errorText: {
+    color: '#FFB4B4',
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+  },
+  successText: {
+    color: '#9EF0CB',
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '800',
   },
   progressWrap: {
-    width: 130,
-    height: 130,
+    width: 116,
+    height: 116,
     alignItems: 'center',
     justifyContent: 'center',
   },
   progressGlow: {
     position: 'absolute',
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: '#5EA8FF',
-    opacity: 0.16,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: 'rgba(143,168,255,0.18)',
   },
-  progressSvg: {
-    position: 'absolute',
-  },
-  progressCenter: {
+  progressSvg: { position: 'absolute' },
+  progressCenter: { alignItems: 'center', justifyContent: 'center' },
+  progressNumber: { color: '#FFFFFF', fontSize: 24, fontWeight: '900' },
+  progressLabel: { color: 'rgba(255,255,255,0.52)', fontSize: 11, fontWeight: '900', textTransform: 'uppercase' },
+  readerHero: {
+    borderRadius: 26,
+    padding: 18,
+    flexDirection: 'row',
     alignItems: 'center',
+    gap: 18,
+    backgroundColor: 'rgba(255,255,255,0.055)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
   },
-  progressNumber: {
-    color: '#F8FBFF',
-    fontSize: 24,
-    fontWeight: '900',
-  },
-  progressLabel: {
-    color: '#5EA8FF',
-    fontSize: 11,
-    fontWeight: '900',
-    letterSpacing: 1,
-    textTransform: 'uppercase',
-  },
-  playerMetaBlock: {
-    alignItems: 'center',
-    gap: 6,
-  },
-  compactMeta: {
-    color: '#F8FBFF',
-    fontSize: 13,
-    fontWeight: '800',
-    lineHeight: 18,
-  },
-  errorText: {
-    color: '#FFB8D2',
-    fontSize: 13,
-    fontWeight: '700',
-    lineHeight: 19,
-  },
-  playerActions: {
+  playerMetaBlock: { flex: 1, gap: 8 },
+  compactMeta: { color: '#FFFFFF', fontSize: 18, fontWeight: '900' },
+  playerDock: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
   },
+  readerTextCard: {
+    borderRadius: 26,
+    padding: 22,
+    backgroundColor: '#F8F9FF',
+  },
   readerText: {
-    color: '#F8FBFF',
+    color: '#151A35',
     fontSize: 18,
     lineHeight: 30,
   },
+  planList: { gap: 12 },
+  planCard: {
+    borderRadius: 24,
+    padding: 18,
+    gap: 14,
+    backgroundColor: 'rgba(255,255,255,0.055)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.10)',
+  },
+  planHeaderRow: {
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'flex-start',
+  },
+  planTitle: { color: '#FFFFFF', fontSize: 19, fontWeight: '900' },
+  planPrice: { color: '#BFD0FF', fontSize: 14, fontWeight: '900', marginTop: 4 },
 });

@@ -1,5 +1,7 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { router } from 'expo-router';
+
+const CREATE_LOGO = require('./assets/floently_create_word_logo_no_shadow.png');
 
 function navigate(path: string) {
   router.push(path as never);
@@ -7,13 +9,38 @@ function navigate(path: string) {
 
 export default function CreateComingSoonScreen() {
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
+    <ScrollView contentContainerStyle={styles.screen} showsVerticalScrollIndicator={false}>
+      <View style={styles.ambientOne} />
+      <View style={styles.ambientTwo} />
+
+      <View style={styles.nav}>
+        <Pressable onPress={() => navigate('/create/auth')} style={styles.logoButton}>
+          <Image source={CREATE_LOGO} resizeMode="contain" style={styles.logo} />
+        </Pressable>
+        <View style={styles.navActions}>
+          <Pressable onPress={() => navigate('/')} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Floently Home</Text>
+          </Pressable>
+          <Pressable onPress={() => navigate('/create/auth')} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Create auth</Text>
+          </Pressable>
+        </View>
+      </View>
+
       <View style={styles.hero}>
         <Text style={styles.eyebrow}>Floently Create</Text>
         <Text style={styles.title}>Create Studio is coming soon in the app</Text>
         <Text style={styles.subtitle}>
-          Create tools are being kept behind a safe coming-soon gate until the product is ready. This is a real native app screen built directly inside the mobile app.
+          The native Create area is intentionally gated until the product is ready. Auth is already in place, but unfinished Create tools stay locked.
         </Text>
+        <View style={styles.actions}>
+          <Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => navigate('/auth/login?returnTo=/create/studio')}>
+            <Text style={styles.primaryButtonText}>Sign in to Create</Text>
+          </Pressable>
+          <Pressable accessibilityRole="button" style={styles.secondaryButton} onPress={() => navigate('/read')}>
+            <Text style={styles.secondaryButtonText}>Go to Read</Text>
+          </Pressable>
+        </View>
       </View>
 
       <View style={styles.card}>
@@ -23,12 +50,8 @@ export default function CreateComingSoonScreen() {
 
       <View style={styles.cardMuted}>
         <Text style={styles.cardTitle}>Access rule</Text>
-        <Text style={styles.body}>Users who only pay for Read should not see unfinished Create tools. Users with Create access can see this coming-soon app area until Create is ready.</Text>
+        <Text style={styles.body}>Read users should not see unfinished Create tools. Create has a separate auth entry and a safe coming-soon workspace.</Text>
       </View>
-
-      <Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => navigate('/read')}>
-        <Text style={styles.primaryButtonText}>Go to Read</Text>
-      </Pressable>
     </ScrollView>
   );
 }
@@ -36,72 +59,82 @@ export default function CreateComingSoonScreen() {
 const styles = StyleSheet.create({
   screen: {
     flexGrow: 1,
-    backgroundColor: '#120d0a',
-    padding: 20,
+    backgroundColor: '#050403',
+    padding: 22,
     gap: 16,
+    overflow: 'hidden',
   },
-  hero: {
-    borderRadius: 30,
-    padding: 24,
-    backgroundColor: '#1b1421',
+  ambientOne: {
+    position: 'absolute',
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    left: -110,
+    top: 120,
+    backgroundColor: 'rgba(157,96,36,0.15)',
+  },
+  ambientTwo: {
+    position: 'absolute',
+    width: 260,
+    height: 260,
+    borderRadius: 130,
+    right: -100,
+    top: 20,
+    backgroundColor: 'rgba(225,169,95,0.10)',
+  },
+  nav: {
+    minHeight: 74,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+    position: 'relative',
+  },
+  logoButton: { minHeight: 66, justifyContent: 'center' },
+  logo: { width: 178, height: 70 },
+  navActions: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 8 },
+  navLink: {
+    borderRadius: 999,
     borderWidth: 1,
-    borderColor: '#392a4d',
+    borderColor: 'rgba(225,169,95,0.18)',
+    paddingVertical: 9,
+    paddingHorizontal: 12,
+    backgroundColor: 'rgba(255,239,218,0.055)',
+  },
+  navLinkText: { color: 'rgba(255,239,218,0.72)', fontWeight: '900', fontSize: 12 },
+  hero: {
+    borderRadius: 34,
+    padding: 24,
+    backgroundColor: 'rgba(255,239,218,0.045)',
+    borderWidth: 1,
+    borderColor: 'rgba(225,169,95,0.13)',
+    gap: 16,
+    position: 'relative',
   },
   eyebrow: {
-    color: '#c7b7ff',
+    alignSelf: 'flex-start',
+    color: '#E2AA62',
     fontSize: 12,
     fontWeight: '900',
     letterSpacing: 1.2,
     textTransform: 'uppercase',
-    marginBottom: 8,
-  },
-  title: {
-    color: '#fff7ef',
-    fontSize: 30,
-    fontWeight: '900',
-    lineHeight: 36,
-  },
-  subtitle: {
-    marginTop: 12,
-    color: '#d8cce8',
-    fontSize: 15,
-    lineHeight: 23,
-  },
-  card: {
-    borderRadius: 24,
-    padding: 18,
-    backgroundColor: '#19111f',
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    backgroundColor: 'rgba(169,107,46,0.16)',
     borderWidth: 1,
-    borderColor: '#30243f',
-    gap: 8,
+    borderColor: 'rgba(225,169,95,0.30)',
+    borderRadius: 999,
+    overflow: 'hidden',
   },
-  cardMuted: {
-    borderRadius: 24,
-    padding: 18,
-    backgroundColor: '#151016',
-    borderWidth: 1,
-    borderColor: '#2a2130',
-    gap: 8,
-  },
-  cardTitle: {
-    color: '#fff7ef',
-    fontSize: 18,
-    fontWeight: '900',
-  },
-  body: {
-    color: '#d8cce8',
-    fontSize: 14,
-    lineHeight: 22,
-  },
-  primaryButton: {
-    backgroundColor: '#c7b7ff',
-    borderRadius: 18,
-    paddingVertical: 15,
-    alignItems: 'center',
-  },
-  primaryButtonText: {
-    color: '#171120',
-    fontSize: 15,
-    fontWeight: '900',
-  },
+  title: { color: '#FFF7EC', fontSize: 38, fontWeight: '900', lineHeight: 43, letterSpacing: -1.1 },
+  subtitle: { color: 'rgba(255,239,218,0.62)', fontSize: 16, lineHeight: 25 },
+  actions: { gap: 12 },
+  primaryButton: { minHeight: 56, borderRadius: 999, backgroundColor: '#E2AA62', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
+  primaryButtonText: { color: '#120804', fontSize: 16, fontWeight: '900' },
+  secondaryButton: { minHeight: 54, borderRadius: 999, backgroundColor: 'rgba(255,239,218,0.07)', borderWidth: 1, borderColor: 'rgba(225,169,95,0.18)', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 18 },
+  secondaryButtonText: { color: '#FFF7EC', fontSize: 15, fontWeight: '900' },
+  card: { borderRadius: 24, padding: 18, backgroundColor: 'rgba(255,239,218,0.045)', borderWidth: 1, borderColor: 'rgba(225,169,95,0.12)', gap: 8 },
+  cardMuted: { borderRadius: 24, padding: 18, backgroundColor: 'rgba(255,239,218,0.03)', borderWidth: 1, borderColor: 'rgba(225,169,95,0.09)', gap: 8 },
+  cardTitle: { color: '#FFF7EC', fontSize: 18, fontWeight: '900' },
+  body: { color: 'rgba(255,239,218,0.58)', fontSize: 14, lineHeight: 22 },
 });

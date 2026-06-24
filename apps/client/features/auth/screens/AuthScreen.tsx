@@ -18,7 +18,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Animated, Easing, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { spacing } from '@ui/theme';
 import { getFloentlyPalette } from '@ui/theme/floentlyPalette';
 import { getApiBaseUrl } from '@core/api/apiConfig';
@@ -79,6 +79,16 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
   const google = useGoogleSignIn();
   const logoFloat = useRef(new Animated.Value(0)).current;
   const { width } = useWindowDimensions();
+  const params = useLocalSearchParams<{ returnTo?: string | string[] }>();
+
+  const returnToPath = useMemo(() => {
+    const raw = Array.isArray(params.returnTo) ? params.returnTo[0] : params.returnTo;
+    const value = String(raw ?? '').trim();
+    if (!value || !value.startsWith('/') || value.startsWith('//') || value.includes('://')) {
+      return '/';
+    }
+    return value;
+  }, [params.returnTo]);
 
   // Translate the union state into a flat boolean for UI loading.
   const googleLoading = google.state.status === 'launching' || google.state.status === 'configuring';
@@ -162,7 +172,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
       }
       await setAuth(session.user, session.token);
       void saveLoginEmail(email.trim());
-      router.replace('/');
+      router.replace(returnToPath as never);
     } catch (err) {
       if (tab === 'signin' && isLocalApi) {
         try {
@@ -173,7 +183,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
           });
           await setAuth(fallbackSession.user, fallbackSession.token);
           void saveLoginEmail(email.trim());
-          router.replace('/');
+          router.replace(returnToPath as never);
           return;
         } catch {
           // Fall through to the original error below.
@@ -184,7 +194,7 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
     } finally {
       setSubmitting(false);
     }
-  }, [email, password, name, tab, setAuth]);
+  }, [email, password, name, tab, setAuth, returnToPath]);
 
   const handleGoogle = useCallback(async () => {
     setFormError(null);
@@ -192,12 +202,12 @@ export default function AuthScreen({ initialTab = 'signin' }: Props) {
     if (session) {
       await setAuth(session.user, session.token);
       void saveLoginEmail(session.user.email);
-      router.replace('/');
+      router.replace(returnToPath as never);
     }
     // If signIn returns null, useGoogleSignIn has already populated its state
     // with the appropriate cancelled/failed/unavailable status. We surface
     // failure messages via googleErrorMessage above, not as form errors.
-  }, [google, setAuth]);
+  }, [google, setAuth, returnToPath]);
 
   const styles = useMemo(() => buildStyles(palette, isDark), [palette, isDark]);
   const googleButtonSource = getGoogleButtonSource(tab);

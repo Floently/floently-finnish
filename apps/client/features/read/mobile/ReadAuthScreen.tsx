@@ -1,7 +1,9 @@
 import { router } from 'expo-router';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { getAuthToken } from '@core/api/apiClient';
+
+const READ_LOGO = require('./assets/floently_read.png');
 
 function go(path: string) {
   router.push(path as never);
@@ -11,42 +13,49 @@ export default function ReadAuthScreen() {
   const hasToken = Boolean(getAuthToken());
 
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
-      <View style={styles.topBar}>
-        <Pressable onPress={() => go('/' as never)} style={styles.topLink}>
-          <Text style={styles.topLinkText}>← Floently Home</Text>
-        </Pressable>
-        <Pressable onPress={() => go('/read' as never)} style={styles.topLink}>
-          <Text style={styles.topLinkText}>Read landing</Text>
-        </Pressable>
-      </View>
+    <ScrollView contentContainerStyle={styles.screen} showsVerticalScrollIndicator={false}>
+      <View style={styles.ambientOne} />
+      <View style={styles.ambientTwo} />
 
-      <View style={styles.heroCard}>
-        <Text style={styles.eyebrow}>Floently Read</Text>
-        <Text style={styles.title}>Sign in to Read</Text>
-        <Text style={styles.subtitle}>
-          Continue to your Read library, uploads, audio, subscriptions, and saved progress.
-        </Text>
-      </View>
-
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Read account access</Text>
-        <Text style={styles.body}>
-          Floently Read uses its own Read access. Sign in first, then continue into the Read app.
-        </Text>
-        <View style={styles.actions}>
-          <Pressable onPress={() => go('/auth/login' as never)} style={styles.primaryButton}>
-            <Text style={styles.primaryText}>{hasToken ? 'Switch or refresh sign in' : 'Sign in to Read'}</Text>
+      <View style={styles.nav}>
+        <Pressable accessibilityRole="button" onPress={() => go('/read')} style={styles.logoButton}>
+          <Image source={READ_LOGO} resizeMode="contain" style={styles.logo} />
+        </Pressable>
+        <View style={styles.navActions}>
+          <Pressable accessibilityRole="button" onPress={() => go('/')} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Floently Home</Text>
           </Pressable>
-          <Pressable onPress={() => go('/read/app' as never)} style={styles.secondaryButton}>
-            <Text style={styles.secondaryText}>{hasToken ? 'Open Read app' : 'I have signed in — continue'}</Text>
+          <Pressable accessibilityRole="button" onPress={() => go('/read')} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Read landing</Text>
           </Pressable>
         </View>
       </View>
 
-      <View style={styles.cardMuted}>
-        <Text style={styles.cardTitle}>Correct Read flow</Text>
-        <Text style={styles.body}>Read landing → Read auth → Sign in → Read app.</Text>
+      <View style={styles.heroCard}>
+        <Text style={styles.eyebrow}>Floently Read auth</Text>
+        <Text style={styles.title}>Sign in before entering Read</Text>
+        <Text style={styles.subtitle}>
+          The mobile flow now matches the web product flow: Read landing, Read auth, login, then the native Read app.
+        </Text>
+        <View style={styles.actions}>
+          <Pressable onPress={() => go('/auth/login?returnTo=/read/app')} style={styles.primaryButton}>
+            <Text style={styles.primaryText}>{hasToken ? 'Switch or refresh sign in' : 'Sign in to Read'}</Text>
+          </Pressable>
+          <Pressable onPress={() => go(hasToken ? '/read/app' : '/auth/login?returnTo=/read/app')} style={styles.secondaryButton}>
+            <Text style={styles.secondaryText}>{hasToken ? 'Open Read app' : 'Continue to login'}</Text>
+          </Pressable>
+        </View>
+      </View>
+
+      <View style={styles.cardGrid}>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Correct Read flow</Text>
+          <Text style={styles.body}>Floently Home to Read landing to Read auth to login to Read app.</Text>
+        </View>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Native app rule</Text>
+          <Text style={styles.body}>This is not a wrapped website. It opens native Read screens for iOS and Android after authentication.</Text>
+        </View>
       </View>
     </ScrollView>
   );
@@ -55,80 +64,98 @@ export default function ReadAuthScreen() {
 const styles = StyleSheet.create({
   screen: {
     flexGrow: 1,
-    backgroundColor: '#060C18',
+    backgroundColor: '#0B0F24',
     padding: 22,
     gap: 20,
+    overflow: 'hidden',
   },
-  topBar: {
+  ambientOne: {
+    position: 'absolute',
+    width: 320,
+    height: 320,
+    borderRadius: 160,
+    left: -120,
+    top: 140,
+    backgroundColor: 'rgba(79,107,255,0.16)',
+  },
+  ambientTwo: {
+    position: 'absolute',
+    width: 280,
+    height: 280,
+    borderRadius: 140,
+    right: -100,
+    top: 20,
+    backgroundColor: 'rgba(155,107,255,0.12)',
+  },
+  nav: {
+    minHeight: 76,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+    position: 'relative',
+  },
+  logoButton: {
+    minHeight: 70,
+    justifyContent: 'center',
+  },
+  logo: {
+    width: 160,
+    height: 84,
+  },
+  navActions: {
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
+    gap: 8,
   },
-  topLink: {
+  navLink: {
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: '#244A7D',
+    borderColor: 'rgba(255,255,255,0.12)',
     paddingVertical: 9,
     paddingHorizontal: 12,
-    backgroundColor: '#0B1728',
+    backgroundColor: 'rgba(255,255,255,0.055)',
   },
-  topLinkText: {
-    color: '#65AEFF',
+  navLinkText: {
+    color: 'rgba(255,255,255,0.72)',
     fontWeight: '900',
-    fontSize: 13,
+    fontSize: 12,
   },
   heroCard: {
-    borderRadius: 30,
+    position: 'relative',
+    borderRadius: 34,
     borderWidth: 1,
-    borderColor: '#244A7D',
-    backgroundColor: '#0B1728',
+    borderColor: 'rgba(255,255,255,0.10)',
+    backgroundColor: 'rgba(255,255,255,0.055)',
     padding: 24,
+    gap: 16,
   },
   eyebrow: {
-    color: '#65AEFF',
+    alignSelf: 'flex-start',
+    color: '#8FA8FF',
+    backgroundColor: 'rgba(79,107,255,0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(79,107,255,0.30)',
+    borderRadius: 999,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    overflow: 'hidden',
     textTransform: 'uppercase',
-    letterSpacing: 3,
-    fontSize: 13,
+    letterSpacing: 1.2,
+    fontSize: 12,
     fontWeight: '900',
-    marginBottom: 14,
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 44,
-    lineHeight: 50,
+    fontSize: 42,
+    lineHeight: 47,
     fontWeight: '900',
     letterSpacing: -1.2,
   },
   subtitle: {
-    color: '#BBD0F3',
-    fontSize: 18,
-    lineHeight: 29,
-    marginTop: 18,
-  },
-  card: {
-    borderRadius: 28,
-    borderWidth: 1,
-    borderColor: '#244A7D',
-    backgroundColor: '#0B1728',
-    padding: 22,
-    gap: 16,
-  },
-  cardMuted: {
-    borderRadius: 24,
-    borderWidth: 1,
-    borderColor: '#1C365F',
-    backgroundColor: '#091221',
-    padding: 18,
-    gap: 10,
-  },
-  cardTitle: {
-    color: '#FFFFFF',
-    fontSize: 22,
-    fontWeight: '900',
-  },
-  body: {
-    color: '#BBD0F3',
+    color: 'rgba(255,255,255,0.62)',
     fontSize: 16,
     lineHeight: 25,
   },
@@ -136,31 +163,52 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   primaryButton: {
-    minHeight: 58,
-    borderRadius: 22,
-    backgroundColor: '#58A8FF',
+    minHeight: 56,
+    borderRadius: 999,
+    backgroundColor: '#6F77FF',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 18,
   },
   primaryText: {
-    color: '#061021',
-    fontSize: 17,
+    color: '#FFFFFF',
+    fontSize: 16,
     fontWeight: '900',
   },
   secondaryButton: {
-    minHeight: 56,
-    borderRadius: 22,
-    backgroundColor: '#10233C',
+    minHeight: 54,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255,255,255,0.075)',
     borderWidth: 1,
-    borderColor: '#244A7D',
+    borderColor: 'rgba(255,255,255,0.15)',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 18,
   },
   secondaryText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '900',
+  },
+  cardGrid: {
+    gap: 12,
+  },
+  card: {
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.09)',
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    padding: 18,
+    gap: 8,
+  },
+  cardTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  body: {
+    color: 'rgba(255,255,255,0.58)',
+    fontSize: 14,
+    lineHeight: 22,
   },
 });
