@@ -7,6 +7,14 @@ function go(path: string) {
   router.push(path as never);
 }
 
+function goBack(fallback = '/create') {
+  if (router.canGoBack()) {
+    router.back();
+    return;
+  }
+  router.push(fallback as never);
+}
+
 export default function CreateAuthScreen() {
   return (
     <ScrollView contentContainerStyle={styles.screen} showsVerticalScrollIndicator={false}>
@@ -18,13 +26,16 @@ export default function CreateAuthScreen() {
           <Image source={CREATE_LOGO} resizeMode="contain" style={styles.logo} />
         </Pressable>
         <View style={styles.navActions}>
-          <Pressable onPress={() => go('/')} style={styles.navLink}>
+          <Pressable accessibilityRole="button" onPress={() => goBack()} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Back</Text>
+          </Pressable>
+          <Pressable accessibilityRole="button" onPress={() => go('/')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Floently Home</Text>
           </Pressable>
-          <Pressable onPress={() => go('/create')} style={styles.navLink}>
+          <Pressable accessibilityRole="button" onPress={() => go('/create')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Create landing</Text>
           </Pressable>
-          <Pressable onPress={() => go('/read')} style={styles.navLink}>
+          <Pressable accessibilityRole="button" onPress={() => go('/read')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Read</Text>
           </Pressable>
         </View>
@@ -37,10 +48,10 @@ export default function CreateAuthScreen() {
           Create Studio stays behind a safe coming-soon gate, but its auth entry exists now so the product flow is ready.
         </Text>
         <View style={styles.actions}>
-          <Pressable onPress={() => go('/auth/login?returnTo=/create/studio')} style={styles.primaryButton}>
+          <Pressable accessibilityRole="button" onPress={() => go('/auth/login?returnTo=/create/studio')} style={styles.primaryButton}>
             <Text style={styles.primaryText}>Sign in to Create</Text>
           </Pressable>
-          <Pressable onPress={() => go('/create')} style={styles.secondaryButton}>
+          <Pressable accessibilityRole="button" onPress={() => go('/create')} style={styles.secondaryButton}>
             <Text style={styles.secondaryText}>Back to Create landing</Text>
           </Pressable>
         </View>

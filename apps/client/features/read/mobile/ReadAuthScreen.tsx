@@ -9,6 +9,14 @@ function go(path: string) {
   router.push(path as never);
 }
 
+function goBack(fallback = '/read') {
+  if (router.canGoBack()) {
+    router.back();
+    return;
+  }
+  router.push(fallback as never);
+}
+
 export default function ReadAuthScreen() {
   const hasToken = Boolean(getAuthToken());
 
@@ -22,6 +30,9 @@ export default function ReadAuthScreen() {
           <Image source={READ_LOGO} resizeMode="contain" style={styles.logo} />
         </Pressable>
         <View style={styles.navActions}>
+          <Pressable accessibilityRole="button" onPress={() => goBack()} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Back</Text>
+          </Pressable>
           <Pressable accessibilityRole="button" onPress={() => go('/')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Floently Home</Text>
           </Pressable>

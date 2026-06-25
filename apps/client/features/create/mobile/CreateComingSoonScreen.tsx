@@ -7,6 +7,14 @@ function navigate(path: string) {
   router.push(path as never);
 }
 
+function goBack(fallback = '/create') {
+  if (router.canGoBack()) {
+    router.back();
+    return;
+  }
+  router.push(fallback as never);
+}
+
 export default function CreateComingSoonScreen() {
   return (
     <ScrollView contentContainerStyle={styles.screen} showsVerticalScrollIndicator={false}>
@@ -14,17 +22,20 @@ export default function CreateComingSoonScreen() {
       <View style={styles.ambientTwo} />
 
       <View style={styles.nav}>
-        <Pressable onPress={() => navigate('/create')} style={styles.logoButton}>
+        <Pressable accessibilityRole="button" onPress={() => navigate('/create')} style={styles.logoButton}>
           <Image source={CREATE_LOGO} resizeMode="contain" style={styles.logo} />
         </Pressable>
         <View style={styles.navActions}>
-          <Pressable onPress={() => navigate('/')} style={styles.navLink}>
+          <Pressable accessibilityRole="button" onPress={() => goBack()} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Back</Text>
+          </Pressable>
+          <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Floently Home</Text>
           </Pressable>
-          <Pressable onPress={() => navigate('/create')} style={styles.navLink}>
+          <Pressable accessibilityRole="button" onPress={() => navigate('/create')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Create landing</Text>
           </Pressable>
-          <Pressable onPress={() => navigate('/create/auth')} style={styles.navLink}>
+          <Pressable accessibilityRole="button" onPress={() => navigate('/create/auth')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Create auth</Text>
           </Pressable>
         </View>

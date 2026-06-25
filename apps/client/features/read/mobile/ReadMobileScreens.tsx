@@ -51,6 +51,14 @@ function navigate(path: string) {
   router.push(path as never);
 }
 
+function goBack(fallback = '/read/app') {
+  if (router.canGoBack()) {
+    router.back();
+    return;
+  }
+  router.push(fallback as never);
+}
+
 function formatDate(value: string) {
   const parsed = Date.parse(value);
   if (Number.isNaN(parsed)) return 'Saved reading';
@@ -153,6 +161,9 @@ function TopNav({ active = 'reader' }: { active?: ReadTab }) {
           <ProductLogo />
         </Pressable>
         <View style={styles.navActions}>
+          <Pressable accessibilityRole="button" onPress={() => goBack()} style={styles.topIconButton}>
+            <Text style={styles.topIconText}>Back</Text>
+          </Pressable>
           <Pressable accessibilityRole="button" onPress={() => navigate('/')} style={styles.topIconButton}>
             <Text style={styles.topIconText}>Home</Text>
           </Pressable>
