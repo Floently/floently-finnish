@@ -21,6 +21,9 @@ export default function CreateAuthScreen() {
           <Pressable onPress={() => go('/')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Floently Home</Text>
           </Pressable>
+          <Pressable onPress={() => go('/create')} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Create landing</Text>
+          </Pressable>
           <Pressable onPress={() => go('/read')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Read</Text>
           </Pressable>
@@ -37,8 +40,8 @@ export default function CreateAuthScreen() {
           <Pressable onPress={() => go('/auth/login?returnTo=/create/studio')} style={styles.primaryButton}>
             <Text style={styles.primaryText}>Sign in to Create</Text>
           </Pressable>
-          <Pressable onPress={() => go('/create/studio')} style={styles.secondaryButton}>
-            <Text style={styles.secondaryText}>Continue to coming soon</Text>
+          <Pressable onPress={() => go('/create')} style={styles.secondaryButton}>
+            <Text style={styles.secondaryText}>Back to Create landing</Text>
           </Pressable>
         </View>
       </View>
@@ -46,11 +49,11 @@ export default function CreateAuthScreen() {
       <View style={styles.cardGrid}>
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Correct Create flow</Text>
-          <Text style={styles.body}>Floently Home to Create auth to login to Create Studio coming soon.</Text>
+          <Text style={styles.body}>Floently Home to Create landing to Create auth to login to Create Studio coming soon.</Text>
         </View>
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Product separation</Text>
-          <Text style={styles.body}>Create has its own entry and auth surface. It is not mixed inside Read tabs.</Text>
+          <Text style={styles.body}>Create has its own landing, auth surface, and safe coming-soon studio. It is not mixed inside Read tabs.</Text>
         </View>
       </View>
     </ScrollView>

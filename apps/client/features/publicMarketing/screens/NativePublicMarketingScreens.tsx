@@ -433,7 +433,7 @@ export function NativeFloentlyProductGatewayScreen({ onOpenLearn, onOpenRead }: 
             </Pressable>
 
             <Pressable
-              onPress={() => router.push('/create/auth' as never)}
+              onPress={() => router.push('/create' as never)}
               style={{
                 borderRadius: 26,
                 borderWidth: 1,

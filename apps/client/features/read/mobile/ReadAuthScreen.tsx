@@ -35,7 +35,7 @@ export default function ReadAuthScreen() {
         <Text style={styles.eyebrow}>Floently Read auth</Text>
         <Text style={styles.title}>Sign in before entering Read</Text>
         <Text style={styles.subtitle}>
-          The mobile flow now matches the web product flow: Read landing, Read auth, login, then the native Read app.
+          The mobile flow follows the web product order: Read landing, Read auth, login, then the native Read app with Reader, Library, Import, Preferences, Analytics, and Upgrade.
         </Text>
         <View style={styles.actions}>
           <Pressable onPress={() => go('/auth/login?returnTo=/read/app')} style={styles.primaryButton}>
@@ -50,11 +50,11 @@ export default function ReadAuthScreen() {
       <View style={styles.cardGrid}>
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Correct Read flow</Text>
-          <Text style={styles.body}>Floently Home to Read landing to Read auth to login to Read app.</Text>
+          <Text style={styles.body}>Floently Home to Read landing to Read auth to login to Reader, Library, Import, Preferences, Analytics, and Upgrade.</Text>
         </View>
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Native app rule</Text>
-          <Text style={styles.body}>This is not a wrapped website. It opens native Read screens for iOS and Android after authentication.</Text>
+          <Text style={styles.body}>This opens native Read screens for iOS and Android after authentication.</Text>
         </View>
       </View>
     </ScrollView>

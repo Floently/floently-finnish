@@ -1,5 +1,10 @@
+import CreateProtectedRoute from '../../features/create/mobile/CreateProtectedRoute';
 import CreateComingSoonScreen from '../../features/create/mobile/CreateComingSoonScreen';
 
 export default function CreateStudioRoute() {
-  return <CreateComingSoonScreen />;
+  return (
+    <CreateProtectedRoute>
+      <CreateComingSoonScreen />
+    </CreateProtectedRoute>
+  );
 }

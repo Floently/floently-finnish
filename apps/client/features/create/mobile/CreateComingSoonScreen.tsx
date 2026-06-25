@@ -14,12 +14,15 @@ export default function CreateComingSoonScreen() {
       <View style={styles.ambientTwo} />
 
       <View style={styles.nav}>
-        <Pressable onPress={() => navigate('/create/auth')} style={styles.logoButton}>
+        <Pressable onPress={() => navigate('/create')} style={styles.logoButton}>
           <Image source={CREATE_LOGO} resizeMode="contain" style={styles.logo} />
         </Pressable>
         <View style={styles.navActions}>
           <Pressable onPress={() => navigate('/')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Floently Home</Text>
+          </Pressable>
+          <Pressable onPress={() => navigate('/create')} style={styles.navLink}>
+            <Text style={styles.navLinkText}>Create landing</Text>
           </Pressable>
           <Pressable onPress={() => navigate('/create/auth')} style={styles.navLink}>
             <Text style={styles.navLinkText}>Create auth</Text>
@@ -29,13 +32,13 @@ export default function CreateComingSoonScreen() {
 
       <View style={styles.hero}>
         <Text style={styles.eyebrow}>Floently Create</Text>
-        <Text style={styles.title}>Create Studio is coming soon in the app</Text>
+        <Text style={styles.title}>Create Studio is coming soon</Text>
         <Text style={styles.subtitle}>
           The native Create area is intentionally gated until the product is ready. Auth is already in place, but unfinished Create tools stay locked.
         </Text>
         <View style={styles.actions}>
-          <Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => navigate('/auth/login?returnTo=/create/studio')}>
-            <Text style={styles.primaryButtonText}>Sign in to Create</Text>
+          <Pressable accessibilityRole="button" style={styles.primaryButton} onPress={() => navigate('/create')}>
+            <Text style={styles.primaryButtonText}>Back to Create landing</Text>
           </Pressable>
           <Pressable accessibilityRole="button" style={styles.secondaryButton} onPress={() => navigate('/read')}>
             <Text style={styles.secondaryButtonText}>Go to Read</Text>
@@ -45,7 +48,7 @@ export default function CreateComingSoonScreen() {
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>What will be here</Text>
-        <Text style={styles.body}>Video tools, writing tools, client delivery, brand memory, and automation workflows will be connected after Read and payments are stable.</Text>
+        <Text style={styles.body}>Dashboard, Create studio, writing tools, analytics, projects, CRM, brand deals, invoices, calendar, and automation will be connected after Read and payments are stable.</Text>
       </View>
 
       <View style={styles.cardMuted}>

@@ -1,5 +1,5 @@
-import CreateAuthScreen from '../../features/create/mobile/CreateAuthScreen';
+import CreateLandingScreen from '../../features/create/mobile/CreateLandingScreen';
 
 export default function CreateRouteEntry() {
-  return <CreateAuthScreen />;
+  return <CreateLandingScreen />;
 }
